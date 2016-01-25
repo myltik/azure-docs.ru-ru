@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Что такое «пакет Azure SDK для .NET»?
@@ -28,7 +28,7 @@
 
 Пакет Azure SDK для .NET устанавливает следующие программы:
 
-- [Visual Studio Express для Web](#vwd).
+- [Visual Studio Express для Web.](#vwd)
 - [Microsoft ASP.NET и пакет Web Tools для Visual Studio](#wte)
 - [Пакет Microsoft Azure Tools для Microsoft Visual Studio](#tools)
 - [Средства создания Microsoft Azure](#auth)
@@ -186,4 +186,4 @@ Azure PowerShell позволяет [автоматизировать созда
 
 Справочная документация клиентских библиотек Azure см. в разделе [Справочник по Azure для .NET](/documentation/api/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

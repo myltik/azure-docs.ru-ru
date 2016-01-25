@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Аналитика службы хранилища | Microsoft Azure"
-	description="Как управлять параллелизмом для служб BLOB-объектов, очередей, таблиц и файлов"
+	pageTitle="Использование аналитики хранилища для сбора данных журналов и метрик | Microsoft Azure"
+	description="Аналитика хранилища позволяет отслеживать данные метрик для всех служб хранилища, а также для сбора журналов по хранилищам BLOB-объектов, очередей и таблиц."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 # Аналитика службы хранилища
@@ -206,4 +206,4 @@
 - [Схема таблицы метрик аналитики хранилища](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Операции с протоколированием и сообщения о состоянии аналитик хранилища](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Установка набора средств Azure для Eclipse"
-    description="Узнайте, как установить набор средств Azure для Eclipse."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Установка набора средств Azure для Eclipse"
+	description="Узнайте, как установить набор средств Azure для Eclipse."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="11/19/2015" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
@@ -26,23 +26,7 @@
 
 Ниже приведен процесс установки набора средств Azure для Eclipse.
 
-## Предварительные требования ##
-
-* Интегрированная среда разработки Eclipse для разработчиков Java EE, версия Indigo или более поздняя. Среду также можно загрузить с веб-страницы <http://www.eclipse.org/downloads/>.
-* Java Developer Kit (JDK), версия 1.7 или более поздняя. 
-* Операционные системы — набор средств Azure для Eclipse проверен на следующих операционных системах:
-    * Windows 10
-    * Windows 8 и Windows 8.1
-    * Windows 7
-    * Windows Server 2012
-    * Windows Server 2008
-
-> [AZURE.IMPORTANT]При использовании набора средств Azure для Eclipse в Windows необходимо установить пакет SDK Azure 2.7 или более поздней версии. Существует два варианта установки этого пакета SDK Azure.
-> 
-> * Вы можете скачать и установить пакет SDK Azure с помощью [установщика веб-платформы (WebPI)][].
-> * Если при создании первого проекта развертывания Azure пакет SDK не установлен, выводится запрос, предлагающий автоматически скачать и установить соответствующую версию пакета SDK Azure.
-> 
-> Обратите внимание, что пакет SDK Azure требуется только в Windows.
+[AZURE.INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
 ## Установка набора средств Azure для Eclipse ##
 
@@ -71,7 +55,7 @@
 
 [Новые возможности набора средств Azure для Eclipse][]
 
-Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
+Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][].
 
 <!-- URL List -->
 
@@ -79,7 +63,7 @@
 [центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[установщика веб-платформы (WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838
+[Web Platform Installer (WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838
 [Новые возможности набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
@@ -87,4 +71,4 @@
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

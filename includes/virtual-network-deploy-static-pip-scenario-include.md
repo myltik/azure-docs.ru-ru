@@ -1,9 +1,11 @@
-## Scenario
+## Сценарий
 
-This document will walk through a deployment that uses a static public IP address allocated to a virtual machine (VM). In this scenario, you have a single VM with its own static public IP address. The VM is part of a subnet named **FrontEnd** and also has a static private IP address (**192.168.1.101**) in that subnet.
+В этом документе мы рассмотрим развертывание, использующее статический общедоступный IP-адрес, выделенный для виртуальной машины. В этом сценарии у одной виртуальной машины есть собственный статический общедоступный IP-адрес. Виртуальная машина является частью подсети с именем **FrontEnd** и имеет статический частный IP-адрес (**192.168.1.101**) в этой подсети.
 
-You may need a static IP address for web servers that require SSL connections in which the SSL certificate is linked to an IP address. 
+Статический IP-адрес может потребоваться для веб-серверов, на которых требуются SSL-соединения, в которых SSL-сертификат связан с IP-адресом.
 
-![IMAGE DESCRIPTION](./media/virtual-network-deploy-static-pip-scenario-include/figure1.png)
+![ОПИСАНИЕ ОБРАЗА](./media/virtual-network-deploy-static-pip-scenario-include/figure1.png)
 
-You can follow the steps below to deploy the environment shown in the figure above.
+Для развертывания среды, показанной на рисунке выше, необходимо выполнить следующие действия.
+
+<!---HONumber=AcomDC_0114_2016-->

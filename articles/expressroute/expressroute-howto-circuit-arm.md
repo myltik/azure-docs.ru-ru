@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="01/12/2016"
    ms.author="cherylmc"/>
 
 # Создание и изменение канала ExpressRoute с помощью диспетчера ресурсов Azure и PowerShell
@@ -63,7 +63,7 @@
 
 	Перед созданием канала ExpressRoute потребуется список поставщиков услуг, поддерживаемых расположений и значений пропускной способности. Командлет PowerShell *Get-AzureRmExpressRouteServiceProvider* возвращает сведения, которые будут использоваться в последующих шагах.
 
-		PS C:\> Get-AzureRmExpressRouteServiceProvider
+		Get-AzureRmExpressRouteServiceProvider
 
 	Проверьте, указан ли в списке поставщик услуг подключения. Запишите следующую информацию, так как она потребуется для создания каналов.
 	
@@ -93,13 +93,13 @@
 
 	Ответ будет содержать ключ службы. Подробное описание всех параметров можно получить, выполнив следующую команду:
 
-		get-help New-AzureRmExpressRouteCircuit -detailed 
+		Get-Help New-AzureRmExpressRouteCircuit -detailed 
 
 4. **Получите список всех каналов ExpressRoute.**
 
 	Для получения списка всех созданных каналов ExpressRoute можно использовать команду *Get-AzureRmExpressRouteCircuit*.
 
-		#Getting service key
+		
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 	Ответ будет примерно таким, как показано в следующем примере.
@@ -159,7 +159,7 @@
 
 	Подробное описание всех параметров можно получить, выполнив следующую команду:
 
-		get-help Get-AzureRmExpressRouteCircuit -detailed 
+		Get-Help Get-AzureRmExpressRouteCircuit -detailed 
 
 5. **Отправьте ключ службы поставщику подключения для инициализации.**
 
@@ -215,17 +215,22 @@
 
 6. **Создайте конфигурацию маршрутизации.**
 	
-	Пошаговые инструкции см. на странице [Конфигурация маршрутизации канала ExpressRoute (создание и изменение пиринга каналов)](expressroute-howto-routing-arm.md).
+	Пошаговые инструкции см. в статье [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-arm.md).
 
-7. **Свяжите виртуальную сеть с каналом ExpressRoute.**
+>[AZURE.IMPORTANT]Эти инструкции применяются только к каналам от поставщиков, предлагающих услуги подключения второго уровня. Если вы работаете с поставщиком, предлагающим услуги третьего уровня (обычно IPVPN, типа MPLS), ваш поставщик услуг подключения выполнит настройку и управление конфигурацией самостоятельно. В этом случае создавать пиринги и управлять ими вы не сможете.
 
-	Теперь свяжите виртуальную сеть с каналом ExpressRoute. При работе с режимом развертывания диспетчера ресурсов Azure можно использовать [этот шаблон](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection). В настоящее время мы работаем над действиями с PowerShell.
+
+7. **Свяжите виртуальную сеть с каналом ExpressRoute.** 
+
+	Теперь свяжите виртуальную сеть с каналом ExpressRoute. Пошаговые инструкции см. в статье [Связь виртуальных сетей с каналами ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 ##  Получение состояния канала ExpressRoute
 
 Вы можете получить эти данные в любое время с помощью командлета *Get-AzureRmExpressRouteCircuit*. Если выполнить этот вызов без параметров, то будут перечислены все каналы.
 
 		Get-AzureRmExpressRouteCircuit
+
+Ответ будет примерно таким, как показано в следующем примере:
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -253,7 +258,8 @@
 
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-	The response will be something similar to the example below:
+
+Ответ будет примерно таким, как показано в следующем примере.
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -279,7 +285,7 @@
 
 Подробное описание всех параметров можно получить, выполнив следующую команду:
 
-		get-help get-azurededicatedcircuit -detailed 
+		Get-Help Get-azurededicatedcircuit -detailed 
 
 ## Изменение канала ExpressRoute
 
@@ -357,4 +363,4 @@
 
 - [Настройка маршрутизации](expressroute-howto-routing-arm.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

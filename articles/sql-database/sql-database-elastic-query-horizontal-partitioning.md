@@ -21,7 +21,7 @@
 
 ![Запрос по сегментам][1]
 
-Рассматриваемые функции по умолчанию включены в [набор функций эластичной базы данных](sql-database-elastic-scale.md) SQL Azure.
+Рассматриваемые функции по умолчанию включены в [набор функций эластичной базы данных](sql-database-elastic-scale-introduction.md) SQL Azure.
  
 ## Создание объектов базы данных
 
@@ -241,4 +241,4 @@
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

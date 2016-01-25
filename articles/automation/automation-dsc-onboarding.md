@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="11/23/2015"
+   ms.date="01/11/2016"
    ms.author="coreyp"/>
 
 # Подключение компьютеров для управления с помощью Azure Automation DSC
@@ -28,6 +28,8 @@
 *    Виртуальные машины Azure
 *    Физические или виртуальные машины под управлением Windows, расположенные локально или в облачной службе, отличной от Azure.
 *    Физические или виртуальные машины под управлением Linux, расположенные локально, в Azure или облачной службе, отличной от Azure.
+
+Кроме того, можно создать **метаконфигурацию DSC**, которая обеспечит универсальное внедрение вышеуказанных машин в службу автоматизации Azure.
 
 В следующих разделах описываются способы подключения каждого типа компьютеров к службе Azure Automation DSC.
 
@@ -139,24 +141,13 @@
 Компьютеры под управлением Windows, расположенные локально или в облачных службах, отличных от Azure (например, в веб-службах Amazon), также можно подключить к службе Azure Automation DSC при наличии на них исходящего доступа к Интернету. Для этого требуется выполнить несколько простых шагов.
 
 1. Убедитесь, что на компьютерах, которые будут подключены к службе автоматизации Azure DSC, установлена последняя версия [WMF 5](http://www.microsoft.com/ru-RU/download/details.aspx?id=48729).
-
-2. Запустите на компьютере, входящем в локальную среду, консоль PowerShell или PowerShell ISE от имени администратора. На этом компьютере также должна быть установлена последняя версия WMF 5.
-
-3. Подключитесь к диспетчеру ресурсов Azure с помощью модуля Azure PowerShell: `Login-AzureRmAccount`
-
-4. Из учетной записи службы автоматизации, к которой будут подключены узлы, загрузите метаконфигурации DSC PowerShell для подключаемых компьютеров:
-
-	`Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName      		MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop`
-
-5. При необходимости просмотрите и обновите в выходной папке метаконфигурации в соответствии с требуемыми [полями и значениями локального диспетчера конфигураций DSC PowerShell](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396), если значения по умолчанию вам не подходят.
-
-6. Удаленно примените метаконфигурации PowerShell DSC на компьютерах, которые нужно подключить:
+2. Создайте папку с необходимыми метаконфигурациями DSC, как указано ниже в разделе [**Создание метаконфигураций DSC**](#generating-dsc-metaconfigurations).
+3. Удаленно примените метаконфигурации PowerShell DSC на компьютерах, которые нужно подключить. **Для выполнения этой команды на компьютере должна быть установлена последняя версия [WMF 5](http://www.microsoft.com/ru-RU/download/details.aspx?id=48729)**.
 
 	`Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
 
-7. Если метаконфигурации PowerShell DSC не удалось применить удаленно, скопируйте выходную папку (шаг 4) на каждый компьютер, который нужно подключить. Затем локально вызовите Set-DscLocalConfigurationManager на каждом компьютере, который нужно подключить.
-
-8. С помощью портала Azure или командлетов убедитесь, что все компьютеры, которые нужно подключить, теперь отображаются как узлы DSC, зарегистрированные в вашей учетной записи службы автоматизации Azure.
+4. Если метаконфигурации PowerShell DSC не удалось применить удаленно, скопируйте папку метаконфигураций (шаг 2) на каждый компьютер, который нужно подключить. Затем локально вызовите **Set-DscLocalConfigurationManager** на каждом компьютере, который нужно подключить.
+5. С помощью портала Azure или командлетов убедитесь, что все компьютеры, которые нужно подключить, теперь отображаются как узлы DSC, зарегистрированные в вашей учетной записи службы автоматизации Azure.
 
 ## Физические или виртуальные машины под управлением Linux, расположенные локально, в Azure или облачной службе, отличной от Azure.
 
@@ -164,7 +155,7 @@
 
 1. Убедитесь, что на компьютерах, которые будут подключены к службе автоматизации Azure DSC, установлена последняя версия [агента DSC Linux](http://www.microsoft.com/ru-RU/download/details.aspx?id=49150).
 
-2. Если [значения по умолчанию локального диспетчера конфигураций DSC PowerShell](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) соответствуют требуемым:
+2. Если [значения по умолчанию локального диспетчера конфигураций DSC PowerShell](hhttps://msdn.microsoft.com/powershell/dsc/metaconfig4) соответствуют требуемым и вы хотите внедрить компьютеры таким образом, чтобы позволить им извлекать данные из службы автоматизации Azure DSC **и** передавать в эту службу отчеты:
 
 	*    На каждом компьютере под управлением Linux, который будет подключен к службе Azure Automation DSC, используйте файл Register.py для подключения с помощью значений по умолчанию локального диспетчера конфигураций DSC PowerShell:
 
@@ -172,21 +163,10 @@
 
 	*    Расположение ключа и URL-адреса регистрации для учетной записи службы автоматизации см. ниже в разделе [**Безопасная регистрация**](#secure-registration).
 
-	Если значения по умолчанию локального диспетчера конфигураций DSC PowerShell **не** **соответствуют** требуемым, выполните шаги 3–9. В противном случае сразу перейдите к шагу 9.
+	Если значения по умолчанию локального диспетчера конфигураций DSC PowerShell **не** **соответствуют** требуемым или вы хотите внедрить компьютеры таким образом, чтобы они только передавали отчеты в службу автоматизации Azure DSC, но не могли извлекать из нее конфигурацию или модули PowerShell, выполните шаги 3–6. В противном случае сразу перейдите к шагу 6.
 
-3. Запустите на компьютере под управлением Windows, входящем в локальную среду, консоль PowerShell или PowerShell ISE от имени администратора. На этом компьютере должна быть установлена последняя версия [WMF 5](http://www.microsoft.com/ru-RU/download/details.aspx?id=48729).
-
-4. Подключитесь к диспетчеру ресурсов Azure с помощью модуля Azure PowerShell:
-
-	`Login-AzureRmAccount`
-
-5.  Из учетной записи службы автоматизации, к которой будут подключены узлы, загрузите метаконфигурации DSC PowerShell для подключаемых компьютеров:
-	
-	`Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop_`
-
-6.  При необходимости просмотрите и обновите в выходной папке метаконфигурации в соответствии с требуемыми [полями и значениями локального диспетчера конфигураций DSC PowerShell](http://https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396), если значения по умолчанию вам не подходят.
-
-7.  Удаленно примените метаконфигурации PowerShell DSC на компьютерах, которые нужно подключить:
+3.	Создайте папку с необходимыми метаконфигурациями DSC, как указано ниже в разделе [**Создание метаконфигураций DSC**](#generating-dsc-metaconfigurations).
+4.  Удаленно примените метаконфигурации PowerShell DSC на компьютерах, которые нужно подключить:
     	
     	$SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
         $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurPass
@@ -197,12 +177,146 @@
         $Session = New-CimSession -Credential:$Cred -ComputerName:<your Linux machine> -Port:5986 -Authentication:basic -SessionOption:$Opt
     	
     	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
+	
+Для выполнения этой команды на компьютере должна быть установлена последняя версия [WMF 5](http://www.microsoft.com/ru-RU/download/details.aspx?id=48729).
 
-8.  Если не удалось применить метаконфигурации PowerShell DSC удаленно, скопируйте соответствующую метаконфигурацию из папки (шаг 5) на каждый компьютер под управлением Linux, который нужно подключить. Затем вызовите `SetDscLocalConfigurationManager.py` локально на каждом компьютере под управлением Linux, который нужно подключить к службе автоматизации Azure DSC:
+5.  Если не удалось применить метаконфигурации PowerShell DSC удаленно, скопируйте соответствующую метаконфигурацию из папки (шаг 5) на каждый компьютер под управлением Linux, который нужно подключить. Затем вызовите `SetDscLocalConfigurationManager.py` локально на каждом компьютере под управлением Linux, который нужно подключить к службе автоматизации Azure DSC:
 
 	`/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py –configurationmof <path to metaconfiguration file>`
 
-9.  С помощью портала Azure или командлетов убедитесь, что все компьютеры, которые нужно подключить, теперь отображаются как узлы DSC, зарегистрированные в вашей учетной записи службы автоматизации Azure.
+6.  С помощью портала Azure или командлетов убедитесь, что все компьютеры, которые нужно подключить, теперь отображаются как узлы DSC, зарегистрированные в вашей учетной записи службы автоматизации Azure.
+
+##Создание метаконфигураций DSC
+Для универсального внедрения любого компьютера в службу автоматизации Azure DSC можно создать метаконфигурацию DSC, при использовании которой агент DSC на соответствующем компьютере будет настроен на извлечение данных из службы автоматизации Azure и (или) перечу в эту службу отчетов. Метаконфигурации DSC для службы автоматизации Azure DSC можно создавать, используя либо конфигурацию PowerShell DSC, либо командлеты PowerShell в службе автоматизации Azure.
+
+**Примечание.** Метаконфигурации DSC содержат секретные данные, необходимые для внедрения компьютера в учетную запись автоматизации для управления. Обеспечьте должную защиту создаваемых метаконфигураций или удаляйте их сразу после использования.
+
+###Использование конфигурации DSC
+1.	Запустите на компьютере, входящем в локальную среду, консоль PowerShell ISE от имени администратора. На этом компьютере должна быть установлена последняя версия [WMF 5](http://www.microsoft.com/ru-RU/download/details.aspx?id=48729).
+
+2.	Локально выполните следующий скрипт. Этот сценарий содержит конфигурацию PowerShell DSC для создания метаконфигураций и команду, запускающую этот процесс.
+    
+        # The DSC configuration that will generate metaconfigurations
+        [DscLocalConfigurationManager()]
+        Configuration DscMetaConfigs 
+        { 
+            param 
+            ( 
+                [Parameter(Mandatory=$True)] 
+                $RegistrationUrl,
+         
+                [Parameter(Mandatory=$True)] 
+                [String]$RegistrationKey,
+
+                [Parameter(Mandatory=$True)] 
+                [String[]]$ComputerName,
+
+                [Int]$RefreshFrequencyMins = 30, 
+            
+                [Int]$ConfigurationModeFrequencyMins = 15, 
+            
+                [String]$ConfigurationMode = "ApplyAndMonitor", 
+            
+                [String]$NodeConfigurationName,
+
+                [Boolean]$RebootNodeIfNeeded= $False,
+
+                [String]$ActionAfterReboot = "ContinueConfiguration",
+
+                [Boolean]$AllowModuleOverwrite = $False,
+
+                [Boolean]$ReportOnly
+            )
+
+    
+            if(!$NodeConfigurationName -or $NodeConfigurationName -eq "") 
+            { 
+                $ConfigurationNames = $null 
+            } 
+            else 
+            { 
+                $ConfigurationNames = @($NodeConfigurationName) 
+            }
+
+            if($ReportOnly)
+            {
+               $RefreshMode = "PUSH"
+            }
+            else
+            {
+               $RefreshMode = "PULL"
+            }
+
+            Node $ComputerName
+            {
+
+                Settings 
+                { 
+                    RefreshFrequencyMins = $RefreshFrequencyMins 
+                    RefreshMode = $RefreshMode 
+                    ConfigurationMode = $ConfigurationMode 
+                    AllowModuleOverwrite  = $AllowModuleOverwrite 
+                    RebootNodeIfNeeded = $RebootNodeIfNeeded 
+                    ActionAfterReboot = $ActionAfterReboot 
+                    ConfigurationModeFrequencyMins = $ConfigurationModeFrequencyMins 
+                }
+
+                if(!$ReportOnly)
+                {
+                   ConfigurationRepositoryWeb AzureAutomationDSC 
+                    { 
+                        ServerUrl = $RegistrationUrl 
+                        RegistrationKey = $RegistrationKey 
+                        ConfigurationNames = $ConfigurationNames 
+                    }
+
+                    ResourceRepositoryWeb AzureAutomationDSC 
+                    { 
+                       ServerUrl = $RegistrationUrl 
+                       RegistrationKey = $RegistrationKey 
+                    }
+                }
+
+                ReportServerWeb AzureAutomationDSC 
+                { 
+                ServerUrl = $RegistrationUrl 
+                RegistrationKey = $RegistrationKey 
+                }
+            } 
+        }
+        # Create the metaconfigurations
+        # TODO: edit the below as needed for your use case
+        DscMetaConfigs `
+            -RegistrationUrl "<fill me in>" `
+            -RegistrationKey "<fill me in>" `
+            -ComputerName "<some VM to onboard>", "<some other VM to onboard>" `
+            -NodeConfigurationName "SimpleConfig.webserver" `
+            -RefreshFrequencyMins 30 `
+            -ConfigurationModeFrequencyMins 15 `
+            -RebootNodeIfNeeded $False `
+            -AllowModuleOverwrite $False `
+            -ConfigurationMode "ApplyAndMonitor" `
+            -ActionAfterReboot "ContinueConfiguration" `
+            -ReportOnly $False # Set to $True to have machines only report to AA DSC but not pull from it
+
+3.	Введите регистрационный ключ и URL-адрес для учетной записи автоматизации, а также имена виртуальных машин, которые необходимо внедрить. Все остальные параметры являются необязательными. Расположение ключа и URL-адреса регистрации для учетной записи службы автоматизации см. ниже в разделе [**Безопасная регистрация**](#secure-registration).
+
+4.	Если вы хотите, чтобы компьютеры передавали сведения о состоянии DSC в службу автоматизации Azure DSC, но не могли извлекать конфигурацию или модули PowerShell, установите для параметра **ReportOnly** значение true.
+
+5.	Выполните скрипт. В рабочем каталоге появится папка **DscMetaConfigs**, содержащая метаконфигурации PowerShell DSC для внедряемых компьютеров.
+
+###Использование командлетов службы автоматизации Azure
+Если значения по умолчанию локального диспетчера конфигураций DSC PowerShell соответствуют требуемым и вы хотите внедрить компьютеры таким образом, чтобы позволить им извлекать данные из службы автоматизации Azure DSC и передавать в эту службу отчеты, легко создать необходимые конфигурации DSC позволят командлеты службы автоматизации Azure:
+
+1.	Запустите на компьютере, входящем в локальную среду, консоль PowerShell или PowerShell ISE от имени администратора.
+
+2.	Подключитесь к диспетчеру ресурсов Azure с помощью командлета **Add-AzureRmAccount**.
+
+3.	Из учетной записи службы автоматизации, к которой будут подключены узлы, загрузите метаконфигурации DSC PowerShell для подключаемых компьютеров:
+
+        Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop
+
+У вас появится папка ***DscMetaConfigs***, содержащая метаконфигурации PowerShell DSC для внедряемых компьютеров.
 
 ##Безопасная регистрация
 
@@ -236,4 +350,4 @@
 * [Командлеты Automation DSC Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Цены на Automation DSC Azure](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

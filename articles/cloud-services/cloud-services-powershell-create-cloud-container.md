@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="01/13/2015"
    ms.author="cawa"/>
 
 # Использование команды Azure PowerShell для создания пустого контейнера облачной службы
-1. Установите командлет Microsoft Azure PowerShell из [загрузки Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409). Дополнительные указания по установке командлета Azure PowerShell и подключения к подписке Azure см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+1. Установите командлет Microsoft Azure PowerShell из [загрузки Azure PowerShell](http://aka.ms/webpi-azps). Запустите командную строку PowerShell. Используйте [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx) для входа
+
+> [AZURE.NOTE]Дополнительные указания по установке командлета Azure PowerShell и подключения к подписке Azure см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 2. **New-AzureService** — это командлет, который создает пустой контейнер облачной службы.
 
@@ -41,4 +43,4 @@ Get-help New-AzureService
     - Чтобы опубликовать проект облачной службы в Azure, используйте образец кода **PublishCloudService.ps1** из [непрерывной доставки для облачных служб в Azure](cloud-services-dotnet-continuous-delivery.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

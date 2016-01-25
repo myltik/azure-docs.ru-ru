@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe" />
+	editor="" />
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015"
-    ms.author="v-dedomi"/>
+	ms.date="01/09/2016"
+    ms.author="robmcm"/>
 
 # Использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Jenkins
 
@@ -204,4 +204,4 @@
 
 Затем на основании шаблона, созданного в предыдущем разделе, Jenkins создаст подчиненный узел и выполнит сценарий, который вы указали на этапе сборки данной задачи.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

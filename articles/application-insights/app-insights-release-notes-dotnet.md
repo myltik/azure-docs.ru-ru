@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="01/12/2016" 
 	ms.author="abaranch"/>
  
 # Заметки о выпуске пакета SDK Application Insights для .NET
@@ -32,6 +32,18 @@
 * Сравните файл ApplicationInsights.config со старой копией. Большинство изменений, которые отобразятся, обусловлены тем, что одни модули были удалены, а другие теперь подлежат параметризации. Возобновите использование настроек, выполненных в старом файле.
 * Перестройте свое решение.
 
+## Версия 2.0.0-beta4
+
+- Методы расширения UseAdaptiveSampling и UseSampling были перемещены в Microsoft.ApplicationInsights.Extensibility
+- Прекращена поддержка универсальных приложений для Windows Phone и магазина приложений Windows
+- В ```DependencyTelemetry``` добавлены новые свойства ```ResultCode``` и ```Id```. ```ResultCode``` будет использоваться для предоставления кода ответа HTTP для зависимостей HTTP и кода ошибок для зависимостей SQL. ```Id``` будет использоваться для корреляции между компонентами. 
+- Если ```ServerTelemetryChannel``` инициализируется программно, теперь необходимо вызывать метод ```ServerTelemetryChannel.Initialize()```. В противном случае постоянное хранилище не будет инициализировано (что приведет к тому, что при невозможности отправить данные телеметрии в случае временных неполадок они будут утеряны).
+- ```ServerTelemetryChannel``` имеет новое свойство ```StorageFolder```, которое можно задать в коде или в конфигурации. Если это свойство установлено, ApplicationInsights будет использовать указанное расположение для хранения данных телеметрии, которые не были отправлены в случае временных неполадок. Если свойство не задано или указанный каталог недоступен, ApplicationInsights, как и прежде, попытается использовать каталоги LocalAppData и Temp.
+- Метод расширения ```TelemetryConfiguration.GetTelemetryProcessorChainBuilder``` удален. Вместо этого метода используйте метод экземпляра ```TelemetryConfiguration.TelemetryProcessorChainBuilder```.
+- Класс ```TelemetryConfiguration``` имеет новое свойство ```TelemetryProcessors```, которое обеспечивает доступ только для чтения к коллекции ```TelemetryProcessors```.
+- ```Use```, ```UseSampling``` и ```UseAdaptiveSampling``` сохраняют ```TelemetryProcessors```, загруженное из конфигурации.
+- По умолчанию в файле конфигурации указаны два обработчика телеметрии — обработчик телеметрии фильтра пользовательского агента и обработчик телеметрии обработчика запросов. Их поведение можно настроить. Можно добавить строку агента пользователя, которую необходимо отфильтровать в файле AI.config. По умолчанию мы отфильтровываем строку агента пользователя ```AllwaysOn```. На данный момент строки в файле конфигурации сравниваются со строками агента пользователя с помощью полного сопоставления без учета регистра. Также можно настроить список обработчиков, для которых требуется фильтрация запросов. 
+- Версия зависимого пакета NuGet Microsoft.ApplicationInsights.Agent.Intercept была обновлена до 1.2.1. Она содержит исправления ошибок коллекции зависимостей SQL.
 
 ## Версия 2.0.0-beta3
 
@@ -72,7 +84,7 @@
 
 ## Версия 1.2
 
-- Инициализаторы телеметрии, не имеющие зависимостей от библиотек ASP.NET, были перемещены из пакета `Microsoft.ApplicationInsights.Web` в новый пакет NuGet зависимостей `Microsoft.ApplicationInsights.WindowsServer`.
+- Инициализаторы телеметрии, не имеющие зависимостей от библиотек ASP.NET, были перемещены из `Microsoft.ApplicationInsights.Web` в новый пакет NuGet зависимостей `Microsoft.ApplicationInsights.WindowsServer`.
 - Библиотека `Microsoft.ApplicationInsights.Web.dll` переименована в `Microsoft.AI.Web.dll`.
 - Пакет NuGet `Microsoft.ApplicationInsights.Web.TelemetryChannel` переименован в `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. Сборка `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` переименована в `Microsoft.AI.ServerTelemetryChannel.dll`. Класс `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` переименован в `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
 - Из всех пространств имен, которые являются частью пакета Web SDK, исключена часть `Extensibility`. Это касается всех инициализаторов телеметрии в файле ApplicationInsights.config и модуля `ApplicationInsightsWebTracking` в файле web.config.
@@ -94,8 +106,8 @@
 - Из имен инициализаторов и модулей телеметрии удален префикс Web, так как он уже присутствует в имени пространства имен `Microsoft.ApplicationInsights.Extensibility.Web`.
 - Класс `DeviceContextInitializer` перемещен из сборки `Microsoft.ApplicationInsights` в сборку `Microsoft.ApplicationInsights.Extensibility.Web` и преобразован в `ITelemetryInitializer`.
 - Имена пространств имен и сборок изменены с `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` на `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` для согласования с именем пакета NuGet.
-- Класс `RemoteDependencyModule` переименован в `DependencyTrackingTelemetryModule`.
-- Класс `CustomPerformanceCounterCollectionRequest` переименован в `PerformanceCounterCollectionRequest`.
+- `RemoteDependencyModule` переименован в `DependencyTrackingTelemetryModule`.
+- `CustomPerformanceCounterCollectionRequest` переименован в `PerformanceCounterCollectionRequest`.
 
 ## Версия 0.17
 - Удалена зависимость EventSource NuGet для приложений Framework 4.5.
@@ -124,4 +136,4 @@
 
  
 
-<!---HONumber=AcomDC_1223_2015--->
+<!---HONumber=AcomDC_0114_2016--->

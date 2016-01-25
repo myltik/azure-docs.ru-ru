@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Комплексный поиск и устранение неполадок с помощью метрик хранилища Azure и ведения журнала, AzCopy и анализатора сообщений | Microsoft Azure" 
-	description="Учебник, демонстрирующий комплексное устранение неполадок с помощью аналитики хранилища Azure, AzCopy и анализатора сообщений Майкрософт" 
-	services="storage" 
-	documentationCenter="dotnet" 
-	authors="tamram" 
-	manager="adinah"/>
+<properties
+	pageTitle="Комплексный поиск и устранение неполадок с помощью метрик хранилища Azure и ведения журнала, AzCopy и анализатора сообщений | Microsoft Azure"
+	description="Учебник, демонстрирующий комплексное устранение неполадок с помощью аналитики хранилища Azure, AzCopy и анализатора сообщений Майкрософт"
+	services="storage"
+	documentationCenter="dotnet"
+	authors="tamram"
+	manager="carmonm"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
 # Комплексный поиск и устранение неполадок с помощью метрик хранилища Azure и ведения журнала, AzCopy и анализатора сообщений 
@@ -364,7 +364,5 @@ AzCopy можно загрузить на странице [Загрузки Azu
 - [Мониторинг учетной записи хранения](storage-monitor-storage-account.md)
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 - [Руководство по работе с анализатором сообщений (Майкрософт)](http://technet.microsoft.com/library/jj649776.aspx)
- 
- 
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

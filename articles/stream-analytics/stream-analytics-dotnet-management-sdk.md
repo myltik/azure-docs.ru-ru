@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="01/11/2016"
 	ms.author="jeffstok"/>
 
 
@@ -150,6 +150,8 @@ Azure Stream Analytics является полностью управляемо�
 	StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
 
 Значение переменной **resourceGroupName** должно быть таким же, как имя группы ресурсов, созданной или выбранной на предварительных шагах.
+
+Инструкции по автоматизации этапа создания задач, связанного с представлением учетных данных, см. в статье [Проверка подлинности субъекта-службы с помощью диспетчера ресурсов Azure](./articles/resource-group-authenticate-service-principal.md).
 
 В дальнейших разделах этой статьи предполагается, что этот код находится в начале метода **Main**.
 
@@ -364,4 +366,4 @@ Azure Stream Analytics является полностью управляемо�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

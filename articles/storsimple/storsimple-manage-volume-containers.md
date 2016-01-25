@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/31/2015"
+   ms.date="01/08/2016"
    ms.author="v-sharos" />
 
 # Использование службы диспетчера StorSimple для управления контейнерами томов StorSimple
@@ -43,7 +43,7 @@
 
 ## Добавление контейнера томов
 
-Чтобы создать контейнер томов, выполните указанные ниже действия.
+Чтобы добавить контейнер томов, выполните указанные ниже действия.
 
 [AZURE.INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
@@ -66,4 +66,4 @@
 - Узнайте больше об [управлении томами StorSimple](storsimple-manage-volumes.md). 
 - Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

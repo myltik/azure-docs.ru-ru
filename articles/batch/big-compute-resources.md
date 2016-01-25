@@ -94,13 +94,11 @@ Azure предлагает вычислительные экземпляры [р
 
 ## Проекты архитектуры
 
-* В PDF-документе [Крупномасштабные вычисления: финансовые услуги](http://go.microsoft.com/fwlink/?LinkId=536378) описывается ввод в эксплуатацию систем для крупномасштабных вычислений и анализа данных в облаке, а также управление такими системами. В качестве примера рассматриваются различные направления, например управление рисками, отчетность и моделирование.
+* Фабрика данных Azure и пакетная служба Microsoft Azure: архитектура для быстрой обработки больших объемов данных ([PDF](http://go.microsoft.com/fwlink/?linkid=717686) и [статья](../data-factory/data-factory-data-processing-using-batch.md)) показывает, как фабрика данных управляет перемещением и обработкой данных и как пакетная служба Azure параллельно обрабатывает данные.
 
 ## Примеры и образцы
 
 * [Примеры кода для Пакетной службы Azure](https://github.com/Azure/azure-batch-samples)
-
-* [Образец приложения Blender для приложений Пакетной службы](https://github.com/Azure/azure-batch-apps-blender) и [запись блога](http://azure.microsoft.com/blog/2015/01/26/blender-on-azure-batch/)
 
 ## Связанные службы Azure
 
@@ -123,4 +121,4 @@ Azure предлагает вычислительные экземпляры [р
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](http://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

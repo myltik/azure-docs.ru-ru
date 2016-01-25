@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/07/2016"
  ms.author="danlep"/>
 
 # Автоматическое масштабирование вычислительных ресурсов Azure в кластере пакета HPC согласно рабочей нагрузке кластера
@@ -27,12 +27,14 @@ ms.service="virtual-machines"
 
 ## Предварительные требования
 
-* **Кластер узла HPC 2012 R2 с обновлением 1 или более поздней версии** — сценарий **AzureAutoGrowShrink.ps1** установлен в папку %CCP\_HOME%bin. Головной узел кластера может быть развернут локально или на виртуальной машине Azure. См. раздел [Настройка гибридного кластера с пакетом HPC](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md), чтобы приступить к работе с локальными головными узлами и «расширительными» узлами Azure. См. раздел [Сценарий развертывания IaaS пакета HPC](virtual-machines-hpcpack-cluster-powershell-script.md)) для быстрого развертывания кластера пакета HPC на виртуальных машинах Azure.
+* **Кластер узла HPC 2012 R2 с обновлением 1 или более поздней версии** — сценарий **AzureAutoGrowShrink.ps1** установлен в папку %CCP\_HOME%bin. Головной узел кластера может быть развернут локально или на виртуальной машине Azure. См. раздел [Настройка гибридного кластера с пакетом HPC](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md), чтобы приступить к работе с локальными головными узлами и «расширительными» узлами Azure. Выполните быстрое развертывание кластера пакета HPC на виртуальных машинах Azure, как указано в статье [Сценарий развертывания IaaS пакета HPC](virtual-machines-hpcpack-cluster-powershell-script.md), или обратитесь к [краткому руководству по шаблонам Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
+
+* **Azure PowerShell 0.8.12**: в настоящее время сценарий зависит от данной конкретной версии Azure PowerShell. Если на головном узле используется более поздняя версия, для выполнения сценария может потребоваться переход на более раннюю версию Azure PowerShell — [0\.8.12](http://az412849.vo.msecnd.net/downloads03/azure-powershell.0.8.12.msi).
 
 * **Для кластеров с расширительными узлами Azure** — запустите сценарий на клиентском компьютере с установленным пакетом HPC или на головном узле. При выполнении на клиентском компьютере важно убедиться, что переменная $env:CCP\_SCHEDULER задана правильно и указывает на головной узел. «Расширительные» узлы Azure должны быть уже добавлены в кластер, однако они могут находиться в неразвернутом состоянии.
 
 
-* **Для кластера, развернутого на виртуальных машинах Azure** —запустите сценарий на виртуальной машине головного узла, так как он зависит от сценариев **Start-HpcIaaSNode.ps1** и **Stop-HpcIaaSNode.ps1**, которые там установлены. Кроме того, эти сценарии требуют сертификат управления Azure или файл параметров публикации (см. раздел [Управление вычислительными узлами в кластере на основе пакета HPC в Azure](virtual-machines-hpcpack-cluster-node-manage.md)). Убедитесь, что все необходимые виртуальные машины вычислительных узлов уже добавлены в кластер, однако они могут находиться в остановленном состоянии.
+* **Для кластера, развернутого на виртуальных машинах Azure** —запустите сценарий на виртуальной машине головного узла, так как он зависит от сценариев **Start-HpcIaaSNode.ps1** и **Stop-HpcIaaSNode.ps1**, которые там установлены. Кроме того, эти сценарии требуют сертификат управления Azure или файл параметров публикации (см. раздел [Управление вычислительными узлами в кластере на основе пакета HPC в Azure](virtual-machines-hpcpack-cluster-node-manage.md)). Убедитесь, что все необходимые виртуальные машины вычислительных узлов уже добавлены в кластер. Они могут находиться в остановленном состоянии.
 
 ## Синтаксис
 
@@ -102,4 +104,4 @@ AzureAutoGrowShrink.ps1
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

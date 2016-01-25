@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/23/2015"
+   ms.date="01/12/2015"
    ms.author="telmos" />
 
 # IP-адреса в Azure
@@ -152,13 +152,8 @@
 	- Плата за использование рассчитывается на основе общего числа статических общедоступных IP-адресов в подписке.
 
 ## Дальнейшие действия
-- [Развертывание виртуальной машины со статическим общедоступным IP-адресом](virtual-network-deploy-static-pip-arm-template.md)
-- [Создание общедоступного IP-адреса для балансировщика нагрузки для Интернета с помощью интерфейса командной строки Azure](load-balancer-get-started-internet-arm-cli.md#create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool)
-- [Создание общедоступного IP-адреса для шлюза приложений с помощью PowerShell](application-gateway-create-gateway-arm.md#create-public-ip-address-for-front-end-configuration)
-- [Создание общедоступного IP-адреса для VPN-шлюза с помощью PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md#4-request-a-public-ip-address-for-the-gateway)
-- [Развертывание виртуальной машины со статическим частным IP-адресом](virtual-networks-static-private-ip-arm-pportal.md)
-- [Создание статического частного IP-адреса внешней конфигурации для внутреннего балансировщика нагрузки с помощью PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
-- [Создание внутреннего пула статических частных IP-адресов для шлюза приложений с помощью PowerShell](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
+- [Развертывание виртуальной машины со статическим общедоступным IP-адресом](virtual-network-deploy-static-pip-arm-portal.md) с использованием портала Azure.
+- Узнайте, как [развернуть виртуальную машину со статическим общедоступным IP-адресом с помощью шаблона](virtual-network-deploy-static-pip-arm-template.md).
+- [Развертывание виртуальной машины со статическим частным IP-адресом](virtual-networks-static-private-ip-arm-pportal.md) с использованием портала Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
-<!---Line 131 to 136, add "under break"-->
+<!---HONumber=AcomDC_0114_2016-->

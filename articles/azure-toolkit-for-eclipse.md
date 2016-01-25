@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/20/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -67,7 +67,7 @@
 
 [Новые возможности набора средств Azure для Eclipse][]
 
-Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
+Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][].
 
 <!-- URL List -->
 
@@ -93,4 +93,4 @@
 [Использование библиотеки среды выполнения служб Azure в JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Новые возможности набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

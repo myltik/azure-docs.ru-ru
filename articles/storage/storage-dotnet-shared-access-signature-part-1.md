@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Подписанные URL-адреса: общие сведения о модели SAS | Microsoft Azure" 
-	description="Дополнительные сведения о делегировании доступа к ресурсам службы хранилища Azure, включая большие двоичные объекты, очереди, таблицы и файлы, с помощью подписанного URL-адреса (SAS). С их помощью вы можете защитить ключ учетной записи хранения, одновременно предоставляя доступ к ресурсам в вашей учетной записи другим пользователям. Вы можете контролировать предоставляемые разрешения и период действия подписанного URL-адреса. Если вы также установите политику общего доступа, вы можете отозвать подписанный URL-адрес, если посчитаете, что безопасность вашей учетной записи под угрозой." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+<properties
+	pageTitle="Подписанные URL-адреса: общие сведения о модели SAS | Microsoft Azure"
+	description="Дополнительные сведения о делегировании доступа к ресурсам службы хранилища Azure, включая большие двоичные объекты, очереди, таблицы и файлы, с помощью подписанного URL-адреса (SAS). Подписи общего доступа позволяют защитить ключ учетной записи хранения, одновременно предоставив доступ к ресурсам в вашей учетной записи другим пользователям. Вы можете контролировать предоставляемые разрешения и период действия подписанного URL-адреса. Если вы также установите политику общего доступа, вы можете отозвать подписанный URL-адрес, если посчитаете, что безопасность вашей учетной записи под угрозой."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/16/2015"
 	ms.author="tamram"/>
 
 
@@ -51,8 +51,6 @@
 - При копировании файла в другой файл, который относится к другой учетной записи, необходимо использовать SAS для проверки подлинности исходного файла. Начиная с версии от 5 апреля 2015 г. вы можете по желанию использовать SAS также для проверки подлинности конечного файла.
 - При копировании большого двоичного объекта в файл или файла в большой двоичный объект, необходимо использовать SAS для проверки подлинности исходного объекта, даже если исходный и конечный объекты относятся к одной и той же учетной записи хранения.
 
->[AZURE.NOTE]В данный момент SAS учетной записи поддерживается только для служб больших двоичных объектов и файлов. Скоро будет добавлена поддержка для служб очередей и таблиц.
-
 ## Типы подписанных URL-адресов
 
 В версии службы хранилища Azure от 5 апреля 2015 г. появился новый тип подписанного URL-адреса — подписанный URL-адрес учетной записи. Теперь вы можете создавать подписанные URL-адреса двух типов:
@@ -69,12 +67,12 @@
 
 ### Параметры, общие для маркеров SAS учетной записи и SAS службы
 
-- **Версия API.** Необязательный параметр, который указывает версию службы хранилища для выполнения запроса. 
+- **Версия API.** Необязательный параметр, который указывает версию службы хранилища для выполнения запроса.
 - **Версия службы.** Обязательный параметр, который указывает версию службы хранилища для аутентификации запроса.
-- **Время начала.** Это время, когда подпись общего доступа становится действительной. Время начала для подписи общего доступа не является обязательным; если этот параметр опущен, подпись общего доступа вступает в силу немедленно. 
+- **Время начала.** Это время, когда подпись общего доступа становится действительной. Время начала для подписи общего доступа не является обязательным; если этот параметр опущен, подпись общего доступа вступает в силу немедленно.
 - **Время окончания срока действия.** Это время, после которого подпись общего доступа перестает быть действительной. Рекомендуется указать время окончания срока действия для подписи общего доступа или связать ее с хранимой политикой доступа (дополнительные сведения см. ниже).
 - **Разрешения.** Разрешения, заданные для подписи общего доступа, указывают операции, которые клиент может выполнять для ресурсов хранилища с помощью этой подписи общего доступа. Разрешения, доступные для SAS учетной записи и SAS службы, различаются.
-- **IP-адрес.** Необязательный параметр, который указывает IP-адрес или диапазон IP-адресов за пределами Azure (см. раздел [Состояние конфигурации сеанса маршрутизации](../expressroute/expressroute-workflows.md#routing-session-configuration-state) для ExpressRoute), с которых следует принимать запросы. 
+- **IP-адрес.** Необязательный параметр, который указывает IP-адрес или диапазон IP-адресов за пределами Azure (см. раздел [Состояние конфигурации сеанса маршрутизации](../expressroute/expressroute-workflows.md#routing-session-configuration-state) для ExpressRoute), с которых следует принимать запросы.
 - **Протокол.** Необязательный параметр, который задает допустимый протокол для запроса. Параметр может иметь значение «HTTPS, HTTP» (принимаются протоколы HTTPS и HTTP, это значение используется по умолчанию) или «HTTPS» (только протокол HTTPS). Обратите внимание, что использовать только протокол HTTP нельзя.
 - **Подпись.** Подпись составляется из других параметров, указанных в маркере, а затем шифруется. Она используется для проверки подлинности SAS.
 
@@ -123,15 +121,15 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
 Типы ресурсов|srt=s|SAS применяется к операциям на уровне службы.
 Разрешения|sp=rw|Разрешения предоставляют доступ к операциям чтения и записи.  
 
-Так как разрешения ограничены уровнем служб, этот SAS позволяет выполнять такие операции: **Get Blob Service Properties** (чтение) и **Set Blob Service Properties** (запись). Этот же маркер SAS с другим универсальным кодом ресурса (URI) ресурса будет предоставлять доступ к операции **Get Blob Service Stats** (чтение).
+Так как разрешения ограничены уровнем служб, этот SAS позволяет выполнять такие операции: **Get Blob Service Properties** (чтение) и **Set Blob Service Properties** (запись). Этот же токен SAS с другим универсальным кодом ресурса (URI) ресурса будет предоставлять доступ к операции **Получение статистики службы BLOB-объектов** (чтение).
 
 ## Использование хранимой политики доступа для управления SAS ##
 
 Подпись общего доступа может принимать одну из двух форм:
 
-- **Нерегламентированная SAS:** при создании нерегламентированной SAS время начала, время окончания срока действия и разрешения для SAS указываются в URI SAS (или подразумеваются в случае, когда опускается время начала). Этот тип можно использовать для SAS учетной записи и SAS службы. 
+- **Нерегламентированная SAS:** при создании нерегламентированной SAS время начала, время окончания срока действия и разрешения для SAS указываются в URI SAS (или подразумеваются в случае, когда опускается время начала). Этот тип можно использовать для SAS учетной записи и SAS службы.
 
-- **SAS с хранимой политикой доступа:** хранимая политика доступа определяется в контейнере ресурсов (контейнере больших двоичных объектов, таблице, очереди или общей папке) и может использоваться для управления ограничениями одного или нескольких подписанных URL-адресов. При сопоставлении подписи общего доступа с хранимой политикой доступа эта подпись наследует ограничения (время начала, время окончания и разрешения), определенные для данной хранимой политики доступа.
+- **SAS с хранимой политикой доступа.** Хранимая политика доступа определяется в контейнере ресурсов (контейнере больших двоичных объектов, таблице, очереди или общей папке) и может использоваться для управления ограничениями одного или нескольких подписанных URL-адресов. При сопоставлении подписи общего доступа с хранимой политикой доступа эта подпись наследует ограничения (время начала, время окончания и разрешения), определенные для данной хранимой политики доступа.
 
 >[AZURE.NOTE]На данный момент SAS учетной записи может быть только нерегламентированным. Хранимые политики доступа для SAS учетной записи пока не поддерживаются.
 
@@ -151,7 +149,7 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
 Чтобы запустить эти примеры, необходимо скачать такие пакеты и использовать их:
 
 - [Клиентская библиотека службы хранилища Azure для .NET](http://www.nuget.org/packages/WindowsAzure.Storage) версии 6.0 или более поздней (для использования учетной записи SAS).
-- [Диспетчер конфигураций Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 
+- [Диспетчер конфигураций Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 ### Пример. Учетная запись SAS
 
@@ -230,23 +228,23 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
-    
+
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
-       
+
     // Create the blob client object.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    
+
     // Get a reference to the container for which shared access signature will be created.
     CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
     container.CreateIfNotExists();
-    
+
     // Get the current permissions for the blob container.
     BlobContainerPermissions blobPermissions = container.GetPermissions();
 
     // Clear the container's shared access policies to avoid naming conflicts.
     blobPermissions.SharedAccessPolicies.Clear();
-    
+
     // The new shared access policy provides read/write access to the container for 24 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
     {
@@ -255,14 +253,14 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
        Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
-    
-    // The public access setting explicitly specifies that 
+
+    // The public access setting explicitly specifies that
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
-    
+
     // Set the new stored access policy on the container.
     container.SetPermissions(blobPermissions);
-    
+
     // Get the shared access signature token to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
@@ -270,15 +268,15 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
 Клиент, которому принадлежит подписанный URL-адрес службы, может использовать его в своем коде для подтверждения подлинности запроса на чтение или запись в BLOB-объекте в этом контейнере. Например, следующий код создает с помощью маркера SAS новый блочный BLOB-объект в контейнере. Измените код, чтобы использовать имя своей учетной записи:
 
     Uri blobUri = new Uri("https://<myaccount>.blob.core.windows.net/mycontainer/myblob.txt");
-    
+
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
-    
+
     // Create a new blob.
     CloudBlockBlob blob = new CloudBlockBlob(blobUri, credentials);
-    
-    // Upload the blob. 
-    // If the blob does not yet exist, it will be created. 
+
+    // Upload the blob.
+    // If the blob does not yet exist, it will be created.
     // If the blob does exist, its existing content will be overwritten.
     using (var fileStream = System.IO.File.OpenRead(@"c:\Temp\myblob.txt"))
     {
@@ -320,7 +318,4 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

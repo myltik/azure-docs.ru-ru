@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/10/2016" 
 	ms.author="genemi"/>
 
 
@@ -51,7 +51,7 @@
 | Язык | Краткий пример | Пример повторной попытки | Относится к объекту |
 | :-- | :-- | :-- | :-- |
 | Node.js | [Tedious](sql-database-develop-nodejs-simple-linux.md) | . | . |
-| Python | [FreeTDS, pymssql](sql-database-develop-python-simple-unbutu-linux.md) | . | . |
+| Python | [FreeTDS, pymssql](sql-database-develop-python-simple-ubuntu-linux.md) | . | . |
 | Ruby | [FreeTDS, TinyTDS](sql-database-develop-ruby-simple-linux.md) | . | . |
 
 
@@ -95,4 +95,4 @@
 - [Создание первой базы данных SQL Azure](sql-database-get-started.md)
 - [Entity Framework 6 здесь, EF 7 на GitHub](http://entityframework.codeplex.com/)
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

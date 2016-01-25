@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="01/08/2016" 
 	ms.author="erikre"/>
 
 # Создание приложения API ASP.NET 5 в Visual Studio Code
@@ -42,7 +42,7 @@ ASP.NET 5 и DNX представляют собой простой стек .NE
 1. Чтобы установить диспетчер версий .NET (DNVM) в Windows, выполните следующую команду в окне командной строки:
 
 	<pre class="prettyprint">
-	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&amp;{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
 	</pre>
 	Она скачает скрипт DNVM и поместит его в ваш профиль пользователя.
 
@@ -188,7 +188,7 @@ namespace ContactsList.Models
 Метаданные, которые позволяют развертывать проект API ASP.NET как приложение API, содержатся в файле *apiapp.json* в корневой папке проекта.
 
 1. В VSCode щелкните правой кнопкой мыши папку *wwwroot* и выберите параметр **Создать файл**.
-2. Назовите новый файл *apiapp.json*.<br\> Убедитесь, что *apiapp.json* находится в папке *wwwroot*.
+2. Назовите новый файл *apiapp.json*.<br> Убедитесь, что *apiapp.json* находится в папке *wwwroot*.
 3. Добавьте в файл *apiapp.json* следующее:
 
 	<pre class="prettyprint">
@@ -419,8 +419,8 @@ Git является распределенной системой управл�
 8. Создайте внешнюю ссылку для публикации обновлений в ранее созданное веб-приложение (узел приложений API), используя URL-адрес Git (заканчивающийся на .git), скопированный ранее:
 
 	<pre class="prettyprint">
-git remote add azure [URL-адрес удаленного репозитория]
-</pre>
+	git remote add azure [URL-адрес удаленного репозитория]
+	</pre>
 
 9. Отправьте обновления в Azure с помощью следующей команды:
 
@@ -456,4 +456,4 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 В этом учебнике вы узнали, как создать приложение API в Visual Studio Code. Дополнительную информацию о Visual Studio Code см. в разделе [Visual Studio Code](https://code.visualstudio.com/Docs/). Информацию о приложениях API см. в разделе [Что такое приложения API?](app-service-api-apps-why-best-platform.md).
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

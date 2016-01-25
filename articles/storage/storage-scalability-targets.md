@@ -1,12 +1,12 @@
-<properties 
+<properties
    pageTitle="Целевые показатели масштабируемости и производительности службы хранилища Azure | Microsoft Azure"
    description="Узнайте подробнее о целевых показателях масштабируемости и производительности службы хранилища Azure, включая показатели объема, частоты запросов, входящей и исходящей пропускной способности, как для стандартных учетных записей хранения, так и для учетных записей хранения класса Premium. Понимание целевых показателей производительности для разделов каждой из служб хранилища Azure."
    services="storage"
    documentationCenter="na"
    authors="robinsh"
    manager="carmonm"
-   editor="na" />
-<tags 
+   editor="tysonn" />
+<tags
    ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
@@ -36,7 +36,7 @@
 
 [AZURE.INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
-## Целевые показатели масштабируемости для дисков виртуальной машины 
+## Целевые показатели масштабируемости для дисков виртуальной машины
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
@@ -85,4 +85,4 @@
 - [Производительность хранилища Microsoft Azure и контрольный список масштабируемости](storage-performance-checklist.md)
 - [Хранилище Azure: доступная служба облачного хранения со строгой согласованностью](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

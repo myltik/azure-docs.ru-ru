@@ -17,6 +17,7 @@
 	ms.author="ddove;sidneyh"/>
 
 # Обзор установки заданий обработки эластичных баз данных
+
 [**Задания обработки эластичных баз данных**](sql-database-elastic-jobs-overview.md) можно установить с помощью PowerShell или классического портала Azure. Чтобы создавать задания и управлять ими только с помощью API PowerShell, необходимо установить пакет PowerShell. Кроме того, в настоящий момент API-интерфейсы PowerShell предоставляют намного больше возможностей, чем портал.
 
 Если вы уже установили службу **заданий обработки эластичных баз данных** с помощью портала из имеющегося **пула эластичных баз данных**, то последняя предварительная версия PowerShell включает сценарии для обновления существующей установки. Настоятельно рекомендуется обновить установку до последней версии компонентов **заданий обработки эластичных баз данных**, чтобы воспользоваться новыми возможностями, доступными через API-интерфейсы PowerShell.
@@ -178,13 +179,13 @@
 
 ## Дальнейшие действия
 
-Убедитесь, что в каждой базе данных группы созданы учетные данные с правами на выполнение сценариев. Дополнительные сведения см. в статье [Добавление пользователей во все базы данных в группе](sql-database-elastic-jobs-add-logins-to-dbs.md). Чтобы приступить к работе, см. статью [Создание заданий обработки эластичных баз данных и управление ими](sql-database-elastic-jobs-create-and-manage.md).
+Убедитесь, что в каждой базе данных группы созданы учетные данные с правами на выполнение сценариев. Дополнительные сведения см. в статье [Защита базы данных SQL](sql-database-security.md). Чтобы приступить к работе, см. статью [Создание заданий обработки эластичных баз данных и управление ими](sql-database-elastic-jobs-create-and-manage.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
-[4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
+[4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

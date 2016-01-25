@@ -20,8 +20,8 @@
 # Примеры конфигурации расширений виртуальной машины Linux
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
-- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+- [PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
+- [CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
 
 <br>
 
@@ -197,4 +197,4 @@
 
 [Расширение Custom Script на виртуальной машине Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

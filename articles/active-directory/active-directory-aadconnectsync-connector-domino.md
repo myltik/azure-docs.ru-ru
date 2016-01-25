@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/28/2015"
+   ms.date="01/14/2016"
    ms.author="andkjell"/>
 
 # Технический справочник по соединителю Lotus Domino
@@ -344,7 +344,7 @@
 - Ресурс
 - резервирование.
 
-Дополнительные сведения о настройке базы данных резервирования ресурсов см. в разделе [Настройка базы данных резервирования ресурсов](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_USING_GROUPS_OVER.html).
+Дополнительные сведения о настройке базы данных резервирования ресурсов см. в разделе [Настройка базы данных резервирования ресурсов](https://www-01.ibm.com/support/knowledgecenter/SSKTMJ_8.0.1/com.ibm.help.domino.admin.doc/DOC/H_SETTING_UP_THE_RESOURCE_RESERVATIONS_DATABASE.html).
 
 **Создание, обновление и удаление ресурсов**
 
@@ -477,15 +477,15 @@
 
 **Способ 1. Расширение схемы Lotus Domino**
 
-1. Создайте копию шаблона каталога Domino <PUBNAMES.NTF>, выполнив [эти действия](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (не следует изменять стандартный шаблон каталога IBM Lotus Domino).
-2. С помощью конструктора Domino откройте копию только что созданного шаблона каталога Domino <CONTOSO.NTF> и выполните следующие действия.
+1. Создайте копию шаблона каталога Domino Directory {PUBNAMES.NTF}, выполнив [эти действия](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (не следует изменять стандартный шаблон каталога IBM Lotus Domino Directory).
+2. С помощью конструктора Domino Directory {CONTOSO.NTF} откройте копию только что созданного шаблона каталога Domino Designer и выполните следующие действия:
     - Щелкните Shared Elements (Общие элементы) и разверните подчиненные формы.
-    - Дважды щелкните подчиненную форму $[имя\_объекта]InheritableSchema (где [имя\_объекта] — это имя класса структурного объекта по умолчанию, например Person).
-    - Присвойте имя [MyPersonAtrribute] атрибуту, который хотите добавить в схему, и создайте соответствующее поле, выбрав в меню Create (Создать) пункт Field (Поле).
+    - Дважды щелкните подчиненную форму ${имя\_объекта}InheritableSchema (где {имя\_объекта} — это имя класса структурного объекта по умолчанию, например Person).
+    - Присвойте имя {MyPersonAtrribute} атрибуту, который хотите добавить в схему, и создайте соответствующее поле, выбрав в меню Create (Создать) пункт Field (Поле).
     - Задайте свойства для созданного поля, выбрав его тип, стиль, размер, шрифт и другие параметры в окне свойств поля.
     - Сохраните значение атрибута по умолчанию таким же, как имя этого атрибута (например, если имя атрибута — MyPersonAtrribute, оставьте для него такое же значение по умолчанию).
-    - Сохраните подчиненную форму $[имя\_объекта]InheritableSchema с обновленными данными.
-3. Замените шаблон каталога Domino <PUBNAMES.NTF> новым настроенным шаблоном [CONTOSO.NTF], выполнив [эти действия](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
+    - Сохраните подчиненную форму ${имя\_объекта}InheritableSchema с обновленными данными.
+3. Замените шаблон каталога Domino {PUBNAMES.NTF} новым настроенным шаблоном {CONTOSO.NTF}, выполнив [эти действия](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
 4. Закройте администратор Domino и откройте консоль Domino, чтобы перезапустить службу LDAP и перезагрузить схему LDAP.
     - В консоли Domino в текстовое поле **Domino Command** (Команда Domino) вставьте команду перезапуска службы LDAP — [Restart Task LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
     - Чтобы перезагрузить схему LDAP, используйте команду Tell LDAP ReloadSchema.
@@ -494,8 +494,8 @@
 
 **Способ 2. Создание auxClass с настраиваемыми атрибутами и его связывание с классом объекта**
 
-1. Создайте копию шаблона каталога Domino [PUBNAMES.NTF], выполнив [эти действия]()http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html (не следует изменять стандартный шаблон каталога IBM Lotus Domino).
-2. Откройте с помощью конструктора Domino копию только что созданного шаблона каталога Domino [CONTOSO.NTF].
+1. Создайте копию шаблона каталога Domino {PUBNAMES.NTF}, выполнив [эти действия](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (не следует изменять стандартный шаблон каталога IBM Lotus Domino).
+2. Откройте с помощью конструктора Domino копию только что созданного шаблона каталога Domino {CONTOSO.NTF}.
 3. В области слева выберите Shared Code (Общий код), а затем — Subforms (Подчиненные формы).
 4. Щелкните New Subform (Создать подчиненную форму).
 5. Выполните следующие действия, чтобы указать свойства новой подчиненной формы.
@@ -508,16 +508,16 @@
 6. Выполните следующие действия, чтобы добавить поле для описания вспомогательного класса объекта.
     - Откройте только что созданную подчиненную форму.
     - Выберите Create (Создать) и Field (Поле).
-    - Рядом с пунктом Name (Имя) на вкладке Basics (Основная информация) диалогового окна Field (Поле) введите любое имя (например, MyPersonTestAttribute).
+    - Рядом с пунктом Name (Имя) на вкладке Basics (Основная информация) диалогового окна Field (Поле) введите любое имя, например {MyPersonTestAttribute}.
     - Задайте свойства для созданного поля, выбрав его тип, стиль, размер, шрифт и другие параметры.
     - Сохраните для атрибута значение по умолчанию таким же, как имя этого атрибута (например, если имя атрибута — MyPersonAtrribute, оставьте для атрибута такое же значение по умолчанию).
     - Сохраните подчиненную форму с обновленными значениями и выполните следующие действия.
         - В области слева выберите Shared Code (Общий код), а затем — Subforms (Подчиненные формы).
         - Щелкните новую подчиненную форму и выберите Design (Макет) и Design Properties (Свойства макета).
         - Щелкните третью слева вкладку и выберите **Propagate this prohibition of design change** (Распространить этот запрет на изменение макета).
-7. Откройте подчиненную форму $[имя\_объекта]ExtensibleSchema (где [имя\_объекта] — это имя класса структурного объекта по умолчанию, например Person).
-8. Добавьте ресурс и выберите подчиненную форму (которую только что создали, например TestSubform), затем сохраните подчиненную форму $[имя\_объекта]ExtensibleSchema.
-9. Замените шаблон каталога Domino [PUBNAMES.NTF] новым настроенным шаблоном [CONTOSO.NTF], выполнив [эти действия](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
+7. Откройте подчиненную форму ${имя\_объекта}ExtensibleSchema (где {имя\_объекта} — это имя класса структурного объекта по умолчанию, например Person).
+8. Добавьте ресурс и выберите подчиненную форму (которую только что создали, например TestSubform), затем сохраните подчиненную форму ${имя\_объекта}ExtensibleSchema.
+9. Замените шаблон каталога Domino {PUBNAMES.NTF} новым настроенным шаблоном {CONTOSO.NTF}, выполнив [эти действия](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
 10. Закройте администратор Domino и откройте консоль Domino, чтобы перезапустить службу LDAP и перезагрузить схему LDAP.
     - В консоли Domino в текстовое поле **Domino Command** (Команда Domino) вставьте команду перезапуска службы LDAP — [Restart Task LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
     - Чтобы перезагрузить схему LDAP, используйте команду Tell LDAP ReloadSchema.
@@ -526,10 +526,10 @@
 
 **Способ 3. Добавление пользовательского атрибута в класс ExtensibleObject**
 
-1. Откройте файл [Schema.nsf], который расположен в корневом каталоге.
+1. Откройте файл {Schema.nsf}, который расположен в корневом каталоге.
 2. Выберите классы объектов LDAP в меню слева в разделе **All Schema Documents** (Все документы схемы), а затем нажмите кнопку **Add Object class** (Добавить класс объекта).
-3. Укажите имя LDAP в форме [###ExtensibleSchema] (где ### — это имя по умолчанию класса структурного объекта, например Person) со ссылкой на объект, для которого вы хотите расширить схему. Например, чтобы расширить схему для класса объекта Person, укажите имя LDAP [PersonExtensibleSchema].
-4. Укажите имя класса главного объекта, для которого вы хотите расширить схему. Например, чтобы расширить схему для класса объекта Person, укажите имя главного объекта [dominoPerson].
+3. Укажите имя LDAP в форме {zzzExtensibleSchema} (где zzz — это имя по умолчанию класса структурного объекта, например Person) со ссылкой на объект, для которого вы хотите расширить схему. Например, чтобы расширить схему для класса объекта Person, укажите имя LDAP {PersonExtensibleSchema}.
+4. Укажите имя класса главного объекта, для которого вы хотите расширить схему. Например, чтобы расширить схему для класса объекта Person, укажите имя главного объекта {dominoPerson}.
 5. Укажите допустимый идентификатор объекта, соответствующий этому классу объекта.
 6. Выберите требуемые расширенные и пользовательские атрибуты в полях Mandatory/Optional Attribute Types (Типы обязательных или необязательных атрибутов), которые вам нужны.
 7. После добавления атрибутов в класс ExtensibleObjectClass нажмите кнопку **Save & Close** (Сохранить и закрыть).
@@ -539,4 +539,4 @@
 
 -	Сведения о том, как включить ведение журнала для устранения неполадок соединителя, см. в статье [Включение трассировки событий Windows для соединителей](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

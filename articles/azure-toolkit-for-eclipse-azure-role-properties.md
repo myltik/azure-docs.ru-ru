@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/20/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -279,8 +279,8 @@
 
 Независимо от текущей операционной системы для источника и типа пакета JDK есть два следующих параметра **Облачное развертывание**:
 
-* **Развернуть сторонний пакет JDK, доступный в Azure**; 
-* **Развернуть из пакета пользовательского скачивания**. 
+* **Развернуть сторонний пакет JDK, доступный в Azure;** 
+* **Развернуть из пакета пользовательского скачивания.** 
 
 При использовании параметра **Развернуть сторонний пакет JDK, доступный в Azure** сделайте следующее:
 
@@ -394,7 +394,7 @@
 
 [Список учетных записей хранения Azure][]
 
-Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][].
+Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
 
 <!-- URL List -->
 
@@ -413,7 +413,6 @@
 [Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Сходство сеанса]: http://go.microsoft.com/fwlink/?LinkID=699548
 [разгрузка SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
-[Разгрузка SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
 
 <!-- IMG List -->
 
@@ -440,4 +439,4 @@
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

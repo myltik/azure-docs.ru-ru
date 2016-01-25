@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/06/2015"
+   ms.date="01/08/2016"
    ms.author="larryfr"/>
 
 #Основные сведения об Apache Storm в службе HDInsight. Аналитика в реальном времени для Hadoop
@@ -83,9 +83,9 @@ __Для Storm под управлением Windows в кластерах HDIns
 
 В Storm в HDInsight также предусмотрена простая интеграция со службой концентраторов событий Azure через **воронку концентратора событий**. Эта возможность реализована в каждом кластере Storm в файле **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Примеры использования этой воронки в топологии Storm можно посмотреть в следующих документах:
 
-* [Разработка топологии C#, использующей концентраторы событий Azure](hdinsight-storm-develop-csharp-event-hub-topology.md);
+* [Разработка топологии C#, использующей концентраторы событий Azure;](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* [Разработка топологии Java, использующей концентраторы событий Azure](hdinsight-storm-develop-java-event-hub-topology.md).
+* [Разработка топологии Java, использующей концентраторы событий Azure.](hdinsight-storm-develop-java-event-hub-topology.md)
 
 ###Надежность
 
@@ -219,4 +219,4 @@ Storm может обеспечить различные уровни гаран
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

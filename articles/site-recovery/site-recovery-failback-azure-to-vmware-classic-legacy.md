@@ -16,7 +16,12 @@
    ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-# Восстановление размещения виртуальных машин и физических серверов VMware с переносом из Azure в VMware с помощью службы Azure Site Recovery
+# Восстановление размещения виртуальных машин и физических серверов VMware с переносом из Azure в VMware с помощью службы Azure Site Recovery (устарело)
+
+> [AZURE.SELECTOR]
+- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
+- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
 
 ## Обзор
 
@@ -36,14 +41,12 @@
 
 1.  [Скачайте vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
 2.  После этого скачайте обновленную версию [vContinuum](http://go.microsoft.com/fwlink/?LinkID=533813).
-3.  Запустите программу установки последней версии, чтобы установить vContinuum. На странице **Приветствие** нажмите кнопку **Далее**.
-	![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+3.  Запустите программу установки последней версии, чтобы установить vContinuum. На странице **Приветствие** нажмите кнопку **Далее**. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  На первой странице мастера укажите IP-адрес и порт сервера CX. Установите флажок **Использовать HTTPS**.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image3.png)
 
-5.  На вкладке **Панель мониторинга** виртуальной машины сервера конфигурации в Azure найдите IP-адрес сервера конфигурации.
-	![](./media/site-recovery-failback-azure-to-vmware/image4.png)
+5.  На вкладке **Панель мониторинга** виртуальной машины сервера конфигурации в Azure найдите IP-адрес сервера конфигурации. ![](./media/site-recovery-failback-azure-to-vmware/image4.png)
 
 6.  На вкладке **Конечные точки** виртуальной машины сервера конфигурации в Azure найдите общий порт HTTPS сервера конфигурации.
 
@@ -57,8 +60,7 @@
 
 	![](./media/site-recovery-failback-azure-to-vmware/image7.png)
 
-9. После завершения установки можно запустить vContinuum.
-	![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+9. После завершения установки можно запустить vContinuum. ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
 
 ## Шаг 2. Установка сервера обработки в Azure 
@@ -172,17 +174,13 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 \# cd /usr/local
 
-\# wget
-<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-\# wget
-<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
-reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-\# wget
-<http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+\# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
 \# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
@@ -193,17 +191,13 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
 1. Скопируйте двоичный файл унифицированного агента RHEL 6-64 в установленную операционную систему.
 
-2. Запустите указанную ниже команду, чтобы распаковать двоичный файл.
+2. Выполните следующую команду, чтобы распаковать двоичный файл: **tar - zxvf <имя\_файла>**.
 
-**tar -zxvf <Имя\_файла>**
+3. Выполните следующую команду, чтобы предоставить разрешения: # **chmod 755 ./ApplyCustomChanges.sh**.
 
-3. Выполните указанную ниже команду, чтобы предоставить необходимое разрешение.
+4. Запустите сценарий **#./ApplyCustomChanges.sh**. Этот сценарий необходимо выполнить на сервере только один раз. После выполнения сценария перезагрузите сервер.
 
-\# **chmod 755 ./ApplyCustomChanges.sh**
 
-4. Выполните указанную ниже команду, чтобы запустить необходимый сценарий.
-
-**# ./ApplyCustomChanges.sh**
 
 ### Установка сервера под управлением ОС Linux
 
@@ -275,7 +269,6 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
 	![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
-
 	![](./media/site-recovery-failback-azure-to-vmware/image23.png)
 
 6. Остановите работу виртуальной машины на сервере vCenter. Можно также удалить виртуальные машины локально.
@@ -337,7 +330,6 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
 5. Дождитесь завершения проверки. Если она прошла успешно на всех виртуальных машинах, можно указать имя плана защиты. Щелкните **Protect** (Защита), чтобы начать.
 
-
 	![](./media/site-recovery-failback-azure-to-vmware/image33.png)
 
 
@@ -346,7 +338,6 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 	![](./media/site-recovery-failback-azure-to-vmware/image34.png)
 
 7. После завершения этапа **активации плана защиты** можно отслеживать состояние защиты виртуальной машины на портале службы Site Recovery.
-
 
 	![](./media/site-recovery-failback-azure-to-vmware/image35.png)
 
@@ -359,7 +350,6 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 С помощью vContinuum можно подготовить план восстановления размещения. Это позволит в любое время перенести приложение обратно в локальную среду в случае восстановления размещения. Эти планы восстановления очень похожи на планы восстановления службы Site Recovery.
 
 1.  Запустите vContinuum и установите переключатели **Manage plans** (Управление планами) > **Recover** (Восстановление). Появится список всех планов, использованных для отработки отказа на виртуальных машинах. Эти же планы можно использовать для восстановления.
-
 
 	![](./media/site-recovery-failback-azure-to-vmware/image37.png)
 
@@ -383,9 +373,7 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 10. Укажите имя плана и установите переключатель **Recover later** (Восстановить позже). Мы советуем выполнить восстановление позже, так как начальная защита может быть не выполнена.
 11. Нажмите кнопку **Recover** (Восстановить), чтобы сохранить план, или запустите процесс восстановления, если выбрано восстановление сейчас, а не позже. Можно просмотреть состояние восстановления, чтобы проверить, сохранился ли план.
 
-
 	![](./media/site-recovery-failback-azure-to-vmware/image42.png)
-
 
 	![](./media/site-recovery-failback-azure-to-vmware/image43.png)
 
@@ -400,11 +388,9 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
 1.  Запустите сохраненный план. На сервере vContinuum выберите команду **Monitor** (Отслеживание) для планов. Появится список всех запущенных планов.
 
-
 	![](./media/site-recovery-failback-azure-to-vmware/image45.png)
 
 2.  Выберите план в узле **Recovery** (Восстановление) и нажмите кнопку **Start** (Запустить). Можно отслеживать ход выполнения восстановления. После включения к виртуальным машинам можно подключиться в vCenter.
-
 
 	![](./media/site-recovery-failback-azure-to-vmware/image46.png)
 
@@ -420,8 +406,8 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
  
 ## Дальнейшие действия
 
-[Прочитайте статью](site-recovery-vmware-to-azure.md) о репликации виртуальных машин VMware в Azure.
+[Прочитайте статью](site-recovery-vmware-to-azure-classic-legacy.md) о репликации виртуальных машин VMware в Azure.
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016--->

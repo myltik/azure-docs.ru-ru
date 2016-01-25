@@ -96,7 +96,7 @@
             }
         }
 
-> [AZURE.NOTE](optional) Дополнительную информацию о том, как добавить и получить ресурсы проекта, см. в разделе [Как внедрить ресурсы и получить к ним доступ с помощью Visual C#](http://support.microsoft.com/kb/319292).
+	>[AZURE.NOTE](optional) Дополнительную информацию о том, как добавить и получить ресурсы проекта, см. в разделе [Как внедрить ресурсы и получить к ним доступ с помощью Visual C#](http://support.microsoft.com/kb/319292).
 
 7. В **NotificationsController.cs** замените определение **NotificationsController** следующими фрагментами. Этот код отправляет начальный идентификатор форматированного уведомления на устройство и разрешает клиенту получить образ:
 
@@ -381,4 +381,4 @@
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

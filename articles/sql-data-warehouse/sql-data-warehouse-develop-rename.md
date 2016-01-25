@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Переименование в хранилище данных SQL
 Несмотря на то, что SQL Server поддерживает переименование баз данных с помощью хранимой процедуры ```sp_renamedb```, в хранилище данных SQL для решения этой задачи используется синтаксис DDL. Соответствующая команда DDL — ```RENAME OBJECT```.
@@ -53,4 +53,4 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 <!--Article references-->
 [Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

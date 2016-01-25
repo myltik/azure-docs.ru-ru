@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/10/2015"
+    ms.date="01/07/2016"
     ms.author="elizapo" />
 
 
@@ -116,7 +116,7 @@
 
 ## Mac OS X
 
-После установки из магазина App Store приложение «Удаленный рабочий стол (Майкрософт)» можно найти в списке приложений под именем **Microsoft Remote Desktop**.
+После установки из магазина App Store приложение "Удаленный рабочий стол (Майкрософт)" можно найти в списке приложений под именем **Microsoft Remote Desktop**.
 
 1. Если вы ранее не использовали приложение, после его запуска сразу же откроется пустой центр подключений. Чтобы начать работу со службой Azure RemoteApp, нажмите кнопку **Azure RemoteApp**.
 
@@ -207,4 +207,4 @@
 	![Демонстрационный веб-канал с приложениями Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

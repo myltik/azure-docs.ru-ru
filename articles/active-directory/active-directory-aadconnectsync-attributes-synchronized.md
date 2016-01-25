@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="01/08/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -417,7 +417,7 @@
 
 | Имя атрибута| Пользователь| Контакт| Группа| Комментарий |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObject| X| | | Производный от cloudAnchor в Azure AD.|
+| msDS-ExternalDirectoryObjectID| X| | | Производный от cloudAnchor в Azure AD. Это — новшество Exchange 2016.|
 | msExchArchiveStatus| X| | | Серверный архив: позволяет клиентам архивировать почту.|
 | msExchBlockedSendersHash| X| | | Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов.|
 | msExchSafeRecipientsHash| X| | | Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов.|
@@ -435,4 +435,4 @@
 
 Ознакомьтесь с дополнительными сведениями об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

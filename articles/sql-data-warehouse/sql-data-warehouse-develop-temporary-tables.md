@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Временные таблицы в хранилище данных SQL
 Временные таблицы существуют в хранилище данных SQL на уровне сеанса. Они определяются как локальные временные таблицы и, в отличие от таблиц SQL Server, к ним можно обращаться откуда угодно внутри сеанса.
@@ -147,4 +147,4 @@ DROP TABLE #stats_ddl;
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -21,7 +21,7 @@
 
 GSM и LSM отслеживают сопоставление каждой базы данных в сегментированной среде. Иногда между GSM и LSM происходит разрыв. Для его обнаружения и устранения используйте класс RecoveryManager.
 
-Класс RecoveryManager является частью [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library).
+Класс RecoveryManager является частью [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md).
 
 
 ![Карта сегментов][1]
@@ -157,4 +157,4 @@ GSM и LSM отслеживают сопоставление каждой баз
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

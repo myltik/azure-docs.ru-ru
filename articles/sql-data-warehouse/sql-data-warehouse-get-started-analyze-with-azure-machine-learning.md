@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="sahajs"/>
+   ms.date="01/07/2016"
+   ms.author="sahajs;barbkess;sonyama"/>
 
 # Анализ данных с помощью машинного обучения Azure
 В этом учебнике показано, как построить прогнозную модель машинного обучения с помощью машинного обучения Azure и данных хранилища данных SQL Azure. В этом руководстве мы создадим кампанию целевого маркетинга для Adventure Works (магазин велосипедов). Для этого мы предскажем, есть ли вероятность того, что клиент купит велосипед.
@@ -139,4 +139,4 @@
 [загрузить демонстрационные данные вручную]: sql-data-warehouse-get-started-manually-load-samples.md
 [Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->
