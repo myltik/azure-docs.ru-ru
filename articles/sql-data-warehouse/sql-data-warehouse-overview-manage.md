@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
 
 # Средства управления для хранилища данных SQL
 В этом разделе рассматриваются и сравниваются средства и параметры для управления хранилищем данных SQL, чтобы вы могли выбрать соответствующий инструмент. Выбор правильного средства зависит от количества баз данных, которыми вы управляете, выполняемых задач, а также то того, как часто вы их выполняете.
@@ -48,4 +48,4 @@
 <!--Other web references-->
 [Классический портал Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

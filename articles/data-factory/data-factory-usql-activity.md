@@ -48,7 +48,7 @@
 
 Свойство | Описание | Обязательно
 -------- | ----------- | --------
-Тип | Свойству type нужно присвоить значение **AzureDataLakeAnalytics**. | Да
+Тип | Свойству type необходимо присвоить значение **AzureDataLakeAnalytics**. | Да
 accountName | Имя учетной записи аналитики озера данных Azure. | Да
 dataLakeAnalyticsUri | Универсальный код ресурса (URI) аналитики озера данных Azure. | Нет 
 authorization | Код авторизации извлекается автоматически после нажатия кнопки **Авторизовать** в редакторе фабрики данных и выполнения входа с авторизацией OAuth. | Да 
@@ -125,6 +125,7 @@ degreeOfParallelism | Максимальное количество узлов, 
 priority | Определяет, какие задания из всех в очереди должны запускаться в первую очередь. Чем меньше число, тем выше приоритет. | Нет 
 parameters | Параметры скрипта U-SQL | Нет 
 
+Определение сценария см. в разделе [Определение сценария SearchLogProcessing.txt](#script-definition).
 
 ### Примеры входных и выходных наборов данных
 
@@ -187,4 +188,35 @@ parameters | Параметры скрипта U-SQL | Нет
 
 Описания свойств JSON в связанной службе хранилища озера данных Azure и фрагментах кода JSON с наборами данных выше см. в статье [Перемещение данных в хранилище озера данных Azure и из него](data-factory-azure-datalake-connector.md).
 
-<!---HONumber=Nov15_HO2-->
+### Определение сценария
+
+	@searchlog =
+	    EXTRACT UserId          int,
+	            Start           DateTime,
+	            Region          string,
+	            Query           string,
+	            Duration        int?,
+	            Urls            string,
+	            ClickedUrls     string
+	    FROM @in
+	    USING Extractors.Tsv(nullEscape:"#NULL#");
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @searchlog
+	WHERE Region == "en-gb";
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @rs1
+	    WHERE Start <= DateTime.Parse("2012/02/19");
+	
+	OUTPUT @rs1   
+	    TO @out
+	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
+
+Значения параметров **@in** и **@out** в приведенном выше сценарии U-SQL передаются динамически с помощью ADF, используя раздел "Параметры". См. раздел "Параметры" выше в определении конвейера.
+
+В определении канала для заданий, которые запускаются в службе аналитики озера данных Azure, можно определить другие свойства, такие как степень параллелизма, приоритет и т. д.
+
+<!---HONumber=AcomDC_0114_2016-->

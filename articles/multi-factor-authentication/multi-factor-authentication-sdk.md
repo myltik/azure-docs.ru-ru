@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Построение Multi-Factor Authentication в пользовательских приложениях (SDK)
@@ -33,7 +33,7 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 
 ## Загрузка пакета SDK для Azure Multi-Factor Authentication 
 
-Существует два разных способа загрузки пакета SDK для Azure Multi-Factor Authentication. Оба выполняются через портал Azure. Первый способ — это управление поставщиком многофакторной проверки подлинности напрямую. Второй — через параметры службы. Для второго варианта требуется либо поставщик многофакторной проверки подлинности, либо лицензия Azure AD Premium.
+Существует два разных способа загрузки пакета SDK для Azure Multi-Factor Authentication. Оба выполняются через портал Azure. Первый способ — это управление поставщиком многофакторной проверки подлинности напрямую. Второй — через параметры службы. Для второго варианта требуется поставщик Multi-Factor Authentication или лицензия Azure MFA, Azure AD Premium или Enterprise Mobility Suite.
 
 
 ### Загрузка пакета SDK для Azure Multi-Factor Authentication с портала Azure
@@ -58,7 +58,7 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 3. Дважды щелкните свой экземпляр Azure AD.
 4. В верхней части экрана щелкните ссылку **Настроить**.
 5. В разделе многофакторной проверки подлинности выберите **Управление параметрами службы**. ![Загрузить](./media/multi-factor-authentication-sdk/download2.png)
-6. На странице параметров службы в нижней части экрана щелкните ссылку **Перейти на портал**.![Загрузить](./media/multi-factor-authentication-sdk/download3.png)
+6. На странице параметров службы в нижней части экрана щелкните ссылку **Перейти на портал**.![Загрузить](./media/multi-factor-authentication-sdk/download3a.png)
 7. Откроется новая страница. Слева внизу нажмите SDK.
 8. Выберите необходимый язык и щелкните одну из связанных ссылок для загрузки.
 9. Сохраните загружаемый файл.
@@ -191,4 +191,4 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 	    }
 	}
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

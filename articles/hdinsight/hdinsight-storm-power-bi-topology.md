@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="01/06/2015"
+ ms.date="01/08/2016"
  ms.author="larryfr"/>
 
 # Использование средств Power BI (предварительная версия) для визуализации данных из топологии Apache Storm
@@ -139,4 +139,4 @@
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

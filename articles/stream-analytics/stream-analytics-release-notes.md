@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/10/2015" 
+	ms.date="01/13/2015" 
 	ms.author="jeffstok"/>
 
 #Заметки о выпуске Microsoft Stream Analytic
@@ -25,7 +25,7 @@
 Название | Описание
 ---|---
 Обновление версии API REST | API REST обновлен до версии от 01.10.2015. Дополнительную информацию можно найти на сайте MSDN, в разделах [Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx) и [Machine Learning integration in Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
-Интеграция машинного обучения Azure | В этом выпуске обеспечена поддержка определяемых пользователем функций машинного обучения Azure. Учебник можно найти [здесь](stream-analytics-machine-learning-tutorial.md), а объявление в блоге — [здесь](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
+Интеграция машинного обучения Azure | В этом выпуске обеспечена поддержка определяемых пользователем функций машинного обучения Azure. Учебник можно найти [здесь](stream-analytics-machine-learning-integration-tutorial.md), а объявление в блоге — [здесь](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
 
 ## Заметки о выпуске Stream Analytics от 12.11.2015 ##
 
@@ -75,7 +75,7 @@ TIMESTAMP BY для разнородных событий | Если один п
 ---|---
 Добавлена функция LAST |Функция [LAST](http://msdn.microsoft.com/library/mt421186.aspx) теперь доступна для заданий Stream Analytics и позволяет извлекать самое последнее событие в потоке за заданный интервал времени.
 Новые функции массивов|Теперь доступны функции массивов [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) и [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx).
-Новые функции записи|Теперь доступны функции записи [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) и [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx).
+Новые функции записи|Теперь доступны функции записей [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) и [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx).
 
 ## Заметки о выпуске Stream Analytics от 30.07.2015 ##
 
@@ -133,4 +133,4 @@ TIMESTAMP BY для разнородных событий | Если один п
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

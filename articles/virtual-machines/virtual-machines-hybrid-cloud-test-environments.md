@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="09/16/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # Гибридные облачные тестовые среды Azure
@@ -49,14 +49,8 @@
 [Смоделированная гибридная облачная среда](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) ориентирована на организации и отдельных пользователей, которым не удобно использовать прямое подключение к Интернету и общедоступные IP-адреса. Она предоставляет упрощенную локальную сеть в отдельной виртуальной сети Azure, а затем соединяет две виртуальные сети через подключение VPN типа «VNet-to-VNet».
 
 
-## Дополнительные ресурсы
+## Дальнейшие действия
 
-[Фермы SharePoint, размещенные в службах инфраструктуры Azure](virtual-machines-sharepoint-infrastructure-services.md)
+- Получите дополнительные сведения о [руководстве по реализации](virtual-machines-infrastructure-services-implementation-guidelines.md) для создания пользовательского развертывания для разработки и тестирования или производственного развертывания служб инфраструктуры Azure.
 
-[Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-LOB-application.md)
-
-[Развертывание службы синхронизации каталогов Office 365 (DirSync) в Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
-
-[Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

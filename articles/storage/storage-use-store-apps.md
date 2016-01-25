@@ -1,18 +1,19 @@
 <properties
 	pageTitle="Использование службы хранилища Azure в приложениях Магазина Windows | Microsoft Azure"
-	description="Вы узнаете, как использовать BLOB-объекты Azure, очереди, таблицы для хранения данных для приложения Магазина Windows."
+	description="Узнайте, как создать приложение магазина Windows, которое использует BLOB-объекты, очереди, таблицы или хранилище файлов Azure."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah" />
+	manager="carmonm" />
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
+	
 # Использование службы хранилища Azure в приложениях Магазина Windows
 
 ## Обзор
@@ -86,4 +87,4 @@
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

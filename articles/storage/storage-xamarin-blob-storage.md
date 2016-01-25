@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Использование хранилища BLOB-объектов из Xamarin (Предварительная версия) | Microsoft Azure" 
-	description="Клиентская библиотека хранилища Azure для просмотра Xamarin позволяет разработчикам создавать приложения для магазина Windows, iOS и Android из их собственных пользовательских интерфейсов. В этом учебном материале показано, как использовать Xamarin для создания приложения Android, которое использует хранилище BLOB-объектов Azure." 
-	services="storage" 
-	documentationCenter="xamarin" 
-	authors="micurd" 
-	manager="" 
-	editor=""/>
+<properties
+	pageTitle="Использование хранилища BLOB-объектов из Xamarin (Предварительная версия) | Microsoft Azure"
+	description="Клиентская библиотека хранилища Azure для просмотра Xamarin позволяет разработчикам создавать приложения для магазина Windows, iOS и Android из их собственных пользовательских интерфейсов. В этом учебном материале показано, как использовать Xamarin для создания приложения Android, которое использует хранилище BLOB-объектов Azure."
+	services="storage"
+	documentationCenter="xamarin"
+	authors="micurd"
+	manager=""
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # Использование хранилища BLOB-объектов из Xamarin (Предварительная версия)
 
@@ -173,10 +173,6 @@ URI подписи коллективного доступа для нового
 
 Дополнительные сведения о BLOB-объектах, таблицах и очередях вы можете получить перейдя по следующим ссылкам:
 
-[Введение в хранилище Microsoft Azure](storage-introduction.md)  
-[Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md)  
-[Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md)  
-[Использование хранилища очередей из .NET](storage-dotnet-how-to-use-queues.md)
- 
+[Знакомство со службой хранилища Microsoft Azure](storage-introduction.md) [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md) [Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md) [Использование хранилища очередей из .NET](storage-dotnet-how-to-use-queues.md) [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

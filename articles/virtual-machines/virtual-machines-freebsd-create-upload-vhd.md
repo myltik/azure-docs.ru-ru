@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="05/19/2015"
+   ms.date="01/12/2016"
    ms.author="kyliel"/>
 
 # Создание и отправка виртуального жесткого диска FreeBSD в Azure
@@ -27,7 +27,7 @@
 ##Предварительные требования##
 В данной статье предполагается, что у вас есть следующие элементы:
 
-- **Подписка Azure ** — если у вас ее нет, то можно создать учетную запись, что займет всего лишь несколько минут. При наличии подписки MSDN см. раздел [Преимущества Azure для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). В противном случае см. статью о том, как [создать бесплатную пробную учетную запись](http://azure.microsoft.com/pricing/free-trial/).  
+- **Подписка Azure ** — если у вас ее нет, то можно создать учетную запись, что займет всего лишь несколько минут. При наличии подписки MSDN см. статью [Преимущество Azure для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). В противном случае см. статью о том, как [создать бесплатную пробную учетную запись](http://azure.microsoft.com/pricing/free-trial/).  
 
 - **Средства Azure PowerShell.** У вас уже установлен модуль Microsoft Azure PowerShell, настроенный на использование вашей подписки. Информацию о скачивании модуля см. в разделе [Загрузки Azure](http://azure.microsoft.com/downloads/). Учебник по установке и настройке модуля вы найдете здесь. Для передачи VHD-файла вы будете использовать командлет из раздела [Загрузки Azure](http://azure.microsoft.com/downloads/).
 
@@ -72,7 +72,7 @@
 
     5\.1. **Установка python**
 
-		# pkg install python27 py27-asn1
+		# pkg install python27
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python
 
     5\.2. **Установка wget**
@@ -81,7 +81,7 @@
 
 6. **Установка агента Azure**
 
-    Последний выпуск агента Azure всегда можно найти на сайте [github](https://github.com/Azure/WALinuxAgent/releases). В версии 2.0.10 и более поздних официально поддерживается FreeBSD 10 и последующих версий.
+    Последний выпуск агента Azure всегда можно найти на сайте [github](https://github.com/Azure/WALinuxAgent/releases). В версии 2.0.10 и более поздних официально поддерживается FreeBSD 10 и последующих версий. Последняя версия агента Azure для FreeBSD — 2.0.16.
 
 		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
 		# mv waagent /usr/sbin
@@ -106,7 +106,7 @@
 
 Для загрузки файла VHD, который можно использовать в Azure для создания виртуальной машины, потребуется учетная запись хранения в Azure. Для создания учетной записи хранения можно использовать классический портал Azure.
 
-1. Войдите на классический портал Azure.
+1. Войдите на [классический портал Azure](https://manage.windowsazure.com).
 
 2. На панели команд нажмите **Создать**.
 
@@ -186,7 +186,7 @@
 
 1. В окне Azure PowerShell, использованном при выполнении предыдущего шага, введите:
 
-		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>		
+		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
 ## Шаг 5. Создание виртуальной машины с использованием переданного VHD-файла ##
 После загрузки VHD-файла можно добавить его в качестве образа в список пользовательских образов, связанных с вашей подпиской, и создать виртуальную машину помощью с этого пользовательского образа.
@@ -209,4 +209,4 @@
 
 	![образ FreeBSD в Azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -132,7 +132,7 @@
 
 **Конвейер с действием копирования**
 
-Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **AzureTableSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный в свойстве **AzureTableSourceQuery**, каждый час выбирает данные для копирования из стандартного раздела.
+Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **AzureTableSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный в свойстве **AzureTableSourceQuery**, каждый час выбирает данные для копирования из стандартного раздела.
 
 	{  
 	    "name":"SamplePipeline",
@@ -369,7 +369,19 @@
 
 Свойство | Описание | Допустимые значения | Обязательно
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Используйте пользовательский запрос для чтения данных. | <p>Строка запроса таблицы Azure.</p>**Примеры:****<br/> "azureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00\_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00\_9999}\\')', SliceStart)" | Нет azureTableSourceIgnoreTableNotFound | Указание, необходимо ли принять исключение, связанное с тем, что таблица не существует. | TRUE<br/>FALSE | Нет |
+azureTableSourceQuery | Используйте пользовательский запрос для чтения данных. | <p>Строка запроса таблицы Azure. См. примеры ниже. | Нет
+azureTableSourceIgnoreTableNotFound | Указывает, игнорируются ли исключения таблицы. | TRUE<br/>FALSE | Нет |
+
+### Примеры azureTableSourceQuery
+
+Если столбец таблицы Azure имеет тип строки:
+
+	azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\'', SliceStart)"
+
+Если столбец таблицы Azure имеет тип даты и времени:
+
+	"azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', SliceStart, SliceEnd)"
+
 
 **AzureTableSink** поддерживает указанные ниже свойства в разделе typeProperties.
 
@@ -503,4 +515,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

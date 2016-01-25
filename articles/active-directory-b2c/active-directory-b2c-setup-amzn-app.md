@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory (AD) B2C: организация регистрации и входа для потребителей с учетными записями Amazon
@@ -34,17 +34,13 @@
 
     ![Amazon — регистрация приложения](./media/active-directory-b2c-setup-amzn-app/amzn-register-app.png)
 
-5. В разделе **Web Settings** (Параметры Интернета) скопируйте значения **Client ID** (Идентификатор клиента) и **Client secret** (Секрет клиента) (чтобы увидеть его, надо нажать кнопку **Show Secret** (Показать секрет). Оба значения необходимы для настройки Amazon в качестве поставщика удостоверений для вашего клиента. Щелкните **Edit** (Изменить) в нижней части раздела.
+5. В разделе **Web Settings** (Параметры Интернета) скопируйте значения **Client ID** (Идентификатор клиента) и **Client secret** (Секрет клиента) (чтобы увидеть его, надо нажать кнопку **Show Secret** (Показать секрет). Оба значения необходимы для настройки Amazon в качестве поставщика удостоверений для вашего клиента. Щелкните **Edit** (Изменить) в нижней части раздела. Примечание. **Секрет клиента** — это важные учетные данные безопасности.
 
-> [AZURE.NOTE]**Секрет клиента** — это важные учетные данные безопасности.
+    ![Amazon — секрет клиента](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
 
-    ![Amazon - Client secret](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
+6. Введите адрес [https://login.microsoftonline.com](https://login.microsoftonline.com) в поле **Разрешенные источники JavaScript** и `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` в поле **Разрешенные URL-адреса возврата**, заменив **{клиент}** именем своего клиента (например contoso.onmicrosoft.com). Щелкните **Сохранить**. Примечание. В значении **{клиент}** необходимо учитывать регистр.
 
-6. Введите адрес [https://login.microsoftonline.com](https://login.microsoftonline.com) в поле **Разрешенные источники JavaScript** и `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` в поле **Разрешенные URL-адреса возврата**, заменив **{клиент}** именем своего клиента (например contoso.onmicrosoft.com). Щелкните **Сохранить**.
-
-> [AZURE.NOTE]В значении **{клиент}** необходимо учитывать регистр.
-
-    ![Amazon - URLs](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
+    ![Amazon — URL-адреса](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 
 ## Настройка Amazon в качестве поставщика удостоверений для клиента
 
@@ -56,4 +52,4 @@
 6. Щелкните **Настроить этого поставщика удостоверений** и введите **идентификатор клиента** и **секрет клиента** ранее созданного приложения Amazon.
 7. Нажмите кнопку **ОК**, а затем — **Создать**, чтобы сохранить конфигурацию Amazon.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

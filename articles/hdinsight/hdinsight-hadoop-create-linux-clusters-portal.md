@@ -96,7 +96,7 @@
 
 		![Колонка "Виртуальная сеть"](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.6.png "Укажите сведения о виртуальной сети")
 
-    	>[AZURE.NOTE]Кластер HDInsight на основе Windows можно разместить только в классической виртуальной сети.
+    	Сведения об использовании HDInsight в виртуальной сети, включая требования к конфигурации виртуальной сети, см. в разделе [Расширение возможностей HDInsight с помощью виртуальной сети Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 	* Щелкните **Внешние метахранилища**, чтобы указать базу данных SQL, которую вы хотите использовать для сохранения метаданных Hive и Oozie, связанных с кластером.
     
@@ -182,4 +182,4 @@
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

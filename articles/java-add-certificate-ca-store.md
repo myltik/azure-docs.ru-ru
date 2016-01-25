@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="multiple" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 # Добавление сертификата в хранилище сертификатов ЦС Java
@@ -46,7 +46,7 @@
 
 Приложения, использующие службы Azure (например, Azure Service Bus), должны доверять сертификату Baltimore CyberTrust Root. (С 15 апреля 2013 года Azure начала миграцию с глобальной основы GTE CyberTrust в Baltimore CyberTrust Root. Такая миграция продолжается несколько месяцев.)
 
-Сертификат Baltimore может быть установлен в вашем хранилище cacerts, поэтому не забудьте выполнить команду **keytool -list**, чтобы проверить его наличие.
+Сертификат Baltimore может быть установлен в вашем хранилище cacerts, поэтому не забудьте выполнить команду **keytool -list**, чтобы проверить, существует ли он уже.
 
 Если требуется добавить Baltimore CyberTrust Root, он имеет серийный номер 02:00:00:b9 и отпечаток пальца SHA1 d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Его можно скачать с <https://cacert.omniroot.com/bc2025.crt>, сохранить в локальном файле с расширением **.cer**, а затем импортировать с помощью **keytool**, как показано выше.
 
@@ -56,4 +56,4 @@
 
 Дополнительную информацию о Java см. в [Центре разработчика Java](/develop/java/).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

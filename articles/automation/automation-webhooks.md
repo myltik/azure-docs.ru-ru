@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Объекты Webhook в службе автоматизации Azure"
+   pageTitle="Объекты Webhook службы автоматизации Azure | Microsoft Azure"
    description="Объект Webhook, который позволяет клиенту запустить модуль Runbook в службе автоматизации Azure с помощью HTTP-запроса. В статье рассматривается создание объекта Webhook и вызов такого объекта для запуска модуля Runbook."
    services="automation"
    documentationCenter=""
@@ -125,8 +125,10 @@
 	$uri = "https://s1events.azure-automation.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
 	$headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
     
-    $vms  = @([pscustomobject]@{Name="vm01";ServiceName="vm01"})
-    $vms += @([pscustomobject]@{Name="vm02";ServiceName="vm02"})
+    $vms  = @(
+    			@{ Name="vm01";ServiceName="vm01"},
+    			@{ Name="vm02";ServiceName="vm02"}
+    		)
 	$body = ConvertTo-Json -InputObject $vms 
 
 	$response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
@@ -266,10 +268,10 @@
 
  
 
-## Связанные статьи
+## Дальнейшие действия
 
-- [Запуск модуля Runbook](automation-starting-a-runbook.md)
-- [Просмотр состояния задания Runbook](automation-viewing-the-status-of-a-runbook-job.md)
+- Дополнительные сведения о различных способах запуска модуля Runbook см. в статье [Запуск модуля Runbook](automation-starting-a-runbook.md).
+- Сведения о просмотре состояния задания Runbook см. в статье [Выполнение модуля Runbook в службе автоматизации Azure](automation-runbook-execution.md).
 - [Использование службы автоматизации Azure для реагирования на оповещения Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio
@@ -125,7 +125,7 @@ Visual Studio обеспечивает доступ к подмножеству 
 
 1. Откройте веб-проект, созданный в разделе [Начало работы с Azure и ASP.NET][GetStarted].
 
-1. Откройте *Controllers\HomeController.cs*.
+1. Откройте *Controllers\\HomeController.cs*.
 
 2. Удалите метод `About()` и вставьте вместо него следующий код.
 
@@ -298,7 +298,7 @@ Visual Studio обеспечивает доступ к подмножеству 
 
 ### Добавление инструкций трассировки в приложение
 
-1. Откройте *Controllers\HomeController.cs* и замените содержимое файла на следующий код, чтобы добавить инструкции `Trace` и `using` для `System.Diagnostics`:
+1. Откройте *Controllers\\HomeController.cs* и замените содержимое файла на следующий код, чтобы добавить инструкции `Trace` и `using` для `System.Diagnostics`:
 
 		using System;
 		using System.Collections.Generic;
@@ -519,9 +519,9 @@ Visual Studio обеспечивает доступ к подмножеству 
 
 	![Загруженный файл](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* Журналы трассировки приложения содержатся в *TXT*-файлах в папке *LogFiles\Application*.
-	* Журналы веб-сервера содержатся в *LOG*-файлах в папке *LogFiles\http\RawLogs*. Можно использовать средство, аналогичное [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) для просмотра и обработки этих файлов.
-	* Подробные журналы сообщений об ошибках содержатся в *HTML*-файлах в папке *LogFiles\DetailedErrors*.
+	* Журналы трассировки приложения содержатся в *TXT*-файлах в папке *LogFiles\\Application*.
+	* Журналы веб-сервера содержатся в *LOG*-файлах в папке *LogFiles\\http\\RawLogs*. Можно использовать средство, аналогичное [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) для просмотра и обработки этих файлов.
+	* Подробные журналы сообщений об ошибках содержатся в *HTML*-файлах в папке *LogFiles\\DetailedErrors*.
 
 	(Папка *deployments* предназначена для файлов, созданных при публикации системы управления версиями; она никак не связана с публикациями Visual Studio. Папка *Git* предназначена для трассировок, относящихся к публикациям системы управления версиями и службы потоковой передачи файлов журналов.)
 
@@ -567,8 +567,7 @@ Visual Studio обеспечивает доступ к подмножеству 
 
 1. В окне Visual Studio **Веб-приложение Azure** откройте вкладку **Журналы**, а затем щелкните **Настроить ведение журналов на портале управления**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![Настройка журнала](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Настройка журнала](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	После этого на классическом портале Azure откроется вкладка **Настройка** для вашего веб-приложения.
 
@@ -762,4 +761,4 @@ Visual Studio обеспечивает доступ к подмножеству 
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

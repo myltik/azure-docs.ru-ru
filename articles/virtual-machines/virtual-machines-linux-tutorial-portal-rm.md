@@ -20,11 +20,11 @@
 # Создание виртуальной машины, работающей под управлением ОС Linux, на портале Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
 
@@ -34,8 +34,6 @@
 Создать виртуальную машину Azure, работающую под управлением ОС Linux, несложно. Из данного руководства вы узнаете, как быстро создать такую виртуальную машину с помощью портала Azure и как использовать файл открытого ключа `~/.ssh/id_rsa.pub` для защиты подключения к виртуальной машине по **SSH**. Вы также можете создавать виртуальные машины Linux, используя [свои собственные образы в качестве шаблонов](virtual-machines-linux-create-upload-vhd.md).
 
 > [AZURE.NOTE]В данном учебнике показано, как создать виртуальную машину Azure, управляемую с помощью API группы ресурсов Azure. Дополнительные сведения см. в [обзоре групп ресурсов Azure](resource-group-overview.md).
-
-</br>
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -49,7 +47,7 @@
 
 	![выбор образа виртуальной машины](media/virtual-machines-linux-tutorial-portal-rm/chooseubuntuvm.png)
 
-	> [AZURE.TIP]Чтобы найти дополнительные образы, щелкните **Marketplace**, а затем выполните поиск среди доступных элементов или отфильтруйте их.
+	> [AZURE.TIP]Чтобы найти дополнительные образы, выберите пункт **Marketplace**, а затем выполните поиск среди доступных элементов или отфильтруйте их список необходимым образом.
 
 3. Чтобы создать виртуальную машину в диспетчере ресурсов Azure, в нижней части страницы **Ubuntu Server 14.04 LTS** выберите пункт **Использовать стек диспетчера ресурсов**. Обратите внимание, что для большинства новых рабочих нагрузок рекомендуется использовать стек диспетчера ресурсов. Дополнительные сведения см. в статье [Поставщики вычислительных и сетевых ресурсов, а также ресурсов службы хранилища Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md).
 
@@ -75,7 +73,7 @@
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-3-settings.png)
 
-6. Щелкните **Сводка**, чтобы отобразить выбранные значения параметров. После проверки или изменения параметров щелкните ![кнопка ОК](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
+6. Щелкните **Сводка**, чтобы отобразить выбранные вами значения параметров. После проверки или изменения параметров щелкните ![кнопка ОК](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
 
 	![сводка по созданию](media/virtual-machines-linux-tutorial-portal-rm/summarybeforecreation.png)
 
@@ -138,4 +136,4 @@
 
 - [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

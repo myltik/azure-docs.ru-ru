@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Управление статистикой в хранилище данных SQL
  Хранилище данных SQL использует статистику для оценки стоимости разных способов выполнения распределенных запросов. Если статистика точная, оптимизатор запросов может сформировать планы запросов высокого качества, которые повышают производительность запросов.
@@ -459,4 +459,4 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [Обновление статистики]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

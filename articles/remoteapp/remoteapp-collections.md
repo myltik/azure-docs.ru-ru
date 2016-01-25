@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/28/2015" 
+    ms.date="01/07/2016" 
     ms.author="elizapo" />
 
 
@@ -91,4 +91,4 @@ Azure RemoteApp поддерживает как учетные записи Ма
 
 [Создайте облачную](remoteapp-create-cloud-deployment.md) или [гибридную коллекцию](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

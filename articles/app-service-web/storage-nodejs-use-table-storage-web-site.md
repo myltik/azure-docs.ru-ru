@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 
@@ -48,7 +48,7 @@
 
 * [node] версии 0.10.24 или выше
 
-* [Git].
+* [Git.]
 
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -500,9 +500,7 @@
 
 	Эта команда запускает браузер и открывает страницу загрузки. Если будет предложено, войдите с учетной записью, которая связана с вашей подпиской Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->
-
-	Скачивание файла должно начаться автоматически. Если этого не произошло, можно щелкнуть ссылку в начале страницы, чтобы скачать файл вручную. Сохраните файл и запомните путь к нему.
+	<!-- ![The download page][download-publishing-settings] -->Скачивание файла должно начаться автоматически. Если этого не произошло, можно щелкнуть ссылку в начале страницы, чтобы скачать файл вручную. Сохраните файл и запомните путь к нему.
 
 2. Введите следующую команду, чтобы импортировать параметры.
 
@@ -610,6 +608,7 @@
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
+[Git.]: http://git-scm.com
 [Express]: http://expressjs.com
 [for free]: http://windowsazure.com
 [удаленный репозиторий Git]: http://git-scm.com/docs/git-remote
@@ -642,4 +641,4 @@
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

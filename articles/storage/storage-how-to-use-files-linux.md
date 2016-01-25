@@ -5,7 +5,7 @@
         documentationCenter="na"
         authors="jasontang501"
         manager="jahogg"
-        editor="" />
+        editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,10 +13,10 @@
       ms.devlang="na"
       ms.topic="article"
       ms.date="12/17/2015"
-      ms.author="jutang;tamram" />
+      ms.author="jutang" />
 
 
-# Использование хранилища файлов Azure в Linux 
+# Использование хранилища файлов Azure в Linux
 
 ## Обзор
 
@@ -40,10 +40,10 @@
 
 При создании виртуальной машины Linux в Azure можно указать образ Linux, который поддерживает SMB 2.1 или более поздней версии, из коллекции образов Azure. Ниже приведен список рекомендуемых образов Linux:
 
-- Ubuntu Server 14.04	
-- Ubuntu Server 15.04	
-- CentOS 7.1	
-- Open SUSE 13.2	
+- Ubuntu Server 14.04
+- Ubuntu Server 15.04
+- CentOS 7.1
+- Open SUSE 13.2
 - SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12 (образ Premium)
 
@@ -60,7 +60,7 @@
 Для подключения общей папки можно также добавить параметры в свой /etc/fstab.
 
 Обратите внимание на то, что 0777 здесь представляет код разрешения файла или каталога, который предоставляет всем пользователям разрешения на выполнение, чтение или запись. Его можно заменить другим кодом разрешения файла, согласно документации по разрешениям файлов Linux.
- 
+
 Чтобы сохранить подключение общей папки после перезагрузки, можно добавить в /etc/fstab параметр следующего вида:
 
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -98,7 +98,7 @@
 - передавать файлы в общую папку и скачивать файлы из нее;
 - отслеживать фактическое использование каждой общей папки;
 - изменять квоты на размер общей папки;
-- копировать команду `net use`, которая позволит подключить общую папку с клиентского компьютера Windows. 
+- копировать команду `net use`, которая позволит подключить общую папку с клиентского компьютера Windows.
 
 Для управления общей папкой можно также использовать межплатформенный интерфейс командной строки Azure (Azure CLI) в Linux. Azure CLI предоставляет набор межплатформенных команд с открытым кодом для работы с хранилищем Azure, включая хранилища файлов. Он предоставляет практически те же функции, что и портал Azure, а также различные возможности доступа к данным. Примеры см. в статье [Использование интерфейса командной строки CLI Azure со службой хранилища Azure](storage-azure-cli.md).
 
@@ -106,7 +106,7 @@
 
 Разработчики могут построить приложение с хранилищем файлов, используя [клиентскую библиотеку хранилища Azure для Java](https://github.com/azure/azure-storage-java). Примеры кода см. в статье [Использование хранилища файлов из Java](storage-java-how-to-use-file-storage.md).
 
-Кроме того, для разработки хранилища файлов вы можете использовать [клиентскую библиотеку хранилища Azure для Node.js](https://github.com/Azure/azure-storage-node).
+Для разработки хранилища файлов можно также использовать [клиентскую библиотеку хранилища Azure для Node.js](https://github.com/Azure/azure-storage-node).
 
 ## Обратная связь и дополнительные сведения ##
 
@@ -136,8 +136,8 @@
 ### Записи блога
 
 - [Хранилище файлов Azure стало общедоступным](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Подробный обзор хранилища файлов Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Подробный обзор хранилища файлов Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
 - [Введение в службы файлов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

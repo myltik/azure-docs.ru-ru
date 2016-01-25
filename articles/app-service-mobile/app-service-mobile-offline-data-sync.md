@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="01/11/2015"
 	ms.author="wesmc"/>
 
 # Автономная синхронизация данных в мобильных приложениях Azure
@@ -36,10 +36,11 @@
 
 В следующих учебниках показано, как добавить автономную синхронизацию в мобильные клиенты с помощью мобильных приложений Azure:
 
+* [Android: включение автономной синхронизации]
 * [iOS: включение автономной синхронизации]			
 * [Xamarin iOS: включение автономной синхронизации]	
 * [Xamarin Android: включение автономной синхронизации]
-* [Windows 8.1: включение автономной синхронизации]	
+* [Windows 8.1: включение автономной синхронизации]
 
 ## Что такое таблица синхронизации?
 
@@ -121,9 +122,10 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 
 <!-- Links -->
 
+[Android: включение автономной синхронизации]: ../app-service-mobile-android-get-started-offline-data.md
 [iOS: включение автономной синхронизации]: ../app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: включение автономной синхронизации]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: включение автономной синхронизации]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: включение автономной синхронизации]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

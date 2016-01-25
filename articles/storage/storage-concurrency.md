@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Управление параллелизмом в службе хранилища Microsoft Azure" 
-	description="Как управлять параллелизмом для служб BLOB-объектов, очередей, таблиц и файлов" 
-	services="storage" 
-	documentationCenter="" 
-	authors="jasonnewyork" 
-	manager="tadb" 
-	editor=""/>
+	pageTitle="Управление параллелизмом в службе хранилища Microsoft Azure"
+	description="Как управлять параллелизмом для служб BLOB-объектов, очередей, таблиц и файлов"
+	services="storage"
+	documentationCenter=""
+	authors="jasonnewyork"
+	manager="tadb"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/03/2015"
 	ms.author="jahogg"/>
 
 # Управление параллелизмом в службе хранилища Microsoft Azure
 
-## Обзор 
+## Обзор
 
 В современных интернет-приложениях данные могут одновременно просматриваться и обновляться несколькими пользователями. Это требует от разработчиков приложений тщательного подхода для обеспечения предсказуемого взаимодействия с конечным пользователем, в частности для сценариев с одновременным обновлением данных несколькими пользователями. Обычно разработчики рассматривают три следующие основные стратегии конфликтов данных:
 
@@ -34,7 +34,7 @@
 
 Кроме выбора соответствующей стратегии параллелизма разработчики должны иметь представление о том, как платформа службы хранилища изолирует изменения, в частности изменения одних и тех же объектов между транзакциями. Служба хранилища Azure использует изоляцию моментального снимка, чтобы позволить одновременное выполнение операций чтения и записи в рамках одного раздела. В отличие от других уровней изоляции, изоляция моментального снимка гарантирует видимость операциям чтения только согласованных моментальных снимков данных даже при их обновлении, возвращая, по сути, в процессе обновления последние фиксированные значения.
 
-## Управление параллелизмом в службе BLOB-объектов
+## Управление параллелизмом в хранилище BLOB-объектов
 Вы можете выбрать модель оптимистического или пессимистичного параллелизма для управления доступа к BLOB-объектам и контейнерам службы BLOB-объектов. Если вы не указываете стратегию, то применяется стратегия по умолчанию "Сохраняются изменения, внесенные последними".
 
 ### Оптимистичный параллелизм для BLOB-объектов и контейнеров  
@@ -52,18 +52,18 @@
 Следующий фрагмент C#-кода (с использованием клиентской библиотеки хранилища версии 4.2.0) является простым примером того, как построить **If-Match AccessCondition**, основанное на значении ETag, доступном из свойств извлеченного или вставленного до этого BLOB-объекта. Затем он использует объект **AccessCondition** при обновлении BLOB-объекта: объект **AccessCondition** добавляет заголовок **If-Match** к запросу. Если произошло обновление BLOB-объекта другим процессом, служба возвращает сообщение о состоянии HTTP 412 (Необходимое условие не выполнено). Полное описание можно скачать [здесь](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).
 
 	// Retrieve the ETag from the newly created blob
-	// Etag is already populated as UploadText should cause a PUT Blob call 
+	// Etag is already populated as UploadText should cause a PUT Blob call
 	// to storage blob service which returns the etag in response.
 	string orignalETag = blockBlob.Properties.ETag;
-	 
+
 	// This code simulates an update by a third party.
 	string helloText = "Blob updated by a third party.";
-	 
+
 	// No etag, provided so orignal blob is overwritten (thus generating a new etag)
 	blockBlob.UploadText(helloText);
-	Console.WriteLine("Blob updated. Updated ETag = {0}", 
+	Console.WriteLine("Blob updated. Updated ETag = {0}",
 	blockBlob.Properties.ETag);
-	 
+
 	// Now try to update the blob using the orignal ETag provided when the blob was created
 	try
 	{
@@ -121,13 +121,13 @@ Lease Blob (*)| Да| Да| Snapshot Blob| Да| Да| Copy Blob| Да| Да (д
 	// Acquire lease for 15 seconds
 	string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
 	Console.WriteLine("Blob lease acquired. Lease = {0}", lease);
-	 
+
 	// Update blob using lease. This operation will succeed
 	const string helloText = "Blob updated";
 	var accessCondition = AccessCondition.GenerateLeaseCondition(lease);
 	blockBlob.UploadText(helloText, accessCondition: accessCondition);
 	Console.WriteLine("Blob updated using an exclusive lease");
-	 
+
 	//Simulate third party update to blob without lease
 	try
 	{
@@ -182,7 +182,7 @@ Lease Blob (*)| Да| Да| Snapshot Blob| Да| Да| Copy Blob| Да| Да (д
 
 - [Указание условных заголовков для операций службы BLOB-объектов](http://msdn.microsoft.com/library/azure/dd179371.aspx)
 - [Аренда контейнера](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-- [Аренда большого двоичного объекта ](http://msdn.microsoft.com/library/azure/ee691972.aspx) 
+- [Аренда большого двоичного объекта ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## Управление параллелизмом в службе таблиц
 Когда вы работаете с сущностями, служба таблиц использует по умолчанию проверку оптимистичного параллелизма в отличие от службы BLOB-объектов, где вы должны монопольно выбирать проверку оптимистичного параллелизма. Другое отличие служб таблиц и BLOB-объектов заключается в том, что вы можете управлять параллельным поведением только сущностей, в то время как в службе BLOB-объектов можно управлять параллелизмом контейнеров и BLOB-объектов.
@@ -211,7 +211,7 @@ Lease Blob (*)| Да| Да| Snapshot Blob| Да| Да| Copy Blob| Да| Да (д
 	    if (ex.RequestInformation.HttpStatusCode == 412)
 	        Console.WriteLine("Optimistic concurrency violation – entity has changed since it was retrieved.");
 	    else
-	        throw; 
+	        throw;
 	}  
 
 Для явного отключения проверки на параллелизм вам следует задать характеристику **ETag** **рядового** объекта в виде “*”, прежде чем вы выполните операцию замены.
@@ -228,7 +228,7 @@ Update Entity (Обновление сущности)|	Да|	Да|
 Merge Entity (Слияние сущностей)|	Да|	Да|
 Delete Entity (Удаление сущности)|	Нет|	Да|
 Insert or Replace Entity (Вставка или замена сущности)|	Да|	Нет|
-Insert or Merge Entity (Вставка или слияние сущностей)|	Да|	Нет 
+Insert or Merge Entity (Вставка или слияние сущностей)|	Да|	Нет
 
 Обратите внимание на то, что операции **Insert or Replace Entity** и **Insert or Merge Entity** *не* проверяют параллелизм, так как они не отправляют значение ETag в службу таблиц.
 
@@ -271,6 +271,4 @@ Insert or Merge Entity (Вставка или слияние сущностей)
 - Знакомство с хранилищем для [больших двоичных объектов](storage-dotnet-how-to-use-blobs.md), [таблиц](storage-dotnet-how-to-use-tables.md) и [очередей](storage-dotnet-how-to-use-queues.md)
 - Архитектура хранилища — [служба хранилища Microsoft Azure: доступная служба облачного хранения со строгой согласованностью](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

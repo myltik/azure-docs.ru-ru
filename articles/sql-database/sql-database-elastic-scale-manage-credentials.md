@@ -70,11 +70,11 @@
 ## См. также
 [Управление базами данных и именами входа в Базе данных SQL Azure](sql-database-manage-logins.md)
 
-[Добавление пользователей в эластичный пул баз данных.](sql-database-elastic-jobs-add-logins-to-dbs.md)
+[Защита Базы данных SQL](sql-database-security.md)
 
 [Начало работы с заданиями обработки эластичных баз данных](sql-database-elastic-jobs-getting-started.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

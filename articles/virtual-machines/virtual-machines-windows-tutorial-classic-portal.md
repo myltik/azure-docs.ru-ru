@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Создание виртуальной машины под управлением Windows в Azure"
+	pageTitle="Создание виртуальной машины под управлением Windows на классическом портале | Microsoft Azure"
 	description="Информация о создании виртуальной машины под управлением Windows на классическом портале Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
 # Создание виртуальной машины под управлением Windows на классическом портале Azure
@@ -25,9 +25,11 @@
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
+<!-- HHTML comment in to break between the selector and the note in the include below-->
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-windows-tutorial.md).
 
-В этом учебнике показано, как просто создать виртуальную машину Azure на классическом портале Azure. Мы будем использовать в качестве примера образ Windows Server, но это лишь один из многих образов, предлагаемых в Azure. Обратите внимание, что доступные образы зависят от подписки. Например, подписчикам MSDN могут быть доступны образы рабочих столов.
+В этом учебнике показано, как просто создать виртуальную машину Azure под управлением Windows на классическом портале Azure. Мы будем использовать в качестве примера образ Windows Server, но это лишь один из многих образов, предлагаемых в Azure. Обратите внимание, что доступные образы зависят от подписки. Например, подписчикам MSDN могут быть доступны образы рабочих столов Windows.
 
 Можно также создавать виртуальные машины с помощью [собственных образов](virtual-machines-create-upload-vhd-windows-server.md). Дополнительную информацию об этом и других методах см. в статье [Различные способы создания виртуальной машины Windows](virtual-machines-windows-choices-create-vm.md).
 
@@ -49,8 +51,8 @@
 
 ## Дальнейшие действия
 
-- Войдите в виртуальную машину. Указания см. в разделе [Вход в виртуальную машину под управлением Windows Server](virtual-machines-log-on-windows-server.md).
+- Войдите в виртуальную машину. Инструкции см. в статье [Вход в виртуальную машину под управлением Windows Server](virtual-machines-log-on-windows-server.md).
 
-- Подключите диск для хранения данных. Можно присоединять пустые диски и диски с данными. Указания см. в [руководстве по подключению диска данных](storage-windows-attach-disk.md).
+- Подключите диск для хранения данных. Можно присоединять пустые диски и диски с данными. Инструкции см. в статье [Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания](storage-windows-attach-disk.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

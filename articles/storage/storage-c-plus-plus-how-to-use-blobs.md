@@ -1,20 +1,20 @@
-<properties 
-    pageTitle="Использование хранилища BLOB-объектов (C++) | Microsoft Azure" 
-    description="Узнайте, как использовать службу хранилища BLOB-объектов в Azure. Примеры написаны на C++." 
-    services="storage" 
-    documentationCenter=".net" 
-    authors="tamram" 
-    manager="adinah" 
-    editor=""/>
+<properties
+    pageTitle="Использование хранилища BLOB-объектов (C++) | Microsoft Azure"
+    description="Узнайте, как использовать службу хранилища BLOB-объектов в Azure. Примеры написаны на C++."
+    services="storage"
+    documentationCenter=".net"
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="tamram"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # Использование хранилища BLOB-объектов из C++  
 
@@ -78,7 +78,7 @@
 
 В этом примере показано, как создать контейнер:
 
-	try 
+	try
 	{
 		// Retrieve storage account from connection string.
 		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -189,7 +189,7 @@
 
 	std::ofstream outfile("DownloadBlobFile.txt", std::ofstream::binary);
 	std::vector<unsigned char>& data = buffer.collection();
-		
+
 	outfile.write((char *)&data[0], buffer.size());
 	outfile.close();  
 
@@ -238,8 +238,4 @@
 -	[Документация по хранилищу Azure](http://azure.microsoft.com/documentation/services/storage/)
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 
-
-
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

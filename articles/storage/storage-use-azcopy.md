@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="micurd" 
 	manager="jahogg" 
-	editor="cgronlun"/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -982,4 +982,4 @@ AzCopy предназначен для максимального использ
 - [AzCopy: использование копирования больших двоичных объектов между разными учетными записями](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: отправка и скачивание файлов для больших двоичных объектов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

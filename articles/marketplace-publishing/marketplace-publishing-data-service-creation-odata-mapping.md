@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/06/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # Сопоставление существующей веб-службы и OData с помощью CSDL
@@ -72,12 +72,9 @@ CSDL (язык определения концептуальной схемы) �
 > [AZURE.TIP]Щелкните раскрывающийся список **Другие версии** и выберите версию, если вы не видите статью.
 
 ### EDM — модель данных записи
-- Обзор: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx](OverviewLink)
-[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- Предварительная версия: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx](PreviewLink)
-[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- Типы данных: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx](DataTypesLink)
-[DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+- Обзор: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink] [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+- Предварительная версия: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink] [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+- Типы данных: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink] [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 Ниже представлен подробный поток слева направо, из которого клиент вводит инструкцию OData (вызов веб-службы поставщика содержимого) для получения данных и результатов:
 
@@ -301,4 +298,4 @@ CSDL — это грамматика XML для описания веб-служ
 - Если вы хотите поработать с примерами, см. статью [Примеры сопоставления OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping-examples.md), где приводятся примеры кода вместе с объяснением синтаксиса и контекста.
 - Чтобы вернуться к указанному пути для публикации службы данных в Azure Marketplace, см. статью [Руководство по публикации службы данных](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

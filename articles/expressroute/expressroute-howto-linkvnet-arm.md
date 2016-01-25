@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="01/07/2015"
    ms.author="ganesr" />
 
 # Связывание виртуальных сетей с каналами ExpressRoute
@@ -23,7 +23,7 @@
 - [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)
 - [Template - Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
-В этой статье приводится краткое описание связывания виртуальных сетей с каналами ExpressRoute. Виртуальные сети могут быть в той же или другой подписке. Процедуры в этой статье относятся к виртуальным сетям, развернутым с помощью классической модели развертывания. Если требуется связать виртуальную сеть, которая была развернута с помощью метода развертывания диспетчера ресурсов Azure, это можно сделать с помощью шаблона. См. вкладку выше, чтобы перейти в шаблону.
+В этой статье приводится краткое описание связывания виртуальных сетей с каналами ExpressRoute. Виртуальные сети могут быть в той же или другой подписке. Процедуры в этой статье относятся к виртуальным сетям, развернутым с помощью модели развертывания диспетчера ресурсов. Если вам нужно дать ссылку на виртуальную сеть, развернутую по классической модели развертывания, обратитесь к статье [Привязка виртуальной сети к каналу ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -137,4 +137,4 @@
 
 Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

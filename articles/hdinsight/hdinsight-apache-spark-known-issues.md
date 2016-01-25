@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="01/13/2016" 
 	ms.author="jgao"/>
 
 # Известные проблемы Apache Spark в Azure HDInsight (Linux)
 
-В этом документе отслеживаются все известные проблемы с общедоступной предварительной версией Spark.
+В этом документе отслеживаются все известные проблемы с общедоступной предварительной версией Spark HDInsight.
 
 ##Утечка интерактивного сеанса Livy
  
@@ -139,4 +139,4 @@
 - [Обзор. Apache Spark в Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
 - [Начало работы. Подготовка к работе Apache Spark в Azure HDInsight (Linux) и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

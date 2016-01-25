@@ -3,7 +3,7 @@
 	description="В этом коротком уроке вы научитесь создавать веб-приложение посредством добавления служб хранилища Azure и модуля Azure." 
 	services="cloud-services, storage" 
 	documentationCenter="nodejs" 
-	authors="TomArcher" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,13 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="tarcher"/>
-
-
-
-
-
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 # Веб-приложение Node.js, использующее хранилище
 
@@ -408,4 +403,4 @@
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

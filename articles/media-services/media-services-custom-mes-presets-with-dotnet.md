@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"    
+	ms.date="01/10/2015"    
 	ms.author="juliako"/>
 
 
@@ -29,7 +29,7 @@
 - [Монтаж видео (обрезка)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
 - [Создание наложения](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [Вставка звуковой дорожки с тишиной, если входные данные не содержат звука](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
-
+- [Отключение автоматического устранения чересстрочной развертки](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 
 ##<a id="encoding_with_dotnet"></a>Кодирование с помощью пакета SDK служб мультимедиа для .NET
 
@@ -37,7 +37,7 @@
 
 - Создание задания кодирования.
 - Получение ссылки на стандартный кодировщик мультимедиа.
-- Загрузка пользовательских предустановок в формате XML или JSON. Вы можете сохранить этот код [XML](media-services-custom-mes-presets-with-dotnet.md#xml) или [JSON](media-services-custom-mes-presets-with-dotnet.md#json) в файл и использовать указанный ниже код для загрузки файла.
+- Загрузка пользовательских предустановок в формате XML или JSON. Вы можете сохранить XML или JSON (например [XML](media-services-custom-mes-presets-with-dotnet.md#xml) или [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) в файл и использовать указанный ниже код для загрузки файла.
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
@@ -216,7 +216,7 @@
 
 ##<a id="thumbnails"></a>Создание эскизов
 
-В этом разделе показано, как настроить предустановку, которая создает эскизы. Предустановка, определенная ниже, содержит сведения о том, как должен кодироваться файл, а также сведения, необходимые для создания эскизов. Вы можете использовать любую из предустановок стандартного кодировщика, которые определены [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и добавить в нее код для создания эскизов.
+В этом разделе показано, как настроить предустановку, которая создает эскизы. Предустановка, определенная ниже, содержит сведения о том, как должен кодироваться файл, а также сведения, необходимые для создания эскизов. Вы можете использовать любую из предустановок стандартного кодировщика мультимедиа, которые определены [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и добавить в нее код для создания эскизов.
 
 Сведения о схеме см. в [этом](https://msdn.microsoft.com/library/mt269962.aspx) разделе.
 
@@ -422,12 +422,18 @@
 
 В этом разделе рассказывается об изменении предустановок кодировщика для обрезки входного видеоролика, при котором входной видеоролик представляет собой так называемый мезонинный файл или файл по требованию. Кодировщик может также использоваться для обрезки ресурса, который записывается или архивируется из потока в реальном времени — подробные сведения об этом доступны в [этом блоге](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Для обрезки видео можно взять любую из предустановок стандартного кодировщика мультимедиа, которые описаны [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и изменить элемент **Sources** (как показано ниже).
+Для обрезки видео можно взять любую из предустановок стандартного кодировщика мультимедиа, которые описаны [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и изменить элемент **Sources** (как показано ниже). Обратите внимание, что элемент **Sources** должен размещаться в верхней части схемы.
 
 ###<a id="json"></a>Предустановка JSON
 	
 	{
 	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "StartTime": "00:00:04",
+	      "Duration": "00:00:16"
+	    }
+	  ],
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
@@ -535,20 +541,132 @@
 	        "Type": "MP4Format"
 	      }
 	    }
-	  ],
-	  "Sources": [
-	    {
-	      "StartTime": "00:00:04",
-	      "Duration": "00:00:16"
-	    }
 	  ]
 	} 
 
+###Предустановка XML
+	
+Для обрезки видео можно взять любую из предустановок стандартного кодировщика мультимедиа, которые описаны [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и изменить элемент **Sources** (как показано ниже).
 
+	<?xml version="1.0" encoding="utf-16"?>
+	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	  <Sources>
+	    <Source StartTime="PT4S" Duration="PT14S"/>
+	  </Sources>
+	  <Encoding>
+	    <H264Video>
+	      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	      <H264Layers>
+	        <H264Layer>
+	          <Bitrate>3400</Bitrate>
+	          <Width>1280</Width>
+	          <Height>720</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>3400</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>2250</Bitrate>
+	          <Width>960</Width>
+	          <Height>540</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>2250</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>1500</Bitrate>
+	          <Width>960</Width>
+	          <Height>540</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1500</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>1000</Bitrate>
+	          <Width>640</Width>
+	          <Height>360</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1000</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>650</Bitrate>
+	          <Width>640</Width>
+	          <Height>360</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>650</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>400</Bitrate>
+	          <Width>320</Width>
+	          <Height>180</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>400</MaxBitrate>
+	        </H264Layer>
+	      </H264Layers>
+	      <Chapters />
+	    </H264Video>
+	    <AACAudio>
+	      <Profile>AACLC</Profile>
+	      <Channels>2</Channels>
+	      <SamplingRate>48000</SamplingRate>
+	      <Bitrate>128</Bitrate>
+	    </AACAudio>
+	  </Encoding>
+	  <Outputs>
+	    <Output FileName="{Basename}_{Width}x{Height}_{VideoBitrate}.mp4">
+	      <MP4Format />
+	    </Output>
+	  </Outputs>
+	</Preset>
 
 ##<a id="overlay"></a>Создание наложения
 
-Стандартный кодировщик служб мультимедиа позволяет наложить изображение (например jpg или gif) на существующее видео. Предустановка, определенная ниже, представляет собой базовый пример наложения видео.
+Стандартный кодировщик служб мультимедиа позволяет наложить изображение на существующее видео. В настоящее время поддерживаются следующие форматы: png, jpg, gif и bmp. Предустановка, определенная ниже, представляет собой базовый пример наложения видео.
 
 >[AZURE.NOTE]В настоящее время прозрачность наложения изменять нельзя.
 
@@ -703,7 +821,7 @@
 
 Чтобы заставить кодировщик создать ресурс, содержащий звуковую дорожку с тишиной, когда входные данные не содержат звука, укажите значение "InsertSilenceIfNoAudio".
 
-Вы можете использовать любую из предустановок стандартного кодировщика, которые определены [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и внести в нее следующие изменения:
+Вы можете использовать любую из предустановок стандартного кодировщика мультимедиа, которые определены [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и внести в нее следующие изменения:
 
 ###Предустановка JSON
 
@@ -723,6 +841,39 @@
       <Bitrate>96</Bitrate>
     </AACAudio>
 
+##<a id="deinterlacing"></a>Отключение автоматического устранения чересстрочной развертки
+
+Клиентам не нужно ничего делать, если они хотят, чтобы содержимое в чересстрочной развертке автоматически устранялось. Если автоматическое устранение чересстрочной развертки включено (по умолчанию), стандартный кодировщик мультимедиа не выполняет автоматическое обнаружение чересстрочных кадров и устраняет чересстрочную развертку кадров, которые помечены как чересстрочные.
+
+Автоматическое удаление чересстрочной развертки можно отключить. Однако это делать не рекомендуется.
+
+###Предустановка JSON
+	
+	"Sources": [
+	{
+	 "Filters": {
+	    "Deinterlace": {
+	      "Mode": "Off"
+	    }
+	  },
+	}
+	]
+
+###Предустановка XML
+	
+	<Sources>
+	<Source>
+	  <Filters>
+	    <Deinterlace>
+	      <Mode>Off</Mode>
+	    </Deinterlace>
+	  </Filters>
+	</Source>
+	</Sources>
+
+
+
+
 ##Схемы обучения работе со службами мультимедиа
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -735,4 +886,4 @@
 
 [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

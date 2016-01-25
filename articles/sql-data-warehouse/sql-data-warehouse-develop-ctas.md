@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Функция Create Table As Select (CTAS) в хранилище данных SQL
 Create Table As Select (CTAS) — одна из самых важных функций T-SQL. Это полностью распараллеленная операция, которая создает новую таблицу на основе выходных данных оператора SELECT. CTAS предоставляет простой и быстрый способ создания копии таблицы. Если хотите, считайте ее расширенной версией оператора SELECT..INTO. Этот документ содержит примеры и рекомендации для CTAS.
@@ -429,4 +429,4 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

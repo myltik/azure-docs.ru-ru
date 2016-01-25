@@ -1,64 +1,64 @@
 <!--author=alkohli last changed: 01/11/16-->
 
-#### To install Update 2 from the Azure portal
+#### Чтобы установить обновление 2 с портала Azure
 
-1. On the StorSimple service page, select your device. Navigate to **Devices** > **Maintenance**.
+1. На странице службы StorSimple выберите свое устройство. Перейдите в раздел **Устройства** > **Обслуживание**.
 
-2. At the bottom of the page, click **Scan Updates**. A job will be created to scan for available updates. You will be notified when the job has completed successfully.
+2. В нижней части страницы нажмите кнопку **Поиск обновлений**. Будет создано задание поиска доступных обновлений. Когда оно будет выполнено, вы получите уведомление.
 
-3. In the **Software Updates** section on the same page, you will see that new software updates are available. We recommend that you review the release notes before you apply Update 2 on your device.
+3. В разделе **Обновления программного обеспечения** на той же странице отобразятся новые доступные обновления. Перед установкой обновления 2 на устройство рекомендуется ознакомиться с заметками о выпуске.
 
-    ![Install software updates](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
+    ![Установка обновлений программного обеспечения](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
 
-4. At the bottom of the page, click **Install Updates**.
+4. В нижней части страницы нажмите кнопку **Установить обновления**.
 
-5. You will be prompted for confirmation. Click **OK**.
+5. После этого введите подтверждение для применения этих исправлений. Нажмите кнопку **ОК**.
 
-6. An **Install Updates** dialog box will be presented. Your device should satisfy the checks listed in this dialog box. These steps were completed prior to the update. Select **I understand the above requirement and am ready to update my device**. Click the check icon.
+6. Откроется диалоговое окно **Установка обновлений**. Устройства должны пройти все проверки, перечисленные в этом диалоговом окне. Эти действия были выполнены до обновления. Выберите вариант **Я понимаю указанное выше требование, и мое устройство готово к обновлению**. Щелкните значок галочки.
 
-    ![Confirmation message](./media/storsimple-install-update2-via-portal/InstallUpdate12_2M.png)
+    ![Сообщение с подтверждением](./media/storsimple-install-update2-via-portal/InstallUpdate12_2M.png)
 
-7. A set of automatic pre-checks will now start. These include:
+7. Начнется выполнение ряда автоматических предварительных проверок. В частности, описаны такие возможности:
 
-	- **Controller health checks** to verify that both the device controllers are healthy and online.
+	- **Проверки работоспособности контроллера** подтверждают, что оба контроллера устройства готовы к работе и подключены к сети.
 	
-	- **Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.
+	- **Проверки работоспособности компонентов оборудования** подтверждают, что все компоненты оборудования устройства StorSimple готовы к работе.
 	
-	- **DATA 0 checks** to verify that DATA 0 is enabled on your device. If this interface is not enabled, you will need to enable it and then retry.
+	- **Проверки DATA 0** подтверждают, что интерфейс DATA 0 включен на устройстве. Если этот интерфейс не включен, включите его и повторите проверку.
 	
-	- **DATA 2 and DATA 3 checks** to verify that DATA 2 and DATA 3 network interfaces are not enabled. If these interfaces are enabled, then you will need to disable them and then try to update your device. This check is performed only if you are updating from a device running GA software. Devices running versions 0.1, 0.2, or 0.3 will not need this check.
+	- **Проверки DATA 2 и DATA 3** подтверждают, что сетевые интерфейсы DATA 2 И DATA 3 не включены. Если эти интерфейсы включены, отключите их и попробуйте обновить устройство. Эта проверка выполняется только при обновлении на устройстве с общедоступной версией программного обеспечения. Устройствам, на которых используется версия 0.1, 0.2 или 0.3, эта проверка не требуется.
 	
-	- **Gateway check** on any device running a version prior to Update 1. This check is performed on all the device running pre-update 1 software but fails on the devices that have a gateway configured for a network interface other than DATA 0.
+	- **Проверка шлюза** на любом устройстве, использующем ПО версии до обновления 1. Этой проверке подвергаются все устройства с предварительным обновлением 1; устройства со шлюзом, настроенным для сетевого интерфейса, отличного от DATA 0, пройти эту проверку не могут.
  
-	Update 2 will only be applied if all the above pre-update checks are successfully completed. You will be notified that pre-update checks are in progress.
+	Обновление 2 будет установлено только после успешного выполнения всех предварительных проверок. Появится сообщение о том, что выполняется предварительная проверка.
   
-    ![Pre-check notification](./media/storsimple-install-update2-via-portal/InstallUpdate12_3M.png)
+    ![Уведомление о предварительной проверке](./media/storsimple-install-update2-via-portal/InstallUpdate12_3M.png)
 
-    The following is an example in which the pre-upgrade check failed. You will need to verify that both the device controllers are healthy and online. You will also need to check the health of the hardware components. In this example, Controller 0 and Controller 1 components need attention. You may need to contact Microsoft Support if you cannot address these issues by yourself.
+    Ниже приведен пример, в котором пройти предварительную проверку не удалось. Необходимо убедиться в том, что оба контроллера устройства находятся в рабочем состоянии и подключены. Также нужно проверить работоспособность аппаратных компонентов. В этом примере необходимо проверить компоненты "Контроллер 0" и "Контроллер 1". Если вы не можете устранить обнаруженные проблемы самостоятельно, обратитесь в службу поддержки Майкрософт.
 
-   	 ![Pre-check failed](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
+   	 ![Ошибка при предварительной проверке](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
 	
-	> [AZURE.NOTE] If you are updating from a pre-Update 1 software, after you have applied Update 2 on your StorSimple device, DATA 2 and DATA 3 checks and the gateway check will no longer be necessary for the future updates. The other pre-checks will still be required. If you updated from Update 1 or later, the DATA 2, DATA 3, and gateway pre-checks are not performed.
+	> [AZURE.NOTE]Если вы обновляете с версии до обновления 1, после применения обновления 2 на устройстве StorSimple проверки DATA 2 и DATA 3, а также проверка шлюза для следующих обновлений не потребуются. Остальные предварительные проверки останутся необходимыми. Если вы обновляете с обновления 1 или более поздней версии, предварительные проверки DATA 2, DATA 3 и шлюза не выполняются.
 
 
-8. After the pre-upgrade checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
+8. После успешного завершения предварительной проверки будет создано задание обновления. После его создания вы получите соответствующее уведомление.
  
-    ![Update job creation](./media/storsimple-install-update2-via-portal/InstallUpdate12_44M.png)
+    ![Создание задания обновления](./media/storsimple-install-update2-via-portal/InstallUpdate12_44M.png)
 
-    The update will then be applied on your device.
+    Затем обновление будет установлено на вашем устройстве.
  
-9. To monitor the progress of the update job, click **View Job**. On the **Jobs** page, you can see the update progress. 
+9. Чтобы проконтролировать ход установки, щелкните **Просмотр задания**. На странице **Задания** отображается ход обновления.
     
-10. The update will take a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
+10. Для установки обновления необходимо несколько часов. Выберите задание обновления и нажмите кнопку **Сведения** для просмотра сведений о задании в любое время.
   
-11. After the job is complete, navigate to the **Maintenance** page and scroll down to **Software Updates**.
+11. После выполнения задания откройте страницу **Обслуживание** и прокрутите вниз до раздела **Обновления программного обеспечения**.
 
-12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. The **Last updated date** should also be modified.
-
-
-13. You will now see that Maintenance mode updates are available. These updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. Follow the steps listed in [install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install these Maintenance mode updates.
-
-> [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.  
+12. Убедитесь, что на устройстве установлено **обновление 2 для StorSimple серии 8000 (6.3.9600.17673)**. Также должна измениться **Дата последнего обновления**.
 
 
+13. Вы увидите доступные обновления режима обслуживания. Установка этих обновлений прерывает рабочие процессы устройства и может быть реализована только через интерфейс Windows PowerShell. Выполните действия, описанные в разделе [Установка и проверка исправления режима обслуживания](#to-install-and-verify-maintenance-mode-hotfix) для установки этих обновлений режима обслуживания.
+
+> [AZURE.NOTE]В некоторых случаях сообщение о наличии обновлений режима обслуживания может отображаться в течение 24 часов после успешной установки обновлений режима обслуживания на устройство.
+
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="10/30/2015" 
+	ms.date="01/08/2016" 
 	ms.author="bradygaster"/>
 
 # Использование приложения API Azure с помощью HTML и JavaScript
@@ -56,7 +56,7 @@
 
 	![Параметры приложения шлюза](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. Добавьте параметр приложения **MS_CrossDomainOrigins**. В качестве значения параметра используйте разделенный запятыми список узлов HTTP, которым нужно предоставить доступ к приложению API. Если необходимо предоставить доступ к нескольким узлам, можно в качестве значения параметра *appSetting* использовать, например, следующий код.
+1. Добавьте параметр приложения **MS\_CrossDomainOrigins**. В качестве значения параметра используйте разделенный запятыми список узлов HTTP, которым нужно предоставить доступ к приложению API. Если необходимо предоставить доступ к нескольким узлам, можно в качестве значения параметра *appSetting* использовать, например, следующий код.
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -68,7 +68,7 @@
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-Параметр приложения **MS_CrossDomainOrigins** подробно описан в записи блога [Обновления .NET мобильной службы Azure](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/), где можно найти более подробные сведения о параметре.
+Параметр приложения **MS\_CrossDomainOrigins** подробно описан в записи блога [Обновления .NET мобильной службы Azure](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/), где можно найти более подробные сведения о параметре.
 
 ### Включение CORS в коде веб-API
 
@@ -82,7 +82,7 @@
 
 	![apiapp.json и метаданные в обозревателе решений](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. Откройте файл *App_Start/WebApiConfig.cs*. Добавьте следующую строку кода в метод **Register** класса **WebApiConfig** в файле.
+1. Откройте файл *App\_Start/WebApiConfig.cs*. Добавьте следующую строку кода в метод **Register** класса **WebApiConfig** в файле.
 
 		config.EnableCors();
 
@@ -312,7 +312,7 @@
             $scope.refresh();
         });
 
-1. В коде, который вы добавили в файл index.html, замените номер порта в базовом URL-адресе (`http://localhost:1578`) на фактический номер порта для проекта API.
+1\. В коде, который вы добавили в файл index.html, замените номер порта в базовом URL-адресе (`http://localhost:1578`) на фактический номер порта для проекта API.
 
 >[AZURE.NOTE]**Примечание**. Не используйте номер порта, применяемый в проекте клиента HTML. Чтобы открыть окно браузера с номером порта, щелкните правой кнопкой мыши проект API, затем выберите пункт **Отладка > Запустить новый экземпляр**.
 
@@ -373,4 +373,4 @@
 
 В этом примере показан доступ к приложению API без проверки подлинности. Сведения о проверке подлинности в службе приложений см. в статье [Проверка подлинности для приложений API и мобильных приложений](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

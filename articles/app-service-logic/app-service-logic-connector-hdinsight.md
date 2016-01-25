@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/22/2015"
+   ms.date="01/12/2016"
    ms.author="sameerch"/>
 
 
@@ -89,22 +89,22 @@
 
 >[AZURE.NOTE]Если вы хотите начать работу с приложениями логики Azure до создания учетной записи Azure, перейдите на веб-сайт [пробного использования приложений логики](https://tryappservice.azure.com/?appservice=logic). На этом сайте вы сможете быстро создать кратковременное приложение логики начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
-Справочные материалы по REST API Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Справку по API REST Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. статью [Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-hdinsight/Create.jpg
-[2]: ./media/app-service-logic-connector-hdinsight/CertNotConfigured.jpg
-[3]: ./media/app-service-logic-connector-hdinsight/CertConfigured.jpg
-[5]: ./media/app-service-logic-connector-hdinsight/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-hdinsight/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-hdinsight/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-hdinsight/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
+[1]: ./media/app-service-logic-connector-hdinsight/Create.png
+[2]: ./media/app-service-logic-connector-hdinsight/CertNotConfigured.png
+[3]: ./media/app-service-logic-connector-hdinsight/CertConfigured.png
+[5]: ./media/app-service-logic-connector-hdinsight/LogicApp1.png
+[6]: ./media/app-service-logic-connector-hdinsight/LogicApp2.png
+[7]: ./media/app-service-logic-connector-hdinsight/LogicApp3.png
+[8]: ./media/app-service-logic-connector-hdinsight/LogicApp4.png
+[9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.png
+[10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.png
+[11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.png
 [12]: ./media/app-service-logic-connector-hdinsight/LogicApp8.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -3,7 +3,7 @@
 	description="Найдите статьи, в которых описывается, как настроить программное обеспечение Oracle на виртуальных машинах Azure на базе ОС Windows или Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="bbenz"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="10/05/2015"
-	ms.author="josephd"/>
+	ms.date="01/12/2016"
+	ms.author="bbenz"/>
 
 # Программное обеспечение Oracle, размещенное в виртуальных машинах Azure
 
@@ -46,7 +46,7 @@
 
 ## Подготовка виртуальной машины Oracle Linux
 
-В статье [Подготовка виртуальной машины Oracle Linux для Azure](virtual-machines-prepare-oracle-linux-virtual-machine.md) описаны предварительные требования и этапы создания виртуальных машин Oracle Linux 6.4+ и Oracle Linux 7.0+.
+В разделе [Подготовка виртуальной машины Oracle на базе ОС Linux для Azure](virtual-machines-prepare-oracle-linux-virtual-machine.md) описаны предварительные требования и этапы создания виртуальной машины для Oracle Linux 6.4+ и Oracle Linux 7.0+.
 
 ## Oracle Data Guard
 
@@ -56,4 +56,4 @@
 
 В статье [Настройка Oracle GoldenGate для Azure](virtual-machines-configuring-oracle-goldengate.md) описаны этапы настройки базы данных и репликации.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

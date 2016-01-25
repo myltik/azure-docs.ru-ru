@@ -20,12 +20,8 @@
 # Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-<br>
-
-
+- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 В этой статье рассказывается, как c помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure выполнять указанные ниже стандартные задачи по развертыванию виртуальных машин Azure и управлению ими. Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](http://azure.microsoft.com/documentation/templates/) и в статье [Создание платформ приложений с помощью шаблонов](virtual-machines-app-frameworks.md).
 
@@ -1309,4 +1305,4 @@
 
 Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](http://azure.microsoft.com/documentation/templates/) и в статье [Создание платформ приложений с помощью шаблонов](virtual-machines-app-frameworks.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

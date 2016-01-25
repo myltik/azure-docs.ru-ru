@@ -1,10 +1,12 @@
-1. In the portal, go to **New**, then **Browse**. Select **Virtual network gateways** from the list.
-2. Click **Add**.
-3. Name your gateway. This is not the same as naming a gateway subnet. This is the name of the gateway object. 
-4. In **Virtual network**, select the VNet that you want to connect to this gateway.
-5. In the settings for the VNet, for the **Public IP address** value, create a name your public IP address. Note that this is not asking for an IP address. The IP address will be assigned dynamically. Rather, this is the name of the IP address object that the address will be assigned to. 
-6. For **VPN type**, the choices are policy-based and route-based. Be sure to select the VPN gateway type that is both supported by the configuration scenario, and, if required for your configuration, supported by the VPN gateway device you plan to use.
-7. For **Resource Group**, choose **select existing** and choose the resource group that your VNet resides in, unless your configuration requires a different choice.
-8. For **Location**, make sure it's showing the location that both your Resource Group and VNet exist in.
-9. Click **Create**. You'll see the *Deploying Virtual network gateway* tile on the dashboard. Creating a gateway takes some time. There is a lot going on in the background. Plan for 15 minutes or more. You may need to refresh your portal page in order to see the completed status.
-10. After the gateway is created, you can view the IP address that has been assigned to it by looking at the Virtual Network in the portal. The gateway will appear as a connected device. You can view the name and the IP address assigned to the gateway.
+1. На портале перейдите к разделу **Создать**, затем щелкните **Обзор**. Выберите **Шлюзы виртуальной сети** из списка.
+2. Щелкните **Добавить**.
+3. Назовите свой шлюз. Это имя должно отличаться от имени подсети шлюза. Это имя объекта шлюза. 
+4. В разделе **Виртуальная сеть** выберите виртуальную сеть, которую необходимо соединить с этим шлюзом.
+5. В параметрах виртуальной сети для значения **общедоступного IP-адреса** создайте имя общедоступного IP-адреса. Обратите внимание, что это не запрос IP-адреса. IP-адрес назначается динамически. Скорее, это имя объекта IP-адреса, которому будет назначен адрес. 
+6. Для **типа VPN** выбор зависит от политик и маршрутов. Не забудьте выбрать тип VPN-шлюза, который поддерживается как сценарием конфигурации, так и (если это требуется для вашей конфигурации) устройством VPN-шлюза, которое планируется использовать.
+7. Для параметра **Группа ресурсов** выберите значение **Выбрать существующий** и группу ресурсов, в которой находится виртуальная сеть, если ваша конфигурация не требует другого варианта.
+8. Для параметра **Расположение** убедитесь, что отображается расположение, в котором находится и группа ресурсов, и виртуальная сеть.
+9. Щелкните **Создать**. Вы увидите плитку *Развертывание виртуального сетевого шлюза* на панели мониторинга. Создание шлюза занимает некоторое время. Множество процессов происходит в фоновом режиме. Запланируйте на это 15 минут или более. Вам понадобится обновить страницу портала, чтобы увидеть состояние завершения.
+10. После создания шлюза можно просмотреть IP-адрес, который был ему назначен, просмотрев виртуальную сеть на портале. Шлюз будет отображаться как подключенное устройство. Можно просмотреть имя и IP-адрес, назначенные шлюзу.
+
+<!---HONumber=AcomDC_0114_2016-->
