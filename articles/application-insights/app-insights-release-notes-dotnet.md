@@ -61,7 +61,7 @@
 
 ## Версия 2.0.0-beta2
 - Добавлена поддержка для ITelemetryProcessor и возможность настройки с помощью кода или конфигурации. [Включает настраиваемую фильтрацию в пакете SDK](app-insights-api-telemetry-processors/#telemetry-processors)
-- Удалены инициализаторы контекста. Вместо них следует использовать [инициализаторы телеметрии](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers).
+- Удалены инициализаторы контекста. Вместо них следует использовать [инициализаторы телеметрии]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers).
 - Обновлена служба Application Insights для .NET Framework 4.6. 
 - Имена пользовательских событий теперь могут содержать до 512 символов.
 - Свойство ```OperationContext.Name``` переименовано в ```RootName```.
@@ -136,4 +136,4 @@
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016--->

@@ -35,6 +35,8 @@
 
 > [AZURE.NOTE]В данном учебнике показано, как создать виртуальную машину Azure, управляемую с помощью API группы ресурсов Azure. Дополнительные сведения см. в [обзоре групп ресурсов Azure](resource-group-overview.md).
 
+</br>
+
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Выбор образа

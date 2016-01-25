@@ -35,7 +35,9 @@
 | Пакетная служба | Да | Да | [Пакетная служба (REST)](https://msdn.microsoft.com/library/azure/dn820158.aspx) | | [Microsoft.Batch](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Batch%22&type=Code) |
 | Службы жизненного цикла Dynamics | Да | | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (предварительная версия) | Да | | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| Виртуальные машины (классические) | Ограничена | Частично (см. ниже) | — | — | | Удаленное приложение | Нет | — | — | — | | Облачные службы (классические) | Да (см. ниже) | Частично (см. ниже) | — | — | — |
+| Виртуальные машины (классические) | Ограничена | Частично (см. ниже) | — | — | 
+| Удаленное приложение | Нет | — | — | — | 
+| Облачные службы (классические) | Да (см. ниже) | Частично (см. ниже) | — | — | — |
 
 Пункт "Виртуальные машины (классические)" относится к ресурсам, которые были развернуты с помощью классической модели развертывания, а не через модель развертывания диспетчера ресурсов. Как правило эти ресурсы не поддерживают операции диспетчера ресурсов, однако некоторые операции стали доступны. Дополнительные сведения об этих моделях развертывания вы найдете в статье [Общие сведения о развертывании с помощью диспетчера ресурсов и классическом развертывании](resource-manager-deployment-model.md).
 
@@ -93,7 +95,8 @@
 | Анализ потока | Да | | [Steam Analytics REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
 | HDInsights | Да | Да | [Интерфейс REST HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Фабрика данных | Да | Да | [Интерфейс REST фабрики данных](https://msdn.microsoft.com/library/azure/dn906738.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Машинное обучение | Нет | - | - | - | | Каталог данных | Нет | - | - | - |
+| Машинное обучение | Нет | - | - | - |
+| Каталог данных | Нет | - | - | - |
 
 ## Мультимедиа и CDN
 
@@ -109,7 +112,8 @@
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | Службы BizTalk | Да | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Service Bus | Да | | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Служба архивации| Нет | - | - | - | | Site Recovery | Нет | - | - | - |
+| Служба архивации| Нет | - | - | - |
+| Site Recovery | Нет | - | - | - |
 
 ## Управление удостоверениями и доступом 
 

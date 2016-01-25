@@ -88,7 +88,8 @@
 
 - [Файлы пакетов SDK и средств для различных языков и платформ](http://azure.microsoft.com/downloads/#cmd-line-tools)
 - [Библиотеки подключений для базы данных SQL и SQL Server](sql-database-libraries.md)
-- [Список числовых кодов временных ошибок](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>& nbsp;
+- [Список числовых кодов временных ошибок](sql-database-develop-error-messages.md#bkmk_connection_errors)
+<br/>&nbsp;
 - [Разработка для базы данных SQL Azure: разделы практического руководства](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Подключение к базе данных SQL: ссылки, рекомендации и советы по разработке](sql-database-connect-central-recommendations.md)
 - [Создание первой базы данных SQL Azure](sql-database-get-started.md)
