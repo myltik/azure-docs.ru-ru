@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -57,7 +57,7 @@
 
 Дополнительные сведения о требованиях к Office 365 приведены в следующих документах.
 
-- [Сетевое планирование и настройка производительности для Office 365](http://aka.ms/tune).
+- [Сетевое планирование и настройка производительности для Office 365.](http://aka.ms/tune)
 - [Управление сетевым трафиком для Office 365.](https://support.office.com/article/Office-365-network-traffic-management-e1da26c6-2d39-4379-af6f-4da213218408)
 - Рекомендации по требованиям к качеству обслуживания и настройкам см. в статье [Требования к качеству обслуживания ExpressRoute](expressroute-qos.md). Обратитесь к своему поставщику услуг подключения, чтобы узнать о доступности различных классов обслуживания вашей сети VPN. 
 
@@ -67,8 +67,8 @@
 - Найти поставщика услуг. См. [Партнеры и одноранговые расположения ExpressRoute](expressroute-locations.md).
 - См. требования к [маршрутизации](expressroute-routing.md), [NAT](expressroute-nat.md) и [качеству обслуживания](expressroute-qos.md).
 - Настройте подключение ExpressRoute.
-	- [Создайте канал ExpressRoute](expressroute-howto-circuit-classic.md).
-	- [Настройте маршрутизацию](expressroute-howto-routing-classic.md).
-	- [Свяжите виртуальную сеть с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md).
+	- [Создайте канал ExpressRoute.](expressroute-howto-circuit-classic.md)
+	- [Настройка маршрутизации](expressroute-howto-routing-classic.md)
+	- [Свяжите виртуальную сеть с каналом ExpressRoute.](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

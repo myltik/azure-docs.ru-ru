@@ -71,8 +71,8 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 С помощью Azure PowerShell полномочные записи NS можно получить следующим образом (имя записи "@" используется для указания на записи на вершине зоны).
 
-	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -87,6 +87,8 @@ DNS-клиенты на ПК или мобильных устройствах о
 В этом примере зоне contoso.com назначены сервера имен ns1-04.azure-dns.com, ns2 04.azure DNS-сервера .net, ns3-04.azure-dns.org, и ns4-04.azure-dns.info.
 
 У каждого регистратора есть собственные средства управления DNS для изменения записей серверов имен домена. На странице управления DNS регистратора замените записи NS на созданные службой Azure DNS.
+
+>[AZURE.NOTE]При делегировании домена службе Azure DNS вам необходимо использовать имена серверов доменных имен, предоставленные службой Azure DNS. Не используйте "связующие записи" для указания IP-адресов сервера доменных имен Azure DNS, поскольку эти IP-адреса в будущем могут измениться. Делегирование с использованием имен серверов доменных имен в собственной зоне (также известны как серверы личных имен) в настоящее время не поддерживается в службе в Azure DNS.
 
 После завершения делегирования вы можете проверить, работает ли разрешение имен, с помощью средства, например nslookup, запросив запись SOA для вашей зоны (которая также создается автоматически при создании зоны).
 
@@ -134,10 +136,10 @@ DNS-клиенты на ПК или мобильных устройствах о
 Чтобы убедиться в корректности настройки зоны, нужно, как и при делегировании с помощью регистратора доменных имен, найти запись SOA дочерней зоны.
 
 	PS C:\> nslookup –type=SOA partners.contoso.com
-	
+
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
-	
+
 	partners.contoso.com
 		primary name server = ns1-08.azure-dns.com
 		responsible mail addr = msnhst.microsoft.com
@@ -153,10 +155,8 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 [Управление зонами DNS](dns-operations-recordsets.md)
 
-[Обзор диспетчера трафика](traffic-manager-overview.md)
-
 [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)
 
 [Справочник по REST API службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->
