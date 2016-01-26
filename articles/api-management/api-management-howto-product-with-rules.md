@@ -279,7 +279,6 @@
 [Как создать и использовать группы в службе управления Azure API]: api-management-howto-create-groups.md
 [View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
 [Начало работы с Azure API Management]: api-management-get-started.md
-[Начинаем работу со службой управления API]: api-management-get-started.md
 [Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
 [Next steps]: #next-steps
 

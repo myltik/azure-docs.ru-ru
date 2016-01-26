@@ -71,8 +71,8 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 С помощью Azure PowerShell полномочные записи NS можно получить следующим образом (имя записи "@" используется для указания на записи на вершине зоны).
 
-	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com

@@ -159,7 +159,7 @@
 		FROM WebLogsRaw
 
 ### Создание примера входного файла
-С помощью приложения "Блокнот" создайте файл с именем **input.log** в папке **c:\\adfgetstarted** со следующим содержимым:
+С помощью приложения "Блокнот" создайте файл с именем **input.log** в папке **c:\adfgetstarted** со следующим содержимым:
 
 	#Software: Microsoft Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
@@ -193,7 +193,7 @@
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Перейдите в папку c:\\adfgetstarted и выполните следующую команду, чтобы передать файл **input.log** в учетную запись хранения (контейнер **adfgetstarted**, папка **inputdata**). Замените значения **StorageAccountName** и **Storage Key** именем и ключом своей учетной записи хранения соответственно.
+	3. Перейдите в папку c:\adfgetstarted и выполните следующую команду, чтобы передать файл **input.log** в учетную запись хранения (контейнер **adfgetstarted**, папка **inputdata**). Замените значения **StorageAccountName** и **Storage Key** именем и ключом своей учетной записи хранения соответственно.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 

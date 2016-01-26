@@ -47,7 +47,8 @@
 
 ### Подключение диска к URL-адресу OneDrive для бизнеса
 
-Следуйте указаниям в справочной статье ([https://support.microsoft.com/kb/2616712](https://support.microsoft.com/kb/2616712)).
+Следуйте указаниям в справочной статье 
+[https://support.microsoft.com/kb/2616712](https://support.microsoft.com/kb/2616712).
  
 В процессе настройки важно убедиться, что выбран параметр **Оставаться в системе**.
 
