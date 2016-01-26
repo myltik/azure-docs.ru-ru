@@ -65,7 +65,7 @@
 	adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 	adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 
-В примерах строк выше первая из них (содержащая дату 2014-01-01) будет записана в файл 000000_0 в папке month=1. Аналогичным образом вторая строка будет записана в файл в папке month=2, а третья — в файл в папке month=3.
+В примерах строк выше первая из них (содержащая дату 2014-01-01) будет записана в файл 000000\_0 в папке month=1. Аналогичным образом вторая строка будет записана в файл в папке month=2, а третья — в файл в папке month=3.
 
 ## Отправка файлов в хранилище Azure для использования с этим руководством
 Прежде чем приступить к работе с учебником, необходимо подготовить хранилище Azure и необходимые файлы.
@@ -77,7 +77,7 @@
 
 ### Создание файла скрипта HQL 
 
-1. Откройте приложение **Блокнот** и вставьте приведенный ниже скрипт HQL. Этот скрипт Hive создает две внешние таблицы: **WebLogsRaw** и **WebLogsPartitioned**. Щелкните **Файл** в меню и выберите команду **Сохранить как**. Перейдите в папку **C:\\adfgetstarted** на жестком диске. В поле **Тип файла** выберите **Все файлы (*.*)**. В поле **Имя файла** введите **partitionweblogs.hql**. Убедитесь, что в поле **Кодировка** в нижней части диалогового окна выбрано значение **ANSI**. Если значение **ANSI** не выбрано, выберите его.  
+1. Откройте приложение **Блокнот** и вставьте приведенный ниже скрипт HQL. Этот скрипт Hive создает две внешние таблицы: **WebLogsRaw** и **WebLogsPartitioned**. Щелкните **Файл** в меню и выберите команду **Сохранить как**. Перейдите в папку **C:\\adfgetstarted** на жестком диске. В поле **Тип файла** выберите **Все файлы (*.*)**. Введите **partitionweblogs.hql** в поле **Имя файла**. Убедитесь, что в поле **Кодировка** в нижней части диалогового окна выбрано значение **ANSI**. Если значение **ANSI** не выбрано, выберите его.  
 	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
@@ -159,7 +159,7 @@
 		FROM WebLogsRaw
 
 ### Создание примера входного файла
-С помощью приложения «Блокнот» создайте файл с именем **input.log** в папке **c:\adfgetstarted** со следующим содержимым:
+С помощью приложения "Блокнот" создайте файл с именем **input.log** в папке **c:\\adfgetstarted** со следующим содержимым:
 
 	#Software: Microsoft Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
@@ -193,7 +193,7 @@
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Перейдите в папку c:\adfgetstarted и выполните следующую команду, чтобы передать файл **input.log** в учетную запись хранения (контейнер **adfgetstarted**, папка **inputdata**). Замените значения **StorageAccountName** и **Storage Key** именем и ключом своей учетной записи хранения соответственно.
+	3. Перейдите в папку c:\\adfgetstarted и выполните следующую команду, чтобы передать файл **input.log** в учетную запись хранения (контейнер **adfgetstarted**, папка **inputdata**). Замените значения **StorageAccountName** и **Storage Key** именем и ключом своей учетной записи хранения соответственно.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
@@ -209,7 +209,7 @@
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Повторите два предыдущих действия, чтобы отправить файл partitionweblogs.hql в папку script в контейнере adfgetstarted. Вот нужная команда: 
+	1. Выполните следующую команду, чтобы отправить файл **partitionweblogs.hql** в папку **script** в контейнере **adfgetstarted**. Вот нужная команда: 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@
 - Visual Studio
 - Шаблоны диспетчера ресурсов Azure 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

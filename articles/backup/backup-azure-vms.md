@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Резервное копирование виртуальных машин Azure
@@ -67,7 +67,7 @@
 
     Для каждой выбранной виртуальной машины будет создано задание.
 
-5. В уведомлении щелкните ссылку **Просмотреть задание**, чтобы перейти на страницу **Задания**.
+5. В уведомлении щелкните ссылку **Просмотр задания**, чтобы перейти на страницу **Задания**.
 
     ![Задание регистрации](./media/backup-azure-vms/register-create-job.png)
 
@@ -162,4 +162,4 @@
 - [Мониторинг виртуальных машин и управление ими](backup-azure-manage-vms.md)
 - [Восстановление виртуальных машин](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

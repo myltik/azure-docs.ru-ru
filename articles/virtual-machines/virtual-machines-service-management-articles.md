@@ -26,7 +26,7 @@
 
 [Создание виртуальной машины под управлением Windows на классическом портале Azure](virtual-machines-windows-tutorial-classic-portal.md)
 
-[Создание настраиваемой виртуальной машины под управлением Windows в Azure](virtual-machines-windows-create-custom.md)
+[Создание настраиваемой виртуальной машины под управлением Windows в Azure](virtual-machines-create-custom.md)
 
 [Создание настраиваемой виртуальной машины под управлением Linux в Azure](virtual-machines-linux-create-custom.md)
 
@@ -152,4 +152,4 @@
 
 [Справочник по API-интерфейсу управления службами REST](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->
