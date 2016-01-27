@@ -196,7 +196,7 @@
 ### Регистрация агента сборки
 
 1.	Скачайте архив agent.zip. Для этого:
-    1.	Перейдите к командному проекту, например ****https://[your-Team-Services-account-name].visualstudio.com**.
+    1.	Перейдите к командному проекту, например **https://[your-Team-Services-account-name].visualstudio.com**.
 	1.	Щелкните значок шестеренки в правом верхнем углу экрана.
     1.	На панели управления выберите вкладку **Пулы агентов**.
     1.	Выберите **Скачать агент**, чтобы скачать архив agent.zip.
@@ -348,4 +348,4 @@
 - [Развертывание агента построения](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [Создание и настройка определения сборки](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
