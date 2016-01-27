@@ -31,7 +31,7 @@
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Чтобы сбросить имя и пароль учетной записи локального администратора на [портале Azure](https://portal.azure.com), щелкните **Просмотреть все** > **Виртуальные машины (классические)** > *ваша виртуальная машина Windows* > **Все параметры** > **Сброс пароля**. Откроется следующая страница.
+Чтобы сбросить имя и пароль учетной записи локального администратора на [портале Azure](https://portal.azure.com), щелкните **Просмотреть все** > **Виртуальные машины (классические)** > *ваша виртуальная машина Windows* > **Все параметры** > **Сброс пароля**. Откроется следующая страница.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -114,4 +114,4 @@
 
 [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015--->
