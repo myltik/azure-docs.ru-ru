@@ -84,7 +84,6 @@
 | C#/.NET | [WebApp-WebAPI-OAuth2-UserIdentity-Dotnet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-UserIdentity-Dotnet) | Добавление авторизации с помощью [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) в существующее приложение, чтобы оно могло выполнять вызовы веб-интерфейса API.
 | JavaScript | [WebAPI-Nodejs](http://github.com/AzureADSamples/WebAPI-Nodejs) | Настройка службы API REST, интегрированной с Azure AD, для защиты API. Включает сервер Node.js с веб-интерфейсом API.
 | C#/.NET | [WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet) | Мультитенантное веб-приложение MVC, которое использует OpenID Connect (ПО промежуточного слоя ASP.Net OpenID Connect OWIN) для проверки подлинности пользователей Azure AD.  
-Использует код авторизации для вызова Graph API.
 
 ## Из серверного приложения или управляющей программы в веб-интерфейс API
 
@@ -152,4 +151,4 @@ PHP | [Образец приложения PHP для API Graph Azure AD](http:/
 
 [Разработка современных приложений с помощью OAuth и служб федерации Active Directory](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
