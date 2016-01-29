@@ -16,7 +16,8 @@
 
 #Учебник. Интеграция Azure Active Directory с SuccessFactors
   
-Цель данного руководства — показать интеграцию Azure и SuccessFactors в **режиме единого входа, инициируемого поставщиком услуг**. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+Цель данного руководства — показать интеграцию Azure и SuccessFactors в **режиме единого входа, инициируемого поставщиком услуг**.  
+Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   Действующая подписка на Azure
 -   Подписка SuccessFactors с поддержкой единого входа в режиме инициирования поставщиком услуг.
@@ -84,10 +85,13 @@
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Настройка URL-адреса приложения")
 
-    1.  В текстовом поле **URL-адрес для входа в SuccessFactors** введите URL-адрес, используемый пользователями для входа в приложение SuccessFactors (например, **https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*")).
-    2.  В текстовом поле **URL-адрес ответа SuccessFactors** введите ****https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+    1.  В текстовом поле **URL-адрес для входа в SuccessFactors** введите URL-адрес, используемый пользователями для входа в приложение SuccessFactors (например, *https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
+    2.  В текстовом поле **URL-адрес ответа SuccessFactors** введите **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
-        >[AZURE.NOTE]Это только временный заполнитель. Фактическое значение можно получить у группы поддержки SuccessFactors. Далее в этом учебнике вы найдете указания по обращению к группе поддержки SuccessFactors. В контексте этого диалога вы получите фактический URL-адрес ответа SuccessFactors.
+        >[AZURE.NOTE]Это только временный заполнитель.  
+        >Фактическое значение можно получить у группы поддержки SuccessFactors.  
+        >Далее в этом учебнике вы найдете указания по обращению к группе поддержки SuccessFactors.  
+        >В контексте этого диалога вы получите фактический URL-адрес ответа SuccessFactors.
 
 4.  Для скачивания сертификата на странице **Настройка единого входа в SuccessFactors** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на своем компьютере.
 
@@ -109,7 +113,8 @@
 
 ##Настройка подготовки учетных записей пользователей
   
-Чтобы пользователи Azure AD могли выполнять вход в SuccessFactors, они должны быть подготовлены для работы с SuccessFactors. В случае SuccessFactors подготовка пользователей осуществляется вручную.
+Чтобы пользователи Azure AD могли выполнять вход в SuccessFactors, они должны быть подготовлены для работы с SuccessFactors.  
+В случае SuccessFactors подготовка пользователей осуществляется вручную.
   
 Чтобы создать пользователей в SuccessFactors, необходимо обратиться к группе поддержки SuccessFactors.
 
