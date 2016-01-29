@@ -108,8 +108,8 @@
     ![Настройка URL-адреса приложения](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Настройка URL-адреса приложения")
 
     1.  В текстовом поле **URL-адрес для входа в TOPdesk — Secure** введите URL-адрес, используемый пользователями для входа в приложение TOPdesk — Secure (например, **https://qssolutions.topdesk.net*").
-2.  В текстовое поле **URL-адрес ответа TOPdesk — Secure** вставьте значение **URL-адрес AssertionConsumerService для TOPdesk — Secure** (например, **https://qssolutions.topdesk.net/tas/public/login/saml*").
-3.  Нажмите кнопку **Далее**.
+    2.  В текстовое поле **URL-адрес ответа TOPdesk — Secure** вставьте значение **URL-адрес AssertionConsumerService для TOPdesk — Secure** (например, **https://qssolutions.topdesk.net/tas/public/login/saml*").
+    3.  Нажмите кнопку **Далее**.
 
 10. На странице **Настройка единого входа в TOPdesk — Secure** нажмите кнопку **Скачать метаданные**, чтобы скачать метаданные, а затем сохраните файл данных локально на свой компьютер.
 
@@ -197,4 +197,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

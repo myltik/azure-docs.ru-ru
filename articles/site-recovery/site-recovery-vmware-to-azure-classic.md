@@ -447,7 +447,8 @@
 Исходная операционная система | Файл установки службы Mobility Service
 --- | ---
 Windows Server (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -740,4 +741,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Сведения о восстановлении размещения](site-recovery-failback-azure-to-vmware-classic.md) и о том, как перенести запущенные в Azure компьютеры, для которых выполнена отработка отказа, обратно в локальную среду.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

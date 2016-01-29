@@ -61,7 +61,8 @@
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Сервер архивации Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Сервер архивации Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Сервер архивации Azure](backup-azure-microsoft-azure-backup.md)</p> |
-| Виртуальные машины IaaS Azure (Windows)| - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) | | Виртуальные машины IaaS Azure (Linux) | - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+| Виртуальные машины IaaS Azure (Windows)| - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+| Виртуальные машины IaaS Azure (Linux) | - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
 
 ## Функции
 В следующих таблицах содержится сводная информация о том, как функции службы архивации Azure реализуются в каждом компоненте.
@@ -164,4 +165,4 @@
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
