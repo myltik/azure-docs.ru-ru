@@ -12,6 +12,8 @@
 
 >[AZURE.NOTE]Дополнительные сведения можно найти на странице [Набор средств Azure для Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) в магазине Eclipse.
 
+<br>
+
 > [AZURE.IMPORTANT]При использовании набора средств Azure для Eclipse в Windows необходимо установить пакет SDK Azure 2.7 или более поздней версии. Существует два варианта установки этого пакета SDK Azure.
 > 
 > * Вы можете скачать и установить пакет SDK Azure с помощью [установщика веб-платформы (WebPI)][].
@@ -19,4 +21,4 @@
 > 
 > Обратите внимание, что пакет SDK Azure требуется только в Windows.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
