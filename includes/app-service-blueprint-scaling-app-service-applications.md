@@ -1,7 +1,7 @@
 * [Масштабирование ценовой категории в службе приложений Azure](../app-service/app-service-scale.md)
 	* Основные сведения об избыточности и надежности
 	* Приложения со сведениями о состоянии и без них
-		* [Disabling ARR’s Instance Affinity in Windows Azure Web Sites](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) (Отключение сходства экземпляров, относящихся к маршрутизации запросов приложений, в веб-сайтах Windows Azure)
+		* [Disabling ARR’s Instance Affinity in Microsoft Azure Web Sites](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) (Отключение сходства экземпляров, относящихся к маршрутизации запросов приложений, в веб-сайтах Microsoft Azure)
 
 * Приложения службы приложений, предназначенные для нагрузочного тестирования
 
@@ -14,4 +14,4 @@
 * Географическое распределение
 	* [Что такое диспетчер трафика](../traffic-manager/traffic-manager-overview.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0121_2016--->

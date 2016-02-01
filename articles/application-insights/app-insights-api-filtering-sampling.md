@@ -296,7 +296,7 @@ public void Process(ITelemetry item)
       </TelemetryInitializers>
     </ApplicationInsights>
 
-*Другой способ* — создать экземпляр инициализатора в коде, например в Global.aspx.cs.
+*Другой способ* — создать экземпляр инициализатора в коде, например в Global.aspx.cs.
 
 
 ```C#

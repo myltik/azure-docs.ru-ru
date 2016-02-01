@@ -3,6 +3,7 @@
    description="Служба Azure Active Directory B2B поддерживает взаимодействие между компаниями, позволяя предоставлять бизнес-партнерам выборочный доступ к вашим корпоративным приложениям."
    services="active-directory"
    authors="viv-liu"
+   documentationCenter="na"
    manager="cliffdi"
    editor=""
    tags=""/>
@@ -79,4 +80,4 @@
 - [Изменение атрибутов объекта внешнего пользователя](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->

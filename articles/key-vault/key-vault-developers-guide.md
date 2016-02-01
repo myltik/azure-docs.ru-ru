@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="1/19/2016"
+   ms.date="01/19/2016"
    ms.author="bruceper" />
 
 # Руководство разработчика хранилища ключей Azure
@@ -66,4 +66,4 @@
 
 - [Расширения хранилища ключей Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) предоставляют расширенные возможности для хранилища ключей Azure.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->
