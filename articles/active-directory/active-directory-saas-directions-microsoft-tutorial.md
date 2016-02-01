@@ -2,7 +2,7 @@
     pageTitle="Руководство. Интеграция Azure Active Directory с Directions on Microsoft | Microsoft Azure" 
     description="Узнайте, как использовать Directions on Microsoft вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с Directions on Microsoft
 
@@ -53,7 +53,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-directions-microsoft-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** выберите **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-directions-microsoft-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -78,7 +78,7 @@
 
     ![Единый вход Microsoft Azure AD](./media/active-directory-saas-directions-microsoft-tutorial/IC786880.png "Единый вход Microsoft Azure AD")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле "URL-адрес входа в Directions on Microsoft" введите ****https://www.directionsonmicrosoft.com/user/login** и нажмите кнопку **Далее**.
+3.  На странице **Настройка URL-адреса приложения** в текстовом поле «URL-адрес входа в Directions on Microsoft» введите ****https://www.directionsonmicrosoft.com/user/login** и нажмите кнопку **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "Настройка URL-адреса приложения")
 
@@ -108,8 +108,8 @@
 
     ![Назначить пользователей](./media/active-directory-saas-directions-microsoft-tutorial/IC786884.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем **Да** для подтверждения назначения.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Да")
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

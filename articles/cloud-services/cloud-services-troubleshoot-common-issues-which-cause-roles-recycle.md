@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Распространенные причины перезапуска ролей облачных служб | Microsoft Azure"
    description="Внезапно перезапускающаяся роль облачной службы может привести к длительному простою. Ниже приведены некоторые распространенные проблемы, вызывающие перезапуск ролей, что может приводить к увеличению времени простоя."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # Распространенные проблемы, которые вызывают повторное использование ролей
@@ -22,7 +22,7 @@
 
 ## Обращение в службу поддержки клиентов Azure
 
-Если в любой момент при изучении этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](http://azure.microsoft.com/support/forums/).
+Если на любом этапе изучения этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](http://azure.microsoft.com/support/forums/).
 
 Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт службы поддержки Azure](http://azure.microsoft.com/support/options/) и щелкните **Поддержка**. Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
@@ -36,7 +36,7 @@
 - При работе в Visual Studio убедитесь, что свойство **Копировать локально** имеет значение **True** для каждой упоминаемой в проекте сборки, которая не является частью пакета SDK для Azure или платформы .NET Framework.
 
 - Убедитесь, что файл **web.config** не ссылается на любые неиспользуемые сборки в элементе **compilation**.
- 
+
 - Параметр **Действие при сборке** для каждого CSHTML-файла имеет значение **Содержимое**. Это обеспечивает правильное отображение файлов в пакете, а также позволяет указать в этом пакете другие файлы, на которые имеются ссылки.
 
 
@@ -66,8 +66,8 @@ Azure является 64-разрядной средой. Таким образ
 Чтобы убедиться в правильности параметра `DiagnosticsConnectionString` перед развертыванием пакета приложения в Azure, проверьте следующее.
 
 - Параметр `DiagnosticsConnectionString` указывает на действительную учетную запись хранения в Azure. По умолчанию этот параметр указывает на эмулированную учетную запись хранения, поэтому необходимо явным образом изменить его перед развертыванием пакета приложения. Если этого не сделать, то при попытке экземпляра роли запустить монитор диагностики возникает исключение. Это может вызвать бесконечный перезапуск экземпляра роли.
-  
-- Строка подключения указывается в следующем [формате](storage-configure-connection-string.md) (должен быть задан протокол HTTPS). Замените *MyAccountName* именем своей учетной записи хранения, а *MyAccountKey* — своим ключом доступа:
+
+- Строка подключения указывается в следующем [формате](../storage/storage-configure-connection-string.md) (должен быть задан протокол HTTPS). Замените *MyAccountName* именем своей учетной записи хранения, а *MyAccountKey* — своим ключом доступа:
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
@@ -85,6 +85,8 @@ Azure является 64-разрядной средой. Таким образ
 
 Просмотрите дополнительные [статьи об устранении неполадок](..\?tag=top-support-issue&service=cloud-services) в облачных службах.
 
+Дополнительные сценарии перезапуска ролей перезапуска см. в [этой серии статей в блоге Кевина Уильямсона](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+
 
 
 
@@ -93,4 +95,4 @@ Azure является 64-разрядной средой. Таким образ
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

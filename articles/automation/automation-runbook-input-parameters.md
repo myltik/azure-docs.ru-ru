@@ -49,7 +49,7 @@
      )
 ```
 
->[AZURE.NOTE]Если не указать атрибут **Mandatory** при определении параметров, то по умолчанию параметр будет необязательным. Кроме того, если в модуле Runbook рабочих процессов PowerShell задать для параметра значение по умолчанию, он будет необязательным в PowerShell, независимо от значения атрибута **Mandatory**.
+>[AZURE.NOTE] Если не указать атрибут **Mandatory** при определении параметров, то по умолчанию параметр будет необязательным. Кроме того, если в модуле Runbook рабочих процессов PowerShell задать для параметра значение по умолчанию, он будет необязательным в PowerShell, независимо от значения атрибута **Mandatory**.
 
 К примеру, настроим входные параметры Runbook рабочего процесса PowerShell, который выводит сведения об одной или всех виртуальных машинах в службе. Как показано на снимке экрана ниже, у такого модуля Runbook будет два параметра — параметр имени виртуальной машины и имени службы.
 
@@ -98,10 +98,10 @@
 
 4. Создайте два параметра со следующими свойствами, которые будут использоваться для действия **Get-AzureVM**:
 
-    * **Параметр1:**
-     "Имя" — VMName, 
-     "Тип" — "Строковый", 
-     "Обязательный" — "Нет".
+    * **Параметр1:** 
+    "Имя" — VMName, 
+    "Тип" — "Строковый", 
+    "Обязательный" — "Нет".
 
     * **Параметр2:** 
     "Имя" — VMNameServiceName, 
@@ -122,7 +122,7 @@
 
 - **Запуск опубликованного модуля Runbook на портале Azure и назначение параметров**
 
-При [запуске модуля Runbook](automation-starting-a-runbook#starting-a-runbook-with-the-azure-portal.md) открывается колонка **Запустить Runbook**, где можно настроить значения недавно созданных параметров.
+При [запуске модуля Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) открывается колонка **Запустить Runbook**, где можно настроить значения недавно созданных параметров.
 
 ![Начало работы с порталом](media/automation-runbook-input-parameters/automation_04_StartRunbookUsingPortal.png)
 
@@ -145,7 +145,6 @@
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
 
-
     - **Командлеты для управления службами Azure.** Модуль Runbook службы автоматизации, созданный в группе ресурсов, можно запустить с помощью командлета [Start-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
 
 
@@ -157,7 +156,7 @@
         Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
->[AZURE.NOTE] При запуске модуля Runbook с помощью командлетов PowerShell создается параметр по умолчанию, **MicrosoftApplicationManagementStartedBy**, со значением **PowerShell**. Этот параметр можно просмотреть в колонке **Сведения о задании**.
+>[AZURE.NOTE]При запуске модуля Runbook с помощью командлетов PowerShell создается параметр по умолчанию, **MicrosoftApplicationManagementStartedBy**, со значением **PowerShell**. Этот параметр можно просмотреть в колонке **Сведения о задании**.
 
 - **Запуск Runbook с использованием пакета SDK и назначение параметров**
 
@@ -280,4 +279,4 @@
 - Сведения об изменении текстового модуля Runbook см. в статье [Изменение текстовых модулей Runbook](automation-edit-textual-runbook.md).
 - Сведения об изменении графического модуля Runbook см. в статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

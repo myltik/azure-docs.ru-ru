@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 	
 # Очистка конечной точки сети CDN Azure
@@ -56,6 +56,7 @@
 	
 
 ## См. также
-[Справочник по API REST CDN. Очистка и предварительная загрузка конечной точки](https://msdn.microsoft.com/library/mt634451.aspx)
+- [Предварительная загрузка ресурсов на конечной точке CDN Azure](cdn-preload-endpoint.md)
+- [Справочник по API REST CDN. Очистка и предварительная загрузка конечной точки](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

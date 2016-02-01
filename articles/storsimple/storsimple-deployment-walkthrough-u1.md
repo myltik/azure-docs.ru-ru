@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/05/2016"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Развертывание локального устройства StorSimple (с обновлением 1)
@@ -244,7 +244,7 @@
 Обновление устройства может занять несколько часов. Выполните действия ниже, чтобы проверить наличие обновлений и применить их на своем устройстве. 
 <!--can take 1-4 hours-->
 
-<!--Если шлюз настроен на сетевом интерфейсе, отличном от Data 0, перед установкой обновления необходимо будет отключить сетевые интерфейсы Data 2 и Data 3. Перейдите в раздел **Устройства > Настроить** и отключите интерфейсы Data 2 и Data 3. Эти интерфейсы необходимо будет снова включить после обновления устройства.-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### Обновление устройства
 
@@ -285,9 +285,9 @@ MPIO представляет собой дополнительный компо
 
 ## Дальнейшие действия
 
-Настройте [виртуальное устройство](storsimple-virtual-device.md).
+- Настройте [виртуальное устройство](storsimple-virtual-device.md).
 
-Для управления устройством StorSimple используется [служба Диспетчера StorSimple](storsimple-manager-service-administration.md).
+- Для управления устройством StorSimple используется [служба Диспетчера StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Копирование Базы данных SQL Azure"
+	pageTitle="Копирование базы данных SQL Azure | Microsoft Azure"
 	description="Создание копии Базы данных SQL Azure"
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/16/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -84,7 +84,7 @@
 
 ## Дальнейшие действия
 
-- [Соединение с SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
 - [Экспорт базы данных в BACPAC](sql-database-export.md)
 
 
@@ -101,4 +101,4 @@
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

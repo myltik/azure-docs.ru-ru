@@ -1,4 +1,4 @@
-<properties pageTitle="Включение диагностики на виртуальной машине Azure под управлением Windows с помощью PowerShell | Microsoft Azure" description="Узнайте, как включить диагностику на виртуальной машине Azure под управлением Windows, используя PowerShell" services="virtual-machines" documentationCenter="" authors="sbtron" manager="" editor="""/>
+<properties pageTitle="Включение системы диагностики Azure на виртуальной машине под управлением Windows с помощью PowerShell | Microsoft Azure" services="virtual-machines" documentationCenter="" description="Узнайте, как включить систему диагностики Azure на виртуальной машине под управлением Windows, используя PowerShell" authors="sbtron" manager="" editor="""/>
 
 <tags
 	ms.service="virtual-machines"
@@ -10,59 +10,59 @@
 	ms.author="saurabh"/>
 
 
-# Включение диагностики на виртуальной машине Azure под управлением Windows с помощью PowerShell
+# Включение системы диагностики Azure на виртуальной машине под управлением Windows с помощью PowerShell
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Для сбора диагностических данных, таких как журналы приложений, счетчики производительности и т. д., с виртуальной машины Azure под управлением Windows вы можете использовать расширение диагностики Azure. В этой статье описывается включение расширения диагностики Azure для виртуальной машины с помощью PowerShell. Сведения о компонентах, которые потребуются для выполнения инструкций в этой статье, см. в разделе [Установка и настройка Azure PowerShell](powershell-install-configure.md).
+Система диагностики Azure позволяет выполнять сбор диагностических данных в развернутом приложении. Для сбора диагностических данных, таких как журналы приложений или счетчики производительности, на виртуальной машине Azure под управлением Windows можно использовать расширение диагностики. В этой статье описано, как включить расширения диагностики для виртуальной машины с помощью Windows PowerShell. Сведения о компонентах, которые потребуются для выполнения инструкций в этой статье, см. в разделе [Установка и настройка Azure PowerShell](powershell-install-configure.md).
 
-## Включение расширения диагностики Azure на виртуальной машине с использованием модели развертывания диспетчера ресурсов
+## Включения расширения диагностики при использовании модели развертывания диспетчера ресурсов
 
-Вы можете включить расширение диагностики при создании виртуальной машины Windows, используя модель развертывания диспетчера ресурсов. Для этого конфигурацию расширения нужно добавить в шаблон диспетчера ресурсов. См. статью [Создание виртуальной машины Windows с мониторингом и диагностикой с использованием шаблона диспетчера ресурсов Azure](virtual-machines-extensions-diagnostics-windows-template.md).
+Вы можете включить расширение диагностики при создании виртуальной машины Windows, используя модель развертывания диспетчера ресурсов Azure. Для этого в шаблон диспетчера ресурсов нужно добавить конфигурацию расширения. Дополнительные сведения см. в статье [Создание виртуальной машины Windows с мониторингом и диагностикой с использованием шаблона диспетчера ресурсов Azure](virtual-machines-extensions-diagnostics-windows-template.md).
 
-Чтобы включить расширение диагностики Azure на уже существующей виртуальной машине, созданной с помощью модели развертывания диспетчера ресурсов, вы можете использовать командлет PowerShell [Set-AzureRMVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt603499.aspx), как показано ниже.
+Чтобы включить расширение диагностики на уже существующей виртуальной машине, созданной с помощью модели развертывания диспетчера ресурсов, можно использовать командлет PowerShell [Set-AzureRMVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt603499.aspx), как показано ниже.
 
 
 	$vm_resourcegroup = "myvmresourcegroup"
 	$vm_name = "myvm"
 	$diagnosticsconfig_path = "DiagnosticsPubConfig.xml"
-	
-	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path 
+
+	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path
 
 
-*$diagnosticsconfig\_path* — это путь к XML-файлу с конфигурацией диагностики, как в приведенном ниже [примере](#sample-diagnostics-configuration).
+*$diagnosticsconfig\_path* — это путь к файлу с конфигурацией диагностики в формате XML, как видно в [примере](#sample-diagnostics-configuration) ниже.
 
 Если файл конфигурации диагностики содержит элемент **StorageAccount** с именем учетной записи хранения, сценарий *Set-AzureRMVMDiagnosticsExtension* автоматически настраивает расширение диагностики на отправку диагностических данных в эту учетную запись. Для этого учетная запись хранения должна входить в ту же подписку, что и виртуальная машина.
 
 Если в конфигурации диагностики нет элемента **StorageAccount**, в командлет необходимо передать параметр *StorageAccountName*. Если параметр *StorageAccountName* указан, командлет использует учетную запись хранения, указанную в параметре, а не заданную в файле конфигурации диагностики.
 
-Если учетная запись хранения диагностики и виртуальная машина относятся к разным подпискам, в командлет необходимо отдельно передать параметры *StorageAccountName* и *StorageAccountKey*. Параметр *StorageAccountKey* не требуется, если диагностическая учетная запись хранения входит в ту же подписку, поскольку при включении расширения диагностики командлет автоматически запрашивает и устанавливает значение ключа. Если же диагностическая учетная запись хранения входит в другую подписку, командлет не сможет получить ключ автоматически, а значит, его необходимо указать с помощью параметра *StorageAccountKey*.
+Если учетная запись хранения диагностики и виртуальная машина относятся к разным подпискам, в командлет необходимо явным образом передать параметры *StorageAccountName* и *StorageAccountKey*. Параметр *StorageAccountKey* не требуется, если учетная запись хранения диагностических данных входит в ту же подписку, так как при включении расширения диагностики командлет автоматически запрашивает и устанавливает значение ключа. Если же учетная запись хранения диагностических данных входит в другую подписку, командлет не сможет получить ключ автоматически, а значит, его необходимо явно указать с помощью параметра *StorageAccountKey*.
 
-	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key	
+	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
-Если расширение диагностики Azure на виртуальной машине включено, получить текущие параметры позволяет командлет [Get-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603678.aspx).
+После включения расширения диагностики на виртуальной машине получить текущие параметры можно с помощью командлета [Get-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603678.aspx).
 
 	Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
-Возвращенное командлетом значение *PublicSettings* содержит XML-файл конфигурации в кодировке Base64. Чтобы прочитать XML-файл, его необходимо декодировать.
-	
+Командлет возвращает значение *PublicSettings*, которое содержит XML-файл конфигурации в кодировке Base64. Чтобы прочитать XML-файл, его необходимо декодировать.
+
 	$publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
 	$encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
 	$xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
 	Write-Host $xmlconfig
- 
-Для удаления расширения диагностики с виртуальной машины вы можете использовать командлет [Remove-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603782.aspx).
-  
-## Включение расширения диагностики Azure на виртуальной машине с использованием классической модели развертывания
 
-Включить расширение диагностики Azure на виртуальной машине, созданной на основе классической модели развертывания, позволяет командлет [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx). В следующем примере показано, как создать новую виртуальную машину, используя классическую модель развертывания с включенным расширением диагностики Azure.
+Для удаления расширения диагностики с виртуальной машины вы можете использовать командлет [Remove-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603782.aspx).
+
+## Включения расширения диагностики при использовании классической модели развертывания
+
+Включить расширение диагностики на виртуальной машине, созданной на основе классической модели развертывания, можно с помощью командлета [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx). В следующем примере показано, как создать новую виртуальную машину, используя классическую модель развертывания при включенном расширении диагностики.
 
 	$VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
 	$VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
 	$VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
 	New-AzureVM -Location $Location -ServiceName $Service_Name -VM $VM
 
-Чтобы включить расширение диагностики Azure на уже существующей (классической) виртуальной машине, прежде всего получите конфигурацию виртуальной машины с помощью командлета [Get-AzureVM](https://msdn.microsoft.com/library/mt589152.aspx). Затем обновите конфигурацию виртуальной машины, чтобы включить расширение диагностики Azure, с помощью командлета [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx). И наконец, примените обновленную конфигурацию к виртуальной машине с помощью командлета [Update-AzureVM](https://msdn.microsoft.com/library/mt589121.aspx).
+Чтобы включить расширение диагностики на существующей виртуальной машине, созданной с помощью классической модели развертывания, сначала используйте командлет [Get-AzureVM](https://msdn.microsoft.com/library/mt589152.aspx), который позволит получить конфигурацию виртуальной машины. Затем обновите конфигурацию виртуальной машины, чтобы активировать расширение диагностики, с помощью командлета [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx). И наконец, примените обновленную конфигурацию к виртуальной машине с помощью командлета [Update-AzureVM](https://msdn.microsoft.com/library/mt589121.aspx).
 
 	$VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
 	$VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
@@ -70,21 +70,22 @@
 
 ## Пример конфигурации диагностики
 
-Представленный ниже XML-код можно использовать для открытой конфигурации диагностики с применением описанных выше сценариев. Конфигурация в данном примере передает в диагностическую учетную запись хранения различные счетчики производительности вместе с ошибками из журналов приложений, событий безопасности и системных каналов в Windows, а также из журналов инфраструктуры диагностики.
+Представленный ниже XML-код можно использовать для открытой конфигурации диагностики с применением описанных выше сценариев. Конфигурация в данном примере передает в учетную запись хранения диагностических данных различные счетчики производительности вместе с ошибками из журналов приложений, событий безопасности и системных каналов в Windows, а также из журналов инфраструктуры диагностики.
 
 Конфигурацию необходимо обновить, чтобы включить в нее следующее:
 
-- Атрибут *ResourceID* элемента **Metrics** необходимо обновить, указав идентификатор ресурса для виртуальной машины. 
-	- Идентификатор ресурса может иметь следующий формат: "/subscriptions/{*идентификатор подписки, в которую входит виртуальная машина*}/resourceGroups/{*имя группы ресурсов виртуальной машины*}/providers/Microsoft.Compute/virtualMachines/{*имя виртуальной машины*}". 
+- Атрибут *resourceID* элемента **Metrics** необходимо обновить, указав идентификатор ресурса для виртуальной машины.
+	- Идентификатор ресурса может иметь следующий формат: "/subscriptions/{*идентификатор подписки, в которую входит виртуальная машина*}/resourceGroups/{*имя группы ресурсов виртуальной машины*}/providers/Microsoft.Compute/virtualMachines/{*имя виртуальной машины*}".
 	- Например, если подписка, в которую входит виртуальная машина, имеет идентификатор **11111111-1111-1111-1111-111111111111**, группа ресурсов называется **MyResourceGroup**, а виртуальная машина — **MyWindowsVM**, атрибут *resourceID* будет выглядеть следующим образом:
-	 
+
 		```
 		<Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
 		```
-	- Дополнительные сведения о генерировании метрик на основе счетчиков производительности и конфигурации метрик см. в разделе [Таблица метрик WAD в хранилище](virtual-machines-extensions-diagnostics-windows-template.md#wadmetrics-tables-in-storage).
+
+	- Дополнительные сведения о генерировании метрик на основе счетчиков производительности и конфигурации метрик см. в разделе [Таблицы WADMetrics в хранилище](virtual-machines-extensions-diagnostics-windows-template.md#wadmetrics-tables-in-storage).
 
 - Элемент **StorageAccount** необходимо обновить, указав диагностическое имя учетной записи хранения.
- 
+
 	```
 	<?xml version="1.0" encoding="utf-8"?>
 	<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -189,8 +190,8 @@
 	</PublicConfig>
 	```
 
-## Дальнейшие действия 
-- Дополнительные рекомендации по использованию диагностики Azure и других методов для устранения неполадок см. в статье [Включение диагностики в облачных службах и виртуальных машинах Azure](cloud-services-dotnet-diagnostics.md).
-- В статье [Схема конфигурации диагностики](https://msdn.microsoft.com/library/azure/mt634524.aspx) поясняются различные параметры XML-конфигураций для расширения диагностики.
+## Дальнейшие действия
+- Дополнительные рекомендации по использованию системы диагностики Azure и других методов для устранения неполадок см. в статье [Включение диагностики в облачных службах и виртуальных машинах Azure](cloud-services-dotnet-diagnostics.md).
+- Пояснение различных параметров XML-конфигураций для расширения диагностики см. в статье [Схем конфигурации диагностики Azure](https://msdn.microsoft.com/library/azure/mt634524.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

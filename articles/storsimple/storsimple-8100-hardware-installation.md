@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Распаковка, установка в стойку и подключение устройства StorSimple 8100
@@ -259,9 +259,9 @@ Microsoft Azure StorSimple 8100 представляет собой единый
 
 - При возможности подключите интерфейсы каждого контроллера по крайней мере к двум различным коммутаторам для обеспечения доступности при сбоях коммутатора. На рисунке показаны два сетевых интерфейса 10 Гбит/с, DATA 2 и DATA 3, соединяющие каждый контроллер с двумя различными коммутаторами.
 
-Дополнительные сведения см. в разделе **Сетевые интерфейсы** статьи [Требования к высокой доступности для устройства StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+Дополнительные сведения см. в разделе **Сетевые интерфейсы** статьи [Требования к высокой доступности для устройства StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
->[AZURE.NOTE]Если сетевые интерфейсы 10 Гбит/с работают через приемопередатчики SFP+, используйте переходники QSFP-SFP+, входящие в комплект устройства. Дополнительные сведения см. в статье [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE на устройстве StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+>[AZURE.NOTE]Если сетевые интерфейсы 10 GbE работают через приемопередатчики SFP+, используйте переходники QSFP-SFP+, входящие в комплект устройства. Дополнительные сведения см. в статье [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE на устройстве StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
     
 
    
@@ -291,4 +291,4 @@ Microsoft Azure StorSimple 8100 представляет собой единый
 
 Узнайте, как [развернуть и настроить локальное устройство StorSimple](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -23,7 +23,7 @@
 
 Служба Azure Site Recovery помогает реализовать стратегию непрерывности бизнеса и аварийного восстановления (BCDR), управляя процессами репликации, отработки отказа и восстановления виртуальных машин в ряде вариантов развертывания. Полный список сценариев развертывания приведен в статье [Обзор Site Recovery](site-recovery-overview.md).
 
-В этой статье описано, как использовать Site Recovery для переноса или отработки отказа экземпляров Windows, работающих в AWS, в Azure. В этой статье используется большинство действий, описанных в статье [Настройка защиты между локальными виртуальными машинами VMWare или физическими серверами и Azure](site-recovery-vmware-to-azure.md). Мы рекомендуем вам ознакомиться с подробными инструкциями по каждому этапу развертывания в упомянутой выше статье.
+В этой статье описано, как использовать Site Recovery для переноса или отработки отказа экземпляров Windows, работающих в AWS, в Azure. В этой статье используется большинство действий, описанных в статье [Настройка защиты между локальными виртуальными машинами VMWare или физическими серверами и Azure](site-recovery-vmware-to-azure-classic-legacy.md). Мы рекомендуем вам ознакомиться с подробными инструкциями по каждому этапу развертывания в упомянутой выше статье.
 
 ## Приступая к работе
 
@@ -34,15 +34,15 @@
 - **Сервер обработки** — виртуальная машина с Windows Server 2012 R2. Защищенные виртуальные машины отправляют данные репликации на этот сервер.
 - **Экземпляры виртуальной машины EC2** — экземпляры, которые требуется перенести и защитить.
 
-- Подробнее об этих компонентах можно узнать в подразделе [Что необходимо?](site-recovery-vmware-to-azure.md#what-do-i-need)
-- Кроме того, советуем вам ознакомиться с рекомендациями по [планированию загрузки](site-recovery-vmware-to-azure.md#capacity-planning) и выполнить все [предварительные условия для развертывания](site-recovery-vmware-to-azure.md#before-you-start) перед началом работы.
+- Подробнее об этих компонентах можно узнать в подразделе [Что необходимо?](site-recovery-vmware-to-azure-classic-legacy.md#what-do-i-need)
+- Кроме того, советуем вам ознакомиться с рекомендациями по [планированию загрузки](site-recovery-vmware-to-azure-classic-legacy.md#capacity-planning) и выполнить все [предварительные условия для развертывания](site-recovery-vmware-to-azure-classic-legacy.md#before-you-start) перед началом работы.
 
 ## Шаги по развертыванию
 
-1. [Создание хранилища](site-recovery-vmware-to-azure.md#step-1-create-a-vault)
-2. [Развертывание сервера конфигурации](site-recovery-vmware-to-azure.md#step-2-deploy-a-configuration-server) в качестве виртуальной машины Azure.
-3. [Развертывание главного целевого сервера](site-recovery-vmware-to-azure.md#step-2-deploy-a-configuration-server) в качестве виртуальной машины Azure.
-4. [Развертывание сервера обработки](site-recovery-vmware-to-azure.md#step-4-deploy-the-on-premises-process-server). Обратите внимание на следующее.
+1. [Создание хранилища](site-recovery-vmware-to-azure-classic-legacy.md#step-1-create-a-vault)
+2. [Развертывание сервера конфигурации](site-recovery-vmware-to-azure-classic-legacy.md#step-2-deploy-a-configuration-server) в качестве виртуальной машины Azure.
+3. [Развертывание главного целевого сервера](site-recovery-vmware-to-azure-classic-legacy.md#step-2-deploy-a-configuration-server) в качестве виртуальной машины Azure.
+4. [Развертывание сервера обработки](site-recovery-vmware-to-azure-classic-legacy.md#step-4-deploy-the-on-premises-process-server). Обратите внимание на следующее.
 
 	- Вам следует развернуть сервер обработки в той же подсети или виртуальном частном облаке Amazon, что и экземпляры EC2. ![Экземпляры EC2](./media/site-recovery-migrate-aws-to-azure/ASR_AWSMigration1.png)
 
@@ -55,20 +55,20 @@
 	
 		![сервер обработки](./media/site-recovery-migrate-aws-to-azure/ASR_AWSMigration3.png)
 
-5. [Установка последних обновлений](site-recovery-vmware-to-azure.md#step-5-install-latest-updates). Убедитесь, что все установленные серверы компонентов обновлены до последних версий.
-6. [Создание группы защиты](site-recovery-vmware-to-azure.md#step-7-create-a-protection-group). Чтобы начать защиту перенесенных экземпляров с помощью Site Recovery, вам потребуется настроить группу защиты. Укажите параметры репликации для группы, и они будут применяться ко всем экземплярам, добавляемым в эту группу. 
-7. [Настройка виртуальных машин](site-recovery-vmware-to-azure.md#step-8-set-up-machines-you-want-to-protect). Вам потребуется установить службу Mobility Service на каждый экземпляр (автоматически или вручную).
-8. [Включение защиты для виртуальных машин](site-recovery-vmware-to-azure.md#step-9-enable-protection). Включите защиту для экземпляров, добавив их в группу защиты. Обратите внимание на следующее.
+5. [Установка последних обновлений](site-recovery-vmware-to-azure-classic-legacy.md#step-5-install-latest-updates). Убедитесь, что все установленные серверы компонентов обновлены до последних версий.
+6. [Создание группы защиты](site-recovery-vmware-to-azure-classic-legacy.md#step-7-create-a-protection-group). Чтобы начать защиту перенесенных экземпляров с помощью Site Recovery, вам потребуется настроить группу защиты. Укажите параметры репликации для группы, и они будут применяться ко всем экземплярам, добавляемым в эту группу. 
+7. [Настройка виртуальных машин](site-recovery-vmware-to-azure-classic-legacy.md#step-8-set-up-machines-you-want-to-protect). Вам потребуется установить службу Mobility Service на каждый экземпляр (автоматически или вручную).
+8. [Включение защиты для виртуальных машин](site-recovery-vmware-to-azure-classic-legacy.md#step-9-enable-protection). Включите защиту для экземпляров, добавив их в группу защиты. Обратите внимание на следующее.
 
 	- Вы можете просмотреть экземпляры EC2, которые требуется перенести в Azure, с помощью их частных IP-адресов, которые можно получить в консоли EC2.
 	-  На вкладке созданной вами группы защиты нажмите "Добавить компьютеры" > "Физические компьютеры" ![обнаружение EC2](./media/site-recovery-migrate-aws-to-azure/ASR_AWSMigration4.png)
 	- Укажите частный IP-адрес экземпляра.
 		- ![обнаружение EC2](./media/site-recovery-migrate-aws-to-azure/ASR_AWSMigration5.png)
 	- Включится защита и будет выполнена начальная репликация в соответствии с параметрами начальной репликации для группы защиты.
-9. [Запуск внеплановой отработки отказа](site-recovery-failover.md#run-an-unplanned-failover). После завершения начальной репликации вы можете запустить внеплановую отработку отказа из AWS в Azure. При необходимости вы можете создать план восстановления и запустить внеплановую отработку отказа, чтобы перенести несколько виртуальных машин из AWS в Azure. [Узнайте подробнее](site-recovery-create-recovery-plans.md) о планах восстановления.
+9. [Запуск внеплановой отработки отказа](site-recovery-failover-classic-legacy.md#run-an-unplanned-failover). После завершения начальной репликации вы можете запустить внеплановую отработку отказа из AWS в Azure. При необходимости вы можете создать план восстановления и запустить внеплановую отработку отказа, чтобы перенести несколько виртуальных машин из AWS в Azure. [Узнайте подробнее](site-recovery-create-recovery-plans.md) о планах восстановления.
 		
 ## Дальнейшие действия
 
 Комментарии и вопросы вы можете оставить на [форуме службы Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -14,7 +14,7 @@
       ms.tgt_pltfrm="na"
       ms.workload="na"
       ms.date="12/06/2015"
-      ms.author="v-jeana; hascipio"/>
+      ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Решение основных проблем, возникающих у издателей Azure Marketplace
 В этой статье рассказывается, как решать некоторые распространенные проблемы с использованием Marketplace и обращаться за поддержкой.
@@ -63,9 +63,9 @@
 
 ## Обновление профиля издателя
 
-Обновить профиль издателя можно в центре разработчиков Майкрософт.
+Обновить профиль издателя можно в центре разработки Майкрософт:
 
-**1. Войдите в центр разработчиков Майкрософт**.
+**1. Войдите в центр разработки для Windows**.
 
 - Откройте новое окно в режиме инкогнито в браузере Chrome или запустите режим InPrivate в браузере Internet Explorer, чтобы не войти в существующую учетную запись.
 - Откройте страницу [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
@@ -82,7 +82,7 @@
 
 ![protectacct][6]
 
-**4. Откройте данные учетной записи и сведения о компании**
+**4. Откройте данные учетной записи и контактную информацию**.
 
 ![acctdetails][7]
 
@@ -120,4 +120,4 @@
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

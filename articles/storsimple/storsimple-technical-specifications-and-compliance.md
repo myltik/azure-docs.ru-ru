@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/27/2015"
+   ms.date="01/20/2016"
    ms.author="alkohli" />
 
 # Технические характеристики и информация о соответствии нормативным требованиям для устройства StorSimple
@@ -170,6 +170,6 @@
 
 ## Дальнейшие действия
 
-Чтобы получить дополнительные сведения об устройстве StorSimple, скачайте [таблицу с описанием характеристик о серии StorSimple 8000](http://storsimple.seagate.com/Specifications-8000).
+Теперь вы можете развернуть устройство StorSimple в центре обработки данных. Дополнительные сведения см. в разделе [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

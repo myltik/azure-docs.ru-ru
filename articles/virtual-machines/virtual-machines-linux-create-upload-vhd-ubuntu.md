@@ -112,6 +112,9 @@
 
 11. В диспетчере Hyper-V выберите **Действие -> Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
+## Дальнейшие действия
+Теперь вы готовы с помощью VHD-файла системы Ubuntu Linux создавать в Azure виртуальные машины Azure. Если вы используете Azure и отправляете VHD-файл в Azure в первый раз, следуйте инструкциям, описанным в шагах 2 и 3 [этого руководства](virtual-machines-linux-create-upload-vhd.md).
+
 ## Ссылки ##
 
 Ядро Ubuntu с расширенной поддержкой оборудования HardWare Enablement (HWE)
@@ -119,4 +122,4 @@
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

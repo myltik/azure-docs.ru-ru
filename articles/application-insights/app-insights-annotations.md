@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="01/19/2016"
     ms.author="awills"/>
 
 # Заметки к выпуску в Application Insights
@@ -28,9 +28,9 @@
 Чтобы получить возможность создания заметок к выпуску, необходимо установить одно из расширений Team Service, доступных в магазине Visual Studio.
 
 1. Войдите в свой проект в [Visual Studio Team Services](https://www.visualstudio.com/ru-RU/get-started/setup/sign-up-for-visual-studio-online).
-2. Откройте магазин Visual Studio, найдите расширение аннотаций Application Insights и добавьте его к своей учетной записи Team Services.
+2. В магазине Visual Studio [найдите расширение заметок к выпуску](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) и добавьте его к своей учетной записи Team Services.
 
-![В верхнем правом углу веб-страницы Team Services откройте "Магазин". Найдите и установите "Заметки Application Insights" со своей учетной записью.](./media/app-insights-annotations/10.png)
+![В верхнем правом углу веб-страницы Team Services откройте "Магазин". Выберите Visual Team Services и нажмите кнопку "Дополнительно" в разделе "Сборка и выпуск".](./media/app-insights-annotations/10.png)
 
 Это необходимо сделать только один раз для учетной записи Visual Studio Team Services. Теперь можно настроить заметки к выпуску для любого проекта в вашей учетной записи.
 
@@ -48,7 +48,7 @@
 
     Добавьте задачу и выберите в меню задачу заметок к выпуску Application Insights.
 
-    Вставьте **ИД Application Insights**, скопированный из колонки "Доступ к API".
+    Вставьте **идентификатор приложения**, скопированный из колонки "Доступ к API".
 
     ![В Visual Studio Team Services откройте "Выпуск", выберите определение выпуска и нажмите кнопку "Изменить". Щелкните "Добавьте задачу" и выберите "Заметки к выпуску Application Insights". Вставьте ИД Application Insights.](./media/app-insights-annotations/30.png)
 
@@ -73,4 +73,4 @@
 
 Теперь при каждом развертывании нового выпуска с помощью шаблона выпуска заметки будут отправляться в Application Insights. Заметки будут отображаться на диаграммах в обозревателе метрик.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/19/2016"
 	ms.author="tarcher"/>
 # Включение удаленной отладки при использовании непрерывной доставки для публикации на Azure
 
@@ -41,7 +41,7 @@
 4. Установите Azure Powershell (0.7.4 или более поздней версии), как описано в разделе [Установка и настройка Azure PowerShell](powershell-install-configure.md).
 5. Выполните следующий скрипт, чтобы включить расширение RemoteDebug. Замените пути и персональные данные на свои собственные (например, имя своей подписки, имя службы и отпечаток).
 
-	>[AZURE.NOTE]Этот сценарий настроен для Visual Studio 2015. Если вы работаете в Visual Studio 2013, используйте значение RemoteDebugVS2013 для ReferenceName и ExtensionName.
+	>[AZURE.NOTE]Этот сценарий настроен для Visual Studio 2015. Если вы используете Visual Studio 2013, измените присваивания `$referenceName` и `$extensionName` ниже, чтобы использовать `RemoteDebugVS2013` (вместо `RemoteDebugVS2015`).
 
 	<pre>
     Add-AzureAccount
@@ -89,6 +89,5 @@
 	</pre>
 
 6. Импортируйте сертификат (.pfx) на машину, на которой имеется Visual Studio с установленным пакетом Azure SDK для .NET.
- 
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

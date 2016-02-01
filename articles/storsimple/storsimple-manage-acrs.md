@@ -91,7 +91,8 @@
 ## Дальнейшие действия
 
 - Узнайте больше об [управлении томами StorSimple](storsimple-manage-volumes.md).
+
 - Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

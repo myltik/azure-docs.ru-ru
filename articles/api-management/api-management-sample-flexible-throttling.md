@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/16/2015"
+	ms.date="01/15/2016"
 	ms.author="v-darmi"/>
 
 
@@ -68,4 +68,9 @@
 ## Дальнейшие действия
 Сообщите нам свое мнение в обсуждении Disqus. Мы будем рады узнать о других возможных значениях ключей, подходящих для вашего случая.
 
-<!---HONumber=AcomDC_1217_2015-->
+## Посмотрите видеообзор этих политик.
+Дополнительные сведения о политиках [ограничения скорости по ключу](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) и [установки квоты по ключу](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), которые рассматриваются в этой статье, см. в следующем видеоролике.
+
+> [AZURE.VIDEO advanced-request-throttling-with-azure-api-management]
+
+<!---HONumber=AcomDC_0121_2016-->

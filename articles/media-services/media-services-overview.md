@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2016"
+	ms.date="01/14/2016"
 	ms.author="juliako"/>
 
 #Общие сведения о службах мультимедиа Azure и распространенные сценарии
@@ -29,7 +29,10 @@
 Для сборки решений на базе служб мультимедиа можно использовать
 
 - [REST API для службы мультимедиа.](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- Один из доступных клиентских пакетов SDK: [пакет SDK служб мультимедиа Azure для .NET](https://github.com/Azure/azure-sdk-for-media-services), [пакет SDK Azure для Java](https://github.com/Azure/azure-sdk-for-java), [службы мультимедиа Azure для Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js), [пакет SDK Azure для PHP](https://github.com/Azure/azure-sdk-for-php).
+- Один из доступных клиентских пакетов SDK: 
+	- [Пакет SDK служб мультимедиа Azure для .NET](https://github.com/Azure/azure-sdk-for-media-services). 
+	- [Пакет Azure SDK для Java](https://github.com/Azure/azure-sdk-for-java), [Пакет Azure SDK для PHP](https://github.com/Azure/azure-sdk-for-php). 
+	- [Службы мультимедиа Azure для Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (это версия пакета SDK для Node.js сторонних производителей. Она поддерживается сообществом и в настоящее время не обладает полным покрытием всех интерфейсов API AMS). 
 - Существующие средства: [классический портал Azure](http://manage.windowsazure.com/) или [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
@@ -231,4 +234,4 @@
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

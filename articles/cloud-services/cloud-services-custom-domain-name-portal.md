@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Настройка пользовательского доменного имени для облачной службы Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-custom-domain-name.md)
 - [Azure portal](cloud-services-custom-domain-name-portal.md)
+- [Azure classic portal](cloud-services-custom-domain-name.md)
 
 При создании облачной службы Azure ей назначается поддомен **cloudapp.net**. Например, если облачная служба имеет имя contoso, пользователи смогут обращаться к приложению по URL-адресу вида http://contoso.cloudapp.net. Azure также назначает виртуальный IP-адрес.
 
@@ -29,7 +29,7 @@
 Вы уже знаете, что такое записи CNAME и A? [Пропустите это объяснение](#add-a-cname-record-for-your-custom-domain).
 
 > [AZURE.NOTE]
-> Процедуры в этом задании применяются для облачных служб Azure. Информацию о веб-сайтах см. в статье [Настройка пользовательского домена для веб-приложения службы приложений Azure](../app-service-web/web-sites-custom-domain-name.md). Для учетных записей хранения см. [Настройка пользовательского доменного имени для учетной записи хранения Azure](../storage/storage-custom-domain-name.md).
+> Процедуры в этом задании применяются для облачных служб Azure. Для служб приложений см. [этот раздел](../app-service-web/web-sites-custom-domain-name.md). Для учетных записей хранения см. [этот раздел](../storage/storage-custom-domain-name.md).
 
 <p/>
 
@@ -121,7 +121,7 @@
 
 2.  Теперь найдите место, где можно выбрать или ввести запись А. Может потребоваться выбрать тип записи из раскрывающегося списка или перейти на страницу дополнительных параметров.
 
-3. Выберите или введите домен или дочерний домен, который будет использовать эту запись А. Например, выберите **www**, если вы хотите создать псевдоним для **www.customdomain.com**. Если вы хотите создать запись с подстановочными знаками для всех поддоменов, введите "\_\_*\_\_". Так будут охвачены все поддомены, такие как **mail.customdomain.com**, **login.customdomain.com** и **www.customdomain.com**.
+3. Выберите или введите домен или дочерний домен, который будет использовать эту запись А. Например, выберите **www**, если вы хотите создать псевдоним для **www.customdomain.com**. Если вы хотите создать запись с подстановочными знаками для всех поддоменов, введите '__*__'. Так будут охвачены все поддомены, такие как **mail.customdomain.com**, **login.customdomain.com** и **www.customdomain.com**.
 
     Если вы хотите создать запись A для корневого домена, она может быть указана как символ «**@**» в средствах DNS вашего регистратора.
 
@@ -134,15 +134,15 @@
 | @ | 137\.135.70.239 |
 
 
-В этом примере показано создание записи А для корневого домена. Если вы хотите создать запись с подстановочными знаками, чтобы охватить все поддомены, введите "\_\_*\_\_" в качестве поддомена.
+В этом примере показано создание записи А для корневого домена. Если вы хотите создать запись с подстановочными знаками, чтобы охватить все поддомены, введите "__*__" в качестве поддомена.
 
 >[AZURE.WARNING]
->IP-адреса в Azure по умолчанию являются динамическими. Чтобы ваш IP-адрес не изменялся, вы можете использовать [зарезервированный IP-адрес](..\virtual-network\virtual-networks-reserved-public-ip.md).
+> IP-адреса в Azure по умолчанию являются динамическими. Чтобы ваш IP-адрес не изменялся, вы можете использовать [зарезервированный IP-адрес](../virtual-network/virtual-networks-reserved-public-ip.md).
 
 ## Дальнейшие действия
 
 * [Управление облачными службами](cloud-services-how-to-manage.md)
-* [Сопоставление содержимого CDN с пользовательским доменом](cdn-map-content-to-custom-domain.md)
+* [Сопоставление содержимого CDN с пользовательским доменом](../cdn/cdn-map-content-to-custom-domain.md)
 * [Общая настройка облачной службы](cloud-services-how-to-configure-portal.md).
 * Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy-portal.md).
 * Настройте [SSL-сертификаты](cloud-services-configure-ssl-certificate-portal.md).
@@ -150,11 +150,11 @@
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
 [Expose Your Data on a Custom Domain]: #access-data
-[VIP swaps]: http://msdn.microsoft.com/library/ee517253.aspx
+[VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
 [портал Azure]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

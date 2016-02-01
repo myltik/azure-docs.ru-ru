@@ -1,39 +1,33 @@
-<properties 
-    pageTitle="Обработка больших объемов данных с помощью фабрики данных Azure и пакетной службы Azure" 
-    description="Содержит описание процесса обработки больших объемов данных в конвейере фабрики данных Azure с использованием возможности параллельной обработки пакетной службы Azure." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="spelluru" 
-    manager="jhubbard" 
+<properties
+    pageTitle="Управление данными и высокопроизводительными вычислениями с помощью пакетной службы и фабрики данных Azure"
+    description="Содержит описание процесса обработки больших объемов данных в конвейере фабрики данных Azure с использованием возможности параллельной обработки пакетной службы Azure."
+    services="data-factory"
+    documentationCenter=""
+    authors="spelluru"
+    manager="jhubbard"
     editor="monicar"/>
 
-<tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="12/16/2015" 
+<tags
+    ms.service="data-factory"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/20/2016"
     ms.author="spelluru"/>
-# Обработка больших объемов данных с помощью фабрики данных Azure и пакетной службы Azure
+# Управление данными и высокопроизводительными вычислениями с помощью пакетной службы и фабрики данных Azure
 
-Это простое архитектурное решение показывает, как эффективно перемещать и обрабатывать крупномасштабные наборы данных в облаке с помощью **фабрики данных** **Microsoft Azure** и **пакетной службы** **Azure**. Эта архитектура подходит для многих сценариев, предполагающих обработку больших объемов данных. К таким сценариям относятся формирование отчетов и моделирование рисков в организациях по предоставлению финансовых услуг, обработка и отрисовка изображений, а также геномный анализ.
+Высокопроизводительные вычисления (HPC) всегда были прерогативой локальных центров обработки данных — суперкомпьютеров, которые работают с данными, но ограничены числом доступных физических машин. Пакетная служба Azure в корне меняет это положение дел, предоставляя HPC как услугу. Количество машин может быть любым. Кроме того, пакетная служба берет на себя планирование и координацию работы, позволяя вам сосредоточить внимание на выполняемых алгоритмах. Идеально дополняет пакетную службу фабрика данных Azure, позволяющая легко управлять перемещением данных. С помощью фабрики данных можно настроить регулярное перемещение данных для извлечения, преобразования и загрузки, обработку данных и последующее перемещение результатов в постоянное хранилище. Например, данные, полученные с датчиков, перемещаются (фабрикой данных) во временную папку, где пакетная служба (под контролем фабрики данных) обрабатывает данные и формирует новый набор результатов. После этого фабрика данных переносит результаты в конечный репозиторий. Используя две эти службы в тандеме, вы сможете эффективно применять HPC для обработки больших объемов данных по регулярному графику.
 
-Архитекторы и руководители ИТ-отделов могут получить общие сведения, ознакомившись со схемой и основными шагами. Разработчики могут использовать код в качестве отправной точки для реализации своих решений. Эта статья содержит полное решение.
+Приведем пример готового решения, которое автоматически перемещает и обрабатывает наборы данных большого масштаба. Подобная архитектура подходит для многих сценариев, включая моделирование рисков по финансовым услугам, обработку и отрисовку изображений и геномный анализ. Архитекторы и руководители ИТ-отделов могут получить общие сведения, ознакомившись со схемой и основными шагами. Разработчики могут использовать код в качестве отправной точки для реализации своих решений. Эта статья содержит полное решение.
 
-## Фабрика данных и пакетная служба
-
-**Фабрика данных Azure** представляет собой облачную службу интеграции данных. Она координирует и автоматизирует перемещение необработанных данных и преобразует их в готовую к применению информацию. Чтобы освоить эту службу, см. статью [Введение в службу фабрики данных Azure](data-factory-introduction.md) и раздел [Создание первого конвейера](data-factory-build-your-first-pipeline.md).
-
-Конвейеры представляют собой логические группы действий, предназначенные для перемещения и обработки данных. Фабрика данных поддерживает встроенные действия, такие как **действие копирования** и **действие Hive HDInsight**. Полный список действий см. в статьях [Действия перемещения данных](data-factory-data-movement-activities.md) и [Действия преобразования данных](data-factory-data-transformation-activities.md). Кроме того, можно создать **настраиваемое действие** на основе собственной логики обработки. Это будет показано в решении.
-
-**Пакетная служба Azure** позволяет эффективно запускать приложения для крупномасштабных параллельных и высокопроизводительных вычислений (HPC) в облаке. Это служба платформы, которая планирует запуск ресурсоемких задач в управляемой коллекции виртуальных машин (вычислительных узлов) и может масштабировать вычислительные ресурсы в соответствии с требованиями задания. Дополнительные сведения см. в статьях [Основные сведения о пакетной службе Azure](../batch/batch-technical-overview.md) и [Обзор функций пакетной службы Azure](../batch/batch-api-basics.md).
+Если вы не знакомы с этими службами, прежде чем переходить к примеру решения, ознакомьтесь с документацией к [пакетной службе Azure](../batch/batch-api-basics.md) и [фабрике данных](data-factory-introduction.md).
 
 ## Схема архитектуры
 
-На схеме показано, как фабрика данных управляет перемещением и обработкой данных и как пакетная служба Azure параллельно обрабатывает данные. Для удобства скачайте и распечатайте схему (приблизительно 28 x 43 см. или лист размером A3): [Пакетная служба Microsoft Azure и фабрика данных Azure — архитектура для обработки больших объемов данных](http://go.microsoft.com/fwlink/?LinkId=717686).
+На схеме показано, как фабрика данных управляет перемещением и обработкой данных и как пакетная служба Azure параллельно обрабатывает данные. Для удобства загрузите и распечатайте схему (11 x 17 дюймов или формат А3): [Управление данными и высокопроизводительными вычислениями с помощью пакетной службы и фабрики данных Azure](http://go.microsoft.com/fwlink/?LinkId=717686).
 
-![](./media/data-factory-data-processing-using-batch/image1.png)
+![HPC как схема службы приложений](./media/data-factory-data-processing-using-batch/image1.png)
 
 Ниже приведены основные этапы процесса. Решение содержит код и указания по созданию комплексного решения.
 
@@ -70,17 +64,17 @@
 4.  Создайте **пул пакетной службы Azure** с как минимум 2 вычислительными узлами.
 
 	 Для этого можно скачать исходный код [обозревателя пакетной службы Azure](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer), скомпилировать и использовать его (**настоятельно рекомендуется для этого примера решения**) для создания пула или воспользоваться [библиотекой пакетной службы Azure для .NET](../batch/batch-dotnet-get-started.md) для создания пула. Пошаговые инструкции по использованию обозревателя Пакетной службы Azure приведены в записи блога [Пошаговое руководство по обозревателю Пакетной службы Azure](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx). Для создания пула пакетной службы Azure можно также воспользоваться командлетом [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx).
-	
+
 	 Создайте пул с помощью обозревателя пакетной службы и укажите для него следующие параметры:
 
 	-   Введите идентификатор для пула (**идентификатор пула**). Сохраните **идентификатор пула**. Он понадобится при создании решения фабрики данных.
-	
+
 	-   В качестве параметра **Семейство операционных систем** укажите **Windows Server 2012 R2**.
-	
+
 	-   Для параметра **Максимальное количество задач на вычислительный узел** укажите значение **2**.
-	
+
 	-   Для параметра **Количество целевых выделенных объектов** укажите значение **2**.
-	
+
 	 ![](./media/data-factory-data-processing-using-batch/image2.png)
 
 5.  [Обозреватель хранилищ Azure версии 6 (средство)](https://azurestorageexplorer.codeplex.com/) или [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (от ClumsyLeaf Software). Это средства графического интерфейса пользователя, предназначенные для проверки и изменения данных в проектах службы хранилища Azure, включая журналы облачных приложений.
@@ -92,7 +86,7 @@
  		![](./media/data-factory-data-processing-using-batch/image3.png)
 
 		 **inputfolder** и **outputfolder** — папки верхнего уровня в контейнере **mycontainer**. Папка **inputfolder** содержит подпапки с метками даты и времени (ГГГГ-ММ-ДД-ЧЧ).
-		
+
 		 При использовании **обозревателя хранилищ Azure** на следующем шаге необходимо отправить файлы с именами inputfolder/2015-11-16-00/file.txt, inputfolder/2015-11-16-01/file.txt и т. д. Таким образом папки будут созданы автоматически.
 
 	3.  Создайте на компьютере текстовый файл **file.txt** с содержимым, в котором есть ключевое слово **Microsoft**. Например, test custom activity Microsoft test custom activity Microsoft.
@@ -117,7 +111,7 @@
 
     3.  Отправьте ZIP-файл в хранилище BLOB-объектов Azure.
 
-	Подробные указания см. в разделе [Создание настраиваемого действия](#_Coding_the_custom).
+	Подробные указания см. в разделе [Создание пользовательского действия](#_Coding_the_custom).
 
 2.  Создайте фабрику данных Azure, которая использует настраиваемое действие:
 
@@ -150,10 +144,10 @@
 Чтобы создать настраиваемое действие .NET, которое можно использовать в конвейере фабрики данных Azure, необходимо создать проект **библиотеки классов .NET** с классом, который реализует интерфейс **IDotNetActivity**. У этого интерфейса только один метод — **Execute**. Подпись метода выглядит следующим образом:
 
 	public IDictionary<string, string> Execute(
-	            IEnumerable<LinkedService> linkedServices, 
-	            IEnumerable<Dataset> datasets, 
-	            Activity activity, 
-	            IActivityLogger logger)        
+	            IEnumerable<LinkedService> linkedServices,
+	            IEnumerable<Dataset> datasets,
+	            Activity activity,
+	            IActivityLogger logger)
 
 У этого метода есть несколько ключевых компонентов, с которыми нужно разобраться.
 
@@ -169,7 +163,7 @@
 
 -   Этот метод возвращает словарь, который можно использовать для создания цепочки из пользовательских действий. В этом примере решения мы не будем использовать эту функцию.
 
-### Процедура. Создание настраиваемого действия 
+### Процедура. Создание настраиваемого действия
 
 1.  Создайте проект библиотеки классов .NET в Visual Studio:
 
@@ -203,10 +197,10 @@
 		using System.Globalization;
 		using System.Diagnostics;
 		using System.Linq;
-		
+
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.Azure.Management.DataFactories.Runtime;
-		
+
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -221,7 +215,7 @@
 8.  Реализуйте (добавьте) метод **Execute** интерфейса **IDotNetActivity** к классу **MyDotNetActivity** и скопируйте следующий пример кода в метод. Объяснение логики, используемой в этом методе, см. в разделе [Метод Execute](#execute-method).
 
 		/// <summary>
-        /// Execute method is the only method of IDotNetActivity interface you must implement. 
+        /// Execute method is the only method of IDotNetActivity interface you must implement.
         /// In this sample, the method invokes the Calculate method to perform the core logic.  
 		/// </summary>
         public IDictionary<string, string> Execute(
@@ -244,8 +238,8 @@
             foreach (LinkedService ls in linkedServices)
                 logger.Write("linkedService.Name {0}", ls.Name);
 
-            // using First method instead of Single since we are using the same 
-            // Azure Storage linked service for input and output. 
+            // using First method instead of Single since we are using the same
+            // Azure Storage linked service for input and output.
             inputLinkedService = linkedServices.First(
                 linkedService =>
                 linkedService.Name ==
@@ -271,12 +265,12 @@
                                          continuationToken,
                                          null,
                                          null);
-                
-                // Calculate method returns the number of occurrences of 
+
+                // Calculate method returns the number of occurrences of
                 // the search term (“Microsoft”) in each blob associated
-        		// with the data slice. 
-        		// 
-        	    // definition of the method is shown in the next step. 
+        		// with the data slice.
+        		//
+        	    // definition of the method is shown in the next step.
                 output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
             } while (continuationToken != null);
@@ -292,7 +286,7 @@
 
             // create a storage object for the output blob.
             CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
-            // write the name of the file. 
+            // write the name of the file.
             Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
             logger.Write("output blob URI: {0}", outputBlobUri.ToString());
@@ -309,7 +303,7 @@
 9.  Добавьте в класс следующие вспомогательные методы. Их вызывает метод **Execute**. Самое главное, метод **Calculate** изолирует код, который выполняет итерацию каждого большого двоичного объекта.
 
         /// <summary>
-        /// Gets the folderPath value from the input/output dataset.   
+        /// Gets the folderPath value from the input/output dataset.
 		/// </summary>
 		private static string GetFolderPath(Dataset dataArtifact)
 		{
@@ -317,41 +311,41 @@
 		    {
 		        return null;
 		    }
-		
+
 		    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 		    if (blobDataset == null)
 		    {
 		        return null;
 		    }
-		
+
 		    return blobDataset.FolderPath;
 		}
-		
+
 		/// <summary>
-		/// Gets the fileName value from the input/output dataset.   
+		/// Gets the fileName value from the input/output dataset.
 		/// </summary>
-		
+
 		private static string GetFileName(Dataset dataArtifact)
 		{
 		    if (dataArtifact == null || dataArtifact.Properties == null)
 		    {
 		        return null;
 		    }
-		
+
 		    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 		    if (blobDataset == null)
 		    {
 		        return null;
 		    }
-		
+
 		    return blobDataset.FileName;
 		}
-		
+
 		/// <summary>
-		/// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file, 
-		/// and prepares the output text that will be written to the output blob. 
+		/// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
+		/// and prepares the output text that will be written to the output blob.
 		/// </summary>
-		
+
 		public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
 		{
 		    string output = string.Empty;
@@ -407,7 +401,7 @@
 		// Initialize the continuation token.
 		BlobContinuationToken continuationToken = null;
 		do
-		{   
+		{
 		// Get the list of input blobs from the input storage client object.
 		BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
 		    					true,
@@ -418,7 +412,7 @@
 		                                  null);
 		// Return a string derived from parsing each blob.
 		    output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-		
+
 		} while (continuationToken != null);
 
 	Дополнительные сведения см. в документации по методу [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx).
@@ -433,29 +427,29 @@
 
 		// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 		Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-		
+
 		// Convert to blob location object.
 		outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
 4.	Код также вызывает вспомогательный метод **GetFolderPath**, чтобы получить путь к папке (имя контейнера хранилища).
 
 		folderPath = GetFolderPath(outputDataset);
-		
+
 	Метод **GetFolderPath** приводит объект DataSet к AzureBlobDataSet со свойством FolderPath.
 
 		AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-		
+
 		return blobDataset.FolderPath;
 
 5.	Код вызывает метод **GetFileName**, чтобы получить имя файла (имя большого двоичного объекта). Используемый код аналогичен приведенному выше коду, используемому для получения пути к папке.
 
 		AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-		
+
 		return blobDataset.FileName;
 
 6.	Чтобы записать имя файла, создается объект универсального кода ресурса (URI). Для возврата имени контейнера в конструкторе URI используется свойство **BlobEndpoint**. Для создания URI выходного большого двоичного объекта сочетаются путь к папке и имя файла.
 
-		// Write the name of the file. 
+		// Write the name of the file.
 		Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
 7.	Имя файла записано, и теперь можно записать выводимую строку из метода **Calculate** в новый большой двоичный объект:
@@ -630,15 +624,15 @@
 		        "external": true,
 		        "policy": {}
 		    }
-		} 
+		}
 
-	
+
 	 Позже в этом пошаговом руководстве вы создадите конвейер со временем начала 2015-11-16T00:00:00Z и временем окончания 2015-11-16T05:00:00Z. Данные будут создаваться **почасово**, поэтому мы получим 5 входных и выходных срезов (в промежутке **00**:00:00 -> **05**:00:00).
-	
+
 	 Для параметров **frequency** и **interval** входного набора данных установлены значения **Hour** и **1**. Это означает, что входной срез данных будет создаваться каждый час.
-	
+
 	 Это значения времени начала для каждого среза, представленные системной переменной **SliceStart** в приведенном выше фрагменте кода JSON.
-	
+
 	| **Срез** | **Время начала** |
 	|-----------|-------------------------|
 	| 1 | 2015-11-16T**00**:00:00 |
@@ -646,9 +640,9 @@
 	| 3 | 2015-11-16T**02**:00:00 |
 	| 4 | 2015-11-16T**03**:00:00 |
 	| 5 | 2015-11-16T**04**:00:00 |
-	
+
 	 Значение параметра **folderPath** вычисляется с использованием года, месяца, дня и часа значения времени начала среза (**SliceStart**). Именно так входная папка сопоставляется со срезом.
-	
+
 	| **Срез** | **Время начала** | **Входная папка** |
 	|-----------|-------------------------|-------------------|
 	| 1 | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
@@ -704,7 +698,7 @@
 	| 3 | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
 	| 4 | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
 	| 5 | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
-	
+
 	 Помните, что все файлы во входной папке (например, 2015-11-16-00) являются частью среза со значениями времени начала (2015-11-16-00). Во время обработки этого среза пользовательское действие сканирует каждый файл и создает строку в выходном файле с количеством вхождений условия поиска (Microsoft). Если в папке 2015-11-16-00 есть три файла, в выходном файле 2015-11-16-00.txt будет три строки.
 
 3.  На панели инструментов щелкните **Развернуть**, чтобы создать и развернуть **OutputDataset**.
@@ -935,4 +929,4 @@
 
     -   [Начало работы с библиотекой Пакетной службы Azure для .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

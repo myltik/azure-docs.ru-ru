@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="01/15/2016"
  ms.author="larryfr"/>
 
 # Примеры топологий и компонентов Storm для Apache Storm в HDInsight
@@ -23,6 +23,7 @@
 
 | Описание | Что демонстрирует | Язык или платформа |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
+| [Запись в хранилище озера данных Azure из Apache Storm](hdinsight-storm-write-data-lake-store.md) | Запись в хранилище озера данных Azure | Java |
 | [Источник воронки и сита концентратора событий](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Источник воронки и сита концентратора событий | Java |
 | [Разработка топологий на платформе Java для Apache Storm в HDInsight][5797064f] | Maven | Java |
 | [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio][16fce2d1] | Средства HDInsight для Visual Studio | C#, Java |
@@ -60,4 +61,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Этот проект содержит шаблоны для «воронок», «сит» и топологий, обеспечивающих взаимодействие с различными сервисами Azure, такими как концентраторы событий, DocumentDB и база данных SQL."
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -14,10 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="01/20/2016"
 	ms.author="robmcm"/>
-
-
 
 # Веб-приложение Node.js, использующее службу таблиц Azure
 
@@ -39,8 +37,7 @@
 
 ![Веб-страница, показывающая пустой список задач][node-table-finished]
 
->[AZURE.NOTE] Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
-
+>[AZURE.NOTE]Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
 ## Предварительные требования
 
@@ -49,7 +46,6 @@
 * [node] версии 0.10.24 или выше
 
 * [Git.]
-
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -92,7 +88,7 @@
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [AZURE.NOTE] Параметр -g указывает на то, что модуль устанавливается глобально. В результате мы сможем использовать **express** для создания шаблонов веб-приложения без необходимости вводить дополнительные сведения о пути.
+	> [AZURE.NOTE]Параметр -g указывает на то, что модуль устанавливается глобально. В результате мы сможем использовать **express** для создания шаблонов веб-приложения без необходимости вводить дополнительные сведения о пути.
 
 4. Чтобы создать шаблоны для этого приложения, введите команду **express**:
 
@@ -145,7 +141,7 @@
     [...]
 
 
-Теперь введите следующую команду, чтобы установить модули [azure], [node-uuid], [nconf] и [async]:
+Теперь введите следующую команду, чтобы установить модули [azure], [node-uuid], [nconf] и [async]\:
 
 	npm install azure-storage node-uuid async nconf --save
 
@@ -177,7 +173,7 @@
 - RowKey
 - name (строка)
 - category (строка)
-- completed (логическое значение) 
+- completed (логическое значение)
 
 Поля **PartitionKey** и **RowKey** используются службой таблиц в качестве ключей. Дополнительную информацию см. в разделе [Общие сведения о модели данных службы таблиц](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
@@ -293,7 +289,7 @@
 		  },
 
 		  addTask: function(req,res) {
-		    var self = this
+		    var self = this;
 		    var item = req.body.item;
 		    self.task.addItem(item, function itemAdded(error) {
 		      if(error) {
@@ -340,7 +336,7 @@
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [AZURE.NOTE] nconf загружает значения конфигурации либо из переменных среды, либо из файла **config.json**, который мы создадим позднее.
+	> [AZURE.NOTE]nconf загружает значения конфигурации либо из переменных среды, либо из файла **config.json**, который мы создадим позднее.
 
 3. Прокрутите файл app.js вниз до появления следующей строки:
 
@@ -427,7 +423,7 @@
 
 ### Создание файла конфигурации
 
-Для локального запуска приложения мы поместим учетные данные службы хранилища Azure в файл конфигурации. Создайте файл **config.json** со следующим кодом JSON:
+Для локального запуска приложения мы поместим учетные данные службы хранилища Azure в файл конфигурации. Создайте файл **config.json* *со следующим кодом JSON:
 
 	{
 		"STORAGE_NAME": "<storage account name>",
@@ -468,13 +464,13 @@
 
 	Появится веб-страница, как в примере ниже.
 
-![Веб-страница, показывающая пустой список задач][node-table-finished]
+	![Веб-страница, показывающая пустой список задач][node-table-finished]
 
 4. Чтобы создать новый элемент списка, введите имя и категорию и щелкните **Add Item** (Добавить элемент).
 
 6. Чтобы пометить задачу как выполненную, установите флажок **Complete** (Выполнено) и щелкните **Update Tasks** (Обновить задачи).
 
-![Изображение нового элемента в списке задач][node-table-list-items]
+	![Изображение нового элемента в списке задач][node-table-list-items]
 
 Хотя приложение выполняется локально, его данные хранятся в службе таблиц Azure.
 
@@ -482,11 +478,11 @@
 
 В действиях, описанных в этом разделе, для создания веб-приложения в службе приложений используются средства командной строки Azure, а затем для развертывания приложения применяется Git. Для выполнения этих действий необходимо наличие подписки Azure.
 
-> [AZURE.NOTE] Эти действия также можно выполнить с помощью [портала Azure](https://portal.azure.com). См. статью [Создание и развертывание веб-приложения Node.js в службе приложений Azure].
+> [AZURE.NOTE]Эти действия также можно выполнить с помощью [портала Azure](https://portal.azure.com). См. статью [Создание и развертывание веб-приложения Node.js в службе приложений Azure].
 >
 > Если это первое созданное вами веб-приложение, для его развертывания необходимо использовать портал Azure.
 
-Сначала установите [Интерфейс командной строки Azure], выполнив в командной строке следующую команду:
+Сначала установите [интерфейс командной строки Azure], выполнив в командной строке следующую команду:
 
 	npm install azure-cli -g
 
@@ -501,8 +497,7 @@
 	Эта команда запускает браузер и открывает страницу загрузки. Если будет предложено, войдите с учетной записью, которая связана с вашей подпиской Azure.
 
 	<!-- ![The download page][download-publishing-settings] -->
-	
-	Скачивание файла должно начаться автоматически. Если этого не произошло, можно щелкнуть ссылку в начале страницы, чтобы скачать файл вручную. Сохраните файл и запомните путь к нему.
+Скачивание файла должно начаться автоматически. Если этого не произошло, можно щелкнуть ссылку в начале страницы, чтобы скачать файл вручную. Сохраните файл и запомните путь к нему.
 
 2. Введите следующую команду, чтобы импортировать параметры.
 
@@ -600,13 +595,14 @@
 [Интерфейс командной строки Azure]
 
 ## Изменения
-* Руководство по переходу от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+
+<!-- URLs -->
 
 [Создание веб-приложения Node.js и его развертывание в службу приложений Azure]: web-sites-nodejs-develop-deploy-mac.md
 [Создание и развертывание веб-приложения Node.js в службе приложений Azure]: web-sites-nodejs-develop-deploy-mac.md
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [Azure Developer Center]: /develop/nodejs/
-
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
@@ -616,7 +612,7 @@
 [удаленный репозиторий Git]: http://git-scm.com/docs/git-remote
 
 [Создание веб-приложения Node.js в Azure с MongoDB на виртуальной машине]: web-sites-nodejs-store-data-mongodb.md
-[Интерфейс командной строки Azure]: ../xplat-cli-install.md
+[интерфейс командной строки Azure]: ../xplat-cli-install.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -626,6 +622,9 @@
 
 [Azure Portal]: https://portal.azure.com
 
+[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
+ 
+<!-- Image References -->
 
 [node-table-finished]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
 [node-table-list-items]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
@@ -634,13 +633,9 @@
 [portal-storage-account]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
 [portal-quick-create-storage]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
 [portal-storage-access-keys]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
-
 [go-to-dashboard]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
 [web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
- 
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

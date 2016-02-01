@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Импорт BACPAC-файла для создания новой базы данных SQL Azure"
+	pageTitle="Импорт BACPAC-файла для создания новой базы данных SQL Azure | Microsoft Azure"
 	description="Создайте новую базу данных SQL Azure, импортировав существующий BACPAC-файл."
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/17/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -95,7 +95,7 @@ BACPAC-файл — это файл с расширением .bacpac, кото�
 
 ## Дальнейшие действия
 
-- [Соединение с SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
 
 
 
@@ -112,4 +112,4 @@ BACPAC-файл — это файл с расширением .bacpac, кото�
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

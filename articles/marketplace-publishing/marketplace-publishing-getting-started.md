@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="01/07/2016"
    ms.author="hascipio" />
 
 # Как опубликовать предложение в Microsoft Azure Marketplace
@@ -34,14 +34,14 @@
 
 ||Образ виртуальной машины |Служба разработчика | Служба данных | Шаблон решения |
 |----|----|----|----|----|
-| **Получение предварительного одобрения** | [Сертифицировано Microsoft Azure][link-certification] | [Сертифицировано Microsoft Azure][link-certification] | н/д | [Сертифицировано Microsoft Azure][link-certification] |
-| **Шаг 1. Регистрация учетной записи разработчика** | [Учетная запись разработчика Майкрософт: создание и регистрация][link-accts] | [Учетная запись разработчика Майкрософт: создание и регистрация][link-accts] | [Учетная запись разработчика Майкрософт: создание и регистрация][link-accts] | [Учетная запись разработчика Майкрософт: создание и регистрация][link-accts] |
-|**Шаг 2. Создание предложения**| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)|
-|| [Технические предварительные требования виртуальной машины][link-single-vm-prereq] | [Технические предварительные требования службы разработчика](marketplace-publishing-dev-service-creation-prerequisites.md) | [Технические предварительные требования службы данных](marketplace-publishing-data-service-creation-prerequisites.md) | [Технические предварительные требования шаблона решения](marketplace-publishing-solution-template-creation-prerequisites.md) |
-||[Руководство по публикации образа виртуальной машины][link-single-vm] | [Руководство по публикации службы разработчика](marketplace-publishing-dev-service-creation.md) | [Руководство по публикации службы данных](marketplace-publishing-data-service-creation.md) | [Руководство по публикации шаблона решения](marketplace-publishing-solution-template-creation.md) |
-|| [Руководство по продвижению содержимого Azure Marketplace][link-pushstaging] | [Руководство по продвижению содержимого Azure Marketplace][link-pushstaging] | [Руководство по продвижению содержимого Azure Marketplace][link-pushstaging] | [Руководство по продвижению содержимого Azure Marketplace][link-pushstaging] |
-| **Шаг 3. Отправка предложения на промежуточный этап** | [Тестирование предложения виртуальной машины на промежуточном этапе](marketplace-publishing-vm-image-test-in-staging.md) | [Тестирование предложения службы разработчика на промежуточном этапе](marketplace-publishing-dev-service-test-in-staging.md) | [Тестирование предложения службы данных на промежуточном этапе](marketplace-publishing-data-service-test-in-staging.md) | [Тестирование шаблона решения на промежуточном этапе](marketplace-publishing-solution-template-test-in-staging.md) |
-| **Шаг 4. Развертывание предложения в Marketplace** | [Развертывание предложения в Marketplace][link-pushprod] | [Развертывание предложения в Marketplace][link-pushprod] | [Развертывание предложения в Marketplace][link-pushprod] | [Развертывание предложения в Marketplace][link-pushprod] |
+| **Получение предварительного утверждения** | [Сертифицировано Microsoft Azure][link-certification] | [Сертифицировано Microsoft Azure][link-certification] | Недоступно | [Сертифицировано Microsoft Azure][link-certification] |
+| **Шаг 1. Регистрация учетной записи разработчика** | [Учетная запись разработчика Microsoft: создание и регистрация][link-accts] | [Учетная запись разработчика Microsoft: создание и регистрация][link-accts] | [Учетная запись разработчика Microsoft: создание и регистрация][link-accts] | [Учетная запись разработчика Microsoft: создание и регистрация][link-accts] |
+|**Шаг 2. Создание предложения**| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)|
+|| [Предварительные технические требования для виртуальной машины][link-single-vm-prereq] | Предварительные технические требования для службы разработчика | [Предварительные технические требования для службы данных](marketplace-publishing-data-service-creation-prerequisites.md) | [Предварительные технические требования для шаблона решения](marketplace-publishing-solution-template-creation-prerequisites.md) |
+||[Руководство по публикации образа виртуальной машины][link-single-vm] | Руководство по публикации службы разработчика | [Руководство по публикации службы данных](marketplace-publishing-data-service-creation.md) | [Руководство по публикации шаблона решения](marketplace-publishing-solution-template-creation.md) |
+|| [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] | [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] | [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] | [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] |
+| **Шаг 3. Отправка предложения на промежуточное развертывание** | [Протестируйте свое предложение виртуальной машины на этапе промежуточного развертывания](marketplace-publishing-vm-image-test-in-staging.md) | Протестируйте свое предложение службы разработчика на этапе промежуточного развертывания | [Протестируйте свое предложение службы данных на этапе промежуточного развертывания](marketplace-publishing-data-service-test-in-staging.md) | [Протестируйте свой шаблон решения на этапе промежуточного развертывания](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Шаг 4. Развертывание предложения в Azure Marketplace** | [Разверните свое предложение в Azure Marketplace][link-pushprod] | [Разверните свое предложение в Azure Marketplace][link-pushprod] | [Разверните свое предложение в Azure Marketplace][link-pushprod] | [Разверните свое предложение в Azure Marketplace][link-pushprod] |
 
 ## Поддержка
 - [Поддержка издателей][suppt-general]
@@ -81,4 +81,4 @@
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

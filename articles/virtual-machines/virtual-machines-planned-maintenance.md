@@ -3,7 +3,7 @@
 	description="Сведения о том, что такое плановое обслуживание Azure и как оно влияет на виртуальные машины, работающие в Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="kenazk"
+	authors="drewm"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+	ms.date="01/05/2016"
+	ms.author="drewm"/>
 
 
 # Плановое обслуживание виртуальных машин Azure
@@ -72,6 +72,11 @@ Microsoft Azure периодически выполняет обновления
 <!--Image reference-->
 ![][image2]
 
+Используйте средство просмотра, чтобы определить, какие виртуальные машины настроены в конфигурации с несколькими экземплярами, с помощью портала Azure, оболочки Azure PowerShell или интерфейса командной строки Azure. Например, чтобы определить, какие виртуальные машины должны находиться в конфигурации с несколькими экземплярами, вы можете просмотреть список виртуальных машин (при этом столбец группы доступности должен быть добавлен в диалоговое окно обзора виртуальных машин). В приведенном ниже примере виртуальные машины-образцы VM1 и VM2 находятся в конфигурации с несколькими экземплярами.
+
+<!--Image reference-->
+![][image4]
+
 ## Обновления конфигурации с одним экземпляром
 
 После завершения обновления конфигурации с несколькими экземплярами Azure перейдет к обновлению конфигурации с одним экземпляром. Это обновление приводит к перезагрузке виртуальных машин, не входящих в группы доступности.
@@ -114,10 +119,11 @@ Azure упорядочивает набор пар регионов. Во вре
 [image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
 [image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
+[image4]: ./media/virtual-machines-planned-maintenance/AvailabilitySetExample.png
 
 
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

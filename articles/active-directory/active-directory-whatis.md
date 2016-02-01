@@ -1,20 +1,20 @@
 <properties
-                pageTitle="Что такое Microsoft Azure Active Directory"
-                description="Используйте Azure Active Directory, чтобы расширить возможности существующих локальных удостоверений в облаке или разрабатывать приложения, интегрируемые с Azure AD."
-                services="active-directory"
-                documentationCenter=""
-                authors="markusvi"
-                manager="stevenpo"
-                editor=""/>
+    pageTitle="Что такое Microsoft Azure Active Directory"
+    description="Используйте Azure Active Directory, чтобы расширить возможности существующих локальных удостоверений в облаке или разрабатывать приложения, интегрируемые с Azure AD."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-                ms.service="active-directory"
-                ms.workload="identity"
-                ms.tgt_pltfrm="na"
-                ms.devlang="na"
-                ms.topic="article"
-                ms.date="10/30/2015"
-                ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/14/2016"
+    ms.author="markusvi"/>
 
 
 # Что такое Microsoft Azure Active Directory
@@ -104,4 +104,4 @@ Azure AD также включает полный набор возможнос�
 
 - [Как обнаруживать несанкционированные облачные приложения, которые используются в моей организации](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

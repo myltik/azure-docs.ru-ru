@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>
 
 # Подключение к базе данных SQL с помощью SQL Server Management Studio в Azure RemoteApp
@@ -137,10 +137,10 @@ SQL Server 2014 с пакетом обновления 1 включает ос
 
 Выполнив все указанные выше шаги, вы сможете запустить клиент Azure RemoteApp и выполнить вход от имени назначенного пользователя. Среди ваших приложений отобразится SSMS. Вы сможете запустить это приложение, как если бы оно было установлено на компьютере с доступом к Azure SQL Server.
 
-Дополнительные сведения о подключении к базе данных SQL см. в статье [Соединение с SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md).
+Дополнительные сведения о подключении к базе данных SQL см. в статье [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md).
 
 
-  Вот и все!
+Пока что у нас всё. Вот и все!
 
 
 
@@ -152,4 +152,4 @@ SQL Server 2014 с пакетом обновления 1 включает ос
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

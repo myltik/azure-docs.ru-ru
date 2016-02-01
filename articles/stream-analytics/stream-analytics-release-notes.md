@@ -16,7 +16,7 @@
 	ms.date="01/13/2015" 
 	ms.author="jeffstok"/>
 
-#Заметки о выпуске Microsoft Stream Analytic
+#Заметки о выпуске Stream Analytics
 
 ## Заметки о выпуске Stream Analytics от 10.12.2015 ##
 
@@ -133,4 +133,4 @@ TIMESTAMP BY для разнородных событий | Если один п
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

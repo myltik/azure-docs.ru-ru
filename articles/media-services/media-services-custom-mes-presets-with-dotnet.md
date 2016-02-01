@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/10/2015"    
+	ms.date="01/14/2016"    
 	ms.author="juliako"/>
 
 
@@ -218,6 +218,9 @@
 
 В этом разделе показано, как настроить предустановку, которая создает эскизы. Предустановка, определенная ниже, содержит сведения о том, как должен кодироваться файл, а также сведения, необходимые для создания эскизов. Вы можете использовать любую из предустановок стандартного кодировщика мультимедиа, которые определены [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и добавить в нее код для создания эскизов.
 
+>[AZURE.NOTE]Если видео преобразуется в односкоростной формат, параметр **SceneChangeDetection** в следующей конфигурации может иметь только значение True. Если видео преобразуется в многоскоростной формат, а параметр **SceneChangeDetection** имеет значение True, кодировщик возвращает ошибку.
+
+
 Сведения о схеме см. в [этом](https://msdn.microsoft.com/library/mt269962.aspx) разделе.
 
 Обязательно изучите раздел [Рекомендации](media-services-custom-mes-presets-with-dotnet.md#considerations).
@@ -230,7 +233,7 @@
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
-		  "SceneChangeDetection": "true",
+	      "SceneChangeDetection": "true",
 	      "H264Layers": [
 	        {
 	          "Profile": "Auto",
@@ -886,4 +889,4 @@
 
 [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

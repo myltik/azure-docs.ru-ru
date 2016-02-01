@@ -55,6 +55,7 @@
 Кроме того, перед вызовом этой команды развертывания может потребоваться выполнить некоторые настройки: добавить учетную запись Azure (`Add-AzureAccount`), выбрать подписку (`Select-AzureSubscription`), переключиться в режим диспетчера ресурсов (`Switch-AzureMode AzureResourceManager`) и создать группу ресурсов, если она еще не создана (`New-AzureResourceGroup`).
 
 ```powershell
+
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
@@ -62,7 +63,9 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 Если у вас есть кластер, в котором не развернута система диагностики, ее можно добавить, выполнив следующие действия. Создайте два файла — WadConfigUpdate.json и WadConfigUpdateParams.json — с помощью приведенного ниже кода JSON.
 
 ##### WadConfigUpdate.json
+
 ```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -141,7 +144,10 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 ```
 
 ##### WadConfigUpdateParams.json
-Замените vmNamePrefix префиксом, который вы выбрали для имен виртуальных машин при создании кластера. Затем замените vmStorageAccountName именем учетной записи хранения, в которую будут отправляться журналы с виртуальных машин. ```json
+Замените vmNamePrefix префиксом, который вы выбрали для имен виртуальных машин при создании кластера. Затем замените vmStorageAccountName именем учетной записи хранения, в которую будут отправляться журналы с виртуальных машин.
+
+```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -161,7 +167,10 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 
 После создания JSO-файлов, как указано выше, внесите в них изменения с учетом особенностей вашей среды. Затем вызовите следующую команду, передав имя группы ресурсов для кластера Service Fabric. После успешного выполнения этой команды система диагностики будет развернута на всех виртуальных машинах и начнет отправлять журналы из кластера в таблицы в указанной учетной записи хранения Azure.
 
-Кроме того, перед вызовом этой команды развертывания может потребоваться выполнить некоторые настройки: добавить учетную запись Azure (`Add-AzureAccount`), выбрать подписку (`Select-AzureSubscription`) и переключиться в режим диспетчера ресурсов (`Switch-AzureMode AzureResourceManager`). ```powershell
+Кроме того, перед вызовом этой команды развертывания вам может понадобиться выполнить некоторые настройки: добавить учетную запись Azure (`Add-AzureAccount`), выбрать подписку (`Select-AzureSubscription`) и переключиться в режим диспетчера ресурсов (`Switch-AzureMode AzureResourceManager`).
+
+```ps
+
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToWADConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
@@ -174,7 +183,12 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 [Процесс внедрения оперативной аналитики](https://technet.microsoft.com/library/mt484118.aspx)
 
 ### Настройка рабочей области оперативной аналитики для отображения журналов кластера
-Создав рабочую область оперативной аналитики по приведенным выше инструкциям, можно приступать к настройке рабочей области для извлечения журналов из таблиц в службе хранилища Azure, в которые расширение системы диагностики отправляет журналы из кластера. Сейчас настройка через портал оперативной аналитики не поддерживается. Ее можно выполнить только с помощью команд PowerShell. Запустите этот скрипт PowerShell: ```powershell <# Он настраивает рабочую область Operations Management Suite (она же — рабочая область оперативной аналитики) для чтения системы диагностики из учетной записи хранения Azure.
+Создав рабочую область оперативной аналитики по приведенным выше инструкциям, можно приступать к настройке рабочей области для извлечения журналов из таблиц в службе хранилища Azure, в которые расширение системы диагностики отправляет журналы из кластера. Сейчас настройка через портал оперативной аналитики не поддерживается. Ее можно выполнить только с помощью команд PowerShell. Выполните следующий сценарий PowerShell:
+
+```powershell
+
+    <#
+    This script will configure an Operations Management Suite workspace (aka Operational Insights workspace) to read Diagnostics from an Azure Storage account.
 
     It will enable all supported data types (currently Windows Event Logs, Syslog, Service Fabric Events, ETW Events and IIS Logs).
 
@@ -183,11 +197,11 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
     If you have more than one OMS workspace you will be prompted for the workspace to configure.
 
     If you have more than one storage account you will be prompted for which storage account to configure.
-#>
+    #>
 
 Add-AzureAccount
 
-Switch-AzureMode -Name AzureResourceManager.
+Switch-AzureMode -Name AzureResourceManager
 
 $validTables = "WADServiceFabric*EventTable", "WADETWEventTable"
 
@@ -241,17 +255,38 @@ function Select-StorageAccount {
     return $storage
 }
 
-$workspace = Select-Workspace $storageAccount = Select-StorageAccount
+$workspace = Select-Workspace
+$storageAccount = Select-StorageAccount
 
 $insightsName = $storageAccount.Name + $workspace.Name
 
 $existingConfig = ""
 
-try { $existingConfig = Get-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -ErrorAction Stop } catch [Hyak.Common.CloudException] { # HTTP Not Found is returned if the storage insight doesn't exist }
+try
+{
+    $existingConfig = Get-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -ErrorAction Stop
+}
+catch [Hyak.Common.CloudException]
+{
+    # HTTP Not Found is returned if the storage insight doesn't exist
+}
 
-if ($existingConfig) { Set-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -Tables $validTables -Containers $validContainers
+if ($existingConfig) {
+    Set-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -Tables $validTables -Containers $validContainers
 
-} else { if ($storageAccount.ResourceType -eq "Microsoft.ClassicStorage/storageAccounts") { Switch-AzureMode -Name AzureServiceManagement $key = (Get-AzureStorageKey -StorageAccountName $storageAccount.Name).Primary Switch-AzureMode -Name AzureResourceManager } else { $key = (Get-AzureStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name).Key1 } New-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables -Containers $validContainers } ``` Настроив рабочую область оперативной аналитики для чтения таблиц Azure из учетной записи хранения, необходимо войти на портал Azure и на вкладке **Хранилище** найти ресурс оперативной аналитики. Должно отобразиться примерно следующее: ![Настройка хранилища оперативной аналитики на портале Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
+} else {
+    if ($storageAccount.ResourceType -eq "Microsoft.ClassicStorage/storageAccounts") {
+        Switch-AzureMode -Name AzureServiceManagement
+        $key = (Get-AzureStorageKey -StorageAccountName $storageAccount.Name).Primary
+        Switch-AzureMode -Name AzureResourceManager
+    } else {
+        $key = (Get-AzureStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name).Key1
+    }
+    New-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables -Containers $validContainers
+}
+```
+
+Настроив рабочую область Operational Insights на чтение данных из таблиц в учетной записи хранилища Azure, войдите на портал и перейдите на вкладку **Служба хранилища** ресурса Operational Insights. Должно отобразиться примерно следующее: ![Настройка хранилища оперативной аналитики на портале Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
 ### Просмотр журналов и поиск в них с помощью оперативной аналитики
 После того как вы настроите рабочую область оперативной аналитики для чтения журналов из указанной учетной записи хранения, журналы отобразятся в пользовательском интерфейсе оперативной аналитики только через 10 минут. Чтобы генерировались новые журналы, рекомендуем развернуть приложение Service Fabric в кластере: оно будет генерировать рабочие события из платформы Service Fabric.
@@ -290,4 +325,4 @@ if ($existingConfig) { Set-AzureOperationalInsightsStorageInsight -Workspace $wo
 ## Дальнейшие действия
 Ознакомьтесь с диагностическими событиями, которые создаются для [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) и [Reliable Services](service-fabric-reliable-services-diagnostics.md), чтобы лучше понять, на какие события необходимо обращать внимание во время устранения неполадок.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

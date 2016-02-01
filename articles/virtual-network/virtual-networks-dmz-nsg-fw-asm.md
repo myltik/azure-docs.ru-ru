@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/20/2016"
    ms.author="jonor;sivae"/>
 
 # Пример 2. Построение сети периметра для защиты приложений с брандмауэром и группами безопасности сети
@@ -553,7 +553,7 @@
 	</NetworkConfiguration>
 
 #### Сценарии примера приложения
-Если вы хотите установить пример приложения для этого и других примеров сети периметра, он доступен по следующей ссылке: [Сценарий примера приложения][SampleApp]
+Пример приложения для этого и других примеров сети периметра можно скачать по следующей ссылке: [Сценарий примера приложения][SampleApp].
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Входящая сеть периметра с группой безопасности сети"
@@ -566,4 +566,4 @@
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

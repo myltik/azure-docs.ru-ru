@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Создание кластеров HDInsight с хранилищем озера данных с помощью Azure PowerShell | Azure" 
    description="Создание кластеров HDInsight Hadoop для работы с озером данных Azure с помощью Azure PowerShell." 
-   services="data-lake" 
+   services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
    manager="paulettm" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
+   ms.date="01/20/2016"
    ms.author="nitinme"/>
 
 # Создание кластера HDInsight с хранилищем озера данных с помощью Azure PowerShell
@@ -249,6 +249,38 @@
 
 После настройки кластера HDInsight выполните в нем тестовые задания, чтобы проверить, доступно ли ему хранилище озера данных. Для этого запустите образец задания Hive, создающего таблицу с данными, которые вы ранее отправили в хранилище озера данных.
 
+### Кластер Linux
+
+В этом разделе вы подключитесь к кластеру по SSH и выполните пример запроса Hive. Windows не предоставляет встроенный клиент SSH. Рекомендуется использовать **PuTTY**, который можно скачать по адресу: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+
+Дополнительные сведения об использовании PuTTY см. в разделе [Использование SSH с Hadoop на основе Linux в HDInsight из Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+
+1. После подключения запустите интерфейс командной строки Hive с помощью следующей команды:
+
+    	hive
+
+2. Используя интерфейс командной строки, введите следующие операторы, чтобы создать таблицу с именем **vehicles** с помощью примера данных в хранилище озера данных:
+
+		DROP TABLE vehicles;
+		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
+		SELECT * FROM vehicles LIMIT 10;
+
+	Должен отобразиться результат, аналогичный приведенному ниже:
+
+		1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
+		1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
+		1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
+		1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
+		1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
+		1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
+		1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
+		1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
+		1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
+		1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
+
+
+### Кластер Windows
+
 С помощью следующих командлетов выполните запрос Hive. Этот запрос создает таблицу на основе данных в хранилище озера данных, а затем в созданной таблице выполняет запрос на выборку.
 
 	$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
@@ -290,11 +322,30 @@
 	1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
 
 
-	
-
 ## Доступ к хранилищу озера данных с помощью команд HDFS
 
 Настроив в кластере HDInsight параметры для работы с хранилищем озера данных, используйте для доступа к хранилищу команды оболочки HDFS.
+
+### Кластер Linux
+
+В этом разделе вы подключитесь к кластеру по SSH и выполните команды HDFS. Windows не предоставляет встроенный клиент SSH. Рекомендуется использовать **PuTTY**, который можно скачать по адресу: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+
+Дополнительные сведения об использовании PuTTY см. в разделе [Использование SSH с Hadoop на основе Linux в HDInsight из Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+
+После подключения используйте следующую команду файловой системы HDFS для получения списка файлов в хранилище озера данных.
+
+	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
+
+Эта команда должна показать файл, который вы ранее отправили в хранилище озера данных.
+
+	15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+	Found 1 items
+	-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
+
+С помощью команды `hdfs dfs -put` вы можете отправить в хранилище озера данных некоторые файлы, а затем с помощью команды `hdfs dfs -ls` проверить, успешно ли они передались.
+
+
+### Кластер Windows
 
 1. Перейдите на новый [портал Azure](https://portal.azure.com).
 
@@ -306,7 +357,7 @@
 
 	При появлении соответствующего запроса введите учетные данные, которые вы указали для пользователя удаленного рабочего стола.
 
-4. Во время удаленного сеанса запустите Windows PowerShell и, используя команды файловой системы HDFS, отобразите список файлов в озере данных Azure.
+4. Во время удаленного сеанса запустите Windows PowerShell и, используя команды файловой системы HDFS, отобразите список файлов в хранилище озера данных Azure.
 
 	 	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
 
@@ -316,7 +367,7 @@
 		Found 1 items
 		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
 
-	С помощью команды `hdfs dfs -put` вы можете отправить в озеро данных Azure новые файлы, а затем с помощью команды `hdfs dfs -ls` проверить, успешно ли они передались.
+	С помощью команды `hdfs dfs -put` вы можете отправить в хранилище озера данных некоторые файлы, а затем с помощью команды `hdfs dfs -ls` проверить, успешно ли они передались.
 
 ## См. также
 
@@ -325,4 +376,4 @@
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Кодировщик неструктурированных файлов BizTalk" 
-   description="Кодировщик неструктурированных файлов BizTalk" 
+   pageTitle="Использование кодировщика неструктурированных файлов BizTalk в приложении логики | Microsoft Azure" 
+   description="Приложение API кодировщика неструктурированных файлов BizTalk или соединитель" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/29/2015"
+   ms.date="01/19/2016"
    ms.author="rajram"/>
 
 # Кодировщик неструктурированных файлов BizTalk
@@ -69,4 +69,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

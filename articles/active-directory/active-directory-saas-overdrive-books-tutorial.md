@@ -2,7 +2,7 @@
     pageTitle="Учебник. Интеграция Azure Active Directory с Overdrive Books | Microsoft Azure" 
     description="Узнайте, как использовать Overdrive Books с Azure Active Directory для настройки единого входа, автоматической подготовки к работе и многого другого." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с Overdrive Books
   
@@ -51,11 +51,11 @@
 
     ![Добавление приложения](./media/active-directory-saas-overdrive-books-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** выберите **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-overdrive-books-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  В **поле поиска** введите **OverDrive**.
+6.  В **поле поиска** введите **Overdrive**.
 
     ![Коллекция приложений](./media/active-directory-saas-overdrive-books-tutorial/IC784463.png "Коллекция приложений")
 
@@ -107,10 +107,10 @@
 
     ![Назначение пользователей](./media/active-directory-saas-overdrive-books-tutorial/IC784470.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем **Да** для подтверждения назначения.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Да")
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

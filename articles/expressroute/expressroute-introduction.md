@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Технический обзор ExpressRoute
@@ -120,8 +120,8 @@ ExpressRoute обладает постоянно растущей экосист
 - Убедитесь, что выполнены все необходимые условия. См. статью [Необходимые условия для ExpressRoute](expressroute-prerequisites.md).
 - См. сведения о требованиях для [маршрутизации](expressroute-routing.md) и [NAT](expressroute-nat.md) и [QoS](expressroute-qos.md).
 - Настройте подключение ExpressRoute.
-	- [Создание канала ExpressRoute](expressroute-howto-circuit-classic.md)
+	- [Создайте канал ExpressRoute.](expressroute-howto-circuit-classic.md)
 	- [Настройка маршрутизации](expressroute-howto-routing-classic.md)
 	- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

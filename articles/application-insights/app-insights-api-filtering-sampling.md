@@ -32,7 +32,7 @@
 
 Перед началом работы:
 
-* Установите пакет [SDK для Application Insights](app-insights-asp-net.md) в своем приложении. Вручную установите пакеты NuGet и выберите последнюю *предварительную* версию.
+* Установите [пакет SDK Application Insights](app-insights-asp-net.md) в свое приложение. Вручную установите пакеты NuGet и выберите последнюю *предварительную* версию.
 * Попробуйте использовать [API Application Insights](app-insights-api-custom-events-metrics.md). 
 
 
@@ -70,7 +70,7 @@
 ```
 
 * Задайте значение в процентах (в данном примере это 10), равное 100/N, где N — целое число, например 50 (=100/2), 33,33 (=100/3), 25 (=100/4) или 10 (=100/10). 
-* Если включить [выборку с фиксированной частотой](app-insights-sampling.md) и на сервере, выборка будет синхронизироваться на стороне клиента и сервера, поэтому при поиске вы сможете перемещаться между связанными представлениями страниц и запросами.
+* Если вы включите [выборку с фиксированной частотой](app-insights-sampling.md) и на сервере, выборка будет синхронизироваться на стороне клиента и сервера, поэтому при поиске вы сможете перемещаться между связанными представлениями страниц и запросами.
 
 [Дополнительная информация о выборке.](app-insights-sampling.md)
 
@@ -161,7 +161,7 @@
 
 ```C#
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
@@ -404,4 +404,4 @@ public void Process(ITelemetry item)
 
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/09/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 # Развертывание локального устройства StorSimple на портале государственных организаций
@@ -203,7 +203,7 @@
 
 > - Инструкции по установке и настройке MPIO и iSCSI на узле Windows Server см. в статье [Настройка MPIO для устройства StorSimple](storsimple-configure-mpio-windows-server.md). Эти инструкции также содержат шаги по подключению, инициализации и форматированию томов StorSimple.
 
-> - Инструкции по установке и настройке MPIO и iSCSI на узле Linux можно найти в статье [Настройка MPIO для узла Linux StorSimple](storsimple-configure-mpio-linux.md).
+> - Инструкции по установке и настройке MPIO и iSCSI на узле Linux можно найти в статье [Настройка MPIO для узла Linux StorSimple](storsimple-configure-mpio-on-linux.md).
 
 Если вы решили не настраивать MPIO, выполните следующие действия для подключения, инициализации и форматирования томов StorSimple на узле Windows Server.
 
@@ -268,15 +268,15 @@
 
 MPIO представляет собой дополнительный компонент, который по умолчанию отсутствует в Windows Server. Его необходимо устанавливать в качестве отдельного компонента через диспетчер сервера. Чтобы ознакомиться с инструкциями по установке MPIO, перейдите к разделу [Настройка MPIO для устройства StorSimple](storsimple-configure-mpio-windows-server.md).
 
-Инструкции по установке MPIO на устройство StorSimple, подключенное к узлу Linux, можно найти в статье [Настройка MPIO для узла Linux](storsimple-configure-mpio-linux.md).
+Инструкции по установке MPIO на устройство StorSimple, подключенное к узлу Linux, можно найти в статье [Настройка MPIO для узла Linux](storsimple-configure-mpio-on-linux.md).
 
 > [AZURE.NOTE]MPIO не поддерживается на виртуальном устройстве StorSimple.
 
 ## Дальнейшие действия
 
-Настройте [виртуальное устройство](storsimple-virtual-device.md).
+- Настройте [виртуальное устройство](storsimple-virtual-device.md).
 
-Для управления устройством StorSimple используется [служба Диспетчера StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx).
+- Для управления устройством StorSimple используется [служба Диспетчера StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->
