@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
 # Создание нескольких экземпляров ресурсов в диспетчере ресурсов Azure
@@ -157,17 +157,25 @@
 
 Предположим, например, что набор данных определяется в качестве вложенного ресурса фабрики данных.
 
+    "parameters": {
+        "dataFactoryName": {
+            "type": "string"
+         },
+         "dataSetName": {
+            "type": "string"
+         }
+    },
     "resources": [
     {
         "type": "Microsoft.DataFactory/datafactories",
-        "name": "[variables('dataFactoryName')]",
+        "name": "[parameters('dataFactoryName')]",
         ...
         "resources": [
         {
             "type": "datasets",
-            "name": "[variables('dataSetName')]",
+            "name": "[parameters('dataSetName')]",
             "dependsOn": [
-                "[variables('dataFactoryName')]"
+                "[parameters('dataFactoryName')]"
             ],
             ...
         }
@@ -175,21 +183,29 @@
     
 Чтобы создать несколько экземпляров набора, необходимо внести изменения в шаблон, как показано ниже. Обратите внимание на то, что полный тип и имя содержат имя фабрики.
 
+    "parameters": {
+        "dataFactoryName": {
+            "type": "string"
+         },
+         "dataSetName": {
+            "type": "array"
+         }
+    },
     "resources": [
     {
         "type": "Microsoft.DataFactory/datafactories",
-        "name": "[variables('dataFactoryName')]",
+        "name": "[parameters('dataFactoryName')]",
         ...
     },
     {
         "type": "Microsoft.DataFactory/datafactories/datasets",
-        "name": "[concat(variables('dataFactoryName'), '/', variables('dataSetName'), copyIndex())]",
+        "name": "[concat(parameters('dataFactoryName'), '/', parameters('dataSetName')[copyIndex()])]",
         "dependsOn": [
-            "[variables('dataFactoryName')]"
+            "[parameters('dataFactoryName')]"
         ],
         "copy": { 
             "name": "datasetcopy", 
-            "count": "[parameters('count')]" 
+            "count": "[length(parameters('dataSetName'))]" 
         } 
         ...
     }]
@@ -199,4 +215,4 @@
 - Список функций, которые можно использовать в шаблоне, см. в статье [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md).
 - Инструкции по развертыванию шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

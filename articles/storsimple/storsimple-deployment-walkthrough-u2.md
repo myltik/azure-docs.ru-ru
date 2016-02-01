@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Развертывание локального устройства StorSimple (с обновлением 2)
@@ -239,9 +239,9 @@
 
 ## Дальнейшие действия
 
-Настройте [виртуальное устройство](storsimple-virtual-device.md).
+- Настройте [виртуальное устройство](storsimple-virtual-device.md).
 
-Для управления устройством StorSimple используется [служба Диспетчера StorSimple](storsimple-manager-service-administration.md).
+- Для управления устройством StorSimple используется [служба Диспетчера StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

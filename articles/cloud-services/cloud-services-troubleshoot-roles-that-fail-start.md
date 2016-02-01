@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Устранение неполадок, если роли не запускаются | Microsoft Azure"
    description="Здесь описаны самые распространенные причины, по которым роль облачной службы может не запуститься. Приведены также решения этих проблем."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # Основные этапы устранения неполадок, если роли облачной службы не запускаются
@@ -165,4 +165,6 @@
 
 Просмотрите дополнительные [статьи об устранении неполадок](..\?tag=top-support-issue&service=cloud-services) в облачных службах.
 
-<!---HONumber=AcomDC_1203_2015-->
+Чтобы узнать, как устранять неполадки ролей облачной службы с помощью данных диагностики компьютеров Azure PaaS, обратитесь [к серии статей в блоге Кевина Уильямсона](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+
+<!---HONumber=AcomDC_0121_2016-->

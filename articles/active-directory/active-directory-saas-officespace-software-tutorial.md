@@ -2,7 +2,7 @@
     pageTitle="Учебник. Интеграция Azure Active Directory с OfficeSpace Software | Microsoft Azure" 
     description="Узнайте, как использовать OfficeSpace Software с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с OfficeSpace Software
   
@@ -51,7 +51,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-officespace-software-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-officespace-software-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -64,7 +64,7 @@
     ![OfficeSpace Software](./media/active-directory-saas-officespace-software-tutorial/IC781007.png "OfficeSpace Software")
 ##Настройка единого входа
   
-В этом разделе показано, как разрешить пользователям проходить аутентификацию в OfficeSpace Software со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. Чтобы настроить единый вход для OfficeSpace Software, необходимо извлечь значение отпечатка из сертификата. Если вы не знакомы с этой процедурой, просмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
+В этом разделе показано, как разрешить пользователям проходить аутентификацию в OfficeSpace Software со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. Чтобы настроить единый вход для OfficeSpace Software, необходимо извлечь значение отпечатка из сертификата. Если вы не знакомы с этой процедурой, посмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
 
 ###Чтобы настроить единый вход, выполните следующие действия:
 
@@ -127,10 +127,10 @@
 
     ![Назначить пользователей](./media/active-directory-saas-officespace-software-tutorial/IC777773.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем нажмите кнопку **Да**, чтобы подтвердить назначение.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-officespace-software-tutorial/IC767830.png "Да")
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

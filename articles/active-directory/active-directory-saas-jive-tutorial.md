@@ -2,7 +2,7 @@
     pageTitle="Руководство. Интеграция Azure Active Directory с Jive | Microsoft Azure" 
     description="Узнайте, как использовать Jive вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с Jive
 
@@ -43,7 +43,7 @@
 
     ![Приложения](./media/active-directory-saas-jive-tutorial/IC700994.png "Приложения")
 
-4.  Чтобы открыть **коллекцию приложений**, нажмите **Добавить приложение**, а затем **Добавить приложение для использования моей организацией**.
+4.  Чтобы открыть **коллекцию приложений**, щелкните **Добавить приложение**, затем — **Добавить приложение для использования моей организацией**.
 
     ![Что необходимо сделать?](./media/active-directory-saas-jive-tutorial/IC700995.png "Что необходимо сделать?")
 
@@ -84,4 +84,4 @@
   
 Теперь можно создать тестовую учетную запись, подождать 10 минут и проверить, синхронизирована ли учетная запись с Jive.com.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -2,7 +2,7 @@
     pageTitle="Учебник. Интеграция Azure Active Directory с New Relic | Microsoft Azure" 
     description="Узнайте, как использовать New Relic с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с New Relic
   
@@ -51,7 +51,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-new-relic-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-new-relic-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -116,7 +116,7 @@
 
 1.  Выполните вход на веб-сайт **New Relic** компании в качестве администратора.
 
-2.  В меню в верхней части страницы щелкните **Параметры учетной записи**.
+2.  В верхнем меню щелкните пункт **Параметры учетной записи**.
 
     ![Параметры учетной записи](./media/active-directory-saas-new-relic-tutorial/IC797040.png "Параметры учетной записи")
 
@@ -146,10 +146,10 @@
 
     ![Назначение пользователей](./media/active-directory-saas-new-relic-tutorial/IC797043.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем нажмите кнопку **Да** для подтверждения назначения.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-new-relic-tutorial/IC767830.png "Да")
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

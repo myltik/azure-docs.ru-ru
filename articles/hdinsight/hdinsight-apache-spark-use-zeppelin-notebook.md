@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="01/15/2016" 
 	ms.author="nitinme"/>
 
 
 # Использование записной книжки Zeppelin с кластером Spark в HDInsight (Linux)
 
 Узнайте, как устанавливать записные книжки Zeppelin в кластеры Spark и использовать эти записные книжки.
+
+> [AZURE.IMPORTANT]Записная книжка Zeppelin для кластера HDInsight Spark представлена только для демонстрации применения Zeppelin в среде Azure HDInsight Spark. Если вы хотите использовать записные книжки для работы с HDInsight Spark записных книжек, рекомендуем выбрать вместо Zeppelin записные книжки Jupyter. Записные книжки Jupyter также включают различные варианты ядра (такие как Scala) и постоянно совершенствуются. Инструкции по использованию записных книжек Jupyter с кластером HDInsight Spark см. в разделе [Выполнение запросов Spark SQL с помощью записной книжки Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
 
 **Предварительные требования:**
 
@@ -328,4 +330,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

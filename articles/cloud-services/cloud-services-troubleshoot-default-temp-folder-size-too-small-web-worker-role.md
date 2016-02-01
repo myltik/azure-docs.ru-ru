@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Недостаточный размер папки TEMP по умолчанию для роли | Microsoft Azure"
    description="Роль облачной службы располагает ограниченным объемом места в папке TEMP. Эта статья содержит советы о том, как предотвратить нехватку места."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # Недостаточный размер папки TEMP по умолчанию для рабочей роли или веб-роли облачной службы
@@ -24,7 +24,7 @@
 
 ## Обращение в службу поддержки клиентов Azure
 
-Если в любой момент при изучении этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](http://azure.microsoft.com/support/forums/).
+Если на любом этапе изучения этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](http://azure.microsoft.com/support/forums/).
 
 Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт службы поддержки Azure](http://azure.microsoft.com/support/options/) и щелкните **Поддержка**. Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
@@ -56,18 +56,18 @@ namespace WorkerRole1
             // service definition file for the role named WorkerRole1:
             //
             // <LocalResources>
-            //    <LocalStorage name="CustomTempLocalStore" 
-            //                  cleanOnRoleRecycle="false" 
+            //    <LocalStorage name="CustomTempLocalStore"
+            //                  cleanOnRoleRecycle="false"
             //                  sizeInMB="1024" />
             // </LocalResources>
-            
-            string customTempLocalResourcePath = 
+
+            string customTempLocalResourcePath =
             RoleEnvironment.GetLocalResource("CustomTempLocalStore").RootPath;
             Environment.SetEnvironmentVariable("TMP", customTempLocalResourcePath);
             Environment.SetEnvironmentVariable("TEMP", customTempLocalResourcePath);
-            
+
             // The rest of your startup code goes here…
-            
+
             return base.OnStart();
         }
     }
@@ -76,6 +76,10 @@ namespace WorkerRole1
 
 ## Дальнейшие действия
 
+См. другой блог, в котором описывается, [как увеличить размер временной папки ASP.NET веб-ролей Azure](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
+
 Просмотрите дополнительные [статьи об устранении неполадок](..\?tag=top-support-issue&service=cloud-services) в облачных службах.
 
-<!---HONumber=Oct15_HO4-->
+Чтобы узнать, как устранять неполадки ролей облачной службы с помощью данных диагностики компьютеров Azure PaaS, обратитесь [к серии статей в блоге Кевина Уильямсона](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+
+<!---HONumber=AcomDC_0121_2016-->

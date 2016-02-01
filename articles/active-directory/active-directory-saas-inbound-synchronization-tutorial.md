@@ -2,7 +2,7 @@
     pageTitle="Руководство. Настройка Workday для входящей синхронизации | Microsoft Azure" 
     description="Узнайте, как использовать входящую синхронизацию вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Руководство. Настройка Workday для входящей синхронизации
 >[AZURE.NOTE]Azure Active Directory (AD) Premium доступен для клиентов в Китае, использующих доступный по всему миру экземпляр Azure AD. Служба Microsoft Azure, обслуживаемая компанией 21Vianet в Китае, сейчас не поддерживает AD Premium.
@@ -48,7 +48,7 @@
 
 	![Приложения](./media/active-directory-saas-inbound-synchronization-tutorial/IC700994.png "Приложения")
 
-4.  Чтобы открыть **коллекцию приложений**, нажмите **Добавить приложение**, а затем **Добавить приложение для использования моей организацией**.
+4.  Чтобы открыть **коллекцию приложений**, щелкните **Добавить приложение**, затем — **Добавить приложение для использования моей организацией**.
 
 	![Что необходимо сделать?](./media/active-directory-saas-inbound-synchronization-tutorial/IC700995.png "Что необходимо сделать?")
 
@@ -181,4 +181,4 @@
 
 Теперь вы можете перейти в раздел **Пользователи** и проверить выполнение импорта пользователя Workday.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

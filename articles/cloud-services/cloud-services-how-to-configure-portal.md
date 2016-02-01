@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Настройка облачных служб
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-configure.md)
 - [Azure portal](cloud-services-how-to-configure-portal.md)
+- [Azure classic portal](cloud-services-how-to-configure.md)
 
 Часто используемые параметры облачной службы можно настроить на портале Azure. Также можно напрямую изменить файлы конфигурации. Для этого загрузите и измените нужный файл, а затем отправьте его для обновления конфигурации облачной службы. В любом случае обновления конфигурации применяются ко всем экземплярам ролей.
 
@@ -91,7 +91,7 @@
 
 * Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy-portal.md).
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name-portal.md).
-* [Управляйте облачной службой](cloud-services-how-to-manage-portal.md).
+* [Управление облачной службой](cloud-services-how-to-manage-portal.md).
 * Настройте [SSL-сертификаты](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

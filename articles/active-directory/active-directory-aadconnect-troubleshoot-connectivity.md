@@ -1,0 +1,127 @@
+<properties
+	pageTitle="Azure AD Connect: устранение неполадок подключения | Microsoft Azure"
+	description="Сведения об устранении неполадок подключения в Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="andkjell"
+	manager="stevenpo"
+	editor=""/>
+
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/11/2016"
+	ms.author="andkjell"/>
+
+# Устранение неполадок подключения в Azure AD Connect
+В этой статье рассказывается, как работает подключение между Azure AD Connect и Azure AD и как устранять неполадки подключения. Как правило, проблемы возникают в среде с прокси-сервером.
+
+## Устранение неполадок подключения в мастере установки
+Azure AD Connect подключается к Azure AD, используя два различных метода конфигурации. Поскольку речь идет о приложениях .Net, мастер установки и модуль синхронизации требуют правильной настройки файла machine.config. В процессе участвует также помощник по входу, которому для надлежащей работы требуется настройка winhttp.
+
+В этой статье мы покажем, как Fabrikam подключается к Azure AD через прокси-сервер. Прокси-сервер имеет имя fabrikamproxy и использует порт 8080.
+
+Во-первых, проверим правильность настройки файла [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity). ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
+
+> [AZURE.NOTE]В некоторых блогах говорится, что вместо него изменения необходимо вносить в файл miiserver.exe.config. Однако при каждом обновлении этот файл перезаписывается, так что даже если при первичной установке все работает, то с первым же обновлением система работать перестанет. По этой причине рекомендуем обновлять файл machine.config.
+
+Во-вторых, необходимо убедиться, что winhttp настроен. Это можно сделать с помощью [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity). ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
+
+На прокси-сервере должен быть также открыт необходимый URL-адрес. Официальный список см. в статье [URL-адреса и диапазоны IP-адресов Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+
+В приведенной ниже таблице показаны минимальные условия, которые должны соблюдаться для подключения к Azure AD. Этот список не включает дополнительные функции, такие как обратная запись паролей или Azure AD Connect Health. Он предназначен только для поиска и устранения неполадок, связанных с начальной конфигурацией.
+
+| URL-адрес | Порт | Описание |
+| ---- | ---- | ---- |
+| mscrl.microsoft.com | HTTP/80 | Используется для загрузки списков CRL. |
+| **.verisign.com | HTTP/80 | Используется для загрузки списков CRL. | | *.windows.net | HTTPS/443 | Используется для входа в Azure AD. | | *.microsoftonline.com | HTTPS/443 | Используется для настройки каталога Azure AD и импорта/экспорта данных. |
+
+## Ошибки в мастере
+Мастер установки использует два различных контекста безопасности. На странице **Подключение к Azure AD** он использует пользователя, выполнившего вход, а на странице **Настройка** переключается на [учетную запись, под которой работает служба модуля синхронизации](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Настраиваемые нами конфигурации прокси-сервера применяются к компьютеру в целом, поэтому возникающие проблемы обычно проявляются уже на странице **Подключение к Azure AD** в мастере.
+
+Вот наиболее распространенные ошибки, которые встречаются в мастере установки.
+
+### Неправильно настроен мастер установки
+Эта ошибка появляется в случае, если мастер не может связаться с прокси-сервером. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
+
+- Если она возникает, проверьте конфигурацию в файле [machine.config](active-directory-aadconnect-prerequisites.md#connectivity).
+- Если конфигурация выглядит нормально, выполните действия, описанные в разделе [Проверка подключения прокси-сервера](#verify-proxy-connectivity) и убедитесь в том, что проблема возникает не только в мастере.
+
+### Неправильно настроен помощник по входу
+Эта ошибка появляется, если помощник по входу не может связаться с прокси-сервером или прокси-сервер не пропускает запрос. ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
+
+- Если она возникает, проверьте конфигурацию прокси-сервера в [netsh](active-directory-aadconnect-prerequisites.md#connectivity) и убедитесь в правильности ее настройки. ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
+- Если конфигурация выглядит нормально, выполните действия, описанные в разделе [Проверка подключения прокси-сервера](#verify-proxy-connectivity) и убедитесь в том, что проблема возникает не только в мастере.
+
+### Невозможно проверить пароль
+Если мастер установки успешно подключается к Azure AD, но проверить пароль невозможно, отображается следующее: ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
+
+- Проверьте, не используется ли временный пароль, который необходимо сменить. Проверьте, правильно ли указан пароль. Попробуйте войти в систему по адресу https://login.microsoftonline.com (на другом сервере, отличном от сервера Azure AD Connect) и убедитесь, что учетная запись доступна.
+- Проверьте, включена ли для пользователя многофакторная проверка подлинности. Если да, отключите ее.
+
+### Проверка подключения прокси-сервера
+Для проверки возможности подключения сервера Azure AD Connect к прокси-серверу и Интернету можно использовать некоторые командлеты PowerShell, показывающие, пропускает ли прокси-сервер веб-запросы. В командной строке PowerShell выполните командлет `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (С технической точки зрения первый вызов адресуется https://login.microsoftonline.com и также будет работать, хотя другие URI отвечают быстрее.)
+
+Для связи с прокси-сервером PowerShell будет использовать конфигурацию в файле machine.config. Параметры в winhttp/netsh не должны влиять на эти командлеты.
+
+Если прокси-сервер настроен правильно, вы должны получить состояние успеха: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
+
+Если вы получили сообщение **Не удается подключиться к удаленному серверу**, значит, PowerShell пытается передать прямой вызов, не используя прокси-сервер, или неправильно настроен DNS. Проверьте правильность настройки файла **machine.config**. ![unabletoconnect](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequestunable.png)
+
+Если прокси-сервер настроен неправильно, появляется ошибка: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png) ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
+
+| Ошибка | Текст сообщения об ошибке | Комментарий |
+| ---- | ---- | ---- |
+| 403 | Запрещено | Прокси-сервер не был открыт для запрошенного URL-адреса. Проверьте конфигурацию прокси-сервера и убедитесь, что [URL-адреса](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) открыты. |
+| 407 | Требуется проверка подлинности прокси-сервера | Для прокси-сервера требуется имя входа, которое не было указано. Если прокси-сервер требует проверки подлинности, убедитесь, что она настроена в файле machine.config. Также убедитесь, что используются учетные записи домена для пользователя, который работает с мастером, а также учетная запись службы. |
+
+## Шаблон взаимодействия между Azure AD Connect и Azure AD
+Если вы выполнили все описанные выше действия, а подключение по-прежнему невозможно, обратитесь к журналам сети. В этом разделе описан нормальный, работающий шаблон подключения, а также перечислены распространенные ложные сигналы, которые при чтении журналов сети можно игнорировать.
+
+- Вызовы передаются по адресу https://dc.services.visualstudio.com. Для успешной установки открытие этого адреса в прокси-сервере не требуется, и его можно игнорировать.
+- Вы заметите, что в разрешении DNS будет указано, что фактически узлы находятся в пространстве DNS-имен nsatc.net и других, а не в microsoftonline.com. Фактические имена серверов в запросах к веб-службам не указываются, и добавлять их в прокси-сервер не нужно.
+- Конечные точки adminwebservice и provisioningapi (см. ниже в журналах) представляют собой конечные точки обнаружения и используются для поиска фактически используемой конечной точки, которая будет зависеть от вашего региона.
+
+### Справочные журналы прокси-сервера
+Приведем дамп из действительного журнала прокси-сервера и страницу мастера установки, с которой он был взят (дублирующиеся записи, относящиеся к одной и той же конечной точке, были удалены). Эти данные можно использовать как образец для собственных журналов прокси-сервера и сети. В вашей среде конечные точки могут отличаться (особенно конечные точки, выделенные *курсивом*).
+
+**Подключение к Azure AD**
+
+Время | URL-адрес
+--- | ---
+1/11/2016 8:31 | connect://login.microsoftonline.com:443
+1/11/2016 8:31 | connect://adminwebservice.microsoftonline.com:443
+1/11/2016 8:32 | connect://*bba800-anchor*.microsoftonline.com:443
+1/11/2016 8:32 | connect://login.microsoftonline.com:443
+1/11/2016 8:33 | connect://provisioningapi.microsoftonline.com:443
+1/11/2016 8:33 | connect://*bwsc02-relay*.microsoftonline.com:443
+
+**Настройка**
+
+Время | URL-адрес
+--- | ---
+1/11/2016 8:43 | connect://login.microsoftonline.com:443
+1/11/2016 8:43 | connect://*bba800-anchor*.microsoftonline.com:443
+1/11/2016 8:43 | connect://login.microsoftonline.com:443
+1/11/2016 8:44 | connect://adminwebservice.microsoftonline.com:443
+1/11/2016 8:44 | connect://*bba900-anchor*.microsoftonline.com:443
+1/11/2016 8:44 | connect://login.microsoftonline.com:443
+1/11/2016 8:44 | connect://adminwebservice.microsoftonline.com:443
+1/11/2016 8:44 | connect://*bba800-anchor*.microsoftonline.com:443
+1/11/2016 8:44 | connect://login.microsoftonline.com:443
+1/11/2016 8:46 | connect://provisioningapi.microsoftonline.com:443
+1/11/2016 8:46 | connect://*bwsc02-relay*.microsoftonline.com:443
+
+**Первоначальная синхронизация**
+
+Время | URL-адрес
+--- | ---
+1/11/2016 8:48 | connect://login.windows.net:443
+1/11/2016 8:49 | connect://adminwebservice.microsoftonline.com:443
+1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
+1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
+
+<!---HONumber=AcomDC_0121_2016-->

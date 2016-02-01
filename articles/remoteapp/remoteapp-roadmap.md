@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="12/16/2015"
+    ms.date="01/14/2016"
     ms.author="elizapo" />
 
 # Новые возможности Azure RemoteApp
@@ -23,7 +23,7 @@
 |-----------|-------|-------|
 |Служба Azure RemoteApp доступна как на [классическом портале Azure](http://manage.windowsazure.com), так и на [портале Azure](http://portal.azure.com). |X | |
 |Универсальное приложение Windows 10 для предварительной версии Azure RemoteApp|X| |
-|Возможность публикации отдельных приложений для определенных пользователей — **Общедоступная предварительная версия** ([отзывы](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))|X | |
+|Возможность публикации отдельных приложений для определенных пользователей — **частная предварительная версия** ([отзывы](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))|X | |
 |Распространяемый пакет MSI для клиента Windows ([отзывы](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo))| X| |
 |Клиент на основе HTML5 для Azure RemoteApp|X ||
 |Поддержка диспетчера ресурсов Azure (ARM)||X|
@@ -46,4 +46,4 @@
 - Доступность в австралийских центрах обработки данных
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

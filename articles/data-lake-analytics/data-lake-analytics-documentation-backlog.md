@@ -39,6 +39,7 @@ U-SQL | Синтаксические диаграммы грамматики | 1
 служба | Перемещение выходных данных задания в хранилище данных SQL с помощью фабрики данных |1 | выполняется | [@mumian](https://github.com/mumian) | 
 Средства | Использование средств диагностики | 1 | Ожидает | [@mumian](https://github.com/mumian) | 
 U-SQL | Объясните методы выполнения операций объединения JOIN на основе диапазонов | 1 | Ожидает | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
+U-SQL | Параметры проверки подлинности ADLS | 1 | Ожидает | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -56,4 +57,4 @@ U-SQL | Объясните методы выполнения операций о
 * Отправить запрос по внесению предложенных изменений в данный документ в [репозиторий содержимого Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Отправить сообщение по адресу [adlafeedback на сайте microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Сброс пароля виртуальной машины Linux с помощью Azure CLI | Microsoft Azure"
-	description="Использование расширения VMAccess на классическом портале Azure или Azure CLI для сброса паролей и ключей SSH, конфигурации SSH и удаления учетных записей пользователей виртуальной машины Linux."
+	pageTitle="Сброс паролей виртуальных машин Linux и добавление пользователей из интерфейса командной строки Azure | Microsoft Azure"
+	description="Использование расширения VMAccess на портале Azure или в интерфейсе командной строки Azure для сброса паролей и ключей SSH, конфигураций SSH, а также для добавления и удаления учетных записей пользователей и проверки согласованности дисков виртуальной машины Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="12/15/2015"
 	ms.author="cynthn"/>
 
-# Как сбросить пароль или ключ SSH в виртуальных машинах Linux #
+# Сброс пароля для доступа, управление пользователями и проверка дисков с помощью расширения Azure VMAccess для Linux#
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
 
-Если вы не можете подключиться к виртуальной машине Linux из-за забытого пароля, неверного ключа Secure Shell (SSH) или проблем с конфигурацией SSH, воспользуйтесь порталом Azure или расширением VMAccessForLinux, чтобы сбросить пароль или ключ SSH либо исправить конфигурацию SSH. Обратите внимание, что сведения в этой статье применимы к виртуальным машинам, созданным с использованием **классической** модели развертывания.
+Если вы не можете подключиться к виртуальной машине Linux в Azure из-за утерянного пароля, неправильного ключа SSH или проблем с конфигурацией SSH, воспользуйтесь порталом Azure или расширением VMAccessForLinux с интерфейсом командной строки Azure, чтобы сбросить пароль или ключ SSH либо исправить конфигурацию SSH и проверить согласованность диска.
 
 ## Портал Azure
 
@@ -61,6 +61,8 @@
 + [Сброс конфигурации SSH](#sshconfigresetcli)
 + [Удаление пользователя](#deletecli)
 + [Отображение состояния расширения VMAccess](#statuscli)
++ [проверка согласованности добавленных дисков](#checkdisk);
++ [восстановление дисков, добавленных на виртуальной машине Linux](#repairdisk).
 
 ### <a name="pwresetcli"></a>Сброс пароля
 
@@ -149,6 +151,34 @@
 
 	azure vm extension get
 
+### <a name='checkdisk'<</a>Проверка согласованности добавленных дисков
+
+Для запуска служебной программы fsck на всех дисках виртуальной машины Linux необходимо сделать следующее.
+
+Шаг 1. Создайте файл с именем PublicConf.json и приведенным ниже содержимым. Проверка диска принимает логическое значение, указывающее, нужно ли выполнять проверку дисков, подключенных к виртуальной машине.
+
+    {   
+    "check_disk": "true"
+    }
+
+Шаг 2. Запустите выполнение этой команды, подставив значения заполнителей.
+
+   azure vm extension set vm-name VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
+
+### <a name='repairdisk'></a>Восстановление дисков, добавленных на виртуальной машине Linux
+
+Чтобы восстановить диски, которые не подключаются или при подключении которых возникают ошибки конфигурации, используйте расширение VMAccess для сброса конфигурации подключения на виртуальной машине Linux.
+
+Шаг 1. Создайте файл с именем PublicConf.json и приведенным ниже содержимым.
+
+    {
+    "repair_disk":"true",
+    "disk_name":"yourdisk"
+    }
+
+Шаг 2. Запустите выполнение этой команды, подставив значения заполнителей.
+
+    azure vm extension set vm-name VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
 
 ## Использование Azure PowerShell
 
@@ -179,6 +209,8 @@
 + [Сброс конфигурации SSH](#config)
 + [Удаление пользователя](#delete)
 + [Отображение состояния расширения VMAccess](#status)
++ [проверка согласованности добавленных дисков](#checkdisk);
++ [восстановление дисков, добавленных на виртуальной машине Linux](#repairdisk).
 
 ### <a name="password"></a>Сброс пароля
 
@@ -252,6 +284,25 @@
 
 	$vm.GuestAgentStatus
 
+### <a name="checkdisk"<</a>Проверка согласованности добавленных дисков
+
+Для проверки согласованности дисков с помощью служебной программы fsck выполните следующие команды.
+
+	$PublicConfig = "{"check_disk": "true"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PublicConfiguration $PublicConfig | Update-AzureVM
+
+### <a name="checkdisk"<</a>Восстановление дисков, добавленных на виртуальной машине Linux
+
+Для восстановления дисков с помощью служебной программы fsck выполните следующие команды.
+
+	$PublicConfig = "{"repair_disk": "true", "disk_name": "my_disk"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PublicConfiguration $PublicConfig | Update-AzureVM
 
 ## Дополнительные ресурсы
 
@@ -266,4 +317,4 @@
 [Расширения и компоненты виртуальных машин Azure]: virtual-machines-extensions-features.md
 [Подключение к виртуальной машине Azure с помощью RDP или SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

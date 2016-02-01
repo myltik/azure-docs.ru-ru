@@ -2,7 +2,7 @@
     pageTitle="Руководство. Интеграция Azure Active Directory с AirWatch | Microsoft Azure" 
     description="Узнайте, как использовать AirWatch вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с AirWatch
 
@@ -51,7 +51,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-airwatch-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-airwatch-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -64,7 +64,7 @@
     ![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791915.png "AirWatch")
 ##Настройка единого входа
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в AirWatch со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, просмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в AirWatch со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Чтобы настроить единый вход, выполните следующие действия.
 
@@ -128,12 +128,12 @@
     ![Атрибут](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Атрибут")
 
     1.  В текстовое поле **Идентификатор объекта** введите ****http://schemas.microsoft.com/identity/claims/objectidentifier**.
-    2.  В текстовое поле **Пользователь** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    3.  В текстовое поле **Отображаемое имя** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    4.  В текстовое поле **Имя** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    5.  В текстовое поле **Фамилия** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
-    6.  В текстовое поле **Адрес электронной почты** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    7.  Щелкните **Сохранить**.
+2.  В текстовое поле **Пользователь** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+3.  В текстовое поле **Отображаемое имя** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+4.  В текстовое поле **Имя** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+5.  В текстовом поле **Фамилия** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+6.  В текстовое поле **Адрес электронной почты** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+7.  Щелкните **Сохранить**.
 
 14. На портале Azure AD выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
@@ -175,10 +175,10 @@
 
     ![Назначить пользователей](./media/active-directory-saas-airwatch-tutorial/IC791932.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем нажмите кнопку **Да**, чтобы подтвердить назначение.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

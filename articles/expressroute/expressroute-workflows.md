@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="01/21/2016"
    ms.author="cherylmc"/>
 
 # Процедуры ExpressRoute для подготовки каналов и состояний каналов
@@ -39,7 +39,7 @@
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
-5. Свяжите виртуальные сети с каналами ExpressRoute. Виртуальные сети можно связать с каналом ExpressRoute. Выполните инструкции по [связыванию виртуальных сетей](expressroute-howto-linkvnets-classic.md) с каналом. Эти виртуальные сети могут входить в ту же самую подписку, что и канал ExpressRoute, или в другую.
+5. Свяжите виртуальные сети с каналами ExpressRoute. Виртуальные сети можно связать с каналом ExpressRoute. Выполните инструкции по [связыванию виртуальных сетей](expressroute-howto-linkvnet-arm.md) с каналом. Эти виртуальные сети могут входить в ту же самую подписку, что и канал ExpressRoute, или в другую.
 
 
 ## Состояния подготовки канала ExpressRoute
@@ -117,8 +117,8 @@
 
 - Настройте подключение ExpressRoute.
 
-	- [Создание канала ExpressRoute](expressroute-howto-circuit-classic.md)
-	- [Настройка маршрутизации](expressroute-howto-routing-classic.md)
-	- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
+	- [Создайте канал ExpressRoute.](expressroute-howto-circuit-arm.md)
+	- [Настройка маршрутизации](expressroute-howto-routing-arm.md)
+	- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

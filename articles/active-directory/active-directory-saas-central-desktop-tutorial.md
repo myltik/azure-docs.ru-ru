@@ -2,7 +2,7 @@
     pageTitle="Учебник. Интеграция Azure Active Directory с Central Desktop | Microsoft Azure" 
     description="Узнайте, как использовать Central Desktop вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с Central Desktop
 
@@ -49,7 +49,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-central-desktop-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-central-desktop-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -62,9 +62,7 @@
     ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
 ##Настройка единого входа
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Central Desktop со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
-В рамках этой процедуры потребуется передать в клиент Central Desktop сертификат в кодировке Base-64.  
-Если вы не знакомы с этой процедурой, посмотрите видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Central Desktop со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. В рамках этой процедуры потребуется передать в клиент Central Desktop сертификат в кодировке Base-64. Если вы не знакомы с этой процедурой, просмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
 
 
 
@@ -81,7 +79,7 @@
 3.  На странице **Настройка URL-адреса приложения** выполните следующие действия, а затем нажмите кнопку **Далее**.
 
     -   В текстовое поле **URL-адрес входа в Central Desktop** введите URL-адрес вашего клиента Central Desktop (например, **http://contoso.centraldesktop.com*)).
--   В текстовое поле «URL-адрес ответа Central Desktop» введите URL-адрес службы AssertionConsumerService Central Desktop (например, https://contoso.centraldesktop.com/saml2-assertion.php)).
+-   В текстовом поле "URL-адрес ответа Central Desktop" введите URL-адрес Central Desktop AssertionConsumerService (например, https://contoso.centraldesktop.com/saml2-assertion.php).
 
     >[AZURE.NOTE]Это значение можно найти в метаданных Central Desktop (например, **http://contoso.centraldesktop.com*)).
 
@@ -161,10 +159,10 @@
 
     ![Назначить пользователей](./media/active-directory-saas-central-desktop-tutorial/IC769567.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да** для подтверждения назначения.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

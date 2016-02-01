@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2015"
+	ms.date="01/05/2016"
 	ms.author="genli"/>
 
 # Добавление или изменение ролей администратора Azure
@@ -64,6 +64,6 @@
 
 ## Изменение администратора учетной записи
 
-Для передачи учетной записи Azure другой учетной записи обратитесь к статье [Передача подписки Azure](../billing-subscription-transfer.md).
+Для передачи учетной записи Azure другой учетной записи обратитесь к статье [Передача подписки Azure](billing-subscription-transfer.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

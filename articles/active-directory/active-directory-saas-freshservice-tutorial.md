@@ -2,7 +2,7 @@
     pageTitle="Учебник. Интеграция Azure Active Directory с FreshService | Microsoft Azure" 
     description="Узнайте, как использовать FreshService вместе с Azure Active Directory для реализации единого входа, автоматической подготовки и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с FreshService
   
@@ -51,7 +51,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-freshservice-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-freshservice-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -94,7 +94,7 @@
 
     ![Безопасность](./media/active-directory-saas-freshservice-tutorial/IC790815.png "Безопасность")
 
-8.  В разделе **Безопасность** выполните следующие действия.
+8.  В разделе **Security** (Безопасность) выполните следующие действия.
 
     ![Единый вход](./media/active-directory-saas-freshservice-tutorial/IC790816.png "Единый вход")
 
@@ -152,10 +152,10 @@
 
     ![Назначить пользователей](./media/active-directory-saas-freshservice-tutorial/IC790821.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да** для подтверждения назначения.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-freshservice-tutorial/IC767830.png "Да")
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

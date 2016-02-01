@@ -38,6 +38,8 @@
  * Azure DocumentDB, очередь, таблица и хранилище больших двоичных объектов.
 * Java:
  * вызовы к базе данных с помощью драйвера [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) (например, MySQL, SQL Server, PostgreSQL или SQLite).
+* Веб-страницы
+ * Вызовы AJAX
 
 Напомним, что можно самостоятельно написать вызовы SDK для мониторинга других зависимостей.
 
@@ -129,4 +131,4 @@
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Создание копии Базы данных SQL Azure с помощью PowerShell" 
+    pageTitle="Создание копии базы данных SQL Azure с помощью PowerShell | Microsoft Azure" 
     description="Создание копии Базы данных SQL Azure с помощью PowerShell" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -57,7 +57,7 @@
 
 ### Выбор подписки Azure
 
-Для выбора подписки вам понадобится идентификатор или имя подписки (**-SubscriptionName**). Идентификатор подписки можно скопировать из данных, которые были показаны на предыдущем этапе; если у вас несколько подписок и вам нужны дополнительные данные, выполните командлет **Get-AzureSubscription** и скопируйте нужные данные из полученных результатов. Если у вас есть подписка, запустите следующий командлет:
+Для выбора подписки вам понадобится идентификатор или имя подписки (**-SubscriptionName**). Идентификатор подписки можно скопировать из данных, которые были показаны на предыдущем этапе. Если у вас несколько подписок и вам нужны дополнительные данные, выполните командлет **Get-AzureSubscription** и скопируйте нужные данные из полученных результатов. Если у вас есть подписка, запустите следующий командлет:
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -136,7 +136,7 @@
 
 ## Дальнейшие действия
 
-- [Соединение с SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
 - [Экспорт базы данных в BACPAC](sql-database-export-powershell.md)
 
 
@@ -146,4 +146,4 @@
 - [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
 - [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

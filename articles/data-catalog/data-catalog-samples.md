@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="12/02/2015"
+   ms.date="01/20/2015"
    ms.author="derrickv"/>
 
 
@@ -26,8 +26,12 @@
 
   Пример, демонстрирующий аутентификацию в Azure AD для регистрации, поиска и удаления ресурса-контейнера данных с помощью REST API каталога данных.
 
-- [Azure Data Catalog - Bulk register and annotate](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
+- [Массовая регистрация и заметки](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
 
-  Пример, демонстрирующий массовую регистрацию ресурсов-контейнеров данных из книги Excel с помощью REST API данных каталога и Open XML.
+  Пример, демонстрирующий массовую регистрацию ресурсов данных из книги Excel с помощью REST API каталога данных и Open XML.
 
-<!---HONumber=AcomDC_1203_2015-->
+- [Средство импорта и экспорта](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
+
+  Пример, показывающий, как использовать REST API каталога данных для извлечения ресурсов из каталога данных Azure и сериализации их в файл. Он также показывает, как взять набор ресурсов, сериализованный в формате json, и отправить его в каталог. Он поддерживает экспорт подмножества каталога с помощью поискового запроса.
+
+<!---HONumber=AcomDC_0121_2016-->

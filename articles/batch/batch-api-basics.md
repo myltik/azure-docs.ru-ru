@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="11/19/2015"
+	ms.date="01/21/2016"
 	ms.author="yidingz;v-marsma"/>
 
 # Обзор функций пакетной службы Azure
@@ -46,21 +46,23 @@
 
 При использовании пакетной службы Azure можно воспользоваться следующими ресурсами.
 
-- [Учетная запись](#account).
+- [Учетная запись.](#account)
 
-- [Вычислительный узел](#computenode).
+- [Вычислительный узел.](#computenode)
 
-- [Пул](#pool).
+- [Пул.](#pool)
 
-- [Задание](#job).
+- [Задание.](#job)
 
-- [Задача](#task).
+- [Задача.](#task)
 
-	- [Задача запуска](#starttask).
+	- [Задача запуска.](#starttask)
 
-	- [Задание ManagerTask](#jobmanagertask).
+	- [Задание ManagerTask.](#jobmanagertask)
 
-	- [Задачи подготовки и завершения заданий](#jobpreprelease).
+	- [Задачи подготовки и завершения заданий.](#jobpreprelease)
+
+	- [Задачи с несколькими экземплярами](#multiinstance)
 
 - [JobSchedule](#jobschedule)
 
@@ -145,10 +147,9 @@
 Помимо задач, которые можно определить для вычислений на узле, пакетная служба выполняет следующие специальные задачи.
 
 - [Задача запуска](#starttask)
-
 - [Задача диспетчера заданий](#jobmanagertask)
-
-- [Задачи подготовки и завершения заданий](#jobmanagertask).
+- [Задачи подготовки и завершения заданий.](#jobmanagertask)
+- [Задачи с несколькими экземплярами](#multiinstance)
 
 #### <a name="starttask"></a>Задача запуска
 
@@ -188,6 +189,18 @@
 Задачи подготовки и завершения задания позволяют указать командную строку, которая будет выполняться при вызове задачи, а также предлагают такие возможности, как загрузка файлов, выполнение с повышенными правами, пользовательские переменные среды, максимальная длительность выполнения, число повторных попыток и время хранения файла.
 
 Дополнительные сведения о задачах подготовки и завершения заданий см. в статье [Выполнение задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure](batch-job-prep-release.md).
+
+#### <a name="multiinstance"></a>Задачи с несколькими экземплярами
+
+[Задача с несколькими экземплярами][rest_multiinstance] —это задача, которая настроена на одновременный запуск нескольких вычислительных узлах. С помощью задач с несколькими экземплярами можно включать высокопроизводительные вычислительные сценарии, такие как интерфейс передачи сообщений (MPI), которым необходимо несколько совместно выделенных вычислительных узлов для обработки одной рабочей нагрузки.
+
+В пакетной службе для создания задачи с несколькими экземплярами нужно указать параметры нескольких экземпляров для обычной [задачи](#task). Эти параметры включают количество вычислительных узлов для выполнения задач, команду для основной задачи ("команда приложения"), команду координации и список общих файлов ресурсов для каждой задачи.
+
+При отправке задачи с несколькими экземплярами в задание пакетная служба выполняет следующие операции:
+
+1. Автоматически создает одну основную задачу и достаточное количество подзадач, которые будут выполняться совместно на указанном вами общем количестве узлов. Затем пакетная служба планирует выполнение этих задач на узлах, которые сначала загружают общие файлы ресурсов, которые вы указали.
+2. После загрузки общих файлов ресурсов основной задачей и подзадачами выполняется команда координации. Эта команда координации обычно запускает фоновую службу (такую как [MS-MPI][msmpi]`smpd.exe`) и проверяет, что узлы готовы для обработки сообщений между узлами.
+3. После успешного выполнения команды координации основной задачей и всеми подзадачами основная задача выполняет команду задачи ("команду приложения"), которая обычно инициализирует пользовательское приложение с поддержкой MPI, обрабатывающее рабочие нагрузки на узлах. Например, в сценарии Windows MPI с помощью команды приложения обычно запускается приложение с поддержкой MPI с [MS-MPI][msmpi]`mpiexec.exe`.
 
 ### <a name="jobschedule"></a>Запланированные задания
 
@@ -332,6 +345,7 @@
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+[msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -342,6 +356,7 @@
 [net_create_user]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.createcomputenodeuser.aspx
 [net_getfile_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getnodefile.aspx
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
+[net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -351,7 +366,9 @@
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/ru-RU/library/azure/mt637905.aspx
+[rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

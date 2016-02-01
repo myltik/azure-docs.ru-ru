@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="12/08/2015"
+  ms.date="01/07/2016"
   ms.author="hascipio; v-divte"/>
 
 # Общие предварительные требования для создания предложения в Azure Marketplace
@@ -45,9 +45,9 @@
 
 | Образ виртуальной машины | Служба разработчика | Служба данных | Шаблон решения |
 |-----|-----|-----|-----|
-| [Предварительные технические требования для виртуальной машины](marketplace-publishing-vm-image-creation-prerequisites.md) | [Предварительные технические требования для службы разработчика](marketplace-publishing-dev-service-creation-prerequisites.md) | [Предварительные технические требования для службы данных](marketplace-publishing-data-service-creation-prerequisites.md) | [Предварительные технические требования для шаблона решения](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [Предварительные технические требования для виртуальной машины](marketplace-publishing-vm-image-creation-prerequisites.md) | Предварительные технические требования для службы разработчика | [Предварительные технические требования для службы данных](marketplace-publishing-data-service-creation-prerequisites.md) | [Предварительные технические требования для шаблона решения](marketplace-publishing-solution-template-creation-prerequisites.md) |
 
 ## См. также
 - [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

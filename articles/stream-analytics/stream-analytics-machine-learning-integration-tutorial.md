@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Руководство по Azure Stream Analytics и интеграции машинного обучения Azure | Microsoft Azure" 
+	pageTitle="Руководство: общие сведения о Stream Analytics и интеграции машинного обучения | Microsoft Azure" 
 	description="Использование определяемой пользователем функции и машинного обучения в заданиях Stream Analytics"
 	keywords=""
 	documentationCenter=""
@@ -150,4 +150,4 @@
 
     ![stream analytics машинное обучение руководство отслеживание машинного обучения просмотр](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -2,7 +2,7 @@
     pageTitle="Руководство. Интеграция Azure Active Directory с Adaptive Suite | Microsoft Azure"
     description="Узнайте, как использовать Adaptive Suite вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с Adaptive Suite
 
@@ -51,7 +51,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-adaptive-suite-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-adaptive-suite-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -135,7 +135,7 @@
     ![Отправить](./media/active-directory-saas-adaptive-suite-tutorial/IC805649.png "Отправить")
 
     1.  Введите в текстовые поля **Name** (Имя), **Login** (Имя для входа), **Email** (Адрес электронной почты) и **Password** (Пароль) соответствующие данные действующего пользователя Azure Active Directory, для которого выполняется подготовка.
-    2.  Выберите **роль**.
+    2.  Выберите **Роль**.
     3.  Нажмите кнопку **Submit** (Отправить).
 
 >[AZURE.NOTE]Вы можете использовать любые другие средства создания учетной записи пользователя Adaptive Suite или API, предоставляемые Adaptive Suite для подготовки учетных записей пользователя AAD.
@@ -152,10 +152,10 @@
 
     ![Назначить пользователей](./media/active-directory-saas-adaptive-suite-tutorial/IC805650.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да** для подтверждения назначения.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-adaptive-suite-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

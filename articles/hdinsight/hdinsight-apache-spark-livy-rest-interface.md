@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="01/16/2016" 
 	ms.author="nitinme"/>
 
 
 # Удаленная отправка заданий Spark с помощью Livy в кластерах Spark в HDInsight (Linux)
 
-Кластер Apache Spark в Azure HDInight включает Livy — интерфейс REST для удаленной отправки заданий в кластер Spark из любого места. Подробную документацию см. в разделе [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+Кластер Apache Spark в Azure HDInsight включает Livy — интерфейс REST для удаленной отправки заданий в кластер Spark из любого места. Подробную документацию см. в разделе [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
 Вы можете использовать Livy для выполнения интерактивных оболочек Spark или отправки пакетных заданий для запуска в кластере Spark. В статье рассматривается использование Livy для отправки пакетных заданий. В представленном ниже синтаксисе используется Curl, позволяющий REST вызывать конечную точку Livy.
 
@@ -41,7 +41,7 @@
 
 * Если JAR-файл находится в хранилище кластеров (WASB)
 
-		curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mystorageaccount@mycontainer.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
+		curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
 * Если имя JAR-файла и имя класса необходимо передать в составе входного файла (в данном примере input.txt)
 		
@@ -187,4 +187,4 @@
 
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

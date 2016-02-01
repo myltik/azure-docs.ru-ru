@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Настройка SSL для облачной службы | Microsoft Azure" 
+	pageTitle="Настройка SSL для облачной службы (классический вариант) | Microsoft Azure" 
 	description="Узнайте, как определить конечную точку HTTPS для веб-роли и как передать SSL-сертификат, чтобы обеспечить безопасность приложения." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,12 +22,12 @@
 # Настройка SSL для приложения в Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 - [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 
 SSL-шифрование — это наиболее распространенный метод обеспечения безопасности данных, отправленных через Интернет. В этой теме, посвященной общим задачам, обсуждается, как определить конечную точку HTTPS для веб-роли и как передать SSL-сертификат, чтобы обеспечить безопасность приложения.
 
-> [AZURE.NOTE]Процедуры в этом задании применяются для облачных служб Azure. Для веб-сайтов см. раздел [Настройка SSL-сертификата для веб-сайта Azure](../web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE]Процедуры в этом задании применяются для облачных служб Azure. Информацию о процедурах для служб приложений см. в [этом разделе](../app-service-web/web-sites-configure-ssl-certificate.md).
 
 В этой задаче будет использоваться производственное развертывание; сведения об использовании промежуточного развертывания приведены в конце данной темы.
 
@@ -67,7 +67,7 @@ SSL-шифрование — это наиболее распространен
         ...
         </WebRole>
 
-    В разделе **Certificates** определяется имя сертификата, его расположение и имя хранилища, в котором он находится. Мы выбрали для хранения сертификата хранилище центра сертификации (CA), но вы можете выбрать другие варианты. Дополнительные сведения см. в разделе [Связь сертификата со службой][].
+    В разделе **Certificates** определяется имя сертификата, его расположение и имя хранилища, в котором он находится.
 
 2.  В файле определения службы добавьте элемент **InputEndpoint** в раздел **Endpoints**, чтобы включить HTTPS:
 
@@ -149,8 +149,8 @@ SSL-шифрование — это наиболее распространен
 
 * [Общая настройка облачной службы](cloud-services-how-to-configure.md).
 * Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy.md).
-* [Настройка пользовательского имени домена](cloud-services-custom-domain-name.md)
-* [Управляйте облачной службой](cloud-services-how-to-manage.md).
+* Настройте [пользовательское доменное имя](cloud-services-custom-domain-name.md).
+* [Управление облачной службой](cloud-services-how-to-manage.md).
 
 
   [классический портал Azure]: http://manage.windowsazure.com
@@ -160,4 +160,4 @@ SSL-шифрование — это наиболее распространен
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

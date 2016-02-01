@@ -1,15 +1,17 @@
-* [What is Azure App Service?](app-service-value-prop-what-is.md)
-  * [Web App](../app-service-web/app-service-web-overview.md)
-  * [Mobile App](../app-service-mobile/app-service-mobile-value-prop.md)
-  * [API App](../app-service-api/app-service-api-apps-why-best-platform.md)
-  * [Logic App](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-* [Azure App Service Architecture (presentation)](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)
-* [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md)
-* [Understanding App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md)
-* [Introduction to App Service Environment](../app-service-web/app-service-app-service-environment-intro.md)
-  * [Exercise: Create an App Service Environement](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
-* [Azure App Service Development Stacks Support](https://azure.microsoft.com/blog/windows-azure-websites-development-stacks-support/)
+* [Что такое служба приложений Azure?](app-service-value-prop-what-is.md)
+  * [Веб-приложение](../app-service-web/app-service-web-overview.md)
+  * [Мобильное приложение](../app-service-mobile/app-service-mobile-value-prop.md)
+  * [Приложение API](../app-service-api/app-service-api-apps-why-best-platform.md)
+  * [приложение логики;](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+* [Windows Azure Web Sites - Things they don’t teach kids in school](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013) (Веб-сайты Windows Azure — то, чему не учат детей в школе)
+* [Сравнение службы приложений, облачных служб и виртуальных машин Azure](../app-service-web/choose-web-site-cloud-service-vm.md)
+* [Подробный обзор планов службы приложений Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md)
+* [Введение в среду службы приложения](../app-service-web/app-service-app-service-environment-intro.md)
+  * [Создание среды службы приложений](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [Windows Azure Websites Development Stacks Support](https://azure.microsoft.com/blog/windows-azure-websites-development-stacks-support/) (Поддержка стеков разработки веб-сайтов Windows Azure)
 
-## Videos
+## Видеоролики
 
-* [Azure App Service Architecture](/documentation/videos/why-azure-web-sites-plus-architecture/)
+* [Why Azure Web Sites? Web Sites Architecture - with Stefan Schackow](/documentation/videos/why-azure-web-sites-plus-architecture/) (Зачем использовать именно веб-сайты Azure? Архитектура веб-сайтов со Стефаном Шашковым)
+
+<!---HONumber=AcomDC_0121_2016-->
