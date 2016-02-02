@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/17/2015"
+	ms.date="01/18/2016"
 	ms.author="bwren"/>
 
 
@@ -30,7 +30,7 @@
 
 Для работы с этим учебником необходимо следующее.
 
-- Подписка Azure. Если у вас ее нет, [активируйте преимущества для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или <a href="/pricing/free-trial/" target="_blank">[подпишитесь на бесплатную пробную версию](http://azure.microsoft.com/pricing/free-trial/).
+- Подписка Azure. Если у вас ее нет, [активируйте преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или <a href="/pricing/free-trial/" target="_blank">[подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/).
 - [Учетная запись в службе автоматизации](automation-configuring.md) для хранения модуля Runbook.
 - Виртуальная машина Azure. Это не должна быть рабочая машина, поскольку в процессе изучения данного материала ее нужно будет остановить и запустить заново.
 - [Пользователь Azure Active Directory и ресурс учетных данных службы автоматизации](automation-configuring.md) для проверки подлинности и получения доступа к ресурсам Azure. Этот пользователь должен иметь разрешение на запуск и остановку виртуальной машины.
@@ -170,4 +170,4 @@
 - [Мой первый модуль Runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

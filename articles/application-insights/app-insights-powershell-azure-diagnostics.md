@@ -111,9 +111,10 @@
 ```
 
 
-## Связанные разделы
+## См. также
 
 * [Мониторинг приложений облачных служб Azure с помощью Application Insights](app-insights-cloudservices.md)
 * [Отправка данных системы диагностики Azure в Application Insights](app-insights-azure-diagnostics.md)
+* [Use PowerShell to set alerts in Application Insights](app-insights-powershell-alerts.md) (Использование PowerShell для настройки оповещений в Application Insights)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

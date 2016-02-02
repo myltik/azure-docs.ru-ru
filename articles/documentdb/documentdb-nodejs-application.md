@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="10/20/2015" 
+	ms.date="01/26/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Создание веб-приложения Node.js с использованием DocumentDB
@@ -44,7 +44,7 @@
 
 ## <a name="_Toc395783176"></a>Предварительные требования
 
-> [AZURE.TIP]Этот учебник по Node.js разработан для читателей, обладающих определенным опытом использования Node.js и веб-сайтов Azure.
+> [AZURE.TIP] Этот учебник по Node.js разработан для читателей, обладающих определенным опытом использования Node.js и веб-сайтов Azure.
 
 Перед выполнением инструкций, приведенных в этой статье, следует убедиться, что установлены следующие компоненты:
 
@@ -183,8 +183,7 @@
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP]createCollection принимает необязательный параметр requestOptions, который может использоваться для указания типа предложения для коллекции. Если значение requestOptions.offerType не указано, коллекция будет создана с использованием типа предложения по умолчанию. 
-> Дополнительные сведения о типах предложений DocumentDB см. в статье [Уровни производительности DocumentDB](documentdb-performance-levels.md)
+> [AZURE.TIP] createCollection принимает необязательный параметр requestOptions, который может использоваться для указания типа предложения для коллекции. Если значение requestOptions.offerType не указано, коллекция будет создана с использованием типа предложения по умолчанию. Дополнительные сведения о типах предложений DocumentDB см. в статье [Уровни производительности DocumentDB](documentdb-performance-levels.md)
 		
 3. Сохраните и закройте файл **docdbUtils.js**.
 
@@ -397,7 +396,7 @@
 		
 		module.exports = config;
 
-3. В файле **config.js** обновите значения HOST и AUTH\_KEY значениями, найденными в выноске Keys учетной записи DocumentDB на [портале Microsoft Azure](http://portal.azure.com):
+3. В файле **config.js** обновите значения HOST и AUTH\_KEY значениями, найденными в выноске Keys учетной записи DocumentDB на [портале Microsoft Azure](https://portal.azure.com):
 
 4. Сохраните и закройте файл **config.js**.
  
@@ -570,4 +569,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

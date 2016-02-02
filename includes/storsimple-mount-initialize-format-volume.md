@@ -30,9 +30,9 @@
 
 ![Доступный видеоролик](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Доступный видеоролик**
 
-Чтобы просмотреть видеоролик о том, как монтировать, инициализировать и форматировать том StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
+Чтобы просмотреть видеоролик о том, как монтировать, инициализировать и форматировать том StorSimple, щелкните [здесь](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

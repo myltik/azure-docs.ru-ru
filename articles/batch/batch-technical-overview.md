@@ -52,7 +52,7 @@
 
 ### Учетные записи, которые вам понадобятся
 
-+ **Учетная запись и подписка Azure**. Если у вас нет учетной записи, вы можете активировать [преимущества для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или зарегистрироваться для получения [бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
++ **Учетная запись и подписка Azure**. Если у вас нет учетной записи, вы можете активировать [преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 
 + **Учетная запись пакетной службы**. Имя и URL-адрес учетной записи пакетной службы и ключ доступа используются в качестве учетных данных для вызовов API пакетной службы. Все ресурсы пакетной службы, такие как вычислительные узлы, пулы, задания и задачи, связаны с учетной записью пакетной службы. Для создания учетной записи пакетной службы и управления ключами доступа к учетной записи используйте [портал Azure](batch-account-create-portal.md).
 
@@ -103,4 +103,4 @@
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -39,9 +39,9 @@
 
 ## Шаг 1. Создание шаблона диспетчера ресурсов Azure
 
-Создайте в папке **C:\ADFGetStarted** файл JSON с именем **ADFTutorialARM.json** со следующим содержимым:
+Создайте в папке **C:\\ADFGetStarted** файл JSON с именем **ADFTutorialARM.json** со следующим содержимым:
 
-> [AZURE.IMPORTANT]Измените значения переменных **storageAccountName** и **storageAccountKey**. Измените значение переменной **dataFactoryName**, так как имя должно быть уникальным.
+> [AZURE.IMPORTANT] Измените значения переменных **storageAccountName** и **storageAccountKey**. Измените значение переменной **dataFactoryName**, так как имя должно быть уникальным.
 
 Этот шаблон позволяет создавать следующие сущности фабрики данных:
 
@@ -213,6 +213,15 @@
 	}
 
 
+Обратите внимание на следующее.
+
+- С помощью вышеупомянутого файла JSON фабрика данных создает кластер HDInsight **под управлением Windows**. Также можно создать кластер HDInsight **под управлением Linux**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+- Вместо используемого по запросу кластера HDInsight можно использовать **собственный кластер HDInsight**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+- Кластер HDInsight создает **контейнер по умолчанию** в хранилище BLOB-объектов, которое указано в коде JSON (**linkedServiceName**). При удалении кластера HDInsight этот контейнер не удаляется. Это сделано специально. Если используется связанная служба HDInsight по запросу, кластер HDInsight создается для обработки каждого среза данных (если не используется динамический кластер **timeToLive**), после чего он удаляется.
+
+	По мере обработки новых срезов количество контейнеров в хранилище BLOB-объектов будет увеличиваться. Если эти контейнеры не используются для устранения неполадок с заданиями, удалите их — это позволит сократить расходы на хранение. Такие контейнеры имеют имена в формате "adf**имя\_вашей\_фабрики\_данных**-**имя\_связанной\_службы**-метка\_даты\_и\_времени". Для удаления контейнеров в хранилище Azure BLOB-объектов используйте такие средства, как [обозреватель хранилищ Microsoft](http://storageexplorer.com/).
+
+Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
 ## Шаг 2: Развертывание сущностей фабрики данных с помощью шаблона диспетчера ресурсов Azure
 
@@ -226,11 +235,11 @@
 
 ## Мониторинг конвейера
  
-1.	Войдя на [портал Azure](http://portal.azure.com/), щелкните **Обзор** и выберите **Фабрики данных**. 
-		![Просмотреть все -> Фабрики данных](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Войдя на [портал Azure](https://portal.azure.com/), щелкните **Обзор** и выберите **Фабрики данных**. 
+	![Просмотреть все -> Фабрики данных](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	В колонке **Фабрики данных** выберите созданную фабрику данных (**TutorialFactoryARM**).	
 2.	В колонке **Фабрика данных** для своей фабрики данных щелкните элемент **Схема**. 
-		![Плитка «Схема»](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+	![Плитка "Схема"](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	В **представлении схемы** вы увидите все конвейеры и наборы данных, используемые в этом руководстве.
 	
 	![Представление схемы](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
@@ -243,4 +252,4 @@
 10. Когда срез перейдет в состояние **Готово**, проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов.  
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

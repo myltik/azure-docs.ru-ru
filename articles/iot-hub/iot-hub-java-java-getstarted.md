@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с центром Azure IoT | Microsoft Azure"
+	pageTitle="Приступая к работе с центром Azure IoT с использованием Java | Microsoft Azure"
 	description="Следуйте указаниям этого руководства, чтобы приступить к работе с центром IoT Azure с помощью Java."
 	services="iot-hub"
 	documentationCenter="java"
@@ -16,7 +16,7 @@
      ms.date="12/21/2015"
      ms.author="dobett"/>
 
-# Учебник: начало работы с центром IoT
+# Приступая к работе с центром Azure IoT с использованием Java
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
@@ -40,7 +40,7 @@
 * **read-d2c-messages** — отображает данные телеметрии, отправляемые виртуальным устройством;
 * **simulated-device** — подключается к центру IoT с созданным ранее удостоверением устройства и отправляет сообщения телеметрии с частотой один раз в секунду.
 
-> [AZURE.NOTE]Статья [Пакеты SDK для центра IoT][lnk-hub-sdks] содержит сведения о разных пакетах SDK, которые можно использовать для создания приложений, которые будут запущены на устройствах и в серверной части решения.
+> [AZURE.NOTE] Статья [Пакеты SDK для центра IoT][lnk-hub-sdks] содержит сведения о разных пакетах SDK, которые можно использовать для создания приложений, которые будут запущены на устройствах и в серверной части решения.
 
 Для работы с этим руководством требуется:
 
@@ -81,7 +81,7 @@
 
     ![][5]
 
-7. В колонке «Центр IoT» щелкните **Параметры**, а затем в колонке **Параметры** щелкните **Обмен сообщениями**. Когда откроется колонка **Обмен сообщениями**, запишите значения в полях **Имя, совместимое с концентраторами событий** и **Конечная точка, совместимая с концентраторами событий**. Эти значения потребуются при создании приложения **read-d2c-messages**.
+7. В колонке "Центр IoT" щелкните **Параметры**, а затем в колонке **Параметры** щелкните **Обмен сообщениями**. Когда откроется колонка **Обмен сообщениями**, запишите значения в полях **Имя, совместимое с концентраторами событий** и **Конечная точка, совместимая с концентраторами событий**. Эти значения потребуются при создании приложения **read-d2c-messages**.
 
     ![][6]
 
@@ -120,14 +120,6 @@
 - [Обработка сообщений, отправляемых с устройств в облако][lnk-process-d2c-tutorial] — описывается, как надежно обрабатывать данные телеметрии и интерактивные сообщения, поступающие от устройств.
 - [Передача файлов с устройств][lnk-upload-tutorial] — описывается модель использования сообщений, отправляемых из облака на устройства, для упрощения передачи файлов с устройств.
 
-Дополнительные сведения о центре IoT можно найти в следующих статьях:
-
-* [Обзор центра IoT][lnk-hub-overview]
-* [Руководство разработчика по центру IoT][lnk-hub-dev-guide]
-* [Разработка решения для центра IoT][lnk-hub-guidance]
-* [Поддерживаемые платформы устройств и языки][lnk-supported-devices]
-* [Центр разработчика IoT Azure][lnk-dev-center]
-
 <!-- Images. -->
 [1]: ./media/iot-hub-java-java-getstarted/create-iot-hub1.png
 [2]: ./media/iot-hub-java-java-getstarted/create-iot-hub2.png
@@ -144,14 +136,9 @@
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
-[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
-[lnk-hub-guidance]: iot-hub-guidance.md
-[lnk-hub-dev-guide]: iot-hub-devguide.md
-[lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-dev-center]: http://www.azure.com/develop/iot
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

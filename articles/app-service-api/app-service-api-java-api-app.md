@@ -25,7 +25,7 @@
 ## Предварительные требования
 
 1. [Java Developer Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (или более поздней версии).
-1. Платная или [бесплатная пробная версия](https://azure.microsoft.com/pricing/free-trial/) подписки на [Microsoft Azure](https://azure.microsoft.com).
+1. Платная или [бесплатная пробная версия](https://azure.microsoft.com/pricing/free-trial/) подписки на [Microsoft Azure](https://azure.microsoft.com/).
 1. Установка [Maven](https://maven.apache.org/) на компьютере, на котором ведется разработка.
 1. Установка Git на компьютере, на котором ведется разработка. 
 
@@ -254,7 +254,7 @@
 ## Публикация выходных данных в службе приложений Azure
 В этом разделе вы узнаете, как создать приложение API при помощи портала Azure, подготовить это приложение API для размещения приложений Java и развернуть новый WAR-файл в службе приложений Azure, чтобы запустить новое приложение API.
 
-1. Создайте приложение API на [портале Azure](http://portal.azure.com), выбрав в меню **Создать -> Интернет + мобильные устройства -> Приложение API**.
+1. Создайте приложение API на [портале Azure](https://portal.azure.com/), выбрав в меню **Создать -> Интернет + мобильные устройства -> Приложение API**.
 	
 	![Создать приложение API](media/app-service-api-java-api-app/create-api-app.png)
 
@@ -295,4 +295,4 @@
 
 Дополнительную информацию об использовании Java в Azure см. в разделе [Центр разработчиков Java](/develop/java/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

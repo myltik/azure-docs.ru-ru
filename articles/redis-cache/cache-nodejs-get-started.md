@@ -43,8 +43,7 @@
 
   ![][1]
 
-Введите имя узла DNS. Оно будет иметь форму `<name>
-  .redis.cache.windows.net`. Щелкните **Создать**.
+Введите имя узла DNS. Оно будет иметь форму `<name>.redis.cache.windows.net`. Щелкните **Создать**.
 
   ![][2]
 
@@ -53,29 +52,22 @@
 
   ![][4]
 
+## Добавление данных в кэш и их извлечение
 
-  ## Включение конечной точки без SSL
+```js
+var redis = require("redis");
 
+// Add your cache name and access key.
+var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
-  Щелкните ссылку в разделе **Порты** и нажмите кнопку **Нет** для параметра «Разрешить доступ только через SSL». Это включит для кэша порт без SSL. Клиент node\_redis в настоящее время не поддерживает SSL.
+client.set("foo", "bar", function(err, reply) {
+  console.log(reply);
+});
 
-  ![][3]
-
-
-  ## Добавление данных в кэш и их извлечение
-
-  var redis = require("redis");
-
-  // Добавьте имя кэша и ключ доступа. var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth\_pass: '<key>' });
-
-	client.set("foo", "bar", function(err, reply) {
-	    console.log(reply);
-	});
-
-	client.get("foo",  function(err, reply) {
-	    console.log(reply);
-	});
-
+client.get("foo",  function(err, reply) {
+  console.log(reply);
+});
+```
 
 Выходные данные:
 
@@ -97,4 +89,4 @@
 
 [Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

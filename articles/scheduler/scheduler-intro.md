@@ -40,7 +40,7 @@
 
  [Как создавать сложные расписания и расширенное повторение с помощью планировщика Azure](scheduler-advanced-complexity.md)
 
- [Справочник по API REST планировщика Azure](https://msdn.microsoft.com/library/dn528946)
+ [Справочник по API REST планировщика Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Справочник по командлетам PowerShell планировщика Azure](scheduler-powershell-reference.md)
 
@@ -50,4 +50,4 @@
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/30/2015"
+	ms.date="01/26/2016"
 	ms.author="markvi"/>
 
 # Приступая к работе с Azure Active Directory Premium
 
 Существуют три выпуска Azure Active Directory: Free, Basic и Premium. Выпуск Free входит в состав подписки Azure или Office 365. Выпуски Basic и Premium доступны через [Соглашение Microsoft Enterprise Agreement](https://www.microsoft.com/ru-RU/licensing/licensing-programs/enterprise.aspx) или в рамках программы [Открытая корпоративная лицензия](https://www.microsoft.com/ru-RU/licensing/licensing-programs/open-license.aspx). Подписчики Azure и Office 365 также могут купить выпуск Active Directory Premium через Интернет. [Войдите здесь](https://portal.office.com/Commerce/Catalog.aspx), чтобы купить выпуск.
 
-> [AZURE.NOTE]Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих всемирный экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+> [AZURE.NOTE]
+Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих всемирный экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Выпуск Azure Active Directory Premium также включен в **набор корпоративных служб мобильности**. Набор корпоративных служб мобильности представляет собой экономичный способ, благодаря которому организации могут совместно использовать службы Microsoft Intune, Azure Rights Management и Active Directory Premium в рамках одного плана лицензирования. Дополнительные сведения см. на веб-сайте [Набор корпоративных служб мобильности](https://www.microsoft.com/ru-RU/server-cloud/enterprise-mobility/overview.aspx).
 
@@ -121,4 +122,4 @@
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

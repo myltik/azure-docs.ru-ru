@@ -22,13 +22,13 @@
 
 Чтобы создать лабораторию для разработки и тестирования, вам потребуется:
 
-- Подписка Azure. Дополнительные сведения о вариантах приобретения Azure см. на странице [Как приобрести Azure](http://azure.microsoft.com/pricing/purchase-options/) или [Бесплатный ознакомительный период в один месяц](https://azure.microsoft.com/pricing/free-trial/). Для создания лаборатории необходимо быть владельцем подписки.
+- Подписка Azure. Дополнительные сведения о вариантах приобретения Azure см. на странице [Как приобрести Azure](https://azure.microsoft.com/pricing/purchase-options/) или [Бесплатный ознакомительный период в один месяц](https://azure.microsoft.com/pricing/free-trial/). Для создания лаборатории необходимо быть владельцем подписки.
 - Группа ресурсов Azure для лаборатории. См. статьи [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md) и [Контроль доступа на основе ролей Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
 
 ## Создание лаборатории
 
-1. Войдите на [портал предварительной версии Azure](http://portal.azure.com).
+1. Войдите на [портал предварительной версии Azure](https://portal.azure.com).
 
 1. Нажмите кнопку **Обзор**.
 
@@ -61,4 +61,4 @@
 
 - [Добавление виртуальной машины с артефактами в лабораторию для разработки и тестирования Azure](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

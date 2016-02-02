@@ -18,7 +18,8 @@
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -30,7 +31,7 @@
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Visual Studio 2013 Express для Windows]
 
 ## Создание новой мобильной службы
@@ -69,13 +70,17 @@
 ## Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах:
 
-* [Использование автономной синхронизации данных в мобильных службах] Узнайте, как использовать автономную синхронизацию данных для повышения скорости реагирования и надежности приложений.
+* [Приступая к работе с синхронизацией автономных данных] 
+	Узнайте, как использовать синхронизацию автономных данных для повышения скорости и надежности приложений.
 
-* [Добавление проверки подлинности в приложение мобильных служб][Get started with authentication] Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
+* [Добавление проверки подлинности в приложение мобильных служб][Get started with authentication] 
+	Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
-* [Добавление push-уведомлений к приложению мобильных служб][Get started with push notifications] Узнайте, как отправлять в приложение простейшие push-уведомления.
+* [Добавление push-уведомлений к приложению мобильных служб][Get started with push notifications] 
+	Узнайте, как отправлять в приложение простейшие push-уведомления.
 
-* [Использование управляемой клиентской библиотеки для мобильных служб Azure](mobile-services-windows-dotnet-how-to-use-client-library.md) Узнайте, как отправлять запросы в мобильную службу, работать с данными и обращаться к настраиваемым API.
+* [Использование управляемой клиентской библиотеки для мобильных служб Azure](mobile-services-windows-dotnet-how-to-use-client-library.md) 
+	Узнайте, как отправлять запросы в мобильную службу, работать с данными и обращаться к настраиваемым API.
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -90,7 +95,7 @@
 
 
 <!-- URLs. -->
-[Использование автономной синхронизации данных в мобильных службах]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Приступая к работе с синхронизацией автономных данных]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Get started with authentication]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Visual Studio 2013 Express для Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
@@ -98,4 +103,4 @@
 [классическом портале Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->
