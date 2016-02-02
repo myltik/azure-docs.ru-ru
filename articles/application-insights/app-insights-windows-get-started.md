@@ -79,7 +79,7 @@
 		</ApplicationInsights>
 	```
 
-    Настройте файл ApplicationInsights.config, задав для свойства **Действие при построении** значение **Содержимое**, а для свойства **Копировать в выходной каталог** — значение **Всегда копировать**.
+    Задайте для файла ApplicationInsights.config такие свойства: **Действие при построении** == **Содержимое**, **Копировать в выходной каталог** == **Копировать всегда**.
 	
 	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
@@ -231,4 +231,4 @@
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

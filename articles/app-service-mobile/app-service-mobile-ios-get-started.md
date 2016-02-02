@@ -18,9 +18,7 @@
 
 #Создание приложения iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Обзор
 
@@ -30,13 +28,13 @@
 
 Для работы с этим учебником требуется:
 
-* [Активная учетная запись Azure](http://azure.microsoft.com/pricing/free-trial/).
+* [Активная учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Компьютер с [Visual Studio Community 2013] или более поздней версии.
 
 * Компьютер Mac с Xcode v7.0 или более поздней версией.
 
-* [Платформа для мобильных приложений iOS Azure](https://go.microsoft.com/fwLink/?LinkID=529823), которая автоматически включена как часть загруженного проекта быстрого запуска.
+* [Платформа для мобильных приложений IOS Azure](https://go.microsoft.com/fwLink/?LinkID=529823), которая автоматически включена как часть загруженного проекта быстрого запуска.
 
 ## Создание серверной части мобильного приложения Azure
 
@@ -69,4 +67,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

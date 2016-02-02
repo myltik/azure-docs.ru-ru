@@ -26,13 +26,13 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Если вы не знакомы с разработкой приложений для мобильных устройств с помощью Microsoft Azure, [начните работу с мобильными приложениями Azure](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md), а не с мобильными службами Azure. Мобильные приложения предоставляют вам [дополнительные преимущества](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+>[AZURE.TIP] Если вы не знакомы с разработкой приложений для мобильных устройств с помощью Microsoft Azure, [начните работу с мобильными приложениями Azure](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md), а не с мобильными службами Azure. Мобильные приложения предоставляют вам [дополнительные преимущества](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 В этом учебнике показано, как добавить облачную серверную службу в универсальное приложение Windows с помощью мобильных служб Azure. Решения для универсальных приложений Windows включают проекты для приложений Магазинов Windows 8.1 и Windows Phone 8.1 и общий проект. Дополнительные сведения см. в разделе [Создание универсальных приложений Windows для Windows и Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
 
 В этом учебнике вы создадите новую мобильную службу и простое приложение *To do list*, хранящее данные приложения в новой мобильной службе. В создаваемой мобильной службе с помощью Visual Studio используются поддерживаемые языки .NET для серверной бизнес-логики, а также для управления мобильной службой. Сведения о создании мобильной службы, которая позволяет реализовать серверную бизнес-логику в JavaScript, см. в подразделе "Серверная версия JavaScript" этого раздела.
 
->[AZURE.NOTE]В этом разделе показано, как создать новый проект мобильной службы и универсальное приложение Windows с помощью классического портала Azure. Используя Visual Studio 2013 с обновлением 3, можно также добавить новый проект мобильной службы в существующее решение Visual Studio. Дополнительные сведения см. в статье [Добавление мобильных служб к существующему приложению](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
+>[AZURE.NOTE]В этом разделе показано, как создать новый проект мобильной службы и универсальное приложение Windows с помощью классического портала Azure. Используя Visual Studio 2013 с обновлением 3, можно также добавить новый проект мобильной службы в существующее решение Visual Studio. Дополнительные сведения см. в статье [Добавление мобильных служб в существующее приложение](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
 >Чтобы добавить мобильную службу в проект приложения для Windows Phone 8.0 или Windows Phone Silverlight 8.1, см. статью [Добавление мобильных служб в существующее приложение Windows Phone](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
@@ -40,7 +40,7 @@
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started%2F).
+* Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started%2F).
 * [Visual Studio 2013].
 
 ## Создание новой мобильной службы
@@ -133,4 +133,4 @@
 [классическом портале Azure]: https://manage.windowsazure.com/
 [Устранение неполадок серверной части в мобильных службах .NET]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

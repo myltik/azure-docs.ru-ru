@@ -15,7 +15,7 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Войдите на портал [Azure](http://portal.azure.com/) по адресу http://portal.azure.com/.
+1. Войдите на портал [Azure](https://portal.azure.com/) по адресу http://portal.azure.com/.
 
 2. В заголовке слева щелкните **ПРОСМОТРЕТЬ ВСЕ**. Отобразится колонка **Обзор**.
 
@@ -63,4 +63,4 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -19,9 +19,7 @@
 
 #Создание приложения Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Обзор
 
@@ -33,7 +31,7 @@
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных приложений, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных приложений, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * [Visual Studio Community 2013] или более поздняя версия. В случае установки Visual Studio Community 2013 устанавливайте [Xamarin] отдельно. При установке Visual Studio 2015 можно установить инструменты Xamarin.
 
@@ -41,7 +39,7 @@
  
 * Если вы планируете выполнить сборку и развертывание приложения на компьютере под управлением Windows с запущенной программой Visual Studio, вам все равно потребуется доступ к компьютеру под управлением Mac, подключенному к узлу сборки Xamarin.iOS. Дополнительные сведения см. в статье [Установка Xamarin.iOS в Windows](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/).
 
->[AZURE.NOTE]Если вы хотите приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [Пробное использование службы приложений](https://tryappservice.azure.com/?appServiceName=mobile). Там вы сможете немедленно создать кратковременное начальное мобильное приложение в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
+>[AZURE.NOTE] Если вы хотите приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [Пробное использование службы приложений](https://tryappservice.azure.com/?appServiceName=mobile). Там вы сможете немедленно создать кратковременное начальное мобильное приложение в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
 
 ## Создание серверной части мобильного приложения Azure
 
@@ -70,7 +68,7 @@
 
 1. На компьютере Mac откройте [портал Azure] в окне браузера.
 
-	>[AZURE.NOTE]Проще всего запустить приложение Xamarin.iOS на компьютере Mac. Запустить приложение Xamarin.iOS можно в Visual Studio на компьютере Windows, если хотите, но это немного сложнее, так как необходимо подключиться к компьютеру Mac с доступом к сети. Если вам это интересно, см. статью [Установка Xamarin.iOS в Windows].
+	>[AZURE.NOTE] Проще всего запустить приложение Xamarin.iOS на компьютере Mac. Запустить приложение Xamarin.iOS можно в Visual Studio на компьютере Windows, если хотите, но это немного сложнее, так как необходимо подключиться к компьютеру Mac с доступом к сети. Если вам это интересно, см. статью [Установка Xamarin.iOS в Windows].
 
 2. В колонке параметров мобильного приложения щелкните **Приступая к работе** > **Xamarin.iOS**. На этапе 3 нажмите кнопку **Создать приложение** (если вы еще не сделали этого). Затем нажмите кнопку **Загрузить**.
 
@@ -121,4 +119,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Установка Xamarin.iOS в Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

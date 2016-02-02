@@ -229,7 +229,7 @@
 
  [Как создавать сложные расписания и расширенное повторение с помощью планировщика Azure](scheduler-advanced-complexity.md)
 
- [Справочник по REST API планировщика](https://msdn.microsoft.com/library/dn528946)
+ [Справочник по REST API планировщика](https://msdn.microsoft.com/library/mt629143)
 
  [Справочник по командлетам PowerShell планировщика](scheduler-powershell-reference.md)
 
@@ -257,4 +257,4 @@
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

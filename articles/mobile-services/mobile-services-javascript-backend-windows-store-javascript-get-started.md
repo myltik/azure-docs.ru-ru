@@ -26,7 +26,7 @@
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Visual Studio 2013 Express для Windows]
 
 ## Создание новой мобильной службы
@@ -68,7 +68,7 @@
 
    	Это позволяет просматривать данные, добавленные в таблицу приложением.
 
->[AZURE.NOTE]Можно просмотреть код доступа к мобильной службе для запроса и вставки данных, который находится в файле default.js.
+>[AZURE.NOTE] Можно просмотреть код доступа к мобильной службе для запроса и вставки данных, который находится в файле default.js.
 
 ## Дальнейшие действия
 Теперь, когда вы закончили изучение краткого руководства, узнайте, как работать с [клиентом мобильных служб для HTML или JavaScript](mobile-services-html-how-to-use-client-library.md).
@@ -89,4 +89,4 @@
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [классическом портале Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

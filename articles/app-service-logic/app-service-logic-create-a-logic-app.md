@@ -40,7 +40,7 @@
 
 1. Войдите на портал Azure.
 
-2. Щелкните [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) на начальном экране и найдите Twitter (или [щелкните здесь](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
+2. Щелкните [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps/) на начальном экране и найдите Twitter (или [щелкните здесь](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2/)).
 
 3. Выберите **Соединитель Twitter** и нажмите **Создать**. Откроется представление, в котором можно задать все параметры. Вы можете оставить имя **Соединитель Twitter**.
 4. Выберите **Параметры пакета** и введите данные из своего приложения Twitter. Чтобы настроить бесплатное приложение, выполните следующие действия.
@@ -70,7 +70,7 @@
 
 10. Щелкните **Создать**. Этап подготовки может занять одну-две минуты.
 
-11. Теперь повторите эти действия для [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
+11. Теперь повторите эти действия для [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2/).
 
 ## Запуск приложения логики
 
@@ -122,7 +122,7 @@
 
 	![Действия](./media/app-service-logic-create-a-logic-app/actions.png)
 
-	> [AZURE.NOTE]Когда для подключения к службам SaaS, таким как Twitter, нажимается кнопка **Авторизовать**, используются средства защиты OAUTH. Дополнительные сведения об OAUTH см. в статье [Средства защиты OAUTH](app-service-logic-oauth-security.md).
+	> [AZURE.NOTE] Когда для подключения к службам SaaS, таким как Twitter, нажимается кнопка **Авторизовать**, используются средства защиты OAUTH. Дополнительные сведения об OAUTH см. в статье [Средства защиты OAUTH](app-service-logic-oauth-security.md).
 
 3. Щелкните действие **Искать твиты**, затем в поле **Укажите запрос**, введите что-нибудь, аналогичное `#MicrosoftAzure`, и нажмите кнопку с зеленой галочкой.
 
@@ -188,4 +188,4 @@
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Использование функций приложения логики]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

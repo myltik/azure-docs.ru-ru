@@ -20,6 +20,7 @@
 #Создание запросов в службе поиска Azure с помощью .NET
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
+- [Search Explorer](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
@@ -62,4 +63,4 @@
 
 Второй вызов использует выражение OData $filter «category eq 'Luxury'». Это ограничивает поиск документами, в которых поле category точно совпадает со строкой Luxury. Дополнительные сведения о синтаксисе OData можно найти в статье [Синтаксис выражений OData в службе поиска Azure](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Приступая к работе с центром Azure IoT с использованием Java | Microsoft Azure"
-	description="Следуйте указаниям этого руководства, чтобы приступить к работе с центром IoT Azure с помощью Java."
+	pageTitle="Приступая к работе с центром Azure IoT с использованием Node.js | Microsoft Azure"
+	description="В руководстве описано, как приступить к работе с центром IoT Azure с помощью Node.js."
 	services="iot-hub"
-	documentationCenter="java"
+	documentationCenter="nodejs"
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="java"
+     ms.devlang="javascript"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/21/2015"
+     ms.date="01/19/2016"
      ms.author="dobett"/>
 
-# Приступая к работе с центром Azure IoT с использованием Java
+# Приступая к работе с центром Azure IoT с использованием Node.js
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
@@ -34,19 +34,17 @@
 - Создание удостоверения устройства в центре IoT.
 - Создание виртуального устройства, отправляющего данные телеметрии в серверную часть облачного решения.
 
-В конце этого руководства у вас будет три консольных приложения Java:
+С помощью этого руководства вы создадите три консольных приложения Node.js:
 
-* **create-device-identity** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к виртуальному устройству;
-* **read-d2c-messages** — отображает данные телеметрии, отправляемые виртуальным устройством;
-* **simulated-device** — подключается к центру IoT с созданным ранее удостоверением устройства и отправляет сообщения телеметрии с частотой один раз в секунду.
+* **CreateDeviceIdentity.js** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к виртуальному устройству;
+* **ReadDeviceToCloudMessages.js** — отображает данные телеметрии, отправленные виртуальным устройством;
+* **SimulatedDevice.js** — подключается к центру IoT с созданным ранее удостоверением устройства и отправляет сообщения с частотой один раз в секунду.
 
 > [AZURE.NOTE] Статья [Пакеты SDK для центра IoT][lnk-hub-sdks] содержит сведения о разных пакетах SDK, которые можно использовать для создания приложений, которые будут запущены на устройствах и в серверной части решения.
 
 Для работы с этим руководством требуется:
 
-+ Java SE 8. <br/> В статье о [подготовке среды разработки][lnk-dev-setup] описывается, как установить Java для целей этого руководства в ОС Windows или Linux.
-
-+ Maven 3. <br/> В статье о [подготовке среды разработки][lnk-dev-setup] описывается, как установить Maven для целей этого руководства в ОС Windows или Linux.
++ Node.js 0.12.x или более поздней версии. <br/> В статье о [подготовке среды разработки][lnk-dev-setup] описывается, как установить Node.js для работы с этим руководством в ОС Windows или Linux.
 
 + Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][lnk-free-trial].
 
@@ -85,29 +83,29 @@
 
     ![][6]
 
-Вы создали центр IoT, и у вас есть все необходимое для выполнения оставшейся части этого руководства: имя узла центра IoT, строка подключения к центру IoT, имя и конечная точка, совместимые с концентраторами событий.
+Вы создали центр IoT. Теперь у вас есть все необходимое, чтобы выполнить оставшуюся часть инструкций из руководства: имя узла центра IoT, строка подключения к центру IoT, имя и значения конечной точки, совместимые с концентраторами событий.
 
-[AZURE.INCLUDE [iot-hub-get-started-cloud-java](../../includes/iot-hub-get-started-cloud-java.md)]
+[AZURE.INCLUDE [iot-hub-get-started-cloud-node](../../includes/iot-hub-get-started-cloud-node.md)]
 
 
-[AZURE.INCLUDE [iot-hub-get-started-device-java](../../includes/iot-hub-get-started-device-java.md)]
+[AZURE.INCLUDE [iot-hub-get-started-device-node](../../includes/iot-hub-get-started-device-node.md)]
 
 ## Запуск приложений
 
 Теперь все готово к запуску приложений.
 
-1. В командной строке в папке read-d2c выполните следующую команду, чтобы начать мониторинг центра IoT:
+1. В командной строке в папке **readdevicetocloudmessages** выполните следующую команду, чтобы начать наблюдение за центром IoT:
 
     ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    node ReadDeviceToCloudMessages.js 
     ```
 
     ![][7]
 
-2. В командной строке в папке simulated-device выполните следующую команду, чтобы начать отправку данных телеметрии в центр IoT:
+2. В командной строке в папке **simulateddevice** выполните следующую команду, чтобы начать отправку данных телеметрии в центр IoT:
 
     ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    node SimulatedDevice.js
     ```
 
     ![][8]
@@ -121,17 +119,17 @@
 - [Передача файлов с устройств][lnk-upload-tutorial] — описывается модель использования сообщений, отправляемых из облака на устройства, для упрощения передачи файлов с устройств.
 
 <!-- Images. -->
-[1]: ./media/iot-hub-java-java-getstarted/create-iot-hub1.png
-[2]: ./media/iot-hub-java-java-getstarted/create-iot-hub2.png
-[3]: ./media/iot-hub-java-java-getstarted/create-iot-hub3.png
-[4]: ./media/iot-hub-java-java-getstarted/create-iot-hub4.png
-[5]: ./media/iot-hub-java-java-getstarted/create-iot-hub5.png
-[6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
-[7]: ./media/iot-hub-java-java-getstarted/runapp1.png
-[8]: ./media/iot-hub-java-java-getstarted/runapp2.png
+[1]: ./media/iot-hub-node-node-getstarted/create-iot-hub1.png
+[2]: ./media/iot-hub-node-node-getstarted/create-iot-hub2.png
+[3]: ./media/iot-hub-node-node-getstarted/create-iot-hub3.png
+[4]: ./media/iot-hub-node-node-getstarted/create-iot-hub4.png
+[5]: ./media/iot-hub-node-node-getstarted/create-iot-hub5.png
+[6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
+[7]: ./media/iot-hub-node-node-getstarted/runapp1.png
+[8]: ./media/iot-hub-node-node-getstarted/runapp2.png
 
 <!-- Links -->
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/doc/devbox_setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md

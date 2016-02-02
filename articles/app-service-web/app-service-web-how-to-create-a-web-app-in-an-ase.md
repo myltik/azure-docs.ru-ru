@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
+	ms.date="01/14/2016"
 	ms.author="ccompy"/>
 
 # Создание веб-приложения в среде служб приложений
@@ -22,7 +22,7 @@
 
 В этом учебнике показано, как создавать веб-приложения и планы обслуживания службы приложений в [среде службы приложений](app-service-app-service-environment-intro.md) (ASE).
 
-> [AZURE.NOTE]Если хотите научиться создавать веб-приложения, но не хотите делать это в среде службы приложений, см. статью [Создание веб-приложения .NET](web-sites-dotnet-get-started.md) или один из связанных учебников, описывающих другие языки и платформы.
+> [AZURE.NOTE] Если хотите научиться создавать веб-приложения, но не хотите делать это в среде службы приложений, см. статью [Создание веб-приложения .NET](web-sites-dotnet-get-started.md) или один из связанных учебников, описывающих другие языки и платформы.
 
 ## Предварительные требования
 
@@ -118,4 +118,4 @@
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

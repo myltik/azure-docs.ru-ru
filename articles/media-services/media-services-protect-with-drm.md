@@ -30,7 +30,7 @@
 
 Начиная с версии 3.5.2 пакета SDK служб мультимедиа для .NET, службы мультимедиа также позволяют настраивать шаблоны лицензии Widevine и получать лицензии Widevine.
 
->[AZURE.NOTE]Службы доставки лицензий Widevine входят в предварительную версию служб мультимедиа Azure. Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+>[AZURE.NOTE]Службы доставки лицензий Widevine входят в предварительную версию служб мультимедиа Azure. Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 Для доставки лицензий Widevine можно использовать следующих партнеров AMS: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/). Дополнительные сведения см. в статьях, посвященных интеграции с [Axinom](media-services-axinom-integration.md) и [castLabs](media-services-castlabs-integration.md).
 
@@ -631,6 +631,6 @@
 
 [Настройка упаковки Widevine с использованием AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
-[Анонс общедоступной предварительной версии служб доставки лицензий Google Widevine в службах мультимедиа Azure](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
+[Анонс общедоступной предварительной версии служб доставки лицензий Google Widevine в службах мультимедиа Azure](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

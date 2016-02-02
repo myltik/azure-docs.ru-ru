@@ -49,16 +49,16 @@
 ![Георепликация базы данных SQL](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
 
-Подробные сведения об обеспечении непрерывности бизнес-процессов для разных уровней служб см. в статье [Непрерывность бизнес-процессов](sql-database-business-continuity.md).
+Подробные сведения о различных возможностях по обеспечению непрерывности бизнес-процессов для различных уровней служб приведены в статье [Непрерывность бизнес-процессов](sql-database-business-continuity.md).
 
 ## Защита данных
-SQL Server обладает традициями надежной защиты данные, которые в базах данных SQL поддерживаются с помощью функций ограничения доступа, защиты данных и отслеживания ваших действий. Краткое описание параметров безопасности базы данных SQL см. в статье [Защита базы данных SQL](sql-database-security.md). Более подробное описание функций безопасности см. в статье [Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных SQL](https://msdn.microsoft.com/library/bb510589). Кроме того, посетите [центр управления безопасностью Azure](http://azure.microsoft.com/support/trust-center/security/), чтобы просмотреть сведения о безопасности платформы Azure.
+SQL Server обладает традициями надежной защиты данные, которые в базах данных SQL поддерживаются с помощью функций ограничения доступа, защиты данных и отслеживания ваших действий. Краткое описание параметров безопасности базы данных SQL см. в статье [Защита базы данных SQL](sql-database-security.md). Более подробное описание функций безопасности см. в статье [Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных SQL](https://msdn.microsoft.com/library/bb510589). Кроме того, посетите [центр управления безопасностью Azure](https://azure.microsoft.com/support/trust-center/security/), чтобы просмотреть сведения о безопасности платформы Azure.
 
 ## Дальнейшие действия
 После ознакомления с базовыми понятиями о базе данных SQL вы можете перейти к следующим действиям.
 
-- Расценки и калькуляторы для отдельных и эластичных баз данных см. на [странице расценок](http://azure.microsoft.com/pricing/details/sql-database/).
+- Расценки и калькуляторы для отдельных и эластичных баз данных см. на [странице расценок](https://azure.microsoft.com/pricing/details/sql-database/).
 
-- Приступите к работе, [создав свою первую базу данных](sql-database-get-started.md). Затем создайте свое первое приложение на [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) или [Ruby](sql-database-develop-ruby-simple-linux).
+- Приступите к делу, [создав свою первую базу данных](sql-database-get-started.md). Затем создайте свое первое приложение на [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) или [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

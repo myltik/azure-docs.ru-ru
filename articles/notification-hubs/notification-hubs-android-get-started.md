@@ -38,7 +38,7 @@
 Для работы с данным учебником требуется следующее:
 
 + ПО Android Studio, которое можно загрузить с <a href="http://go.microsoft.com/fwlink/?LinkId=389797">сайта Android</a>.
-+ Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
++ Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
 
 
 Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными Центрам уведомлений для приложений Android.
@@ -129,10 +129,7 @@
 	    private static Boolean isVisible = false;
 
 
-	Обязательно обновите три заполнителя: 
-	* **SENDER\_ID** — укажите для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [консоли Google Cloud](http://cloud.google.com/console). 
-	* **HubListenConnectionString** — укажите для `HubListenConnectionString` следующую строку подключения к вашему центру: **DefaultListenAccessSignature**. Вы можете скопировать эту строку подключения: на [классическом портале Azure] на вкладке **Панель мониторинга** центра щелкните элемент **Просмотреть строку подключения**.
-	* **HubName** — имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, можно использовать `"myhub"`.
+	Обязательно обновите три заполнителя: * **SENDER\_ID** — укажите для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [консоли Google Cloud](http://cloud.google.com/console). * **HubListenConnectionString** — укажите для `HubListenConnectionString` следующую строку подключения к вашему центру: **DefaultListenAccessSignature**. Вы можете скопировать эту строку подключения: на [классическом портале Azure] на вкладке **Панель мониторинга** центра щелкните элемент **Просмотреть строку подключения**. * **HubName** — имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, можно использовать `"myhub"`.
 
 
 
@@ -204,7 +201,7 @@
 
 8. Поскольку Android не отображает уведомлений, необходимо написать собственный приемник. В файле **AndroidManifest.xml** добавьте следующий элемент в середину элемента `<application>`.
 
-	> [AZURE.NOTE]Замените заполнитель на имя своего пакета.
+	> [AZURE.NOTE] Замените заполнитель на имя своего пакета.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -550,4 +547,4 @@
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-android-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

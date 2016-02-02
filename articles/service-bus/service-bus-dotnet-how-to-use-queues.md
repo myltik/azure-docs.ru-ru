@@ -9,11 +9,11 @@
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
+    ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/07/2015"
+    ms.date="01/26/2016"
     ms.author="sethm"/>
 
 # Как использовать очереди служебной шины
@@ -26,18 +26,14 @@
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## Настройка приложения для использования служебной шины
-
-При создании приложения, использующего служебную шину, необходимо добавить ссылку на сборку шины обслуживания и указать соответствующие пространства имен.
-
 ## Получение пакета NuGet для служебной шины
 
-Пакет **NuGet** для служебной шины является самым простым способом получить интерфейс API служебной шины и настроить приложение с учетом всех зависимостей служебной шины. Расширение NuGet для Visual Studio упрощает установку и обновление библиотек и инструментов в Visual Studio и Visual Studio Express. Пакет NuGet для служебной шины является самым простым способом получить интерфейс API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины.
+Пакет [**NuGet** для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus) — это самый простой способ получить интерфейс API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины. Расширение NuGet для Visual Studio упрощает установку и обновление библиотек и инструментов в Visual Studio и Visual Studio Express. Пакет NuGet для служебной шины является самым простым способом получить интерфейс API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины.
 
 Для установки пакета NuGet в приложении выполните следующие действия:
 
 1.  В обозревателе решений щелкните правой кнопкой мыши **Ссылки**, затем выберите команду **Управление пакетами NuGet**.
-2.  Выполните поиск по фразе «служебная шина» и выберите элемент **Служебная шина Microsoft Azure**. Щелкните **Установить**, чтобы выполнить установку, а затем закройте это диалоговое окно.
+2.  Выполните поиск по фразе "служебная шина" и выберите элемент **Служебная шина Microsoft Azure**. Щелкните **Установить**, чтобы выполнить установку, а затем закройте это диалоговое окно.
 
     ![][7]
 
@@ -146,7 +142,7 @@ if (!namespaceManager.QueueExists("TestQueue"))
 }
 ```
 
-> [AZURE.NOTE]Применив метод [QueueExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) для объектов [NamespaceManager][], вы можете проверить, существует ли в пространстве имен службы очередь с указанным именем.
+> [AZURE.NOTE] Применив метод [QueueExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) для объектов [NamespaceManager][], вы можете проверить, существует ли в пространстве имен службы очередь с указанным именем.
 
 ## Отправка сообщений в очередь
 
@@ -183,7 +179,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Очереди служебной шины поддерживают [максимальный размер сообщения 256 КБ](service-bus-quotas.md) (максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ). Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ. Если включено разделение, максимальный размер больше. Дополнительные сведения см. в статье [Секционированные сущности обмена сообщениями](service-bus-partitioning.md).
+Очереди служебной шины поддерживают [максимальный размер сообщения 256 КБ](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ). Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ. Если включено разделение, максимальный размер больше. Дополнительные сведения см. в статье [Секционированные сущности обмена сообщениями](service-bus-partitioning.md).
 
 ## Как получать сообщения из очереди
 
@@ -193,7 +189,7 @@ for (int i=0; i<5; i++)
 
 В режиме **PeekLock** (режим по умолчанию) процесс получения проходит в два этапа. Это позволяет поддерживать приложения, в которых не допускается пропуск сообщений. Получив запрос, служебная шина находит следующее сообщение, блокирует его, чтобы предотвратить его получение другими получателями, и возвращает его приложению. Когда приложение завершает обработку сообщения (или надежно сохраняет его для последующей обработки), оно завершает второй этап процесса получения, вызывая метод [Complete][] для полученного сообщения. Когда служебная шина обнаруживает вызов [Complete][], сообщение помечается как использованное и удаляется из очереди.
 
-В следующем примере показано, как получать и обрабатывать сообщения с помощью стандартного режима **PeekLock**. Чтобы задать другое значение [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), можно использовать другую перегрузку метода [CreateFromConnectionString](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.createfromconnectionstring.aspx). В этом примере используется обратный вызов [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) для обработки сообщений по мере их поступления в `TestQueue`.
+В следующем примере показано, как получать и обрабатывать сообщения с помощью режима по умолчанию **PeekLock**. Чтобы задать другое значение [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), можно использовать другую перегрузку метода [CreateFromConnectionString](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.createfromconnectionstring.aspx). В этом примере используется обратный вызов [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) для обработки сообщений по мере их поступления в `TestQueue`.
 
 ```
 string connectionString =
@@ -259,4 +255,4 @@ Client.OnMessage((message) =>
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

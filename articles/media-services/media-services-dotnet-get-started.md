@@ -23,7 +23,7 @@
 
 
 >[AZURE.NOTE]
-> Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
  
 ##Обзор 
 
@@ -59,7 +59,7 @@
 
 ##Скачивание образца
 
-Скачать и запустить пример можно [здесь](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Скачать и запустить пример можно [здесь](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Создание учетной записи служб мультимедиа с помощью портала
 
@@ -114,7 +114,7 @@
 
 Выделение новых единиц потоковой передачи занимает около 20 минут.
 
->[AZURE.NOTE]В настоящее время переход от любого положительного значения единиц потоковой передачи к нулевому может привести к отключению потоковой передачи на период до одного часа.
+>[AZURE.NOTE] В настоящее время переход от любого положительного значения единиц потоковой передачи к нулевому может привести к отключению потоковой передачи на период до одного часа.
 >
 > Для расчета затрат используется наибольшее число единиц, указанных для 24-часового периода. Дополнительные сведения о ценах см. в разделе [Сведения о ценах на службы мультимедиа](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -130,12 +130,7 @@
 
 4. Откройте файл App.config (добавьте файл в проект, если он не был добавлен по умолчанию) и добавьте в него раздел *appSettings*. Установите значения для имени и ключа учетной записи служб мультимедиа Azure, как показано в следующем примере. Чтобы получить имя учетной записи и сведения о ее ключе, откройте классический портал Azure, выберите учетную запись служб мультимедиа и нажмите кнопку **Управление ключами**.
 
-<configuration>
-		...
-		  <appSettings>
-		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-		  </appSettings>
+<configuration> … <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
 		  
 		</configuration>
 
@@ -452,4 +447,4 @@ URL-адреса поэтапного скачивания (аудио и вид
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

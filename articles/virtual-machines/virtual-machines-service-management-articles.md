@@ -42,7 +42,6 @@
 
 [Создание настраиваемой виртуальной машины с помощью интерфейса командной строки Azure (Azure CLI)](virtual-machines-linux-create-custom.md)
 
-[Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## План
 
@@ -152,4 +151,4 @@
 
 [Справочник по API-интерфейсу управления службами REST](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

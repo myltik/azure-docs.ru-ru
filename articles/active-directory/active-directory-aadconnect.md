@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Azure AD Connect: интеграция локальных удостоверений с Azure Active Directory | Microsoft Azure"
-	description="В этой статье объясняется, что такое служба Azure AD Connect и зачем ее использовать."
+	description="Azure AD Connect — это средство для интеграции локальной системы удостоверений, например Windows Server Active Directory, с Azure Active Directory и подключения пользователей к Office 365, Azure и тысячам приложений SaaS. В этом разделе рассматриваются функции и принципы работы Azure AD Connect. Кроме того, объясняется, как устанавливать и настраивать этот компонент."
+    keywords="Введение в Azure AD Connect, обзор функций Azure AD Connect, что такое Azure AD Connect, установка Аctive Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/08/2016"
+	ms.date="01/25/2016"
 	ms.author="andkjell;billmath"/>
 
 # Интеграция локальных удостоверений с Azure Active Directory
@@ -140,4 +141,4 @@ Azure AD Connect поставляется с несколькими функци
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -25,7 +25,7 @@
 
 Чтобы использовать Microsoft Azure DocumentDB, необходимо создать учетную запись базы данных DocumentDB с помощью портала Azure, шаблонов диспетчера ресурсов Azure или интерфейса командной строки Azure (CLI). В этой статье показано, как создать учетную запись базы данных на портале Azure. Чтобы создать учетную запись базы данных с помощью диспетчера ресурсов Azure или Azure CLI, см. статью [Автоматизация создания учетной базы данных DocumentDB](documentdb-automation-resource-manager-cli.md).
 
-Не знакомы с DocumentDB? Посмотрите [это](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) четырехминутное видео Скотта Хансельмана (Scott Hanselman), чтобы узнать, как выполнять наиболее распространенные задачи на веб-портале.
+Не знакомы с DocumentDB? Посмотрите [это](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) четырехминутное видео Скотта Хансельмана (Scott Hanselman), чтобы узнать, как выполнять наиболее распространенные задачи на веб-портале.
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -50,4 +50,4 @@
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

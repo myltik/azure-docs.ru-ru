@@ -18,6 +18,6 @@
 
 ![Доступно видео](./media/storsimple-create-volume-container/Video_icon.png) **Доступный видеоролик**
 
-Чтобы просмотреть видеоролик о том, как создать контейнер тома в решении StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
+Чтобы просмотреть видеоролик о том, как создать контейнер тома в решении StorSimple, щелкните [здесь](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -32,7 +32,7 @@ Push-облако Baidu — это китайская облачная служ
 + [Пакет Android SDK для мобильных служб]
 + [Пакет Android SDK для Baidu Push]
 
->[AZURE.NOTE]Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
+>[AZURE.NOTE] Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
 
 
 ##Создание учетной записи Baidu
@@ -206,7 +206,7 @@ Push-облако Baidu — это китайская облачная служ
 	    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
 	    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
-8. В элемент **application** файла **AndroidManifest.xml** добавьте свойство **android:name**, заменив *yourprojectname* (например, **com.example.BaiduTest**). Убедитесь, что имя этого проекта соответствует имени, заданному в консоли Baidu.
+8. Добавьте свойство **android:name** в элемент **application** файла **AndroidManifest.xml**, заменив *yourprojectname* (например, **com.example.BaiduTest**). Убедитесь, что имя этого проекта соответствует имени, заданному в консоли Baidu.
 
 		<application android:name="yourprojectname.DemoApplication"
 
@@ -409,11 +409,11 @@ Push-уведомления обычно отправляются в серве�
 
 * **Интерфейс REST**. [Интерфейс REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) поддерживает уведомления на любой серверной платформе.
 
-* **Пакет SDK .NET для Центров уведомлений Microsoft Azure**. В диспетчере пакетов NuGet для Visual Studio выполните команду [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+* **Пакет SDK .NET для концентраторов уведомлений Microsoft Azure**. В диспетчере пакетов NuGet для Visual Studio выполните команду [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-* **Node.js**. [Использование Центров уведомлений с Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
+* **Node.js**. [Использование Центров уведомлений из Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
 
-* **Мобильные службы Azure**. Примеры отправки уведомлений из Интерфейса мобильных служб Azure, интегрированного с Центрами уведомлений, см. в статье «Добавление push-уведомлений к приложению мобильных служб» ([серверная часть .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [серверная часть JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
+* **Мобильные службы Azure**. Примеры отправки уведомлений из интерфейса мобильных служб Azure, интегрированного с концентраторами уведомлений, см. в статье «Добавление push-уведомлений к приложению мобильных служб» ([серверная часть .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [серверная часть JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
 
 * **Java или PHP**. Примеры отправки уведомлений с использованием REST API см. в статье «Использование концентраторов уведомлений из Java/PHP» ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
@@ -504,4 +504,4 @@ Push-уведомления обычно отправляются в серве�
 [классический портал Azure]: https://manage.windowsazure.com/
 [портал Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

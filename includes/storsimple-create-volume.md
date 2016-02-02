@@ -18,7 +18,7 @@
    2. В разделе **Имя инициатора iSCSI** укажите полное имя iSCSI (IQN) используемого узла Windows. Если IQN отсутствует, перейдите к разделу [Получение IQN узла Windows Server](#get-the-iqn-of-a-windows-server-host).
    3. Мы рекомендуем включить архивацию по умолчанию, установив флажок **Включить архивацию по умолчанию для этого тома**. Резервное копирование по умолчанию создаст политику, при которой в 22:30 по времени устройства каждый день будет создаваться облачный моментальный снимок этого тома.
 
-        > [AZURE.NOTE] После того как в этом разделе будет создано правило архивации, удалить его будет невозможно. Чтобы изменить этот параметр, вам потребуется изменить том.
+        > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
 
         ![Add volume](./media/storsimple-create-volume/AddVolume2-include.png)
 
@@ -26,6 +26,6 @@
 
 ![Доступно видео](./media/storsimple-create-volume/Video_icon.png) **Доступно видео**
 
-Чтобы просмотреть видео, в котором описывается создание тома StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
+Чтобы просмотреть видео, в котором описывается создание тома StorSimple, щелкните [здесь](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

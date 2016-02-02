@@ -1,4 +1,4 @@
-1. Выполните вход на портал управления Azure, затем нажмите **+NEW** в нижней части экрана.
+1. Войдите на [классический портал Azure](https://manage.windowsazure.com) и в нижней части экрана нажмите кнопку **Создать**.
 
 2. Щелкните **Службы приложений**, **Mobile Engagement**, а затем **Создать**.
 
@@ -23,4 +23,4 @@
 
    	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

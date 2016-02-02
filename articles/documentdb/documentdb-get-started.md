@@ -17,7 +17,7 @@
 	ms.date="11/18/2015"
 	ms.author="anhoh"/>
 
-# Руководство по NoSQL: консольное приложение DocumentDB на языке C# 
+# Руководство по NoSQL. Создание консольного приложения DocumentDB на языке C# 
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
@@ -45,7 +45,7 @@
 
 Убедитесь, что у вас есть указанные ниже компоненты.
 
-- Активная учетная запись Azure. Если у вас ее нет, вы можете зарегистрироваться для использования [бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
+- Активная учетная запись Azure. Если у вас ее нет, вы можете зарегистрироваться для использования [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013 или 2015](http://www.visualstudio.com/).
 
 ## Этап 1: создание учетной записи DocumentDB
@@ -76,11 +76,11 @@
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
 
-> [AZURE.IMPORTANT]Для работы с этим руководством по NoSQL добавьте описанные выше зависимости.
+> [AZURE.IMPORTANT] Для работы с этим руководством по NoSQL добавьте описанные выше зависимости.
 
 Затем сохраните конечную точку учетной записи DocumentDB, а также первичный или вторичный ключ доступа, доступный на [портале Azure](https://portal.azure.com).
 
-![Снимок экрана портала Azure, на котором отображена учетная запись DocumentDB с выделенным АКТИВНЫМ концентратором, выделенной кнопкой «Ключи» в колонке учетной записи DocumentDB и выделенными универсальным кодом ресурса, ПЕРВИЧНЫМ КЛЮЧОМ И ВТОРИЧНЫМ КЛЮЧОМ в колонке «Ключи».][keys]
+![Снимок экрана портала Azure в ходе работы с руководством по NoSQL при создании консольного приложения C#. Отображена учетная запись DocumentDB со следующими выделенными элементами: активный концентратор, кнопка "Ключи" в колонке учетной записи DocumentDB, а также значения универсального кода ресурса, первичный и вторичный ключи в колонке "Ключи".][keys]
 
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";
@@ -108,7 +108,7 @@
 		}
 	}
 
-> [AZURE.WARNING]Никогда не сохраняйте учетные данные в исходном коде. Здесь они показаны в исходном коде для сохранения простоты примера. Сведения о том, как сохранять учетные данные в рабочей среде, см. в статье [ Веб-сайты Azure: как работают строки приложений и строки подключений](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Взгляните на приложение на [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs): это пример того, как учетные данные сохраняются не в исходном коде.
+> [AZURE.WARNING] Никогда не сохраняйте учетные данные в исходном коде. Здесь они показаны в исходном коде для сохранения простоты примера. Сведения о том, как сохранять учетные данные в рабочей среде, см. в статье [ Веб-сайты Azure: как работают строки приложений и строки подключений](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Взгляните на приложение на [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs): это пример того, как учетные данные сохраняются не в исходном коде.
 
 Теперь, когда вы знаете, как подключаться к учетной записи DocumentDB и создавать экземпляр **DocumentClient**, давайте посмотрим на работу с ресурсами DocumentDB.
 
@@ -136,7 +136,7 @@
 
 ##<a id="CreateColl"></a>Этап 5: создание коллекции  
 
-> [AZURE.WARNING]Элемент **CreateDocumentCollectionAsync** создаст новую коллекцию S1, с которой связаны ценовые требования. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] Элемент **CreateDocumentCollectionAsync** создаст новую коллекцию S1, с которой связаны ценовые требования. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
 
 Вы можете создать [коллекцию](documentdb-resources.md#collections), используя метод [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) класса **DocumentClient**. Коллекция представляет собой контейнер документов JSON и связанную с ними логику в виде приложения JavaScript. Созданная коллекция будет сопоставлена с [уровнем производительности S1](documentdb-performance-levels.md). Создав базу данных в методе **GetStartedDemo**, создайте коллекцию с именем **FamilyCollection**.
 
@@ -279,7 +279,7 @@
 
 Теперь в своей учетной записи DocumentDB вы создали следующие базу данных, коллекцию и документы.
 
-![Схема, иллюстрирующая иерархические отношения между учетной записью, базой данных, коллекцией и документами](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![На схеме представлены иерархические отношения между учетной записью, оперативной базой данных, коллекцией и документами, используемыми в руководстве по NoSQL при создании консольного приложения C#.](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ##<a id="Query"></a>Этап 7: запросы ресурсов DocumentDB
 
@@ -289,7 +289,7 @@
     var families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id,
         "SELECT * " +
         "FROM Families f " +
-        "WHERE f.id = \"AndersenFamily\"");
+        "WHERE f.id = "AndersenFamily"");
 
     foreach (var family in families)
     {
@@ -319,11 +319,11 @@
 
 В приведенной ниже схеме демонстрируется, как для созданной коллекции вызывается синтаксис запроса DocumentDB SQL (этот принцип действует и при работе с запросами LINQ).
 
-![Схема, иллюстрирующая масштаб и значение запроса](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![На схеме представлен масштаб и значение запроса, используемого в руководстве по NoSQL при создании консольного приложения C#.](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
 Ключевое слово [FROM](documentdb-sql-query.md#from-clause) использовать в запросе необязательно, так как запросы DocumentDB заранее привязаны к одной коллекции. Поэтому слова "FROM Families f" можно заменить на "FROM root r" или любое другое имя переменной. Поведение службы DocumentDB будет таким, будто Families, root или любая другая переменная указывает на текущую коллекцию по умолчанию.
 
-##<a id="DeleteDatabase"></a>Этап 8: удаление базы данных
+##<a id="DeleteDatabase"></a>Шаг 8. Удаление оперативной базы данных
 
 Удаление созданной базы данных приведет к удалению базы данных и всех дочерних ресурсов (коллекций, документов и т. д.). Вы можете удалить базу данных и документ клиента, добавив в конец асинхронного метода **GetStartedDemo** приведенный ниже фрагмент кода.
 
@@ -376,7 +376,7 @@
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from SQL
 	Read {
@@ -414,7 +414,7 @@
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ
 	Read {
@@ -452,13 +452,13 @@
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ query
 
-Поздравляем! Вы завершили руководство по NoSQL.
+Поздравляем! Вы завершили работу с руководством по NoSQL и создали работающее консольное приложение C#.
 
-##<a id="GetSolution"></a> Получение полного решения
+##<a id="GetSolution"></a> Получение полного решения для руководства по NoSQL
 Чтобы собрать решение GetStarted, которое содержит все примеры из данной статьи, вам понадобится следующее:
 
 -   [учетная запись DocumentDB][documentdb-create-account];
@@ -471,11 +471,11 @@
 -   Требуется более подробное руководство по NoSQL для ASP.NET MVC? См. статью [Создание веб-приложения ASP.NET MVC с использованием DocumentDB](documentdb-dotnet-application.md).
 -	Узнайте, как [контролировать учетную запись DocumentDB](documentdb-monitor-accounts.md).
 -	Отправьте запросы образцу набора данных в [Площадке для запросов](https://www.documentdb.com/sql/demo).
--	Дополнительные сведения о модели программирования см. в разделе «Разработка» [на странице документации DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
+-	Дополнительные сведения о модели программирования см. в разделе "Разработка" [на странице документации DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

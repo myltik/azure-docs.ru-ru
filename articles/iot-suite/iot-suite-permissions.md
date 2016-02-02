@@ -2,13 +2,14 @@
   pageTitle="Azure IoT Suite и Azure Active Directory | Microsoft Azure"
   description="В этой статье описывается, как набор Azure IoT Suite использует Azure Active Directory для управления разрешениями."
   services=""
+  suite="iot-suite"
   documentationCenter=""
   authors="aguilaaj"
   manager="timlt"
   editor=""/>
 
 <tags
-  ms.service="na"
+  ms.service="iot-suite"
   ms.devlang="na"
   ms.topic="hero-article"
   ms.tgt_pltfrm="na"
@@ -145,4 +146,4 @@
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->
