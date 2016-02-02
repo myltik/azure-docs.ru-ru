@@ -490,7 +490,7 @@
 
 <!-- URLs. -->
 [Пакет SDK для мобильных служб для iOS версии 1.2.4]: http://aka.ms/kymw2g
-[пакет SDK для мобильных служб для iOS версии 1.2.4]: http://aka.ms/kymw2g
+
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -499,7 +499,7 @@
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
 [классического портала Azure]: https://manage.windowsazure.com/
 [классическом портале Azure]: https://manage.windowsazure.com/
-[руководстве по использованию Центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 

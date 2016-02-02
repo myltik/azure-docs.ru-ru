@@ -19,7 +19,8 @@
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -119,9 +120,11 @@
 ## <a name="next-steps"> </a>Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах:
 
-* **[Добавление проверки подлинности к приложению мобильных служб]** Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
+* **[Добавление проверки подлинности к приложению мобильных служб]** 
+	Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
-* **[Использование клиента HTML/JavaScript для мобильных служб Azure]** Узнайте больше о том, как использовать мобильные службы с HTML и JavaScript.
+* **[Использование клиента HTML/JavaScript для мобильных служб Azure]** 
+	Узнайте больше о том, как использовать мобильные службы с HTML и JavaScript.
 
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]

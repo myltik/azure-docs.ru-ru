@@ -235,7 +235,7 @@ Push-уведомления обычно отправляются в серве�
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var alert = "{"aps":{"alert":"Hello from .NET!"}}";
+            var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 
@@ -317,7 +317,7 @@ Push-уведомления обычно отправляются в серве�
 [классический портал Azure]: https://manage.windowsazure.com/
 [классическом портале Azure]: https://manage.windowsazure.com/
 [Общие сведения о центрах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-[Инструкции по использованию центров уведомлений для iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 

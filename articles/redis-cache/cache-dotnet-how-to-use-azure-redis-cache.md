@@ -326,7 +326,7 @@ Redis хранит большинство данных в строках Redis, 
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [документацией по клиенту кэша StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
-[документации по клиенту кэша StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
+
 
 [Redis]: http://redis.io/documentation
 [статью о типах данных redis]: http://redis.io/topics/data-types

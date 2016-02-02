@@ -86,7 +86,9 @@
 
 **Использование оболочки HBase**
 
->[AZURE.NOTE] Приведенные здесь инструкции относятся к компьютерам под управлением Windows. Инструкции по подключению к кластеру HDInsight под управлением Linux из Linux, Unix или OS X см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X (предварительная версия)](hdinsight-hadoop-linux-use-ssh-unix.md). 1. Откройте **PuTTY**. См. раздел «Предварительные требования» в начале этой статьи. 2. Если при создании учетной записи пользователя вы указали ключ SSH, выполните следующий шаг, чтобы выбрать закрытый ключ, который будет использоваться при проверке подлинности в кластере.
+>[AZURE.NOTE] Приведенные здесь инструкции относятся к компьютерам под управлением Windows. Инструкции по подключению к кластеру HDInsight под управлением Linux из Linux, Unix или OS X см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X (предварительная версия)](hdinsight-hadoop-linux-use-ssh-unix.md). 
+1. Откройте **PuTTY**. См. раздел «Предварительные требования» в начале этой статьи. 
+2. Если при создании учетной записи пользователя вы указали ключ SSH, выполните следующий шаг, чтобы выбрать закрытый ключ, который будет использоваться при проверке подлинности в кластере.
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -210,13 +212,13 @@ HBase включает несколько методов загрузки дан
 
 3. Для создания новой таблицы HBase с двумя семействами столбцов используйте следующую команду:
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{"@name":"test","ColumnSchema":[{"name":"Personal"},{"name":"Office"}]}"
+		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"@name\":\"test\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}"
 
 	Схема предоставляется в формате JSON.
 
 4. Чтобы вставить какие-либо данные, используйте следующую команду:
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{"Row":{"key":"1000","Cell":{"column":"Personal:Name", "$":"John Dole"}}}"
+		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"Row\":{\"key\":\"1000\",\"Cell\":{\"column\":\"Personal:Name\", \"$\":\"John Dole\"}}}"
 
 5. Для получения строки используйте следующую команду:
 
@@ -282,7 +284,8 @@ SSH может также использоваться для туннелиро
 
 Дополнительные сведения см. на следующих ресурсах:
 
-- [Обзор HDInsight HBase][hdinsight-hbase-overview]\: HBase — это NoSQL (нереляционная распределенная) база данных с открытым исходным кодом Apache, разработанная в рамках проекта Hadoop, которая обеспечивает произвольный доступ и строгую согласованность больших объемов неструктурированных и полуструктурированных данных.
+- [Обзор HDInsight HBase][hdinsight-hbase-overview]: 
+HBase — это NoSQL (нереляционная распределенная) база данных с открытым исходным кодом Apache, разработанная в рамках проекта Hadoop, которая обеспечивает произвольный доступ и строгую согласованность больших объемов неструктурированных и полуструктурированных данных.
 
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md

@@ -373,15 +373,15 @@ Push-облако Baidu — это китайская облачная служ
 		    @Override
 		    public void onNotificationClicked(Context context, String title,
 		            String description, String customContentString) {
-		        String notifyString = "title="" + title + "" description=""
-		                + description + "" customContent=" + customContentString;
+		        String notifyString = "title=\"" + title + "\" description=\""
+		                + description + "\" customContent=" + customContentString;
 		        Log.d(TAG, notifyString);
 		    }
 
 		    @Override
 		    public void onMessage(Context context, String message,
 		            String customContentString) {
-		        String messageString = "message="" + message + "" customContentString=" + customContentString;
+		        String messageString = "message=\"" + message + "\" customContentString=" + customContentString;
 		        Log.d(TAG, messageString);
 		    }
 		}
@@ -442,7 +442,7 @@ Push-уведомления обычно отправляются в серве�
 		private static async void SendNotificationAsync()
 		{
 			NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("DefaultFullSharedAccessSignatureSASConnectionString", "NotificationHubName");
-			string message = "{"title":"((Notification title))","description":"Hello from Azure"}";
+			string message = "{\"title\":\"((Notification title))\",\"description\":\"Hello from Azure\"}";
 			var result = await hub.SendBaiduNativeNotificationAsync(message);
 		}
 

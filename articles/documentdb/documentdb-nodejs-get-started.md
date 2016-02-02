@@ -323,7 +323,13 @@ DocumentDB поддерживает [полнофункциональные за
 
 Теперь, когда вы настроили в приложении все необходимые функции, давайте их вызовем.
 
-Порядок вызова функций будет следующим: * *getOrCreateDatabase* * *getOrCreateCollection* * *getOrCreateDocument* * *getOrCreateDocument* * *queryCollection* * *cleanup*
+Порядок вызова функций будет следующим: 
+    * *getOrCreateDatabase*
+        * *getOrCreateCollection*
+            * *getOrCreateDocument*
+                * *getOrCreateDocument*
+                    * *queryCollection*
+                        * *cleanup*
 
 Добавьте следующий фрагмент кода в конец файла ```app.js```.
 
@@ -425,7 +431,8 @@ DocumentDB поддерживает [полнофункциональные за
 -   [учетная запись DocumentDB][documentdb-create-account];
 -   решение [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started), доступное в GitHub.
 
-Установите модуль **documentdb** с помощью npm. Используйте следующую команду: * ```npm install documentdb --save```
+Установите модуль **documentdb** с помощью npm. Используйте следующую команду:
+* ```npm install documentdb --save```
 
 Затем в файле ```config.js``` обновите значения config.endpoint и config.authKey, как описано в разделе [Шаг 3. Настройка конфигурации приложения](#Config).
 

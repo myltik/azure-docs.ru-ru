@@ -235,9 +235,11 @@
 
 ## Мониторинг конвейера
  
-1.	Войдя на [портал Azure](https://portal.azure.com/), щелкните **Обзор** и выберите **Фабрики данных**. ![Просмотреть все -> Фабрики данных](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Войдя на [портал Azure](https://portal.azure.com/), щелкните **Обзор** и выберите **Фабрики данных**. 
+	![Просмотреть все -> Фабрики данных](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	В колонке **Фабрики данных** выберите созданную фабрику данных (**TutorialFactoryARM**).	
-2.	В колонке **Фабрика данных** для своей фабрики данных щелкните элемент **Схема**. ![Плитка "Схема"](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+2.	В колонке **Фабрика данных** для своей фабрики данных щелкните элемент **Схема**. 
+	![Плитка "Схема"](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	В **представлении схемы** вы увидите все конвейеры и наборы данных, используемые в этом руководстве.
 	
 	![Представление схемы](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 

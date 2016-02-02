@@ -324,7 +324,8 @@ IP-адрес можно добавить на [портале Azure](https://po
 
 
 
-Дополнительную информацию см. в статье<br/> [Настройка параметров брандмауэра для базы данных SQL Azure](sql-database-configure-firewall-settings.md).
+Дополнительную информацию см. в статье<br/> 
+[Настройка параметров брандмауэра для базы данных SQL Azure](sql-database-configure-firewall-settings.md).
 
 
 
