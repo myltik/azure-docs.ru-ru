@@ -90,7 +90,7 @@
 
 Экземпляр кэша на базе кэша Redis для Azure доступен из любого приложения Azure. Приложения .NET, разработанные в Visual Studio, могут использовать клиент **StackExchange.Redis**, который конфигурируется с помощью пакета NuGet, упрощающего настройку клиентских приложений кэша.
 
->[AZURE.NOTE] Дополнительные сведения см. на странице [StackExchange.Redis][] на github и в [документации по клиенту кэша StackExchange.Redis][].
+>[AZURE.NOTE] Дополнительные сведения см. на странице [StackExchange.Redis][] на github и в [документацией по клиенту кэша StackExchange.Redis][].
 
 Чтобы настроить клиентское приложение в Visual Studio, используя пакет StackExchange.Redis из NuGet, щелкните правой кнопкой мыши **обозреватель решений** и выберите **Управление пакетами NuGet**.
 
@@ -336,4 +336,4 @@ Redis хранит большинство данных в строках Redis, 
 
 [Бесплатная пробная версия Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->
