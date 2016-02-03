@@ -316,7 +316,7 @@ Push-уведомления обычно отправляются в серве�
 [Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started-xamarin-ios
 [классический портал Azure]: https://manage.windowsazure.com/
 [классическом портале Azure]: https://manage.windowsazure.com/
-[Общие сведения о центрах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Инструкции по использованию центров уведомлений для iOS]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
@@ -332,4 +332,4 @@ Push-уведомления обычно отправляются в серве�
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->
