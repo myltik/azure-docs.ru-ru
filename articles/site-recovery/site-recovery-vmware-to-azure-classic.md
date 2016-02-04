@@ -260,11 +260,12 @@
 
 6. Убедитесь, что с сервера управления можно получить доступ к таким URL-адресам:
 
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net. При использовании на сервере правил брандмауэра на основе IP-адресов убедитесь, что они разрешают обмен данными с Azure. Необходимо разрешить [диапазоны IP-адресов центра обработки данных Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) и протокол HTTPS (433). Требуется поместить IP-адреса для региона Azure подписки и для региона "Запад США" в белый список. Кроме того, поместите этот URL-адрес в белый список для скачивания MySQL: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
+	При использовании на сервере правил брандмауэра на основе IP-адресов убедитесь, что они разрешают обмен данными с Azure. Необходимо разрешить [диапазоны IP-адресов центра обработки данных Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) и протокол HTTPS (433). Требуется поместить IP-адреса для региона Azure подписки и для региона "Запад США" в белый список. Кроме того, поместите этот URL-адрес в белый список для скачивания MySQL: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
 
 
 7. На странице **Проверка предварительных требований** программа установки выполняет проверку предварительных требований на сервере.
