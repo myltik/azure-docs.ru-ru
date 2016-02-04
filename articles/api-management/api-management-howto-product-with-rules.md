@@ -277,6 +277,7 @@
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
+[Начинаем работу со службой управления API]: api-management-get-started.md
 [Как создать и использовать группы в службе управления Azure API]: api-management-howto-create-groups.md
 [View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
 [Начало работы с Azure API Management]: api-management-get-started.md

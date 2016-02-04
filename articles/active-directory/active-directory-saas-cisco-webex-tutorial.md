@@ -16,7 +16,8 @@
 
 #Руководство. Интеграция Azure Active Directory с Cisco Webex
 
-Цель данного учебника — показать интеграцию Azure и Cisco Webex. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+Цель данного учебника — показать интеграцию Azure и Cisco Webex.  
+Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   Действующая подписка на Azure
 -   Клиент Cisco Webex
@@ -82,8 +83,8 @@
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-cisco-webex-tutorial/IC777619.png "Настройка URL-адреса приложения")
 
-    1.  В текстовое поле **URL-адрес единого входа** введите URL-адрес клиента Cisco Webex (например, **http://contoso.webex.com*)).
-2.  В текстовое поле **URL-адрес ответа Cisco Webex** введите **URL-адрес службы AssertionConsumerService Cisco Webex** (например, **https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*)).
+    1.  В текстовое поле **URL-адрес единого входа** введите URL-адрес клиента Cisco Webex (например, *http://contoso.webex.com*).
+	2.  В текстовое поле **URL-адрес ответа Cisco Webex** введите **URL-адрес службы AssertionConsumerService Cisco Webex** (например, *https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*).
 
 4.  На странице **Настройка единого входа в Cisco Webex** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на своем компьютере.
 

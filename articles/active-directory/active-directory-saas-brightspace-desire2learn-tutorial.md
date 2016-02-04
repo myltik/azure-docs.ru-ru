@@ -16,7 +16,8 @@
 
 #Руководство. Интеграция Azure Active Directory с Brightspace (разработка Desire2Learn)
 
-Цель данного учебника — показать интеграцию Azure и Brightspace (разработка Desire2Learn). Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+Цель данного учебника — показать интеграцию Azure и Brightspace (разработка Desire2Learn).  
+Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   Действующая подписка на Azure
 -   Подписка с поддержкой единого входа Brightspace (разработка Desire2Learn)
@@ -80,8 +81,8 @@
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798961.png "Настройка URL-адреса приложения")
 
-    1.  В текстовом поле **URL-адрес входа** введите URL-адрес, используемый для входа в ваше приложение **Brightspace (разработка Desire2Learn)** (например, **https://partnershowcase.desire2learn.com/Shibboleth.sso/Login?entityID=https://sts.windows-ppe.net/5caf9349-fd93-4a74-b064-0070f65bfb49/&target=https%3A%2F%2Fpartnershowcase.desire2learn.com%2Fd2l%2FshibbolethSSO%2Faspinfo.asp*)).
-2.  Нажмите кнопку **Далее**.
+    1.  В текстовом поле **URL-адрес входа** введите URL-адрес, используемый для входа в ваше приложение **Brightspace (разработка Desire2Learn)** (например, *https://partnershowcase.desire2learn.com/Shibboleth.sso/Login?entityID=https://sts.windows-ppe.net/5caf9349-fd93-4a74-b064-0070f65bfb49/&target=https%3A%2F%2Fpartnershowcase.desire2learn.com%2Fd2l%2FshibbolethSSO%2Faspinfo.asp*).
+    2.  Нажмите кнопку **Далее**.
 
 4.  На странице **Настройка единого входа в Brightspace (разработка Desire2Learn)** нажмите кнопку **Загрузить метаданные**, чтобы скачать их, а затем сохраните файл данных на свой компьютер.
 
@@ -89,14 +90,16 @@
 
 5.  Отправьте загруженный файл метаданных в службу поддержки Brightspace (разработка Desire2Learn).
 
-    >[AZURE.NOTE]Настройка единого входа должна выполняться службой поддержки Brightspace (разработка Desire2Learn). Как только единый вход для вашей подписки будет включен, вы получите уведомление.
+    >[AZURE.NOTE]Настройка единого входа должна выполняться службой поддержки Brightspace (разработка Desire2Learn).
+    Как только единый вход для вашей подписки будет включен, вы получите уведомление.
 
 6.  На портале Azure AD выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798963.png "Настройка единого входа")
 ##Настройка подготовки учетных записей пользователей
 
-Чтобы пользователи Azure AD могли выполнить вход в Brightspace (разработка Desire2Learn), они должны быть подготовлены для Brightspace (разработка Desire2Learn). В случае Brightspace (разработка Desire2Learn) учетные записи пользователей должны создаваться службой поддержки Brightspace (разработка Desire2Learn).
+Чтобы пользователи Azure AD могли выполнить вход в Brightspace (разработка Desire2Learn), они должны быть подготовлены для Brightspace (разработка Desire2Learn).  
+В случае Brightspace (разработка Desire2Learn) учетные записи пользователей должны создаваться службой поддержки Brightspace (разработка Desire2Learn).
 
 >[AZURE.NOTE]Вы можете использовать любые другие средства создания учетной записи пользователя Brightspace (разработка Desire2Learn) или API, предоставляемые Brightspace (разработка Desire2Learn) для подготовки учетных записей пользователя Azure Active Directory.
 
