@@ -36,4 +36,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
-<!------HONumber=AcomDC_1223_2015-->
+<!-------HONumber=AcomDC_1223_2015-->
