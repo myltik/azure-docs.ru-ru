@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Руководство по программированию концентраторов событий
@@ -27,9 +27,9 @@
 
 ## Приступая к работе
 
-Классы .NET, которые поддерживают концентраторы событий, входят в сборку Microsoft.ServiceBus.dll. Самый простой способ получить API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины — это скачать пакет NuGet для служебной шины. Дополнительные сведения см. в разделе[Использование пакета NuGet для служебной шины](https://msdn.microsoft.com/library/azure/dn741354.aspx). Кроме того, можно воспользоваться [консолью диспетчера пакетов](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) в Visual Studio. Для этого выполните следующую команду в окне [консоли диспетчера пакетов](http://docs.nuget.org/docs/start-here/using-the-package-manager-console):
+Классы .NET, которые поддерживают концентраторы событий, входят в сборку Microsoft.ServiceBus.dll. Самый простой способ получить API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины — это скачать [пакет NuGet для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Кроме того, можно воспользоваться [консолью диспетчера пакетов](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) в Visual Studio. Для этого выполните следующую команду в окне [консоли диспетчера пакетов](http://docs.nuget.org/docs/start-here/using-the-package-manager-console):
 
-```powershell
+```
 Install-Package WindowsAzure.ServiceBus
 ```
 
@@ -37,7 +37,7 @@ Install-Package WindowsAzure.ServiceBus
 
 Для создания концентраторов событий можно использовать класс [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Например:
 
-```c
+```
 var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.windows.net");
 var description = manager.CreateEventHub("MyEventHub");
 ```
@@ -50,7 +50,7 @@ var description = manager.CreateEventHubIfNotExists("MyEventHub");
 
 Для выполнения всех операций по созданию концентратора событий, включая [CreateEventHubIfNotExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createeventhubifnotexists.aspx), требуется разрешение на **управление** необходимым пространством имен. Если вы хотите ограничить разрешения приложения издателя или потребителя, эти вызовы операций создания можно исключить из рабочего кода при использовании учетных данных с ограниченными разрешениями.
 
-Класс [EventHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubdescription.aspx) содержит сведения о концентраторе событий, включая правила авторизации, интервал хранения сообщений, идентификаторы секций, состояние и путь. Этот класс можно использовать для обновления метаданных в концентраторе событий.
+Класс [EventHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubdescription.aspx) содержит сведения о концентраторе событий, включая правила авторизации, интервал удержания сообщений, идентификаторы секций, состояние и путь. Этот класс можно использовать для обновления метаданных в концентраторе событий.
 
 ## Создание клиента концентратора событий
 
@@ -89,7 +89,7 @@ var client = factory.CreateEventHubClient("MyEventHub");
 
 ## Сериализация событий
 
-Класс [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) имеет [четыре перегруженных конструктора](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx), которые принимают различные параметры, такие как объект и сериализатор, массив байтов или поток. Кроме того, можно создать экземпляр класса [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) и затем задать поток текста. При использовании JSON совместно с [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) можно применить метод **Encoding.UTF8.GetBytes()** для получения массива байтов для строки в кодировке JSON.
+Класс [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) имеет [четыре перегруженных конструктора](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.eventdata.aspx), которые принимают различные параметры, такие как объект и сериализатор, массив байтов или поток. Кроме того, можно создать экземпляр класса [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) и затем задать поток текста. При использовании JSON совместно с [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) можно применить метод **Encoding.UTF8.GetBytes()** для получения массива байтов для строки в кодировке JSON.
 
 ## Ключ секции
 
@@ -103,7 +103,7 @@ var client = factory.CreateEventHubClient("MyEventHub");
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Важно отметить, что размер одного пакета не должен превышать 256 КБ для события. Кроме того, каждое сообщение в пакете использует один и тот же идентификатор издателя. Отправитель должен убедиться, что размер пакета не превышает максимальный размер события. Если же размер больше, генерируется ошибка **Send** клиента.
+Обратите внимание на то, что размер одного пакета не должен превышать 256 КБ для события. Кроме того, каждое сообщение в пакете использует один и тот же идентификатор издателя. Отправитель должен убедиться, что размер пакета не превышает максимальный размер события. Если же размер больше, генерируется ошибка **Send** клиента.
 
 ## Асинхронная отправка и отправка в нужном масштабе
 
@@ -111,7 +111,7 @@ public void SendBatch(IEnumerable<EventData> eventDataList);
 
 ## Создание отправителя секции
 
-Несмотря на то что наиболее распространена отправка событий в концентратор событий с ключом секции, в некоторых случаях может потребоваться отправить события напрямую в указанную секцию. Например:
+Несмотря на то, что наиболее распространена отправка событий в концентратор событий с ключом секции, в некоторых случаях может потребоваться отправить события напрямую в указанную секцию. Например:
 
 ```
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
@@ -148,7 +148,7 @@ while(receive)
 
 В отношении к определенной секции сообщения получаются в том порядке, в котором они были отправлены в концентратор событий. Смещение представляет собой маркер строки, используемый для идентификации сообщения в секции.
 
-Важно отметить, что одновременно к одной секции в группе потребителей можно подключить не более 5 параллельных модулей чтения. При подключении или отключении модулей чтения их сеансы могут оставаться активным на несколько минут, прежде чем служба определит, что они были отключены. В течение этого времени повторное подключение к секции может завершиться сбоем. Завершенный пример написания прямого получателя для концентраторов событий см. в примере [прямых приемников концентраторов событий служебной шины](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6).
+Обратите внимание на то, что одновременно к одной секции в группе потребителей можно подключить не более 5 параллельных модулей чтения. При подключении или отключении модулей чтения их сеансы могут оставаться активным на несколько минут, прежде чем служба определит, что они были отключены. В течение этого времени повторное подключение к секции может завершиться сбоем. Завершенный пример написания прямого получателя для концентраторов событий см. в примере [прямых приемников концентраторов событий служебной шины](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6).
 
 ### Узел обработчика событий
 
@@ -172,7 +172,7 @@ while(receive)
 
 ## Отзыв издателя
 
-Наряду с дополнительными возможностями среды выполнения [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), концентраторы событий позволяют отзывать издателя для блокировки для некоторых из них возможности отправлять события в концентратор событий. Эти функции особенно полезны, если маркер издателя был взломан или после обновления программного обеспечения эти функции перестали работать должным образом. В этих случаях для идентификатора издателя, который является частью маркера SAS, можно заблокировать возможность публикации событий.
+Наряду с дополнительными возможностями среды выполнения [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), концентраторы событий позволяют отзывать издателя для блокировки возможности отправлять события в концентратор событий. Эти функции особенно полезны, если маркер издателя был взломан или после обновления программного обеспечения эти функции перестали работать должным образом. В этих случаях для идентификатора издателя, который является частью маркера SAS, можно заблокировать возможность публикации событий.
 
 Дополнительные сведения об отзыве издателя и отправке в концентраторы событий в качестве издателя см. в примере [Крупномасштабная безопасная публикация концентраторов событий служебной шины](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
@@ -185,4 +185,4 @@ while(receive)
 - [Примеры кода концентраторов событий](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

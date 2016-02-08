@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Что такое Azure Multi-Factor Authentication? | Microsoft Azure" 
-	description="Azure Multi-factor Authentication — это метод проверки идентичности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Это второй уровень безопасности, который применяется для входа пользователя в систему и выполнения транзакций." 
-	keywords="общие сведения об MFA"
+	description="В этом разделе объясняется, что такое многофакторная проверка подлинности, зачем нужно ее использовать, приводятся дополнительные сведения о многофакторной проверке подлинности клиента и различных методах и доступных версиях. Azure Multi-factor Authentication — это метод проверки идентичности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Это второй уровень безопасности, который применяется для входа пользователя в систему и выполнения транзакций." 
+	keywords="общие сведения об MFA, обзор MFA, что такое многофакторная проверка подлинности"
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Что такое Azure Multi-factor Authentication?
@@ -136,7 +136,7 @@ Multi-Factor Authentication для локальных приложений, ис
 - **На каждого пользователя**. В основном этот вариант выбирают предприятия, чтобы использовать многофакторную проверку подлинности для определенного количества сотрудников, которым регулярно требуется проверка подлинности.
 - **На отдельные проверки подлинности**. В основном этот вариант выбирают предприятия, чтобы использовать многофакторную проверку подлинности для больших групп внешних пользователей, которым проверка подлинности требуется нечасто.
 
-Дополнительные сведения о ценах см. в разделе [Цены на Azure Multi-Factor Authentication.](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)
+Дополнительные сведения о ценах см. в разделе [Цены на Azure Multi-Factor Authentication.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
 Выберите модель тарификации по пользователям или по использованию, которая лучше всего подходит для вашей организации. Затем ознакомьтесь с разделом [Приступая к работе](multi-factor-authentication-get-started.md).
 
@@ -206,4 +206,4 @@ Azure AD и локальная служба AD с использованием D
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

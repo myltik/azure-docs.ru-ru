@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na" 
-   ms.date="10/15/2015"
+   ms.date="01/25/2016"
    ms.author="coreyp"/>
    
 #Компилирование конфигураций в Azure Automation DSC#
@@ -56,9 +56,9 @@
     $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
     
     while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)       	
-    {$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
+    {
+    	$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     	Start-Sleep -Seconds 3
-    
     }
     
     $CompilationJob | Get-AzureRmAutomationDscCompilationJobOutput –Stream Any 
@@ -70,33 +70,34 @@
 
 Чтобы определить значения свойств в конфигурации узла **ParametersExample.sample**, созданной во время компилирования, в следующем примере используются два параметра, **FeatureName** и **IsPresent**.
 
-    Configuration ParametersExample {
+    Configuration ParametersExample
+    {
     	param(
-    	[Parameter(Mandatory=$true)]
+    		[Parameter(Mandatory=$true)]
     
-    	[string] $FeatureName,
+    		[string] $FeatureName,
     
-    	[Parameter(Mandatory=$true)]
-    	[boolean] $IsPresent
+    		[Parameter(Mandatory=$true)]
+    		[boolean] $IsPresent
+    	)
     
-    )
+    	$EnsureString = "Present"
+    	if($IsPresent -eq $false)
+    	{
+    		$EnsureString = "Absent"
+    	}
     
-    $EnsureString = "Present"
-    if($IsPresent -eq $false) {
-    	$EnsureString = "Absent"
-    
-    }
-    
-    Node "sample" {
-    
-    	WindowsFeature ($FeatureName + "Feature") {
-    		Ensure = $EnsureString
-    		Name = $FeatureName
+    	Node "sample"
+    	{
+    		WindowsFeature ($FeatureName + "Feature")
+    		{
+    			Ensure = $EnsureString
+    			Name = $FeatureName
     		}
     	}
     }
 
-Вы можете компилировать конфигурации DSC, использующие базовые параметры, на портале Azure Automation DSC или в Azure PowerShell:
+Вы можете компилировать конфигурации DSC, использующие базовые параметры, на портале Azure Automation DSC или с помощью Azure PowerShell:
 
 ###Портал###
 
@@ -123,31 +124,28 @@
 
 Параметр **ConfigurationData** позволяет при использовании PowerShell DSC отделить конфигурацию структуры от любой конфигурации среды. Дополнительные сведения о **ConfigurationData** см. в статье [Разница между «что» и «где» в DSC PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx).
 
->[AZURE.NOTE]Вы можете использовать **ConfigurationData**, когда выполняете компилирование на платформе Azure Automation DSC с помощью Azure PowerShell. На портале Azure этот параметр использовать нельзя.
+>[AZURE.NOTE] Вы можете использовать **ConfigurationData**, когда выполняете компилирование на платформе Azure Automation DSC с помощью Azure PowerShell. На портале Azure этот параметр использовать нельзя.
 
 В приведенном ниже примере конфигурации DSC параметр **ConfigurationData** используется через ключевые слова **$ConfigurationData** и **$AllNodes**. Для этого примера понадобится также модуль [**xWebAdministration**](https://www.powershellgallery.com/packages/xWebAdministration/).
 
-     Configuration ConfigurationDataSample {
+     Configuration ConfigurationDataSample
+     {
     	Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
     
     	Write-Verbose $ConfigurationData.NonNodeData.SomeMessage 
     
     	Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
     	{
-    
     		xWebsite Site
     		{
-    
     			Name = $Node.SiteName
     			PhysicalPath = $Node.SiteContents
     			Ensure   = "Present"
     		}
-    
     	}
- 
     }
 
-Вы можете компилировать приведенную выше конфигурацию DSC с помощью PowerShell. Это добавит две конфигурации узла в опрашивающий сервер Azure Automation DSC: **ConfigurationDataSample.MyVM1** и **ConfigurationDataSample.MyVM3**.
+Вы можете компилировать конфигурацию DSC, показанную выше, с помощью PowerShell. Команда PowerShell ниже добавляет две конфигурации узла в опрашивающий сервер службы автоматизации Azure: **ConfigurationDataSample.MyVM1** и **ConfigurationDataSample.MyVM3**.
 
     $ConfigData = @{
     	AllNodes = @(
@@ -195,45 +193,39 @@
 
 В следующем примере показана конфигурация DSC, использующая актив учетных данных автоматизации.
 
-    Configuration CredentialSample {
-    
+    Configuration CredentialSample
+    {
        $Cred = Get-AutomationPSCredential -Name "SomeCredentialAsset"
     
-    	Node $AllNodes.NodeName { 
-    
-    		File ExampleFile { 
+    	Node $AllNodes.NodeName
+    	{ 
+    		File ExampleFile
+    		{ 
     			SourcePath = "\\Server\share\path\file.ext" 
     			DestinationPath = "C:\destinationPath" 
     			Credential = $Cred 
-    
        		}
-    
     	}
-    
     }
 
-Вы можете компилировать приведенную выше конфигурацию DSC с помощью PowerShell. Это добавит две конфигурации узла в опрашивающий сервер Azure Automation DSC: **CredentialSample.MyVM1** и **CredentialSample.MyVM2**.
+Вы можете компилировать конфигурацию DSC, показанную выше, с помощью PowerShell. Команда PowerShell ниже добавляет две конфигурации узла в опрашивающий сервер службы автоматизации Azure: **CredentialSample.MyVM1** и **CredentialSample.MyVM2**.
 
 
     $ConfigData = @{
     	AllNodes = @(
-    		 @{
+    		@{
     			NodeName = "*"
     			PSDscAllowPlainTextPassword = $True
     		},
-    
     		@{
     			NodeName = "MyVM1"
     		},
-    
     		@{
     			NodeName = "MyVM2"
     		}
     	)
-    } 
-    
-    
+    }
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

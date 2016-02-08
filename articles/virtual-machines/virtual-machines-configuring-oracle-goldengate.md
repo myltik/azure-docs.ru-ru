@@ -34,7 +34,7 @@ Oracle GoldenGate состоит из следующих основных ком
 
 - Скачать программное обеспечение Oracle GoldenGate с веб-сайта [Oracle](http://www.oracle.com/us/downloads/index.html). Необходимо выбрать Product Pack Oracle Fusion Middleware – Data Integration. Затем следует выбрать пакет Oracle GoldenGate on Oracle v11.2.1 Media Pack для Microsoft Windows x64 (64-разрядная версия) для базы данных Oracle 11g. После этого следует скачать Oracle GoldenGate V11.2.1.0.3 для Oracle 11g (64-разрядная версия) для Windows 2008 (64-разрядная версия).
 
-- Создать две виртуальные машины в Azure с помощью платформы, которая предоставляется образом Oracle Enterprise Edition в Windows Server. Информацию см. в статьях [Создание виртуальной машины Oracle Database 12c в Azure](#z3dc8d3c097cf414e9048f7a89c026f80) и [Виртуальные машины Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Убедиться, что эти виртуальные машины находятся в [одной облачной службе](virtual-machines-load-balance.md) и [одной виртуальной сети](http://azure.microsoft.com/documentation/services/virtual-network/), чтобы они могли обращаться друг к другу посредством постоянного частного IP-адреса.
+- Создать две виртуальные машины в Azure с помощью платформы, которая предоставляется образом Oracle Enterprise Edition в Windows Server. Информацию см. в статьях [Создание виртуальной машины Oracle Database 12c в Azure](#z3dc8d3c097cf414e9048f7a89c026f80) и [Виртуальные машины Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Убедиться, что эти виртуальные машины находятся в [одной облачной службе](virtual-machines-load-balance.md) и [одной виртуальной сети](https://azure.microsoft.com/documentation/services/virtual-network/), чтобы они могли обращаться друг к другу посредством постоянного частного IP-адреса.
 
 - На классическом портале Azure присвоить виртуальным машинам имена: MachineGG1 для сайта A и MachineGG2 для сайта B.
 
@@ -80,7 +80,7 @@ Oracle GoldenGate состоит из следующих основных ком
 
 6. Проверять процесс двунаправленной репликации.
 
->[AZURE.IMPORTANT]Данный учебник был разработан и протестирован для следующей конфигурации программного обеспечения.
+>[AZURE.IMPORTANT] Данный учебник был разработан и протестирован для следующей конфигурации программного обеспечения.
 >
 >| | **База данных сайта A** | **База данных сайта B** |
 >|------------------------|----------------------------------|----------------------------------|
@@ -602,4 +602,4 @@ Oracle GoldenGate состоит из следующих основных ком
 ##Дополнительные ресурсы
 [Образы виртуальных машин Oracle для Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

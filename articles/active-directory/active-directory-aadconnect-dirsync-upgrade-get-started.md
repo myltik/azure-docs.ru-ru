@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect — обновление средства синхронизации Windows Azure AD (DirSync) | Microsoft Azure"
+   pageTitle="Azure AD Connect — обновление средства синхронизации Microsoft Azure AD (DirSync) | Microsoft Azure"
    description="Узнайте, как обновить DirSync до Azure AD Connect. В этой статье описывается процедура обновления текущего средства синхронизации Windows Azure AD (DirSync) до Azure AD Connect."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/11/2016"
+   ms.date="01/21/2016"
    ms.author="shoatman;billmath"/>
 
 # Обновление службы синхронизации Azure Active Directory sync (DirSync) до Azure AD Connect
@@ -37,7 +37,7 @@
 | [Обновление «на месте»](#in-place-upgrade) | Предпочтительный вариант, если обновление предположительно займет менее 3 часов. |
 | [Параллельное развертывание](#parallel-deployment) | Предпочтительный вариант, если обновление предположительно займет более 3 часов. |
 
->[AZURE.NOTE]При планировании обновления из DirSync до Azure AD Connect не удаляйте DirSync самостоятельно до обновления. Azure AD Connect считает и перенесет конфигурацию из DirSync и удалит его после проверки сервера.
+>[AZURE.NOTE] При планировании обновления из DirSync до Azure AD Connect не удаляйте DirSync самостоятельно до обновления. Azure AD Connect считает и перенесет конфигурацию из DirSync и удалит его после проверки сервера.
 
 **Обновление «на месте»**
 
@@ -146,7 +146,7 @@
 8. Не снимайте флажок **Запустить синхронизацию сразу после завершения настройки** на странице **Готово к настройке**. Сервер будет в [промежуточном режиме](active-directory-aadconnectsync-operations.md#staging-mode), поэтому изменения не будут экспортированы в Azure AD в данный момент.
 9. Щелкните **Install** (Установить).
 
->[AZURE.NOTE]Между Windows Server Active Directory и Azure Active Directory начнется синхронизация, однако изменения не будут экспортированы в Azure AD. В каждый момент времени активно экспортировать изменения может только одно средство синхронизации. Это называется [промежуточный режим](active-directory-aadconnectsync-operations.md#staging-mode).
+>[AZURE.NOTE] Между Windows Server Active Directory и Azure Active Directory начнется синхронизация, однако изменения не будут экспортированы в Azure AD. В каждый момент времени активно экспортировать изменения может только одно средство синхронизации. Это называется [промежуточный режим](active-directory-aadconnectsync-operations.md#staging-mode).
 
 ### Убедитесь, что служба Azure AD Connect готова к синхронизации.
 
@@ -169,8 +169,8 @@
 
 ### Удаление DirSync (старый сервер)
 
-- В окне **Программы и компоненты** найдите **Средство синхронизации Microsoft Azure Active Directory**.
-- Удалите **средство синхронизации Microsoft Azure Active Directory**.
+- В окне **Программы и компоненты** найдите **Средство синхронизации Windows Azure Active Directory**.
+- Удалите **средство синхронизации Windows Azure Active Directory**.
 - Обратите внимание, что удаление может занимать до 15 минут.
 
 После удаления DirSync нет ни одного активного сервера, экспортируемого в Azure AD. Следующий шаг необходимо завершить, прежде чем продолжать синхронизацию изменений вашей локальной службы Active Directory с Azure AD.
@@ -197,4 +197,4 @@ Azure AD Connect теперь является активным сервером
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!----HONumber=AcomDC_0121_2016--->
+<!---HONumber=AcomDC_0128_2016-->

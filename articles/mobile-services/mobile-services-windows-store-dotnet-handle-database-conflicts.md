@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/21/2016"
 	ms.author="wesmc"/>
 
 # Обработка конфликтов записи базы данных
@@ -125,7 +125,7 @@
 			public string Version { set; get; }
 		}
 
-	> [AZURE.NOTE]При использовании нетипизированных таблиц включите оптимистичный параллелизм, добавив флаг "Версия" в системные свойства таблицы.
+	> [AZURE.NOTE] При использовании нетипизированных таблиц включите оптимистичный параллелизм, добавив флаг "Версия" в системные свойства таблицы.
 	>
 	>`````
 	//Enable optimistic concurrency by retrieving __version
@@ -369,4 +369,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Системные свойства]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

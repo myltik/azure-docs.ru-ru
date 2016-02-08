@@ -34,7 +34,7 @@
 > [AZURE.NOTE]
 >
 - Некоторые расширенные отчеты об аномалиях и использовании ресурсов доступны только при наличии подписки на [Azure Active Directory Premium](active-directory-get-started-premium.md). Расширенные отчеты позволяют повысить уровень безопасности доступа и реагирования на потенциальные угрозы, а также получать доступ к аналитической информации об использовании приложений и получении доступа к устройству.
-- Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих доступный по всему миру экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих доступный по всему миру экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Отчеты
 
@@ -99,7 +99,7 @@
 ## Отчеты об аномальных действиях
 <p>В отчетах об аномальных событиях при входе содержится информация о подозрительных событиях при входе на портал Azure, панель доступа Azure AD, Office 365, Sharepoint Online, Dynamics CRM Online и другие службы Microsoft Online Services.</p>
 <p>Все отчеты, за исключением отчета «Входы после нескольких неудачных попыток», также содержат сведения о подозрительных <i>федеративных</i> операциях входа в упомянутые выше службы независимо от поставщика федерации. </p>
-<p>Доступны следующие отчеты: </p><ul> <li>[Операции входа из неизвестных источников](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Операции входа после нескольких сбоев](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Операции входа с IP-адресов с подозрительными действиями](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Нестандартные действия при входе](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Операции входа с возможно инфицированных устройств](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Пользователи с аномальными событиями при входе](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Пользователи с утерянными учетными данными</li></ul>
+<p>Доступны следующие отчеты: </p><ul> <li>[Операции входа из неизвестных источников](active-directory-reporting-sign-ins-from-unknown-sources.md);</li> <li>[Операции входа после нескольких сбоев](active-directory-reporting-sign-ins-after-multiple-failures.md);</li> <li>[Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Операции входа с IP-адресов с подозрительными действиями](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md);</li> <li>[Нестандартные действия при входе](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Операции входа с возможно инфицированных устройств](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Пользователи с аномальными событиями при входе](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Пользователи с утерянными учетными данными</li></ul>
 
 
 
@@ -221,7 +221,7 @@
 | ----------------------								| ---------		|
 | Операции входа на [панель доступа](http://myapps.microsoft.com/) | Да |
 | Вход на [портал управления Azure](https://manage.windowsazure.com/) | Да |
-| Вход на [портал Microsoft Azure](http://portal.azure.com/) | Да |
+| Вход на [портал Microsoft Azure](https://portal.azure.com/) | Да |
 | Операции входа на [портал Office 365](http://portal.office.com/) | Да |
 | Операции входа в собственное приложение, такое как Outlook (см. исключение ниже) | Да |
 | Операции входа в федеративное или подготовленное приложение через панель доступа, например Salesforce | Да |
@@ -253,7 +253,7 @@
 1. На портале управления Azure щелкните **Active Directory**, выберите имя каталога вашей организации и щелкните **Отчеты**.
 2. На странице «Отчеты» выберите отчет, который нужно просмотреть или скачать.
 
-    > [AZURE.NOTE]При первом использовании функции отчетности Azure Active Directory вы получите сообщение с предложением подтвердить согласие на использование. Если вы согласны, щелкните значок с флажком, чтобы продолжить.
+    > [AZURE.NOTE] При первом использовании функции отчетности Azure Active Directory вы получите сообщение с предложением подтвердить согласие на использование. Если вы согласны, щелкните значок с флажком, чтобы продолжить.
 
 3. Щелкните раскрывающееся меню рядом с надписью «Интервал», а затем выберите один из следующих интервалов времени, который будет использоваться при создании этого отчета:
     - за последние 24 часа;
@@ -278,4 +278,4 @@
 - [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

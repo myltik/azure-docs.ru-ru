@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="01/21/2015"
    ms.author="joaoma" />
 
 # Начало работы по созданию внутреннего балансировщика нагрузки с помощью PowerShell
@@ -87,7 +87,7 @@
 
 Создайте группу ресурсов (пропустите этот шаг, если вы используете существующую группу).
 
-    PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 Диспетчер ресурсов Azure требует, чтобы все группы ресурсов указывали расположение. Оно используется по умолчанию для ресурсов в этой группе. Убедитесь, что во всех командах создания подсистемы балансировки нагрузки используется одна группа ресурсов.
 
@@ -189,8 +189,9 @@
 Результат будет аналогичным следующему:
 
 
-PS C:\> $backendnic1
+	PS C:\> $backendnic1
 
+Ожидаемые выходные данные:
 
 	Name                 : lb-nic1-be
 	ResourceGroupName    : NRP-RG
@@ -242,6 +243,39 @@ PS C:\> $backendnic1
 
 Пошаговые инструкции по созданию виртуальной машины и назначению сетевой карты см. в статье [Создание и настройка виртуальной машины Windows с помощью диспетчера ресурсов и Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) (вариант 4 или 5).
 
+Если виртуальная машина у вас уже есть, добавьте сетевой интерфейс, выполнив описанные ниже действия:
+
+#### Шаг 1 
+
+Загрузите ресурс балансировщика нагрузки в переменную (если вы это еще не сделали). Имя переменной — $lb. Используйте имена из ресурса балансировщика нагрузки, созданного ранее.
+
+	$lb= Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
+
+#### Шаг 2. 
+
+Загрузите в переменную конфигурацию серверной части.
+
+	$backend= Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+
+#### Шаг 3. 
+
+Загрузите в переменную созданный ранее сетевой интерфейс. Имя переменной — $nic. Имя сетевого интерфейса совпадает с именем в приведенном выше примере.
+
+	$nic=Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
+
+#### Шаг 4.
+
+Измените конфигурацию серверной части в сетевом интерфейсе.
+
+	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+
+#### Шаг 5 
+
+Сохраните объект сетевого интерфейса.
+
+	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+
+После того как сетевой интерфейс будет добавлен в пул серверной части балансировщика нагрузки, он начнет получать сетевой трафик согласно правилам балансировки нагрузки для соответствующего ресурса балансировщика.
 
 ## Обновление существующего балансировщика нагрузки
 
@@ -271,7 +305,7 @@ PS C:\> $backendnic1
 
 	Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE]Чтобы пропустить подтверждение удаления, можно использовать необязательный ключ -Force.
+>[AZURE.NOTE] Чтобы пропустить подтверждение удаления, можно использовать необязательный ключ -Force.
 
 
 
@@ -282,4 +316,4 @@ PS C:\> $backendnic1
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

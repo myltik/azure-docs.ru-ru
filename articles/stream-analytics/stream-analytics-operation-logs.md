@@ -83,7 +83,7 @@
 
   ![Сведения об операции](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)
 
-Если вам нужно связаться со [Службой поддержки](http://azure.microsoft.com/support/options/) или передать информацию специалистам через [форум MSDN](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics), обратите внимание на раздел «Сведения об операции», особенно на **Идентификатор корреляции**.
+Если вам нужно связаться со [Службой поддержки](https://azure.microsoft.com/support/options/) или передать информацию специалистам через [форум MSDN](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics), обратите внимание на раздел «Сведения об операции», особенно на **Идентификатор корреляции**.
 
 ## Получение справки
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
@@ -96,4 +96,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

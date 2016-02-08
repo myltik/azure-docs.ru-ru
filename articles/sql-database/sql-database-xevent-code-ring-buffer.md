@@ -51,7 +51,7 @@
 ## Предварительные требования
 
 
-- Учетная запись и подписка Azure. Вы можете зарегистрироваться, чтобы получить [бесплатную пробную версию](http://azure.microsoft.com/pricing/free-trial/).
+- Учетная запись и подписка Azure. Вы можете зарегистрироваться, чтобы получить [бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Любая база данных, позволяющая создать таблицу.
@@ -385,4 +385,4 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

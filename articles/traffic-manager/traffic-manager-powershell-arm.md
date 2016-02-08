@@ -12,17 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="01/25/2016"
    ms.author="joaoma" />
-
-
 
 # Предварительная поддержка диспетчера трафика Azure в диспетчере ресурсов Azure
 Диспетчер ресурсов Azure (ARM) представляет собой новую платформу управления для служб в Azure. Теперь профилями диспетчера трафика Azure можно управлять с помощью интерфейсов API и инструментов на основе диспетчера ресурсов Azure. Дополнительные сведения о диспетчере ресурсов Azure см. в статье [Использование групп ресурсов для управления ресурсами Azure](../azure-preview-portal-using-resource-groups.md).
-
->[AZURE.NOTE]Поддержка диспетчера трафика в ARM в настоящее время находится на этапе предварительной версии, включая API REST, Azure PowerShell, Azure CLI и пакет SDK для .NET.
-
-
 
 ## Модель ресурсов
 
@@ -44,20 +38,20 @@
 
 - Метод маршрутизации трафика «отработка отказа» называется приоритетным.
 
-## Ограничения предварительной версии
-Поскольку поддержка диспетчера трафика в диспетчере ресурсов Azure находится на этапе предварительной версии, существует несколько ограничений.
+## Ограничения
+На данный момент существуют некоторые ограничения в поддержке диспетчера трафика Azure диспетчером ресурсов Azure:
 
 - Профили диспетчера трафика, созданные с использованием существующих (не связанных с ARM) API управления службами Azure (ASM), инструментов и портала «классической» версии, недоступны в ARM, и наоборот. Перенос профилей из API-интерфейсов ASM в ARM сейчас не поддерживается. Можно только удалить и повторно создать профиль.
 
-- «Вложенные» конечные точки диспетчера трафика в API ARM сейчас не поддерживаются.
 
-- Диспетчер трафика Azure пока недоступен на портале предварительной версии Azure (он есть только на портале «классической» версии).
+- "Вложенные" конечные точки диспетчера трафика поддерживаются через API диспетчера ресурсов Azure, PowerShell диспетчера ресурсов Azure и режим диспетчера ресурсов Azure интерфейса командной строки Azure. На данный момент они не поддерживаются в портале Azure (который также использует API диспетчера ресурсов Azure).
+
 
 ## Настройка Azure PowerShell
 
 В этих инструкциях используется оболочка Microsoft Azure PowerShell, которую нужно настроить с помощью описанных ниже действий.
 
-Пользователи, не использующие PowerShell или Windows, могут выполнять аналогичные операции через интерфейс командной строки Azure.
+Пользователи, не использующие PowerShell или Windows, могут выполнять аналогичные операции через интерфейс командной строки Azure. Все операции, за исключением управления "вложенными" профилями диспетчера трафика, также доступны через портал Azure.
 
 ### Шаг 1
 Установите последнюю версию Azure PowerShell, которую можно скачать со страницы загружаемых файлов Azure.
@@ -72,7 +66,7 @@
 ### Шаг 3.
 Выберите подписку Azure.
 
-	PS C:\> Select-AzureRmContext -SubscriptionName "MySubscription"
+	PS C:\> Set-AzureRmContext -SubscriptionName "MySubscription"
 
 Чтобы просмотреть перечень доступных подписок, используйте командлет Get-AzureRmSubscription.
 
@@ -85,7 +79,7 @@
 ### Шаг 5
 Создайте группу ресурсов (этот шаг можно пропустить, если вы используете существующую группу).
 
-	PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -Location "West US"
+	PS C:\> New-AzureRmResourceGroup -Name MyRG -Location "West US"
 
 В диспетчере ресурсов Azure для всех групп ресурсов должно быть указано расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Однако поскольку ресурсы профилей диспетчера трафика являются глобальными, а не региональными, выбор расположения группы ресурсов никак не повлияет на работу диспетчера трафика Azure.
 
@@ -93,7 +87,7 @@
 
 Чтобы создать профиль диспетчера трафика, воспользуйтесь командлетом New-AzureRmTrafficManagerProfile:
 
-	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
 Он принимает перечисленные ниже параметры.
 
@@ -119,7 +113,7 @@
 
 Существующий объект профиля диспетчера трафика можно получить с помощью командлета Get-AzureRmTrafficManagerProfle:
 
-	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
 
 Этот командлет возвращает профиль объекта трафика.
 
@@ -137,7 +131,7 @@
 
 Например, так можно изменить срок жизни профиля:
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
 	PS C:\> $profile.Ttl = 300
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
@@ -155,7 +149,7 @@
 #### Пример 1. Добавление конечных точек веб-приложения с помощью Add-AzureRmTrafficManagerEndpointConfig
 В этом примере мы создаем новый профиль диспетчера трафика и добавляем две конечные точки веб-приложения с помощью командлета Add-AzureRmTrafficManagerEndpointConfig, а затем переносим обновленный профиль в диспетчер трафика Azure с помощью командлета Set-AzureRmTrafficManagerProfile.
 
-	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName myrg -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 	PS C:\> $webapp1 = Get-AzureRMWebApp -Name webapp1
 	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName webapp1ep –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled
 	PS C:\> $webapp2 = Get-AzureRMWebApp -Name webapp2
@@ -171,18 +165,18 @@
 #### Пример 3. Добавление конечной точки publicIpAddress с помощью New-AzureRmTrafficManagerEndpoint
 В этом примере мы добавляем в профиль диспетчера трафика ресурс ARM с общедоступным IP-адресом. Общедоступный IP-адрес должен включать DNS-имя и может быть привязан к сетевому адаптеру виртуальной машины или к балансировщику нагрузки.
 
-	PS C:\> $ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+	PS C:\> $ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
 	PS C:\> New-AzureRmTrafficManagerEndpoint –Name MyIpEndpoint –ProfileName MyProfile -ResourceGroupName MyRG –Type AzureEndpoints -TargetResourceId $ip.Id –EndpointStatus Enabled
 
 ### Добавление внешних конечных точек
 Диспетчер трафика использует внешние конечные точки для передачи трафика в службы, размещенные за пределами Azure. Как и конечные точки Azure, внешние конечные точки можно добавлять с помощью командлета Add-AzureRmTrafficManagerEndpointConfig в сочетании с командлетом Set-AzureRmTrafficManagerProfile или New-AzureRMTrafficManagerEndpoint.
 
-При указании внешних конечных точек: — Доменное имя конечной точки следует задавать в параметре Target. — Параметр EndpointLocation является обязательным, только если используется метод маршрутизации трафика Performance. В качестве значения должно быть указано [допустимое имя региона Azure](http://azure.microsoft.com/regions/). — Параметры Weight и Priority являются необязательными, как и для конечных точек Azure.
+При указании внешних конечных точек: — Доменное имя конечной точки следует задавать в параметре Target. — Параметр EndpointLocation является обязательным, только если используется метод маршрутизации трафика Performance. В качестве значения должно быть указано [допустимое имя региона Azure](https://azure.microsoft.com/regions/). — Параметры Weight и Priority являются необязательными, как и для конечных точек Azure.
 
 #### Пример 1. Добавление внешних конечных точек с помощью Add-AzureRmTrafficManagerEndpointConfig и Set-AzureRmTrafficManagerProfile
 В этом примере мы создаем новый профиль диспетчера трафика, добавляем в него две внешние конечные точки и фиксируем изменения.
 
-	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName myrg -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName eu-endpoint –TrafficManagerProfile $profile –Type ExternalEndpoints -Target app-eu.contoso.com –EndpointStatus Enabled
 	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName us-endpoint –TrafficManagerProfile $profile –Type ExternalEndpoints -Target app-us.contoso.com –EndpointStatus Enabled
 	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile  
@@ -192,13 +186,39 @@
 
 	PS C:\> New-AzureRmTrafficManagerEndpoint –Name eu-endpoint –ProfileName MyProfile -ResourceGroupName MyRG –Type ExternalEndpoints -Target app-eu.contoso.com –EndpointStatus Enabled
 
+### Добавление "вложенных" конечных точек
+
+Диспетчер трафика позволяет настроить профиль диспетчера трафика (мы назовем его "дочерним" профилем) в качестве конечной точки в другом профиле диспетчера трафика (который мы назовем "родительским" профилем).
+
+Вложенный диспетчер трафика позволяет создавать более гибкие и эффективные схемы маршрутизации трафика и отработки отказа для поддержки потребностей более крупных и сложных развертываний. [В этой записи блога](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) представлено несколько примеров.
+
+Вложенные конечные точки настраиваются в родительском профиле по типу конечной точки "NestedEndpoints". При указании вложенных конечных точек: — Конечную точку (дочерний профиль) следует указывать с помощью параметра targetResourceId. — Параметр EndpointLocation является обязательным только в том случае, если используется метод маршрутизации трафика "Performance". В качестве значения должно быть указано [допустимое имя региона Azure](http://azure.microsoft.com/regions/). — Параметры Weight и Priority являются необязательными, как и для конечных точек Azure. — Параметр MinChildEndpoints является необязательным, по умолчанию его значение равно 1. Если число доступных конечных точек в дочернем профиле опускается ниже этого значения, то родительский профиль будет рассматривать дочерний профиль как "деградирующий" и направляет трафик к другим конечным точкам родительского профиля.
+
+
+#### Пример 1. Добавление вложенных конечных точек с помощью Add-AzureRmTrafficManagerEndpointConfig и Set-AzureRmTrafficManagerProfile
+
+В этом примере мы создаем новый диспетчер трафика дочернего и родительского профилей, добавляем дочерний профиль как вложенный в родительский профиль и фиксируем изменения. (Для краткости мы не будем добавлять другие конечные точки в дочерний профиль или в родительский профиль, несмотря на то, что обычно они также требуются.)
+
+	PS C:\> $child = New-AzureRmTrafficManagerProfile –Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $parent = New-AzureRmTrafficManagerProfile –Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName child-endpoint –TrafficManagerProfile $parent –Type NestedEndpoints -TargetResourceId $child.Id –EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
+
+#### Пример 2. Добавление вложенных конечных точек с помощью New-AzureRmTrafficManagerEndpoint
+
+В этом примере мы добавляем существующий дочерний профиль как вложенную конечную точку в существующий родительский профиль, указывая его с помощью имени профиля и имени группы ресурсов.
+
+	PS C:\> $child = Get-AzureRmTrafficManagerEndpoint –Name child -ResourceGroupName MyRG
+	PS C:\> New-AzureRmTrafficManagerEndpoint –Name child-endpoint –ProfileName parent -ResourceGroupName MyRG –Type NestedEndpoints -TargetResourceId $child.Id –EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+
+
 ## Обновление конечной точки диспетчера трафика
 Есть два способа обновления существующей конечной точки диспетчера трафика. 1. Получить профиль диспетчера трафика с помощью командлета Get-AzureRmTrafficManagerProfile, обновить свойства конечной точки в профиле и зафиксировать изменения с помощью Set-AzureRmTrafficManagerProfile. Этот метод удобен тем, что позволяет за одно обновление изменить настройки нескольких конечных точек. 2. Получить конечную точку диспетчера трафика с помощью командлета Get-AzureRmTrafficManagerEndpoint, обновить свойства конечной точки и зафиксировать изменения с помощью Set-AzureRmTrafficManagerEndpoint. Этот метод проще, так как он не требует индексации массива конечных точек в профиле.
 
 #### Пример 1. Обновление конечных точек с помощью Get-AzureRmTrafficManagerProfile и Set-AzureRmTrafficManagerProfile
 В этом примере мы будем изменять приоритет двух конечных точек в существующем профиле.
 
-	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName myrg
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName MyRG
 	PS C:\> $profile.Endpoints[0].Priority = 2
 	PS C:\> $profile.Endpoints[1].Priority = 1
 	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
@@ -206,7 +226,7 @@
 #### Пример 2. Обновление конечной точки с помощью Get-AzureRmTrafficManagerEndpoint и Set-AzureRmTrafficManagerEndpoint
 В этом примере мы будем изменять вес одной конечной точки в существующем профиле.
 
-	PS C:\> $endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName myrg -Type ExternalEndpoints
+	PS C:\> $endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
 	PS C:\> $endpoint.Weight = 20
 	PS C:\> Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 
@@ -227,11 +247,11 @@
 #### Пример 2. Включение и отключение конечной точки диспетчера трафика
 Чтобы включить конечную точку диспетчера трафика, воспользуйтесь командлетом Enable-AzureRmTrafficManagerEndpoint. Конечную точку можно указать с помощью объекта TrafficManagerEndpoint (передав по конвейеру или через параметр «-TrafficManagerEndpoint») либо с помощью имени конечной точки, типа конечной точки, имени профиля и имени группы ресурсов:
 
-	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
+	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 
 Аналогичным образом можно отключить конечную точку диспетчера трафика:
 
- 	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup -Force
+ 	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
 
 Командлет Disable-AzureRmTrafficManagerEndpoint, как и Disable-AzureRmTrafficManagerProfile, выдает запрос подтверждения, который можно отключить, указав параметр «-Force».
 
@@ -240,23 +260,23 @@
 
 Другой способ удаления отдельных конечных точек — с помощью командлета Remove-AzureRmTrafficManagerEndpoint:
 
-	PS C:\> Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
+	PS C:\> Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 	
 Этот командлет запросит подтверждение, которое можно отключить, указав параметр «-Force».
 
 ## Удаление профиля диспетчера трафика
 Чтобы удалить профиль диспетчера трафика, выполните командлет Remove-AzureRmTrafficManagerProfile, указав имя профиля и имя группы ресурсов:
 
-	PS C:\> Remove-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:\> Remove-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG [-Force]
 
 Этот командлет запрашивает подтверждение. Чтобы отключить его, можно указать необязательный параметр -Force. Удаляемый профиль также можно указать с помощью объекта профиля:
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
 	PS C:\> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
 
 Эти операции также можно объединить в последовательность:
 
-	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG | Remove-AzureTrafficManagerProfile [-Force]
 
 ## Дальнейшие действия
 
@@ -265,4 +285,4 @@
 [Рекомендации по безопасности для диспетчера трафика](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

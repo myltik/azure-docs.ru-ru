@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Памятка по SQL-запросам DocumentDB (PDF-файл) | Microsoft Azure" 
-	description="Доступный для печати PDF-файл памятки по SQL-запросам, который поможет использовать синтаксис SQL в DocumentDB для выполнения запросов к документам JSON в базе данных NoSQL." 
+	description="Доступный для печати PDF-файл памятки по SQL-запросам, который поможет использовать синтаксис SQL в DocumentDB для выполнения запросов к документам JSON в базе данных NoSQL — краткий справочник по SQL" 
 	keywords="памятка по SQL, PDF-файл памятки по SQL, памятка по SQL-запросам"
 	services="documentdb" 
 	documentationCenter="" 
@@ -29,7 +29,7 @@ DocumentDB поддерживает реляционные, иерархичес
 
 **Памятку можно скачать по следующей ссылке: [Памятка по Microsoft Azure DocumentDB SQL](http://go.microsoft.com/fwlink/?LinkId=623215)**.
 
-![Памятка по SQL-запросам DocumentDB: краткий справочник по синтаксису SQL, поддерживаемому в DocumentDB.][cheat-sheet]
+![Памятка SQL-запросов DocumentDB: краткий PDF-справочник по синтаксису SQL, поддерживаемому DocumentDB — памятка по SQL, памятка по SQL в формате PDF, краткий справочник по SQL][cheat-sheet]
 
 [cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
 
@@ -39,4 +39,4 @@ DocumentDB поддерживает реляционные, иерархичес
 - Подробное описание параметров запросов, доступных в DocumentDB, см. в разделе [Запросы DocumentDB](documentdb-sql-query.md).
 - Сопутствующую справочную документацию см. в разделе [Язык запросов SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

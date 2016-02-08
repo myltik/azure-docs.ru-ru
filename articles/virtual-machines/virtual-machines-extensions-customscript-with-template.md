@@ -37,7 +37,7 @@
 
 ### Предварительные условия
 
-1. Установите последние командлеты Azure PowerShell или интерфейса командной строки Azure, которые можно скачать [здесь](http://azure.microsoft.com/downloads).
+1. Установите последние командлеты Azure PowerShell или интерфейса командной строки Azure, которые можно скачать [здесь](https://azure.microsoft.com/downloads/).
 2. Если сценарии будут запускаться на существующей виртуальной машине, убедитесь, что на ней включен агент виртуальной машины. Если агент не включен, установите его, следуя указаниям в этой [статье](virtual-machines-extensions-install).
 3. Передайте сценарии, которые требуется запускать на виртуальной машине, в службу хранилища Azure. Сценарии могут поступать как из одного, так и из нескольких контейнеров хранилища.
 4. Кроме того, скрипты можно загрузить в учетную запись Github.
@@ -100,6 +100,6 @@
 
 Полные примеры настройки приложения на виртуальной машине с помощью расширения Custom Script вы найдете в следующих примерах.
 
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Расширение Custom Script на виртуальной машине Linux</a>. </br><a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Расширение Custom Script на виртуальной машине Windows</a>.
+<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Расширение Custom Script на виртуальной машине Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Расширение Custom Script на виртуальной машине Windows</a>.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

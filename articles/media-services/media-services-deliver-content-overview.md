@@ -54,7 +54,7 @@
 
 Указатели имеют срок действия. При использовании портала для публикации ресурсов создаются указатели со сроком действия 100 лет.
 
->[AZURE.NOTE]Если вы использовали портал для создания указателей до марта 2015 г., были созданы указатели со сроком действия два года.
+>[AZURE.NOTE] Если вы использовали портал для создания указателей до марта 2015 г., были созданы указатели со сроком действия два года.
 
 Чтобы обновить срок действия указателя, используйте [REST API](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) или [API .NET](http://go.microsoft.com/fwlink/?LinkID=533259). Обратите внимание, что при обновлении срока действия указателя SAS изменяется URL-адрес.
  
@@ -104,7 +104,7 @@
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
-Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 
 **Формат Smooth Streaming**
@@ -190,4 +190,4 @@
 [Обновление указателей служб мультимедиа после отката ключей хранилища](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

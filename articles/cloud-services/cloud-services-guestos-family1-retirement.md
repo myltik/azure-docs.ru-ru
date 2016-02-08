@@ -26,7 +26,7 @@
 
 **3 ноября 2014 г.** Закончилась расширенная поддержка и полностью прекращено использование семейства версий 1 гостевой ОС. Будут затронуты все службы, использующие семейство версий 1. Эти службы могут быть остановлены в любом момент. Не гарантируется, что службы будут работать далее, если самостоятельно не обновить их вручную.
 
-С дополнительными вопросами обращайтесь на [форумы облачных служб](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) или в [службу поддержки Azure](http://azure.microsoft.com/support/options/).
+С дополнительными вопросами обращайтесь на [форумы облачных служб](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) или в [службу поддержки Azure](https://azure.microsoft.com/support/options/).
 
 
 
@@ -81,4 +81,4 @@ foreach($subscription in Get-AzureSubscription) {
 ## Дальнейшие действия
 Просмотрите последние [выпуски гостевой ОС](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

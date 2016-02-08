@@ -34,7 +34,7 @@
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 - Во время выполнения можно масштабировать кластер без необходимости его повторного создания. Такой способ показан ниже. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
-Дополнительные сведения о разных виртуальных машинах, поддерживаемых HDInsight приведены в разделе [HDInsight цены](http://azure.microsoft.com/pricing/details/hdinsight/).
+Дополнительные сведения о разных виртуальных машинах, поддерживаемых HDInsight приведены в разделе [HDInsight цены](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Включение Tez
 
@@ -218,4 +218,4 @@ Hive поддерживает различные форматы. Наприме�
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

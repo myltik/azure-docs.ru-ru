@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета .NET SDK фабрики данных
 ## Обзор
-Создание, отслеживание фабрик данных и управление ими программным способом с помощью пакета .NET SDK фабрики данных. Эта статья содержит пошаговое руководство по созданию образца консольного приложения .NET, которое будет создавать и отслеживать фабрику данных. См. подробные сведения о пакете .NET SDK фабрики данных в [справочнике по библиотеке классов фабрики данных][adf-class-library-reference].
+Создание, отслеживание фабрик данных и управление ими программным способом с помощью пакета .NET SDK фабрики данных. Эта статья содержит пошаговое руководство по созданию образца консольного приложения .NET, которое будет создавать и отслеживать фабрику данных. См. подробные сведения о Data Factory .NET SDK в [справочнике по библиотеке классов фабрики данных][adf-class-library-reference].
 
 
 
@@ -86,7 +86,7 @@
 
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
 
-	> [AZURE.NOTE]Замените **resourcegroupname** на имя своей группы ресурсов Azure. Для создания группы ресурсов можно использовать командлет [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx).
+	> [AZURE.NOTE] Замените **resourcegroupname** на имя своей группы ресурсов Azure. Для создания группы ресурсов можно использовать командлет [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx).
 
 7. Добавьте следующий код, создающий **фабрику данных**, в метод **Main**.
 
@@ -106,7 +106,7 @@
 
 8. Добавьте следующий код, создающий **связанную службу**, в метод **Main**.
 
-	> [AZURE.NOTE]Укажите **имя учетной записи** и **ключ учетной записи** для своей учетной записи хранения Azure в **ConnectionString**.
+	> [AZURE.NOTE] Укажите **имя учетной записи** и **ключ учетной записи** для своей учетной записи хранения Azure в **ConnectionString**.
 
         // create a linked service
         Console.WriteLine("Creating a linked service");
@@ -379,7 +379,7 @@
 
 
 
-> [AZURE.NOTE]Приведенный выше образец кода запускает диалоговое окно для ввода учетных данных Azure. Если требуется выполнить вход программным образом без применения диалогового окна, см. раздел [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
+> [AZURE.NOTE] Приведенный выше образец кода запускает диалоговое окно для ввода учетных данных Azure. Если требуется выполнить вход программным образом без применения диалогового окна, см. раздел [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -392,4 +392,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

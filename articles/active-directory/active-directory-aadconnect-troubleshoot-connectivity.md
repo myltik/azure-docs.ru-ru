@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="andkjell"/>
 
 # Устранение неполадок подключения в Azure AD Connect
@@ -26,7 +26,7 @@ Azure AD Connect подключается к Azure AD, используя два
 
 Во-первых, проверим правильность настройки файла [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity). ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE]В некоторых блогах говорится, что вместо него изменения необходимо вносить в файл miiserver.exe.config. Однако при каждом обновлении этот файл перезаписывается, так что даже если при первичной установке все работает, то с первым же обновлением система работать перестанет. По этой причине рекомендуем обновлять файл machine.config.
+> [AZURE.NOTE] В некоторых блогах говорится, что вместо него изменения необходимо вносить в файл miiserver.exe.config. Однако при каждом обновлении этот файл перезаписывается, так что даже если при первичной установке все работает, то с первым же обновлением система работать перестанет. По этой причине рекомендуем обновлять файл machine.config.
 
 Во-вторых, необходимо убедиться, что winhttp настроен. Это можно сделать с помощью [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity). ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
@@ -37,9 +37,7 @@ Azure AD Connect подключается к Azure AD, используя два
 | URL-адрес | Порт | Описание |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Используется для загрузки списков CRL. |
-| *.verisign.com | HTTP/80 | Используется для загрузки списков CRL. |
-| *.windows.net | HTTPS/443 | Используется для входа в Azure AD. |
-| *.microsoftonline.com | HTTPS/443 | Используется для настройки каталога Azure AD и импорта/экспорта данных. |
+| **.verisign.com | HTTP/80 | Используется для загрузки списков CRL. | | *.windows.net | HTTPS/443 | Используется для входа в Azure AD. | | *.microsoftonline.com | HTTPS/443 | Используется для настройки каталога Azure AD и импорта/экспорта данных. |
 
 ## Ошибки в мастере
 Мастер установки использует два различных контекста безопасности. На странице **Подключение к Azure AD** он использует пользователя, выполнившего вход, а на странице **Настройка** переключается на [учетную запись, под которой работает служба модуля синхронизации](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Настраиваемые нами конфигурации прокси-сервера применяются к компьютеру в целом, поэтому возникающие проблемы обычно проявляются уже на странице **Подключение к Azure AD** в мастере.
@@ -126,4 +124,4 @@ Azure AD Connect подключается к Azure AD, используя два
 1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
-<!-----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

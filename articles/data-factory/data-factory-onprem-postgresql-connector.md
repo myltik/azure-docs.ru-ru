@@ -30,6 +30,8 @@
 
 Для подключения шлюза управления данными к базе данных PostgreSQL необходимо установить [Поставщик данных Ngpsql для PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) в одной системе со шлюзом управления данными.
 
+> [AZURE.NOTE] Советы по устранению неполадок, связанных с шлюзом или подключением, см. в разделе [Устранение неполадок шлюза](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+
 ## Пример копирования данных из PostgreSQL в BLOB-объект Azure
 
 В примере ниже показано следующее.
@@ -163,7 +165,7 @@
 
 **Действие копирования**
 
-Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, заданный для свойства **query**, выбирает данные из таблицы public.usstates в базе данных PostgreSQL.
+Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, заданный для свойства **query**, выбирает данные из таблицы public.usstates в базе данных PostgreSQL.
 	
 	{
 	    "name": "CopyPostgreSqlToBlob",
@@ -306,4 +308,4 @@ text | | Строка
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

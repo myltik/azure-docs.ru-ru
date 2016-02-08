@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Редактирование шаблона диспетчера ресурсов с помощью Visual Studio | Microsoft Azure"
    description="Узнайте, как добавить ресурсы в шаблон диспетчера ресурсов Azure с помощью Visual Studio."
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
+   authors="tfitzmac"
+   manager="wpickett"
    editor="" />
 <tags 
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.author="tomfitz" />
 
 # Редактирование шаблонов диспетчера ресурсов с помощью Visual Studio
 
@@ -69,4 +69,4 @@ Visual Studio позволяет редактировать шаблон дис�
 
 [Видео Channel9. Диспетчер ресурсов Azure](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

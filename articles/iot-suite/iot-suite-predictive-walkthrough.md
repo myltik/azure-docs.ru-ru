@@ -2,13 +2,14 @@
  pageTitle="Пошаговое руководство по решению для диагностического обслуживания | Microsoft Azure"
  description="Пошаговое руководство по предварительно настроенному решению для диагностического обслуживания IoT Azure."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="aguilaaj"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -123,4 +124,4 @@
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

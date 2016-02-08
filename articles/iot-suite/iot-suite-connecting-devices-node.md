@@ -2,13 +2,14 @@
    pageTitle="Подключение устройства с помощью Node.js | Microsoft Azure"
    description="Описывает, как подключить устройство к предварительно настроенному решению для удаленного мониторинга из набора Azure IoT Suite с помощью приложения, написанного на Node.js."
    services=""
+   suite="iot-suite"
    documentationCenter="na"
    authors="dominicbetts"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="iot-suite"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -61,4 +62,4 @@
 [lnk-node-installers]: https://nodejs.org/download/
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

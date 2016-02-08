@@ -26,7 +26,7 @@
 
 Этот документ содержит заметки о выпуске пакета SDK для Azure для .NET 2.7.1.
 
-Пакет Azure SDK 2.7 поддерживается только в Visual Studio 2015 и Visual Studio 2013. [Пакет SDK для Azure 2.6](http://azure.microsoft.com/downloads/) — это последняя поддерживаемая версия пакета SDK для Visual Studio 2012.
+Пакет Azure SDK 2.7 поддерживается только в Visual Studio 2015 и Visual Studio 2013. [Пакет SDK для Azure 2.6](https://azure.microsoft.com/downloads/) — это последняя поддерживаемая версия пакета SDK для Visual Studio 2012.
 
 Дополнительную информацию об этом выпуске см. в [объявлении о пакете SDK для Azure 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) и [объявлении о пакете SDK для Azure 2.7.1](http://go.microsoft.com/fwlink/?LinkId=623850).
 
@@ -159,4 +159,4 @@
 
 [Сведения о поддержке и прекращении использования пакета Azure SDK для .NET и API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

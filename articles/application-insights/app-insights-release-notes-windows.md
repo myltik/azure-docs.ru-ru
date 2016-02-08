@@ -16,7 +16,7 @@
  
 # Заметки о выпуске для пакета SDK Application Insights для Windows Phone и Магазина Windows
 
-[Пакет SDK Application Insights](app-insights-windows-get-started.md) отправляет сведения о телеметрии, относящиеся к вашему работающему приложению, в службу [Application Insights](http://azure.microsoft.com/services/application-insights/), где вы можете проанализировать использование и производительность приложения.
+[Пакет SDK Application Insights](app-insights-windows-get-started.md) отправляет сведения о телеметрии, относящиеся к вашему работающему приложению, в службу [Application Insights](https://azure.microsoft.com/services/application-insights/), где вы можете проанализировать использование и производительность приложения.
 
 
 #### Установка пакета SDK в приложении
@@ -95,4 +95,4 @@
 
 Для более старых версий заметки о выпуске не доступны.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

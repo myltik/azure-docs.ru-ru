@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Синхронизация Azure AD Connect: соединитель Lotus Domino"
+   pageTitle="Синхронизация Azure AD Connect: соединитель Lotus Domino | Microsoft Azure"
    description="В этой статье описана настройка соединителя Lotus Domino (Майкрософт)."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/14/2016"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Технический справочник по соединителю Lotus Domino
@@ -539,4 +539,4 @@
 
 -	Сведения о том, как включить ведение журнала для устранения неполадок соединителя, см. в статье [Включение трассировки событий Windows для соединителей](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

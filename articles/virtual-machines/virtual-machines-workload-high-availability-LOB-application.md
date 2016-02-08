@@ -40,7 +40,7 @@
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
  
-Эту среду можно создать бесплатно, используя свою [подписку MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) или [пробную подписку Azure](http://azure.microsoft.com/pricing/free-trial/).
+Эту среду можно создать бесплатно, используя свою [подписку MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) или [пробную подписку Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Далее нужно создать высокодоступное бизнес-приложение в Azure.
 
@@ -86,4 +86,4 @@
 
 - Прежде чем приступить к настройке, ознакомьтесь с [общими сведениями](virtual-machines-workload-high-availability-lob-application-overview.md) о рабочей нагрузке.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -30,6 +30,8 @@
 
 Для подключения шлюза управления данными к базе данных Teradata необходимо установить [поставщик данных .NET для Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) в одной системе со шлюзом управления данными.
 
+> [AZURE.NOTE] Советы по устранению неполадок, связанных с шлюзом или подключением, см. в разделе [Устранение неполадок шлюза](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+
 ### Пример копирования данных из Teradata в BLOB-объект Azure
 
 В примере ниже показано следующее.
@@ -312,4 +314,4 @@ Xml | Строка
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

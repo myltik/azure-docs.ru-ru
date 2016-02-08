@@ -28,7 +28,7 @@
 
  - Дополнительные сведения об оперировании очередями в коде см. в статье [Использование хранилища очередей из .NET](storage-dotnet-how-to-use-queues.md).
  - Общие сведения о службе хранилища Azure см. в [документации по службе хранилища](https://azure.microsoft.com/documentation/services/storage/).
- - Общие сведения об облачных службах Azure см. в [документации по облачным службам](http://azure.microsoft.com/documentation/services/cloud-services/).
+ - Общие сведения об облачных службах Azure см. в [документации по облачным службам](https://azure.microsoft.com/documentation/services/cloud-services/).
  - Дополнительную информацию о программировании для ASP.NET см. в разделе [ASP.NET](http://www.asp.net).
 
 
@@ -50,7 +50,7 @@
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Получите объект **CloudQueueClient**, чтобы указать ссылку на объекты очереди в вашей учетной записи хранения.
+3. Используйте объект **CloudQueueClient** для ссылки на объекты очереди в вашей учетной записи хранения.
 
 	    // Create the queue client.
     	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -158,7 +158,7 @@
 
 ## Использование алгоритма Async-Await со стандартными API очередей Azure
 
-В этом примере показано использование алгоритма Async-Await со стандартными API очередей Azure. Вызывается асинхронная версия каждого из методов (на это указывает постфикс **Async**). При использовании асинхронного метода алгоритм Async-Await приостанавливает локальное выполнение процесса до завершения вызова. Благодаря этому текущий поток может выполнять другие задачи, что позволяет избежать возникновения узких мест и повысить общую скорость реагирования приложения. Дополнительные сведения об использовании алгоритма Async-Await в .NET см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await (C# и Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
+В этом примере показано использование алгоритма Async-Await со стандартными API очередей Azure. Вызывается асинхронная версия каждого из методов (на это указывает постфикс **Async** после их названий). При использовании асинхронного метода алгоритм Async-Await приостанавливает локальное выполнение процесса до завершения вызова. Благодаря этому текущий поток может выполнять другие задачи, что позволяет избежать возникновения узких мест и повысить общую скорость реагирования приложения. Дополнительные сведения об использовании алгоритма Async-Await в .NET см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await (C# и Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
 
     // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
@@ -192,4 +192,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

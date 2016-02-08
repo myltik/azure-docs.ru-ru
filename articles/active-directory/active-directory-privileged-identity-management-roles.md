@@ -3,7 +3,7 @@
    description="Узнайте, какие роли можно использовать для привилегированных пользователей с помощью расширения для управления привилегированными пользователями Azure."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="01/21/2016"
+   ms.author="kgremban"/>
 
 # Управление привилегированными пользователями Azure: роли
 
@@ -22,7 +22,7 @@
 
 ## Роли из Azure Active Directory, Office 365 и других источников
 
-Система управления привилегированными пользователями Azure использует указанные ниже роли в качестве ролей администраторов по умолчанию.
+Система управления привилегированными пользователями Azure (PIM) использует указанные ниже роли в качестве ролей администраторов по умолчанию.
 
 - глобального администратора;
 - администратора выставления счетов;
@@ -30,7 +30,7 @@
 - администратора пользователей;
 - администратора паролей.
 
-Дополнительные сведения о ролях из Office 365, Exchange Online, Sharepoint Online и Skype для бизнеса см. в статье [Назначение ролей администратора в Office 365](https://support.office.com/ru-RU/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=ru-RU&rs=ru-RU&ad=US).
+Дополнительные сведения о ролях Office 365, Exchange Online, Sharepoint Online и Skype для бизнеса см. в статье [Назначение ролей администратора в Office 365](https://support.office.com/ru-RU/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=ru-RU&rs=ru-RU&ad=US).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
@@ -42,7 +42,7 @@
 
 ## Назначение лицензии пользователю в Azure AD
 
-> [AZURE.NOTE]Параметр лицензии отображается только тогда, когда для этой подписки на самом деле имеются лицензии.
+> [AZURE.NOTE] Параметр лицензии отображается только тогда, когда для этой подписки на самом деле имеются лицензии.
 
 1. Войдите в систему по ссылке [http://manage.windowsazure.com](http://manage.windowsazure.com) с помощью учетной записи глобального администратора или соадминистратора.
 2. В главном меню выберите пункт **Все элементы**.
@@ -57,4 +57,4 @@
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -18,7 +18,7 @@
 
 # Как искать данные в StackExchange с помощью поиска Azure
 
-Эта статья является пошаговым руководством, в котором рассматривается ряд основных возможностей полнотекстового поиска, предоставляемых [Поиском Azure](https://azure.microsoft.com/services/search/). В ней используются данные, к которым сеть сайтов StackExchange [предоставила доступ](https://archive.org/details/stackexchange) по лицензии Creative Commons (с тем условием, чтобы соблюдались правила установления авторства, описанные в [этой статье](http://blog.stackoverflow.com/2009/06/attribution-required/)).
+Эта статья является пошаговым руководством, в котором рассматривается ряд основных возможностей полнотекстового поиска, предоставляемых [поиском Azure](https://azure.microsoft.com/services/search/). В ней используются данные, к которым сеть сайтов StackExchange [предоставила доступ](https://archive.org/details/stackexchange) по лицензии Creative Commons (с тем условием, чтобы соблюдались правила установления авторства, описанные в [этой статье](http://blog.stackoverflow.com/2009/06/attribution-required/)).
 
 ## Приступая к работе
 
@@ -109,4 +109,4 @@
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

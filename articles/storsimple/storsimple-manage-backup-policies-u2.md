@@ -63,7 +63,7 @@
 
 ![Доступно видео](./media/storsimple-manage-backup-policies-u2/Video_icon.png) **Доступно видео**
 
-Чтобы просмотреть видео о создании локальной или облачной политики архивации, щелкните [здесь](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
+Чтобы просмотреть видео о создании локальной или облачной политики архивации, щелкните [здесь](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
 ## Добавление или изменение расписания
@@ -96,4 +96,4 @@
 
 Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

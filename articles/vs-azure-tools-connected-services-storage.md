@@ -90,8 +90,8 @@ Visual Studio 2015 позволяет подключить любую облач
 
      - [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-     - [Хранилище на сайте azure.microsoft.com](http://azure.microsoft.com/services/storage)
+     - [Хранилище на сайте azure.microsoft.com](https://azure.microsoft.com/services/storage/)
 
-     - [Хранилище документации на сайте azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
+     - [Хранилище документации на сайте azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

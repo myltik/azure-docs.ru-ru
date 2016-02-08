@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Выпуски Azure Active Directory | Microsoft Azure"
-	description="Раздел с описанием бесплатного и платного выпусков Azure Active Directory."
+	description="В этом разделе описываются бесплатные и платные выпуски Azure Active Directory. Azure Active Directory Basic — это бесплатный выпуск, а Azure Active Directory Premium — платный."
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="markvi"/>
 
 # Выпуски Azure Active Directory
@@ -28,7 +28,7 @@ Azure Active Directory — это служба, которая предоста
 Подписки Office 365 включают дополнительные функции Azure Active Directory, описанные в следующей сравнительной таблице.
 
 
-> [AZURE.NOTE]Сведения о ценах для различных выпусков см. на странице [Azure Active Directory: цены](https://azure.microsoft.com/pricing/details/active-directory/). <br> В настоящий момент версии Azure Active Directory Premium и Basic не поддерживаются в Китае. Для получения дополнительных сведений свяжитесь с нами через форум, посвященный Azure Active Directory.
+> [AZURE.NOTE] Сведения о ценах для различных выпусков см. на странице [Azure Active Directory: цены](https://azure.microsoft.com/pricing/details/active-directory/). <br> В настоящий момент версии Azure Active Directory Premium и Basic не поддерживаются в Китае. Для получения дополнительных сведений свяжитесь с нами через форум, посвященный Azure Active Directory.
 
 
 - **Базовый выпуск Azure Active Directory** предназначен для пользователей, которые в основном работают в облаке, и предоставляет преимущественно облачный доступ к приложениям и решения для самостоятельного управления удостоверениями. С Базовым выпуском Azure Active Directory вы получаете улучшение производительности и функции для снижения затрат, такие как управление доступом на основе групп, самостоятельный сброс пароля для облачных приложений и прокси-сервер приложений Azure Active Directory (для публикации локальных веб-приложений с помощью Azure Active Directory). Все это поддерживается соглашением об уровне обслуживания корпоративного уровня (время бесперебойной работы на уровне 99,9%).
@@ -38,7 +38,8 @@ Azure Active Directory — это служба, которая предоста
 Чтобы войти в Active Directory Premium и начать использовать данный выпуск, ознакомьтесь с руководством [Приступая к работе с Azure Active Directory Premium](active-directory-get-started-premium.md).
 
 
-> [AZURE.NOTE]Ряд возможностей Azure Active Directory доступен по схеме с оплатой по мере использования.
+> [AZURE.NOTE] 
+Ряд возможностей Azure Active Directory доступен по схеме с оплатой по мере использования.
 >
 >- Active Directory B2C — решение для управления удостоверениями и доступом для клиентских приложений. Дополнительные сведения см. в статье [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/).
  
@@ -95,4 +96,4 @@ Azure Active Directory — это служба, которая предоста
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/13/2015"
+   ms.date="01/13/2016"
    ms.author="larryfr"/>
 
 
@@ -21,12 +21,12 @@
 
 Виртуальная сеть Azure позволяет расширить решения Hadoop для добавления локальных ресурсов, таких как SQL Server, или создания защищенных частных сетей между ресурсами в облаке.
 
-> [AZURE.NOTE]HDInsight не поддерживает виртуальные сети Azure на основе территории. При работе с HDInsight следует использовать виртуальные сети на основе расположения.
+> [AZURE.NOTE] HDInsight не поддерживает виртуальные сети Azure на основе территории. При работе с HDInsight следует использовать виртуальные сети на основе расположения.
 
 
 ##<a id="whatis"></a>Что такое виртуальная сеть Azure
 
-[Azure Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) позволяет создать безопасную, стабильную сеть, в которой будут находиться все ресурсы, необходимые для успешного функционирования вашего решения. Виртуальная сеть позволит вам:
+[Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) позволяет создать безопасную, стабильную сеть, в которой будут находиться все ресурсы, необходимые для успешного функционирования вашего решения. Виртуальная сеть позволит вам:
 
 * Соединить облачные ресурсы с частной сетью (только для облачных решений).
 
@@ -58,11 +58,11 @@
 
 Для получения более подробной информации о характеристиках, преимуществах и возможностях виртуальной сети Azure см. раздел [Обзор характеристик виртуальной сети Azure](../virtual-network/virtual-networks-overview.md).
 
-> [AZURE.NOTE]Виртуальную сеть Azure необходимо создавать до подготовки кластера HDInsight. Более подробную информацию можно найти в разделе [Настройка задач виртуальной сети](http://azure.microsoft.com/documentation/services/virtual-network/).
+> [AZURE.NOTE] Виртуальную сеть Azure необходимо создавать до подготовки кластера HDInsight. Более подробную информацию можно найти в разделе [Настройка задач виртуальной сети](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 ## Требования к виртуальной сети
 
-> [AZURE.IMPORTANT]Для создания кластера HDInsight в виртуальной сети требуются особые настройки виртуальной сети, описанные в этом разделе.
+> [AZURE.IMPORTANT] Для создания кластера HDInsight в виртуальной сети требуются особые настройки виртуальной сети, описанные в этом разделе.
 
 * Azure HDInsight поддерживает только виртуальные сети на основе расположения и на данный момент не работает с виртуальными сетями на основе территориальной группы. 
 
@@ -87,7 +87,7 @@
     
     2. Создайте кластер HDInsight, При настройке параметров виртуальной сети для кластера выберите подсеть, созданную на шаге 1.
 
-    > [AZURE.NOTE]Эти действия предполагают, что вы не ограничены взаимодействием с IP-адресами _в диапазоне IP-адресов виртуальной сети_. При желании можно изменить эти ограничения для связи с новой подсетью.
+    > [AZURE.NOTE] Эти действия предполагают, что вы не ограничены взаимодействием с IP-адресами _в диапазоне IP-адресов виртуальной сети_. При желании можно изменить эти ограничения для связи с новой подсетью.
 
     Дополнительные сведения о группах безопасности сети см. в разделе [Обзор групп безопасности сети](../virtual-network/virtual-networks-nsg.md). Сведения об управлении маршрутизацией в виртуальной сети Azure см. в разделе [Определяемые пользователем маршруты и переадресация IP](../virtual-network/virtual-networks-udr-overview.md).
 
@@ -103,11 +103,11 @@
 
 	https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/<servicename>/components/<componentname>
 
-> [AZURE.NOTE]Дополнительные сведения об использовании Ambari в HDInsight см. в разделе [Мониторинг кластеров Hadoop в HDInsight с помощью API Ambari](hdinsight-monitor-use-ambari-api.md).
+> [AZURE.NOTE] Дополнительные сведения об использовании Ambari в HDInsight см. в разделе [Мониторинг кластеров Hadoop в HDInsight с помощью API Ambari](hdinsight-monitor-use-ambari-api.md).
 
 Необходимо указать имя кластера, службу и компонент, работающий в кластере, например диспетчер ресурсов YARN.
 
-> [AZURE.NOTE]Возвращенные данные представляют собой документ JavaScript Object Notation (JSON), содержащий большой объем сведений о компоненте. Чтобы извлечь только полное доменное имя, следует получить значение `host_components[0].HostRoles.host_name` с помощью средства синтаксического анализа JSON.
+> [AZURE.NOTE] Возвращенные данные представляют собой документ JavaScript Object Notation (JSON), содержащий большой объем сведений о компоненте. Чтобы извлечь только полное доменное имя, следует получить значение `host_components[0].HostRoles.host_name` с помощью средства синтаксического анализа JSON.
 
 Например, чтобы получить полное доменное имя из кластера Hadoop HDInsight, можно использовать один из следующих способов извлечения данных для диспетчера ресурсов YARN.
 
@@ -158,7 +158,7 @@
 
 		curl -G -u <username>:<password> "https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum" | jq .items[0].properties[]
 
-> [AZURE.NOTE]Дополнительные сведения об использовании Ambari в HDInsight см. в разделе [Мониторинг кластеров Hadoop в HDInsight с помощью API Ambari](hdinsight-monitor-use-ambari-api.md).
+> [AZURE.NOTE] Дополнительные сведения об использовании Ambari в HDInsight см. в разделе [Мониторинг кластеров Hadoop в HDInsight с помощью API Ambari](hdinsight-monitor-use-ambari-api.md).
 
 После получения информации о кворуме используйте ее в клиентском приложении.
 
@@ -199,4 +199,4 @@
 
 Дополнительные сведения о виртуальных сетях Azure см. в статье [Общие сведения о виртуальных сетях Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

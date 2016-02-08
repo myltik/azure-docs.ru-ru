@@ -24,7 +24,7 @@ Scalding — это библиотека Scala, которая позволяе
 
 ## Предварительные требования
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Hadoop на основе Windows или Linux в кластере HDInsight **. Дополнительные сведения см. в разделе [Подготовка Hadoop на основе Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md) или [Подготовка Hadoop на основе Windows в HDInsight](hdinsight-provision-clusters.md).
 
 * **[Maven](http://maven.apache.org/)**
@@ -185,7 +185,7 @@ Scalding — это библиотека Scala, которая позволяе
 
 ## Запуск задания в кластере под управлением Linux
 
-> [AZURE.NOTE]В следующих действиях используются SSH и команда Hadoop. Другие способы выполнения заданий MapReduce см. в разделе [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
+> [AZURE.NOTE] В следующих действиях используются SSH и команда Hadoop. Другие способы выполнения заданий MapReduce см. в разделе [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
 
 1. Воспользуйтесь следующей командой, чтобы загрузить пакет в ваш кластер HDInsight:
 
@@ -193,13 +193,13 @@ Scalding — это библиотека Scala, которая позволяе
 
     В результате файлы будут скопированы из локальной системы на головной узел.
 
-    > [AZURE.NOTE]Если для защиты учетной записи SSH использовался пароль, будет предложено ввести пароль. Если использовался ключ SSH, возможно, нужно будет использовать параметр `-i` и указать путь к закрытому ключу. Например, `scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.net:.`
+    > [AZURE.NOTE] Если для защиты учетной записи SSH использовался пароль, будет предложено ввести пароль. Если использовался ключ SSH, возможно, нужно будет использовать параметр `-i` и указать путь к закрытому ключу. Например, `scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.net:.`
 
 2. Введите следующую команду для подключения к головному узлу кластера:
 
         ssh username@clustername-ssh.azurehdinsight.net
 
-    > [AZURE.NOTE]Если для защиты учетной записи SSH использовался пароль, будет предложено ввести пароль. Если использовался ключ SSH, возможно, нужно будет использовать параметр `-i` и указать путь к закрытому ключу. Например, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
+    > [AZURE.NOTE] Если для защиты учетной записи SSH использовался пароль, будет предложено ввести пароль. Если использовался ключ SSH, возможно, нужно будет использовать параметр `-i` и указать путь к закрытому ключу. Например, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
 
 3. После подключения к головному узлу используйте следующую команду для запуска задания подсчета слов
 
@@ -229,7 +229,7 @@ Scalding — это библиотека Scala, которая позволяе
 
 ## Запуск задания в кластере под управлением Windows
 
-> [AZURE.NOTE]В следующих действиях используется Windows PowerShell. Другие способы выполнения заданий MapReduce см. в разделе [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
+> [AZURE.NOTE] В следующих действиях используется Windows PowerShell. Другие способы выполнения заданий MapReduce см. в разделе [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
 
 1. [Установите и настройте Azure PowerShell](../powershell-install-configure.md).
 
@@ -245,7 +245,7 @@ Scalding — это библиотека Scala, которая позволяе
 
 		Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE]`Get-AzureRMSubscription` можно использовать для получения списка всех подписок, связанных с вашей учетной записью, в котором указан идентификатор каждой подписки.
+    > [AZURE.NOTE] `Get-AzureRMSubscription` можно использовать для получения списка всех подписок, связанных с вашей учетной записью, в котором указан идентификатор каждой подписки.
 
 4. Используйте следующий сценарий, чтобы отправить и запустить задание WordCount. Замените `CLUSTERNAME` на имя вашего кластера HDInsight и убедитесь, что `$fileToUpload` содержит правильный путь к файлу __scaldingwordcount-1.0-SNAPSHOT.jar__.
 
@@ -344,4 +344,4 @@ Scalding — это библиотека Scala, которая позволяе
 
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

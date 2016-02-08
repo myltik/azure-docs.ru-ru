@@ -278,9 +278,9 @@ Insert or Merge Entity (Вставка или слияние сущностей)
 
 Подробнее о службе хранения Azure:
 
-- [Домашняя страница службы хранилища Microsoft Azure](http://azure.microsoft.com/services/storage/)
+- [Домашняя страница службы хранилища Microsoft Azure](https://azure.microsoft.com/services/storage/)
 - [Введение в хранилище Azure](storage-introduction.md)
 - Знакомство с хранилищем для [больших двоичных объектов](storage-dotnet-how-to-use-blobs.md), [таблиц](storage-dotnet-how-to-use-tables.md) и [очередей](storage-dotnet-how-to-use-queues.md)
 - Архитектура хранилища — [служба хранилища Microsoft Azure: доступная служба облачного хранения со строгой согласованностью](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

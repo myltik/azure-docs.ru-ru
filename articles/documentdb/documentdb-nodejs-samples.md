@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Примеры Node.js для DocumentDB в github | Microsoft Azure" 
-	description="Найдите в github примеры Node.js для выполнения общих задач в DocumentDB, включая операции CRUD для документов JSON в базах данных NoSQL." 
+	pageTitle="Примеры NoSQL Node.js для DocumentDB | Microsoft Azure" 
+	description="Примеры NoSQL Node.js для выполнения общих задач в DocumentDB, включая операции CRUD для документов JSON в базах данных NoSQL, можно найти на сайте GitHub." 
+	keywords="примеры node.js"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -20,23 +21,23 @@
 # Примеры DocumentDB для Node.js
 
 > [AZURE.SELECTOR]
-- [.NET Samples](documentdb-dotnet-samples.md)
-- [Node.js Samples](documentdb-nodejs-samples.md)
+- [.NET Examples](documentdb-dotnet-samples.md)
+- [Node.js Examples](documentdb-nodejs-samples.md)
 - [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
-Примеры решений, которые выполняют операции CRUD и другие распространенные операции с ресурсами DocumentDB, содержатся в разделе [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub. Эта статья содержит:
+Примеры решений, которые выполняют операции CRUD и другие распространенные операции с ресурсами DocumentDB, содержатся в разделе [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) репозитория GitHub. Эта статья содержит:
 
 - Ссылки на задачи в каждом из примеров файлов проектов Node.js. 
 - Ссылки на соответствующие справочные материалы по API.
 
 **Предварительные требования**
 
-1. Для использования этих примеров требуется учетная запись Azure.
+1. Для использования этих примеров Node.js требуется учетная запись Azure.
     - Вы можете [открыть учетную запись Azure бесплатно](https://azure.microsoft.com/pricing/free-trial/) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после использования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты. С вашей кредитной карты не будет взиматься плата, если вы явно не измените параметры и не попросите снимать плату.
    - Вы можете [активировать преимущества подписчика Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) — каждый месяц ваша подписка Visual Studio предоставляет вам кредиты, которые можно использовать для оплаты служб Azure.
 2. Вам также необходим [пакет SDK для Node.js](documentdb-sdk-node.md). 
 
-    > [AZURE.NOTE]Каждый пример является самодостаточным, он устанавливается самостоятельно и выполняет необходимую очистку после удаления. Поэтому примеры выполняют множественные вызовы метода [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html). Каждый раз, когда это происходит, вам будет выставляться счет за 1 час использования каждого уровня производительности создаваемой коллекции.
+    > [AZURE.NOTE] Каждый пример является самодостаточным, он устанавливается самостоятельно и выполняет необходимую очистку после удаления. Поэтому примеры выполняют множественные вызовы метода [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html). Каждый раз, когда это происходит, вам будет выставляться счет за 1 час использования каждого уровня производительности создаваемой коллекции.
 
 ## Примеры баз данных
 
@@ -106,4 +107,4 @@
 
 Дополнительные сведения о программировании на стороне сервера см. в разделе [Программирование DocumentDB на стороне сервера: хранимые процедуры, триггеры баз данных и определяемые пользователем функции](documentdb-programming.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

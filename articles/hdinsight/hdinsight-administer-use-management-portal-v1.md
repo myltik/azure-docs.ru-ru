@@ -35,7 +35,7 @@
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Учетная запись хранения Azure**. Кластер HDInsight использует контейнер хранилища больших двоичных объектов Azure в качестве файловой системы по умолчанию. Дополнительные сведения о том, каким образом хранилище больших двоичных объектов Azure обеспечивает удобную работу с кластерами HDInsight, см. в разделе [Использование хранилища больших двоичных объектов Azure с HDInsight](../hdinsight-use-blob-storage.md). Сведения о создании учетной записи хранения Azure см. в разделе [Создание учетной записи хранения](../storage-create-storage-account.md).
 
 
@@ -58,7 +58,7 @@ HDInsight работает со множеством компонентов Hado
 - Некоторые собственные компоненты Java, такие как Mahout и Cascading, могут выполняться в кластере как JAR-файлы. Эти JAR-файлы можно распространить в хранилище больших двоичных объектов Azure и отправить в кластеры HDInsight с помощью механизмов отправки заданий Hadoop. Дополнительные сведения см. в разделе [Отправка заданий Hadoop программными средствами](hdinsight-submit-hadoop-jobs-programmatically.md).
 
 
-	>[AZURE.NOTE]Если при развертывании или вызове JAR-файлов в кластерах HDInsight возникают проблемы, обратитесь в [службу поддержки Майкрософт](http://azure.microsoft.com/support/options/).
+	>[AZURE.NOTE] Если при развертывании или вызове JAR-файлов в кластерах HDInsight возникают проблемы, обратитесь в [службу поддержки Майкрософт](https://azure.microsoft.com/support/options/).
 
 	> Компонент Cascading не поддерживается службой HDInsight и на него не распространяется техническая поддержка Майкрософт. Списки поддерживаемых компонентов см. в разделе [Новые возможности версий кластеров, предоставляемых HDInsight](hdinsight-component-versioning.md).
 
@@ -97,11 +97,11 @@ HDInsight работает со множеством компонентов Hado
 	![HDI.CreateRDPUser][image-hdi-create-rpd-user]
 
 
-> [AZURE.NOTE]Можно также включить удаленный рабочий стол в кластере с помощью пакета SDK для HDInsight .NET. Используйте метод **EnableRdp** в клиентском объекте HDInsight следующим образом: **client.EnableRdp(имя\_кластера, расположение, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Аналогично, чтобы отключить удаленный рабочий стол в кластере, можно использовать **client.DisableRdp(имя\_кластера, расположение)**. Дополнительные сведения об этих методах см. в разделе [Справочник по пакету SDK для HDInsight .NET](http://go.microsoft.com/fwlink/?LinkId=529017). Это применимо только для кластеров HDInsight под управлением Windows.
+> [AZURE.NOTE] Можно также включить удаленный рабочий стол в кластере с помощью пакета SDK для HDInsight .NET. Используйте метод **EnableRdp** в клиентском объекте HDInsight следующим образом: **client.EnableRdp(имя\_кластера, расположение, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Аналогично, чтобы отключить удаленный рабочий стол в кластере, можно использовать **client.DisableRdp(имя\_кластера, расположение)**. Дополнительные сведения об этих методах см. в разделе [Справочник по пакету SDK для HDInsight .NET](http://go.microsoft.com/fwlink/?LinkId=529017). Это применимо только для кластеров HDInsight под управлением Windows.
 
 
 
-> [AZURE.NOTE]После включения RDP для кластера прежде чем подключаться к кластеру, вам необходимо обновить страницу.
+> [AZURE.NOTE] После включения RDP для кластера прежде чем подключаться к кластеру, вам необходимо обновить страницу.
 
 **Подключение к кластеру с помощью RDP**
 
@@ -138,7 +138,7 @@ HDInsight работает со множеством компонентов Hado
 
 По умолчанию эти службы предоставляются для доступа. Вы можете предоставлять и отменять доступ на классическом портале Azure.
 
->[AZURE.NOTE]Предоставляя или отменяя доступ, вы сбрасываете имя пользователя и пароль кластера.
+>[AZURE.NOTE] Предоставляя или отменяя доступ, вы сбрасываете имя пользователя и пароль кластера.
 
 **Предоставление и отмена доступа к веб-службам HTTP**
 
@@ -198,4 +198,4 @@ HDInsight работает со множеством компонентов Hado
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

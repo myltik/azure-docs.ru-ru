@@ -25,7 +25,7 @@
 Используя портал Azure, вы можете представлять фабрику данных в виде схемы, просматривать действия в конвейере, входные и выходные наборы данных и не только. В этом разделе также содержится информация о переходе среза из одного состояния в другое.
 
 ### Переход к фабрике данных
-1.	Войдите на [портал Azure](http://portal.azure.com).
+1.	Войдите на [портал Azure](https://portal.azure.com).
 2.	Щелкните **Просмотреть все** и выберите **Фабрики данных**.
 	
 	![Просмотреть все -> Фабрики данных](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -96,6 +96,7 @@
 <td>ValidationRetry</td><td>Ожидание повторения проверки.</td>
 </tr>
 <tr>
+
 <td rowspan="2">InProgress</td><td>Validating</td><td>Проверка выполняется.</td>
 </tr>
 <td></td>
@@ -539,9 +540,7 @@ OnDemandClusterDeleted | Succeeded
  
 Замените subscriptionId, resourceGroupName и dataFactoryName в приведенном выше примере на соответствующие значения.
 
-Сейчас для *metricName* можно указать только 2 значения:
-- FailedRuns или
-- SuccessfulRuns.
+Сейчас для *metricName* можно указать только 2 значения: FailedRuns или SuccessfulRuns.
 
 **Развертывание оповещения**
 
@@ -568,4 +567,4 @@ OnDemandClusterDeleted | Succeeded
 
 Вы также можете использовать командлет **Add-AlertRule**, чтобы выполнить развертывание правила оповещения. Дополнительные сведения и примеры см. в разделе [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

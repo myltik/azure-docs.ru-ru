@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="01/21/2016"
    ms.author="barbkess;sonyama"/>
 
 #Темы, связанные с языком Transact-SQL
@@ -47,7 +47,7 @@
 - [DROP TABLE](https://msdn.microsoft.com/library/ms173790.aspx)
 - [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
 - [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
-- RENAME
+- [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
 - [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 - [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
@@ -60,19 +60,19 @@
 ## Команды консоли базы данных
 
 - [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
-- [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/ms174283.aspx)
-- DBCC SHRINKLOG
+- [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
+- [DBCC SHRINKLOG](https://msdn.microsoft.com/library/mt204020.aspx)
 - [DBCC PDW\_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
-- DBCC PDW\_SHOWPARTITIONSTATS
-- DBCC PDW\_SHOWSPACEUSED
-- [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)
+- [DBCC PDW\_SHOWPARTITIONSTATS](https://msdn.microsoft.com/library/mt204013.aspx)
+- [DBCC PDW\_SHOWSPACEUSED](https://msdn.microsoft.com/library/mt204028.aspx)
+- [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
 
 ## Инструкции запросов
 
 - [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)
 - [WITH common\_table\_expression](https://msdn.microsoft.com/library/ms175972.aspx)
 - [EXCEPT and INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
-- EXPLAIN
+- [EXPLAIN](https://msdn.microsoft.com/library/mt631615.aspx)
 - [FROM](https://msdn.microsoft.com/library/ms177634.aspx)
 - [Использование PIVOT и UNPIVOT](https://msdn.microsoft.com/library/ms177410.aspx)
 - [GROUP BY](https://msdn.microsoft.com/library/ms177673.aspx)
@@ -82,9 +82,9 @@
 - [UNION](https://msdn.microsoft.com/library/ms180026.aspx)
 - [WHERE](https://msdn.microsoft.com/library/ms188047.aspx)
 - [TOP](https://msdn.microsoft.com/library/ms189463.aspx)
-- Псевдонимы
+- [Псевдонимы](https://msdn.microsoft.com/library/mt631614.aspx)
 - [Условие поиска](https://msdn.microsoft.com/library/ms173545.aspx)
-- Вложенные запросы
+- [Вложенные запросы](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## Инструкции по безопасности
 
@@ -129,4 +129,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

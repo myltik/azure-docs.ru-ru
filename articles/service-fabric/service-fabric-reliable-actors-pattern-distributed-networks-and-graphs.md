@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/29/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Конструктивный шаблон Reliable Actors: распределенные сети и графы
 Платформа Azure Service Fabric предоставляет модель программирования с использованием субъектов Reliable Actors. Эта модель удобна не только при моделировании комплексных решений с учетом связей, но и при моделировании этих связей в качестве объектов.
@@ -230,4 +230,4 @@ public Task PublishMessageAsync(long participantId, string message)
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

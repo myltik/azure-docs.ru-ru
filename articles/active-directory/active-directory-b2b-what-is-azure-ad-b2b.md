@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="01/22/2016"
    ms.author="viviali"/>
 
 # Предварительная версия службы совместной работы Azure Active Directory (Azure AD) B2B: простая и надежная облачная интеграция партнеров
@@ -28,14 +28,16 @@
 
 Ознакомьтесь с [записью в блоге о выходе общедоступной предварительной версии](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) и [подробным видео](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-B2B-collaboration-demo) об использовании службы совместной работы Azure AD B2B.
 
+Чтобы сравнить разные варианты использования для совместной работы Azure AD B2B, Azure AD B2C и приложения с несколькими клиентами Azure AD, см. статью [Comparing capabilities for managing external identities using Azure Active Directory ](active-directory-b2b-compare-external-identities.md) (Сравнение возможностей управления внешними удостоверениями с помощью Azure Active Directory).
+
 ## Связанные статьи
 Ознакомьтесь с другими статьями о службе совместной работы Azure B2B.
 
 - [Принцип работы](active-directory-b2b-how-it-works.md)
 - [Подробное пошаговое руководство](active-directory-b2b-detailed-walkthrough.md)
-- [Справка по формату CSV-файла](active-directory-b2b-references-csv-file-format.md)
+- [Справочник по формату файлов CSV](active-directory-b2b-references-csv-file-format.md)
 - [Формат токена внешнего пользователя](active-directory-b2b-references-external-user-token-format.md)
 - [Изменение атрибутов объекта внешнего пользователя](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

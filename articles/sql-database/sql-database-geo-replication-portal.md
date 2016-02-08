@@ -49,7 +49,7 @@
 
 Базе данных-получатель присваивается такое же имя, как у базы данных-источника, и по умолчанию тот же уровень обслуживания. База данных-получатель может быть доступной (только для уровня Premium) или не доступной для чтения, одинарной или эластичной. Дополнительные сведения см. в статье [Уровни обслуживания](sql-database-service-tiers.md). После создания и заполнения базы данных-получателя начинается репликация данных из базы данных-источника в новую базу-данных-получателя.
 
-> [AZURE.NOTE]Если партнерская база данных уже создана (например, в результате прекращения предыдущей связи георепликации), команда завершится неудачей.
+> [AZURE.NOTE] Если партнерская база данных уже создана (например, в результате прекращения предыдущей связи георепликации), команда завершится неудачей.
 
 
 
@@ -133,7 +133,7 @@
 
 ## Дополнительные ресурсы
 
-- [Новые возможности георепликации](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Новые возможности георепликации](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Разработка облачных приложений для непрерывности бизнес-процессов с использованием георепликации](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
 - [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
@@ -151,4 +151,4 @@
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

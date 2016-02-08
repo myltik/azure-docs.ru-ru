@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 # Приступая к созданию балансировщика нагрузки для Интернета в диспетчере ресурсов с помощью PowerShell
@@ -50,35 +50,32 @@
 
 ## Настройка PowerShell для использования диспетчера ресурсов
 
-Убедитесь, что у вас установлена последняя рабочая версия модуля Azure для PowerShell и PowerShell правильно настроена для доступа к подписке Azure.
+Убедитесь, что вы используете последнюю рабочую версию модуля диспетчера ресурсов Azure (ARM) для PowerShell.
 
 ### Шаг 1
 
 		PS C:\> Login-AzureRmAccount
 
+Вам будет предложено пройти проверку подлинности с вашими учетными данными.<BR>
 
-
-### Шаг 2
+### Шаг 2.
 
 Проверка подписок для учетной записи
 
-		PS C:\> get-AzureRmSubscription 
+		PS C:\> Get-AzureRmSubscription 
 
-Вам будет предложено пройти проверку подлинности с вашими учетными данными.<BR>
-
-### Шаг 3. 
+### Шаг 3. 
 
 Выберите, какие подписки Azure будут использоваться. <BR>
 
-
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-
+		PS C:\> Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
 
 ### Шаг 4.
 
 Создайте группу ресурсов (пропустите этот шаг, если вы используете существующую группу).
 
-    PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+
+    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 
 ## Создание виртуальной сети и общедоступного IP-адреса для пула IP-адресов клиентской части
@@ -87,30 +84,30 @@
 
 Создайте подсеть и виртуальную сеть.
 
-	$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
-	New-AzureRmvirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
+    $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
+    New-AzureRmvirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
-### Шаг 2
+### Шаг 2.
 
-Создайте общедоступный IP-адрес *PublicIP*, который будет использоваться пулом внешних IP-адресов, с DNS-именем *loadbalancernrp.westus.cloudapp.azure.com*. В команде ниже используется статическое выделение.
+Создайте ресурс для общедоступного IP-адреса Azure с именем *PublicIP*, который будет использоваться пулом IP-адресов клиентской части с DNS-именем *loadbalancernrp.westus.cloudapp.azure.com*. В команде ниже используется статическое выделение.
 
-	$publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Static -DomainNameLabel loadbalancernrp 
+	$publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location 'West US' –AllocationMethod Static -DomainNameLabel loadbalancernrp 
 
->[AZURE.IMPORTANT]Балансировщик нагрузки будет использовать метку домена общедоступного IP-адреса в качестве префикса к полному доменному имени (FQDN). В этом заключается отличие от классической модели развертывания, где в качестве полного доменного имени балансировщика нагрузки используется облачная служба. В этом примере используется полное доменное имя *loadbalancernrp.westus.cloudapp.azure.com*.
+>[AZURE.IMPORTANT] Балансировщик нагрузки будет использовать метку домена общедоступного IP-адреса в качестве префикса к полному доменному имени (FQDN). В этом заключается отличие от классической модели развертывания, где в качестве полного доменного имени балансировщика нагрузки используется облачная служба. В этом примере используется полное доменное имя *loadbalancernrp.westus.cloudapp.azure.com*.
 
 ## Создание пула IP-адресов клиентской части и пула адресов серверной части
 
 ### Шаг 1 
 
-Создайте пул внешних IP-адресов с именем *LB-Frontend*, использующий общедоступный IP-адрес *PublicIp*.
+Создайте пул IP-адресов клиентской части с именем *LB-Frontend*, использующий общедоступный IP-адрес *PublicIp*.
 
 	$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
 
 ### Шаг 2. 
 
-Создайте пул внутренних адресов с именем *LB-backend*.
+Создайте пул адресов серверной части с именем *LB-backend*.
 
-	$beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
+	$beaddresspool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name LB-backend
 
 ## Создание правил балансировки нагрузки, правил преобразования сетевых адресов, пробы и балансировщика нагрузки
 
@@ -123,55 +120,54 @@
 - балансировщик нагрузки, который использует все объекты выше.
 
 
-
 ### Шаг 1
 
 Создайте правила NAT.
 
-	$inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
+	$inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP1 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
 
-	$inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
+	$inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP2 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
 ### Шаг 2
 
 Создайте правило балансировщика нагрузки.
 
-	$lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+	$lbrule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 
 ### Шаг 3.
 
 Создайте пробу работоспособности.
 
-	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 ### Шаг 4.
 
 Создайте балансировщик нагрузки с помощью объектов, созданных ранее.
 
-	$NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe 
+	$NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name NRP-LB -Location 'West US' -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 
 ## Создание сетевых адаптеров
 
-Вам необходимо создать сетевые адаптеры (или изменить существующие) и связать их с правилами NAT, правилами балансировщика нагрузки и пробами.
+Вам необходимо создать сетевые интерфейсы (или изменить существующие) и связать их с правилами NAT, правилами балансировщика нагрузки и пробами.
 
 ### Шаг 1 
 
-Получите виртуальную сеть и подсеть, где нужно создать сетевые адаптеры.
+Получите виртуальную сеть и подсеть виртуальной сети, в которых должны быть созданы сетевые карты.
 
 	$vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 	$backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet 
 
-### Шаг 2
+### Шаг 2.
 
 Создайте сетевую карту *lb-nic1-be* и сопоставьте ее с первым правилом NAT, а также с первым (и единственным) пулом внутренних адресов.
 	
-	$backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
+	$backendnic1= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic1-be -Location 'West US' -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 
 ### Шаг 3.
 
-Создайте сетевую карту *lb-nic2-be* и сопоставьте ее со вторым правилом NAT, а также с первым (и единственным) пулом внутренних адресов.
+Создайте сетевую карту *lb-nic2-be* и сопоставьте ее со вторым правилом NAT, а также с первым (и единственным) пулом адресов серверной части.
 
-	$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
+	$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic2-be -Location 'West US' -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 
 ### Шаг 4.
 
@@ -232,6 +228,41 @@
 
 Инструкции по созданию виртуальной машины и назначению сетевой карты см. в статье [Создание и предварительная настройка виртуальной машины Windows с помощью диспетчера ресурсов и Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) (вариант 5 в примере).
 
+
+Если виртуальная машина у вас уже есть, добавьте сетевой интерфейс, выполнив описанные ниже действия:
+
+#### Шаг 1 
+
+Загрузите ресурс балансировщика нагрузки в переменную (если вы это еще не сделали). Имя переменной — $lb. Используйте имена из ресурса балансировщика нагрузки, созданного ранее.
+
+	$lb= get-azurermloadbalancer –name NRP-LB -resourcegroupname NRP-RG
+
+#### Шаг 2. 
+
+Загрузите в переменную конфигурацию серверной части.
+
+	PS C:\> $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+
+#### Шаг 3. 
+
+Загрузите в переменную созданный ранее сетевой интерфейс. Имя переменной — $nic. Имя сетевого интерфейса совпадает с именем в приведенном выше примере.
+
+	$nic =get-azurermnetworkinterface –name lb-nic1-be -resourcegroupname NRP-RG
+
+#### Шаг 4.
+
+Измените конфигурацию серверной части в сетевом интерфейсе.
+
+	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+
+#### Шаг 5 
+
+Сохраните объект сетевого интерфейса.
+
+	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+
+После того как сетевой интерфейс будет добавлен в пул серверной части балансировщика нагрузки, он начнет получать сетевой трафик согласно правилам балансировки нагрузки для соответствующего ресурса балансировщика.
+
 ## Обновление существующего балансировщика нагрузки
 
 
@@ -239,13 +270,13 @@
 
 Используя балансировщик нагрузки из предыдущего примера, присвойте переменной $slb ссылку на объект балансировщика нагрузки, используя метод Get-AzureLoadBalancer.
 
-	$slb=get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+	$slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
 ### Шаг 2
 
 В следующем примере вы добавите новое входящее правило NAT для порта 81 на клиентской части и порта 8181 на серверной части, которое будет применяться к пулу существующего балансировщика нагрузки.
 
-	$slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+	$slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol TCP
 
 
 ### Шаг 3.
@@ -254,13 +285,13 @@
 
 	$slb | Set-AzureRmLoadBalancer
 
-## Удалите балансировщика нагрузки.
+## Удаление балансировщика нагрузки
 
-Воспользуйтесь командой Remove-AzureLoadBalancer, чтобы удалить ранее созданного балансировщика нагрузки с именем NRP-LB в группе ресурсов NRP RG.
+Воспользуйтесь командой `Remove-AzureLoadBalancer`, чтобы удалить ранее созданный балансировщик нагрузки с именем NRP-LB в группе ресурсов NRP RG.
 
 	Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE]Чтобы пропустить подтверждение удаления, можно использовать необязательный ключ -Force.
+>[AZURE.NOTE] Чтобы пропустить подтверждение удаления, можно использовать необязательный ключ -Force.
 
 ## Дальнейшие действия
 
@@ -270,4 +301,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

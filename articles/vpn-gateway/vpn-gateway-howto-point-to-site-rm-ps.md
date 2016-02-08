@@ -50,7 +50,7 @@
 
 ## Подготовка
 
-Убедитесь, что у вас есть подписка Azure и установлены командлеты Azure PowerShell, необходимые для этой конфигурации (1.0.2 или более поздней версии). Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
+Убедитесь, что у вас есть подписка Azure и установлены командлеты Azure PowerShell, необходимые для этой конфигурации (1.0.2 или более поздней версии). Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 	
 **Сведения об установке модулей командлетов PowerShell**
 
@@ -231,4 +231,4 @@
 
 Вы можете добавить виртуальную машину в виртуальную сеть. Инструкции см. в статье [Создание виртуальной машины под управлением Windows на портале Azure](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -46,7 +46,7 @@
 
  [Планы и выставление счетов в планировщике Azure](scheduler-plans-billing.md)
 
- [Справочник по API REST планировщика Azure](https://msdn.microsoft.com/library/dn528946)
+ [Справочник по API REST планировщика Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Высокая доступность и надежность планировщика Azure](scheduler-high-availability-reliability.md)
 
@@ -59,4 +59,4 @@
 
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

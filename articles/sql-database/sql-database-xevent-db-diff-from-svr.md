@@ -33,9 +33,9 @@
 *XEvents* — это неофициальное обозначение расширенных событий, которое встречается в блоках и других неофициальных источниках.
 
 
-> [AZURE.NOTE]На октябрь 2015 года функция сеанса расширенных событий активирована в Базе данных SQL на уровне предварительной версии. Дата выхода общедоступной версии пока не установлена.
+> [AZURE.NOTE] На октябрь 2015 года функция сеанса расширенных событий активирована в Базе данных SQL на уровне предварительной версии. Дата выхода общедоступной версии пока не установлена.
 > 
-> Сообщения о выходе общедоступных версий публикуются на странице [Обновления служб](http://azure.microsoft.com/updates/?service=sql-database) Azure.
+> Сообщения о выходе общедоступных версий публикуются на странице [Обновления служб](https://azure.microsoft.com/updates/?service=sql-database) Azure.
 
 
 ## Предварительные требования
@@ -44,7 +44,7 @@
 В данной статье предполагается, чтобы вы уже знакомы со следующими компонентами:
 
 
-- [Служба Базы данных SQL Azure](http://azure.microsoft.com/services/sql-database/);
+- [Служба Базы данных SQL Azure](https://azure.microsoft.com/services/sql-database/);
 
 
 - [Расширенные события](http://msdn.microsoft.com/library/bb630282.aspx) в Microsoft SQL Server.
@@ -54,7 +54,7 @@
 При выборе файла событий в качестве [целевого объекта](#AzureXEventsTargets) пригодится знание следующих компонентов:
 
 
-- [Служба хранилища Azure](http://azure.microsoft.com/services/storage/)
+- [Служба хранилища Azure](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell
@@ -269,4 +269,4 @@ API [трассировки событий для Windows (ETW)](http://msdn.mic
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

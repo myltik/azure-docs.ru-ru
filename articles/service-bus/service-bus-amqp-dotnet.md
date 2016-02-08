@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Использование служебной шины на платформе .NET с протоколом AMQP 1.0
@@ -21,7 +21,7 @@
 
 ## Загрузка пакета SDK служебной шины.
 
-Поддержка AMQP 1.0 доступна в пакете SDK служебной шины версии 2.1 или более поздней. Последнюю версию пакета SDK можно скачать в [NuGet][].
+Поддержка AMQP 1.0 доступна в пакете SDK служебной шины версии 2.1 или более поздней. Последнюю версию битов служебной шины можно скачать в [NuGet][].
 
 ## Настройка приложений .NET для использования протокола AMQP 1.0
 
@@ -198,10 +198,9 @@ API-интерфейсы .NET предоставляют несколько па
   [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock.]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-
 [классического портала Azure]: http://manage.windowsazure.com
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -18,6 +18,12 @@
 
 #Заметки о выпуске пакета SDK для Windows Phone Silverlight
 
+##3\.2.0 (22.01.2016 г.)
+Входит в пакет NuGet *MicrosoftAzure.MobileEngagement* **версии 3.3.0**
+
+-   По URL-адресам действия доступны настраиваемые схемы, ms-appx и ms-appdata.
+-   Улучшение стабильности.
+  
 ##3\.1.0 (11/20/2015)
 Входит в пакет NuGet *MicrosoftAzure.MobileEngagement* **версии 3.2.0**
 
@@ -37,4 +43,4 @@
 -   Улучшения безопасности.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

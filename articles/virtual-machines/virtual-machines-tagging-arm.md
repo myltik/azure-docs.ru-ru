@@ -28,7 +28,7 @@
 
 Для начала рассмотрим пометку с помощью шаблонов. [Этот шаблон](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) добавляет теги к следующим ресурсам: Compute (виртуальная машина), Storage (учетная запись хранения) и Network (общедоступный IP-адрес, виртуальная сеть и сетевой интерфейс).
 
-Нажмите кнопку **Развернуть в Azure**, после того как перейдете по [ссылке на шаблон](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Откроется [портал Azure](http://portal.azure.com/), где можно развернуть этот шаблон.
+Нажмите кнопку **Развернуть в Azure**, после того как перейдете по [ссылке на шаблон](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Откроется [портал Azure](https://portal.azure.com/), где можно развернуть этот шаблон.
 
 ![Простое развертывание с тегами](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -190,4 +190,4 @@
 [Общие сведения о счете Azure]: ../billing-understand-your-bill.md
 [Получение ценных сведений о потреблении ресурсов Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

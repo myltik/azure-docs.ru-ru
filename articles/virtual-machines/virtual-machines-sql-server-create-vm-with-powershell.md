@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/06/2015"
+	ms.date="01/22/2016"
 	ms.author="jroth" />
 
 # Создание виртуальной машины SQL Server в Azure (PowerShell)
@@ -67,7 +67,7 @@
 
 		(Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
-	>[AZURE.NOTE]Если требуется создать новую учетную запись хранения, сначала создайте имя учетной записи в строчном регистре командой New-AzureStorageAccount, как в следующем примере: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**.
+	>[AZURE.NOTE] Если требуется создать новую учетную запись хранения, сначала создайте имя учетной записи в строчном регистре командой New-AzureStorageAccount, как в следующем примере: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**.
 
 1. Назначьте имя целевой учетной записи хранения переменной **$staccount**. Затем установите текущую учетную запись хранения и подписку с помощью **Set-AzureSubscription**.
 
@@ -112,7 +112,7 @@
 
 		New-AzureVM –ServiceName $svcname -VMs $vm1
 
->[AZURE.NOTE]Дополнительные сведения и параметры конфигурации см. в разделе **Создание собственного набора команд** статьи [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
+>[AZURE.NOTE] Дополнительные сведения и параметры конфигурации см. в разделе **Создание собственного набора команд** статьи [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 ## Пример сценария PowerShell
 
@@ -175,4 +175,4 @@
 
 В дополнение к этим ресурсам рекомендуем ознакомиться с [другими статьями, связанными с запуском SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

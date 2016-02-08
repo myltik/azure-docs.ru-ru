@@ -65,9 +65,9 @@
 
 ##Связанные разделы
 
-[Пакет Azure SDK для .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
+[Пакет Azure SDK для .NET](https://azure.microsoft.com/downloads/archive-net-downloads/)
 
 [Заметки о выпуске пакета Azure SDK на сайте MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

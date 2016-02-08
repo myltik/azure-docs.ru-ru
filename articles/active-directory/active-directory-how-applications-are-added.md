@@ -91,7 +91,7 @@
 ## Как приложения добавляются в мой экземпляр Azure AD?
 Для добавления приложений в Azure AD можно использовать различные способы.
 
-* Добавление приложения из [коллекции приложений в Azure Active Directory](http://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
+* Добавление приложения из [коллекции приложений в Azure Active Directory](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
 * Регистрация/вход в стороннее приложение, интегрированное с Azure Active Directory (например: [Smartsheet](https://app.smartsheet.com/b/home) или [DocuSign](https://www.docusign.net/member/MemberLogin.aspx))
     * Во время регистрации/входа пользователям предлагается предоставлять приложению разрешение на право доступа к своему профилю и прочие разрешения. Когда первый пользователь дает свое согласие, субъект-служба, которая представляет приложение, добавляется в каталог.
 * Регистрация/вход в веб-службы Microsoft, например, [Office 365](http://products.office.com/)
@@ -146,4 +146,4 @@
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

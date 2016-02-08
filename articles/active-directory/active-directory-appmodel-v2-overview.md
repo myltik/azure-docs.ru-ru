@@ -13,16 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/06/2015"
+	ms.date="01/18/2016"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0. Вход для пользователей учетных записей Майкрософт и Azure AD в одном приложении
 
-> [AZURE.NOTE]Эти сведения относятся к общедоступной предварительной версии модели приложений 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Эти сведения относятся к общедоступной предварительной версии модели приложений 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
 
 Раньше разработчику приложения, поддерживающего как учетные записи Майкрософт, так и Azure Active Directory, необходимо было обеспечивать интеграцию с двумя отдельными системами. Модель приложений версии 2.0 поддерживает вход для пользователей обоих типов учетных записей. Одна простая интеграция позволяет охватить миллионы пользователей личных, рабочих и (или) учебных учетных записей.
 
-Кроме того, приложения могут использовать [набор REST API Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) с помощью учетной записи любого типа. В настоящее время в число таких API входят API почтовой службы Outlook, контактов и календарей. В будущем будут добавлены и другие службы.
+Кроме того, приложения могут использовать [набор API REST Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) на основе любого типа учетной записи. В настоящее время в число таких API входят API почтовой службы Outlook, контактов и календарей. В будущем будут добавлены и другие службы.
 <!-- TODO: customer reference article -->
 <!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
 
@@ -38,6 +39,7 @@
 ## Новые возможности
 Регулярно просматривайте указанные ниже страницы и узнавайте о будущих изменениях в общедоступной предварительной версии модели приложений 2.0. Кроме того, мы будет сообщать о нововведениях в Twitter под именем @AzureAD.
 
+- Во время построения приложения в течение периода предварительной версии модели приложения 2.0 2015 не забудьте [прочитать об этих изменениях протокола](active-directory-v2-preview-oidc-changes.md), чтобы обеспечить продолжение работы приложения.
 - Дополнительные сведения о [типах приложений, которые можно создавать с помощью модели приложений версии 2.0](active-directory-v2-flows.md).
 - [Изменения в наших протоколах и отличия модели приложений версии 2.0](active-directory-v2-compare.md) для разработчиков, знакомых с Azure Active Directory.
 - Действующие [пределы и ограничения предварительной версии](active-directory-v2-limitations.md).
@@ -46,7 +48,7 @@
 Следующие ссылки позволят глубже изучить платформу:
 
 - Получите справку по переполнению стека, используя теги [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) или [adal](http://stackoverflow.com/questions/tagged/adal).
-- Сообщите нам свое мнение о предварительной версии через сайт [пользовательских мнений](http://feedback.azure.com/forums/169401-azure-active-directory). В заголовке сообщения укажите AppModelv2, чтобы мы смогли его найти.
+- Сообщите нам свое мнение о предварительной версии через сайт [пользовательских мнений](https://feedback.azure.com/forums/169401-azure-active-directory/). В заголовке сообщения укажите AppModelv2, чтобы мы смогли его найти.
 - [Справочник по протоколу модели приложений версии 2.0](active-directory-v2-protocols.md)
 - [Справочник по маркеру модели приложений версии 2.0](active-directory-v2-tokens.md)
 - [Справочник по API REST Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
@@ -57,4 +59,4 @@
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

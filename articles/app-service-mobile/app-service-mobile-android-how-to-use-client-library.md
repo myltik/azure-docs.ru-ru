@@ -71,7 +71,7 @@
 
 В этом разделе рассматриваются некоторые примеры кода в приложении быстрого запуска. Если вы не работали с руководством по быстрому запуску, вам нужно добавить этот код в приложение.
 
-> [AZURE.NOTE]В коде часто используется строка MobileServices. На самом деле код ссылается на пакет SDK для мобильных приложений, это просто временный перенос уже использованных элементов.
+> [AZURE.NOTE] В коде часто используется строка MobileServices. На самом деле код ссылается на пакет SDK для мобильных приложений, это просто временный перенос уже использованных элементов.
 
 
 ###<a name="data-object"></a>Определение клиентских классов данных
@@ -125,7 +125,7 @@
 				"MobileAppUrl", // Replace with the above Site URL
 				this)
 
-В приведенном выше коде замените `MobileAppUrl` URL-адресом серверной части мобильных приложений, который можно найти в колонке серверной части мобильных приложений на [портале Azure](https://portal.azure.com). Для компиляции кода в этой строке вам также нужно добавить следующую инструкцию **import**:
+В приведенном выше коде замените `MobileAppUrl` URL-адресом серверной части мобильных приложений. Этот адрес можно найти в колонке серверной части мобильных приложений на [портале Azure](https://portal.azure.com/). Для компиляции кода в этой строке вам также нужно добавить следующую инструкцию **import**:
 
 	import com.microsoft.windowsazure.mobileservices.*;
 
@@ -602,11 +602,90 @@
 
 При попытке использовать маркер с истекшим сроком действия вы получите ответ *401 unauthorized* (не авторизовано). Пользователю придется войти в систему, чтобы получить новые маркеры. Вы можете не писать код для обработки таких случаев везде в приложении, которое вызывает мобильные службы, используя фильтры, которые позволяют перехватывать вызовы и ответы от мобильных служб. Код фильтра затем проверит наличие ответа 401, инициирует вход в систему при необходимости и возобновит запрос, вызвавший ответ 401. Вы также можете проверить маркер на предмет истечения срока действия.
 
+
+## <a name="adal"></a>Практическое руководство: проверка подлинности пользователей с помощью библиотеки проверки подлинности Active Directory
+
+Библиотеку проверки подлинности Active Directory (ADAL) можно использовать для входа пользователей в приложение с помощью Azure Active Directory. Этот подход является более предпочтительным, чем использование методов `loginAsync()`, так как он обеспечивает более удобный интерфейс входа для пользователя и позволяет выполнять дополнительную настройку.
+
+1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя инструкциям в руководстве [Настройка приложения службы приложений для использования службы входа Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Обязательно выполните дополнительный этап регистрации собственного клиентского приложения.
+
+2. Установите ADAL, включив в файл build.gradle следующий текст:
+
+	repositories { mavenCentral() flatDir { dirs 'libs' } maven { url "YourLocalMavenRepoPath\\.m2\\repository" } } packagingOptions { exclude 'META-INF/MSFTSIG.RSA' exclude 'META-INF/MSFTSIG.SF' } dependencies { compile fileTree(dir: 'libs', include: ['*.jar']) compile('com.microsoft.aad:adal:1.1.1') { exclude group: 'com.android.support' } // Recent version is 1.1.1 compile 'com.android.support:support-v4:23.0.0' }
+
+3. Включите указанный ниже код в приложение, выполнив следующие замены.
+
+* Замените текст **INSERT-AUTHORITY-HERE** именем клиента, в котором вы подготовили свое приложение. Используйте следующий формат: https://login.windows.net/contoso.onmicrosoft.com. Это значение можно скопировать на вкладке "Домен" в Azure Active Directory на [классическом портале Azure].
+
+* Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Это значение можно скопировать на вкладке **Дополнительно** в разделе **Параметры Azure Active Directory** на портале.
+
+* Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
+
+* Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой вашего сайта _/.auth/login/done_, используя схему HTTPS. Это значение должно быть аналогично _https://contoso.azurewebsites.net/.auth/login/done_.
+
+		private AuthenticationContext mContext;
+		private void authenticate() {
+		String authority = "INSERT-AUTHORITY-HERE";
+		String resourceId = "INSERT-RESOURCE-ID-HERE";
+		String clientId = "INSERT-CLIENT-ID-HERE";
+		String redirectUri = "INSERT-REDIRECT-URI-HERE";
+		try {
+		    mContext = new AuthenticationContext(this, authority, true);
+		    mContext.acquireToken(this, resourceId, clientId, redirectUri, PromptBehavior.Auto, "", callback);
+		} catch (Exception exc) {
+		    exc.printStackTrace();
+		}
+		}
+		private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
+		@Override
+		public void onError(Exception exc) {
+		    if (exc instanceof AuthenticationException) {
+		        Log.d(TAG, "Cancelled");
+		    } else {
+		        Log.d(TAG, "Authentication error:" + exc.getMessage());
+		    }
+		}
+		@Override
+			public void onSuccess(AuthenticationResult result) {
+		    if (result == null || result.getAccessToken() == null
+		            || result.getAccessToken().isEmpty()) {
+		        Log.d(TAG, "Token is empty");
+		    } else {
+		        try {
+		            JSONObject payload = new JSONObject();
+		            payload.put("access_token", result.getAccessToken());
+		            ListenableFuture<MobileServiceUser> mLogin = mClient.login("aad", payload.toString());
+		            Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+		                @Override
+		                public void onFailure(Throwable exc) {
+		                    exc.printStackTrace();
+		                }
+		                @Override
+		                public void onSuccess(MobileServiceUser user) {
+		            		Log.d(TAG, "Login Complete");
+		                }
+		            });
+		        }
+		        catch (Exception exc){
+		            Log.d(TAG, "Authentication error:" + exc.getMessage());
+		        }
+		    }
+		}
+		};
+		@Override
+		protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (mContext != null) {
+		    mContext.onActivityResult(requestCode, resultCode, data);
+		}
+		}
+
+
 ## Практическое руководство. Добавление push-уведомлений в приложение
 
 Подробные сведения см. в [этом обзоре](notification-hubs-overview.md/#integration-with-app-service-mobile-apps), где описывается, как центры уведомлений Microsoft Azure поддерживают разные виды push-уведомлений.
 
-В рамках [этого руководства](app-service-mobile-android-get-started-push.md) push-уведомления отправляются каждый раз при вставке записи.
+В [этом руководстве](app-service-mobile-android-get-started-push.md) описывается, как настроить отправку push-уведомлений при каждой вставке записи.
 
 ## Практическое руководство. Добавление автономной синхронизации в приложение
 Это руководство по быстрому запуску содержит код, который реализует автономную синхронизацию. Найдите код, начинающийся со следующего комментария:
@@ -763,4 +842,4 @@
 [Добавление проверки подлинности в приложение Android]: app-service-mobile-android-get-started-users.md
 [Приступая к работе с аутентификацией]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

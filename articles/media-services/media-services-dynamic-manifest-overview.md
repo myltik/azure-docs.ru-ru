@@ -192,7 +192,7 @@ URL-адрес Smooth Streaming с фильтром
 
 Можно объединять до трех фильтров.
 
-Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 
 ##Известные проблемы и ограничения
@@ -236,4 +236,4 @@ URL-адрес Smooth Streaming с фильтром
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

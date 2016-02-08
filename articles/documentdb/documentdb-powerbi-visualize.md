@@ -42,7 +42,7 @@
 	- Информацию о создании учетной записи см. в статье [Создание учетной записи базы данных DocumentDB на портале Azure](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Для получения примера данных о вулкане, схожих с теми, которые используются в этом учебнике (но не содержат блоки GeoJSON), посетите [сайт NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5), а затем импортируйте данные с помощью [инструмента переноса данных DocumentDB](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
 
 
-Для совместного использования отчетов в службе PowerBI.com необходимо настроить учетную запись в PowerBI.com. Подробнее о бесплатной версии Power BI и Power BI Pro см. на веб-сайте [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
+Для совместного использования отчетов в службе PowerBI.com необходимо настроить учетную запись в PowerBI.com. Дополнительные сведения о бесплатной версии Power BI и Power BI Pro см. на веб-сайте [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
 ## Начало работы
 Для работы с этим руководством представим, что вы геолог, изучающий вулканы по всему миру. Данные о вулканах хранятся в учетной записи DocumentDB, а документы JSON выглядят, как показано ниже.
@@ -66,7 +66,7 @@
 
 Вам нужно получить данные о вулканах из учетной записи DocumentDB и представить их в виде интерактивного отчета Power BI, подобного приведенному ниже.
 
-![Отчет о вулканах в Power BI Desktop для визуализации данных](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
+![После завершения этого учебника Power BI с соединителем Power BI вы сможете визуализировать данные в отчете о вулканах Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
 Готовы попробовать? Давайте приступим.
 
@@ -74,30 +74,30 @@
 1. Запустите на своей рабочей станции Power BI Desktop.
 2. После запуска Power BI Desktop появится экран *приветствия*.
 
-	![Экран приветствия в Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_welcome.png)
+	![Экран приветствия в Power BI Desktop — соединитель Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_welcome.png)
 
 3. Можно **Получить данные**, просмотреть **Последние источники** или **Открыть другие отчеты** непосредственно с экрана *приветствия*. Щелкните значок X в правом верхнем углу, чтобы закрыть этот экран. Откроется представление **Отчет** средства Power BI Desktop.
 
-	![Представление отчета в Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview.png)
+	![Представление отчета в Power BI Desktop — соединитель Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview.png)
 
 4. Откройте ленту **Главная** и нажмите кнопку **Получение данных**. Откроется окно **Получение данных**.
 
 5. Выберите элемент **Azure**, затем — **Microsoft Azure DocumentDB (Beta)** и нажмите кнопку **Подключение**. Откроется окно **Подключение Microsoft Azure DocumentDB**.
 
-	![Получение данных в Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
+	![Получение данных в Power BI Desktop — соединитель Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
 
 6. Укажите URL-адрес конечной точки учетной записи DocumentDB, из которой необходимо получить данные, как показано ниже, и нажмите кнопку **ОK**. Этот URL-адрес можно найти в поле универсальный код ресурса (URI) в колонке **Ключи** на портале Azure. Можно также использовать сведения демонстрационной учетной записи, приведенные выше. Дополнительные сведения см. в статье [Ключи](documentdb-manage-account.md#keys).
 
 
 	*Примечание. В этом руководстве мы не будем указывать имя базы данных, имя коллекции и инструкцию SQL, т. к. эти поля являются необязательными. Вместо этого мы будем использовать навигатор для выбора базы данных и коллекции для определения источника данных.*
 
-    ![Окно подключения Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
+    ![Учебник по Power BI для соединителя Power BI DocumentDB — окно подключения рабочего стола](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 
 7. При подключении к этой конечной точке в первый раз отобразится запрос ключа учетной записи. Введите ключ учетной записи и нажмите кнопку **Подключение**.
 	
 	*Примечание. При создании отчетов мы рекомендуем использовать ключ только для чтения. Это позволит предотвратить потенциальные угрозы безопасности для главного ключа. Ключ только для чтения можно найти в колонке "Ключи только для чтения" на портале Azure. Можно также использовать сведения демонстрационной учетной записи, приведенные выше.*
 
-    ![Ключ учетной записи Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
+    ![Учебник по Power BI для соединителя Power BI DocumentDB — ключ учетной записи](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
 8. После подключения учетной записи откроется окно **Навигатор**. В **Навигаторе** отобразится список баз данных в учетной записи.
 9. Выберите и разверните узел базы данных, которая будет источником данных для отчета. Отобразится список коллекций в базе данных.  
@@ -106,7 +106,7 @@
 
 	*Примечание. В области «Предварительный просмотр» отображается список элементов **Запись**. Документ представлен как тип **Запись** в Power BI. Точно так же вложенный блок JSON в документе является **Записью**.*
 
-    ![Навигатор Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbinavigator.png)
+    ![Учебник по Power BI для соединителя Power BI DocumentDB — окно навигатора](./media/documentdb-powerbi-visualize/power_bi_connector_pbinavigator.png)
 
 11. Нажмите кнопку **Изменить**, чтобы запустить редактор запросов для преобразования данных.
 
@@ -115,20 +115,20 @@
 
 2. В правой части заголовка столбца **Документ** щелкните кнопку развертывания. Отобразится контекстное меню со списком полей. Выберите поля, необходимые для вашего отчета, например «Имя вулкана», «Страна», «Регион», «Расположение», «Высота», «Тип», «Состояние» и «Последнее известное извержение», и нажмите кнопку **ОK**.
     
-	![Развертывание документов в Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
+	![Учебник по Power BI для соединителя Power BI DocumentDB — раскрыть документы](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
 
 3. В центральной области отобразится предварительный просмотр результата для выбранных полей.
 
-	![Преобразование результата в плоскую структуру в Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflatten.png)
+	![Учебник по Power BI для соединителя Power BI DocumentDB — сделать результаты более плоскими](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflatten.png)
 
 4. В нашем примере свойство «Расположение» является блоком GeoJSON в документе. Как видно, значение свойства «Расположение» представлено типом **Запись** в Power BI Desktop.
 5. В правой части заголовка столбца «Расположение» нажмите кнопку развертывания. Отобразится контекстное меню с типом и координатами полей. Выберем поле «Координаты» и нажмем кнопку **ОK**.
 
-    ![Запись о расположении в Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbilocationrecord.png)
+    ![Учебник по Power BI для соединителя Power BI DocumentDB — запись о расположении](./media/documentdb-powerbi-visualize/power_bi_connector_pbilocationrecord.png)
 
 6. Теперь в центральной области отображается столбец с координатами типа **Список**. Как показано в начале этого руководства, данные GeoJSON в руководстве принадлежат типу «Точка» со значениями широты и долготы, записанными в массив координат.
 
-	*Примечание. Элемент coordinates[0] представляет долготу, а элемент coordinates[1] — широту.* ![Список координат Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
+	*Примечание. Элемент coordinates[0] представляет долготу, а элемент coordinates[1] — широту.* ![Учебник по Power BI для соединителя Power BI DocumentDB — список координат](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 
 7. Чтобы преобразовать массив координат в плоскую структуру, мы создадим **настраиваемый столбец**, который называется LatLong. Выберите ленту **Добавить столбец** и выберите команду **Добавить настраиваемый столбец**. Откроется окно **Добавление настраиваемого столбца**.
 
@@ -138,24 +138,24 @@
 	
     *Примечание. Дополнительные сведения о выражениях анализа данных (DAX), включая функции DAX, см. в статье [DAX Basic в Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).*
 
-    ![Пользовательский столбец в Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
+    ![Учебник по Power BI для соединителя Power BI DocumentDB — добавление пользовательского столбца](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 
 10. Теперь в центральной области отобразится новый столбец LatLong, содержащий значения широты и долготы, разделенные запятой.
 
-	![Пользовательский столбец LatLong в Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
+	![Учебник по Power BI для соединителя Power BI DocumentDB — пользовательский столбец LatLong](./media/documentdb-powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
 
 11. Теперь мы завершили преобразование данных в табличный формат. Для преобразования данных в DocumentDB можно использовать все функции, доступные в редакторе запросов. Например, можно изменить тип данных для столбца «Высота» на **Десятичное число**, изменив **Тип данных** в ленте **Главная**.
 
-    ![Изменение типа в Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
+    ![Учебник по Power BI для соединителя Power BI DocumentDB — изменение типа столбца](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
 
 12. Чтобы сохранить модель данных, нажмите кнопку **Закрыть и применить**.
     
-    ![Закрыть и применить в Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbicloseapply.png)
+    ![Учебник по Power BI для соединителя Power BI DocumentDB — закрыть и применить](./media/documentdb-powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
 ## Создание отчетов
 Для создания отчетов, в которых наглядно представлены данные, используется представление отчета в Power BI Desktop. Отчеты можно создавать путем перетаскивания полей на поле **Отчет**.
 
-![Представление отчета в Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview2.png)
+![Представление отчета в Power BI Desktop — соединитель Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview2.png)
  
 В представлении «Отчет» найдите следующие элементы.
 
@@ -180,7 +180,7 @@
 
 6. Базовый отчет готов. Его можно настроить, добавив дополнительные визуальные элементы. В нашем случае мы добавили срез «Тип вулкана», чтобы сделать отчет интерактивным.
 
-    ![Окончательный отчет в Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
+    ![Снимок экрана окончательного отчета Power BI Desktop после завершения работы с учебником Power BI для DocumentDB](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
 ## Публикация и совместное использование отчета
 Для совместного использования отчета необходимо иметь учетную запись в службе PowerBI.com.
@@ -194,4 +194,4 @@
 - Дополнительные сведения о Power BI см. [здесь](https://support.powerbi.com/knowledgebase).
 - Для получения дополнительных сведений о DocumentDB щелкните [здесь](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

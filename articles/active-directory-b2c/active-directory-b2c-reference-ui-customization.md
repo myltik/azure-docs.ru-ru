@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory B2C: настройка пользовательского интерфейса Azure AD B2C
 
 Взаимодействие с пользователем имеет первостепенную важность в клиентском приложении. В этом заключается различие между хорошим приложением и превосходным, а также между просто активными клиентами и действительно заинтересованными. Azure Active Directory (AD) B2C позволяет настраивать страницы регистрации, входа (*см. примечание ниже*) и изменения профиля с невероятной точностью.
 
-> [AZURE.NOTE]Сейчас страницы входа в локальную учетную запись, подтверждающие сообщения электронной почты и страницы самостоятельного сброса пароля можно настроить только с помощью [фирменной символики компании](./active-directory/active-directory-add-company-branding.md). Описанные в этой статье механизмы недоступны для этих целей.
+> [AZURE.NOTE]
+Сейчас страницы входа в локальную учетную запись, подтверждающие сообщения электронной почты и страницы самостоятельного сброса пароля можно настроить только с помощью [фирменной символики компании](./active-directory/active-directory-add-company-branding.md). Описанные в этой статье механизмы недоступны для этих целей.
 
 В этой статье содержатся такие сведения:
 
@@ -45,7 +46,8 @@
 
 В разделах ниже приведены примеры кода HTML5 (для каждого типа страницы), которые служба Azure AD B2C добавляет в элемент <div id="api"></div> в вашем содержимом. Настроить эти элементы пользовательского интерфейса можно с помощью собственных таблиц стилей. Эти таблицы переопределят таблицы стилей по умолчанию, которые мы добавляем к этим типам страниц во фрагментах <head>.
 
-> [AZURE.IMPORTANT]В предварительной версии элементы пользовательского интерфейса будут изменяться по мере получения и обработки ваших отзывов. Всегда проверяйте исходный код страниц по умолчанию на наличие последних обновлений. На самом деле первое изменение, которое рассматривается, — удаление наших таблиц стилей по умолчанию. То есть вам всегда придется добавлять собственные таблицы стилей для этих элементов пользовательского интерфейса в содержимом.
+> [AZURE.IMPORTANT]
+	В предварительной версии элементы пользовательского интерфейса будут изменяться по мере получения и обработки ваших отзывов. Всегда проверяйте исходный код страниц по умолчанию на наличие последних обновлений. На самом деле первое изменение, которое рассматривается, — удаление наших таблиц стилей по умолчанию. То есть вам всегда придется добавлять собственные таблицы стилей для этих элементов пользовательского интерфейса в содержимом.
 
 ## Страница выбора поставщика удостоверений
 
@@ -57,7 +59,7 @@
 	<div class="intro">
          <p>Sign up</p>
 	</div>
-	
+
 	<div>
 		<ul>
 			<li>
@@ -81,21 +83,21 @@
 
 ```HTML
 
-<div id="api" data-name="SelfAsserted"> 
-	<div class="intro"> 
+<div id="api" data-name="SelfAsserted">
+	<div class="intro">
 		<p>Create your account by providing the following details</p>
 	</div>
-	
-	<div id="attributeVerification"> 
+
+	<div id="attributeVerification">
 		<div class="errorText" id="passwordEntryMismatch" style="display: none;">The password entry fields do not match. Please enter the same password in both fields and try again.</div>
 		<div class="errorText" id="requiredFieldMissing" style="display: none;">A required field is missing. Please fill out all required fields and try again.</div>
 		<div class="errorText" id="fieldIncorrect" style="display: none;">One or more fields are filled out incorrectly. Please check your entries and try again.</div>
 		<div class="errorText" id="claimVerificationServerError" style="display: none;"></div>
-		<div class="attr" id="attributeList"> 
+		<div class="attr" id="attributeList">
 			<ul>
-				<li> 
+				<li>
 					<div class="attrEntry validate">
-						<div> 
+						<div>
 							<div class="verificationInfoText" id="email_intro" style="display: inline;">Verification is necessary. Please click Send button.</div>
 							<div class="verificationInfoText" id="email_info" style="display:none">Verification code has been sent to your inbox. Please copy it to the input box below.</div>
 							<div class="verificationSuccessText" id="email_success" style="display:none">E-mail address verified. You can now continue.</div>
@@ -109,40 +111,40 @@
 						<label>Email</label>
 						<input id="email" class="textInput" type="text" placeholder="Email" required="" autofocus=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Email address that can be used to contact you.');" class="tiny">What is this?</a>
 
-					<div class="buttons verify" claim_id="email"> 
+					<div class="buttons verify" claim_id="email">
 						<div id="email_ver_wait" class="working" style="display: none;"></div>
-							<label id="email_ver_input_label" for="email_ver_input" style="display: none;">Verification code</label> 
+							<label id="email_ver_input_label" for="email_ver_input" style="display: none;">Verification code</label>
 							<input id="email_ver_input" type="text" placeholder="Verification code" style="display:none">
 							<button id="email_ver_but_send" class="sendButton" type="button" style="display: inline;">Send verification code</button>
 							<button id="email_ver_but_verify" class="verifyButton" type="button" style="display:none">Verify code</button>
 							<button id="email_ver_but_resend" class="sendButton" type="button" style="display:none">Send new code</button>
 							<button id="email_ver_but_edit" class="editButton" type="button" style="display:none">Change e-mail</button>
-							<button id="email_ver_but_default" class="defaultButton" type="button" style="display:none">Default</button> 
+							<button id="email_ver_but_default" class="defaultButton" type="button" style="display:none">Default</button>
 						</div>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .This information is required</div>
 						<label>Enter password</label>
 						<input id="password" class="textInput" type="password" placeholder="Enter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*-_+=[]{}|\\:',?/`~";();!]|\.(?!@)){8,16}$" title="8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ "; ( ) ; ." required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Enter password');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"> This information is required</div>
 						<label>Reenter password</label>
 						<input id="reenterPassword" class="textInput" type="password" placeholder="Reenter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*-_+=[]{}|\\:',?/`~";();!]|\.(?!@)){8,16}$" title=" " required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Reenter password');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText">This information is required</div>
 						<label>Name</label>
 						<input id="displayName" class="textInput" type="text" placeholder="Name" required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Your display name.');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"></div>
 						<label>Gender</label>
@@ -153,14 +155,14 @@
 						<a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"></div>
 						<label>Loyalty number</label>
 						<input id="extension_MemNum" class="textInput" type="text" placeholder="Loyalty number"><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Membership number');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"></div>
 						<label>State</label>
@@ -173,18 +175,18 @@
 						<a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Your residential state or province.');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText">This information is required</div>
 						<label>Zip code</label>
 						<input id="postalCode" class="textInput" type="text" placeholder="Zip code" required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('The postal code of your address.');" class="tiny">What is this?</a>
 					</div>
 				</li>
-			</ul> 
+			</ul>
 		</div>
 		<div class="buttons"> <button id="continue" disabled="">Create</button> <button id="cancel">Cancel</button></div>
 	</div>
-	<div class="verifying-modal"> 
+	<div class="verifying-modal">
 		<div class="preloader"> <img src="https://login.microsoftonline.com/static/img/win8loader.gif" alt="Please wait"></div>
 		<div id="verifying_blurb"></div>
 	</div>
@@ -265,7 +267,7 @@
 Если вы планируете использовать возможности настройки пользовательского интерфейса страницы, изучите следующие рекомендации.
 
 - Не пытайтесь заменить или изменить стандартный шаблон Azure AD B2C. Лучше создать содержимое HTML5 с нуля, используя стандартный шаблон в качестве образца.
-- В целях безопасности мы запрещаем добавлять в содержимое какие-либо сценарии JavaScript. Большинство необходимых вам возможностей уже доступны. Если вам не хватает каких-либо функций, сообщите нам об этом на [форуме](http://feedback.azure.com/forums/169401-azure-active-directory).
+- В целях безопасности мы запрещаем добавлять в содержимое какие-либо сценарии JavaScript. Большинство необходимых вам возможностей уже доступны. Если вам не хватает каких-либо функций, сообщите нам об этом на [форуме](https://feedback.azure.com/forums/169401-azure-active-directory/).
 - Поддерживаемые версии браузеров:
 	- Internet Explorer 11;
 	- Internet Explorer 10;
@@ -276,4 +278,4 @@
 	- Mozilla Firefox 38.0;
 	- Mozilla Firefox 37.0.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

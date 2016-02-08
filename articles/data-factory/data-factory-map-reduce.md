@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Вызов программы MapReduce из фабрики данных
-В этой статье описан вызов программы **MapReduce** из конвейера фабрики данных Azure с помощью **действия HDInsight MapReduce**.
+Действие MapReduce HDInsight в [конвейере](data-factory-create-pipelines.md) фабрики данных выполняет программы MapReduce Hadoop [самостоятельно](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) или в кластере HDInsight на базе Windows/Linux [по требованию](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Данная статья основана на материалах статьи о [действиях преобразования данных](data-factory-data-transformation-activities.md), в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования.
 
 ## Введение 
 Конвейер в фабрике данных Azure обрабатывает данные в связанной службе хранилища с помощью связанных вычислительных служб. В нем содержится последовательность действий, каждое из которых выполняет определенную операцию обработки. В этой статье описывается использование действия MapReduce в HDInsight.
@@ -131,7 +131,6 @@
 	    }
 	}
 
-
 ### Наборы данных
 
 #### Выходной набор данных
@@ -221,4 +220,4 @@ linkedServiceName (имя связанной службы) | Указывает 
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

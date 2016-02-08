@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="vittorib"/>
 
 # Интеграция Azure AD с приложением Apache Cordova
@@ -50,7 +50,7 @@ Apache Cordova позволяет разрабатывать приложени�
 
 Если на компьютере не установлена платформа Apache Cordova, установите следующие продукты:
 
-- [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+- [Git.](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [NodeJS](https://nodejs.org/download/)
 - [Cordova CLI](https://cordova.apache.org/) (можно легко установить через диспетчер пакетов NPM: `npm install -g cordova`)
 
@@ -256,4 +256,4 @@ Azure AD предоставляет маркеры только известны
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

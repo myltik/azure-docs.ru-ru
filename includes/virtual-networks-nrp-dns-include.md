@@ -85,6 +85,6 @@ Azure DNS является службой размещения для домен
 
 Ознакомьтесь с [документацией по REST API для зон DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx), чтобы получить дополнительные сведения.
 
-Ознакомьтесь с [документацией по REST API для наборов записей DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx), чтобы получить дополнительные сведения.
+Ознакомьтесь с [документацией по REST API для наборов записей DNS ](https://msdn.microsoft.com/library/azure/mt130627.aspx), чтобы получить дополнительные сведения.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

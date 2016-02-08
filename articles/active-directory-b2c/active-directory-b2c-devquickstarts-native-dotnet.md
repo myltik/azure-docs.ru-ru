@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Предварительная версия Azure AD B2C: построение классического приложения Windows
@@ -43,7 +43,7 @@ Azure AD B2C позволяет добавлять в классические 
 В Azure AD B2C всякое взаимодействие с пользователем определяется [**политикой**](active-directory-b2c-reference-policies.md). Этот пример кода включает три способа идентификации: регистрацию, вход в систему и изменение профиля. Вам потребуется создать по одной политике каждого типа, как описано в [справочной статье о политиках](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). При создании трех политик обязательно сделайте следующее.
 
 - В колонке поставщиков удостоверений выберите вариант **Регистрация с помощью идентификатора пользователя** или **Регистрация по электронной почте**.
-- В политике регистрации выберите **отображаемое имя** и другие атрибуты регистрации.
+- В политике регистрации выберите **Отображаемое имя** и другие атрибуты регистрации.
 - В каждой политике в качестве утверждения приложения выберите утверждения **Отображаемое имя** и **Идентификатор объекта**. Можно также выбрать другие утверждения.
 - Скопируйте **имя** каждой политики после ее создания. У него должен быть префикс `b2c_1_`. Эти имена политик понадобятся вам через некоторое время.
 
@@ -59,9 +59,9 @@ Azure AD B2C позволяет добавлять в классические 
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
 ```
 
-Кроме того, готовое приложение можно [скачать как ZIP-архив](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) или получить из ветви `complete` того же репозитория.
+Кроме того, можно скачать готовое приложение [в виде ZIP-архива](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) или получить его из ветви `complete` того же репозитория.
 
-Скачав пример кода, откройте файл `.sln` Visual Studio, чтобы начать работу. Вы увидите, что решение содержит два проекта: `TaskClient` и `TaskService`. `TaskClient` — это классическое приложение WPF, с которым взаимодействует пользователь. `TaskService` — это серверный веб-интерфейс API приложения, в котором хранится список дел каждого пользователя. В этом случае проекты `TaskClient` и `TaskService` будут представлены одним **идентификатором приложения**, так как они оба содержат одно логическое приложение.
+Скачав пример кода, откройте файл Visual Studio `.sln`, чтобы начать работу. Вы увидите, что решение содержит два проекта: `TaskClient` и `TaskService`. `TaskClient` — это классическое приложение WPF, с которым взаимодействует пользователь. `TaskService` — это относящийся к приложению серверный веб-API, в котором хранится список дел каждого пользователя. В этом случае проекты `TaskClient` и `TaskService` будут представлены одним **идентификатором приложения**, так как они оба содержат одно логическое приложение.
 
 ## 5\. Настройка службы задач
 
@@ -79,11 +79,10 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
   </appSettings>
 ```
-  
+
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Сведения о том, как веб-API безопасно выполняет проверку подлинности запросов с помощью Azure AD B2C, см. в 
-[статье о начале работы с веб-API](active-directory-b2c-devquickstarts-api-dotnet.md).
+Сведения о том, как веб-API безопасно выполняет проверку подлинности запросов с помощью Azure AD B2C, см. в [статье о начале работы с веб-API](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## 6. Выполнение политик
 Теперь, когда проект `TaskService` готов к проверке подлинности запросов, можно реализовать `TaskClient`. Приложение взаимодействует с Azure AD B2C, отправляя HTTP-запросы проверки подлинности и указывая политику, которую необходимо выполнить как часть запроса. Для классических приложений .NET можно использовать **библиотеку проверки подлинности Active Directory (ADAL)**, чтобы отправлять сообщения проверки подлинности OAuth 2.0, выполнять политики и получать маркеры для вызова веб-API.
@@ -112,7 +111,7 @@ public static class Globals
 	public static string redirectUri = "urn:ietf:wg:oauth:2.0:oob";
 
 }
-``` 
+```
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
@@ -131,7 +130,7 @@ public partial class MainWindow : Window
 		base.OnInitialized(e);
 
 		// The authority parameter can be constructed by appending the name of your tenant to 'https://login.microsoftonline.com/'.
-		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app, 
+		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app,
 		// we've extended the ADAL TokenCache and created a simple FileCache in this app.
 		authContext = new AuthenticationContext("https://login.microsoftonline.com/contoso.onmicrosoft.com", new FileCache());
 		...
@@ -159,14 +158,14 @@ private async void SignUp(object sender, RoutedEventArgs e)
 		SignUpButton.Visibility = Visibility.Collapsed;
 		EditProfileButton.Visibility = Visibility.Visible;
 		SignOutButton.Visibility = Visibility.Visible;
-		
+
 		// When the request completes successfully, you can get user information form the AuthenticationResult
 		UsernameLabel.Content = result.UserInfo.Name;
 
 		// After the sign up successfully completes, display the user's To-Do List
 		GetTodoList();
 	}
-	
+
 	// Handle any exeptions that occurred during execution of the policy.
 	catch (AdalException ex)
 	{
@@ -235,12 +234,12 @@ private async void GetTodoList()
 		TokenCacheItem tci = authContext.TokenCache.ReadItems().Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
 		string existingPolicy = tci == null ? null : tci.Policy;
 
-		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token 
-		// could not be acquired from the cache, rather than automatically prompting the user to sign in. 
+		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token
+		// could not be acquired from the cache, rather than automatically prompting the user to sign in.
 		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
 			null, Globals.clientId, new Uri(Globals.redirectUri),
 			new PlatformParameters(PromptBehavior.Never, null), existingPolicy);
-	
+
 	}
 
 	// If a token could not be acquired silently, we'll catch the exception and show the user a message.
@@ -273,7 +272,7 @@ private async void GetTodoList()
 	...
 ```
 
-Если вызов `AcquireTokenAsync(...)` завершен успешно и в кэше обнаружен маркер, то можно добавить этот маркер в заголовок `Authorization` HTTP-запроса, чтобы проект `TaskService` мог проверить подлинность запроса на чтение списка дел пользователя.
+Если вызов `AcquireTokenAsync(...)` завершается успешно и в кэше имеется токен, то можно добавить этот токен в заголовок `Authorization` HTTP-запроса, чтобы `TaskService` мог проверить подлинность запроса на чтение списка дел пользователя.
 
 ```C#
 	...
@@ -283,7 +282,7 @@ private async void GetTodoList()
 	// Call the To Do list service.
 	HttpResponseMessage response = await httpClient.GetAsync(taskServiceUrl + "/api/tasks");
 	...
-``` 
+```
 
 Тот же шаблон можно использовать для проверки кэша на наличие маркеров в любое время даже без предложения пользователю выполнить вход в систему. Например, всякий раз, когда выполняется запуск приложения, нам необходимо проверять `FileCache` на наличие маркеров, чтобы при этом возобновлялся сеанс входа пользователя. Событие `OnInitialized` класса `MainWindow` содержит тот же код, который выполняется при первом запуске.
 
@@ -311,18 +310,18 @@ private void SignOut(object sender, RoutedEventArgs e)
 
 ## 9\. Запуск примера приложения
 
-Выполните сборку проектов `TaskClient` и `TaskService`, а затем запустите их. Зарегистрируйтесь в приложении с использованием адреса электронной почты или имени пользователя. Выйдите и снова войдите под именем того же пользователя. Измените профиль пользователя. Выйдите и зарегистрируйтесь от имени другого пользователя.
+Наконец, выполните сборку проектов `TaskClient` и `TaskService`, а затем запустите их. Зарегистрируйтесь в приложении с использованием адреса электронной почты или имени пользователя. Выйдите и снова войдите под именем того же пользователя. Измените профиль пользователя. Выйдите и зарегистрируйтесь от имени другого пользователя.
 
 ## 10\. Добавление поставщиков удостоверений социальных сетей
 
-В настоящее время приложение поддерживает только регистрацию и вход пользователей с помощью так называемых **локальных учетных записей**. Это учетные записи, которые хранятся в каталоге B2C с именем пользователя и паролем. С помощью Azure AD B2C можно добавить поддержку для других **поставщиков удостоверений** (IdP), не изменяя код.
+В настоящее время приложение поддерживает только регистрацию и вход пользователей с помощью так называемых **локальных учетных записей**. Это учетные записи, которые хранятся в каталоге B2C с именем пользователя и паролем. С помощью Azure AD B2C можно добавить поддержку для других **поставщиков удостоверений** (IdP), не изменяя код.
 
 Чтобы добавить в приложение поставщиков удостоверений социальных сетей, следуйте подробным инструкциям, приведенным в статьях ниже. Для каждого поставщика удостоверений, поддержку которого нужно добавить, необходимо зарегистрировать приложение в соответствующей системе и получить идентификатор клиента.
 
 - [Настройка Facebook как поставщика удостоверений](active-directory-b2c-setup-fb-app.md)
 - [Настройка Google как поставщика удостоверений](active-directory-b2c-setup-goog-app.md)
 - [Настройка Amazon как поставщика удостоверений](active-directory-b2c-setup-amzn-app.md)
-- [Настройка LinkedIn как поставщика удостоверений](active-directory-b2c-setup-li-app.md) 
+- [Настройка LinkedIn как поставщика удостоверений](active-directory-b2c-setup-li-app.md)
 
 После добавления поставщиков удостоверений в каталог B2C необходимо внести изменения во все три указанные выше политики, указав в них эти новые поставщики, как описано в [справочной статье о политиках](active-directory-b2c-reference-policies.md). Сохранив политики, снова запустите приложение. Добавленные поставщики удостоверений должны отобразиться в виде вариантов при входе и регистрации.
 
@@ -346,4 +345,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

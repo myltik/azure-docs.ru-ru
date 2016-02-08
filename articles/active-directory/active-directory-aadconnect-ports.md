@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Порты Azure AD Connect"
+	pageTitle="Azure AD Connect: порты | Microsoft Azure"
 	description="Эта страница является страницей технического справочника по портам, которые должны быть открыты для Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # Порты и протоколы, необходимые для гибридной идентификации
@@ -79,4 +79,4 @@
 ### 6б. Конечные точки для агента Azure AD Connect Health для (AD FS и синхронизации) и Azure AD
 Список конечных точек см. в [разделе "Требования" для агента Azure AD Connect Health](active-directory-aadconnect-health.md#requirements).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

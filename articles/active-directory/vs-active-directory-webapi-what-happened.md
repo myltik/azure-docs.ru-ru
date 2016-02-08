@@ -71,7 +71,7 @@
 
 В каталоге, выбранном в мастере, создано приложение Azure AD.
 
-[Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 ##Какие дополнительные изменения внесены в мой проект после установки флажка *Отключить проверку подлинности для отдельных учетных записей пользователей*?
 Удалены ссылки на пакет NuGet. Для файлов созданы резервные копии, а сами файлы удалены. В зависимости от состояния проекта вам, возможно, придется вручную удалить дополнительные ссылки или файлы либо изменить код соответствующим образом.
@@ -114,6 +114,6 @@
 ###Обновлено приложение Azure Active Directory
 В приложение Azure Active Directory добавлено разрешение *Чтение данных каталога*. Кроме того, создан дополнительный ключ, который затем использовался в качестве параметра *ida:Password* в файле `web.config`.
 
-[Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

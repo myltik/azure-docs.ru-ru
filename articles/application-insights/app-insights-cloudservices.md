@@ -21,7 +21,7 @@
 
 *Application Insights находится в состоянии предварительной версии*
 
-[Приложения облачных служб Microsoft Azure](http://azure.microsoft.com/services/cloud-services/) можно отслеживать с помощью [Visual Studio Application Insights][start], чтобы оценивать доступность, производительность, характер сбоев и частоту использования. Благодаря получаемым данным о производительности и эффективности работы приложения на практике вы можете принимать осознанные решения о направлении разработки в каждом жизненном цикле.
+[Приложения облачных служб Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) можно отслеживать с помощью [Visual Studio Application Insights][start], чтобы оценивать доступность, производительность, характер сбоев и частоту использования. Благодаря получаемым данным о производительности и эффективности работы приложения на практике вы можете принимать осознанные решения о направлении разработки в каждом жизненном цикле.
 
 ![Пример](./media/app-insights-cloudservices/sample.png)
 
@@ -279,4 +279,4 @@
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

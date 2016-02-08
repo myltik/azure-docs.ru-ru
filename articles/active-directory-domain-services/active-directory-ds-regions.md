@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Службы доменов Azure AD *(предварительная версия)*
 
-Чтобы узнать, где доступны службы Azure, обратитесь к разделу [Службы по региону](https://azure.microsoft.com/regions/#services).
+Чтобы узнать, где доступны доменные службы Azure AD, обратитесь к разделу [Службы Azure по региону](https://azure.microsoft.com/regions/#services/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

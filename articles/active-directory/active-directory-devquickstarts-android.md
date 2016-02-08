@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Интеграция Azure AD в приложение для Android
@@ -452,6 +452,5 @@ CookieSyncManager.getInstance().sync();
 Версия ADAL 1.1.0 поддерживает диалоговое окно NTLM, которое отображается по событию onReceivedHttpAuthRequest, поступающему из WebViewClient. Макет диалогового окна и строки могут быть настроены. ### Этап 5. Загрузка примера кода клиентского нативного приложения для iOS
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

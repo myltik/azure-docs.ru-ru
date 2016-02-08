@@ -136,7 +136,6 @@
 
 | Название | Описание |
 | :-- | :-- |
-| [Редактор фабрики данных Azure](data-factory-editor.md) | Описывается редактор фабрики данных Azure, который позволяет вам создавать, изменять и развертывать определения JSON связанных служб, таблиц и конвейеров с помощью упрощенного веб-интерфейса пользователя. |
 | [Фабрика данных Azure — часто задаваемые вопросы](data-factory-faq.md) | Часто задаваемые вопросы о фабрике данных Azure. |
 | [Фабрика данных Azure — правила именования](data-factory-naming-rules.md) | Описывает правила именования для сущностей фабрик данных. |
 | [Заметки о выпуске фабрики данных Azure](data-factory-release-notes.md) | Заметки о выпуске фабрики данных |
@@ -145,10 +144,10 @@
 
 #### Дополнительно
 
-- [Схема обучения по фабрике данных Azure](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
-- [Поиск документации по Microsoft Azure](http://azure.microsoft.com/search/documentation/)
-- [Альтернативный поиск документации по Microsoft Azure](http://azure.microsoft.com/searchresults/?query=)
-- [Просмотр последних обновлений службы фабрики данных](http://azure.microsoft.com/updates/?service=data-factory)
-- [Схемы обучения по службам Microsoft Azure](http://azure.microsoft.com/documentation/learning-paths/)
+- [Схема обучения по фабрике данных Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+- [Поиск документации по Microsoft Azure](https://azure.microsoft.com/search/documentation/)
+- [Альтернативный поиск документации по Microsoft Azure](https://azure.microsoft.com/searchresults/?query=)
+- [Просмотр последних обновлений службы фабрики данных](https://azure.microsoft.com/updates/?service=data-factory)
+- [Схемы обучения по службам Microsoft Azure](https://azure.microsoft.com/documentation/learning-paths/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

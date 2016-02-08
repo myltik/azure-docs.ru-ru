@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="event-hubs" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Получение данных телеметрии и событий приложения в нужном масштабе
@@ -23,7 +23,7 @@
 
 ## Изучить
 - [Концентраторы событий](event-hubs-overview.md)
-- [Сведения о ценах на концентраторы событий](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [Сведения о ценах на концентраторы событий](https://azure.microsoft.com/pricing/details/event-hubs/)
 - [Доступность и поддержка концентраторов событий: часто задаваемые вопросы](event-hubs-availability-and-support-faq.md)
 - [Шаблон источников событий](http://msdn.microsoft.com/library/dn589792.aspx)
  
@@ -32,9 +32,9 @@
 - [Примеры кода концентраторов событий](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Связанные службы
-- [Служебная шина](http://azure.microsoft.com/services/service-bus/)
-- [Хранилище Azure](http://azure.microsoft.com/services/storage/)
-- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
+- [Служебная шина](https://azure.microsoft.com/services/service-bus/)
+- [Хранилище Azure](https://azure.microsoft.com/services/storage/)
+- [HDInsight](https://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

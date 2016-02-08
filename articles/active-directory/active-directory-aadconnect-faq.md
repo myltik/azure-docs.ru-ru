@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # Azure AD Connect: вопросы и ответы
@@ -83,11 +83,11 @@
 
 [Форумы по Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/ru-RU/home?forum=WindowsAzureAD)
 
-- [Здесь](https://social.msdn.microsoft.com/Forums/azure/ru-RU/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required) вы можете искать и просматривать ответы участников сообщества на технические вопросы, а также задавать собственные.
+- [Здесь](https://social.msdn.microsoft.com/Forums/azure/ru-RU/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required) вы можете искать и просматривать ответы членов сообщества на технические вопросы, а также задавать собственные.
 
 
 [Служба поддержки клиентов Azure AD Connect](https://manage.windowsazure.com/?getsupport=true)
 
 - Перейдите по этой ссылке, чтобы получить поддержку на портале Azure.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

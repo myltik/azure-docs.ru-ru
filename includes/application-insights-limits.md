@@ -1,4 +1,4 @@
- Ограничения зависят от выбранной [ценовой категории](http://azure.microsoft.com/pricing/details/application-insights/).
+ Ограничения зависят от выбранной [ценовой категории](https://azure.microsoft.com/pricing/details/application-insights/).
 
 **Ресурс** | **Ограничение по умолчанию** | **Максимальное ограничение**
 -------- | ------------- | -------------
@@ -21,4 +21,4 @@
  
 [Цены и квоты для Application Insights](app-insights-pricing.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

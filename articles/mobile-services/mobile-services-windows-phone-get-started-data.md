@@ -37,7 +37,7 @@
 
 + Visual Studio 2012 Express для Windows Phone 8 и [пакет SDK для Windows Phone 8], запущенный в среде Windows 8. Чтобы завершить этот учебник и создать приложение для Windows Phone 8.1, следует использовать Visual Studio 2013 с обновлением 2 или более позднюю версию.
 
-+ Учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F).
++ Учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F).
 
 ##<a name="download-app"></a>Скачивание проекта GetStartedWithData
 
@@ -154,7 +154,7 @@
 
    	В результате в мобильную службу будет отправлен новый элемент в качестве вставки.
 
-3. Войдите на [классический портал Azure], выберите пункт **Мобильные службы**, а затем щелкните свою мобильную службу.
+3. Перейдите на [классический портал Azure], выберите пункт **Мобильные службы**, а затем щелкните свою мобильную службу.
 
 4. Откройте вкладку **Данные**, а затем щелкните **Обзор**.
 
@@ -197,4 +197,4 @@
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [примеров кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

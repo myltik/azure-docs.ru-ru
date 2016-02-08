@@ -3,7 +3,7 @@
 	description="Описывается, что произошло с вашим проектом .NET для Visual Studio после добавления мобильных служб Azure с помощью подключенных служб."
 	services="mobile-services"
 	documentationCenter=""
-	authors="TomArcher"
+	authors="mlhoop"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="01/05/2016"
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # Что произошло с моим проектом .NET для Visual Studio после добавления мобильных служб Azure с помощью подключенных служб?
 
@@ -39,6 +39,6 @@
 Если мобильная служба .NET создается в поставщике подключенных служб, то проект мобильных служб создается и добавляется в решение.
 
 
-[Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
+[Дополнительные сведения о мобильных службах](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

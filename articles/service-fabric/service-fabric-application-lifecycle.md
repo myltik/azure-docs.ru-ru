@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="01/20/2016"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
@@ -46,13 +46,13 @@
 
 2. *Оператор* загружает пакет приложения в хранилище образов кластера при помощи [метода **CopyApplicationPackage**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) или [командлета **Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx). Пакет приложения содержит манифест приложения и коллекцию пакетов служб. Структура служб выполняет развертывание приложений из пакета приложений, размещенного в хранилище образов, который может представлять собой магазин больших двоичных объектов Azure или системную службу Service Fabric.
 
-3. *Оператор* затем выделяет тип приложения в целевом кластере из загруженного пакета приложения при помощи [метода **ProvisionApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [командлета **Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) или [операции REST **Create Application**](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+3. *Оператор* затем выделяет тип приложения в целевом кластере из загруженного пакета приложения при помощи [метода **ProvisionApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [командлета **Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) или [операции REST **Provision an Application**](https://msdn.microsoft.com/library/azure/dn707672.aspx).
 
-3. После подготовки приложения *оператор* запускает приложение с параметрами, предоставленными *администратором приложения* при помощи [метода **CreateApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync.aspx), [командлета **New-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125913.aspx) или [операции REST **Create Application**](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+4. После подготовки приложения *оператор* запускает приложение с параметрами, предоставленными *администратором приложения* при помощи [метода **CreateApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync.aspx), [командлета **New-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125913.aspx) или [операции REST **Create Application**](https://msdn.microsoft.com/library/azure/dn707676.aspx).
 
-4. После того как приложение будет развернуто, *оператор* использует [метод **CreateServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.createserviceasync.aspx), [командлет **New-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt125874.aspx) или [операцию REST **Create Application**](https://msdn.microsoft.com/library/azure/dn707692.aspx) для создания новых экземпляров службы для приложения на основании доступных типов службы.
+5. После того как приложение будет развернуто, *оператор* использует [метод **CreateServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.createserviceasync.aspx), [командлет **New-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt125874.aspx) или [операцию REST **Create Service**](https://msdn.microsoft.com/library/azure/dn707657.aspx) для создания новых экземпляров службы для приложения на основании доступных типов службы.
 
-5. Теперь приложение работает в кластере Service Fabric.
+6. Теперь приложение работает в кластере Service Fabric.
 
 См. раздел [Развертывание приложения](service-fabric-deploy-remove-applications.md), чтобы ознакомиться с примерами.
 
@@ -72,15 +72,15 @@
 
 4. *Оператор* загружает обновленный пакет приложения в хранилище образов кластера при помощи [метода **CopyApplicationPackage**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) или [командлета **Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx). Пакет приложения содержит манифест приложения и коллекцию пакетов служб.
 
-5. *Оператор* предоставляет новую версию приложения для целевого кластера при помощи [метода **ProvisionApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [командлета **Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) или [операции REST P**rovision an Application**](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+5. *Оператор* предоставляет новую версию приложения для целевого кластера при помощи [метода **ProvisionApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [командлета **Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) или [операции REST P**rovision an Application**](https://msdn.microsoft.com/library/azure/dn707672.aspx).
 
-6. *Оператор* обновляет целевое приложение до новой версии, используя [метод **UpgradeApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), [командлет **Start-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125975.aspx) или [операцию REST **Upgrade Application by Application Type**](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+6. *Оператор* обновляет целевое приложение до новой версии, используя [метод **UpgradeApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), [командлет **Start-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125975.aspx) или [операцию REST **Upgrade an Application**](https://msdn.microsoft.com/library/azure/dn707633.aspx).
 
-7. *Оператор* проверяет ход обновления при помощи [метода **GetApplicationUpgradeProgressAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), [командлета **Get-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125988.aspx) или [операции REST **Get Application Upgrade Progress**](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+7. *Оператор* проверяет ход обновления при помощи [метода **GetApplicationUpgradeProgressAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), [командлета **Get-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125988.aspx) или [операции REST **Get Application Upgrade Progress**](https://msdn.microsoft.com/library/azure/dn707631.aspx).
 
-8. При необходимости *оператор* изменяет и повторно применяет параметры текущего обновления приложения при помощи [метода **UpdateApplicationUpgradeAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), [командлета **Update-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt126030.aspx) или [операции REST **Update Application Upgrade**](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+8. При необходимости *оператор* изменяет и повторно применяет параметры текущего обновления приложения при помощи [метода **UpdateApplicationUpgradeAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), [командлета **Update-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt126030.aspx) или [операции REST **Update Application Upgrade**](https://msdn.microsoft.com/library/azure/mt628489.aspx).
 
-9. При необходимости *оператор* применяет откат текущего обновления приложения при помощи [метода **RollbackApplicationUpgradeAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), [командлета **Start-ServiceFabricApplicationRollback**](https://msdn.microsoft.com/library/azure/mt125833.aspx) или [операции REST** Rollback Application Upgrade**](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+9. При необходимости *оператор* применяет откат текущего обновления приложения при помощи [метода **RollbackApplicationUpgradeAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), [командлета **Start-ServiceFabricApplicationRollback**](https://msdn.microsoft.com/library/azure/mt125833.aspx) или [операции REST** Rollback Application Upgrade**](https://msdn.microsoft.com/library/azure/mt628494.aspx).
 
 10. Структура службы обновляет целевое приложение, запущенное в кластере приложения без потери доступности служб, которые входят в его состав.
 
@@ -98,11 +98,11 @@
 5. При добавлении новых или удалении существующих узлов из кластера структура службы автоматически балансирует нагрузку запущенных приложений на всех узлах в кластере, чтобы достичь оптимальной производительности.
 
 ## Remove
-1. *Оператор* может удалить определенный экземпляр запущенной службы в кластере без удаления всего приложения при помощи [метода **DeleteServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), [командлета **Remove-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt126033.aspx) или [операции REST **Delete Service**](https://msdn.microsoft.com/library/azure/dn707692.aspx).  
+1. *Оператор* может удалить определенный экземпляр запущенной службы в кластере без удаления всего приложения при помощи [метода **DeleteServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), [командлета **Remove-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt126033.aspx) или [операции REST **Delete Service**](https://msdn.microsoft.com/library/azure/dn707687.aspx).  
 
-2. *Оператор* может также удалить экземпляр приложения и все его службы при помощи [метода **DeleteApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), [командлета **Remove-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125914.aspx) или [операции REST **Delete Application**](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+2. *Оператор* может также удалить экземпляр приложения и все его службы при помощи [метода **DeleteApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), [командлета **Remove-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125914.aspx) или [операции REST **Delete Application**](https://msdn.microsoft.com/library/azure/dn707651.aspx).
 
-3. После того как приложения и службы будут остановлены, *оператор* может отменить выделение мощностей для этого типа приложений при помощи [метода **UnprovisionApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync.aspx), [командлета **Unregister-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125885.aspx) или [операции REST **Unprovision an Application**](https://msdn.microsoft.com/library/azure/dn707692.aspx). При отмене подготовки мощностей для определенного типа приложения пакет приложения не удаляется из хранилища образов; необходимо удалить его вручную. Пакет приложения необходимо удалить вручную.
+3. После того как приложения и службы будут остановлены, *оператор* может отменить выделение мощностей для этого типа приложений при помощи [метода **UnprovisionApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync.aspx), [командлета **Unregister-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125885.aspx) или [операции REST **Unprovision an Application**](https://msdn.microsoft.com/library/azure/dn707671.aspx). При отмене подготовки мощностей для определенного типа приложения пакет приложения не удаляется из хранилища образов; необходимо удалить его вручную. Пакет приложения необходимо удалить вручную.
 
 4. *Оператор* удаляет пакет приложений из ImageStore при помощи [метода **RemoveApplicationPackage**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage.aspx) или [командлета **Remove-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt163532.aspx).
 
@@ -119,4 +119,4 @@
 - [Обзор Testability](service-fabric-testability-overview.md)
 - [Пример жизненного цикла приложения на основе REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

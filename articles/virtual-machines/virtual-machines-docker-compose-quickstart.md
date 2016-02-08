@@ -24,17 +24,17 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Модель диспетчера ресурсов](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
 
 
-Если вы не знакомы с решением Docker и контейнерами, см. [доску по Docker](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
+Если вы не знакомы с решением Docker и контейнерами, см. [доску по Docker](https://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
 
 ## Шаг 1. Настройка виртуальной машины Linux как узла Docker
 
-Чтобы создать виртуальную машину Linux и настроить ее как узел Docker, можно использовать различные процедуры Azure и образы, доступные в Azure Markeplace. Например, в статье [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure](virtual-machines-docker-with-xplat-cli.md) описана процедура быстрого создания виртуальной машины Ubuntu с расширением виртуальных машин Docker. При использовании этого расширения виртуальная машина настраивается как узел Docker автоматически. Приведенный в этой статье пример демонстрирует, как использовать [интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli-install.md) в режиме управления службами для создания виртуальной машины.
+Чтобы создать виртуальную машину Linux и настроить ее как узел Docker, можно использовать различные процедуры Azure и образы, доступные в Azure Markeplace. Например, в разделе [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure](virtual-machines-docker-with-xplat-cli.md) описана процедура быстрого создания виртуальной машины Ubuntu с расширением виртуальных машин Docker. При использовании этого расширения виртуальная машина настраивается как узел Docker автоматически. Приведенный в этой статье пример демонстрирует применение [интерфейса командной строки Azure для Mac, Linux и Windows](../xplat-cli-install.md) (Azure CLI) в режиме управления службами для создания виртуальной машины.
 
 ## Шаг 2. Установка решения Compose
 
 Запустите виртуальную машину Linux с решением Docker, подключите ее к клиентскому компьютеру с помощью SSH. При необходимости установите решение [Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md), выполнив две указанные ниже команды.
 
->[AZURE.TIP]Если при создании виртуальной машины использовалось расширение Docker, то решение Compose уже установлено. Пропустите эти команды и перейдите к шагу 3. Решение Compose необходимо устанавливать только в том случае, если вы установили Docker на виртуальную машину самостоятельно.
+>[AZURE.TIP] Если при создании виртуальной машины использовалось расширение Docker, то решение Compose уже установлено. Пропустите эти команды и перейдите к шагу 3. Решение Compose необходимо устанавливать только в том случае, если вы установили Docker на виртуальную машину самостоятельно.
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
@@ -73,23 +73,23 @@ db:
 
 ```
 
-## Шаг 4: Запуск контейнеров с использованием Compose
+## Step 4: Start the containers with Compose
 
-В рабочем каталоге виртуальной машины просто выполните следующую команду.
+In the working directory on your VM, simply run the following command.
 
 ```
 $ docker-compose up -d
 
 ```
 
-Это запускает контейнеры Docker, указанные в `docker-compose.yml`. Вы увидите выходные данные, похожие на следующие:
+This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
 Creating wordpress\_db\_1...
 Creating wordpress\_wordpress\_1...
 ```
 
->[AZURE.NOTE]При запуске обязательно используйте параметр **-d**, чтобы контейнеры непрерывно выполнялись в фоновом режиме.
+>[AZURE.NOTE] При запуске обязательно используйте параметр **-d**, чтобы контейнеры непрерывно выполнялись в фоновом режиме.
 
 Чтобы убедиться, что контейнеры работоспособны, введите `docker-compose ps`. Вы увидите нечто вроде этого:
 
@@ -117,13 +117,12 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 ## Дальнейшие действия
 
-* Дополнительные примеры сборки и развертывания многоконтейнерных приложений см. в [справке по интерфейсу командной строки Compose](http://docs.docker.com/compose/cli/) и [руководстве пользователя](http://docs.docker.com/compose/).
-* Воспользуйтесь шаблоном диспетчера ресурсов Azure (собственным или полученным из [сообщества](http://azure.microsoft.com/documentation/templates/)), чтобы развернуть виртуальную машину Azure с Docker и настроить приложение при помощи решения Compose. Например: в шаблоне [Развертывание блога WordPress с помощью Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) решения Docker и Compose используются для быстрого развертывания WordPress с серверной базой данных MySQL на виртуальной машине Ubuntu.
-* Попытайтесь интегрировать Docker Compose с кластером [Docker Swarm](virtual-machines-docker-swarm.md). Доступные сценарии приведены в
-[статье об интеграции Docker Compose и Swarm](https://github.com/docker/compose/blob/master/SWARM.md).
+* Дополнительные примеры сборки и развертывания многоконтейнерных приложений см. в [справочнике по интерфейсу командной строки Compose](http://docs.docker.com/compose/reference/) и [руководстве пользователя](http://docs.docker.com/compose/).
+* Воспользуйтесь шаблоном диспетчера ресурсов Azure (собственным или полученным из [сообщества](https://azure.microsoft.com/documentation/templates/)), чтобы развернуть виртуальную машину Azure с Docker и настроить приложение при помощи решения Compose. Например, в шаблоне [Развертывание блога WordPress с помощью Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) решения Docker и Compose используются для быстрого развертывания WordPress с серверной базой данных MySQL на виртуальной машине Ubuntu.
+* Попытайтесь интегрировать Docker Compose с кластером [Docker Swarm](virtual-machines-docker-swarm.md). Доступные сценарии приведены в [статье об интеграции Docker Compose и Swarm](https://github.com/docker/compose/blob/master/SWARM.md).
 
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

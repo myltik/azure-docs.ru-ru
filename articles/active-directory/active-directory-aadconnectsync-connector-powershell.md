@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Синхронизация Azure AD Connect: соединитель PowerShell "
+   pageTitle="Синхронизация Azure AD Connect: соединитель PowerShell | Microsoft Azure"
    description="В этой статье описана настройка соединителя Windows PowerShell корпорации Майкрософт."
    services="active-directory"
    documentationCenter=""
@@ -13,15 +13,15 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Технический справочник по соединителю Windows PowerShell
 
 В этой статье описан соединитель Windows PowerShell. Статья относится к следующим продуктам:
 
-- Microsoft Identity Manager 2016 (MIM2016);
-- Forefront Identity Manager 2010 R2 (FIM2010R2).
+- Microsoft Identity Manager 2016 (MIM2016);
+- Forefront Identity Manager 2010 R2 (FIM2010R2).
     -   Необходимо установить исправление 4.1.3461.0 или пакет исправлений [KB2870703](https://support.microsoft.com/kb/2870703).
 
 Для MIM2016 и FIM2010R2 соединитель можно загрузить из [центра загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=717495).
@@ -370,4 +370,4 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

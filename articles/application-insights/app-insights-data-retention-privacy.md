@@ -92,7 +92,7 @@
 
 ## Как долго хранятся данные? 
 
-Это зависит от [тарифного плана](http://azure.microsoft.com/pricing/details/application-insights/).
+Это зависит от [тарифного плана](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Необработанные точки данных (элементы, которые можно проверить с помощью поиска по журналу диагностики): от 7 до 30 дней.
 
@@ -123,7 +123,7 @@
 Application Insights — это служба Azure в режиме предварительного просмотра. В режиме предварительного просмотра мы стараемся защитить ваши данные в соответствии с политиками, описанными в техническом документе [Безопасность, конфиденциальность и соответствие требованиям Azure](http://go.microsoft.com/fwlink/?linkid=392408).
 
 
-Данные хранятся на серверах Microsoft Azure. Ограничения для учетных записей на портале Azure описаны в документе [Безопасность, конфиденциальность и соответствие нормативам Azure](http://go.microsoft.com/fwlink/?linkid=392408). Сведения об учетных записях на портале Visual Studio Team Services см. в документе [Защита данных с помощью Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf).
+Данные хранятся на серверах Microsoft Azure. Ограничения для учетных записей на портале Azure описаны в документе [Безопасность, конфиденциальность и соответствие нормативам Azure](http://go.microsoft.com/fwlink/?linkid=392408). Для учетных записей портала Visual Studio Team Services действует документ [Защита данных Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf).
 
 Доступ к данным сотрудников Майкрософт ограничен. Доступ производится только с вашего разрешения и в случае, если это необходимо для поддержки использования вами Application Insights.
 
@@ -264,4 +264,4 @@ Requests (Запросы) |URL-адрес, длительность, код от
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

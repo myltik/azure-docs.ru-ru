@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/20/2016"
 	ms.author="davidmu"/>
 
 # Развертывание ресурсов Azure с помощью библиотек компонентов Compute, Network и Storage для .NET
@@ -28,7 +28,7 @@
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Учетная запись хранения Azure.](../storage-create-storage-account.md)
+- [Учетная запись хранения Azure.](../storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0.](http://www.microsoft.com/download/details.aspx?id=40855)
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
@@ -47,7 +47,7 @@
 
 			New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Запишите идентификатор приложения, который возвращается после создания приложения, так как он потребуется для следующего шага. Кроме того, идентификатор приложения отображается в поле идентификатора клиента приложения в разделе Active Directory портала Azure.
+	>[AZURE.NOTE] Запишите идентификатор приложения, который возвращается после создания приложения, так как он потребуется для следующего шага. Кроме того, идентификатор приложения отображается в поле идентификатора клиента приложения в разделе Active Directory портала Azure.
 
 3. Замените {application-id} только что записанным идентификатором, а затем создайте субъект-службу для приложения:
 
@@ -489,7 +489,7 @@
 	}
 	```
 
-	>[AZURE.NOTE]В этом учебнике создается виртуальная машина под управлением одной из версий операционной системы Windows Server. Дополнительные сведения о выборе других образов см. в статье [Просмотр и выбор образов виртуальных машин Azure с помощью Windows PowerShell и интерфейса командной строки Azure](resource-groups-vm-searching.md).
+	>[AZURE.NOTE] В этом учебнике создается виртуальная машина под управлением одной из версий операционной системы Windows Server. Дополнительные сведения о выборе других образов см. в статье [Просмотр и выбор образов виртуальных машин Azure с помощью Windows PowerShell и интерфейса командной строки Azure](resource-groups-vm-searching.md).
 
 2. Для вызова только что добавленного метода добавьте указанный ниже код в метод Main.
 
@@ -548,4 +548,4 @@
 
 	![Создание приложения AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

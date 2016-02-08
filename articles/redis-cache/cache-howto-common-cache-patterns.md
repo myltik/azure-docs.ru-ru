@@ -33,8 +33,8 @@
 ## Дальнейшие действия
 Дополнительные сведения об использовании кэша Redis для Azure:
  
-- [Документы кэш Redis для Azure](http://azure.microsoft.com/documentation/services/cache/): на этой странице приведено множество хороших ссылок на материалы по использованию кэша Redis для Azure.
-- [Киноприложение MVC за 15 минут с помощью кэша Redis для Azure](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/): в этой записи блога кратко описано начало использования кэша Redis для Azure в приложении ASP.NET MVC.
+- [Документы кэш Redis для Azure](https://azure.microsoft.com/documentation/services/cache/): на этой странице приведено множество хороших ссылок на материалы по использованию кэша Redis для Azure.
+- [Киноприложение MVC за 15 минут с помощью кэша Redis для Azure](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/): в этой записи блога кратко описано начало использования кэша Redis для Azure в приложении ASP.NET MVC.
 - [Использование состояния сеанса ASP.NET с веб-сайтами Azure](../app-service-web/web-sites-dotnet-session-state-caching.md): в этом разделе объясняется, как использовать службу кэша Redis для Azure для хранения состояния сеанса.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

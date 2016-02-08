@@ -3,7 +3,7 @@
 	description="Управление доступом на основе ролей с помощью Windows PowerShell"
 	services="active-directory"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/25/2016"
+	ms.author="kgremban"/>
 
 # Управление доступом на основе ролей с помощью Windows PowerShell #
 
 > [AZURE.SELECTOR]
-- [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [Windows PowerShell](role-based-access-control-powershell.md)
+- [Azure CLI](role-based-access-control-xplat-cli.md)
 
 Функция управления доступом на основе ролей (RBAC) на портале Azure и в API диспетчера ресурсов Azure позволяет управлять доступом к подписке на детальном уровне. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
 
@@ -39,11 +38,11 @@
 
 Этот учебник предназначен для начинающих пользователей Windows PowerShell, но предполагается, что вы знакомы с основными понятиями, такими как модули, командлеты и сеансы. Дополнительные сведения о Windows PowerShell см. в разделе [Начало работы с Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
-Чтобы получить подробную справку для любого командлета, встречающегося в этом учебнике, используйте командлет Get-Help.
+Чтобы получить подробную справку по любому командлету, который встречается в этом руководстве, используйте командлет `Get-Help`.
 
 	Get-Help <cmdlet-name> -Detailed
 
-Например, чтобы получить справку для командлета Add-AzureAccount, введите:
+Например, чтобы получить справку для командлета `Add-AzureAccount`, введите:
 
 	Get-Help Add-AzureAccount -Detailed
 
@@ -55,19 +54,19 @@
 
 ## Подключение к своим подпискам
 
-RBAC работает только с диспетчером ресурсов Azure, поэтому в первую очередь необходимо перейти в режим диспетчера ресурсов Azure. Для этого введите:
+RBAC работает только с диспетчером ресурсов Azure, поэтому в первую очередь необходимо перейти в режим диспетчера ресурсов Azure.
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 Дополнительные сведения см. в разделе [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md).
 
-Чтобы подключиться к своим подпискам Azure, введите:
+Чтобы подключиться к подпискам Azure, введите:
 
     PS C:\> Add-AzureAccount
 
 Во всплывающем окне браузера введите имя пользователя и пароль учетной записи Azure. PowerShell соберет сведения обо всех подписках для этой учетной записи. По умолчанию будет использоваться первая подписка. Обратите внимание: при использовании RBAC вы получите только те подписки, в которых у вас есть какие-либо разрешения, т. е. для которых вы являетесь соадминистратором или вам назначена какая-либо роль.
 
-Если у вас несколько подписок и вы хотите переключиться на другую, введите:
+Если у вас несколько подписок и вы хотите переключиться на другую, используйте следующие команды:
 
     # This will show you the subscriptions under the account.
     PS C:\> Get-AzureSubscription
@@ -87,14 +86,14 @@ RBAC работает только с диспетчером ресурсов Az
 1. Вам потребуется доступ на чтение на уровне подписки.
 2. Если в подписке много назначений ролей, получение сведений о них может занять некоторое время.
 
-Можно также проверить существующие назначения ролей для конкретного определения роли с конкретной областью для отдельного пользователя. Введите:
+Можно также проверить существующие назначения ролей для конкретного определения роли с определенной областью и для определенного пользователя. Тип:
 
     PS C:\> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user email> -RoleDefinitionName Owner
 
 Эта команда возвращает все назначения ролей для определенного пользователя в клиенте Active Directory, которому назначена роль "Владелец" для группы ресурсов group1. Назначение роли может иметь два разных источника:
 
 1. Назначение роли "Владелец" пользователю для группы ресурсов.
-2. Назначение роли "Владелец" пользователю для родительского объекта группы ресурсов (в этом случае — подписки). Если у вас есть какое-либо разрешение на определенном уровне, вы получите аналогичное разрешение на доступ ко всем дочерним объектам.
+2. Назначение роли "Владелец" пользователю для родительского объекта группы ресурсов (в этом случае — подписки). Если у вас есть какое-либо разрешение на родительском уровне, вы получите аналогичные разрешения на доступ ко всем дочерним объектам.
 
 Все параметры этого командлета необязательны. Вы можете использовать их в различных сочетаниях для проверки назначений ролей с разными фильтрами.
 
@@ -113,29 +112,20 @@ RBAC работает только с диспетчером ресурсов Az
 
     PS C:\> Get-AzureRoleDefinition
 
-Какую область вы хотите назначить? Доступны три уровня:
-
-    - The current subscription
-    - A resource group, to get a list of resource groups, type `PS C:\> Get-AzureResourceGroup`
-    - A resource, to get a list of resources, type `PS C:\> Get-AzureResource`
+Какую область вы хотите назначить? У вас есть три уровня областей: текущая подписка, группа ресурсов (чтобы получить список групп ресурсов, введите `PS C:\> Get-AzureResourceGroup`), ресурс (чтобы получить список ресурсов, введите `PS C:\> Get-AzureResource`).
 
 Затем используйте `New-AzureRoleAssignment`, чтобы создать назначение роли. Например:
 
+	#This will create a role assignment at the current subscription level for a user as a reader.
+	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-Создание назначения роли "Читатель" пользователю на уровне текущей подписки:
-
-	 PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
-
-Создание назначения роли на уровне группы ресурсов:
-
+	#This will create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-Создание назначения роли для группы на уровне группы ресурсов:
-
+	#This will create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-Создание назначения роли на уровне ресурса:
-
+	#This will create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
@@ -149,7 +139,7 @@ RBAC работает только с диспетчером ресурсов Az
 
 Эти два командлета возвращают только группы ресурсов или ресурсы, для которых у вас есть разрешение на чтение. Они также отображают имеющиеся у вас разрешения.
 
-Попытавшись затем выполнить другой командлет, например `New-AzureResourceGroup`, вы получите сообщение об отказе в доступе, если у вас нет соответствующего разрешения.
+Попытавшись затем выполнить другие командлеты, например `New-AzureResourceGroup`, вы получите сообщение об отказе в доступе, если у вас нет соответствующего разрешения.
 
 ## Дальнейшие действия
 
@@ -164,4 +154,4 @@ RBAC работает только с диспетчером ресурсов Az
 - [Настройка управления доступом на основе ролей с помощью Azure CLI](role-based-access-control-xplat-cli-install.md)
 - [Устранение неполадок управления доступом на основе ролей](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

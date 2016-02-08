@@ -61,7 +61,7 @@
  
 ## Перемещение приложения в другой план службы приложений
 
-Приложения можно переместить в другой план службы приложений на [портале Azure](http://portal.azure.com). Приложения можно перемещать между планами в рамках одного географического региона.
+Приложения можно переместить в другой план службы приложений на [портале Azure](https://portal.azure.com). Приложения можно перемещать между планами в рамках одного географического региона.
 
 Чтобы переместить приложение в другой план, перейдите в приложение, которое требуется переместить, и нажмите кнопку **Изменить план службы приложений**.
  
@@ -90,14 +90,11 @@
 ## Изменения
 
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
- 
- 
- 
- <!-- Images. -->
+   
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

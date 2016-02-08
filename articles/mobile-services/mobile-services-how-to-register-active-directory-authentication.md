@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/15/2015"
+	ms.date="01/14/2016"
 	ms.author="ricksal"/>
 
 # Регистрация приложений для входа с использованием учетной записи Azure Active Directory
@@ -31,13 +31,13 @@
 
 ##Регистрация приложения
 
->[AZURE.NOTE]Описанные в этом разделе действия предназначены для применения с учебником [Добавление проверки подлинности в приложение мобильных служб](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md), если нужно использовать [управляемые службой операции входа](http://msdn.microsoft.com/library/azure/dn283952.aspx) в вашем приложении. А если приложению требуются [управляемые клиентом операции входа](http://msdn.microsoft.com/library/azure/jj710106.aspx) для Azure Active Directory и серверной части .NET, нужно начать с учебника [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory](mobile-services-windows-store-dotnet-adal-sso-authentication.md).
+>[AZURE.NOTE] Описанные в этом разделе действия предназначены для применения с учебником [Добавление проверки подлинности в приложение мобильных служб](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md), если нужно использовать [управляемые службой операции входа](http://msdn.microsoft.com/library/azure/dn283952.aspx) в вашем приложении. А если приложению требуются [управляемые клиентом операции входа](http://msdn.microsoft.com/library/azure/jj710106.aspx) для Azure Active Directory и серверной части .NET, нужно начать с учебника [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory](mobile-services-windows-store-dotnet-adal-sso-authentication.md).
 
 1. Выполните вход на [классический портал Azure], перейдите к вашей мобильной службе, откройте вкладку **Идентификация**, прокрутите вниз до раздела поставщика удостоверений **Azure Active Directory** и скопируйте **URL-адрес приложения**.
 
     ![URL-адрес приложения мобильной службы для AAD](./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-copy-app-url-waad-auth.png)
 
-2. Перейдите к **Active Directory** на [классическом портале Azure], выберите каталог, затем щелкните **Домены** и запишите значение домена каталога по умолчанию.
+2. Перейдите к **Active Directory** на [классическом портале], выберите каталог, затем щелкните **Домены** и запишите значение домена каталога по умолчанию.
 
 3. Щелкните **Приложения** > **Добавить** > **Добавить приложение, разрабатываемое моей организацией**.
 
@@ -68,6 +68,6 @@
 
 <!-- URLs. -->
 [классический портал Azure]: https://manage.windowsazure.com/
-[классическом портале Azure]: https://manage.windowsazure.com/
+[классическом портале]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

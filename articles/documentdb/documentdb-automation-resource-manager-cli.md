@@ -46,7 +46,7 @@
 
 ### Настройка учетной записи и подписки Azure
 
-Если у вас нет подписки Azure, но есть подписка Visual Studio, вы можете [активировать преимущества подписчика Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или подписаться на [бесплатную пробную версию](http://azure.microsoft.com/pricing/free-trial/).
+Если у вас нет подписки Azure, но есть подписка Visual Studio, вы можете [активировать преимущества подписчика Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или подписаться на [бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/).
 
 Чтобы использовать шаблоны управления ресурсами Azure, требуется рабочая или учебная учетная запись или учетная запись Майкрософт. Если у вас есть одна из этих учетных записей, введите следующую команду.
 
@@ -59,7 +59,7 @@
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE]Если у вас нет учетной записи Azure, появится сообщение об ошибке, указывающее, что вам необходима учетная запись другого типа. Сведения о том, как создать такую учетную запись из текущей учетной записи Azure, см. в статье [Создание рабочего или школьного удостоверения в Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE] Если у вас нет учетной записи Azure, появится сообщение об ошибке, указывающее, что вам необходима учетная запись другого типа. Сведения о том, как создать такую учетную запись из текущей учетной записи Azure, см. в статье [Создание рабочего или школьного удостоверения в Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
 
 Откройте адрес [https://aka.ms/devicelogin](https://aka.ms/devicelogin) в браузере и введите код, указанный в выходных данных команды.
 
@@ -136,7 +136,7 @@
 
 Создайте учетную запись DocumentDB в новой или существующей группе ресурсов, введя следующую команду в командной строке:
 
-> [AZURE.TIP]При выполнении этой команды в Azure PowerShell или Windows PowerShell вы получите ошибку о непредвиденном токене. Вместо этого запустите эту команду в командной строке Windows.
+> [AZURE.TIP] При выполнении этой команды в Azure PowerShell или Windows PowerShell вы получите ошибку о непредвиденном токене. Вместо этого запустите эту команду в командной строке Windows.
 
     azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
 
@@ -314,7 +314,7 @@
 
 Существует несколько вариантов устранения ошибок типа `Deployment provisioning state was not successful`, возникающих при создании группы ресурсов или учетной записи базы данных.
 
-> [AZURE.NOTE]Указание недопустимых символов в имени учетной записи базы данных или выбор региона, в котором отсутствует доступ к DocumentDB, приводит к ошибкам развертывания. В именах учетных записей могут использоваться только строчные буквы, цифры и символ «-», а длина имени должна составлять от 3 до 50 символов. Все допустимые расположения учетной записи базы данных перечислены на [странице регионов Azure](https://azure.microsoft.com/regions/#services).
+> [AZURE.NOTE] Указание недопустимых символов в имени учетной записи базы данных или выбор региона, в котором отсутствует доступ к DocumentDB, приводит к ошибкам развертывания. В именах учетных записей могут использоваться только строчные буквы, цифры и символ «-», а длина имени должна составлять от 3 до 50 символов. Все допустимые расположения учетной записи базы данных перечислены на [странице регионов Azure](https://azure.microsoft.com/regions/#services).
 
 - Если выходные данные содержат ошибку `Error information has been recorded to C:\Users\wendy\.azure\azure.err`, информацию об этой ошибке можно просмотреть в файле azure.err.
 
@@ -349,6 +349,6 @@
 -	[Схема обучения для DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Модель ресурсов и понятия DocumentDB](documentdb-resources.md)
 
-Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](http://azure.microsoft.com/documentation/templates/).
+Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

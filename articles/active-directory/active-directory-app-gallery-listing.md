@@ -19,7 +19,7 @@
 
 # Добавление приложения в коллекцию приложений Azure Active Directory
 
-Чтобы указать приложение, поддерживающее единый вход с Azure Active Directory в [коллекции Azure AD](http://azure.microsoft.com/marketplace/active-directory/all/), приложению сначала необходимо реализовать один из следующих режимов интеграции.
+Чтобы указать приложение, поддерживающее единый вход с Azure Active Directory в [коллекции Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), приложению сначала необходимо реализовать один из следующих режимов интеграции.
 
 * **OpenID Connect.** Прямая интеграция с Azure AD с помощью OpenID Connect для проверки подлинности и API согласия Azure AD для конфигурации. Этот режим является рекомендуемым, если вы только начали интеграцию и ваше приложение не поддерживает SAML.
 
@@ -33,7 +33,7 @@
 
 * Укажите учетные данные для тестового клиента или учетной записи с приложением, которое команда Azure AD может использовать для тестирования интеграции.  
 
-* Приведите инструкции для команды Azure AD по входу и подключению экземпляра Azure AD к вашему приложению с помощью [платформы согласия Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework).
+* Приведите инструкции для команды Azure AD по входу и подключению экземпляра Azure AD к вашему приложению с помощью [платформы согласия Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/).
 
 * Предоставьте любые дополнительные инструкции, необходимые команде Azure AD для проверки единого входа с использованием вашего приложения.
 
@@ -97,4 +97,4 @@
 > 
 > Приложите логотип приложения (PNG-файл, 150 x 122 пикселя, сплошной цвет фона):
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_0128_2016-->

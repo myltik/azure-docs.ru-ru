@@ -27,7 +27,7 @@
 
 Прежде чем следовать указаниям в этой статье, необходимо подготовить следующее:
 
-- **Подписка Azure**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Подписка Azure**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **CLI Azure** — Сведения об установке и настройке CLI Azure см. в разделе [Установка и настройка CLI Azure](../xplat-cli-install.md) .
 
 ##Подключение к Azure
@@ -70,7 +70,7 @@
 	
 		azure storage account create "<Azure Storage Account Name>" -g "<Resource Group Name>" -l "<Azure Location>" --type LRS
 
-	> [AZURE.NOTE]Учетная запись хранения должна находиться вместе с HDInsight в том же центре обработки данных. Тип учетной записи хранилища не может быть ZRS, так как ZRS не поддерживает таблицы.
+	> [AZURE.NOTE] Учетная запись хранения должна находиться вместе с HDInsight в том же центре обработки данных. Тип учетной записи хранилища не может быть ZRS, так как ZRS не поддерживает таблицы.
 
 	Сведения о создании новой учетной записи хранения Azure с помощью портала Azure см. в статье [Создание, управление и удаление учетной записи хранения][azure-create-storageaccount].
 	
@@ -134,4 +134,4 @@
 - [Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure](hdinsight-administer-use-command-line.md)
 - [Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows](virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

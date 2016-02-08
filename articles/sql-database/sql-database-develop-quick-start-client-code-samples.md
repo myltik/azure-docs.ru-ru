@@ -39,7 +39,7 @@
 - примеры кода, которые преобразуют реляционные результирующие наборы в объектно-ориентированный формат.
 
 
-> [AZURE.NOTE]Подготавливаются примеры кода для других языков, ссылки на которые будут добавлены в раздел позднее.
+> [AZURE.NOTE] Подготавливаются примеры кода для других языков, ссылки на которые будут добавлены в раздел позднее.
 
 
 ## Клиенты в Linux
@@ -86,7 +86,7 @@
 ## См. также
 
 
-- [Файлы пакетов SDK и средств для различных языков и платформ](http://azure.microsoft.com/downloads/#cmd-line-tools)
+- [Файлы пакетов SDK и средств для различных языков и платформ](https://azure.microsoft.com/downloads/#cmd-line-tools)
 - [Библиотеки подключений для базы данных SQL и SQL Server](sql-database-libraries.md)
 - [Список числовых кодов временных ошибок](sql-database-develop-error-messages.md#bkmk_connection_errors)
 <br/>&nbsp;
@@ -95,4 +95,4 @@
 - [Создание первой базы данных SQL Azure](sql-database-get-started.md)
 - [Entity Framework 6 здесь, EF 7 на GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

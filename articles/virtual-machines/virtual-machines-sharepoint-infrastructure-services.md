@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="10/20/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Фермы SharePoint, размещенные в службах инфраструктуры Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
 
-Настройте свою первую или очередную ферму SharePoint для разработки и тестирования или производства в службах инфраструктуры Microsoft Azure, где можно воспользоваться преимуществами простоты настройки и возможностью быстро развернуть ферму, чтобы использовать новую емкость или оптимизировать основные функции.
+Настройте свою первую или очередную ферму SharePoint Server 2013 для разработки и тестирования или производства в службах инфраструктуры Microsoft Azure, где можно воспользоваться преимуществами простоты настройки и возможностью быстро развернуть ферму, чтобы использовать новую емкость или оптимизировать основные функции.
 
-> [AZURE.NOTE]Корпорация Майкрософт выпустила SharePoint Server 2016 IT (предварительная версия). Для облегчения установки и тестирования предварительной версии вы можете воспользоваться образом с SharePoint Server 2016 IT (предварительная версия) и предустановленными обязательными компонентами из коллекции виртуальных машин Azure. Дополнительные сведения можно найти в статье [Тестирование SharePoint Server 2016 IT (предварительная версия) в Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE] Корпорация Майкрософт выпустила SharePoint Server 2016 IT (предварительная версия). Для облегчения установки и тестирования предварительной версии вы можете воспользоваться образом с SharePoint Server 2016 IT (предварительная версия) и предустановленными обязательными компонентами из коллекции виртуальных машин Azure. Дополнительные сведения можно найти в статье [Тестирование SharePoint Server 2016 IT (предварительная версия) в Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Простая ферма SharePoint для разработки и тестирования
 
@@ -33,7 +33,7 @@
 
 Также можно использовать шаблон диспетчера ресурсов Azure. См. статью [Развертывание трехсерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
-> [AZURE.NOTE]Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале Azure.
+> [AZURE.NOTE] Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале Azure.
 
 ## Высокодоступная ферма SharePoint для разработки и тестирования
 
@@ -43,7 +43,7 @@
 
 Также можно использовать шаблон диспетчера ресурсов Azure. См. статью [Развертывание девятисерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
-> [AZURE.NOTE]Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале Azure.
+> [AZURE.NOTE] Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале Azure.
 
 ## Гибридная облачная ферма для разработки и тестирования
 
@@ -57,16 +57,8 @@
 
 В этой конфигурации используется классическая модель развертывания.
 
-## Дополнительные ресурсы
+## Дальнейшее действие
 
-[Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
+- Ознакомьтесь с дополнительными конфигурациями [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) в службах инфраструктуры Azure.
 
-[Веб-сайты в Microsoft Azure с использованием SharePoint Server 2013](https://technet.microsoft.com/library/dn635307.aspx)
-
-[Аварийное восстановление SharePoint Server 2013 в Microsoft Azure](https://technet.microsoft.com/library/dn635313.aspx)
-
-[Использование службы Microsoft Azure Active Directory для проверки подлинности в SharePoint 2013](https://technet.microsoft.com/library/dn635311.aspx)
-
-[Развертывание службы синхронизации каталогов Office 365 (DirSync) в Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

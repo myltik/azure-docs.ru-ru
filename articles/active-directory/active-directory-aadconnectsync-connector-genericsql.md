@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect Sync: универсальный соединитель SQL"
+   pageTitle="Синхронизация Azure AD Connect: соединитель Generic SQL | Microsoft Azure"
    description="В этой статье описана настройка универсального соединителя SQL от корпорации Майкрософт."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/11/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Технический справочник по универсальному соединителю SQL
@@ -295,4 +295,4 @@
 
 -	Сведения о том, как включить ведение журнала для устранения неполадок соединителя, см. в статье [Включение трассировки событий Windows для соединителей](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

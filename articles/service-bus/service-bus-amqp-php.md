@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Использование служебной шины на платформе PHP с протоколом AMQP 1.0
@@ -25,7 +25,7 @@ Proton-PHP — это привязка языка PHP к Proton-C; т. е. Pro
 
 Proton-C и связанные с ним привязки (включая PHP) можно загрузить с сайта [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html). Файл загружается в форме исходного кода. Чтобы создать код, следуйте инструкциям, содержащимся в загруженном пакете.
 
-> [AZURE.IMPORTANT]На момент написания этой статьи поддержка SSL-протокола в Proton-C доступна только для операционных систем Linux. Поскольку для служебной шины Azure требуется использование SSL-протокола, в настоящее время Proton-C (и языковые привязки) можно применять только для доступа к служебной шине в среде Linux. Работа по реализации Proton-C с SSL-протоколом в среде Windows уже ведется, поэтому регулярно проверяйте наличие обновлений.
+> [AZURE.IMPORTANT] На момент написания этой статьи поддержка SSL-протокола в Proton-C доступна только для операционных систем Linux. Поскольку для служебной шины Azure требуется использование SSL-протокола, в настоящее время Proton-C (и языковые привязки) можно применять только для доступа к служебной шине в среде Linux. Работа по реализации Proton-C с SSL-протоколом в среде Windows уже ведется, поэтому регулярно проверяйте наличие обновлений.
 
 ## Работа с очередями, разделами и подписками служебной шины из PHP
 
@@ -156,7 +156,7 @@ if ($message->properties != null)
 
 | Тип свойств .NET | Тип свойств PHP | Примечания |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | integer | - | | sbyte | integer | - | | char | Char | Класс Proton-PHP | | short | integer | - | | ushort | integer | - | | int | integer | - | | uint | Integer | - | | long | integer | - | | ulong | integer | - | | float | double | - | | double | double | - | | decimal | string | В настоящее время Proton не поддерживает тип decimal. | | bool | boolean | - | | Guid | UUID | Класс Proton-PHP | | string | string | - | | DateTime | integer | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks mapped to AMQP type:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks сопоставляется с типом AMQP:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri сопоставляется с типом AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | integer | - | | sbyte | integer | - | | char | Char | Класс Proton-PHP | | short | integer | - | | ushort | integer | - | | int | integer | - | | uint | Integer | - | | long | integer | - | | ulong | integer | - | | float | double | - | | double | double | - | | decimal | string | В настоящее время Proton не поддерживает тип decimal. | | bool | boolean | - | | Guid | UUID | Класс Proton-PHP | | string | string | - | | DateTime | integer | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks mapped to AMQP type:<type name="datetime-offset" class=restricted source="long"> <descriptor name="com.microsoft:datetime-offset" /></type> | | TimeSpan | DescribedType | Timespan.Ticks сопоставляется с типом AMQP:<type name="timespan" class=restricted source="long"> <descriptor name="com.microsoft:timespan" /></type> | | Uri | DescribedType | Uri.AbsoluteUri сопоставляется с типом AMQP:<type name="uri" class=restricted source="string"> <descriptor name="com.microsoft:uri" /></type> |
 
 ### Стандартные свойства
 
@@ -173,7 +173,7 @@ if ($message->properties != null)
 
 | .NET служебной шины | Proton-PHP | Примечания |
 |-------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| ContentType | Message->content\_type | - | | CorrelationId | Message->correlation\_id | - | | EnqueuedTimeUtc | Message->annotations[x-opt-enqueued-time] | - | | Label | Message->subject | - | | MessageId | Message->id | - | | ReplyTo | Message->reply\_to | - | | ReplyToSessionId | Message->reply\_to\_group\_id | - | | ScheduledEnqueueTimeUtc | Message->annotations ["x-opt-scheduled-enqueue-time"] | - | | SessionId | Message->group\_id | - | | TimeToLive | Message->ttl | Преобразование; срок жизни сообщений Proton-PHP определяется миллисекундами. | | To | Message->address | - |
+| ContentType | Message->content\_type | - | | CorrelationId | Message->correlation\_id | - | | EnqueuedTimeUtc | Message->annotations[x-opt-enqueued-time] | - | | Label | Message->subject | - | | MessageId | Message->id | - | | ReplyTo | Message->reply\_to | - | | ReplyToSessionId | Message->reply\_to\_group\_id | - | | ScheduledEnqueueTimeUtc | Message->annotations ["x-opt-scheduled-enqueue-time"] | - | | SessionId | Message->group\_id | - | | TimeToLive | Message->ttl | Conversion, Proton-PHP TTL is defined in milliseconds. | | To | Message->address | - |
 
 ## Дальнейшие действия
 
@@ -184,9 +184,7 @@ if ($message->properties != null)
 
 
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

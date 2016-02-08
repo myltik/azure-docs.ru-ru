@@ -31,7 +31,7 @@
 
 Чтобы начать работу:
 
-1. Получите [учетную запись в Microsoft Azure](http://azure.microsoft.com/pricing/).
+1. Получите [учетную запись в Microsoft Azure](https://azure.microsoft.com/pricing/).
 2. На [портале Azure][portal] добавьте новый ресурс Application Insights для своего приложения:
 
     ![Выберите "Создать", "Службы для разработчиков", Application Insights и тип приложения.](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)
@@ -467,7 +467,7 @@
 
 Это схема для таблицы, которая будет создана для PageView.
 
-> [AZURE.NOTE]Вам не нужно выполнять этот сценарий. Атрибуты в JSON-документе определяют столбцы в таблице.
+> [AZURE.NOTE] Вам не нужно выполнять этот сценарий. Атрибуты в JSON-документе определяют столбцы в таблице.
 
     CREATE TABLE [dbo].[PageViewPerformances](
 	[Id] [uniqueidentifier] NOT NULL,
@@ -543,4 +543,4 @@
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

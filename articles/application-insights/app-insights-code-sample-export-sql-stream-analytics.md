@@ -17,7 +17,7 @@
  
 # Пошаговое руководство. Экспорт в SQL из Application Insights с использованием Stream Analytics
 
-В этой статье показано, как переместить данные телеметрии из [Visual Studio Application Insights][start] в базу данных SQL Azure, используя [непрерывный экспорт][export] и [Azure Stream Analytics](http://azure.microsoft.com/services/stream-analytics/).
+В этой статье показано, как переместить данные телеметрии из [Visual Studio Application Insights][start] в базу данных SQL Azure, используя [непрерывный экспорт][export] и [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).
 
 Непрерывный экспорт позволяет переместить данные телеметрии в службу хранилища Azure в формате JSON. Мы выполним анализ объектов JSON, используя Azure Stream Analytics, и создадим строки в таблице базы данных.
 
@@ -35,7 +35,7 @@
 
 Чтобы начать работу:
 
-1. Получите [учетную запись в Microsoft Azure](http://azure.microsoft.com/pricing/).
+1. Получите [учетную запись в Microsoft Azure](https://azure.microsoft.com/pricing/).
 2. На [портале Azure][portal] добавьте новый ресурс Application Insights для своего приложения:
 
     ![Выберите "Создать", "Службы для разработчиков", Application Insights и тип приложения.](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
@@ -219,7 +219,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 Закройте мастер и дождитесь завершения установки.
 
->[AZURE.TIP]Используйте функцию Sample для проверки правильности входного пути. В случае сбоя убедитесь, что в хранилище для выбранного диапазона времени есть данные. Измените определение ввода и убедитесь, что учетная запись хранения, префикс пути и формат даты указаны правильно.
+>[AZURE.TIP] Используйте функцию Sample для проверки правильности входного пути. В случае сбоя убедитесь, что в хранилище для выбранного диапазона времени есть данные. Измените определение ввода и убедитесь, что учетная запись хранения, префикс пути и формат даты указаны правильно.
 
 ## Настройка запроса
 
@@ -315,4 +315,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

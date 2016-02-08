@@ -17,17 +17,17 @@
  
 # Использование Stream Analytics для передачи данных из Application Insights в Power BI
 
-В этой статье рассказывается, как использовать [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) для обработки данных, [экспортированных](app-insights-export-telemetry.md) из [Visual Studio Application Insights](app-insights-overview.md). В качестве примера мы отправляем данные в [Microsoft Power BI](https://powerbi.microsoft.com/).
+В этой статье рассказывается, как использовать [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) для обработки данных, [экспортированных](app-insights-export-telemetry.md) из [Visual Studio Application Insights](app-insights-overview.md). В качестве примера мы отправляем данные в [Microsoft Power BI](https://powerbi.microsoft.com/).
 
 
-> [AZURE.NOTE]Самый простой способ передавать данные в Power BI из Application Insights — [использовать адаптер](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-content-pack-application-insights/), который можно найти в разделе служб коллекции Power BI. В этой статье мы опишем способ, который является более гибким, но также покажем, как использовать Stream Analytics с Application Insights.
+> [AZURE.NOTE] Самый простой способ передавать данные в Power BI из Application Insights — [использовать адаптер](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-content-pack-application-insights/), который можно найти в разделе служб коллекции Power BI. В этой статье мы опишем способ, который является более гибким, но также покажем, как использовать Stream Analytics с Application Insights.
 
 [Microsoft Power BI](https://powerbi.microsoft.com/) представляет данные в виде разнообразных информативных визуальных элементов, а также позволяет объединить информацию из нескольких источников.
 
 
 ![Пример представления Power BI с данными об использовании, полученными из Application Insights](./media/app-insights-export-power-bi/010.png)
 
-[Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) — это служба Azure, которая работает как адаптер, постоянно обрабатывающий данные, экспортируемые из Application Insights.
+[Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) — это служба Azure, которая работает как адаптер, постоянно обрабатывающий данные, экспортируемые из Application Insights.
 
 ![Пример представления Power BI с данными об использовании, полученными из Application Insights](./media/app-insights-export-power-bi/020.png)
 
@@ -51,7 +51,7 @@
 
 В результате непрерывного экспорта происходит передача данных в учетную запись хранилища Azure, поэтому необходимо сначала создать хранилище.
 
-1. На [портале Azure](https://portal.azure.com) в своей подписке создайте "классическую" учетную запись хранения.
+1. Создайте "классическую" учетную запись хранения в подписке на [портале Azure](https://portal.azure.com).
 
     ![На портале Azure выберите «Создать», «Данные», «Хранилище».](./media/app-insights-export-power-bi/030.png)
 
@@ -142,7 +142,7 @@
 * `PageViews` — тип данных, которые необходимо проанализировать. Доступные типы зависят от фильтра, установленного в функции непрерывного экспорта. Изучите экспортированные данные, чтобы увидеть другие доступные типы, а также ознакомьтесь с [моделью экспорта данных](app-insights-export-data-model.md).
 * `/{date}/{time}` – шаблон, записанный буквально.
 
-> [AZURE.NOTE]Проверьте хранилище и убедитесь, что вы получаете нужный путь.
+> [AZURE.NOTE] Проверьте хранилище и убедитесь, что вы получаете нужный путь.
 
 #### Завершение начальной настройки
 
@@ -152,7 +152,7 @@
 
 Закройте мастер и дождитесь завершения установки.
 
-> [AZURE.TIP]Воспользуйтесь примером команды для загрузки некоторых данных. Сохраните их как тестовый образец для отладки запроса.
+> [AZURE.TIP] Воспользуйтесь примером команды для загрузки некоторых данных. Сохраните их как тестовый образец для отладки запроса.
 
 ## Определение выходных данных
 
@@ -269,4 +269,4 @@
 * [Application Insights](app-insights-overview.md)
 * [Дополнительные примеры и пошаговые руководства](app-insights-code-samples.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

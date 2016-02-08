@@ -50,7 +50,7 @@
 	    "AccountName=your_storage_account_name;" +
 	    "AccountKey=your_storage_account_key";
 
-> [AZURE.NOTE]Замените your\_storage\_account\_name и your\_storage\_account\_key на фактические значения для вашей учетной записи.
+> [AZURE.NOTE] Замените your\_storage\_account\_name и your\_storage\_account\_key на фактические значения для вашей учетной записи.
 
 ## Подключение к учетной записи хранилища Azure
 
@@ -221,4 +221,4 @@
 [REST API службы хранилища Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

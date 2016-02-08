@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Поиск несанкционированных облачных приложений с Cloud App Discovery | Microsoft Azure"
+	pageTitle="Поиск неуправляемых облачных приложений с помощью Cloud App Discovery | Microsoft Azure"
 	description="Содержит сведения о поиске приложений и управлении ими с помощью Cloud App Discovery, а также преимуществах и принципах работы Cloud App Discovery."
 	services="active-directory"
 	keywords="cloud app discovery, управление приложениями"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="markusvi"/>
+	ms.date="01/26/2016"
+	ms.author="markvi"/>
 
-# Поиск несанкционированных облачных приложений с Cloud App Discovery
+# Поиск неуправляемых облачных приложений с помощью Cloud App Discovery
 
 ## Обзор
 На современных предприятиях ИТ-специалисты часто не знают обо всех облачных приложениях, при помощи которых пользователи выполняют свои задачи. Легко понять, почему администраторов беспокоят несанкционированный доступ к корпоративным данным, возможная утечка данных и другие угрозы безопасности. Эта недостаточная осведомленность может сильно усложнить разработку плана по борьбе с этими угрозами безопасности.
@@ -48,4 +48,4 @@ Cloud App Discovery — это функция службы Azure Active Directo
 - [Журнал изменений агента Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [Часто задаваемые вопросы по Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -2,13 +2,14 @@
  pageTitle="Пошаговое руководство по предварительно настроенному решению удаленного мониторинга | Microsoft Azure"
  description="Описание предварительно настроенного решения удаленного мониторинга Azure IoT и его архитектура."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="stevehob"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -144,4 +145,4 @@
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

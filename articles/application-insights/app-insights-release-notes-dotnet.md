@@ -16,7 +16,7 @@
  
 # Заметки о выпуске пакета SDK Application Insights для .NET
 
-[Пакет SDK Application Insights для .NET](app-insights-asp-net.md) отправляет телеметрию о вашем работающем приложении службе [Application Insights](http://azure.microsoft.com/services/application-insights/), в которой вы можете проанализировать использование и производительность приложения.
+[Пакет SDK Application Insights для .NET](app-insights-asp-net.md) отправляет телеметрию о вашем работающем приложении службе [Application Insights](https://azure.microsoft.com/services/application-insights/), в которой вы можете проанализировать использование и производительность приложения.
 
 
 #### Установка пакета SDK в приложении
@@ -136,4 +136,4 @@
 
  
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016--->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 #Поддержка нескольких доменов
@@ -50,8 +50,8 @@
 в Azure AD будет доступна следующая конфигурация:
 
 - DomainName: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 
 Обратите внимание, что хотя свойству IssuerURI было присвоено значение на основе домена, которое является уникальным, значения URL-адреса конечной точки по-прежнему настроены для указания на службу федерации в fs.contoso100.com так же, как и для исходного домена contoso.com. Поэтому все домены по-прежнему будет указывать на ту же систему AD FS.
 
@@ -74,11 +74,11 @@
 После этого мы получим конфигурацию для двух доменов в Azure AD:
 
 - DomainName: contoso.com
-- IssuerURI: http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://contoso.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 - DomainName: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 
 Теперь для пользователей из доменов contoso.com и fabrikam.com будет работать федеративный вход. Осталась только одна проблема — вход для пользователей в поддоменах.
 
@@ -91,4 +91,4 @@ Azure AD создаст маркер с издателем как http://sub.con
 
 Таким образом, у вас может быть несколько доменов с разными именами, а также поддоменов, объединенных в федерацию с одним сервером AD FS. Чтобы проверить правильность установки значений элемента Issuer для всех пользователей, потребуется выполнить лишь несколько дополнительных действий.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

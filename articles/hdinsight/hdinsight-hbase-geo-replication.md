@@ -46,9 +46,9 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Рабочая станция с Azure PowerShell.**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Для выполнения скриптов PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел Использование командлета Set-ExecutionPolicy.
+- **Рабочая станция с Azure PowerShell.**. См. [Установка и использование Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Для выполнения скриптов PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел Использование командлета Set-ExecutionPolicy.
 
 - **Две виртуальные сети Azure с настроенными VPN-подключением и службой DNS**. Инструкции см. в разделах [Настройка VPN-подключения между двумя виртуальными сетями Azure][hdinsight-hbase-replication-vnet] и [Настройка DNS между двумя виртуальными сетями Azure][hdinsight-hbase-replication-dns].
 
@@ -192,7 +192,7 @@
 4. Не закрывайте сеанс RDP. Он все еще потребуется позже в данном руководстве.
 5. Повторите те же действия для проверки headnode0 Contoso-HBase-EU с помощью команды ping из Contoso-HBase-US.
 
->[AZURE.IMPORTANT]Служба DNS должна работать, прежде чем можно будет перейти к дальнейшим действиям.
+>[AZURE.IMPORTANT] Служба DNS должна работать, прежде чем можно будет перейти к дальнейшим действиям.
 
 ## Включение репликации между таблицами HBase
 
@@ -285,8 +285,8 @@
 
 В этом учебнике вы изучили настройку репликации HBase между двумя центрами обработки данных. Для получения дополнительных сведений о HDInsight и HBase см. следующие ресурсы:
 
-- [Страница службы HDInsight](http://azure.microsoft.com/services/hdinsight/)
-- [Документация по HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+- [Страница службы HDInsight](https://azure.microsoft.com/services/hdinsight/)
+- [Документация по HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Начало работы с Apache HBase в HDInsight][hdinsight-hbase-get-started]
 - [Обзор HDInsight HBase][hdinsight-hbase-overview]
 - [Подготовка кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet]
@@ -311,4 +311,4 @@
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -125,7 +125,7 @@
     Преимущество автоматического запуска Tomcat заключается в том, что при перезагрузке виртуальной машины (например, после установки обновлений программного обеспечения, требующих перезагрузки компьютера) Tomcat будет снова запущен.
 
 ## Дальнейшие действия
-Дополнительную информацию о других службах (например, о службе хранилища Azure, служебной шине, Базе данных SQL), которые можно включить в приложения Java, см. в [Центре разработки Java](http://azure.microsoft.com/develop/java/).
+Дополнительную информацию о других службах (например, о службе хранилища Azure, служебной шине, базе данных SQL), которые можно включить в приложения Java, см. в [Центре разработки Java](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 
@@ -146,4 +146,4 @@
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

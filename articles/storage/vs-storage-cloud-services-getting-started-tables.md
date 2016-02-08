@@ -30,7 +30,7 @@
 
 - Дополнительные сведения о выполнении программных операций с таблицами см. в статье [Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md).
 - Общие сведения о службе хранилища Azure см. в [документации по службе хранилища](https://azure.microsoft.com/documentation/services/storage/).
-- Общие сведения об облачных службах Azure см. в [документации по облачным службам](http://azure.microsoft.com/documentation/services/cloud-services/).
+- Общие сведения об облачных службах Azure см. в [документации по облачным службам](https://azure.microsoft.com/documentation/services/cloud-services/).
 - Дополнительную информацию о программировании для ASP.NET см. в разделе [ASP.NET](http://www.asp.net).
 
 ## Доступ к таблицам в коде
@@ -50,7 +50,7 @@
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage account name>
          _AzureStorageConnectionString"));
-> [AZURE.NOTE]Вставьте весь код, представленный выше, перед кодом в следующих примерах.
+> [AZURE.NOTE]  Вставьте весь код, представленный выше, перед кодом в следующих примерах.
 
 3. Получите объект **CloudTableClient**, чтобы указать ссылку на объекты таблицы в своей учетной записи хранения.
 
@@ -168,7 +168,7 @@
 
 ## Вставка пакета сущностей
 
-В таблицу можно вставить несколько сущностей с помощью одной операции записи. В следующем примере кода показано создание двух объектов сущности (Jeff Smith и Ben Smith), добавление их в объект **TableBatchOperation** с помощью метода Insert и запуск операции с помощью вызова **CloudTable.ExecuteBatchAsync**.
+В таблицу можно вставить несколько сущностей с помощью одной операции записи. Указанный ниже пример кода создает два объекта сущностей (Jeff Smith и Ben Smith), добавляет их в объект **TableBatchOperation** с помощью метода Insert и запускает операцию с помощью вызова **CloudTable.ExecuteBatchAsync**.
 
     // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -269,4 +269,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

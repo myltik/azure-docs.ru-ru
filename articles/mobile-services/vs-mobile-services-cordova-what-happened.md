@@ -3,7 +3,7 @@
 	description="Описывается, что произошло с вашим проектом Cordova для Azure после добавления мобильных служб Azure с помощью подключенных служб Visual Studio." 
 	services="mobile-services" 
 	documentationCenter="na" 
-	authors="TomArcher" 
+	authors="mlhoop" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="01/05/2016" 
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # Что произошло с моим проектом Cordova для Azure после добавления мобильных служб Azure с помощью подключенных служб Visual Studio?
 
@@ -33,6 +33,6 @@
 	        "<insert your key>"
 	    );
 
-[Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
+[Дополнительные сведения о мобильных службах](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

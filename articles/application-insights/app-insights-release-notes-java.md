@@ -16,7 +16,7 @@
 
 # Заметки о выпуске пакета SDK Application Insights для Java
 
-[Пакет SDK Application Insights для Java](app-insights-java-get-started.md) отправляет сведения о телеметрии, относящиеся к работающему приложению, в службу [Application Insights](http://azure.microsoft.com/services/application-insights/), где вы можете проанализировать его использование и производительность.
+[Пакет SDK Application Insights для Java](app-insights-java-get-started.md) отправляет сведения о телеметрии, относящиеся к работающему приложению, в службу [Application Insights](https://azure.microsoft.com/services/application-insights/), где вы можете проанализировать его использование и производительность.
 
 #### Установка пакета SDK в приложении
 
@@ -73,4 +73,4 @@
 - Поддержка отслеживания зависимостей вручную с помощью нового API метода ```trackDependency```.
 - Возможность отметить элемент телеметрии как искусственный, добавив свойство ```SyntheticSource``` к элементу отчета.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -26,7 +26,7 @@
 
 ## Примеры для .NET
 
-Для просмотра примеров .NET загрузите [Клиентскую библиотеку хранилища .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) на NuGet. Клиентская библиотека хранилища .NET также доступна в [пакете Azure SDK для .NET](http://azure.microsoft.com/downloads/).
+Для просмотра примеров .NET загрузите [Клиентскую библиотеку хранилища .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) на NuGet. Клиентская библиотека хранилища .NET также доступна в [пакете Azure SDK для .NET](https://azure.microsoft.com/downloads/).
 
 * [Начните работать с таблицами, очередями и большими двоичными объектами Azure за 5 минут](storage-getting-started-guide.md)
 * [Управление параллелизмом с помощью службы хранилища Azure: пример приложения](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
@@ -85,4 +85,4 @@
 - [Исходный код для клиентской библиотеки хранилища C++](https://github.com/Azure/azure-storage-cpp)
 - [Справочник по клиентской библиотеке C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

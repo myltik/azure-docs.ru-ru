@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Установка леса Active Directory в виртуальной сети Azure | Microsoft Azure" 
 	description="В этом учебнике объясняется, как создать новый лес Active Directory на виртуальной машине (ВМ) в виртуальной сети Microsoft Azure." 
-	services="active-directory, virtual-network" 
+	services="active-directory, virtual-network"
+    keywords="виртуальная машина active directory, установка леса active directory, видео azure active directory"
 	documentationCenter="" 
 	authors="markusvi" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="01/05/2016" 
+	ms.date="01/25/2016" 
 	ms.author="markusvi"/>
 
 
@@ -31,7 +32,7 @@
 
 В этом сценарии внешним пользователям требуется доступ к приложениям, работающим на серверах, входящих в домен. Виртуальные машины, в которых работают серверы приложений, и виртуальные машины, в которых работают контроллеры домена, устанавливаются в своих облачных службах в виртуальной сети Azure. Для повышения отказоустойчивости их также включает в себя группа доступности.
 
-![][1] 7
+![Лес Active Directory на виртуальных машинах виртуальной сети Azure][1] 7
 ## В чем отличие от локальной версии?
 
 Этот процесс не сильно отличается от установки контроллера домена в локальной версии Azure. Основные различия показаны в приведенной ниже таблице.
@@ -137,4 +138,4 @@
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

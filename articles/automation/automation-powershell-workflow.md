@@ -129,7 +129,7 @@ InlineScript использует описанный ниже синтаксис
 		$ServiceName = "MyService"
 	
 		$Output = InlineScript {
-			$Service = Get-Service -Name $Using:MyService
+			$Service = Get-Service -Name $Using:ServiceName
 			$Service.Stop()
 			$Service
 		}
@@ -206,7 +206,7 @@ InlineScript использует описанный ниже синтаксис
 		Write-Output "All files copied."
 	}
 
-> [AZURE.NOTE]Не рекомендуется запускать дочерние модули Runbook параллельно, так как обычно этот приводит к недостоверным результатам. Выходные данные дочернего модуля Runbook могут не отображаться, а параметры одного дочернего модуля Runbook влиять на параметры другого.
+> [AZURE.NOTE]  Не рекомендуется запускать дочерние модули Runbook параллельно, так как обычно этот приводит к недостоверным результатам. Выходные данные дочернего модуля Runbook могут не отображаться, а параметры одного дочернего модуля Runbook влиять на параметры другого.
 
 
 ## Контрольные точки
@@ -249,4 +249,4 @@ InlineScript использует описанный ниже синтаксис
 
 - [Начало работы с рабочим процессом Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

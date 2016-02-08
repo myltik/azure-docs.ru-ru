@@ -22,7 +22,7 @@
 Система управления версиями позволяет отправлять код из службы автоматизации Azure в систему управления версиями или извлекать модули Runbook из системы управления версиями в службу автоматизации Azure. В этой статье рассказывается, как настроить систему управления версиями в среде службы автоматизации Azure. Для начала настроим службу автоматизации Azure на доступ к репозиторию GitHub и рассмотрим различные операции, которые можно выполнить с помощью интеграции системы управления версиями.
 
 
->[AZURE.NOTE]Система управления версиями поддерживает извлечение и отправку [модулей Runbook рабочих процессов PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) и [модулей Runbook PowerShell](automation-runbook-types.md#powershell-runbooks). [Графические модули Runbook](automation-runbook-types.md#graphical-runbooks) в настоящее время не поддерживаются.<br><br>
+>[AZURE.NOTE] Система управления версиями поддерживает извлечение и отправку [модулей Runbook рабочих процессов PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) и [модулей Runbook PowerShell](automation-runbook-types.md#powershell-runbooks). [Графические модули Runbook](automation-runbook-types.md#graphical-runbooks) в настоящее время не поддерживаются.<br><br>
 
 
 Настроить систему управления версиями в учетной записи службы автоматизации можно за два простых шага. Если у вас уже есть учетная запись GitHub, достаточно одного шага. К ним относятся:
@@ -104,7 +104,7 @@
     ![Кнопка «Возврат»](media/automation-source-control-integration/automation_06_CheckinButton.png)
 
 
-     >[AZURE.NOTE]При возврате модуля из службы автоматизации Azure код, имеющийся в системе управления версиями, будет перезаписан. Инструкция командной строки для возврата, эквивалентная команде Git, выглядит следующим образом: **git add + git commit + git push**.
+     >[AZURE.NOTE] При возврате модуля из службы автоматизации Azure код, имеющийся в системе управления версиями, будет перезаписан. Инструкция командной строки для возврата, эквивалентная команде Git, выглядит следующим образом: **git add + git commit + git push**.
 
 3. После нажатия кнопки **Возврат** появится запрос подтверждения. Щелкните "Да", чтобы продолжить.
 
@@ -114,7 +114,7 @@
 
     ![Модуль Runbook для возврата](media/automation-source-control-integration/automation_08_CheckinRunbook.png)
 
-    >[AZURE.NOTE]Модули Runbook системы управления версиями представляют собой особые модули Runbook службы автоматизации, не доступные для просмотра и изменения. Они не включаются в список модулей Runbook, однако в списке заданий отображаются задачи синхронизации.
+    >[AZURE.NOTE] Модули Runbook системы управления версиями представляют собой особые модули Runbook службы автоматизации, не доступные для просмотра и изменения. Они не включаются в список модулей Runbook, однако в списке заданий отображаются задачи синхронизации.
  
 5. Имя измененного модуля Runbook передается в модуль Runbook задания возврата в виде входного параметра. Вы можете [просмотреть сведения о задании](automation-runbook-execution.md#viewing-job-status-using-the-azure-management-portal), развернув модуль Runbook в колонке **Синхронизация репозитория**.
 
@@ -137,7 +137,7 @@
     ![Модуль Runbook для синхронизации](media/automation-source-control-integration/automation_11_SyncRunbook.png)
 
  
-    >[AZURE.NOTE]При синхронизации из системы управления версиями черновики модулей Runbook в учетной записи службы автоматизации будут заменены **ВСЕМИ** модулями Runbook из системы управления версиями. Инструкция командной строки для синхронизации, эквивалентная команде Git, выглядит следующим образом: **git pull**.
+    >[AZURE.NOTE] При синхронизации из системы управления версиями черновики модулей Runbook в учетной записи службы автоматизации будут заменены **ВСЕМИ** модулями Runbook из системы управления версиями. Инструкция командной строки для синхронизации, эквивалентная команде Git, выглядит следующим образом: **git pull**.
 
 
 ## Устранение неполадок с системой управления версиями
@@ -158,4 +158,4 @@
 
 Дополнительную информацию об интеграции системы управления версиями доступны по следующим ссылкам: – [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/) – [Vote for your favorite source control system](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) – [Azure Automation: Integrating Runbook Source Control using Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

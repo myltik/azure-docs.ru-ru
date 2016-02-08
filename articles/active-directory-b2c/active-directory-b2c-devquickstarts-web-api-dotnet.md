@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Предварительная версия Azure AD B2C: вызов веб-API из веб-приложения .NET
@@ -24,7 +24,7 @@ Azure AD B2C позволяет добавлять в веб-приложени
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-В этой статье не рассматривается реализация входа, регистрации и управления профилями с помощью Azure AD B2C. Она посвящена вызову веб-API после того, как пользователь прошел проверку подлинности. При необходимости ознакомьтесь с основами Azure AD B2C, изложенными в [учебнике по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+В этой статье не рассматривается реализация входа, регистрации и управления профилями с помощью Azure AD B2C. Она посвящена вызову веб-API после того, как пользователь прошел проверку подлинности. Прочитайте [руководство по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md), чтобы изучить основы Azure AD B2C (если вы еще этого не сделали).
 
 ## 1\. Создание каталога Azure AD B2C
 
@@ -34,8 +34,8 @@ Azure AD B2C позволяет добавлять в веб-приложени
 
 Теперь необходимо создать приложение в каталоге B2C. Оно будет передавать в Azure AD сведения, необходимые для безопасного взаимодействия с вашим приложением. В этом случае веб-приложение и веб-API будут представлены одним **идентификатором приложения**, поскольку они включают одно приложение логики. Чтобы создать приложение, следуйте [этим инструкциям](active-directory-b2c-app-registration.md). Не забудьте
 
-- Включить в приложение **веб-приложение и веб-API**.
-- Введите `https://localhost:44316/` как **URL-адрес ответа** —URL-адрес по умолчанию для этого образца кода.
+- Включите в приложение **веб-приложение или веб-API**.
+- Введите `https://localhost:44316/` как **URL-адрес ответа**. Это — URL-адрес по умолчанию для этого примера кода.
 - Создайте для своего приложения **секрет приложения** и скопируйте его. Скоро он вам понадобится.
 - Скопируйте **идентификатор приложения**, назначенный приложению. Он также вам скоро понадобится.
 
@@ -53,7 +53,7 @@ Azure AD B2C позволяет добавлять в веб-приложени
 
 Создав три политики, можно приступать к созданию приложения.
 
-Обратите внимание, что в данной статье не рассматривается использование политик, которые вы только что создали. Сведения о работе политик в Azure AD B2C см. в [руководстве по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Обратите внимание, что в данной статье не рассматривается использование политик, которые вы только что создали. Дополнительные сведения о работе политик в Azure AD B2C см. в [руководстве по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## 4\. Загрузка кода
 
@@ -63,9 +63,9 @@ Azure AD B2C позволяет добавлять в веб-приложени
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
 ```
 
-Кроме того, готовое приложение можно [скачать как ZIP-архив](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) или получить из ветви `complete` того же репозитория.
+Кроме того, можно скачать готовое приложение [в виде ZIP-архива](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) или получить его из ветви `complete` того же репозитория.
 
-Скачав пример кода, откройте файл `.sln` Visual Studio, чтобы начать работу. Вы увидите, что решение содержит два проекта: `TaskWebApp` и `TaskService`. `TaskWebApp` — это внешний интерфейс веб-приложения WPF, с которым взаимодействует пользователь. `TaskService` — это серверный веб-интерфейс API приложения, в котором хранится список дел каждого пользователя.
+Скачав пример кода, откройте файл Visual Studio `.sln`, чтобы начать работу. Вы увидите, что решение содержит два проекта: `TaskWebApp` и `TaskService`. `TaskWebApp` — это внешний интерфейс веб-приложения WPF, с которым взаимодействует пользователь. `TaskService` — это относящийся к приложению серверный веб-API, в котором хранится список дел каждого пользователя.
 
 ## 5\. Настройка службы задач
 
@@ -83,12 +83,11 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
 </appSettings>
 ```
-  
+
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
-В данной статье не рассматриваются вопросы защиты `TaskService`. Сведения о том, как веб-API надежно выполняет проверку подлинности запросов с помощью Azure AD B2C, см. в 
-[статье о начале работы с веб-API](active-directory-b2c-devquickstarts-api-dotnet.md).
+В данной статье не рассматриваются вопросы защиты `TaskService`. Сведения о том, как веб-API надежно выполняет проверку подлинности запросов с помощью Azure AD B2C, см. в [статье о начале работы с веб-API](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## 6. Настройка веб-приложения для задач
 
@@ -247,7 +246,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 	// The token will be stored in the ADAL token cache, for use in our controllers
 	AuthenticationResult result = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), credential, new string[] { clientId }, mostRecentPolicy);
 }
-``` 
+```
 
 #### Получение маркера доступа в контроллерах
 
@@ -267,7 +266,7 @@ public async Task<ActionResult> Index()
 
 		// We don't care which policy is used to access the TaskService, so let's use the most recent policy
 		string mostRecentPolicy = ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value;
-		
+
 		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
 		// AcquireTokenSilentAsync will return a token from the token cache, and throw an exception if it cannot do so.
 		AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
@@ -282,7 +281,7 @@ public async Task<ActionResult> Index()
 	}
 	...
 }
-``` 
+```
 
 Библиотека ADAL кэширует маркеры, обновляет их по окончании срока действия и сообщает о том, когда пользователь должен войти снова, вызывая исключения. Все, что вам нужно, — вызывать `AuthenticationContext.AcquireTokenSilentAsync(...)` каждый раз, когда в приложении требуется маркер.
 
@@ -295,9 +294,9 @@ public async Task<ActionResult> Index()
 
 public async Task<ActionResult> Index()
 {
-	... 
-	
-	try 
+	...
+
+	try
 	{
 		HttpClient client = new HttpClient();
 		HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, serviceUrl + "/api/tasks");
@@ -315,7 +314,7 @@ public async Task<ActionResult> Index()
 		}
 		else
 		{
-			// If the call failed with access denied, then drop the current access token from the cache, 
+			// If the call failed with access denied, then drop the current access token from the cache,
 			// and show the user an error indicating they might need to sign-in again.
 			if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 			{
@@ -339,7 +338,7 @@ public async Task<ActionResult> Index()
 
 #### Создание и удаление задач в веб-API
 
-С помощью этих же действий можно отправлять запросы POST и DELETE в `TaskService`. Просто вызовите `AuthenticationContext.AcquireTokenSilentAsync(...)` и присоедините полученный маркер к запросу в заголовке `Authorization`. Мы показали, как реализовать действие `Create`. Действие `Delete` попробуйте добавить в `TasksController.cs` самостоятельно.
+С помощью этих же действий можно отправлять запросы POST и DELETE в `TaskService`. Просто вызовите `AuthenticationContext.AcquireTokenSilentAsync(...)` и присоедините полученный маркер к запросу в заголовке `Authorization`. Действие `Create` будет реализовано автоматически. Действие `Delete` попробуйте добавить в `TasksController.cs` самостоятельно.
 
 ## 8\. Выход пользователя
 
@@ -360,8 +359,8 @@ public void SignOut()
 
 		HttpContext.GetOwinContext().Authentication.SignOut(
 		new AuthenticationProperties(
-			new Dictionary<string, string> 
-			{ 
+			new Dictionary<string, string>
+			{
 				{Startup.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value}
 			}), OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
 	}
@@ -372,7 +371,7 @@ public void SignOut()
 
 Выполните сборку проектов `TaskClient` и `TaskService`, а затем запустите их. Зарегистрируйтесь в приложении или войдите в него, а затем создайте задачи для пользователя, выполнившего вход. Выйдите и снова войдите от имени другого пользователя. Создайте задачи для этого пользователя. Обратите внимание, что в API хранятся задачи для каждого пользователя, поскольку API извлекает удостоверение пользователя из получаемого маркера доступа.
 
-Готовый пример [в виде ZIP-файла предоставлен здесь](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip). Кроме того, можно клонировать его с GitHub.
+Готовый пример в виде ZIP-файла находится [здесь](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip). Кроме того, можно клонировать его с GitHub.
 
 ```
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
@@ -390,4 +389,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->
