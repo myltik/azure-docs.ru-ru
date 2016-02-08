@@ -372,14 +372,21 @@
   </repositories>
  ```
 
-Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
+В `<repositories>` введите URL-адрес рабочего сайта и сведения о пользователе. Если используется поставщик членства Umbraco по умолчанию, следует добавить соответствующий идентификатор для пользователя-администратора в разделе <user>. Если используется собственный поставщик членства Umbraco, укажите `<login>`, `<password>`, с которыми модуль Courier2 должен подключаться к рабочему сайту. Подробности см. в [документации](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) для модуля Courier.
 
-Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
+Аналогичным образом установите модуль Courier на рабочий сайт и настройте его на размещенное веб-приложение в соответствующем файле courier.config, как показано здесь
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
+  <repositories>
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
+        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
+            <user>0</user>
+           </repository>
+  </repositories>
+```
 
 Откройте вкладку Courier2 в панели мониторинга веб-приложений Umbraco CMS и выберите расположения. Вы увидите имя репозитория, используемое в `courier.config`. Сделайте это в веб-приложениях в рабочей и промежуточной среде.
 

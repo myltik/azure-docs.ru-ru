@@ -18,7 +18,8 @@
 
 # Использование управляемого клиента для мобильных приложений Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -56,7 +57,8 @@
 
 В следующем коде создается объект `MobileServiceClient`, который используется для доступа к серверной части мобильных приложений.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient(
+	"MOBILE_APP_URL");
 
 В приведенном выше коде замените `MOBILE_APP_URL` URL-адресом серверной части мобильных приложений, который можно найти в колонке серверной части мобильных приложений на [портале Azure](https://portal.azure.com/).
 
@@ -259,7 +261,12 @@
 
 	await todoTable.UpdateAsync(todoItem);
 
-Для вставки нетипизированных данных можно использовать Json.NET следующим образом: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Привет всем"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
+Для вставки нетипизированных данных можно использовать Json.NET следующим образом: 
+	JObject jo = new JObject();
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+	jo.Add("Text", "Привет всем");
+	jo.Add("Complete", false);
+	var inserted = await table.UpdateAsync(jo);
 
 Обратите внимание, что при выполнении обновления необходимо указать идентификатор. Таким образом внутренний сервер определяет, какой экземпляр нужно обновить. Идентификатор можно получить из результатов вызова метода `InsertAsync`. При попытке обновить элемент без предоставления значения Id создается исключение `ArgumentException`.
 

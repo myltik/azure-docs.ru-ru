@@ -241,7 +241,8 @@
 
 ## Проверка наличия обновлений и их применение
 
-Обновление устройства может занять несколько часов. Выполните действия ниже, чтобы проверить наличие обновлений и применить их на своем устройстве. <!--can take 1-4 hours-->
+Обновление устройства может занять несколько часов. Выполните действия ниже, чтобы проверить наличие обновлений и применить их на своем устройстве. 
+<!--can take 1-4 hours-->
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 

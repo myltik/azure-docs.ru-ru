@@ -137,7 +137,7 @@
       },
       "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
           mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
           "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
       },
@@ -293,7 +293,25 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 В таких случаях следует перейти на портал и зарегистрировать проблему в службе поддержки, чтобы поднять свою квоту для региона, в котором требуется осуществить развертывание.
 
-> [AZURE.NOTE] Следует помнить, что для групп ресурсов квоты устанавливаются для каждого отдельного региона, а не для всей подписки. Если необходимо развернуть 30 ядер в западной части США, необходимо запросить 30 ядер управления ресурсами в этом регионе. Если необходимо развернуть 30 ядер в любом из регионов, к которым у вас есть доступ, следует запросить 30 ядер управления ресурсами во всех регионах. <!-- --> Например, чтобы точно указать количество ядер, можно проверить регионы, для которых необходимо оценить квоту, с помощью следующей команды. Эта команда передает данные средству **jq** для анализа JSON. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
+> [AZURE.NOTE]Следует помнить, что для групп ресурсов квоты устанавливаются для каждого отдельного региона, а не для всей подписки. Если необходимо развернуть 30 ядер в западной части США, необходимо запросить 30 ядер управления ресурсами в этом регионе. Если необходимо развернуть 30 ядер в любом из регионов, к которым у вас есть доступ, следует запросить 30 ядер управления ресурсами во всех регионах.
+<!-- -->
+Например, чтобы точно указать количество ядер, можно проверить регионы, для которых необходимо оценить квоту, с помощью следующей команды. Эта команда передает данные средству **jq** для анализа JSON.
+<!-- -->
+        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+        {
+          "name": "virtualMachines",
+          "apiVersions": [
+            "2015-05-01-preview",
+            "2014-12-01-preview"
+          ],
+          "locations": [
+            "East US",
+            "West US",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia"
+          ]
+        }
 
 
 ## Проверка регистрации поставщика ресурсов

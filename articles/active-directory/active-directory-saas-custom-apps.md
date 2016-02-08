@@ -15,13 +15,13 @@
 
 #Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory
 
-Коллекция приложений Azure Active Directory содержит список приложений, которые поддерживают единый вход с помощью Azure Active Directory. Эта функция описана в [этой статье](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/). Когда вы (как специалист ИТ-отдела или системный интегратор) найдете приложение, которое нужно подключить, сначала выполните пошаговые инструкции по включению единого входа, которые предложены на портале управления Azure.
+Коллекция приложений Azure Active Directory содержит список приложений, которые поддерживают единый вход с помощью Azure Active Directory. Эта функция описана в [этой статье]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/). Когда вы (как специалист ИТ-отдела или системный интегратор) найдете приложение, которое нужно подключить, сначала выполните пошаговые инструкции по включению единого входа, которые предложены на портале управления Azure.
 
 Клиенты, у которых есть лицензии [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx), получают дополнительные возможности, которые можно найти в категории **Пользовательские** в коллекции приложений Azure AD:
 
 * Самостоятельное подключение любого приложения, которое совместимо с поставщиками удостоверений SAML 2.0
 * Самостоятельное подключение любого веб-приложения, у которого есть HTML-страница входа, с использованием функции единого входа на основе пароля
-* Возможность добавлять ссылки на любые приложения в [Средство запуска приложений Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) или [Панель доступа Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)
+* Возможность добавлять ссылки на любые приложения в [Средство запуска приложений Office 365]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) или [Панель доступа Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)
 * Самостоятельное подключение приложений, которые используют протокол SCIM для подготовки пользователей ([процесс описан здесь](active-directory-scim-provisioning))
 
 Подключать можно не только приложения SaaS, которых еще нет в коллекции приложений Azure AD, но и любые сторонние веб-приложения, которые ваша организация развернула на локальных или облачных серверах, к управлению которыми вы имеете доступ.
@@ -105,7 +105,7 @@
 
 Выберите этот вариант, чтобы добавить ссылку на ваше приложение в панель доступа Azure AD или на портал Office 365. Этот метод подходит для добавления ссылок на пользовательские веб-приложения, которые используют для проверки подлинности службы федерации Active Directory Azure (или другую службу федерации), а не Azure AD. Еще он позволяет просто добавить глубокие ссылки на определенные страницы SharePoint или другие веб-сайты. Они появятся на панели доступа пользователя.
 
-Когда вы нажмете кнопку **Далее**, вам будет предложено ввести URL-адрес приложения. После завершения процесса вы сможете назначить для приложения пользователей и группы. У этих пользователей появится плитка приложения в [средстве запуска приложения Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) или на [панели доступа Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/).
+Когда вы нажмете кнопку **Далее**, вам будет предложено ввести URL-адрес приложения. После завершения процесса вы сможете назначить для приложения пользователей и группы. У этих пользователей появится плитка приложения в [средстве запуска приложения Office 365]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) или на [панели доступа Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/).
 
 Примечание. Вы можете загрузить логотип, который будет отображаться на плитке приложения. Для этого нажмите кнопку **Загрузить логотип** на вкладке **Настройка** для этого приложения.
 
@@ -118,4 +118,4 @@
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!-----HONumber=AcomDC_0128_2016-->

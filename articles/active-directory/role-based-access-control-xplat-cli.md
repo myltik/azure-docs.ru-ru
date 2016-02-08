@@ -116,13 +116,13 @@ RBAC работает только с диспетчером ресурсов Az
 
 Затем используйте `azure role assignment create`, чтобы создать назначение роли. Например:
 
- 	#This will create a role assignment at the current subscription level for a user as a reader:
+ 	#Создание назначения роли "Читатель" пользователю на уровне текущей подписки:
     `azure role assignment create --upn <user's email> -o Reader`
 
-	#This will create a role assignment at a resource group level:
+	#Создание назначения роли на уровне группы ресурсов:
     `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
-	#This will create a role assignment at a resource level:
+	#Создание назначения роли на уровне ресурса:
     `azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
 
 ## <a id="verify"></a>Проверка разрешений ##

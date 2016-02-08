@@ -180,7 +180,7 @@
 [Приступая к работе с мобильными службами]: mobile-services-ios-get-started.md
 [Использование клиентского компонента Xamarin для мобильных служб Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [обратимое удаление]: mobile-services-using-soft-delete.md
-
+[Обратимое удаление]: mobile-services-using-soft-delete.md
 [Xamarin Studio]: http://xamarin.com/download
 [расширением Xamarin]: http://xamarin.com/visual-studio
 [классический портал Azure]: https://manage.windowsazure.com

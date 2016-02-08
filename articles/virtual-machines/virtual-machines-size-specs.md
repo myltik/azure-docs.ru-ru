@@ -63,7 +63,12 @@ ms.service="virtual-machines"
 |[Standard\_A0 (очень малая)](#standard-tier-a-series) |50 |
 |[Standard\_A1-4 (малая–крупная)](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series) |225 *|
+|[D1-14](#standard-tier-d-series) |160 |
+|[D1-14v2](#standard-tier-dv2-series) |210 - 250 *|
+|[DS1-14](#standard-tier-ds-series) |160 |
+|[G1-5](#standard-tier-g-series) |180 - 240 *|
+|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 Единицы ACU, помеченные звездочкой, основаны на технологии Intel® Turbo для увеличения частоты ЦП и значительного повышения производительности. Степень увеличения производительности может различаться в зависимости от размера виртуальной машины, рабочей нагрузки и других рабочих нагрузок, выполняющихся на том же узле.

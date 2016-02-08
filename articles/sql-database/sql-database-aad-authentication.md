@@ -199,7 +199,8 @@ Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
-В следующем примере выполняется удаление администратора Azure AD: ```
+В следующем примере выполняется удаление администратора Azure AD: 
+```
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
@@ -243,7 +244,7 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 Используйте этот метод, если вы вошли в ОС Windows, используя учетные данные домена, для которого не настроена федерация с Azure. Или если используете проверку подлинности Azure AD с помощью Azure AD на основе исходного домена или домена клиента.
 
 1. Запустите Management Studio, и в диалоговом окне **Подключение к ядру СУБД** (или **Подключение к серверу**) в поле **Проверка подлинности** выберите пункт **Проверка пароля Active Directory**.
-2. В поле **Имя пользователя** введите свое имя пользователя Azure Active Directory в формате ****username@domain.com**. Это должна быть учетная запись из Azure Active Directory или учетная запись из федерации домена с Azure Active Directory.
+2. В поле **Имя пользователя** введите свое имя пользователя Azure Active Directory в формате **username@domain.com**. Это должна быть учетная запись из Azure Active Directory или учетная запись из федерации домена с Azure Active Directory.
 3. В поле **Пароль** введите пароль пользователя для учетной записи Azure Active Directory или учетной записи федеративного домена.
 4. Нажмите кнопку **Параметры**, и на странице **Свойства подключения** в поле **Подключение к базе данных** введите имя пользовательской базы данных для подключения.
 

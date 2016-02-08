@@ -36,18 +36,20 @@
 
 Код в этом учебнике размещен на портале [GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs). Для понимания процесса можно [скачать основу приложения как ZIP-файл](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/skeleton.zip) или клонировать ее:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
+```
+git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
+```
 
 Готовое приложение также приводится в конце этого руководства.
 
 > [AZURE.WARNING] 	Для предварительной версии B2C следует использовать тот же идентификатор клиента или идентификатор приложения и политики как для сервера задач веб-API, так и для клиента, который к нему подключается. Это верно для учебников по iOS и Android. Если ранее вы создали приложение в любом из этих руководств, используйте эти значения и не создавайте новые в дальнейшем.
 
 
-## 1\. Создание каталога Azure AD B2C
+## 1. Создание каталога Azure AD B2C
 
 Перед использованием Azure AD B2C необходимо создать каталог или клиент. Каталог — это контейнер для всех пользователей, приложений, групп и т. д. Если каталог B2C еще не создан, [создайте его](active-directory-b2c-get-started.md).
 
-## 2\. Создание приложения
+## 2. Создание приложения
 
 Теперь необходимо создать приложение в каталоге B2C. Оно будет передавать в Azure AD сведения, необходимые для безопасного взаимодействия с вашим приложением. В этом случае как клиентское приложение, так и веб-API будут представлены одним **идентификатором приложения**, так как они включают в себя одно приложение логики. Создайте приложение, выполнив [эти указания](active-directory-b2c-app-registration.md). Не забудьте
 
@@ -58,7 +60,7 @@
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3\. Создание политик
+## 3. Создание политик
 
 В Azure AD B2C всякое взаимодействие с пользователем определяется [**политикой**](active-directory-b2c-reference-policies.md). Это приложение содержит три вида идентификации: регистрация, вход и вход с помощью учетной записи Facebook. Вам нужно создать по одной политике каждого типа, как описано в [справочнике по политикам](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). При создании трех политик обязательно сделайте следующее.
 
@@ -882,7 +884,9 @@ Transfer-Encoding: chunked
 
 Готовый пример (без ваших значений конфигурации) [можно скачать в виде ZIP-файла здесь](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip) или клонировать с портала GitHub.
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
+```
 
 
 ## Дальнейшие действия

@@ -91,16 +91,16 @@
 6. После завершения процесса в области уведомлений на портале появится сообщение об успешном создании подключения.
 	<!-- TODO
 
-Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
-(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-Create hybrid conn step, you get the following error
-Failed to create hybrid connection RelecIoudHC. The 
-resource type could not be found in the namespace 
-'Microsoft.BizTaIkServices for api version 2014-06-01'.
+	Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+	Create hybrid conn step, you get the following error
+	Failed to create hybrid connection RelecIoudHC. The 
+	resource type could not be found in the namespace 
+	'Microsoft.BizTaIkServices for api version 2014-06-01'.
 
-The error indicates it couldn't find the type, not the instance.
-![Success notification][CreateHCSuccessNotification]
--->
+	The error indicates it couldn't find the type, not the instance.
+	![Success notification][CreateHCSuccessNotification]
+	-->
 7. Теперь в колонке веб-приложения значок **Гибридные подключения** показывает, что создано одно гибридное подключение.
 	
 	![Создано одно гибридное подключение][CreateHCOneConnectionCreated]

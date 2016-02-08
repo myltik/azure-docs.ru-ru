@@ -61,11 +61,11 @@
 
 	> [AZURE.NOTE] Указания в [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) показывают настройку приложения с помощью Azure Active Directory, но в этом учебнике настройка будет выполняться с использованием AD FS. Поэтому вместо этого необходимо выполнять указанные здесь действия.
 
-3.	Откройте решение, а затем откройте файл Controllers\\AccountController.cs в **обозревателе решений**.
+3.	Откройте решение, а затем откройте файл Controllers\AccountController.cs в **обозревателе решений**.
 
-	Вы увидите, что код просто выдает запрос проверки подлинности для проверки подлинности пользователя с помощью WS-Federation. Вся проверка подлинности настраивается в App\_Start\\Startup.Auth.cs.
+	Вы увидите, что код просто выдает запрос проверки подлинности для проверки подлинности пользователя с помощью WS-Federation. Вся проверка подлинности настраивается в App_Start\Startup.Auth.cs.
 
-4.  Откройте App\_Start\\Startup.Auth.cs. В методе `ConfigureAuth` найдите строку:
+4.  Откройте App_Start\Startup.Auth.cs. В методе `ConfigureAuth` найдите строку:
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -79,7 +79,7 @@
 	-	Идентификатор RP: `https://contoso.com/MyLOBApp`
 	-	Адрес метаданных: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
-5.	В App\_Start\\Startup.Auth.cs замените статические определения строки как показано ниже.
+5.	В App_Start\Startup.Auth.cs замените статические определения строки как показано ниже.
 	<pre class="prettyprint">
 private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
 <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
@@ -149,7 +149,7 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 > [AZURE.NOTE] Не забудьте выполнить указанные ниже действия для обеих сред.
 
 4.	На сервере AD FS выполните вход с использование учетных данных, имеющих права управления для AD FS.
-5.	Откройте оснастку управления AD FS. Щелкните правой кнопкой мыши **AD FS\\Доверенные отношения\\Доверенные отношения с проверяющей стороной** и выберите **Добавить отношение доверия с проверяющей стороной**.
+5.	Откройте оснастку управления AD FS. Щелкните правой кнопкой мыши **AD FS\Доверенные отношения\Доверенные отношения с проверяющей стороной** и выберите **Добавить отношение доверия с проверяющей стороной**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
@@ -175,7 +175,7 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 
 7.	На странице **Настройка идентификаторов** убедитесь, что URL-адрес SSL проекта уже есть в списке, и щелкните **Далее**. Щелкайте **Далее** на всех страницах мастера до конца, выбирая значения по умолчанию.
 
-	> [AZURE.NOTE] В файле App\_Start\\Startup.Auth.cs проекта Visual Studio этот идентификатор сопоставляется со значением <code>WsFederationAuthenticationOptions.Wtrealm</code> во время федеративной аутентификации. По умолчанию URL-адрес приложения из предыдущего шага добавляется как идентификатор RP.
+	> [AZURE.NOTE]В файле App_Start\Startup.Auth.cs проекта Visual Studio этот идентификатор сопоставляется со значением <code>WsFederationAuthenticationOptions.Wtrealm</code> во время федеративной аутентификации. По умолчанию URL-адрес приложения из предыдущего шага добавляется как идентификатор RP.
 
 8.	Настройка приложения RP для проекта в AD FS завершена. Далее необходимо настроить это приложение, чтобы оно отправляло утверждения, необходимые вашему приложению. При окончании работы мастера по умолчанию открывается диалоговое окно **Изменение правил для утверждений** и можно сразу приступить к настройке. Как минимум, настроим следующие утверждения (со схемами в круглых скобках):
 
@@ -249,7 +249,7 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 - AD FS успешно выполняют проверку подлинности пользователя AD и перенаправляют вас обратно на домашнюю страницу приложения
 - AD FS успешно отправляет утверждение имени (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) приложению. Это подтверждается тем, что имя пользователя отображается в углу. 
 
-Если утверждение имени отсутствует, вы увидите **Здравствуйте, !**. В файле Views\\Shared\\_LoginPartial.cshtml можно увидеть, что для отображения имени пользователя здесь используется `User.Identity.Name`. Как уже отмечалось ранее, ASP.NET заполняет это свойство утверждением имени прошедшего проверку подлинности пользователя, если оно доступно в токене SAML. Чтобы просмотреть все утверждения, отправленные AD FS, вставьте точку останова в Controllers\\HomeController.cs в методе действия индекса. После аутентификации пользователя проверьте коллекцию `System.Security.Claims.Current.Claims`.
+Если утверждение имени отсутствует, вы увидите **Здравствуйте, !**. В файле Views\Shared\_LoginPartial.cshtml можно увидеть, что для отображения имени пользователя здесь используется `User.Identity.Name`. Как уже отмечалось ранее, ASP.NET заполняет это свойство утверждением имени прошедшего проверку подлинности пользователя, если оно доступно в токене SAML. Чтобы просмотреть все утверждения, отправленные AD FS, вставьте точку останова в Controllers\HomeController.cs в методе действия индекса. После аутентификации пользователя проверьте коллекцию `System.Security.Claims.Current.Claims`.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -258,7 +258,7 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 
 После включения членств в группах в качестве утверждений ролей в конфигурации отношения доверия с проверяющей стороной вы можете использовать их непосредственно в оформлении `[Authorize(Roles="...")]` для контроллеров и действий. В бизнес-приложении с шаблоном создать- прочитать-обновить-удалить (CRUD) можно выполнять авторизацию определенных ролей для доступа к каждому действию. На сегодня просто попробуем, как работает эта функция на примере существующего контроллера Home.
 
-1. Откройте Controllers\\HomeController.cs.
+1. Откройте Controllers\HomeController.cs.
 2. Оформите методы действия `About` и `Contact` по примеру, показанному ниже, используя членства в группе безопасности пользователя, прошедшего аутентификацию.  
 	<pre class="prettyprint">
 <mark>[Authorize(Roles="Тестовая группа")]</mark>
@@ -283,7 +283,14 @@ public ActionResult Contact()
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Если исследовать эту ошибку в средстве просмотра событий на сервере AD FS, обнаружится следующее сообщение об исключении: <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>Один и тот же сеанс браузера клиента сделал 6 запросов за последние 11 секунд.</mark> Обратитесь к администратору для получения дополнительной информации. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
+	Если исследовать эту ошибку в средстве просмотра событий на сервере AD FS, обнаружится следующее сообщение об исключении: 
+	<pre class="prettyprint"> 
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>Один и тот же сеанс браузера клиента сделал 6 запросов за последние 11 секунд.</mark> Обратитесь к администратору для получения дополнительной информации.
+	at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) 
+	at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) 
+	at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) 
+	at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) 
+	</pre>
 
 	Это происходит потому, что по умолчанию MVC возвращает ошибку «401 Неавторизован», когда роли пользователя неавторизованы. В результате активируется запрос на повторную проверку подлинности к поставщику удостоверений(AD FS). Так как пользователь уж прошел проверку подлинности, AD FS возвращается на ту же страницу, которая издает другую ошибку 401, создавая цикл перенаправления. Можно переопределить метод `HandleUnauthorizedRequest` в AuthorizeAttribute с помощью простой логики, чтобы отображать более содержательную информацию вместо продолжения цикла перенаправления.
 

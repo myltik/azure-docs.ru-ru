@@ -156,26 +156,26 @@ Service Fabric упрощает процесс разработки масшта
 
 8. URL-адрес, который реплика использует для ожидания передачи данных, рекомендуется указывать в таком формате: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`. Таким образом, вам нужно настроить прослушиватель на правильные конечные точки, используя именно этот шаблон.
 
-    На одном компьютере может быть размещено несколько реплик этой службы, поэтому адрес должен быть уникальным для каждой реплики. Именно по этой причине в URL-адресе указываются идентификаторы секции и реплики. HttpListener может прослушивать несколько адресов на одном порте при условии, что префикс URL-адреса является уникальным.
+На одном компьютере может быть размещено несколько реплик этой службы, поэтому адрес должен быть уникальным для каждой реплики. Именно по этой причине в URL-адресе указываются идентификаторы секции и реплики. HttpListener может прослушивать несколько адресов на одном порте при условии, что префикс URL-адреса является уникальным.
 
-    Дополнительный GUID используется в сложных случаях, когда вторичные реплики также прослушивают запросы только для чтения. Если это так, следует убедиться, что новый уникальный адрес используется при переходе от первичной реплики к вторичной для принудительного разрешения адресов клиентами. Знак + здесь используется как адрес, чтобы реплика прослушивала все доступные узлы (IP, FQDM, localhost и т. д.) В приведенном ниже коде показан пример.
+Дополнительный GUID используется в сложных случаях, когда вторичные реплики также прослушивают запросы только для чтения. Если это так, следует убедиться, что новый уникальный адрес используется при переходе от первичной реплики к вторичной для принудительного разрешения адресов клиентами. Знак + здесь используется как адрес, чтобы реплика прослушивала все доступные узлы (IP, FQDM, localhost и т. д.) В приведенном ниже коде показан пример.
 
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
-        return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
+            return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
     }
     private ICommunicationListener CreateInternalListener(StatefulServiceInitializationParameters args)
     {
         EndpointResourceDescription internalEndpoint = args.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
 
         string uriPrefix = String.Format(
-            "{0}://+:{1}/{2}/{3}-{4}/",
-            internalEndpoint.Protocol,
-            internalEndpoint.Port,
-            this.ServiceInitializationParameters.PartitionId,
-            this.ServiceInitializationParameters.ReplicaId,
-            Guid.NewGuid());
+                "{0}://+:{1}/{2}/{3}-{4}/",
+                internalEndpoint.Protocol,
+                internalEndpoint.Port,
+                this.ServiceInitializationParameters.PartitionId,
+                this.ServiceInitializationParameters.ReplicaId,
+                Guid.NewGuid());
 
         string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
         string uriPublished = uriPrefix.Replace("+", nodeIP);
@@ -190,43 +190,43 @@ Service Fabric упрощает процесс разработки масшта
     ```CSharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
-        string output = null;
-        string user = context.Request.QueryString["lastname"].ToString();
+          string output = null;
+          string user = context.Request.QueryString["lastname"].ToString();
 
-        try
-        {
-            output = await this.AddUserAsync(user);
-        }
-        catch (Exception ex)
-        {
-            output = ex.Message;
-        }
+          try
+          {
+              output = await this.AddUserAsync(user);
+          }
+          catch (Exception ex)
+          {
+              output = ex.Message;
+          }
 
-        using (HttpListenerResponse response = context.Response)
-        {
-            if (output != null)
-            {
-                byte[] outBytes = Encoding.UTF8.GetBytes(output);
-                response.OutputStream.Write(outBytes, 0, outBytes.Length);
-            }
-        }
-    }
-    private async Task<string> AddUserAsync(string user)
-    {
-        IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
+          using (HttpListenerResponse response = context.Response)
+          {
+              if (output != null)
+              {
+                  byte[] outBytes = Encoding.UTF8.GetBytes(output);
+                  response.OutputStream.Write(outBytes, 0, outBytes.Length);
+              }
+          }
+      }
+      private async Task<string> AddUserAsync(string user)
+      {
+          IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
 
-        using (ITransaction tx = this.StateManager.CreateTransaction())
-        {
-            bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
+          using (ITransaction tx = this.StateManager.CreateTransaction())
+          {
+              bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
 
-            await tx.CommitAsync();
+              await tx.CommitAsync();
 
-            return String.Format(
-                "User {0} {1}",
-                user,
-                addResult ? "sucessfully added" : "already exists");
-        }
-    }
+              return String.Format(
+                  "User {0} {1}",
+                  user,
+                  addResult ? "sucessfully added" : "already exists");
+          }
+      }
     ```
         
     `ProcessInternalRequest` считывает значения параметра строки запроса, который используется для вызова раздела, и вызывает метод `AddUserAsync` для добавления lastname в надежный словарь `dictionary`.
@@ -250,62 +250,60 @@ Service Fabric упрощает процесс разработки масшта
     ```CSharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] {new ServiceInstanceListener(this.CreateInputListener, "Input")};
+           return new[] {new ServiceInstanceListener(this.CreateInputListener, "Input")};
     }
     private ICommunicationListener CreateInputListener(StatelessServiceInitializationParameters args)
     {
-        // Service instance's URL is the node's IP & desired port
-        EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
-        string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
-        var uriPublished = uriPrefix.Replace("+", m_nodeIP);
-        return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
-    }
-    ```
-     
+           // Service instance's URL is the node's IP & desired port
+           EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
+           string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
+           var uriPublished = uriPrefix.Replace("+", m_nodeIP);
+           return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
+     }
+     ```
 14. Теперь нам необходимо реализовать логику обработки. После получения запроса прослушиватель HttpCommunicationListener вызывает `ProcessInputRequest`, поэтому давайте добавим приведенный ниже код.
 
     ```CSharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
-        String output = null;
-        try
-        {
-            string lastname = context.Request.QueryString["lastname"];
-            char firstLetterOfLastName = lastname.First();
-            int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+           String output = null;
+           try
+           {
+               string lastname = context.Request.QueryString["lastname"];
+               char firstLetterOfLastName = lastname.First();
+               int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
 
-            ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
-            ResolvedServiceEndpoint ep = partition.GetEndpoint();
-            JObject addresses = JObject.Parse(ep.Address);
-            string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
+               ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
+               ResolvedServiceEndpoint ep = partition.GetEndpoint();
+               JObject addresses = JObject.Parse(ep.Address);
+               string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
 
-            UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
-            primaryReplicaUriBuilder.Query = "lastname=" + lastname;
+               UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
+               primaryReplicaUriBuilder.Query = "lastname=" + lastname;
 
-            string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
+               string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
 
-            output = String.Format(
-                    "Result: {0}. Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. Processing service partition ID: {4}. Processing service replica address: {5}",
-                    result,
-                    partitionKey,
-                    firstLetterOfLastName,
-                    lastname,
-                    partition.Info.Id,
-                    primaryReplicaAddress);
-        }
-        catch (Exception ex) { output = ex.Message; }
-        
-        using (var response = context.Response)
-        {
-            if (output != null)
-            {
-                output = output + "added to Partition: " + primaryReplicaAddress;
-                byte[] outBytes = Encoding.UTF8.GetBytes(output);
-                response.OutputStream.Write(outBytes, 0, outBytes.Length);
-            }
-        }
+               output = String.Format(
+               "Result: {0}. Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. Processing service partition ID: {4}. Processing service replica address: {5}",
+               result,
+               partitionKey,
+               firstLetterOfLastName,
+               lastname,
+               partition.Info.Id,
+               primaryReplicaAddress);
     }
-    ```
+    catch (Exception ex) { output = ex.Message; }
+    using (var response = context.Response)
+    {
+               if (output != null)
+               {
+                   output = output + "added to Partition: " + primaryReplicaAddress;
+                   byte[] outBytes = Encoding.UTF8.GetBytes(output);
+                   response.OutputStream.Write(outBytes, 0, outBytes.Length);
+               }
+           }
+      }
+      ```
 
     Давайте разберемся в процессе, шаг за шагом. Код считывает первую букву из параметра строки запроса в `lastname` в тип char. Затем он определяет ключ раздела для этой буквы, вычитая шестнадцатеричное значение `A` из шестнадцатеричного значения первой буквы фамилии.
 
@@ -347,8 +345,8 @@ Service Fabric упрощает процесс разработки масшта
     <Parameters>
       <Parameter Name="Processing_PartitionCount" Value="26" />
       <Parameter Name="WebApi_InstanceCount" Value="1" />
-    </Parameters>
-    ```
+  </Parameters>
+  ```
 
 16. Когда служба будет развернута, все ее секции можно будет проверить в обозревателе Service Fabric.
     

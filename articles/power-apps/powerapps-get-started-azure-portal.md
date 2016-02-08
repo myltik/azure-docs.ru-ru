@@ -159,7 +159,8 @@ Microsoft PowerApps Enterprise — это новая служба Microsoft Azu
 
 1. Выберите среду службы приложений, которую вы только что создали.
 2. В разделе «Основные компоненты» выберите свойство **Группа ресурсов**. При этом откроется группа ресурсов, которая содержит среду службы приложений: ![][7]
-3. Для управления разрешениями щелкните значок RBAC: ![][8] Добавление пользователей и назначение ролей аналогично использованию [контроля доступа на основе ролей](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) в Azure.
+3. Для управления разрешениями щелкните значок RBAC: ![][8]
+	Добавление пользователей и назначение ролей аналогично использованию [контроля доступа на основе ролей]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) в Azure.
 
 > [AZURE.NOTE] В настоящее время вы не можете предоставлять разрешения RBAC для среды службы приложений. Вы можете предоставлять их только на уровне родительской группы ресурсов.
 
@@ -181,4 +182,4 @@ Microsoft PowerApps Enterprise — это новая служба Microsoft Azu
 [7]: ./media/powerapps-get-started-azure-portal/aseessentials.png
 [8]: ./media/powerapps-get-started-azure-portal/resourcegrouprbac.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!------HONumber=AcomDC_0128_2016-->

@@ -21,7 +21,7 @@
 
 В этой статье показано, как приступить к работе с решениями Docker и [Compose](http://github.com/docker/compose) с целью определения и запуска сложного приложения на виртуальной машине Linux в Azure. Решение Compose (преемник решения *Fig*) позволяет определить приложение, состоящее из нескольких контейнеров Docker, с помощью простого текстового файла. После этого приложение разворачивается с помощью одной команды, которая инициирует все действия, необходимые для его запуска на виртуальной машине. В этой статье показано, как быстро настроить блог WordPress с серверной базой данных SQL MariaDB, однако решение Compose можно использовать для настройки и более сложных приложений.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Модель диспетчера ресурсов](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
 
 
 Если вы не знакомы с решением Docker и контейнерами, см. [доску по Docker](https://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
@@ -58,9 +58,18 @@ $ docker-compose --version
 
 Создайте рабочий каталог на своей виртуальной машине и с помощью текстового редактора создайте файл `docker-compose.yml`. Приведем простой пример. Скопируйте следующий текст в файл. Эта конфигурация обеспечивает установку WordPress (системы управления блогами и содержимым с открытым исходным кодом) и связанной серверной базы данных MariaDB с использованием образов из [реестра DockerHub](https://registry.hub.docker.com/_/wordpress/).
 
- ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
+ ```
+ wordpress:
+  image: wordpress
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
 
-db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
+db:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: <your password>
 
 ```
 
@@ -76,7 +85,9 @@ $ docker-compose up -d
 This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
-Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
+Creating wordpress\_db\_1...
+Creating wordpress\_wordpress\_1...
+```
 
 >[AZURE.NOTE] При запуске обязательно используйте параметр **-d**, чтобы контейнеры непрерывно выполнялись в фоновом режиме.
 
