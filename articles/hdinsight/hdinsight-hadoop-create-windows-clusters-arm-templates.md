@@ -27,7 +27,7 @@
 
 Прежде чем следовать указаниям в этой статье, необходимо подготовить следующее:
 
-- [Подписка Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- [Подписка Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) и/или [Интерфейс командной строки Azure](xplat-cli-install.md). 
 
 ## Шаблоны ARM
@@ -444,4 +444,4 @@
 	  }
 	}
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

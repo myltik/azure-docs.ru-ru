@@ -70,7 +70,7 @@
 
 Например, демонстрационное приложение создает новую базу данных. Оплачиваемая стоимость зависит от выбранной версии базы данных SQL Azure и от использования данным приложением платформы Azure.
 
-Сведения о ценах см. в разделе [Информация о ценах на базу данных SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Сведения о ценах см. в разделе [Информация о ценах на базу данных SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Дальнейшие действия
 Дополнительную информацию об инструментах эластичной базы данных см. в следующих разделах:
@@ -80,7 +80,7 @@
     -    [Эластичная база данных SQL Azure — приступая к работе](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Эластичная база данных SQL Azure — интеграция с Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
     -    [Эластичность сегментов в Центре сценариев](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
--    Блог: [Объявления, касающиеся эластичного масштабирования](http://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+-    Блог: [Объявления, касающиеся эластичного масштабирования](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 -    Channel 9: [Видеообзор технологии эластичного масштабирования](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 -    Форум для обсуждений: [Форум по базам данных SQL Azure](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 
@@ -98,4 +98,4 @@
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

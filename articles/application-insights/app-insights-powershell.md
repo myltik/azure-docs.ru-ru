@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/22/2016" 
 	ms.author="awills"/>
  
 # Создание ресурсов Application Insights с помощью PowerShell
@@ -117,6 +117,27 @@
 `"myappname"` (строчная) | `"[toLower(parameters('appName'))]"`
 `"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"`|`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" `
 
+## Если приложение является веб-приложением Azure
+
+Добавьте этот ресурс или, если ресурс `siteextensions` уже существует, настройте следующие параметры:
+
+```json
+    {
+      "apiVersion": "2014-04-01",
+      "name": "Microsoft.ApplicationInsights.AzureWebSites",
+      "type": "siteextensions",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
+        "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
+        "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
+      ],
+      "properties": { }
+    }
+
+```
+
+Этот ресурс развертывает пакет SDK Application Insights в веб-приложение.
+
 ## Установка зависимостей между ресурсами
 
 Служба Azure должна настраивать ресурсы в строгом порядке. Чтобы одна процедура настройки не начиналась прежде, чем завершится предыдущая, добавьте строки зависимости:
@@ -145,6 +166,7 @@
                -webTestName aWebTest `
                -Url http://myapp.com `
                -text "Welcome!"
+               -siteName "MyAzureSite"
 
     ``` 
 
@@ -154,6 +176,7 @@
     * -webTestName — имя веб-теста, который нужно создать.
     * -url — это URL-адрес веб-приложения.
     * -text — это текстовая строка, отображаемая на веб-странице.
+    * -siteName — используется, если это веб-сайт Azure.
 
 
 ## Определение оповещений о метриках
@@ -288,4 +311,4 @@
 
 ```
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

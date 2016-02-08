@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Общие сведения об API концентраторов событий
 
 В этой статье перечислены некоторые ключевые клиентские API .NET концентраторов событий. Существует две категории: API управления и API среды выполнения. API среды выполнения состоят из всех операций, необходимых для отправки и получения сообщения. Операции управления позволяют управлять состоянием сущности концентраторов событий путем создания, обновления и удаления сущностей.
 
-Сценарии мониторинга распространяются как на управление, так и на среду выполнения. Подробную справочную документацию по API .NET см. в разделах [Библиотека классов .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) и [API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
+Сценарии мониторинга распространяются как на управление, так и на среду выполнения. Подробную справочную документацию по API .NET см. в разделах [Служебная шина .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) и [API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## API управления
 
@@ -84,7 +84,7 @@ await client.SendAsync(data);
 ### Создание потребителя
 
 ```
-// Create the Event Hub client
+// Create the Event Hubs client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
 
 // Get the default consumer group
@@ -120,6 +120,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
 // Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
+
 string eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
 string blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
 
@@ -188,4 +189,4 @@ public class SimpleEventProcessor : IEventProcessor
 - [Справочник по служебной шине и API .NET концентраторов событий](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

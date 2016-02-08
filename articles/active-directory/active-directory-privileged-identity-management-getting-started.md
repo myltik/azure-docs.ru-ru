@@ -3,7 +3,7 @@
    description="Узнайте, как управлять привилегированными пользователями с помощью расширения для управления привилегированными пользователями Azure."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="01/21/2016"
    ms.author="inhenk"/>
 
 # Начало работы с функцией управления привилегированными пользователями Azure
@@ -23,7 +23,7 @@
 1.  Создайте каталог в Azure Active Directory.
 2.  Добавьте пользователей в ваш Azure Active Directory.
 3.  Создайте несколько глобальных администраторов в вашем каталоге.
-4.  Войдите на [портал Azure](http://portal.azure.com) с учетной записью глобального администратора.
+4.  Войдите на [портал Azure](https://portal.azure.com/) под учетной записью глобального администратора.
 5.  Щелкните **имя пользователя** в верхнем левом углу портала Azure.
 6.  Выберите **каталог**, который вы только что создали.
 7.  Щелкните значок **Создать** в области навигации слева.
@@ -35,4 +35,4 @@
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

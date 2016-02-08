@@ -193,7 +193,7 @@
 
 	Remove-AzureRmVM -ResourceGroupName "resource group name" –Name "VM name"
 
-> [AZURE.NOTE]Чтобы пропустить запрос на подтверждение, используйте параметр **–Force**.
+> [AZURE.NOTE] Чтобы пропустить запрос на подтверждение, используйте параметр **–Force**.
 
 Если параметр -Force не используется, появляется запрос на подтверждение:
 
@@ -216,4 +216,4 @@
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

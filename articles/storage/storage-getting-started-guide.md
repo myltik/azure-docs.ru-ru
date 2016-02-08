@@ -30,7 +30,7 @@
 
 1. Чтобы скомпилировать и собрать приложение, на компьютере должна быть установлена версия [Visual Studio](https://www.visualstudio.com/). 
 
-2. Установите последнюю версию [SDK Azure для .NET](http://azure.microsoft.com/downloads/). Пакет SDK включает образцы проектов Azure QuickStart, эмулятор хранения Azure и [клиентскую библиотеку хранилища Azure для .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
+2. Установите последнюю версию [SDK Azure для .NET](https://azure.microsoft.com/downloads/). Пакет SDK включает образцы проектов Azure QuickStart, эмулятор хранения Azure и [клиентскую библиотеку хранилища Azure для .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
 
 3. Убедитесь, что на компьютере установлен [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653), так как это необходимо для образцов проектов Azure QuickStart, которые мы будем использовать в этом учебнике.
 
@@ -38,7 +38,7 @@
 
 4. Вам потребуются подписка Azure и учетная запись хранения Azure.
 
-    - О получении подписки Azure см. в разделах [Бесплатная пробная версия](http://azure.microsoft.com/pricing/free-trial/), [Варианты приобретения](http://azure.microsoft.com/pricing/purchase-options/) и [Предложения для участников](http://azure.microsoft.com/pricing/member-offers/) (для участников MSDN, Microsoft Partner Network, BizSpark и других программ корпорации Майкрософт).
+    - О получении подписки Azure см. в разделах [Бесплатная пробная версия](https://azure.microsoft.com/pricing/free-trial/), [Варианты приобретения](https://azure.microsoft.com/pricing/purchase-options/) и [Предложения для участников](https://azure.microsoft.com/pricing/member-offers/) (для участников MSDN, Microsoft Partner Network, BizSpark и других программ корпорации Майкрософт).
     - Чтобы создать учетную запись хранения в Azure, см. раздел [Создание, управление и удаление учетной записи хранения](storage-create-storage-account.md).
 
 ## Запуск первого приложения хранилища Azure в хранилище Azure в облаке
@@ -102,11 +102,11 @@
 * [Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md)
 * [Использование хранилища очередей из .NET](storage-dotnet-how-to-use-queues.md)
 * [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
-* [Документация по хранилищу Azure](http://azure.microsoft.com/documentation/services/storage/)
+* [Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Клиентская библиотека хранилища Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [REST API службы хранилища Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

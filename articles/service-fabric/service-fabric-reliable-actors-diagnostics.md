@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="abhisram"/>
 
 # Диагностика и мониторинг производительности в Reliable Actors
@@ -153,4 +153,4 @@
 |ActorActivated|5|Информация|0x1|Субъект активирован.|
 |ActorDeactivated|6|Информация|0x1|Субъект отключен.|
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

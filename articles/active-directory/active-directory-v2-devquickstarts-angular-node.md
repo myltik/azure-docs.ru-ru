@@ -235,6 +235,6 @@ node server.js
 
 - [Образцы Azure на GitHub >>](https://github.com/Azure-Samples)
 - [Azure AD при переполнении стека >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- Документация по Azure AD [на сайте Azure.com](http://azure.microsoft.com/documentation/services/active-directory/)
+- Документация по Azure AD [на сайте Azure.com](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -63,7 +63,7 @@
 
 	* __src__ — каталог, содержащий каталог __main\\java\\org\\apache\\hadoop\\examples__, в котором будет разрабатываться приложение.
 
-3. Удалите файл __src\\test\\java\\org\\apache\\hadoop\\examples\\apptest.java__, так как он не используется в этом примере.
+3. Удалите файл __src/test/java/org/apache/hadoop/examples/apptest.java__, так как он не используется в этом примере.
 
 ##Добавление зависимостей
 
@@ -213,7 +213,7 @@
 
 ##Создание приложения
 
-1. Перейдите в каталог __wordcountjava__, если вы еще не сделали это.
+1. Перейдите в каталог __wordcountjava__ (если вы еще не сделали это).
 
 2. Выполните следующую команду, чтобы собрать файл JAR, содержащий приложение.
 
@@ -223,7 +223,7 @@
 
 3. После завершения выполнения команды в каталоге __wordcountjava\\target__ будет находиться файл с именем __wordcountjava-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE]Файл __Wordcountjava-1.0-SNAPSHOT.jar__ является uberjar, который содержит не только задание WordCount, но и зависимости, необходимые заданию во время выполнения.
+	> [AZURE.NOTE] Файл __Wordcountjava-1.0-SNAPSHOT.jar__ является uberjar, который содержит не только задание WordCount, но и зависимости, необходимые заданию во время выполнения.
 
 
 ##<a id="upload"></a>Загрузка файла JAR
@@ -236,7 +236,7 @@
 
 В результате файлы будут скопированы из локальной системы на головной узел.
 
-> [AZURE.NOTE]Если для защиты учетной записи SSH использовался пароль, будет предложено ввести пароль. Если использовался ключ SSH, возможно, нужно будет использовать параметр `-i` и указать путь к закрытому ключу. Например, `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+> [AZURE.NOTE] Если для защиты учетной записи SSH использовался пароль, будет предложено ввести пароль. Если использовался ключ SSH, возможно, нужно будет использовать параметр `-i` и указать путь к закрытому ключу. Например, `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 ##<a name="run"></a>Выполнение задания MapReduce
 
@@ -270,7 +270,7 @@
 - [Использование Pig с HDInsight][hdinsight-use-pig]
 - [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-Дополнительную информацию см. также в [Центре разработчика Java](http://azure.microsoft.com/develop/java/).
+Дополнительную информацию см. также в [Центре разработчика Java](https://azure.microsoft.com/develop/java/).
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -292,4 +292,4 @@
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

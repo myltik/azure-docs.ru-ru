@@ -59,9 +59,9 @@
 
 Перед началом настройки убедитесь, что у вас есть следующие компоненты.
 
-- Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
+- Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 
-- Командлеты Azure PowerShell (версии 1.0 или более поздней) Вы можете скачать эту версию в разделе Windows PowerShell на [странице скачивания](http://azure.microsoft.com/downloads/), а затем установить. Это документация была написана для PowerShell 1.0 или более поздней версии. Командлеты, необходимые для этой конфигурации, отсутствуют в более ранних версиях.
+- Командлеты Azure PowerShell (версии 1.0 или более поздней) Вы можете скачать эту версию в разделе Windows PowerShell на [странице скачивания](https://azure.microsoft.com/downloads/), а затем установить. Это документация была написана для PowerShell 1.0 или более поздней версии. Командлеты, необходимые для этой конфигурации, отсутствуют в более ранних версиях.
 
 - Если вы не знакомы с использованием диспетчера ресурсов Azure и PowerShell, дополнительные сведения см. в [этой статье](../articles/powershell-azure-resource-manager.md).
 
@@ -136,4 +136,4 @@
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

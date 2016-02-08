@@ -31,13 +31,13 @@
 * **SimulatedDevice**, измененную версию приложения, созданного в учебнике [Приступая к работе с центром IoT]. Это приложение подключается к центру IoT и получает сообщения с облака на устройство.
 * **SendCloudToDevice**, которое отправляет сообщение с облака на виртуальное устройство с помощью центра IoT и затем получает подтверждение его доставки.
 
-> [AZURE.NOTE]Для центра IoT существуют пакеты SDK для многих платформ устройств и языков (включая C, Java и Javascript). Эти пакеты работают на основе пакетов SDK для устройств IoT Azure. Пошаговые указания по подключению устройства к коду этого учебника и к центру IoT Azure в целом см. в [Центре разработчика IoT в Azure]. Пакеты SDK службы IoT Azure для Java и Node будут выпущены в ближайшее время.
+> [AZURE.NOTE] Для центра IoT существуют пакеты SDK для многих платформ устройств и языков (включая C, Java и Javascript). Эти пакеты работают на основе пакетов SDK для устройств IoT Azure. Пошаговые инструкции по подключению устройства к коду, приведенному в этом учебнике, и к центру IoT Azure в целом см. в [Центре разработчика IoT в Azure]. Пакеты SDK службы IoT Azure для Java и Node будут выпущены в ближайшее время.
 
 Чтобы пройти этот учебник, требуется:
 
 + Microsoft Visual Studio 2015;
 
-+ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Подробные сведения см. на странице [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
++ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Подробные сведения см. на странице [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
 
 [AZURE.INCLUDE [iot-hub-c2d-device-csharp](../../includes/iot-hub-c2d-device-csharp.md)]
 
@@ -82,4 +82,4 @@
 [Центр разработчика IoT Azure]: http://www.azure.com/develop/iot
 [Центре разработчика IoT в Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

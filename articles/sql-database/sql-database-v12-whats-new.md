@@ -27,7 +27,7 @@
 Мы продолжаем расширять функционал версии 12. Поэтому рекомендуем вам почаще посещать нашу веб-страницу с обновлениями служб Azure и при работе с ней пользоваться фильтрами.
 
 
-- Фильтруйте обновления по [службе базы данных SQL](http://azure.microsoft.com/updates/?service=sql-database).
+- Фильтруйте обновления по [службе базы данных SQL](https://azure.microsoft.com/updates/?service=sql-database).
 - Фильтруйте обновления по [объявлениям об общедоступных версиях](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) функций базы данных SQL.
 
 
@@ -42,9 +42,9 @@
 
 - [оконные функции](http://msdn.microsoft.com/library/bb934097.aspx) и поддержка [OVER](http://msdn.microsoft.com/library/ms189461.aspx); 
 - [XML-индексы](http://msdn.microsoft.com/library/bb934097.aspx) и [выборочные XML-индексы](http://msdn.microsoft.com/library/jj670104.aspx);
-- [отслеживание изменений](http://msdn.microsoft.com/library/bb933875.aspx);
-- [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx);
-- [полнотекстовый поиск](http://msdn.microsoft.com/library/ms142571.aspx).
+- [отслеживание изменений;](http://msdn.microsoft.com/library/bb933875.aspx)
+- [SELECT...INTO;](http://msdn.microsoft.com/library/ms188029.aspx)
+- [полнотекстовый поиск.](http://msdn.microsoft.com/library/ms142571.aspx)
 
 
 [Здесь](sql-database-transact-sql-information.md) можно ознакомиться с небольшим набором функций, которые еще не поддерживаются в базе данных SQL.
@@ -70,7 +70,7 @@
 - 14000–14999.
 
 
-Щелкните [здесь](sql-database-develop-direct-route-ports-adonet-v12.md), чтобы узнать больше о портах для базы данных SQL версии 12. Эти порты необходимы для улучшения производительности базы данных SQL V12.
+Щелкните [здесь](sql-database-develop-direct-route-ports-adonet-v12.md), чтобы узнать больше о портах для базы данных SQL V12. Эти порты необходимы для улучшения производительности базы данных SQL V12.
 
 
 ## Улучшенная поддержка поставщиков облачных SaaS-решений
@@ -132,7 +132,7 @@
 Проще всего определить версию службы базы данных SQL, которая управляет вашей базой данных или логическим сервером, так:
 
 
-1. Перейдите на [портал Azure](http://portal.azure.com/).
+1. Перейдите на [портал Azure](https://portal.azure.com/).
 2. Щелкните **Обзор**.
 3. Выберите **Серверы SQL Server**.
 4. Значок рядом с сервером или базой данных красноречиво укажет на версию службы:
@@ -159,6 +159,6 @@
 - К 31 июля 2015 г. все регионы были переведены в состояние общедоступной версии.
 - Версия 12 была выпущена в декабре 2014 года, но только в статусе предварительной версии.
 
-[Дополнительные условия использования для предварительных версий Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[Дополнительные условия использования для предварительных версий Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

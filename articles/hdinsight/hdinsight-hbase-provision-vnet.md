@@ -34,9 +34,9 @@
 ##Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Рабочая станция с Azure PowerShell.**. Обратитесь к разделу [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Инструкции см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md). Для выполнения сценариев Azure PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Использование командлета Set-ExecutionPolicy][2].
+- **Рабочая станция с Azure PowerShell.**. Обратитесь к разделу [Установка и использование Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Инструкции см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md). Для выполнения сценариев Azure PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Использование командлета Set-ExecutionPolicy][2].
 
 	Перед выполнением сценариев Azure PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета:
 
@@ -112,7 +112,7 @@ DNS-сервер является необязательным, но в неко
 
 **Подготовка кластера HBase с помощью портала Azure**
 
-> [AZURE.NOTE]Для получения информации о подготовке кластера HBase с помощью Azure PowerShell см. раздел [Подготовка кластера HBase с помощью Azure PowerShell](#powershell).
+> [AZURE.NOTE] Для получения информации о подготовке кластера HBase с помощью Azure PowerShell см. раздел [Подготовка кластера HBase с помощью Azure PowerShell](#powershell).
 
 
 **Создание кластера HDInsight**
@@ -262,7 +262,7 @@ DNS-сервер является необязательным, но в неко
 
 		В результате будет возвращен DNS-суффикс. Например, **yourclustername.b4.internal.cloudapp.net**.
 
-	> [AZURE.NOTE]Для подключения к кластеру HBase (вы будете подключены к головному узлу) и выполнения команды **ipconfig** в командной строке для получения DNS-суффикса также можно использовать удаленный рабочий стол. Для получения указаний по включению протокола удаленного рабочего стола и подключению к кластеру с его помощью см. раздел [Управление кластерами Hadoop в HDInsight с использованием портала Azure][hdinsight-admin-portal].
+	> [AZURE.NOTE] Для подключения к кластеру HBase (вы будете подключены к головному узлу) и выполнения команды **ipconfig** в командной строке для получения DNS-суффикса также можно использовать удаленный рабочий стол. Для получения указаний по включению протокола удаленного рабочего стола и подключению к кластеру с его помощью см. раздел [Управление кластерами Hadoop в HDInsight с использованием портала Azure][hdinsight-admin-portal].
 	>
 	> ![hdinsight.hbase.dns.surffix][img-dns-surffix]
 
@@ -291,7 +291,7 @@ DNS-сервер является необязательным, но в неко
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]Для получения дополнительной информации о разрешении имен в виртуальных сетях Azure, а также об использовании своего​ собственного DNS-сервера см. раздел [Разрешение имен (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+> [AZURE.NOTE] Для получения дополнительной информации о разрешении имен в виртуальных сетях Azure, а также об использовании своего​ собственного DNS-сервера см. раздел [Разрешение имен (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ##Подготовка кластера HBase с помощью Azure PowerShell
 
@@ -391,4 +391,4 @@ DNS-сервер является необязательным, но в неко
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

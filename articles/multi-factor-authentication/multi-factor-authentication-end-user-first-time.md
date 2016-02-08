@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Первый вход в службу Azure Multi-Factor Authentication" 
 	description="Эта страница описывает первый вход пользователя в службу." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords="как использовать каталог Azure, Active Directory в облаке, учебник по Active Directory" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenp" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 # Первоначальная настройка службы Azure Multi-Factor Authentication
 
@@ -36,4 +37,4 @@
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

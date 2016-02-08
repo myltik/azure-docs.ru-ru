@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Что такое концентраторы событий Azure? | Microsoft Azure"
-	description="Общие сведения о концентраторах событий Azure"
+	description="Общие сведения о концентраторах событий Azure."
 	services="event-hubs"
 	documentationCenter=".net"
 	authors="nberdy"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 # Что такое концентраторы событий Azure?
@@ -39,10 +39,10 @@
 - [Обзор концентраторов событий](event-hubs-overview.md)
 - [Руководство по программированию концентраторов событий](event-hubs-programming-guide.md)
 - [Доступность и поддержка концентраторов событий: часто задаваемые вопросы](event-hubs-availability-and-support-faq.md)
-- Начните работу с [руководства по концентраторам событий][].
+- Начало работы с помощью [учебника по концентраторам событий][].
 - Завершенный [пример приложения, использующего концентраторы событий][]
 
-[руководства по концентраторам событий]: event-hubs-csharp-ephcs-getstarted.md
+[учебника по концентраторам событий]: event-hubs-csharp-ephcs-getstarted.md
 [пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -25,9 +25,9 @@
 Чтобы узнать, как выполнять создание и развертывание в веб-службе машинного обучения Azure с помощью Студии машинного обучения Azure, обратитесь к следующим разделам:
 
 - [Развертывание в веб-службе машинного обучения](machine-learning-publish-a-machine-learning-web-service.md)
-- [Приступая к работе со Студией машинного обучения Microsoft Azure](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
+- [Приступая к работе со Студией машинного обучения Microsoft Azure](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Обзор машинного обучения Azure](https://studio.azureml.net/)
-- [Центр документации машинного обучения Azure](http://azure.microsoft.com/documentation/services/machine-learning/)
+- [Центр документации машинного обучения Azure](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Веб-служба машинного обучения Azure ##
 
@@ -103,4 +103,4 @@
 2. Назначьте apiKey ключ из веб-службы. См. раздел "Как получить ключ авторизации машинного обучения Azure".
 3. Назначьте serviceUri универсальный код ресурса запроса. См. раздел "Как получить универсальный код ресурса запроса".
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

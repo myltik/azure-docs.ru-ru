@@ -19,7 +19,7 @@ ms.author="bbenz" />
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
 
 ##Образы виртуальных машин под управлением Windows
-Ниже приведен список доступных образов виртуальных машин Oracle, работающих на Windows Server в Azure. Эти образы оплачиваются по мере использования. Это означает, что стоимость лицензий на использование ПО Oracle включена в плату за использование этих образов. Можно также импортировать свои лицензии на программное обеспечение Oracle для его запуска в Windows или Linux. Ниже приведены подробные сведения о [ценах и лицензировании для виртуальных машин Azure и виртуальных машин из коллекции образов](http://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Щелкните вкладку **Oracle**, чтобы просмотреть цены для нужных решений Oracle.
+Ниже приведен список доступных образов виртуальных машин Oracle, работающих на Windows Server в Azure. Эти образы оплачиваются по мере использования. Это означает, что стоимость лицензий на использование ПО Oracle включена в плату за использование этих образов. Можно также импортировать свои лицензии на программное обеспечение Oracle для его запуска в Windows или Linux. Ниже приведены подробные сведения о [ценах и лицензировании для виртуальных машин Azure и виртуальных машин из коллекции образов](https://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Щелкните вкладку **Oracle**, чтобы просмотреть цены для нужных решений Oracle.
 
 ###Образы виртуальных машин для базы данных Oracle
 - Oracle Database 12c Enterprise Edition на Windows Server 2012
@@ -63,4 +63,4 @@ ms.author="bbenz" />
 
 [Образы виртуальных машин Oracle. Различные рекомендации](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

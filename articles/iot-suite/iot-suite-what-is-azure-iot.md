@@ -2,13 +2,14 @@
  pageTitle="Решения Azure для «Интернета вещей» | Microsoft Azure"
  description="Общие сведения об IoT в Azure, включая пример архитектуры решения, а также о его связи с набором Azure IoT Suite и предварительно настроенных решениях."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -47,4 +48,4 @@
 [машинное обучение Azure]: https://azure.microsoft.com/ru-RU/services/machine-learning/
 [службу хранилища Azure]: https://azure.microsoft.com/ru-RU/services/storage/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

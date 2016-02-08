@@ -46,7 +46,7 @@
 
 ##Скачивание образца
 
-Скачать и запустить образец можно [здесь](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Скачать и запустить образец можно [здесь](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Пример
 
@@ -147,4 +147,4 @@
 
 [Создание эскиза с помощью стандартного кодировщика мультимедиа и платформы .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

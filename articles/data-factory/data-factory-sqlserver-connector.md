@@ -204,7 +204,7 @@
 	   }
 	}
 
-> [AZURE.NOTE]В приведенном выше примере для свойства SqlSource указано **sqlReaderQuery**. Действие копирования выполняет этот запрос к источнику базы данных SQL Server с целью получения данных.
+> [AZURE.NOTE] В приведенном выше примере для свойства SqlSource указано **sqlReaderQuery**. Действие копирования выполняет этот запрос к источнику базы данных SQL Server с целью получения данных.
 >  
 > Кроме того, можно создать хранимую процедуру, указав **sqlReaderStoredProcedureName** и **storedProcedureParameters** (если хранимая процедура принимает параметры).
 >  
@@ -447,7 +447,7 @@
 
 Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Такие свойства, как имя, описание, входные и выходные таблицы, различные политики и т. д., доступны для всех типов действий.
 
-> [AZURE.NOTE]Действие копирования принимает только один набор входных данных и возвращает только один набор выходных.
+> [AZURE.NOTE] Действие копирования принимает только один набор входных данных и возвращает только один набор выходных.
 
 То, какие свойства будут доступны в разделе typeProperties, зависит от типа действия, а в случае с действием копирования — еще и от типов источников и приемников.
 
@@ -499,7 +499,10 @@
 5. Создайте **правило брандмауэра Windows** на компьютере для разрешения входящего трафика через этот порт.  
 6. **Проверка подключения**: запустив SQL Server Management Studio на другом компьютере, подключитесь к SQL Server, указав полное имя сервера. Например: <machine>.<domain>.corp.<company>.com,1433.
 
-	> [AZURE.IMPORTANT]Подробные сведения см. в разделе [Порты и вопросы безопасности](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations).
+	> [AZURE.IMPORTANT] 
+	Подробные сведения см. в разделе [Порты и вопросы безопасности](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations).
+	>   
+	> Советы по устранению неполадок, связанных с шлюзом или подключением, см. в разделе [Устранение неполадок шлюза](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -562,4 +565,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

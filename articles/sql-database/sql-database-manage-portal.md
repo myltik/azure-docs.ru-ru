@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Управление базами данных SQL Azure с помощью классического портала Azure" 
-	description="Использование классического портала Azure для управления реляционной базой данных в облаке." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Управление базами данных SQL Azure с помощью классического портала Azure"
+	description="Использование классического портала Azure для управления реляционной базой данных в облаке."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.devlang="NA" 
-	ms.workload="data-management" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="NA" 
-	ms.date="09/11/2015" 
+<tags
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.date="01/22/2016"
 	ms.author="sstein"/>
 
 
-# Управление базами данных SQL Azure с помощью классического портала Azure
+# Управление базами данных SQL Azure с помощью портала Azure
 
 
 > [AZURE.SELECTOR]
@@ -25,16 +25,14 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-[Классический портал Azure][Classic Portal] позволяет создавать базы данных SQL Azure и серверы, выполнять их мониторинг, а также управлять ими. В данной статье рассматриваются операции с базой данных, которые можно выполнять с помощью классического портала.
-
->[AZURE.NOTE]Если вы еще не знакомы с классическим порталом Azure, просмотрите этот [видеокурс с кратким обзором][Azure Classic Portal Tour] основных возможностей портала и основных понятий.
+[Портал Azure](https://portal.azure.com/) позволяет создавать базы данных SQL Azure и логические серверы, выполнять их мониторинг, а также управлять ими. В этой статье рассматриваются некоторые из наиболее распространенных задач.
 
 ![Обзор базы данных](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
 ## 1\. Операции управления базой данных
 ![Операции управления базой данных](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
-На классическом портале Azure реализован набор наиболее часто используемых операций с базой данных, которые вызываются из верхней колонки базы. Можно восстановить базу данных до более раннего состояния, открыть базу данных в Visual Studio, скопировать базу данных на новый сервер, а также экспортировать базу данных в учетную запись хранения Azure.
+На портале Azure реализован набор наиболее часто используемых операций с базой данных, которые вызываются из верхней колонки базы. Можно восстановить базу данных до более раннего состояния, открыть базу данных в Visual Studio, скопировать базу данных на новый сервер, а также экспортировать базу данных в учетную запись хранения Azure.
 
 - [Восстановление базы данных SQL](sql-database-point-in-time-restore-tutorial-management-portal.md)
 - [Открытие базы данных SQL в Visual Studio](sql-database-connect-query.md)
@@ -56,13 +54,13 @@
 
 Базы данных SQL Azure также можно настроить на маскирование конфиденциальных данных для пользователей с недостаточными полномочиями.
 
-- [динамическое маскирование данных](sql-database-dynamic-data-masking-get-started.md);
+- [динамическое маскирование данных;](sql-database-dynamic-data-masking-get-started.md)
 
 
 ## 4\. Георепликация
 ![Георепликация](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-Базы данных SQL Azure можно настроить на асинхронную репликацию зафиксированных транзакций в базу данных-получатель. С помощью функции георепликации, доступной на классическом портале, можно выбрать регион Azure, в котором следует разместить базу данных-получатель.
+Базы данных SQL Azure можно настроить на асинхронную репликацию зафиксированных транзакций в базу данных-получатель. С помощью функции георепликации, доступной на портале, можно выбрать регион Azure, в котором следует разместить базу данных-получатель.
 
 - [Георепликация](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
@@ -74,7 +72,7 @@
 * [База данных SQL](sql-database-technical-overview.md)   
 * [Мониторинг Базы данных SQL с помощью динамических административных представлений][]   
 * [Справочник по Transact-SQL (База данных SQL)][]
-  
+
   [Azure Classic Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
   [Classic Portal]: https://portal.azure.com
   [Azure part monitoring]: ../documentdb-monitor-accounts.md
@@ -87,7 +85,4 @@
   [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
- 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

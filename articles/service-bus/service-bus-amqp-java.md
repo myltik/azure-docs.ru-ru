@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
-# Использование служебной шины на платформе Java с протоколом AMQP 1.0
+# Использование служебной шины для Java с протоколом AMQP 1.0
 
 [AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-Служба сообщений Java (JMS) — это стандартный API для работы с ПО промежуточного слоя, ориентированного на обработку сообщений, в рамках платформы Java. Служебная шина Azure протестирована с помощью протокола AMQP 1.0 на основе клиентской библиотеки JMS, разработанной проектом Apache Qpid. Эта библиотека поддерживает полную версию API JMS 1.1 и может использоваться с любой службой обмена сообщениями, совместимой с AMQP 1.0. Служебная шина точно так же может использоваться и с Windows Server (локальная версия служебной шины). Дополнительные сведения см. в статье [Протокол AMQP служебной шины для Windows Server][].
+Служба сообщений Java (JMS) — это стандартный API для работы с ПО промежуточного слоя, ориентированного на обработку сообщений, в рамках платформы Java. Служебная шина Microsoft Azure протестирована с помощью протокола AMQP 1.0 на основе клиентской библиотеки JMS, разработанной проектом Apache Qpid. Эта библиотека поддерживает полную версию API JMS 1.1 и может использоваться с любой службой обмена сообщениями, совместимой с AMQP 1.0. Этот сценарий поддерживает также [служебная шина для Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (локальная служебная шина). Дополнительные сведения см. в статье [Протокол AMQP служебной шины для Windows Server][].
 
 ## Загрузка клиентской библиотеки Apache Qpid JMS AMQP 1.0
 
@@ -86,7 +86,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 | `[username]` | Пространство имен издателя служебной шины, полученное с [классического портала Azure][]. | | | | |
 | `[password]` | Закодированный URL-адрес ключа издателя служебной шины, полученный с [классического портала Azure][]. | | | | |
 
-> [AZURE.NOTE]Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа кодирования URL-адресов доступна по адресу [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE] Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа кодирования URL-адресов доступна по адресу [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 Например, с портала могут быть получены следующие данные:
 
@@ -362,25 +362,7 @@ while (propertyNames.hasMoreElements())
 
 | Тип свойств .NET | Тип свойств JMS | Примечания |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - |
-| sbyte | Byte | - |
-| char | Character | - |
-| short | Short | - |
-| ushort | UnsignedShort | - |
-| int | Integer | - |
-| uint | UnsignedInteger | - |
-| long | Long | - |
-| ulong | UnsignedLong | - |
-| float | Float | - |
-| double | Double | - |
-| decimal | BigDecimal | - |
-| bool | Boolean | - |
-| Guid | UUID | - |
-| string | String | - |
-| DateTime | Date | - |
-| DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks сопоставляется с типом AMQP: <type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
-| TimeSpan | DescribedType | Timespan.Ticks сопоставляется с типом AMQP: <type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
-| Uri | DescribedType | Uri.AbsoluteUri сопоставляется с типом AMQP: <type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | UnsignedByte | - | | sbyte | Byte | - | | char | Character | - | | short | Short | - | | ushort | UnsignedShort | - | | int | Integer | - | | uint | UnsignedInteger | - | | long | Long | - | | ulong | UnsignedLong | - | | float | Float | - | | double | Double | - | | decimal | BigDecimal | - | | bool | Boolean | - | | Guid | UUID | - | | string | String | - | | DateTime | Date | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks сопоставляется с типом AMQP: <type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks сопоставляется с типом AMQP: <type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri сопоставляется с типом AMQP: <type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### Стандартные заголовки
 
@@ -390,32 +372,13 @@ while (propertyNames.hasMoreElements())
 
 | JMS | .NET служебной шины | Примечания |
 |------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| JMSCorrelationID | Message.CorrelationID | - |
-| JMSDeliveryMode | В настоящее время недоступно | Служебная шина поддерживает только устойчивые сообщения; например DeliveryMode.PERSISTENT, независимо от того, что указано. |
-| JMSDestination | Message.To | - |
-| JMSExpiration | Message. TimeToLive | Conversion |
-| JMSMessageID | Message.MessageID | По умолчанию JMSMessageID в сообщении AMQP кодируется в двоичной форме. Получая двоичный идентификатор сообщения, клиентская библиотека .NET преобразует строковое представление на основе значений байтов в Юникод. Чтобы библиотека JMS начала использовать строковые идентификаторы сообщений, добавьте строку binary-messageid=false в параметры запроса ConnectionURL JNDI. Например, amqps://[имя\_пользователя]:[пароль]@[пространство\_имен].servicebus.windows.net? binary-messageid=false. |
-| JMSPriority | В настоящее время недоступно | Служебная шина не поддерживает приоритет сообщений. |
-| JMSRedelivered | В настоящее время недоступно | - |
-| JMSReplyTo | Message. ReplyTo | - |
-| JMSTimestamp | Message.EnqueuedTimeUtc | Conversion |
-| JMSType | Message.Properties[“jms-type”] | - |
+| JMSCorrelationID | Message.CorrelationID | - | | JMSDeliveryMode | В настоящее время недоступно | Служебная шина поддерживает только устойчивые сообщения; например DeliveryMode.PERSISTENT, независимо от того, что указано. | | JMSDestination | Message.To | - | | JMSExpiration | Message. TimeToLive | Conversion | | JMSMessageID | Message.MessageID | По умолчанию JMSMessageID в сообщении AMQP кодируется в двоичной форме. Получая двоичный идентификатор сообщения, клиентская библиотека .NET преобразует строковое представление на основе значений байтов в Юникод. Чтобы библиотека JMS начала использовать строковые идентификаторы сообщений, добавьте строку binary-messageid=false в параметры запроса ConnectionURL JNDI. Например, amqps://[имя\_пользователя]:[пароль]@[пространство\_имен].servicebus.windows.net? binary-messageid=false. | | JMSPriority | В настоящее время недоступно | Служебная шина не поддерживает приоритет сообщений. | | JMSRedelivered | В настоящее время недоступно | - | | JMSReplyTo | Message. ReplyTo | - | | JMSTimestamp | Message.EnqueuedTimeUtc | Conversion | | JMSType | Message.Properties[“jms-type”] | - |
 
 #### Взаимодействие между API .NET служебной шины и JMS
 
 | .NET служебной шины | JMS | Примечания |
 |-------------------------|------------------|-------------------------|
-| ContentType | - | В настоящее время недоступно |
-| CorrelationId | JMSCorrelationID | - |
-| EnqueuedTimeUtc | JMSTimestamp | Conversion |
-| Label | Недоступно | В настоящее время недоступно |
-| MessageId | JMSMessageID | - |
-| ReplyTo | JMSReplyTo | - |
-| ReplyToSessionId | Недоступно | В настоящее время недоступно |
-| ScheduledEnqueueTimeUtc | Недоступно | В настоящее время недоступно |
-| SessionId | Недоступно | В настоящее время недоступно |
-| TimeToLive | JMSExpiration | Conversion |
-| To | JMSDestination | - |
+| ContentType | - | В настоящее время недоступно | | CorrelationId | JMSCorrelationID | - | | EnqueuedTimeUtc | JMSTimestamp | Conversion | | Label | Недоступно | В настоящее время недоступно | | MessageId | JMSMessageID | - | | ReplyTo | JMSReplyTo | - | | ReplyToSessionId | Недоступно | В настоящее время недоступно | | ScheduledEnqueueTimeUtc | Недоступно | В настоящее время недоступно | | SessionId | Недоступно | В настоящее время недоступно | | TimeToLive | JMSExpiration | Conversion | | To | JMSDestination | - |
 
 ## Неподдерживаемые возможности и ограничения
 
@@ -446,4 +409,4 @@ while (propertyNames.hasMoreElements())
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 [классического портала Azure]: http://manage.windowsazure.com
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

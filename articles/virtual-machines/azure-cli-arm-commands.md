@@ -43,8 +43,8 @@
 
 Требования по настройке при использовании режима диспетчера ресурсов с Azure CLI:
 
-- учетная запись Azure ([получить бесплатную ознакомительную учетную запись](http://azure.microsoft.com/pricing/free-trial/));
-- [установка Azure CLI](../xplat-cli-install.md);
+- учетная запись Azure ([получить бесплатную ознакомительную учетную запись](https://azure.microsoft.com/pricing/free-trial/));
+- [установка Azure CLI;](../xplat-cli-install.md)
 
 
 После открытия учетной записи и установки Azure CLI следует выполнить следующие действия.
@@ -198,6 +198,125 @@
 	group template show [options] <name>
 	group template download [options] [name] [file]
 	group template validate [options] <resource-group>
+
+## Azure HDInsight: команды для управления кластерами HDInsight
+
+**Команды для создания файла конфигурации кластера или добавления данных в него**
+
+	hdinsight config create [options] <configFilePath> <overwrite>
+	hdinsight config add-config-values [options] <configFilePath>
+	hdinsight config add-script-action [options] <configFilePath>
+
+Пример. Создание файла конфигурации, содержащего действие сценария, выполняемое при создании кластера.
+
+	hdinsight config create "C:\myFiles\configFile.config"
+	hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
+
+**Команды для создания кластера в группе ресурсов**
+
+	hdinsight cluster create [options] <clusterName>
+	 
+Пример. Создание Storm в кластере Linux.
+
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
+	
+	info:    Executing command hdinsight cluster create
+	+ Submitting the request to create cluster...
+	info:    hdinsight cluster create command OK
+
+Пример. Создание кластера с помощью действия сценария.
+
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
+	
+	info:    Executing command hdinsight cluster create
+	+ Submitting the request to create cluster...
+	info:    hdinsight cluster create command OK
+	
+Параметры:
+
+	-h, --help                                                 output usage information
+	-v, --verbose                                              use verbose output
+	-vv                                                        more verbose with debug output
+	--json                                                     use json output
+	-g --resource-group <resource-group>                       The name of the resource group
+	-c, --clusterName <clusterName>                            HDInsight cluster name
+	-l, --location <location>                                  Data center location for the cluster
+	-y, --osType <osType>                                      HDInsight cluster operating system
+	'Windows' or 'Linux'
+	--version <version>                                        HDInsight cluster version
+	--clusterType <clusterType>                                HDInsight cluster type.
+	Hadoop | HBase | Spark | Storm
+	--defaultStorageAccountName <storageAccountName>           Storage account url to use for default HDInsight storage
+	--defaultStorageAccountKey <storageAccountKey>             Key to the storage account to use for default HDInsight storage
+	--defaultStorageContainer <storageContainer>               Container in the storage account to use for HDInsight default storage
+	--headNodeSize <headNodeSize>                              (Optional) Head node size for the cluster
+	--workerNodeCount <workerNodeCount>                        Number of worker nodes to use for the cluster
+	--workerNodeSize <workerNodeSize>                          (Optional) Worker node size for the cluster)
+	--zookeeperNodeSize <zookeeperNodeSize>                    (Optional) Zookeeper node size for the cluster
+	--userName <userName>                                      Cluster username
+	--password <password>                                      Cluster password
+	--sshUserName <sshUserName>                                SSH username (only for Linux clusters)
+	--sshPassword <sshPassword>                                SSH password (only for Linux clusters)
+	--sshPublicKey <sshPublicKey>                              SSH public key (only for Linux clusters)
+	--rdpUserName <rdpUserName>                                RDP username (only for Windows clusters)
+	--rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
+	--rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
+	For example 12/12/2015 (only for Windows clusters)
+	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster. 
+	Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
+	--subnetName <subnetName>                                  (Optional) Subnet for the cluster
+	--additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
+	Can be multiple.
+	In the format of 'accountName#accountKey'.
+	For example, --additionalStorageAccounts "acc1#key1;acc2#key2"
+	--hiveMetastoreServerName <hiveMetastoreServerName>        (Optional) SQL Server name for the external metastore for Hive
+	--hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>    (Optional) Database name for the external metastore for Hive
+	--hiveMetastoreUserName <hiveMetastoreUserName>            (Optional) Database username for the external metastore for Hive
+	--hiveMetastorePassword <hiveMetastorePassword>            (Optional) Database password for the external metastore for Hive
+	--oozieMetastoreServerName <oozieMetastoreServerName>      (Optional) SQL Server name for the external metastore for Oozie
+	--oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>  (Optional) Database name for the external metastore for Oozie
+	--oozieMetastoreUserName <oozieMetastoreUserName>          (Optional) Database username for the external metastore for Oozie
+	--oozieMetastorePassword <oozieMetastorePassword>          (Optional) Database password for the external metastore for Oozie
+	--configurationPath <configurationPath>                    (Optional) HDInsight cluster configuration file path
+	-s, --subscription <id>                                    The subscription id
+	--tags <tags>                                              Tags to set to the cluster.
+	Can be multiple.
+	In the format of 'name=value'.
+	Name is required and value is optional.
+	For example, --tags tag1=value1;tag2
+
+
+**Команда удаления кластера**
+
+	hdinsight cluster delete [options] <clusterName>
+
+**Команда отображения данных о кластере**
+
+	hdinsight cluster show [options] <clusterName>
+
+**Команда вывода списка всех кластеров (в определенной группе ресурсов, если она указана)**
+
+	hdinsight cluster list [options]
+
+**Команда изменения размера кластера**
+
+	hdinsight cluster resize [options] <clusterName> <targetInstanceCount>
+
+**Команда включения доступа по протоколу HTTP для кластера**
+
+	hdinsight cluster enable-http-access [options] <clusterName> <userName> <password>
+
+**Команда отключения доступа по протоколу HTTP для кластера**
+
+	hdinsight cluster disable-http-access [options] <clusterName>
+
+**Команда включения доступа по протоколу RDP для кластера**
+
+	hdinsight cluster enable-rdp-access [options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+
+**Команда отключения доступа по протоколу HTTP для кластера**
+
+	hdinsight cluster disable-rdp-access [options] <clusterName>
 
 ## Azure Insights. Команды, связанные с мониторингом событий, правил оповещения, параметров автоматического масштабирования, показателей
 
@@ -1760,123 +1879,4 @@
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-## Azure HDInsight: команды для управления кластерами HDInsight
-
-**Команды для создания файла конфигурации кластера или добавления данных в него**
-
-	hdinsight config create [options] <configFilePath> <overwrite>
-	hdinsight config add-config-values [options] <configFilePath>
-	hdinsight config add-script-action [options] <configFilePath>
-
-Пример. Создание файла конфигурации, содержащего действие сценария, выполняемое при создании кластера.
-
-	hdinsight config create "C:\myFiles\configFile.config"
-	hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
-
-**Команды для создания кластера в группе ресурсов**
-
-	hdinsight cluster create [options] <clusterName>
-	 
-Пример. Создание Storm в кластере Linux.
-
-	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
-	
-	info:    Executing command hdinsight cluster create
-	+ Submitting the request to create cluster...
-	info:    hdinsight cluster create command OK
-
-Пример. Создание кластера с помощью действия сценария.
-
-	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
-	
-	info:    Executing command hdinsight cluster create
-	+ Submitting the request to create cluster...
-	info:    hdinsight cluster create command OK
-	
-Параметры:
-
-	-h, --help                                                 output usage information
-	-v, --verbose                                              use verbose output
-	-vv                                                        more verbose with debug output
-	--json                                                     use json output
-	-g --resource-group <resource-group>                       The name of the resource group
-	-c, --clusterName <clusterName>                            HDInsight cluster name
-	-l, --location <location>                                  Data center location for the cluster
-	-y, --osType <osType>                                      HDInsight cluster operating system
-	'Windows' or 'Linux'
-	--version <version>                                        HDInsight cluster version
-	--clusterType <clusterType>                                HDInsight cluster type.
-	Hadoop | HBase | Spark | Storm
-	--defaultStorageAccountName <storageAccountName>           Storage account url to use for default HDInsight storage
-	--defaultStorageAccountKey <storageAccountKey>             Key to the storage account to use for default HDInsight storage
-	--defaultStorageContainer <storageContainer>               Container in the storage account to use for HDInsight default storage
-	--headNodeSize <headNodeSize>                              (Optional) Head node size for the cluster
-	--workerNodeCount <workerNodeCount>                        Number of worker nodes to use for the cluster
-	--workerNodeSize <workerNodeSize>                          (Optional) Worker node size for the cluster)
-	--zookeeperNodeSize <zookeeperNodeSize>                    (Optional) Zookeeper node size for the cluster
-	--userName <userName>                                      Cluster username
-	--password <password>                                      Cluster password
-	--sshUserName <sshUserName>                                SSH username (only for Linux clusters)
-	--sshPassword <sshPassword>                                SSH password (only for Linux clusters)
-	--sshPublicKey <sshPublicKey>                              SSH public key (only for Linux clusters)
-	--rdpUserName <rdpUserName>                                RDP username (only for Windows clusters)
-	--rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
-	--rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
-	For example 12/12/2015 (only for Windows clusters)
-	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster. 
-	Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
-	--subnetName <subnetName>                                  (Optional) Subnet for the cluster
-	--additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
-	Can be multiple.
-	In the format of 'accountName#accountKey'.
-	For example, --additionalStorageAccounts "acc1#key1;acc2#key2"
-	--hiveMetastoreServerName <hiveMetastoreServerName>        (Optional) SQL Server name for the external metastore for Hive
-	--hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>    (Optional) Database name for the external metastore for Hive
-	--hiveMetastoreUserName <hiveMetastoreUserName>            (Optional) Database username for the external metastore for Hive
-	--hiveMetastorePassword <hiveMetastorePassword>            (Optional) Database password for the external metastore for Hive
-	--oozieMetastoreServerName <oozieMetastoreServerName>      (Optional) SQL Server name for the external metastore for Oozie
-	--oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>  (Optional) Database name for the external metastore for Oozie
-	--oozieMetastoreUserName <oozieMetastoreUserName>          (Optional) Database username for the external metastore for Oozie
-	--oozieMetastorePassword <oozieMetastorePassword>          (Optional) Database password for the external metastore for Oozie
-	--configurationPath <configurationPath>                    (Optional) HDInsight cluster configuration file path
-	-s, --subscription <id>                                    The subscription id
-	--tags <tags>                                              Tags to set to the cluster.
-	Can be multiple.
-	In the format of 'name=value'.
-	Name is required and value is optional.
-	For example, --tags tag1=value1;tag2
-
-
-**Команда удаления кластера**
-
-	hdinsight cluster delete [options] <clusterName>
-
-**Команда отображения данных о кластере**
-
-	hdinsight cluster show [options] <clusterName>
-
-**Команда вывода списка всех кластеров (в определенной группе ресурсов, если она указана)**
-
-	hdinsight cluster list [options]
-
-**Команда изменения размера кластера**
-
-	hdinsight cluster resize [options] <clusterName> <targetInstanceCount>
-
-**Команда включения доступа по протоколу HTTP для кластера**
-
-	hdinsight cluster enable-http-access [options] <clusterName> <userName> <password>
-
-**Команда отключения доступа по протоколу HTTP для кластера**
-
-	hdinsight cluster disable-http-access [options] <clusterName>
-
-**Команда включения доступа по протоколу RDP для кластера**
-
-	hdinsight cluster enable-rdp-access [options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>
-
-**Команда отключения доступа по протоколу HTTP для кластера**
-
-	hdinsight cluster disable-rdp-access [options] <clusterName>
-
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

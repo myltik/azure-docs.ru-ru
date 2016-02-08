@@ -46,16 +46,16 @@
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1. Регистрация приложения
+## 1\. Регистрация приложения
 Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните [эти подробные указания](active-directory-v2-app-registration.md). Не забудьте:
 
 - запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
 - Создайте **секрет приложения** типа **Пароль** и скопируйте его.
 - Добавьте **веб-платформу** для своего приложения.
-- Введите правильный **универсальный код ресурса (URI) перенаправления**. Универсальный код ресурса (URI) перенаправления сообщает Azure AD, куда следует направлять ответы аутентификации. Значение по умолчанию в этом руководстве — `https://localhost:44326/`.
+- Введите правильный **универсальный код ресурса (URI) перенаправления**. URI перенаправления сообщает Azure AD, куда следует направлять ответы проверки подлинности. Значение по умолчанию в этом руководстве — `https://localhost:44326/`.
 
 
-## 2. Вход пользователя с помощью OpenID Connect
+## 2\. Вход пользователя с помощью OpenID Connect
 Здесь мы настроим ПО промежуточного слоя OWIN для использования [протокола аутентификации OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). Кроме всего прочего, OWIN будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
 
 -	Сначала откройте файл `web.config` в корневом каталоге проекта `TodoList-WebApp`, а затем укажите параметры конфигурации приложения в разделе `<appSettings>`.
@@ -93,7 +93,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 					ClientId = clientId,
 					Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
-					Scope = "openid offline_access",
+					Scope = "openid email profile offline_access",
 					RedirectUri = redirectUri,
 					PostLogoutRedirectUri = redirectUri,
 					TokenValidationParameters = new TokenValidationParameters
@@ -119,9 +119,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 - Сначала установите предварительную версию ADAL:
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-И добавьте еще одну инструкцию`using` в файл `App_Start\Startup.Auth.cs` для ADAL.
-Теперь добавьте новый метод, обработчик событий `OnAuthorizationCodeReceived`. Этот обработчик будет обращаться к ADAL для получения маркера доступа к API списка дел и сохранять этот маркер в кэше маркеров ADAL для последующего использования.
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` И добавьте еще одну инструкцию`using` в файл `App_Start\Startup.Auth.cs` для ADAL. Теперь добавьте новый метод, обработчик событий `OnAuthorizationCodeReceived`. Этот обработчик будет обращаться к ADAL для получения маркера доступа к API списка дел и сохранять этот маркер в кэше маркеров ADAL для последующего использования.
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -165,7 +163,7 @@ result = await authContext.AcquireTokenSilentAsync(new string[] { Startup.client
 ...
 ```
 
-- Затем пример добавляет полученный маркер в HTTP-запрос GET в качестве заголовка `Authorization`, который служба списка дел использует для аутентификации запроса.
+- Затем пример добавляет полученный маркер в запрос HTTP GET в качестве заголовка `Authorization`, который служба списка дел использует для проверки подлинности запроса.
 - Если служба списка дел возвращает ответ `401 Unauthorized`, по какой-либо причине маркеры доступа в ADAL стали недействительными. В этом случае следует удалить все маркеры доступа из кэша ADAL и показать пользователю сообщение о том, что требуется снова войти в систему, после чего будет перезапущен поток получения маркера.
 
 ```C#
@@ -203,8 +201,6 @@ catch (AdalException ee)
 
 ## Дальнейшие действия
 
-Дополнительные ресурсы:
-- [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md)
-- [Тег StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
+Дополнительные ресурсы: - [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow: тег adal >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

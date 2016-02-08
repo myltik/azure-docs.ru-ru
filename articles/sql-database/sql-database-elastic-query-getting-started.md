@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/22/2016"
 	ms.author="SilviaDoomra" />
 
 # Приступая к работе с запросами к эластичным базам данных для сегментирования (горизонтальное секционирование)
@@ -44,7 +44,7 @@
 ## Создание запросов к эластичной базе данных
 
 1. Откройте [портал Azure](https://portal.azure.com) и войдите в систему.
-2. Создайте новую базу данных Azure SQL на том же сервере, где находятся ваши сегменты. Назначьте базе данных имя ElasticDBQuery. 
+2. Создайте новую базу данных Azure SQL на том же сервере, где находятся ваши сегменты. Назначьте базе данных имя ElasticDBQuery.
 
 	![Портал Azure и ценовая категория][3]
 
@@ -129,7 +129,7 @@
 ### Стоимость
 За использование функции запросов к эластичной базе данных дополнительная плата отсутствует.
 
-Сведения о ценах см. в разделе [Информация о ценах на базу данных SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Сведения о ценах см. в разделе [Информация о ценах на базу данных SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -142,4 +142,4 @@
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

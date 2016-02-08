@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/09/2015"
+    ms.date="01/21/2016"
     ms.author="adegeo"/>
 
 # Что такое модель облачных служб и как создать ее пакет?
@@ -138,7 +138,7 @@
 
 <p/>
 
- >[AZURE.NOTE]Отпечаток сертификата можно добавить в файл конфигурации с помощью текстового редактора. Также это значение можно добавить в Visual Studio на вкладке **Сертификаты** на странице роли **Свойства**.
+ >[AZURE.NOTE] Отпечаток сертификата можно добавить в файл конфигурации с помощью текстового редактора. Также это значение можно добавить в Visual Studio на вкладке **Сертификаты** на странице роли **Свойства**.
 
 
 
@@ -190,16 +190,16 @@ Azure разрешает только одну точку входа для ве
 - **Изменение отпечатка сертификата** Вы можете обновлять сертификат, только когда экземпляр роли запущен в автономном режиме. Если сертификат добавлен, удален или изменен, когда экземпляр роли подключен к сети, Azure предусмотрительно переводит экземпляр в автономный режим для обновления сертификата. После применения изменения экземпляр снова подключается к сети.
 
 ### Обработка изменений конфигурации с помощью событий среды выполнения службы
-[Библиотека среды выполнения Azure](https://msdn.microsoft.com/library/azure/dn511024.aspx) содержит пространство имен [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), которое предоставляет классы для взаимодействия со средой Azure из кода, выполняемого в экземпляре роли. Класс [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) определяет следующие события, которые вызываются до и после изменения конфигурации.
+[Библиотека среды выполнения Azure](https://msdn.microsoft.com/library/azure/mt419365.aspx) содержит пространство имен [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), которое предоставляет классы для взаимодействия со средой Azure из кода, выполняемого в экземпляре роли. Класс [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) определяет следующие события, которые вызываются до и после изменения конфигурации.
 
 - Событие **[Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)** Это событие происходит до применения изменения конфигурации к указанному экземпляру роли, предоставляя экземпляру роли возможность освободить экземпляры роли при необходимости.
 - Событие **[Changed](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx)** Это событие происходит после применения изменения конфигурации к указанному экземпляру роли.
 
-> [AZURE.NOTE]Поскольку изменения сертификата всегда переводят экземпляры роли в автономный режим, они не вызывают событий RoleEnvironment.Changing и RoleEnvironment.Changed.
+> [AZURE.NOTE] Поскольку изменения сертификата всегда переводят экземпляры роли в автономный режим, они не вызывают событий RoleEnvironment.Changing и RoleEnvironment.Changed.
 
 <a name="cspkg"></a>
 ## ServicePackage.cspkg
-Чтобы развернуть приложение как облачную службу в Azure, необходимо вначале упаковать приложение в соответствующий формат. Можно использовать программу командной строки **CSPack** (устанавливается вместе с [Azure SDK](http://azure.microsoft.com/downloads/)) для создания файла пакета в качестве альтернативы Visual Studio.
+Чтобы развернуть приложение как облачную службу в Azure, необходимо вначале упаковать приложение в соответствующий формат. Можно использовать программу командной строки **CSPack** (устанавливается вместе с [Azure SDK](https://azure.microsoft.com/downloads/)) для создания файла пакета в качестве альтернативы Visual Studio.
 
 Программа **CSPack** использует содержимое файла определения службы и файла конфигурации службы для определения содержимого пакета. **CSPack** создает файл пакета приложения (CSPKG-файл), который можно отправить в Azure с помощью [классического портала Azure](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). По умолчанию пакет называется `[ServiceDefinitionFileName].cspkg`, но вы можете указать другое имя, используя параметр `/out` в программе командной строки **CSPack**.
 
@@ -209,13 +209,15 @@ Azure разрешает только одну точку входа для ве
 | 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[версия пакета sdk]\\bin\\ |
 | &lt;1.6 | C:\\Program Files\\Azure SDK\\[версия пакета sdk]\\bin\\ |
 
->[AZURE.NOTE]Чтобы найти файл CSPack.exe (в Windows), запустите ярлык **Командная строка Microsoft Azure**, который устанавливается вместе с пакетом SDK.
+>[AZURE.NOTE]
+Чтобы найти файл CSPack.exe (в Windows), запустите ярлык **Командная строка Microsoft Azure**, который устанавливается вместе с пакетом SDK.
 >  
 >Запустите программу CSPack.exe отдельно, чтобы просмотреть документацию обо всех возможных параметрах и командах.
 
 <p />
 
->[AZURE.TIP]Запустите облачную службу локально в **эмуляторе вычислений Microsoft Azure**, используйте параметр **/copyonly**. Этот параметр копирует двоичные файлы приложения в структуру каталогов, откуда они могут выполняться в эмуляторе вычислений.
+>[AZURE.TIP]
+Запустите облачную службу локально в **эмуляторе вычислений Microsoft Azure**, используйте параметр **/copyonly**. Этот параметр копирует двоичные файлы приложения в структуру каталогов, откуда они могут выполняться в эмуляторе вычислений.
 
 ### Пример команды для упаковки облачной службы
 В следующем примере создается пакет приложения, содержащий информацию для веб-роли. Команда задает используемый файл определения службы, а также каталог, в котором находятся двоичные файлы, и имя файла пакета.
@@ -262,12 +264,11 @@ Azure разрешает только одну точку входа для ве
 * [Развернуть проект облачной службы][vs_deploy]
 * [Настроить удаленный рабочий стол для экземпляра облачной службы][vs_remote]
 
-
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
-[vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
+[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
+[vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
+[vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

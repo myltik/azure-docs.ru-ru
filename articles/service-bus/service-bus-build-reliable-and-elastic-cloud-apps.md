@@ -42,7 +42,7 @@
 
 ## Связанные службы
 
-- [Облачные службы](http://azure.microsoft.com/services/cloud-services/) 
+- [Облачные службы](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

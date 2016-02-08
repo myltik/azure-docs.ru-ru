@@ -48,7 +48,7 @@
 
 ### Настройка учетной записи и подписки Azure
 
-Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
+Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 
 Откройте окно командной строки Azure PowerShell и войдите в систему Azure с помощью такой команды:
 
@@ -78,4 +78,4 @@
 
 Дополнительные сведения о подписках и учетных записях Azure см. в разделе [Подключение к подписке](powershell-install-configure.md#Connect).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

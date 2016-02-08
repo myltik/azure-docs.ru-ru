@@ -3,8 +3,8 @@
 	description="Эта статья содержит ответы на часто задаваемые вопросы об Azure AD Connect Health. Здесь предоставлена информация об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	authors="karavar"
+	manager="samueld"
 	editor="curtand"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
-	ms.author="billmath"/>
+	ms.date="01/22/2016"
+	ms.author="vakarand"/>
 
 
 # Часто задаваемые вопросы об Azure AD Connect Health
@@ -60,7 +60,7 @@
 
 **Работают ли службы Azure AD Connect Health через сквозной прокси-сервер HTTP?**
 
-Да. Для текущих операций можно настроить агент Health, чтобы пересылать исходящие HTTP-запросы, используя HTTP-прокси. Подробнее см. в разделе [Настройка агентов Azure AD Connect Health для использования HTTP-прокси](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy).
+Да. Для текущих операций можно настроить агент Health, чтобы пересылать исходящие HTTP-запросы, используя HTTP-прокси. Подробнее см. в разделе [Настройка агентов Azure AD Connect Health для использования HTTP-прокси](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
 
 Если необходимо настроить прокси-сервер во время регистрации агента, необходимо изменить параметры прокси-сервера для Internet Explorer. <br> Откройте Internet Explorer и выберите «Параметры -> Свойства обозревателя -> Подключения -> Настройка сети».<br> Выберите «Использовать прокси-сервер для локальной сети».<br> Выберите «Дополнительно», ЕСЛИ для HTTP и HTTPS/Secure используются различные порты прокси.<br>
 
@@ -100,4 +100,4 @@
 * [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
 * [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

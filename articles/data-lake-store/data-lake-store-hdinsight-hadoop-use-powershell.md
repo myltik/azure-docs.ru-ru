@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/20/2016"
+   ms.date="01/21/2016"
    ms.author="nitinme"/>
 
 # Создание кластера HDInsight с хранилищем озера данных с помощью Azure PowerShell
@@ -97,6 +97,8 @@
 
 		# Register for Data Lake Store
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+
+	>[AZURE.NOTE] Если при регистрации поставщика ресурсов хранилища озера данных появляется сообщение об ошибке, похожее на `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, это может означать, что ваша подписка отсутствует в списке разрешений для хранилища озера данных Azure. Убедитесь, что подписка Azure для общедоступной предварительной версии хранилища озера данных включена, выполнив указанные [инструкции](data-lake-store-get-started-portal.md#signup).
 
 3. Учетная запись хранения озера данных Azure связывается с группой ресурсов Azure. Для начала создайте группу ресурсов Azure.
 
@@ -376,4 +378,4 @@
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

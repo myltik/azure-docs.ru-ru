@@ -54,7 +54,7 @@
 
 ## Начало обновления
 
-1. На [портале Azure](http://portal.azure.com/) перейдите к серверу, который требуется обновить, выбрав **ПРОСМОТРЕТЬ ВСЕ** > **Серверы SQL** и указав нужный сервер.
+1. На [портале Azure](https://portal.azure.com/) перейдите к серверу, который требуется обновить, выбрав **ПРОСМОТРЕТЬ ВСЕ** > **Серверы SQL** и указав нужный сервер.
 2. Выберите **Последнее обновление базы данных SQL** и затем **Обновить этот сервер**.
 
       ![обновление сервера][1]
@@ -111,7 +111,7 @@
 
 ## Мониторинг баз данных после обновления базы данных SQL до версии 12
 
->[AZURE.IMPORTANT]Установите последнюю версию SQL Server Management Studio (SSMS), чтобы воспользоваться всеми преимуществами новой версии 12. [Загрузите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>[AZURE.IMPORTANT] Установите последнюю версию SQL Server Management Studio (SSMS), чтобы воспользоваться всеми преимуществами новой версии 12. [Загрузите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 	
 После обновления рекомендуется регулярно отслеживать состояние базы данных, чтобы обеспечить надлежащую производительность и оптимизировать использование.
 
@@ -169,4 +169,4 @@
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

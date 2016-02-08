@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Вход Azure MFA при помощи Azure Multi-Factor Authentication" 
-	description="На этой странице предоставлены рекомендации о том, где можно воспользоваться разными методами входа с помощью Azure MFA." 
+	description="На этой странице предоставлены рекомендации о том, где можно воспользоваться разными методами входа с помощью Azure MFA."
+	keywords="проверка подлинности пользователя, вход в систему, вход с помощью мобильного телефона, вход с помощью рабочего телефона" 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Варианты входа при помощи Azure Multi-Factor Authentication
-> [AZURE.NOTE]В документации, указанной на этой странице, описана типичная процедура входа в систему. В случае возникновения проблем со входом в систему см. раздел [Проблемы с Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
+> [AZURE.NOTE]  В документации, указанной на этой странице, описана типичная процедура входа в систему. В случае возникновения проблем со входом в систему см. раздел [Проблемы с Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
 
 
 
@@ -103,4 +104,4 @@
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

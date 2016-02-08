@@ -24,12 +24,12 @@
 
 После установки эмулятора воспользуйтесь учебником MapReduce для подсчета слов, а затем запустите образцы.
 
-> [AZURE.NOTE]Эмулятор HDInsight содержит только кластер Hadoop. В него не включен кластер HBase или Storm.
+> [AZURE.NOTE] Эмулятор HDInsight содержит только кластер Hadoop. В него не включен кластер HBase или Storm.
 
 
 Эмулятор HDInsight предоставляет локальную среду разработки, похожую на изолированную среду Hadoop. Если вы знакомы с Hadoop, вы можете начать работу с эмулятором HDInsight с использованием распределенной файловой системы Hadoop (HDFS). HDInsight в качестве файловой системы по умолчанию использует хранилище больших двоичных объектов Azure. Поэтому в конечном итоге необходимо будет работать над заданиями с помощью этого хранилища. Чтобы использовать хранилище больших двоичных объектов Azure с эмулятором HDInsight, необходимо внести изменения в конфигурацию эмулятора.
 
-> [AZURE.NOTE]Эмулятор HDInsight может использовать только развертывание в одном узле.
+> [AZURE.NOTE] Эмулятор HDInsight может использовать только развертывание в одном узле.
 
 
 ## Предварительные требования
@@ -41,14 +41,14 @@
 	- Windows 8
 	- Windows Server 2012
 
-- **Azure PowerShell**. Обратитесь к разделу [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Azure PowerShell**. Обратитесь к разделу [Установка и использование Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
 ##<a name="install"></a>Установка эмулятора HDInsight
 
 Эмулятор Microsoft HDInsight устанавливается через установщик веб-платформы Майкрософт.
 
-> [AZURE.NOTE]Эмулятор HDInsight в настоящее время поддерживает только операционные системы на английском языке. Если у вас установлена предыдущая версия эмулятора, перед установкой последней версии эмулятора необходимо предварительно удалить два следующих компонента, выбрав на панели управления «Программы и компоненты»: <ul> <li>эмулятор Microsoft HDInsight для Azure или HDInsight Developer Preview (в зависимости от того, что установлено)</li>; <li>платформу данных Hortonworks Data Platform.</li> </ul>
+> [AZURE.NOTE] Эмулятор HDInsight в настоящее время поддерживает только операционные системы на английском языке. Если у вас установлена предыдущая версия эмулятора, перед установкой последней версии эмулятора необходимо предварительно удалить два следующих компонента, выбрав на панели управления «Программы и компоненты»: <ul> <li>эмулятор Microsoft HDInsight для Azure или HDInsight Developer Preview (в зависимости от того, что установлено)</li>; <li>платформу данных Hortonworks Data Platform.</li> </ul>
 
 
 **Установка эмулятора HDInsight**
@@ -294,7 +294,7 @@ JAR-файл и исходные файлы находятся в папке C:\
 
 5. Выполните приведенную ниже команду, чтобы запустить скрипт**w3ccreate.hql**. Этот скрипт создает таблицу Hive и загружает данные в эту таблицу:
 
-	> [AZURE.NOTE]На этом этапе для выполнения запроса Hive можно также использовать инструменты HDInsight для Visual Studio. Откройте Visual Studio, создайте новый проект и выберите **Приложение Hive** в шаблоне HDInsight. После открытия проекта добавьте в качестве нового элемента запрос. Он доступен в папке **C:/hdp/GettingStarted/Hive/w3c**. После добавления запроса в проект замените **${hiveconf:input}** на **/w3c/hive/input**, а затем щелкните **Отправить**.
+	> [AZURE.NOTE] На этом этапе для выполнения запроса Hive можно также использовать инструменты HDInsight для Visual Studio. Откройте Visual Studio, создайте новый проект и выберите **Приложение Hive** в шаблоне HDInsight. После открытия проекта добавьте в качестве нового элемента запрос. Он доступен в папке **C:/hdp/GettingStarted/Hive/w3c**. После добавления запроса в проект замените **${hiveconf:input}** на **/w3c/hive/input**, а затем щелкните **Отправить**.
 
 		C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ccreate.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
 
@@ -313,7 +313,7 @@ JAR-файл и исходные файлы находятся в папке C:\
 
 6. Выполните следующую команду, чтобы запустить файл сценария HiveQL **w3ctotalhitsbypage.hql**:
 
-	> [AZURE.NOTE]Как упоминалось ранее, этот запрос также можно запустить с помощью инструментов HDInsight для Visual Studio.
+	> [AZURE.NOTE] Как упоминалось ранее, этот запрос также можно запустить с помощью инструментов HDInsight для Visual Studio.
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
@@ -390,7 +390,7 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="blobstorage"></a>Подключение к хранилищу больших двоичных объектов Azure
 В качестве файловой системы по умолчанию эмулятор HDInsight использует HDFS. Однако в Azure HDInsight в качестве файловой системы по умолчанию используется хранилище BLOB-объектов Azure. Можно настроить эмулятор HDInsight таким образом, чтобы использовать вместо локального хранилища хранилище больших двоичных объектов Azure. Следуйте приведенным ниже инструкциям, чтобы создать контейнер хранилища в Azure и подключить его к эмулятору HDInsight.
 
->[AZURE.NOTE]Дополнительную информацию о том, как HDInsight использует хранилище больших двоичных объектов Azure, см. в статье [Использование хранилища больших двоичных объектов Azure с HDInsight](../hdinsight-use-blob-storage.md).
+>[AZURE.NOTE] Дополнительную информацию о том, как HDInsight использует хранилище больших двоичных объектов Azure, см. в статье [Использование хранилища больших двоичных объектов Azure с HDInsight](../hdinsight-use-blob-storage.md).
 
 Прежде чем приступить к выполнению указанных ниже инструкций, необходимо создать учетную запись хранения. Инструкции см. в разделе [Создание учетной записи хранения](../storage-create-storage-account.md).
 
@@ -453,7 +453,7 @@ The samples currently contain all the required binaries, so building is not requ
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Будет выведен запрос при вызове Get-Credential. Необходимо использовать **hadoop** в качестве имени пользователя. Паролем может быть любая строка. Именем кластера всегда будет ****http://localhost:50111**.
+Будет выведен запрос при вызове Get-Credential. Необходимо использовать **hadoop** в качестве имени пользователя. Паролем может быть любая строка. Имя кластера — всегда ****http://localhost:50111**.
 
 Дополнительную информацию об отправке заданий Hadoop см. в статье [Отправка заданий Hadoop программным способом](hdinsight-submit-hadoop-jobs-programmatically.md). Дополнительную информацию о командлетах Azure PowerShell для HDInsight см. в разделе [Справочная документация по командлетам PowerShell для HDInsight][hdinsight-powershell-reference].
 
@@ -497,4 +497,4 @@ The samples currently contain all the required binaries, so building is not requ
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

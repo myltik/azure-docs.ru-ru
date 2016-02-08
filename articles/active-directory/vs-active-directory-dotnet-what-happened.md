@@ -169,6 +169,6 @@
 ###Обновлено приложение Azure Active Directory
 В приложение Azure Active Directory добавлено разрешение *Чтение данных каталога*. Кроме того, создан дополнительный ключ, который затем использовался в качестве параметра *ida:ClientSecret* в файле **web.config**.
 
-[Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

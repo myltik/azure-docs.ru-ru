@@ -31,6 +31,9 @@
 
 Компания IBM выявила ряд проблем, связанных с установкой драйвера сервера данных IBM DB2 на Windows 8. При возникновении этих проблем потребуется выполнить дополнительные действия. Дополнительные сведения об установке драйвера сервера данных IBM DB2 на Windows 8 см. по адресу [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
 
+> [AZURE.NOTE] Советы по устранению неполадок, связанных с шлюзом или подключением, см. в разделе [Устранение неполадок шлюза](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+
+
 ## Пример копирования данных из DB2 в хранилище BLOB-объектов Azure
 
 В примере ниже показано следующее.
@@ -309,4 +312,4 @@ Char | Строка
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -19,7 +19,7 @@
 	
 # Служба приложений Azure: масштабирование приложений службы приложений
 
-Приложения, размещенные в службе приложений Azure, могут [достигать массивного масштабирования](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage), однако масштабирование приложения является сложной проблемой, не имеющей универсального решения. Чтобы правильно масштабировать приложение, обратите внимание на 3 основных фактора:
+Приложения, размещенные в службе приложений Azure, могут [достигать массивного масштабирования](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage/), однако масштабирование приложения является сложной проблемой, не имеющей универсального решения. Чтобы правильно масштабировать приложение, обратите внимание на 3 основных фактора:
 
 1. Понимание архитектуры и слабых сторон приложения.
 	* Отслеживается в вашем приложении состояние или нет?
@@ -38,4 +38,4 @@
 
 [AZURE.INCLUDE [appН-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="tmullaney"
    manager="jeffreyg"
-   editor=""/>
+   editor="jeffreyg"/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/21/2015"
+   ms.date="01/22/2016"
    ms.author="thmullan;jackr"/>
 
 
@@ -104,6 +104,6 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ## Соответствие нормативным требованиям
 
-Помимо обозначенных выше функций и возможностей, которые могут помочь обеспечить соответствие вашего приложения различным требованиям безопасности, в отношении Базы данных SQL Azure регулярно проводится аудит, а сама база данных сертифицирована в соответствии с рядом стандартов. Дополнительные сведения см. в [Центре управления безопасностью Microsoft Azure](http://azure.microsoft.com/support/trust-center/), где представлен актуальный список [сертификатов соответствия Базы данных SQL](http://azure.microsoft.com/support/trust-center/services/).
+Помимо обозначенных выше функций и возможностей, которые могут помочь обеспечить соответствие вашего приложения различным требованиям безопасности, в отношении Базы данных SQL Azure регулярно проводится аудит, а сама база данных сертифицирована в соответствии с рядом стандартов. Дополнительные сведения см. в [Центре управления безопасностью Microsoft Azure](https://azure.microsoft.com/support/trust-center/), где представлен актуальный список [сертификатов соответствия Базы данных SQL](https://azure.microsoft.com/support/trust-center/services/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

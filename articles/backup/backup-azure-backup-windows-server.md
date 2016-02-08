@@ -14,13 +14,13 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/19/2016"
+	 ms.date="01/22/2016"
 	 ms.author="jimpark;"/>
 
 # Резервное копирование файлов и папок Windows Server или Windows Client в Azure
 С помощью этой простой процедуры легко архивировать файлы и папки Windows в Azure. Прежде чем продолжить, выполните [необходимые требования](backup-configure-vault.md#before-you-start) (если вы еще этого не сделали), чтобы подготовить среду к архивации данных компьютера под управлением Windows.
 
-## Резервное копирование файлов
+## Резервное копирование файлов и папок
 1. После регистрации компьютера откройте оснастку MMC в службе архивации Microsoft Azure.
 
     ![Результат поиска](./media/backup-azure-backup-windows-server/result.png)
@@ -52,4 +52,4 @@
 - [Восстановление Windows Server или клиента Windows из Azure](backup-azure-restore-windows-server.md)
 - [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

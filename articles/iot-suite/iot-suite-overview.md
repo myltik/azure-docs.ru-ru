@@ -2,13 +2,14 @@
 	pageTitle="Обзор набора Microsoft Azure IoT Suite | Microsoft Azure"
 	description="Содержит обзор набора Azure IoT Suite, включая упаковку и предварительно настроенные решения."
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
@@ -69,4 +70,4 @@
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

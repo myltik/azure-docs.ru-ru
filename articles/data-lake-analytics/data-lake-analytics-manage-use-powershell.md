@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/15/2016"
+   ms.date="01/26/2016"
    ms.author="jgao"/>
 
 # Управление аналитикой озера данных Azure с помощью Azure PowerShell
@@ -26,7 +26,7 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure]https://azure.microsoft.com/ru-RU/pricing/free-trial/).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 <!-- ################################ -->
@@ -242,7 +242,7 @@
 		-Name $jobName `
 		-Script $scriptContents
 
-> [AZURE.NOTE]Приоритет задания по умолчанию — 1000, а степень параллелизма по умолчанию для задания — 1.
+> [AZURE.NOTE] Приоритет задания по умолчанию — 1000, а степень параллелизма по умолчанию для задания — 1.
 
 
 ### Отмена задания
@@ -392,4 +392,4 @@
 	  }
 	}
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

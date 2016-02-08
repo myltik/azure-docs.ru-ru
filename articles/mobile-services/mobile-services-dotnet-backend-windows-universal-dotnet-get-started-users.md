@@ -30,7 +30,7 @@
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Предварительно вам необходимо пройти учебник [Приступая к работе с мобильными службами] или [Добавление мобильных служб в существующее приложение](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
->[AZURE.NOTE]В этом учебнике показано, как проводить управляемую сервером проверку подлинности пользователей в приложениях для Магазина Windows и Магазина Windows Phone 8.1. Сведения о проверке подлинности, управляемой клиентом, см. в статье [Вход в мобильные службы Azure с помощью пакетов SDK Google, Facebook и корпорации Майкрософт](http://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
+>[AZURE.NOTE]В этом учебнике показано, как проводить управляемую сервером проверку подлинности пользователей в приложениях для Магазина Windows и Магазина Windows Phone 8.1. Сведения о проверке подлинности, управляемой клиентом, см. в статье [Вход в мобильные службы Azure с помощью пакетов SDK Google, Facebook и корпорации Майкрософт](https://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
 
 ##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
@@ -75,7 +75,7 @@
 
 ##Дополнительные материалы
 
-+ [Расширенные возможности пользователей](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> Вы можете получить дополнительные данные пользователя, которые хранит поставщик удостоверений в мобильной службе, вызвав в серверной части .NET метод **ServiceUser.GetIdentitiesAsync()**.
++ [Расширенные возможности пользователей](https://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> Вы можете получить дополнительные данные пользователя, которые хранит поставщик удостоверений в мобильной службе, вызвав в серверной части .NET метод **ServiceUser.GetIdentitiesAsync()**.
 
 + [Справочник принципов использования мобильных служб .NET]<br/> Узнайте больше об использовании мобильных служб с помощью клиента .NET.
 
@@ -103,4 +103,4 @@
 [Справочник принципов использования мобильных служб .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

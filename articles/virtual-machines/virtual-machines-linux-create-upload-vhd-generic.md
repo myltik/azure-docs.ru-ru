@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="szarkos"/>
+	ms.date="01/22/2016"
+	ms.author="szark"/>
 
 # <a id="nonendorsed"> </a>Информация о нерекомендованных дистрибутивах #
 
@@ -32,7 +32,9 @@
 Именно по этой причине мы рекомендуем по возможности начать работу с одним из [рекомендованных дистрибутивов Linux в Azure](../linux-endorsed-distributions.md). В следующих статьях описывается подготовка различных рекомендованных дистрибутивов Linux, которые поддерживаются в Azure:
 
 - **[Дистрибутивы на основе CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES и openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 
@@ -76,7 +78,7 @@
 
 Чтобы исправить это, вы можете изменить размер виртуальной машины с помощью консоли диспетчера Hyper-V или командлета Powershell [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx). Если вы работаете не в среде Windows, воспользуйтесь командой qemu-img для преобразования и изменения размера VHD.
 
-> [AZURE.NOTE]В команде qemu-img версии 2.2.1 и более поздних версиях есть ошибка, которая приводит к созданию неверного формата VHD. Эта ошибка будет устранена в следующем выпуске qemu-img. На данный момент рекомендуется использовать qemu-img версии 2.2.0 или более ранних версий. Справочные материалы: https://bugs.launchpad.net/qemu/+bug/1490611
+> [AZURE.NOTE] В команде qemu-img версии 2.2.1 и более поздних версиях есть ошибка, которая приводит к созданию неверного формата VHD. Эта ошибка будет устранена в следующем выпуске qemu-img. На данный момент рекомендуется использовать qemu-img версии 2.2.0 или более ранних версий. Справочные материалы: https://bugs.launchpad.net/qemu/+bug/1490611
 
 
  1. Изменение размера VHD с непосредственным использованием таких инструментов, как `qemu-img` или `vbox-manage`, может привести к сбою загрузки VHD. Поэтому мы советуем сначала преобразовать VHD в образ необработанного диска. Если образ виртуальной машины уже был создан в качестве образа необработанного диска (по умолчанию для некоторых гипервизоров, например, KVM), вы можете пропустить этот шаг:
@@ -127,12 +129,12 @@
 
 Известно, что отсутствие следующих исправлений приводит к возникновению проблем на Azure, поэтому их необходимо включить в ядро. Этот список ни в коем случае не является исчерпывающим и полным для всех дистрибутивов:
 
-- [ata\_piix: предоставление дисков драйверам Hyper-V по умолчанию](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c);
-- [storvsc: принятие во внимание передаваемых пакетов в папке RESET](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c);
-- [storvsc: предотвращение использования WRITE\_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090);
-- [storvsc: отключение WRITE SAME для драйверов RAID и адаптеров виртуальных узлов](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43);
-- [storvsc: исправление разыменования пустого указателя](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e);
-- [storvsc: ошибки кольцевого буфера могут привести к заморозке операций ввода-вывода](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951).
+- [ata\_piix: предоставление дисков драйверам Hyper-V по умолчанию;](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
+- [storvsc: принятие во внимание передаваемых пакетов в папке RESET;](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+- [storvsc: предотвращение использования WRITE\_SAME;](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
+- [storvsc: отключение WRITE SAME для драйверов RAID и адаптеров виртуальных узлов;](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+- [storvsc: исправление разыменования пустого указателя;](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
+- [storvsc: ошибки кольцевого буфера могут привести к заморозке операций ввода-вывода.](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 
 
 ## Агент Linux для Azure ##
@@ -193,4 +195,4 @@
 
 - Затем необходимо завершить работу виртуальной машины и передать виртуальный жесткий диск в Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

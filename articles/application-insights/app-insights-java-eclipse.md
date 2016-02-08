@@ -27,7 +27,7 @@
 Что вам понадобится:
 
 * Oracle JRE 1.6 или более поздней версии;
-* подписка на [Microsoft Azure](http://azure.microsoft.com/). (Можно начать с [бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).);
+* подписка на [Microsoft Azure](https://azure.microsoft.com/). (Можно начать с [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).);
 * [интегрированная среда разработки Eclipse для разработчиков Java EE](http://www.eclipse.org/downloads/), версия Indigo или более поздняя;
 * Windows 7 или более поздней версии либо Windows Server 2008 или более поздней версии.
 
@@ -121,7 +121,7 @@
 
 * На серверах Windows необходимо установить следующее:
 
- * [распространяемые компоненты Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784).
+ * [распространяемые компоненты Microsoft Visual C++.](http://www.microsoft.com/download/details.aspx?id=40784)
 
     (Сюда входят счетчики производительности).
 
@@ -139,7 +139,7 @@
 
 ## Мониторинг вызовов методов и внешних зависимостей.
 
-Чтобы записывать в журнал заданные внутренние методы и вызовы, произведенные через JDBC, с указанием времени выполнения, надо [установить агент для Java](app-insights-java-agent.md).
+Чтобы записывать в журнал заданные внутренние методы и вызовы, произведенные через JDBC, с указанием времени выполнения, нужно [установить агент для Java](app-insights-java-agent.md).
 
 
 ## Счетчики производительности
@@ -260,4 +260,4 @@ Application Insights может тестировать ваш веб-сайт ч
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

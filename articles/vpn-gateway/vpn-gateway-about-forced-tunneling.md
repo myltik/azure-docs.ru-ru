@@ -98,7 +98,7 @@
 
 - Настроенная виртуальная сеть.
 
-- Последняя версия командлетов Azure PowerShell, использующая установщик веб-платформы. Последнюю версию для установки можно загрузить в разделе **Windows PowerShell** на странице [Загрузки](http://azure.microsoft.com/downloads/).
+- Последняя версия командлетов Azure PowerShell, использующая установщик веб-платформы. Последнюю версию для установки можно загрузить в разделе **Windows PowerShell** на странице [Загрузки](https://azure.microsoft.com/downloads/).
 
 ## Настройка принудительного туннелирования
 
@@ -157,4 +157,4 @@
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

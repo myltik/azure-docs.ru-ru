@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 
@@ -31,12 +31,11 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения о ретрансляторе служебной шины см. в следующих разделах.
+Более подробные сведения о ретрансляторе служебной шины см. в следующих разделах.
 
 - [Обзор архитектуры служебной шины Azure](service-bus-fundamentals-hybrid-solutions.md)
-
 - [Как использовать службу ретранслятора служебной шины](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

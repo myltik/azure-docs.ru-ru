@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Установка Apache Qpid Proton-C на виртуальной машине Azure под управлением Linux
@@ -102,9 +102,9 @@
 
 ## Дальнейшие действия
 
-Хотите узнать больше? Перейдите по следующим ссылкам:
+Хотите узнать больше? Перейдите по следующей ссылке:
 
-- [Протокол AMQP служебной шины — обзор]
+- [Протокол AMQP служебной шины — обзор][]
 
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
@@ -114,4 +114,4 @@
 
 [классическом портале Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

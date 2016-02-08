@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="powershell"
 	ms.workload="na"
-	ms.date="10/09/2015"
+	ms.date="01/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 #Изменения в командлетах PowerShell для управления диспетчером ресурсов Azure
@@ -91,4 +91,4 @@
 
 Мы добавили поддержку политик в диспетчер ресурсов Azure. В этот выпуск были добавлены командлеты PowerShell для управления политиками. Дополнительные сведения о политиках см. в разделе [Применение политик для управления ресурсами и контроля доступа](resource-manager-policy.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

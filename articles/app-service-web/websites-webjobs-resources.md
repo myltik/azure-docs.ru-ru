@@ -57,7 +57,7 @@
 
 * [Развертывание веб-заданий Azure с помощью Visual Studio](websites-dotnet-deploy-webjobs.md)
 * [Как развернуть веб-задания с использованием портала Azure](web-sites-create-web-jobs.md)
-* [Включение предоставления веб-заданий Azure из командной строки или постоянно](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
+* [Включение предоставления веб-заданий Azure из командной строки или постоянно](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Развертывание из Git приложения консоли .NET на Azure с помощью веб-заданий](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Развертывание веб-заданий F# в Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * [Развертывание пользовательских служб в качестве веб-заданий Azure](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
@@ -98,7 +98,7 @@
 * [Общедоступная запись в блоге о веб-заданиях Azure Магнуса Мортенссона (Magnus Mårtensson)](http://magnusmartensson.com/azure-webjobs-ga)
 * [Запуск веб-заданий Powershell в службе приложений Azure](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Получение уведомлений после завершения веб-заданий, инициированных Azure](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
-* [Простые правила резервного копирования веб-приложений с веб-заданиями](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
+* [Простые правила резервного копирования веб-приложений с веб-заданиями](https://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [Замедление работы веб-приложений и облачных служб Azure по первому требованию](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Показывает применение веб-заданий для симуляции компонента AlwaysOn, который доступен только для ценовой категории Standard.
 * [Нормальное завершение работы веб-заданий](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). Для получения информации относительно правильного завершения работы пакета SDK веб-заданий см. [Нормальное завершение работы](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).)
 * [Автоматизация резервного копирования с помощью веб-заданий Azure и AzCopy](http://markjbrown.com/azure-webjobs-azcopy/)
@@ -135,8 +135,8 @@
 * [StackOverflow для SDK веб-заданий](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [Форум по Azure и ASP.NET](http://forums.asp.net/1247.aspx)
 * [Форум по веб-приложениям службы приложений Azure](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
-* [Сайт пользовательских мнений по веб-приложениям Azure](http://feedback.azure.com/forums/169385-websites)
+* [Сайт пользовательских мнений по веб-приложениям Azure](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/). Используйте хештег #AzureWebJobs.
 * [Сообщение об ошибке или проблеме в веб-задании](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

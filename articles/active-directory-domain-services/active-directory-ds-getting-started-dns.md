@@ -1,11 +1,4 @@
-<properties
-	pageTitle="Предварительная версия доменных служб Azure Active Directory: приступая к работе | Microsoft Azure"
-	description="Приступая к работе с доменными службами Azure Active Directory"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+<properties pageTitle="Предварительная версия доменных служб Azure Active Directory: начало работы | Microsoft Azure" description="Начало работы с доменными службами Azure Active Directory" services="active-directory-ds" documentationCenter="" authors="mahesh-unnikrishnan" manager="stevenpo editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,15 +6,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
-	ms.author="mahesh-unnikrishnan"/>
+	ms.date="01/26/2016"
+	ms.author="maheshu"/>
 
 # Доменные службы Azure AD *(Предварительная версия)* — Приступая к работе
 
 ## Шаг 4. Обновление настроек DNS для виртуальной сети Azure
 Теперь, когда вы успешно включили доменные службы Azure AD для каталога, необходимо сделать так, чтобы компьютеры в виртуальной сети могли подключиться к этим службам и воспользоваться ими. Для этого необходимо обновить параметры DNS-сервера для виртуальной сети, указав IP-адреса, по которым доменные службы AD Azure доступны в виртуальной сети.
 
-> [AZURE.NOTE]После включения доменных служб Azure AD для каталога запишите IP-адреса доменных служб Azure AD, которые отображаются на вкладке **Настройка**.
+> [AZURE.NOTE] После включения доменных служб Azure AD для каталога запишите IP-адреса доменных служб Azure AD, которые отображаются на вкладке **Настройка**.
 
 Выполните следующие этапы настройки, чтобы обновить параметр DNS-сервера для виртуальной сети, в которой были включены доменные службы Azure AD.
 
@@ -41,9 +34,9 @@
 
    ![Обновление параметров DNS-сервера для виртуальной сети.](./media/active-directory-domain-services-getting-started/update-dns.png)
 
-> [AZURE.NOTE]После обновления параметров DNS-сервера для виртуальной сети может потребоваться некоторое время на обновление конфигурации DNS виртуальных машин в сети. Если виртуальная машина не может подключиться к домену, можно очистить кэш DNS на виртуальной машине(например, командой ipconfig /flushdns), чтобы принудительно обновить параметры DNS на виртуальной машине.
+> [AZURE.NOTE] После обновления параметров DNS-сервера для виртуальной сети может потребоваться некоторое время на обновление конфигурации DNS виртуальных машин в сети. Если виртуальная машина не может подключиться к домену, можно очистить кэш DNS на виртуальной машине(например, командой ipconfig /flushdns), чтобы принудительно обновить параметры DNS на виртуальной машине.
 
 ---
 [**Следующий шаг — включение синхронизации паролей для доменных служб Azure AD.**](active-directory-ds-getting-started-password-sync.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

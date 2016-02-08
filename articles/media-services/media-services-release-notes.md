@@ -21,7 +21,7 @@
 
 В этих заметках описаны изменения по сравнению с предыдущими выпусками, а также известные проблемы.
 
->[AZURE.NOTE]Мы ждем отзывов от наших заказчиков и уделяем большое внимание исправлению проблем, влияющих на вашу работу. Сообщения о проблемах и вопросы размещайте на [форуме MSDN по службам мультимедиа Azure].
+>[AZURE.NOTE] Мы ждем отзывов от наших заказчиков и уделяем большое внимание исправлению проблем, влияющих на вашу работу. Сообщения о проблемах и вопросы размещайте на [форуме MSDN по службам мультимедиа Azure].
 
 - [Известные проблемы](#issues)
 - [Журнал версий интерфейса API REST](#rest_version_history)
@@ -92,9 +92,9 @@
 
 ##<a id="nov_changes_15"></a>Выпуск: ноябрь 2015 г.
 
-Теперь в службах мультимедиа Azure предлагается служба доставки лицензий Google Widevine. Для получения дополнительной информации см. [этот блог объявлений](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Также см. [этот учебник](media-services-protect-with-drm.md) и [репозиторий GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
+Теперь в службах мультимедиа Azure предлагается служба доставки лицензий Google Widevine. Для получения дополнительной информации см. [этот блог объявлений](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Также см. [этот учебник](media-services-protect-with-drm.md) и [репозиторий GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
-Обратите внимание, что службами мультимедиа Azure предоставляется предварительная версия служб доставки лицензий Widevine. Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+Обратите внимание, что службами мультимедиа Azure предоставляется предварительная версия служб доставки лицензий Widevine. Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ##<a id="oct_changes_15"></a>Выпуск: октябрь 2015 г.
 
@@ -106,24 +106,24 @@
 
 ##<a id="september_changes_15"></a>Выпуск: сентябрь 2015 г. 
 
-- Теперь AMS позволяет защищать видео по запросу и потоки Live Stream с технологией Widevine Modular DRM. Вы можете использовать следующих партнеров служб доставки для доставки лицензий Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/). Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+- Теперь AMS позволяет защищать видео по запросу и потоки Live Stream с технологией Widevine Modular DRM. Вы можете использовать следующих партнеров служб доставки для доставки лицензий Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/). Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
 
 	Чтобы настроить AssetDeliveryConfiguration для использования Widevine, можно воспользоваться пакетом [SDK AMS .NET](https://www.nuget.org/packages/windowsazure.mediaservices/) (начиная с версии 3.5.1) или REST API.
 
-- AMS поддерживает видео в формате Apple ProRes. Теперь вы можете отправлять исходные видеофайлы в формате QuickTime, использующие Apple ProRes или другие кодеки. Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+- AMS поддерживает видео в формате Apple ProRes. Теперь вы можете отправлять исходные видеофайлы в формате QuickTime, использующие Apple ProRes или другие кодеки. Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
-- Теперь можно использовать Media Encoder Standard для выполнения дополнительной обрезки и динамического извлечения из архивов. Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+- Теперь можно использовать Media Encoder Standard для выполнения дополнительной обрезки и динамического извлечения из архивов. Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 - Были выполнены следующие обновления фильтрации:
 
 	- Теперь можно использовать формат Apple HTTP Live Streaming (HLS) с фильтром "только аудио". Это обновление позволяет удалить только звуковую дорожку, указав в URL-адресе "audio-only=false".
 	- Теперь при определении фильтров для ресурсов можно объединить несколько фильтров (до 3) в одном URL-адресе.
 
-	Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+	Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 - AMS теперь поддерживает I-Frames в HLS версии 4. Поддержка I-Frames оптимизирует операции перемотки вперед и назад. По умолчанию все выходные каналы HLS версии 4 включают список воспроизведения I-Frames (EXT-X-I-FRAME-STREAM-INF).
  
-	Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+	Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ##<a id="august_changes_15"></a>Выпуск: август 2015 г.
 
@@ -136,9 +136,9 @@
 
 ##<a id="july_changes_15"></a>Выпуск: июль 2015 г.
 
-- В общий доступ предоставлен стандартный кодировщик служб мультимедиа. Дополнительную информацию см. в [этой записи блога](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+- В общий доступ предоставлен стандартный кодировщик служб мультимедиа. Дополнительную информацию см. в [этой записи блога](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-	В стандартном кодировщике мультимедиа используются предустановки, описанные в [этом](http://go.microsoft.com/fwlink/?LinkId=618336) разделе. Обратите внимание, что при использовании предустановки для кодирования видео в формате 4k необходимо получить тип зарезервированной единицы **Премиум**. Дополнительную информацию см. в разделе [Масштабирование кодирования](media-services-portal-encoding-units).
+	В стандартном кодировщике мультимедиа используются предустановки, описанные в [этом](http://go.microsoft.com/fwlink/?LinkId=618336) разделе. Обратите внимание, что при использовании предустановки для кодирования видео в формате 4k необходимо получить тип зарезервированной единицы **Премиум**. Дополнительные сведения см. в разделе [Масштабирование кодирования](media-services-portal-encoding-units).
 - Интерактивные субтитры в режиме реального времени в службах мультимедиа Azure и проигрывателе. Дополнительную информацию см. в [этой записи блога](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ###Обновления пакета SDK служб мультимедиа для .NET
@@ -171,19 +171,19 @@
 
 - [Предварительный просмотр кодирования в реальном времени с помощью служб мультимедиа](media-services-manage-live-encoder-enabled-channels.md)
 - [Динамические манифесты](media-services-dynamic-manifest-overview.md)
-- [Предварительный просмотр обработчика мультимедиа Azure Media Hyperlapse](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
+- [Предварительный просмотр обработчика мультимедиа Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ##<a id="april_changes_15"></a>Выпуск: апрель 2015 г.
 
 ###Общие обновления служб мультимедиа
 
-- [Выход мультимедиапроигрывателя Azure](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+- [Выход мультимедиапроигрывателя Azure](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
 - Начиная с интерфейса REST 2.10 служб мультимедиа, каналы, которые настроены для приема протокола RTMP, создаются с первичными и вторичными URL-адресами приема. Дополнительные сведения см. в разделе [Конфигурации приема канала](media-services-manage-channels-overview.md#channel_input)
 - Обновления индексатора мультимедийных данных Azure
 	- Поддержка испанского языка
 	- Формат xml новой конфигурации
 	
-	Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+	Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 ###Обновления пакета SDK служб мультимедиа для .NET
 
 Пакет SDK служб мультимедиа Azure для .NET обновлен до версии 3.2.0.0.
@@ -202,7 +202,7 @@
 ### Общие обновления служб мультимедиа
 
 - Теперь службы мультимедиа обеспечивают интеграцию Azure CDN. Для поддержки интеграции свойство **CdnEnabled** было добавлено к **StreamingEndpoint**. **CdnEnabled** можно использовать с API REST, начиная с версии 2.9 (дополнительные сведения см. в разделе [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx)). **CdnEnabled** можно использовать с пакетом SDK для .NET, начиная с версии 3.1.0.2 (дополнительные сведения см. в разделе [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint(v=azure.10).aspx)).
-- Объявление о **Рабочем процессе Premium обработчика мультимедиа**. Дополнительные сведения см. в разделе [Знакомство с кодированием Premium в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services).
+- Объявление о **Рабочем процессе Premium обработчика мультимедиа**. Дополнительные сведения см. в разделе [Знакомство с кодированием Premium в службах мультимедиа Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/).
  
 
 
@@ -216,7 +216,7 @@ API REST служб мультимедиа обновлены до версии 
 
 ### Общие обновления служб мультимедиа
 
-Объявления о поддержке защиты содержимого с помощью динамического шифрования в общедоступной версии. Дополнительную информацию см. в статье [Потоковая передача в службах мультимедиа Azure стала еще безопаснее благодаря поддержке технологии DRM в общедоступной версии](http://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/).
+Объявления о поддержке защиты содержимого с помощью динамического шифрования в общедоступной версии. Дополнительную информацию см. в статье [Потоковая передача в службах мультимедиа Azure стала еще безопаснее благодаря поддержке технологии DRM в общедоступной версии](https://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/).
 
 ###Обновления пакета SDK служб мультимедиа для .NET
 
@@ -231,7 +231,7 @@ API REST служб мультимедиа обновлены до версии 
 
 ###Общие обновления служб мультимедиа
 
-- В Azure Indexer Media Processor добавлены некоторые обновления и функции. Дополнительные сведения см. в разделе [Заметки о выпуске индексатора мультимедиа Azure версии 1.1.6.7](http://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
+- В Azure Indexer Media Processor добавлены некоторые обновления и функции. Дополнительные сведения см. в разделе [Заметки о выпуске индексатора мультимедиа Azure версии 1.1.6.7](https://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
 - Добавлен новый интерфейс API REST, который позволяет обновлять закодированные зарезервированные единицы: [EncodingReservedUnitType с REST](http://msdn.microsoft.com/library/azure/dn859236.aspx).
 - Добавлена поддержка CORS для службы доставки ключей.
 - Повышена производительность параметров политики запроса авторизации.
@@ -296,7 +296,7 @@ API REST служб мультимедиа обновлены до версии 
 В настоящее время есть два варианта устранения этой проблемы.
 
 * Включить единицы потоковой передачи и использовать динамическую упаковку для потоковой передачи актива .mp4 как пакета Smooth Streaming.
-	
+
 * Создать URL-адрес SAS для загрузки (или постепенного воспроизведения) файла .mp4. Дополнительную информацию о создании локатора SAS см. в разделе [Доставка контента].
 
 
@@ -408,7 +408,7 @@ API REST служб мультимедиа обновлены до версии 
 
 ### <a name="dec_13_donnet_changes"></a>Выпуск 3.0.0.0 пакета SDK служб мультимедиа Azure для .NET
 
->[AZURE.NOTE]Версии 3.0.x.x несовместимы с версиями 2.4.x.x.
+>[AZURE.NOTE] Версии 3.0.x.x несовместимы с версиями 2.4.x.x.
 
 Последним выпуском пакета SDK для служб мультимедиа в данный момент является 3.0.0.0. Последнюю версию пакета можно скачать из Nuget или получить код из [GitHub].
 
@@ -507,7 +507,7 @@ API REST служб мультимедиа обновлены до версии 
 * Зависимость от OData 5.5 (Microsoft.Data.OData.dll).
 
 
-###<a id="december_changes_12"></a>Выпуск: декабрь 2012 г.
+##<a id="december_changes_12"></a>Выпуск: декабрь 2012 г.
 
 ### <a name="dec_12_dotnet_changes"></a>Изменения в пакете SDK служб мультимедиа Azure для .NET
 
@@ -539,7 +539,7 @@ API REST служб мультимедиа обновлены до версии 
 
 * EncryptionUtils.GetCertificateFromStore(). Этот метод больше не создает исключение о пустой ссылке, связанное со сбоем при поиске сертификата в связи с ошибками конфигурации сертификата.
 
-##<a id="november_changes_12"></a>Выпуск: ноябрь 2012 г.
+##<a id="november_changes_12">Выпуск: ноябрь 2012 г.</a>
 
 Изменения, указанные в этом разделе — это обновления, включенные в пакет SDK в ноябре 2012 г. (версия 2.0.0.0). В связи с этими изменениями может потребоваться внести изменения или переработать код, созданный для предварительного выпуска пакета SDK за июнь 2012 г.
 
@@ -637,4 +637,4 @@ API REST служб мультимедиа обновлены до версии 
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

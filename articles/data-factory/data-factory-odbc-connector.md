@@ -28,6 +28,8 @@
 
 Помимо шлюза управления данными на компьютере с шлюзом необходимо также установить драйвер ODBC для хранилища данных.
 
+> [AZURE.NOTE] Советы по устранению неполадок, связанных с шлюзом или подключением, см. в разделе [Устранение неполадок шлюза](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+
 ## Пример. Копирование данных из хранилища данных ODBC в BLOB-объект Azure
 
 В примере ниже показано следующее.
@@ -42,7 +44,7 @@
 
 Сначала настройте шлюз управления данными. Инструкции, как это сделать, см. в статье [Перемещение данных между локальными источниками и облаком при помощи шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Связанная служба ODBC** В этом примере используется проверка подлинности Windows. Различные типы проверки подлинности, которые можно использовать, см. в разделе [Связанная служба ODBC](#odbc-linked-service-properties).
+**Связанная служба ODBC** В этом примере используется обычная проверка подлинности. Различные типы проверки подлинности, которые можно использовать, см. в разделе [Связанная служба ODBC](#odbc-linked-service-properties).
 
 	{
 	    "name": "OnPremOdbcLinkedService",
@@ -51,10 +53,10 @@
 	        "type": "OnPremisesOdbc",
 	        "typeProperties":
 	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=<database>;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
+	            "authenticationType": "Basic",
+	            "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
+	            "userName": "username",
+	            "password": "password",
 	            "gatewayName": "mygateway"
 	        }
 	    }
@@ -221,8 +223,8 @@
 | type | Для свойства type необходимо задать значение **OnPremisesOdbc**. | Да |
 | connectionString | Учетные данные в строке подключения, не используемые для получения доступа, а также дополнительные зашифрованные учетные данные. См. примеры ниже. | Да
 | credential | Учетные данные в строке подключения, используемые для получения доступа и указанные в формате "драйвер-определенное свойство-значение", например "Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;". | Нет
-| authenticationType | Тип проверки подлинности, используемый для подключения к хранилищу данных ODBC. Возможными значениями являются: анонимная, обычная и Windows. | Да | 
-| Имя пользователя | При использовании обычной проверки подлинности или проверки подлинности Windows укажите имя пользователя. | Нет | 
+| authenticationType | Тип проверки подлинности, используемый для подключения к хранилищу данных ODBC. Возможными значениями являются: "Анонимная" и "Обычная". | Да | 
+| Имя пользователя | При использовании обычной проверки подлинности укажите имя пользователя. | Нет | 
 | пароль | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. | Нет | 
 | gatewayName | Имя шлюза, который следует использовать службе фабрики данных для подключения к хранилищу данных ODBC. | Да |
 
@@ -264,24 +266,6 @@
 	    }
 	}
 
-### Использовать проверку подлинности Windows
-
-	{
-	    "name": "odbc",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=TestDatabase;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	} 
-
 
 ### Использовать анонимную проверку подлинности
 
@@ -318,7 +302,7 @@
 
 То, какие свойства будут доступны в разделе typeProperties, зависит от типа действия, а в случае с действием копирования — еще и от типов источников и приемников.
 
-В случае действия копирования, когда источник относится к типу **RelationalSource** (который содержит ODBC), в разделе typeProperties доступны следующие свойства.
+В случае действия копирования, когда источник относится к типу **RelationalSource** (который содержит ODBC), в разделе typeProperties доступны следующие свойства:
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- |
@@ -340,4 +324,4 @@
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

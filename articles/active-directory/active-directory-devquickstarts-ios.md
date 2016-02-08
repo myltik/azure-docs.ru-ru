@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Интеграция Azure AD в приложение для iOS
@@ -47,7 +47,7 @@
 
 - 	Схема **aap-scheme** регистрируется в проекте XCode и используется для вызова из других приложений. Данные сведения можно найти в файле Info.plist (URL Types -> URL Identifier). Если вы еще не создали или не настроили хотя бы одну схему, следует сделать это.
 - 	**bundle-id** — это идентификатор пакета, который можно найти в разделе "identity" параметров проекта XCode.
-	
+
 Пример для рассматриваемого проекта QuickStart: ******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. Регистрация приложения DirectorySearcher*
@@ -107,12 +107,12 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
         completionBlock(data.userItem.accessToken, nil);
         return;
     }
-    
+
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
     authContext.parentController = parent;
     NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
-    
+
     [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
     [authContext acquireTokenWithResource:data.resourceId
                                  clientId:data.clientId
@@ -121,7 +121,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                                    userId:data.userItem.userInformation.userId
                      extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
                           completionBlock:^(ADAuthenticationResult *result) {
-                              
+
                               if (result.status != AD_SUCCEEDED)
                               {
                                   completionBlock(nil, result.error);
@@ -147,68 +147,68 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     {
         [self readApplicationSettings];
     }
-    
+
     AppData* data = [AppData getInstance];
-    
+
     NSString *graphURL = [NSString stringWithFormat:@"%@%@/users?api-version=%@&$filter=startswith(userPrincipalName, '%@')", data.taskWebApiUrlString, data.tenant, data.apiversion, searchString];
 
-    
+
     [self craftRequest:[self.class trimString:graphURL]
                 parent:parent
      completionHandler:^(NSMutableURLRequest *request, NSError *error) {
-         
+
          if (error != nil)
          {
              completionBlock(nil, error);
          }
          else
          {
-             
+
              NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-             
+
              [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                 
+
                  if (error == nil && data != nil){
-                     
+
                      NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                     
+
                      // We can grab the top most JSON node to get our graph data.
                      NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
-                     
+
                      // Don't be thrown off by the key name being "value". It really is the name of the
                      // first node. :-)
-                     
+
                      //each object is a key value pair
                      NSDictionary *keyValuePairs;
                      NSMutableArray* Users = [[NSMutableArray alloc]init];
-                     
+
                      for(int i =0; i < graphDataArray.count; i++)
                      {
                          keyValuePairs = [graphDataArray objectAtIndex:i];
-                         
+
                          User *s = [[User alloc]init];
                          s.upn = [keyValuePairs valueForKey:@"userPrincipalName"];
                          s.name =[keyValuePairs valueForKey:@"givenName"];
-                         
+
                          [Users addObject:s];
                      }
-                     
+
                      completionBlock(Users, nil);
                  }
                  else
                  {
                      completionBlock(nil, error);
                  }
-                 
+
              }];
          }
      }];
-    
+
 }
 
 ```
 - Когда приложение запрашивает маркер путем вызова `getToken(...)`, библиотека ADAL пытается вернуть маркер без запроса учетных данных пользователя. Если ADAL решит, что пользователь должен выполнить вход для получения маркера, будет отображено диалоговое окно входа. Введенные учетные данные пользователя будут использованы для проверки подлинности, и в случае успешной проверки библиотека вернет маркер. Если библиотеке ADAL не удастся по какой-либо причине вернуть маркер, она вызовет исключение `AdalException`.
-- Обратите внимание, что объект `AuthenticationResult` содержит объект `tokenCacheStoreItem`, который может использоваться для сбора сведений, необходимых приложению. В проекте QuickStart объект `tokenCacheStoreItem` используется, чтобы определить, была ли выполнена проверка подлинности. 
+- Обратите внимание, что объект `AuthenticationResult` содержит объект `tokenCacheStoreItem`, который может использоваться для сбора сведений, необходимых приложению. В проекте QuickStart объект `tokenCacheStoreItem` используется, чтобы определить, была ли выполнена проверка подлинности.
 
 
 ## Этап 5. Компиляция и запуск приложения
@@ -225,4 +225,4 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

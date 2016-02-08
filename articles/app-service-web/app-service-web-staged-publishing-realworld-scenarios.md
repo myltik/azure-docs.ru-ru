@@ -245,7 +245,7 @@
 ```
 
 #### Настройка промежуточной среды
-Предположим, что у вас уже есть веб-приложение WordPress, развернутое в Azure. Выполните вход на [портал Azure](http://portal.azure.com) и перейдите к веб-приложению WordPress. Если приложения нет, вы можете создать его в магазине. Для получения дополнительных сведений щелкните [здесь](web-sites-php-web-site-gallery.md). Чтобы создать слот развертывания с именем stage, последовательно выберите **Параметры** –> **Слоты развертывания** –> **Добавить**. Слот развертывания — это другое веб-приложение, которое использует те же ресурсы, что и основное веб-приложение, созданное ранее.
+Предположим, что у вас уже есть веб-приложение WordPress, развернутое в Azure. Выполните вход на [портал Azure](https://portal.azure.com/) и перейдите к веб-приложению WordPress. Если приложения нет, вы можете создать его в магазине. Для получения дополнительных сведений щелкните [здесь](web-sites-php-web-site-gallery.md). Чтобы создать слот развертывания с именем stage, последовательно выберите **Параметры** –> **Слоты развертывания** –> **Добавить**. Слот развертывания — это другое веб-приложение, которое использует те же ресурсы, что и основное веб-приложение, созданное ранее.
 
 ![Создание промежуточного слота развертывания](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -287,7 +287,8 @@
 
 ![Просмотр изменений при переключении для WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]> Если в вашем сценарии требуется только передача файлов (без обновления базы данных), то перед выполнением операции перемещения **установите** флажок **Настройка слота** для всех *параметров приложения* и *параметров строки подключения*, связанных с базой данных, в колонке параметров веб-приложения на портале Azure. В этом случае параметры DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER и строка подключения по умолчанию не должны отображаться при предварительном просмотре изменений перед выполнением операции **перемещения**. При выполнении операции **переключения** в веб-приложении WordPress будут обновлены **ТОЛЬКО** файлы.
+ >[AZURE.NOTE]
+ > Если в вашем сценарии требуется только передача файлов (без обновления базы данных), то перед выполнением операции перемещения **установите** флажок **Настройка слота** для всех *параметров приложения* и *параметров строки подключения*, связанных с базой данных, в колонке параметров веб-приложения на портале Azure. В этом случае параметры DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER и строка подключения по умолчанию не должны отображаться при предварительном просмотре изменений перед выполнением операции **перемещения**. При выполнении операции **переключения** в веб-приложении WordPress будут обновлены **ТОЛЬКО** файлы.
 
 Перед выполнением операции перемещения рабочее приложение WordPress выглядит так: ![Рабочее веб-приложение перед переключением слотов](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -371,21 +372,14 @@
   </repositories>
  ```
 
-В `<repositories>` введите URL-адрес рабочего сайта и сведения о пользователе. Если используется поставщик членства Umbraco по умолчанию, следует добавить соответствующий идентификатор для пользователя-администратора в разделе <user>. Если используется собственный поставщик членства Umbraco, укажите `<login>`, `<password>`, с которыми модуль Courier2 должен подключаться к рабочему сайту. Подробности см. в [документации](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) для модуля Courier.
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-Аналогичным образом установите модуль Courier на рабочий сайт и настройте его на размещенное веб-приложение в соответствующем файле courier.config, как показано здесь
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
 Откройте вкладку Courier2 в панели мониторинга веб-приложений Umbraco CMS и выберите расположения. Вы увидите имя репозитория, используемое в `courier.config`. Сделайте это в веб-приложениях в рабочей и промежуточной среде.
 
@@ -427,7 +421,7 @@
 
 ![Предварительный просмотр перед операцией перемещения при развертывании Umbraco CMS](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-Преимущества переключения веб-приложения и базы данных. 1. При возникновении проблем позволяет выполнить откат к предыдущей версии веб-приложения с помощью другой операции **перемещения**. 2. Для обновления необходимо выполнить развертывание файлов и базы данных из промежуточного веб-приложения в рабочие веб-приложение и базу данных. Развертывание файлов и базы данных связано с большим количеством рисков. Используя функцию **переключения** между слотами, мы сокращаем время простоя при обновлении и снижаем риск сбоев, которые могут произойти при развертывании изменений. 3. Позволяет выполнять **A/B-тестирование** с помощью функции [Тестирование в рабочей среде](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).
+Преимущества переключения веб-приложения и базы данных. 1. При возникновении проблем позволяет выполнить откат к предыдущей версии веб-приложения с помощью другой операции **перемещения**. 2. Для обновления необходимо выполнить развертывание файлов и базы данных из промежуточного веб-приложения в рабочие веб-приложение и базу данных. Развертывание файлов и базы данных связано с большим количеством рисков. Используя функцию **переключения** между слотами, мы сокращаем время простоя при обновлении и снижаем риск сбоев, которые могут произойти при развертывании изменений. 3. Позволяет выполнять **A/B-тестирование** с помощью функции [Тестирование в рабочей среде](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).
 
 Этот пример демонстрирует гибкость платформы: вы можете создавать пользовательские модули, аналогичные модулю Umbraco Courier, для управления развертыванием в разных средах.
 
@@ -438,4 +432,4 @@
 
 [Блокирование веб-доступа к непроизводственным областям развертывания](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

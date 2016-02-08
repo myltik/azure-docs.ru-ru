@@ -257,11 +257,21 @@
             },
             "webSiteLocation": {
                 "value": "West US"
+            },
+            "adminPassword": {
+                "reference": {
+                   "keyVault": {
+                      "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+                   }, 
+                   "secretName": "sqlAdminPassword" 
+                }   
             }
        }
     }
 
 Размер файла параметров не может быть более 64 КБ.
+
+Инструкции по определению параметров в шаблоне см. в статье [Создание шаблонов](resource-group-authoring-templates.md/#parameters). Информацию о безопасной передаче значений с помощью ссылки KeyVault см. в статье [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
 
 ## Дальнейшие действия
 - Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание ресурсов с использованием библиотек .NET и шаблона](arm-template-deployment.md).
@@ -272,4 +282,4 @@
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

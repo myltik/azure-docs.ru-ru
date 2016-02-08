@@ -257,7 +257,7 @@
 
 ## Дополнительные ресурсы
 
-[Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Документация по виртуальным машинам](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Виртуальные машины Azure. Вопросы и ответы](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
@@ -265,4 +265,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

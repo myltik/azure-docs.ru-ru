@@ -434,7 +434,7 @@
 ### Стоимость
 За использование функции запросов к эластичной базе данных дополнительная плата отсутствует. Однако в настоящее время эта функция доступна только в базах данных premium как конечная точка, а сегменты могут находиться на любом уровне служб.
 
-Сведения о ценах см. в разделе [Информация о ценах на базу данных SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Сведения о ценах см. в разделе [Информация о ценах на базу данных SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -447,4 +447,4 @@
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

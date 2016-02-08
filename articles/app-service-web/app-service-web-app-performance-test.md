@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/11/2015"
+   ms.date="01/13/2016"
    ms.author="estfan; manasma"/>
 
 # Тестирование производительности веб-приложения Azure под нагрузкой
@@ -28,7 +28,7 @@
 
 *	Вам потребуется [подписка Azure][AzureSubscription], если у вас ее еще нет. Узнайте, как можно [создать учетную запись Azure бесплатно][AzureFreeTrial].
 
-*	Вам потребуется учетная запись [Visual Studio Team Services (VSTS)][WhatIsVSTS] для хранения журнала тестирования производительности. Создайте новую учетную запись после настройки теста производительности или воспользуйтесь существующей при наличии. [Какие еще возможности предоставляет учетная запись Visual Studio Team Services?](#VSTSAccount)
+*	Вам потребуется учетная запись [Visual Studio Team Services (Team Services)][WhatIsTeamServices] для хранения журнала тестирования производительности. Создайте новую учетную запись после настройки теста производительности или воспользуйтесь существующей при наличии. [Какие еще возможности предоставляет учетная запись Visual Studio Team Services?](#TeamServicesAccount)
 
 *	Разверните тестируемое приложение в нерабочей среде. Настройте для приложения план службы приложений, отличный от используемого в производственной среде. Таким образом вы не будете ни мешать работе существующих клиентов, ни замедлять работу приложения в рабочей среде.
 
@@ -44,11 +44,11 @@
 
 	![В меню «Инструменты» выберите «Тест производительности»][ExpandedTools]
  
-0.	Теперь вы привяжете учетную запись [Visual Studio Team Services (VSTS)][WhatIsVSTS] для хранения журнала тестирования производительности.
+0.	Теперь вам нужно связать учетную запись [Visual Studio Team Services (Team Services)][WhatIsTeamServices] для хранения журнала тестирования производительности.
 
-	Если у вас уже есть учетная запись VSTS, выберите ее. Если учетной записи нет, создайте ее.
+	Если у вас уже есть учетная запись Team Services, выберите ее. Если учетной записи нет, создайте ее.
 
-	![Выбор существующей учетной записи VSTS или создание новой][ExistingNewVSTSAccount]
+	![Выбор существующей учетной записи Team Services или создание новой][ExistingNewTeamServicesAccount]
 
 0.	Создайте тест производительности, укажите необходимые сведения и запустите его. За результатами тестирования можно следить во время выполнения теста в режиме реального времени.
 
@@ -86,30 +86,30 @@
 
 Ответ. Это можно сделать на портале Azure.
 
-![Переход в учетную запись VSTS][VSTSAccount]
+![Переход к учетной записи Team Services][TeamServicesAccount]
 
 ![Проверка использованных единиц VUM][CheckTestTime]
 
 <a name="VSOAccount"></a>
 #### В. Какие еще возможности предоставляет учетная запись Visual Studio Team Services?
 
-Ответ. Войти в свою учетную запись можно, перейдя по ссылке ```https://{accountname}.visualstudio.com```. С помощью своей учетной записи вы можете обмениваться кодом, компилировать сборки, тестировать ПО, отслеживать работу и распространять приложения — и все это в облаке, используя любые средства и языки. Узнайте больше о функциях и службах, которые упрощают взаимодействие внутри команды и позволяют создавать новые продукты, на веб-сайте [Visual Studio Team Services][WhatIsVSTS].
+Ответ. Войти в свою учетную запись можно, перейдя по ссылке ```https://{accountname}.visualstudio.com```. С помощью своей учетной записи вы можете обмениваться кодом, компилировать сборки, тестировать ПО, отслеживать работу и распространять приложения — и все это в облаке, используя любые средства и языки. Узнайте больше о функциях и службах, которые упрощают взаимодействие внутри команды и позволяют создавать новые продукты, на веб-сайте [Visual Studio Team Services][WhatIsTeamServices].
 
 <!--Image references-->
 [WebApp]: ./media/app-service-web-app-performance-test/azure-np-web-apps.png
 [TestOverview]: ./media/app-service-web-app-performance-test/azure-np-perf-test-overview.png
 [ExpandedTools]: ./media/app-service-web-app-performance-test/azure-np-web-app-details-tools-expanded.png
-[ExistingNewVSTSAccount]: ./media/app-service-web-app-performance-test/azure-np-no-vso-account.png
+[ExistingNewTeamServicesAccount]: ./media/app-service-web-app-performance-test/azure-np-no-vso-account.png
 [NewTest]: ./media/app-service-web-app-performance-test/azure-np-new-performance-test.png
 [TestRunning]: ./media/app-service-web-app-performance-test/azure-np-running-perf-test.png
 [TestDone]: ./media/app-service-web-app-performance-test/azure-np-perf-test-done.png
-[VSTSAccount]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts.png
+[TeamServicesAccount]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts.png
 [CheckTestTime]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts-vum-summary.png
 
 <!--Reference links -->
 [AzurePortal]: https://portal.azure.com
 [AzureSubscription]: https://account.windowsazure.com/subscriptions
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
+[WhatIsTeamServices]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

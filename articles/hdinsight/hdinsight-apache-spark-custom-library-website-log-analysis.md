@@ -21,13 +21,13 @@
 
 Данная записная книжка показывает, как анализировать данные журналов с помощью настраиваемой библиотеки с кластером Spark в HDInsight. В качестве пользовательской библиотеки используется библиотека Python с именем **iislogparser.py**.
 
-> [AZURE.TIP]Кроме того, это руководство доступно в виде записной книжки Jupyter в кластере Spark (на платформе Linux), созданном в HDInsight. Вы можете выполнять фрагменты кода Python непосредственно в записной книжке. Чтобы выполнить действия в учебнике из записной книжки, создайте кластер Spark, запустите записную книжку Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), а затем записную книжку **Анализ журналов в Spark с помощью настраиваемой библиотеки IPYNB** в папке **Python**.
+> [AZURE.TIP] Кроме того, это руководство доступно в виде записной книжки Jupyter в кластере Spark (на платформе Linux), созданном в HDInsight. Вы можете выполнять фрагменты кода Python непосредственно в записной книжке. Чтобы выполнить действия в учебнике из записной книжки, создайте кластер Spark, запустите записную книжку Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), а затем записную книжку **Анализ журналов в Spark с помощью настраиваемой библиотеки IPYNB** в папке **Python**.
 
 **Предварительные требования:**
 
 Необходимо следующее:
 
-- Подписка Azure. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Подписка Azure. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Кластер Apache Spark в HDInsight на платформе Linux. Инструкции см. в разделе [Создание кластеров Apache Spark в Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Сохранение необработанных данных в формате RDD
@@ -40,7 +40,7 @@
 
 2. В колонке кластера Spark щелкните **Быстрые ссылки**, затем в колонке **Панель мониторинга кластера** выберите **Jupyter Notebook**. При появлении запроса введите учетные данные администратора для кластера.
 
-	> [AZURE.NOTE]Также можно открыть Jupyter Notebook для своего кластера, открыв следующий URL-адрес в браузере. Замените __CLUSTERNAME__ именем кластера.
+	> [AZURE.NOTE] Также можно открыть Jupyter Notebook для своего кластера, открыв следующий URL-адрес в браузере. Замените __CLUSTERNAME__ именем кластера.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -231,4 +231,4 @@
 
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

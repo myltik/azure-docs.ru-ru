@@ -22,7 +22,7 @@
 
 Узнайте, как определять рабочие процессы и координаторы, а также как по времени запускать задания координатора. Перед чтением этой статьи рекомендуется изучить [Использование Oozie с HDInsight][hdinsight-use-oozie]. Для получения сведений о фабрике данных Azure см. статью [Использование Pig и Hive с фабрикой данных](../data-factory/data-factory-pig-hive-activities.md).
 
-> [AZURE.NOTE]В этой статье требуется кластер HDInsight на основе Windows. Дополнительные сведения об использовании Oozie, включая задания на основе времени, в кластере под управлением Linux см. в разделе[Использование Oozie с Hadoop для определения и запуска рабочих процессов в HDInsight под управлением Linux](hdinsight-use-oozie-linux-mac.md)
+> [AZURE.NOTE] В этой статье требуется кластер HDInsight на основе Windows. Дополнительные сведения об использовании Oozie, включая задания на основе времени, в кластере под управлением Linux см. в разделе[Использование Oozie с Hadoop для определения и запуска рабочих процессов в HDInsight под управлением Linux](hdinsight-use-oozie-linux-mac.md)
 
 ##<a id="whatisoozie"></a>Что такое Oozie
 
@@ -54,16 +54,16 @@ Apache Oozie — это система рабочих процессов и ко
 
 2.  Действие Sqoop экспортирует выходные данные действия HiveQL в таблицу в базе данных SQL Azure. Дополнительные сведения о Sqoop см. в статье [Использование Sqoop с HDInsight][hdinsight-use-sqoop].
 
-> [AZURE.NOTE]Информацию о поддерживаемых версиях Oozie в кластерах HDInsight см. в статье [Новые возможности версий кластеров, предоставляемых HDInsight][hdinsight-versions].
+> [AZURE.NOTE] Информацию о поддерживаемых версиях Oozie в кластерах HDInsight см. в статье [Новые возможности версий кластеров, предоставляемых HDInsight][hdinsight-versions].
 
-> [AZURE.NOTE]В этом учебнике показана работа с кластером HDInsight версии 2.1 и 3.0. Эта статья не проверялась на эмуляторе HDInsight.
+> [AZURE.NOTE] В этом учебнике показана работа с кластером HDInsight версии 2.1 и 3.0. Эта статья не проверялась на эмуляторе HDInsight.
 
 
 ##<a id="prerequisites"></a>Предварительные требования
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Рабочая станция с Azure PowerShell.**. Обратитесь к разделу [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Для выполнения сценариев Windows PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. Дополнительные сведения см. в статье [Выполнение сценариев Windows PowerShell][powershell-script].
+- **Рабочая станция с Azure PowerShell.**. Обратитесь к разделу [Установка и использование Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Для выполнения сценариев Windows PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. Дополнительные сведения см. в статье [Выполнение сценариев Windows PowerShell][powershell-script].
 - **Кластер HDInsight**. Сведения о создании кластера HDInsight см. в статье [Подготовка кластеров HDInsight к работе][hdinsight-provision] или [Начало работы с HDInsight][hdinsight-get-started]. Для выполнения учебника необходимы следующие данные:
 
 	<table border = "1">
@@ -78,17 +78,15 @@ Apache Oozie — это система рабочих процессов и ко
 - **База данных SQL Azure.** Необходимо настроить правило брандмауэра для сервера базы данных SQL, чтобы разрешить доступ к рабочей станции. Инструкции по созданию базы данных Azure SQL и настройке брандмауэра см. в статье [Приступая к работе с базой данных SQL Azure][sqldatabase-get-started]. Эта статья включает сценарий Windows PowerShell для создания таблицы базы данных Azure SQL, необходимой в рамках этого учебника.
 
 	<table border = "1">
-	<tr><th>Свойство базы данных SQL</th><th>Имя переменной Windows PowerShell</th><th>Значение</th><th>Описание</th></tr>
-	<tr><td>Имя сервера базы данных SQL</td><td>$sqlDatabaseServer</td><td></td><td>Сервер базы данных SQL, куда Sqoop экспортирует данные. </td></tr>
-	<tr><td>Имя для входа базы данных SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Имя для входа базы данных SQL</td></tr>
-	<tr><td>Пароль для входа базы данных SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Пароль для входа базы данных SQL</td></tr>
-	<tr><td>Имя базы данных SQL</td><td>$sqlDatabaseName</td><td></td><td>База данных Azure SQL, куда Sqoop экспортирует данные. </td></tr>
-	</table>
-
-	> [AZURE.NOTE]По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, в частности из службы Azure HDInsight. Если этот параметр брандмауэра отключен, нужно включить его на портале Azure. Инструкции по созданию базы данных SQL и настройке правил брандмауэра см. в разделе [Создание и настройка базы данных SQL][sqldatabase-create-configure].
+<tr><th>Свойство базы данных SQL</th><th>Имя переменной Windows PowerShell</th><th>Значение</th><th>Описание</th></tr>
+<tr><td>Имя сервера базы данных SQL</td><td>$sqlDatabaseServer</td><td></td><td>Сервер базы данных SQL, куда Sqoop экспортирует данные. </td></tr>
+<tr><td>Имя для входа базы данных SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Имя для входа базы данных SQL</td></tr>
+<tr><td>Пароль для входа базы данных SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Пароль для входа базы данных SQL</td></tr>
+<tr><td>Имя базы данных SQL</td><td>$sqlDatabaseName</td><td></td><td>База данных Azure SQL, куда Sqoop экспортирует данные. </td></tr>
+</table>> [AZURE.NOTE] По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, в частности из службы Azure HDInsight. Если этот параметр брандмауэра отключен, нужно включить его на портале Azure. Инструкции по созданию базы данных SQL и настройке правил брандмауэра см. в разделе [Создание и настройка базы данных SQL][sqldatabase-create-configure].
 
 
-> [AZURE.NOTE]Введите значения в таблицы. Это будет полезно при прохождении данного учебника.
+> [AZURE.NOTE] Введите значения в таблицы. Это будет полезно при прохождении данного учебника.
 
 
 ##<a id="defineworkflow"></a>Определение рабочего процесса Oozie и связанного с ним сценария HiveQL
@@ -188,29 +186,21 @@ Apache Oozie — это система рабочих процессов и ко
 	RunHiveScript имеет несколько переменных. Вы передадите эти значения при отправке задания Oozie с рабочей станции с помощью Azure PowerShell.
 
 	<table border = "1">
-	<tr><th>Переменные рабочего процесса</th><th>Описание</th></tr>
-	<tr><td>${jobTracker}</td><td>Укажите URL-адрес средства отслеживания заданий Hadoop. Используйте <strong>jobtrackerhost:9010</strong> в кластере HDInsight версии 3.0 и 2.0.</td></tr>
-	<tr><td>${nameNode}</td><td>Укажите URL-адрес узла имен заданий Hadoop. Используйте стандартный адрес wasb:// для файловой системы, например <i>wasb://&lt;имя_контейнера>@&lt;имя_учетной_записи_хранилища>.blob.core.windows.net</i>.</td></tr>
-	<tr><td>${queueName}</td><td>Указывает имя очереди, в которую будет отправлено задание. Используйте <strong>значение по умолчанию</strong>.</td></tr>
-	</table>
-
-
-	<table border = "1">
-	<tr><th>Переменная действия Hive</th><th>Описание</th></tr>
-	<tr><td>${hiveDataFolder}</td><td>Исходный каталог для команды создания таблицы Hive.</td></tr>
-	<tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции INSERT OVERWRITE.</td></tr>
-	<tr><td>${hiveTableName}</td><td>Имя таблицы Hive, ссылающейся на файлы данных log4j.</td></tr>
-	</table>
-
-
-	<table border = "1">
-	<tr><th>Переменная действия Sqoop</th><th>Описание</th></tr>
-	<tr><td>${sqlDatabaseConnectionString}</td><td>Строка подключения для базы данных SQL.</td></tr>
-	<tr><td>${sqlDatabaseTableName}</td><td>Таблица базы данных  Azure SQL, в которую будут экспортированы данные.</td></tr>
-	<tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции Hive INSERT OVERWRITE. Это та же папка, что и каталог для экспорта Sqoop (export-dir).</td></tr>
-	</table>
-
-	Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в [документации на Apache Oozie 4.0][apache-oozie-400] (для кластера HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] (для кластера HDInsight версии 2.1).
+<tr><th>Переменные рабочего процесса</th><th>Описание</th></tr>
+<tr><td>${jobTracker}</td><td>Укажите URL-адрес средства отслеживания заданий Hadoop. Используйте <strong>jobtrackerhost:9010</strong> в кластере HDInsight версии 3.0 и 2.0.</td></tr>
+<tr><td>${nameNode}</td><td>Укажите URL-адрес узла имен заданий Hadoop. Используйте стандартный адрес wasb:// для файловой системы, например <i>wasb://&lt;имя_контейнера>@&lt;имя_учетной_записи_хранилища>.blob.core.windows.net</i>.</td></tr>
+<tr><td>${queueName}</td><td>Указывает имя очереди, в которую будет отправлено задание. Используйте <strong>значение по умолчанию</strong>.</td></tr>
+</table><table border = "1">
+<tr><th>Переменная действия Hive</th><th>Описание</th></tr>
+<tr><td>${hiveDataFolder}</td><td>Исходный каталог для команды создания таблицы Hive.</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции INSERT OVERWRITE.</td></tr>
+<tr><td>${hiveTableName}</td><td>Имя таблицы Hive, ссылающейся на файлы данных log4j.</td></tr>
+</table><table border = "1">
+<tr><th>Переменная действия Sqoop</th><th>Описание</th></tr>
+<tr><td>${sqlDatabaseConnectionString}</td><td>Строка подключения для базы данных SQL.</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>Таблица базы данных  Azure SQL, в которую будут экспортированы данные.</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции Hive INSERT OVERWRITE. Это та же папка, что и каталог для экспорта Sqoop (export-dir).</td></tr>
+</table>Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в [документации на Apache Oozie 4.0][apache-oozie-400] (для кластера HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] (для кластера HDInsight версии 2.1).
 
 2. Сохраните файл как **C:\\Tutorials\\UseOozie\\workflow.xml** в кодировке ANSI (ASCII). (Используйте Блокнот, если ваш текстовый редактор не предоставляет такую возможность.)
 
@@ -256,9 +246,9 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]Кластер HDInsight версии 3.0 поддерживает только синтаксис **wasb://*. Прежний синтаксис **asv://* поддерживается в кластерах HDInsight 2.1 и 1.6, однако не поддерживается в кластерах HDInsight 3.0.
+> [AZURE.NOTE] Кластер HDInsight версии 3.0 поддерживает только синтаксис **wasb://*. Прежний синтаксис **asv://* поддерживается в кластерах HDInsight 2.1 и 1.6, однако не поддерживается в кластерах HDInsight 3.0.
 
-> [AZURE.NOTE]Путь wasb:// является виртуальным. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
+> [AZURE.NOTE] Путь wasb:// является виртуальным. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
 
 Доступ к файлу, хранящемуся в контейнере файловой системы по умолчанию, из HDInsight может осуществляться с помощью любого из следующих URI (workflow.xml используется в качестве примера):
 
@@ -291,7 +281,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 	Появится запрос на ввод учетных данных учетной записи Azure. Этот метод добавления подключения подписки имеет срок действия, и после 12 часов вам потребуется снова запустить командлет.
 
-	> [AZURE.NOTE]Если имеется несколько подписок Azure и должна использоваться подписка, отличная от подписки по умолчанию, воспользуйтесь командлетом <strong>Select-AzureSubscription</strong> для выбора подписки.
+	> [AZURE.NOTE] Если имеется несколько подписок Azure и должна использоваться подписка, отличная от подписки по умолчанию, воспользуйтесь командлетом <strong>Select-AzureSubscription</strong> для выбора подписки.
 
 3. Скопируйте следующий сценарий в область сценариев и задайте первые шесть переменных
 
@@ -522,7 +512,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 		</configuration>
 		"@
 
-	>[AZURE.NOTE]Основным различием по сравнению с файлом полезных данных отправки рабочего процесса является переменная **oozie.coord.application.path**. При отправке задания рабочего процесса используйте вместо нее **oozie.wf.application.path**.
+	>[AZURE.NOTE] Основным различием по сравнению с файлом полезных данных отправки рабочего процесса является переменная **oozie.coord.application.path**. При отправке задания рабочего процесса используйте вместо нее **oozie.wf.application.path**.
 
 4. Добавьте следующее содержимое в скрипт. Эта часть проверяет состояние веб-служб Oozie:
 
@@ -560,7 +550,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 		    return $oozieJobId
 		}
 
-	> [AZURE.NOTE]При отправке задания рабочего процесса необходимо вызвать другую веб-службу, чтобы запустить задание после его создания. В этом случае задание координатора запускается по времени. Задание будет запускаться автоматически.
+	> [AZURE.NOTE] При отправке задания рабочего процесса необходимо вызвать другую веб-службу, чтобы запустить задание после его создания. В этом случае задание координатора запускается по времени. Задание будет запускаться автоматически.
 
 6. Добавьте следующее содержимое в скрипт. Эта часть проверяет состояние задания Oozie:
 
@@ -744,4 +734,4 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

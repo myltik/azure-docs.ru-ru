@@ -104,10 +104,10 @@
 
 Дополнительную информацию об интерфейсе командной строки Azure, Linux и расширении CustomScript см. в следующих статьях.
 
-[Автоматизация задач настройки виртуальных машин под управлением Linux с помощью расширения CustomScript](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
+[Автоматизация задач настройки виртуальных машин под управлением Linux с помощью расширения CustomScript](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
 [Расширения Azure для Linux (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Linux и вычисления с открытым кодом в Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

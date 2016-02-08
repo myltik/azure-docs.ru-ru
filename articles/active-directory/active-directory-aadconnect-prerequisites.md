@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/12/2016"
+   ms.date="01/21/2016"
    ms.author="andkjell;billmath"/>
 
 # Необходимые условия для Azure AD Connect
@@ -23,7 +23,7 @@
 Прежде чем установить Azure AD Connect и обновить DirSync, вам потребуется ряд элементов.
 
 ### Azure AD
-- Подписка Azure или [пробная подписка Azure](http://azure.microsoft.com/pricing/free-trial/). Она необходима только для доступа к порталу Azure и не требуется для использования Azure AD Connect. Если вы используете PowerShell или Office 365, то для работы с Azure AD Connect подписка Azure не требуется. При наличии лицензии на Office 365 можно также использовать портал Office 365. Платная лицензия на Office 365 также позволяет перейти на портал Azure из портала Office 365.
+- Подписка Azure или [пробная подписка Azure](https://azure.microsoft.com/pricing/free-trial/). Она необходима только для доступа к порталу Azure и не требуется для использования Azure AD Connect. Если вы используете PowerShell или Office 365, то для работы с Azure AD Connect подписка Azure не требуется. При наличии лицензии на Office 365 можно также использовать портал Office 365. Платная лицензия на Office 365 также позволяет перейти на портал Azure из портала Office 365.
 - [Добавьте и подтвердите домен](active-directory-add-domain.md), который вы планируете использовать в Azure AD. Например, если вы планируете использовать для своих пользователей домен contoso.com, убедитесь, что он был подтвержден и вы используете не просто домен по умолчанию contoso.onmicrosoft.com.
 - Каталог Azure AD по умолчанию вмещает в себя 50 тыс. объектов. После подтверждения домена этот предел увеличивается до 300 тыс. объектов. Если вам нужно еще больше объектов в Azure AD, необходимо открыть заявку в службу технической поддержки, чтобы дополнительно увеличить данный предел. Если вам необходимо более 500 тыс. объектов, потребуется лицензия, например на Office 365, Azure AD категории "Базовый", Azure AD категории "Премиум" или Enterprise Mobility Suite.
 
@@ -166,4 +166,4 @@ netsh winhttp>set proxy <PROXYADDRESS>:<PROXYPORT>
 ## Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

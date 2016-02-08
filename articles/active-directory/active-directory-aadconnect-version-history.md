@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/02/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: история выпусков версий
@@ -50,7 +50,7 @@
 **Новые функции предварительной версии:**
 
 - [Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md).
-- Поддержка синхронизации паролей [доменных служб Azure AD](active-directory-ds-getting-started.md).
+- Поддержка синхронизации паролей [доменных служб Azure AD](active-directory-get-started.md).
 
 **Новый поддерживаемый сценарий:**
 
@@ -165,7 +165,7 @@
 
 **Новые функции:**
 
-- Теперь поддерживается синхронизация паролей с фильтрацией на основе атрибутов. Дополнительные сведения см. в статье о [синхронизации паролей с фильтрацией](active-directory-aadconnectsync-configure-filtering.md).
+- Теперь поддерживается синхронизация паролей с фильтрацией на основе атрибутов. Дополнительные сведения см. в разделе [Синхронизация паролей с фильтрацией](active-directory-aadconnectsync-configure-filtering.md).
 - Атрибут msDS-ExternalDirectoryObjectID записывается обратно в AD. Это добавляет поддержку приложений Office 365 с использованием OAuth2 для доступа как к сетевым, так и к локальным почтовым ящикам при гибридном развертывании Exchange.
 
 **Исправленные проблемы обновления:**
@@ -209,4 +209,4 @@
 ## Дальнейшие действия
 Ознакомьтесь с дополнительными сведениями об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

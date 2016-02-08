@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/05/2015" 
+	ms.date="01/20/2016" 
 	ms.author="glenga"/>
 
 # Использование управляемого клиента для мобильных приложений Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -33,7 +32,7 @@
 
 ##<a name="setup"></a>Настройка и необходимые компоненты
 
-Предполагается, что вы уже создали и опубликовали проект внутреннего сервера мобильных приложений, который включает одну таблицу. В коде, который используется в этом разделе, применяется таблица `TodoItem`, которая содержит следующие столбцы: `Id`, `Text` и `Complete`. Это та же таблица, которая была создана при выполнении [краткого руководства](app-service-mobile-windows-store-dotnet-get-started.md).
+Предполагается, что вы уже создали и опубликовали проект внутреннего сервера мобильных приложений, который включает одну таблицу. В коде, который используется в этом разделе, применяется таблица `TodoItem`, которая содержит следующие столбцы: `Id`, `Text` и `Complete`. Это та же таблица, которая была создана при выполнении [краткого учебника](app-service-mobile-windows-store-dotnet-get-started.md).
 
 Соответствующий типизированный тип на стороне клиента в C# выглядит следующим образом:
 
@@ -51,17 +50,15 @@
 
 Обратите внимание, что атрибут [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) используется для определения сопоставления *PropertyName* между типом клиента и таблицей.
 
-Сведения о создании новых таблиц в серверной части мобильных приложений см. в разделах [Практическое руководство. Определение контроллера таблиц](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (серверная часть .NET) или [Определение таблицы с помощью динамической схемы](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (серверная часть Node.js). Для серверной части Node.js можно использовать параметр **Простые таблицы** на [портале Azure](https://portal.azure.com).
+Сведения о создании новых таблиц в серверной части мобильных приложений см. в разделах [Практическое руководство. Определение контроллера таблиц](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (серверная часть .NET) или [Определение таблицы с помощью динамической схемы](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (серверная часть Node.js). Для серверной части Node.js можно использовать параметр **Простые таблицы** на [портале Azure](https://portal.azure.com/).
 
 ##<a name="create-client"></a>Практическое руководство. Создание клиента мобильных приложений
 
 В следующем коде создается объект `MobileServiceClient`, который используется для доступа к серверной части мобильных приложений.
 
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
-	MobileServiceClient client = new MobileServiceClient(
-		"MOBILE_APP_URL", "", "");
-
-В приведенном выше коде замените `MOBILE_APP_URL` URL-адресом серверной части мобильных приложений, который можно найти в колонке серверной части мобильных приложений на [портале Azure](https://portal.azure.com).
+В приведенном выше коде замените `MOBILE_APP_URL` URL-адресом серверной части мобильных приложений, который можно найти в колонке серверной части мобильных приложений на [портале Azure](https://portal.azure.com/).
 
 ##<a name="instantiating"></a>Практическое руководство. Создание ссылки на таблицу
 
@@ -262,12 +259,7 @@
 
 	await todoTable.UpdateAsync(todoItem);
 
-Для вставки нетипизированных данных можно использовать Json.NET следующим образом: 
-	JObject jo = new JObject();
-	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
-	jo.Add("Text", "Привет всем");
-	jo.Add("Complete", false);
-	var inserted = await table.UpdateAsync(jo);
+Для вставки нетипизированных данных можно использовать Json.NET следующим образом: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Привет всем"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
 
 Обратите внимание, что при выполнении обновления необходимо указать идентификатор. Таким образом внутренний сервер определяет, какой экземпляр нужно обновить. Идентификатор можно получить из результатов вызова метода `InsertAsync`. При попытке обновить элемент без предоставления значения Id создается исключение `ArgumentException`.
 
@@ -315,7 +307,6 @@
 		}
 
 Обратите внимание, что в этом примере в регистрацию включены два тега. Дополнительные сведения о приложениях Windows, включая способ регистрации для выполнения регистраций шаблонов, см. в разделе [Добавление push-уведомлений в приложение](app-service-mobile-windows-store-dotnet-get-started-push.md).
-
 
 Приложениям Xamarin требуется дополнительный код для регистрации приложения, работающего под управлением iOS или Android, в Службе push-уведомлений Apple (APNS) и службе Google Cloud Messaging (GCM) соответственно. Более подробные сведения об этом см. в статье **Добавление push-уведомлений к приложению** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
@@ -462,7 +453,7 @@
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Некоторые элементы управления в управляемой среде выполнения Windows поддерживают интерфейс [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Этот интерфейс позволяет элементам управления запрашивать дополнительные данные во время прокрутки, выполняемой пользователем. Для универсальных приложений Windows 8.1 предусмотрена встроенная поддержка этого интерфейса через класс `MobileServiceIncrementalLoadingCollection`, который автоматически обрабатывает вызовы из элементов управления. Чтобы использовать класс `MobileServiceIncrementalLoadingCollection` в приложениях для Windows, следуйте приведенным ниже инструкциям.
+Некоторые элементы управления в управляемой среде выполнения Windows поддерживают интерфейс [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Этот интерфейс позволяет элементам управления запрашивать дополнительные данные во время прокрутки, выполняемой пользователем. Для универсальных приложений для Windows 8.1 предусмотрена встроенная поддержка этого интерфейса через класс `MobileServiceIncrementalLoadingCollection`, который автоматически обрабатывает вызовы из элементов управления. Чтобы использовать класс `MobileServiceIncrementalLoadingCollection` в приложениях для Windows, выполните следующее:
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -480,6 +471,111 @@
 При использовании коллекции, созданной путем вызова метода `ToCollectionAsync` или `ToCollection`, вы получите коллекцию, которую можно привязать к элементам управления пользовательским интерфейсом. Эта коллекция поддерживает разбиение по страницам, то есть элемент управления может запросить в коллекции загрузку дополнительных элементов, что и будет выполнено коллекцией для этого элемента. На этом этапе пользовательский код не участвует, элемент управления запустит поток. Однако так как коллекция загружает данные из сети, ожидается, что иногда эта загрузка будет завершаться со сбоем. Чтобы обработать подобные ошибки, можно переопределить метод `OnException` класса `MobileServiceIncrementalLoadingCollection` для обработки исключений, возникающих в результате вызова элементами управления метода `LoadMoreItemsAsync`.
 
 Наконец, представьте, что в таблице содержится множество полей, однако необходимо отобразить только те из них, которые находятся под вашим управлением. С помощью инструкций в разделе [Выбор конкретных столбцов](#selecting) выше можно выбрать столбцы, отображаемые в пользовательском интерфейсе.
+
+## <a name="adal"></a>Практическое руководство: проверка подлинности пользователей с помощью библиотеки проверки подлинности Active Directory
+
+Библиотеку проверки подлинности Active Directory (ADAL) можно использовать для входа пользователей в приложение с помощью Azure Active Directory. Этот подход является более предпочтительным, чем использование методов `loginAsync()`, так как он обеспечивает более удобный интерфейс входа для пользователя и позволяет выполнять дополнительную настройку.
+
+1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя инструкциям в руководстве [Настройка приложения службы приложений для использования службы входа Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Обязательно выполните дополнительный этап регистрации собственного клиентского приложения.
+
+2. В Visual Studio или Xamarin Studio откройте проект и добавьте ссылку на пакет NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Во время поиска включите предварительные версии.
+
+3. Добавьте в приложение код, соответствующий используемой платформе. Код находится ниже. В каждом коде выполните следующие замены.
+
+* Замените текст **INSERT-AUTHORITY-HERE** именем клиента, в котором вы подготовили свое приложение. Используйте следующий формат: https://login.windows.net/contoso.onmicrosoft.com. Это значение можно скопировать на вкладке "Домен" в Azure Active Directory на [классическом портале Azure].
+
+* Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Это значение можно скопировать на вкладке **Дополнительно** в разделе **Параметры Azure Active Directory** на портале.
+
+* Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
+
+* Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой вашего сайта _/.auth/login/done_, используя схему HTTPS. Это значение должно быть аналогично _https://contoso.azurewebsites.net/.auth/login/done_.
+
+Ниже приведены колы для каждой платформы.
+
+**Windows:**
+
+        private MobileServiceUser user;
+        private async Task AuthenticateAsync()
+        {
+            string authority = "INSERT-AUTHORITY-HERE";
+            string resourceId = "INSERT-RESOURCE-ID-HERE";
+            string clientId = "INSERT-CLIENT-ID-HERE";
+            string redirectUri = "INSERT-REDIRECT-URI-HERE";
+            while (user == null)
+            {
+                string message;
+                try
+                {
+                  AuthenticationContext ac = new AuthenticationContext(authority);
+                  AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
+                  JObject payload = new JObject();
+                  payload["access_token"] = ar.AccessToken;
+                  user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+                  message = string.Format("You are now logged in - {0}", user.UserId);
+                }
+                catch (InvalidOperationException)
+                {
+                  message = "You must log in. Login Required";
+                }
+                var dialog = new MessageDialog(message);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+        }
+
+**Xamarin.iOS**
+
+        private MobileServiceUser user;
+        private async Task AuthenticateAsync(UIViewController view)
+        {
+            string authority = "INSERT-AUTHORITY-HERE";
+            string resourceId = "INSERT-RESOURCE-ID-HERE";
+            string clientId = "INSERT-CLIENT-ID-HERE";
+            string redirectUri = "INSERT-REDIRECT-URI-HERE";
+            try
+			{
+				AuthenticationContext ac = new AuthenticationContext(authority);
+				AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(view));
+				JObject payload = new JObject();
+				payload["access_token"] = ar.AccessToken;
+				user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+			}
+			catch (Exception ex)
+			{
+				Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+			}
+        }
+
+**Xamarin.Android**
+
+        private MobileServiceUser user;
+        private async Task AuthenticateAsync()
+        {
+            string authority = "INSERT-AUTHORITY-HERE";
+            string resourceId = "INSERT-RESOURCE-ID-HERE";
+            string clientId = "INSERT-CLIENT-ID-HERE";
+            string redirectUri = "INSERT-REDIRECT-URI-HERE";
+            try
+			{
+				AuthenticationContext ac = new AuthenticationContext(authority);
+				AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(this));
+				JObject payload = new JObject();
+				payload["access_token"] = ar.AccessToken;
+				user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+			}
+			catch (Exception ex)
+			{
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.SetMessage(ex.Message);
+				builder.SetTitle("You must log in. Login Required");
+				builder.Create().Show();
+			}
+        }
+		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		{
+			base.OnActivityResult(requestCode, resultCode, data);
+			AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
+		}
 
 ## <a name="package-sid"></a>Практическое руководство. Получение SID пакета Магазина Windows
 
@@ -766,4 +862,4 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

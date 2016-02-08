@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="11/16/2015"
 	ms.author="jodebrui"/>
 
@@ -52,7 +52,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 Импортируйте BACPAC-файл в новую базу данных категории «Премиум».
 
-1. На [портале](http://portal.azure.com/) Azure сделайте следующее.
+1. На [портале](https://portal.azure.com/) Azure сделайте следующее.
  - Перейдите на сервер.
  - Выберите пункт [Импорт базы данных](sql-database-import.md).
  - Выберите ценовую категорию «Премиум».
@@ -220,7 +220,7 @@ CREATE PROCEDURE schemaname.procedurename
 
 Рассмотрите возможность отслеживания влияния, оказываемого компонентом In-Memory в рабочей среде.
 
-- [Мониторинг хранилища In-Memory](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/).
+- [Мониторинг хранилища In-Memory](sql-database-in-memory-oltp-monitoring.md).
 
 - [Мониторинг базы данных SQL Azure с помощью динамических представлений управления](sql-database-monitoring-with-dmvs.md)
 
@@ -233,4 +233,4 @@ CREATE PROCEDURE schemaname.procedurename
 
 - [Помощник по оптимизации памяти](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

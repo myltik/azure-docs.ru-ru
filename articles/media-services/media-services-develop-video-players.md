@@ -34,7 +34,7 @@
 
 - [Azure Media Player](http://aka.ms/ampinfo)
 - [Документация Azure Media Player](http://aka.ms/ampdocs) 
-- [Блог о начале работы с Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
+- [Блог о начале работы с Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [Подпишитесь, чтобы оставаться в курсе последних новостей о мультимедиапроигрывателе Azure](http://aka.ms/ampsignup)
 - [Добавление новых запросов функций, идей, отзывов](http://aka.ms/ampuservoice) 
 
@@ -43,11 +43,11 @@
 
 Также можно использовать любой из следующих пакетов SDK:
 
-- [клиентский пакет SDK Smooth Streaming](http://www.iis.net/downloads/microsoft/smooth-streaming); 
-- [приложение магазина Windows с потоковой передачей Smooth Streaming](media-services-build-smooth-streaming-apps.md);
-- [платформа проигрывателя Microsoft Media Platform](http://playerframework.codeplex.com/); 
-- [документация по платформе проигрывателя HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation); 
-- [подключаемый модуль Microsoft Smooth Streaming для OSMF](https://www.microsoft.com/download/details.aspx?id=36057); 
+- [клиентский пакет SDK Smooth Streaming;](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+- [приложение магазина Windows с потоковой передачей Smooth Streaming;](media-services-build-smooth-streaming-apps.md)
+- [платформа проигрывателя Microsoft Media Platform;](http://playerframework.codeplex.com/) 
+- [документация по платформе проигрывателя HTML5;](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
+- [подключаемый модуль Microsoft Smooth Streaming для OSMF;](https://www.microsoft.com/download/details.aspx?id=36057) 
 - [Лицензирование пакета для портирования клиента бесперебойной потоковой передачи Microsoft® Smooth Streaming](http://aka.ms/sspk) 
 - [Разработка приложений для воспроизведения видео на XBOX](http://xbox.create.msdn.com/) 
  
@@ -82,4 +82,4 @@
 [Репозиторий dash.js на GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

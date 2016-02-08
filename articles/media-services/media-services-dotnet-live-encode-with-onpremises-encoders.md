@@ -29,7 +29,7 @@
 
 Рекомендуется ознакомиться со следующими разделами.
 
-- [Поддержка протокола RTMP службами мультимедиа Azure и динамические кодировщики](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
+- [Поддержка протокола RTMP службами мультимедиа Azure и динамические кодировщики](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 - [Работа с каналами, получающими динамические многоскоростные потоки данных от локальных кодировщиков](media-services-manage-channels-overview.md)
  
 
@@ -49,7 +49,7 @@
 - Получение указателей для всех конечных точек потоковой передачи
 - Завершение работы ресурсов
 	
-Чтобы узнать, как настроить динамический кодировщик, см. раздел [Поддержка RTMP в службах мультимедиа Azure и динамические кодировщики](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Чтобы узнать, как настроить динамический кодировщик, см. раздел [Поддержка RTMP в службах мультимедиа Azure и динамические кодировщики](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 	
 		using System;
 		using System.Collections.Generic;
@@ -385,4 +385,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

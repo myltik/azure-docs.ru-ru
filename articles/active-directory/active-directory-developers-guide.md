@@ -120,16 +120,16 @@ Azure Active Directory является платформой для управл
 
 В этих обзорных презентациях представители разработчиков освещают ключевые темы, связанные с разработкой приложений с помощью Azure Active Directory, включая IDMaaS, проверку подлинности, федерацию удостоверений и единый вход.
 
-- [Azure Active Directory: "управление удостоверениями как служба" для современных приложений](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)
-- [Разработка современных веб-приложений с помощью Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)
-- [Разработка современных приложений в машинном коде с помощью Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
+- [Azure Active Directory: "управление удостоверениями как служба" для современных приложений](https://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications/)
+- [Разработка современных веб-приложений с помощью Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory/)
+- [Разработка современных приложений в машинном коде с помощью Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/)
 
 ### Azure, пятница
-[Azure, пятница](http://azure.microsoft.com/documentation/videos/azure-friday/) — это еженедельная серия коротких (10–15 минут) видеоинтервью со специалистами на разные темы, связанные с Azure. Используйте функцию фильтра служб на странице, чтобы просмотреть все видео Azure Active Directory.
+[Azure, пятница](https://azure.microsoft.com/documentation/videos/azure-friday/) — это еженедельная серия коротких (10–15 минут) видеоинтервью со специалистами на разные темы, связанные с Azure. Используйте функцию фильтра служб на странице, чтобы просмотреть все видео Azure Active Directory.
 
-- [Удостоверение Azure 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
-- [Удостоверение Azure 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
-- [Удостоверение Azure 103](http://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)
+- [Удостоверение Azure 101](https://azure.microsoft.com/documentation/videos/azure-identity-basics/)
+- [Удостоверение Azure 102](https://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
+- [Удостоверение Azure 103](https://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)
 
 ## Социальные сети
 
@@ -141,4 +141,4 @@ Azure Active Directory является платформой для управл
 
 - [Azure Active Directory в Твиттере](https://twitter.com/azuread). Объявления Azure Active Directory длиной не более 140 знаков.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

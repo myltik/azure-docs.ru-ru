@@ -88,7 +88,7 @@
 
 ### Можно ли реплицировать виртуальные машины Hyper-V второго поколения в Azure?
 
-Да. Во время отработки отказа Site Recovery преобразует машины второго поколения в первое. При восстановлении размещения машина преобразуется обратно во второе поколение. [Подробная информация](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Да. Во время отработки отказа Site Recovery преобразует машины второго поколения в первое. При восстановлении размещения машина преобразуется обратно во второе поколение. [Подробная информация](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 ### Как осуществляется оплата за виртуальные машины при репликации в Azure? 
 
@@ -129,28 +129,28 @@ Site Recovery имеет сертификат ISO 27001:2005 и сейчас п
 
 Необходима учетная запись хранения для [геоизбыточного хранилища класса Standard](../storage/storage-redundancy.md/#geo-redundant-storage). [Учетная запись хранилища класса Premium](../storage/storage-premium-storage-preview-portal/) поддерживается только при репликации виртуальных машин VMware или физических серверов Windows и Linux в Azure.
 
-Локально избыточные хранилища класса Standard поддерживаются в очереди невыполненной работы. Отставьте отзыв об этой функции на [форуме](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
+Локально избыточные хранилища класса Standard поддерживаются в очереди невыполненной работы. Отставьте отзыв об этой функции на [форуме](https://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support/).
 
 ### Как часто можно реплицировать данные?
 - **Hyper-V.** Виртуальные машины Hyper-V можно реплицировать каждые 30 секунд, 5 минут или 15 минут. При настройке репликации сети SAN репликация будет синхронной.
 - **VMware и физические серверы.** Здесь частота репликации не имеет значения. Она будет непрерывной. 
 
 ### Можно ли расширить репликацию с существующего сайта восстановления до сайта третьего уровня?
-Расширенная репликация и цепочка репликации не поддерживаются. Оставьте отзыв об этой функции на [форуме](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+Расширенная репликация и цепочка репликации не поддерживаются. Оставьте отзыв об этой функции на [форуме](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication/).
 
 
 ### Можно ли выполнить первую процедуру репликации в Azure в автономном режиме? 
 
-Эта возможность не поддерживается. Оставьте отзыв об этой функции на [форуме](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Эта возможность не поддерживается. Оставьте отзыв об этой функции на [форуме](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from/).
 
 
 ### Можно ли исключить из репликации отдельные диски?
 
-Эта возможность не поддерживается. Оставьте отзыв об этой функции на [форуме](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication).
+Эта возможность не поддерживается. Оставьте отзыв об этой функции на [форуме](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication/).
 
 ### Можно ли реплицировать виртуальные машины с динамическими дисками?
 
-Динамические диски поддерживаются при репликации виртуальных машин Hyper-V. Однако они не поддерживаются при репликации виртуальных машин VMware или физических серверов. Оставьте отзыв об этой функции на [форуме](http://feedback.azure.com/forums/256299-site-recovery).
+Динамические диски поддерживаются при репликации виртуальных машин Hyper-V. Однако они не поддерживаются при репликации виртуальных машин VMware или физических серверов. Оставьте отзыв об этой функции на [форуме](https://feedback.azure.com/forums/256299-site-recovery/).
 
 ### Как получить доступ к виртуальным машинам Azure после отработки отказа в Azure? 
 
@@ -223,4 +223,4 @@ Site Recovery имеет сертификат ISO 27001:2005 и сейчас п
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -31,8 +31,8 @@
 
 **Дополнительные ресурсы**
 
-* [Блог Microsoft Azure](http://azure.microsoft.com/blog/)
+* [Блог Microsoft Azure](https://azure.microsoft.com/blog/)
 * [Что такое Azure AD?](active-directory-whatis.md)
 * [Использование локальной инфраструктуры удостоверений в облаке](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

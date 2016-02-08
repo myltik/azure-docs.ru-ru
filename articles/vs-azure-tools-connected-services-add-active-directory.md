@@ -75,8 +75,8 @@ Azure Active Directory (Azure AD) позволяет обеспечить еди
 
  - [Форум MSDN: Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 
- - [Документация по Azure AD](http://azure.microsoft.com/documentation/services/active-directory/)
+ - [Документация по Azure AD](https://azure.microsoft.com/documentation/services/active-directory/)
 
  - [Записи блога: общие сведения об Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

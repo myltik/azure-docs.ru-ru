@@ -287,7 +287,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Дополнительную информацию см. в статье [Секционированные очереди и разделы служебной шины | Блог Microsoft Azure](http://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) и в примере [секционированной очереди служебной шины Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f).
+Дополнительную информацию см. в статье [Секционированные очереди и разделы служебной шины | Блог Microsoft Azure](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) и в примере [секционированной очереди служебной шины Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f).
 
 ## Не задавайте значение SharedAccessStartTime
 
@@ -449,7 +449,7 @@ AP4001
 
 - Для приложений ASP.NET vNext используйте для хранения параметров строки подключения файл configuration.json.
 
-Сведения об использовании файлов конфигурации, таких как web.config или app.config, см. в разделе [Правила веб-конфигурации ASP.NET](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Сведения о принципах работы переменных среды Azure см. в справочной системе [Веб-сайты Microsoft Azure: как работают строки приложения и подключения](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Сведения о хранении строки подключения в системе управления версиями см. в разделе [Не размещайте конфиденциальные сведения, например строки подключения, в файлах, которые хранятся в репозитории исходного кода](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control).
+Сведения об использовании файлов конфигурации, таких как web.config или app.config, см. в разделе [Правила веб-конфигурации ASP.NET](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Сведения о принципах работы переменных среды Azure см. в справочной системе [Веб-сайты Microsoft Azure: как работают строки приложения и подключения](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Сведения о хранении строки подключения в системе управления версиями см. в разделе [Не размещайте конфиденциальные сведения, например строки подключения, в файлах, которые хранятся в репозитории исходного кода](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control).
 
 ## Использование файла конфигурации диагностики
 
@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 Дополнительную информацию об оптимизации и устранении неполадок приложений Azure см. в статье [Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-<!---HONumber=AcomDC_1223_2015--->
+<!---HONumber=AcomDC_0128_2016-->

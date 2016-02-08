@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Примеры .NET для DocumentDB на веб-сайте GitHub | Microsoft Azure" 
-	description="Найдите на веб-сайте GitHub примеры .NET на языке C#, позволяющие выполнять общие задачи в DocumentDB, включая операции CRUD для документов JSON в базах данных NoSQL." 
+	pageTitle="Пример NoSQL .NET для DocumentDB | Microsoft Azure" 
+	description="Примеры NoSQL .NET на языке C#, позволяющие выполнять общие задачи в DocumentDB, включая операции CRUD для документов JSON в базах данных NoSQL, можно найти на сайте GitHub." 
+	keywords="Пример NoSQL"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -17,28 +18,29 @@
 	ms.author="mimig"/>
 
 
-# Примеры .NET для DocumentDB
+# Примеры DocumentDB .NET
 
 > [AZURE.SELECTOR]
-- [.NET Samples](documentdb-dotnet-samples.md)
-- [Node.js Samples](documentdb-nodejs-samples.md)
+- [.NET Examples](documentdb-dotnet-samples.md)
+- [Node.js Examples](documentdb-nodejs-samples.md)
 - [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
-Примеры решений, которые выполняют операции CRUD и другие распространенные операции с ресурсами DocumentDB, содержатся в репозитории GitHub [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples). В этой статье содержатся:
+Примеры решений, которые выполняют операции CRUD и другие распространенные операции с ресурсами DocumentDB, содержатся в репозитории GitHub [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples). Эта статья содержит:
 
 - Ссылки на задачи в каждом из примеров файлов проектов C#. 
-- Ссылки на соответствующие справочные материалы по интерфейсам API.
+- Ссылки на соответствующие справочные материалы по API.
 
 **Предварительные требования**
 
-1. Для использования этих примеров требуется учетная запись Azure.
+1. Для использования этих примеров NoSQL требуется учетная запись Azure.
     - Вы можете [открыть учетную запись Azure бесплатно](https://azure.microsoft.com/pricing/free-trial/) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после использования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты. С вашей кредитной карты не будет взиматься плата, если вы явно не измените параметры и не попросите снимать плату.
-   - Вы можете [активировать преимущества подписчика Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) — подписка Visual Studio каждый месяц предоставляет вам кредиты, которые можно использовать для оплаты служб Azure.
+   - Вы можете [активировать преимущества подписчика Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) — каждый месяц ваша подписка Visual Studio предоставляет вам кредиты, которые можно использовать для оплаты служб Azure.
 2. Вам также понадобится [пакет NuGet Microsoft.Azure.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
-> [AZURE.NOTE]Каждый приведенный здесь пример самодостаточный. Он устанавливается самостоятельно и выполняет необходимую очистку после удаления. Поэтому примеры выполняют несколько вызовов метода CreateDocumentCollectionAsync(). Каждый раз, когда это происходит, вам выставляется счет за 1 час использования каждого уровня производительности создаваемой коллекции.
+> [AZURE.NOTE]
+Каждый приведенный здесь пример самодостаточный. Он устанавливается самостоятельно и выполняет необходимую очистку после удаления. Поэтому примеры выполняют несколько вызовов метода CreateDocumentCollectionAsync(). Каждый раз, когда это происходит, вам выставляется счет за 1 час использования каждого уровня производительности создаваемой коллекции.
 
-## Примеры для баз данных
+## Примеры баз данных
 
 Метод [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) примера проекта DatabaseManagement показывает, как выполнить следующие задачи.
 
@@ -50,7 +52,7 @@
 [Создание списка баз данных для учетной записи](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L108-L113) | [DocumentClient.ReadDatabaseFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdatabasefeedasync.aspx)
 [Удаление базы данных](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L118) | [DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx)
 
-## Примеры для коллекций 
+## Примеры коллекций 
 
 Метод [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) примера проекта CollectionManagement показывает, как выполнить следующие задачи.
 
@@ -63,7 +65,7 @@
 [Чтение списка всех коллекций в базе данных](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L162) | [DocumentClient.ReadDocumentCollectionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentcollectionfeedasync.aspx)
 [Удаление коллекции](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L175) | [DocumentClient.DeleteDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync.aspx)
 
-## Примеры для документов
+## Примеры документов
 
 Метод [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) примера проекта DocumentManagement показывает, как выполнить следующие задачи.
 
@@ -78,7 +80,7 @@
 [Удаление документа](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L322) | [DocumentClient.DeleteDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentasync.aspx)
 [Работа с динамическими объектами .NET](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L331-L380) | [DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx)<br>[DocumentClient.ReadDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentasync.aspx)<br>[DocumentClient.ReplaceDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentasync.aspx)
 
-## Примеры для индексирования
+## Примеры индексирования
 
 Метод [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) примера проекта IndexManagement показывает, как выполнить следующие задачи.
 
@@ -92,9 +94,9 @@
 [Использование диапазонных индексов в строках](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L342-L405)| [IndexingPolicy.IncludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.includedpaths.aspx)<br>[RangeIndex](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.rangeindex.aspx)
 [Преобразование индекса](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L407-L464)| [ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx)
 
-Дополнительные сведения об индексировании см. в статье [Политики индексации DocumentDB](documentdb-indexing-policies.md).
+Дополнительные сведения об индексации см. в статье [Политики индексации DocumentDB](documentdb-indexing-policies.md).
  
-## Примеры для секционирования
+## Примеры секционирования
 
 В файле примера секционирования [azure-documentdb-net/samples/code-samples/Partitioning/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Partitioning/Program.cs) показано, как выполнить приведенные ниже задачи. В некоторых случаях для выполнения задачи используются дополнительные вспомогательные файлы.
 
@@ -112,9 +114,9 @@
 
 Дополнительные сведения о секционировании и сегментировании см. в статье [Секционирование и масштабирование данных в DocumentDB](documentdb-partition-data.md).
 
-## Примеры для файлов с геопространственными данными  
+## Примеры с геопространственными данными  
 
-В примере файла с геопространственными данными [azure-documentdb-net/samples/code-samples/Partitioning/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) показано, как выполнить следующие задачи.
+В примере файла с геопространственными данными [azure-documentdb-net/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) показано, как выполнить следующие задачи.
  
 Задача | Справочник по API  
 ---- | ---  
@@ -127,7 +129,7 @@
  
 Дополнительные сведения о работе с геопространственными данными см. в статье [Работа с геопространственными данными в Azure DocumentDB](documentdb-geospatial.md).
  
-## Примеры для запросов
+## Примеры запросов
 
 В файле документа запроса [azure-documentdb-net/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries/Program.cs) показано, как выполнить каждую из следующих задач, применяя грамматику запросов SQL и поставщика LINQ с использованием запроса и лямбды.
 
@@ -148,7 +150,7 @@
 Дополнительные сведения о написании запросов см. в статье [SQL-запрос в DocumentDB](documentdb-sql-query.md).
 
 
-## Примеры для программирования на стороне сервера
+## Примеры программирования на стороне сервера
 
 В файле программирования на стороне сервера [azure-documentdb-net/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/ServerSideScripts/Program.cs) показано, как выполнить следующие задачи.
 
@@ -164,9 +166,9 @@
 
 Дополнительные сведения о программировании на стороне сервера см. в разделе [Программирование DocumentDB на стороне сервера: хранимые процедуры, триггеры баз данных и определяемые пользователем функции](documentdb-programming.md).
 
-## Примеры для управления пользователями
+## Примеры управления пользователями
 
-В файле управления пользователями [azure-documentdb-net/samples/code-samples/Partitioning/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs) показано, как выполнить следующие задачи.
+В файле управления пользователями [azure-documentdb-net/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs) показано, как выполнить следующие задачи.
 
 Задача | Справочник по API
 --- | ---
@@ -174,4 +176,4 @@
 [Установка разрешений на коллекцию или документ](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) | [DocumentClient.CreatePermissionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx)
 [Получение списка разрешений пользователя](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L218) | [DocumentClient.ReadUserAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readuserasync.aspx)<br>[DocumentClient.ReadPermissionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpermissionfeedasync.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

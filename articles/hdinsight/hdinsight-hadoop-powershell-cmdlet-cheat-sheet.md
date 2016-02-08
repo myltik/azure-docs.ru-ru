@@ -32,6 +32,6 @@ Microsoft Azure HDInsight позволяет выполнять задачи Had
 
 ## См. также
 
-* [Схема обучения для HDInsight](http://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+* [Схема обучения для HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

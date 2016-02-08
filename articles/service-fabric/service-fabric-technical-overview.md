@@ -53,4 +53,4 @@ Azure Service Fabric представляет собой платформу ра
 - [Модель приложения](service-fabric-application-model.md)
 - [Сценарии приложений](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

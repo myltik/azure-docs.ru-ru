@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="01/14/2016"
 	ms.author="wesmc"/>
 
 # Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory
@@ -32,7 +32,7 @@
 Чтобы иметь возможность проверки подлинности пользователей необходимо зарегистрировать приложение в Azure Active Directory (AAD). Это делается в два этапа. Сначала следует зарегистрировать мобильную службу и предоставить в ней разрешения. Затем нужно зарегистрировать приложение Магазина Windows и предоставить ему доступ к этим разрешениям.
 
 
->[AZURE.NOTE]Этот учебник поможет лучше понять, как мобильные службы позволяют выполнять проверку подлинности Azure Active Directory единого входа для приложений Магазина Windows с помощью [операции входа, ориентированной на клиента](http://msdn.microsoft.com/library/azure/jj710106.aspx). Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником [Приступая к работе с мобильными службами].
+>[AZURE.NOTE] Этот учебник поможет лучше понять, как мобильные службы позволяют выполнять проверку подлинности Azure Active Directory единого входа для приложений Магазина Windows с помощью [операции входа, ориентированной на клиента](http://msdn.microsoft.com/library/azure/jj710106.aspx). Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником [Приступая к работе с мобильными службами].
 
 
 ##Предварительные требования
@@ -76,21 +76,14 @@
 
     ![][3]
 
-2. Затем нажмите **Службы**.
+2. Щелкните **Управление приложениями** > **Удостоверение приложения**, а затем скопируйте SID пакета со страницы.
 
     ![][4]
 
-3. Затем нажмите **Сайт служб Live**.
-
-    ![][5]
-
-4. Скопируйте SID пакета, который находится вверху страницы.
-
-    ![][6]
 
 ###Создание регистрации собственного приложения
 
-1. На **классическом портале Azure** перейдите в раздел [Active Directory] и щелкните свой каталог.
+1. На [классическом портале] перейдите в раздел **Active Directory** и щелкните свой каталог.
 
     ![][7]
 
@@ -130,7 +123,7 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
-4. В окне обозревателя решений Visual Studio откройте файл MainPage.xaml.cs и добавьте следующие директивы using.
+4. В окне обозревателя решений Visual Studio откройте файл MainPage.cs и добавьте следующие директивы using.
 
         using Windows.UI.Popups;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -167,7 +160,7 @@
             }
         }
 
-6. В коде для метода `AuthenticateAsync` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором подготавливалось приложение, используя формат https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать со вкладки "Домен" в Azure Active Directory на [классическом портале Azure].
+6. В коде для метода `AuthenticateAsync` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором подготавливалось приложение, используя формат https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать с вкладки «Домен» в Azure Active Directory на [классическом портале Azure].
 
 7. В коде для метода `AuthenticateAsync` выше замените **INSERT-RESOURCE-URI-HERE** значением **URI кода приложения** для своей мобильной службы. Если вы выполнили инструкции из раздела [Регистрация в Azure Active Directory], то URI кода приложения должен быть аналогичен https://todolist.azure-mobile.net/login/aad.
 
@@ -216,9 +209,9 @@
 
 <!-- URLs. -->
 [Регистрация в Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
-[Active Directory]: https://manage.windowsazure.com/
 [классическом портале Azure]: https://manage.windowsazure.com/
+[классическом портале]: https://manage.windowsazure.com/
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [панель мониторинга Центра разработки для Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

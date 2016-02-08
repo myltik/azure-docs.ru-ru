@@ -5,7 +5,7 @@
 
 1. Зарегистрируйте приложение с помощью Azure Active Directory, следуя инструкциям в разделе [Регистрация с помощью Azure Active Directory].
 
-2. На [классическом портале Azure](https://manage.windowsazure.com/) вернитесь к расширению Azure Active Directory и щелкните активный каталог
+2. На [классическом портале Azure](https://manage.windowsazure.com/) вернитесь к расширению Azure Active Directory и щелкните активный каталог.
 
 3. Щелкните вкладку **Приложения**, а затем выберите приложение.
 
@@ -38,4 +38,4 @@
 <!-- URLs. -->
 [Регистрация с помощью Azure Active Directory]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

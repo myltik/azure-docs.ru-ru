@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="10/23/2015"
+   ms.date="01/13/2016"
    ms.author="sdanie" />
 
 # Поставщик кэша вывода ASP.NET для кэша Redis для Azure
@@ -81,4 +81,4 @@
 
 Посетите страницу [Поставщик состояний сеансов ASP.NET для кэша Redis для Azure](cache-asp.net-session-state-provider.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -27,7 +27,7 @@
 ## Предварительные требования
 Требования для использования командлетов Powershell:
 
-- последний пакет SDK для командной строки Azure; [доступен здесь](http://azure.microsoft.com/downloads/).
+- последний пакет SDK для командной строки Azure; [доступен здесь](https://azure.microsoft.com/downloads/).
 
 Требования для использования расширения на виртуальной машине:
 
@@ -49,7 +49,7 @@
 
 Set-AzureVMSqlServerExtension [-VM] <IPersistentVM> [[-Version] <string>] [-AutoBackupSettings <AutoBackupSettings>] [-AutoPatchingSetttings <AutoPatchingSetttings>] [-Confirm] [-WhatIf] [<CommonParameters>]
 
-> [AZURE.NOTE]Параметр -Version лучше не использовать. Без него по умолчанию используется последняя версия расширения.
+> [AZURE.NOTE] Параметр -Version лучше не использовать. Без него по умолчанию используется последняя версия расширения.
 
 ### Пример
 	Get-AzureVM –ServiceName serviceName –Name vmName | Set-AzureVMSqlServerExtension –AutoBackupSettings $abs | Update-AzureVM**
@@ -65,7 +65,7 @@ Set-AzureVMSqlServerExtension [-VM] <IPersistentVM> [[-Version] <string>] [-Auto
 
 Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<CommonParameters>]
 
-> [AZURE.NOTE]Параметр -Version можно опустить. Без него по умолчанию используется последняя версия расширения.
+> [AZURE.NOTE] Параметр -Version можно опустить. Без него по умолчанию используется последняя версия расширения.
 
 ### Пример
 	Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
@@ -78,4 +78,4 @@ Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<Co
 ### Синтаксис
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

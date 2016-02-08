@@ -39,7 +39,7 @@
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
+* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> с обновлением 3 или более поздней версии.
 
 ##Загрузка пакета GetStartedWithData
@@ -98,14 +98,11 @@
 
 В этом учебнике содержатся базовые сведения о том, как включить в проекте универсального приложения Windows возможности работы с данными из мобильных служб. Рекомендуем прочитать один из следующих разделов.
 
-* [Приступая к работе с проверкой подлинности]
-  <br/>Узнайте, как проверять подлинность пользователей приложения.
+* [Приступая к работе с проверкой подлинности] <br/>Узнайте, как проверять подлинность пользователей приложения.
 
-* [Приступая к работе с push-уведомлениями]
-  <br/>Узнайте, как отправлять в приложение простейшие push-уведомления.
+* [Приступая к работе с push-уведомлениями] <br/>Узнайте, как отправлять в приложение простейшие push-уведомления.
 
-* [Справочник принципов использования мобильных служб C#](mobile-services-windows-dotnet-how-to-use-client-library.md)
-  <br/>Узнайте, как использовать мобильные службы с .NET.
+* [Справочник принципов использования мобильных служб C#](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Узнайте, как использовать мобильные службы с .NET.
 
 
 <!-- Images. -->
@@ -119,13 +116,11 @@
 [Приступая к работе с проверкой подлинности]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Приступая к работе с push-уведомлениями]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Приступая к работе с синхронизацией автономных данных]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[веб-сайта с примерами кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=AcomDC_1203_2015-->
-
-
+<!---HONumber=AcomDC_0128_2016-->

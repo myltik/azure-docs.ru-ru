@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="01/25/2016"
 	ms.author="thmullan"/>
 
 # Руководство по разработке веб-приложения с мультитенантной базой данных с помощью Entity Framework и политики безопасности на уровне строк
@@ -28,9 +28,9 @@
 
 ## Шаг 1. Добавление в приложение класса-перехватчика для определения SESSION\_CONTEXT
 
-Сейчас нам нужно внести в приложение одно изменение. Так как все пользователи приложения подключаются к базе данных с помощью одной строки подключения (т. е. одних учетных данных SQL), текущая политика RLS не предусматривает фильтрацию пользователей. Такой подход очень часто используется в веб-приложениях, позволяя эффективно регулировать количество запросов при подключении. Но в данном случае это означает, что нам нужно настроить другой способ идентификации текущего пользователя приложения в базе данных. Решение: присвоить пару «ключ — значение» текущему идентификатору UserId в [SESSION\_CONTEXT](https://msdn.microsoft.com/library/mt590806) до того, как приложение выполнит запрос. SESSION\_CONTEXT — это хранилище пар «ключ — значение» для области сеанса. Хранимый в нем идентификатор UserId будет использоваться политикой RLS для определения текущего пользователя. *Примечание. В настоящее время SESSION\_CONTEXT — это предварительная версия функции базы данных SQL Azure.*
+Сейчас нам нужно внести в приложение одно изменение. Так как все пользователи приложения подключаются к базе данных с помощью одной строки подключения (т. е. одних учетных данных SQL), текущая политика RLS не предусматривает фильтрацию пользователей. Такой подход очень часто используется в веб-приложениях, позволяя эффективно регулировать количество запросов при подключении. Но в данном случае это означает, что нам нужно настроить другой способ идентификации текущего пользователя приложения в базе данных. Решение: присвоить пару «ключ — значение» текущему идентификатору UserId в [SESSION\_CONTEXT](https://msdn.microsoft.com/library/mt590806) сразу после открытия приложения и до того, как приложение выполнит запрос. SESSION\_CONTEXT — это хранилище пар «ключ — значение» для области сеанса. Хранимый в нем идентификатор UserId будет использоваться политикой RLS для определения текущего пользователя.
 
-Кроме того, мы добавим [перехватчик](https://msdn.microsoft.com/data/dn469464.aspx), новую функцию Entity Framework (EF) 6, используемую для автоматической настройки текущего идентификатора UserId в SESSION\_CONTEXT путем добавления инструкции T-SQL до того, как EF выполнит все запросы.
+Кроме того, мы добавим [перехватчик](https://msdn.microsoft.com/data/dn469464.aspx) (в частности, [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor)), новую функцию Entity Framework (EF) 6, используемую для автоматической настройки текущего идентификатора UserId в SESSION\_CONTEXT путем добавления инструкции T-SQL независимо от того, когда EF откроет подключение.
 
 1.	Откройте проект ContactManager в Visual Studio.
 2.	В обозревателе решений щелкните правой кнопкой мыши папку «Модели», а затем выберите «Добавить» > «Класс».
@@ -43,27 +43,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Common;
-using System.Data.SqlClient;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Interception;
 using Microsoft.AspNet.Identity;
 
 namespace ContactManager.Models
 {
-    public class SessionContextInterceptor : IDbCommandInterceptor
+    public class SessionContextInterceptor : IDbConnectionInterceptor
     {
-        private void SetSessionContext(DbCommand command)
+        public void Opened(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
+        	// Set SESSION_CONTEXT to current UserId whenever EF opens a connection
             try
             {
                 var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
                 if (userId != null)
                 {
-                    // Set SESSION_CONTEXT to current UserId before executing queries
-                    var sql = "EXEC sp_set_session_context @key=N'UserId', @value=@UserId;";
-
-                    command.CommandText = sql + command.CommandText;
-                    command.Parameters.Insert(0, new SqlParameter("@UserId", userId));
+                    DbCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "EXEC sp_set_session_context @key=N'UserId', @value=@UserId";
+                    DbParameter param = cmd.CreateParameter();
+                    param.ParameterName = "@UserId";
+                    param.Value = userId;
+                    cmd.Parameters.Add(param);
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (System.NullReferenceException)
@@ -71,29 +73,97 @@ namespace ContactManager.Models
                 // If no user is logged in, leave SESSION_CONTEXT null (all rows will be filtered)
             }
         }
-        public void NonQueryExecuting(DbCommand command, DbCommandInterceptionContext<int> interceptionContext)
+        
+        public void Opening(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
-            this.SetSessionContext(command);
         }
-        public void NonQueryExecuted(DbCommand command, DbCommandInterceptionContext<int> interceptionContext)
-        {
 
-        }
-        public void ReaderExecuting(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext)
+        public void BeganTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
         {
-            this.SetSessionContext(command);
         }
-        public void ReaderExecuted(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext)
-        {
 
-        }
-        public void ScalarExecuting(DbCommand command, DbCommandInterceptionContext<object> interceptionContext)
+        public void BeginningTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
         {
-            this.SetSessionContext(command);
         }
-        public void ScalarExecuted(DbCommand command, DbCommandInterceptionContext<object> interceptionContext)
-        {
 
+        public void Closed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Closing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void ConnectionStringGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringSet(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringSetting(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionTimeoutGetting(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void ConnectionTimeoutGot(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void DataSourceGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DataSourceGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DatabaseGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DatabaseGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void Disposed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Disposing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void EnlistedTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void EnlistingTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void ServerVersionGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ServerVersionGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void StateGetting(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
+        {
+        }
+
+        public void StateGot(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
+        {
         }
     }
 
@@ -164,7 +234,7 @@ go
 
 ```
 
-Этот код выполняет три действия. Во-первых, он создает новую схему для централизации и ограничения доступа к объектам RLS. Во-вторых, он создает предикатную функцию, которая возвращает 1, если значение UserId строки соответствует значению UserId в хранилище SESSION\_CONTEXT. Наконец, он создает политику безопасности, которая добавляет эту функцию в таблицу контактов в качестве предиката фильтрации и блокировки. Предикат фильтрации вызывает запросы для возврата только тех строк, которые принадлежат текущему пользователю, а предикат блокировки не позволяет приложению случайно вставить строку для неправильного пользователя. *Примечание. В настоящее время предикат блокировки — это предварительная версия функции базы данных SQL Azure.*
+Этот код выполняет три действия. Во-первых, он создает новую схему для централизации и ограничения доступа к объектам RLS. Во-вторых, он создает предикатную функцию, которая возвращает 1, если значение UserId строки соответствует значению UserId в хранилище SESSION\_CONTEXT. Наконец, он создает политику безопасности, которая добавляет эту функцию в таблицу контактов в качестве предиката фильтрации и блокировки. Предикат фильтрации вызывает запросы для возврата только тех строк, которые принадлежат текущему пользователю, а предикат блокировки не позволяет приложению случайно вставить строку для неправильного пользователя.
 
 Запустите приложение и войдите как user1@contoso.com. Этот пользователь теперь видит только те контакты, которые мы перед этим назначили его идентификатору UserId.
 
@@ -180,4 +250,4 @@ go
 
 Мы работаем над тем, чтобы сделать политику RLS еще лучше. Если у вас возникли вопросы или идеи, которые вы хотели бы реализовать, сообщите нам об этом в комментариях. Ваши отзывы важны для нас!
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -103,7 +103,7 @@
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
 	        private static DataTable issues;
@@ -202,14 +202,16 @@
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList; 
-	        // Add these variablesprivatestaticstring ServiceNamespace;
-	        privatestaticstring sasKeyName = "RootManageSharedAccessKey";
-	        privatestaticstring sasKeyValue;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList; 
+
+	        // Add these variables
+			private static string ServiceNamespace;
+	        private static string sasKeyName = "RootManageSharedAccessKey";
+	        private static string sasKeyValue;
 	        …
 	```
 
@@ -219,11 +221,11 @@
 	static void CollectUserInput()
 	{
 	    // User service namespace
-	    Console.Write("Please enter the service namespace to use: ");
+	    Console.Write("Please enter the namespace to use: ");
 	    ServiceNamespace = Console.ReadLine();
 	
 	    // Issuer key
-	    Console.Write("Please enter the SAS key to use: ");
+	    Console.Write("Enter the SAS key to use: ");
 	    sasKeyValue = Console.ReadLine();
 	}
 	```
@@ -247,10 +249,6 @@
 
 В меню **Сборка** Visual Studio выберите **Выполнить сборку решения** или нажмите F6, чтобы проверить правильность выполнения действий.
 
-Создание учетных данных управления
-
-Это второй шаг в руководстве по возможностям обмена сообщениями через служебную шину. На этом шаге определяются операции управления, которые будут использованы для создания учетных данных подписи общего доступа (SAS), с которыми будет выполняться проверка подлинности приложения.
-
 ## Создание учетных данных управления
 
 На этом шаге определяются операции управления, которые будут использованы для создания учетных данных подписи общего доступа (SAS), с которыми будет выполняться проверка подлинности приложения.
@@ -262,7 +260,7 @@
 	{
 	…
 	}
-	staticvoid Queue()
+	static void Queue()
 	{
 	}
 	```
@@ -270,7 +268,7 @@
 1. Затем необходимо создать учетные данные SAS с помощью объекта [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Метод создания принимает имя ключа SAS и значение, полученное в методе `CollectUserInput()`. Добавьте в метод `Queue()` следующий код:
 
 	```
-	staticvoid Queue()
+	static void Queue()
 	{
 	    // Create management credentials
 	    TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
@@ -653,4 +651,4 @@ namespace Microsoft.ServiceBus.Samples
 [классический портал Azure]: http://manage.windowsazure.com
 [классического портала Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

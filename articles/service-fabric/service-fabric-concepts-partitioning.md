@@ -65,7 +65,7 @@ Service Fabric упрощает процесс разработки масшта
 Вот две рекомендации, как избежать такой ситуации.
 
 - Старайтесь секционировать состояние так, чтобы оно равномерно распределялось между всеми разделами.
-- [Следите за метриками каждой реплики в службе](service-fabric-resource-balancer-dynamic-load-reporting.md). В Service Fabric есть возможность получать отчеты по таким показателям, как объем памяти или число записей, для службы. На основе полученных метрик платформа Service Fabric определяет, какие секции загружены больше, чем другие. Затем платформа перераспределяет реплики в кластере, перемещая их на более подходящие узлы.
+- [Следите за показателями каждой реплики в службе](service-fabric-resource-balancer-dynamic-load-reporting.md). В Service Fabric есть возможность получать отчеты по таким показателям, как объем памяти или число записей, для службы. На основе полученных метрик платформа Service Fabric определяет, какие секции загружены больше, чем другие. Затем платформа перераспределяет реплики в кластере, перемещая их на более подходящие узлы.
 
 В некоторых случаях невозможно заранее определить, какой объем данных будет в той или иной секции. Поэтому обычно рекомендуется использовать оба подхода: разработать стратегию секционирования, согласно которой данные будут равномерно распределяться между секциями, и использовать сведения о нагрузке. Первый способ предотвращает ситуации, описанные в примере с опросом, тогда как второй помогает сгладить временную разницу в доступе или загрузке.
 
@@ -116,19 +116,25 @@ Service Fabric упрощает процесс разработки масшта
 Прежде чем приступать к написанию кода, следует определиться с секциями и их ключами. Нам потребуется 26 секций — по одной для каждой буквы английского алфавита. Но как определить нижнюю и верхнюю границы ключей? Нам нужно иметь по одной секции на каждую букву. Следовательно, мы можем использовать 0 в качестве нижнего ключа и 25 — в качестве верхнего, так как каждая буква выступает собственным ключом.
 
 
->[AZURE.NOTE]Это упрощенный сценарий, так как на самом деле распределение было бы неравномерным. Фамилии, начинающиеся с буквы S или M, встречаются чаще, чем те, которые начинаются с X или Y.
+>[AZURE.NOTE] Это упрощенный сценарий, так как на самом деле распределение было бы неравномерным. Фамилии, начинающиеся с буквы S или M, встречаются чаще, чем те, которые начинаются с X или Y.
 
 
 1. В **Visual Studio** последовательно щелкните **Файл** > **Создать** > **Проект**.
 2. В диалоговом окне **Создание проекта** выберите приложение Service Fabric.
 3. Назовите проект AlphabetPartitions.
-4. В диалоговом окне **Создание службы** выберите службу **с отслеживанием состояния** и назовите ее Alphabet.Processing, как показано на рисунке ниже. ![Снимок экрана, на котором изображена служба с отслеживанием состояния](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+4. В диалоговом окне **Создание службы** выберите службу **с отслеживанием состояния** и назовите ее Alphabet.Processing, как показано на рисунке ниже.
+
+    ![Снимок экрана, на котором изображена служба с отслеживанием состояния](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+
 5. Укажите количество секций. Откройте в проекте AlphabetPartitions файл ApplicationManifest.xml и задайте параметру Processing\_PartitionCount значение 26, как показано ниже.
 
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-    Кроме того, в элементе StatefulService вам нужно изменить свойства LowKey и HighKey, как показано ниже. ```xml
+    
+    Кроме того, в элементе StatefulService вам нужно изменить свойства LowKey и HighKey, как показано ниже.
+    
+    ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[Processing_PartitionCount]" LowKey="0" HighKey="25" />
@@ -146,84 +152,93 @@ Service Fabric упрощает процесс разработки масшта
 
 7. Далее нужно переопределить метод `CreateServiceReplicaListeners()` класса Processing.
 
-    >[AZURE.NOTE]В этом примере предполагается, что вы используете простой прослушиватель HttpCommunicationListener. Дополнительные сведения о модели взаимодействия Reliable Services см. в [этой статье](service-fabric-reliable-services-communication.md).
+    >[AZURE.NOTE] В этом примере предполагается, что вы используете простой прослушиватель HttpCommunicationListener. Дополнительные сведения о модели взаимодействия Reliable Services см. в [этой статье](service-fabric-reliable-services-communication.md).
 
 8. URL-адрес, который реплика использует для ожидания передачи данных, рекомендуется указывать в таком формате: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`. Таким образом, вам нужно настроить прослушиватель на правильные конечные точки, используя именно этот шаблон.
 
-На одном компьютере может быть размещено несколько реплик этой службы, поэтому адрес должен быть уникальным для каждой реплики. Именно по этой причине в URL-адресе указываются идентификаторы секции и реплики. HttpListener может прослушивать несколько адресов на одном порте при условии, что префикс URL-адреса является уникальным.
+    На одном компьютере может быть размещено несколько реплик этой службы, поэтому адрес должен быть уникальным для каждой реплики. Именно по этой причине в URL-адресе указываются идентификаторы секции и реплики. HttpListener может прослушивать несколько адресов на одном порте при условии, что префикс URL-адреса является уникальным.
 
-Дополнительный GUID используется в сложных случаях, когда вторичные реплики также прослушивают запросы только для чтения. Если это так, следует убедиться, что новый уникальный адрес используется при переходе от первичной реплики к вторичной для принудительного разрешения адресов клиентами. Знак + здесь используется как адрес, чтобы реплика прослушивала все доступные узлы (IP, FQDM, localhost и т. д.) В приведенном ниже коде показан пример.
+    Дополнительный GUID используется в сложных случаях, когда вторичные реплики также прослушивают запросы только для чтения. Если это так, следует убедиться, что новый уникальный адрес используется при переходе от первичной реплики к вторичной для принудительного разрешения адресов клиентами. Знак + здесь используется как адрес, чтобы реплика прослушивала все доступные узлы (IP, FQDM, localhost и т. д.) В приведенном ниже коде показан пример.
 
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
-            return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
+        return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
     }
     private ICommunicationListener CreateInternalListener(StatefulServiceInitializationParameters args)
     {
         EndpointResourceDescription internalEndpoint = args.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
 
         string uriPrefix = String.Format(
-                "{0}://+:{1}/{2}/{3}-{4}/",
-                internalEndpoint.Protocol,
-                internalEndpoint.Port,
-                this.ServiceInitializationParameters.PartitionId,
-                this.ServiceInitializationParameters.ReplicaId,
-                Guid.NewGuid());
+            "{0}://+:{1}/{2}/{3}-{4}/",
+            internalEndpoint.Protocol,
+            internalEndpoint.Port,
+            this.ServiceInitializationParameters.PartitionId,
+            this.ServiceInitializationParameters.ReplicaId,
+            Guid.NewGuid());
 
         string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
         string uriPublished = uriPrefix.Replace("+", nodeIP);
         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInternalRequest);
     }
     ```
-Также следует отметить, что опубликованный URL-адрес немного отличается от префикса URL-адреса прослушивания. URL-адрес прослушивания назначается HttpListener. Опубликованный URL-адрес — это URL-адрес, опубликованный в службе именования Service Fabric, который используется для обнаружения службы. Клиенты будут запрашивать этот адрес с помощью службы обнаружения. Адрес, который получают клиенты, должен содержать фактический IP-адрес или полное доменное имя узла (в противном случае подключение будет невозможно). Поэтому вам нужно вместо символа «+» указать IP-адрес или полное доменное имя, как показано выше. 9. Последним шагом является добавление логики обработки к службе, как показано ниже.
+
+    Также следует отметить, что опубликованный URL-адрес немного отличается от префикса URL-адреса прослушивания. URL-адрес прослушивания назначается HttpListener. Опубликованный URL-адрес — это URL-адрес, опубликованный в службе именования Service Fabric, который используется для обнаружения службы. Клиенты будут запрашивать этот адрес с помощью службы обнаружения. Адрес, который получают клиенты, должен содержать фактический IP-адрес или полное доменное имя узла (в противном случае подключение будет невозможно). Поэтому вам нужно вместо символа «+» указать IP-адрес или полное доменное имя, как показано выше.
+    
+9. Последним шагом является добавление логики обработки к службе, как показано ниже.
 
     ```CSharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
-          string output = null;
-          string user = context.Request.QueryString["lastname"].ToString();
+        string output = null;
+        string user = context.Request.QueryString["lastname"].ToString();
 
-          try
-          {
-              output = await this.AddUserAsync(user);
-          }
-          catch (Exception ex)
-          {
-              output = ex.Message;
-          }
+        try
+        {
+            output = await this.AddUserAsync(user);
+        }
+        catch (Exception ex)
+        {
+            output = ex.Message;
+        }
 
-          using (HttpListenerResponse response = context.Response)
-          {
-              if (output != null)
-              {
-                  byte[] outBytes = Encoding.UTF8.GetBytes(output);
-                  response.OutputStream.Write(outBytes, 0, outBytes.Length);
-              }
-          }
-      }
-      private async Task<string> AddUserAsync(string user)
-      {
-          IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
+        using (HttpListenerResponse response = context.Response)
+        {
+            if (output != null)
+            {
+                byte[] outBytes = Encoding.UTF8.GetBytes(output);
+                response.OutputStream.Write(outBytes, 0, outBytes.Length);
+            }
+        }
+    }
+    private async Task<string> AddUserAsync(string user)
+    {
+        IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
 
-          using (ITransaction tx = this.StateManager.CreateTransaction())
-          {
-              bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
+        using (ITransaction tx = this.StateManager.CreateTransaction())
+        {
+            bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
 
-              await tx.CommitAsync();
+            await tx.CommitAsync();
 
-              return String.Format(
-                  "User {0} {1}",
-                  user,
-                  addResult ? "sucessfully added" : "already exists");
-          }
-      }
+            return String.Format(
+                "User {0} {1}",
+                user,
+                addResult ? "sucessfully added" : "already exists");
+        }
+    }
     ```
+        
+    `ProcessInternalRequest` считывает значения параметра строки запроса, который используется для вызова раздела, и вызывает метод `AddUserAsync` для добавления lastname в надежный словарь `dictionary`.
+    
+10. Добавим в проект службу без отслеживания состояния, чтобы посмотреть, как можно вызвать определенный раздел.
 
-    `ProcessInternalRequest` считывает значения параметра строки запроса, который используется для вызова раздела, и вызывает метод `AddUserAsync` для добавления lastname в надежный словарь `m_name`.
-
-10. Добавим в проект службу без отслеживания состояния, чтобы посмотреть, как можно вызвать определенный раздел. Эта служба выступает в качестве простого веб-интерфейса, который принимает фамилию как параметр строки запроса, определяет ключ секции и отправляет его на обработку в службу Alphabet.Processing.
-11. В диалоговом окне **Создание службы** выберите службу **без отслеживания состояния** и назовите ее Alphabet.WebApi, как показано ниже. ![Снимок экрана, на котором изображена служба без отслеживания состояния](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png)
+    Эта служба выступает в качестве простого веб-интерфейса, который принимает фамилию как параметр строки запроса, определяет ключ секции и отправляет его на обработку в службу Alphabet.Processing.
+    
+11. В диалоговом окне **Создание службы** выберите службу **без отслеживания состояния** и назовите ее Alphabet.WebApi, как показано ниже.
+    
+    ![Снимок экрана, на котором изображена служба без отслеживания состояния](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
+    
 12. Откройте порт, изменив сведения о конечной точке в файле ServiceManifest.xml службы Alphabet.WebApi, как показано ниже.
 
     ```xml
@@ -235,60 +250,62 @@ Service Fabric упрощает процесс разработки масшта
     ```CSharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-           return new[] {new ServiceInstanceListener(this.CreateInputListener, "Input")};
+        return new[] {new ServiceInstanceListener(this.CreateInputListener, "Input")};
     }
     private ICommunicationListener CreateInputListener(StatelessServiceInitializationParameters args)
     {
-           // Service instance's URL is the node's IP & desired port
-           EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
-           string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
-           var uriPublished = uriPrefix.Replace("+", m_nodeIP);
-           return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
-     }
-     ```
+        // Service instance's URL is the node's IP & desired port
+        EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
+        string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
+        var uriPublished = uriPrefix.Replace("+", m_nodeIP);
+        return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
+    }
+    ```
+     
 14. Теперь нам необходимо реализовать логику обработки. После получения запроса прослушиватель HttpCommunicationListener вызывает `ProcessInputRequest`, поэтому давайте добавим приведенный ниже код.
 
     ```CSharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
-           String output = null;
-           try
-           {
-               string lastname = context.Request.QueryString["lastname"];
-               char firstLetterOfLastName = lastname.First();
-               int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+        String output = null;
+        try
+        {
+            string lastname = context.Request.QueryString["lastname"];
+            char firstLetterOfLastName = lastname.First();
+            int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
 
-               ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
-               ResolvedServiceEndpoint ep = partition.GetEndpoint();
-               JObject addresses = JObject.Parse(ep.Address);
-               string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
+            ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
+            ResolvedServiceEndpoint ep = partition.GetEndpoint();
+            JObject addresses = JObject.Parse(ep.Address);
+            string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
 
-               UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
-               primaryReplicaUriBuilder.Query = "lastname=" + lastname;
+            UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
+            primaryReplicaUriBuilder.Query = "lastname=" + lastname;
 
-               string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
+            string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
 
-               output = String.Format(
-               "Result: {0}. Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. Processing service partition ID: {4}. Processing service replica address: {5}",
-               result,
-               partitionKey,
-               firstLetterOfLastName,
-               lastname,
-               partition.Info.Id,
-               primaryReplicaAddress);
+            output = String.Format(
+                    "Result: {0}. Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. Processing service partition ID: {4}. Processing service replica address: {5}",
+                    result,
+                    partitionKey,
+                    firstLetterOfLastName,
+                    lastname,
+                    partition.Info.Id,
+                    primaryReplicaAddress);
+        }
+        catch (Exception ex) { output = ex.Message; }
+        
+        using (var response = context.Response)
+        {
+            if (output != null)
+            {
+                output = output + "added to Partition: " + primaryReplicaAddress;
+                byte[] outBytes = Encoding.UTF8.GetBytes(output);
+                response.OutputStream.Write(outBytes, 0, outBytes.Length);
+            }
+        }
     }
-    catch (Exception ex) { output = ex.Message; }
-    using (var response = context.Response)
-    {
-               if (output != null)
-               {
-                   output = output + "added to Partition: " + primaryReplicaAddress;
-                   byte[] outBytes = Encoding.UTF8.GetBytes(output);
-                   response.OutputStream.Write(outBytes, 0, outBytes.Length);
-               }
-           }
-      }
-      ```
+    ```
 
     Давайте разберемся в процессе, шаг за шагом. Код считывает первую букву из параметра строки запроса в `lastname` в тип char. Затем он определяет ключ раздела для этой буквы, вычитая шестнадцатеричное значение `A` из шестнадцатеричного значения первой буквы фамилии.
 
@@ -330,11 +347,16 @@ Service Fabric упрощает процесс разработки масшта
     <Parameters>
       <Parameter Name="Processing_PartitionCount" Value="26" />
       <Parameter Name="WebApi_InstanceCount" Value="1" />
-  </Parameters>
-  ```
+    </Parameters>
+    ```
 
-16. Когда служба будет развернута, все ее секции можно будет проверить в обозревателе Service Fabric. ![Снимок экрана, на котором изображен обозреватель Service Fabric](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-17. Чтобы проверить логику секционирования в браузере, введите в адресной строке `http://localhost:8090/?lastname=somename`. Вы увидите, что все фамилии, начинающиеся с одинаковой буквы, хранятся в одной секции. ![Снимок экрана, на котором изображен браузер](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+16. Когда служба будет развернута, все ее секции можно будет проверить в обозревателе Service Fabric.
+    
+    ![Снимок экрана, на котором изображен обозреватель Service Fabric](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+    
+17. Чтобы проверить логику секционирования в браузере, введите в адресной строке `http://localhost:8090/?lastname=somename`. Вы увидите, что все фамилии, начинающиеся с одинаковой буквы, хранятся в одной секции.
+    
+    ![Снимок экрана, на котором изображен браузер](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 Весь исходный код этого примера доступен на [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
 
@@ -350,4 +372,4 @@ Service Fabric упрощает процесс разработки масшта
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

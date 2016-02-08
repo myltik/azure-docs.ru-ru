@@ -257,7 +257,7 @@
 
 ## Пример запроса и ответа при использовании проверки подлинности ActiveDirectoryOAuth
 
-В приведенном ниже примере отправляется запрос PUT, включающий аутентификацию `ActiveDirectoryOAuth`. Запрос выглядит следующим образом:
+В приведенном ниже примере отправляется запрос PUT, включающий проверку подлинности `ActiveDirectoryOAuth`. Запрос выглядит следующим образом:
 
 	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
 	x-ms-version: 2013-03-01
@@ -346,7 +346,7 @@
 
  [Планы и выставление счетов в планировщике Azure](scheduler-plans-billing.md)
 
- [Справочник по API REST планировщика Azure](https://msdn.microsoft.com/library/dn528946)
+ [Справочник по API REST планировщика Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Справочник по командлетам PowerShell планировщика Azure](scheduler-powershell-reference.md)
 
@@ -360,4 +360,4 @@
  
   
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

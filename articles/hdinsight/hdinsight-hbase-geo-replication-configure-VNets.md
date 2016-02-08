@@ -49,9 +49,9 @@
 ##Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Рабочая станция с Azure PowerShell.**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Рабочая станция с Azure PowerShell.**. См. [Установка и использование Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 	Перед выполнением скриптов PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета:
 
@@ -62,7 +62,7 @@
 		Select-AzureSubscription <AzureSubscriptionName>
 
 
->[AZURE.NOTE]Имена служб Azure и имена виртуальных машин должны быть уникальными. В этом учебнике используется имя Contoso-[имя службы или виртуальной машины Azure]-[EU/US]. Например, Contoso-VNet-EU — это виртуальная сеть Azure в центре обработки данных, расположенном в Северной Европе; Contoso-DNS-US — виртуальная машина DNS-сервера в центре обработки данных, расположенном на востоке США. Вам необходимо создать собственные имена.
+>[AZURE.NOTE] Имена служб Azure и имена виртуальных машин должны быть уникальными. В этом учебнике используется имя Contoso-[имя службы или виртуальной машины Azure]-[EU/US]. Например, Contoso-VNet-EU — это виртуальная сеть Azure в центре обработки данных, расположенном в Северной Европе; Contoso-DNS-US — виртуальная машина DNS-сервера в центре обработки данных, расположенном на востоке США. Вам необходимо создать собственные имена.
  
 
 ##Создание двух виртуальных сетей Azure
@@ -270,4 +270,4 @@
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

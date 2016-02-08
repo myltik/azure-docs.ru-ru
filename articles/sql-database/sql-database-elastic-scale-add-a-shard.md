@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="01/27/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Добавление сегмента с использованием средств эластичных баз данных
@@ -25,7 +25,7 @@
 Если новый диапазон ключей не входит в существующее сопоставление, добавление сегмента и привязка к нему нового ключа или диапазона становится довольно простой задачей.
 
 ### Пример: добавление сегмента и его диапазона в существующее сопоставление сегментов
-В примере ниже для хранения диапазона [300, 400) создается база данных с именем **sample\_shard\_2** и все необходимые объекты схемы внутри нее.
+В этом примере используются методы [TryGetShard](https://msdn.microsoft.com/library/azure/dn823929.aspx), [CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx), [CreateRangeMapping] (https://msdn.microsoft.com/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0})) и создается экземпляр класса [ShardLocation](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.). В примере ниже для хранения диапазона [300, 400) создается база данных с именем **sample\_shard\_2** и все необходимые объекты схемы внутри нее.
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -79,4 +79,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

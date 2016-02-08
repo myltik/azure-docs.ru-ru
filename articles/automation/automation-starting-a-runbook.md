@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Запуск модуля Runbook в службе автоматизации Azure"
+   pageTitle="Запуск модуля Runbook в службе автоматизации Azure | Microsoft Azure"
    description="Кратко рассматриваются различные методы, которые позволяют запускать модуль Runbook в службе автоматизации Azure с помощью портала Azure и Windows PowerShell."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/13/2015"
+   ms.date="01/19/2016"
    ms.author="bwren;sngun"/>
 
 # Запуск модуля Runbook в службе автоматизации Azure
@@ -106,6 +106,9 @@
 <br>
 
 
+На следующем рисунке показаны подробные пошаговые инструкции в жизненном цикле Runbook. Он включает разные способы запуска модуля Runbook в службе автоматизации Azure, компоненты, необходимые локальному компьютеру для выполнения модулей Runbook службы автоматизации Azure, и взаимодействие между различными компонентами. Дополнительные сведения о выполнении модулей Runbook службы автоматизации Azure в центре обработки данных см. в статье [Гибридные компоненты Runbook Worker в службе автоматизации Azure](automation-hybrid-runbook-worker.md).
+
+![Архитектура Runbook](media/automation-starting-runbook/runbooks-architecture.png)
 
 ## Запуск Runbook с помощью портала Azure
 
@@ -236,8 +239,8 @@
 
 	jsmith
 
-## Связанные статьи
+## Дальнейшие действия
 
-- [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md) 
+- Архитектура Runbook в текущей статье содержит подробное описание о гибридных модулей Runbook. Дополнительную информацию см. в статье [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md). 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

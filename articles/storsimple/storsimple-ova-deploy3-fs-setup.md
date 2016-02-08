@@ -57,7 +57,7 @@
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
 
-1.  Войдите в веб-интерфейс виртуального устройства с правами администратора **StorSimpleAdmin**. Введите пароль администратора устройства, который вы изменили в соответствии с инструкциями, приведенными в разделе "Шаг 3. Запуск виртуального устройства" статьи [Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V (Preview)](storsimple-ova-deploy2-provision-hyperv.md) (Развертывание виртуального массива StorSimple — подготовка виртуального массива в Hyper-V (предварительная версия)) или [Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware (Preview)](storsimple-ova-deploy2-provision-vmware.md) (Развертывание виртуального массива StorSimple — подготовка виртуального массива в VMware (предварительная версия)).
+1.  Войдите в веб-интерфейс виртуального устройства с правами администратора **StorSimpleAdmin**. Введите пароль администратора устройства, который вы изменили в соответствии с инструкциями, приведенными в разделе "Шаг 3. Запуск виртуального устройства" статьи [Подготовка виртуального массива StorSimple в Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) или [Подготовка виртуального массива StorSimple в VMware](storsimple-ova-deploy2-provision-vmware.md).
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 
@@ -169,7 +169,7 @@
  ![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
 
-> [AZURE.NOTE]
+> [AZURE.NOTE]                                                              
 >
 > Другие параметры устройства можно изменить в любое время на странице **Настройка**.
 
@@ -231,4 +231,4 @@
 
 Узнайте, как с помощью локального веб-интерфейса [администрировать виртуальный массив StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

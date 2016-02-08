@@ -351,4 +351,4 @@ Visual Studio создает в решении папку **PublishScripts**, в
 
 Дополнительные сведения о скриптах PowerShell см. в статье [Работа со скриптами в Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx). Также рекомендуем посетить [центр скриптов](https://azure.microsoft.com/documentation/scripts/) и ознакомиться с другими скриптами Azure PowerShell.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

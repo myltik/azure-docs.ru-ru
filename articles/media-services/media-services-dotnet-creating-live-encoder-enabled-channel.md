@@ -22,10 +22,10 @@
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)  
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
-> [AZURE.NOTE]
-> Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+>[AZURE.NOTE]
+Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 
 ##Обзор
 
@@ -38,7 +38,7 @@
 
 Ниже описываются основные этапы создания стандартных приложений, предназначенных для потоковой трансляции содержимого.
 
->[AZURE.NOTE]Сейчас максимальная рекомендуемая продолжительность интерактивного события составляет 8 часов. Если необходимо запустить канал на более продолжительные отрезки времени, обратитесь в amslived на веб-сайте Microsoft.com.
+>[AZURE.NOTE] Сейчас максимальная рекомендуемая продолжительность интерактивного события составляет 8 часов. Если необходимо запустить канал на более продолжительные отрезки времени, обратитесь в amslived на веб-сайте Microsoft.com.
 
 1. Подключите видеокамеру к компьютеру. Запустите и настройте локальный динамический кодировщик, который может выдавать односкоростной поток по одному из следующих протоколов: RTMP, Smooth Streaming или RTP (MPEG-TS). Дополнительные сведения см. в статье [Поддержка протокола RTMP службами мультимедиа Azure и динамические кодировщики](http://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -104,7 +104,7 @@
 
 ##Скачивание образца
 
-Скачать и запустить пример вы можете [здесь](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
+Скачать и запустить пример вы можете [здесь](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 
 ##Подготовка к работе с использованием пакета SDK служб мультимедиа для .NET
@@ -524,4 +524,4 @@
 
 Если содержание этого раздела не соответствует вашим ожиданиям или не содержит ответов на ваши вопросы, оставьте отзыв в обсуждении Disqus ниже.
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

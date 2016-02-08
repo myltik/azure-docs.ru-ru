@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/22/2016"
 	ms.author="szark"/>
 
 # Подготовка виртуальной машины Oracle Linux для Azure
@@ -232,4 +232,4 @@
 ## Дальнейшие действия
 Теперь вы готовы с помощью VHD-файла системы Oracle Linux создавать в Azure виртуальные машины Azure. Если вы используете Azure и отправляете VHD-файл в Azure в первый раз, следуйте инструкциям, описанным в шагах 2 и 3 [этого руководства](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

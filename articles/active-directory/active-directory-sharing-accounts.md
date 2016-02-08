@@ -55,7 +55,7 @@ Azure AD поддерживает общие учетные записи для 
 - [Панели мониторинга и отчеты об использовании приложения](active-directory-passwords-get-insights.md)
 - Порталы доступа для пользователей
 - [Прокси приложения](active-directory-application-proxy-get-started.md)
-- [Active Directory Marketplace](http://azure.microsoft.com/marketplace/active-directory/all/)
+- [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Общий доступ к учетной записи
 Чтобы использовать Azure AD для общего доступа к учетной записи, необходимо выполнить следующие действия:
@@ -72,4 +72,4 @@ Azure AD поддерживает общие учетные записи для 
 - [Защита приложений с помощью условного доступа](active-directory-conditional-access.md)
 - [Самостоятельное управление группами/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

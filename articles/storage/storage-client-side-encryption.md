@@ -23,7 +23,7 @@
 
 ## Обзор
 
-[Клиентская библиотека службы хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage) поддерживает шифрование данных в клиентских приложениях перед их отправкой в службу хранилища Azure и их расшифровку во время скачивания клиентом. Библиотека также поддерживает интеграцию с [хранилищем ключей Azure](http://azure.microsoft.com/services/key-vault/) для управления ключами учетной записи хранения.
+[Клиентская библиотека службы хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage) поддерживает шифрование данных в клиентских приложениях перед их отправкой в службу хранилища Azure и их расшифровку во время скачивания клиентом. Библиотека также поддерживает интеграцию с [хранилищем ключей Azure](https://azure.microsoft.com/services/key-vault/) для управления ключами учетной записи хранения.
 
 Сведения о шифровании на стороне клиента с помощью Java см. в статье [Шифрование на стороне клиента с помощью Java для службы хранилища Microsoft Azure](storage-client-side-encryption-java.md).
 
@@ -37,8 +37,8 @@
 
 1. Клиентская библиотека хранилища Azure создает ключ шифрования содержимого (CEK), который является симметричным ключом для однократного использования.
 2. Данные пользователя шифруются с помощью этого ключа CEK.
-3. Ключ CEK, в свою очередь, шифруется с помощью ключа шифрования ключа KEK. KEK определяется идентификатором ключа и может быть парой асимметричных ключей или симметричным ключом. Им можно управлять локально, а также хранить его в хранилище ключей Azure. 
-	
+3. Ключ CEK, в свою очередь, шифруется с помощью ключа шифрования ключа KEK. KEK определяется идентификатором ключа и может быть парой асимметричных ключей или симметричным ключом. Им можно управлять локально, а также хранить его в хранилище ключей Azure.
+
 	Сама клиентская библиотека хранилища не имеет доступа к ключу KEK. Библиотека вызывает алгоритм шифрования ключа, который обеспечивается хранилищем ключей. Пользователи могут при необходимости использовать настраиваемые поставщики для шифрования и расшифровки ключа.
 
 4. Зашифрованные данные затем передаются в службу хранилища Azure. Зашифрованный ключ вместе с дополнительными метаданными шифрования хранится как метаданные (в большом двоичном объекте) или вставляется в зашифрованные данные (сообщения в очереди и табличные сущности).
@@ -66,7 +66,7 @@
 
 Скачивание зашифрованного большого двоичного объекта предполагает получение всего его содержимого с помощью методов **DownloadTo***/**BlobReadStream**. Зашифрованный ключ CEK расшифровывается и используется вместе с ключом IV (который в данном случае хранится как метаданные большого двоичного объекта) для передачи расшифрованных данных обратно пользователям.
 
-Скачивание произвольного диапазона (с помощью методов **DownloadRange***) из зашифрованного большого двоичного объекта предполагает настройку диапазона на стороне пользователя, чтобы получить небольшой объем дополнительных данных, которые помогут расшифровать запрошенный диапазон.
+Скачивание произвольного диапазона (с помощью методов **downloadRange***) из зашифрованного большого двоичного объекта предполагает настройку диапазона на стороне пользователя, чтобы получить небольшой объем дополнительных данных, которые помогут расшифровать запрошенный диапазон.
 
 Все типы больших двоичных объектов (блочные, страничные и инкрементируемые) могут быть зашифрованы и расшифрованы с помощью этой схемы.
 
@@ -95,7 +95,7 @@
 
 Обратите внимание, что зашифрованы могут быть только строковые свойства. Если необходимо зашифровать другие типы свойств, их необходимо преобразовать в строки. Зашифрованные строки хранятся в службе в виде двоичных свойств. Они преобразуются обратно в строки после расшифровки.
 
-Что касается таблиц, то в дополнение к политике шифрования пользователи должны указать свойства, которые необходимо зашифровать. Это можно сделать путем указания атрибута [PropertyAttribute] \(для сущностей POCO, которые являются производными от TableEntity) или с помощью сопоставителя шифрования в параметрах запроса. Сопоставитель шифрования — это делегат, который получает ключ секции, ключ строки и имя свойства, а затем возвращает логическое значение, которое указывает, следует ли это свойство шифровать. Во время шифрования клиентская библиотека использует эти сведения, чтобы решить, следует ли шифровать свойство перед отправкой. Делегат также обеспечивает возможность логики в отношении того, как шифруются свойства. (Например, если значение равно X, то шифровать свойство А; в противном случае шифровать свойства А и В.) Обратите внимание, что нет необходимости предоставлять эти сведения при чтении или выполнении запросов к сущностям.
+Что касается таблиц, то в дополнение к политике шифрования пользователи должны указать свойства, которые необходимо зашифровать. Это можно сделать путем указания атрибута [PropertyAttribute] (для сущностей POCO, которые являются производными от TableEntity) или с помощью сопоставителя шифрования в параметрах запроса. Сопоставитель шифрования — это делегат, который получает ключ секции, ключ строки и имя свойства, а затем возвращает логическое значение, которое указывает, следует ли это свойство шифровать. Во время шифрования клиентская библиотека использует эти сведения, чтобы решить, следует ли шифровать свойство перед отправкой. Делегат также обеспечивает возможность логики в отношении того, как шифруются свойства. (Например, если значение равно X, то шифровать свойство А; в противном случае шифровать свойства А и В.) Обратите внимание, что нет необходимости предоставлять эти сведения при чтении или выполнении запросов к сущностям.
 
 ### Пакетные операции
 
@@ -152,7 +152,7 @@
 
 ### Режим RequireEncryption
 
-При необходимости можно включить режим работы, где все передачи и загрузки должны быть зашифрованы. В этом режиме все попытки клиента передать данные без политики шифрования или загрузить данные, которые не зашифрованы в службе, закончатся ошибкой. Это поведение контролирует свойство **RequireEncryption** объекта параметров запроса. Если приложение будет шифровать все объекты из службы хранилища Azure, то можно задать свойство **RequireEncryption** в параметрах запроса по умолчанию для объекта клиента службы. Например, задайте для **CloudBlobClient.DefaultRequestOptions.RequireEncryption** значение **true**, чтобы требовать шифрования всех операций с большими двоичными объектами, выполненных посредством этого объекта клиента.
+При необходимости можно включить режим работы, где все передачи и загрузки должны быть зашифрованы. В этом режиме все попытки клиента передать данные без политики шифрования или загрузить данные, которые не зашифрованы в службе, закончатся ошибкой. Это поведение контролирует свойство **RequireEncryption** объекта параметров запроса. Если приложение будет шифровать все объекты из службы хранилища Azure, то можно задать свойство **requireEncryption** в параметрах запроса по умолчанию для объекта клиента службы. Например, задайте для **CloudBlobClient.DefaultRequestOptions.RequireEncryption** значение **true**, чтобы требовать шифрования всех операций с большими двоичными объектами, выполненных посредством этого объекта клиента.
 
 ### Шифрование службы BLOB-объектов
 
@@ -160,16 +160,16 @@
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-  
+
  	// Create the encryption policy to be used for upload and download.
  	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
-  
+
  	// Set the encryption policy on the request options.
  	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
-  
+
  	// Upload the encrypted contents to the blob.
  	blob.UploadFromStream(stream, size, null, options, null);
-  
+
  	// Download and decrypt the encrypted contents from the blob.
  	MemoryStream outputStream = new MemoryStream();
  	blob.DownloadToStream(outputStream, null, options, null);
@@ -181,14 +181,14 @@
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-  
+
  	// Create the encryption policy to be used for upload and download.
  	QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
-  
+
  	// Add message
  	QueueRequestOptions options = new QueueRequestOptions() { EncryptionPolicy = policy };
  	queue.AddMessage(message, null, null, options, null);
-  
+
  	// Retrieve message
  	CloudQueueMessage retrMessage = queue.GetMessage(null, options, null);
 
@@ -201,12 +201,12 @@
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-  
+
  	// Create the encryption policy to be used for upload and download.
  	TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
-  
- 	TableRequestOptions options = new TableRequestOptions() 
- 	{ 
+
+ 	TableRequestOptions options = new TableRequestOptions()
+ 	{
     	EncryptionResolver = (pk, rk, propName) =>
      	{
         	if (propName == "foo")
@@ -217,17 +217,17 @@
      	},
      	EncryptionPolicy = policy
  	};
-  
+
  	// Insert Entity
  	currentTable.Execute(TableOperation.Insert(ent), options, null);
-  
+
  	// Retrieve Entity
  	// No need to specify an encryption resolver for retrieve
- 	TableRequestOptions retrieveOptions = new TableRequestOptions() 
+ 	TableRequestOptions retrieveOptions = new TableRequestOptions()
  	{
     	EncryptionPolicy = policy
  	};
-  
+
  	TableOperation operation = TableOperation.Retrieve(ent.PartitionKey, ent.RowKey);
  	TableResult result = currentTable.Execute(operation, retrieveOptions, null);
 
@@ -244,9 +244,6 @@
 
 ## Дальнейшие действия
 
-Скачайте [клиентскую библиотеку службы хранилища Azure для пакета NuGet для .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0).
-Скачайте [клиентскую библиотеку хранилища Azure для исходного кода .NET](https://github.com/Azure/azure-storage-net) из GitHub. 
-Скачайте пакеты NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) и [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) для хранилища ключей Azure. 
-Просмотрите [документацию по хранилищу ключей Azure](../articles/key-vault-whatis.md).
+Скачайте [клиентскую библиотеку службы хранилища Azure для пакета NuGet для .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0). Скачайте [клиентскую библиотеку хранилища Azure для исходного кода .NET](https://github.com/Azure/azure-storage-net) из GitHub. Скачайте пакеты NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) и [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) для хранилища ключей Azure. Просмотрите [документацию по хранилищу ключей Azure](../articles/key-vault-whatis.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

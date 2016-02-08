@@ -28,7 +28,7 @@
 
 - Дополнительные сведения о выполнении программных операций с большими двоичными объектами см. в статье [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md).
 - Общие сведения о службе хранилища Azure см. в [документации по службе хранилища](https://azure.microsoft.com/documentation/services/storage/).
-- Общие сведения об облачных службах Azure см. в [документации по облачным службам](http://azure.microsoft.com/documentation/services/cloud-services/).
+- Общие сведения об облачных службах Azure см. в [документации по облачным службам](https://azure.microsoft.com/documentation/services/cloud-services/).
 - Дополнительные сведения о программировании для приложений ASP.NET см. в разделе [ASP.NET](http://www.asp.net).
 
 ## Доступ к контейнерам больших двоичных объектов в коде
@@ -48,7 +48,7 @@
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-3. Получите объект **CloudBlobClient**, который ссылается на существующий контейнер в вашей учетной записи хранения.
+3. Получите объект **CloudBlobClient**, чтобы указать ссылку на существующий контейнер в вашей учетной записи хранения.
 
 		// Create a blob client.
 		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -58,11 +58,11 @@
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE]Вставьте весь код, показанный в предыдущей процедуре, перед кодом, показанным в следующих разделах.
+> [AZURE.NOTE] Вставьте весь код, показанный в предыдущей процедуре, перед кодом, показанным в следующих разделах.
 
 ## Создание контейнера в коде
 
-> [AZURE.NOTE]Некоторые интерфейсы API, которые выполняют вызовы в хранилище Azure в ASP.NET, являются асинхронными. Дополнительные сведения см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await](http://msdn.microsoft.com/library/hh191443.aspx). Код в приведенном ниже примере предполагает, что вы используете асинхронные методы программирования.
+> [AZURE.NOTE] Некоторые интерфейсы API, которые выполняют вызовы в хранилище Azure в ASP.NET, являются асинхронными. Дополнительные сведения см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await](http://msdn.microsoft.com/library/hh191443.aspx). Код в приведенном ниже примере предполагает, что вы используете асинхронные методы программирования.
 
 Чтобы создать контейнер в учетной записи хранения, необходимо всего лишь добавить вызов **CreateIfNotExistsAsync**, как это сделано в следующем коде.
 
@@ -257,4 +257,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

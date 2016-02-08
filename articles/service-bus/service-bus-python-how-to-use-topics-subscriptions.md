@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Использование разделов и подписок служебной шины
@@ -63,7 +63,7 @@ bus_service.create_topic('mytopic', topic_options)
 
 Подписки на разделы также создаются с помощью объекта **ServiceBusService**. У подписок есть имена, и они могут использовать дополнительный фильтр, ограничивающий набор сообщений, доставляемых в виртуальную очередь подписки.
 
-> [AZURE.NOTE]Подписки хранятся постоянно и продолжают существовать либо до их удаления, либо до удаления раздела, на который они подписаны.
+> [AZURE.NOTE] Подписки хранятся постоянно и продолжают существовать либо до их удаления, либо до удаления раздела, на который они подписаны.
 
 ### Создание подписки с фильтром по умолчанию (MatchAll)
 
@@ -81,7 +81,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 Фильтры можно добавить в подписку с помощью метода **create\_rule** объекта **ServiceBusService**. Этот метод позволяет добавлять новые фильтры в существующую подписку.
 
-> [AZURE.NOTE]Так как ко всем новым подпискам автоматически применяется фильтр по умолчанию, сначала необходимо удалить фильтр по умолчанию, иначе **MatchAll** переопределит поведение всех остальных заданных фильтров. Вы можете удалить правило по умолчанию с помощью метода **delete\_rule** объекта **ServiceBusService**.
+> [AZURE.NOTE] Так как ко всем новым подпискам автоматически применяется фильтр по умолчанию, сначала необходимо удалить фильтр по умолчанию, иначе **MatchAll** переопределит поведение всех остальных заданных фильтров. Вы можете удалить правило по умолчанию с помощью метода **delete\_rule** объекта **ServiceBusService**.
 
 В следующем примере создается подписка с именем `HighMessages`, содержащая объект **SqlFilter**, который выбирает только сообщения, значение настраиваемого свойства **MessageNumber** которых превышает 3.
 
@@ -183,4 +183,4 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Очереди Azure и очереди служебной шины]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

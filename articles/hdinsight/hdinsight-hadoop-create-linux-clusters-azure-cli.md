@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/17/2015"
+   	ms.date="01/22/2016"
    	ms.author="larryfr"/>
 
 #Создание кластеров под управлением Linux в HDInsight с помощью Azure CLI
@@ -27,13 +27,13 @@ Azure CLI представляет собой кроссплатформенну
 
 В этом документе описан поэтапный процесс создания нового кластера HDInsight с использованием шаблона и Azure CLI.
 
-> [AZURE.IMPORTANT]При выполнении действий, описанных в этом документе, используется стандартное количество рабочих узлов (4) для кластера HDInsight. Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
+> [AZURE.IMPORTANT] При выполнении действий, описанных в этом документе, используется стандартное количество рабочих узлов (4) для кластера HDInsight. Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
 >
-> Дополнительные сведения о размерах узлов и связанных затратах см. в статье [Цены на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+> Дополнительные сведения о размерах узлов и их стоимости см. в статье [Сведения о ценах на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Предварительные требования
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Интерфейс командной строки Azure__. Сведения об установке интерфейса командной строки Azure см. в разделе [Установка интерфейса командной строки Azure](../xplat-cli-install.md).
 
@@ -84,9 +84,9 @@ Azure CLI представляет собой кроссплатформенну
 
         azure group create RESOURCEGROUPNAME LOCATION
     
-    > [AZURE.NOTE]Если имя расположения содержит пробелы, заключите его в кавычки. Например, "Юг центральных США".
+    > [AZURE.NOTE] Если имя расположения содержит пробелы, заключите его в кавычки. Например, "Юг центральных США".
 
-6. Чтобы создать начальное развертывание для этой группы ресурсов, выполните указанную ниже команду. Замените __PATHTOTEMPLATE__ путем к файлу шаблона __azuredeploy.json__. Замените __PATHTOPARAMETERSFILE__ путем к файлу __azuredeploy.parameters.json__. Замените __RESOURCEGROUPNAME__ именем группы, созданной на предыдущем этапе.
+6. Чтобы создать начальное развертывание для этой группы ресурсов, выполните указанную ниже команду. Замените __PATHTOTEMPLATE__ путем к файлу шаблона __azuredeploy.json__. Замените __PATHTOPARAMETERSFILE__ на путь к файлу __azuredeploy.parameters.json__. Замените __RESOURCEGROUPNAME__ именем группы, созданной на предыдущем этапе.
 
         azure group deployment create -f PATHTOTEMPLATE -e PATHTOPARAMETERSFILE -g RESOURCEGROUPNAME -n InitialDeployment
 
@@ -121,4 +121,4 @@ Azure CLI представляет собой кроссплатформенну
 * [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Развертывание и мониторинг топологий со Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -57,4 +57,4 @@
 [О методах маршрутизации трафика в диспетчере трафика](../about-traffic-manager-balancing-methods.md) [Диспетчер трафика](../traffic-manager.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

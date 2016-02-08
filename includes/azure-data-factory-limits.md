@@ -7,10 +7,10 @@
 параллельных срезов на набор данных | 10 | 10
 байтов на объект для объектов pipeline <sup>1</sup> | 200 КБ | 2000 KB
 байтов на объект для объектов dataset и linkedservice <sup>1</sup> | 30 КБ | 2000 KB
-полей на объект | 100 | [Обратитесь в службу поддержки.](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-байтов в поле имени или идентификатора | 2 КБ | [Обратитесь в службу поддержки.](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-байтов в поле | 30 КБ | [Обратитесь в службу поддержки.](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-Ядер кластера HDInsight по запросу в подписке <sup>2</sup> | 48 | [Обратитесь в службу поддержки.](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+полей на объект | 100 | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+байтов в поле имени или идентификатора | 2 КБ | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+байтов в поле | 30 КБ | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+Ядер кластера HDInsight по запросу в подписке <sup>2</sup> | 48 | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 Число повторных попыток выполнить действие конвейера | 1000 | MaxInt (32 разряда)
 
 <sup>1</sup> Объекты конвейера, набора данных и связанной службы представляют логическую группировку вашей рабочей нагрузки. Ограничения для этих объектов не связаны с объемом данных, которые вы можете перемещать и обрабатывать в службе фабрики данных Azure. Фабрика данных предназначена для масштабирования, позволяющего обрабатывать петабайты данных.
@@ -29,4 +29,4 @@
 
 Для диспетчера ресурсов Azure действуют ограничения для вызовов API. Можно вызывать API с частотой, соответствующей [ограничениям API диспетчера ресурсов Azure](azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

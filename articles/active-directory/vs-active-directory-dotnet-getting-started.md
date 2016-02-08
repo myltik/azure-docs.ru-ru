@@ -75,6 +75,6 @@
     &lt;/html>
 </pre>
 
-[Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

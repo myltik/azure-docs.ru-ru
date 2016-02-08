@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Задействование гибридными приложениями облачных и локальных ресурсов
@@ -35,16 +35,16 @@
  
 ## Популярное
 
-- [Сведения о расценках на служебную шину](http://azure.microsoft.com/pricing/details/service-bus/)
+- [Сведения о расценках на служебную шину](https://azure.microsoft.com/pricing/details/service-bus/)
 - [Вопросы и ответы по расценкам на служебную шину](service-bus-pricing-faq.md)
 - [Справочник по API REST служебной шины](http://msdn.microsoft.com/library/azure/hh780717.aspx)
-- [Подписка на бесплатный пробный период Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
+- [Подписка на бесплатный пробный период Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
 ## Связанные службы
 
-- [Службы BizTalk](http://azure.microsoft.com/services/biztalk-services/)
-- [Мобильные службы](http://azure.microsoft.com/services/mobile-services/)
-- [Облачные службы](http://azure.microsoft.com/services/cloud-services/) 
+- [Службы BizTalk](https://azure.microsoft.com/services/biztalk-services/)
+- [Мобильные службы](https://azure.microsoft.com/services/mobile-services/)
+- [Облачные службы](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

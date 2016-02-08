@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="01/19/2016"
 	ms.author="bwren" />
 
 # Изменение текстовых модулей Runbook в службе автоматизации Azure
@@ -21,7 +21,7 @@
 
 Текстовый редактор включает функцию, позволяющую вставлять в модуль Runbook код для действий, ресурс-контейнеров и дочерних модулей. Вместо того чтобы вводить этот код самостоятельно, выберите его из списка доступных ресурсов, и соответствующий код будет вставлен в модуль Runbook.
 
-У каждого модуля Runbook в службе автоматизации Azure есть черновая и опубликованная версия. Вы можете изменить черновую версию рабочего процесса, а затем опубликовать ее для последующего использования. Опубликованную версию изменить нельзя. Дополнительные сведения см. в статье [Публикация модуля Runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
+У каждого модуля Runbook в службе автоматизации Azure есть черновая и опубликованная версия. Вы можете изменить черновую версию модуля Runbook, а затем опубликовать ее для последующего использования. Опубликованную версию изменить нельзя. Дополнительные сведения см. в статье [Публикация модуля Runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
 
 Для работы с [графическими модулями Runbook](automation-runbook-types.md#graphical-runbooks) обратитесь к статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md).
 
@@ -58,7 +58,7 @@
 2. На холсте текстового редактора установите курсор в то место, куда нужно вставить код для дочернего модуля Runbook.
 3. Разверните узел **Ресурс-контейнеры** в элементе управления «Библиотека». 
 4. Разверните узел для желаемого типа ресурс-контейнера.
-3. Щелкните ресурс-контейнер, который нужно вставить, правой кнопкой мыши, и выберите параметр **Добавить на холст**. Для [переменных ресурс-контейнеров](variable-assets.md) выберите либо **Добавить переменную Get на холст**, либо **Добавить переменную Set на холст**, в зависимости от того, нужно ли вам получить или задать переменную.
+3. Щелкните ресурс-контейнер, который нужно вставить, правой кнопкой мыши, и выберите параметр **Добавить на холст**. Для [переменных ресурс-контейнеров](automation-variables.md) выберите либо **Добавить переменную Get на холст**, либо **Добавить переменную Set на холст**, в зависимости от того, нужно ли вам получить или задать переменную.
 4. Код для ресурс-контейнера вставляется в модуль Runbook.
 
 
@@ -107,7 +107,7 @@
 
 ## Изменение модуля Runbook в службе автоматизации Azure с помощью Windows PowerShell
 
-Чтобы изменить модуль Runbook с помощью Windows PowerShell, необходимо изменить рабочий процесс в любом редакторе и сохранить его в виде файла PS1. Командлет [Get AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) позволяет извлечь содержимое модуля Runbook, а командлет [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) — заменить существующий черновой рабочий процесс на измененный.
+Чтобы изменить модуль Runbook с помощью Windows PowerShell, используйте любой редактор и сохраните его в виде файла PS1. Командлет [Get AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) позволяет извлечь содержимое модуля Runbook, а командлет [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) — заменить существующий черновой модуль Runbook на измененный.
 
 ### Извлечение содержимого модуля Runbook с помощью Windows PowerShell
 
@@ -124,7 +124,7 @@
 
 ### Изменение содержимого модуля Runbook с помощью Windows PowerShell
 
-Команды в приведенном ниже примере показывают, как заменить существующее содержимое модуля Runbook на содержимое файла сценария, в котором находится рабочий процесс. Эта же процедура используется для примера в статье [Импорт модуля Runbook из файла сценария с помощью Windows PowerShell](../automation-creating-or-importing-a-runbook#ImportRunbookScriptPS).
+Команды в приведенном ниже примере показывают, как заменить существующее содержимое модуля Runbook на содержимое файла сценария. Эта же процедура используется для примера в статье [Импорт модуля Runbook из файла сценария с помощью Windows PowerShell](../automation-creating-or-importing-a-runbook#ImportRunbookScriptPS).
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
@@ -135,7 +135,7 @@
 
 ## Связанные статьи
 
-- [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creatnig-importing-runbook.md)
+- [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md)
 - [Изучение рабочего процесса PowerShell](automation-powershell-workflow.md)
 - [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md)
 - [Сертификаты](automation-certificates.md)
@@ -144,4 +144,4 @@
 - [Расписания](automation-schedules.md)
 - [Переменные](automation-variables.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

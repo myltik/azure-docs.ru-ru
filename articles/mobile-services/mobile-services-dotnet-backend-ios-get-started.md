@@ -25,11 +25,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Если вы не знакомы с разработкой приложений для мобильных устройств с помощью Microsoft Azure, [начните работу с мобильными приложениями](app-service-mobile-dotnet-backend-ios-get-started-preview.md), а не с мобильными службами Azure. Мобильные приложения предоставляют [дополнительные преимущества](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+>[AZURE.TIP] Если вы не знакомы с разработкой приложений для мобильных устройств с помощью Microsoft Azure, [начните работу с мобильными приложениями](app-service-mobile-dotnet-backend-ios-get-started-preview.md), а не с мобильными службами Azure. Мобильные приложения предоставляют [дополнительные преимущества](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 В этом учебнике показано, как добавить облачную серверную службу в приложение iOS с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение _To do list_, хранящее данные приложения в новой мобильной службе. Мобильная служба использует .NET и Visual Studio для серверной бизнес-логики. Сведения о создании мобильной службы с серверной бизнес-логикой на JavaScript см. в разделе [Серверная версия JavaScript] этой статьи.
 
-> [AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить [бесплатные мобильные службы, которые можно использовать и после окончания пробного периода](http://azure.microsoft.com/pricing/details/mobile-services/). Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-ios-get-started%2F).
+> [AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить [бесплатные мобильные службы, которые можно использовать и после окончания пробного периода](https://azure.microsoft.com/pricing/details/mobile-services/). Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-ios-get-started%2F).
 
 ## <a name="create-new-service"> </a>Создание мобильной службы
 
@@ -67,9 +67,9 @@
 
 * [Приступая к работе с синхронизацией автономных данных] <br/>Узнайте, как использовать синхронизацию автономных данных для повышения скорости реагирования и надежности приложений.
 
-* [Добавление проверки подлинности в существующее приложение] <br/>Узнайте, как аутентифицировать пользователей приложения с помощью поставщика удостоверений.
+* [Добавление проверки подлинности в приложение] <br/>Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
-* [Добавление push-уведомлений в существующее приложение] <br/>Узнайте, как отправлять в приложение базовые push-уведомления.
+* [Добавление push-уведомлений в приложение] <br/>Узнайте, как отправлять в приложение базовые push-уведомления.
 
 * [Устранение неполадок серверной части .NET мобильных служб] <br/>Узнайте, как выявлять и исправлять неполадки, которые могут возникнуть в серверной части мобильных служб для .NET.
 
@@ -96,11 +96,11 @@
 
 <!-- URLs. -->
 [Приступая к работе с синхронизацией автономных данных]: mobile-services-ios-get-started-offline-data.md
-[Добавление проверки подлинности в существующее приложение]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Добавление push-уведомлений в существующее приложение]: mobile-services-dotnet-backend-ios-get-started-push.md
+[Добавление проверки подлинности в приложение]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Добавление push-уведомлений в приложение]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Устранение неполадок серверной части .NET мобильных служб]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Серверная версия JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

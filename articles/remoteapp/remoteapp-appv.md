@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Использование приложений App-V в Azure RemoteApp | Microsoft Azure" 
-    description="Узнайте, как использовать приложения App-V в Azure RemoteApp." 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="ericorman" 
+<properties
+    pageTitle="Использование приложений App-V в Azure RemoteApp | Microsoft Azure"
+    description="Узнайте, как использовать приложения App-V в Azure RemoteApp."
+    services="remoteapp"
+	documentationCenter=""
+    authors="ericorman"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/19/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/21/2016" 
     ms.author="elizapo" />
 
 
@@ -36,4 +36,4 @@
 
  Создав пользовательский образ и гибридную коллекцию, опубликуйте приложение, назначьте пользователей — и можете пользоваться своими приложениями App-V, размещенными в Azure RemoteApp, где угодно и на любом устройстве.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

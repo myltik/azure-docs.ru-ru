@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="01/21/2016" 
 	ms.author="awills"/>
 
 # Просмотр журналов трассировки Java в Application Insights
@@ -87,9 +87,9 @@
 
 Средство ведения журнала | Загрузить | Библиотека
 ----|----|----
-Logback|[Пакет SDK с аппендером Logback](http://dl.windowsazure.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J версии 2.0|[Пакет SDK с аппендером Log4J версии 2.0](http://dl.windowsazure.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4J версии 1.2|[Пакет SDK с аппендером Log4J версии 1.2](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Logback|[Пакет SDK с аппендером Logback](https://azuredownloads.blob.core.windows.net/applicationinsights/logbackAppender.zip)|applicationinsights-logging-logback
+Log4J версии 2.0|[Пакет SDK с аппендером Log4J версии 2.0](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j2Appender.zip)|applicationinsights-logging-log4j2 
+Log4J версии 1.2|[Пакет SDK с аппендером Log4J версии 1.2](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
 
 
 
@@ -149,4 +149,4 @@ Log4J версии 1.2|[Пакет SDK с аппендером Log4J верси�
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

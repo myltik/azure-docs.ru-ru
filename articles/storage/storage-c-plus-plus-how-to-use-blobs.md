@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="01/24/2016"
     ms.author="dineshm"/>
 
 # Использование хранилища BLOB-объектов из C++  
@@ -23,7 +23,7 @@
 ## Обзор
 В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища больших двоичных объектов Azure. Примеры написаны на C++ и используют [клиентскую библиотеку хранилища Azure для C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** BLOB-объектов.
 
->[AZURE.NOTE]Данное руководство предназначено для клиентской библиотеки хранилища Azure для C++ версии 1.0.0 и выше. Рекомендуемая версия — клиентская библиотека хранилища 1.0.0, которая доступна через [NuGet](http://www.nuget.org/packages/wastorage) или [GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] Данное руководство предназначено для клиентской библиотеки хранилища Azure для C++ версии 1.0.0 и выше. Рекомендуемая версия — клиентская библиотека хранилища 1.0.0, которая доступна через [NuGet](http://www.nuget.org/packages/wastorage) или [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -47,12 +47,12 @@
 	#include "was/blob.h"
 
 ## Настройка строки подключения к хранилищу Azure
-Клиент хранилища Azure использует строку подключения с целью хранения конечных точек и учетных данных для доступа к службам управления данными. При работе в клиентском приложении необходимо указать для хранилища строку подключения в следующем формате, используя имя своей учетной записи хранения и клавишу доступа для учетной записи хранения, указанные на [портале Azure](portal.azure.com) значениями *AccountName* и *AccountKey*. Сведения об учетных записях хранения и ключи доступа см. в разделе [Об учетных записях хранения Azure](storage-create-storage-account.md). В этом примере показано, как объявить статическое поле для размещения строки подключения:
+Клиент хранилища Azure использует строку подключения с целью хранения конечных точек и учетных данных для доступа к службам управления данными. При работе в клиентском приложении необходимо указать для хранилища строку подключения в следующем формате, используя имя своей учетной записи хранения и клавишу доступа для учетной записи хранения, указанные на [портале Azure](https://portal.azure.com) значениями *AccountName* и *AccountKey*. Сведения об учетных записях хранения и ключи доступа см. в разделе [Об учетных записях хранения Azure](storage-create-storage-account.md). В этом примере показано, как объявить статическое поле для размещения строки подключения:
 
 	// Define the connection-string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-Чтобы протестировать приложение на локальном компьютере Windows, можно использовать [эмулятор хранения](https://msdn.microsoft.com/library/azure/hh403989.aspx) Microsoft Azure, установленный с [Azure SDK](http://azure.microsoft.com/downloads/). Эмулятор хранения — это программа, моделирующая службы больших двоичных объектов, очередей и таблиц, доступных в Azure на локальном компьютере разработки. В следующем примере показано, как объявить статическое поле для размещения строки подключения для эмулятора локального хранилища.
+Чтобы протестировать приложение на локальном компьютере Windows, можно использовать [эмулятор хранения](https://msdn.microsoft.com/library/azure/hh403989.aspx) Microsoft Azure, установленный с [Azure SDK](https://azure.microsoft.com/downloads/). Эмулятор хранения — это программа, моделирующая службы больших двоичных объектов, очередей и таблиц, доступных в Azure на локальном компьютере разработки. В следующем примере показано, как объявить статическое поле для размещения строки подключения для эмулятора локального хранилища.
 
 	// Define the connection-string with Azure Storage Emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
@@ -235,7 +235,7 @@
 -	[Использование табличного хранилища из C++](storage-c-plus-plus-how-to-use-tables.md)
 -	[Перечисление ресурсов хранилища Azure в C++](storage-c-plus-plus-enumeration.md)
 -	[Справочник по клиентской библиотеке хранилища для C++](http://azure.github.io/azure-storage-cpp)
--	[Документация по хранилищу Azure](http://azure.microsoft.com/documentation/services/storage/)
+-	[Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -40,13 +40,13 @@
 
 Схемы обучения AMS можно просмотреть здесь:
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Плакат
 
 
-[Здесь](http://azure.microsoft.com/documentation/infographics/media-services/) можно просмотреть плакат служб мультимедиа Azure, на котором показаны рабочие потоки AMS, начиная от создания медиаданных до их потребления.
+[Здесь](https://azure.microsoft.com/documentation/infographics/media-services/) можно просмотреть плакат служб мультимедиа Azure, на котором показаны рабочие потоки AMS, начиная от создания медиаданных до их потребления.
 
 ##Предварительные требования
 
@@ -206,7 +206,7 @@
 
 ##Поддержка
 
-[Служба поддержки Azure](http://azure.microsoft.com/support/options/) обеспечивает различные варианты поддержки для Azure, включая службы мультимедиа.
+[Служба поддержки Azure](https://azure.microsoft.com/support/options/) обеспечивает различные варианты поддержки для Azure, включая службы мультимедиа.
 
 ##Руководство по шаблонам и рекомендации
 
@@ -225,7 +225,7 @@
 - для защиты содержимого мы гарантируем, что мы будет успешно выполнять ключевые запросы по крайней мере 99,9 % времени;
 - для индексатора мы будет успешно обслуживать запросы задачи индексатора, обработанные с помощью зарезервированный единицы кодирования, в течение 99,9 % времени.
 
-	Дополнительные сведения можно найти в разделе [Соглашение об уровне обслуживания Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
+	Дополнительные сведения можно найти в разделе [Соглашение об уровне обслуживания Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -234,4 +234,4 @@
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->
