@@ -28,9 +28,10 @@
 -	**Файл** — файл в совместно используемом ресурсе. Файлы могут иметь размер до 1 ТБ.
 
 -   **Формат URL-адреса** — к файлам можно обратиться, используя следующий формат URL-адреса: https://`<storage
-    account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>
+    account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
     
-    Следующий пример URL-адреса можно использовать для обращения к одному из файлов на схеме выше:`http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
+    Следующий пример URL-адреса можно использовать для обращения к одному из файлов на схеме выше:
+    `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
 Дополнительные сведения о способе именования ресурсов, каталогов и файлов см. в разделе [Присвоение имен и ссылки на совместно используемые ресурсы, каталоги, файлы и метаданные](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 

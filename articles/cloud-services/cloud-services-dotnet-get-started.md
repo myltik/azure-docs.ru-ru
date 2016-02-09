@@ -471,10 +471,10 @@
 
 3. В проекте ContosoAdsCommon добавьте следующие файлы из загруженного проекта.
 	- *Global.asax.cs*.  
-	- В папку *Views\\Shared*: файл <em>\_Layout.cshtml</em>.
-	- В папку *Views\\Home*: файл *Index.cshtml*.
+	- В папку *Views\Shared*: файл <em>\_Layout.cshtml</em>.
+	- В папку *Views\Home*: файл *Index.cshtml*.
 	- В папку *Controllers*: *AdController.cs*
-	- В папку *Views\\Ad* (вначале создайте эту папку): пять файлов *.cshtml*.
+	- В папку *Views\Ad* (вначале создайте эту папку): пять файлов *.cshtml*.
 
 3. В проекте ContosoAdsCommon добавьте *WorkerRole.cs* из загруженного проекта.
 
@@ -577,11 +577,11 @@
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Файл *\_Layout.cshtml* устанавливает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
+Файл *_Layout.cshtml* устанавливает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
 
-### ContosoAdsWeb - Views\\Home\\Index.cshtml
+### ContosoAdsWeb - Views\Home\Index.cshtml
 
-Файл *Views\\Home\\Index.cshtml* выводит ссылки категорий на домашней странице. Ссылки передают целочисленное значение перечисляемого типа `Category` в переменную querystring на странице индекса Ads.
+Файл *Views\Home\Index.cshtml* выводит ссылки категорий на домашней странице. Ссылки передают целочисленное значение перечисляемого типа `Category` в переменную querystring на странице индекса Ads.
 
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -670,7 +670,7 @@
 		    await blobToDelete.DeleteAsync();
 		}
 
-### ContosoAdsWeb - Views\\Ad\\Index.cshtml и Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml и Details.cshtml
 
 Файл *Index.cshtml* выводит эскиз с другими данными рекламы.
 
@@ -680,7 +680,7 @@
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\\Ad\\Create.cshtml и Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml и Edit.cshtml
 
 Файлы *Create.cshtml* и *Edit.cshtml* указывают кодирование формы, которое дает возможность контроллеру получить объект `HttpPostedFileBase`.
 

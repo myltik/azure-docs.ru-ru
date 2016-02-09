@@ -110,7 +110,7 @@
 
 3. Разверните проект ToDoListAPI в новом приложении API.
 
-	а. В проекте ToDoListAPI откройте файл *Controllers\\ToDoListController.cs* и измените `http://localhost:45914` на `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
+	а. В проекте ToDoListAPI откройте файл *Controllers\ToDoListController.cs* и измените `http://localhost:45914` на `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
 
 	b. Чтобы развернуть проект ToDoListAPI, выполните ту же процедуру, что и для развертывания проекта ToDoListDataAPI. Не забудьте изменить тип на **Приложение API**.
 

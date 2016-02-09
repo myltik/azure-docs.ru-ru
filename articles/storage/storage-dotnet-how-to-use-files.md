@@ -199,12 +199,12 @@
 
 | Клиент Windows | Поддерживаемая версия SMB |
 |------------------------|----------------------|
-| Windows 7 | SMB 2.1 |
-| Windows Server 2008 R2 | SMB 2.1 |
-| Windows 8 | SMB 3.0 |
-| Windows Server 2012 | SMB 3.0 |
-| Windows Server 2012 R2 | SMB 3.0 |
-| Windows 10 | SMB 3.0 |
+| Windows 7              | SMB 2.1              |
+| Windows Server 2008 R2 | SMB 2.1              |
+| Windows 8              | SMB 3.0              |
+| Windows Server 2012    | SMB 3.0              |
+| Windows Server 2012 R2 | SMB 3.0              |
+| Windows 10             | SMB 3.0              |
 
 ### Подключение общей папки из виртуальной машины Azure под управлением Windows
 
@@ -228,14 +228,14 @@ Windows автоматически восстановит подключение
 
 Установив удаленное подключение к виртуальной машине, вы можете подключить файловый ресурс с помощью команды `net use`, используя синтаксис из примера ниже. Замените `<storage-account-name>` именем учетной записи хранения, а `<share-name>` именем вашего ресурса хранилища файлов.
 
-    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
+    net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
 Так как вы сохранили данные учетной записи хранения на предыдущем этапе, нет необходимости вводить их повторно с помощью команды `net use`. Если вы еще не сохранили учетные данные, включите их в параметры вызова команды `net use`, как показано в следующем примере.
 
-    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
+    net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>

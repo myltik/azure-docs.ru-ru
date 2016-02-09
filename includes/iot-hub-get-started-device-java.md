@@ -156,6 +156,6 @@
 > [AZURE.NOTE] Для простоты в этом руководстве не реализуются политики повтора. В рабочем коде следует реализовать политики повтора (например, экспоненциальную задержку), как указано в статье MSDN [Обработка временного сбоя][lnk-transient-faults].
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/ru-RU/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 <!---HONumber=AcomDC_0204_2016-->
