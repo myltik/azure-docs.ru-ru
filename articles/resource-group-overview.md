@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Общие сведения о диспетчере ресурсов Azure
@@ -87,7 +87,7 @@
 
 Рекомендации по структурированию шаблонов см. в статье [Рекомендации по разработке шаблонов диспетчера ресурсов Azure](best-practices-resource-manager-design-templates.md).
 
-Инструкции по развертыванию решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+Инструкции по развертыванию решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
 
 ## Теги
 
@@ -119,7 +119,7 @@
 
 Сведения о PowerShell см. в разделах [Использование Windows PowerShell с диспетчером ресурсов](./powershell-azure-resource-manager.md) и [Командлеты диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
-(Информацию об интерфейсе командной строки Azure см. в разделе [Использование интерфейса командной строки Azure для Mac, Linux и Windows со средствами управления ресурсами Azure](./virtual-machines/xplat-cli-azure-resource-manager.md).)
+(Информацию об интерфейсе командной строки Azure см. в разделе [Использование интерфейса командной строки Azure для Mac, Linux и Windows со средствами управления ресурсами Azure](./xplat-cli-azure-resource-manager.md).)
 
 Сведения о API REST см. в разделе [Справочник по API REST диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
@@ -138,4 +138,4 @@
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

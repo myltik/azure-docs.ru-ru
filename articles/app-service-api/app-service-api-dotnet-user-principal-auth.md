@@ -18,7 +18,7 @@
 
 # Проверка подлинности пользователя для приложений API в службе приложений Azure
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
 
 ## Обзор
 
@@ -110,7 +110,7 @@
 
 3. Разверните проект ToDoListAPI в новом приложении API.
 
-	а. В проекте ToDoListAPI откройте файл *Controllers\\ToDoListController.cs* и измените `http://localhost:45914` на `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
+	а. В проекте ToDoListAPI откройте файл *Controllers\ToDoListController.cs* и измените `http://localhost:45914` на `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
 
 	b. Чтобы развернуть проект ToDoListAPI, выполните ту же процедуру, что и для развертывания проекта ToDoListDataAPI. Не забудьте изменить тип на **Приложение API**.
 
@@ -391,4 +391,4 @@
 
 Из этого руководства вы узнали, как использовать проверку подлинности в службе приложений для приложения API и как вызывать приложение API с помощью библиотеки ADAL JS. В следующем руководстве вы узнаете, как [обеспечить безопасный доступ к приложению API в сценариях взаимодействия между службами](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

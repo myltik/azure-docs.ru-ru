@@ -6,7 +6,7 @@
 	documentationCenter="java" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="10/20/2015" 
+	ms.date="01/29/2015" 
 	ms.author="andrl"/>
 
 # Создание веб-приложения Node.js с использованием DocumentDB
@@ -34,7 +34,7 @@
 
 ![Приложение My ToDo List на Java](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]В данном учебнике по разработке приложения предполагается, что у вас имеется некоторый опыт использования Java. Если вы никогда не работали с Java или [необходимыми инструментами](#Prerequisites), рекомендуется загрузить полный учебный проект [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) с портала GitHub и создать его, следуя [инструкциям, приведенным в конце этой статьи](#GetProject). После создания ознакомьтесь со статьей, чтобы разобраться в коде этого проекта.
+> [AZURE.TIP] В данном учебнике по разработке приложения предполагается, что у вас имеется некоторый опыт использования Java. Если вы никогда не работали с Java или [необходимыми инструментами](#Prerequisites), рекомендуется загрузить полный учебный проект [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) с портала GitHub и создать его, следуя [инструкциям, приведенным в конце этой статьи](#GetProject). После создания ознакомьтесь со статьей, чтобы разобраться в коде этого проекта.
 
 ##<a id="Prerequisites"></a>Необходимые условия для изучения этого учебника по разработке веб-приложения Java
 Для работы с этим учебником необходимы:
@@ -95,7 +95,7 @@
 4. В окне **Select Dependency** (Выбор зависимости) выполните следующие действия.
  - В поле **GroupId** (Идентификатор группы) введите com.microsoft.azure.
  - В поле **Artifact Id** (Идентификатор артефакта) введите azure-documentdb.
- - В поле **Version** (Версия) введите 1.4.0.
+ - В поле **Version** (Версия) введите 1.5.1.
 
 	![Установка пакета DocumentDB Java Application SDK](./media/documentdb-java-application/image13.png)
 
@@ -104,7 +104,7 @@
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.4.0</version>
+		    <version>1.5.1</version>
 	    </dependency>
 
 5. После нажатия кнопки **Ok** Maven установит пакет DocumentDB Java SDK.
@@ -770,7 +770,7 @@
 8. На экране **Local Destination** (Локальная папка назначения) нажмите кнопку **Browse** (Обзор), выберите папку, в которую можно копировать репозитории, и нажмите кнопку **Next** (Далее).
 9. На экране **Select a wizard to use for importing projects** (Выбор мастера для импорта проектов) убедитесь, что установлен флажок **Import existing projects** (Импортировать существующие проекты) и нажмите кнопку **Next** (Далее).
 10. На экране **Import Projects** (Импорт проектов) снимите флажок возле проекта **DocumentDB** и нажмите кнопку **Finish** (Далее). В проекте DocumentDB содержится пакет DocumentDB Java SDK, который будет добавлен в качестве зависимости.
-11. В **обозревателе проектов** перейдите в расположение azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java и замените значения в полях HOST (Узел) и MASTER_KEY (Основной ключ) значениями URI и ПЕРВИЧНОГО КЛЮЧА для вашей учетной записи DocumentDB, а затем сохраните файл. Дополнительные сведения см. в инструкции [Шаг 1. Создание учетной записи базы данных DocumentDB](#CreateDB).
+11. В **обозревателе проектов** перейдите в расположение azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java и замените значения в полях HOST (Узел) и MASTER\_KEY (Основной ключ) значениями URI и ПЕРВИЧНОГО КЛЮЧА для вашей учетной записи DocumentDB, а затем сохраните файл. Дополнительные сведения см. в инструкции [Шаг 1. Создание учетной записи базы данных DocumentDB](#CreateDB).
 12. В **обозревателе проектов** правой кнопкой мыши щелкните элемент **azure-documentdb-java-sample**, затем выберите **Build Path** (Построить путь) и щелкните **Configure Build Path** (Настроить построение пути).
 13. На экране **Java Build Path** (Путь построения Java) в правой области откройте вкладку **Libraries** (Библиотеки) и щелкните **Add External JAR** (Добавить внешние JAR-файлы). Перейдите в расположение файла lombok.jar, щелкните **Open** (Открыть), а затем нажмите кнопку **ОК** (ОК).
 14. С помощью инструкции из шага 12 снова откройте окно **Properties** (Свойства), а затем в левой области щелкните **Targeted Runtimes** (Целевые среды выполнения).
@@ -786,4 +786,4 @@
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

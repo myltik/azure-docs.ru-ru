@@ -18,7 +18,7 @@
 
 # Проверка подлинности с использованием субъекта-службы для приложений API в службе приложений Azure
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
 
 ## Обзор
 
@@ -392,4 +392,4 @@
 
 Сведения о других способах развертывания проектов Visual Studio в приложениях API с помощью Visual Studio или функции [автоматизации развертывания](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) из [системы управления версиями](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control) см. в статье [Развертывание приложения в службе приложений Azure](web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

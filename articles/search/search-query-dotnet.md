@@ -41,8 +41,8 @@
 			sp.Filter = filter;
 		}
 	
-		DocumentSearchResponse<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
-		foreach (SearchResult<Hotel> result in response)
+		DocumentSearchResult<Hotel> documentSearchResult = indexClient.Documents.Search<Hotel>(searchText, sp);
+		foreach (SearchResult<Hotel> result in documentSearchResult.Results)
 		{
 			Console.WriteLine(result.Document);
 		}
@@ -63,4 +63,4 @@
 
 Второй вызов использует выражение OData $filter «category eq 'Luxury'». Это ограничивает поиск документами, в которых поле category точно совпадает со строкой Luxury. Дополнительные сведения о синтаксисе OData можно найти в статье [Синтаксис выражений OData в службе поиска Azure](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

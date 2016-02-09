@@ -82,7 +82,7 @@
 
 
 2. Разверните
-3. Разверните элементы *Службы данных*, *Службы восстановления* и щелкните *Хранилище Site Recovery*. 
+3. Разверните элементы *Службы данных*, *Службы восстановления* и щелкните *Хранилище Site Recovery*.
 *
 3. Щелкните *Создать*, а затем *Быстрое создание*.
 
@@ -124,26 +124,26 @@
 	![Центр обновления Майкрософт](./media/site-recovery-vmm-to-azure/VMMASRInstallMUScreen.png)
 
 
-1.  Задано такое расположение установки: **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Нажмите кнопку "Установить", чтобы начать установку поставщика. 
+1.  Задано такое расположение установки: **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Нажмите кнопку "Установить", чтобы начать установку поставщика.
 	![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
 
 
 
-1. После установки поставщика нажмите кнопку "Зарегистрировать", чтобы зарегистрировать сервер в хранилище. 
+1. После установки поставщика нажмите кнопку "Зарегистрировать", чтобы зарегистрировать сервер в хранилище.
 	![InstallComplete](./media/site-recovery-vmm-to-azure/VMMASRInstallComplete.png)
 
 5. На странице **Подключение к Интернету** укажите, как запущенный на сервере VMM поставщик подключается к Интернету. Выберите пункт *Use default system proxy settings* (Использовать настройки прокси-сервера по умолчанию), чтобы использовать настройки подключения к Интернету, по умолчанию заданные на сервере.
 
 	![Параметры Интернета](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) 
-	— Если вы хотите использовать настраиваемый прокси-сервер, его следует настроить перед установкой поставщика. При настройке параметров пользовательского прокси будет выполнена проверка подключения прокси-сервера. 
-	— Если используется пользовательский прокси или если ваш прокси-сервер требует проверки подлинности, необходимо ввести данные прокси-сервера, включая адрес прокси-сервера и порт. 
-	— С сервера VMM и узлов Hyper-v должны быть доступны следующие адреса:
-		 — *.hypervrecoverymanager.windowsazure.com 
-		 — *.accesscontrol.windows.net 
-		 — *.backup.windowsazure.com 
-		 — *.blob.core.windows.net 
-		 — *.store.core.windows.net. 
-	— Разрешите доступ с IP-адресов, описанных в разделе [Диапазоны IP-адресов центров обработки данных Azure](http://go.microsoft.com/fwlink/?LinkId=511094), и для протокола HTTPS (порт 443). Необходимо разрешить диапазоны IP-адресов региона Azure, который вы планируете использовать, и Запада США.
+	— Если вы хотите использовать настраиваемый прокси-сервер, его следует настроить перед установкой поставщика. При настройке параметров пользовательского прокси будет выполнена проверка подключения прокси-сервера.
+	— Если используется пользовательский прокси или если ваш прокси-сервер требует проверки подлинности, необходимо ввести данные прокси-сервера, включая адрес прокси-сервера и порт.
+	— С сервера VMM и узлов Hyper-v должны быть доступны следующие адреса: 
+	 	— *.hypervrecoverymanager.windowsazure.com
+		— *.accesscontrol.windows.net
+	   	— *.backup.windowsazure.com 
+	   	— *.blob.core.windows.net
+	    	— *.store.core.windows.net.
+	— Разрешите доступ с IP-адресов, описанных в разделе [Диапазоны IP-адресов центров обработки данных Azure](https://www.microsoft.com/download/details.aspx?id=41653), и для протокола HTTPS (порт 443). Необходимо разрешить диапазоны IP-адресов региона Azure, который вы планируете использовать, и Запада США.
 
 	- При использовании настраиваемого прокси-сервера автоматически создается учетная запись запуска от имени VMM (DRAProxyAccount), использующая указанные учетные данные прокси-сервера. Настройте прокси-сервер так, чтобы эта учетная запись могла успешно проходить проверку подлинности. Параметры учетной записи запуска от имени VMM можно изменить в консоли VMM. Для этого откройте рабочую область "Параметры", щелкните "Учетные записи запуска от имени", а затем измените пароль для учетной записи DRAProxyAccount. Чтобы параметры вступили в силу, потребуется перезапустить службу VMM.
 
@@ -179,7 +179,7 @@
 1. Зарегистрируйте поставщик с помощью следующей команды:
 
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
 
   
 #### Список параметров установки для командной строки
@@ -378,6 +378,7 @@
 <LI>Сведения о планировании и развертывании Azure Site Recovery в полной рабочей среде см. в руководствах <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Планирование службы Azure Site Recovery</a> и <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Развертывание службы Azure Site Recovery</a>.</LI>
 
 
-<LI>Если у вас есть вопросы, посетите <a href="http://go.microsoft.com/fwlink/?LinkId=313628">форум по службам восстановления Azure</a>.</LI> </UL>
+<LI>Если у вас есть вопросы, посетите <a href="http://go.microsoft.com/fwlink/?LinkId=313628">форум по службам восстановления Azure</a>.</LI> 
+</UL>
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
