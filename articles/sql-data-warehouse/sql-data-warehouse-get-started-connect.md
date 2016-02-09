@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/01/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Подключение к хранилищу данных SQL с помощью Visual Studio
@@ -26,7 +26,7 @@
 
 ## Предварительные требования
 
-+ Образец базы данных AdventureWorksDW в хранилище данных SQL. Чтобы создать его, см. статью [Создание базы данных в хранилище данных SQL](sql-data-warehouse-get-started-create.md). 
++ Образец базы данных AdventureWorksDW в хранилище данных SQL. Чтобы создать его, см. статью [Создание базы данных в хранилище данных SQL](sql-data-warehouse-get-started-provision.md). 
 + SQL Server Data Tools для Visual Studio. Инструкции по установке и параметры см. в статье [Установка Visual Studio и (или) SSDT](sql-data-warehouse-install-visual-studio.md).
 
 ## Этап 1. Поиск полного имени сервера Azure SQL Server
@@ -108,4 +108,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

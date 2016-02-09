@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="02/04/2016"
 	ms.author="joseidz"/>
 
 
@@ -46,7 +46,7 @@
 
 4.	В разделе **Учетные данные для входа** щелкните **Использовать следующие имя пользователя и пароль**, введите **имя пользователя** и **пароль**, которые вы задали для сервера базы данных SQL во время его создания, и нажмите кнопку **Далее**.
 
-	> [AZURE.TIP]Надстройки [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) и [Power Query](https://www.microsoft.com/download/details.aspx?id=39379) для Excel очень похожи в работе.
+	> [AZURE.TIP] Надстройки [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) и [Power Query](https://www.microsoft.com/download/details.aspx?id=39379) для Excel очень похожи в работе.
 
 5. В диалоговом окне **Выбор базы данных и таблицы** выберите в раскрывающемся меню базу данных **AdventureWorks**, а в списке таблиц и представлений — элемент **vGetAllCategories**, после чего нажмите кнопку **Далее**.
 
@@ -77,4 +77,4 @@
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

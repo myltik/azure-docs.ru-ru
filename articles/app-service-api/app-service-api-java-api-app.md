@@ -150,7 +150,7 @@
 ## Измените код для добавления возможности реализации API.
 В этом разделе вы замените серверную реализацию созданного кода на пользовательский код. Новый код вернет ArrayList сущностей Contact вызывающему клиенту.
 
-1. Откройте файл модели *Contact.java*, расположенный в папке *src/gen/java/swagger/model*, с помощью [Visual Studio Code](https://code.visualstudio.com) или в предпочитаемом текстовом редакторе. 
+1. Откройте файл модели *Contact.java*, расположенный в папке *src/gen/java/io/swagger/model*, с помощью [Visual Studio Code](https://code.visualstudio.com) или текстового редактора на ваш выбор. 
 
     ![Открыть файл модели контактов](media/app-service-api-java-api-app/open-contact-model-file.png)
 
@@ -163,7 +163,7 @@
 			this.emailAddress = email;
 		}
 
-1. Откройте файл реализации службы *ContactsApiServiceImpl.java*, расположенный в папке *src/main/java/swagger/api/impl*, с помощью [Visual Studio Code](https://code.visualstudio.com) или в предпочитаемом текстовом редакторе.
+1. Откройте файл реализации службы *ContactsApiServiceImpl.java*, расположенный в папке *src/main/java/io/swagger/api/impl*, с помощью [Visual Studio Code](https://code.visualstudio.com) или текстового редактора на ваш выбор.
 
     ![Открыть файл кода службы контактов](media/app-service-api-java-api-app/open-contact-service-code-file.png)
 
@@ -295,4 +295,4 @@
 
 Дополнительную информацию об использовании Java в Azure см. в разделе [Центр разработчиков Java](/develop/java/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
