@@ -1,6 +1,6 @@
 
 <properties
-   pageTitle="Сценарии проверки подлинности в Azure AD | Microsoft Azure"
+   pageTitle="Сценарии аутентификации в Azure Active Directory| Microsoft Azure"
    description="Обзор пяти наиболее распространенных сценариев проверки подлинности для Azure Active Directory (AAD)"
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -17,7 +17,7 @@
    ms.date="01/08/2016"
    ms.author="mbaldwin"/>
 
-# Сценарии проверки подлинности в Azure AD
+# Сценарии аутентификации в Azure Active Directory
 
 Azure Active Directory (Azure AD) упрощает процесс проверки подлинности для разработчиков, предоставляя удостоверение как услугу, благодаря поддержке стандартных протоколов, например OAuth 2.0 и OpenID Connect, а также библиотекам с открытым исходным кодом для различных платформ, которые позволяют оперативно приступать к программированию. В данном документе будут рассмотрены различные сценарии, которые поддерживает Azure AD, и показано, как приступить к работе. Он состоит из следующих разделов:
 
@@ -467,4 +467,4 @@ Azure Active Directory (Azure AD) упрощает процесс проверк
 
 [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016--->

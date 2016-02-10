@@ -18,7 +18,7 @@
 
 
 
-# Подписи общего доступа. Часть 1: общие сведения о модели SAS
+# Подписанные URL-адреса. Часть 1: общие сведения о модели SAS
 
 ## Обзор
 
@@ -318,4 +318,4 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016--->
