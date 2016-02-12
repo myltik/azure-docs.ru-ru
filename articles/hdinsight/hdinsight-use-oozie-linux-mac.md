@@ -361,7 +361,7 @@ Apache Oozie — это система рабочих процессов и ко
 		  </property>
 		</configuration>
 
-	* Замените все вхождения ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
+	* Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
 
 	> [AZURE.WARNING] В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasb:///) приведет к сбою при запуске задания RunHiveScript.
 
@@ -392,7 +392,7 @@ Apache Oozie — это система рабочих процессов и ко
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	Часть ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** — это URL-адрес, который используется в команде Oozie.
+	Часть **http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** — это URL-адрес, который используется в команде Oozie.
 
 2. Используйте следующую команду для создания переменной среды для URL-адреса, чтобы не вводить его в каждой команде:
 
