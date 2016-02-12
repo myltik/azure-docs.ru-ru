@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/01/2016" 
 	ms.author="sdanie"/>
 
 # Управление кэшем Redis для Azure с использованием Azure PowerShell
@@ -50,7 +50,7 @@
 
 Чтобы использовать Windows PowerShell с диспетчером ресурсов Azure, необходимо следующее:
 
-- Windows PowerShell версии 3.0 или 4.0. Чтобы узнать версию Windows PowerShell, введите `$PSVersionTable` и убедитесь, что значение `PSVersion` — 3.0 или 4.0. Чтобы установить совместимую версию, см. статью [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+- Windows PowerShell версии 3.0 или 4.0. Чтобы найти версию Windows PowerShell, введите `$PSVersionTable` и убедитесь, что для `PSVersion` указано значение 3.0 или 4.0. Чтобы установить совместимую версию, см. статью [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
 Чтобы получить подробную справку для любого командлета, встречающегося в этом учебнике, используйте командлет Get-Help.
 
@@ -59,6 +59,46 @@
 Например, чтобы получить справку для командлета `New-AzureRmRedisCache`, введите:
 
 	Get-Help New-AzureRmRedisCache -Detailed
+
+## Подключение к облаку Azure Government или Azure China
+
+Среда Azure по умолчанию — это `AzureCloud`, представляющий экземпляр глобального облака Azure. Чтобы подключиться к другому экземпляру, используйте команду `Add-AzureRmAccount`, заменив параметр `-Environment` или -`EnvironmentName` на нужную вам среду или имя среды.
+
+Чтобы просмотреть список доступных сред, выполните командлет `Get-AzureRmEnvironment`.
+
+### Подключение к облаку Azure Government
+
+Чтобы подключиться к облаку Azure Government, используйте одну из следующих команд.
+
+	Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+
+или
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+
+Чтобы создать кэш в облаке Azure Government, используйте одно из следующих расположений.
+
+-	Правительство штата Вирджиния
+-	Правительство штата Айова
+
+Дополнительные сведения об облаке Azure Government см. в статье [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) и в [Руководстве для разработчиков Microsoft Azure Government](azure-government-developer-guide.md).
+
+### Подключение к облаку Azure China
+
+Чтобы подключиться к облаку Azure China, используйте одну из следующих команд.
+
+	Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+
+или
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+
+Чтобы создать кэш в облаке Azure China, используйте одно из следующих расположений.
+
+-	Восток Китая
+-	Север Китая
+
+Дополнительные сведения об облаке Azure China см. в статье [AzureChinaCloud для Azure под управлением 21Vianet в Китае](http://www.windowsazure.cn/).
 
 ## Свойства, используемые в командлетах PowerShell кэша Redis для Azure
 
@@ -85,7 +125,7 @@
 
 Новые экземпляры кэша Redis для Azure создаются с помощью командлета [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
 
->[AZURE.IMPORTANT]Когда кэш Redis создается в подписке с использованием портала Azure впервые, портал регистрирует пространство имен `Microsoft.Cache` для этой подписки. Если первый кэш Redis создается в подписке с использованием PowerShell, необходимо зарегистрировать пространство имен с помощью представленной ниже команды, иначе команды `New-AzureRmRedisCache` и `Get-AzureRmRedisCache` завершатся неудачей.
+>[AZURE.IMPORTANT] Когда кэш Redis создается в подписке с использованием портала Azure впервые, портал регистрирует пространство имен `Microsoft.Cache` для этой подписки. Если первый кэш Redis создается в подписке с использованием PowerShell, необходимо зарегистрировать пространство имен с помощью представленной ниже команды, иначе команды `New-AzureRmRedisCache` и `Get-AzureRmRedisCache` завершатся неудачей.
 >
 >`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
@@ -251,7 +291,7 @@
 >
 >-	Вы не можете выполнить масштабирование кэша до уровня **Премиум** или с уровня "Премиум" до другого уровня.
 >-	Вы не можете выполнить масштабирование кэша с уровня **Стандартный** до уровня **Базовый**.
->-	Вы можете выполнить масштабирование кэша с уровня **Базовый** до уровня **Стандартный**, но вам не удастся одновременно с этим изменить размер кэша. Если требуется изменить размер, можно выполнить последующую операцию масштабирования до нужного размера.
+>-	Вы можете выполнить масштабирование кэша с уровня **Basic** до уровня **Standard**, но вам не удастся одновременно с этим изменить размер кэша. Если требуется изменить размер, можно выполнить последующую операцию масштабирования до нужного размера.
 >-	Вам не удастся выполнить масштабирование с большего размера до размера **C0 (250 МБ)**.
 >
 >Дополнительные сведения см. в статье [Масштабирование кэша Redis для Azure](cache-how-to-scale.md).
@@ -569,4 +609,4 @@
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

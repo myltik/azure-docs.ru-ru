@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="garye"/>
 
 
@@ -73,10 +73,10 @@
 
 Данные будут отправлены в модуль набора данных, который можно использовать в эксперименте.
 
-Дополнительную информацию об импорте различных типов данных в эксперимент см. в разделе [Импорт обучающих данных в Студию машинного обучения Azure](machine-learning-import-data.md).
+Дополнительную информацию об импорте различных типов данных в эксперимент см. в разделе [Импорт обучающих данных в Студию машинного обучения Azure](machine-learning-data-science-import-data.md).
 
 **Далее: [создание нового эксперимента](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

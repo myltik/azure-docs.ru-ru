@@ -24,7 +24,7 @@
 
 [Студия машинного обучения Azure](https://studio.azureml.net/) содержит множество алгоритмов машинного обучения, которые можно использовать для решений прогнозной аналитики. Эти алгоритмы делятся на общие категории машинного обучения — ***регрессию***, ***классификацию***, ***кластеризацию*** и ***обнаружение аномалий***, каждая из которых предназначена для решения отдельного типа проблем машинного обучения.
 
-> [AZURE.NOTE]Подробное руководство по использованию этой памятки см. в статье [Выбор алгоритмов машинного обучения Microsoft Azure](machine-learning-algorithm-choice.md).
+> [AZURE.NOTE] Подробное руководство по использованию этой памятки см. в статье [Выбор алгоритмов машинного обучения Microsoft Azure](machine-learning-algorithm-choice.md).
 
 ## Загрузка памятки по алгоритмам машинного обучения
 
@@ -79,7 +79,7 @@
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
--->
+--> \\
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
@@ -87,4 +87,4 @@
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

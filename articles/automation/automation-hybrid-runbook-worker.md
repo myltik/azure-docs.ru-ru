@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/25/2016"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Гибридные компоненты Runbook Worker в службе автоматизации Azure
@@ -60,7 +60,7 @@
 Ниже описана процедура установки и настройки гибридного компонента Runbook Worker. Выполните первые два шага для среды автоматизации, а затем повторите остальные шаги для каждого компьютера с компонентом Worker.
 
 ### 1\. Создайте рабочую область Operations Management Suite
-Если у вас еще нет рабочей области Operations Management Suite, создайте ее согласно инструкциям в статье [Создание рабочей области Operational Insights](../operational-insights/operational-insights-onboard-in-minutes.md). Если у вас уже есть рабочая область, вы можете использовать ее.
+Если у вас нет еще рабочей области Operations Management Suite, создайте ее согласно инструкциям, которые можно найти на сайте [Библиотека Technet](https://technet.microsoft.com/library/mt484119.aspx). Если у вас уже есть рабочая область, вы можете использовать ее.
 
 ### 2\. Добавьте решение автоматизации в рабочую область Operations Management Suite
 Решения расширяют функциональные возможности Operations Management Suite. Решение автоматизации расширяет функциональные возможности службы автоматизации Azure, включая поддержку гибридных компонентов Runbook Worker. При добавлении решения в рабочую область она автоматически загружает компоненты Worker на компьютер агента, который вы установите на следующем этапе.
@@ -190,4 +190,4 @@
 - [Редактирование модуля Runbook в службе автоматизации Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

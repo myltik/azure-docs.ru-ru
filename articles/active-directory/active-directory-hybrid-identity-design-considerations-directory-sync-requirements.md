@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Рекомендации по проектированию гибридных решений для идентификации Azure Active Directory ― определение требований к синхронизации каталога | Microsoft Azure"
+	pageTitle="Рекомендации по проектированию гибридных решений для идентификации Azure Active Directory ― определение требований к синхронизации каталога | Microsoft Azure"
 	description="Определите, какие требования необходимы для синхронизации всех локальных и облачных пользователей предприятия."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # Определение требований к синхронизации каталога
@@ -57,12 +57,13 @@
  - Если ваша компания не знает ответа на какой-либо из этих вопросов, обратитесь к разделу "Разрешения для синхронизации паролей" статьи [Установка службы Azure Active Directory Sync](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) и определите, есть ли у вас учетная запись с необходимыми разрешениями или ее нужно создать.
 - При синхронизации с несколькими лесами может ли сервер обратиться к каждому лесу?
  
->[AZURE.NOTE]Составьте письменный ответ на каждый вопрос и убедитесь, что он логически обоснован. Доступные варианты описаны в статье [Определение требований по реагированию на инциденты](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md). Ответив на эти вопросы, вы сможете выбрать тот вариант, который лучше всего подходит для вашего бизнеса.
+>[AZURE.NOTE]
+Составьте письменный ответ на каждый вопрос и убедитесь, что он логически обоснован. Доступные варианты описаны в статье [Определение требований по реагированию на инциденты](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md). Ответив на эти вопросы, вы сможете выбрать тот вариант, который лучше всего подходит для вашего бизнеса.
 
 ## Дальнейшие действия
 [Определение требований к многофакторной проверке подлинности](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## См. также
-[Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

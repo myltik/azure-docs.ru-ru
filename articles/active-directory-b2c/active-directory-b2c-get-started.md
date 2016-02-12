@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory B2C: создание клиента Azure AD B2C
@@ -24,7 +24,7 @@
 
 ## Шаг 1. Оформление подписки Azure
 
-При наличии подписки Azure перейти к следующему шагу. Если у вас ее нет, зарегистрируйтесь для оформления [подписки Azure](sign-up-organization.md) и получите доступ к Azure AD B2C.
+При наличии подписки Azure перейти к следующему шагу. Если у вас ее нет, зарегистрируйтесь для оформления [подписки Azure](../active-directory/sign-up-organization.md) и получите доступ к Azure AD B2C.
 
 > [AZURE.NOTE]
 Сейчас предварительную версию Azure AD B2C можно использовать бесплатно, но с ограничениями (до 50 000 пользователей на один клиент). Подписка Azure необходима для доступа к [классическому порталу Azure](http://manage.windowsazure.com/).
@@ -74,4 +74,4 @@
 
 Перейдите к этапу [регистрации приложения с помощью Azure AD B2C и создания приложения быстрого запуска](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="01/28/2016"
    ms.author="hascipio; v-divte" />
 
 # Технические компоненты, необходимые для создания шаблона решения для Azure Marketplace
@@ -29,9 +29,9 @@
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## Дальнейшие действия
-Теперь, когда вы ознакомились с необходимыми компонентами и выполнили необходимые задачи, можно переходить к созданию предложения шаблона решения, как описано в [руководстве по созданию шаблона решения](marketplace-publishing-solution-template-creation.md). См. [Рекомендации по созданию шаблона решений](marketplace-publishing-solution-template-best-practices.md). Инструкции по возвращению на главную страницу задач издателя см. в статье [Приступая к работе: публикация предложение в Azure Marketplace](marketplace-publishing-getting-started.md).
+Теперь, когда вы ознакомились с необходимыми компонентами и выполнили необходимые задачи, можно переходить к созданию предложения шаблона решения, как описано в [руководстве по созданию шаблона решения](marketplace-publishing-solution-template-creation.md). Инструкции по возвращению на главную страницу задач издателя см. в статье [Приступая к работе: публикация предложение в Azure Marketplace](marketplace-publishing-getting-started.md).
 
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

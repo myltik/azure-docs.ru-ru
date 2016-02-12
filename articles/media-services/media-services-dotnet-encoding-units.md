@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="01/29/2016"
 	ms.author="juliako"/>
 
 
@@ -29,21 +29,21 @@
 
 ##Обзор
 
-Учетная запись служб мультимедиа связана с типом зарезервированных единиц, который определяет скорость обработки заданий кодирования. Вы можете выбрать один из следующих типов зарезервированных единиц: Basic, Standard или Premium. Например, задание по кодированию выполняется быстрее при выборе типа зарезервированной единицы Standard по сравнению с типом Basic. Дополнительную информацию см. в блоге "Типы зарезервированных единиц кодирования" [Милана Гады (Milan Gada)](https://azure.microsoft.com/blog/author/milanga/).
+Учетная запись служб мультимедиа связана с типом зарезервированных единиц, который определяет скорость обработки заданий кодирования. Вы можете выбрать один из следующих типов зарезервированных единиц: S1, S2 или S3. Например, задание по кодированию выполняется быстрее при выборе типа зарезервированной единицы Standard по сравнению с типом Basic. Дополнительную информацию см. в блоге "Типы зарезервированных единиц кодирования" [Милана Гады (Milan Gada)](https://azure.microsoft.com/blog/author/milanga/).
 
 Помимо указания типа зарезервированных единиц, можно также указать параметр, позволяющий использовать зарезервированные единицы кодирования при подготовке учетной записи. Количеством подготовленных зарезервированных элементов кодирования определяется количество задач мультимедиа, которые могут одновременно обрабатываться в данной учетной записи. Например, если в учетной записи имеется 5 зарезервированных единиц, то будет запущено 5 одновременно выполняемых задач мультимедиа, если имеются задачи, которые требуется обработать. Остальные задачи будут ожидать в очереди, они будут последовательно отбираться для обработки сразу же после завершения выполнения текущей задачи. Если учетная запись не имеет подготовленных зарезервированных единиц, задачи будут отбираться последовательно. В этом случае время ожидания между завершением одной задачи и началом выполнения следующей будет зависеть от доступности ресурсов в системе.
 
 Чтобы изменить тип зарезервированных единиц и число зарезервированных единиц кодирования с помощью пакета SDK для .NET, сделайте следующее:
 
-	IEncodingReservedUnit encodingBasicReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-	encodingBasicReservedUnit.ReservedUnitType = ReservedUnitType.Basic;
-	encodingBasicReservedUnit.Update();
-	Console.WriteLine("Reserved Unit Type: {0}", encodingBasicReservedUnit.ReservedUnitType);
+	IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
+	encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
+	encodingS1ReservedUnit.Update();
+	Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
 	
-	encodingBasicReservedUnit.CurrentReservedUnits = 2;
-	encodingBasicReservedUnit.Update();
+	encodingS1ReservedUnit.CurrentReservedUnits = 2;
+	encodingS1ReservedUnit.Update();
 	
-	Console.WriteLine("Number of reserved units: {0}", encodingBasicReservedUnit.CurrentReservedUnits);
+	Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ##Открытие запроса в службу поддержки
 
@@ -81,4 +81,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

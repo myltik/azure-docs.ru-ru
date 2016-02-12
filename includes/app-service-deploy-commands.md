@@ -1,9 +1,9 @@
 
 Чтобы развернуть ресурсы в Azure, необходимо войти в учетную запись Azure и воспользоваться диспетчером ресурсов Azure. Информацию об использовании диспетчера ресурсов Azure с помощью Azure PowerShell или интерфейса командной строки Azure см. в следующих статьях:
 
-- [Использование Azure PowerShell с диспетчером ресурсов Azure](powershell-azure-resource-manager.md)
-- [Использование интерфейса командной строки Azure для Mac, Linux и Windows со службой управления ресурсами Azure](../articles/virtual-machines/xplat-cli-azure-resource-manager.md).
+- [Использование Azure PowerShell с диспетчером ресурсов Azure](../articles/powershell-azure-resource-manager.md)
+- [Использование интерфейса командной строки Azure для Mac, Linux и Windows со службой управления ресурсами Azure](../articles/xplat-cli-azure-resource-manager.md).
 
 В приведенных ниже примерах предполагается, что в вашей учетной записи уже есть группа ресурсов с указанным именем.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

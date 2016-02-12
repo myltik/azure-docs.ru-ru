@@ -117,4 +117,4 @@
 [Центр разработчика IoT Azure]: https://azure.microsoft.com/develop/iot
 [Центре разработчиков центра IoT Azure]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

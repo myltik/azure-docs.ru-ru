@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Настройка веб бизнес-приложения в гибридном облаке для тестирования
@@ -180,23 +180,8 @@
  
 Данная среда теперь готова для развертывания веб-приложения на LOB1, а также тестирования функциональности и производительности из подсети Corpnet.
 
-## Дополнительные ресурсы
+## Дальнейшие действия
 
-[Архитектурные схемы и проекты программного обеспечения Майкрософт](http://msdn.microsoft.com/dn630664)
+- Настройка [рабочей среды](../virtual-machines/virtual-machines-workload-high-availability-LOB-application-overview.md).
 
-[Платформа поддержкой размещения веб-сервера (IIS)](http://technet.microsoft.com/library/hh831818)
-
-[Настройка гибридной облачной среды для тестирования](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Настройка фермы SharePoint интрасети в гибридном облаке для тестирования](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Создание имитации гибридной облачной среды для тестирования](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Гибридные облачные тестовые среды Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Руководство по реализации служб инфраструктуры Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

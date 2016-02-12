@@ -13,18 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/05/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 # Ограничения службы Azure AD
 
-Если вам нужно ознакомиться с полным перечнем ограничений для службы Microsoft Azure, см. раздел [Лимиты, квоты и ограничения подписки и обслуживания Azure](azure-subscription-service-limits.md).
+Если вам нужно ознакомиться с полным перечнем ограничений для службы Microsoft Azure, см. раздел [Лимиты, квоты и ограничения подписки и обслуживания Azure](../azure-subscription-service-limits.md).
 
 [AZURE.INCLUDE [AAD-service-limits](../../includes/active-directory-service-limits-include.md)]
 
 ## Что дальше?
 - [Регистрация организации в Azure](sign-up-organization.md)
 - [Как подписки Azure связаны с Azure AD](active-directory-how-subscriptions-associated-directory.md)
-- [Терминология Azure Active Directory](active-directory-terminology.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

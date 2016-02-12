@@ -45,7 +45,7 @@
 
 ##Кодирование
 
-Кодируйте файлы с помощью **кодировщика мультимедиа Azure** при помощи **классического портала Azure**, **.NET** или **API REST**.
+Кодируйте файлы с помощью **стандартного кодировщика служб мультимедиа**, используя **классический портал Azure**, **.NET** или **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -80,4 +80,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

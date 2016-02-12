@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/17/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher" />
 
 # Обзор сценария развертывания проекта группы ресурсов Azure
@@ -35,7 +35,7 @@
 
 Ниже приводится описание тех разделов Deploy-AzureResourceGroup.ps1, которые выполняет сценарий Azure PowerShell.
 
->[AZURE.NOTE]Эта статья содержит описание версии 1.0 сценария Deploy-AzureResourceGroup.ps1.
+>[AZURE.NOTE] Эта статья содержит описание версии 1.0 сценария Deploy-AzureResourceGroup.ps1.
 
 1.	Объявите параметры, необходимые для проекта развертывания диспетчера ресурсов Azure. Некоторые параметры имеют значения по умолчанию, установленные при создании проекта. Вы можете изменить эти значения по умолчанию в сценарии или добавить другие значения параметров перед его выполнением.
 
@@ -209,7 +209,7 @@
 
     ![][3]
 
-	>[AZURE.NOTE]Если для каких-либо обязательных параметров необходимо указать значения, это окно отобразится автоматически в процессе развертывания.
+	>[AZURE.NOTE] Если для каких-либо обязательных параметров необходимо указать значения, это окно отобразится автоматически в процессе развертывания.
 
     ![][4]
 
@@ -264,4 +264,4 @@ $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

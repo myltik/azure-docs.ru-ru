@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure"
-	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts to your lab"
+<properties
+	pageTitle="Добавление репозитория артефактов Git в DevTest Lab | Microsoft Azure"
+	description="Из этой статьи вы узнаете, как добавить репозиторий Git GitHub или Visual Studio Team Services, предназначенный для настраиваемых артефактов, в свое решение DevTest Lab."
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Добавление репозитория артефактов Git в DevTest Lab
@@ -115,4 +115,4 @@
     3. Введите сохраненный **персональный маркер доступа** в хранилище артефактов.
     4. Нажмите **Сохранить**.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

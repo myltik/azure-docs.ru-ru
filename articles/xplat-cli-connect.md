@@ -22,8 +22,6 @@
 Azure CLI представляет собой набор межплатформенных команд с открытым кодом для работы с платформой Azure. В этой статье описывается, как подключиться к подписке Azure из Azure CLI, чтобы использовать все команды этого интерфейса. Если вы еще не установили Azure CLI, см. раздел [Установка интерфейса командной строки Azure](xplat-cli-install.md).
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
-
 
 Существует два способа подключения к подписке из Azure CLI:
 
@@ -158,4 +156,4 @@ CLI версии 0.9.9 и выше поддерживает многофакто
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

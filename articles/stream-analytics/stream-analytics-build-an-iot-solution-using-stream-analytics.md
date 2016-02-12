@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/27/2016" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"
 />
 
@@ -417,10 +417,10 @@ Windows автоматически блокирует файлы PS1, DLL и EXE
 
 Для этого необходимо присоединить поток, содержащий EntryTime, к потоку, содержащему ExitTime. Потоки будут объединены по столбцам TollId и LicencePlate. Для использования оператора JOIN требуется указать запас, описывающий допустимую разницу во времени между объединенными событиями. Мы будем использовать функцию DATEDIFF, чтобы указать, что события должны происходить с интервалом не более 15 минут. Мы также применим функцию DATEDIFF к значениям времени въезда и выезда для вычисления фактического времени, проводимого автомобилем в пункте оплаты. Обратите внимание на различия использования DATEDIFF при применении в инструкции SELECT по сравнению с условием JOIN.
 
-    SELECT EntryStream.TollId, EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream .ExitTime) AS Duration InMinutes
+    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
     FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTim e
-    ON (Entry Stream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
+    JOIN ExitStream TIMESTAMP BY ExitTime
+    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
     AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 Чтобы протестировать этот запрос, обновите запрос на вкладке "Запрос" задания.
@@ -445,7 +445,7 @@ Azure Stream Analytics может использовать статически�
     FROM EntryStream TIMESTAMP BY EntryTime
     JOIN Registration
     ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = ‘1’
+    WHERE Registration.Expired = '1'
 
 Обратите внимание, что для тестирования запроса с использованием справочных данных требуется определить источник входных данных для справочных данных (что было сделано на шаге 5).
 
@@ -534,4 +534,4 @@ Azure Stream Analytics поддерживает масштабируемость
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
 # Текущие ограничения предварительной версии службы Azure Active Directory (Azure AD) B2B Collaboration
@@ -30,11 +30,11 @@
 ## Связанные статьи
 Ознакомьтесь с другими статьями о службе Azure B2B Collaboration.
 
-- [Что такое служба Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Обзор службы Azure AD B2B Collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Принцип работы](active-directory-b2b-how-it-works.md)
 - [Подробное пошаговое руководство](active-directory-b2b-detailed-walkthrough.md)
 - [Справочник по формату файлов CSV](active-directory-b2b-references-csv-file-format.md)
-- [Формат маркера внешнего пользователя](active-directory-b2b-references-external-user-token-format.md)
+- [Формат токена внешнего пользователя](active-directory-b2b-references-external-user-token-format.md)
 - [Изменения в атрибутах объекта внешнего пользователя](active-directory-b2b-references-external-user-object-attribute-changes.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

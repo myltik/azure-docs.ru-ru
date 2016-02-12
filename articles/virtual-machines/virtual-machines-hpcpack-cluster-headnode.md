@@ -26,7 +26,7 @@ ms.service="virtual-machines"
 
 ![Головной узел пакета HPC][headnode]
 
->[AZURE.NOTE]В настоящее время образ виртуальной машины пакета HPC основан на ОС Windows Server 2012 R2 Datacenter с предустановленным пакетом HPC 2012 R2 с обновлением 2. Кроме того, предварительно установлен Microsoft SQL Server 2014 Express.
+>[AZURE.NOTE] В настоящее время образ виртуальной машины пакета HPC основан на ОС Windows Server 2012 R2 Datacenter с предустановленным пакетом HPC 2012 R2 с обновлением 2. Кроме того, предварительно установлен Microsoft SQL Server 2014 Express.
 
 
 Для рабочего развертывания кластера пакета HPC в Azure мы рекомендуем применять метод автоматического развертывания, такой как [сценарий развертывания IaaS пакета HPC](virtual-machines-hpcpack-cluster-powershell-script.md) или [шаблон быстрой настройки](https://azure.microsoft.com/documentation/templates/) Диспетчера ресурсов Azure.
@@ -42,7 +42,7 @@ ms.service="virtual-machines"
 Ниже перечислены общие инструкции по созданию виртуальной машины Azure для головного узла пакета HPC. В классической модели развертывания (управление службами) Azure для выполнения этих действий можно использовать разнообразные средства Azure.
 
 
-1. Если вы планируете создать виртуальную сеть для виртуальной машины головного узла, см. раздел [Создание (классической) виртуальной сети с помощью портала Azure](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md).
+1. Если вы планируете создать виртуальную сеть для виртуальной машины головного узла, см. раздел [Создание (классической) виртуальной сети с помощью портала Azure](../virtual-networks/virtual-networks-create-vnet-classic-portal.md).
 
     **Рекомендации**
 
@@ -102,4 +102,4 @@ ms.service="virtual-machines"
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

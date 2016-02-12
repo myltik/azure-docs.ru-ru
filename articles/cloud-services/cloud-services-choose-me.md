@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Могут ли облачные службы Azure предоставить вам необходимые параметры вычислений?" 
+	pageTitle="Подходят ли мне облачные службы Azure для вычислительных задач | Microsoft Azure" 
 	description="Узнайте о размещении параметров вычислений Azure и их работе: службе приложений, облачных службах и виртуальных машинах" 
 	services="cloud-services"
     documentationCenter=""
@@ -32,8 +32,8 @@ Azure предоставляет разные модели размещения 
 ## Дальнейшие действия
 [Создание приложения облачной службы в .NET](cloud-services-dotnet-get-started.md)<br/> [Создание приложения облачной службы на Node.js](cloud-services-nodejs-develop-deploy-app.md)<br/> [Создание приложения облачной службы на PHP](../cloud-services-php-create-web-role.md)<br/> [Создание приложения облачной службы на Python](../cloud-services-python-ptvs.md)<br/>
 
-[Служба приложений]: app-service-choose-me.md
-[Виртуальные машины]: ../virtual-machines-about.md
+[Служба приложений]: ../app-service-web/app-service-web-overview.md
+[Виртуальные машины]: ../virtual-machines/virtual-machines-about.md
 [Облачные службы]: #tellmecs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

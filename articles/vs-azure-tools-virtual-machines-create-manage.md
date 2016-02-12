@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
-# Создание и управление виртуальными машинами Azure в Visual Studio
+# Создание виртуальных машин Azure и управление ими в Visual Studio
 
 Вы можете создавать виртуальные машины Azure с помощью обозревателя серверов в Visual Studio.
 
@@ -175,6 +175,6 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения о создании виртуальных машин см. в статьях [Создание виртуальной машины под управлением Linux](virtual-machines-linux-tutorial.md) и [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](virtual-machines-windows-tutorial.md).
+Дополнительные сведения о создании виртуальных машин см. в статьях [Создание виртуальной машины под управлением Linux](/virtual-machines/virtual-machines-linux-tutorial.md) и [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](/virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

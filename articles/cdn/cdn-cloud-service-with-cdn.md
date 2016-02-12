@@ -48,9 +48,7 @@
 -	Активная [учетная запись Microsoft Azure](/account/).
 -	Наличие Visual Studio 2015 с [пакетом SDK Azure](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
 
-> [AZURE.NOTE] Для выполнения этого учебника необходима учетная запись Azure.
-> + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/) — вы получаете кредиты, которые можно использовать, чтобы опробовать платные службы Azure, и даже израсходовав кредиты вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, например веб-приложения [службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714).
-> + Вы можете [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.
+> [AZURE.NOTE] Для выполнения этого учебника необходима учетная запись Azure. + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/) — вы получаете кредиты, которые можно использовать, чтобы опробовать платные службы Azure, и даже израсходовав кредиты вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, например веб-сайты. + Вы можете [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.
 
 <a name="deploy"></a>
 ## Развертывание облачной службы ##
@@ -162,7 +160,7 @@
 
 	http://camservice.azureedge.net/Content/bootstrap.css
 
-	Он соответствует следующему исходному URL-адресу в конечной точке CDN:
+Он соответствует следующему исходному URL-адресу в конечной точке CDN:
 
 	http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
@@ -353,23 +351,23 @@
 
 При отправке значений формы в `/MemeGenerator/Index` метод действия `Index_Post` возвращает ссылку на метод действия `Show` с соответствующим идентификатором ввода. Если щелкнуть ссылку, появится следующий код:
 
-	[OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)]
+	[OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
 	public ActionResult Show(string id)
 	{
-	    Tuple&lt;string, string&gt; data = null;
-	    if (!Memes.TryGetValue(id, out data))
-	    {
-	        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-	    }
-	
-	    if (Debugger.IsAttached) // Preserve the debug experience
-	    {
-	        return Redirect(string.Format(";/MemeGenerator/Generate?top={0}&bottom={1}";, data.Item1, data.Item2));
-	    }
-	    else // Get content from Azure CDN
-	    {
+		Tuple<string, string> data = null;
+		if (!Memes.TryGetValue(id, out data))
+		{
+			return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+		}
+
+		if (Debugger.IsAttached) // Preserve the debug experience
+		{
+			return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+		}
+		else // Get content from Azure CDN
+		{
 			return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
-	    }
+		}
 	}
 	
 Если подключен локальный отладчик, то вы получите обычный интерфейс отладки с локальным перенаправлением. Если отладчик работает в облачной службе, то перенаправление будет выполняться на следующий адрес:
@@ -626,10 +624,9 @@
 
 ## Дополнительные сведения ##
 - [Общие сведения о сети доставки контента (CDN) Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Обслуживание содержимого из CDN Azure в вашем веб-приложении](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Интеграция веб-сайта Azure с Azure CDN](cdn-websites-with-cdn.md)
+- [Использование CDN для Azure](cdn-how-to-use-cdn.md)
 - [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Использование CDN для Azure](cdn-how-to-use.md)
+
 
 
 [new-cdn-profile]: ./media/cdn-cloud-service-with-cdn/cdn-new-profile.png
@@ -638,4 +635,4 @@
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

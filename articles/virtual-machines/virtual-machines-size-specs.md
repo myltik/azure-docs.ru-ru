@@ -63,12 +63,7 @@ ms.service="virtual-machines"
 |[Standard\_A0 (очень малая)](#standard-tier-a-series) |50 |
 |[Standard\_A1-4 (малая–крупная)](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *|
-|[D1-14](#standard-tier-d-series) |160 |
-|[D1-14v2](#standard-tier-dv2-series) |210 - 250 *|
-|[DS1-14](#standard-tier-ds-series) |160 |
-|[G1-5](#standard-tier-g-series) |180 - 240 *|
-|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 Единицы ACU, помеченные звездочкой, основаны на технологии Intel® Turbo для увеличения частоты ЦП и значительного повышения производительности. Степень увеличения производительности может различаться в зависимости от размера виртуальной машины, рабочей нагрузки и других рабочих нагрузок, выполняющихся на том же узле.
@@ -160,7 +155,7 @@ ms.service="virtual-machines"
 |Standard\_DS13 |8|56|8|Локальный диск SSD: 112 ГБ |16|288| 25 600, 256 МБ в секунду |
 |Standard\_DS14 |16|112|8|Локальный диск SSD: 224 ГБ |32|576| 50 000, 512 МБ в секунду |
 
-**Максимальное количество операций ввода-вывода в секунду и пропускная способность канала для виртуальных машин серии DS зависят от размера диска. Дополнительные сведения см. в статье [Хранилище Premium: высокопроизводительное хранилище для рабочих нагрузок виртуальных машин Azure](../storage-premium-storage-preview-portal.md).
+**Максимальное количество операций ввода-вывода в секунду и пропускная способность канала для виртуальных машин серии DS зависят от размера диска. Дополнительные сведения см. в статье [Хранилище Premium: высокопроизводительное хранилище для рабочих нагрузок виртуальных машин Azure](storage-premium-storage-preview-portal.md).
 
 ## Уровень Standard: серия G
 
@@ -189,4 +184,4 @@ ms.service="virtual-machines"
 
 [Об экземплярах A8, A9, A10 и A11 с большим объемом вычислений](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

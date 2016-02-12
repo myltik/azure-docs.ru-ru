@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="12/22/2015"
+  ms.date="01/29/2015"
   ms.author="andrl"/>
 
 # Портал сообщества
@@ -80,6 +80,8 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 
 **Записи участников сообщества:**
 
+* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) (Написание скриптов на стороне сервера в Azure DocumentDB) — *Роберт Шелдон (Robert Sheldon)*
+
 * [**DocumentDB в качестве приемника данных для Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) — *Ян Хентшель (Jan Hentschel)*
 
 * [**Azure DocumentDB в рабочей среде!**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) — *Александр Уолш (Alexandre Walsh) и Марк-Оливье Дюваль (Marc-Olivier Duval)*
@@ -104,7 +106,7 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 
 * [**Использование DocumentDB с F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) — *Джейми Диксон (Jamie Dixon)*.
 
-* [**Анализ журналов приложений с помощью DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) — *Венсан-Филипп Лозон (Vincent-Philippe Lauzon)*
+* [**Анализ журналов приложений с помощью DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) (на английском языке), *Винсен-Филипп Лозон (Vincent-Philippe Lauzon)*
 
 * [**Azure DocumentDB. Восстановление из резервной копии на конкретный момент времени**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) — *Хуан Карлос Санчез (Juan Carlos Sanchez)*
 
@@ -124,6 +126,7 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 
 | Название мероприятия | Докладчик | Расположение | Дата | Хэш-тег |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Эндрю Лю (Andrew Liu) | Бельвью, штат Вашингтон | 3 марта 2016 г. | Недоступно
 | SQLBits XV | Подлежит уточнению | Ливерпуль, Великобритания | 4–7 мая 2016 г. | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 
 *Вы являетесь докладчиком или организуете мероприятие? [Мы можем помочь!](mailto:askdocdb@microsoft.com) Узнайте как.*
@@ -132,6 +135,7 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 
 | Название мероприятия | Докладчик | Расположение | Дата | Записи |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Мерван Чинта (Merwan Chinta) | Остин, Техас | 28 января 2016 г. | Недоступно |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Венсан-Филипп Лозон (Vincent-Philippe Lauzon) | Монреаль, Квебек, Канада | 1 декабря 2015 г. | Недоступно |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | Дэвид Мекоген (David Makogon) | Сиэтл, Вайоминг | 12 ноября 2015 г. | Недоступно |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Джефф Ренц (Jeff Renz), Эндрю Хо (Andrew Hoh), Аравинд Рамачандран (Aravind Ramachandran), Джон Макинтайр (John Macintyre) | Сиэтл, Вайоминг | 27–30 октября 2015 г. | Недоступно |
@@ -149,7 +153,7 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 | [Database Month](http://www.databasemonth.com/database/azure-documentdb) | Дхарма Шукла (Dharma Shukla) | Нью-Йорк, Нью-Йорк | 19 мая 2015 г. | [Azure DocumentDB: гипермасштабируемая мультитенантная служба баз данных документов](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
 | [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Алан Митчелл | Лондон, Великобритания | 19 мая 2015 г. | Недоступно |
 | [DevIntersection](https://devintersection.com/) | Эндрю Лю (Andrew Liu) | Скоттсдейл, штат Аризона | 18–21 мая 2015 г. | Недоступно |
-| [Ignite](http://ignite.microsoft.com/) | Эндрю Хо (Andrew Hoh), Джон Макинтайр (John Macintyre) | Чикаго, Иллинойс | 4–8 мая 2015 г. | [Видео "SELECT Latest FROM DocumentDB"](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[Видео "DocumentDB и Azure HDInsight: вместе лучше"](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
+| [Ignite](http://ignite.microsoft.com/) | Эндрю Хо (Andrew Hoh), Джон Макинтайр (John Macintyre) | Чикаго, Иллинойс | 4–8 мая 2015 г. | [Избранное видео по DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB и Azure HDInsight: эффективный альянс (видео)](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
 | [Build 2015](http://www.buildwindows.com/) | Райан Кроукур (Ryan Crawcour) | Сан-Франциско, Калифорния | 29 апреля – 1 мая 2015 г. | [Покоряйте новые горизонты со службой NoSQL Azure: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Глобальный учебный курс по Azure 2015 — Испания](http://azurebootcamp.es/) | Луис Руис Павон (Luis Ruiz Pavon), Роберто Гонсалес (Roberto Gonzalez) | Мадрид, Испания | 25 апреля 2015 г. | [#DEAN DocumentDB + Express + AngularJS + NodeJS в Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
 | [Meetup: Charlotte Microsoft Cloud](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | Джеми Ранс (Jamie Rance) | Шарлотта, Северная Каролина | 8 апреля 2015 г. | Недоступно |
@@ -185,7 +189,7 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 
 | Партнер по обучению | Описание |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Академия Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Академия Microsoft Virtual Academy предоставляет возможность обучения у специалистов, которые участвуют в создании Azure DocumentDB. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Виртуальная академия Майкрософт**](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Виртуальная академия Майкрософт предоставляет возможность обучения у специалистов, которые участвуют в создании Azure DocumentDB. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>Pluralsight — основной партнер корпорации Майкрософт по обучению Azure. Если вы являетесь подписчиком MSDN, воспользуйтесь своими преимуществами для доступа к курсу обучения Microsoft Azure. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>OpsGility предоставляет углубленное техническое обучение по Microsoft Azure. Пройдите обучение под руководством инструктора на месте или с квалифицированными преподавателями удаленно. |
 
@@ -213,21 +217,13 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 
 <br/><br/>
 
-### Internet Relay Chat + рабочие часы
-
-Вы можете общаться с нами в реальном времени на сайте `chat.freenode.net` (канал `#documentdb`), используя [клиент IRC](http://www.irchelp.org/) или подключаясь через веб-интерфейс с помощью Freenode [WebChat](http://webchat.freenode.net/?channels=documentdb).
-
-Наши офисные часы в IRC: пятница с 11:00 до 24:00 по тихоокеанскому времени.
-
-<br/><br/>
-
 <hr/>
 
 ## Связаться с командой
 
 | | |
 | -------------------------------------------------------- | --- |
-|![Группа](./media/documentdb-community/documentdb-team.png) | Требуется техническая помощь? Есть вопросы? Сомневаетесь, подходит ли вам NoSQL?<br/><br/>Вы можете [запланировать беседу один на один непосредственно с представителем команды разработчиков DocumentDB](http://www.askdocdb.com/).<br/><br/>Кроме того, вы можете отправить нам [электронное письмо](mailto:askdocdb@microsoft.com) или твит по адресу [@DocumentDB](https://twitter.com/DocumentDB). |
+|![Группа](./media/documentdb-community/documentdb-team.png) | Требуется техническая помощь? Есть вопросы? Сомневаетесь, подходит ли вам NoSQL?<br/><br/>Вы можете [запланировать беседу один на один непосредственно с представителем команды разработчиков DocumentDB](http://www.askdocdb.com/).<br/><br/>Также вы можете отправить нам [электронное письмо](mailto:askdocdb@microsoft.com) или твит по адресу [@DocumentDB](https://twitter.com/DocumentDB). |
 
 
 <br/><br/>
@@ -266,9 +262,9 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 
 | | | | |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [![Алан Митчелл](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Алан Митчелл (Allan Mitchell)](https://twitter.com/allansqlis) | [![Джен Стиррап](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Джен Стиррап (Jen Stirrup)](https://twitter.com/jenstirrup) | [![Ленни Лоубел](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Ленни Лоубел (Lenni Lobel)](https://twitter.com/lennilobel) | [![Михаил Матеев](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Михаил Матеев (Mihail Mateev)](https://twitter.com/mihailmateev)|
+| [![Алан Митчелл](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Алан Митчелл (Allan Mitchell)](https://twitter.com/allansqlis) | [![Джен Стиррап](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Джен Стиррап](https://twitter.com/jenstirrup) | [![Ленни Лоубел](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Ленни Лоубел (Lenni Lobel)](https://twitter.com/lennilobel) | [![Михаил Матеев](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Михаил Матеев (Mihail Mateev)](https://twitter.com/mihailmateev)|
 | [![Ларри Маккероне (Larry Maccherone)](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) <br/> [Ларри Маккероне (Larry Maccherone)](https://twitter.com/lmaccherone) | [![Ховард Эдидин (Howard Edidin)](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) <br/> [Ховард Эдидин (Howard Edidin)](https://twitter.com/hsedidin)
 
 Хотите стать мастером DocumentDB? Несмотря на то, что критериев для отбора мастеров DocumentDB не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, как, например, StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

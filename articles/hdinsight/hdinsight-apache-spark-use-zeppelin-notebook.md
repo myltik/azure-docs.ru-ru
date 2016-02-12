@@ -173,7 +173,7 @@
 
 2. Щелкните **Добавить новый прокси-сервер**, а затем выберите вкладку **Общие** и введите имя прокси-сервера **HDInsightProxy**.
 
-	![вкладка «Общие» FoxyProxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxygeneral.png)
+	![вкладка "Общие" FoxyProxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxygeneral.png)
 
 3. Выберите вкладку **Сведения о прокси** и заполните следующие поля.
 
@@ -212,7 +212,7 @@
 		http://hn0-myspar:9995
 
 	* **hn0** обозначает headnode0.
-	* **myspar** — это первые пять символов кластера Spark.
+	* **myspar** — это первые шесть букв имени кластера Spark.
 	* **9995** — порт для доступа к записной книжке Zeppelin.
 
 2. Создайте новую записную книжку. На панели заголовка щелкните элемент **Notebook**, а затем — **Создать новую заметку**.
@@ -330,4 +330,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

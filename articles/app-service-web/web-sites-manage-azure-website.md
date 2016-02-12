@@ -66,7 +66,7 @@
 ### Резервные копии
 
 - Настройка [автоматического резервного копирования](web-sites-backup.md) для веб-приложения. Дополнительные сведения о резервном копировании см. в [этом видео](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Ознакомьтесь с параметрами [восстановления базы данных](../sql-database-business-continuity.md) SQL Azure.
+- Ознакомьтесь с параметрами [восстановления базы данных](../sql-database/sql-database-business-continuity.md) SQL Azure.
 
 ### Устранение неполадок
 
@@ -87,8 +87,8 @@
 
 Если вы используете Visual Studio Team Services, то можете настроить непрерывное развертывание из системы управления версиями:
 
-- [С помощью системы управления версиями Team Foundation](../cloud-services-continuous-delivery-use-vso.md) 
-- [С помощью Git](../cloud-services-continuous-delivery-use-vso-git.md)
+- [С помощью системы управления версиями Team Foundation](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
+- [С помощью Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -103,4 +103,4 @@
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="01/06/2016"
+   ms.date="01/28/2016"
    ms.author="tomfitz;rasquill"/>
 
 # Устранение неполадок при развертывании групп ресурсов в Azure
@@ -23,7 +23,7 @@
 
 Этот раздел в основном посвящен устранению неполадок развертываний с помощью команд развертывания. Сведения об использовании журналов аудита для отслеживания всех операций с ресурсами см. в разделе [Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md).
 
-В этом разделе показано, как получить сведения об устранении неполадок с помощью Azure PowerShell, Azure CLI и API-интерфейса REST. Сведения об использовании портала предварительной версии для устранения неполадок развертывания см. в статье [Управление ресурсами Azure с помощью портала Azure](../azure-portal/resource-group-portal.md).
+В этом разделе показано, как получить сведения об устранении неполадок с помощью Azure PowerShell, Azure CLI и API-интерфейса REST. Сведения об использовании портала для устранения неполадок развертывания см. в статье [Управление ресурсами Azure с помощью портала Azure](../azure-portal/resource-group-portal.md).
 
 В этом разделе также описываются решения стандартных проблем, с которыми сталкиваются пользователи.
 
@@ -137,7 +137,7 @@
       },
       "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
           mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
           "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
       },
@@ -160,7 +160,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 Если срок действия учетных данных Azure истек или вы не вошли в учетную запись Azure, развертывание завершится неудачно. Срок действия учетных данных может истечь, если сеанс открыт слишком долго. Обновить учетные данные можно следующими способами:
 
-- В PowerShell используйте командлет **Login-AzureRmAccount** (или **Add-AzureAccount** для версий PowerShell, предшествующих предварительной версии 1.0). Учетных данных в файле параметров публикации недостаточно для командлетов в модуле AzureResourceManager.
+- В PowerShell используйте командлет **Login-AzureRmAccount**. Учетных данных в файле параметров публикации недостаточно для командлетов в модуле AzureResourceManager.
 - В интерфейсе командной строки Azure используйте команду **azure login**. Если возникают ошибки проверки подлинности, убедитесь, что вы [правильно настроили CLI Azure](../xplat-cli-connect.md).
 
 ## Проверка формата шаблонов и параметров
@@ -169,7 +169,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 ### PowerShell
 
-В PowerShell используйте команду **Test-AzureRmResourceGroupDeployment** (или **Test-AzureResourceGroupTemplate** для версий PowerShell, предшествующих предварительной версии 1.0).
+В PowerShell используйте командлет **Test-AzureRmResourceGroupDeployment**.
 
     PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
@@ -201,7 +201,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 ### PowerShell
 
-Для версий PowerShell, предшествующих предварительной версии 1.0, полный список ресурсов и расположений можно просмотреть с помощью команды **Get-AzureLocation**.
+Для версий PowerShell, предшествующих версии 1.0, полный список ресурсов и расположений можно просмотреть с помощью командлета **Get-AzureLocation**.
 
     PS C:\> Get-AzureLocation
 
@@ -222,7 +222,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
 
-В предварительной версии PowerShell 1.0 для получения списка поддерживаемых расположений используйте команду **Get AzureRmResourceProvider**.
+В PowerShell 1.0 для получения списка поддерживаемых расположений используйте командлет **Get AzureRmResourceProvider**.
 
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
 
@@ -275,7 +275,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 Кроме того, могут возникнуть проблемы при достижении развертыванием квоты по умолчанию, которая может задаваться для группы ресурсов, подписок, учетных записей, а также других областей. Убедитесь, что у вас достаточно ресурсов для надлежащего развертывания. Полные сведения о квотах см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
 
-Чтобы проверить квоты ядер своей подписки, воспользуйтесь командой `azure vm list-usage` в командной строке Azure и командлетом **Get-AzureVMUsage** в PowerShell. Ниже приведена команда в Azure CLI и показано, что квота ядер для бесплатно пробной учетной записи равна 4:
+Чтобы проверить квоты ядер своей подписки, воспользуйтесь командой `azure vm list-usage` в командной строке Azure и командлетом **Get-AzureRmVMUsage** в PowerShell. Ниже приведена команда в Azure CLI и показано, что квота ядер для бесплатно пробной учетной записи равна 4:
 
     azure vm list-usage
     info:    Executing command vm list-usage
@@ -293,25 +293,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 В таких случаях следует перейти на портал и зарегистрировать проблему в службе поддержки, чтобы поднять свою квоту для региона, в котором требуется осуществить развертывание.
 
-> [AZURE.NOTE]Следует помнить, что для групп ресурсов квоты устанавливаются для каждого отдельного региона, а не для всей подписки. Если необходимо развернуть 30 ядер в западной части США, необходимо запросить 30 ядер управления ресурсами в этом регионе. Если необходимо развернуть 30 ядер в любом из регионов, к которым у вас есть доступ, следует запросить 30 ядер управления ресурсами во всех регионах.
-<!-- -->
-Например, чтобы точно указать количество ядер, можно проверить регионы, для которых необходимо оценить квоту, с помощью следующей команды. Эта команда передает данные средству **jq** для анализа JSON.
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE] Следует помнить, что для групп ресурсов квоты устанавливаются для каждого отдельного региона, а не для всей подписки. Если необходимо развернуть 30 ядер в западной части США, необходимо запросить 30 ядер управления ресурсами в этом регионе. Если необходимо развернуть 30 ядер в любом из регионов, к которым у вас есть доступ, следует запросить 30 ядер управления ресурсами во всех регионах. <!-- --> Например, чтобы точно указать количество ядер, можно проверить регионы, для которых необходимо оценить квоту, с помощью следующей команды. Эта команда передает данные средству **jq** для анализа JSON. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 
 
 ## Проверка регистрации поставщика ресурсов
@@ -320,7 +302,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 ### PowerShell
 
-Чтобы получить список поставщиков ресурсов и состояние регистрации, воспользуйтесь командлетом **Get-AzureProvider** (для версий PowerShell, предшествующих предварительной версии 1.0).
+Чтобы получить список поставщиков ресурсов и состояние регистрации, воспользуйтесь командлетом **Get-AzureProvider** (для версий PowerShell, предшествующих версии 1.0).
 
     PS C:\> Get-AzureProvider
 
@@ -333,7 +315,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 Чтобы зарегистрировать поставщика, воспользуйтесь командой **Register-AzureProvider**.
 
-В предварительной версии PowerShell 1.0 используйте команду **Get AzureRmResourceProvider**.
+В PowerShell 1.0 используйте командлет **Get AzureRmResourceProvider**.
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
@@ -435,4 +417,4 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

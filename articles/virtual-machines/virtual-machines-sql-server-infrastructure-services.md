@@ -1,9 +1,9 @@
-<properties 
+<properties
 	pageTitle="Обзор SQL Server на виртуальных машинах | Microsoft Azure"
-	description="В этой статье приводятся общие сведения о размещении SQL Server на виртуальных машинах Azure. Также включены ссылки на более подробное содержимое." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="rothja" 
+	description="В этой статье приводятся общие сведения о размещении SQL Server на виртуальных машинах Azure. Также включены ссылки на более подробное содержимое."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="rothja"
 	manager="jeffreyg"
 	editor=""
 	tags="azure-service-management"/>
@@ -13,8 +13,8 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="11/12/2015"
+	ms.workload="infrastructure-services"
+	ms.date="02/03/2016"
 	ms.author="jroth"/>
 
 # Общие сведения об SQL Server на виртуальных машинах Azure
@@ -28,9 +28,11 @@
 
 ### Развертывание экземпляра SQL Server на одной виртуальной машине
 
-После получения подписки самый простой способ развернуть виртуальную машину SQL Server в Azure — [подготовить образ машины SQL Server из коллекции на классическом портале Azure](virtual-machines-provision-sql-server.md). Эти образы содержат лицензии на использование SQL Server, стоимость которых включена в цену виртуальной машины.
+После получения подписки самый простой способ развернуть виртуальную машину SQL Server в Azure — [подготовить образ коллекции машин SQL Server в Azure](virtual-machines-sql-server-provision-resource-manager.md). Эти образы содержат лицензии на использование SQL Server, стоимость которых включена в цену виртуальной машины.
 
->[AZURE.NOTE] Используйте портал Azure для подготовки виртуальных машин SQL Server и управления ими. По умолчанию он использует хранилище класса Premium и предоставляет возможности автоматического исправления, автоматического резервного копирования, а также конфигурации AlwaysOn.
+Имеются две модели для создания виртуальных машин Azure и управления ими: классическая и диспетчер ресурсов. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Часть документации SQL Server по виртуальным машинам Azure по-прежнему относится исключительно к классической модели. Со временем эти разделы будут обновлены, и в них появится информация по работе с новым порталом Azure и моделью диспетчера ресурсов. Подробнее об этих моделях можно узнать в статье [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](../resource-manager-deployment-model.md).
+
+>[AZURE.NOTE] По возможности используйте последнюю версию [портала Azure](https://portal.azure.com/) для подготовки виртуальных машин SQL Server и управления ими. По умолчанию он использует хранилище класса Premium и предоставляет возможности автоматического исправления, автоматического резервного копирования, а также конфигурации AlwaysOn.
 
 Следующая таблица содержит матрицу доступных образов SQL Server в коллекции виртуальных машин.
 
@@ -44,8 +46,6 @@
 |SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|Оценка|
 
->[AZURE.NOTE] Образы виртуальных машин для хранения данных и транзакционных рабочих нагрузок (не показано выше), имеющиеся в коллекции, являются устаревшими и скоро будут удалены из нее. Используйте стандартные образы из предыдущей таблицы и оптимизируйте производительность для определенной рабочей нагрузки.
-
 Наряду с использованием этих предварительно настроенных образов можно [создать виртуальную машину Azure](virtual-machines-windows-tutorial.md) без предустановленного SQL Server. Можно установить любой экземпляр SQL Server с действующей лицензией. Перенесите лицензию в Azure для запуска SQL Server в виртуальной машине Azure, воспользовавшись инструкциями из статьи [Перемещение лицензий в рамках программы Software Assurance в Azure](https://azure.microsoft.com/pricing/license-mobility/). В этом случае вы оплачиваете только [затраты](https://azure.microsoft.com/pricing/details/virtual-machines/) на вычислительные ресурсы и ресурсы хранения Azure, связанные с виртуальной машиной.
 
 Чтобы определить наиболее подходящие параметры виртуальных машин для образа SQL Server, см. сведения в статье [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-performance-best-practices.md). Для рабочих нагрузок в рабочей среде **DS3** — минимальный рекомендуемый размер виртуальной машины для SQL Server Enterprise, а **DS2** — для выпуска Standard.
@@ -53,7 +53,7 @@
 Помимо изучения рекомендаций по производительности, следует выполнить следующие начальные действия:
 
 - [анализ рекомендаций по безопасности SQL Server в виртуальных машинах Azure;](virtual-machines-sql-server-security-considerations.md)
-- [настройка соединения.](virtual-machines-sql-server-connectivity.md)
+- [настройка соединения.](virtual-machines-sql-server-connectivity-resource-manager.md)
 
 ### Перенос данных
 
@@ -63,11 +63,10 @@
 
 Если требуется высокий уровень доступности, попробуйте настроить группы доступности AlwaysOn SQL Server. Это подразумевает использование нескольких виртуальных машин Azure в виртуальной сети. На портале Azure есть шаблон, который настраивает эту конфигурацию. Дополнительные сведения см. в статье [Предложение AlwaysOn SQL Server в коллекции Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
-Если вы хотите вручную настроить группу доступности и связанный прослушиватель, см. следующие статьи.
+Если вы хотите настроить группу доступности и связанный прослушиватель вручную, см. следующие статьи, основанные на классической модели развертывания:
 
 - [Настройка групп доступности AlwaysOn в Azure (графический пользовательский интерфейс)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
-- [Развертывание AlwaysOn SQL Server с помощью шаблона диспетчера ресурсов Azure](virtual-machines-workload-template-sql-alwayson.md)
 - [Расширение локальных групп доступности AlwaysOn в Azure](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
 
 Дополнительные рекомендации по обеспечению высокого уровня доступности см. в разделе [Высокий уровень доступности и аварийное восстановление для SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
@@ -142,10 +141,10 @@
 
 ## Ресурсы
 
-- [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-provision-sql-server.md)
+- [Подготовка виртуальной машины SQL Server в Azure (диспетчер ресурсов)](virtual-machines-sql-server-provision-resource-manager.md)
 - [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-migrate-onpremises-database.md)
 - [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
 - [Шаблоны приложений и стратегии разработки для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
-- [Виртуальные машины Azure](virtual-machines-about.md) 
+- [Виртуальные машины Azure](virtual-machines-about.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

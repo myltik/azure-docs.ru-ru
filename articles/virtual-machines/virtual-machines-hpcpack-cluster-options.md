@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="10/08/2015"
+ ms.date="01/26/2016"
  ms.author="danlep"/>
 
 # Возможности создания кластера высокопроизводительных вычислений (HPC) в Azure и управления им с помощью пакета Microsoft HPC
@@ -69,7 +69,6 @@ ms.service="virtual-machines"
 
 * [Управление вычислительными кластерами пакета HPC в Azure](virtual-machines-hpcpack-cluster-node-manage.md)
 
-* [Добавление пакетных узлов Azure в головной узел пакета HPC в Azure](virtual-machines-hpcpack-cluster-node-burst.md)
 
 * [Увеличение и сжатие вычислительных ресурсов Azure в кластере пакета HPC](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
@@ -97,6 +96,6 @@ ms.service="virtual-machines"
 
 * [Учебник: выполнение заданий OpenFOAM с помощью пакета Microsoft HPC в кластере Linux RDMA в Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
 
-<!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
+* [Настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-cluster-rdma.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

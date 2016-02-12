@@ -47,7 +47,7 @@
 
 Для этого потребуются следующие компоненты.
 
-- Модуль Azure PowerShell версии не ниже 0.8.2, установленный на локальном компьютере. Установленную версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**. Указания и ссылку на последнюю версию см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md).
+- Модуль Azure PowerShell версии не ниже 0.8.2, установленный на локальном компьютере. Установленную версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**. Указания и ссылку на последнюю версию см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 - Агент ВМ, установленный на конечной виртуальной машине.
 
@@ -74,7 +74,7 @@
 
 - статья Trend об этом решении, [Мгновенное включение облачной защиты для Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101);
 - [пример сценария Windows PowerShell](http://go.microsoft.com/fwlink/?LinkId=404100) для настройки виртуальной машины;
-- [указания](http://go.microsoft.com/fwlink/?LinkId=404099) для данного примера сценария.
+- [инструкции](http://go.microsoft.com/fwlink/?LinkId=404099) для данного образца скрипта.
 
 ## Дополнительные ресурсы
 
@@ -87,4 +87,4 @@
 [Как войти в виртуальную машину под управлением Windows Server]: virtual-machines-log-on-windows-server.md
 [Расширения и компоненты виртуальных машин Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Анализ полученных с датчиков данных с использованием Apache Storm, концентратора событий и базы данных HBase в службе HDInsight (Hadoop)
@@ -24,9 +24,9 @@
 
 ## Предварительные требования
 
-* Подписка Azure. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Подписка Azure. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* [Кластер Apache Storm в HDInsight](../hdinsight-storm-getting-started.md)
+* [Кластер Apache Storm в HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
 * [Node.js](http://nodejs.org/) (используется для веб-сайта панели мониторинга, а также для отправки данных с датчиков в концентратор событий)
 
@@ -256,7 +256,7 @@
 
 ### Публикация панели мониторинга на веб-сайте
 
-1. Чтобы развернуть панель мониторинга на веб-сайте Azure, выполните действия, описанные в статье [Создание и развертывание веб-приложения Node.js в службе приложений Azure](../web-sites-nodejs-develop-deploy-mac.md). Запишите URL-адрес веб-сайта, который будет выглядеть примерно так: **mywebsite.azurewebsites.net**.
+1. Чтобы развернуть панель мониторинга на веб-сайте Azure, выполните действия, описанные в статье [Создание и развертывание веб-приложения Node.js в службе приложений Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md). Запишите URL-адрес веб-сайта, который будет выглядеть примерно так: **mywebsite.azurewebsites.net**.
 
 2. Когда веб-сайт будет создан, перейдите к нему на классическом портале Azure и откройте вкладку **Настройка**. Включите **Подключения Web Socket** и в нижней части страницы нажмите кнопку **Сохранить**.
 
@@ -422,4 +422,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

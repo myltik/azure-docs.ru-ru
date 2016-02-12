@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Создание гибридной облачной среды для тестирования
@@ -291,20 +291,6 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
  
 Гибридная облачная среда теперь готова для тестирования.
 
-## Дополнительные ресурсы
-
-[Настройка фермы SharePoint интрасети в гибридном облаке для тестирования](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Настройка веб-бизнес-приложения в гибридном облаке для тестирования](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Создание имитации гибридной облачной среды для тестирования](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Гибридные облачные тестовые среды Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Руководство по реализации служб инфраструктуры Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
-
 ## Минимизация текущих расходов на такую среду
 
 Чтобы свести к минимуму затраты на работающие виртуальные машины в этой среде, следует как можно быстрее выполнить необходимое тестирование и демонстрацию, а затем удалить или выключить виртуальные машины, если они не используются. Например, можно использовать автоматизацию Azure и Runbook для автоматического выключения виртуальных машин в виртуальной сети Test\_VNET в конце каждого рабочего дня. Дополнительные сведения см. в статье [Начало работы со службой автоматизации Azure](../automation-create-runbook-from-samples.md).
@@ -328,5 +314,8 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 
 После этого перейдите на портал управления Azure на локальном компьютере и дождитесь, пока виртуальная сеть TestVNET не покажет подключенное состояние.
  
+## Дальнейшие действия
 
-<!---HONumber=AcomDC_0128_2016-->
+- Настройка [фермы интрасети SharePoint ](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), [веб бизнес-приложения](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) или [сервера синхронизации каталогов Office 365 (DirSync)](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) в этой среде.
+
+<!---HONumber=AcomDC_0204_2016-->

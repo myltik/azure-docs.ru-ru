@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 
@@ -26,15 +26,15 @@
 
 Apache Oozie — это система рабочих процессов и координации, управляющая заданиями Hadoop. Это решение интегрировано со стеком Hadoop и поддерживает задания Hadoop Apache MapReduce, Apache Pig, Apache Hive и Apache Sqoop. Его также можно использовать для планирования системных заданий, например, Java-программ и сценариев оболочки.
 
-> [AZURE.NOTE]Еще один способ определения рабочих процессов в HDInsight - Azure Data Factory. Чтобы подробнее узнать об Azure Data Factory, обратитесь к статье [Использование Pig и Hive в Data Factory][azure-data-factory-pig-hive].
+> [AZURE.NOTE] Еще один способ определения рабочих процессов в HDInsight - Azure Data Factory. Чтобы подробнее узнать об Azure Data Factory, обратитесь к статье [Использование Pig и Hive в Data Factory][azure-data-factory-pig-hive].
 
 ##Предварительные требования
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписку на Azure**: См. [Получение бесплатной пробной версии Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
+- **Подписку на Azure**: См. [Получение бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Консоль Azure**: См. [Установка и настройка консоли Azure](xplat-cli-install.md)
+- **Консоль Azure**: См. [Установка и настройка консоли Azure](../xplat-cli-install.md)
 
 - **Кластер HDInsight**: См. [Приступая к работе с HDInsight в Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -48,9 +48,9 @@ Apache Oozie — это система рабочих процессов и ко
 
 1. Действие Hive запускает скрипт HiveQL для извлечения записей из таблицы **hivesampletable**, входящей в состав в HDInsight. Каждая строка данных описывает посещение с определенного мобильного устройства. Формат записи таков:
 
-		8       18:54:20        ru-ru   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        ru-ru   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        ru-ru   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        ru-RU   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        ru-RU   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        ru-RU   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	Скрипт Hive, используемый в данном документе, подсчитывает общее количество посещений для каждой платформы (например, Android или iPhone) и сохраняет результаты в новой таблице Hive.
 
@@ -58,7 +58,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 2.  Действие Sqoop экспортирует содержимое новой таблицы Hive в таблицу в базе данных SQL Azure. Дополнительные сведения о Sqoop см. в статье [Использование Hadoop Sqoop с HDInsight][hdinsight-use-sqoop].
 
-> [AZURE.NOTE]Информацию о поддерживаемых версиях Oozie в кластерах HDInsight см. в статье [Новые возможности в версиях кластеров Hadoop, предоставляемых в HDInsight][hdinsight-versions].
+> [AZURE.NOTE] Информацию о поддерживаемых версиях Oozie в кластерах HDInsight см. в статье [Новые возможности в версиях кластеров Hadoop, предоставляемых в HDInsight][hdinsight-versions].
 
 ##Создайте рабочий каталог
 
@@ -66,7 +66,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
-> [AZURE.NOTE]Параметр `-p` означает, что будут созданы все промежуточные каталоги для указанного пути, если их не существует. Каталог **данных** будет использован для хранения данных, используемых сценарием **useooziewf.hql**.
+> [AZURE.NOTE] Параметр `-p` означает, что будут созданы все промежуточные каталоги для указанного пути, если их не существует. Каталог **данных** будет использован для хранения данных, используемых сценарием **useooziewf.hql**.
 
 Также можно выполнить следующую команду, которая гарантирует, что при выполнении заданий Hive и Sqoop Oozie сможет работать от имени вашей учетной записи. Замените **USERNAME** на свое имя пользователя:
 
@@ -185,7 +185,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 	- **RunSqoopExport**: это действие экспортирует созданные данные из скрипта Hive в базу данных SQL с использованием Sqoop. Это действие будет выполнено, только если действие **RunHiveScript** было выполнено успешно.
 
-		> [AZURE.NOTE]Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в [документации на Apache Oozie 4.0][apache-oozie-400] (для HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] (для HDInsight версии 2.1).
+		> [AZURE.NOTE] Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в [документации на Apache Oozie 4.0][apache-oozie-400] (для HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] (для HDInsight версии 2.1).
 
 	Обратите внимание, что в рабочем процессе есть несколько параметров, таких как `${jobTracker}`, которые будут заменены значениями, указанными при определении задания далее в этом документе.
 
@@ -201,7 +201,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 Для создания базы данных SQL Azure, в которую будут экспортированы данные, выполните следующие действия.
 
-> [AZURE.IMPORTANT]Перед выполнением этих действий необходимо выполнить действия, описанные в разделе [Установка и настройка консоли Azure](xplat-cli-install.md). Установку консоли и последующие действия для создания базы данных можно выполнить в кластере HDInsight или на локальной рабочей станции.
+> [AZURE.IMPORTANT] Перед выполнением этих действий необходимо выполнить действия, описанные в разделе [Установка и настройка консоли Azure](xplat-cli-install.md). Установку консоли и последующие действия для создания базы данных можно выполнить в кластере HDInsight или на локальной рабочей станции.
 
 1. Для создания нового сервера баз данных SQL Azure используйте следующую команду:
 
@@ -216,7 +216,7 @@ Apache Oozie — это система рабочих процессов и ко
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Обратите внимание на имя сервера, возвращаемое этой командой (**i1qwc540ts** в примере выше). Это краткое имя созданного сервера базы данных SQL. Полное доменное имя (FQDN) — **&lt;shortname&gt;.database.windows.net**. В приведенном выше примере полным доменным именем будет **i1qwc540ts.database.windows.net**.
+    > [AZURE.IMPORTANT] Обратите внимание на имя сервера, возвращаемое этой командой (**i1qwc540ts** в примере выше). Это краткое имя созданного сервера базы данных SQL. Полное доменное имя (FQDN) — **&lt;shortname&gt;.database.windows.net**. В приведенном выше примере полным доменным именем будет **i1qwc540ts.database.windows.net**.
 
 2. Для создания базы данных **oozietest** на сервере базы данных SQL выполните следующую команду:
 
@@ -224,13 +224,13 @@ Apache Oozie — это система рабочих процессов и ко
 
     После ее завершения появится сообщение «ОК».
 
-	> [AZURE.NOTE]Если появится ошибка об отсутствии доступа, может потребоваться добавить IP-адрес системы в файрволл базы данных SQL с помощью следующей команды:
+	> [AZURE.NOTE] Если появится ошибка об отсутствии доступа, может потребоваться добавить IP-адрес системы в файрволл базы данных SQL с помощью следующей команды:
     >
     > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ###Создание таблицы
 
-> [AZURE.NOTE]Существует множество способов подключения к базе данных SQL для создания таблицы. В приведенных ниже действиях используется [FreeTDS](http://www.freetds.org/) из кластера HDInsight.
+> [AZURE.NOTE] Существует множество способов подключения к базе данных SQL для создания таблицы. В приведенных ниже действиях используется [FreeTDS](http://www.freetds.org/) из кластера HDInsight.
 
 3. Для установки FreeTDS в кластер HDInsight воспользуйтесь следующей командой:
 
@@ -361,9 +361,9 @@ Apache Oozie — это система рабочих процессов и ко
 		  </property>
 		</configuration>
 
-	* Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
+	* Замените все вхождения ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
 
-	> [AZURE.WARNING]В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasb:///) приведет к сбою при запуске задания RunHiveScript.
+	> [AZURE.WARNING] В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasb:///) приведет к сбою при запуске задания RunHiveScript.
 
 	* Замените **JOBTRACKERADDRESS** на адрес JobTracker/ResourceManager, полученный ранее.
 
@@ -373,7 +373,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 	Большая часть информации в этом файле используется для заполнения значений, используемых в файлах workflow.xml или ooziewf.hql (например, ${nameNode}.)
 
-	> [AZURE.NOTE]Параметр **oozie.wf.application.path** определяет местоположение файла workflow.xml, содержащего рабочий процесс, который запускается этим заданием.
+	> [AZURE.NOTE] Параметр **oozie.wf.application.path** определяет местоположение файла workflow.xml, содержащего рабочий процесс, который запускается этим заданием.
 
 2. Нажмите Ctrl-X, затем **Y** и **Enter** для сохранения файла.
 
@@ -381,7 +381,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 Далее используется команда Oozie для отправки рабочих процессов Oozie в кластер и управления ими. Команда Oozie предоставляет удобный интерфейс для [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
-> [AZURE.IMPORTANT]При использовании команды Oozie необходимо использовать полное доменное имя для головного узла HDInsight. Это полное доменное имя доступно только из кластера, или если кластер находится в виртуальной сети Azure, с других компьютеров той же сети.
+> [AZURE.IMPORTANT] При использовании команды Oozie необходимо использовать полное доменное имя для головного узла HDInsight. Это полное доменное имя доступно только из кластера, или если кластер находится в виртуальной сети Azure, с других компьютеров той же сети.
 
 1. Для получения URL-адреса службы Oozie воспользуйтесь следующей командой:
 
@@ -640,7 +640,7 @@ Oozie REST API позволяет создавать собственные ут
 
 	sudo adduser USERNAME users
 
-> [AZURE.NOTE]Чтобы HDInsight понял, что пользователь добавлен в группу, может потребоваться несколько минут.
+> [AZURE.NOTE] Чтобы HDInsight понял, что пользователь добавлен в группу, может потребоваться несколько минут.
 
 ###ОШИБКА запуска (Sqoop)
 
@@ -711,7 +711,7 @@ Oozie REST API позволяет создавать собственные ут
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/ru-ru/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/ru-RU/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -721,4 +721,4 @@ Oozie REST API позволяет создавать собственные ут
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

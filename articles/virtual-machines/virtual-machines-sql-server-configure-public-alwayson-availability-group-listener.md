@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Настройка внешнего прослушивателя для групп доступности AlwaysOn | Microsoft Azure"
 	description="В этом учебнике описывается процесс создания прослушивателя группы доступности AlwaysOn в Azure, доступном через публичный виртуальный IP-адрес связанной облачной службы."
 	services="virtual-machines"
@@ -7,13 +7,13 @@
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management" />
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Настройка внешнего прослушивателя для групп доступности AlwaysOn в Azure
@@ -25,7 +25,7 @@
 В этом разделе показано, как настроить прослушиватель для группы доступности AlwaysOn, доступной через Интернет. Такую настройку можно выполнить путем связывания **открытого виртуального IP-адреса (VIP)** облачной службы с прослушивателем.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
- 
+
 
 В группе доступности могут быть реплики, доступные только локально или только в Azure. В гибридных конфигурациях возможны оба способа доступа одновременно. Реплики в Azure могут находиться в одном или нескольких регионах (при использовании нескольких виртуальных сетей). В приведенных ниже указаниях предполагается, что вы уже [настроили группу доступности](virtual-machines-sql-server-alwayson-availability-groups-gui.md), но еще не настроили прослушиватель.
 
@@ -47,7 +47,7 @@
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-В этой статье рассматривается создание прослушивателя, использующего **внешнюю балансировку нагрузки**. Если вы хотите использовать частный прослушиватель из своей виртуальной сети, см. другую версию этой статьи, где приведены пошаговые указания по настройке [прослушивателя с внутренним балансировщиком нагрузки](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+В этой статье рассматривается создание прослушивателя, использующего **внешнюю балансировку нагрузки**. Если вы хотите использовать закрытый прослушиватель из своей виртуальной сети, см. другую версию этой статьи, где приведены пошаговые инструкции по настройке [прослушивателя с внутренней подсистемой балансировки нагрузки](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
 
 ## Создание конечных точек балансировки нагрузки в ВМ со службой Direct Server Return
 
@@ -60,7 +60,7 @@
 		# Define variables
 		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
 		$AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
-		
+
 		# Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
 		ForEach ($node in $AGNodes)
 		{
@@ -81,21 +81,21 @@
 
 [AZURE.INCLUDE [брандмауэр](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-1. Для использования внешней балансировки нагрузки вам потребуется получить общедоступный виртуальный IP-адрес облачной службы, на которой размещены ваши реплики. Перейдите на классический портал Azure. Перейдите к облачной службе, в которой находится виртуальная машина вашей группы доступности. Откройте представление **Панель мониторинга**. 
+1. Для использования внешней балансировки нагрузки вам потребуется получить общедоступный виртуальный IP-адрес облачной службы, на которой размещены ваши реплики. Перейдите на классический портал Azure. Перейдите к облачной службе, в которой находится виртуальная машина вашей группы доступности. Откройте представление **Панель мониторинга**.
 
-3. Запишите адрес, который отображается в разделе **Общедоступный виртуальный IP-адрес (VIP-адрес)**. Если ваше решение располагается в нескольких виртуальных сетях, повторите этот шаг для каждой облачной службы с виртуальной машиной, на которой размещается реплика.
+3. Запишите адрес, показанный в разделе **Общедоступный виртуальный IP-адрес (VIP-адрес)**. Если ваше решение располагается в нескольких виртуальных сетях, повторите этот шаг для каждой облачной службы с виртуальной машиной, на которой размещается реплика.
 
 4. Войдите на одну из виртуальных машин и скопируйте приведенный ниже сценарий PowerShell в текстовый редактор. Затем присвойте переменным записанные ранее значения.
 
 		# Define variables
 		$ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-		$IPResourceName = "<IPResourceName>" # the IP Address resource name 
+		$IPResourceName = "<IPResourceName>" # the IP Address resource name
 		$CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
-		
+
 		Import-Module FailoverClusters
-		
-		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
-		
+
+		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
+
 		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
 		# cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
 
@@ -130,4 +130,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

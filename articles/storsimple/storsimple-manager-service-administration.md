@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/27/2016"
    ms.author="alkohli" />
 
 # Использование службы диспетчера StorSimple для администрирования устройства StorSimple
@@ -34,7 +34,7 @@
 
 #### Подключение к службе
 
-1. Перейдите на сайт [http://azure.microsoft.com/](https://azure.microsoft.com/).
+1. Откройте страницу [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 
 1. С помощью учетной записи Майкрософт выполните вход на классический портал Microsoft Azure (расположен в правой верхней части панели).
 
@@ -114,4 +114,4 @@
 
 Если вы не можете устранить проблемы и необходимо создать запрос на обслуживание, см. статью [Обращение в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

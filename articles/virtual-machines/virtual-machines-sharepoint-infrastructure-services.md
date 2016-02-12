@@ -31,7 +31,7 @@
 
 См. пункт [Ферма без высокой доступности SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) в Azure Marketplace на портале Azure. Он создает простую ферму для разработки и тестирования для веб-сайта SharePoint с выходом в Интернет. Дополнительные сведения см. в статье [Создание ферм серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md).
 
-Также можно использовать шаблон диспетчера ресурсов Azure. См. статью [Развертывание трехсерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+Также можно использовать шаблон диспетчера ресурсов Azure. См. раздел [SharePoint](virtual-machines-app-frameworks.md).
 
 > [AZURE.NOTE] Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале Azure.
 
@@ -61,4 +61,4 @@
 
 - Ознакомьтесь с дополнительными конфигурациями [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) в службах инфраструктуры Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

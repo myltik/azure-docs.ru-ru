@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Примеры реальных клиентов
@@ -36,7 +36,7 @@
 
 [Авиакомпания использует Планшетные ПК и облачные службы для предоставления более \\интересных развлечений в полете](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
-## Tacoma Public Schools
+## Общественные школы Tacoma Public Schools
 
 [Использование облачной аналитики для прогнозирования риска отсева учащихся и увеличения процента успешных закончивших обучение](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
 
@@ -48,4 +48,4 @@
 
 [Укрепление связей с клиентами благодаря облачному машинному обучению](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->
