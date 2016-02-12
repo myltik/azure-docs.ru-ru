@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/25/2015"
+	ms.date="01/27/2016"
 	ms.author="bwren" />
 
 # Решение для службы автоматизации Azure: запуск и остановка виртуальных машин
@@ -28,11 +28,11 @@
 - [Graphical](automation-solution-startstopvm-graphical.md)
 - [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
 
-Это версия решения с графическим модулем Runbook. Доступно также решение с использованием [модулей Runbook рабочего процесса PowerShell](automation-solutions-startstopvm-psworkflow.md).
+Это версия решения с графическим модулем Runbook. Доступно также решение с использованием [модулей Runbook рабочего процесса PowerShell](automation-solution-startstopvm-psworkflow.md).
 
 ## Получение решения
 
-Это решение состоит из двух графических модулей Runbook, которые можно загрузить по указанным ниже ссылкам. Ссылки на модули Runnbook рабочего процесса PowerShell см. в разделе [Версия с рабочим процессом PowerShell](automation-solutions-startstopvm-psworkflow.md).
+Это решение состоит из двух графических модулей Runbook, которые можно загрузить по указанным ниже ссылкам. Ссылки на модули Runnbook рабочего процесса PowerShell см. в разделе [Версия с рабочим процессом PowerShell](automation-solution-startstopvm-psworkflow.md).
 
 
 | Модуль Runbook | Ссылка | Тип | Описание |
@@ -67,8 +67,8 @@
 | Параметр | Тип | Обязательно | Описание |
 |:---|:---|:---|:---|
 | ServiceName | string | Нет | Если значение указано, запускаются или останавливаются все виртуальные машины с таким именем службы. Если значение не указано, запускаются или останавливаются все классические виртуальные машины в подписке Azure. |
-| AzureSubscriptionIdAssetName | string | Нет | Содержит имя [переменной ресурса](#installing-the-solution) с идентификатором вашей подписки Azure. Если не указать это значение, будет использоваться значение *AzureSubscriptionId*. |
-| AzureCredentialAssetName | string | Нет | Содержит имя [ресурса учетных данных](#installing-the-solution) с учетными данными используемого модуля Runbook. Если не указать это значение, будет использоваться значение *AzureCredential*. |
+| AzureSubscriptionIdAssetName | string | Нет | Содержит имя [ресурса переменной](#installing-the-solution), в котором указан идентификатор вашей подписки Azure. Если значение не указано, используется значение *AzureSubscriptionId*. |
+| AzureCredentialAssetName | string | Нет | Содержит имя [ресурса учетных данных](#installing-the-solution), в котором указаны учетные данные используемого модуля Runbook. Если не указать это значение, будет использоваться значение *AzureCredential*. |
 
 ### Запуск модулей Runbook
 
@@ -85,7 +85,7 @@
 
 | Модуль Runbook | Условие | Сообщение |
 |:---|:---|:---|
-| StartAzureClassicVM | Виртуальная машина уже запущена | MyVM уже работает |
+| StartAzureClassicVM | Виртуальная машина уже запущена | MyVM is already running |
 | StartAzureClassicVM | Запрос запуска виртуальной машины успешно отправлен | MyVM запущена |
 | StartAzureClassicVM | Не удалось выполнить запрос запуска виртуальной машины | Не удалось запустить MyVM |
 | StopAzureClassicVM | Виртуальная машина уже запущена | MyVM уже остановлена |
@@ -153,4 +153,4 @@
 - [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md) 
 - [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

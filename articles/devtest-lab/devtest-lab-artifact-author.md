@@ -1,6 +1,6 @@
-    <properties 
-	pageTitle="Create custom artifacts for your DevTest Lab VM | Microsoft Azure"
-	description="Learn how to author your own artifacts for use with DevTest Labs"
+<properties 
+	pageTitle="Создание пользовательских артефактов для виртуальной машины DevTest Lab | Microsoft Azure"
+	description="Узнайте, как создавать собственные артефакты, которые можно использовать с помощью решения DevTest Lab."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 #Создание пользовательских артефактов для виртуальной машины DevTest Lab
@@ -121,4 +121,4 @@
 
 Узнайте, как [добавить репозиторий артефактов Git в DevTest Lab](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

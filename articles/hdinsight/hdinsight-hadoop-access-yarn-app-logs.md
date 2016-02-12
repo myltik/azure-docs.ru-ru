@@ -14,30 +14,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="01/29/2016"
 	ms.author="jgao"/>
 
-# Программный доступ к журналам приложений YARN в Hadoop в HDInsight
+# Доступ к журналам приложений YARN в HDInsight под управлением Windows
 
-В этом разделе объясняется, как программно перечислить приложения YARN (Yet Another Resource Negotiator), которые завершены в кластере Hadoop в Azure HDInsight, и как получить программный доступ к журналам приложений без необходимости подключения к кластерам по протоколу удаленного рабочего стола (RDP). В частности, добавлены новый компонент и новый интерфейс API.
+В данном документе рассказывается, как получить доступ к журналам приложений YARN (Yet Another Resource Negotiator), завершивших работу в кластере Hadoop в Azure HDInsight.
 
-  1. В кластерах HDInsight включен универсальный сервер журнала приложений. Это компонент сервера временной шкалы YARN, отвечающий за хранение и извлечение общей информации о завершенных приложениях.
-  2. В пакет SDK для Azure для HDInsight .NET добавлены новые API, которые позволяют программно перечислять приложения, запущенные в кластерах, и скачивать журналы соответствующего приложения или контейнера (в виде обычного текста), что упрощает отладку приложений.
+> [AZURE.NOTE] Информация, содержащаяся в данном документе, относится только к кластерам HDInsight под управлением Windows. Сведения о доступе к журналам YARN в кластерах HDInsight под управлением Linux см. в статье [Доступ к журналам приложений YARN в Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-> [AZURE.NOTE]Информация, содержащаяся в данном документе, относится только к кластерам HDInsight под управлением Windows. Сведения о доступе к журналам YARN в кластерах HDInsight под управлением Linux см. в статье [Доступ к журналам приложений YARN в Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md).
+### Предварительные требования
 
-## Предварительные требования
-
-Пакет SDK для Azure HDInsight должен использовать код, представленный в этом разделе в приложении .NET Framework. Последняя опубликованная сборка пакета SDK доступна на сайте [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started).
-
-Чтобы установить пакет SDK для HDInsight в приложении Visual Studio, откройте меню **Инструменты**, щелкните **Диспетчер пакетов NuGet** и выберите **Консоль диспетчера пакетов**. Чтобы установить пакеты, выполните в консоли следующую команду:
-
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
-
-Эта команда добавляет библиотеки .NET для HDInsight и ссылки на них в текущий проект Visual Studio.
+- Кластер HDInsight на платформе Windows См. статью [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-provision-clusters.md).
 
 
-## <a name="YARNTimelineServer"></a>YARN Timeline Server
+## Сервер временной шкалы YARN
 
 <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> предоставляет общую информацию о завершенных приложениях, а также данные о приложениях для конкретной платформы в двух различных интерфейсах. В частности:
 
@@ -56,9 +47,8 @@
 
     GET on https://<cluster-dns-name>.azurehdinsight.net/ws/v1/applicationhistory/apps
 
-Мы добавили новые API в пакет SDK для HDInsight .NET, чтобы упростить процесс программного извлечения этих данных. Обратите внимание, что общие данные также можно извлечь, выполнив команды интерфейса командной строки YARN непосредственно в узлах кластера (после подключения к кластеру по протоколу RDP).
 
-## <a name="YARNAppsAndLogs"></a>Приложения и журналы YARN
+## Приложения и журналы YARN
 
 YARN поддерживает несколько моделей программирования (в том числе MapReduce), отделяя управление ресурсами от планирования и мониторинга приложений. Это осуществляется с помощью глобального *диспетчера ресурсов*, *диспетчеров узлов* на каждый рабочий узел и *диспетчеров приложений* на каждое приложение. Диспетчер приложений согласовывает ресурсы (ЦП, память, диск, сеть), необходимые для работы приложения, с диспетчером ресурсов. Диспетчер ресурсов совместно с диспетчером узлов предоставляют эти ресурсы в виде *контейнеров*. Диспетчер приложений отвечает за отслеживание хода выполнения контейнеров, назначаемых ему диспетчером ресурсов. Приложению может потребоваться много контейнеров в зависимости от характера приложения.
 
@@ -75,96 +65,16 @@ YARN поддерживает несколько моделей программ
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
-В следующем разделе рассказывается о том, как получить программный доступ к журналам приложений или контейнеров без необходимости использовать протокол RDP для подключения к кластерам HDInsight.
 
-## <a name="enumerate-and-download"></a>Программное перечисление приложений и скачивание журналов
+## Пользовательский интерфейс YARN ResourceManager
 
-Чтобы использовать следующие примеры кода, необходимо скачать последнюю версию пакета SDK для HDInsight .NET, как указано выше. См. приведенные выше инструкции.
+Пользовательский интерфейс YARN ResourceManager работает на головном узле кластера. Для доступа к нему можно использовать панель мониторинга портала Azure.
 
-В приведенном ниже примере кода показано, как использовать новые интерфейсы API для перечисления приложений и загрузки журналов завершенных приложений.
+1. Войдите на [портал Azure](https://portal.azure.com/). 
+2. В меню слева щелкните **Обзор**, выберите **Кластеры HDInsight**, щелкните кластер под управлением Windows, который нужен для доступа к журналам приложений YARN.
+3. В меню вверху щелкните **Панель мониторинга**. В новой вкладке браузера откроется страница **Консоль запросов HDInsight**.
+4. В **консоли запросов HDInsight** щелкните **Пользовательский интерфейс Yarn**.
 
-> [AZURE.NOTE]Приведенные ниже интерфейсы API будут работать только с активными кластерами Hadoop 3.1.1.374 или более поздней версии. Добавьте следующие директивы:
-
-	using Microsoft.Hadoop.Client;
-	using Microsoft.WindowsAzure.Management.HDInsight;
-
-Это относится к новым интерфейсам API в приведенном ниже коде. Следующий фрагмент кода позволяет создать клиент журнала приложения в активном кластере вашей подписки:
-
-	string subscriptionId = "<your-subscription-id>";
-	string clusterName = "<your-cluster-name>";
-	string certName = "<your-subscription-management-cert-name>";
-
-	// Create an HDInsight client
-	X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-	store.Open(OpenFlags.ReadOnly);
-	X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>()
-	                            .Single(x => x.FriendlyName == certName);
-
-	HDInsightCertificateCredential creds =
-				new HDInsightCertificateCredential(new Guid(subscriptionId), cert);
-
-	IHDInsightClient client = HDInsightClient.Connect(creds);
-
-	// Get the cluster on which your applications were run
-	// The cluster needs to be in the "Running" state
-	ClusterDetails cluster = client.GetCluster(clusterName);
-
-	// Create an Application History client against your cluster
-	IHDInsightApplicationHistoryClient appHistoryClient =
-				cluster.CreateHDInsightApplicationHistoryClient(TimeSpan.FromMinutes(5));
-
-
-Теперь с помощью клиента журнала приложения вы можете просматривать список завершенных приложений, фильтровать приложения на основе своих критериев и скачивать соответствующие журналы приложений. В следующем фрагменте кода показано, как это делается программным путем:
-
-	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\\YarnApplicationLogs";
-
-	// List completed applications on your cluster that were submitted in the last 24 hours but failed
-	// Search for applications based on application name
-	string appNamePrefix = "your-app-name-prefix";
-	DateTime endTime = DateTime.UtcNow;
-	DateTime startTime = endTime.AddHours(-24);
-	IEnumerable<ApplicationDetails> applications = appHistoryClient
-	                .ListCompletedApplications(startTime, endTime)
-	                .Where(app =>
-	                    app.GetApplicationFinalStatusAsEnum() == ApplicationFinalStatus.Failed
-	                    && app.Name.StartsWith(appNamePrefix));
-
-	// Download logs for failed or killed applications
-	// This will generate one log file for each application
-	foreach (ApplicationDetails application in applications)
-	{
-	    appHistoryClient.DownloadApplicationLogs(application, downloadLocation);
-	}
-
-Приведенный выше код позволяет находить нужные приложения, используя клиент журнала приложения, а затем скачивать журналы этих приложений в локальную папку.
-
-Кроме того, приведенный ниже фрагмент кода позволяет скачивать журналы приложений с известным уникальным идентификатором. Идентификатор приложения — это глобальный уникальный идентификатор приложения, назначаемый диспетчером ресурсов. Для его создания используется время запуска диспетчера ресурсов и монотонно возрастающий счетчик отправляемых в него приложений. Этот идентификатор выглядит следующим образом: application\_&lt;RM-start-time&gt;\_&lt;Counter&gt;. Идентификатор приложения и идентификатор задания нужно различать. Идентификатор задания — это понятие платформы MapReduce, а идентификатор приложения — понятие YARN, не зависящие от платформы. В YARN идентификатор задания — это идентификатор определенного задания MapReduce, обработанного мастером приложений MapReduce, отправленного в диспетчер ресурсов.
-
-	// Download application logs for an application whose application ID is known
-	string applicationId = "application_1416017767088_0028";
-	ApplicationDetails someApplication = appHistoryClient.GetApplicationDetails(applicationId);
-	appHistoryClient.DownloadApplicationLogs(someApplication, downloadLocation);
-
-При необходимости можно скачать журналы для каждого контейнера (или для любого конкретного контейнера), используемого приложением, как показано ниже.
-
-	ApplicationDetails someApplication = appHistoryClient.GetApplicationDetails(applicationId);
-
-	// Download logs separately for each container of application(s) of interest
-	// This will generate one log file per container
-	IEnumerable<ApplicationAttemptDetails> applicationAttempts =
-				appHistoryClient.ListApplicationAttempts(someApplication);
-
-	ApplicationAttemptDetails finalAttempt = applicationAttempts
-	    		.Single(x => x.ApplicationAttemptId == someApplication.LatestApplicationAttemptId);
-
-	IEnumerable<ApplicationContainerDetails> containers =
-				appHistoryClient.ListApplicationContainers(finalAttempt);
-
-	foreach (ApplicationContainerDetails container in containers)
-	{
-	    appHistoryClient.DownloadApplicationLogs(container, downloadLocation);
-	}
 
 
 
@@ -174,4 +84,4 @@ YARN поддерживает несколько моделей программ
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

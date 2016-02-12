@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="10/28/2015" 
+    ms.date="02/01/2016" 
     ms.author="anhoh"/>
 
 #Подключение DocumentDB к службе поиска Azure с помощью индексаторов
@@ -88,7 +88,7 @@
         "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
     }
 
-> [AZURE.NOTE]При использовании пользовательской проекции в предложение SELECT потребуется включить свойство.
+> [AZURE.NOTE] При использовании пользовательской проекции в предложение SELECT потребуется включить свойство.
 
 ###<a id="CreateDataSourceExample"></a>Пример тела запроса
 
@@ -121,7 +121,7 @@
 
 ##<a id="CreateIndex"></a>Шаг 2. Создание индекса
 
-Создайте целевой индекс поиска Azure, если это еще не сделано. Создать индекс можно с помощью [пользовательского интерфейса классического портала Azure](../search/search-get-started.md#test-service-operations) или [API создания индекса](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Создайте целевой индекс поиска Azure, если это еще не сделано. Создать индекс можно с помощью [пользовательского интерфейса портала Azure](../search/search-get-started.md#test-service-operations) или [API создания индекса](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -140,7 +140,7 @@
 |Строка|Edm.String|
 |Массивы типов-примитивов, например a, b, c |Collection(Edm.String)|
 |Строки, которые выглядят как даты| Edm.DateTimeOffset, Edm.String|
-|Например, { «тип»: «Точка», «координаты»: [ долгота, широта ] } | Edm.GeographyPoint |
+|Например, { "тип": "Точка", "координаты": [ долгота, широта ] } | Edm.GeographyPoint |
 |Другие объекты JSON|Недоступно|
 
 ###<a id="CreateIndexExample"></a>Пример тела запроса
@@ -270,4 +270,4 @@
  - Дополнительные сведения о поиске Azure см. на странице документации по [службе поиска](https://azure.microsoft.com/services/search/).
  
 
-<!----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

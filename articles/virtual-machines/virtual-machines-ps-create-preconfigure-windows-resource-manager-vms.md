@@ -271,7 +271,7 @@
 	$avName="<availability set name>"
 	Get-AzureRmVMSize -ResourceGroupName $rgName -AvailabilitySetName $avName | Select Name
 
-> [AZURE.NOTE]В настоящее время диспетчер ресурсов позволяет добавлять виртуальные машины в группу доступности только во время их создания.
+> [AZURE.NOTE] В настоящее время диспетчер ресурсов позволяет добавлять виртуальные машины в группу доступности только во время их создания.
 
 Чтобы добавить дополнительный диск с данными в виртуальную машину, скопируйте следующие строки в набор команд и задайте параметры диска.
 
@@ -391,8 +391,8 @@
 
 [Развертывание виртуальных машин Azure и управление ими с использованием шаблонов диспетчера ресурсов и PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[Создание виртуальной машины Windows с помощью шаблона диспетчера ресурсов и PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
+[Создание виртуальной машины Windows с помощью шаблона диспетчера ресурсов и PowerShell](virtual-machines-create-windows-powershell-resource-manager-template.md)
 
-[Установка и настройка Azure PowerShell](../install-configure-powershell.md)
+[Установка и настройка Azure PowerShell](powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

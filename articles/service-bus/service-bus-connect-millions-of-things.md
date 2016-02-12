@@ -22,7 +22,7 @@
 
 ## Изучить
 
-- [Концентраторы событий](event-hubs-overview.md)
+- [Концентраторы событий](../event-hubs/event-hubs-overview.md)
 - [Шаблон сегментирования](http://msdn.microsoft.com/library/dn589797.aspx)
 - [Сервисная шина и AMQP 1.0](service-bus-amqp-overview.md)
 - [Основные сведения о служебной шине](https://azure.microsoft.com/services/service-bus/)
@@ -45,4 +45,4 @@
 - [Облачные службы](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

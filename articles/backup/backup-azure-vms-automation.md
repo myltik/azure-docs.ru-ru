@@ -7,13 +7,16 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2016" ms.author="aashishr";"trinadhk" />
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/28/2016" ms.author="aashishr";"trinadhk" />
 
 
 # Развертывание резервной копии виртуальной машины Azure с помощью PowerShell и управление ею
 В этой статье объясняется, как использовать Azure PowerShell для резервного копирования и восстановления виртуальных машин Azure IaaS.
 
 ## Основные понятия
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 См. статью [Общие сведения о резервном копировании Azure IaaS](backup-azure-vms-introduction.md) в документации службы архивации Azure.
 
 > [AZURE.WARNING] Перед началом работы убедитесь, что вам известны [предварительные требования](backup-azure-vms-prepare.md) для работы со службой архивации Azure и [ограничения](backup-azure-vms-prepare.md#limitations), применяемые к текущему решению для резервного копирования виртуальных машин.
@@ -70,7 +73,7 @@ Cmdlet          Wait-AzureRmBackupJob                              1.0.1      Az
 
 ### создать хранилище архивации;
 
-> [AZURE.WARNING] Для клиентов, использующих службу архивации Azure впервые, необходимо зарегистрировать поставщика службы архивации для использования с вашей подпиской. Для этого выполните следующую команду: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] Для клиентов, использующих службу архивации Azure впервые, необходимо зарегистрировать поставщика службы архивации для использования с вашей подпиской. Для этого выполните следующую команду: Register-AzureRMResourceProvider -ProviderNamespace "Microsoft.Backup"
 
 Вы можете создать новое хранилище архивации с помощью командлета **New-AzureRMBackupVault**. Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
 
@@ -96,7 +99,7 @@ PS C:\> $registerjob = Register-AzureRMBackupContainer -Vault $backupvault -Name
 ## Виртуальные машины службы архивации Azure
 
 ### Создание политики защиты
-Чтобы начать резервное копирование виртуальных машин, создавать новую политику защиты не обязательно. Хранилище поставляется с «политикой по умолчанию», которую можно использовать для быстрого включения защиты. Позднее в эту политику можно внести сведения о правах. Список доступных в хранилище политик можно получить с помощью командлета **Get-AzureRMBackupProtectionPolicy**.
+Чтобы начать резервное копирование виртуальных машин, создавать новую политику защиты не обязательно. Хранилище поставляется с "политикой по умолчанию", которую можно использовать для быстрого включения защиты. Позднее в эту политику можно внести сведения о правах. Список доступных в хранилище политик можно получить с помощью командлета **Get-AzureRMBackupProtectionPolicy**.
 
 ```
 PS C:\> Get-AzureRMBackupProtectionPolicy -Vault $backupvault
@@ -327,4 +330,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Если вы хотите добавить в выходные данные этого отчета возможности построения графиков, обратитесь к статье [Построение графиков с помощью PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) в блоге TechNet.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

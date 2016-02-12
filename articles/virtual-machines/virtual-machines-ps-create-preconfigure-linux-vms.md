@@ -35,7 +35,7 @@
 
 ## Установка Azure PowerShell
 
-Если это еще не сделано, [установите и настройте Azure PowerShell](../install-configure-powershell.md). После этого откройте командную строку Azure PowerShell.
+Если это еще не сделано, [установите и настройте Azure PowerShell](powershell-install-configure.md). После этого откройте командную строку Azure PowerShell.
 
 ## Указание подписки и учетной записи хранения
 
@@ -274,10 +274,10 @@
 
 [Общие сведения о виртуальных машинах Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Установка и настройка Azure PowerShell](../install-configure-powershell.md)
+[Установка и настройка Azure PowerShell](powershell-install-configure.md)
 
 [Вход в виртуальную машину под управлением ОС Linux](virtual-machines-linux-how-to-log-on.md)
 
 [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

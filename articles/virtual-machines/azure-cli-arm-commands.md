@@ -19,7 +19,7 @@
 
 # Использование CLI Azure для Mac, Linux и Windows с диспетчером ресурсов Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines/virtual-machines-command-line-tools.md).
 
 В этой статье рассматривается использование интерфейса командной строки Azure (Azure CLI) в режиме диспетчера ресурсов Azure для создания, удаления служб и управления ими через командную строку на компьютерах Mac, Linux и Windows. Многие одинаковые задачи можно выполнить с использованием различных библиотек пакета SDK для Azure, Azure PowerShell и портала Azure.
 
@@ -1879,4 +1879,4 @@
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

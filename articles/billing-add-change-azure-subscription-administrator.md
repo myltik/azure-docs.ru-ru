@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Добавление или изменение ролей администратора Azure | Microsoft Azure"
 	description="Инструкции по добавлению или изменению соадминистратора Azure, администратора службы или администратора учетной записи"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
-	/>
+	tags="billing"/>
 
 <tags
 	ms.service="billing"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/27/2016"
 	ms.author="genli"/>
 
 # Добавление или изменение ролей администратора Azure
@@ -66,4 +66,4 @@
 
 Для передачи учетной записи Azure другой учетной записи обратитесь к статье [Передача подписки Azure](billing-subscription-transfer.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

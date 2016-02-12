@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Предварительная версия Azure AD B2C | Microsoft Azure"
+	pageTitle="Предварительная версия Azure AD B2C | Microsoft Azure"
 	description="Как создавать приложения непосредственно с использованием протоколов, поддерживаемых предварительной версией Azure AD B2C."
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Предварительная версия Azure AD B2C: протоколы проверки подлинности
@@ -23,9 +23,9 @@ Azure AD B2C предоставляет «идентификацию как ус
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
+	
 ## Основы
-Каждое приложение, использующее Azure AD B2C, потребуется зарегистрировать для использования вашего каталога B2C на [портале Azure](https://portal.azure.com/). В процессе регистрации для приложения будет собрано и назначено несколько значений:
+Каждое приложение, использующее Azure AD B2C, потребуется зарегистрировать для использования вашего каталога B2C на [портале Azure](https://portal.azure.com). В процессе регистрации для приложения будет собрано и назначено несколько значений:
 
 - **Идентификатор приложения**, определяющий конкретное приложение.
 - **Универсальный код ресурса (URI) перенаправления** или **Идентификатор пакета**, которые можно использовать для возврата ответов к приложению.
@@ -68,6 +68,4 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 - Получение токенов с помощью имени пользователя и пароля с использованием потока учетных данных паролей владельцев ресурсов OAuth 2.0 (скоро)
 - Получение токенов в веб-API потока «от имени» OAuth 2.0 (скоро)
 
-<!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -70,7 +70,7 @@
 Для [создания сертификата](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate) можно использовать Java.
 
 ### Linux
-В [этой](..\virtual-machines\virtual-machines-linux-use-ssh-key.md) статье рассматривается создание сертификатов с использованием SSH.
+В [этой](../virtual-machines/virtual-machines-linux-use-ssh-key.md) статье рассматривается создание сертификатов с использованием SSH.
 
 ## Дальнейшие действия
 
@@ -80,4 +80,4 @@
 
 >[AZURE.NOTE] Портал Azure не использует сертификаты управления для доступа к API, обращаясь вместо этого к учетным записям пользователей.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

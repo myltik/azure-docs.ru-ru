@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="01/21/2015"
+	ms.date="02/03/2015"
     ms.author="donnam"/>
 
 #Подключение к службе хранилища Azure в приложении Xamarin.Forms
@@ -44,7 +44,7 @@
 
 ## Создайте учетную запись хранения.
 
-1. Создайте учетную запись хранения, выполнив указания в руководстве [Создайте учетную запись хранения]. 
+1. Создайте учетную запись хранения, при этом следуйте руководству, приведенному в разделе [Создайте учетную запись хранения]. 
 
 2. На портале Azure перейдите к только что созданной учетной записи хранения и щелкните значок **Ключи**. Скопируйте значение параметра **Основная строка подключения**.
 
@@ -719,7 +719,7 @@
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
-[Подписи общего доступа. Часть 1: общие сведения о модели SAS]: https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/
-[Создайте учетную запись хранения]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[Подписи общего доступа. Часть 1: общие сведения о модели SAS]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[Создайте учетную запись хранения]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

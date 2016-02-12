@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="02/03/2016"
 	ms.author="bwren" />
 
 
@@ -108,4 +108,4 @@
 - [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md)
 - [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

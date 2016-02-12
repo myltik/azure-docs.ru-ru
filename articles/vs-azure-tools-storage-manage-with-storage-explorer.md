@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
-	editor="tlee" />
+	editor="" />
 
  <tags
 	ms.service="visual-studio-online"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/17/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher" />
 
 # Управление ресурсами хранилища Azure с помощью обозревателя хранилищ (предварительная версия)
@@ -158,7 +158,7 @@
 	![][20]
 
 ## Дальнейшие действия
-Чтобы получить дополнительные сведения о возможностях служб хранилища Azure, см. статью [Знакомство со службой хранилища Microsoft Azure](storage-introduction.md).
+Чтобы получить дополнительные сведения о возможностях служб хранилища Azure, см. статью [Знакомство со службой хранилища Microsoft Azure](/storage/storage-introduction.md).
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png
@@ -182,4 +182,4 @@
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
 # Предварительная версия службы совместной работы Azure Active Directory (Azure AD) B2B. Как это работает
@@ -37,9 +37,9 @@
 
  - [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
  - [Подробное пошаговое руководство](active-directory-b2b-detailed-walkthrough.md)
- - [Справка по формату CSV-файла](active-directory-b2b-references-csv-file-format.md)
+ - [Справочник по формату файлов CSV](active-directory-b2b-references-csv-file-format.md)
  - [Формат токена внешнего пользователя](active-directory-b2b-references-external-user-token-format.md)
  - [Изменение атрибутов объекта внешнего пользователя](active-directory-b2b-references-external-user-object-attribute-changes.md)
  - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

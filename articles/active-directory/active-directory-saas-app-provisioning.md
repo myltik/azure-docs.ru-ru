@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Автоматическая подготовка пользователей для приложения SaaS в Azure AD | Microsoft Azure"
-   description="Общие сведения об использовании Azure AD для автоматической подготовки, отзыва и постоянного обновления учетных записей пользователей в нескольких приложениях SaaS сторонних разработчиков."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Автоматическая подготовка пользователей для приложения SaaS в Azure AD | Microsoft Azure"
+    description="Общие сведения об использовании Azure AD для автоматической подготовки, отзыва и постоянного обновления учетных записей пользователей в нескольких приложениях SaaS сторонних разработчиков."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/08/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory
 
@@ -108,4 +108,4 @@ Azure AD готовит пользователей для приложения S
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

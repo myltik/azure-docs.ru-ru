@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 #Создание списка рекомендуемых фильмов с помощью Apache Mahout и Hadoop в HDInsight на платформе Linux (предварительная версия)
@@ -25,7 +25,7 @@
 
 Mahout — это библиотека [машинного обучения][ml] для Apache Hadoop. Mahout содержит алгоритмы для обработки данных, такие как фильтрация, классификация и кластеризация. В этой статье вы будете использовать подсистему рекомендаций для создания рекомендаций к просмотру на основе фильмов, уже просмотренных вашими друзьями.
 
-> [AZURE.NOTE]Действия, описанные в этом документе, требуют Hadoop в кластере HDInsight на платформе Linux (предварительная версия). Сведения об использовании Mahout с кластерами на базе Windows см. в разделе [Создание списка рекомендуемых фильмов с помощью Apache Mahout и Hadoop в HDInsight на платформе Windows](hdinsight-mahout.md)
+> [AZURE.NOTE] Действия, описанные в этом документе, требуют Hadoop в кластере HDInsight на платформе Linux (предварительная версия). Сведения об использовании Mahout с кластерами на базе Windows см. в разделе [Создание списка рекомендуемых фильмов с помощью Apache Mahout и Hadoop в HDInsight на платформе Windows](hdinsight-mahout.md)
 
 ##Предварительные требования
 
@@ -35,7 +35,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 Дополнительные сведения о версии Mahout, входящий в состав кластера HDInsight, см. в разделе [Версии HDInsight и компоненты Hadoop](hdinsight-component-versioning.md).
 
-> [AZURE.WARNING]Хотя в кластер HDInsight можно передать другую версию Mahout, только компоненты, предоставляемые вместе с кластером HDInsight, поддерживаются в полном объеме. Служба поддержки Майкрософт поможет вам выявить и устранить проблемы, связанные с этими компонентами.
+> [AZURE.WARNING] Хотя в кластер HDInsight можно передать другую версию Mahout, только компоненты, предоставляемые вместе с кластером HDInsight, поддерживаются в полном объеме. Служба поддержки Майкрософт поможет вам выявить и устранить проблемы, связанные с этими компонентами.
 >
 > Настраиваемые компоненты получают ограниченную коммерчески оправданную поддержку, способствующую дальнейшей диагностике проблемы. В результате проблема может быть устранена, либо вас могут попросить воспользоваться доступными каналами по технологиям с открытым исходным кодом, чтобы связаться с экспертами в данной области. Можно использовать ряд сайтов сообществ, например [форум MSDN по HDInsight](https://social.msdn.microsoft.com/Forums/azure/ru-RU/home?forum=hdinsight) и [http://stackoverflow.com](http://stackoverflow.com). Кроме того, для проектов Apache есть соответствующие сайты по адресу [http://apache.org](http://apache.org), например для [Hadoop](http://hadoop.apache.org/) и [Spark](http://spark.apache.org/).
 
@@ -94,7 +94,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 	mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /example/data/u.data -o /example/data/mahoutout --tempDir /temp/mahouttemp
 
-> [AZURE.NOTE]Выполнение задания может занять несколько минут; может выполняться несколько заданий MapReduce.
+> [AZURE.NOTE] Выполнение задания может занять несколько минут; может выполняться несколько заданий MapReduce.
 
 ##Просмотр результатов
 
@@ -241,7 +241,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 	hdfs dfs -rm -f -r /temp/mahouttemp
 
-> [AZURE.WARNING]Если вы хотите выполнить команду еще раз, необходимо удалить выходной каталог. Используйте следующую команду для удаления этого каталога:
+> [AZURE.WARNING] Если вы хотите выполнить команду еще раз, необходимо удалить выходной каталог. Используйте следующую команду для удаления этого каталога:
 >
 > ```hdfs dfs -rm -f -r /example/data/mahoutout```
 
@@ -249,9 +249,9 @@ Mahout — это библиотека [машинного обучения][ml]
 
 Теперь, когда вы узнали, как использовать Mahout, откройте для себя другие способы работы с данными в HDInsight:
 
-* [Использование Hive с HDInsight](hadoop-use-hive.md)
-* [Использование Pig с HDInsight](hadoop-use-pig.md)
-* [Использование MapReduce с HDInsight](hadoop-use-mapreduce.md)
+* [Использование Hive с HDInsight](hdinsight-use-hive.md)
+* [Использование Pig с HDInsight](hdinsight-use-pig.md)
+* [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [movielens]: http://grouplens.org/datasets/movielens/
@@ -267,4 +267,4 @@ Mahout — это библиотека [машинного обучения][ml]
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

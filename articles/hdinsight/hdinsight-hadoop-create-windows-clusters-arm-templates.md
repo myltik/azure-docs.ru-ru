@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="02/02/2016"
    ms.author="jgao"/>
 
 # Создание кластеров Hadoop под управлением Windows в HDInsight с помощью шаблонов ARM
@@ -128,7 +128,7 @@
 
 - Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание ресурсов с использованием библиотек .NET и шаблона](arm-template-deployment.md).
 - Подробный пример развертывания приложения см. в статье [Предсказуемые подготовка и развертывание микрослужб в Azure](app-service-deploy-complex-application-predictably.md).
-- Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
 - Дополнительную информацию о разделах в шаблоне диспетчера ресурсов Azure см. в статье [Создание шаблонов](resource-group-authoring-templates.md).
 - Список функций, которые можно использовать в шаблоне диспетчера ресурсов Azure, см. в статье [Функции шаблонов](resource-group-template-functions.md).
 
@@ -444,4 +444,4 @@
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

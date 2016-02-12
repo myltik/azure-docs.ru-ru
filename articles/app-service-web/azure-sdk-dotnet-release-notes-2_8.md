@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="01/31/2016"
    ms.author="juliako"/>
 
 # Пакеты SDK Azure для .NET 2.8, 2.8.1 и 2.8.2
@@ -91,6 +91,8 @@
 - Если вы используете Windows 10 и Internet Explorer не установлен, может появиться ошибка "Internet Explorer не найден". Чтобы устранить эту проблему, установите Internet Explorer с помощью диалогового окна "Добавить или удалить компоненты Windows".
 
 Если вы заметили эту проблему, используйте функцию "Отправить смайлик", чтобы сообщить о ней.
+
+Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-2-for-net/).
 ##Другие обновления
 
 О других изменениях читайте в [публикации о пакете SDK Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
@@ -101,4 +103,4 @@
 
 [Сведения о поддержке и прекращении использования пакета Azure SDK для .NET и API](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

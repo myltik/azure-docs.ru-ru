@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/06/2016"
+   ms.date="02/01/2016"
    ms.author="mbaldwin"/>
 
 
@@ -72,7 +72,7 @@ Azure Active Directory является платформой для управл
 - [Создание приложения с помощью API Office 365](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Отправка веб-приложений для Office 365 на панель мониторинга продавца](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 - [Предварительная версия. Как создавать приложения для входа пользователей с личными, рабочими и учебными учетными записями](active-directory-appmodel-v2-overview.md)
-- [Предварительная версия. Как создавать приложения, которые выполняют регистрацию и вход пользователей](active-directory-b2c-overview.md)
+- [Предварительная версия. Как создавать приложения, которые выполняют регистрацию и вход пользователей](../active-directory-b2c/active-directory-b2c-overview.md)
 
 
 ## Справочные материалы
@@ -141,4 +141,4 @@ Azure Active Directory является платформой для управл
 
 - [Azure Active Directory в Твиттере](https://twitter.com/azuread). Объявления Azure Active Directory длиной не более 140 знаков.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add a VM with artifacts to a DevTest Lab | Microsoft Azure"
-	description="Create a new virtual machine with Artifacts in DevTest Lab."
+<properties
+	pageTitle="Добавление виртуальной машины с артефактами в Azure DevTest Lab | Microsoft Azure"
+	description="Узнайте, как создать виртуальную машину с артефактами в лаборатории DevTest Lab."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Добавление виртуальной машины с артефактами в Azure DevTest Lab
@@ -98,4 +98,4 @@
 
 Узнайте, как [создавать пользовательские артефакты для виртуальной машины](devtest-lab-artifact-author.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

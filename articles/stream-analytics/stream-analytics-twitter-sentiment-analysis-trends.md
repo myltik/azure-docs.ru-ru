@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 
@@ -236,4 +236,4 @@ Stream Analytics поддерживает простую декларативн�
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

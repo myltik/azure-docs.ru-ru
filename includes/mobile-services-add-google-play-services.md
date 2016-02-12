@@ -11,7 +11,7 @@
 
 4. Добавьте следующую строку в *зависимости*:
 
-   		compile 'com.google.android.gms:play-services-base:6.5.87'
+   		compile 'com.google.android.gms:play-services-gcm:8.4.0'
 
 5. В разделе *defaultConfig* измените значение *minSdkVersion* на 9.
  
@@ -23,4 +23,4 @@
             android:value="@integer/google_play_services_version" />
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

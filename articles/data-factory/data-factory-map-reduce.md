@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Вызов программы MapReduce из фабрики данных
@@ -103,7 +103,7 @@
 ### Связанные службы
 Сначала необходимо создать связанную службу для связи службы хранилища Azure, используемой в кластере Azure HDInsight, с фабрикой данных Azure. При копировании и вставке следующего кода не забудьте заменить **имя** и **ключ учетной записи** на имя и ключ службы хранилища Azure.
 
-#### Связанная служба хранилища
+#### Связанная служба хранения Azure
 
 	{
 	    "name": "StorageLinkedService",
@@ -220,4 +220,4 @@ linkedServiceName (имя связанной службы) | Указывает 
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

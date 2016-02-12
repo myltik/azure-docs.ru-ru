@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@
 4. В нижней части страницы нажмите кнопку **Добавить**.<br><br> ![Приложения][3]<br>
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.<br><br> ![Приложения][4]<br>
 6. В поле поиска введите **Tidemark**.<br><br> ![Создание тестового пользователя Azure AD](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_01.png)<br>
-7. В области результатов выберите **Tidemark** и щелкните **Завершить**, чтобы добавить приложение. <br><br>
+7. В области результатов выберите **Tidemark**, а затем щелкните **Завершить**, чтобы добавить приложение. <br><br> ![Создание тестового пользователя Azure AD](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_02.png)<br>
 
 ##  Настройка и проверка единого входа в Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Tidemark с использованием тестового пользователя Britta Simon.
@@ -73,10 +73,10 @@
 
 Чтобы настроить и проверить единый вход Azure AD в Tidemark, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-4. **[Создание тестового пользователя Tidemark](#creating-a-Tidemark-test-user)** требуется для создания пользователя Britta Simon в Tidemark, связанного с соответствующим представлением в Azure AD.
-5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы разрешить пользователю Britta Simon использовать единый вход Azure AD.
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+4. **[Создание тестового пользователя Tidemark](#creating-a-tidemark-test-user)** требуется для создания пользователя Britta Simon в Tidemark, связанного с соответствующим представлением в Azure AD.
+5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
 5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### Настройка единого входа в Azure AD
@@ -89,7 +89,7 @@
 
 1. На портале Azure AD на странице интеграции с приложением **Tidemark** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**. <br><br> ![Настройка единого входа][6] <br>
 
-2. На странице **Как пользователи должны входить в Tidemark?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**. <br><br> ![Настройка единого входа](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_03.png) <br>
+2. На странице **Как пользователи должны входить в Tidemark** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**. <br><br> ![Настройка единого входа](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_03.png) <br>
 
 3. На диалоговой странице **Настройка параметров приложения** выполните следующие действия. <br><br>![Настройка единого входа](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_04.png) <br>
 
@@ -97,7 +97,7 @@
     а. В текстовое поле "URL-адрес входа" введите URL-адрес, используемый пользователями для входа в приложение Tidemark по следующей схеме: **https://contoso.tidemark.com/login** или **https://contoso.tidemark.net/login**.
 
 
-4. На странице **Настройка единого входа в Tidemark** выполните следующие действия. <br><br>![Настройка единого входа](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_05.png) <br>
+4. На странице **Настройка единого входа в Tidemark** выполните следующие действия: <br><br>![Настройка единого входа](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_05.png) <br>
 
     а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
 
@@ -130,7 +130,7 @@
 
 5. На диалоговой странице **Расскажите об этом пользователе** выполните следующие действия. <br><br> ![Создание тестового пользователя Azure AD](./media/active-directory-saas-tidemark-tutorial/create_aaduser_05.png) <br>
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    а. В поле "Тип пользователя" выберите значение "Новый пользователь в вашей организации".
 
     b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
 
@@ -213,4 +213,4 @@
 [204]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/01/2016"
 	ms.author="piyushjo" />
 
 
 #Заметки о выпуске
+
+##4\.1.5 (01.02.2016)
+
+- Улучшение стабильности.
 
 ##4\.1.4 (26.01.2016)
 
@@ -61,4 +65,4 @@
 -   Улучшения безопасности.
 -   Удалено отслеживание Google Play и SmartAd.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

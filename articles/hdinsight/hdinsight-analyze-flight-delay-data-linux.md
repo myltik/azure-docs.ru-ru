@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="02/03/2016" 
 	ms.author="larryfr"/>
 
 #Анализ данных о задержке рейсов с помощью Hive в HDInsight
@@ -304,4 +304,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

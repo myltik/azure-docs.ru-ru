@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Настройка фермы SharePoint интрасети в гибридном облаке для тестирования
@@ -195,23 +195,8 @@
  
 Ферма SharePoint интрасети в гибридной облачной среде теперь готова для тестирования.
 
-## Дополнительные ресурсы
+## Дальнейшие действия
 
-[SharePoint в службах инфраструктуры Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+- Настройка [производственной рабочей нагрузки](../virtual-machines/virtual-machines-workload-intranet-sharepoint-overview.md).
 
-[Ферма серверов SharePoint](../virtual-machines/virtual-machines-sharepoint-farm-azure-preview.md)
-
-[Настройка гибридной облачной среды для тестирования](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Настройка веб-бизнес-приложения в гибридном облаке для тестирования](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Создание имитации гибридной облачной среды для тестирования](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Гибридные облачные тестовые среды Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Руководство по реализации служб инфраструктуры Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

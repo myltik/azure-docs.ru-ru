@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 # Просмотр и изменение имен узлов
@@ -55,7 +55,7 @@
 
 1. Найдите элемент **HostName** для каждого элемента **RoleInstance**.
 
->[AZURE.WARNING]Вы можете также просмотреть суффикс внутреннего домена для облачной службы из ответа на вызов REST, просмотрев элемент **InternalDnsSuffix** или запустив команду ipconfig /all из командной строки в сеансе удаленного рабочего стола (Windows), а также выполнив команду cat /etc/resolv.conf из терминала SSH (Linux).
+>[AZURE.WARNING] Вы можете также просмотреть суффикс внутреннего домена для облачной службы из ответа на вызов REST, просмотрев элемент **InternalDnsSuffix** или запустив команду ipconfig /all из командной строки в сеансе удаленного рабочего стола (Windows), а также выполнив команду cat /etc/resolv.conf из терминала SSH (Linux).
 
 ## Изменение имени узла
 
@@ -71,4 +71,4 @@
 
 [Укажите параметры DNS с помощью файлов конфигурации сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

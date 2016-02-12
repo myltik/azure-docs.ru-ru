@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Большие вычисления: технические ресурсы для пакетных и высокопроизводительных вычислений (HPC) | Microsoft Azure"
-   description="В этой статье приведены технические ресурсы, которые помогут вам запускать крупномасштабные параллельные и пакетные задания, а также рабочие нагрузки HPC в Azure."
+   pageTitle="Ресурсы для рабочих нагрузок пакетной службы HPC в облаке | Microsoft Azure"
+   description="В этой статье приведены технические ресурсы, которые помогут вам выполнять крупномасштабные параллельные, пакетные и высокопроизводительные вычисления (НРС) в Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="09/29/2015"
+   ms.date="01/26/2016"
    ms.author="danlep"/>
 
 # Большие вычисления в Azure: технические ресурсы для пакетных и высокопроизводительных вычислений (HPC)
@@ -34,11 +34,11 @@
 
 * [Документация](https://azure.microsoft.com/documentation/services/batch/)
 
-* [Справочник по API](https://msdn.microsoft.com/library/azure/dn820177.aspx)
+* Справочник по [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) и [REST API](https://msdn.microsoft.com/library/azure/dn820158.aspx)
 
-* [Учебник «Приступая к работе с библиотекой Пакетной службы Azure для .NET»](batch-dotnet-get-started.md)
+* [Учебник "Приступая к работе с библиотекой Пакетной службы Azure для .NET"](batch-dotnet-get-started.md)
 
-* [Форум по Пакетной службе](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+* [Форум по Пакетной службе](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=azurebatch)
 
 * [Видеоролики о Пакетной службе](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -50,7 +50,7 @@
 
 HPC Pack — это бесплатное решение HPC корпорации Майкрософт, созданное на основе технологий Microsoft Azure и Windows Server и поддерживающее рабочие нагрузки HPC как в Windows, так и в Linux.
 
-* [Загрузить пакет HPC 2012 R2 с обновлением 3](https://www.microsoft.com/ru-RU/download/details.aspx?id=49922)
+* [Загрузить пакет HPC 2012 R2 с обновлением 3](https://www.microsoft.com/download/details.aspx?id=49922)
 
 * [Документация](https://technet.microsoft.com/library/jj899572.aspx)
 
@@ -62,7 +62,7 @@ HPC Pack — это бесплатное решение HPC корпораци
 * [Ускорение в пакетную службу Azure с помощью пакета HPC](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Форумы по Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
+* [Форумы по Windows HPC](https://social.microsoft.com/Forums/ru-RU/home?category=windowshpc)
 
 ### Кластерные решения Linux и OSS
 
@@ -81,12 +81,12 @@ HPC Pack — это бесплатное решение HPC корпораци
 
 * [Справочник по MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Форум по MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
+* [Форум по MPI](https://social.microsoft.com/Forums/ru-RU/home?forum=windowshpcmpi)
 
 
 ## Экземпляры для ресурсоемких вычислений
 
-Azure предлагает вычислительные экземпляры [различных размеров](../virtual-machines/virtual-machines-size-specs.md) (включая ресурсоемкие [A8, A9, A10 и A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)) для выполнения рабочих нагрузок HPC в Linux и Windows.
+В Azure доступны [разные размеры](../virtual-machines/virtual-machines-size-specs.md) вычислительных ресурсов, включая экземпляры [A8 и A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) для ресурсоемких вычислений, поддерживающих подключение к внутренней сети RDMA для выполнения рабочих нагрузок HPC в Linux и Windows.
 
 * [Настройка кластера Linux RDMA для выполнения приложений MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
@@ -94,7 +94,7 @@ Azure предлагает вычислительные экземпляры [р
 
 ## Проекты архитектуры
 
-* Фабрика данных Azure и пакетная служба Microsoft Azure: архитектура для быстрой обработки больших объемов данных ([PDF](http://go.microsoft.com/fwlink/?linkid=717686) и [статья](../data-factory/data-factory-data-processing-using-batch.md)) показывает, как фабрика данных управляет перемещением и обработкой данных и как пакетная служба Azure параллельно обрабатывает данные.
+* PDF-файл [Оркестрация данных и высокопроизводительных вычислений с помощью пакетной службы Azure и фабрики данных Azure](http://go.microsoft.com/fwlink/?linkid=717686) и [статья](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## Примеры и образцы
 
@@ -121,4 +121,4 @@ Azure предлагает вычислительные экземпляры [р
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](https://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

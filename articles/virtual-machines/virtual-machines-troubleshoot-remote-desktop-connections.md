@@ -165,10 +165,10 @@
 
 [Сброс пароля или службы удаленных рабочих столов для виртуальных машин Windows](virtual-machines-windows-reset-password.md)
 
-[Установка и настройка Azure PowerShell](../install-configure-powershell.md)
+[Установка и настройка Azure PowerShell](../powershell-install-configure.md)
 
 [Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
 [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

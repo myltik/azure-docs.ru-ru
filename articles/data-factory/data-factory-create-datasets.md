@@ -131,7 +131,7 @@ type | Тип данных столбца. | Нет | Нет данных
 
 	"availability":
 	{
-		"frequency": "Daily",
+		"frequency": "Day",
 		"interval": "1",
 		"offset": "06:00:00"
 	}
@@ -208,4 +208,4 @@ type | Тип данных столбца. | Нет | Нет данных
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/03/2016"
 	ms.author="yuaxu"/>
 
 # Добавление push-уведомлений в приложение Android
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;
 
 ## Обзор
 В этом учебнике описывается добавление push-уведомлений в [ознакомительный проект для платформы Android], чтобы при вставке каждой новой записи отправлялось push-уведомление. Этот учебник использует материал [ознакомительного проекта для платформы Android], инструкции из которого необходимо выполнить в первую очередь. Если вы не используете скачанный проект сервера быстрого запуска, в проект необходимо добавить пакет расширений для push-уведомлений. Дополнительную информацию о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -31,9 +29,9 @@
 
 * [Учетная запись Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) с подтвержденным адресом электронной почты.
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) не требуется для серверного проекта Node.js.
-* Изучение [краткого руководства](../app-service-mobile-android-get-started.md).
+* Изучение [краткого руководства](app-service-mobile-android-get-started.md).
 
-##<a name="create-hub"></a>Создание концентратора уведомлений
+##<a name="create-hub"></a>Создание центра уведомлений
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
@@ -81,4 +79,4 @@
 [ознакомительного проекта для платформы Android]: app-service-mobile-android-get-started.md
 [ознакомительный проект для платформы Android]: app-service-mobile-android-get-started.md
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

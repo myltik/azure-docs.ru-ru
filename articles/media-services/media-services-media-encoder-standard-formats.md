@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Форматы и кодеки стандартного кодировщика служб мультимедиа" 
-	description="В этом разделе приведен обзор кодеков и форматов стандартного кодировщика служб мультимедиа." 
+	description="В этом разделе приведен обзор кодеков и форматов стандартного кодировщика мультимедиа." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/28/2016"  
 	ms.author="juliako"/>
 
 #Форматы и кодеки стандартного кодировщика служб мультимедиа
@@ -102,7 +102,7 @@ Dolby® Digital Plus (E-AC3) |Нет
 
 Формат файла|Видеокодек|Аудиокодек
 ---|---|---
-MP4 <br/><br/>(включая контейнеры MP4-файлов с несколькими скоростями) |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MP4 <br/><br/>(включая контейнеры MP4 с несколькими скоростями) |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC v2 
 
 
@@ -121,4 +121,4 @@ MPEG2-TS |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC
 
 [Кодирование с помощью стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

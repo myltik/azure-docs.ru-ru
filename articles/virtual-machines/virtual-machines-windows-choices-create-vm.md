@@ -39,7 +39,7 @@
 
 Если вы хотите использовать Azure CLI, см. следующие ресурсы:
 
-- [Эквивалентные команды диспетчера ресурсов и управления службами для операций с виртуальными машинами в Azure CLI для Mac, Linux и Windows][].
+- [Эквивалентные команды диспетчера ресурсов и управления службами для операций с виртуальными машинами в Azure CLI для Mac, Linux и Windows.][]
 - [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure][]
 
 Если вы хотите использовать Azure PowerShell, см. следующие ресурсы:
@@ -62,12 +62,12 @@
 
 [Создание виртуальной машины под управлением Windows]: virtual-machines-windows-tutorial.md
 
-[Эквивалентные команды диспетчера ресурсов и управления службами для операций с виртуальными машинами в Azure CLI для Mac, Linux и Windows]: xplat-cli-azure-manage-vm-asm-arm.md
+[Эквивалентные команды диспетчера ресурсов и управления службами для операций с виртуальными машинами в Azure CLI для Mac, Linux и Windows.]: xplat-cli-azure-manage-vm-asm-arm.md
 [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure]: virtual-machines-deploy-rmtemplates-azure-cli.md
 [Создание и предварительная настройка виртуальной машины Windows с помощью диспетчера ресурсов и Azure PowerShell]: virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
 [Развертывание виртуальных машин и управление ими с использованием шаблонов диспетчера ресурсов Azure и PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
 [Создание виртуальной машины Windows с помощью диспетчера ресурсов и PowerShell]: virtual-machines-create-windows-powershell-resource-manager.md
-[Создание виртуальной машины Windows с помощью шаблона диспетчера ресурсов и PowerShell]: virtual-machines-create-windows-powershell-resource-manager-template-simple.md
+[Создание виртуальной машины Windows с помощью шаблона диспетчера ресурсов и PowerShell]: virtual-machines-create-windows-powershell-resource-manager-template.md
 
 
 [Выполните обзор и выберите образы виртуальных машин Azure с помощью Windows PowerShell и Azure CLI]: resource-groups-vm-searching.md
@@ -79,4 +79,4 @@
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

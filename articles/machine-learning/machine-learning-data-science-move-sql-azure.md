@@ -1,4 +1,13 @@
-<properties pageTitle="Перемещение данных в базу данных SQL Azure для машинного обучения Azure | Azure" description="Создание таблицы SQL и загрузка данных в таблицу SQL" services="machine-learning" documentationCenter="" authors="fashah" manager="jacob.spoelstra" editor="" videoId="" [hee scriptId="" />
+<properties 
+	pageTitle="Перемещение данных в базу данных SQL Azure для машинного обучения Azure | Azure" 
+	description="Создание таблицы SQL и загрузка данных в таблицу SQL" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="jacob.spoelstra" 
+	editor="" 
+	videoId=""
+	scriptId="" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -34,7 +43,7 @@
 * **Подписка Azure**. Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 * **Учетная запись хранения Azure**. Учетная запись хранения Azure будет использоваться для хранения данных в этом учебнике. Если у вас ее нет, прочитайте статью [Создание учетной записи хранения](storage-create-storage-account.md#create-a-storage-account). После создания учетной записи хранения необходимо получить ключ, используемый для доступа к хранилищу. См. статью [Просмотр, копирование и повторное создание ключей доступа к хранилищу](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * Доступ к **базе данных SQL Azure**. Если необходимо установить базу данных SQL Azure, обратитесь к статье [Приступая к работе с базой данных SQL Microsoft Azure](sql-database-get-started.md), которая содержит сведения о том, как подготовить новый экземпляр базы данных SQL Azure.
-* Установленная и настроенная локальная среда **Azure PowerShell**. Инструкции см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
+* Установленная и настроенная локально среда **Azure PowerShell**. Инструкции см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
 
 **Данные**: процессы миграции демонстрируются с помощью [набора данных о такси Нью-Йорка](http://chriswhong.com/open-data/foil_nyc_taxi/). Набор данных о такси Нью-Йорка содержит сведения о поездках и тарифах и доступен, как отмечено в этой статье, в хранилище больших двоичных объектов Azure [здесь](http://www.andresmh.com/nyctaxitrips/). Пример и описание этих файлов приведены в [описании набора данных «Поездки такси Нью-Йорка»](machine-learning-data-science-process-sql-walkthrough.md#dataset).
  
@@ -77,4 +86,4 @@
 
 ADF стоит использовать в том случае, когда данные нужно постоянно переносить в гибридном сценарии, при котором осуществляется доступ как к локальным, так и к облачным ресурсам, и когда в процессе переноса данные необходимо обработать, изменить или добавить к ним операции бизнес-логики. ADF позволяет выполнять планирование и отслеживание заданий с помощью простых сценариев JSON, управляющих перемещением данных на периодической основе. ADF также обладает другими возможностями, такими как поддержка сложных операций.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

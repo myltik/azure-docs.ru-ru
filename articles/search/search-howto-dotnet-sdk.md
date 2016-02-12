@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/21/2016"
+   ms.date="01/29/2016"
    ms.author="brjohnst"/>
 
 # Использование службы поиска Azure в приложении .NET
@@ -39,7 +39,7 @@
 
 ## Обновление до последней версии пакета SDK
 
-Если вы уже используете старую версию пакета SDK для .NET для службы поиска Azure и хотите выполнить обновление до новой версии 1.0.1-preview, см. инструкции в [этой статье](search-dotnet-sdk-migration.md).
+Если вы уже используете старую версию пакета SDK для .NET для службы поиска Azure и хотите выполнить обновление до новой версии 1.0-preview, см. инструкции в [этой статье](search-dotnet-sdk-migration.md).
 
 ## Требования для пакета SDK
 
@@ -84,10 +84,10 @@
         CreateHotelsIndex(serviceClient);
 
         SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
-            
+
         Console.WriteLine("{0}", "Uploading documents...\n");
         UploadDocuments(indexClient);
-            
+
         Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
         SearchDocuments(indexClient, searchText: "fancy wifi");
 
@@ -187,8 +187,8 @@
         var definition = new Index()
         {
             Name = "hotels",
-            Fields = new[] 
-            { 
+            Fields = new[]
+            {
                 new Field("hotelId", DataType.String)                       { IsKey = true },
                 new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true },
                 new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true },
@@ -216,20 +216,20 @@
             new Hotel[]
             {
                 new Hotel()
-                { 
-                    HotelId = "1058-441", 
-                    HotelName = "Fancy Stay", 
-                    BaseRate = 199.0, 
-                    Category = "Luxury", 
-                    Tags = new[] { "pool", "view", "concierge" }, 
-                    ParkingIncluded = false, 
-                    LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                    Rating = 5, 
+                {
+                    HotelId = "1058-441",
+                    HotelName = "Fancy Stay",
+                    BaseRate = 199.0,
+                    Category = "Luxury",
+                    Tags = new[] { "pool", "view", "concierge" },
+                    ParkingIncluded = false,
+                    LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
+                    Rating = 5,
                     Location = GeographyPoint.Create(47.678581, -122.131577)
                 },
                 new Hotel()
-                { 
-                    HotelId = "666-437", 
+                {
+                    HotelId = "666-437",
                     HotelName = "Roach Motel",
                     BaseRate = 79.99,
                     Category = "Budget",
@@ -239,9 +239,9 @@
                     Rating = 1,
                     Location = GeographyPoint.Create(49.678581, -122.131577)
                 },
-                new Hotel() 
-                { 
-                    HotelId = "970-501", 
+                new Hotel()
+                {
+                    HotelId = "970-501",
                     HotelName = "Econo-Stay",
                     BaseRate = 129.99,
                     Category = "Budget",
@@ -252,8 +252,8 @@
                     Location = GeographyPoint.Create(46.678581, -122.131577)
                 },
                 new Hotel()
-                { 
-                    HotelId = "956-532", 
+                {
+                    HotelId = "956-532",
                     HotelName = "Express Rooms",
                     BaseRate = 129.99,
                     Category = "Budget",
@@ -263,9 +263,9 @@
                     Rating = 4,
                     Location = GeographyPoint.Create(48.678581, -122.131577)
                 },
-                new Hotel() 
-                { 
-                    HotelId = "566-518", 
+                new Hotel()
+                {
+                    HotelId = "566-518",
                     HotelName = "Surprisingly Expensive Suites",
                     BaseRate = 279.99,
                     Category = "Luxury",
@@ -350,7 +350,7 @@
 > [AZURE.NOTE] Пакет SDK для Поиска Azure в .NET также поддерживает документы динамических типов, поддерживающие класс `Document`, то есть сопоставление ключей и значений с именами и значениями полей. Это полезно в тех случаях, когда во время разработки вам неизвестна схема индекса или привязка к конкретным классам моделей нецелесообразна. Все методы пакета SDK, связанные с документами, имеют перегрузки, работающие с классом `Document`, а также строго типизированные перегрузки, принимающие параметр универсального типа. Пример кода в данном руководстве содержит только перегрузки второго типа. Дополнительные сведения о классе `Document` см. [здесь](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx).
 
 **Важное примечание о типах данных**
- 
+
 При разработке собственных классов модели для сопоставления с индексом поиска Azure рекомендуется объявлять свойства типов значений, такие как `bool` и `int`, допускающими нулевое значение (например: `bool?` вместо `bool`). При использовании ненулевого свойства необходимо **гарантировать**, что документы в индексе не будут содержать значение NULL для соответствующего поля. Ни пакет SDK, ни служба поиска Azure не помогут вам это обеспечить.
 
 Это не просто гипотетическое соображение. Представьте себе ситуацию, когда вы добавляете новое поле в существующий индекс, тип которого `Edm.Int32`. После обновления определения индекса все документы будут иметь значение null для этого нового поля (поскольку все типы допускают значение NULL в службе поиска Azure). Если затем для этого поля вы используете класс модели со свойством `int`, не допускающим нулевое значение, при попытке получения документов вы получите `JsonSerializationException` следующим образом:
@@ -365,9 +365,9 @@
 
     private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
     {
-        // Execute search based on search text and optional filter 
+        // Execute search based on search text and optional filter
         var sp = new SearchParameters();
-            
+
         if (!String.IsNullOrEmpty(filter))
         {
             sp.Filter = filter;
@@ -458,10 +458,10 @@ Program.cs:
                 CreateHotelsIndex(serviceClient);
 
                 SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
-            
+
                 Console.WriteLine("{0}", "Uploading documents...\n");
                 UploadDocuments(indexClient);
-            
+
                 Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
                 SearchDocuments(indexClient, searchText: "fancy wifi");
 
@@ -485,8 +485,8 @@ Program.cs:
                 var definition = new Index()
                 {
                     Name = "hotels",
-                    Fields = new[] 
-                    { 
+                    Fields = new[]
+                    {
                         new Field("hotelId", DataType.String)                       { IsKey = true },
                         new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true },
                         new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true },
@@ -508,20 +508,20 @@ Program.cs:
                     new Hotel[]
                     {
                         new Hotel()
-                        { 
-                            HotelId = "1058-441", 
-                            HotelName = "Fancy Stay", 
-                            BaseRate = 199.0, 
-                            Category = "Luxury", 
-                            Tags = new[] { "pool", "view", "concierge" }, 
-                            ParkingIncluded = false, 
-                            LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                            Rating = 5, 
+                        {
+                            HotelId = "1058-441",
+                            HotelName = "Fancy Stay",
+                            BaseRate = 199.0,
+                            Category = "Luxury",
+                            Tags = new[] { "pool", "view", "concierge" },
+                            ParkingIncluded = false,
+                            LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
+                            Rating = 5,
                             Location = GeographyPoint.Create(47.678581, -122.131577)
                         },
                         new Hotel()
-                        { 
-                            HotelId = "666-437", 
+                        {
+                            HotelId = "666-437",
                             HotelName = "Roach Motel",
                             BaseRate = 79.99,
                             Category = "Budget",
@@ -531,9 +531,9 @@ Program.cs:
                             Rating = 1,
                             Location = GeographyPoint.Create(49.678581, -122.131577)
                         },
-                        new Hotel() 
-                        { 
-                            HotelId = "970-501", 
+                        new Hotel()
+                        {
+                            HotelId = "970-501",
                             HotelName = "Econo-Stay",
                             BaseRate = 129.99,
                             Category = "Budget",
@@ -544,8 +544,8 @@ Program.cs:
                             Location = GeographyPoint.Create(46.678581, -122.131577)
                         },
                         new Hotel()
-                        { 
-                            HotelId = "956-532", 
+                        {
+                            HotelId = "956-532",
                             HotelName = "Express Rooms",
                             BaseRate = 129.99,
                             Category = "Budget",
@@ -555,9 +555,9 @@ Program.cs:
                             Rating = 4,
                             Location = GeographyPoint.Create(48.678581, -122.131577)
                         },
-                        new Hotel() 
-                        { 
-                            HotelId = "566-518", 
+                        new Hotel()
+                        {
+                            HotelId = "566-518",
                             HotelName = "Surprisingly Expensive Suites",
                             BaseRate = 279.99,
                             Category = "Luxury",
@@ -586,9 +586,9 @@ Program.cs:
 
             private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
             {
-                // Execute search based on search text and optional filter 
+                // Execute search based on search text and optional filter
                 var sp = new SearchParameters();
-            
+
                 if (!String.IsNullOrEmpty(filter))
                 {
                     sp.Filter = filter;
@@ -646,4 +646,4 @@ Hotel.cs:
 
 Полный образец исходного кода также можно найти [на GitHub](http://aka.ms/search-dotnet-howto).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

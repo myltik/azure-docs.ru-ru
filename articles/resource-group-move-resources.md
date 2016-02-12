@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="01/28/2016" 
 	ms.author="tomfitz"/>
 
 # Перемещение ресурсов в новую группу ресурсов или подписку
@@ -113,8 +113,8 @@
 
 ## Дальнейшие действия
 - [Использование Azure PowerShell с диспетчером ресурсов](./powershell-azure-resource-manager.md)
-- [Использование интерфейса командной строки Azure с диспетчером ресурсов](./virtual-machines/xplat-cli-azure-resource-manager.md)
+- [Использование интерфейса командной строки Azure с диспетчером ресурсов](./xplat-cli-azure-resource-manager.md)
 - [Управление ресурсами с помощью портала Azure](azure-portal/resource-group-portal.md)
 - [Использование тегов для организации ресурсов](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

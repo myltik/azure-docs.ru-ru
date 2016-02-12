@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/15/2016"
-	ms.author="garye" />
+	ms.author="fboylu" />
 
 # Сборник тренировочных заданий для шаблонов решений Cortana Analytics для прогнозируемого обслуживания в аэрокосмических и других компаниях
 
@@ -333,4 +333,4 @@
 
 Дополнительные сведения о каждом из компонентов архитектуры см. в документации [Azure](https://azure.microsoft.com/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

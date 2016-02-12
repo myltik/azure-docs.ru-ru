@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="02/02/2016"
    ms.author="jesseb"/>
 
 # Использование Visual Studio для упрощения создания приложениями Service Fabric и управления ими
 
-Вы можете управлять приложениями и службами Azure Service Fabric с помощью Visual Studio. Настроив [свою среду разработки](service-fabric-setup-your-development-environment.md), вы сможете использовать Visual Studio для создания приложений Service Fabric, добавления служб, создания пакетов, регистрации и развертывания приложений в кластере локальной разработки.
+Вы можете управлять приложениями и службами Azure Service Fabric с помощью Visual Studio. Настроив [свою среду разработки](service-fabric-get-started.md), вы сможете использовать Visual Studio для создания приложений Service Fabric, добавления служб, создания пакетов, регистрации и развертывания приложений в кластере локальной разработки.
 
 Для управления приложением щелкните правой кнопкой мыши проект приложения в обозревателе решений.
 
@@ -97,4 +97,4 @@
 [preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

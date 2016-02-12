@@ -155,4 +155,4 @@ GSM и LSM могут рассинхронизироваться по следу
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

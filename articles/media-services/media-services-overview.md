@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016"
+	ms.date="02/02/2016"
 	ms.author="juliako"/>
 
 #Общие сведения о службах мультимедиа Azure и распространенные сценарии
@@ -31,10 +31,12 @@
 - [REST API для службы мультимедиа.](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - Один из доступных клиентских пакетов SDK: 
 	- [Пакет SDK служб мультимедиа Azure для .NET](https://github.com/Azure/azure-sdk-for-media-services). 
-	- [Пакет Azure SDK для Java](https://github.com/Azure/azure-sdk-for-java), [Пакет Azure SDK для PHP](https://github.com/Azure/azure-sdk-for-php). 
+	- [Пакет Azure SDK для Java](https://github.com/Azure/azure-sdk-for-java). 
+	- [Пакет Azure SDK для PHP](https://github.com/Azure/azure-sdk-for-php). 
 	- [Службы мультимедиа Azure для Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (это версия пакета SDK для Node.js сторонних производителей. Она поддерживается сообществом и в настоящее время не обладает полным покрытием всех интерфейсов API AMS). 
-- Существующие средства: [классический портал Azure](http://manage.windowsazure.com/) или [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
-
+- Существующие средства: 
+	- [Классический портал Azure](http://manage.windowsazure.com/) 
+	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (обозреватель служб мультимедиа Azure (AMSE) является приложением Winforms/С# для Windows)
 
 ##Схемы обучения работе со службами мультимедиа
 
@@ -44,7 +46,6 @@
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Плакат
-
 
 [Здесь](https://azure.microsoft.com/documentation/infographics/media-services/) можно просмотреть плакат служб мультимедиа Azure, на котором показаны рабочие потоки AMS, начиная от создания медиаданных до их потребления.
 
@@ -59,10 +60,11 @@
 	Кроме того, ознакомьтесь с разделом о [подключении](media-services-dotnet-connect_programmatically.md) с помощью программных средств.
 4. Выделите одну или несколько единиц масштабирования (рекомендуется). Рекомендуем выделить одну или несколько единиц масштабирования для приложения в рабочей среде. Дополнительные сведения см. в разделе [Управление конечными точками потоковой передачи](media-services-manage-origins.md).
 
-##Основные понятия
+##Основные сведения и понятия
 
-Дополнительные сведения можно узнать в разделе [Основные понятия](media-services-concepts.md).
+Основные понятия служб мультимедиа Azure см. в статье [Основные понятия](media-services-concepts.md).
 
+Инструкции по работе с основными компонентами служб мультимедиа Azure см. в соответствующих [пошаговых руководствах](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Они содержат отличный обзор основных понятий и демонстрируют выполнение задач AME с помощью средства AMSE. Обратите внимание, что средство AMSE разработано для Windows. Оно поддерживает большинство задач, которые можно решать программным путем, используя [пакет SDK AMS для .NET](https://github.com/Azure/azure-sdk-for-media-services), [пакет SDK Azure для Java](https://github.com/Azure/azure-sdk-for-java) и [пакет SDK Azure для PHP](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Доставка мультимедиа по запросу с помощью служб мультимедиа Azure: распространенные сценарии и задачи
 
@@ -234,4 +236,4 @@
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

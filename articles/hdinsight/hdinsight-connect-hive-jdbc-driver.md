@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="02/01/2016"
  ms.author="larryfr"/>
 
 #Подключение к Hive в Azure HDInsight с помощью драйвера Hive JDBC
@@ -61,7 +61,7 @@
 
 ##Пример проекта Java
 
-Пример использования клиента Java для запроса Hive в HDInsight доступен на странице [https://github.com/Blackmist/hdinsight-hive-jdbc](https://github.com/Blackmist/hdinsight-hive-jdbc). Следуйте инструкциям в репозитории, чтобы построить и запустить образец.
+Пример использования клиента Java для запроса Hive в HDInsight доступен на странице [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Следуйте инструкциям в репозитории, чтобы построить и запустить образец.
 
 ##Дальнейшие действия
 
@@ -72,4 +72,4 @@
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

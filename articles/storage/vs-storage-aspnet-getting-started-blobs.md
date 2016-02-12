@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Начало работы с хранилищем больших двоичных объектов и подключенными службами Visual Studio (ASP.NET)
@@ -50,7 +50,7 @@
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    > [AZURE.NOTE]Вставьте весь предыдущий код перед кодом из следующих разделов.
+    > [AZURE.NOTE] Вставьте весь предыдущий код перед кодом из следующих разделов.
 
 3. Получите объект **CloudBlobClient**, чтобы указать ссылку на существующий контейнер в своей учетной записи хранения.
 
@@ -60,7 +60,7 @@
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE]Некоторые API, которые выполняют вызовы в службу хранилища Azure в ASP.NET 5, являются асинхронными. Дополнительные сведения см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await](http://msdn.microsoft.com/library/hh191443.aspx).
+> [AZURE.NOTE] Некоторые API, которые выполняют вызовы в службу хранилища Azure в ASP.NET 5, являются асинхронными. Дополнительные сведения см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await](http://msdn.microsoft.com/library/hh191443.aspx).
 
 
 ## Создание контейнера больших двоичных объектов в коде
@@ -156,7 +156,7 @@
 
 ## Скачивание больших двоичных объектов
 
-Для скачивания больших двоичных объектов используйте метод **DownloadToStream**. В следующем примере метод **DownloadToStream** используется для переноса содержимого большого двоичного объекта в объект потока, который затем можно сохранить в локальном файле.
+Для загрузки больших двоичных объектов используйте метод **DownloadToStream**. В следующем примере метод **DownloadToStream** используется для переноса содержимого большого двоичного объекта в объект потока, который затем можно сохранить в локальном файле.
 
     // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
 
@@ -237,4 +237,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

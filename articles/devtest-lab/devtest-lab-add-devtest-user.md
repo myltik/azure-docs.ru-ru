@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add owners and users to a DevTest Lab | Microsoft Azure"
-	description="Securely add a user who is not in your subscription to your Azure DevTest Lab."
+<properties
+	pageTitle="Добавление владельцев и пользователей в DevTest Lab | Microsoft Azure"
+	description="Не нарушая безопасность, добавьте пользователя, которого нет в вашей подписке, в решение Azure DevTest Lab."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Добавление владельцев и пользователей в DevTest Lab
@@ -26,7 +26,7 @@
 
  - **Владелец**: пользователи, которым назначена роль **владельца** на уровне подписки Azure, получают полный доступ к лаборатории, включая функции управления и мониторинга.
 
-     >[AZURE.NOTE] Роли **владельца**, назначенные на уровнях RBAC, отличных от уровня подписки, в DevTest Lab не поддерживаются. Назначение пользователю роли **владельца** в DevTest Lab не поддерживается.
+     > [AZURE.NOTE] Роли **владельца**, назначенные на уровнях RBAC, отличных от уровня подписки, в DevTest Lab не поддерживаются. Назначение пользователю роли **владельца** в DevTest Lab не поддерживается.
 
  -  **Пользователь DevTest Lab**: пользователи с ролью **пользователя DevTest Lab** могут создавать, обновлять и удалять виртуальные машины в указанной лаборатории. Пользователи могут быть либо *внутренними* (член Azure Active Directory для подписки), либо *внешними* (пользователь, не являющийся членом Azure AD, например член партнерской организации).
 	-  Назначить роль **пользователя DevTest Lab** можно с помощью плитки **Добавление пользователей** в лаборатории.
@@ -101,4 +101,4 @@ DevTest Lab считает владельцев подписки Azure, соде
 
 	1. В колонке **Пользователи** отображаются добавленные роли и пользователи.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

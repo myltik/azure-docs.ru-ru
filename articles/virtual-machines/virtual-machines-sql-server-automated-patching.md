@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Автоматическая установка исправлений для SQL Server на виртуальных машинах Azure
@@ -93,4 +93,4 @@
 
 Просмотрите и другие [ресурсы по запуску SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (C#)
@@ -30,11 +30,11 @@
 
 ## Предварительные требования
 
-* [Кластер Apache Storm в HDInsight](hdinsight-storm-getting-started.md)
+* [Кластер Apache Storm в HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-* [Концентратор событий Azure](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md)
+* [Концентратор событий Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-* [Пакет SDK Azure .NET](https://azure.microsoft.com/downloads/)
+* [Пакет SDK Azure .NET](http://azure.microsoft.com/downloads/)
 
 * [Средства HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
@@ -557,4 +557,4 @@ EventHubSpout периодически передает информацию о 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

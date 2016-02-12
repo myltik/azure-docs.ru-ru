@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
 # Формат внешнего пользовательского токена для предварительной версии службы Azure Active Directory B2B Collaboration
+
 Утверждения для стандартного токена Azure AD рассматриваются в статье [Поддерживаемые типы токенов и утверждений](active-directory-token-and-claims.md).
 
 Следующие утверждения отличаются от авторизованного внешнего пользователя B2B Collaboration:<br/> ― **OID** ― идентификатор объекта из клиента источника<br/> ― **TID** ― идентификатор клиента из клиента источника<br/> ― **Issuer** ― клиент источника<br/> ― **IDP** ― главный клиент пользователя<br/> ― **AltSecId** ― альтернативный идентификатор безопасности, который вам не виден<br/>
@@ -31,4 +32,4 @@
 - [Изменение атрибутов объекта внешнего пользователя](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

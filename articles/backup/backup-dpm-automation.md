@@ -7,13 +7,24 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/28/2016"
+	ms.author="jimpark; aashishr; anuragm"/>
 
 
 # Развертывание резервного копирования в Azure для серверов Data Protection Manager (DPM) и управление им с помощью PowerShell
+
 В этой статье описано, как использовать PowerShell для настройки службы архивации Azure на сервере DPM и для управления резервным копированием и восстановлением данных.
 
 ## Настройка среды PowerShell
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 Прежде чем использовать PowerShell для управления резервными копиями Data Protection Manager в Azure, необходимо создать подходящую среду в PowerShell. В начале сеанса PowerShell обязательно выполните следующую команду для импорта необходимых модулей, которая также позволяет правильно ссылаться на командлеты DPM:
 
 ```
@@ -49,7 +60,7 @@ PS C:\> Switch-AzureMode AzureResourceManager
 
 ### создать хранилище архивации;
 
-> [AZURE.WARNING]Для клиентов, использующих службу архивации Azure впервые, необходимо зарегистрировать поставщика службы архивации для использования с вашей подпиской. Для этого выполните следующую команду: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] Для клиентов, использующих службу архивации Azure впервые, необходимо зарегистрировать поставщика службы архивации для использования с вашей подпиской. Для этого выполните следующую команду: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 
 Вы можете создать новое хранилище архивации с помощью командлета **New-AzureRMBackupVault**. Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
 
@@ -62,7 +73,7 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 
 
 ### Установка агента службы архивации Azure на сервер DPM
-Прежде чем устанавливать агент службы архивации Azure, необходимо загрузить установщик и разместить его в системе Windows Server. Последнюю версию установщика можно скачать в [Центре загрузки Майкрософт](http://aka.ms/azurebackup_agent) или на странице панели мониторинга хранилища архивации. Сохраните установщик в удобном для вас месте, например в папке *C:\\Downloads*.
+Прежде чем устанавливать агент службы архивации Azure, необходимо загрузить установщик и разместить его в системе Windows Server. Последнюю версию установщика можно загрузить в [центре загрузки Майкрософт](http://aka.ms/azurebackup_agent) или на странице панели мониторинга хранилища архивов. Сохраните установщик в удобном для вас месте, например в папке *C:\\Downloads*.
 
 Чтобы установить агент, в консоли PowerShell с повышенными привилегиями **на сервере DPM** выполните следующую команду:
 
@@ -87,9 +98,9 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | Параметр | Сведения | значение по умолчанию |
 | ---- | ----- | ----- |
-| /q | Тихая установка | - |
-| /p:"местоположение" | Путь к папке установки агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
-| /s:"местоположение" | Путь к папке кэша агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
+| /q | Тихая установка | - | 
+| / p:"местоположение" | Путь к папке установки агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | 
+| /s:"местоположение" | Путь к папке кэша агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | 
 | /m | Согласиться на получение обновлений от Майкрософт | - |
 | /nu | Не проверять наличие обновлений после завершения установки | - |
 | /d | Удаляет агент служб восстановления Microsoft Azure | - |
@@ -122,7 +133,7 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 
 Как видно, сервер с именем "TestingServer" регистрируется в хранилище Microsoft Azure на основании указанных учетных данных хранилища.
 
-> [AZURE.IMPORTANT]Не используйте относительные пути для указания файла с учетными данными хранилища. Укажите абсолютный путь в качестве входных данных командлета.
+> [AZURE.IMPORTANT] Не используйте относительные пути для указания файла с учетными данными хранилища. Укажите абсолютный путь в качестве входных данных командлета.
 
 ### Исходные параметры конфигурации
 После регистрации сервера DPM в хранилище службы архивации Azure он будет запущен с параметрами подписки, используемыми по умолчанию. Эти параметры подписки включают настройки сети, шифрования и промежуточной области. Чтобы приступить к изменению параметров подписки, сначала получите дескриптор существующих параметров (по умолчанию) с помощью командлета [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793):
@@ -171,7 +182,7 @@ PS C:\> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPl
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -EncryptionPassphrase $Passphrase
 ```
 
-> [AZURE.IMPORTANT]После создания парольной фразы надежно сохраните ее и никому не сообщайте о ней. Восстановить данные из Azure без парольной фразы невозможно.
+> [AZURE.IMPORTANT] После создания парольной фразы надежно сохраните ее и никому не сообщайте о ней. Восстановить данные из Azure без парольной фразы невозможно.
 
 На этом этапе следует внести все необходимые изменения в объект ```$setting```. Не забудьте зафиксировать изменения.
 
@@ -322,4 +333,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 
 - Дополнительные сведения о службе архивации Azure для DPM см. в разделе [Введение в службу архивации DPM](backup-azure-dpm-introduction.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

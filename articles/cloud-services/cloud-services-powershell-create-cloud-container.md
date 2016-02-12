@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Использование команды Azure PowerShell для создания пустого контейнера облачной службы"
+   pageTitle="Использование команды Azure PowerShell для создания пустого контейнера облачной службы | Microsoft Azure"
    description="В этой статье объясняется, как создать контейнер облачной службы и выполнить операции управления, связанные с облачными службами, с помощью сценария PowerShell"
    services="cloud-services"
    documentationCenter=".net"
    authors="cawaMS"
-   manager="paulyuk" 
+   manager="paulyuk"
    editor=""/>
 
 <tags
@@ -17,30 +17,33 @@
    ms.author="cawa"/>
 
 # Использование команды Azure PowerShell для создания пустого контейнера облачной службы
-1. Установите командлет Microsoft Azure PowerShell из [загрузки Azure PowerShell](http://aka.ms/webpi-azps). Запустите командную строку PowerShell. Используйте [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx) для входа
+В этой статье объясняется, как быстро создать контейнер облачных служб с помощью командлетов Azure PowerShell. Выполните следующие действия.
 
-> [AZURE.NOTE]Дополнительные указания по установке командлета Azure PowerShell и подключения к подписке Azure см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+1. Установите командлет Microsoft Azure PowerShell со страницы [Загрузки Azure PowerShell](http://aka.ms/webpi-azps).
+2. Запустите командную строку PowerShell.
+3. Войдите, используя [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx).
 
-2. **New-AzureService** — это командлет, который создает пустой контейнер облачной службы.
+    > [AZURE.NOTE] Дополнительные указания по установке командлета Azure PowerShell и подключению к подписке Azure см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+
+4. Используйте командлет **New-AzureService**, чтобы создать пустой контейнер облачной службы Azure.
 
     ```
     New-AzureService [-ServiceName] <String> [-AffinityGroup] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
     New-AzureService [-ServiceName] <String> [-Location] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
 ```
 
-   Пример вызова командлета: ```
+5. Ниже приводится пример вызова командлета: ```
 New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 ```
 
-3. Для получения дополнительной информации о создании облачной службы Azure запустите: ```
+Чтобы получить дополнительные сведения о создании облачной службы Azure, выполните следующую команду: ```
 Get-help New-AzureService
 ```
 
-4. Дальнейшие действия:
+### Дальнейшие действия
 
-   - Чтобы управлять развертыванием облачной службы, используйте команды [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx) и [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx). Также см. раздел [Настройка облачных служб](cloud-services-how-to-configure.md)
+ * Чтобы управлять развертыванием облачной службы, используйте команды [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx) и [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx). Кроме того, дополнительные сведения можно получить в статье [Настройка облачных служб](cloud-services-how-to-configure.md).
 
-    - Чтобы опубликовать проект облачной службы в Azure, используйте образец кода **PublishCloudService.ps1** из [непрерывной доставки для облачных служб в Azure](cloud-services-dotnet-continuous-delivery.md)
- 
+ * Чтобы опубликовать проект облачной службы в Azure, используйте образец кода **PublishCloudService.ps1** из статьи [Непрерывная доставка для облачных служб в Azure](cloud-services-dotnet-continuous-delivery.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

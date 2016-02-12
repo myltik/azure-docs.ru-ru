@@ -32,6 +32,28 @@
 	     parameters:emailHeader
 	     headers:nil
 	     completion:completion ];
+	    
+Если вам нужны возвращенные данные, можно использовать примерно следующее:
+
+	[self.client invokeAPI:apiName
+                 body:yourBody
+           HTTPMethod:httpMethod
+           parameters:parameters
+              headers:headers
+           completion:  ^(NSData *result,
+                          NSHTTPURLResponse *response,
+                          NSError *error){
+               // error is nil if no error occured
+               if(error) { 
+                   NSLog(@"ERROR %@", error);
+               } else {
+                   
+		// do something with the result
+               }
+               
+               
+           }];
+
 		
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

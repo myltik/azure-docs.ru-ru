@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 #Выполнение запросов Hive с помощью PowerShell
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-В этом документе приведен пример использования Azure PowerShell в режиме группы ресурсов Azure для выполнения запросов Hive в Hadoop в кластере HDInsight. Сведения об использовании Azure PowerShell в режиме службы Azure см. в разделе [Выполнение запросов Hive с помощью PowerShell](hdinsight-hadoop-use-hive-powershell-v1.md).
+В этом документе приведен пример использования Azure PowerShell в режиме группы ресурсов Azure для выполнения запросов Hive в Hadoop в кластере HDInsight.
 
-> [AZURE.NOTE]В этом документе не приводится подробное описание процессов, которые выполняют инструкции HiveQL, используемые в примерах. Информацию об операторах HiveQL, используемых в данном примере, см. в статье [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md).
+> [AZURE.NOTE] В этом документе не приводится подробное описание процессов, которые выполняют инструкции HiveQL, используемые в примерах. Информацию об операторах HiveQL, используемых в данном примере, см. в статье [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md).
 
 
 **Предварительные требования**
@@ -148,7 +148,7 @@ Azure PowerShell предоставляет *командлеты*, позвол
 		2012-02-03	18:55:54	SampleClass1	[ERROR]	incorrect	id
 		2012-02-03	19:25:27	SampleClass4	[ERROR]	incorrect	id
 
-	> [AZURE.NOTE]Для более длинных запросов HiveQL вы можете использовать командлет Azure PowerShell **Here-Strings** или файлы сценариев HiveQL. В приведенном ниже отрывке кода показано, как использовать командлет **Invoke-Hive** для запуска файла сценария HiveQL. Файл сценария HiveQL необходимо передать в wasb://.
+	> [AZURE.NOTE] Для более длинных запросов HiveQL вы можете использовать командлет Azure PowerShell **Here-Strings** или файлы сценариев HiveQL. В приведенном ниже отрывке кода показано, как использовать командлет **Invoke-Hive** для запуска файла сценария HiveQL. Файл сценария HiveQL необходимо передать в wasb://.
 	>
 	> `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
 	>
@@ -186,4 +186,4 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

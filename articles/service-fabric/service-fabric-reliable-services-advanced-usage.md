@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="01/28/2016"
    ms.author="jesseb"/>
 
 # Дополнительные возможности использования модели программирования надежных служб
 Приложение Azure Service Fabric упрощает написание надежных служб с отслеживанием или без отслеживания состояния и управление ими. Это руководство расскажет о дополнительных вариантах использования модели программирования надежных служб для получения большей управляемости и гибкости служб. Перед чтением этого руководства ознакомьтесь с [моделью программирования надежных служб](service-fabric-reliable-services-introduction.md).
 
 ## Базовые классы для служб без отслеживания состояния
-Базовый класс StatelessService позволяет использовать методы RunAsync() и CreateServiceInstanceListeners(), которых вполне достаточно для большинства служб без отслеживания состояния. Класс StatelessServiceBase лежит в основе StatelessService и предоставляет дополнительные события жизненного цикла службы. Вы можете использовать класс StatelessServiceBase, если вам требуется дополнительный контроль или гибкость. Дополнительную информацию о [StatelessService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservice.aspx) и [StatelessServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservicebase.aspx) см. в справочной документации разработчика.
+Базовый класс StatelessService позволяет использовать методы RunAsync() и CreateServiceInstanceListeners(), которых вполне достаточно для большинства служб без отслеживания состояния. Класс StatelessServiceBase лежит в основе StatelessService и предоставляет дополнительные события жизненного цикла службы. Вы можете использовать класс StatelessServiceBase, если вам требуется дополнительный контроль или гибкость. Дополнительную информацию о [StatelessService](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statelessservice.aspx) и [StatelessServiceBase](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statelessservicebase.aspx) см. в справочной документации разработчика.
 
 - `void OnInitialize(StatelessServiceInitializiationParameters)` OnInitialize — первый метод, вызываемый Service Fabric. Предоставляются сведения об инициализации службы: имя службы, идентификатор раздела, идентификатор экземпляра и сведения о пакете кода. Здесь не следует выполнять никакой сложной обработки. Длительную инициализацию следует выполнять в OnOpenAsync.
 
@@ -31,7 +31,7 @@
 - `void OnAbort()` Объект OnAbort вызывается при принудительном завершении работы экземпляра службы без отслеживания состояния. Обычно такой вызов осуществляется при обнаружении на узле постоянной неисправности или когда платформа Service Fabric не может надежно управлять жизненным циклом экземпляра службы из-за внутренних сбоев.
 
 ## Базовые классы для служб с отслеживанием состояния
-Базового класса StatefulService должно быть достаточно для большинства служб с отслеживанием состояния. Подобно службам без отслеживания состояния класс StatefulServiceBase лежит в основе StatefulService и предоставляет дополнительные события жизненного цикла службы. Кроме того, он позволяет предоставить настраиваемого надежного поставщика состояний и при необходимости поддерживать средства прослушивания связи на стороне дополнительных служб. Вы можете использовать класс StatefulServiceBase, если вам требуется дополнительный контроль или гибкость. Дополнительную информацию о [StatefulService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statefulservice.aspx) и [StatefulServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statefulservicebase.aspx) см. в справочной документации разработчика.
+Базового класса StatefulService должно быть достаточно для большинства служб с отслеживанием состояния. Подобно службам без отслеживания состояния класс StatefulServiceBase лежит в основе StatefulService и предоставляет дополнительные события жизненного цикла службы. Кроме того, он позволяет предоставить настраиваемого надежного поставщика состояний и при необходимости поддерживать средства прослушивания связи на стороне дополнительных служб. Вы можете использовать класс StatefulServiceBase, если вам требуется дополнительный контроль или гибкость. Дополнительную информацию о [StatefulService](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statefulservice.aspx) и [StatefulServiceBase](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statefulservicebase.aspx) см. в справочной документации разработчика.
 
 - `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` Объект OnChangeRoleAsync вызывается, когда служба с отслеживанием состояния меняет роли, например с основной на дополнительную. Основным репликам присваивается статус записи (им разрешено создание и запись надежных коллекций), а дополнительным — статус чтения (могут только читать из существующих надежных коллекций). В ответ на изменения ролей можно запустить или обновить фоновые задачи — выполнение проверки, предусматривающей только чтение, создание отчетов или интеллектуальный анализ данных на стороне дополнительной службы.
 
@@ -55,4 +55,4 @@
 
 - [Общие сведения об ограничениях на размещение](service-fabric-placement-constraint.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

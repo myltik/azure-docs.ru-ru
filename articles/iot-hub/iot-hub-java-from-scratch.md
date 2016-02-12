@@ -26,7 +26,7 @@
 
 В разделе [Подготовка среды разработки][devbox-setup] вы найдете сведения о предварительных условиях и настройке среды разработки на Windows или Linux.
 
-> [AZURE.NOTE]Важно выполнить шаги, описанные в разделе [Подготовка среды разработки][devbox-setup], перед началом этого учебника, чтобы установить необходимые компоненты и добавить необходимые JAR-файлы в локальный репозиторий Maven.
+> [AZURE.NOTE] Важно выполнить шаги, описанные в разделе [Подготовка среды разработки][devbox-setup], перед началом этого учебника, чтобы установить необходимые компоненты и добавить необходимые JAR-файлы в локальный репозиторий Maven.
 
 ## Создание проекта
 
@@ -36,7 +36,7 @@
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=iot-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    > [AZURE.NOTE]Это одна длинная команда. Убедитесь, что скопировали всю команду, если хотите вставить ее в средство командной строки.
+    > [AZURE.NOTE] Это одна длинная команда. Убедитесь, что скопировали всю команду, если хотите вставить ее в средство командной строки.
 
     Эта команда создает папку проекта с именем *iot-device* и стандартной структурой проекта Maven. Дополнительные сведения см. в разделе [Maven за 5 минут][maven-five-minutes] на веб-сайте Apache.
 
@@ -48,7 +48,7 @@
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-client</artifactId>
-      <version>1.0.0-preview.4</version>
+      <version>1.0.0</version>
     </dependency>
     ```
 
@@ -214,7 +214,7 @@
 .level = {LOGGING_LEVEL}
 ```
 
-> [AZURE.NOTE]Вы можете прочитать описание различных [уровней ведения журнала](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html).
+> [AZURE.NOTE]  Вы можете прочитать описание различных [уровней ведения журнала](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html).
 
 Затем установите свойство JVM `java.util.logging.config.file={Path to your config.properties file}`.
 
@@ -229,4 +229,4 @@
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 [lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

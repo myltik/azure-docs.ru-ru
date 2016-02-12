@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Настройка кластера Service Fabric с помощью шаблона ARM | Microsoft Azure"
-   description="Настройка кластера Service Fabric с помощью шаблона ARM."
+   pageTitle="Настройка кластера Service Fabric с использованием шаблона диспетчера ресурсов Azure | Microsoft Azure"
+   description="Настройка кластера Service Fabric с использованием шаблона диспетчера ресурсов Azure."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,48 +13,54 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/19/2015"
+   ms.date="01/29/2016"
    ms.author="chackdan"/>
 
-# Настройка кластера Service Fabric с помощью шаблона ARM
 
-На этой странице содержатся сведения, которые помогут вам настроить кластер Service Fabric с помощью шаблона ARM. Предполагается, что ваша подписка поддерживает достаточное количество ядер для развертывания виртуальных машин IaaS, которые войдут в состав этого кластера.
+# Настройка кластера Service Fabric с использованием шаблона диспетчера ресурсов Azure
+
+Эта страница поможет вам настроить кластер Service Fabric с использованием шаблона диспетчера ресурсов Azure. Для выполнения этой задачи ваша подписка должна включать достаточное количество ядер для развертывания виртуальных машин IaaS, которые войдут в состав этого кластера.
 
 ## Предварительные требования
 
-- Если нужно настроить безопасный кластер, убедитесь, что сертификат X509 отправлен в хранилище ключей. Вам потребуется URL-адрес исходного хранилища, URL-адрес сертификата и отпечаток сертификата.
--  Сведения о получении этих данных см. в статье [Безопасность кластера Service Fabric](service-fabric-cluster-security.md).
+- Для настройки безопасного кластера необходимо отправить в хранилище ключей сертификат X.509. Вам потребуется URL-адрес исходного хранилища, URL-адрес сертификата и отпечаток сертификата.
+- Дополнительные сведения о настройке безопасного кластера см. в статье [Безопасность кластера Service Fabric](service-fabric-cluster-security.md).
 
-## Получение образца шаблона ARM
+## Образец шаблона диспетчера ресурсов
 
-1. Образцы шаблонов ARM доступны в [коллекции шаблонов быстрого запуска Azure на сайте github](https://github.com/Azure/azure-quickstart-templates). Все шаблоны Service Fabric начинаются с имени "service-fabric-...". Можно выполнить поиск в репозитории по слову "fabric" или просто прокрутить вниз до набора образцов шаблонов.
-2. В целях упрощения поиска шаблоны именованы следующим образом:
-	1. [service-fabric-unsecure-cluster-5-node-1-nodetype](http://go.microsoft.com/fwlink/?LinkId=716923) для указания шаблона небезопасного кластера с 5 одинарными узлами. 
-	3. [service-fabric-secure-cluster-5-node-1-nodetype-wad](http://go.microsoft.com/fwlink/?LinkID=716924) для указания шаблона безопасного кластера с 5 одинарными узлами с поддержкой WAD. 
-	4. [service-fabric-secure-cluster-10-node-2-nodetype-wad](http://go.microsoft.com/fwlink/?LinkId=716925) для указания шаблона безопасного кластера с 10 двойными узлами с поддержкой WAD. 
-	
+Образцы шаблонов диспетчера ресурсов доступны в [коллекции шаблонов быстрого запуска Azure на сайте GitHub](https://github.com/Azure/azure-quickstart-templates). Все имена шаблонов Service Fabric начинаются со слов "service-fabric...". Выполните поиск в репозитории по запросу "fabric" или прокрутите список образцов и найдите нужный шаблон. Для упрощения поиска шаблоны именованы следующим образом:
 
-## Создание настраиваемого шаблона ARM
+- [service-fabric-unsecure-cluster-5-node-1-nodetype](http://go.microsoft.com/fwlink/?LinkId=716923) для указания шаблона небезопасного кластера с пятью одинарными узлами;
 
-2. Выберите один из двух вариантов. 
-	1. Можно получить образец шаблона из [коллекции шаблонов быстрого запуска Azure на сайте github ](https://github.com/Azure/azure-quickstart-templates) и внести в него изменения.
-	2. Войдите на портал Azure и, используя сведения на страницах портала Service Fabric, создайте шаблон, который затем будет настроен. Эти действия описаны ниже.
-3. Выполните вход на портал Azure [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
-2. Пройдите процесс создания кластера, как описано в статье [Создание кластера Service Fabric с помощью портала](service-fabric-cluster-creation-via-portal.md), но не нажимайте кнопку ***Создать**, а перейдите в раздел "Сводка" и загрузите шаблон.
+- [service-fabric-secure-cluster-5-node-1-nodetype-wad](http://go.microsoft.com/fwlink/?LinkID=716924) для указания шаблона безопасного кластера с пятью одинарными узлами с поддержкой WAD;
 
- ![DownloadTemplate][DownloadTemplate]
+- [service-fabric-secure-cluster-10-node-2-nodetype-wad](http://go.microsoft.com/fwlink/?LinkId=716925) для указания шаблона безопасного кластера с десятью двойными узлами с поддержкой WAD.
 
-## Развертывание шаблона ARM Azure с помощью Azure PS
+## Создание настраиваемого шаблона диспетчера ресурсов Azure
 
-Подробные инструкции по развертыванию шаблона с помощью PowerShell см. в статье [Развертывание шаблонов ARM с помощью PS](resource-group-template-deploy.md).
+Создать пользовательский шаблон диспетчера ресурсов можно одним из двух способов:
+
+1. загрузить образец шаблона из [коллекции шаблонов быстрого запуска Azure на сайте GitHub](https://github.com/Azure/azure-quickstart-templates) и внести в него изменения;
+
+2. войти на портал Azure и создать, а затем настроить нужный шаблон, используя сведения на страницах портала Service Fabric. Для этого выполните следующие действия:
+
+    а. Войдите на [портал Azure](https://portal.azure.com/).
+
+    b. Пройдите процесс создания кластера, как описано в статье [Создание кластера Service Fabric с помощью портала](service-fabric-cluster-creation-via-portal.md), но не нажимайте кнопку **Создать**. Вместо этого перейдите в раздел **Сводка** и загрузите шаблон, как показано на следующем снимке экрана.
+
+ ![Снимок экрана: страница кластера Service Fabric, где приводится ссылка для загрузки шаблона диспетчера ресурсов][DownloadTemplate]
+
+## Развертывание шаблона диспетчера ресурсов в Azure с помощью Azure PowerShell
+
+Подробные инструкции по развертыванию шаблона с помощью PowerShell см. в статье [Развертывание шаблонов диспетчера ресурсов с помощью PowerShell](resource-group-template-deploy.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
-- [Безопасность кластера Service Fabric](service-fabric-cluster-security.md) 
+- [Защита кластера Service Fabric](service-fabric-cluster-security.md)
 - [Управление приложениями Service Fabric в Visual Studio](service-fabric-manage-application-in-visual-studio.md)
-- [Общие сведения о модели работоспособности в Service Fabric](service-fabric-health-introduction.md)
+- [Общие сведения о наблюдении за работоспособностью системы в Service Fabric](service-fabric-health-introduction.md)
 
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

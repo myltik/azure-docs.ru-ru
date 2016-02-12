@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Устранение неполадок, связанных с расширением панели доступа для Internet Explorer | Microsoft Azure"
-   description="Как применить групповую политику для развертывания надстройки Internet Explorer для работы с порталом «Мои приложения»."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Устранение неполадок, связанных с расширением панели доступа для Internet Explorer | Microsoft Azure"
+    description="Как применить групповую политику для развертывания надстройки Internet Explorer для работы с порталом «Мои приложения»."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/28/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Устранение неполадок, связанных с расширением панели доступа для Internet Explorer
 
@@ -105,4 +105,4 @@
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

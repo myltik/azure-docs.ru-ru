@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Настройка прослушивателя внутренней подсистемы балансировки нагрузки для групп доступности AlwaysOn | Microsoft Azure"
 	description="В этом руководстве используются ресурсы, созданные в классической модели развертывания, а также создается прослушиватель группы доступности AlwaysOn в Azure с помощью внутренней подсистемы балансировки нагрузки (ILB)."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/06/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure
@@ -27,7 +27,7 @@
 В этом разделе показано, как настроить прослушиватель для группы доступности AlwaysOn с помощью **внутренней подсистемы балансировки нагрузки (ILB)**.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
- 
+
 
 В группе доступности могут быть реплики, доступные только локально или только в Azure. В гибридных конфигурациях возможны оба способа доступа одновременно. Реплики в Azure могут находиться в одном или нескольких регионах (при использовании нескольких виртуальных сетей). В приведенных ниже указаниях предполагается, что вы уже [настроили группу доступности](virtual-machines-sql-server-alwayson-availability-groups-gui.md), но еще не настроили прослушиватель.
 
@@ -44,7 +44,7 @@
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-В этой статье рассматривается создание прослушивателя, использующего **внутренний балансировщик нагрузки (ILB)**. Если вам требуется общедоступный (внешний) прослушиватель, см. другую версию этой статьи, где приведены пошаговые инструкции по настройке [внешнего прослушивателя](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
+В этой статье рассматривается создание прослушивателя, использующего **внутреннюю подсистему балансировки нагрузки (ILB)**. Если вам требуется общедоступный (внешний) прослушиватель, см. другую версию этой статьи, где приведены пошаговые инструкции по настройке [внешнего прослушивателя](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
 
 ## Создание конечных точек балансировки нагрузки в ВМ со службой Direct Server Return
 
@@ -64,7 +64,7 @@
 
 1. Выберите один из доступных адресов и используйте его в качестве значения параметра **$ILBStaticIP** в приведенном ниже сценарии.
 
-3. Скопируйте приведенный ниже сценарий PowerShell в текстовый редактор и задайте значения переменных в соответствии с вашими условиями (обратите внимание, что для некоторых параметров указаны значения по умолчанию). Вы не сможете добавить подсистему балансировки нагрузки к существующим развернутым службам, использующим территориальные группы. Дополнительные сведения о требованиях ILB см. в статье [Внутренняя подсистема балансировки нагрузки](../load-balancer/load-balancer-internal-overview.md). Если ваша группа доступности охватывает несколько регионов Azure, приведенный сценарий нужно будет запустить в каждом центре данных для всех облачных служб и узлов, которые находятся в этом центре.
+3. Скопируйте приведенный ниже сценарий PowerShell в текстовый редактор и задайте значения переменных в соответствии с вашими условиями (обратите внимание, что для некоторых параметров указаны значения по умолчанию). Вы не сможете добавить подсистему балансировки нагрузки к существующим развернутым службам, использующим территориальные группы. Дополнительные сведения о требованиях подсистемы балансировки нагрузки см. в статье [Внутренняя подсистема балансировки нагрузки](../load-balancer/load-balancer-internal-overview.md). Если ваша группа доступности охватывает несколько регионов Azure, приведенный сценарий нужно будет запустить в каждом центре данных для всех облачных служб и узлов, которые находятся в этом центре.
 
 		# Define variables
 		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
@@ -72,19 +72,19 @@
 		$SubnetName = "<MySubnetName>" # subnet name that the replicas use in the VNet
 		$ILBStaticIP = "<MyILBStaticIPAddress>" # static IP address for the ILB in the subnet
 		$ILBName = "AGListenerLB" # customize the ILB name or use this default value
-		
+
 		# Create the ILB
 		Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
-		
+
 		# Configure a load balanced endpoint for each node in $AGNodes using ILB
 		ForEach ($node in $AGNodes)
 		{
-			Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM 
+			Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
 		}
 
 1. Присвоив значения переменным, скопируйте сценарий из текстового редактора в текущий сеанс Azure PowerShell и выполните его. Если в командной строке отображается >>, нажмите клавишу ВВОД еще раз, чтобы начать выполнение сценария. Примечание.
 
->[AZURE.NOTE]В данный момент классический портал Azure не поддерживает внутренний балансировщик нагрузки, поэтому внутренний балансировщик нагрузки и конечные точки не будут видны пользователю классического портала Azure. Но команда **Get-AzureEndpoint** вернет внутренний IP-адрес, если на портале запущен балансировщик нагрузки. В противном случае будет возвращено значение null.
+>[AZURE.NOTE] В данный момент классический портал Azure не поддерживает внутренний балансировщик нагрузки, поэтому внутренний балансировщик нагрузки и конечные точки не будут видны пользователю классического портала Azure. Но команда **Get-AzureEndpoint** вернет внутренний IP-адрес, если на портале запущен балансировщик нагрузки. В противном случае будет возвращено значение null.
 
 ## Проверка наличия пакета KB2854082
 
@@ -108,13 +108,13 @@
 
 		# Define variables
 		$ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-		$IPResourceName = "<IPResourceName>" # the IP Address resource name 
+		$IPResourceName = "<IPResourceName>" # the IP Address resource name
 		$ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB)
-		
+
 		Import-Module FailoverClusters
-		
-		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
-		
+
+		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
+
 		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
 		# cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
@@ -138,4 +138,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

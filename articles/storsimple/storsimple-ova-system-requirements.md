@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2015"
+   ms.date="01/07/2016"
    ms.author="alkohli"/>
 
 # Системные требования для виртуального массива StorSimplе (предварительная версия)
@@ -102,4 +102,4 @@
 
 -   [Подготовка портала для развертывания виртуального массива StorSimple](storsimple-ova-deploy1-portal-prep.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

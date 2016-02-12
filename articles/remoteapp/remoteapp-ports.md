@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/22/2016"
+    ms.date="01/29/2016"
     ms.author="elizapo" />
 
 
@@ -37,13 +37,12 @@
 Под клиентами подразумеваются настольные системы, устройства и т. д., которые люди используют для подключения к приложениям, развернутым в коллекции Azure RemoteApp.
 
 -  https://telemetry.remoteapp.windowsazure.com  
--  https://**.remoteapp.windowsazure.com (необязательные UDP-порты для этого адреса) 
+-  https://*.remoteapp.windowsazure.com (необязательные UDP-порты для этого адреса) 
 -  https://login.windows.net  
 -  https://login.microsoftonline.com  
 -  https://www.remoteapp.windowsazure.com 
--  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  Исходящие: TCP: 443  
 -  (Необязательно) UDP: 3391 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
