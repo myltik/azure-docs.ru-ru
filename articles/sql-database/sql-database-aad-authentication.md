@@ -65,7 +65,8 @@
 
 ## Функции и ограничения Azure AD
 
-На сервере Azure SQL Server можно подготовить следующих членов Azure Active Directory. - Собственные члены — члены, созданные в Azure AD в управляемом домене или в домене клиента. Дополнительные сведения см. в статье [Добавление собственного имени домена в Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/). - Федеративные члены домена — члены, созданные в Azure AD с федеративным доменом. Дополнительные сведения см. в статье [Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). Импортированные члены из других служб Azure Active Directory, являющиеся собственными или федеративными членами домена. Группы Active Directory, созданные как группы безопасности.
+На сервере Azure SQL Server можно подготовить следующих членов Azure Active Directory. - Собственные члены — члены, созданные в Azure AD в управляемом домене или в домене клиента. Дополнительные сведения см. в статье [Добавление собственного имени домена в Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-add-domain/).
+- Федеративные члены домена — члены, созданные в Azure AD с федеративным доменом. Дополнительные сведения см. в статье [Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory]( https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). Импортированные члены из других служб Azure Active Directory, являющиеся собственными или федеративными членами домена. Группы Active Directory, созданные как группы безопасности.
 
 Учетные записи Майкрософт (например, outlook.com, hotmail.com, live.com) и гостевые учетные записи (например, gmail.com, yahoo.com) не поддерживаются. Возможность войти на сайт [https://login.live.com](https://login.live.com) с помощью учетной записи и пароля означает, что вы используете учетную запись Майкрософт, которая не поддерживается при проверке подлинности Azure AD для базы данных SQL Azure.
 
@@ -329,4 +330,4 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_0204_2016--->
+<!----HONumber=AcomDC_0204_2016--->
