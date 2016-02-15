@@ -613,7 +613,7 @@
 [удаленный репозиторий Git]: http://git-scm.com/docs/git-remote
 
 [Создание веб-приложения Node.js в Azure с MongoDB на виртуальной машине]: web-sites-nodejs-store-data-mongodb.md
-[интерфейс командной строки Azure]: ../xplat-cli-install.md
+[Интерфейс командной строки Azure]: ../xplat-cli-install.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -639,4 +639,4 @@
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->
