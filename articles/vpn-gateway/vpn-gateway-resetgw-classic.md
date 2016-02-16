@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Сброс настроек VPN-шлюза Azure с помощью PowerShell
@@ -54,9 +54,8 @@
 
 Если после двух перезагрузок проблема с распределенным подключением не решится, отправьте запрос в службу поддержки Microsoft Azure на классическом портале Azure.
 
-
 ## Дальнейшие действия
 	
 Дополнительные сведения об этом командлете см. в статье [Справочник PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

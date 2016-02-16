@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
+	ms.date="02/04/2016"
 	ms.author="glenga" />
 
 #Создание приложения Xamarin.Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
- 
+
 ##Обзор
 
 В этом руководстве показано, как добавить облачную серверную службу в приложение Xamarin.Android. Дополнительные сведения см. в статье [Что такое мобильные приложения?](app-service-mobile-value-prop.md)
@@ -31,15 +29,15 @@
 ![][0]
 
 Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными мобильным приложениям для приложений Xamarin.Android.
- 
+
 ##Предварительные требования
 
 Для работы с этим учебником требуется:
 
 * Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных приложений, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
- 
+
 * [Visual Studio Community 2013] или более поздняя версия. В случае установки Visual Studio Community 2013 устанавливайте [Xamarin] отдельно. При установке Visual Studio 2015 можно установить инструменты Xamarin.
- 
+
 >[AZURE.NOTE] Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи, перейдите на страницу [Пробное использование службы приложений](https://tryappservice.azure.com/?appServiceName=mobile), где вы можете быстро создать краткосрочное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
 
 ## Создание серверной части мобильного приложения Azure
@@ -72,8 +70,7 @@
 
 ##Дальнейшие действия
 
-* [Добавление проверки подлинности в приложение](app-service-mobile-xamarin-android-get-started-users.md) 
-  <br/>Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
+* [Добавление проверки подлинности в приложение](app-service-mobile-xamarin-android-get-started-users.md) <br/>Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
 
 <!-- Images. -->
@@ -88,7 +85,7 @@
 [Xamarin]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
- 
+
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

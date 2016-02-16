@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/10/2016"
 	ms.author="kgremban"/>
 
 # Как обеспечить безопасный удаленный доступ к локальным приложениям
@@ -59,7 +59,8 @@
 - [Смотрите наши видео на Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Дополнительные ресурсы
-* [Регистрация организации в Azure](sign-up-organization.md)
-* [Удостоверение Azure](fundamentals-identity.md)
+- [Указатель статей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Регистрация организации в Azure](sign-up-organization.md)
+- [Удостоверение Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

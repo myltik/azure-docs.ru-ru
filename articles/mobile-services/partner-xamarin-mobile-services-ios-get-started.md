@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="02/10/2016"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
@@ -23,8 +23,7 @@
 &nbsp;
 
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
-&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -110,7 +109,7 @@
 
 * [Добавление push-уведомлений к приложению мобильных служб]. Узнайте, как отправлять в приложение простейшие push-уведомления.
 
-* [Использование управляемой клиентской библиотеки для мобильных служб Azure](partner-xamarin-mobile-services-how-to-use-client-library.md). Узнайте, как отправлять запросы в мобильную службу, работать с данными и обращаться к настраиваемым API.
+
 
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -142,4 +141,4 @@
 
 [классическом портале Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

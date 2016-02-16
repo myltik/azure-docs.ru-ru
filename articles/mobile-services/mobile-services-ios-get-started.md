@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/04/2015"
+	ms.date="02/10/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
@@ -54,8 +54,7 @@
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"> 
-<li><p>На [классическом портале Azure] щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**. Это позволяет просматривать данные, добавленные в таблицу приложением.<p></li></ol></p>
+<ol start="4"> <li><p>На [классическом портале Azure] щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**. Это позволяет просматривать данные, добавленные в таблицу приложением.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 Узнайте, как выполнять дополнительные важные задачи в мобильных службах:
@@ -96,4 +95,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Серверная версия .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/23/2015"
+	ms.date="02/04/2016"
 	ms.author="normesta"/>
 
 
 #Создание приложения Xamarin.iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Обзор
 
@@ -38,7 +36,7 @@
 * [Visual Studio Community 2013] или более поздняя версия. В случае установки Visual Studio Community 2013 устанавливайте [Xamarin] отдельно. При установке Visual Studio 2015 можно установить инструменты Xamarin.
 
 * Компьютер Mac установленным ПО [Xcode] 7.0 или более поздней версии и [Xamarin Studio].
- 
+
 * Если вы планируете выполнить сборку и развертывание приложения на компьютере под управлением Windows с запущенной программой Visual Studio, вам все равно потребуется доступ к компьютеру под управлением Mac, подключенному к узлу сборки Xamarin.iOS. Дополнительные сведения см. в статье [Установка Xamarin.iOS в Windows](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/).
 
 >[AZURE.NOTE] Если вы хотите приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [Пробное использование службы приложений](https://tryappservice.azure.com/?appServiceName=mobile). Там вы сможете немедленно создать кратковременное начальное мобильное приложение в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
@@ -94,11 +92,9 @@
 
 ##Дальнейшие действия
 
-* [Добавление проверки подлинности в приложение](app-service-mobile-xamarin-ios-get-started-users.md) 
-  <br/>Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
+* [Добавление проверки подлинности в приложение](app-service-mobile-xamarin-ios-get-started-users.md) <br/>Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
-* [Добавление push-уведомлений в приложение](app-service-mobile-xamarin-ios-get-started-push.md) 
-  <br/>Узнайте, как отправлять в приложение простейшие push-уведомления.
+* [Добавление push-уведомлений в приложение](app-service-mobile-xamarin-ios-get-started-push.md) <br/>Узнайте, как отправлять в приложение простейшие push-уведомления.
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]: #getting-started
@@ -123,4 +119,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Установка Xamarin.iOS в Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

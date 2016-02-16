@@ -428,6 +428,8 @@
 		app.get('/', taskList.showTasks.bind(taskList));
 		app.post('/addtask', taskList.addTask.bind(taskList));
 		app.post('/completetask', taskList.completeTask.bind(taskList));
+		app.set('view engine', 'jade');
+
 
 
 6. Эти строки определяют новый экземпляр нашего объекта **TaskDao** с новым подключением к DocumentDB (с использованием значений, считанных из файла **config.js**), инициализируют объект задачи, а затем привязывают действия формы к методам в нашем контроллере **TaskList**.
@@ -569,4 +571,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="11/05/2015"
+	ms.date="02/10/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Если вы не знакомы с разработкой приложений для мобильных устройств с помощью Microsoft Azure, [начните работу с мобильными приложениями Azure](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md), а не с мобильными службами Azure. Мобильные приложения предоставляют вам [дополнительные преимущества](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+>[AZURE.TIP] Если вы не знакомы с разработкой приложений для мобильных устройств с помощью Microsoft Azure, [начните работу с мобильными приложениями Azure](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md), а не с мобильными службами Azure. Мобильные приложения предоставляют вам [дополнительные преимущества](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 В данном учебнике описывается добавление облачных служб внутреннего сервера в приложение Xamarin iOS с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение _To do list_, хранящее данные приложения в новой мобильной службе. В создаваемой мобильной службе с помощью Visual Studio используются поддерживаемые языки .NET для серверной бизнес-логики, а также для управления мобильной службой. Сведения о создании мобильной службы, которая позволит создавать в JavaScript серверную бизнес-логику, см. в подразделе [Серверная версия JavaScript] этого раздела.
 
@@ -143,4 +143,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -5,7 +5,7 @@
 	keywords="запрос c# к базе данных, запрос c#, подключение к базе данных, SQL C#"
 	documentationCenter=""
 	authors="MightyPen"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="02/05/2016"
 	ms.author="genemi"/>
 
 
@@ -324,8 +324,7 @@ IP-адрес можно добавить на [портале Azure](https://po
 
 
 
-Дополнительную информацию см. в статье<br/> 
-[Настройка параметров брандмауэра для базы данных SQL Azure](sql-database-configure-firewall-settings.md).
+Дополнительную информацию см. в статье<br/> [Настройка параметров брандмауэра для базы данных SQL Azure](sql-database-configure-firewall-settings.md).
 
 
 
@@ -359,4 +358,4 @@ IP-адрес можно добавить на [портале Azure](https://po
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->
