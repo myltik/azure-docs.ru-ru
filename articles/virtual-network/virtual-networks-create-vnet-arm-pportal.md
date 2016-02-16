@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание виртуальной сети с помощью портала предварительной версии Azure | Microsoft Azure"
-   description="Сведения о создании виртуальной сети с помощью портала предварительной версии Azure в ARM | Диспетчер ресурсов."
+   pageTitle="Создание виртуальной сети с помощью портала Azure | Microsoft Azure"
+   description="Сведения о создании виртуальной сети с помощью портала Azure в ARM | Диспетчер ресурсов."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/04/2016"
    ms.author="telmos"/>
 
-# Создание виртуальной сети с помощью портала предварительной версии Azure
+# Создание виртуальной сети с помощью портала Azure
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 
@@ -30,4 +30,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-pportal-include](../../includes/virtual-networks-create-vnet-arm-pportal-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Прогнозное решение для оценки кредитных рисков с помощью машинного обучения | Microsoft Azure"
 	description="Подробное пошаговое руководство по созданию решения для прогнозной аналитики в Студии машинного обучения Azure для оценки кредитных рисков."
-	keywords="credit risk, predictive analytics solution,risk assessment"
+	keywords="кредитный риск, решение прогнозной аналитики, оценка рисков"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
@@ -28,9 +28,7 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Откройте Студию машинного обучения: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Дополнительную информацию о начале работы со Студией машинного обучения см. на [домашней странице Студии машинного обучения Microsoft Azure](https://studio.azureml.net/).
-
->[AZURE.TIP]Чтобы загрузить и распечатать схему, на которой представлены общие возможности Студии машинного обучения, см. раздел [Обзорная схема возможностей Студии машинного обучения Azure](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Чтобы скачать и распечатать схему, на которой представлены общие возможности Студии машинного обучения, см. раздел [Обзорная схема возможностей Студии машинного обучения Azure](machine-learning-studio-overview-diagram.md).
 
 Создание нашего решения для оценки кредитных рисков предполагает такие действия:
 
@@ -41,6 +39,6 @@
 5.	[Развертывание веб-службы](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Доступ к веб-службе](machine-learning-walkthrough-6-access-web-service.md)
 
-Это пошаговое руководство построено на упрощенной версии [примера эксперимента прогнозирования кредитных рисков](../machine-learning-sample-credit-risk-prediction.md), включенного в Студию машинного обучения.
+Это пошаговое руководство построено на упрощенной версии примера эксперимента [Двоичная классификация: прогнозирование кредитных рисков](../machine-learning-sample-credit-risk-prediction.md) из [коллекции Cortana Analytics](http://gallery.cortanaanalytics.com/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

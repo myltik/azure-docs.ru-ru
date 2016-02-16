@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/18/2015" 
+	ms.date="02/09/2016" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Руководство по ASP.NET MVC. Разработка веб-приложения с использованием DocumentDB
@@ -52,8 +52,7 @@
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-<br/> 
-Теперь рассмотрим создание нового приложения ASP.NET MVC с нуля.
+<br/> Теперь рассмотрим создание нового приложения ASP.NET MVC с нуля.
 
 ## <a name="_Toc395637762"></a>Шаг 2. Создание нового приложения ASP.NET MVC
 
@@ -634,4 +633,4 @@
 [Основные операции CRUD в ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/21/2016"
+	ms.date="02/10/2016"
 	ms.author="kgremban"/>
 
 # Управление доступом на основе ролей в Azure
@@ -198,4 +198,4 @@
 
 **Кто может просматривать список пользовательских ролей, доступных для назначения в определенной области?** Просматривать роли RBAC, которые доступны для назначения в области, могут пользователи с правом выполнять операцию `Microsoft.Authorization/roleDefinition/read` для этой области. Все стандартные роли Azure RBAC позволяют просматривать список ролей, доступных для назначения.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,11 +13,11 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/09/2016"
    ms.author="seanmck"/>
 
 # Подготовка среды разработки
- Чтобы создавать и запускать [приложения Service Fabric][1] на компьютере для разработки, вам нужно установить среду выполнения, пакет SDK и инструменты. Также необходимо настроить локальный кластер.
+ Чтобы создавать и запускать [приложения Service Fabric][1] на компьютере для разработки, вам нужно установить среду выполнения, пакет SDK и инструменты. Вам также нужно включить выполнение сценариев Windows PowerShell, включенных в пакет SDK.
 
 ## Предварительные требования
 ### Поддерживаемые версии операционных систем
@@ -31,7 +31,7 @@
 
 Если установлена платформа Visual Studio 2015, набор инструментов для Service Fabric может отличаться. Загрузить Visual Studio 2015 можно [на веб-сайте Visual Studio][2].
 
-> [AZURE.NOTE]Если у вас не установлена ни одна из поддерживаемых операционных систем или вы не хотите устанавливать на компьютер Visual Studio 2015, настройте виртуальную машину Azure c предустановленным программным обеспечением Windows Server 2012 R2 и Visual Studio 2015. Это можно сделать с помощью образа из коллекции виртуальных машин Azure.
+> [AZURE.NOTE] Если у вас не установлена ни одна из поддерживаемых операционных систем или вы не хотите устанавливать на компьютер Visual Studio 2015, настройте виртуальную машину Azure c предустановленным программным обеспечением Windows Server 2012 R2 и Visual Studio 2015. Это можно сделать с помощью образа из коллекции виртуальных машин Azure.
 
 ## Установка среды выполнения, пакета SDK и инструментов
 
@@ -58,12 +58,13 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 - [Создание первого приложения Service Fabric в Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 - [Информация о развертывании приложений в локальном кластере и управлении ими](service-fabric-get-started-with-a-local-cluster.md)
-- [Информация о моделях программирования на основе надежных субъектов и служб](service-fabric-choose-framework.md)
+- [Информация о моделях программирования: Reliable Services и Reliable Actors](service-fabric-choose-framework.md)
 - [Ознакомление с примерами кода Service Fabric на GitHub](https://aka.ms/servicefabricsamples)
 - [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
+- [Используйте схему обучения Service Fabric, чтобы получить общие сведения о платформе](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Страница кампании Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Ссылка WebPI"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

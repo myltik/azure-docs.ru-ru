@@ -12,7 +12,7 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
@@ -89,7 +89,7 @@
 
 Срок действия параметров учетной записи истекает, поэтому необходимо их периодически обновлять. Чтобы обновить параметры учетной записи, еще раз выполните командлет **Login-AzureRmAccount**.
 
->[AZURE.NOTE]Для модулей диспетчера ресурсов требуется командлет Login-AzureRmAccount. Файла параметров публикации недостаточно.
+>[AZURE.NOTE] Для модулей диспетчера ресурсов требуется командлет Login-AzureRmAccount. Файла параметров публикации недостаточно.
 
 ## Получение расположений типов ресурсов
 
@@ -461,4 +461,4 @@ ProviderNamespace представляет коллекцию связанных
 - Подробный пример развертывания проекта см. в статье [Предсказуемое развертывание микрослужб в Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Сведения об устранении неполадок развертывания, которое завершилось сбоем, см. в статье [Устранение неполадок развертывания группы ресурсов в Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

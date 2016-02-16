@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/28/2016"
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -66,7 +66,7 @@
 
 1. На классическом портале Azure последовательно выберите **Создать**, **Служба мультимедиа**, **Быстрое создание**.
 
-![Быстрое создание служб мультимедиа](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+	![Быстрое создание служб мультимедиа](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. В поле **ИМЯ** введите имя новой учетной записи. Имя учетной записи служб мультимедиа может состоять из букв или цифр в нижнем регистре без пробелов и имеет длину 3 – 24 знака.
 
@@ -453,4 +453,4 @@ URL-адреса поэтапного скачивания (аудио и вид
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

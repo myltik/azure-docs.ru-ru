@@ -12,36 +12,43 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/21/2015"
+	ms.date="02/03/2016"
 	ms.author="awills"/>
 
 # Аналитики для приложений Windows Phone и приложений Магазина
 
-Корпорация Майкрософт предоставляет два решения DevOps для мобильных устройств. Это [HockeyApp](http://hockeyapp.net/) для выполнения рабочих процессов DevOps и анализа сбоев, а также [Application Insights](app-insights-overview.md) для анализа использования и анализа сбоев.
+Корпорация Майкрософт предоставляет два решения DevOps для мобильных устройств. Это [HockeyApp](http://hockeyapp.net/) для анализа на клиенте, а также [Application Insights](app-insights-overview.md) для анализа на сервере.
 
-[HockeyApp](http://hockeyapp.net/) — это наше решение DevOps для приложений, используемых на мобильных устройствах под управлением iOS, OS X, Android или Windows, а также для межплатформенных приложений на платформах Xamarin, Cordova и Unity. Это решение позволяет передавать сборки тест-инженерам, собирать данные о сбоях, а также получать отзывы пользователей. Решение интегрируется с Visual Studio Team Services, поддерживая простые развертывания и интеграцию с рабочими элементами. Дополнительные сведения см. в [базе знаний HockeyApp](http://support.hockeyapp.net/kb) и обновляющемся [блоге HockeyApp](http://hockeyapp.net/blog/).
+[HockeyApp](http://hockeyapp.net/) — это наше решение DevOps для приложений, используемых на мобильных устройствах под управлением iOS, OS X, Android или Windows, а также для межплатформенных приложений на платформах Xamarin, Cordova и Unity. Это решение позволяет передавать сборки тест-инженерам, собирать данные о сбоях, а также получать метрики и отзывы пользователей. Решение интегрируется с Visual Studio Team Services, поддерживая простые развертывания и интеграцию с рабочими элементами.
 
-Если у приложения есть серверная часть, используйте [Application Insights](app-insights-overview.md) для мониторинга веб-сервера приложения на платформе [ASP.NET](app-insights-asp-net.md) или [J2EE](app-insights-java-get-started.md). Отправляйте данные телеметрии на один и тот же ресурс Application Insights, чтобы иметь возможность сопоставлять события.
+Справочные ресурсы:
 
-Кроме того, на портал Application Insights данные телеметрии отправляет [пакет SDK Application Insights для универсальных приложений C++](https://github.com/Microsoft/ApplicationInsights-CPP).
+* [HockeyApp](http://support.hockeyapp.net/kb)
+* [Блог о решении HockeyApp Blog](http://hockeyapp.net/blog/)
+* Используйте [предварительную версию Hockeyapp](http://hockeyapp.net/preseason/), чтобы получить первые выпуски.
 
-С помощью Visual Studio Application Insights можно отслеживать следующие показатели опубликованного приложения.
+Если у приложения есть серверная часть, используйте [Application Insights](app-insights-overview.md) для мониторинга веб-сервера приложения на платформе [ASP.NET](app-insights-asp-net.md) или [J2EE](app-insights-java-get-started.md).
 
-* [**Использование**][windowsUsage] — узнайте, сколько пользователей у вас есть и что они делают с вашим приложением.
-* [**Сбои**][windowsCrash] — получайте диагностические отчеты о сбоях и исследуйте их влияние на пользователей.
+## Пакет SDK Application Insights для устройств под управлением Windows
+
+Хотя мы рекомендуем использовать HockeyApp, есть ранняя версия пакета SDK Application Insights, которую можно применять для наблюдения за [сбоями][windowsCrash] и [использованием][windowsUsage] в приложениях для устройств Windows.
+
+Обратите внимание, что поддержка SDK для старых устройств будет прекращена.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
-Для многих типов приложений [Visual Studio может добавлять Application Insights в приложение](#ide) так, что от вас почти ничего не потребуется. Но поскольку вы читаете этот раздел, чтобы лучше понять, что происходит, мы рассмотрим выполнение соответствующих действий вручную.
 
-Вам потребуется следующее:
+Для установки ранней версии пакета SDK вам понадобятся следующие компоненты:
 
-* подписка на [Microsoft Azure][azure];
+* подписка на [Microsoft Azure][azure].
 * Visual Studio 2013 или более поздняя версия.
 
-## 1\. Создание ресурса Application Insights 
 
-На [портале Azure][portal] создайте новый ресурс Application Insights.
+### 1\. Получение ресурса Application Insights 
+
+На [портале Azure][portal] создайте ресурс Application Insights.
+
+Создание нового ресурса
 
 ![Последовательно выберите пункты "Создать", "Службы для разработчиков", "Application Insights"](./media/app-insights-windows-get-started/01-new.png)
 
@@ -54,9 +61,12 @@
 ![Откройте раскрывающуюся панель Essentials и выберите ключ инструментирования](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\. Добавление пакета SDK Application Insights в приложение
+### 2\. Добавление пакета SDK Application Insights в приложение
 
 В Visual Studio добавьте соответствующий пакет SDK в свой проект.
+
+
+* Если проект — приложение C++, используйте [пакет SDK для C++](https://github.com/Microsoft/ApplicationInsights-CPP) вместо пакета для NuGet на рисунке ниже.
 
 Если это универсальное приложение для Windows, повторите эти шаги для проекта Windows Phone и для проекта Windows.
 
@@ -98,11 +108,11 @@
 
 **Универсальные приложения Windows**. Повторите эти действия для проектов Windows Phone и Магазина Windows. [Пример универсального приложения для Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
-## <a name="network"></a>3. Включение доступа к сети для вашего приложения
+### <a name="network"></a>3. Включение доступа к сети для вашего приложения
 
 Если приложение еще не [запросило исходящий доступ к сети](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), вам нужно добавить это в его манифест как [обязательную возможность](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
 
-## <a name="run"></a>4. Запуск проекта
+### <a name="run"></a>4. Запуск проекта
 
 [Запустите приложение с помощью клавиши F5](http://msdn.microsoft.com/library/windows/apps/bg161304.aspx) и используйте его, чтобы создать некоторый объем телеметрии.
 
@@ -113,7 +123,7 @@
 В режиме отладки телеметрия отправляется сразу же после ее создания. В режиме выпуска телеметрия хранится на устройстве и отправляется только тогда, когда приложение возобновляет работу.
 
 
-## <a name="monitor"></a>5. Просмотр данных мониторинга
+### <a name="monitor"></a>5. Просмотр данных мониторинга
 
 Откройте Application Insights из проекта.
 
@@ -129,11 +139,11 @@
 Щелкните любую диаграмму, чтобы просмотреть более подробные сведения.
 
 
-## <a name="deploy"></a>5. Публикация приложения в Магазине
+### <a name="deploy"></a>5. Публикация приложения в Магазине
 
 [Опубликуйте свое приложение](http://dev.windows.com/publish) и наблюдайте за данными, которые собираются по мере загрузки и использования этого приложения пользователями.
 
-## Настройка телеметрии
+### Настройка телеметрии
 
 #### Выбор сборщиков
 
@@ -176,48 +186,12 @@
 * [Обнаружение и диагностика сбоев в приложении][windowsCrash]
 * [Дополнительная информация о метриках][metrics]
 * [Дополнительная информация о поиске по журналу диагностики][diagnostic]
+* [Отслеживание использования приложения][windowsUsage]
+* [Использование API для отправки пользовательской телеметрии][api]
+* [Устранение неполадок][qna]
 
+* [Использование HockeyApp для анализа сбоев, бета-распределения и отзывов о приложении](http://hockeyapp.net/)
 
-## <a name="ide"></a>Автоматизированная настройка
-
-Если вы предпочитаете использовать Visual Studio для выполнения шагов настройки, это можно сделать с приложениями Windows Phone, Магазина Windows и многими другими типами приложений.
-
-###<a name="new"></a> Если создается новый проект приложения Windows...
-
-Выберите Application Insights в диалоговом окне создания проекта.
-
-Если появится запрос на вход, используйте учетные данные для своей учетной записи Azure (которая отличается от учетной записи Visual Studio Team Services).
-
-![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
-
-
-###<a name="existing"></a> Или если это существующий проект...
-
-Добавьте Application Insights из обозревателя решений.
-
-
-![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
-
-## Обновление до новой версии пакета SDK
-
-При [выпуске новой версии пакета SDK](app-insights-release-notes-windows.md): 
-* Щелкните правой кнопкой мыши проект и выберите «Управление пакетами NuGet». 
-* Выберите установленные пакеты Application Insights и выберите «Обновить».
-
-
-## <a name="usage"></a>Дальнейшие действия
-
-
-[Обнаружение и диагностика сбоев в приложении][windowsCrash]
-
-[Ведение журналов диагностики и поиск по ним][diagnostic]
-
-
-[Отслеживание использования приложения][windowsUsage]
-
-[Использование API для отправки пользовательской телеметрии][api]
-
-[Устранение неполадок][qna]
 
 
 
@@ -233,4 +207,4 @@
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

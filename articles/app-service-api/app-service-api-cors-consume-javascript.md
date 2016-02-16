@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # Использование приложения API из JavaScript с помощью CORS
@@ -76,6 +76,8 @@
 		    ]
 		}
 
+Чтобы просмотреть пример шаблона диспетчера ресурсов Azure, содержащий JSON-файл для настройки CORS, откройте [файл azuredeploy.json в репозитории примера приложения](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json).
+
 ## <a id="tutorialstart"></a> Продолжение руководства по началу работы с .NET
 
 Если вы изучаете серию руководств для приложений API по началу работы с Node.js или Java, перейдите к следующей статье, в которой описывается [проверка подлинности для приложений API службы приложений](app-service-api-authentication.md).
@@ -108,19 +110,6 @@
 		    };
 		}]);
 
-### Настройка проекта ToDoListAngular для вызова приложения API ToDoListAPI 
-
-Прежде чем развертывать внешнее приложение в Azure, в проекте AngularJS необходимо изменить конечную точку API, чтобы код вызывал приложение API Azure ToDoListAPI, созданное во время изучения предыдущего руководства.
-
-1. В проекте ToDoListAngular откройте файл *app/scripts/todoListSvc.js*.
-
-2. Закомментируйте строку, которая задает `apiEndpoint` в качестве URL-адреса localhost, раскомментируйте строку, которая задает `apiEndPoint` в качестве URL-адреса azurewebsites.net, и замените заполнитель фактическим именем приложения API, которое вы создали ранее. Если вы назвали приложение API ToDoListAPI0125, код выглядит следующим образом:
-
-		var apiEndPoint = 'https://todolistapi0125.azurewebsites.net';
-		//var apiEndPoint = 'http://localhost:45914';
-
-3. Сохраните изменения.
-
 ### Создание нового веб-приложения для проекта ToDoListAngular
 
 Процедура создания нового веб-приложения и развертывания в нем проекта описана в первом руководстве этой серии. Разница только в том, что вам не нужно менять тип **Веб-приложение** на **Приложение API**.
@@ -145,11 +134,59 @@
 
 	В Visual Studio создается веб-приложение и профиль публикации для него, а также отображается шаг **Подключение** мастера **веб-публикации**.
 
+	Прежде чем нажимать кнопку **Опубликовать** в мастере **веб-публикации**, вы должны настроить новое веб-приложение для вызова приложения API среднего уровня, которое работает в службе приложений.
+
+### Указание URL-адреса среднего уровня в параметрах веб-приложения
+
+1. Войдите на [портал Azure](https://portal.azure.com/), перейдите к колонке **Веб-приложение** веб-приложения, созданном для размещения проекта ToDoListAngular (внешнее приложение).
+
+2. Щелкните элементы **Параметры > Параметры приложения**.
+
+3. В разделе **Параметры приложения** добавьте следующий ключ и значение.
+
+	|Ключ|Значение|Пример
+	|---|---|---|
+	|toDoListAPIURL|https://{your имя приложения API среднего уровня}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
+
+4. Щелкните **Сохранить**.
+
+	Если код выполняется в среде Azure, это значение теперь будет переопределять URL-адрес локального узла, который находится в файле Web.config.
+
+	Код, который получает значение параметра, находится в файле *index.cshtml*:
+
+		<script type="text/javascript">
+		    var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
+		</script>
+		<script src="app/scripts/todoListSvc.js"></script>
+
+	Код в файле *todoListSvc.js* использует этот параметр:
+
+		return {
+		    getItems : function(){
+		        return $http.get(apiEndpoint + '/api/TodoList');
+		    },
+		    getItem : function(id){
+		        return $http.get(apiEndpoint + '/api/TodoList/' + id);
+		    },
+		    postItem : function(item){
+		        return $http.post(apiEndpoint + '/api/TodoList', item);
+		    },
+		    putItem : function(item){
+		        return $http.put(apiEndpoint + '/api/TodoList/', item);
+		    },
+		    deleteItem : function(id){
+		        return $http({
+		            method: 'DELETE',
+		            url: apiEndpoint + '/api/TodoList/' + id
+		        });
+		    }
+		};
+
 ### Развертывание веб-проекта ToDoListAngular в новом веб-приложении
 
-*  На шаге **Подключение** мастера **веб-публикации** нажмите кнопку **Опубликовать**.
+*  В Visual Studio на шаге **Подключение** мастера **веб-публикации** нажмите кнопку **Опубликовать**.
 
-	Visual Studio развернет проект ToDoListAngular в веб-приложении и откроет в браузере URL-адрес веб-приложения.
+	Visual Studio развернет проект ToDoListAngular в новое веб-приложение и откроет в браузере URL-адрес веб-приложения.
 
 ### Тестирование приложения с выключенным механизмом CORS 
 
@@ -200,7 +237,7 @@
 
 ### Включение CORS в коде веб-API
 
-Ниже кратко описано, как включить поддержку CORS веб-API. Дополнительные сведения см. в статье [Enabling Cross-Origin Requests in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) (Включение в веб-API 2 ASP.NET запросов независимо от источника).
+Ниже кратко описано, как включить поддержку CORS веб-API. Дополнительные сведения см. в статье [Enabling Cross-Origin Requests in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) (Включение запросов независимо от источника в веб-API 2 ASP.NET).
 
 1. В проекте веб-API включите строку кода `config.EnableCors()` в метод **Register** класса **WebApiConfig**, как показано в следующем примере. 
 
@@ -238,4 +275,4 @@
 
 В этом руководстве показано, как включить поддержку CORS в службе приложений, чтобы вызывать приложение API, выполняющееся в другом домене, с помощью клиентского кода JavaScript. Из следующей статьи серии, посвященной началу работы с приложениями API, вы узнаете о [проверке подлинности для приложений API службы приложений](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

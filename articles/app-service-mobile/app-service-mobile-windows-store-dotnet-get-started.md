@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/19/2015"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 #Создание приложения Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Обзор
 
@@ -34,7 +32,7 @@
 
 * Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных приложений, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* [Visual Studio Community 2013] или более поздняя версия.
+* [Visual Studio Community 2013] или более поздняя версия.
 
 >[AZURE.NOTE] Если вы хотите приступить к работе со службой приложений Azure до регистрации учетной записи Azure, перейдите на страницу [пробного использования службы приложений](https://tryappservice.azure.com/?appServiceName=mobile). Там вы сможете немедленно создать кратковременное начальное мобильное приложение в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
 
@@ -75,10 +73,10 @@
 ##Дальнейшие действия
 
 * [Добавление проверки подлинности в приложение](app-service-mobile-windows-store-dotnet-get-started-users.md)
- <br/>Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
+<br/>Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
-* [Добавление push-уведомлений в приложение](app-service-mobile-windows-store-dotnet-get-started-push.md)
- <br/>Узнайте, как отправлять в приложение простейшие push-уведомления.
+* [Добавление push-уведомлений в приложение](app-service-mobile-windows-store-dotnet-get-started-push.md) 
+  <br/>Узнайте, как отправлять в приложение простейшие push-уведомления.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -87,4 +85,4 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->
