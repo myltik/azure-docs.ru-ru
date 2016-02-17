@@ -298,6 +298,7 @@
 13.  Просмотрите информацию на странице **Сводка**.
 
 	![Сводка](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
+
 >[AZURE.WARNING] Необходимо настроить прокси агента служб восстановления Microsoft Azure. После завершения установки запустите приложение с именем "Оболочка служб восстановления Microsoft Azure" из меню "Пуск" Windows. В открывшемся командном окне выполните следующий набор команд, чтобы настроить параметры прокси-сервера.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine.exe
@@ -455,7 +456,8 @@
 Исходная операционная система | Файл установки службы Mobility Service
 --- | ---
 Windows Server (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -748,4 +750,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 См. [дополнительные сведения о восстановлении размещения](site-recovery-failback-azure-to-vmware-classic.md), чтобы переместить обратно в локальную среду запущенные в Azure компьютеры, для которых выполнена отработка отказа.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!-----HONumber=AcomDC_0204_2016-->
