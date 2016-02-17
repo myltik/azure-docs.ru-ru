@@ -161,12 +161,12 @@
 ## Дальнейшие действия
 Теперь, когда ваша учетная запись создана и зарегистрирована, выберите тип артефакта (виртуальная машина, служба разработчика, служба данных, шаблон решения), который вы хотите опубликовать в Azure Marketplace. Для публикации приложения обратитесь к одной из следующих статей:
 
-| Образ виртуальной машины | Служба разработчика | Служба данных | Шаблон решения |
+|| Образ виртуальной машины | Служба разработчика | Служба данных | Шаблон решения |
 |----|-----|-----|-----|-----|
 |**Шаг 2. Создание предложения** |[Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)|
-| [Предварительные технические требования для образа виртуальной машины][link-single-vm-prereq] | Предварительные технические требования для службы разработчика | [Предварительные технические требования для службы данных](marketplace-publishing-data-service-creation-prerequisites.md) | [Предварительные технические требования для шаблона решения](marketplace-publishing-solution-template-creation-prerequisites.md) |
-| [Руководство по публикации образа виртуальной машины][link-single-vm] | Руководство по публикации службы разработчика | [Руководство по публикации службы данных](marketplace-publishing-data-service-creation.md) | [Руководство по публикации шаблона решения](marketplace-publishing-solution-template-creation.md) |
-| [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] | [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] | [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] | [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] |
+|| [Предварительные технические требования для образа виртуальной машины][link-single-vm-prereq] | Предварительные технические требования для службы разработчика | [Предварительные технические требования для службы данных](marketplace-publishing-data-service-creation-prerequisites.md) | [Предварительные технические требования для шаблона решения](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Руководство по публикации образа виртуальной машины][link-single-vm] | Руководство по публикации службы разработчика | [Руководство по публикации службы данных](marketplace-publishing-data-service-creation.md) | [Руководство по публикации шаблона решения](marketplace-publishing-solution-template-creation.md) |
+|| [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] | [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] | [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] | [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] |
 
 ## См. также
 - [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -198,4 +198,4 @@
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->
