@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # Разработка скриптов действия сценария для HDInsight
 
-Узнайте, как разрабатывать скрипты действия сценария для HDInsight. Дополнительную информацию о скриптах действия сценария см. в статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md). Для той же статьи, написанной для кластера HDInsight в операционной системе Linux, см. [Разработка скриптов действия сценария для HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Узнайте, как разрабатывать скрипты действия сценария для HDInsight. Дополнительную информацию о скриптах действия сценария см. в статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md). В качестве аналогичной статьи для кластера HDInsight под управлением Linux см. [Разработка скриптов действия сценария для HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 Действие сценария можно использовать для установки дополнительного программного обеспечения, работающего в кластере Hadoop, или для изменения конфигурации приложений, установленных в кластере. Действия сценариев — это сценарии, выполняемые на узлах кластера во время развертывания кластеров HDInsight. Они будут выполнены, как только узлы в кластере завершат конфигурацию HDInsight. Действие сценария выполняется из учетной записи с правами системного администратора и предоставляет права полного доступа к узлам кластера. Для каждого кластера можно задать ряд действий сценария, которые будут выполнены в указанном порядке.
 
-> [AZURE.NOTE]Если появляется следующее сообщение об ошибке:
+> [AZURE.NOTE] Если появляется следующее сообщение об ошибке:
 > 
 >     System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 > Это означает, что вы не включили вспомогательные методы. См. [Вспомогательные методы для пользовательских скриптов](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 
 ## Примеры сценариев
 
-Для подготовки кластеров HDInsight в операционной системе Windows, действием сценария является сценарий Azure PowerShell. Ниже приведен пример сценария для настройки файлов конфигурации сайта:
+Для создания кластеров HDInsight в операционной системе Windows действием сценария является сценарий Azure PowerShell. Ниже приведен пример сценария для настройки файлов конфигурации сайта:
 
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
@@ -90,11 +90,11 @@ HDInsight предоставляет несколько скриптов для 
 **Установка Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. См. статью [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark].
 **Установка R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. См. статью [Установка и использование R в кластерах HDInsight][hdinsight-r-scripts].
 **Установка Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
-— **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
+— **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
 
 Действие сценария можно развернуть из портала Azure, из пакета SDK для HDInsight .NET или Azure PowerShell. Дополнительную информацию см. в разделе [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize].
 
-> [AZURE.NOTE]Примеры сценариев работают только с кластером HDInsight версии 3.1 или более поздней. Дополнительную информацию о версиях кластера HDInsight см. в статье [Новые возможности версий кластеров Hadoop, предоставляемых HDInsight](../hdinsight-component-versioning/).
+> [AZURE.NOTE] Примеры сценариев работают только с кластером HDInsight версии 3.1 или более поздней. Дополнительную информацию о версиях кластера HDInsight см. в статье [Новые возможности версий кластеров Hadoop, предоставляемых HDInsight](../hdinsight-component-versioning/).
 
 
 
@@ -213,7 +213,7 @@ HDInsight предоставляет несколько скриптов для 
 
 ### Вызов исключения при сбое развертывания кластера
 
-Если вы хотите получать точные уведомления о том, что настройки кластера не сработали надлежащим образом, необходимо вызывать исключение и отменять подготовку кластера. Например, может потребоваться обработка файла, если он существует, или обработка ошибки, если файл не существует. Это обеспечит корректное завершение сценария и точное оповещение о состоянии кластера. В следующем фрагменте кода показано, как этого достичь:
+Если вы хотите получать точные уведомления о том, что настройки кластера не сработали надлежащим образом, необходимо вызвать исключение и отменить создание кластера. Например, может потребоваться обработка файла, если он существует, или обработка ошибки, если файл не существует. Это обеспечит корректное завершение сценария и точное оповещение о состоянии кластера. В следующем фрагменте кода показано, как этого достичь:
 
 	If(Test-Path($SomePath)) {
 		#Process file in some way
@@ -351,4 +351,4 @@ HDInsight предоставляет несколько скриптов для 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -57,12 +57,12 @@
 
 1. Убедитесь, что вы используете SQL Server Management Studio версии 13.0.600.65 или более поздней.
 
- 	 >[AZURE.IMPORTANT] Скачайте [последнюю](https://msdn.microsoft.com/library/mt238290.aspx) версию SQL Server Management Studio. Рекомендуется всегда использовать самую последнюю версию Management Studio, чтобы обеспечить синхронизацию с обновлениями на портале Azure.
+ 	 > [AZURE.IMPORTANT] Загрузите [последнюю](https://msdn.microsoft.com/library/mt238290.aspx) версию среды SQL Server Management Studio. Рекомендуется всегда использовать самую последнюю версию Management Studio, чтобы обеспечить синхронизацию с обновлениями на портале Azure.
 
 
 2. Откройте папку «Базы данных», разверните папку **Системные базы данных**, щелкните правой кнопкой мыши базу данных **master** и щелкните **Создать запрос**.
 
-3. Чтобы сделать локальную базу данных геореплицированной базой данных-источником с недоступной для чтения базой данных-получателем на сервере-получателе на сервере MySecondaryServer1 (где MySecondaryServer1 — имя сервера), воспользуйтесь приведенной ниже инструкцией **ALTER DATABASE**.
+3. Чтобы сделать локальную базу данных геореплицированной базой данных-источником с недоступной для чтения базой данных-получателем на сервере MySecondaryServer1, воспользуйтесь приведенной ниже инструкцией **ALTER DATABASE**.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -231,6 +231,6 @@
 - [Новые возможности георепликации](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Разработка облачных приложений для непрерывности бизнес-процессов с использованием георепликации](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [База данных SQL — документация](sql-database.md)
+- [База данных SQL — документация](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

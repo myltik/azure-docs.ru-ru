@@ -336,6 +336,6 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 - [Созданию центра IoT программным образом](iot-hub-rm-template.md)
 - [Метрики использования центра IoT](iot-hub-metrics.md)
-- [Мониторинг операций центра IoT](iot-hub-operations-montoring.md)
+- [Мониторинг операций центра IoT](iot-hub-operations-monitoring.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

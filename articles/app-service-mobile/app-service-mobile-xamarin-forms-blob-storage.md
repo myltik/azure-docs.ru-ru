@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/03/2015"
+	ms.date="02/03/2016"
     ms.author="donnam"/>
 
 #Подключение к службе хранилища Azure в приложении Xamarin.Forms
@@ -93,7 +93,11 @@
             return base.DeleteFileAsync(id, name);
         }
 
-6. Опубликуйте серверный проект в серверной части мобильного приложения.
+6. Обновите конфигурацию веб-API, чтобы настроить маршрутизацию атрибутов. В файле **Startup.MobileApp.cs** добавьте в метод `ConfigureMobileApp()` после определения переменной `config` следующую строку:
+
+        config.MapHttpAttributeRoutes();
+
+7. Опубликуйте серверный проект в серверной части мобильного приложения.
 
 ###Маршруты, регистрируемые с помощью контроллера хранилища
 
@@ -133,17 +137,18 @@
 
 ###Добавление пакетов NuGet
 
-Щелкните решение правой кнопкой мыши и выберите **Управление пакетами NuGet для решения**. Добавьте следующие пакеты NuGet во **все** проекты в решении (выберите параметр **Включить предварительные выпуски**):
+Щелкните решение правой кнопкой мыши и выберите **Управление пакетами NuGet для решения**. Добавьте следующие пакеты NuGet во **все** проекты в решении. Выберите параметр **Включить предварительные выпуски**.
 
-  - [Microsoft.Azure.Mobile.Client.Files];
+  - [Microsoft.Azure.Mobile.Client.Files;]
 
-  - [Microsoft.Azure.Mobile.Client.SQLiteStore];
+  - [Microsoft.Azure.Mobile.Client.SQLiteStore;]
 
-  - [PCLStorage].
+  - [PCLStorage.]
 
 Для удобства в этом примере используется библиотека [PCLStorage], но это не обязательно при использовании пакета SDK для клиента мобильных приложений Azure.
 
 [PCLStorage]: https://www.nuget.org/packages/PCLStorage/
+[PCLStorage.]: https://www.nuget.org/packages/PCLStorage/
 
 ###Добавление интерфейса IPlatform
 
@@ -230,7 +235,7 @@
 
 Создайте класс `TodoItemFileSyncHandler` в основном проекте переносимой библиотеки. Этот класс предусматривает обратные вызовы из пакета SDK для Azure, чтобы при добавлении или удалении файла соответствующая операция учитывалась в коде.
 
-Пакет SDK для клиента мобильных приложений Azure не сохраняет данные файлов. Он вызывает реализацию `IFileSyncHandler`, который определяет, будут ли храниться файлы на локальном устройстве и другие параметры хранения.
+Пакет SDK для клиента мобильных приложений Azure не сохраняет данные файлов. Он вызывает реализацию `IFileSyncHandler`, который определяет, будут ли храниться файлы на локальном устройстве, и другие параметры хранения.
 
 1. Добавьте операторы using:
 
@@ -289,7 +294,7 @@
 
         this.client.SyncContext.InitializeAsync(store, StoreTrackingOptions.NotifyLocalAndServerOperations);
 
-5. В `SyncAsync()` добавьте приведенный ниже код после вызова `PushAsync()`.
+5. В `SyncAsync()` добавьте приведенный ниже код после вызова `PushAsync()`:
 
         await this.todoTable.PushFileChangesAsync();
 
@@ -540,7 +545,7 @@
             }
         }
 
-3. Внесите изменения в файл **MainActivity.cs**. В `OnCreate` добавьте приведенный ниже код до вызова `LoadApplication()`.
+3. Внесите изменения в файл **MainActivity.cs**. В `OnCreate` добавьте приведенный ниже код до вызова `LoadApplication()`:
 
         App.UIContext = this;
 
@@ -704,7 +709,7 @@
 
             jobService.MobileService.EventManager.Subscribe<StoreOperationCompletedEvent>(StoreOperationEventHandler);
 
-- Файлы можно добавлять в запись и удалять их из нее. Для этого нужно внести изменения прямо в хранилище BLOB-объектов, так как для связывания используется соглашение об именовании. Тем не менее **при изменении связанных больших двоичных объектов всегда следует обновлять метку времени записи**. Пакет SDK для клиента мобильных приложений Azure всегда обновляет запись при добавлении или удалении файла.
+- Файлы можно добавлять в запись и удалять их из нее. Для этого нужно внести изменения прямо в хранилище BLOB-объектов, так как для связывания используется соглашение об именовании. Тем не менее, **при изменении связанных больших двоичных объектов всегда следует обновлять метку времени записи**. Пакет SDK для клиента мобильных приложений Azure всегда обновляет запись при добавлении или удалении файла.
 
     Это вызвано тем, что в локальном хранилище некоторых мобильных клиентов уже может быть такая запись. Если такой клиент выполнит добавочный pull-запрос, соответствующая запись не будет возвращена и клиент не запросит новые связанные файлы. Чтобы избежать этой проблемы, рекомендуется обновлять метку времени записи при любом изменении хранилища BLOB-объектов, в котором не задействован пакет SDK для клиента мобильных приложений Azure.
 
@@ -716,10 +721,10 @@
 [Создание приложения Xamarin.Forms]: ../app-service-mobile-xamarin-forms-get-started.md
 [DependencyService Xamarin.Forms]: https://developer.xamarin.com/guides/xamarin-forms/dependency-service/
 [DependencyService Xamarin.Forms ]: https://developer.xamarin.com/guides/xamarin-forms/dependency-service/
-[Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
-[Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
+[Microsoft.Azure.Mobile.Client.Files;]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
+[Microsoft.Azure.Mobile.Client.SQLiteStore;]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
 [Подписи общего доступа. Часть 1: общие сведения о модели SAS]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Создайте учетную запись хранения]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

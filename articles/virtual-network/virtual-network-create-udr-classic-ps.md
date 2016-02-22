@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Управление маршрутизацией и использование виртуальных модулей (классический режим) с помощью PowerShell
@@ -23,11 +23,11 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания. Вы также можете [ВВЕСТИ ЗДЕСЬ ДЕЙСТВИЕ ДЛЯ ARM](armToken).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-Для приведенных ниже примеров команд Azure PowerShell требуется уже созданная простая среда, основанная на приведенном выше сценарии. Для выполнения команд в том виде, в каком они представлены в данном документе, создайте среду, описанную в разделе о [создании виртуальной сети (классический режим) с помощью PowerShell](virtual-networks-create-vnet-classic-ps.md).
+Для приведенных ниже примеров команд Azure PowerShell требуется уже созданная простая среда, основанная на приведенном выше сценарии. Для выполнения команд в том виде, в каком они представлены в данном документе, создайте среду, описанную в разделе о [создании виртуальной сети (классический режим) с помощью PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -36,11 +36,9 @@
 
 3. Выполните командлет **`New-AzureRouteTable`**, чтобы создать таблицу маршрутов для подсети переднего плана.
 
-		```powershell
 		New-AzureRouteTable -Name UDR-FrontEnd `
 			-Location uswest `
 			-Label "Route table for front end subnet"
-		```
 
 	Выходные данные:
 
@@ -50,12 +48,10 @@
 
 4. Выполните командлет **`Set-AzureRoute`**, чтобы создать маршрут в созданной ранее таблице маршрутов для отправки всего трафика, предназначенного для серверной подсети (192.168.2.0/24), в виртуальную машину **FW1** (192.168.0.4).
 	
-		```powershell
 		Get-AzureRouteTable UDR-FrontEnd `
 			|Set-AzureRoute -RouteName RouteToBackEnd -AddressPrefix 192.168.2.0/24 `
 			-NextHopType VirtualAppliance `
 			-NextHopIpAddress 192.168.0.4
-		```
 
 	Выходные данные:
 
@@ -69,39 +65,32 @@
 
 5. Выполните командлет **`Set-AzureSubnetRouteTable`**, чтобы сопоставить созданную ранее таблицу маршрутов с подсетью **FrontEnd**.
 
-		```powershell
 		Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
 			-SubnetName FrontEnd `
 			-RouteTableName UDR-FrontEnd
-		```
  
 ## Создание определяемого пользователем маршрута для серверной подсети
 Чтобы создать таблицу маршрутов и маршрут, необходимые для серверной подсети, на основании приведенного выше сценария, выполните следующие действия.
 
 3. Выполните командлет **`New-AzureRouteTable`**, чтобы создать таблицу маршрутов для серверной подсети.
 
-		```powershell
 		New-AzureRouteTable -Name UDR-BackEnd `
 			-Location uswest `
 			-Label "Route table for back end subnet"
-		```
 
 4. Выполните командлет **`Set-AzureRoute`**, чтобы создать маршрут в созданной ранее таблице маршрутов для отправки всего трафика, предназначенного для подсети переднего плана (192.168.1.0/24), в виртуальную машину **FW1** (192.168.0.4).
 
-		```powershell
 		Get-AzureRouteTable UDR-BackEnd `
 			|Set-AzureRoute -RouteName RouteToFrontEnd -AddressPrefix 192.168.1.0/24 `
 			-NextHopType VirtualAppliance `
 			-NextHopIpAddress 192.168.0.4
-		```
 
 5. Выполните командлет **`Set-AzureSubnetRouteTable`**, чтобы сопоставить созданную ранее таблицу маршрутов с подсетью **BackEnd**.
 
-		```powershell
 		Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
 			-SubnetName FrontEnd `
 			-RouteTableName UDR-FrontEnd
-		```
+
 ## Включение IP-пересылки на виртуальной машине FW1
 Чтобы включить IP-пересылку на виртуальной машине FW1, выполните следующие действия.
 
@@ -119,4 +108,4 @@
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

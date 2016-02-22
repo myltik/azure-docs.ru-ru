@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"   
 	ms.author="juliako"/>
 
 
@@ -105,7 +105,7 @@
 ![Process2][process2]
 
 
-В статье [Строки предустановок задач для Media Encoder Standard](https://msdn.microsoft.com/ru-RU/library/mt269960) объясняется, что означает каждая из предустановок.
+В статье [Строки предустановок задач для Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) объясняется значение каждой из предустановок.
 
 5. Затем введите нужное понятное имя выходного содержимого или примите значение по умолчанию. Нажмите кнопку проверки, чтобы начать операцию кодирования, ход выполнения которой можно отслеживать в нижней части портала.
 6. Нажмите кнопку ОК.
@@ -220,4 +220,4 @@ URL-адрес потоковой передачи имеет следующий
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

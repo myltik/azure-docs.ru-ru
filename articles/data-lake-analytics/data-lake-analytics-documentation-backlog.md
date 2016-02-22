@@ -3,8 +3,8 @@
    description="Аналитика озера данных — это служба вычислений для больших данных Azure, которая помогает развивать ваш бизнес на основе аналитических результатов по вашим данным в облаке независимо от их местонахождения и объема. Аналитика озера данных реализует это самым простым, масштабируемым и экономичным способом. На этой странице перечислена запланированная к выпуску документация."
    documentationCenter="na"
    services="data-lake-analytics"
-   authors="mumian"
-   manager="paulettm"
+   authors="pablissima"
+   manager="pablissima"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/05/2015"
+   ms.date="02/10/2016"
    ms.author="mwinkle"/>
 
 # Список подготавливаемой документации по аналитике озера данных Azure
@@ -57,4 +57,4 @@ U-SQL | Параметры проверки подлинности ADLS | 1 | О
 * Отправить запрос по внесению предложенных изменений в данный документ в [репозиторий содержимого Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Отправить сообщение по адресу [adlafeedback на сайте microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,10 +1,16 @@
-<properties pageTitle="Подключение к базе данных SQL с помощью SQL Server Management Studio в Azure RemoteApp | Microsoft Azure" description="Из этого руководства вы узнаете, как с помощью SQL Server Management Studio в Azure RemoteApp обеспечить безопасность и производительность при подключении к базе данных SQL." services="sql-database" documentationCenter="" authors="adhurwit" manager="" tags=""//>
+<properties 
+	pageTitle="Подключение к базе данных SQL с помощью SQL Server Management Studio в Azure RemoteApp | Microsoft Azure" 
+	description="С помощью данного учебника вы узнаете, как использовать SQL Server Management Studio в Azure RemoteApp для обеспечения безопасности и улучшения производительности при подключении к базе данных SQL"
+	services="sql-database" 
+	documentationCenter=""
+	authors="adhurwit" 
+	manager=""/>
 
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>
@@ -51,7 +57,7 @@ Azure RemoteApp — это служба удаленных рабочих ст�
 
 ### 2\. Установка SSMS из SQL Express
 
-Перейдите на новую виртуальную машину, а затем на эту страницу загрузки: [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/ru-RU/download/details.aspx?id=42299).
+Перейдите на новую виртуальную машину, а затем на эту страницу скачивания: [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/ru-RU/download/details.aspx?id=42299).
 
 Здесь можно скачать только SSMS. После загрузки перейдите в каталог установки и запустите программу установки SSMS.
 
@@ -104,7 +110,7 @@ SQL Server 2014 с пакетом обновления 1 включает ос
 
 ### 9\. Установка клиентского приложения Azure RemoteApp
 
-Клиент Azure RemoteApp можно скачать и установить отсюда: [Загрузка | Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/clients.aspx).
+Клиент Azure RemoteApp можно скачать и установить отсюда: [Скачивание | Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/clients.aspx).
 
 
 
@@ -152,4 +158,4 @@ SQL Server 2014 с пакетом обновления 1 включает ос
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

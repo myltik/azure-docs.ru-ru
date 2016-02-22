@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -116,7 +116,7 @@ My Apps для iOS поддерживается на всех устройств
 
 
 
-> [AZURE.NOTE]В приложения, поддерживающие федерацию с Azure AD (включая Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 и более 70 других), можно входить практически в любом веб-браузере на любом устройстве без подключаемого модуля или мобильного приложения. Для остальных компонентов панели доступа на веб-сайте [https://myapps.microsoft.com](https://myapps.microsoft.com/) также не требуется мобильное приложение My Apps на мобильном устройстве.
+> [AZURE.NOTE] В приложения, поддерживающие федерацию с Azure AD (включая Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 и более 70 других), можно входить практически в любом веб-браузере на любом устройстве без подключаемого модуля или мобильного приложения. Для остальных компонентов панели доступа на веб-сайте [https://myapps.microsoft.com](https://myapps.microsoft.com/) также не требуется мобильное приложение My Apps на мобильном устройстве.
  
 
 
@@ -172,8 +172,12 @@ My Apps для iOS поддерживается на всех устройств
 
 При настройке единого входа для приложения на портале управления Azure доступен третий параметр: «Существующий единый вход». Этот параметр позволяет администраторам создавать ссылку на приложение и помещать ее на панель доступа для выбранных пользователей. Например, если существует приложение, которое выполняет проверку подлинности пользователей с помощью служб федерации Active Directory 2.0, администратор может использовать параметр «Существующий единый вход» для создания ссылки на него на панели доступа. Когда пользователи переходят по ссылке, проверка подлинности выполняется с помощью служб федерации Active Directory 2.0 или другого решения существующего единого входа, предоставляемого приложением.
 
+##Связанные статьи
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
+- [Введение в единый вход и управление доступом к приложениям с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS](active-directory-saas-app-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
@@ -181,4 +185,4 @@ My Apps для iOS поддерживается на всех устройств
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

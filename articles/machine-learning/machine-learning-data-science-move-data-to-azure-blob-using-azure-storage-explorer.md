@@ -13,22 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью обозревателя хранилищ Azure
+
+## Введение 
+
+Обозреватель хранилищ Azure — это бесплатный инструмент для проверки и изменения данных в учетной записи хранения Azure на платформе Windows. Здесь описывается, как использовать этот инструмент для отправки и скачивания данных из хранилища BLOB-объектов Azure. Его можно скачать в [обозревателе хранилищ Azure](http://azurestorageexplorer.codeplex.com/).
 
 Сведения о технологиях, которые используются для перемещения данных в хранилище больших двоичных объектов Azure и из него, см. по следующим ссылкам:
 
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-## Введение
 
-Обозреватель хранилищ Azure — это бесплатный инструмент для проверки и изменения данных в учетной записи хранения Azure на платформе Windows. Его можно скачать в [обозревателе хранилищ Azure](http://azurestorageexplorer.codeplex.com/).
+> [AZURE.NOTE] Если используется виртуальная машина, созданная с помощью скриптов, предоставленных [виртуальными машинами для обработки и анализа данных в Azure](machine-learning-data-science-virtual-machines.md), то обозреватель хранилищ Azure уже установлен на виртуальной машине.
 
-> [AZURE.NOTE]Если используется виртуальная машина, созданная с помощью скриптов, предоставленных [виртуальными машинами для обработки и анализа данных в Azure](machine-learning-data-science-virtual-machines.md), то обозреватель хранилищ Azure уже установлен на виртуальной машине.
-
-> [AZURE.NOTE]Полное описание базовых принципов использования хранилища больших двоичных объектов Azure см. в статьях [Основы использования больших двоичных объектов Azure](../storage-dotnet-how-to-use-blobs.md) и [Основные понятия службы BLOB-объектов](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> [AZURE.NOTE] Полное описание базовых принципов использования хранилища больших двоичных объектов Azure см. в статьях [Основы использования больших двоичных объектов Azure](../storage-dotnet-how-to-use-blobs.md) и [Основные понятия службы BLOB-объектов](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ## Предварительные требования
 
@@ -55,4 +56,4 @@
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/29/2016"
+	ms.date="02/09/2016"
 	ms.author="juliako"/>
 
 
@@ -66,6 +66,7 @@
 При кодировании ресурс-контейнера с именем файла, содержащим escape-последовательности символов (например, %20), появляется ошибка "MediaProcessor: файл не найден".|Имена файлов, которые будут добавляться в актив и затем кодироваться, должны содержать только буквы, цифры и пробелы. Эта проблема будет исправлена в следующем обновлении.
 Метод ListBlobs, входящий в состав пакета SDK хранилища Azure версии 3.x, приводит к сбою.|Службы мультимедиа создают URL-адреса SAS на основе версии [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx). Если вы хотите использовать пакет SDK хранилища Azure для создания списка BLOB-объектов в контейнере BLOB-объектов, используйте метод [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx), входящий в пакет SDK хранилища Azure версии 2.x. Метод ListBlobs, входящий в состав пакета SDK хранилища Azure версии 3.x, будет вызывать сбой.
 Механизм регулирования служб мультимедиа ограничивает использование ресурсов для приложений, создающих избыточный запрос к службе. Службой может быть возвращен код состояния HTTP "Service Unavailable (503)".|Дополнительную информацию см. в описании кода состояния HTTP 503 в разделе [Коды ошибок служб мультимедиа Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
+При запросе сущностей существует ограничение в 1000 сущностей, возвращаемых за один раз, так как в открытой версии 2 REST количество результатов запросов ограничено 1000. | Вам нужно нажать **Пропустить** и **Принять** (.NET) и **в начало** (REST), как описано [в этом примере .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) и [в этом примере REST API](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 
 ### <a id="dotnet_issues"></a>Проблемы с пакетом SDK служб мультимедиа для .NET
@@ -645,4 +646,4 @@ API REST служб мультимедиа обновлены до версии 
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

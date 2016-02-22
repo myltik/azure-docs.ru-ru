@@ -3,7 +3,7 @@
   description="Список пакетов SDK клиента и сведения о совместимости с версиями пакетов SDK сервера для мобильных служб и мобильных приложений Azure"
   services="app-service\mobile"
   documentationCenter=""
-  authors="lindydonna" 
+  authors="lindydonna"
   manager="dwrede"
   editor=""/>
 
@@ -13,15 +13,12 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="12/15/2015"
+  ms.date="02/04/2016"
   ms.author="donnam"/>
 
 # Управление версиями клиента и сервера в мобильных приложениях и мобильных службах
 
 Последняя версия мобильных служб Azure — компонент **Мобильные приложения** службы приложений Azure.
-
-<!-- Azure App Service offers a number of platform benefits over Mobile Services, including continuous integration and deployment, staging lots, and VNET support.
- -->
 
 Пакеты SDK для клиента и сервера мобильных приложений основаны на аналогичных пакетах мобильных служб, но *не совместимы* с ними. Другими словами, пакет SDK клиента *мобильных приложений* необходимо использовать с пакетом SDK сервера *мобильных приложений* (то же справедливо и для *мобильных служб*). Этот контракт реализуется посредством специального значения заголовка, используемого пакетами SDK для клиента и сервера, `ZUMO-API-VERSION`.
 
@@ -45,7 +42,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 Можно отказаться от проверки версий, задав значение **true** для параметра приложения **MS\_SkipVersionCheck**. Укажите это в файле web.config или в разделе параметров приложения портала Azure.
 
-> [AZURE.NOTE]Работа мобильных приложений отличается от мобильных служб в нескольких аспектах, в частности, в сфере автономной синхронизации, проверки подлинности и push-уведомлений. Отказываться от проверки версий необходимо только после выполнения тщательного тестирования, чтобы гарантировать, что эти изменения в работе не нарушат функциональность приложения.
+> [AZURE.NOTE] Работа мобильных приложений отличается от мобильных служб в нескольких аспектах, в частности, в сфере автономной синхронизации, проверки подлинности и push-уведомлений. Отказываться от проверки версий необходимо только после выполнения тщательного тестирования, чтобы гарантировать, что эти изменения в работе не нарушат функциональность приложения.
 
 ## Сводные сведения о совместимости для всех версий
 
@@ -82,8 +79,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 | Платформа сервера | Версия | Принятый заголовок версии |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* версия 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Нет заголовка версии** |
-| Node.js | (ожидается в ближайшее время) | **Нет заголовка версии** |
+| .NET | [WindowsAzure.MobileServices.Backend.* версия 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **** Нет заголовка версии ** || Node.js | (ожидается в ближайшее время) | **Нет заголовка версии** |
 
 <!-- TODO: add Node npm version -->
 
@@ -93,7 +89,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | ---------------- | ---------------------------- | -------- |
 | Не указан | Любой | 200 – OK |
 | Любое значение | Истина | 200 – OK |
-| Любое значение | False/не указан | 400 – неверный запрос | 
+| Любое значение | False/не указан | 400 – неверный запрос |
 
 ## <a name="2.0.0"></a>Клиент и сервер мобильных приложений Azure
 
@@ -141,4 +137,4 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Перенос мобильной службы в службу приложений Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

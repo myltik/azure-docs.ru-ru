@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 
@@ -36,6 +36,7 @@
  * Azure DocumentDB, очередь, таблица и хранилище больших двоичных объектов.
 * Java:
  * вызовы к базе данных с помощью драйвера [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) (например, MySQL, SQL Server, PostgreSQL или SQLite).
+* JavaScript на веб-страницах — [веб-страницы SDK](app-insights-javascript.md) автоматически регистрируют вызовы Ajax как зависимости.
 
 Можно написать собственные вызовы пакета SDK для отслеживания других зависимостей с помощью [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
@@ -111,7 +112,7 @@
 
 Щелкните любой длительный экземпляр, чтобы проверить его более детально.
 
-> [AZURE.NOTE]Немного прокрутите вниз, чтобы выбрать экземпляр. Задержка в конвейере может означать неполноту данных верхних экземпляров.
+> [AZURE.NOTE] Немного прокрутите вниз, чтобы выбрать экземпляр. Задержка в конвейере может означать неполноту данных верхних экземпляров.
 
 Прокрутите вниз до вызовов удаленных зависимостей, связанных с этим запросом:
 
@@ -181,9 +182,7 @@
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [perf]: app-insights-web-monitor-performance.md
@@ -191,8 +190,7 @@
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-overview.md
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

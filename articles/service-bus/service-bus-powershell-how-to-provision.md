@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/08/2016"
 	ms.author="sethm"/>
 
 # Управление Service Bus с помощью PowerShell
@@ -26,9 +26,9 @@ Microsoft Azure PowerShell — это среда сценариев, котор
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-- Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения], [Предложения для участников] или [Бесплатное пробное использование].
+- Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][], [Предложения для участников][] или [Бесплатное пробное использование][].
 
-- Компьютер с Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell].
+- Компьютер с Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][].
 
 - Общее представление о сценариях PowerShell, пакетах NuGet и платформе .NET Framework.
 
@@ -165,13 +165,13 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 - [Как создать запросы, разделы и подписки Service Bus с помощью сценария PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Как создать пространство имен и концентратор событий служебной шины с помощью сценария PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Некоторые готовые сценарии также доступны для скачивания на странице [Сценарии PowerShell для служебной шины](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059).
+Некоторые готовые сценарии также доступны для скачивания на странице [Сценарии PowerShell для служебной шины](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->
 [Варианты приобретения]: http://azure.microsoft.com/pricing/purchase-options/
 [Предложения для участников]: http://azure.microsoft.com/pricing/member-offers/
 [Бесплатное пробное использование]: http://azure.microsoft.com/pricing/free-trial/
-[Установка и настройка Azure PowerShell]: ../install-configure-powershell.md
+[Установка и настройка Azure PowerShell]: ../powershell-install-configure.md
 [пакете NuGet служебной шины]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
@@ -179,4 +179,4 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [API .NET для служебной шины]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -22,7 +22,7 @@
 ## События EventSource
 Имя поставщика EventSource для среды выполнения Reliable Actors — Microsoft-ServiceFabric-Actors. События из этого источника отображаются в окне [События диагностики](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) при [отладке приложения субъекта в Visual Studio](service-fabric-debugging-your-application.md).
 
-Для сбора и просмотра событий EventSource вы можете использовать такие инструменты и технологии, как [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [диагностика Azure](../cloud-services-dotnet-diagnostics.md), [семантическое ведение журналов](https://msdn.microsoft.com/library/dn774980.aspx) и [библиотеки Microsoft TraceEvent](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Для сбора и просмотра событий EventSource вы можете использовать такие инструменты и технологии, как [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [диагностика Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [семантическое ведение журналов](https://msdn.microsoft.com/library/dn774980.aspx) и [библиотеки Microsoft TraceEvent](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Ключевые слова
 Все события EventSource надежных субъектов связаны с одним или несколькими ключевыми словами. Это позволяет фильтровать собранные события. Определены указанные ниже биты ключевых слов.
@@ -44,7 +44,7 @@
 
 В каждой категории предусмотрен как минимум один счетчик.
 
-Для сбора и просмотра данных счетчиков производительности можно использовать [системный монитор Windows](https://technet.microsoft.com/library/cc749249.aspx), доступный по умолчанию в операционной системе Windows. [Диагностика Azure](../cloud-services-dotnet-diagnostics.md), в свою очередь, позволяет не только собирать данные счетчиков производительности, но и загружать их в таблицы Azure.
+Для сбора и просмотра данных счетчиков производительности можно использовать [системный монитор Windows](https://technet.microsoft.com/library/cc749249.aspx), доступный по умолчанию в операционной системе Windows. [Диагностика Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), в свою очередь, позволяет не только собирать данные счетчиков производительности, но и загружать их в таблицы Azure.
 
 ### Имена экземпляров счетчиков производительности
 В кластере, содержащем большое количество служб или секций служб субъектов, находится большое количество экземпляров счетчиков производительности субъектов. Имя экземпляра счетчика производительности помогает определить конкретную [секцию](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) и метод субъекта (если применимо), с которыми связан экземпляр.
@@ -153,4 +153,4 @@
 |ActorActivated|5|Информация|0x1|Субъект активирован.|
 |ActorDeactivated|6|Информация|0x1|Субъект отключен.|
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

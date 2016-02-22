@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # Доступ к журналам приложений YARN в HDInsight под управлением Linux
 
 В данном документе рассказывается, как получить доступ к журналам приложений YARN, завершивших работу в кластере Hadoop в Azure HDInsight.
 
-> [AZURE.NOTE]Информация, приведенная в этом документе, относится только к кластерам HDInsight на платформе Linux. Сведения о кластерах под управлением Windows см. в статье [Программный доступ к журналам приложений YARN в Hadoop в HDInsight](hdinsight-hadoop-access-yarn-app-logs.md)
+> [AZURE.NOTE] Информация, приведенная в этом документе, относится только к кластерам HDInsight на платформе Linux. Сведения о кластерах под управлением Windows см. в статье [Программный доступ к журналам приложений YARN в Hadoop в HDInsight](hdinsight-hadoop-access-yarn-app-logs.md)
 
 ## Предварительные требования
 
@@ -96,4 +96,4 @@ YARN поддерживает несколько моделей программ
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

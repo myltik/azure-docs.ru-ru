@@ -14,14 +14,14 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/05/2015"
+ ms.date="02/04/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Набор Azure IoT Suite
 
-Набор Microsoft Azure IoT — это решение уровня предприятия, которое позволяет быстро приступить к работе с помощью набора расширяемых предварительно настроенных решений, которые обращаются к типовым сценариям IoT, таким как *удаленное наблюдение* и *подключенные устройства*.
+Набор Microsoft Azure IoT — это решение уровня предприятия, которое позволяет быстро приступить к работе с помощью набора расширяемых, предварительно настроенных решений, которые обращаются к типовым сценариям IoT, таким как *удаленное наблюдение* и *диагностическое обслуживание*.
 
 Предварительно настроенные решения
 
@@ -48,4 +48,4 @@
 [машинное обучение Azure]: https://azure.microsoft.com/ru-RU/services/machine-learning/
 [службу хранилища Azure]: https://azure.microsoft.com/ru-RU/services/storage/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

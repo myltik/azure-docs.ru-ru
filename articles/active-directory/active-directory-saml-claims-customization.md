@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser"/>
 
 #Настройка утверждений, выпущенных в маркере SAML для предварительно интегрированных приложений в Azure Active Directory
@@ -57,6 +57,12 @@
 **Примечание.** При синхронизации данных пользователя из локального каталога Active Directory с использовании последней предварительной версии средства подключения AAD поддерживаются только значения **user.onpremisesecurityidentifier** и **user.onpremisesamaccountname**. Загрузить предварительную версию средства подключения можно по следующей ссылке:
 
 http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
+
+## Связанные статьи
+
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](active-directory-saas-custom-apps.md)
+- [Устранение неполадок единого входа на основе SAML](active-directory-saml-debugging.md)
 	
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
@@ -64,4 +70,4 @@ http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

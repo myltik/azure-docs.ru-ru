@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="02/04/2016"
 	ms.author="ricksal"/>
 
 
 # Использование клиентской библиотеки Android для мобильных приложений
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 В этом руководстве показано, как использовать клиентский пакет Android SDK для мобильных приложений. Это средство позволяет реализовывать такие распространенные сценарии, как запрос данных (вставка, обновление и удаление), проверка подлинности пользователей, обработка ошибок и настройка клиента. Кроме того, приводятся подробные сведения об общем клиентском коде, используемом в большинстве мобильных приложений.
 
@@ -42,17 +42,17 @@
 
 После этого выполните шаги, описанные в разделе "Подробный обзор".
 
-###<a name="gradle-build"></a>Обновление файла сборки Gradle 
+###<a name="gradle-build"></a>Обновление файла сборки Gradle
 
 Измените оба файла **build.gradle**:
 
 1. Добавьте следующий код в файл **build.gradle** уровня *Project* внутри тега *buildscript*:
- 
+
 		buildscript {
 		    repositories {
 		        jcenter()
 		    }
-		} 
+		}
 
 2. Добавьте следующий код в файл **build.gradle** уровня *Module app* внутри тега *dependencies*:
 
@@ -65,7 +65,7 @@
 
 	<uses-permission android:name="android.permission.INTERNET" />
 
-## Подробный обзор  
+## Подробный обзор
 
 В этом разделе рассматриваются некоторые примеры кода в приложении быстрого запуска. Если вы не работали с руководством по быстрому запуску, вам нужно добавить этот код в приложение.
 
@@ -102,7 +102,7 @@
 	    public Integer getPriority() {
 	        return mPriority;
 	    }
-	
+
 	    /**
 	     * Sets the item priority
 	     *
@@ -303,7 +303,7 @@
 
 Следующий запрос возвращает все элементы в таблице *ToDoItem*.
 
-	List<ToDoItem> results = mToDoTable.execute().get();             
+	List<ToDoItem> results = mToDoTable.execute().get();
 
 Переменная *results* возвращает итоговый набор запроса в виде списка.
 
@@ -441,7 +441,7 @@
 
 	String myRowId = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
    	mToDoTable.delete(myRowId);
-                    
+
 
 ##<a name="lookup"></a>Поиск определенного элемента
 
@@ -478,7 +478,7 @@
 
 Следующий шаг — вставка объекта.
 
-    mJsonToDoTable.insert(jsonItem).get();                   
+    mJsonToDoTable.insert(jsonItem).get();
 
 
 Если необходимо получить идентификатор вставленного объекта, используем следующий вызов метода:
@@ -546,23 +546,23 @@
 Вызовите из клиента Android метод **invokeApi** для вызова конечной точки настраиваемого API. В следующем примере показано, как вызвать конечную точку API с именем *completeAll*, которая возвращает класс коллекции с именем MarkAllResult.
 
 	public void completeItem(View view) {
-	    
-	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll", MarkAllResult.class ); 
-	    	
+
+	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll", MarkAllResult.class );
+
 	    	Futures.addCallback(result, new FutureCallback<MarkAllResult>() {
 	    		@Override
 	    		public void onFailure(Throwable exc) {
 	    			createAndShowDialog((Exception) exc, "Error");
 	    		}
-	    		
+
 	    		@Override
 	    		public void onSuccess(MarkAllResult result) {
 	    			createAndShowDialog(result.getCount() + " item(s) marked as complete.", "Completed Items");
-	                refreshItemsFromTable();	
+	                refreshItemsFromTable();
 	    		}
 	    	});
 	    }
-	
+
 Метод **invokeApi** вызывается на стороне клиента, что приводит к отправке запроса POST новому настраиваемому API. Результат, возвращаемый настраиваемым интерфейсом API, отображается в диалоговом окне сообщения, как и любые ошибки. Другие версии метода **invokeApi** позволяют при необходимости отправить объект в тексте запроса, указать метод HTTP и отправить параметры запроса вместе с запросом. Кроме того, доступны нетипизированные версии **invokeApi**.
 
 ##<a name="authentication"></a>Практическое руководство. Добавление проверки подлинности в приложение
@@ -840,4 +840,4 @@
 [Добавление проверки подлинности в приложение Android]: app-service-mobile-android-get-started-users.md
 [Приступая к работе с аутентификацией]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

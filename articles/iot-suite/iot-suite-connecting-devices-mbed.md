@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/10/2015"
+   ms.date="02/05/2015"
    ms.author="dobett"/>
 
 
@@ -44,11 +44,11 @@
 
     ![][6]
 
-4. Во всплывающем окне введите ссылку на пример кода: https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/
+4. Во всплывающем окне введите ссылку на пример кода https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/ и щелкните **Импортировать**.
 
     ![][7]
 
-5. В компиляторе mbed вы увидите, что при импорте проекта были импортированы различные библиотеки. Некоторые из них предоставляются и обслуживаются командой разработчиков Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [iothub\_http\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_http_transport/), [proton-c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/)), остальные являются библиотеками сторонних производителей, доступными в каталоге библиотек mbed.
+5. В окне компилятора mbed вы увидите, что при импорте проекта были импортированы различные библиотеки. Некоторые из них предоставляются и обслуживаются командой разработчиков Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [proton-c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/)), остальные являются библиотеками сторонних производителей, доступными в каталоге библиотек mbed.
 
     ![][8]
 
@@ -61,14 +61,12 @@
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. Замените [Device Id] и [Device Key] данными вашего устройства.
-
-8. Используйте имя узла центра IoT на устройстве, чтобы заполнить поля «Имя IoTHub» и «Суффикс IoTHub». Например, если имя узла центра IoT — Contoso.azure-devices.net, Contoso является именем центра IoT, а все остальное — суффиксом.
+7. Замените [Device Id] и [Device Key] данными вашего устройства. Используйте имя узла центра IoT для замены заполнителей [IoTHub Name] и [IoTHub Suffix, т.е. azure-devices.net]. Например, если имя узла центра IoT — contoso.azure-devices.net, то contoso — это **hubName** (имя центра), а все остальное — **hubSuffix** (суффикс центра):
 
     ```
     static const char* deviceId = "mydevice";
     static const char* deviceKey = "mykey";
-    static const char* hubName = "Contoso";
+    static const char* hubName = "contoso";
     static const char* hubSuffix = "azure-devices.net";
     ```
 
@@ -78,16 +76,17 @@
 
 1. Щелкните **Скомпилировать**, чтобы собрать программу. Вы можете проигнорировать все предупреждения. Однако если при сборке возникают ошибки, исправьте их, прежде чем продолжить.
 
-2. Если сборка выполнена успешно, создается файл с именем проекта и расширением BIN. Скопируйте BIN-файл на устройство. При этом терминальное соединение с устройством будет перезапущено. После повторного подключения сбросьте терминал вручную или установите новое терминальное соединение. Это позволяет сбросить данные устройства mbed и приступить к запуску программы.
+2. Если сборка выполнена успешно, то на веб-сайте компилятора mbed создается BIN-файл с именем вашего проекта и загружается на локальный компьютер. Скопируйте BIN-файл на устройство. При сохранении BIN-файла на устройство происходит перезапуск устройства и запуск программы, содержащейся в BIN-файле. Программу можно вручную перезапустить в любое время, нажав кнопку сброса на устройстве mbed.
 
 3. Подключитесь к устройству с помощью клиентского SSH-приложения, такого как PuTTY. Вы можете посмотреть, какой последовательный порт использует устройство, в диспетчере устройств Windows.
 
-
-4. В PuTTY выберите тип подключения **Serial** (Последовательный). Скорее всего устройство подключается на скорости 115 200 бит/с, поэтому введите это значение в поле **Speed** (Скорость). Щелкните **Open** (Открыть).
-
     ![][11]
 
+4. В PuTTY выберите тип подключения **Serial** (Последовательный). Устройство обычно подключается со скоростью 115200 бод, поэтому введите 115200 в поле **Скорость**. Затем щелкните **Открыть**.
+
 5. Начнется выполнение программы. Если программа не запускается автоматически при подключении, возможно, нужно перезагрузить плату (для этого нажмите клавиши CTRL+BREAK или кнопку сброса на плате).
+
+    ![][10]
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
@@ -96,10 +95,11 @@
 [7]: ./media/iot-suite-connecting-devices-mbed/mbed2a.png
 [8]: ./media/iot-suite-connecting-devices-mbed/mbed3a.png
 [9]: ./media/iot-suite-connecting-devices-mbed/suite6.png
+[10]: ./media/iot-suite-connecting-devices-mbed/putty.png
 [11]: ./media/iot-suite-connecting-devices-mbed/mbed6.png
 
 [lnk-mbed-home]: https://developer.mbed.org/platforms/FRDM-K64F/
 [lnk-mbed-getstarted]: https://developer.mbed.org/platforms/FRDM-K64F/#getting-started-with-mbed
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

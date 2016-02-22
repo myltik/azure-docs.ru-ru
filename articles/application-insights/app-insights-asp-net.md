@@ -114,7 +114,7 @@
 
 Щелкните любую диаграмму, чтобы увидеть более подробные метрики. [Дополнительные сведения о метриках.][perf]
 
-* *Нет данных пользователя или страницы?* — [Добавление данных пользователя и страницы](app-insights-asp-net-client.md)
+* *Нет данных пользователя или страницы?* — [Добавление данных пользователя и страницы](app-insights-web-track-usage.md)
 
 ### Поиск: отдельные события
 
@@ -146,7 +146,7 @@
 
 #### Проблемы на сервере сборки?
 
-См. [этот элемент устранения неполадок](app-insights-troubleshoot-faq.md#NuGetBuild).
+См. [этот элемент устранения неполадок](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [AZURE.NOTE] Если приложение генерирует много телеметрических данных (а вы используете пакет SDK ASP.NET версии 2.0.0-beta3 или выше), модуль адаптивной выборки автоматически сокращает объем отправляемых на портал данных, пересылая только репрезентативную часть событий. При этом связанные с тем же запросом события отбираются как группа, что позволяет перемещаться между связанными событиями. [Дополнительная информация о выборке.](app-insights-sampling.md)
 
@@ -169,7 +169,7 @@
 
 ## Дальнейшие действия
 
-- [Данные пользователей и страниц](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [Данные пользователей и страниц](../article/application-insights/app-insights-javascript.md#selector1)
 - [Исключения](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
 - [Зависимости](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Доступность](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
@@ -212,4 +212,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

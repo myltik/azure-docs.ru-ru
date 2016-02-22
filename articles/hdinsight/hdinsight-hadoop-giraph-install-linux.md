@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # Установка Giraph в кластерах HDInsight Hadoop и использование Giraph для обработки диаграмм больших объемов
@@ -23,7 +23,7 @@ Giraph можно установить в любой тип кластера Had
 
 В этом разделе описано, как установить Giraph с помощью действия скрипта. После установки Giraph вы также научитесь использовать Giraph для наиболее типичных приложений для обработки крупномасштабных графов.
 
-> [AZURE.NOTE]Информация, приведенная в этой статье, относится только к кластерам HDInsight под управлением Linux. Сведения о работе R с кластером под управлением Windows см. в статье [Установка Giraph в кластерах HDInsight Hadoop (Windows)](hdinsight-hadoop-giraph-install.md).
+> [AZURE.NOTE] Информация, приведенная в этой статье, относится только к кластерам HDInsight под управлением Linux. Сведения о работе R с кластером под управлением Windows см. в статье [Установка Giraph в кластерах HDInsight Hadoop (Windows)](hdinsight-hadoop-giraph-install.md).
 
 ## <a name="whatis"></a>Что такое Giraph
 
@@ -44,14 +44,14 @@ Giraph можно установить в любой тип кластера Had
 
 Пример сценария для установки Giraph в кластере HDInsight доступен в BLOB-объекте службы хранилища Azure (доступ только для чтения): [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). Этот раздел содержит инструкции по использованию примера скрипта при создании кластера с помощью классического портала Azure.
 
-> [AZURE.NOTE]Для создания кластера с помощью этого сценария также можно использовать Azure PowerShell или пакет SDK HDInsight для .NET. Дополнительную информацию об использовании этих методов см. в статье [Настройка кластеров HDInsight с помощью действий сценария](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Для создания кластера с помощью этого сценария также можно использовать Azure PowerShell или пакет SDK HDInsight для .NET. Дополнительную информацию об использовании этих методов см. в статье [Настройка кластеров HDInsight с помощью действий сценария](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Приступите к созданию кластера с помощью действий, описанных в разделе [Создание кластеров HDInsight под управлением Linux](hdinsight-provision-linux-clusters.md#portal), но не завершайте создание.
 
-2. В колонке **Необязательная конфигурация** выберите **Действия сценария** и введите следующие сведения:
+2. В колонке **Необязательная конфигурация** выберите **Действия сценария** и введите следующие сведения.
 
 	* __ИМЯ__: введите понятное имя для действия сценария.
-	* __УНИВЕРСАЛЬНЫЙ КОД РЕСУРСА СКРИПТА__: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh.
+	* __УНИВЕРСАЛЬНЫЙ КОД РЕСУРСА (URI) СКРИПТА__: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh.
 	* __ГОЛОВНОЙ__: установите флажок.
 	* __РАБОЧАЯ РОЛЬ__: установите флажок.
 	* __ZOOKEEPER__: установите этот флажок для установки на узле Zookeeper.
@@ -152,4 +152,4 @@ Giraph можно установить в любой тип кластера Had
 
 - [Установка Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md). Используйте настройки кластера для установки Solr в кластерах HDInsight Hadoop. Solr позволяет вести расширенный поиск по хранимым данным.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

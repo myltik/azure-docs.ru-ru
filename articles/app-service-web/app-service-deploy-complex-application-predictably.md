@@ -298,11 +298,11 @@
 -	[Функции шаблонов в диспетчере ресурсов Azure](../resource-group-template-functions.md)
 -	[Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](../resource-group-template-deploy.md)
 -	[Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)
--	[Устранение неполадок при развертывании групп ресурсов в Azure](../resource-group-deploy-debug.md)
+-	[Устранение неполадок при развертывании групп ресурсов в Azure](../virtual-machines/resource-group-deploy-debug.md)
 
 
 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

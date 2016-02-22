@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Включение собственных клиентских приложений для взаимодействия с приложениями прокси
 
-> [AZURE.NOTE]Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
 
 Прокси приложений Azure Active Directory часто используется для публикации приложений браузера, например SharePoint, Outlook Web Access и пользовательских бизнес-приложений. Его также можно использовать для публикации серверных приложений HTTP, которые используются с помощью собственных клиентов. Это реализуется с помощью выданных маркеров Azure AD, отправляемых в стандартные заголовки HTTP авторизации.
 
@@ -95,7 +95,8 @@
 - [Смотрите наши видео на Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Дополнительные ресурсы
-* [Регистрация организации в Azure](sign-up-organization.md)
-* [Удостоверение Azure](fundamentals-identity.md)
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Регистрация организации в Azure](sign-up-organization.md)
+- [Удостоверение Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

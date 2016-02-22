@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/11/2015"
+ms.date="02/08/2016"
 ms.author="eugenesh" />
 
 # Индексирование документов в хранилище BLOB-объектов Azure с помощью службы поиска Azure
@@ -72,7 +72,8 @@ ms.author="eugenesh" />
 - HTML
 - XML
 - ZIP;
-- обычные текстовые файлы (включая JSON).  
+- EML
+- Обычные текстовые файлы  
 
 ## Процесс извлечения документа
 
@@ -189,8 +190,9 @@ PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation)
 PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Извлечение текста, включая внедренные документы
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Извлечение текста, включая вложения
 ZIP (application/zip) | `metadata_content_type` | Извлечение текста из всех документов в архиве
-XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Удаление разметки XML и извлечение текста </td>
+XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Удаление разметки XML и извлечение текста
 JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Извлечение текста<br/>Примечание. Если требуется извлечь несколько полей документа из большого двоичного объекта JSON, пожалуйста, проголосуйте за [данное предложение на сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs/).
+EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Извлечение текста, включая вложения
 Обычный текст (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
@@ -207,4 +209,4 @@ AzureSearch\_SkipContent | True | Указывает, что индексато�
 
 Если вам нужна какая-либо функция или у вас есть идеи, которые можно было бы реализовать, сообщите об этом на [сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

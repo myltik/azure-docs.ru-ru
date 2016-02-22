@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="11/11/2015"
+   ms.date="02/04/2016"
    ms.author="golive"/>
 
 # Пример использования. Непрерывное развертывание на виртуальных машинах с помощью Automation DSC и Chocolatey
@@ -78,7 +78,7 @@
 Также это можно сделать вручную. Структура папок модуля интеграции PowerShell для компьютеров Windows немного отличается от структуры папок, ожидаемой службой автоматизации Azure. Некоторые параметры вам придется настроить самостоятельно. Но эту процедуру нужно выполнить только один раз для каждого ресурса (если вы не планируете обновлять его в будущем), и в ней нет ничего сложного. Дополнительные сведения о разработке модулей интеграции PowerShell см. в статье [Разработка модулей интеграции для службы автоматизации Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
 
 -   Установите модуль, необходимый на рабочей станции, следующим образом:
-    -   Установите [Windows Management Framework v5](http://aka.ms/wmf5latest). 
+    -   Установите [Windows Management Framework версии 5](http://www.microsoft.com/download/details.aspx?id=48729) (не требуется для Windows 10).
     -   `Install-Module  –ModuleName MODULENAME` <— извлекает модуль из галереи PowerShell. 
 -   Скопируйте папку модуля из `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` во временную папку. 
 -   Удалите примеры и документацию из основной папки. 
@@ -88,7 +88,7 @@
 
         New-AzureAutomationModule ``
             -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
-            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
+            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
 Приведенный здесь пример выполняет эти действия для cChoco и xNetworking. См. [замечания](#notes) по особенностям работы с cChoco.
@@ -177,8 +177,6 @@ New-ConfigurationScript.ps1:
 
 Конечно, на время обновления пакета на виртуальной машине в рабочей среде эту виртуальную машину придется вывести из эксплуатации. Это можно сделать разными способами. Например, на виртуальной машине, которая находится под контролем балансировщика нагрузки Azure, можно добавить настраиваемый зонд. При обновлении виртуальной машины конечная точка зонда должна возвращать значение 400. Настройка, необходимая для этого изменения, может содержаться в вашей конфигурации, и после завершения обновления вы сможете снова переключиться на возвращение значения 200.
 
-Версия ресурса DSC cChoco в коллекции PowerShell не вполне соответствует своему источнику с точки зрения актуальности. Файл cChoco.zip в исходном проекте GitHub является актуальным. Воспользуйтесь ручной процедурой, описанной выше в шаге 3, чтобы установить его.
-
 Полный исходный код для этого примера хранится в [этом проекте Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) на сайте GitHub.
 
 ##Связанные статьи##
@@ -187,4 +185,4 @@ New-ConfigurationScript.ps1:
 - [Командлеты Automation DSC Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Подключение компьютеров для управления с помощью Azure Automation DSC](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

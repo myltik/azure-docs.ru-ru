@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/06/2015"
+	ms.date="02/07/2016"
 	ms.author="ricksal"/>
 
 # Добавление синхронизации автономных данных в приложение мобильных служб Android
@@ -132,7 +132,7 @@
 		}
 
 
-8. Добавьте в метод `onCreate` следующий код предпоследней строкой, непосредственно перед вызовом `refreshItemsFromTable`:
+8. Добавьте следующий код в метод `onCreate` предпоследней строкой, непосредственно перед вызовом `refreshItemsFromTable`:
 
 			syncAsync();
 
@@ -223,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [Быстрый запуск мобильных служб]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

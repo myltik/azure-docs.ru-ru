@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?
@@ -80,7 +80,7 @@ Azure AD поддерживает единый вход на основе пар
 
 Единый вход с использованием пароля работает в таких браузерах:
 
-- Internet Explorer 8, 9 и 10 в Windows 7 или более поздней версии (см. также [руководство по развертыванию расширения Internet Explorer](active-directory-saas-ie-group-policy.md))
+- Internet Explorer 8, 9, 10, 11 — в Windows 7 или более поздней версии (см. также [руководство по развертыванию расширения Internet Explorer](active-directory-saas-ie-group-policy.md))
 - Chrome (начиная с Windows 7 и Mac OS X);
 - Firefox 26.0 и более поздние версии (начиная с Windows XP с пакетом обновления 2 (SP2) и Mac OS X 10.6).
 
@@ -126,7 +126,7 @@ Azure AD поддерживает единый вход на основе пар
 
 
 *	**Добавление самостоятельно разработанного приложения**. Если вы самостоятельно разработали приложение, то с помощью рекомендаций в документации разработчика для Azure AD можно реализовать федеративный единый вход или выполнить подготовку с использованием API Graph Azure AD. Для получения дополнительных сведений см. следующие ресурсы.
-  * [Сценарии проверки подлинности в Azure AD](active-directory-authentication-scenarios.md)
+  * Сценарии аутентификации в Azure Active Directory
   * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
@@ -210,7 +210,14 @@ Azure AD также поддерживает ссылки для прямого 
 
 Эти ссылки используют тот же механизм управления доступом, что и панель доступа и Office 365, и только пользователи или группы, которым назначено приложение на портале управления Azure, смогут пройти проверку подлинности. Неавторизированный пользователь увидит сообщение о том, что ему не предоставлен доступ. Кроме того, отобразится ссылка для загрузки панели доступа, на которой пользователь может увидеть приложения, к которым у него есть доступ.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Связанные статьи
+
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+- [Поиск несанкционированных облачных приложений с Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+- [Введение в управление доступом к приложениям](active-directory-managing-access-to-apps.md)
+- [Сравнение возможностей управления внешними удостоверениями в Azure AD](active-directory-b2b-compare-external-identities.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
@@ -220,4 +227,4 @@ Azure AD также поддерживает ссылки для прямого 
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

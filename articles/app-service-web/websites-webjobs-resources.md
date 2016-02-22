@@ -34,7 +34,7 @@
 * [Веб-задания Azure потрясающие, начните использовать их прямо сейчас!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Запись блога Троя Ханта (Troy Hunt).)
 * [Компоненты веб-заданий Azure](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [Информация о пакете SDK веб-заданий](websites-dotnet-webjobs-sdk.md)
-* [Руководство по фоновым заданиям на основе шаблонов и рекомендаций от Майкрософт](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
+* [Руководство по фоновым заданиям на основе шаблонов и рекомендаций от Майкрософт](/documentation/articles/best-practices-background-jobs/)
 * [Объявление о выпуске SDK веб-заданий Microsoft Azure версии 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Начало работы с пакетом SDK для Azure для веб-заданий](websites-dotnet-webjobs-sdk-get-started.md)
 * [Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -139,4 +139,4 @@
 * [Twitter](http://twitter.com/). Используйте хештег #AzureWebJobs.
 * [Сообщение об ошибке или проблеме в веб-задании](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

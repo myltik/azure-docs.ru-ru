@@ -252,11 +252,11 @@
 
 Интеграция Azure CDN с веб-службами Azure или облачными службами Azure предоставляет следующие преимущества:
 
-- Интеграция развертывания содержимого (изображений, сценариев и таблиц стилей) в процесс [непрерывного развертывания](../web-sites-publish-source-control.md) веб-приложения Azure.
+- Интеграция развертывания содержимого (изображений, сценариев и таблиц стилей) в процесс [непрерывного развертывания](../app-service-web/web-sites-publish-source-control.md) веб-приложения Azure.
 - Простое обновление пакетов NuGet, обслуживаемых CDN, например версий на основе jQuery или Bootstrap. 
 - Управление веб-приложениями и содержимым, обслуживаемым CDN, из одного интерфейса Visual Studio.
 
-Дополнительные учебники: [Использование Azure CDN в службе приложений Azure](../cdn-websites-with-cdn.md); [Интеграция облачной службы с Azure CDN](cdn-cloud-service-with-cdn.md).
+Дополнительные учебники: [Использование Azure CDN в службе приложений Azure](../app-service-web/cdn-websites-with-cdn.md); [Интеграция облачной службы с Azure CDN](cdn-cloud-service-with-cdn.md).
 
 Без интеграции с веб-приложениями службы приложений Azure или облачными службами Azure использовать Azure CDN для пакетов сценариев можно со следующими разъяснениями:
 
@@ -267,10 +267,10 @@
 
 ## Дополнительные сведения ##
 - [Общие сведения о сети доставки контента (CDN) Azure](cdn-overview.md)
-- [Использование Azure CDN в службе приложений Azure](../cdn-websites-with-cdn.md)
+- [Использование Azure CDN в службе приложений Azure](../app-service-web/cdn-websites-with-cdn.md)
 - [Интеграция облачной службы с Azure CDN](cdn-cloud-service-with-cdn.md)
 - [Как сопоставить содержимое сети доставки содержимого (CDN) с личным доменом](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Использование CDN для Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

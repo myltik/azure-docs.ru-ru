@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/04/2016"
    ms.author="larryfr"/>
 
 #Выполнение заданий Pig с помощью пакета SDK для .NET для Hadoop в HDInsight
@@ -42,7 +42,7 @@
 
 Инструкции о том, как это сделать, см. в статье [Создание самозаверяющего сертификата](http://go.microsoft.com/fwlink/?LinkId=511138).
 
-> [AZURE.NOTE]При создании сертификата, обязательно запомните использованное понятное имя, так как оно будет использоваться позднее.
+> [AZURE.NOTE] При создании сертификата, обязательно запомните использованное понятное имя, так как оно будет использоваться позднее.
 
 ##<a id="subscriptionid"></a>Поиск идентификатора подписки
 
@@ -130,7 +130,7 @@
 		                Query = queryString,
 		            };
 		
-		            System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
+		            System.Console.WriteLine("Submitting the Pig job to the cluster...");
 		            var response = _hdiJobManagementClient.JobManagement.SubmitPigJob(parameters);
 		            System.Console.WriteLine("Validating that the response is as expected...");
 		            System.Console.WriteLine("Response status code is " + response.StatusCode);
@@ -161,4 +161,4 @@
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory
@@ -106,6 +106,14 @@ Azure AD готовит пользователей для приложения S
 
 Для того чтобы связаться с командой инженеров Azure AD для обеспечения подготовки в других приложениях, отправьте сообщение через [форум отзывов Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Связанные статьи
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Настройка сопоставления атрибутов для подготовки пользователей](active-directory-saas-customizing-attribute-mappings.md)
+- [Запись выражений для сопоставления атрибутов](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Фильтры области для подготовки пользователей](active-directory-saas-scoping-filters.md)
+- [Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM](active-directory-scim-provisioning.md)
+- [Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md)
+- [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
+
+<!---HONumber=AcomDC_0211_2016-->

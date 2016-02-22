@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/09/2016"
 	ms.author="liviodlc"/>
 
 #Управление сертификатами для федеративного единого входа в Azure Active Directory
@@ -76,6 +76,10 @@
 
 	![Загрузка и отправка сертификата](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Связанные статьи
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Устранение неполадок единого входа на основе SAML](active-directory-saml-debugging.md)
+
+<!---HONumber=AcomDC_0211_2016-->

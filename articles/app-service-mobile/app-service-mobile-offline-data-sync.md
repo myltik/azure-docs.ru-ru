@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/11/2015"
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Автономная синхронизация данных в мобильных приложениях Azure
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Что такое автономная синхронизация данных?
 
@@ -37,8 +35,8 @@
 В следующих учебниках показано, как добавить автономную синхронизацию в мобильные клиенты с помощью мобильных приложений Azure:
 
 * [Android: включение автономной синхронизации]
-* [iOS: включение автономной синхронизации]			
-* [Xamarin iOS: включение автономной синхронизации]	
+* [iOS: включение автономной синхронизации]
+* [Xamarin iOS: включение автономной синхронизации]
 * [Xamarin Android: включение автономной синхронизации]
 * [Windows 8.1: включение автономной синхронизации]
 
@@ -65,10 +63,10 @@
 <!-- TODO: link to client references -->
 
 
-<!-- 
+<!--
 Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` along with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
 
-The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization. 
+The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization.
 
 
 
@@ -103,22 +101,23 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 
   Если вы хотите явно отказаться от добавочной синхронизации, передайте `null` в качестве идентификатора запроса. В этом случае при каждом вызове `PullAsync` будут извлекаться все записи, что может снижать уровень производительности.
 
- 
+
 
 <!--   mymobileservice-code.azurewebsites.net/tables/TodoItem?$filter=(__updatedAt ge datetimeoffset'1970-01-01T00:00:00.0000000%2B00:00')&$orderby=__updatedAt&$skip=0&$top=50&__includeDeleted=true&__systemproperties=__updatedAt%2C__deleted
  -->
+
 * **Очистка**: можно очистить локальное хранилище с помощью `IMobileServiceSyncTable.PurgeAsync`. Это может потребоваться, если в базе данных клиента есть устаревшие данные или вы хотите отменить все ожидающие изменения.
 
   Очистка приведет к очистке таблицы из локального хранилища. При наличии ожидающих операций синхронизации с базой данных сервера очистка породит исключение, если только не задан параметр *force purge*.
 
   Пример устаревших данных на клиенте: предположим, что в примере «todo list» устройство Device1 извлекает только элементы, которые не завершены. Затем элемент Todoitem «Купить молоко» помечается на сервере как завершенный другим устройством. Однако устройство Device1 по-прежнему будет хранить элемент Todoitem «Купить молоко» в локальном хранилище, так как оно извлекает только элементы, которые не помечены как завершенные. Очистка удалит этот устаревший элемент.
- 
+
 ## Дальнейшие действия
 
-* [iOS: включение автономной синхронизации]			
-* [Xamarin iOS: включение автономной синхронизации]	
+* [iOS: включение автономной синхронизации]
+* [Xamarin iOS: включение автономной синхронизации]
 * [Xamarin Android: включение автономной синхронизации]
-* [Windows 8.1: включение автономной синхронизации]	
+* [Windows 8.1: включение автономной синхронизации]
 
 <!-- Links -->
 
@@ -128,4 +127,4 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 [Xamarin Android: включение автономной синхронизации]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: включение автономной синхронизации]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

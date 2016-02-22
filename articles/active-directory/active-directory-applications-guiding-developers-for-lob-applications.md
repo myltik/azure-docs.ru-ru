@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Azure AD и приложения: руководство для разработчиков
@@ -77,4 +77,8 @@
 
 Дополнительные сведения о согласии пользователей и процедуре использования согласия в Azure см. в статье [Интеграция приложений с Azure Active Directory](active-directory-integrating-applications.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+##Связанные статьи
+
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

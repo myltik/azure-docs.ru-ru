@@ -95,8 +95,8 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
 
 * [Создание ресурсов Application Insights и веб-тестов на основе шаблонов](app-insights-powershell.md)
 * [Настройка мониторинга диагностики Azure с помощью PowerShell](app-insights-powershell-azure-diagnostics.md) 
-* [Настройка оповещений с помощью PowerShell](app-insights-alerts.md#set-alerts-by-using-powershell)
+* [Настройка оповещений с помощью PowerShell](app-insights-powershell-alerts.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

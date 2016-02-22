@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="02/09/2016"
    ms.author="tomfitz"/>
 
 # Передача безопасных значений в процессе развертывания
 
 Если в процессе развертывания в качестве параметра необходимо передать безопасное значение (например пароль), его можно сохранить как секретный код в [хранилище ключей Azure](./key-vault/key-vault-whatis.md) и вставить ссылку на это значение в другие шаблоны диспетчера ресурсов. В шаблоне указывается только ссылка на секретный код, в то время как сам секретный код не раскрывается, и вам не придется вводить его значение вручную при каждом развертывании ресурсов. Укажите, какие пользователи или субъекты-службы смогут получить доступ к секретному коду.
 
-> [AZURE.NOTE]В настоящее время ссылки на секретный код в хранилище ключей поддерживает только Azure CLI. В Azure PowerShell эта функция будет реализована в ближайшее время.
+> [AZURE.NOTE] В настоящее время ссылки на секретный код в хранилище ключей поддерживает только Azure CLI. В Azure PowerShell эта функция будет реализована в ближайшее время.
 
 ## Развертывание хранилища ключей и секретного кода
 
@@ -33,34 +33,34 @@
 Ссылки на секретный код включаются в файл параметров, который передает значения в шаблон. Для ссылки на секретный код необходимо передать идентификатор ресурса хранилища ключей и имя секретного кода.
 
     "parameters": {
-        "adminPassword": {
-            "reference": {
-                "keyVault": {
-                    "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                }, 
-                "secretName": "sqlAdminPassword" 
-            } 
-        }
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+          }, 
+          "secretName": "sqlAdminPassword" 
+        } 
+      }
     }
 
 Весь файл параметров может выглядеть следующим образом:
 
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "sqlsvrAdminLogin": {
-                "value": ""
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "sqlsvrAdminLogin": {
+          "value": ""
+        },
+        "sqlsvrAdminLoginPassword": {
+          "reference": {
+            "keyVault": {
+              "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
             },
-            "sqlsvrAdminLoginPassword": {
-                "reference": {
-                    "keyVault": {
-                        "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                    },
-                    "secretName": "adminPassword"
-                }
-            }
+            "secretName": "adminPassword"
+          }
         }
+      }
     }
 
 Принимать секретный код должен параметр **securestring**. В следующем примере показаны соответствующие разделы шаблона, который развертывает SQL Server и требует пароля администратора.
@@ -102,7 +102,7 @@
 ## Дальнейшие действия
 
 - Общие сведения о хранилищах ключей см. в разделе [Приступая к работе с хранилищем ключей Azure](./key-vault/key-vault-get-started.md).
-- Дополнительные сведения о развертывании шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
+- Сведения об использовании хранилища ключей с виртуальной машиной см. в разделе [Вопросы безопасности для диспетчера ресурсов Azure](best-practices-resource-manager-security.md).
 - Полные примеры ссылок на секретные коды ключей см. в статье [Примеры хранилища ключей](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

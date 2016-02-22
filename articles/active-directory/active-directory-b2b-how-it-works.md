@@ -2,6 +2,7 @@
    pageTitle="Предварительная версия службы совместной работы Azure AD B2B | Microsoft Azure"
    description="Описывает, как служба совместной работы Azure Active Directory B2B поддерживает взаимодействие между компаниями, позволяя предоставлять бизнес-партнерам выборочный доступ к вашим корпоративным приложениям."
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -41,5 +42,6 @@
  - [Формат токена внешнего пользователя](active-directory-b2b-references-external-user-token-format.md)
  - [Изменение атрибутов объекта внешнего пользователя](active-directory-b2b-references-external-user-object-attribute-changes.md)
  - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
+ - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

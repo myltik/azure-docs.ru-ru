@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # Единый вход с помощью прокси приложения
 
-> [AZURE.NOTE]Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
 
 Единый вход — это ключевой элемент прокси приложения Azure AD. Он обеспечивает оптимальную работу пользователей: пользователь выполняет вход в облако, где и выполняются все проверки безопасности (предварительная проверка подлинности), после чего при отправке запроса в локальное приложение соединитель прокси приложения олицетворяет этого пользователя, поэтому внутреннее приложение считает, что это обычный пользователь, который работает с устройства, присоединенного к домену.
 
@@ -80,7 +80,7 @@
 		Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 
 
->[AZURE.NOTE]`sharepointserviceaccount` может быть учетной записью компьютера SPS или учетной записью службы, под которой выполняется пул приложений SPS.
+>[AZURE.NOTE] `sharepointserviceaccount` может быть учетной записью компьютера SPS или учетной записью службы, под которой выполняется пул приложений SPS.
 
 
 ### Настройка на классическом портале Azure
@@ -90,7 +90,7 @@
 3. В разделе **Свойства** в качестве **метода внутренней проверки подлинности** выберите **интегрированную проверку подлинности Windows**. ![Дополнительная настройка приложения](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
 4. Введите **Внутреннее имя субъекта-службы приложения** сервера приложений. В этом примере таким именем для опубликованного приложения будет http/lob.contoso.com.  
 
->[AZURE.IMPORTANT]Имена участников-пользователей в Azure Active Directory должны быть идентичны соответствующим именам в вашей локальной службе Active Directory. Это необходимо для предварительной проверки подлинности. Убедитесь, что служба Azure AD синхронизирована с локальной службой AD.
+>[AZURE.IMPORTANT] Имена участников-пользователей в Azure Active Directory должны быть идентичны соответствующим именам в вашей локальной службе Active Directory. Это необходимо для предварительной проверки подлинности. Убедитесь, что служба Azure AD синхронизирована с локальной службой AD.
 
 | | |
 | --- | --- |
@@ -160,9 +160,14 @@
 - [Ознакомьтесь с блогом о прокси приложения](http://blogs.technet.com/b/applicationproxyblog/)
 - [Смотрите наши видео на Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
+## Дополнительные ресурсы
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Регистрация организации в Azure](sign-up-organization.md)
+- [Удостоверение Azure](fundamentals-identity.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

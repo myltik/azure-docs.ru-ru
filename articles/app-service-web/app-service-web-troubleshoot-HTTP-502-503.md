@@ -50,7 +50,7 @@
 
 ####	Мониторинг работоспособности службы
 
-Microsoft Azure информирует о каждом случае прерывания работы или снижения производительности службы. Можно следить за работоспособностью службы на [портале Azure](https://portal.azure.com/). Дополнительные сведения см. в статье [Мониторинг работоспособности службы](insights-service-health.md).
+Microsoft Azure информирует о каждом случае прерывания работы или снижения производительности службы. Можно следить за работоспособностью службы на [портале Azure](https://portal.azure.com/). Дополнительные сведения см. в статье [Мониторинг работоспособности службы](../azure-portal/insights-service-health.md).
 
 ####	Мониторинг веб-приложения
 
@@ -69,7 +69,7 @@ Microsoft Azure информирует о каждом случае прерыв
 Дополнительные сведения см. в следующих статьях:
 
 -	[Мониторинг веб-приложений в службе приложений Azure](web-sites-monitor.md)
--	[Получение уведомлений об оповещениях](insights-receive-alert-notifications.md)
+-	[Получение уведомлений об оповещениях](../azure-portal/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 ### 2\. Сбор данных
@@ -136,6 +136,6 @@ Microsoft Azure информирует о каждом случае прерыв
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-Управлять приложениями можно также с помощью Azure Powershell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](powershell-azure-resource-manager.md).
+Управлять приложениями можно также с помощью Azure Powershell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

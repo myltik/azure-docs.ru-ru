@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 
@@ -144,4 +144,4 @@
 * Узнайте, как систематически создавать комплексные аналитические решения, в разделе [Обработка и анализ данных](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Перейдите в [Коллекцию аналитики Cortana](http://gallery.cortanaanalytics.com), чтобы найти примеры машинного обучения и анализа данных с использованием Cortana Analytics Suite. Мы также добавили значок на рабочий стол и элемент в меню "Пуск" на виртуальной машине для быстрого доступа. 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

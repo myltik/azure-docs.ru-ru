@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Создание центра IoT с помощью шаблона диспетчера ресурсов | Microsoft Azure"
-	description="Следуйте инструкциям этого учебника, чтобы приступить к работе с помощью шаблонов диспетчера ресурсов и создать центр IoT."
+	description="Следуйте инструкциям этого учебника, чтобы приступить к работе с помощью шаблонов диспетчера ресурсов и создать центр IoT с помощью программы C# или PowerShell."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="dominicbetts"
@@ -31,6 +31,8 @@
 - Microsoft Visual Studio 2015.
 - Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][lnk-free-trial].
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] или более поздней версии.
+
+> [AZURE.TIP] В этой статье описывается, как создать новый центр IoT с помощью программы на C# и шаблона ARM. В данной статье также можно использовать [шаблон ARM](#submit-a-template-to-create-an-iot-hub) со сценарием PowerShell вместо программы на C#. Статья [Использование Azure PowerShell с диспетчером ресурсов Azure][lnk-powershell-arm] описывает, как написать сценарий PowerShell, использующий шаблон ARM для создания ресурса Azure, такого как центр IoT.
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -189,6 +191,7 @@
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-powershell-install]: https://azure.microsoft.com/ru-RU/blog/azps-1-0-pre/
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
+[lnk-azure-rm-overview]: ./resource-group-overview.md
+[lnk-powershell-arm]: ./powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

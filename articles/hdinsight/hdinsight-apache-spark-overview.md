@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 # Обзор. Apache Spark в Azure HDInsight (Linux)
@@ -28,7 +28,7 @@
 
 **Хотите начать работу с Apache Spark в Azure HDInsight?** Ознакомьтесь с [кратким руководством по созданию кластера Spark в HDInsight в Linux и запуску примеров приложений с помощью Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
->[AZURE.NOTE]Список известных проблем и ограничения в текущем выпуске см. в разделе [Известные проблемы Apache Spark в Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
+>[AZURE.NOTE] Список известных проблем и ограничения в текущем выпуске см. в разделе [Известные проблемы Apache Spark в Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 
 ## Зачем использовать Spark в Azure HDInsight? 
@@ -109,7 +109,9 @@ Spark в HDInsight, кроме того, включает [драйвер ODBC](
 
 * [Удаленный запуск заданий с помощью Livy в кластере Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
-### расширения.
+### Средства и расширения
+
+* [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -122,4 +124,4 @@ Spark в HDInsight, кроме того, включает [драйвер ODBC](
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

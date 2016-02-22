@@ -63,7 +63,7 @@
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. Теперь образы Azure Ubuntu используют ядро с расширенной поддержкой оборудования *HardWare Enablement* (HWE). Обновите операционную систему до последней версии ядра, выполнив следующие команды.
+4. Теперь образы Azure Ubuntu используют ядро с *расширенной поддержкой оборудования* (HWE). Обновите операционную систему до последней версии ядра, выполнив следующие команды.
 
 	Ubuntu 12,04:
 
@@ -117,13 +117,13 @@
 11. В диспетчере Hyper-V выберите **Действие -> Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
 ## Дальнейшие действия
-Теперь вы готовы с помощью VHD-файла системы Ubuntu Linux создавать в Azure виртуальные машины Azure. Если вы используете Azure и отправляете VHD-файл в Azure в первый раз, следуйте инструкциям, описанным в шагах 2 и 3 [этого руководства](virtual-machines-linux-create-upload-vhd.md).
+Теперь виртуальный жесткий диск Ubuntu Linux можно использовать для создания новых виртуальных машин Azure. Если вы загружаете файл VHD в Azure впервые, обратитесь к шагам 2 и 3 в статье [Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux](virtual-machines-linux-create-upload-vhd.md).
 
 ## Ссылки ##
 
-Ядро Ubuntu с расширенной поддержкой оборудования HardWare Enablement (HWE)
+Ядро Ubuntu с расширенной поддержкой оборудования (HWE):
 
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

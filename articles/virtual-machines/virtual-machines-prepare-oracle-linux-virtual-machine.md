@@ -1,22 +1,22 @@
-<properties 
-pageTitle="Подготовка виртуальной машины Oracle Linux для Azure | Microsoft Azure" 
-description="Пошаговая настройка виртуальной машины Oracle под управлением Linux в Microsoft Azure." 
-services="virtual-machines" 
-authors="bbenz" 
+<properties
+pageTitle="Подготовка виртуальной машины Oracle Linux для Azure | Microsoft Azure"
+description="Пошаговая настройка виртуальной машины Oracle под управлением Linux в Microsoft Azure."
+services="virtual-machines"
+authors="bbenz"
 documentationCenter="virtual-machines"
 tags="azure-service-management,azure-resource-manager"
 />
 
-<tags 
-ms.service="virtual-machines" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.tgt_pltfrm="vm-linux" 
-ms.workload="infrastructure-services" 
-ms.date="06/22/2015" 
+<tags
+ms.service="virtual-machines"
+ms.devlang="na"
+ms.topic="article"
+ms.tgt_pltfrm="vm-linux"
+ms.workload="infrastructure-services"
+ms.date="06/22/2015"
 ms.author="bbenz" />
 
-#Подготовка виртуальной машины Oracle Linux для Azure
+# Подготовка виртуальной машины Oracle Linux для Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -25,7 +25,7 @@ ms.author="bbenz" />
 
 -   [Подготовка виртуальной машины Oracle Linux версии 7.0 или более поздней для Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
-##Предварительные требования
+## Предварительные требования
 В этой статье предполагается, что вы уже установили операционную систему Oracle Linux на виртуальный жесткий диск. Существует несколько средств для создания VHD-файлов, например решение для виртуализации, такое как Hyper-V. Указания см. в разделе [Установка Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Замечания по установке Oracle Linux**
@@ -47,7 +47,7 @@ ms.author="bbenz" />
 - Убедитесь, что `Addons`включен репозиторий. Измените файл `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) или `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) и замените строку `enabled=0` на строку `enabled=1` в разделе **[ol6\_addons]** или **[ol7\_addons]** в этом файле.
 
 
-##Oracle Linux 6.4+
+## Oracle Linux 6.4+
 Необходимо выполнить определенные действия с конфигурацией операционной системы, чтобы виртуальная машина запускалась в среде Azure.
 
 1. На центральной панели диспетчера Hyper-V выберите виртуальную машину.
@@ -58,7 +58,7 @@ ms.author="bbenz" />
 
 		# sudo rpm -e --nodeps NetworkManager
 
-	>[AZURE.NOTE]Если пакет еще не установлен, эта команда завершится с сообщением об ошибке. Это ожидаемое поведение.
+	>[AZURE.NOTE] Если пакет еще не установлен, эта команда завершится с сообщением об ошибке. Это ожидаемое поведение.
 
 4. Создайте файл с именем **network** в каталоге /etc/sysconfig/. Файл должен содержать следующий текст:
 
@@ -132,7 +132,7 @@ ms.author="bbenz" />
 
 14.  В диспетчере Hyper-V выберите **Действие -> Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
-##Oracle Linux 7.0+
+## Oracle Linux 7.0+
 **Изменения в Oracle Linux 7**
 
 Подготовка виртуальной машины Oracle Linux 7 для Azure в значительной степени аналогична подготовке Oracle Linux 6, однако следует отметить несколько важных отличий.
@@ -225,4 +225,4 @@ ms.author="bbenz" />
 
 15.  В диспетчере Hyper-V выберите **Действие -> Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

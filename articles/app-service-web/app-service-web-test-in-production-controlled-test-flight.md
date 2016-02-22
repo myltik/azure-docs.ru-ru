@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/02/2016"
 	ms.author="cephalin"/>
 # Развертывание в режиме фокус-тестирования (бета-тестирование) в службе приложений Azure
 
@@ -32,7 +32,7 @@
 Из этого учебника вы узнаете, как использовать следующие сценарии для тестирования приложения службы приложений в рабочей среде:
 
 - [Маршрутизация рабочего трафика](app-service-web-test-in-production-get-start.md) в бета-версию приложения.
-- [Инструментирование приложения](app-insights-web-track-usage.md) для получения полезных метрик.
+- [Инструментирование приложения](../application-insights/app-insights-web-track-usage.md) для получения полезных метрик.
 - Непрерывное развертывание бета-версии приложения с отслеживанием метрик в режиме реального времени.
 - Сравнение метрик рабочего приложения и бета-версии приложения для оценки того, как изменения кода преобразуются в результаты.
 
@@ -44,7 +44,7 @@
 -	Оболочка Git Shell (устанавливается вместе с [GitHub для Windows](https://windows.github.com/)) — позволяет запускать команды PowerShell и Git в рамках одного сеанса.
 -	Последняя версия [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi).
 -	Базовые знания таких компонентов.
-	-	Развертывание шаблона [диспетчера ресурсов Azure](resource-group-overview.md) (см. также [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md)).
+	-	Развертывание шаблона [диспетчера ресурсов Azure](../resource-group-overview.md) (см. также [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md)).
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -174,7 +174,7 @@
 
 В этом разделе вы настроите разные слоты развертывания для отправки связанных со слотом данных телеметрии в один ресурс Application Insights. Таким образом вы сможете сравнить данные телеметрии через призму трафика из разных слотов (сред развертывания), чтобы увидеть результат изменений, внесенных в приложение. Кроме того, вы сможете отделить рабочий трафик от остального, при необходимости продолжая наблюдать за рабочим приложением.
 
-Так как вы собираете данные о поведении клиента, вам нужно [добавить в код JavaScript инициализатор телеметрии](app-insights-api-custom-events-metrics.md#js-initializer) в файле index.cshtml. А чтобы выполнить тестирование производительности на стороне сервера, вы сможете выполнить эти же действия с серверным кодом (см. статью [API Application Insights для пользовательских событий и метрик](app-insights-api-custom-events-metrics.md)).
+Так как вы собираете данные о поведении клиента, вам нужно [добавить в код JavaScript инициализатор телеметрии](../application-insights/app-insights-api-custom-events-metrics.md#js-initializer) в файле index.cshtml. А чтобы выполнить тестирование производительности на стороне сервера, вы сможете выполнить эти же действия с серверным кодом (см. статью [API Application Insights для пользовательских событий и метрик](../application-insights/app-insights-api-custom-events-metrics.md)).
 
 1. Во-первых, вставьте код между двумя комментариями `//` в блоке JavaScript ниже, который вы ранее добавили к тегу `<heading>`.
 
@@ -215,7 +215,7 @@
 
 5. Нажмите кнопку **Избранное**, чтобы сохранить текущие параметры обозревателя метрик с именем наподобие **Пользовательские события: рабочая среда**. Позже вы сможете легко переключаться между этим представлением и представлением слота развертывания.
 
-    > [AZURE.TIP] Если вам нужны более мощные средства аналитики, рассмотрите возможность [интеграции ресурса Application Insights с Power BI](app-insights-export-power-bi.md).
+    > [AZURE.TIP] Если вам нужны более мощные средства аналитики, рассмотрите возможность [интеграции ресурса Application Insights с Power BI](../application-insights/app-insights-export-power-bi.md).
 
 ### Добавление связанных со слотом тегов к метрикам серверного приложения
 Снова-таки, для полноты картины мы настроим также серверное приложение. В отличие от клиентского приложения, которое инструментируется в JavaScript, связанные со слотом теги для серверного приложения инструментируются с помощью кода .NET.
@@ -369,10 +369,10 @@
 -   [Гибкая разработка программного обеспечения с помощью службы приложений Azure.](app-service-agile-software-development.md)
 -   [Настройка промежуточных сред для веб-приложений в службе приложений Azure](web-sites-staged-publishing.md)
 -	[Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md)
--	[Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md)
+-	[Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
 -	[JSONLint — проверяющий элемент управления JSON](http://jsonlint.com/)
 -	[Ветвление Git — основные ветвления и слияния](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
--	[Azure PowerShell](powershell-install-configure.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
 -	[Вики-сайт проекта Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

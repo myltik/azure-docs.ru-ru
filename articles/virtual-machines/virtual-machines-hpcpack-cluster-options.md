@@ -1,7 +1,7 @@
 <properties
  pageTitle="Варианты кластеров пакета HPC в облаке | Microsoft Azure"
  description="Сведения о вариантах создания кластеров высокопроизводительных вычислений (HPC) и управления ими в облаке Azure с помощью пакета Microsoft HPC."
- services="virtual-machines,cloud-services"
+ services="virtual-machines,cloud-services,batch"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/26/2016"
+ ms.date="02/04/2016"
  ms.author="danlep"/>
 
 # Возможности создания кластера высокопроизводительных вычислений (HPC) в Azure и управления им с помощью пакета Microsoft HPC
@@ -26,6 +26,19 @@ ms.service="virtual-machines"
 
 ## Запуск кластера пакета HPC на виртуальных машинах Azure
 
+### Шаблоны Azure
+
+* (Marketplace) [Кластер пакета HPC для рабочих нагрузок Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
+
+* (Marketplace) [Кластер пакета HPC для рабочих нагрузок Excel](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
+
+* (Marketplace) [Кластер пакета HPC для рабочих нагрузок Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
+
+* (Краткое руководство) [Создание кластера HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+
+* (Краткое руководство) [Создание кластера пакета HPC с вычислительными узлами Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+
+* (Краткое руководство) [Создание кластера HPC с пользовательским образом вычислительного узла](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
 ### Образы виртуальных машин Azure
 
@@ -35,13 +48,7 @@ ms.service="virtual-machines"
 
 * [Вычислительный узел пакета HPC с Excel на Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
 
-### Шаблоны быстрого запуска Azure
 
-* [Создание кластера HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
-
-* [Создание кластера пакета HPC с вычислительными узлами Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-
-* [Создание кластера HPC с пользовательским образом вычислительного узла](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
 ### Сценарий развертывания PowerShell
 
@@ -59,9 +66,7 @@ ms.service="virtual-machines"
 
 
 
-### Развертывание вручную с помощью классического портала Azure
-
-
+### Развертывание вручную с помощью портала Azure
 
 * [Настройка головного узла кластера пакета HPC на виртуальной машине Azure](virtual-machines-hpcpack-cluster-headnode.md)
 
@@ -98,4 +103,4 @@ ms.service="virtual-machines"
 
 * [Настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-cluster-rdma.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # Использование пакета SDK Node.js для мобильных приложений Azure
@@ -327,7 +327,7 @@ Microsoft Azure предоставляет множество механизмо
 
 Мы рекомендуем добавить _azureMobile.js_ в _GITIGNORE_-файл (или в другой файл игнорирования для системы управления исходным кодом), чтобы не допустить сохранения паролей в облаке. Параметры рабочей версии всегда следует настраивать через "Параметры приложения" на [портале Azure].
 
-### <a name="howto-appsettings"><a>Параметры приложения для настройки мобильного приложения
+### <a name="howto-appsettings"></a>Параметры приложения для настройки мобильного приложения
 
 Для большинства параметров в файле _azureMobile.js_ имеется эквивалентный параметр приложения на [портале Azure]. Используйте следующий список, чтобы настроить свое приложение в параметрах приложения:
 
@@ -434,10 +434,10 @@ Microsoft Azure предоставляет множество механизмо
 
 Свойство доступа может относиться не только к таблице в целом, но и к отдельным операциям. Существует четыре операции:
 
-  - *read* REST-запрос GET для таблицы;
-  - *insert* REST-запрос POST для таблицы;
-  - *update* REST-запрос PATCH для таблицы;
-  - *delete* REST-запрос DELETE для таблицы.
+  - *read* — REST-запрос GET для таблицы;
+  - *insert* — REST-запрос POST для таблицы;
+  - *update* — REST-запрос PATCH для таблицы;
+  - *delete* — REST-запрос DELETE для таблицы.
 
 Например, вы хотите создать таблицу с доступом только для чтения без проверки подлинности. Для этого можно использовать следующее определение таблицы:
 
@@ -561,7 +561,7 @@ Microsoft Azure предоставляет множество механизмо
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-Конечная точка Swagger будет находиться по адресу http://\_yoursite\_.azurewebsites.net/swagger. Доступ к пользовательскому интерфейсу Swagger можно получить с помощью конечной точки `/swagger/ui`. Обратите внимание, что Swagger возвращает ошибку для конечной точки / при настройке обязательной проверки подлинности для всего приложения. Лучше всего, если в параметрах проверки подлинности и авторизации в службе приложений Azure вы разрешите получать запросы без проверки подлинности, а затем назначите для управления проверкой подлинности свойство `table.access`.
+Конечная точка swagger будет находиться в http://_yoursite_.azurewebsites.net/swagger. Доступ к пользовательскому интерфейсу Swagger можно получить с помощью конечной точки `/swagger/ui`. Обратите внимание, что Swagger возвращает ошибку для конечной точки / при настройке обязательной проверки подлинности для всего приложения. Для получения наилучших результатов разрешите получать запросы без проверки подлинности в параметрах проверки подлинности и авторизации в службе приложений Azure, а затем назначьте для управления проверкой подлинности свойство `table.access`.
 
 Кроме того, вы можете добавить параметр Swagger в файл `azureMobile.js`, если поддержка Swagger требуется только при локальной разработке.
 
@@ -645,6 +645,32 @@ Microsoft Azure предоставляет множество механизмо
 
 Для настраиваемых служб API, требующих проверки подлинности, необходимо использовать тот же маркер, что и для конечных точек доступа к таблицам.
 
+### <a name="howto-customapi-auth"></a>Практическое руководство: обработка отправки больших файлов
+
+Пакет SDK для мобильных приложений Azure использует [промежуточный слой анализатора текста запроса](https://github.com/expressjs/body-parser) для приема и расшифровки содержимого текста запроса в отправке. Анализатор текста запроса можно предварительно настроить для приема отправки больших файлов:
+
+	var express = require('express'),
+        bodyParser = require('body-parser'),
+		azureMobileApps = require('azure-mobile-apps');
+
+	var app = express(),
+		mobile = azureMobileApps();
+
+    // Set up large body content handling
+    app.use(bodyParser.json({ limit: '50mb' }));
+    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+	// Import the Custom API
+	mobile.api.import('./api');
+
+	// Add the mobile API so it is accessible as a Web API
+	app.use(mobile);
+
+	// Start listening on HTTP
+	app.listen(process.env.PORT || 3000);
+
+Также можно настроить ограничение в 50 МБ, которое мы рассмотрели выше. Обратите внимание, что перед передачей файл будет закодирован в кодировке base-64, что приведет к увеличению размера фактически отправляемого файла.
+
 ## <a name="Debugging"></a>Отладка и устранение неполадок
 
 Служба приложений Azure предоставляет несколько методов отладки и устранения неполадок в приложениях на Node.js. Для пользователей доступны следующие инструменты.
@@ -726,7 +752,7 @@ Microsoft Azure предоставляет множество механизмо
 [Включение ведения журналов диагностики в службе приложений Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Диагностика службы приложений Azure в Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [Указание версии Node]: ../nodejs-specify-node-version-azure-apps.md
-[Использование модулей Node]: ../nodejs-use-node-mobiles-azure-apps.md
+[Использование модулей Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
@@ -748,4 +774,4 @@ Microsoft Azure предоставляет множество механизмо
 [промежуточного слоя ExpressJS]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!-----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

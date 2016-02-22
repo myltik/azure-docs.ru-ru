@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -31,7 +31,7 @@
 
 ## Настройка приложения для использования служебной шины
 
-Для использования Service Bus скачайте пакет Node.js для Azure. Пакет содержит набор библиотек, взаимодействующих со службами REST Service Bus.
+Для использования служебной шины скачайте пакет Node.js для Azure. Пакет содержит набор библиотек, взаимодействующих со службами REST Service Bus.
 
 ### Использование диспетчера пакета Node (NPM) для получения пакета
 
@@ -130,7 +130,7 @@ function (returnObject, finalCallback, next)
 
 Подписки на разделы также создаются с помощью объекта **ServiceBusService**. У подписок есть имена, и они могут использовать дополнительный фильтр, ограничивающий набор сообщений, доставляемых в виртуальную очередь подписки.
 
-> [AZURE.NOTE]Подписки являются постоянными и продолжают существовать либо до их удаления, либо до удаления раздела, с которым они связаны. Если приложение содержит логику для создания подписки, оно сначала должно проверить, существует ли подписка, используя метод **getSubscription**.
+> [AZURE.NOTE] Подписки являются постоянными и продолжают существовать либо до их удаления, либо до удаления раздела, с которым они связаны. Если приложение содержит логику для создания подписки, оно сначала должно проверить, существует ли подписка, используя метод **getSubscription**.
 
 ### Создание подписки с фильтром по умолчанию (MatchAll)
 
@@ -152,7 +152,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 
 Добавить фильтры в подписку можно с помощью метода **createRule** объекта **ServiceBusService**. Этот метод позволяет добавлять новые фильтры в существующую подписку.
 
-> [AZURE.NOTE]Так как ко всем новым подпискам автоматически применяется фильтр по умолчанию, сначала необходимо удалить фильтр по умолчанию, иначе **MatchAll** переопределит поведение всех остальных заданных фильтров. Вы можете удалить правило по умолчанию с помощью метода **deleteRule** объекта **ServiceBusService**.
+> [AZURE.NOTE] Так как ко всем новым подпискам автоматически применяется фильтр по умолчанию, сначала необходимо удалить фильтр по умолчанию, иначе **MatchAll** переопределит поведение всех остальных заданных фильтров. Вы можете удалить правило по умолчанию с помощью метода **deleteRule** объекта **ServiceBusService**.
 
 В следующем примере создается подписка с именем `HighMessages`, содержащая объект **SqlFilter**, который выбирает только сообщения, значение настраиваемого свойства **MessageNumber** которых превышает 3.
 
@@ -312,14 +312,14 @@ for (i = 0;i < 5;i++) {
 
 Вы узнали основные сведения о разделах служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
--   См. раздел [Очереди, разделы и подписки][].
+-   См. статью [Очереди, темы и подписки][].
 -   Справочник API для [SqlFilter][].
 -   Посетите репозиторий [Пакет SDK хранилища Azure для Node][] на веб-сайте GitHub.
 
-  [Пакет SDK хранилища Azure для Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [Пакет SDK хранилища Azure для Node]: https://github.com/Azure/azure-sdk-for-node
   [классическом портале Azure]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
+  [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Создание и развертывание приложения Node.js на веб-сайте Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
@@ -327,4 +327,4 @@ for (i = 0;i < 5;i++) {
   [Веб-приложение Node.js с хранилищем]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

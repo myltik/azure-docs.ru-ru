@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 # Дочерние модули Runbook в службе автоматизации Azure
@@ -94,4 +94,4 @@
 - [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md)
 - [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

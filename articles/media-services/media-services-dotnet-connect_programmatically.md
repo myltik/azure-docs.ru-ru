@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -44,7 +44,7 @@
 
 Чтобы начать программирование для служб мультимедиа, необходимо создать экземпляр **CloudMediaContext**, представляющий контекст сервера. **CloudMediaContext** содержит ссылки на важные коллекции, в том числе на задания, ресурсы, файлы, политики доступа и указатели.
 
->[AZURE.NOTE]Класс **CloudMediaContext** не является потокобезопасным. Для каждого потока или набора операций необходимо создать новый CloudMediaContext.
+>[AZURE.NOTE] Класс **CloudMediaContext** не является потокобезопасным. Для каждого потока или набора операций необходимо создать новый CloudMediaContext.
 
 
 В CloudMediaContext предусмотрено пять перегрузок конструктора. Рекомендуется использовать конструкторы, принимающие **MediaServicesCredentials** в качестве параметра. Дополнительную информацию см. ниже в разделе **Повторное использование маркеров Access Control Service**.
@@ -196,4 +196,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

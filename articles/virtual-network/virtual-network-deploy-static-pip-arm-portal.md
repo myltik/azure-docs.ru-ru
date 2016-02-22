@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Развертывание виртуальной машины со статическим общедоступным IP-адресом на портале предварительной версии в диспетчере ресурсов | Microsoft Azure"
-   description="Дополнительные сведения о развертывании виртуальных машин со статическим общедоступным IP-адресом на портале предварительной версии в диспетчере ресурсов"
+   pageTitle="Развертывание виртуальной машины с общедоступным IP-адресом с помощью портала Azure в диспетчере ресурсов | Microsoft Azure"
+   description="Дополнительные сведения о развертывании виртуальных машин со статическим общедоступным IP-адресом в диспетчере ресурсов на портале Azure"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # Развертывание виртуальной машины со статическим общедоступным IP-адресом с использованием портала Azure
@@ -59,4 +59,4 @@
 
 	![Портал Azure — создание общедоступного IP-адреса](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

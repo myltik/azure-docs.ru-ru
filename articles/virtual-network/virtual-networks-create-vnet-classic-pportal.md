@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание виртуальной сети с помощью портала предварительной версии Azure | Microsoft Azure"
-   description="Узнайте, как создать виртуальную сеть с помощью портала предварительной версии Azure."
+   pageTitle="Создание виртуальной сети с помощью портала Azure | Microsoft Azure"
+   description="Узнайте, как создать виртуальную сеть с помощью портала Azure."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/03/2016"
    ms.author="telmos"/>
 
 # Создание (классической) виртуальной сети с помощью портала предварительной версии Azure
@@ -29,4 +29,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-pportal-include](../../includes/virtual-networks-create-vnet-classic-pportal-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

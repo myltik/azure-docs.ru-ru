@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/22/2016"
+	 ms.date="02/05/2016"
 	 ms.author="jimpark;"/>
 
 # Резервное копирование файлов и папок Windows Server или Windows Client в Azure
@@ -51,5 +51,6 @@
 - [Управление Windows Server или клиентом Windows](backup-azure-manage-windows-server.md)
 - [Восстановление Windows Server или клиента Windows из Azure](backup-azure-restore-windows-server.md)
 - [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
+- Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

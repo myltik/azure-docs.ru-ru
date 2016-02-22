@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/24/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 
@@ -39,9 +39,10 @@
 - [Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory](active-directory-conditional-access-on-premises-setup.md)
 - [Политики условного доступа к Office 365 с устройств](active-directory-conditional-access-device-policies.md)
 - [Предварительная версия Azure условного доступа для приложений SaaS](active-directory-conditional-access-azuread-connected-apps.md)
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

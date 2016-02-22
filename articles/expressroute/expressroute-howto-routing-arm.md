@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Создание и изменение маршрутизации канала ExpressRoute с помощью диспетчера ресурсов Azure и PowerShell
@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-routing-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
-В этой статье описано, как создать конфигурацию маршрутизации ExpressRoute и управлять ею, используя командлеты PowerShell и модель развертывания диспетчера ресурсов Azure. Ниже описывается, как проверить состояние, обновить или удалить и отозвать пиринги для канала ExpressRoute.
+В этой статье описано, как создать конфигурацию маршрутизации ExpressRoute и управлять ею, используя командлеты PowerShell и модель развертывания диспетчера ресурсов Azure. Ниже описывается, как проверить состояние, обновить или удалить и отозвать пиринги для канала ExpressRoute. Если вы хотите создать или изменить маршрутизацию для канала ExpressRoute с помощью **классической** модели развертывания, обратитесь к разделу [Создание и изменение канала ExpressRoute с помощью классической модели развертывания](expressroute-howto-routing-classic.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -30,9 +30,9 @@
 
 - Вам потребуются последние модули Azure PowerShell версии 1.0 или более поздней. 
 - Не забудьте изучить [предварительные требования](expressroute-prerequisites.md), [требования к маршрутизации](expressroute-routing.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступать к настройке.
-- Вам потребуется активный канал ExpressRoute. Перед тем как продолжить, [создайте канал ExpressRoute](expressroute-howto-circuit-classic.md) и включите его на стороне поставщика услуг подключения. Для выполнения описанных ниже командлетов канал ExpressRoute должен быть подготовлен и включен.
+- Вам потребуется активный канал ExpressRoute. Перед тем как продолжить, [создайте канал ExpressRoute](expressroute-howto-circuit-arm.md) и включите его на стороне поставщика услуг подключения. Для выполнения описанных ниже командлетов канал ExpressRoute должен быть подготовлен и включен.
 
->[AZURE.IMPORTANT]Эти инструкции применяются только к каналам от поставщиков, предлагающих услуги подключения второго уровня. Если вы работаете с поставщиком, предлагающим услуги третьего уровня (обычно IPVPN, типа MPLS), ваш поставщик услуг подключения выполнит настройку и управление конфигурацией самостоятельно. В этом случае создавать пиринги и управлять ими вы не сможете.
+>[AZURE.IMPORTANT] Эти инструкции применяются только к каналам от поставщиков, предлагающих услуги подключения второго уровня. Если вы работаете с поставщиком, предлагающим услуги третьего уровня (обычно IPVPN, типа MPLS), ваш поставщик услуг подключения выполнит настройку и управление конфигурацией самостоятельно. В этом случае создавать пиринги и управлять ими вы не сможете.
 
 Для каждого канала ExpressRoute можно настроить один, два или три пиринга (частный пиринг Azure, общедоступный пиринг Azure и пиринг Microsoft). Пиринги можно настраивать в любом порядке, главное, выполнять их конфигурацию по очереди.
 
@@ -125,7 +125,7 @@
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-	>[AZURE.IMPORTANT]Номер AS должен быть указан в качестве ASN пиринга, а не ASN клиента.
+	>[AZURE.IMPORTANT] Номер AS должен быть указан в качестве ASN пиринга, а не ASN клиента.
 
 ### Получение сведений о частном пиринге Azure
 
@@ -149,7 +149,7 @@
 
 Для удаления конфигурации пиринга выполните следующий командлет:
 
->[AZURE.WARNING]Перед выполнением этого командлета отсоедините от канала ExpressRoute все виртуальные сети.
+>[AZURE.WARNING] Перед выполнением этого командлета отсоедините от канала ExpressRoute все виртуальные сети.
 
 	Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -245,7 +245,7 @@
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-	>[AZURE.IMPORTANT]Номер AS должен быть указан в качестве ASN пиринга, а не ASN клиента.
+	>[AZURE.IMPORTANT] Номер AS должен быть указан в качестве ASN пиринга, а не ASN клиента.
 
 ### Получение сведений об общедоступном пиринге Azure
 
@@ -353,7 +353,7 @@
 	
 	Чтобы настроить пиринг Майкрософт для своего канала, выполните следующий командлет:
 
-		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MircosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MircosoftConfigCustomerAsn 23 -MircosoftConfigRoutingRegistryName "ARIN"
+		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
@@ -371,7 +371,7 @@
 
 С помощью указанного ниже командлета можно обновить любую часть конфигурации.
 
-		Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MircosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MircosoftConfigCustomerAsn 23 -MircosoftConfigRoutingRegistryName "ARIN"
+		Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 		
@@ -386,8 +386,7 @@
 
 ## Дальнейшие действия
 
-Затем необходимо выполнить связывание виртуальной сети с каналом ExpressRoute. При работе с режимом развертывания диспетчера ресурсов Azure можно использовать [этот шаблон](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection). В настоящее время мы работаем над действиями с PowerShell.
-
+Затем необходимо выполнить [связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 -  Подробнее о рабочих процессах ExpressRoute см. в разделе [Рабочие процессы ExpressRoute](expressroute-workflows.md).
 
@@ -395,4 +394,4 @@
 
 -  Подробнее о работе с виртуальными сетями см. в разделе [Обзор виртуальных сетей](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

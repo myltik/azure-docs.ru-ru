@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM
@@ -684,6 +684,17 @@ Azure Active Directory может предоставлять веб-службе
 
 ![][5] *Рисунок. Последовательность действий при подготовке и отзыве пользователей*
 
+##Связанные статьи
+
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS](active-directory-saas-app-provisioning.md)
+- [Настройка сопоставления атрибутов для подготовки пользователей](active-directory-saas-customizing-attribute-mappings.md)
+- [Запись выражений для сопоставления атрибутов](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Фильтры области для подготовки пользователей](active-directory-saas-scoping-filters.md)
+- [Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md)
+- [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
+
+
 	
 <!--Image references-->
 [1]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG
@@ -692,4 +703,4 @@ Azure Active Directory может предоставлять веб-службе
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

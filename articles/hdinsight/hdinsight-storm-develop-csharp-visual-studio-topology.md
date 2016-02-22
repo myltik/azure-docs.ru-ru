@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # Разработка топологий для Apache Storm в HDInsight на C# с помощью средств Hadoop для Visual Studio
@@ -41,7 +41,7 @@
 
     > [AZURE.NOTE] Средства HDInsight для Visual Studio не поддерживаются в Visual Studio Express
 
--	Кластер Apache Storm в HDInsight. Инструкции по созданию кластера можно найти в разделе [Начало работы с Apache Storm в HDInsight](hdinsight-apache-storm-tutorial-getting-started.md).
+-	Кластер Apache Storm в HDInsight. Инструкции по созданию кластера можно найти в разделе [Начало работы с Apache Storm в HDInsight](hdinsight-apache-storm-tutorial-get-started.md).
 
 	> [AZURE.NOTE] В настоящее время инструменты HDInsight для Visual Studio поддерживают только Storm в кластерах HDInsight версии 3.2.
 
@@ -658,4 +658,4 @@ Context.Logger.Info("Component started");
 
 -	[Начало работы с HBase в HDInsight](hdinsight-hbase-tutorial-get-started.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="02/01/2015"  
+ 	ms.date="02/09/2016"  
  	ms.author="stevenpo"/>
 
 # Совместное использование учетных записей в Azure AD
@@ -69,7 +69,8 @@ Azure AD поддерживает общие учетные записи для 
 
 ## Связанные статьи
 
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 - [Защита приложений с помощью условного доступа](active-directory-conditional-access.md)
 - [Самостоятельное управление группами/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

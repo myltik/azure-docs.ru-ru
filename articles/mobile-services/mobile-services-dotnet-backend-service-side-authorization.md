@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="12/09/2015"
+	ms.date="02/07/2016"
 	ms.author="krisragh"/>
 
 # Авторизация пользователей на стороне службы в мобильных службах
@@ -37,7 +37,7 @@
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE]Чтобы внести это изменение модели данных и сохранить существующие данные в базе, необходимо использовать [Code First Migrations](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
+	>[AZURE.NOTE] Чтобы внести это изменение модели данных и сохранить существующие данные в базе, необходимо использовать [Code First Migrations](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 2. В Visual Studio разверните папку "Контроллеры", откройте файл **TodoItemController.cs** и добавьте следующее выражение:
 
@@ -84,4 +84,4 @@
 <!-- URLs. -->
 [Добавление проверки подлинности в существующее приложение мобильных служб]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

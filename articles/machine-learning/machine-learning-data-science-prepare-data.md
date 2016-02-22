@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/08/2016"
 	ms.author="bradsev" />
 
 
@@ -111,4 +111,4 @@
 >*Интеллектуальный анализ данных: концепции и методы*. Издание третье, Morgan Kaufmann Publishers, 2011. Цзявей Хань (Jiawei Han), Мишлин Кэмбер (Micheline Kamber) и Цзянь Пей (Jian Pei)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

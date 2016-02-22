@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/06/2015"
+	ms.date="02/07/2016"
 	ms.author="ricksal"/>
 
 # Добавление push-уведомлений к приложению мобильных служб
@@ -117,4 +117,4 @@
 [Рассылка широковещательных уведомлений подписчикам]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Отправка подписчикам уведомлений на основе шаблонов]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

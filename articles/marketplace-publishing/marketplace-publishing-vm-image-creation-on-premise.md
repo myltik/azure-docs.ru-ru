@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/08/2015"
+  ms.date="02/04/2016"
   ms.author="hascipio; v-divte"/>
 
 # Локальная разработка образа виртуальной машины для Azure Marketplace
@@ -42,8 +42,8 @@
   ![рисунок](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
 
 ### Загрузка VHD
-Если URL-адрес большого двоичного объекта известен, вы можете загрузить VHD с помощью [портала Azure](http://manage.windowsazure.com/) или PowerShell.  
-> [AZURE.NOTE] На момент составления данного руководства новый портал Microsoft Azure еще не содержит функцию загрузки VHD.  
+Если URL-адрес большого двоичного объекта известен, вы можете загрузить VHD с помощью [портала Azure](http://manage.windowsazure.com/) или PowerShell.
+> [AZURE.NOTE] На момент составления данного руководства новый портал Microsoft Azure еще не содержит функцию загрузки VHD.
 
 **Загрузка VHD ОС через действующий [портал управления Azure](http://manage.windowsazure.com/)**
 
@@ -74,7 +74,7 @@
         -StorageKey <keyForStorageAccount>
 Например: Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\\Users\\Administrator\\Desktop\\baseimagevm.vhd” -StorageKey <String>
 
-> [AZURE.NOTE]Командлет **Save-AzureVhd** также имеет параметр **NumberOfThreads**, позволяющий улучшить параллелизм и добиться оптимального использования доступной пропускной способности для загрузки.
+> [AZURE.NOTE] Командлет **Save-AzureVhd** также имеет параметр **NumberOfThreads**, позволяющий улучшить параллелизм и добиться оптимального использования доступной пропускной способности для загрузки.
 
 ## Подключение VHD к учетной записи хранения Azure
 Если VHD подготовлен локально, его необходимо отправить в учетную запись хранения в Azure. Это действие выполняется после локального создания VHD, но до сертификации образа виртуальной машины.
@@ -100,7 +100,7 @@
 
 7.	В колонке "Контейнеры" выберите **Добавить** и введите имя и разрешения контейнера. Для разрешений контейнера выберите вариант **Частный**.
 
-> [AZURE.TIP]Рекомендуется создавать по одному контейнеру для каждого номера SKU, который вы планируете опубликовать.
+> [AZURE.TIP] Рекомендуется создавать по одному контейнеру для каждого номера SKU, который вы планируете опубликовать.
 
   ![рисунок](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
@@ -113,7 +113,7 @@
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 
-> [AZURE.NOTE]Эти команды предполагают, что контекст текущей учетной записи хранения уже настроен в PowerShell. Дополнительные сведения о настройке PowerShell см. в статье [Настройка Azure PowerShell](marketplace-publishing-powershell-setup.md).
+> [AZURE.NOTE] Эти команды предполагают, что контекст текущей учетной записи хранения уже настроен в PowerShell. Дополнительные сведения о настройке PowerShell см. в статье [Настройка Azure PowerShell](marketplace-publishing-powershell-setup.md).
 ### Создание учетной записи хранения с помощью программы командной строки для Mac и Linux
 В [программе командной строки Linux](../virtual-machines/command-line-tools/) создайте учетную запись хранения следующим образом.
 
@@ -138,4 +138,4 @@
 - [Создание образа виртуальной машины для Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Настройка Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

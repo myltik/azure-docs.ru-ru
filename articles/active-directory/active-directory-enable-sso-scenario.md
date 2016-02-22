@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/16/2015"
+      ms.date="02/09/2016"
       ms.author="inhenk"/>
 
 # Управление приложениями с помощью Azure Active Directory (AD)
@@ -124,4 +124,8 @@ Azure AD содержит предварительно интегрирован�
 
 Чтобы начать интеграцию приложений с Azure AD, см. статью [Интеграция Azure Active Directory с приложениями. Руководство по началу работы](active-directory-integrating-applications-getting-started.md).
 
-<!---HONumber=Oct15_HO4-->
+## См. также
+
+[Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

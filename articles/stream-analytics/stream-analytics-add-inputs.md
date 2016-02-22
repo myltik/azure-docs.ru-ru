@@ -1,28 +1,36 @@
-<properties 
-	pageTitle="Добавление входных данных в задания Stream Analytics | Microsoft Azure" 
-	description="Добавление входных данных в задания Stream Analytics | Сегмент схемы обучения"
+<properties
+	pageTitle="Добавление входных данных в задания Stream Analytics | Microsoft Azure"
+	description="Узнайте, как подключить источник данных к заданию Stream Analytics в качестве источника потоковых входных данных из концентраторов событий или источника потоковых ссылочных данных из хранилища BLOB-объектов."
 	keywords="входные данные, потоковые данные"
 	documentationCenter=""
 	services="stream-analytics"
-	authors="jeffstokes72" 
-	manager="paulettm" 
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"
 />
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"
 />
 
 
-# Добавление входных потоковых данных в задания Stream Analytics
+# Подключение потоковой передачи входных или ссылочных данных к заданию Stream Analytics
 
-Задания службы Azure Stream Analytics можно подключать к одному или нескольким источникам данных, каждый из которых определяет подключение к существующему источнику данных. Данные, отправляемые в этот источник данных, принимаются заданием Stream Analytics как потоковые данные и обрабатываются в режиме реального времен. Служба Stream Analytics обеспечивает первоклассную интеграцию с [концентраторами событий Azure](https://azure.microsoft.com/services/event-hubs/) и [хранилищем больших двоичных объектов Azure](./storage/storage-dotnet-how-to-use-blobs.md) независимо от того, входят ли они в подписку. В службе Stream Analytics используют два отдельных типа входных данных: потоки данных и эталонные данные.
+Узнайте, как подключить источник данных к заданию Stream Analytics в качестве источника потоковых входных данных из концентраторов событий или источника потоковых ссылочных данных из хранилища BLOB-объектов.
+
+Задания службы Azure Stream Analytics можно подключать к одному или нескольким источникам данных, каждый из которых определяет подключение к существующему источнику данных. Данные, отправляемые в этот источник данных, принимаются заданием Stream Analytics как потоковые данные и обрабатываются в режиме реального времен. Служба Stream Analytics обеспечивает первоклассную интеграцию с [концентраторами событий Azure](https://azure.microsoft.com/services/event-hubs/) и [хранилищем больших двоичных объектов Azure](./storage/storage-dotnet-how-to-use-blobs.md) независимо от того, входят ли они в подписку.
+
+Эта статья представляет собой шаг [схемы обучения Stream Analytics](/documentation/learning-paths/stream-analytics/).
+
+## Входные данные: потоковые данные и ссылочные данные
+
+В службе Stream Analytics используют два отдельных типа входных данных: потоки данных и эталонные данные.
 
 - **Потоки данных**: задания Stream Analytics должны включать как минимум один поток входных данных, потребляемый и изменяемый заданием. В качестве источников входных потоковых данных могут выступать хранилище больших двоичных объектов Azure и концентраторы событий Azure. Концентраторы событий Azure используются для сбора потоков событий с подключенных устройств, служб и приложений. Для приема массовых данных в качестве потока можно использовать хранилище больших двоичных объектов Azure.  
 - **Эталонные данные**: служба Stream Analytics поддерживает второй тип вспомогательных входных данных, которые называются эталонными. В отличие от передаваемых данных, эти данные статичны или замедляют изменения. Обычно они используются для выполнения поиска и корреляции с потоками данных для создания более плотных наборов данных. Хранилище больших двоичных объектов Azure — единственный поддерживаемый источник входных эталонных данных.  
@@ -31,11 +39,11 @@
 
 1. На портале Azure нажмите **Входные данные**, а затем выберите **Добавить входные данные** в задании Stream Analytics.
 
-    ![Добавление источника потоковых данных](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
+    ![Классический портал Azure — добавление входных данных.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
 
-    На портале предварительной версии Azure нажмите плитку **Входные данные** в задании Stream Analytics.
+    На портале Azure щелкните элемент **Входные данные** в вашем задании Stream Analytics.
 
-    ![Добавление источника потоковых данных](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
+    ![Портал Azure — добавление входных данных.](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
 
 2. Укажите тип входных данных: либо **Поток данных**, либо **Эталонные данные**.
 
@@ -69,7 +77,7 @@
 
     ![Проверка подключения входных потоковых данных](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
 
-## Получение справки
+## Получение справки по потоковой передаче входных данных
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия
@@ -80,4 +88,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

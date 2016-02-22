@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/09/2016"
 	ms.author="liamca"/>
 
 # Как искать данные в StackExchange с помощью поиска Azure
@@ -41,7 +41,7 @@
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28%26search=azure%26$filter=tagsCollection/any(t:+t+eq+'architecture')%26$orderby=viewCount+desc>
 
--	`Spelling Mistakes`: наша новая функция поддержки [выражений запросов Lucene](https://msdn.microsoft.com/library/mt589323.aspx) (предварительная версия) также позволяет создавать некоторые довольно необычные запросы, например на нечеткое соответствие результатов или ограничение поиска конкретными полями. В этом примере выполняется поиск слова «visualize» в поле названия, но знак ~ указывает на нечеткое соответствие, что допускает включение в результаты слов «visualise» и «visualizing».
+-	`Fuzzy Search`: наша новая функция поддержки [выражений запросов Lucene](https://msdn.microsoft.com/library/mt589323.aspx) также позволяет создавать некоторые довольно необычные запросы, например на нечеткое соответствие результатов или ограничение поиска конкретными полями. В этом примере выполняется поиск слова «visualize» в поле названия, но знак ~ указывает на нечеткое соответствие, что допускает включение в результаты слов «visualise» и «visualizing».
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28&search%3Dtitle%3Avisualise~%26querytype%3Dfull%26searchMode%3Dall%26%24select%3Dtitle>
 
@@ -109,4 +109,4 @@
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->
