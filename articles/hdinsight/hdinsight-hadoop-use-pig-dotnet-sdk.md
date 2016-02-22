@@ -155,6 +155,7 @@
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 
-* [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md) [портал предварительной версии]: https://portal.azure.com/
+* [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md) 
+[портал предварительной версии]: https://portal.azure.com/
 
 <!---HONumber=AcomDC_0211_2016-->

@@ -504,7 +504,8 @@
 	// Start the sign-in process.
 	authenticate();
 
-При этом инициализируется клиент Live Connect, в учетную запись Майкрософт отправляется новый запрос на вход, в мобильные службы отправляется возвращенный маркер проверки подлинности, а затем отображается информация о вошедшем пользователе. Приложение не запустится, пока проверка подлинности не будет пройдена успешно. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+При этом инициализируется клиент Live Connect, в учетную запись Майкрософт отправляется новый запрос на вход, в мобильные службы отправляется возвращенный маркер проверки подлинности, а затем отображается информация о вошедшем пользователе. Приложение не запустится, пока проверка подлинности не будет пройдена успешно.
+<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 

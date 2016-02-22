@@ -21,7 +21,8 @@
 
 Реконструирование характеристик пытается повысить эффективность прогнозирования алгоритмов обучения путем создания характеристик из необработанных данных, позволяющих упростить процесс обучения.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]Это **меню** содержит ссылки на разделы, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Это **меню** содержит ссылки на разделы, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ##Введение
 
@@ -95,4 +96,4 @@
 Обратите внимание, что он не всегда обязателен для выполнения реконструирования или выбора признаков. Его необходимость зависит от собираемых данных, используемого алгоритма и цели эксперимента.
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0211_2016--->
