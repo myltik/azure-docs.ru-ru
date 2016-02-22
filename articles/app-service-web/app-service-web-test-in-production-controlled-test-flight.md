@@ -375,4 +375,4 @@
 -	[Azure PowerShell](../powershell-install-configure.md)
 -	[Вики-сайт проекта Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0211_2016--->
