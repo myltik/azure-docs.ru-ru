@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/22/2015"
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Включение автономной синхронизации для приложения для Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Обзор
 
@@ -48,11 +46,11 @@
     * **Среда выполнения Windows 8.1:** установите [SQLite для Windows 8.1].
     * **Windows Phone 8.1:** установите [SQLite для Windows Phone 8.1].
 
-    >[AZURE.NOTE]Эти инструкции также подойдут для проектов Windows 10 UAP, но тогда следует установить [SQLite для Windows 10].
+    >[AZURE.NOTE] Эти инструкции также подойдут для проектов Windows 10 UAP, но тогда следует установить [SQLite для Windows 10].
 
 2. В Visual Studio откройте проект, созданный в учебнике на странице [Создание приложения для Windows]. Установите пакет NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** для проектов среды выполнения Windows 8.1 и Windows Phone 8.1. Добавьте ссылку на NuGet в проекты для Магазина Windows 8.1 и Windows Phone 8.1.
 
-    >[AZURE.NOTE]Если при установке создается дополнительная ссылка на другую версию SQLite, которая у вас не установлена, будет сообщено об ошибке компиляции. Следует устранить эту ошибку, удалив повторяющийся элемент из узла **Ссылки** в своих проектах.
+    >[AZURE.NOTE] Если при установке создается дополнительная ссылка на другую версию SQLite, которая у вас не установлена, будет сообщено об ошибке компиляции. Следует устранить эту ошибку, удалив повторяющийся элемент из узла **Ссылки** в своих проектах.
 
 3. В обозревателе решений щелкните правой кнопкой мыши пункт **Ссылки** для проектов на платформах среды выполнения Windows 8.1 и Windows Phone 8.1. Убедитесь в наличии ссылки на элемент SQLite в разделе **Расширения**.
 
@@ -137,7 +135,7 @@
             ButtonRefresh.IsEnabled = true;
         }
 
-10. Добавьте обработчики исключений в метод `SyncAsync`. В автономном режиме будет порождено исключение `MobileServicePushFailedException` с `PushResult.Status == CancelledByNetworkError`.
+10. Добавьте обработчики исключений в метод `SyncAsync`. В автономном режиме `MobileServicePushFailedException` будет порождено с `PushResult.Status == CancelledByNetworkError`.
 
         private async Task SyncAsync()
         {
@@ -180,14 +178,14 @@
 
 1. Измените файл App.xaml.cs в общем проекте. Закомментируйте инициализацию **MobileServiceClient** и добавьте следующие строки, которые используют недопустимый URL-адрес мобильного приложения:
 
-         public static MobileServiceClient MobileService = 
+         public static MobileServiceClient MobileService =
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
 
 	Если в приложении используется проверка подлинности, единый вход завершится ошибкой. Чтобы продемонстрировать поведение в автономном режиме, отключите на устройстве Wi-Fi и сотовую связь и включите авиарежим.
 
 2. Нажмите клавишу **F5**, чтобы выполнить сборку и запустить приложение. Обратите внимание, синхронизацию не удалось выполнить при обновлении во время запуска приложения.
-3. Введите новые элементы todo. Нажмите кнопку **Сохранить** для каждого из них. Сбой отправки происходит для каждого с `PushResult.Status=CancelledByNetworkError`. Новый элемент мероприятия существует только в локальном хранилище, пока он не будет перемещен в серверную часть мобильного приложения. 
- 
+3. Введите новые элементы todo. Нажмите кнопку **Сохранить** для каждого из них. Сбой отправки происходит для каждого с `PushResult.Status=CancelledByNetworkError`. Новый элемент мероприятия существует только в локальном хранилище, пока он не будет перемещен в серверную часть мобильного приложения.
+
 	Можно подавить отображение диалогового окна исключения для `PushResult.Status=CancelledByNetworkError`. Тогда клиентское приложение будет вести себя так, будто оно подключено к серверной части мобильного приложения, обеспечивающей прозрачное выполнение всех операций создания, чтения, обновления и удаления (CRUD).
 
 4. Закройте приложение и перезапустите его, чтобы убедиться, что новые элементы сохранены в локальном хранилище.
@@ -269,8 +267,8 @@
 [SQLite для Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
 
 [sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
- 
+
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: приложения с поддержкой автономного режима в мобильных службах Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

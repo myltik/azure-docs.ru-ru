@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/09/2015"
+  ms.date="02/04/2016"
   ms.author="hascipio; v-divte"/>
 
 # Технические компоненты, необходимые для создания образа виртуальной машины для Azure Marketplace
@@ -33,7 +33,7 @@
 - Если вы пользуетесь операционной системой Linux, см. раздел «Создание VHD, совместимых с Azure (на базе Linux)» [руководства по публикации образов виртуальных машин](marketplace-publishing-vm-image-creation.md).
 - Если вы пользуетесь операционной системой Windows, см. раздел «Создание VHD, совместимых с Azure (на базе Windows)» [руководства по публикации образов виртуальных машин](marketplace-publishing-vm-image-creation.md).
 
-> [AZURE.NOTE]Для выполнения следующих действий требуется компьютер под управлением Windows: — запуск средства проверки сертификации; — создание подписанного URL-адреса VHD для отправки сертификации VHD.
+> [AZURE.NOTE] Для выполнения следующих действий требуется компьютер под управлением Windows: — запуск средства проверки сертификации; — создание подписанного URL-адреса VHD для отправки сертификации VHD.
 
 ## Разработка VHD
 Диски VHD Azure можно разрабатывать в облаке или локально.
@@ -51,4 +51,4 @@
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

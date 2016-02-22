@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/09/2016"
    ms.author="subramar"/>
 
 
@@ -67,15 +67,15 @@
 
 ## Дальнейшие действия
 
+Пошаговое руководство [Обновление приложения с помощью Visual Studio](service-fabric-application-upgrade-tutorial.md) поможет вам выполнить обновление приложения с помощью Visual Studio.
 
-[Обновление приложения Service Fabric с помощью Visual Studio](service-fabric-application-upgrade.md)
+Пошаговое руководство [Обновление приложения с помощью PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) поможет вам выполнить обновление приложения с помощью PowerShell.
 
-[Обновление приложения Service Fabric с помощью PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+Узнайте, как использовать [сериализацию данных](service-fabric-application-upgrade-data-serialization.md), чтобы обеспечить совместимость обновлений приложения.
 
-[Обновление вручную и с помощью пакета Diff](service-fabric-application-upgrade-advanced.md)
+[Дополнительные разделы](service-fabric-application-upgrade-advanced.md) содержат сведения о работе с расширенными функциями при обновлении приложения.
 
-[Поиск и устранение неисправностей при обновлении приложения](service-fabric-application-upgrade-troubleshooting.md)
+Сведения об устранении распространенных проблем при обновлении приложений см. в разделе [Устранение неполадок обновления приложения](service-fabric-application-upgrade-troubleshooting.md).
+ 
 
-[Сериализация данных](service-fabric-application-upgrade-data-serialization.md)
-
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/05/2016"
 	ms.author="ricksal"/>
 
 # Регистрация приложений для входа с использованием учетной записи Azure Active Directory
@@ -31,7 +31,7 @@
 
 ##Регистрация приложения
 
->[AZURE.NOTE] Описанные в этом разделе действия предназначены для применения с учебником [Добавление проверки подлинности в приложение мобильных служб](../mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md), если нужно использовать [управляемые службой операции входа](http://msdn.microsoft.com/library/azure/dn283952.aspx) в вашем приложении. А если приложению требуются [управляемые клиентом операции входа](http://msdn.microsoft.com/library/azure/jj710106.aspx) для Azure Active Directory и серверной части .NET, нужно начать с учебника [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory](mobile-services-windows-store-dotnet-adal-sso-authentication.md).
+>[AZURE.NOTE] Описанные в этом разделе действия предназначены для применения с учебником [Добавление проверки подлинности в приложение мобильных служб](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md), если нужно использовать [управляемые службой операции входа](http://msdn.microsoft.com/library/azure/dn283952.aspx) в вашем приложении. А если приложению требуются [управляемые клиентом операции входа](http://msdn.microsoft.com/library/azure/jj710106.aspx) для Azure Active Directory и серверной части .NET, нужно начать с учебника [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory](mobile-services-windows-store-dotnet-adal-sso-authentication.md).
 
 1. Выполните вход на [классический портал Azure], перейдите к вашей мобильной службе, откройте вкладку **Идентификация**, прокрутите вниз до раздела поставщика удостоверений **Azure Active Directory** и скопируйте **URL-адрес приложения**.
 
@@ -70,4 +70,4 @@
 [классический портал Azure]: https://manage.windowsazure.com/
 [классическом портале]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

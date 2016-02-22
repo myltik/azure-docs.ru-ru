@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="derrickv"/>
 
 # Начало работы с каталогом данных Azure
@@ -232,4 +232,4 @@
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/29/2016"
+   ms.date="02/09/2016"
    ms.author="brjohnst"/>
 
 # Использование службы поиска Azure в приложении .NET
@@ -29,9 +29,9 @@
 - [Microsoft.Azure.Search;](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
 - [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
 
-Текущая версия пакета SDK для .NET службы поиска Azure является предварительной. Если у вас есть предложения, как улучшить первую стабильную версию, посетите нашу [страницу отзывов](https://feedback.azure.com/forums/263029-azure-search/).
+Текущая версия пакета SDK службы поиска Azure для .NET является общедоступной. Если у вас есть предложения, как улучшить следующую версию, посетите нашу [страницу отзывов](https://feedback.azure.com/forums/263029-azure-search/).
 
-Пакет SDK для .NET поддерживает версию `2015-02-28` интерфейса API REST Поиска Azure, описанную в библиотеке [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Теперь эта версия включает поддержку анализаторов языка Microsoft. Новые возможности, которые *не* включены в эту версию, например поддержка параметра поиска `moreLikeThis`, находятся в [предварительной версии](search-api-2015-02-28-preview.md) и недоступны в пакете SDK. Об изменениях состояния каждой из этих функций можно узнать на странице [Управление версиями службы поиска](https://msdn.microsoft.com/library/azure/dn864560.aspx) или [Последние обновления службы поиска Azure](search-latest-updates.md).
+Пакет SDK для .NET поддерживает версию `2015-02-28` интерфейса API REST Поиска Azure, описанную в библиотеке [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Новая версия поддерживает синтаксис запросов Lucene и анализаторы языка Microsoft. Новые возможности, которые *не* включены в эту версию, например поддержка параметра поиска `moreLikeThis`, находятся в [предварительной версии](search-api-2015-02-28-preview.md) и недоступны в пакете SDK. Об изменениях состояния каждой из этих функций можно узнать на странице [Управление версиями службы поиска](https://msdn.microsoft.com/library/azure/dn864560.aspx) или [Последние обновления службы поиска Azure](search-latest-updates.md).
 
 Другие функции, которые не поддерживается в этом пакете SDK:
 
@@ -39,7 +39,7 @@
 
 ## Обновление до последней версии пакета SDK
 
-Если вы уже используете старую версию пакета SDK для .NET для службы поиска Azure и хотите выполнить обновление до новой версии 1.0-preview, см. инструкции в [этой статье](search-dotnet-sdk-migration.md).
+Если вы уже используете старую версию пакета SDK для .NET для службы поиска Azure и хотите выполнить обновление до общедоступной версии 1.0, см. инструкции в [этой статье](search-dotnet-sdk-migration.md).
 
 ## Требования для пакета SDK
 
@@ -47,7 +47,7 @@
 
 2. Ваша личная служба поиска Azure. Чтобы использовать пакет SDK, необходимо указать имя службы и один или несколько ключей API. Статья [Создание службы на портале](search-create-service-portal.md) поможет вам это сделать.
 
-3. Скачайте пакет SDK для Поиска Azure Search в .NET в виде [пакета NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) с помощью команды "Управление пакетами NuGet" в Visual Studio. Достаточно найти имя пакета `Microsoft.Azure.Search` на сайте NuGet.org. Обязательно установите флажок "Включить предварительные выпуски", чтобы предварительная версия пакета SDK отображалась в результатах поиска.
+3. Скачайте пакет SDK для Поиска Azure Search в .NET в виде [пакета NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) с помощью команды "Управление пакетами NuGet" в Visual Studio. Достаточно найти имя пакета `Microsoft.Azure.Search` на сайте NuGet.org.
 
 Пакет SDK для .NET службы поиска Azure поддерживает приложения, предназначенные для .NET Framework 4.5, а также приложения из Магазина Windows для Windows 8.1 и Windows Phone 8.1. Silverlight не поддерживается.
 
@@ -646,4 +646,4 @@ Hotel.cs:
 
 Полный образец исходного кода также можно найти [на GitHub](http://aka.ms/search-dotnet-howto).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

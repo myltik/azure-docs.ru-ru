@@ -19,6 +19,6 @@
 
 <sup>2</sup> Можно приобрести дополнительную емкость свыше 50 миллионов точек данных.
  
-[Цены и квоты для Application Insights](app-insights-pricing.md)
+[Цены и квоты для Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

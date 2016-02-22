@@ -50,7 +50,7 @@
 
 #### Мониторинг работоспособности службы
 
-Microsoft Azure информирует о каждом случае прерывания работы или снижения производительности службы. Можно следить за работоспособностью службы на [портале Azure](https://portal.azure.com/). Дополнительные сведения см. в статье [Мониторинг работоспособности службы](insights-service-health.md).
+Microsoft Azure информирует о каждом случае прерывания работы или снижения производительности службы. Можно следить за работоспособностью службы на [портале Azure](https://portal.azure.com/). Дополнительные сведения см. в статье [Мониторинг работоспособности службы](../azure-portal/insights-service-health.md).
 
 #### Мониторинг веб-приложения
 
@@ -69,7 +69,7 @@ Microsoft Azure информирует о каждом случае прерыв
 Дополнительные сведения см. в следующих статьях:
 
 -	[Мониторинг веб-приложений в службе приложений Azure](web-sites-monitor.md)
--	[Получение уведомлений об оповещениях](insights-receive-alert-notifications.md)
+-	[Получение уведомлений об оповещениях](../azure-portal/insights-receive-alert-notifications.md)
 
 #### Мониторинг состояния конечной веб-точки
 
@@ -91,9 +91,9 @@ Microsoft Azure информирует о каждом случае прерыв
 
 Для контроля производительности можно использовать расширения [Azure Application Insights](/services/application-insights/) и [New Relic](/marketplace/partners/newrelic/newrelic/). Чтобы использовать New Relic, необходимо установить агент в среде выполнения. Чтобы использовать Application Insights, перестройте код с помощью пакета SDK. Кроме того, вы можете установить расширение для доступа к дополнительным данным. Пакет SDK позволяет писать код для более подробного отслеживания использования и производительности приложения.
 
-Использование Application Insights описано в статье [Отслеживание производительности в веб-приложениях](app-insights-web-monitor-performance.md).
+Использование Application Insights описано в статье [Отслеживание производительности в веб-приложениях](../application-insights/app-insights-web-monitor-performance.md).
 
-Использование New Relic описано в статье [Инструмент управления производительностью приложений New Relic для Azure](store-new-relic-cloud-services-dotnet-application-performance-management.md).
+Использование New Relic описано в статье [Инструмент управления производительностью приложений New Relic для Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
 
 <a name="collect" />
 ### 2\. Сбор данных
@@ -184,6 +184,6 @@ Microsoft Azure информирует о каждом случае прерыв
 
  ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Управлять приложениями можно также с помощью Azure Powershell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](powershell-azure-resource-manager.md).
+Управлять приложениями можно также с помощью Azure Powershell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

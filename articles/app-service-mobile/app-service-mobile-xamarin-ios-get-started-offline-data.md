@@ -13,14 +13,12 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="01/28/2015"
+	ms.date="02/04/2016"
     ms.author="wesmc"/>
 
 # Включение автономной синхронизации для мобильного приложения Xamarin.iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Обзор
 
@@ -42,7 +40,7 @@
 
 Клиентский проект Xamarin, скачанный при изучении учебника [Создание приложения Xamarin iOS], уже содержит код, который поддерживает автономную синхронизацию с использованием локальной базы данных SQLite. Вот краткое содержание материала, уже включенного в код учебника. Общие сведения об этой функции см. в статье [Автономная синхронизация данных в мобильных приложениях Azure].
 
-* Прежде чем можно будет выполнить операции с таблицами, необходимо инициализировать локальное хранилище. Инициализация базы данных локального хранилища происходит, когда `QSTodoListViewController.ViewDidLoad()` выполняет `QSTodoService.InitializeStoreAsync()`. При этом создается новая локальная база данных SQLite с помощью класса `MobileServiceSQLiteStore`, предоставленного клиентским пакетом SDK для мобильных приложений Azure. 
+* Прежде чем можно будет выполнить операции с таблицами, необходимо инициализировать локальное хранилище. Инициализация базы данных локального хранилища происходит, когда `QSTodoListViewController.ViewDidLoad()` выполняет `QSTodoService.InitializeStoreAsync()`. При этом создается новая локальная база данных SQLite с помощью класса `MobileServiceSQLiteStore`, предоставленного клиентским пакетом SDK для мобильных приложений Azure.
 
 	Метод `DefineTable` создает в локальном хранилище таблицу, соответствующую полям в указанном типе, в данном случае это `ToDoItem`. Тип необязательно должен включать в себя все столбцы, которые находятся в удаленной базе данных. Можно хранить и подмножество столбцов.
 
@@ -59,7 +57,7 @@
 
 
 * Элемент `todoTable` в `QSTodoService` имеет тип `IMobileServiceSyncTable`, а не `IMobileServiceTable`. В данном случае все операции создания, чтения, обновления и удаления (CRUD) с таблицей будут направлены в базу данных локального хранилища.
- 
+
 	Можно решить, когда эти изменения будут передаваться в серверную часть мобильного приложения Azure, вызвав `IMobileServiceSyncContext.PushAsync()` с использованием контекста синхронизации для клиентского подключения. Контекст синхронизации помогает сохранить связи между таблицами, отслеживания и отправляя изменения во всех таблицах, измененных клиентским приложением при вызове `PushAsync`.
 
 	Представленный код вызывает метод `QSTodoService.SyncAsync()` для синхронизации при каждом обновлении списка элементов Todoitem или добавлении либо завершении элемента Todoitem. Поэтому он выполняет синхронизацию после каждого локального изменения, выполняя отправку по контексту синхронизации и извлечение по таблице синхронизации. Но важно понимать, что при извлечении из таблицы, для которой есть ожидающие локальные обновления, отслеживаемые по контексту, операция извлечения сначала автоматически инициирует отправку контекста. Поэтому в таких случаях (при обновлении, добавлении и завершении элементов) можно опустить явный вызов `PushAsync`. Он является избыточным.
@@ -67,10 +65,7 @@
     В представленном коде запрашиваются все записи из удаленной таблицы `TodoItem`, однако их можно также отфильтровать путем передачи идентификатора запроса и запроса в `PushAsync`. Дополнительные сведения см. в подразделе *Добавочная синхронизация* раздела [Автономная синхронизация данных в мобильных приложениях Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
-	-->
-
-
-		// QSTodoService.cs
+-->	// QSTodoService.cs
 
         public async Task SyncAsync()
         {
@@ -98,7 +93,7 @@
 
 1. В верхней части `QSTodoService.cs` измените инициализацию `applicationURL`, указав недействительные URL-адреса:
 
-        const string applicationURL = @"https://your-service.azurewebsites.xxx/"; 
+        const string applicationURL = @"https://your-service.azurewebsites.xxx/";
 
 
 2. Добавьте дополнительный `catch` для класса `Exception` в `QSTodoService.SyncAsync` для записи сообщения об исключении в консоль.
@@ -168,7 +163,7 @@
 
 [Xamarin Studio]: http://xamarin.com/download
 [Расширение Xamarin]: http://xamarin.com/visual-studio
- 
+
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!-----HONumber=AcomDC_0204_2016--->
+<!---HONumber=AcomDC_0211_2016-->

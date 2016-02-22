@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 
 # Работа с приложениями, поддерживающими утверждения, в прокси приложения
 
-> [AZURE.IMPORTANT]Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
+> [AZURE.IMPORTANT] Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
 
 Приложения, поддерживающие утверждения, выполняют перенаправление в службу маркеров безопасности (STS), которая, в свою очередь, запрашивает учетные данные пользователя в обмен на маркер, прежде чем перенаправить пользователя в приложение. Чтобы включить прокси приложения для работы с этими перенаправлениями, необходимо выполнить следующие действия.
 
@@ -59,7 +59,10 @@
 
 ## Дополнительные ресурсы
 
-* [Регистрация организации в Azure](sign-up-organization.md)
-* [Удостоверение Azure](fundamentals-identity.md)
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Предоставление безопасного удаленного доступа к локальному приложению](active-directory-application-proxy-get-started.md)
+- [Включение собственных клиентских приложений для взаимодействия с приложениями прокси](active-directory-application-proxy-native-client.md)
+- [Регистрация организации в Azure](sign-up-organization.md)
+- [Удостоверение Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

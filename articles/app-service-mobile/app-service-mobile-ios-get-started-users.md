@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать мобильные приложения для проверки подлинности пользователей приложения iOS с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="krisragh" 
+	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="02/04/2016"
 	ms.author="krisragh"/>
 
 # Добавление проверки подлинности в приложение iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 В этом учебнике описывается добавление проверки подлинности в проект учебника по [быстрому запуску iOS] с помощью поддерживаемого поставщика удостоверений. Этот учебник использует материал учебника по [быстрому запуску iOS], который необходимо пройти в первую очередь.
 
@@ -44,6 +42,5 @@
 [быстрому запуску iOS]: app-service-mobile-ios-get-started.md
 
 [Azure portal]: https://portal.azure.com
- 
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0211_2016-->

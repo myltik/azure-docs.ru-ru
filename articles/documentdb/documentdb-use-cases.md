@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/30/2015" 
+    ms.date="02/10/2016" 
     ms.author="hawong"/>
 
 # Распространенные примеры использования DocumentDB
@@ -79,4 +79,4 @@ Microsoft Azure предлагает мощные службы, которые �
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). Хранилище будущего основано на быстром поиске и простом потоке данных.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

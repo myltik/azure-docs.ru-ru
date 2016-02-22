@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 #Настройка личного доменного имени для веб-приложения в службе приложений Azure, использующей диспетчер трафика
@@ -34,7 +34,7 @@
 <a name="bkmk_configurecname"></a>
 ## Добавление записи DNS для пользовательского домена
 
-> [AZURE.NOTE]Если вы приобрели домен через веб-приложения службы приложений Azure, см. только последний шаг статьи [Покупка домена для веб-приложений](custom-dns-web-site-buydomains-web-app.md).
+> [AZURE.NOTE] Если вы приобрели домен через веб-приложения службы приложений Azure, см. только последний шаг статьи [Покупка домена для веб-приложений](custom-dns-web-site-buydomains-web-app.md).
 
 Для сопоставления личного домена с веб-приложением в службе приложений Azure необходимо добавить новую запись в таблицу DNS об этом домене с помощью инструментов регистратора, у которого вы приобрели доменное имя. Выполните следующие действия, чтобы найти и использовать средства DNS.
 
@@ -58,7 +58,5 @@
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
- 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -36,6 +36,6 @@ Azure Service Fabric позволяет разработчикам исполь�
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
 
-Дополнительные сведения: [Сценарии приложений](../service-fabric-application-scenarios).
+Дополнительные сведения: [Сценарии приложений](service-fabric-application-scenarios.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

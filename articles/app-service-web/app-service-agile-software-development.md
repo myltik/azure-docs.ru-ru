@@ -21,7 +21,7 @@
 
 Из этого учебника вы узнаете, как создавать крупномасштабные сложные приложения с помощью [службы приложений Azure](/services/app-service/) и [гибкой разработки программного обеспечения](https://en.wikipedia.org/wiki/Agile_software_development). Предполагается, что вы уже знаете, как [предсказуемо развертывать сложные приложения в Azure](app-service-deploy-complex-application-predictably.md).
 
-Ограничения в технических процессах часто могут препятствовать успешной реализации гибких методологий. Служба приложений Azure с такими компонентами, как[непрерывная публикация](web-sites-publish-source-control.md), [промежуточные среды](web-sites-staged-publishing.md) (слоты) и [мониторинг](web-sites-monitor.md) в сочетании с оркестрацией и управлением развертывания в [диспетчере ресурсов Azure](resource-group-overview.md), может входить в состав идеального решения для разработчиков, которые используют гибкую разработку программного обеспечения.
+Ограничения в технических процессах часто могут препятствовать успешной реализации гибких методологий. Служба приложений Azure с такими компонентами, как[непрерывная публикация](web-sites-publish-source-control.md), [промежуточные среды](web-sites-staged-publishing.md) (слоты) и [мониторинг](web-sites-monitor.md) в сочетании с оркестрацией и управлением развертывания в [диспетчере ресурсов Azure](../resource-group-overview.md), может входить в состав идеального решения для разработчиков, которые используют гибкую разработку программного обеспечения.
 
 Следующая таблица содержит краткий список требований, связанных с гибкой разработкой, и способы включения каждого из них в службе Azure.
 
@@ -43,7 +43,7 @@
 
 Расшифровка рисунка.
 
--	Архитектура развертывания разделена на три отдельные среды (или [группы ресурсов](resource-group-overview.md)в Azure), у каждой из которой есть собственные [план службы приложений](azure-web-sites-web-hosting-plans-in-depth-overview.md), настройки [масштабирования](web-sites-scale.md) и база данных SQL. 
+-	Архитектура развертывания разделена на три отдельные среды (или [группы ресурсов](../resource-group-overview.md)в Azure), у каждой из которой есть собственные [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), настройки [масштабирования](web-sites-scale.md) и база данных SQL. 
 -	Каждой средой можно управлять отдельно. Они даже могут находиться в разных подписках.
 -	Промежуточная и рабочая среды реализуются как два слота одной и той же службы приложений. Главная ветвь настроена для непрерывной интеграции с промежуточным слотом.
 -	После проверки изменения в главной ветви в промежуточном слоте (с рабочими данными), проверенное промежуточное приложение пересылается в рабочий слот [без простоя](web-sites-staged-publishing.md).
@@ -63,7 +63,7 @@
 -	Оболочка Git Shell (устанавливается вместе с [GitHub для Windows](https://windows.github.com/)) — она позволяет запускать команды PowerShell и Git в одном сеансе. 
 -	Последняя версия [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi).
 -	Базовые знания таких компонентов.
-	-	Развертывание шаблона [диспетчера ресурсов Azure](resource-group-overview.md) (см. также [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md)).
+	-	Развертывание шаблона [диспетчера ресурсов Azure](../resource-group-overview.md) (см. также [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md)).
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -270,14 +270,14 @@
 -	[Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md)
 -	[Практика гибкой разработки: советы и рекомендации для модернизированного цикла разработки](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 -	[Стратегии расширенного развертывания для веб-приложений Azure с помощью шаблонов диспетчера ресурсов](http://channel9.msdn.com/Events/Build/2015/2-620)
--	[Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md)
+-	[Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
 -	[JSONLint — проверяющий элемент управления JSON](http://jsonlint.com/)
 -	[ARMClient — настройка публикации GitHub на веб-сайте](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 -	[Ветвление Git — основные ветвления и слияния](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[Блог Дэвида Эббо (David Ebbo)](http://blog.davidebbo.com/)
--	[Azure PowerShell](powershell-install-configure.md)
--	[Кроссплатформенные программы командной строки Azure.](xplat-cli-install.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
+-	[Кроссплатформенные программы командной строки Azure.](../xplat-cli-install.md)
 -	[Создание и изменение пользователей в Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Вики-сайт проекта Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

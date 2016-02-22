@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="02/08/2016"
    ms.author="sethm" />
 
 # Использование служебной шины в Python с протоколом AMQP 1.0
@@ -21,7 +21,7 @@
 
 Proton-Python — это привязка языка Python к Proton-C; т. е. Proton-Python реализован как оболочка для ядра, реализованного на языке C.
 
-## Загрузка клиентской библиотеки Proton
+## Скачивание клиентской библиотеки Proton
 
 Proton-C и связанные с ним привязки (включая Python) можно загрузить на сайте [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html). Файл загружается в форме исходного кода. Чтобы создать код, следуйте инструкциям, содержащимся в загруженном пакете.
 
@@ -173,4 +173,4 @@ if message.properties != None:
 
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

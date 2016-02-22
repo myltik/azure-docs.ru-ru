@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Непрерывность бизнес-процессов: вопросы и ответы
@@ -60,4 +60,4 @@
 
 Чтобы получить последние сведения о времени и задержке последней репликации, а также другие сведения о канале репликации, используйте динамическое административное представление [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

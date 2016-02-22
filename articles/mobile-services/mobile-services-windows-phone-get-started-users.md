@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/25/2016"
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности к приложению мобильных служб
@@ -46,7 +46,7 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-&nbsp;&nbsp;3. В Visual Studio 2012 Express для Windows Phone откройте проект, созданный после завершения учебника [Добавление мобильных служб к существующему приложению](mobile-services-windows-phone-get-started-data.md).
+&nbsp;&nbsp;3. В Visual Studio откройте проект, созданный после завершения учебника [Добавление мобильных служб к существующему приложению](mobile-services-windows-phone-get-started-data.md).
 
 &nbsp;&nbsp;4. Нажмите клавишу F5 для запуска этого приложения на основе быстрого запуска; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (неавторизованный). Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица *TodoItem* теперь требует выполнения проверки подлинности.
 
@@ -82,4 +82,4 @@
 [Добавление мобильных служб в существующее приложение]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

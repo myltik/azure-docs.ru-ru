@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/09/2016" 
 	ms.author="mahender"/>
 
 # Обновление существующего приложения мобильной службы Azure .NET до службы приложений
@@ -277,4 +277,4 @@
 [ценами службы приложений]: https://azure.microsoft.com/ru-RU/pricing/details/app-service/
 [Обзор пакета SDK сервера для .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

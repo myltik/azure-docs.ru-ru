@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # Перемещение данных в хранилище BLOB-объектов Azure и из него с помощью соединителей служб SSIS
 
-Информацию о технологиях, которые используются для перемещения данных в хранилище BLOB-объектов Azure и из него, можно найти по ссылкам ниже.
+[Пакет дополнительных компонентов SQL Server Integration Services для Azure](https://msdn.microsoft.com/library/mt146770.aspx) содержит компоненты для подключения к Azure, передачи данных между Azure и локальными источниками данных, а также для обработки данных, хранящихся в Azure.
+
+Сведения о технологиях, которые используются для перемещения данных в хранилище больших двоичных объектов Azure и из него, см. по следующим ссылкам:
 
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 ## Введение
 
-[Пакет дополнительных компонентов SQL Server Integration Services для Azure](https://msdn.microsoft.com/library/mt146770.aspx) содержит компоненты для подключения к Azure, передачи данных между Azure и локальными источниками данных, а также для обработки данных, хранящихся в Azure.
-
 После перемещения в облако локальные данные становятся доступными из любых служб Azure. Теперь можно использовать все возможности набора технологий Azure. К примеру, их можно использовать в машинном обучении Azure или в кластере HDInsight.
 
-Обычно это является первым шагом для работы с [SQL](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sql-walkthrough/) и [HDInsight](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-hive-walkthrough/).
+Обычно это является первым шагом для работы с [SQL](machine-learning-data-science-process-sql-walkthrough.md) и [HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 В Интернете доступна информация о канонических сценариях, в рамках которых службы SSIS используются для выполнения бизнес-задач, часто встречающихся в сценариях интеграции гибридных данных. Найти ее можно в блоге [Повышенная эффективность при использовании пакета дополнительных компонентов SQL Server Integration Services для Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx).
 
-> [AZURE.NOTE]Полное описание базовых принципов использования хранилища больших двоичных объектов Azure см. в статьях [Основы использования больших двоичных объектов Azure](../storage-dotnet-how-to-use-blobs.md) и [Основные понятия службы BLOB-объектов](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> [AZURE.NOTE] Полное описание базовых принципов использования хранилища больших двоичных объектов Azure см. в статьях [Основы использования больших двоичных объектов Azure](../storage-dotnet-how-to-use-blobs.md) и [Основные понятия службы BLOB-объектов](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ## Предварительные требования
 
@@ -47,7 +47,7 @@
 - **SQL Server 2014 или 2016 Standard (или более поздняя версия)**: установка включает в себя SQL Server Integration Services.
 - **Пакет дополнительных компонентов Microsoft SQL Server 2014 или 2016 Integration Services для Azure**: пакет можно скачать на странице [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) или [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) соответственно.
 
-> [AZURE.NOTE]Службы SSIS устанавливаются вместе с SQL Server, но в версию Express они не включены. Сведения о приложениях, которые включены в различные выпуски SQL Server, см. в статье [Выпуски SQL Server](http://www.microsoft.com/ru-RU/server-cloud/products/sql-server-editions/).
+> [AZURE.NOTE] Службы SSIS устанавливаются вместе с SQL Server, но в версию Express они не включены. Сведения о приложениях, которые включены в различные выпуски SQL Server, см. в статье [Выпуски SQL Server](http://www.microsoft.com/ru-RU/server-cloud/products/sql-server-editions/).
 
 Обучающие материалы о службах SSIS см. в статье [Предварительное обучение по службам SSIS](http://www.microsoft.com/download/details.aspx?id=20766).
 
@@ -76,7 +76,7 @@
 **TimeRangeFrom/TimeRangeTo**|Задает фильтр диапазона времени. Сюда будут включены файлы, входящие в диапазон, крайними значениями которого являются *TimeRangeFrom* и *TimeRangeTo*.|
 
 
-> [AZURE.NOTE]Учетные данные **AzureStorageConnection** должны быть правильными. **BlobContainer** должен быть создан до попытки передачи.
+> [AZURE.NOTE] Учетные данные **AzureStorageConnection** должны быть правильными. **BlobContainer** должен быть создан до попытки передачи.
  
 ## Загрузка данных из хранилища BLOB-объектов Azure
 
@@ -88,4 +88,4 @@
 - Чтобы запустить сценарий Hive в кластере Azure HDInsight с помощью служб SSIS, используйте [задачу Hive Azure HDInsight](https://msdn.microsoft.com/library/mt146771.aspx).
 - Чтобы запустить сценарий Pig в кластере Azure HDInsight с помощью служб SSIS, используйте [задачу Pig Azure HDInsight](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

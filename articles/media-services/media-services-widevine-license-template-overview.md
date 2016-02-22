@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Общие сведения о шаблоне лицензии Widevine
@@ -210,4 +210,4 @@ override\_provider\_client\_token | логическое значение: true 
 
 [Использование общего динамического шифрования PlayReady и (или) Widevine DRM](media-services-protect-with-drm.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

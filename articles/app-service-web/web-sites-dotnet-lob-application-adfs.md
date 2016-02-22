@@ -61,9 +61,9 @@
 
 	> [AZURE.NOTE] Указания в [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) показывают настройку приложения с помощью Azure Active Directory, но в этом учебнике настройка будет выполняться с использованием AD FS. Поэтому вместо этого необходимо выполнять указанные здесь действия.
 
-3.	Откройте решение, а затем откройте файл Controllers\AccountController.cs в **обозревателе решений**.
+3.	Откройте решение, а затем откройте файл Controllers\\AccountController.cs в **обозревателе решений**.
 
-	Вы увидите, что код просто выдает запрос проверки подлинности для проверки подлинности пользователя с помощью WS-Federation. Вся проверка подлинности настраивается в App_Start\Startup.Auth.cs.
+	Вы увидите, что код просто выдает запрос проверки подлинности для проверки подлинности пользователя с помощью WS-Federation. Вся проверка подлинности настраивается в App\_Start\\Startup.Auth.cs.
 
 4.  Откройте App_Start\Startup.Auth.cs. В методе `ConfigureAuth` найдите строку:
 
@@ -103,8 +103,10 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
   <mark>&lt;add key="ida:RPIdentifier" value="[Введите идентификатор проверяющей стороны, настроенной в AD FS, например https://localhost:44320/]" /></mark>
   <mark>&lt;add key="ida:ADFS" value="[Введите полное доменное имя службы AD FS, например adfs.contoso.com]" /></mark>
 
-&lt;/appSettings>
-</pre>Заполните значения ключа на базе данных вашей среды.
+	&lt;/appSettings>
+	</pre>
+
+	Заполните значения ключа на базе данных вашей среды.
 
 7.	Постройте приложение, чтобы убедиться в отсутствии ошибок.
 
@@ -208,7 +210,9 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 		param = c1.OriginalIssuer,
 		param = "",
 		param = c2.Value);
-</pre>Настраиваемое правило должно выглядеть следующим образом:
+	</pre>
+
+	Настраиваемое правило должно выглядеть следующим образом:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -276,20 +280,22 @@ public ActionResult Contact()
 
     return View();
 }
-</pre>Так как я добавил **тестового пользователя** в группу **Тестовая группа** в своей лабораторной среде AD FS, я буду использовать тестовую группу для проверки авторизации на `About`. Для `Contact` я проведу тестирование отрицательного случая группы **Администраторы домена**, к которой не принадлежит **Тестовый пользователь**.
+	</pre>
+
+	Так как я добавил **тестового пользователя** в группу **Тестовая группа** в своей лабораторной среде AD FS, я буду использовать тестовую группу для проверки авторизации на `About`. Для `Contact` я проведу тестирование отрицательного случая группы **Администраторы домена**, к которой не принадлежит **Тестовый пользователь**.
 
 3. Запустите отладчик, нажав клавишу `F5`, и войдите в систему, а затем нажмите кнопку **О программе**. Должна отобразиться страница `~/About/Index`, если прошедший аутентификацию пользователь авторизован для этого действия.
 4. Далее щелкните **Контакт**, что в моем случае не должно авторизовать **тестового пользователя** для этого действия. Тем не менее, браузер перенаправляется к AD FS, в результате чего, в конечном счете, показывается это сообщение:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Если исследовать эту ошибку в средстве просмотра событий на сервере AD FS, обнаружится следующее сообщение об исключении: 
-	<pre class="prettyprint"> 
-	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>Один и тот же сеанс браузера клиента сделал 6 запросов за последние 11 секунд.</mark> Обратитесь к администратору для получения дополнительной информации.
-	at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) 
-	at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) 
-	at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) 
-	at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) 
+	Если исследовать эту ошибку в средстве просмотра событий на сервере AD FS, обнаружится следующее сообщение об исключении:  
+	<pre class="prettyprint">
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>Один и тот же сеанс браузера клиента сделал 6 запросов за последние 11 секунд.</mark> Обратитесь к администратору для получения дополнительной информации. 
+	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
 	</pre>
 
 	Это происходит потому, что по умолчанию MVC возвращает ошибку «401 Неавторизован», когда роли пользователя неавторизованы. В результате активируется запрос на повторную проверку подлинности к поставщику удостоверений(AD FS). Так как пользователь уж прошел проверку подлинности, AD FS возвращается на ту же страницу, которая издает другую ошибку 401, создавая цикл перенаправления. Можно переопределить метод `HandleUnauthorizedRequest` в AuthorizeAttribute с помощью простой логики, чтобы отображать более содержательную информацию вместо продолжения цикла перенаправления.
@@ -332,7 +338,7 @@ public ActionResult Contact()
 
 Одна из причин реализации бизнес-приложения с AD FS вместо Azure Active Directory заключается в проблемах обеспечения соответствия, когда организации требуется сохранять данные локально. Это может также означать, что у веб-приложения в Azure должен быть доступ к локальной базе данных, так как вам запрещено использовать [Базу данных SQL](/services/sql-database/) в качестве уровня данных для своих веб-сайтов.
 
-Веб-приложения службы приложений Azure поддерживают доступ к локальным базам данных двумя способами: с помощью [гибридных подключений](../integration-hybrid-connection-overview.md) и [виртуальных сетей](web-sites-integrate-with-vnet.md). Дополнительную информацию см. в статье [Использование интеграции VNET и гибридных подключений с веб-приложениями службы приложений Azure](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+Веб-приложения службы приложений Azure поддерживают доступ к локальным базам данных двумя способами: с помощью [гибридных подключений](../biztalk-services/integration-hybrid-connection-overview.md) и [виртуальных сетей](web-sites-integrate-with-vnet.md). Дополнительную информацию см. в статье [Использование интеграции VNET и гибридных подключений с веб-приложениями службы приложений Azure](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 ## Дополнительные ресурсы
@@ -350,4 +356,4 @@ public ActionResult Contact()
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

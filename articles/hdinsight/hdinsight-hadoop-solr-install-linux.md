@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # Установка и использование Solr на кластерах HDInsight Hadoop
 
 В этой статье описано, как установить Solr в Azure HDInsight с помощью действия сценария. Solr представляет собой многофункциональную платформу поиска и предоставляет возможности поиска корпоративного уровня на основе данных, управляемых Hadoop. После установки Solr в кластере HDInsight вы также узнаете, как искать данные с помощью Solr.
 
-> [AZURE.NOTE]Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Linux. Сведения об использовании Solr с кластером под управлением Windows см. в разделе [Установка и использование Solr на кластерах HDInsight Hadoop (Windows)](hdinsight-hadoop-solr-install.md).
+> [AZURE.NOTE] Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Linux. Сведения об использовании Solr с кластером под управлением Windows см. в разделе [Установка и использование Solr на кластерах HDInsight Hadoop (Windows)](hdinsight-hadoop-solr-install.md).
 
 Пример скрипта, используемый в данном разделе, создает кластер Solr с определенной конфигурацией. Если вы хотите настроить кластер Solr на использование других коллекций, сегментов, схем, реплик и т. п., необходимо соответствующим образом изменить скрипт и двоичные файлы Solr.
 
@@ -42,14 +42,14 @@
 
 Пример сценария для установки Solr в кластере HDInsight можно найти в BLOB-объекте хранилища Azure (доступен только для чтения): [https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh). Этот раздел содержит инструкции по использованию примера скрипта при подготовке кластера с помощью портала Azure.
 
-> [AZURE.NOTE]Для создания кластера с помощью этого сценария также можно использовать Azure PowerShell или пакет SDK HDInsight для .NET. Дополнительную информацию об использовании этих методов см. в статье [Настройка кластеров HDInsight с помощью действий сценария](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Для создания кластера с помощью этого сценария также можно использовать Azure PowerShell или пакет SDK HDInsight для .NET. Дополнительную информацию об использовании этих методов см. в статье [Настройка кластеров HDInsight с помощью действий сценария](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Начните подготовку кластера с помощью действий, описанных в разделе [Подготовка кластеров HDInsight под управлением Linux](hdinsight-provision-linux-clusters.md#portal), но не завершайте ее.
 
 2. В колонке **Необязательная конфигурация** выберите **Действия сценария** и введите следующие сведения:
 
 	* __ИМЯ__: введите понятное имя для действия сценария.
-	* __УНИВЕРСАЛЬНЫЙ КОД РЕСУРСА СКРИПТА__: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh.
+	* __УНИВЕРСАЛЬНЫЙ КОД РЕСУРСА (URI) СКРИПТА__: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh.
 	* __ГОЛОВНОЙ__: установите флажок.
 	* __РАБОЧАЯ РОЛЬ__: установите флажок.
 	* __ZOOKEEPER__: установите этот флажок для установки на узле Zookeeper.
@@ -75,7 +75,7 @@
 
 	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-	> [AZURE.IMPORTANT]В действиях, описанных ниже, для подключения к веб-интерфейсу Solr используется туннель SSL. Чтобы выполнить эти действия, установите туннель SSL и настройте свой браузер для его использования.
+	> [AZURE.IMPORTANT] В действиях, описанных ниже, для подключения к веб-интерфейсу Solr используется туннель SSL. Чтобы выполнить эти действия, установите туннель SSL и настройте свой браузер для его использования.
 	>
 	> Дополнительные сведения см. в статье [Использование туннелирования SSH для доступа к веб-интерфейсу Ambari, ResourceManager, JobHistory, NameNode, Oozie и другим веб-интерфейсам](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -283,7 +283,7 @@
 
 	hadoop fs -copyFromLocal snapshot.20150806185338855.tgz /example/data
 
-	> [AZURE.NOTE]Возможно, вам понадобится создать отдельный каталог для хранения моментальных снимков Solr. Пример: `hadoop fs -mkdir /solrbackup`.
+	> [AZURE.NOTE] Возможно, вам понадобится создать отдельный каталог для хранения моментальных снимков Solr. Пример: `hadoop fs -mkdir /solrbackup`.
 
 Дополнительные сведения о резервном копировании и восстановлении Solr см. в статье [Создание и восстановление резервных копий SolrCore](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
 
@@ -306,4 +306,4 @@
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

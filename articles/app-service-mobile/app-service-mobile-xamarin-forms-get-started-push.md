@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Добавление push-уведомлений в приложение Xamarin.Forms с помощью службы приложений Azure" 
-	description="Использование службы приложений Azure для отправки push-уведомлений в приложение Xamarin.Forms" 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+<properties
+	pageTitle="Добавление push-уведомлений в приложение Xamarin.Forms с помощью службы приложений Azure"
+	description="Использование службы приложений Azure для отправки push-уведомлений в приложение Xamarin.Forms"
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/19/2015" 
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Добавление push-уведомлений в приложение Xamarin.Forms
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Обзор
 
@@ -93,7 +91,7 @@
 	        // Check to ensure everything's setup right
 	        GcmClient.CheckDevice(this);
 	        GcmClient.CheckManifest(this);
-	
+
 	        // Register for push notifications
 	        System.Diagnostics.Debug.WriteLine("Registering...");
 	        GcmClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
@@ -110,7 +108,7 @@
 
 4. Добавьте для вспомогательного метода `CreateAndShowDialog` следующий код.
 
-		private void CreateAndShowDialog(String message, String title) 
+		private void CreateAndShowDialog(String message, String title)
 		{
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -121,10 +119,10 @@
 
 
 5. В классе `MainActivity` добавьте следующий код, чтобы предоставить текущий класс `MainActivity` для выполнения того или иного пользовательского интерфейса в основном потоке, обрабатывающем события от пользовательского интерфейса:
-		
+
 		// Create a new instance field for this activity.
 		static MainActivity instance = null;
-		
+
 		// Return the current activity instance.
 		public static MainActivity CurrentActivity
 		{
@@ -159,7 +157,7 @@
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-		
+
 		//GET_ACCOUNTS is only needed for android versions 4.0.3 and below
 		[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
 		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
@@ -170,10 +168,10 @@
 		[BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
 		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
 		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
-		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]		
+		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
 		public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
-		{		
-		    public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };		
+		{
+		    public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
 		}
 
 11. Обновите класс `GcmService`, чтобы использовать новый широковещательный приемник.
@@ -182,7 +180,7 @@
 		 public class GcmService : GcmServiceBase
 		 {
 		     public static string RegistrationID { get; private set; }
-		
+
 		     public GcmService()
 		         : base(PushHandlerBroadcastReceiver.SENDER_IDS){}
 		 }
@@ -191,18 +189,18 @@
 12. Добавьте следующий код в класс GcmService, который переопределяет обработчик событий OnRegistered и реализует метод `Register`.
 
 	Этот код будет регистрировать текст шаблона для получения шаблонных уведомлений с помощью параметра `messageParam`. Шаблонные уведомления позволяют отправлять уведомления между разными платформами. Дополнительные сведения см. в статье [Шаблоны](https://msdn.microsoft.com/library/azure/dn530748.aspx).
-		
+
 		protected override void OnRegistered(Context context, string registrationId)
 		{
 		    Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
 		    RegistrationID = registrationId;
-		
+
 		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
-		
+
             var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
-		
+
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
-		
+
 		}
 
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
@@ -216,7 +214,7 @@
                 {
                   {"body", templateBodyGCM}
                 };
-                
+
                 await push.RegisterAsync(RegistrationID, templates);
                 Log.Info("Push Installation Id", push.InstallationId.ToString());
             }
@@ -232,61 +230,61 @@
 		protected override void OnMessage(Context context, Intent intent)
 		{
 		    Log.Info("PushHandlerBroadcastReceiver", "GCM Message Received!");
-		
+
 		    var msg = new StringBuilder();
-		
+
 		    if (intent != null && intent.Extras != null)
 		    {
 		        foreach (var key in intent.Extras.KeySet())
 		            msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
 		    }
-		
+
 		    //Store the message
 		    var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
 		    var edit = prefs.Edit();
 		    edit.PutString("last_msg", msg.ToString());
 		    edit.Commit();
-		
+
 		    string message = intent.Extras.GetString("message");
 		    if (!string.IsNullOrEmpty(message))
 		    {
 		        createNotification("New todo item!", "Todo item: " + message);
 		        return;
 		    }
-		
+
 		    string msg2 = intent.Extras.GetString("msg");
 		    if (!string.IsNullOrEmpty(msg2))
 		    {
 		        createNotification("New hub message!", msg2);
 		        return;
 		    }
-		
+
 		    createNotification("Unknown message details", msg.ToString());
 		}
-		
+
 		void createNotification(string title, string desc)
 		{
 		    //Create notification
 		    var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
-		
+
 		    //Create an intent to show ui
 		    var uiIntent = new Intent(this, typeof(MainActivity));
-		
+
 		    //Create the notification
 		    var notification = new Notification(Android.Resource.Drawable.SymActionEmail, title);
-		
+
 		    //Auto cancel will remove the notification once the user touches it
 		    notification.Flags = NotificationFlags.AutoCancel;
-		
+
 		    //Set the notification info
 		    //we use the pending intent, passing our ui intent over which will get called
 		    //when the notification is tapped.
 		    notification.SetLatestEventInfo(this, title, desc, PendingIntent.GetActivity(this, 0, uiIntent, 0));
-		
+
 		    //Show the notification
 		    notificationManager.Notify(1, notification);
 		}
-	
+
 14. Необходимо также реализовать обработчики `OnUnRegistered` и `OnError` для приемника.
 
 		protected override void OnUnRegistered(Context context, string registrationId)
@@ -304,9 +302,9 @@
 ####Тестирование push-уведомлений в приложении Android
 
 1. В Visual Studio или Xamarin Studio щелкните правой кнопкой мыши проект **droid** и выберите пункт **Назначить запускаемым проектом**.
- 
+
 2. Нажмите кнопку **Выполнить**, чтобы построить проект и запустить приложение на устройстве с iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
-	
+
 	> [AZURE.NOTE] Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
 2. В приложении введите задачу, а затем щелкните значок плюса (**+**).
@@ -355,7 +353,7 @@
             // IMPORTANT: uncomment this code to enable sync on Xamarin.iOS
             // For more information, see: http://go.microsoft.com/fwlink/?LinkId=620342
             //SQLitePCL.CurrentPlatform.Init();
-            
+
             // registers for push for iOS8
             var settings = UIUserNotificationSettings.GetSettingsForTypes(
                 UIUserNotificationType.Alert
@@ -414,7 +412,7 @@
 1. Щелкните проект iOS правой кнопкой мыши и выберите пункт **Назначить запускаемым проектом**.
 
 2. Нажмите кнопку **Выполнить** или клавишу **F5** в Visual Studio, чтобы выполнить сборку проекта и запустить приложение на устройстве с iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
-	
+
 	> [AZURE.NOTE] Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
 3. В приложении введите задачу, а затем щелкните значок плюса (**+**).
@@ -486,7 +484,7 @@
                 // Set the default language
                 rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
                 rootFrame.NavigationFailed += OnNavigationFailed;
-                Xamarin.Forms.Forms.Init(e); 
+                Xamarin.Forms.Forms.Init(e);
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
@@ -519,7 +517,7 @@
 
 
 2. Нажмите кнопку **Выполнить**, чтобы построить проект и запустить приложение на устройстве с iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
-	
+
 	> [AZURE.NOTE] Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
 3. В приложении введите задачу, а затем щелкните значок плюса (**+**).
@@ -537,4 +535,4 @@
 [Установка Xamarin.iOS в Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

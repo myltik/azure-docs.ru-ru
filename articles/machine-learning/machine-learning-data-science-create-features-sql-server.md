@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="fashah;garye" />
+	ms.date="02/05/2016" 
+	ms.author="bradsev;fashah;garye" />
 
 
 # Создание характеристик для данных в SQL Server с помощью SQL и Python
 
-Это **меню** содержит ссылки на разделы, описывающие разработку характеристик для данных в различных средах. Эта задача является одним из этапов процесса аналитики Кортаны (CAP).
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-
 ## Введение
 
-В этом документе описывается создание характеристик для данных, хранящихся в виртуальной машине SQL Server на платформе Azure. Это можно сделать с помощью SQL или с использованием языка программирования, например Python.
+В этом документе показано, как создавать характеристики для данных, хранящихся в виртуальной машине SQL Server в Azure, и какие алгоритмы использовать. Это можно сделать с помощью SQL или с использованием языка программирования, например Python. Здесь используются оба варианта.
 
-> [AZURE.NOTE]Для практического примера можно использовать [Набор данных о такси Нью-Йорка](http://www.andresmh.com/nyctaxitrips/) и статью IPNB под названием [Структурирование данных Нью-Йорка с помощью IPython Notebook и SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb), содержащую полное пошаговое руководство.
+> [AZURE.NOTE] Для практического примера можно использовать [Набор данных о такси Нью-Йорка](http://www.andresmh.com/nyctaxitrips/) и статью IPNB под названием [Структурирование данных Нью-Йорка с помощью IPython Notebook и SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb), содержащую полное пошаговое руководство.
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Это **меню** содержит ссылки на разделы, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
 
 ## Предварительные требования
 В этой статье предполагается, что вы:
@@ -45,7 +45,7 @@
 3. [Развертывание характеристик из одного столбца](#sql-featurerollout)
 
 
-> [AZURE.NOTE]После создания дополнительных компонентов можно либо добавить их в виде столбцов в существующую таблицу, либо создать новую таблицу с дополнительными компонентами и первичным ключом, которую можно будет объединить с исходной таблицей.
+> [AZURE.NOTE] После создания дополнительных компонентов можно либо добавить их в виде столбцов в существующую таблицу, либо создать новую таблицу с дополнительными компонентами и первичным ключом, которую можно будет объединить с исходной таблицей.
 
 ###<a name="sql-countfeature"></a>Создание характеристик на основе количества
 
@@ -96,10 +96,10 @@
 Вышеуказанные характеристики на основе расположения можно в дальнейшем использовать для создания дополнительных количественных характеристик, как было описано ранее.
 
 
-> [AZURE.TIP]Можно программным путем вставлять записи с использованием выбранного языка. Для повышения эффективности записи данные можно вставлять блоками. [См. пример такого решения с использованием pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> [AZURE.TIP] Можно программным путем вставлять записи с использованием выбранного языка. Для повышения эффективности записи данные можно вставлять блоками. [См. пример такого решения с использованием pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
  
 
-> [AZURE.TIP]Другой вариант – вставить данные в базу данных с использованием [служебной программы BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> [AZURE.TIP] Другой вариант – вставить данные в базу данных с использованием [служебной программы BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
 ###<a name="sql-aml"></a>Подключение к службе машинного обучения Azure
 
@@ -126,4 +126,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016--->

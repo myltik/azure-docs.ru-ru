@@ -38,7 +38,7 @@
 
 - Подписка Azure. Если вам требуется подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
 - База данных SQL Azure — база данных-источник, которую необходимо реплицировать в другом географическом регионе.
-- Azure PowerShell, начиная с версии 1.0. Модули Azure PowerShell можно загрузить и установить, выполнив инструкции из раздела [Установка и настройка Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell, начиная с версии 1.0. Модули Azure PowerShell можно загрузить и установить, выполнив инструкции из раздела [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -84,8 +84,8 @@
 
 Следующая команда создает недоступную для чтения базу данных-получателя базы данных mydb сервера srv2 в группе ресурсов rg2:
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "No"
 
 
 
@@ -93,7 +93,7 @@
 
 Следующая команда создает доступную для чтения базу данных-получателя базы данных mydb сервера srv2 в группе ресурсов rg2:
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
 
 
@@ -103,15 +103,15 @@
 
 Следующая команда создает недоступную для чтения базу данных-получателя базы данных mydb в пуле эластичных баз данных ElasticPool1 сервера srv2 в группе ресурсов rg2:
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "None"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
 
 
 ### Добавление доступной для чтения эластичной базы данных-получателя
 
 Следующая команда создает доступную для чтения базу данных-получателя базы данных mydb в пуле эластичных баз данных ElasticPool1 сервера srv2 в группе ресурсов rg2:
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
 
 
@@ -131,7 +131,7 @@
 
 Следующие действия удаляют связь репликации между базой данных с именем mydb и сервером srv2 из группы ресурсов rg2.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –SecondaryResourceGroup "rg2" –PartnerServerName "srv2"
     $secondaryLink | Remove-AzureRmSqlDatabaseSecondary 
 
@@ -159,7 +159,7 @@
 
 Следующая команда изменяет роли базы данных с именем mydb на сервере srv2 в группе ресурсов rg2 на роли базы данных-источника. Исходная база данных-источник, к которой была подключена база данных db2, переключится на базу данных-получателя после полной синхронизации двух баз данных.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary -Failover
 
 
@@ -181,7 +181,7 @@
 
 Следующая команда изменяет роль базы данных с именем mydb на роль источника, если источник недоступен. Исходный источник, к которому подключена база данных mydb, станет получателем после своего возврата в сетевой режим. На этом этапе синхронизация может привести к потере данных.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
 
 
@@ -194,7 +194,7 @@
 
 Следующая команда отображает состояние канала репликации между базой данных-источником mydb и базой данных-получателем на сервере srv2 из группы ресурсов rg2.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
 
@@ -215,4 +215,4 @@
 - [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
 - [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

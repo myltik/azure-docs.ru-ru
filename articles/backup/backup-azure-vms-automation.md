@@ -223,9 +223,9 @@ PS C:\> $details = Get-AzureRMBackupJobDetails -Job $restorejob
 ```
  $properties  = $details.Properties
 
- $storageAccountName = $properties["TargetStorageAccountName"]
- $containerName = $properties["TargetContainerName"]
- $blobName = $properties["TargetBlobName"]
+ $storageAccountName = $properties["Target Storage Account Name"]
+ $containerName = $properties["Config Blob Container Name"]
+ $blobName = $properties["Config Blob Name"]
 
  $keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
  $storageAccountKey = $keys.Primary
@@ -236,7 +236,7 @@ PS C:\> $details = Get-AzureRMBackupJobDetails -Job $restorejob
  Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path -Context $storageContext
 
 
- $obj = [xml](Get-Content $destination_path)
+$obj = [xml](((Get-Content -Path $destination_path -Encoding UniCode)).TrimEnd([char]0x00))
  $pvr = $obj.PersistentVMRole
  $os = $pvr.OSVirtualHardDisk
  $dds = $pvr.DataVirtualHardDisks
@@ -330,4 +330,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Если вы хотите добавить в выходные данные этого отчета возможности построения графиков, обратитесь к статье [Построение графиков с помощью PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) в блоге TechNet.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="02/03/2016" 
 	ms.author="josephd"/>
 
-# Создание имитации гибридной облачной среды для тестирования
+# Настройка смоделированной гибридной облачной среды для тестирования (классическая модель развертывания)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](../virtual-machines/virtual-machines-setup-simulated-hybrid-cloud-environment-testing.md).
 
 В этом разделе описываются шаги по созданию смоделированной гибридной облачной среды с помощью Microsoft Azure, в которой можно выполнять тестирование с использованием двух виртуальных сетей Azure. Эту конфигурацию можно использовать как альтернативу [настройке гибридной облачной среды для тестирования](virtual-networks-setup-hybrid-cloud-environment-testing.md), если у вас нет прямого подключения к Интернету и свободного общедоступного IP-адреса. Это конфигурация, которая получается в результате.
 
@@ -220,11 +220,7 @@
 
 ## Дальнейшие действия
 
-Настройка следующих рабочих нагрузок в виртуальной сети TestVNET:
-
-- [Ферма интрасети SharePoint](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-- [Специализированное веб-приложение](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-- [Сервер синхронизации каталога (DirSync) Office 365](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
+- Настройка [фермы интрасети SharePoint ](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), [специализированных веб-приложений](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) или [сервера синхронизации каталогов Office 365 (DirSync)](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) в виртуальной сети TestVNET.
 
 
 ## <a id="costs"></a>Минимизация текущих расходов на такую среду
@@ -264,6 +260,5 @@
 	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet -SharedKey $preSharedKey
 
 После этого на странице «Сеть» портала управления Azure щелкните виртуальную сеть **TestLab**, а затем щелкните **Подключить** на панели задач. Дождитесь пока виртуальная сеть TestLab не покажет подключенное состояние к локальной сети TestVNET.
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

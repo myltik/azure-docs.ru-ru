@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/13/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 # Типы модулей Runbook в службе автоматизации Azure
@@ -88,7 +88,7 @@ Runbook рабочих процессов PowerShell представляют с
 Ниже перечислены проблемы с модулями Runbook PowerShell, известные на данный момент.
 
 - Runbook PowerShell не могут извлекать незашифрованный [переменный ресурс-контейнер](automation-variables.md) с пустым значением.
-- Runbook PowerShell не могут извлекать [переменный ресурс-контейнер](automation-variables.md), в имени которого есть символ *~*.
+- Runbook PowerShell не имеют возможности извлекать [переменный ресурс](automation-variables.md), в имени которого есть символ *~*.
 - Модуль Get-Process в цикле в модуле Runbook PowerShell может аварийно завершить работу после примерно 80 итераций. 
 - Модуль Runbook PowerShell может завершиться ошибкой, если попытается записать слишком большой объем данных в поток вывода за один раз. Обычно эту проблему можно обойти, выводя при работе с большими объектами только необходимые данные. Например, вместо того чтобы использовать метод *Get-Process*, можно вывести только требуемые поля, указав *Get-Process | Select ProcessName, CPU*.
 
@@ -108,4 +108,4 @@ Runbook рабочих процессов PowerShell представляют с
 - [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md)
 - [Создание или импорт модуля Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

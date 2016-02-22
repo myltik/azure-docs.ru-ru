@@ -2,6 +2,7 @@
    pageTitle="Изменения в атрибутах объекта внешнего пользователя в предварительной версии службы Azure Active Directory B2B Collaboration | Microsoft Azure"
    description="Служба Azure Active Directory B2B помогает поддерживать отношения между компаниями, предоставляя бизнес-партнерам выборочный доступ к вашим корпоративным приложениям"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -34,5 +35,6 @@
 - [Справочник по формату файлов CSV](active-directory-b2b-references-csv-file-format.md)
 - [Формат маркера внешнего пользователя](active-directory-b2b-references-external-user-token-format.md)
 - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

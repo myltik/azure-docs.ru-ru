@@ -506,7 +506,7 @@
 	
 	```
 	...
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
 <script>(function() {
                 var loadFallback,
                     len = document.styleSheets.length;
@@ -550,15 +550,15 @@
 7. Обновите окно браузера для веб-приложения Azure. Теперь вы увидите, что все сценарии и таблицы стилей загружены правильно.
 
 ## Дополнительные сведения 
-- [Общие сведения о сети доставки контента (CDN) Azure](../cdn-overview.md)
-- [Обслуживание содержимого из CDN Azure в вашем веб-приложении](../cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Интеграция облачной службы с Azure CDN](../cdn-cloud-service-with-cdn.md)
+- [Общие сведения о сети доставки контента (CDN) Azure](../cdn/cdn-overview.md)
+- [Обслуживание содержимого из CDN Azure в вашем веб-приложении](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Интеграция облачной службы с Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
 - [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Использование CDN для Azure](../cdn-how-to-use-cdn.md)
+- [Использование CDN для Azure](../cdn/cdn-how-to-use-cdn.md)
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015"
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,9 @@
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+
+
+
 
 > [AZURE.NOTE]
 > Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -100,7 +103,7 @@
 ##Рекомендации
 
 - Сейчас максимальная рекомендуемая продолжительность интерактивного события составляет 8 часов. Если необходимо запустить канал на более продолжительные отрезки времени, обратитесь в amslived на веб-сайте Microsoft.com.
-- Убедитесь в том, что в конечной точке потоковой передачи, из которой будет передаваться контент, есть по крайней мере одна зарезервированная единица потоковой передачи.
+- Убедитесь, что есть как минимум одна зарезервированная единица потоковой передачи на конечной точке потоковой передачи, с которой необходимо выполнять потоковую передачу содержимого.
 
 ##Скачивание образца
 
@@ -120,7 +123,13 @@
 Добавьте раздел appSettings в файл app.config и задайте значения имени и ключа учетной записи служб мультимедиа Azure.
 
 
-<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
+	<?xml version="1.0"?>
+	<configuration>
+	  <appSettings>
+	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
+	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
+	  </appSettings>
+	</configuration>
 	 
 	
 ##Примеры кода
@@ -524,4 +533,4 @@
 
 Если содержание этого раздела не соответствует вашим ожиданиям или не содержит ответов на ваши вопросы, оставьте отзыв в обсуждении Disqus ниже.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

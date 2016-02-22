@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,8 @@
 - Перечисление всех активов 
 - Перечисление заданий и активов 
 - Перечисление всех политик доступа 
-- Перечисление всех указателей 
+- Перечисление всех указателей
+- Перечисление больших коллекций сущностей
 - Удаление актива 
 - Удаление задания 
 - Удаление политики доступа 
@@ -245,6 +246,47 @@
 	    }
 	}
 
+## Перечисление больших коллекций сущностей
+
+При запросе сущностей существует ограничение в 1000 сущностей, возвращаемых за один раз, так как в открытой версии 2 REST количество результатов запросов ограничено 1000. При перечислении больших коллекций сущностей необходимо использовать предложения "Пропустить" и "Принять".
+	
+Следующая функция перебирает все задания для предоставленной учетной записи служб мультимедиа. Службы мультимедиа возвращают 1000 заданий в коллекции заданий. Эта функция использует предложения "Пропустить" и "Принять", чтобы убедиться в том, что все задания перечислены (при наличии более 1000 заданий в учетной записи).
+	
+	static void ProcessJobs()
+	{
+	    try
+	    {
+	
+	        int skipSize = 0;
+	        int batchSize = 1000;
+	        int currentBatch = 0;
+	
+	        while (true)
+	        {
+	            // Loop through all Jobs (1000 at a time) in the Media Services account
+	            IQueryable _jobsCollectionQuery = _context.Jobs.Skip(skipSize).Take(batchSize);
+	            foreach (IJob job in _jobsCollectionQuery)
+	            {
+	                currentBatch++;
+	                Console.WriteLine("Processing Job Id:" + job.Id);
+	            }
+	
+	            if (currentBatch == batchSize)
+	            {
+	                skipSize += batchSize;
+	                currentBatch = 0;
+	            }
+	            else
+	            {
+	                break;
+	            }
+	        }
+	    }
+	    catch (Exception ex)
+	    {
+	        Console.WriteLine(ex.Message);
+	    }
+	}
 
 ##Удаление актива
 
@@ -339,4 +381,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

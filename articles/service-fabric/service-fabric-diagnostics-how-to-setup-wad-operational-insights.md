@@ -36,9 +36,9 @@
 ## Различные источники журналов, которые вы можете собирать
 1. **Журналы Service Fabric**. Генерируются платформой в стандартные каналы трассировки событий Windows (ETW) и EventSource. Журналы могут принадлежать к одному из следующих типов.
   - Рабочие события. Это журналы операций, выполняемых платформой Service Fabric. Некоторые примеры: создание приложений и служб, изменение состояния узлов и сведения об обновлении.
-  - [События модели программирования на основе субъектов.](https://azure.microsoft.com/service-fabric-reliable-actors-diagnostics/)
-  - [События модели программирования на основе Reliable Services.](https://azure.microsoft.com/service-fabric-reliable-services-diagnostics/)
-2. **События приложения**. Это события, которые генерируются кодом служб и записываются с помощью вспомогательного класса EventSource, предоставленного в шаблонах Visual Studio. Дополнительные сведения о способах записи журналов из приложения см. [в статье о мониторинге и диагностике служб при настройке локального компьютера](https://azure.microsoft.com/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
+  - [События модели программирования на основе субъектов.](service-fabric-reliable-actors-diagnostics.md)
+  - [События модели программирования на основе Reliable Services.](service-fabric-reliable-services-diagnostics.md)
+2. **События приложения**. Это события, которые генерируются кодом служб и записываются с помощью вспомогательного класса EventSource, предоставленного в шаблонах Visual Studio. Дополнительные сведения о способах записи журналов из приложения см. [в статье о мониторинге и диагностике служб при настройке локального компьютера](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 
 ## Развертывание расширения системы диагностики в кластере Service Fabric для сбора и отправки журналов
@@ -325,4 +325,4 @@ if ($existingConfig) {
 ## Дальнейшие действия
 Ознакомьтесь с диагностическими событиями, которые создаются для [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) и [Reliable Services](service-fabric-reliable-services-diagnostics.md), чтобы лучше понять, на какие события необходимо обращать внимание во время устранения неполадок.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

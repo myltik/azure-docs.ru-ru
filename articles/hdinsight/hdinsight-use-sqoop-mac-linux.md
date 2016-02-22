@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 #Использование Sqoop с Hadoop в HDInsight (SSH)
@@ -23,7 +23,7 @@
 
 Узнайте, как использовать Sqoop для импорта и экспорта между кластером HDInsight под управлением Linux и базой данных SQL Azure или базой данных SQL Server.
 
-> [AZURE.NOTE]В действиях, описанных в этой статье, используется SSH для подключения к кластеру HDInsight под управлением Linux. В клиентах Windows можно также использовать Azure PowerShell для работы в кластерах Sqoop под управлением Linux, как описано в документации [Использование Sqoop с Hadoop в HDInsight (PowerShell)](hdinsight-use-sqoop.md).
+> [AZURE.NOTE] В действиях, описанных в этой статье, используется SSH для подключения к кластеру HDInsight под управлением Linux. В клиентах Windows можно также использовать Azure PowerShell для работы в кластерах Sqoop под управлением Linux, как описано в документации [Использование Sqoop с Hadoop в HDInsight (PowerShell)](hdinsight-use-sqoop.md).
 
 ##Что такое Sqoop?
 
@@ -83,21 +83,21 @@
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Обратите внимание на имя сервера, возвращаемое этой командой. Это краткое имя созданного сервера базы данных SQL. Полное доменное имя (FQDN) — **&lt;shortname&gt;.database.windows.net**.
+    > [AZURE.IMPORTANT] Обратите внимание на имя сервера, возвращаемое этой командой. Это краткое имя созданного сервера базы данных SQL. Полное доменное имя (FQDN) — **&lt;shortname&gt;.database.windows.net**.
 
 2. Используйте следующую команду для создания базы данных **sqooptest** на сервере базы данных SQL:
 
-        sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
+        azure sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
 
     После ее завершения появится сообщение «ОК».
 
-	> [AZURE.NOTE]Если появится ошибка от отсутствии доступа, необходимо добавить IP-адрес рабочей станции клиента для брандмауэра базы данных SQL с помощью следующей команды:
+	> [AZURE.NOTE] Если появится ошибка от отсутствии доступа, необходимо добавить IP-адрес рабочей станции клиента для брандмауэра базы данных SQL с помощью следующей команды:
 	>
-	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+	> `azure sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ##Создание таблицы
 
-> [AZURE.NOTE]Существует множество способов подключения к базе данных SQL для создания таблицы. В приведенных ниже действиях используется [FreeTDS](http://www.freetds.org/) из кластера HDInsight.
+> [AZURE.NOTE] Существует множество способов подключения к базе данных SQL для создания таблицы. В приведенных ниже действиях используется [FreeTDS](http://www.freetds.org/) из кластера HDInsight.
 
 1. Используйте SSH для подключения к кластеру HDInsight под управлением Linux. Адрес, используемый при подключении: `CLUSTERNAME-ssh.azurehdinsight.net`, порт: `22`.
 
@@ -126,19 +126,19 @@
 5. В командной строке `1>` введите следующее:
 
         CREATE TABLE [dbo].[mobiledata](
-		[clientid] [nvarchar](50),
-		[querytime] [nvarchar](50),
-		[market] [nvarchar](50),
-		[deviceplatform] [nvarchar](50),
-		[devicemake] [nvarchar](50),
-		[devicemodel] [nvarchar](50),
-		[state] [nvarchar](50),
-		[country] [nvarchar](50),
-		[querydwelltime] [float],
-		[sessionid] [bigint],
-		[sessionpagevieworder] [bigint])
+        [clientid] [nvarchar](50),
+        [querytime] [nvarchar](50),
+        [market] [nvarchar](50),
+        [deviceplatform] [nvarchar](50),
+        [devicemake] [nvarchar](50),
+        [devicemodel] [nvarchar](50),
+        [state] [nvarchar](50),
+        [country] [nvarchar](50),
+        [querydwelltime] [float],
+        [sessionid] [bigint],
+        [sessionpagevieworder] [bigint])
         GO
-		CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
+        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
         GO
 
     Если вводится инструкция `GO`, то оцениваются предыдущие инструкции. Сначала создается таблица **mobiledata**, а затем к ней добавляется кластеризованный индекс (требуемый базой данных SQL).
@@ -171,7 +171,7 @@
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Она дает Sqoop указание на подключение к базе данных SQL, базе данных **sqooptest** и экспорт данных из ****wasb:///hive/warehouse/hivesampletable** (физические файлы для *hivesampletable*) в таблицу **mobiledata**.
+    Она дает Sqoop указание на подключение к базе данных SQL, базе данных **sqooptest** и экспорт данных из **wasb:///hive/warehouse/hivesampletable** (физические файлы для *hivesampletable*) в таблицу **mobiledata**.
 
 5. После выполнения команды используйте следующую команду для подключения к базе данных с помощью TSQL:
 
@@ -202,11 +202,11 @@ Sqoop можно также использовать для импорта и э
 
 * HDInsight и SQL Server должны находиться в одной виртуальной сети Azure.
 
-    > [AZURE.NOTE]HDInsight поддерживает только географически привязанные виртуальные сети и на данный момент не работает с виртуальными сетями на основе территориальных групп.
+    > [AZURE.NOTE] HDInsight поддерживает только географически привязанные виртуальные сети и на данный момент не работает с виртуальными сетями на основе территориальных групп.
 
     При использовании SQL Server в центре обработки данных необходимо настроить тип соединения виртуальной сети либо как *сеть-сеть*, либо *как точка-сеть*.
 
-    > [AZURE.NOTE]Для виртуальных сетей с типом соединения **точка-сеть** на SQL Server должно быть запущено приложение настройки VPN-клиента, которое доступно на **панели мониторинга** в конфигурации виртуальной сети Azure.
+    > [AZURE.NOTE] Для виртуальных сетей с типом соединения **точка-сеть** на SQL Server должно быть запущено приложение настройки VPN-клиента, которое доступно на **панели мониторинга** в конфигурации виртуальной сети Azure.
 
     Дополнительную информацию о создании и настройке виртуальных сетей см. в разделе [Задачи настройки виртуальной сети](../services/virtual-machines/).
 
@@ -263,4 +263,4 @@ Sqoop можно также использовать для импорта и э
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

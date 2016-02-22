@@ -62,15 +62,17 @@ HPC Pack — это бесплатное решение HPC корпораци
 * [Ускорение в пакетную службу Azure с помощью пакета HPC](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Форумы по Windows HPC](https://social.microsoft.com/Forums/ru-RU/home?category=windowshpc)
+* [Форумы по Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
 
 ### Кластерные решения Linux и OSS
 
-Используйте эти шаблоны быстрого запуска Azure для развертывания кластеров Linux HPC с помощью средств с открытым исходным кодом.
+Используйте эти шаблоны Azure для развертывания кластеров HPC под управлением Linux.
 
 * Шаблон [Spin up a SLURM cluster](https://azure.microsoft.com/documentation/templates/slurm/) и [запись блога](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
 * [Шаблон Spin up a Torque cluster](https://azure.microsoft.com/documentation/templates/torque-cluster/)
+
+* [Intel Cloud Edition для Lustre Software — пробная версия](https://azure.microsoft.com/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
 
 ## Microsoft MPI
 
@@ -114,11 +116,25 @@ HPC Pack — это бесплатное решение HPC корпораци
 
 * [Службы мультимедиа](https://azure.microsoft.com/documentation/services/media-services/)
 
+## Истории клиентов
 
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168)
+
+* [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Институт исследования рака Людвига](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
+
+* [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
 
 ## Дальнейшие действия
 
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](https://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

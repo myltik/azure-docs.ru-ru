@@ -125,7 +125,6 @@ Visual Studio поддерживает все три способа развер
 ###<a name="webmatrix"></a>Как выполнить развертывание напрямую из WebMatrix
 
 * [Создание и развертывание веб-сайта Node.js в Azure с использованием WebMatrix](web-sites-nodejs-use-webmatrix.md).
-* [Создание и развертывание веб-приложения PHP-MySQL с помощью WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3: интеграция Git и развертывание в Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Использование WebMatrix для развертывания из репозитория Git системы управления версиями.
 
 ## <a name="onprem"></a>Развертывание из локальной системы управления версиями
@@ -157,7 +156,7 @@ TFS использует веб-развертывание для разверт
 
 ###<a name="tfs"></a>Как выполнить непрерывное развертывание с помощью TFS
 
-* [Непрерывная доставка для облачных служб в Azure](../cloud-services-dotnet-continuous-delivery.md). Этот документ предназначен для облачной службы Azure, но некоторое его содержимое относится к веб-приложениям.
+* [Непрерывная доставка для облачных служб в Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md). Этот документ предназначен для облачной службы Azure, но некоторое его содержимое относится к веб-приложениям.
 
 ###<a name="gitmercurial"></a>Как выполнить развертывание из локального репозитория Git или Mercurial
 
@@ -175,7 +174,7 @@ Visual Studio Team Services использует веб-развертывани
 
 - Поддержка любой языковой платформы.
 - Непрерывное развертывание для репозиториев Git и Mercurial, которое не требует настройки. 
-- Развертывание зависит от ветви. Различные ветки можно развертывать в различных [слотах](web-sites-staged-publishing).
+- Развертывание зависит от ветви. Различные ветви можно развертывать в различных [слотах](web-sites-staged-publishing).
 - Хорошо подходит для команд разработчиков любого состава.
 
 Развертывание из облачной службы управления версиями имеет следующие недостатки:
@@ -195,8 +194,8 @@ Visual Studio Team Services использует веб-развертывани
 
 ###<a name="vsts"></a>Как выполнять непрерывное развертывание с помощью Visual Studio Team Services
 
-- [Непрерывная доставка в Azure с использованием Visual Studio Team Services и TFVC](../cloud-services-continuous-delivery-use-vso.md). Пошаговое руководство, в котором показано, как настроить непрерывную доставку из Visual Studio Team Services в веб-приложение, используя TFVC. 
-- [Непрерывная доставка в Azure с использованием Visual Studio Team Services и Git](../cloud-services-continuous-delivery-use-vso-git.md). Схож с предыдущим учебником, но использует Git вместо TFVC.
+- [Непрерывная доставка в Azure с использованием Visual Studio Team Services и TFVC](../cloud-services/cloud-services-continuous-delivery-use-vso.md). Пошаговое руководство, в котором показано, как настроить непрерывную доставку из Visual Studio Team Services в веб-приложение, используя TFVC. 
+- [Непрерывная доставка в Azure с использованием Visual Studio Team Services и Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md). Схож с предыдущим учебником, но использует Git вместо TFVC.
 
 ###<a name="cloudgitmercurial"></a>Как выполнять развертывание из облачного репозитория Git или Mercurial
 
@@ -284,4 +283,4 @@ Visual Studio Team Services использует веб-развертывани
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

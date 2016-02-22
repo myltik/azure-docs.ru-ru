@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 
@@ -100,10 +100,10 @@ HDInsight позволяет клиентам развертывать разл�
     };
 
 
-**Справочные материалы**
+## Дальнейшие действия
 
-- [ZooKeeper](http://zookeeper.apache.org/)
+- [Apache ZooKeeper](http://zookeeper.apache.org/)
 - [Подключение к кластерам HDInsight с использованием RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Использование пакета SDК для HDInsight .NET](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

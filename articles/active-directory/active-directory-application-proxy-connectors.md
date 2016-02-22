@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей
 
-> [AZURE.NOTE]Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
 
 Группы соединителей удобно использовать в нескольких различных сценариях, включая следующие:
 
@@ -70,7 +70,7 @@
 - [Смотрите наши видео на Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Дополнительные ресурсы
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Об ограниченном делегировании Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-* [Об ограниченном делегировании Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

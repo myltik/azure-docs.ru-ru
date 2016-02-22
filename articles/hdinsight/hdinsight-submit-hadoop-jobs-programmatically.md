@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # Отправка заданий Hadoop в HDInsight
 
 Узнайте, как с помощью Azure PowerShell отправлять задания MapReduce и Hive, а также как с помощью пакета SDK для HDInsight .NET отправлять задания MapReduce, Hive и задания потоковой передачи Hadoop.
 
-> [AZURE.NOTE]Действия, описанные в этой статье, необходимо выполнять из клиента Windows. Сведения об использовании клиента Linux, OS X или Unix для работы с MapReduce, Hive или Pig в HDInsight см. в следующих статьях (в каждой из них на выбор доступны ссылки **SSH** и **Curl**):
+> [AZURE.NOTE] Действия, описанные в этой статье, необходимо выполнять из клиента Windows. Сведения об использовании клиента Linux, OS X или Unix для работы с MapReduce, Hive или Pig в HDInsight см. в следующих статьях (в каждой из них на выбор доступны ссылки **SSH** и **Curl**):
 >
 > - [Использование Hive с HDInsight](hdinsight-use-hive.md)
 > - [Использование Pig с HDInsight](hdinsight-use-pig.md)
 > - [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-##Предварительные требования
+###Предварительные требования
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
@@ -266,4 +266,4 @@
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

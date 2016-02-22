@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Начало работы с проверкой подлинности для мобильных приложений в приложении Xamarin.Forms" 
-	description="Узнайте, как использовать мобильные приложения для проверки подлинности пользователей приложения Xamarin Forms с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+<properties
+	pageTitle="Начало работы с проверкой подлинности для мобильных приложений в приложении Xamarin.Forms"
+	description="Узнайте, как использовать мобильные приложения для проверки подлинности пользователей приложения Xamarin Forms с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015" 
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Добавление проверки подлинности в приложение Xamarin.iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Обзор
 
@@ -38,7 +36,7 @@
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 
-##Добавление проверки подлинности в переносимую библиотеку классов 
+##Добавление проверки подлинности в переносимую библиотеку классов
 
 Для отображения интерфейса входа и данных кэша мобильные приложения используют метод `MobileServiceClient.LoginAsync`, относящийся к конкретной платформе. Чтобы пройти проверку подлинности в проекте Xamarin Forms, следует определить интерфейс `IAuthenticate` в переносимой библиотеке классов. Каждая поддерживаемая платформа будет реализовывать этот интерфейс в проекте для конкретной платформы.
 
@@ -59,14 +57,14 @@
 
 		public class App : Application
 		{
-	
+
 	        public static IAuthenticate Authenticator { get; private set; }
-	
+
 	        public static void Init(IAuthenticate authenticator)
 	        {
 	            Authenticator = authenticator;
 	        }
-	
+
 			...
 
 
@@ -147,12 +145,12 @@
 
 
 5. Обновите класс `MainActivity`, добавив показанные ниже поле `MobileServiceUser` и метод `Authenticate`, для поддержки интерфейса `IAuthenticate`.
- 
+
 	Если вместо Facebook вы хотите использовать другого поставщика `MobileServiceAuthenticationProvider`, внесите соответствующее изменение.
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
-	
+
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -214,12 +212,12 @@
 
 
 5. Обновите класс `AppDelegate`, добавив показанные ниже поле `MobileServiceUser` и метод `Authenticate`, для поддержки интерфейса `IAuthenticate`.
- 
+
 	Если вместо Facebook вы хотите использовать другого поставщика `MobileServiceAuthenticationProvider`, внесите соответствующее изменение.
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
-	
+
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -280,7 +278,7 @@
 
 
 5. Обновите класс `MainPage`, добавив показанные ниже поле `MobileServiceUser` и метод `Authenticate`, для поддержки интерфейса `IAuthenticate`.
- 
+
 	Если вместо Facebook вы хотите использовать другого поставщика `MobileServiceAuthenticationProvider`, внесите соответствующее изменение.
 
         // Define a authenticated user.
@@ -320,7 +318,7 @@
             this.InitializeComponent();
 
             <Your portable class library namespace>.App.Init(this);
-            
+
             LoadApplication(new <Your portable class library namespace>.App());
         }
 
@@ -350,7 +348,7 @@
 
 
 5. Обновите класс `MainPage`, добавив показанные ниже поле `MobileServiceUser` и метод `Authenticate`, для поддержки интерфейса `IAuthenticate`.
- 
+
 	Если вместо Facebook вы хотите использовать другого поставщика `MobileServiceAuthenticationProvider`, внесите соответствующее изменение.
 
         // Define a authenticated user.
@@ -405,7 +403,7 @@
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
 		    base.OnActivated(args);
-		
+
 		    if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
 		    {
 		        var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
@@ -426,7 +424,4 @@
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-
- 
-
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

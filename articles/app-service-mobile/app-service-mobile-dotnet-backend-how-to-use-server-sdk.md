@@ -4,7 +4,7 @@
 	keywords="служба приложений, служба приложений azure, мобильное приложение, мобильная служба, масштабировать, масштабируемый, разработка приложений, разработка приложений azure"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="ggailey777" 
+	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
 
@@ -14,14 +14,12 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 В этом разделе показано, как использовать пакет SDK для внутреннего сервера .NET в основных сценариях применения мобильных приложений службы приложений Azure. Пакет SDK для мобильных приложений Azure помогает работать с мобильными клиентами из своего приложения ASP.NET.
 
@@ -85,11 +83,11 @@
 	public void Configuration(IAppBuilder app)
 	{
 	    HttpConfiguration config = new HttpConfiguration();
-	   
+
 	    new MobileAppConfiguration()
 	        // no added features
-	        .ApplyTo(config);  
-	    
+	        .ApplyTo(config);
+
 	    app.UseWebApi(config);
 	}
 
@@ -104,7 +102,7 @@
 Многие методы расширения компонентов доступны через дополнительные пакеты NuGet, которые можно добавить. Это описано в следующем разделе.
 
 При быстром запуске сервера на портале Azure выполняется вызов **UseDefaultConfiguration()**. Это эквивалентно указанной ниже настройке.
-    
+
 		new MobileAppConfiguration()
 			.AddMobileAppHomeController()             // from the Home package
 			.MapApiControllers()
@@ -167,7 +165,7 @@
 Контроллер таблиц предоставляет доступ к данным сущностей в хранилище данных на основе таблиц, например в хранилище базы данных SQL или хранилище таблиц Azure. Контроллеры таблиц наследуются из универсального класса **TableController**, где универсальный тип является сущностью в модели, которая представляет схему таблицы, как показано ниже.
 
 	public class TodoItemController : TableController<TodoItem>
-    {  
+    {
 		//...
 	}
 
@@ -179,7 +177,7 @@
         new MobileAppTableConfiguration()
         .MapTableControllers()
         .AddEntityFramework()).ApplyTo(config);
- 
+
 В качестве примера контроллера таблиц, который использует платформу Entity Framework для доступа к данным в базе данных SQL Azure, рекомендуем изучить класс **TodoItemController** в серверном проекте быстрого запуска, который вы можете скачать с портала Azure.
 
 ## Практическое руководство. Определение настраиваемого контроллера API
@@ -196,7 +194,7 @@
 
 4. Примените атрибут **[MobileAppController]** к определению класса контроллера API, как показано в примере ниже.
 
-		[MobileAppController] 
+		[MobileAppController]
 		public class CustomController : ApiController
 		{
 		      //...
@@ -207,7 +205,7 @@
 		new MobileAppConfiguration()
 		    .MapApiControllers()
 		    .ApplyTo(config);
-    
+
 	Обратите внимание, что нет необходимости вызывать метод **MapApiControllers**, если вы вызываете метод **UseDefaultConfiguration**, который инициализирует все функции.
 
 Клиенты могут получить доступ к любому контроллеру, к которому не применен атрибут **MobileAppControllerAttribute**. Однако клиенты, использующие любой пакет SDK для клиента мобильного приложения, не смогут правильно использовать этот контроллер.
@@ -216,15 +214,15 @@
 
 Мобильные приложения используют средства проверки подлинности службы приложений и ASP.NET для упрощения проверки подлинности приложений. В этом разделе показано, как выполнять следующие задачи проверки подлинности в серверном проекте .NET:
 
-+ [Практическое руководство. Добавление аутентификации в серверный проект](#add-auth) 
-+ [Практическое руководство. Использование пользовательской проверки подлинности для приложения](#custom-auth) 
++ [Практическое руководство. Добавление аутентификации в серверный проект](#add-auth)
++ [Практическое руководство. Использование пользовательской проверки подлинности для приложения](#custom-auth)
 + [Практическое руководство. Получение сведений о пользователе, прошедшем проверку подлинности](#user-info)
 
 ### <a name="add-auth"></a>Практическое руководство. Добавление проверки подлинности в серверный проект
 
 Вы можете добавить проверку подлинности в серверный проект, унаследовав от объекта **MobileAppConfiguration** и настроив ПО промежуточного слоя OWIN. Когда вы установите пакет [Microsoft.Azure.Mobile.Server.Quickstart] и вызовете метод расширения **UseDefaultConfiguration**, переходите к шагу 3.
 
-1. В Visual Studio установите пакет [Microsoft.Azure.Mobile.Server.Authentication]. 
+1. В Visual Studio установите пакет [Microsoft.Azure.Mobile.Server.Authentication].
 
 2. В файле проекта Startup.cs добавьте следующую строку кода в начало метода **Configuration**:
 
@@ -282,8 +280,8 @@
 
 Вы также можете упростить код клиента, воспользовавшись методом `loginAsync()` (название может отличаться для разных платформ) вместо ручной отправки запроса HTTP POST. В этом случае используется перегруженный метод, который принимает дополнительный параметр маркера, соответствующий объекту утверждения, который был бы отправлен в запросе POST. В качестве поставщика в этом случае нужно указать любое имя по своему выбору. На сервере действие входа должно располагаться по пути _/.auth/login/{пользовательское\_имя\_поставщика}_, который включает это имя. Чтобы разместить свой контроллер по этому пути, добавьте маршрут к HttpConfiguration перед применением конфигурации MobileAppConfiguration.
 
-		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" }); 
-		
+		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" });
+
 Замените строку "CustomAuth" выше именем контроллера, на котором размещено действие входа.
 
 >[AZURE.TIP] Подход с использованием LoginAsync() гарантирует, что маркер проверки подлинности прикрепляется к каждому последующему вызову службы.
@@ -303,14 +301,14 @@ SID является производным от идентификатора п
 Следующий код вызывает метод расширения **GetAppServiceIdentityAsync** для получения учетных данных входа, которые включают маркер доступа, необходимый для выполнения запросов к API Graph Facebook:
 
     // Get the credentials for the logged-in user.
-    var credentials = 
+    var credentials =
         await this.User
         .GetAppServiceIdentityAsync<FacebookCredentials>(this.Request);
 
     if (credentials.Provider == "Facebook")
     {
         // Create a query string with the Facebook access token.
-        var fbRequestUrl = "https://graph.facebook.com/me/feed?access_token=" 
+        var fbRequestUrl = "https://graph.facebook.com/me/feed?access_token="
             + credentials.AccessToken;
 
         // Create an HttpClient request.
@@ -332,7 +330,7 @@ SID является производным от идентификатора п
 Вы можете добавить push-уведомления в проект сервера, расширив объект **MobileAppConfiguration** и создав клиент центров уведомлений. После установки пакета [Microsoft.Azure.Mobile.Server.Quickstart] и вызова метода расширения **UseDefaultConfiguration** переходите к шагу 3.
 
 1. В Visual Studio щелкните правой кнопкой мыши серверный проект, затем щелкните **Управление пакетами NuGet**, найдите пакет Microsoft.Azure.Mobile.Server.Notifications и нажмите кнопку **Установить**. Будет установлен пакет [Microsoft.Azure.Mobile.Server.Notifications].
- 
+
 3. Повторите это действие, чтобы установить пакет `Microsoft.Azure.NotificationHubs`, который включает в себя клиентскую библиотеку центров уведомлений.
 
 2. Перейдите к папке App\_Start, откройте файл Startup.MobileApp.cs и добавьте в него вызов метода расширения **AddPushNotifications** на этапе инициализации, то есть примерно так:
@@ -353,9 +351,9 @@ SID является производным от идентификатора п
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
-        MobileAppSettingsDictionary settings = 
+        MobileAppSettingsDictionary settings =
             config.GetMobileAppSettingsProvider().GetMobileAppSettings();
-        
+
         // Get the Notification Hubs credentials for the Mobile App.
         string notificationHubName = settings.NotificationHubName;
         string notificationHubConnection = settings
@@ -412,7 +410,7 @@ SID является производным от идентификатора п
 3. Создайте модуль записи трассировки для записи из серверного приложения .NET в журналы диагностики следующим образом:
 
 		ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
-		traceWriter.Info("Hello, World");  
+		traceWriter.Info("Hello, World");
 
 4. Повторно опубликуйте серверный проект и запустите серверную часть мобильного приложения с ведением журнала.
 
@@ -425,7 +423,7 @@ SID является производным от идентификатора п
 Необходимо облачное мобильное приложение, в котором настроены проверка подлинности и авторизация службы приложений, а в клиенте должна быть конечная точка облака, указанная как узел для альтернативного входа. Конкретные инструкции можно найти в документации для выбранной клиентской платформы ([iOS](app-service-mobile-ios-how-to-use-client-library.md), [Windows или Xamarin](app-service-mobile-dotnet-how-to-use-client-library.md)).
 
 Убедитесь, что в приложении установлен пакет [Microsoft.Azure.Mobile.Server.Authentication]. В приложении добавьте следующий код в класс запуска OWIN после применения `MobileAppConfiguration` к объекту `HttpConfiguration`:
-		
+
 		app.UseAppServiceAuthentication(new AppServiceAuthenticationOptions()
 		{
 			SigningKey = ConfigurationManager.AppSettings["authSigningKey"],
@@ -447,4 +445,4 @@ SID является производным от идентификатора п
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

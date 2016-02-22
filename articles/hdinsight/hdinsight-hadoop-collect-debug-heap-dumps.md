@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 
@@ -26,7 +26,7 @@
 
 Сбор дампов кучи для различных служб нужно включать на отдельных кластерах. По умолчанию эта функция отключена. Размер дампов кучи может быть большим, поэтому мы советуем следить за учетной записью хранилища больших двоичных объектов после включения сбора.
 
-> [AZURE.NOTE]Сведения в этой статье применимы только к HDInsight, работающей под управлением Windows. Сведения об HDInsight, работающей под управлением Linux, см. в статье [Включение дампов кучи для службы Hadoop в HDInsight, работающей под управлением Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+> [AZURE.NOTE] Сведения в этой статье применимы только к HDInsight, работающей под управлением Windows. Сведения об HDInsight, работающей под управлением Linux, см. в статье [Включение дампов кучи для службы Hadoop в HDInsight, работающей под управлением Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 
 ## Службы с возможностью включения дампов кучи
 
@@ -63,4 +63,4 @@
 
 	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

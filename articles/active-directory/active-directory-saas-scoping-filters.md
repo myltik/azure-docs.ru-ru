@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -70,11 +70,19 @@
 3. они должны работать в Сан-Франциско или в Канаде.
 
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Связанные статьи
+
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS](active-directory-saas-app-provisioning.md)
+- [Настройка сопоставления атрибутов для подготовки пользователей](active-directory-saas-customizing-attribute-mappings.md)
+- [Запись выражений для сопоставления атрибутов](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md)
+- [Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM](active-directory-scim-provisioning.md)
+- [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

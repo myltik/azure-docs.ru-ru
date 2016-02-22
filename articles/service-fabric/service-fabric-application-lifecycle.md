@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="01/20/2016"
-   ms.author="ryanwi; mani-ramaswamy"/>
+   ms.author="ryanwi"/>
 
 
 # Жизненный цикл приложения Service Fabric
@@ -34,7 +34,7 @@
 
 
 ## Разработка
-1. *Разработчик службы* разрабатывает различные типы служб, используя модель программирования [Reliable Actors](service-fabric-reliable-actors-introduction.md) или [Reliable Services](../service-fabric/service-fabric-reliable-services-introduction.md).
+1. *Разработчик службы* разрабатывает различные типы служб, используя модель программирования [Reliable Actors](service-fabric-reliable-actors-introduction.md) или [Reliable Services](service-fabric-reliable-services-introduction.md).
 2. *Разработчик службы* декларативно описывает типы разработанных служб в файле манифеста служб, состоящего из одного или нескольких блоков кода, конфигурации и пакетов данных.
 3. *Разработчик приложений* затем создает приложения, используя для этого службы различных типов.
 4. *Разработчик приложений* декларативно описывает тип приложения в манифесте приложения путем ссылок на манифесты составляющих его служб и применяет переопределение и назначение параметров различных конфигураций и настроек развертывания служб, из которых состоит приложение.
@@ -113,10 +113,10 @@
 Дополнительные сведения о разработке и тестировании приложений Service Fabric и служб, а также об управлении ими см. в следующих разделах.
 
 - [Надежные субъекты](service-fabric-reliable-actors-introduction.md)
-- [Надежные службы](../service-fabric/service-fabric-reliable-services-introduction.md)
+- [Надежные службы](service-fabric-reliable-services-introduction.md)
 - [Развертывание приложения](service-fabric-deploy-remove-applications.md)
 - [Обновление приложения](service-fabric-application-upgrade.md)
 - [Обзор Testability](service-fabric-testability-overview.md)
 - [Пример жизненного цикла приложения на основе REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

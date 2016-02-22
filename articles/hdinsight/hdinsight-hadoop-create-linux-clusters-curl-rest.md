@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/04/2015"
+   	ms.date="02/05/2016"
    	ms.author="larryfr"/>
 
 #Создание кластеров под управлением Linux в HDInsight с помощью cURL и API REST Azure
@@ -355,4 +355,4 @@ API REST Azure позволяет управлять службами, разм�
 * [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Развертывание и мониторинг топологий с помощью Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

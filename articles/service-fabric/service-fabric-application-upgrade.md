@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 
@@ -54,18 +54,20 @@
 
 ## Дальнейшие действия
 
-[Учебник по обновлению](service-fabric-application-upgrade-tutorial.md)
+Пошаговое руководство [Обновление приложения с помощью Visual Studio](service-fabric-application-upgrade-tutorial.md) поможет вам выполнить обновление приложения с помощью Visual Studio.
 
-[Параметры обновления](service-fabric-application-upgrade-parameters.md)
+Пошаговое руководство [Обновление приложения с помощью PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) поможет вам выполнить обновление приложения с помощью PowerShell.
 
-[Сериализация данных](service-fabric-application-upgrade-data-serialization.md)
+Управление обновлениями приложения осуществляется с помощью [параметров обновления](service-fabric-application-upgrade-parameters.md).
 
-[Обновление вручную и с помощью пакетов Diff](service-fabric-application-upgrade-advanced.md)
+Узнайте, как использовать [сериализацию данных](service-fabric-application-upgrade-data-serialization.md), чтобы обеспечить совместимость обновлений приложения.
 
-[Поиск и устранение неисправностей при обновлении приложения](service-fabric-application-upgrade-troubleshooting.md)
+[Дополнительные разделы](service-fabric-application-upgrade-advanced.md) содержат сведения о работе с расширенными функциями при обновлении приложения.
 
+Сведения об устранении распространенных проблем при обновлении приложений см. в разделе [Устранение неполадок обновления приложения](service-fabric-application-upgrade-troubleshooting.md).
+ 
 
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

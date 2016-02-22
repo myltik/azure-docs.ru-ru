@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/12/2016" 
-	ms.author="erikre"/>
+	ms.author="tdykstra"/>
 
 # Управление веб-приложением в службе приложений Azure
 
@@ -103,4 +103,4 @@
 
   
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

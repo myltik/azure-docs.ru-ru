@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики
@@ -175,6 +175,10 @@
 
 	![Убедитесь, что расширение панели доступа установлено и включено.](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Связанные статьи
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Устранение неполадок, связанных с расширением панели доступа для Internet Explorer](active-directory-saas-ie-troubleshooting.md)
+
+<!---HONumber=AcomDC_0211_2016-->

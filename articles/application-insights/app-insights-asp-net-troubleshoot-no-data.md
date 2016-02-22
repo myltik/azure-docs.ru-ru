@@ -191,4 +191,8 @@
 
 Город, область и страна определяются по IP-адресу и не всегда являются точными.
 
-<!---HONumber=AcomDC_0204_2016-->
+## По-прежнему не работает...
+
+* [Форум Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/ru-RU/home?forum=ApplicationInsights)
+
+<!---HONumber=AcomDC_0211_2016-->

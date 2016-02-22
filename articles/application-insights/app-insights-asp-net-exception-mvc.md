@@ -18,7 +18,7 @@
 
 # Настройка Application Insights: диагностика исключений
 
-Сожалеем. [Эта страница перемещена](app-insights-asp-net-exception.md).
+Сожалеем. [Эта страница перемещена](app-insights-asp-net-exceptions.md).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

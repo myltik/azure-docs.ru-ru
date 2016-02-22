@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Развертывание виртуальных машин с несколькими сетевыми картами с использованием интерфейса командной строки Azure (классическая модель)
@@ -45,7 +45,7 @@
 
 ### Шаг 1. Запуск сценария
 
-Полный сценарий Bash можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.sh). Чтобы изменить сценарий для работы в вашей среде, сделайте следующее:
+Полный сценарий Bash можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Чтобы изменить сценарий для работы в вашей среде, сделайте следующее:
 
 1. Измените значения следующих переменных в зависимости от существующей группы ресурсов, развернутой в соответствии с инструкциями в разделе [Предварительные требования](#Prerequisites) выше.
 
@@ -174,4 +174,4 @@
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

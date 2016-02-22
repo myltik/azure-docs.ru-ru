@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="raymondl;garye"/>
 
 #Параметры веб-службы машинного обучения Azure
@@ -71,7 +71,7 @@
 
 Теперь пользователь веб-службы может указать новое местоположение для модуля [Средство записи][writer] при доступе к веб-службе.
 
-##Подробнее
+##Дополнительные сведения
 
 Более подробный пример см. в статье [Параметры веб-службы](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) [блога, посвященного машинному обучению](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
@@ -91,4 +91,4 @@
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

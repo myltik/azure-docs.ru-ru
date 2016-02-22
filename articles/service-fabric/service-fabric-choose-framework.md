@@ -33,6 +33,6 @@ Azure Service Fabric предлагает две высокоуровневые 
 ## Дальнейшие действия
 
 - [Подробнее об API Reliable Actors](service-fabric-reliable-actors-introduction.md)
-- [Подробнее об API Reliable Services](../Service-Fabric/service-fabric-reliable-services-introduction.md)
+- [Подробнее об API Reliable Services](service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

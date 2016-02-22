@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Развертывание виртуальных машин с несколькими сетевыми картами с использованием PowerShell
@@ -37,7 +37,7 @@
 2. На странице шаблона справа от **Родительская группа ресурсов** щелкните **Развернуть в Azure**.
 3. При необходимости измените значения параметров, а затем следуйте инструкциям на портале предварительной версии Azure для развертывания группы ресурсов.
 
-> [AZURE.IMPORTANT]Имена учетных записей хранения должны быть уникальными. Они не могут повторяться в Azure.
+> [AZURE.IMPORTANT] Имена учетных записей хранения должны быть уникальными. Они не могут повторяться в Azure.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -51,7 +51,7 @@
 
 ### Шаг 1. Запуск сценария
 
-Полный сценарий PowerShell можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.ps1). Чтобы изменить сценарий для работы в вашей среде, сделайте следующее:
+Полный сценарий PowerShell можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-ps.ps1). Чтобы изменить сценарий для работы в вашей среде, сделайте следующее:
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -308,4 +308,4 @@
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

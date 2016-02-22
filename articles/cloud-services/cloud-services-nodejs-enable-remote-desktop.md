@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
-
 
 # Включение удаленного рабочего стола в Azure
 
 Удаленный рабочий стол обеспечивает доступ к рабочему столу экземпляра роли в Azure. Его можно использовать для настройки виртуальной машины или устранения проблем с приложением.
 
-> [AZURE.NOTE]Эта статья относится к приложениям Node.js, размещенным в качестве облачной службы Azure.
+> [AZURE.NOTE] Эта статья относится к приложениям Node.js, размещенным в качестве облачной службы Azure.
 
 
 ## Предварительные требования
 
-- Установите и настройте [Azure PowerShell](../install-configure-powershell.md).
+- Установите и настройте [Azure PowerShell](../powershell-install-configure.md).
 - Развертывание приложения Node.js в облачной службе Azure. Дополнительную информацию см. в разделе [Построение и развертывание приложения Node.js в облачной службе Azure](cloud-services-nodejs-develop-deploy-app.md).
 
 
@@ -106,14 +105,14 @@
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
-  [3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
-  [4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
-  [5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
-  [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
-  [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
+[3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
+[4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
+[5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
+[6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
+[7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
   
-  [Удаленный доступ к экземплярам ролей в Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
-  [Использование удаленного рабочего стола с ролями Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+[Удаленный доступ к экземплярам ролей в Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+[Использование удаленного рабочего стола с ролями Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

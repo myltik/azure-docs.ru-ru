@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="02/04/2016"
    ms.author="hascipio"/>
 
 # Настройка Azure PowerShell для создания предложения для Azure Marketplace
@@ -30,4 +30,4 @@
 - [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
 - [Создание образа виртуальной машины для Marketplace](marketplace-publishing-vm-image-creation.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

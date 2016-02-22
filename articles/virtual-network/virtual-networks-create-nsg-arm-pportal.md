@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Как создавать сетевые группы безопасности в режиме ARM с помощью портала предварительной версии | Microsoft Azure"
-   description="Узнайте, как создавать и развертывать сетевые группы безопасности в режиме ARM с помощью портала предварительной версии"
+   pageTitle="Создание групп безопасности сети в режиме ARM с помощью портала Azure | Microsoft Azure"
+   description="Узнайте, как создавать и развертывать группы безопасности сети в режиме ARM с помощью портала Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # Как управлять сетевыми группами безопасности с помощью портала предварительной версии
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [создавать сетевые группы безопасности на основе классической модели развертывания](virtual-networks-create-nsg-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [создавать группы безопасности сети с помощью классической модели развертывания](virtual-networks-create-nsg-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -56,4 +56,4 @@
 
 ![Портал предварительной версии — новое правило](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

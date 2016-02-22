@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/05/2016" 
 	ms.author="genemi"/>
 
 
@@ -161,4 +161,4 @@
 
 [Дополнительные условия использования для предварительных версий Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,18 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Просмотр данных в хранилище больших двоичных объектов Azure с помощью Pandas
 
-Это **меню** содержит ссылки на разделы, описывающие использование средств для просмотра данных из различных сред хранения. Эта задача является одним из этапов процесса аналитики Кортаны (CAP).
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
-
 ## Введение
 
 В этом документе описывается просмотр данных, которые хранятся в контейнере больших двоичных объектов Azure, с помощью пакета Python [Pandas](http://pandas.pydata.org/).
+
+**Меню** ниже содержит ссылки на разделы, описывающие использование средств для просмотра данных из различных сред хранения. Эта задача является одним из этапов процесса аналитики Кортаны (CAP).
+
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+
 
 ## Предварительные требования
 В этой статье предполагается, что вы:
@@ -116,4 +117,4 @@
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="ryancraw"/>
 
 # Пакет SDK для DocumentDB
@@ -35,7 +35,7 @@
     - Оператор Take, позволяющий выполнить операцию SELECT TOP в LINQ.
     - Оператор CompareTo, позволяющий сравнивать диапазоны строк.
     - Условный оператор (?) и оператор объединения (??).
-  - **[Исправлено]** Порождение ArgumentOutOfRangeException при комбинировании проекции Model с Where-In в запросе LINQ. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+  - **[Исправлено]** Выдача исключения ArgumentOutOfRangeException при комбинировании проекции Model с Where-In в запросе LINQ. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Исправлено]** Если операция Select не является последней, поставщик LINQ не использовал проекции и неверно определял операцию SELECT *. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58).
@@ -70,7 +70,7 @@
   - Добавлена поддержка индексирования и создания запросов к пространственным типам данных.
     - Новое пространство имен Microsoft.Azure.Documents.Spatial для сериализации и десериализации пространственных типов, таких как Point и Polygon.
     - Новый класс SpatialIndex для индексирования данных GeoJSON, хранящихся в DocumentDB.
-  - **[Исправлено]** Из выражения linq [#38](https://github.com/Azure/azure-documentdb-net/issues/38) создавался неверный SQL-запрос.
+  - **[Исправлено]** Из выражения LINQ [#38](https://github.com/Azure/azure-documentdb-net/issues/38) создавался неверный SQL-запрос.
 
 ### <a name="1.2.0"/>[1\.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.2.0)
 - Зависимость от Newtonsoft.Json 5.0.7. 
@@ -133,4 +133,4 @@
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

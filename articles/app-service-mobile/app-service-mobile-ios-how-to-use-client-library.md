@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/30/2015"
+	ms.date="02/04/2016"
 	ms.author="krisragh"/>
 
 # Использование клиентской библиотеки iOS для мобильных приложений Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
- 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 В данном руководстве показано, как реализовать типичные сценарии с использованием последней версии [пакета iOS SDK для мобильных приложений Azure](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Если вы не знакомы с мобильными приложениями Azure, изучите статью [Быстрый запуск мобильного приложения Azure], чтобы создать серверную часть и таблицу, а также скачать предварительно собранный проект Xcode для iOS. В данном руководстве мы сосредоточимся на клиентской части пакета iOS SDK. Дополнительные сведения о серверном пакете SDK для .NET см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
@@ -87,15 +85,15 @@ let table = client.tableWithName("TodoItem")
 **Swift**:
 
 ```
-table.readWithCompletion({(result, error) -> Void in
-    if error != nil { // error is nil if no error occured
-        NSLog("ERROR %@", error!)
-    } else {
-        for item in (result?.items)! {
-            NSLog("Todo Item: %@", item["text"] as! String)
+table.readWithCompletion { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let items = result?.items {
+        for item in items {
+            print("Todo Item: ", item["text"])
         }
     }
-})
+}
 ```
 
 ##<a name="filtering"></a>Практическое руководство. Фильтрация возвращаемых данных
@@ -109,7 +107,7 @@ table.readWithCompletion({(result, error) -> Void in
 ```
 // Create a predicate that finds items where complete is false
 NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-// Query the TodoItem table 
+// Query the TodoItem table
 [table readWithPredicate:predicate completion:^(MSQueryResult *result, NSError *error) {
 		if(error) {
 				NSLog(@"ERROR %@", error);
@@ -125,17 +123,17 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 ```
 // Create a predicate that finds items where complete is false
-let predicate =  NSPredicate(format:"complete == NO")
-// Query the TodoItem table 
-table.readWithPredicate(predicate, completion: { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        for item in (result?.items)! {
-            NSLog("Todo Item: %@", item["text"] as! String)
+let predicate =  NSPredicate(format: "complete == NO")
+// Query the TodoItem table
+table.readWithPredicate(predicate) { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let items = result?.items {
+        for item in items {
+            print("Todo Item: ", item["text"])
         }
     }
-})
+}
 ```
 
 ##<a name="query-object"></a>Практическое руководство. Использование MSQuery
@@ -153,7 +151,7 @@ MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"c
 
 ```
 let query = table.query()
-let query = table.queryWithPredicate(NSPredicate(format:"complete == NO"))
+let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
 `MSQuery` позволяет контролировать некоторые настройки запросов, включая следующие. Выполните запрос `MSQuery` путем вызова в нем `readWithCompletion`, как показано в следующем примере. * Задание порядка результатов. * Ограничение возвращаемых полей. * Ограничение количества возвращаемых записей. * Указание общего количества в ответе. * Задание строковых параметров настраиваемого запроса. * Применение дополнительных функций.
@@ -181,15 +179,15 @@ let query = table.queryWithPredicate(NSPredicate(format:"complete == NO"))
 
 **Swift**:
 
-```        
+```
 query.orderByAscending("text")
 query.orderByDescending("complete")
-query.readWithCompletion { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        for item in (result?.items)! {
-            NSLog("Todo Item: %@", item["text"] as! String)
+query.readWithCompletion { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let items = result?.items {
+        for item in items {
+            print("Todo Item: ", item["text"])
         }
     }
 }
@@ -254,11 +252,11 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 
 ```
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
-table.insert(newItem) { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        NSLog("Todo Item: %@", result!["text"] as! String)
+table.insert(newItem) { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let item = result {
+        print("Todo Item: ", item["text"])
     }
 }
 ```
@@ -284,14 +282,15 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 **Swift**:
 
 ```
-let newItem = oldItem.mutableCopy() as! NSMutableDictionary // oldItem is NSDictionary
-newerItem["text"] = "Updated text"
-table.update(newerItem  as [NSObject : AnyObject]) { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        NSLog("Todo Item: %@", result!["text"] as! String)
-    }
+if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
+    newItem["text"] = "Updated text"
+    table2.update(newItem as [NSObject: AnyObject], completion: { (result, error) -> Void in
+        if let err = error {
+            print("ERROR ", err)
+        } else if let item = result {
+            print("Todo Item: ", item["text"])
+        }
+    })
 }
 ```
 
@@ -312,13 +311,12 @@ table.update(newerItem  as [NSObject : AnyObject]) { (result, error) -> Void in
 **Swift**:
 
 ```
-table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        NSLog("Todo Item: %@", result!["text"] as! String)
+table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let item = result {
+        print("Todo Item: ", item["text"])
     }
-    
 }
 ```
 
@@ -343,12 +341,12 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) ->
 **Swift**:
 
 ```
-table.delete(item as [NSObject : AnyObject]) { (itemId, error) -> Void in
-	if error != nil {
-		NSLog("ERROR %@", error!)
-	} else {
-		NSLog("Todo Item ID: %@", itemId! as! String)
-	}
+table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else {
+        print("Todo Item ID: ", itemId)
+    }
 }
 ```
 
@@ -363,18 +361,18 @@ table.delete(item as [NSObject : AnyObject]) { (itemId, error) -> Void in
 	} else {
 		NSLog(@"Todo Item ID: %@", itemId);
 	}
-}];   
+}];
 ```
 
 **Swift**:
 
 ```
-table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) -> Void in
-        if error != nil {
-        	NSLog("ERROR %@", error!)
-        } else {
-        	NSLog("Todo Item ID: %@", itemId! as! String)
-        }
+table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else {
+        print("Todo Item ID: ", itemId)
+    }
 }
 ```
 
@@ -397,11 +395,11 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) -> 
 **Swift**:
 
 ```
-client.push!.registerDeviceToken(deviceToken, template: iOSTemplate, completion: { (error) -> Void in
-            if error != nil {
-                NSLog("ERROR %@", error!)
-            }
-        })
+    client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
+        if let err = error {
+            print("ERROR ", err)
+        }
+    })
 ```
 
 Шаблоны будут относиться к типу NSDictionary и могут содержать несколько шаблонов в следующем формате:
@@ -415,7 +413,7 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 **Swift**:
 
 ```
-let iOSTemplate: [NSObject : AnyObject] = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
+let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
 Обратите внимание, что все теги будут удалены для безопасности. В статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) показано, как добавлять теги для установки устройства или шаблоны в пределах установки.
@@ -437,7 +435,7 @@ NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 **Swift**:
 
 ```
-let serverItem = error?.userInfo[MSErrorServerItemKey]
+let serverItem = error.userInfo[MSErrorServerItemKey]
 ```
 
 Кроме того, этот файл определяет константы для каждого кода ошибки, что можно использовать, например, следующим образом:
@@ -451,32 +449,35 @@ if (error.code == MSErrorPreconditionFailed) {
 **Swift**:
 
 ```
-if (error?.code == MSErrorPreconditionFailed) {
+if (error.code == MSErrorPreconditionFailed) {
 ```
 
-## <a name="adal"></a>Практическое руководство: проверка подлинности пользователей с помощью библиотеки проверки подлинности Active Directory
+## <a name="adal"></a>Практическое руководство. Проверка подлинности пользователей с помощью библиотеки проверки подлинности Active Directory
 
 Библиотеку проверки подлинности Active Directory (ADAL) можно использовать для входа пользователей в приложение с помощью Azure Active Directory. Этот подход является более предпочтительным, чем использование методов `loginAsync()`, так как он обеспечивает более удобный интерфейс входа для пользователя и позволяет выполнять дополнительную настройку.
 
-1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя инструкциям в руководстве [Настройка приложения службы приложений для использования службы входа Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Обязательно выполните дополнительный этап регистрации собственного клиентского приложения. Для iOS рекомендуется следующий формат URI перенаправления: `<app-scheme>://<bundle-id>` (хотя это не обязательно). Дополнительные сведения см. в статье [Интеграция Azure AD в приложение для iOS](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
+1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя указаниям в руководстве [Настройка приложения службы приложений для использования службы входа Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Обязательно выполните дополнительный этап регистрации собственного клиентского приложения. Для iOS рекомендуется следующий формат URI перенаправления: `<app-scheme>://<bundle-id>` (хотя это не обязательно). Дополнительные сведения см. в статье [Интеграция Azure AD в приложение для iOS](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
 
-2. Установите ADAL с помощью Cocoapods. Измените файл Podfile: добавьте в него следующий код, заменив **YOUR-PROJECT** именем проекта Xcode.
+2. Установите ADAL с помощью Cocoapods. Измените файл Podfile: добавьте в него следующий код, заменив **YOUR-PROJECT** именем проекта Xcode:
 
-	source 'https://github.com/CocoaPods/Specs.git' link\_with ['YOUR-PROJECT'] xcodeproj 'YOUR-PROJECT'
-	
-	pod 'ADALiOS'
+		source 'https://github.com/CocoaPods/Specs.git'
+		link_with ['YOUR-PROJECT']
+		xcodeproj 'YOUR-PROJECT'
+и Pod:
+
+		pod 'ADALiOS'
 
 3. С помощью приложения Terminal запустите `pod install` из каталога, содержащего проект, а затем откройте созданную рабочую область Xcode (не проект).
 
 4. Добавьте в приложение приведенный ниже код, соответствующий используемому языку. В каждом коде выполните следующие замены.
 
-* Замените текст **INSERT-AUTHORITY-HERE** именем клиента, в котором вы подготовили свое приложение. Используйте следующий формат: https://login.windows.net/contoso.onmicrosoft.com. Это значение можно скопировать на вкладке "Домен" в Azure Active Directory на [классическом портале Azure].
+* Замените текст **INSERT-AUTHORITY-HERE** именем клиента, в котором подготовлено приложение. Используйте следующий формат: https://login.windows.net/contoso.onmicrosoft.com. Это значение можно скопировать на вкладке "Домен" в Azure Active Directory на [классическом портале Azure].
 
-* Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Это значение можно скопировать на вкладке **Дополнительно** в разделе **Параметры Azure Active Directory** на портале.
+* Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Это значение можно скопировать на портале в разделе **Настройки Azure Active Directory** на вкладке **Дополнительно**.
 
 * Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
 
-* Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой вашего сайта _/.auth/login/done_, используя схему HTTPS. Это значение должно быть аналогично _https://contoso.azurewebsites.net/.auth/login/done_.
+* Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой сайта _/.auth/login/done_, используя схему HTTPS. Это значение должно быть аналогично _https://contoso.azurewebsites.net/.auth/login/done_.
 
 **Objective-C**:
 
@@ -518,8 +519,8 @@ if (error?.code == MSErrorPreconditionFailed) {
 	// add the following imports to your bridging header:
 	//     #import <ADALiOS/ADAuthenticationContext.h>
 	//     #import <ADALiOS/ADAuthenticationSettings.h>
-	
-	func authenticate(parent:UIViewController, completion: (MSUser?, NSError?) -> Void) {
+
+	func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
 		let authority = "INSERT-AUTHORITY-HERE"
 		let resourceId = "INSERT-RESOURCE-ID-HERE"
 		let clientId = "INSERT-CLIENT-ID-HERE"
@@ -527,16 +528,16 @@ if (error?.code == MSErrorPreconditionFailed) {
 		var error: AutoreleasingUnsafeMutablePointer<ADAuthenticationError?> = nil
 		let authContext = ADAuthenticationContext(authority: authority, error: error)
 		authContext.parentController = parent
-		ADAuthenticationSettings.sharedInstance().enableFullScreen = true;
-		authContext.acquireTokenWithResource(resourceId, clientId: clientId, redirectUri: redirectUri, completionBlock: { (result) -> Void in
-			if result.status != AD_SUCCEEDED {
-				completion(nil, result.error)
-			}
-			else {
-				let payload:[String:String] = ["access_token":result.tokenCacheStoreItem.accessToken]
-				client.loginWithProvider("aad", token: payload, completion: completion)
-			}
-		})
+		ADAuthenticationSettings.sharedInstance().enableFullScreen = true
+		authContext.acquireTokenWithResource(resourceId, clientId: clientId, redirectUri: redirectUri) { (result) in
+		        if result.status != AD_SUCCEEDED {
+		            completion(nil, result.error)
+		        }
+		        else {
+		            let payload: [String: String] = ["access_token": result.tokenCacheStoreItem.accessToken]
+		            client.loginWithProvider("aad", token: payload, completion: completion)
+		        }
+    		}
 	}
 
 
@@ -591,4 +592,4 @@ if (error?.code == MSErrorPreconditionFailed) {
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

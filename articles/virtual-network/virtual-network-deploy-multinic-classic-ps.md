@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Развертывание виртуальных машин с несколькими сетевыми картами с использованием PowerShell (классическая модель)
@@ -31,7 +31,7 @@
 
 ## Предварительные требования
 
-Перед развертыванием внутренних серверов необходимо выполнить развертывание основной облачной службы со всеми ресурсами, необходимыми для этого сценария. Нужно создать по крайней мере виртуальную сеть с подсетью для внутреннего сервера. Чтобы узнать, как развертывать виртуальную сеть, см. статью [Создание виртуальной сети с использованием PowerShell](virtual-networks-create-vnet-classic-ps.md).
+Перед развертыванием внутренних серверов необходимо выполнить развертывание основной облачной службы со всеми ресурсами, необходимыми для этого сценария. Нужно создать по крайней мере виртуальную сеть с подсетью для внутреннего сервера. Чтобы узнать, как развертывать виртуальную сеть, см. статью [Создание виртуальной сети с использованием PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -45,7 +45,7 @@
 
 ### Шаг 1. Запуск сценария
 
-Полный сценарий PowerShell можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.ps1). Чтобы изменить сценарий для работы в вашей среде, сделайте следующее:
+Полный сценарий PowerShell можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Чтобы изменить сценарий для работы в вашей среде, сделайте следующее:
 
 1. Измените значения следующих переменных в зависимости от существующей группы ресурсов, развернутой в соответствии с инструкциями в разделе [Предварительные требования](#Prerequisites) выше.
 
@@ -171,4 +171,4 @@
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

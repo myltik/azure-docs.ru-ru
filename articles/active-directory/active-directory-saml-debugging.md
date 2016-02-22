@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/18/2015" 
+    ms.date="02/09/2016" 
     ms.author="asmalser" />
 
 #Отладка единого входа на основе SAML в приложения в Azure Active Directory
@@ -25,7 +25,13 @@
  
 **Примечание**. Чтобы просмотреть содержимое этого HTTP-запроса, Fiddler может предложить настроить шифрование трафика HTTPS. Это будет необходимо сделать.
 
+## Связанные статьи
+
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](active-directory-saas-custom-apps.md)
+- [Настройка утверждений, выпущенных в маркере SAML для предварительно интегрированных приложений](active-directory-saml-claims-customization.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

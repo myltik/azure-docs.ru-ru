@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/05/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Создание характеристик для данных хранилища больших двоичных объектов Azure с помощью Panda
 
-Это **меню** содержит ссылки на разделы, описывающие разработку характеристик для данных в различных средах. Эта задача является одним из этапов процесса аналитики Кортаны (CAP).
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
 ##Введение
 
 В этом документе описывается создание характеристик для данных, которые хранятся в контейнере больших двоичных объектов Azure, с помощью пакета Python [Pandas](http://pandas.pydata.org/). После описания загрузки в кадр данных Panda в нем показано создание категориальных характеристик со значениями индикатора и характеристик группирования, где используются сценарии Python.
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Это **меню** содержит ссылки на разделы, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## Предварительные требования
 В этой статье предполагается, что вы:
@@ -140,4 +140,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016--->

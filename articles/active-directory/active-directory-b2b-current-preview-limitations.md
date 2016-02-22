@@ -2,6 +2,7 @@
    pageTitle="Ограничения текущей предварительной версии службы Azure Active Directory B2B Collaboration | Microsoft Azure"
    description="Служба Azure Active Directory B2B помогает поддерживать отношения между компаниями, предоставляя бизнес-партнерам выборочный доступ к вашим корпоративным приложениям"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/03/2016"
+   ms.date="02/09/2016"
    ms.author="viviali"/>
 
 # Текущие ограничения предварительной версии службы Azure Active Directory (Azure AD) B2B Collaboration
@@ -35,6 +36,7 @@
 - [Подробное пошаговое руководство](active-directory-b2b-detailed-walkthrough.md)
 - [Справочник по формату файлов CSV](active-directory-b2b-references-csv-file-format.md)
 - [Формат токена внешнего пользователя](active-directory-b2b-references-external-user-token-format.md)
-- [Изменения в атрибутах объекта внешнего пользователя](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Изменение атрибутов объекта внешнего пользователя](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

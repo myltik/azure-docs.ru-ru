@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 # Гибридный доступ с прокси-сервером приложений
@@ -39,7 +39,8 @@
 7. Ответ отправляется конечному пользователю через прокси-сервер приложений.
 
 ## Связанные статьи
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 - [Включение прокси приложения Azure AD](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [Публикация приложений с помощью прокси-сервера приложений Azure AD](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

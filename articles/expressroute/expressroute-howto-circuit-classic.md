@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Создание и изменение канала ExpressRoute с помощью PowerShell
@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-В этой статье описано, как создать канал ExpressRoute, используя командлеты PowerShell и классическую модель развертывания. Ниже описывается, как проверить состояние, обновить или удалить и отозвать канал ExpressRoute.
+В этой статье описано, как создать канал ExpressRoute, используя командлеты PowerShell и **классическую** модель развертывания. Ниже описывается, как проверить состояние, обновить или удалить и отозвать канал ExpressRoute. Если вы хотите создать или изменить канал ExpressRoute с помощью модели развертывания **диспетчера ресурсов**, обратитесь к разделу [Создание и изменение канала ExpressRoute с помощью модели развертывания диспетчера ресурсов](expressroute-howto-circuit-arm.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -328,4 +328,4 @@
 
 - [Настройка маршрутизации](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

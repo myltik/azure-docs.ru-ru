@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -167,7 +167,7 @@ user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 Настройка группы в качестве группы «Руководитель»
 --------------------------------------------------------------------------------
 1. На портале администратора перейдите на вкладку **Настройка**, а затем выберите **РАСШИРЕННОЕ ПРАВИЛО**.
-2. Введите правило, используя следующий синтаксис: *Direct Reports for {идентификатор\_руководителя}*. Пример допустимого правила для Direct Reports: 
+2. Введите правило, используя следующий синтаксис: *Direct Reports for {идентификатор\_руководителя}*. Пример допустимого правила для Direct Reports:
 
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
@@ -183,8 +183,10 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
 
+* [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+
 * [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

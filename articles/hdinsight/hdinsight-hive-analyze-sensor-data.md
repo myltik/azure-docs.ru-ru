@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="larryfr"/>
 
 #Анализ данных датчика с помощью консоли запросов Hive с Hadoop в HDInsight
 
 Узнайте, как анализировать данные датчика с помощью консоли запросов Hive с HDInsight (Hadoop), а затем наглядно представлять данные в Microsoft Excel с помощью Power View.
 
-> [AZURE.NOTE]Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Windows.
+> [AZURE.NOTE] Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Windows.
 
 В этом примере мы будем использовать Hive для обработки исторических данных, полученных системами отопления, вентиляции и кондиционирования воздуха, чтобы определить системы, которые не в состоянии надежно поддерживать заданную температуру. Вы научитесь:
 
@@ -38,9 +38,9 @@
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]Microsoft Excel используется для визуализации данных с помощью [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=ru-RU&rs=ru-RU&ad=US).
+	> [AZURE.NOTE] Microsoft Excel используется для визуализации данных с помощью [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=ru-RU&rs=ru-RU&ad=US).
 
-* [Драйвер Microsoft Hive ODBC](http://www.microsoft.com/download/details.aspx?id=40886).
+* [Драйвер Microsoft Hive ODBC.](http://www.microsoft.com/download/details.aspx?id=40886)
 
 ##Запуск образца
 
@@ -54,4 +54,4 @@
 
 3. Следуйте инструкциям, представленным на веб-странице, чтобы закончить образец.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -103,7 +103,7 @@
 
 ###<a id="mobile">Пакет SDK для мобильных приложений Microsoft Azure
 
-Инструменты для работы с [Мобильным приложением службы приложений Azure](app-service-mobile/app-service-mobile-value-prop-preview.md).
+Инструменты для работы с [Мобильным приложением службы приложений Azure](app-service-mobile/app-service-mobile-value-prop.md).
 
 ###<a id="ps"></a>Установка Microsoft Azure PowerShell
 
@@ -186,4 +186,4 @@ Azure PowerShell позволяет [автоматизировать созда
 
 Справочная документация клиентских библиотек Azure см. в разделе [Справочник по Azure для .NET](/documentation/api/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

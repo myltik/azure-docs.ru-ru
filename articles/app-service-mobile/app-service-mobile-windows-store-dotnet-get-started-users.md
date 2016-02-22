@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать мобильные приложения службы приложений Azure, чтобы выполнять аутентификацию пользователей вашего приложения для Windows с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности в приложение Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 В этом разделе показано, как добавить проверку подлинности на основе облака в мобильное приложение. В этом учебнике вы добавите проверку подлинности в проект быстрого запуска мобильного приложения, используя поставщик удостоверений, поддерживаемый службой приложений Azure. После успешной проверки подлинности и авторизации сервером мобильных приложений отображается значение идентификатора пользователя.
 
@@ -62,6 +60,5 @@
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
- 
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_0211_2016-->
