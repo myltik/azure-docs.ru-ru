@@ -212,7 +212,8 @@
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-Дополнительные сведения см. в статье [Практическое руководство. Настройка параметров брандмауэра для базы данных SQL](sql-database-configure-firewall-settings.md).
+Дополнительные сведения см. в статье
+[Практическое руководство. Настройка параметров брандмауэра для базы данных SQL](sql-database-configure-firewall-settings.md).
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -238,7 +239,8 @@
 Если клиентская программа установлена на виртуальной машине Azure, см. статью <br/>[Порты, кроме 1433, для ADO.NET 4.5 и базы данных SQL версии 12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-Основные сведения о конфигурации портов и IP-адресов собраны в статье [Настройка брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md).
+Основные сведения о конфигурации портов и IP-адресов собраны в статье
+[Настройка брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md).
 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>

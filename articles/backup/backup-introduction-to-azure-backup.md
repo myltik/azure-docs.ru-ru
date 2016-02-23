@@ -61,7 +61,8 @@
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Сервер архивации Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Сервер архивации Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md)</p> |
-| Виртуальные машины IaaS Azure (Windows)| - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) | | Виртуальные машины IaaS Azure (Linux) | - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+| Виртуальные машины IaaS Azure (Windows)| - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+| Виртуальные машины IaaS Azure (Linux) | - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
 
 ## Функции
 В пяти таблицах ниже содержатся сводные сведения о том, как функции службы архивации реализуются в каждом компоненте.
@@ -98,8 +99,9 @@
 | Сетевая безопасность (в Azure) | ![Да][green] |![Да][green] | ![Да][green] | ![Частично][yellow]|
 | Защита данных (в Azure) | ![Да][green] |![Да][green] | ![Да][green] | ![Частично][yellow]|
 
-**Легенда** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Да][green] — поддерживается &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Частично][yellow] — частично поддерживается &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* — не поддерживается
-
+**Легенда** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Да][green] — поддерживается &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+![Частично][yellow] — частично поддерживается &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* — не поддерживается
 Все данные трафика резервного копирования с серверов в хранилище службы архивации подвергаются шифрованию с использованием AES 256. Данные передаются через защищенное соединение HTTPS. Данные резервных копий также хранятся в зашифрованном виде в хранилище службы архивации. Парольная фраза для расшифровки есть только у клиента. Мы не можем расшифровывать данные резервных копий.
 
 >[AZURE.WARNING] Ключ, используемый для шифрования резервной копии данных, есть только у клиента. Мы не храним копии ключей в Azure и не имеет к ключам никакого доступа. При утрате ключа Майкрософт не сможет восстановить данные из резервных копий.
@@ -120,7 +122,8 @@
 | Виртуальная машина Azure (Windows) | | | | ![Да][green] |
 | Виртуальная машина Azure (Linux) | | | | ![Да][green] |
 
-**Легенда** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Да][green] — поддерживается &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* — не поддерживается
+**Легенда** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Да][green] — поддерживается &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* — не поддерживается
 
 ### Сеть
 
@@ -131,7 +134,8 @@
 | Сетевой протокол (на сервер службы архивации) | | TCP | TCP | |
 | Сетевой протокол (в хранилище службы архивации) | HTTPS | HTTPS | HTTPS | HTTPS |
 
-**Легенда** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Да][green] — поддерживается &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* — не поддерживается
+**Легенда** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Да][green] — поддерживается &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* — не поддерживается
 
 Так как расширение виртуальных машин считывает данные напрямую из учетной записи хранения Azure по сети хранения данных, оптимизация этого трафика не обязательна. Трафик проходит по локальной сети хранения в центре обработки данных Azure, поэтому потребность в сжатии данных для сохранения пропускной способности сводится к минимуму.
 
