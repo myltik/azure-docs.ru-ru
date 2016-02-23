@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="12/18/2015"
+	ms.date="02/16/2015"
 	ms.author="spelluru"/>
 
-# Создание первого конвейера фабрики данных Azure с помощью Visual Studio
+# Начало работы с фабрикой данных Azure с помощью Visual Studio
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -291,8 +291,8 @@
 ## Шаг 4. Мониторинг конвейера
 
 6. Войдите на [портал Azure](https://portal.azure.com/) и выполните следующие действия:
-	1. Щелкните **Обзор** и выберите **Фабрики данных**.
- 		![Обзор фабрик данных](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. Щелкните **Обзор** и выберите **Фабрики данных**. 
+		![Обзор фабрик данных](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Выберите **FirstDataFactoryUsingVS** из списка фабрик данных. 
 7. На домашней странице своей фабрики данных щелкните элемент **Схема**.
   
@@ -441,4 +441,4 @@
 В этой статье вы создали конвейер с действием преобразования (действие HDInsight), которое выполняет сценарий Hive в кластере HDInsight по требованию. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в статье [Учебник. Копирование данных из хранилища BLOB-объектов Azure в Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

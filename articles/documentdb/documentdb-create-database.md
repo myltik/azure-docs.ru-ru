@@ -13,15 +13,15 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Как создать базу данных для DocumentDB
+# Создание базы данных для DocumentDB на портале Azure
 
 Чтобы использовать Microsoft Azure DocumentDB, необходимы [учетная запись DocumentDB](documentdb-create-account.md), база данных, коллекция и документы. В этом разделе описывается создание базы данных для DocumentDB на портале Microsoft Azure.
 
-![Снимок экрана, на котором показано, как создать базу данных, содержащий кнопку «Обзор», элемент «Учетные записи DocumentDB» в колонке «Обзор» и учетную запись DocumentDB в колонке «Учетные записи DocumentDB»](./media/documentdb-create-database/docdb-database-creation-1-3.png)
+![Снимок экрана, на котором показано, как создать базу данных, содержащий кнопку "Обзор", элемент "Учетные записи DocumentDB" в колонке "Обзор" и учетную запись DocumentDB в колонке "Учетные записи DocumentDB"](./media/documentdb-create-database/docdb-database-creation-1-3.png)
 
 1.  На панели быстрых переходов в разделе [Портал Azure](https://portal.azure.com/) щелкните **Учетные записи DocumentDB**. 
 
@@ -49,4 +49,4 @@
 
 После добавления документов в коллекции вы можете использовать [DocumentDB SQL](documentdb-sql-query.md) для [выполнения запросов](documentdb-sql-query.md#executing-queries) для документов с помощью [обозревателя запросов](documentdb-query-collections-query-explorer.md) на портале, интерфейса [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) или одного из [пакетов SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Ресурсы для рабочих нагрузок пакетной службы HPC в облаке | Microsoft Azure"
-   description="В этой статье приведены технические ресурсы, которые помогут вам выполнять крупномасштабные параллельные, пакетные и высокопроизводительные вычисления (НРС) в Azure."
+   description="В этой статье приведены технические ресурсы, которые помогут вам выполнять крупномасштабные параллельные, пакетные и высокопроизводительные вычисления (HPC) в Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -10,7 +10,7 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="01/26/2016"
@@ -85,7 +85,6 @@ HPC Pack — это бесплатное решение HPC корпораци
 
 * [Форум по MPI](https://social.microsoft.com/Forums/ru-RU/home?forum=windowshpcmpi)
 
-
 ## Экземпляры для ресурсоемких вычислений
 
 В Azure доступны [разные размеры](../virtual-machines/virtual-machines-size-specs.md) вычислительных ресурсов, включая экземпляры [A8 и A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) для ресурсоемких вычислений, поддерживающих подключение к внутренней сети RDMA для выполнения рабочих нагрузок HPC в Linux и Windows.
@@ -137,4 +136,4 @@ HPC Pack — это бесплатное решение HPC корпораци
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](https://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

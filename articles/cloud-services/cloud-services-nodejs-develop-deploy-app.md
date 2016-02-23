@@ -51,7 +51,7 @@
 Выполните следующие задачи для создания нового проекта облачной службы Azure с основными функциями формирования Node.js:
 
 
-1. Запустите **Azure PowerShell** от имени администратора. (В меню **Пуск** или на **Начальном экране** найдите **Azure PowerShell**).
+1. Запустите **Windows PowerShell** от имени администратора. (В меню **Пуск** или на **начальном экране** найдите **Windows PowerShell**.)
 
 2.  [Подключите PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) к своей подписке.
 3.  Введите следующий командлет PowerShell, чтобы создать проект:
@@ -198,4 +198,4 @@
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

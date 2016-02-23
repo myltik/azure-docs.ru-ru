@@ -13,11 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma"/>
 
 # Приступая к работе с Azure DNS с помощью интерфейса командной строки
-
 
 
 > [AZURE.SELECTOR]
@@ -40,7 +39,7 @@
 	Azure network
 
 
->[AZURE.IMPORTANT]Для выполнения команд DNS требуется интерфейс Azure CLI версии 0.9.8 или более поздней. Введите команду `azure -v`, чтобы узнать, какая версия Azure CLI установлена на этом компьютере.
+>[AZURE.IMPORTANT] Для выполнения команд DNS требуется интерфейс Azure CLI версии 0.9.8 или более поздней. Введите команду `azure -v`, чтобы узнать, какая версия Azure CLI установлена на этом компьютере.
  
 ### Шаг 2
 
@@ -90,7 +89,7 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
     Azure network dns zone create -n contoso.com -g myresourcegroup
 
 
->[AZURE.NOTE]В Azure DNS имена зон следует указывать без конечной точки ("."), например "contoso.com", а не "contoso.com.".
+>[AZURE.NOTE] В Azure DNS имена зон следует указывать без конечной точки ("."), например "contoso.com", а не "contoso.com.".
 
 
 Ваша зона DNS теперь создана в Azure DNS. Одновременно с зоной DNS создаются следующие записи DNS:
@@ -140,7 +139,7 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 	data:
 	info:    network dns-record-set show command OK
 
->[AZURE.NOTE]В наборах записей в корне (или на "вершине") зоны DNS в качестве имени набора записей используется "@".
+>[AZURE.NOTE] В наборах записей в корне (или на "вершине") зоны DNS в качестве имени набора записей используется "@".
 
 После создания первой зоны DNS ее можно проверить с помощью средств работы с DNS, таких как nslookup, DIG или командлет PowerShell **Resolve-DnsName**. Если вы еще не делегировали домен для использования новой зоны в Azure DNS, вам нужно направить запрос DNS непосредственно одному из серверов имен для вашей зоны. Серверы доменных имен для вашей зоны перечислены в записях NS (см. результат выполнения команды azure network dns-record-set show выше). Обязательно вставьте правильные значения для вашей зоны в следующую команду.
 
@@ -170,7 +169,6 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 ## Дальнейшие действия
 
+После создания зоны DNS необходимо создать [наборы записей и записи](dns-getstarted-create-recordset-cli.md), чтобы начать разрешение имен для интернет-домена.<BR> Также можно узнать, [как управлять зонами DNS](dns-operations-dnszones-cli.md) и операциями в зонах DNS.<BR> Узнайте, [как управлять записями DNS](dns-operations-recordsets-cli.md) и [автоматизировать операции Azure с помощью пакета SDK для .NET](dns-sdk.md).<BR> [Справочник по REST API службы Azure DNS.](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-[Приступая к созданию наборов записей и записей](dns-getstarted-create-recordset-cli.md)<BR> [Управление зонами DNS](dns-operations-dnszones-cli.md)<BR> [Управление DNS-записями](dns-operations-recordsets-cli.md)<BR> [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)<BR> [Справочник по API REST для службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

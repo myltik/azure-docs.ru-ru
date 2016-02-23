@@ -1,20 +1,19 @@
 <properties
-   pageTitle="Azure AD Connect: поддерживаемые топологии | Microsoft Azure"
-   description="В этой статье подробно описываются поддерживаемые и неподдерживаемые топологии Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="stevenpo"
-   editor=""/>
-
+    pageTitle="Azure AD Connect: поддерживаемые топологии | Microsoft Azure"
+    description="В этой статье подробно описываются поддерживаемые и неподдерживаемые топологии Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="AndKjell"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="01/22/2016"
-   ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+	ms.topic="get-started-article"
+    ms.date="02/12/2016"
+    ms.author="andkjell"/>
 
 # Топологии Azure AD Connect.
 
@@ -178,4 +177,4 @@ Azure AD Connect поддерживает установку второго се
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Подробное пошаговое руководство по использованию предварительной версии службы совместной работы Azure Active Directory (Azure AD) B2B | Microsoft Azure"
-   description="Служба Azure Active Directory B2B поддерживает взаимодействие между компаниями, позволяя предоставлять бизнес-партнерам выборочный доступ к вашим корпоративным приложениям."
+   description="Служба совместной работы Azure Active Directory B2B поддерживает взаимодействие между компаниями, позволяя предоставлять бизнес-партнерам выборочный доступ к вашим корпоративным приложениям."
    services="active-directory"
    documentationCenter=""
    authors="viv-liu"
@@ -11,10 +11,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="02/10/2016"
    ms.author="viviali"/>
 
 # Подробное пошаговое руководство по использованию предварительной версии службы совместной работы Azure Active Directory (Azure AD) B2B
@@ -28,7 +28,7 @@
 После отправки приглашений пользователям компаний-партнеров можно настроить их в Azure AD и предоставить им доступ к приложениям и членство в группах через портал Azure. Сначала добавим Алису.
 
 ## Добавление Алисы в каталог Contoso
-1. Создайте CSV-файл с указанными ниже заголовками, заполнив для Алисы значения только в столбцах **Email**, **DisplayName** и **InviteContactUsUrl**. **DisplayName** — это имя, которое будет отображаться в приглашении и каталоге Azure AD компании Contoso. **InviteContactUsUrl** — это ссылка, по которой Алиса может связаться с компанией Contoso. В следующем примере для этого используется профиль компании Contoso в LinkedIn. Важно, чтобы заголовки в первой строке CSV-файла шли в том же порядке и были написаны точно так же, как показано в примере. См. раздел "Формат CSV" ниже. ![Пример CSV-файла для Алисы](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
+1. Создайте CSV-файл с указанными ниже заголовками, заполнив для Алисы значения только в столбцах **Email**, **DisplayName** и **InviteContactUsUrl**. **DisplayName** — это имя, которое будет отображаться в приглашении и каталоге Azure AD компании Contoso. **InviteContactUsUrl** — это ссылка, по которой Алиса может связаться с компанией Contoso. В следующем примере для этого используется профиль компании Contoso в LinkedIn. Важно, чтобы метки в первой строке CSV-файла шли в том же порядке и были написаны точно так же, как показано в примере. См. раздел "Формат CSV" ниже. ![Пример CSV-файла для Алисы](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
 
 2. На портале Azure добавьте пользователя в каталоге Contoso (Active Directory > Contoso > Пользователи > Добавить пользователя). В раскрывающемся списке "Тип пользователя" выберите "Пользователи в компаниях-партнерах". Передайте CSV-файл. Перед передачей убедитесь в том, что CSV-файл закрыт. ![Передача CSV-файла для Алисы](./media/active-directory-b2b-detailed-walkthrough/AliceUpload.png)
 
@@ -82,4 +82,4 @@
 - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

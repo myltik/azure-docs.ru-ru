@@ -14,8 +14,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/25/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/10/2016" 
 	ms.author="femila"/>
 
 # Windows 10 для предприятия: использование устройств для работы
@@ -35,4 +35,4 @@ Windows 10 предоставляет возможность использов�
 | Развертывание | [Сценарии использования и рекомендации по развертыванию для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Включение Microsoft Passport for Work в организации](active-directory-azureadjoin-passport-deployment.md)<br><br>[Enterprise State Roaming overview (Общие сведения об Enterprise State Roaming)](active-directory-windows-enterprise-state-roaming-overview.md)<br><br> |
 | Задачи пользователя | [Настройка нового устройства под управлением Windows 10 на работу с Azure AD](active-directory-azureadjoin-user-frx.md) <br><br> [Настройка устройства с Windows 10 для работы с Azure AD с помощью меню "Параметры"](active-directory-azureadjoin-user-upgrade.md) <br><br> [Присоединение личного устройства Windows 10 к инфраструктуре организации](active-directory-azureadjoin-personal-device.md) |
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

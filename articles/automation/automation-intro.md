@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="02/09/2016"
+	ms.topic="get-started-article" 
+	ms.date="02/11/2016"
 	ms.author="bwren;sngun"/>
 
 # Обзор службы автоматизации Azure
@@ -101,4 +101,4 @@ Runbook в службе автоматизации Azure основаны на W
 
 **Да! Нам нужна обратная связь.** Если вы ищете модуль интеграции или определенное решение для службы автоматизации Azure, в котором используются модули Runbook, разместите соответствующий запрос на сайте "Центр сценариев". Если вы хотите оставить отзыв или запрос на ту или иную функцию для службы автоматизации Azure, оставляйте их на сайте [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Спасибо!
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

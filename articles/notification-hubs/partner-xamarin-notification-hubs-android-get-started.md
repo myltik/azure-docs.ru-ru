@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
+	ms.date="02/16/2016"
 	ms.author="wesmc"/>
 
 # Приступая к работе с Центрами уведомлений для приложений Xamarin в Android
@@ -41,7 +41,6 @@
 
 + [Xamarin.Android]
 + Активная учетная запись Google
-+ [Компонент мобильных служб Azure]
 + [Компонент обмена сообщениями в Azure]
 + [Компонент клиента Google Cloud Messaging]
 
@@ -423,7 +422,7 @@ Push-уведомления обычно отправляются в серве�
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"message\":\"Hello from Azure!\"}}");
+            await hub.SendGcmNativeNotificationAsync("{ "data" : {"message":"Hello from Azure!"}}");
         }
 
 6. Добавьте в метод **Main** следующие строки:
@@ -508,19 +507,19 @@ Push-уведомления обычно отправляются в серве�
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [классический портал Azure]: https://manage.windowsazure.com/
-
+[классическом портале Azure]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Руководство по использованию центров уведомлений Azure с приложениями Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
 [Использование концентраторов уведомлений для отправки push-уведомлений пользователям]: /manage/services/notification-hubs/notify-users-aspnet
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Использование концентраторов уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-dotnet
 [GCMClient Component page]: http://components.xamarin.com/view/GCMClient
 [Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.Android]: http://xamarin.com/download/
-[Компонент мобильных служб Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [Компонент клиента Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Компонент обмена сообщениями в Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

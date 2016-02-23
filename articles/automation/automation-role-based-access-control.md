@@ -9,10 +9,10 @@
 <tags 
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/13/2016"
+   ms.date="02/11/2016"
    ms.author="sngun"/>
 
 # Управление доступом на основе ролей в службе автоматизации Azure
@@ -139,4 +139,4 @@
 - Дополнительные сведения о различных способах запуска модуля Runbook см. в статье [Запуск модуля Runbook](automation-starting-a-runbook.md).
 - Сведения о различных типах см. в статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

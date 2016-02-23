@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/22/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -353,8 +353,8 @@
 - [Приступая к работе с хранилищем таблиц для .NET](storage-dotnet-how-to-use-tables.md)
 - [Приступая к работе с хранилищем очередей для .NET](storage-dotnet-how-to-use-queues.md)
 - [Приступая к работе с хранилищем файлов для .NET](storage-dotnet-how-to-use-files.md)
-- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
-- [Использование базы данных SQL для хранения реляционных данных](../sql-database/articles/sql-database-dotnet-how-to-use.md)
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
+- [Как использовать базу данных SQL Azure в приложениях .NET](../sql-database/sql-database-dotnet-how-to-use.md)
 - [Использование хранилища больших двоичных объектов Azure с пакетом SDK веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
@@ -368,4 +368,4 @@
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

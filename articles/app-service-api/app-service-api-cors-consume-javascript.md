@@ -239,31 +239,33 @@
 
 Ниже кратко описано, как включить поддержку CORS веб-API. Дополнительные сведения см. в статье [Enabling Cross-Origin Requests in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) (Включение запросов независимо от источника в веб-API 2 ASP.NET).
 
-1. В проекте веб-API включите строку кода `config.EnableCors()` в метод **Register** класса **WebApiConfig**, как показано в следующем примере. 
+1. В проекте веб-API установите пакет NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/).
+
+1. Включите строку кода `config.EnableCors()` в метод **Register** класса **WebApiConfig**, как показано в следующем примере.
 
 		public static class WebApiConfig
-	    {
-	        public static void Register(HttpConfiguration config)
-	        {
-	            // Web API configuration and services
+		{
+		    public static void Register(HttpConfiguration config)
+		    {
+		        // Web API configuration and services
 	            
 		        // The following line enables you to control CORS by using Web API code
-				config.EnableCors();
+		        config.EnableCors();
 	
-	            // Web API routes
-	            config.MapHttpAttributeRoutes();
+		        // Web API routes
+		        config.MapHttpAttributeRoutes();
 	
-	            config.Routes.MapHttpRoute(
-	                name: "DefaultApi",
-	                routeTemplate: "api/{controller}/{id}",
-	                defaults: new { id = RouteParameter.Optional }
-	            );
-	        }
-	    }
+		        config.Routes.MapHttpRoute(
+		            name: "DefaultApi",
+		            routeTemplate: "api/{controller}/{id}",
+		            defaults: new { id = RouteParameter.Optional }
+		        );
+		    }
+		}
 
-1. В контроллере веб-API добавьте атрибут `EnableCors` в класс контроллера или отдельные методы действий. В следующем примере поддержка CORS действует для всего контроллера.
+1. В контроллере веб-API добавьте инструкцию `using` для пространства имен `System.Web.Http.Cors`, а также добавьте атрибут `EnableCors` в класс контроллера или отдельные методы действий. В следующем примере поддержка CORS действует для всего контроллера.
 
-		namespace ToDoListAPI.Controllers
+		namespace ToDoListAPI.Controllers 
 		{
 		    [HttpOperationExceptionFilterAttribute]
 		    [EnableCors(origins:"*", headers:"*", methods: "*")]
@@ -275,4 +277,4 @@
 
 В этом руководстве показано, как включить поддержку CORS в службе приложений, чтобы вызывать приложение API, выполняющееся в другом домене, с помощью клиентского кода JavaScript. Из следующей статьи серии, посвященной началу работы с приложениями API, вы узнаете о [проверке подлинности для приложений API службы приложений](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->
