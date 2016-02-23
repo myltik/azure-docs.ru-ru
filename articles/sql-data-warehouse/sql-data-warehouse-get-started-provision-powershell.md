@@ -19,7 +19,7 @@
 # Создание хранилища данных SQL с помощью Powershell
 
 > [AZURE.SELECTOR]
-- [Портал Azure](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -30,7 +30,7 @@
 Если вы еще не настроили модуль PowerShell, необходимо скачать и настроить его.
 
 1. Чтобы загрузить модуль Azure PowerShell, запустите [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
-2. Чтобы запустить модуль, введите в окне запуска **Microsoft Azure PowerShell**.
+2. Чтобы запустить модуль, введите в окне запуска **Windows PowerShell**.
 3. Используйте этот командлет для входа в диспетчер ресурсов Azure. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell][].
 
 	```
@@ -96,4 +96,4 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Установка и настройка Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

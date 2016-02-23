@@ -55,7 +55,7 @@
 ## Подключение к подпискам Azure
 Средства HDInsight для Visual Studio позволяют подключаться к кластерам HDInsight, осуществлять некоторые базовые операции управления и выполнять запросы Hive.
 
->[AZURE.NOTE] Дополнительную информацию о подключении к универсальному кластеру Hadoop (предварительная версия) см. в разделе [Создание и отправка запросов Hive с помощью Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
+>[AZURE.NOTE] Дополнительную информацию о подключении к универсальному кластеру Hadoop см. в блоге [How to write and submit Hive queries using Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx) (Создание и отправка запросов Hive с помощью Visual Studio).
 
 
 **Подключение к подписке Azure**
@@ -64,7 +64,7 @@
 2.	В меню **Вид** выберите **Обозреватель сервера**, чтобы открыть окно обозревателя сервера.
 3.	Разверните пункт **Azure**, а затем — **HDInsight**.
 
-	>[AZURE.NOTE] Должно открыться окно **Список задач HDInsight**. Если оно не открылось, в меню **Вид** щелкните пункт **Другие окна**, а затем — **Окно списка задач HDInsight**.  
+	>[AZURE.NOTE]Должно открыться окно **Список задач HDInsight**. Если оно не открылось, в меню **Вид** щелкните пункт **Другие окна**, а затем — **Окно списка задач HDInsight**.  
 4.	Введите учетные данные подписки Azure и нажмите кнопку **Войти**. Это необходимо, только если подключение к подписке Azure из Visual Studio на данной рабочей станции ранее не выполнялось.
 5.	В обозревателе сервера отобразится список существующих кластеров HDInsight. Если кластеров нет в наличии, их можно подготовить с помощью портала Azure, оболочки Azure PowerShell или пакета SDK для HDInsight. Дополнительную информацию см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision].
 
@@ -256,15 +256,15 @@
 
 
 <!--Link references-->
-[hdinsight-provision]: ../hdinsight/hdinsight-provision-clusters.md
-[hdinsight.introduction]: ../hdinsight-introduction.md
-[hdinsight.get.started]: ../hdinsight-get-started.md
-[hdinsight.hive]: ../hdinsight/hdinsight-use-hive.md
-[hdinsight.submit.jobs]: ../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight.analyze.twitter.data]: ../hdinsight/hdinsight-analyze-twitter-data.md
-[hdinsight.storm.visual.studio.tools]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
-[hdinsight.access.application.logs]: ../hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
+[hdinsight-provision]: hdinsight/hdinsight-provision-clusters.md
+[hdinsight.introduction]: hdinsight-introduction.md
+[hdinsight.get.started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight.hive]: hdinsight/hdinsight-use-hive.md
+[hdinsight.submit.jobs]: hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight.analyze.twitter.data]: hdinsight/hdinsight-analyze-twitter-data.md
+[hdinsight.storm.visual.studio.tools]: hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
+[hdinsight.access.application.logs]: hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

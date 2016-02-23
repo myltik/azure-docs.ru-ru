@@ -32,7 +32,7 @@
 Перед началом работы с этим учебником необходимо иметь следующее:
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Secure Shell (SSH)](hdinsight-hadoop-linux-use-ssh-unixl.md). 
+- [Secure Shell (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 - [curl](http://curl.haxx.se/download.html).
 
 ## Создание кластера HBase
@@ -41,7 +41,7 @@
 
 1. Щелкните следующие изображение, чтобы открыть шаблон ARM на портале Azure. Шаблон ARM расположен в общедоступном контейнере больших двоичных объектов. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2FHbase.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2FHbase.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. В колонке **Параметры** заполните следующие поля.
 
@@ -201,7 +201,7 @@ HBase включает несколько методов загрузки дан
 
 HBase на HDInsight поставляется с веб-интерфейсом для наблюдения за кластерами. С помощью веб-интерфейса вы можете запросить статистику или сведения о регионах.
 
-SSH может также использоваться для туннелирования локальных запросов, например веб-запросов, к кластеру HDInsight. Запрос будет затем перенаправлен к запрошенному ресурсу, как если бы исходил от головного узла кластера HDInsight. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Windows (предварительная версия)](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
+SSH может также использоваться для туннелирования локальных запросов, например веб-запросов, к кластеру HDInsight. Запрос будет затем перенаправлен к запрошенному ресурсу, как если бы исходил от головного узла кластера HDInsight. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
 
 **Создание сеанса туннелирования SSH **
 
@@ -211,12 +211,12 @@ SSH может также использоваться для туннелиро
 	В разделе **Категория** последовательно разверните **Подключение**, **SSH** и выберите **Аутентификация**. Наконец, нажмите кнопку **Обзор** и выберите PPK-файл, содержащий закрытый ключ.
 
 3. В разделе **Категория** щелкните **Сеанс**.
-4. На экране «Основные параметры вашего сеанса PuTTY» введите следующие значения:
+4. На экране "Основные параметры вашего сеанса PuTTY" введите следующие значения:
 
-	- **Имя узла**: адрес SSH вашего сервера HDInsight в поле «Имя узла» (или «IP-адрес»). Адрес SSH — это имя кластера с суффиксом **-ssh.azurehdinsight.net**. Например, *mycluster-ssh.azurehdinsight.net*.
+	- **Имя узла**: адрес SSH вашего сервера HDInsight в поле "Имя узла" (или "IP-адрес"). Адрес SSH — это имя кластера с суффиксом **-ssh.azurehdinsight.net**. Например, *mycluster-ssh.azurehdinsight.net*.
 	- **Порт**: 22. Порт SSH в головном узле 0 — 22.  
 5. В разделе **Категория** в левой части диалогового окна последовательно разверните узлы **Подключение** и **SSH**, а затем щелкните **Туннели**.
-6. Введите следующую информацию в форме «Параметры, управляющие перенаправлением портов SSH»:
+6. Введите следующую информацию в форме "Параметры, управляющие перенаправлением портов SSH":
 
 	- **Порт источника** — порт на стороне клиента, трафик которого нужно перенаправлять. Например, 9876.
 	- **Динамическая** — включает динамическую маршрутизацию прокси-сервера SOCKS.
@@ -229,7 +229,7 @@ SSH может также использоваться для туннелиро
 1. Перейдите по адресу https://<ClusterName>.azurehdinsight.net/.
 2. Дважды введите данные учетной записи кластера пользователя.
 3. В меню слева выберите пункт **Zookeeper**.
-4. Щелкните одну из трех ссылок **Сервер Zookeeper** в списке «Сводка».
+4. Щелкните одну из трех ссылок **Сервер Zookeeper** в списке "Сводка".
 5. Скопируйте **имя узла**. Например, zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
 
 **Настройка клиента (Firefox) и проверка состояния кластера**
@@ -287,4 +287,4 @@ SSH может также использоваться для туннелиро
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!-----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

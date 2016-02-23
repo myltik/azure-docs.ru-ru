@@ -11,7 +11,7 @@
 <tags
  ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="02/04/2016"
@@ -48,4 +48,4 @@
 [машинное обучение Azure]: https://azure.microsoft.com/ru-RU/services/machine-learning/
 [службу хранилища Azure]: https://azure.microsoft.com/ru-RU/services/storage/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

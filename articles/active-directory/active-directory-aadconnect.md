@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/25/2016"
+	ms.date="02/16/2016"
 	ms.author="andkjell;billmath"/>
 
 # Интеграция локальных удостоверений с Azure Active Directory
@@ -36,12 +36,11 @@ Azure AD Connect — это средство для интеграции лок
 
 Azure Active Directory Connect состоит из трех основных компонентов. Это службы синхронизации, службы федерации Active Directory (необязательный компонент) и компонент мониторинга, реализованный с помощью [Azure AD Connect Health](active-directory-aadconnect-health.md).
 
-<center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png) 
-</center>
+<center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png) </center>
 
 - Синхронизация — эта часть состоит из компонентов и функций, ранее выпущенных как [Dirsync и Azure AD Sync](active-directory-aadconnect-get-started-tools-comparison.md). Эта часть отвечает за создание пользователей и групп. Она также отвечает за согласование сведений о пользователях и группах в локальной среде и в облаке.
-- AD FS — это необязательная часть Azure AD Connect, которая может использоваться для настройки гибридной среды с помощью локальной инфраструктуры AD FS. Ее можно использовать при сложном развертывании, в котором используется единый вход с присоединением к домену, принудительное применение политики входа AD и смарт-карты или сторонняя многофакторная проверка подлинности.
-- Мониторинг работоспособности — компонент Azure AD Connect Health реализует надежный мониторинг серверов AD FS и предоставляет центральное расположение на портале Azure для просмотра связанных действий. Дополнительные сведения см. в разделе [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
+- AD FS — это необязательная часть Azure AD Connect, которая может использоваться для настройки гибридной среды с помощью локальной инфраструктуры AD FS. Ее можно применять при сложном развертывании, в котором используется единый вход с присоединением к домену, принудительное применение политики входа AD и смарт-карты или сторонняя многофакторная проверка подлинности.
+- Мониторинг работоспособности — компонент Azure AD Connect Health реализует надежный мониторинг и предоставляет центральное расположение на портале Azure для просмотра связанных действий. Дополнительные сведения см. в разделе [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
 
 ## Установка Azure AD Connect
 
@@ -90,9 +89,11 @@ Azure AD Connect поставляется с несколькими функци
 
 [Компонент обратной записи паролей](active-directory-passwords-getting-started.md) позволит вашим пользователям изменять и сбрасывать пароли в облаке, а также применять вашу локальную политику паролей.
 
-[Обратная запись устройств](active-directory-aadconnect-get-started-custom-device-writeback.md) позволит записать устройство, зарегистрированное в Azure AD, в локальную службу Active Directory, чтобы его можно было использовать для условного доступа.
+[Обратная запись устройств](active-directory-aadconnect-feature-device-writeback.md) позволит записать устройство, зарегистрированное в Azure AD, в локальную службу Active Directory, чтобы его можно было использовать для условного доступа.
 
 Функция [предотвращения случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) включена по умолчанию и защитит ваш облачный каталог от множества одновременных удалений. По умолчанию она позволяет 500 операций удаления на один запуск. Этот параметр можно изменить с учетом размера организации.
+
+[Автоматическое обновление](active-directory-aadconnect-feature-automatic-upgrade.md), которое включено по умолчанию для установок со стандартными параметрами, гарантирует наличие последней версии Azure AD Connect.
 
 ### Дальнейшие действия по настройке функций
 
@@ -101,8 +102,9 @@ Azure AD Connect поставляется с несколькими функци
 | Настройка фильтрации | [Синхронизация Azure AD Connect: настройка фильтрации](active-directory-aadconnectsync-configure-filtering.md) |
 | Синхронизация паролей | [Службы синхронизации Azure AD Connect: реализация синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md) |
 | Обратная запись паролей | [Приступая к работе с компонентами управления паролями](active-directory-passwords-getting-started.md) |
-| Обратная запись устройств | [Включение обратной записи устройств в службе Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md) |
+| Обратная запись устройств | [Включение обратной записи устройств в службе Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md) |
 | Предотвращение случайного удаления | [Синхронизация Azure AD Connect: предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |
+| Автоматическое обновление | [Azure AD Connect: автоматическое обновление](active-directory-aadconnect-feature-automatic-upgrade.md)|
 
 ## Настройка синхронизации Azure AD Connect
 Синхронизация Azure AD Connect поставляется с конфигурацией по умолчанию, которая ориентирована на работу с большинством заказчиков и топологий. Однако всегда существуют ситуации, когда конфигурация по умолчанию не будет работать и должна быть скорректирована. Поддерживается внесение изменений, документированных в этом разделе и связанных статьях.
@@ -117,11 +119,11 @@ Azure AD Connect поставляется с несколькими функци
 
 | Раздел | |
 | --------- | --------- |
+| Все статьи о синхронизации Azure AD Connect | [Службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) |
 | Технические концепции | [Синхронизация Azure AD Connect: технические концепции](active-directory-aadconnectsync-technical-concepts.md) |
 | Общие сведения о конфигурации по умолчанию | [Службы синхронизации Azure AD Connect: общие сведения о конфигурации по умолчанию](active-directory-aadconnectsync-understanding-default-configuration.md) |
 | Общее представление о пользователях и контактах | [Синхронизация Azure AD Connect: общее представление о пользователях и контактах](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | Декларативная подготовка | [Azure AD Connect Sync: общие сведения о выражениях декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| Справочник по функциям декларативной подготовки | [Синхронизация Azure AD Connect: справочник по функциям](active-directory-aadconnectsync-functions-reference.md) |
 | Изменение конфигурации по умолчанию | [Рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
 
 ## Дополнительные сведения и ссылки
@@ -142,4 +144,4 @@ Azure AD Connect поставляется с несколькими функци
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

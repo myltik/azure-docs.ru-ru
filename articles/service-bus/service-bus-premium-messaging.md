@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="10/15/2015"
 	ms.author="darosa"/>
 
@@ -57,4 +57,4 @@
 - [Обзор архитектуры служебной шины Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Как использовать очереди служебной шины](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

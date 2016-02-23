@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="01/26/2016"
@@ -716,15 +716,11 @@ namespace Microsoft.ServiceBus.Samples
 
 	В окне консоли вы увидите примерно следующее. Обратите внимание, что здесь приведены лишь примеры возможных значений.
 
-	`Your Service Namespace: myNamespace`
-
-	`Your SAS Key: <SAS key value>`
+	`Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
 	Приложение службы запускается, и в окне консоли отображается адрес, по которому оно выполняет прослушивание (см. следующий пример).
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
-
-    `Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
     
 1. Запустите клиентское приложение. Созданный исполняемый файл для клиентского приложения Echo с именем EchoClient.exe будет располагаться в папке проекта клиента \\bin\\Debug\\EchoClient.exe (для отладки) или \\bin\\Release\\EchoClient.exe (для выпуска). Дважды щелкните файл, чтобы запустить клиентское приложение.
 
@@ -827,4 +823,4 @@ namespace Microsoft.ServiceBus.Samples
 
 [классический портал Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->
