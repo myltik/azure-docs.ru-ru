@@ -83,8 +83,7 @@
 | C#/.NET | [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity) | Вызовите веб-API с разрешениями приложения.
 | C#/.NET | [WebApp-WebAPI-OAuth2-UserIdentity-Dotnet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | Добавление авторизации с помощью [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) в существующее приложение, чтобы оно могло выполнять вызовы веб-интерфейса API.
 | JavaScript | [WebAPI-Nodejs](https://github.com/Azure-Samples/active-directory-node-webapi) | Настройка службы API REST, интегрированной с Azure AD, для защиты API. Включает сервер Node.js с веб-интерфейсом API.
-| C#/.NET | [WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-multitenant-openidconnect) | Мультитенантное веб-приложение MVC, которое использует OpenID Connect (ПО промежуточного слоя ASP.Net OpenID Connect OWIN) для проверки подлинности пользователей Azure AD.  
-Использует код авторизации для вызова Graph API.
+| C#/.NET | [WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-multitenant-openidconnect) | Мультитенантное веб-приложение MVC, которое использует OpenID Connect (ПО промежуточного слоя ASP.Net OpenID Connect OWIN) для проверки подлинности пользователей Azure AD. Использует код авторизации для вызова Graph API.
 
 ## Из серверного приложения или управляющей программы в веб-интерфейс API
 
@@ -152,4 +151,4 @@ PHP | [Образец приложения PHP для API Graph Azure AD](http:/
 
 [Библиотека вспомогательных методов для Azure AD Graph API](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

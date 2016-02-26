@@ -48,4 +48,4 @@
 [машинное обучение Azure]: https://azure.microsoft.com/ru-RU/services/machine-learning/
 [службу хранилища Azure]: https://azure.microsoft.com/ru-RU/services/storage/
 
-<!----HONumber=AcomDC_0218_2016-->
+<!-----HONumber=AcomDC_0218_2016-->
