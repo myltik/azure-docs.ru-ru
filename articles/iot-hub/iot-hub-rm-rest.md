@@ -13,10 +13,10 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/23/2015"
+     ms.date="02/12/2016"
      ms.author="dobett"/>
 
-# Учебник. Создание центра IoT с помощью программы C#
+# Учебник. Создание центра IoT с помощью программы C# и API REST
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -40,25 +40,24 @@
 
 2. В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите **Управление пакетами NuGet**.
 
-3. В диспетчере пакетов NuGet найдите **Microsoft.Azure.Management.Resources**. Выберите версию **2.18.11-preview**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
+3. В диспетчере пакетов NuGet выберите **Включить предварительный выпуск** и введите **Microsoft.Azure.Management.Resources** в строке поиска. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
 
-4. В диспетчере пакетов NuGet найдите **Microsoft.IdentityModel.Clients.ActiveDirectory**. Выберите версию **2.19.208020213**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензии.
-
-5. В диспетчере пакетов NuGet найдите **Microsoft.Azure.Common**. Выберите версию **2.1.0**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
+4. В диспетчере пакетов NuGet найдите **Microsoft.IdentityModel.Clients.ActiveDirectory**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензии.
 
 6. Откройте файл Program.cs и замените существующие инструкции **using** следующим кодом.
 
     ```
     using System;
-    using System.IO;
-    using System.Net;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Text;
-    using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
     using Microsoft.Azure.Management.Resources.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Newtonsoft.Json;
+    using Microsoft.Rest;
+    using System.Linq;
+    using System.Threading;
     using Newtonsoft.Json;
     ```
     
@@ -72,29 +71,28 @@
     
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name}";
-    static string deploymentName = "{Deployment name}";
     ```
 
 [AZURE.INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## Использование API REST для создания центра IoT
 
-Используйте API REST поставщика ресурсов центра IoT для создания нового центра IoT в группе ресурсов. Можно также использовать [API REST][lnk-rest-api] для изменения существующего центра IoT.
+Используйте [API REST центра IoT][lnk-rest-api] для создания нового центра IoT в группе ресурсов. API REST также можно использовать для изменения существующего центра IoT.
 
 1. Добавьте в класс Program.cs следующий метод:
     
     ```
-    static bool CreateIoTHub(ResourceManagementClient client, string token)
+    static void CreateIoTHub(string token)
     {
         
     }
     ```
 
-2. Добавьте следующий код в метод **CreateIoTHub** для добавления маркера проверки подлинности в запрос:
+2. Добавьте следующий код в метод **CreateIoTHub** для создания объекта **HttpClient** с маркером проверки подлинности в заголовках:
 
     ```
-    client.HttpClient.DefaultRequestHeaders.Authorization = 
-      new AuthenticationHeaderValue("Bearer", token);
+    HttpClient client = new HttpClient();
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
 3. Добавьте следующий код в метод **CreateIoTHub** для описания центра IoT, а также создания и генерирования представления JSON:
@@ -112,65 +110,54 @@
       }
     };
     
-    var content = new StringContent(
-      JsonConvert.SerializeObject(description),
-      Encoding.UTF8, "application/json");
+    var json = JsonConvert.SerializeObject(description, Formatting.Indented);
     ```
 
-4. Добавьте следующий код в метод **CreateIoTHub**, чтобы отправить запрос REST в Azure и проверить ответ:
+4. Добавьте следующий код в метод **CreateIoTHub** для отправки запроса REST в Azure, проверки ответа и получения URL-адреса, который можно использовать для контроля состояния задачи развертывания:
 
     ```
-    var requestUri = string.Format("https://management.azure.com/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.devices/IotHubs/{2}?api-version=2015-08-15-preview",
-      subscriptionId, rgName, iotHubName);
-    var httpsRepsonse = client.HttpClient.PutAsync(
-      requestUri, content).Result;
-
-    if (!httpsRepsonse.IsSuccessStatusCode)
+    var content = new StringContent(JsonConvert.SerializeObject(description), Encoding.UTF8, "application/json");
+    var requestUri = string.Format("https://management.azure.com/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.devices/IotHubs/{2}?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
+    var result = client.PutAsync(requestUri, content).Result;
+      
+    if (!result.IsSuccessStatusCode)
     {
-      Console.WriteLine("Failed {0}", httpsRepsonse.Content.ReadAsStringAsync().Result);
-      return false;
+      Console.WriteLine("Failed {0}", result.Content.ReadAsStringAsync().Result);
+      return;
     }
+    
+    var asyncStatusUri = result.Headers.GetValues("Azure-AsyncOperation").First();
     ```
 
-5. Добавьте следующий код в конец метода **CreateIoTHub**,чтобы дождаться успешного завершения развертывания:
+5. Добавьте следующий код в конец метода **CreateIoTHub** для ожидания завершения развертывания с помощью адреса **asyncStatusUri**, полученного на предыдущем шаге:
 
     ```
-    ResourceGetResult resourceGetResult = null;
+    string body;
     do
     {
-    resourceGetResult = client.Resources.GetAsync(
-      rgName,
-      new ResourceIdentity()
-      {
-        ResourceName = iotHubName,
-        ResourceProviderApiVersion = "2015-08-15-preview",
-        ResourceProviderNamespace = "Microsoft.Devices",
-        ResourceType = "IotHubs"
-      }).Result;
-    Console.WriteLine("IoTHub state {0}", 
-      resourceGetResult.Resource.ProvisioningState);
-    } while (resourceGetResult.Resource.ProvisioningState != "Succeeded" 
-          && resourceGetResult.Resource.ProvisioningState != "Failed");
-    
-    if (resourceGetResult.Resource.ProvisioningState != "Succeeded")
-    {
-        Console.WriteLine("Failed to create iothub");
-        return false;
-    }
-    return true;
+      Thread.Sleep(10000);
+      HttpResponseMessage deploymentstatus = client.GetAsync(asyncStatusUri).Result;
+      body = deploymentstatus.Content.ReadAsStringAsync().Result;
+    } while (body == "{"Status":"Running"}");
     ```
 
-[AZURE.INCLUDE [iot-hub-retrieve-keys](../../includes/iot-hub-retrieve-keys.md)]
+6. Добавьте следующий код в конец метода **CreateIoTHub** для получения созданных ключей центра IoT и их вывода на консоль:
 
+    ```
+    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2015-08-15-preview", subscriptionId, rgName, iotHubName);
+    var keysresults = client.PostAsync(listKeysUri, null).Result;
+    
+    Console.WriteLine("Keys: {0}", keysresults.Content.ReadAsStringAsync().Result);
+    ```
+    
 ## Завершение и запуск приложения
 
-Теперь можно завершить приложение путем вызова методов **CreateIoTHub** и **ShowIoTHubKeys**, а затем собрать и запустить его.
+Теперь можно завершить приложение, вызвав метод **CreateIoTHub**, а затем собрать и запустить приложение.
 
 1. Добавьте в конец метода **Main** следующий код:
 
     ```
-    if (CreateIoTHub(client, token.AccessToken))
-        ShowIoTHubKeys(client, token.AccessToken);
+    CreateIoTHub(token.AccessToken);
     Console.ReadLine();
     ```
     
@@ -184,14 +171,16 @@
 
 ## Дальнейшие действия
 
+После развертывания центра IoT с использованием API REST вам могут понадобиться дополнительные сведения:
+
 - Ознакомьтесь с возможностями [API REST поставщика ресурсов центра IoT][lnk-rest-api].
 - Сведения о дополнительных возможностях диспетчера ресурсов Azure см. в статье [Обзор диспетчера ресурсов Azure][lnk-azure-rm-overview].
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
-[lnk-powershell-install]: https://azure.microsoft.com/ru-RU/blog/azps-1-0-pre/
+[lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
+[lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

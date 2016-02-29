@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Начало работы по созданию внутреннего балансировщика нагрузки с помощью PowerShell
@@ -316,4 +316,4 @@
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

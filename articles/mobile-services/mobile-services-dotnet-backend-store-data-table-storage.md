@@ -11,17 +11,14 @@
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/05/2016"
 	ms.author="glenga"/>
 
 # Построение серверной мобильной службы .NET, использующей табличное хранилище
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
 
 В этом разделе рассматривается использование нереляционного хранилища данных для серверной мобильной службы .NET. В этом учебнике вам предстоит изменить учебный проект мобильных служб Azure таким образом, чтобы в качестве хранилища данных вместо Базы данных SQL Azure (по умолчанию) использовалось табличное хранилище Azure.
 
@@ -39,7 +36,7 @@
 
   	В результате в проект серверной мобильной службы .NET будет добавлена поддержка служб хранилища Azure.
 
-3. Если вы еще не создали учетную запись хранения, см. раздел [Создание учетной записи хранения](../storage-create-storage-account.md)
+3. Если вы еще не создали учетную запись хранения, см. раздел [Создание учетной записи хранения](../storage/storage-create-storage-account.md)
 
 4. На [классическом портале Azure] нажмите **Хранилище**, выберите учетную запись хранения, а затем нажмите **Управление ключами**.
 
@@ -142,7 +139,7 @@
 
 + [Соединение с локальным SQL Server с помощью гибридных подключений](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>Гибридные подключения позволяют мобильной службе устанавливать защищенное соединение с локальными ресурс-контейнерами. Благодаря этому ваши локальные данные будут доступны мобильным клиентам, использующим Azure. К поддерживаемым активам относятся любые ресурсы, работающие на статическом TCP-порту, в том числе Microsoft SQL Server, MySQL, веб-API HTTP и большинство настраиваемых веб-служб.
 
-+ [Загрузка изображений в хранилище Azure с помощью мобильных служб](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>В этой статье показано, как изменить пример проекта TodoList, чтобы добавить возможность передавать изображения из приложения в хранилище больших двоичных объектов Azure.
++ [Загрузка изображений в хранилище Azure с помощью мобильных служб](mobile-services-dotnet-backend-windows-universal-dotnet-upload-data-blob-storage.md)</br>В этой статье показано, как изменить пример проекта TodoList, чтобы добавить возможность передавать изображения из приложения в хранилище больших двоичных объектов Azure.
 
 <!-- Anchors. -->
 [Create a non-relational store]: #create-store
@@ -159,4 +156,4 @@
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

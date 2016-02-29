@@ -1,3 +1,3 @@
-> [AZURE.IMPORTANT]Перед началом работы с ресурсами Azure ознакомьтесь с моделями развертывания: [на основе диспетчера ресурсов и классической](../resource-manager-deployment-model.md).
+> [AZURE.IMPORTANT] Перед началом работы с ресурсами Azure ознакомьтесь с моделями развертывания: [на основе диспетчера ресурсов и классической](../articles/resource-manager-deployment-model.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

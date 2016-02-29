@@ -39,13 +39,13 @@
 
 ## Установка записной книжки Zeppelin в процессе создания кластера
 
-Записную книжку Zeppelin в кластере Spark можно установить с помощью действия сценария. Действие сценария использует пользовательские скрипты для установки компонентов в кластере, которые по умолчанию недоступны. Пользовательский скрипт для установки Zeppelin на кластере Spark доступен на **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+Записную книжку Zeppelin в кластере Spark можно установить с помощью действия сценария. Действие сценария использует пользовательские скрипты для установки компонентов в кластере, которые по умолчанию недоступны. Пользовательский скрипт для установки Zeppelin на кластере Spark доступен на ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 ### Использование портала Azure
 
 Инструкции по использованию пакета HDInsight .NET SDK для выполнения действия сценария по установке записной книжки Zeppelin см. в разделе [Настройка кластеров HDInsight с помощью действий сценариев](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). В инструкции, приведенные в этой статье, необходимо внести несколько изменений.
 
-* Используйте сценарий для установки записной книжки Zeppelin. Необходимый сценарий: **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* Используйте сценарий для установки записной книжки Zeppelin. Необходимый сценарий: ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 * Сценарий необходимо выполнять только на головном узле.
 
@@ -55,7 +55,7 @@
 
 Инструкции по использованию пакета HDInsight .NET SDK для выполнения действия сценария по установке записной книжки Zeppelin см. в разделе [Настройка кластеров HDInsight с помощью действий сценариев](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk). В инструкции, приведенные в этой статье, необходимо внести несколько изменений.
 
-* Используйте сценарий для установки записной книжки Zeppelin. Необходимый сценарий: **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* Используйте сценарий для установки записной книжки Zeppelin. Необходимый сценарий: ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 * Сценарий не требует никаких параметров.
 
@@ -63,7 +63,7 @@
 
 ### Использование Azure PowerShell
 
-Представленный ниже фрагмент кода PowerShell позволяет создать кластер Spark в HDInsight Linux с установленной записной книжкой Zeppelin. Прежде чем продолжить, установите PowerShell. Инструкции см. в статье [Установка и настройка Azure PowerShell](../install-configure-powershell.md).
+Представленный ниже фрагмент кода PowerShell позволяет создать кластер Spark в HDInsight Linux с установленной записной книжкой Zeppelin. Прежде чем продолжить, установите PowerShell. Инструкции см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 	Login-AzureRMAccount
 	
@@ -322,14 +322,14 @@
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

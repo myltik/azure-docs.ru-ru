@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: история выпусков версий
@@ -26,6 +26,34 @@
 
 - Разрешения, необходимые для установки обновления, в разделе [Учетные записи и разрешения](active-directory-aadconnect-accounts-permissions.md#upgrade).
 - [Загрузка Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.105.0
+Дата выпуска: февраль 2016
+
+**Новые функции:**
+
+- Функция [автоматического обновления](active-directory-aadconnect-feature-automatic-upgrade.md) для быстрой настройки клиентов.
+- Поддержка глобального администратора с помощью многофакторной проверки подлинности и управления персональными данными в мастере установки.
+    - Необходимо разрешить в своем прокси трафик к https://secure.aadcdn.microsoftonline-p.com при использовании многофакторной проверки подлинности.
+    - Для правильной работы необходимо добавить https://secure.aadcdn.microsoftonline-p.com в список надежных сайтов для многофакторной проверки подлинности.
+- Разрешите изменение способа входа пользователя после первоначальной установки.
+- Разрешите [фильтрацию по доменам и подразделениям](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) в мастере установки. Это также позволяет подключиться к лесам, в которых доступны не все домены.
+- [Планировщик](active-directory-aadconnectsync-feature-scheduler.md) встроен в модуль синхронизации.
+
+**Функции, повышенные с предварительной версии до общедоступной версии:**
+
+- [Обратная запись устройства](active-directory-aadconnect-feature-device-writeback.md).
+- [Расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md).
+
+**Новые функции предварительной версии:**
+
+- По умолчанию интервал синхронизации цикла составляет 30 минут. Для всех более ранних версий он составлял 3 часа. Добавлена поддержка изменения поведения [планировщика](active-directory-aadconnectsync-feature-scheduler.md).
+
+**Исправленные проблемы:**
+
+- На странице проверки доменов DNS домены не всегда распознаются.
+- Запрос учетных данных администратора домена при настройке служб ADFS.
+- Локальные учетные записи AD не распознаются с помощью мастера установки, если они расположены в домене с другим деревом DNS по сравнению с корневым доменом.
 
 ## 1\.0.9131.0
 Дата выпуска: декабрь 2015 г.
@@ -114,7 +142,7 @@
 
 - [Обратная запись пользователей](active-directory-aadconnect-feature-preview.md#user-writeback)
 - [Обратная запись групп](active-directory-aadconnect-feature-preview.md#group-writeback)
-- [Обратная запись устройств](active-directory-aadconnect-get-started-custom-device-writeback.md)
+- [Обратная запись устройств](active-directory-aadconnect-feature-device-writeback.md)
 - [Расширения каталогов](active-directory-aadconnect-feature-preview.md#directory-extensions)
 
 
@@ -209,4 +237,4 @@
 ## Дальнейшие действия
 Ознакомьтесь с дополнительными сведениями об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

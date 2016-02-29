@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Приступая к созданию внутреннего балансировщика нагрузки (классический режим) с помощью Azure CLI
@@ -179,4 +179,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -35,7 +35,7 @@
 - Комплект разработчика Oracle Java. Его можно установить [отсюда](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - Java IDE. В этой статье используется среда IntelliJ IDEA 15.0.1. Ее можно установить [отсюда](https://www.jetbrains.com/idea/download/).
 - Драйвер Microsoft JDBC для SQL Server версии 4.1 или более поздней. Он требуется для записи данных событий в базу данных SQL Server. Его можно установить [отсюда](https://msdn.microsoft.com/sqlserver/aa937724.aspx).
-- База данных SQL Azure. Инструкции см. в статье [Создание базы данных SQL за несколько минут](sql-database/sql-database-get-started.md).
+- База данных SQL Azure. Инструкции см. в статье [Создание базы данных SQL за несколько минут](../sql-database/sql-database-get-started.md).
 
 ## Каково предназначение этого решения?
 
@@ -187,7 +187,7 @@
 
 		java -cp EventhubsSampleEventProducer.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
 
-2. Скопируйте JAR-файл потоковой передачи (**microsoft-spark-streaming-examples.jar**) в хранилище BLOB-объектов Azure, связанное с кластером. Таким образом JAR-файл станет доступным для Livy. Для этого можно использовать служебную программу командной строки [**AzCopy**](storage/storage-use-azcopy.md). Кроме того, для отправки данных можно использовать множество других клиентов. Дополнительные сведения о них см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
+2. Скопируйте JAR-файл потоковой передачи (**microsoft-spark-streaming-examples.jar**) в хранилище BLOB-объектов Azure, связанное с кластером. Таким образом JAR-файл станет доступным для Livy. Для этого можно использовать служебную программу командной строки [**AzCopy**](../storage/storage-use-azcopy.md). Кроме того, для отправки данных можно использовать множество других клиентов. Дополнительные сведения о них см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
 
 3. Установите служебную программу cURL на компьютере, где выполняются эти приложения. Эта программа понадобится нам, чтобы вызывать конечные точки Livy для удаленного выполнения заданий.
 
@@ -362,9 +362,9 @@
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -372,4 +372,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

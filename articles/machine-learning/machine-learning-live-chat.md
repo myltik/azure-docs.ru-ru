@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/14/2015" 
+    ms.date="02/12/2016" 
     ms.author="olgali"/>
 #Получение справки с помощью чата в реальном времени, поддерживаемого в машинном обучении
 
@@ -31,4 +31,4 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

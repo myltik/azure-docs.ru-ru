@@ -3,9 +3,9 @@
 	description="Узнайте, как развернуть и запустить ресурсоемкое приложение .NET на виртуальной машине Azure и использовать очереди служебной шины Azure для удаленного мониторинга хода выполнения."
 	services="virtual-machines"
 	documentationCenter=".net"
-	authors="wadepickett"
-	manager="wpickett"
-	editor="mollybos"
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
 	tags=“azure-service-management"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/25/2015"
-	ms.author="wpickett"/>
+	ms.author="davidmu"/>
 
 # Выполнение ресурсоемкой задачи в .NET на виртуальной машине Azure
 
@@ -551,4 +551,4 @@
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

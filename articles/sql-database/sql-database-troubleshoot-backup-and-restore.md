@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/14/2016"
 	ms.author="daleche"/>
 
 # Восстановление базы данных на более ранний момент времени, восстановление удаленной базы данных или восстановление после сбоя центра обработки данных
@@ -42,4 +42,4 @@
 
 - На [портале Azure](https://azure.microsoft.com/) последовательно щелкните пункты **Создать**, **Данные и хранилище** и **База данных SQL**, а затем выберите в качестве источника базы данных **резервную копию**. Дополнительные сведения см. в разделе [Восстановление базы данных SQL Azure после сбоя](sql-database-disaster-recovery.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -68,7 +68,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 Кластеру HDInsight требуется группа ресурсов Azure и контейнер больших двоичных объектов в учетной записи хранения Azure:
 
-- Группа ресурсов Azure — это логический контейнер для ресурсов Azure. Группа ресурсов Azure и кластер HDInsight не обязательно должны находиться в одном расположении. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](powershell-azure-resource-manager.md).
+- Группа ресурсов Azure — это логический контейнер для ресурсов Azure. Группа ресурсов Azure и кластер HDInsight не обязательно должны находиться в одном расположении. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 - HDInsight использует контейнер хранилища больших двоичных объектов хранилища Azure в качестве файловой системы по умолчанию. Для создания кластера HDInsight требуются учетная запись хранения Azure и контейнер хранилища. Учетная запись хранения, используемая по умолчанию, должна находиться в том же расположении, что и кластер HDInsight.
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
@@ -94,7 +94,7 @@ Azure PowerShell — это полнофункциональная среда с
 [AZURE.INCLUDE [список центров обработки данных](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
-Сведения о создании новой учетной записи хранения Azure с помощью портала Azure см. в статье [Об учетных записях хранения Azure](storage-create-storage-account.md).
+Сведения о создании новой учетной записи хранения Azure с помощью портала Azure см. в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 
 Если у вас уже есть учетная запись хранения, но вы не знаете имени и ключа учетной записи, можно использовать следующие команды для получения нужных сведений:
 
@@ -103,7 +103,7 @@ Azure PowerShell — это полнофункциональная среда с
 	# List the keys for a Storage account
 	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
 
-Дополнительные сведения о получении данных с помощью портала см. в разделе "Просмотр, копирование и повторное создание ключей доступа к хранилищу" статьи [Об учетных записях хранения Azure](storage-create-storage-account.md).
+Дополнительные сведения о получении данных с помощью портала см. в разделе "Просмотр, копирование и повторное создание ключей доступа к хранилищу" статьи [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 
 **Создание контейнера хранилища Azure**
 
@@ -313,14 +313,14 @@ Azure PowerShell не может создать контейнер больши�
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-provision-custom-options]: hdinsight-provision-clusters.md#configuration
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -328,8 +328,8 @@ Azure PowerShell не может создать контейнер больши�
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -636,7 +636,7 @@ Microsoft Azure предоставляет множество механизмо
 		get: function (req, res, next) {
 			var date = { currentTime: Date.now() };
 			res.status(200).type('application/json').send(date);
-		});
+		}
 	};
 	// The GET methods must be authenticated.
 	api.get.access = 'authenticated';
@@ -671,6 +671,38 @@ Microsoft Azure предоставляет множество механизмо
 
 Также можно настроить ограничение в 50 МБ, которое мы рассмотрели выше. Обратите внимание, что перед передачей файл будет закодирован в кодировке base-64, что приведет к увеличению размера фактически отправляемого файла.
 
+### <a name="howto-customapi-sql"></a>Практическое руководство. Выполнение пользовательских инструкций SQL
+
+Пакет SDK для мобильных приложений Azure предоставляет доступ ко всему контексту через объект запроса, позволяя легко выполнять параметризованные инструкции SQL для определенного поставщика данных:
+
+    var api = {
+        get: function (request, response, next) {
+            // Check for parameters - if not there, pass on to a later API call
+            if (typeof request.params.completed === 'undefined')
+                return next();
+
+            // Define the query - anything that can be handled by the mssql
+            // driver is allowed.
+            var query = {
+                sql: 'UPDATE TodoItem SET complete=@completed',
+                parameters: [{
+                    completed: request.params.completed
+                }]
+            };
+
+            // Execute the query.  The context for Azure Mobile Apps is available through
+            // request.azureMobile - the data object contains the configured data provider.
+            request.azureMobile.data.execute(query)
+            .then(function (results) {
+                response.json(results);
+            });
+        }
+    };
+
+    api.get.access = 'authenticated';
+    module.exports = api;
+
+Доступ к этой конечной точке может осуществляться следующим образом.
 ## <a name="Debugging"></a>Отладка и устранение неполадок
 
 Служба приложений Azure предоставляет несколько методов отладки и устранения неполадок в приложениях на Node.js. Для пользователей доступны следующие инструменты.
@@ -774,4 +806,4 @@ Microsoft Azure предоставляет множество механизмо
 [промежуточного слоя ExpressJS]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

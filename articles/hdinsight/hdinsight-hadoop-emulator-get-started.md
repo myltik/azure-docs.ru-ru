@@ -183,7 +183,7 @@
 
 Пакет установки эмулятора HDInsight содержит ряд примеров, которые позволяют пользователям быстро приступить к изучению служб на платформе Apache Hadoop в Windows. В этих примерах рассматриваются некоторые задачи, которые обычно необходимы при обработке большого набора данных. Изучая приведенный выше учебник MapReduce и эти примеры, можно ознакомиться с моделью программирования MapReduce и соответствующей экосистемой.
 
-В основе примера лежит обработка данных журнала IIS консорциума W3C. Для создания и импорта наборов данных различных размеров в HDFS или хранилище больших двоичных объектов Azure предоставлен специальный инструмент создания данных. Дополнительную информацию см. в статье [Использование хранилища больших двоичных объектов Azure для HDInsight](../hdinsight-use-blob-storage.md). Затем можно выполнить задания MapReduce, Pig или Hive по страницам данных, которые были созданы сценарием Azure PowerShell. Скрипты Pig и Hive являются уровнем абстракции над MapReduce и компилируются в программы MapReduce. Можно выполнить ряд заданий для самостоятельного анализа результатов применения этих разных технологий, а также влияния размера данных на выполнение задач обработки.
+В основе примера лежит обработка данных журнала IIS консорциума W3C. Для создания и импорта наборов данных различных размеров в HDFS или хранилище больших двоичных объектов Azure предоставлен специальный инструмент создания данных. Дополнительную информацию см. в статье [Использование хранилища больших двоичных объектов Azure для HDInsight](hdinsight-hadoop-use-blob-storage.md). Затем можно выполнить задания MapReduce, Pig или Hive по страницам данных, которые были созданы сценарием Azure PowerShell. Скрипты Pig и Hive являются уровнем абстракции над MapReduce и компилируются в программы MapReduce. Можно выполнить ряд заданий для самостоятельного анализа результатов применения этих разных технологий, а также влияния размера данных на выполнение задач обработки.
 
 ### В этом разделе
 
@@ -390,9 +390,9 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="blobstorage"></a>Подключение к хранилищу больших двоичных объектов Azure
 В качестве файловой системы по умолчанию эмулятор HDInsight использует HDFS. Однако в Azure HDInsight в качестве файловой системы по умолчанию используется хранилище BLOB-объектов Azure. Можно настроить эмулятор HDInsight таким образом, чтобы использовать вместо локального хранилища хранилище больших двоичных объектов Azure. Следуйте приведенным ниже инструкциям, чтобы создать контейнер хранилища в Azure и подключить его к эмулятору HDInsight.
 
->[AZURE.NOTE] Дополнительную информацию о том, как HDInsight использует хранилище больших двоичных объектов Azure, см. в статье [Использование хранилища больших двоичных объектов Azure с HDInsight](../hdinsight-use-blob-storage.md).
+>[AZURE.NOTE] Дополнительную информацию о том, как HDInsight использует хранилище больших двоичных объектов Azure, см. в статье [Использование хранилища больших двоичных объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-Прежде чем приступить к выполнению указанных ниже инструкций, необходимо создать учетную запись хранения. Инструкции см. в разделе [Создание учетной записи хранения](../storage-create-storage-account.md).
+Прежде чем приступить к выполнению указанных ниже инструкций, необходимо создать учетную запись хранения. Инструкции см. в разделе [Создание учетной записи хранения](../storage/storage-create-storage-account.md).
 
 **Создание контейнера**
 
@@ -465,7 +465,7 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="nextsteps"></a>Дальнейшие действия
 При работе с учебником MapReduce вы установили эмулятор HDInsight — изолированную среду Hadoop — и выполнили некоторые задания Hadoop. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-- [Приступая к работе с Azure HDInsight](../hdinsight-get-started.md)
+- [Приступая к работе с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Разработка программ MapReduce на Java для HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
 - [Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Заметки к версии эмулятора HDInsight](hdinsight-emulator-release-notes.md)
@@ -483,18 +483,18 @@ The samples currently contain all the required binaries, so building is not requ
 [hdinsight-emulator-install]: http://www.microsoft.com/web/gallery/install.aspx?appid=HDINSIGHT
 [hdinsight-emulator-release-notes]: hdinsight-emulator-release-notes.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: powershell-install-configure.md
 
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

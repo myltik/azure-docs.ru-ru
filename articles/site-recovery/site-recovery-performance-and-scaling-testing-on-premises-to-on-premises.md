@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Результаты масштабирования и теста производительности для репликации Hyper-V между локальными сайтами с помощью Site Recovery | Microsoft Azure"
 	description="В этой статье содержатся сведения о тестировании производительности для репликации между локальными сайтами с помощью Azure Site Recovery."
-	services="site-recovery" 
+	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
 	manager="jwhit"
@@ -10,7 +10,7 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="12/14/2015"
@@ -208,6 +208,4 @@ Microsoft Azure Site Recovery можно использовать для коо�
 
 - [Настройка защиты между локальными сайтами VMM](site-recovery-vmm-to-vmm.md)
 
- 
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

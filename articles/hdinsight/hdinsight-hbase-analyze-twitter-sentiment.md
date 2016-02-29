@@ -75,11 +75,11 @@
 
 
 	<table border="1">
-	<tr><th>Свойство кластера</th><th>Описание</th></tr>
-	<tr><td>Имя кластера HBase</td><td>Имя вашего кластера HBase в HDInsight. Пример: https://myhbase.azurehdinsight.net/</td></tr>
-	<tr><td>Имя пользователя кластера</td><td>Имя учетной записи пользователя Hadoop. Имя пользователя Hadoop по умолчанию&#160;— <strong>admin</strong>.</td></tr>
-	<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
-	</table>
+<tr><th>Свойство кластера</th><th>Описание</th></tr>
+<tr><td>Имя кластера HBase</td><td>Имя вашего кластера HBase в HDInsight. Пример: https://myhbase.azurehdinsight.net/</td></tr>
+<tr><td>Имя пользователя кластера</td><td>Имя учетной записи пользователя Hadoop. Имя пользователя Hadoop по умолчанию&#160;— <strong>admin</strong>.</td></tr>
+<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
+</table>
 
 - **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -463,10 +463,10 @@
 	- Категория шаблона: **Visual C# или веб-сайт**
 	- Шаблон: **веб-приложение ASP.NET**
 	- Имя: **TweetSentimentWeb**
-	- Расположение: **C:\\Tutorials** 
+	- Расположение: **C:\Tutorials** 
 4. Нажмите кнопку **ОК**.
 5. В разделе **Выбор шаблона** щелкните **MVC**. 
-6. В **Microsoft Azure** щелкните **Manage Subscriptions** (Управление подписками).
+6. В **Microsoft Azure** щелкните **Управление подписками**.
 7. В окне **Управление подписками Microsoft Azure** щелкните **Вход**.
 8. Введите учетные данные Azure. Сведения о вашей подписке Azure появятся на вкладке **Учетные записи**.
 9. Нажмите кнопку **Закрыть**, чтобы закрыть окно **Управление подписками Microsoft Azure**.
@@ -600,9 +600,9 @@
 	- **CLUSTERNAME**: имя кластера HBase, например, *https://<HBaseClusterName>.azurehdinsight.net/*. 
     - **HADOOPUSERNAME**: имя пользователя Hadoop в кластере HBase. Имя по умолчанию — *admin*.
     - **HADOOPUSERPASSWORD**: пароль пользователя Hadoop в кластере HBase.
-    - **HBASETABLENAME** = "tweets\_by\_words".
+    - **HBASETABLENAME** = "tweets_by_words".
 
-	Имя таблицы HBase — **"tweets\_by\_words";**. Значения должны совпадать со значениями, отправленными в службу потоковой передачи, чтобы веб-приложение считывало данные из той же таблицы HBase.
+	Имя таблицы HBase — **"tweets_by_words";**. Значения должны совпадать со значениями, отправленными в службу потоковой передачи, чтобы веб-приложение считывало данные из той же таблицы HBase.
 
 
 
@@ -1099,7 +1099,7 @@
 
 **Изменение файла layout.cshtml**
 
-1. В **обозревателе решений** последовательно разверните узлы **TweetSentimentWeb**, **Представления**, **Общий ресурс**, а затем дважды щелкните элемент \__**Layout.cshtml**.
+1. В **обозревателе решений** последовательно разверните узлы **TweetSentimentWeb**, **Представления**, **Общий ресурс**, а затем дважды щелкните элемент _**Layout.cshtml**.
 2. Замените содержимое на приведенное ниже:
 
 		<!DOCTYPE html>
@@ -1205,7 +1205,7 @@
 
 		using System.Web.Http;
 
-2. Добавьте в функцию **Application\_Start()** следующие строки:
+2. Добавьте в функцию **Application_Start()** следующие строки:
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -1237,7 +1237,7 @@
 - [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
 
 
-[hbase-get-started]: ../hdinsight-hbase-get-started.md
+[hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
 [website-get-started]: ../web-sites-dotnet-get-started.md
 
 
@@ -1252,7 +1252,7 @@
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
+[hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
 
 
 
@@ -1266,17 +1266,17 @@
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage-powershell]: ../hdinsight-use-blob-storage.md#powershell
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage-powershell]: hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

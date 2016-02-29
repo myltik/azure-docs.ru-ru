@@ -19,9 +19,9 @@
 
 # Создание кластеров Hadoop под управлением Windows в HDInsight с помощью портала Azure
 
-[AZURE.INCLUDE [Селектор](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-Узнайте, как создать кластер Hadoop в HDInsight с помощью портала Azure. [Портал Microsoft Azure](azure-portal-overview.md) — это централизованное место, где можно подготавливать ресурсы Azure и управлять ими. Портал Azure является одним из средств, которые можно использовать для создания кластера Hadoop под управлением Linux или Windows в HDInsight. Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-provision-clusters.md#cluster-creation-methods).
+Узнайте, как создать кластер Hadoop в HDInsight с помощью портала Azure. [Портал Microsoft Azure](../azure-portal-overview.md) — это централизованное место, где можно подготавливать ресурсы Azure и управлять ими. Портал Azure является одним из средств, которые можно использовать для создания кластера Hadoop под управлением Linux или Windows в HDInsight. Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ###Предварительные требования:
 
@@ -73,7 +73,7 @@
 
 			![Колонка "Виртуальная сеть"](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
-			>[AZURE.NOTE] Кластер HDInsight на основе Windows можно разместить только в классической виртуальной сети.
+		Сведения об использовании HDInsight в виртуальной сети, включая требования к конфигурации виртуальной сети, см. в разделе [Расширение возможностей HDInsight с помощью виртуальной сети Azure](hdinsight-extend-hadoop-virtual-network.md).
   
 
   		
@@ -136,8 +136,8 @@
 ##Дальнейшие действия
 В этой статье вы ознакомились с несколькими способами создания кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-* [Приступая к работе с Azure HDInsight](hdinsight-get-started.md) — узнайте, как начать работу с кластером HDInsight.
+* [Приступая к работе с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) — узнайте, как начать работу с кластером HDInsight.
 * [Отправка заданий Hadoop программными средствами](hdinsight-submit-hadoop-jobs-programmatically.md) — узнайте, как программными средствами отправлять задания в HDInsight.
 * [Управление кластерами Hadoop в HDInsight с помощью портала Azure](hdinsight-administer-use-management-portal.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/25/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Проблемы с Azure Multi-Factor Authentication
@@ -25,13 +25,13 @@
 
 
 - [Ошибки идентификатора корреляции](#correlation-id-errors)
-- [Мой телефон потерялся или его украли](#i-have-lost-my-phone-or-it-was-stolen?)
+- [Мой телефон потерялся или его украли](#i-have-lost-my-phone-or-it-was-stolen)
 - [Я хочу изменить свой номер телефона](#i-want-to-change-my-phone-number)
 - [Я хочу изменить свой номер телефона в связи с покупкой нового устройства](#i-have-a-new-phone-and-need-to-change-my-phone-number)
-- [На мой телефон не пришел код](#i-am-not-receiving-a-code-on-my-phone)
+- [На мой телефон не пришел код](#i-am-not-receiving-a-code-or-a-call-on-my-phone)
 - [Пароли приложений не работают](#app-passwords-are-not-working)
 - [Как удалить Azure Authenticator со старого устройства и перенести на новое?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
-- [Здесь нет решения моей проблемы](#i-didn't-find-an-answer-to-my-problem)
+- [Здесь нет решения моей проблемы](#i-didnt-find-an-answer-to-my-problem)
 
 ##Ошибки идентификатора корреляции
 Если вы уже пробовали выполнить действия по устранению неполадок и они по-прежнему сохраняются, вы можете разместить вопрос на [форумах Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [выполнить поиск в базе знаний Майкрософт](https://www.microsoft.com/ru-RU/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) или [обратиться в службу поддержки](https://support.microsoft.com/ru-RU). Мы рассмотрим вашу проблему как можно быстрее.
@@ -147,7 +147,7 @@
 - Если вы выбрали получение кодов подтверждения с помощью текстового сообщения на мобильный телефон, убедитесь, что план обслуживания и устройство поддерживают доставку текстовых сообщений. Скорость доставки и доступность зависят от расположения и поставщика услуг. Также при попытке получения кодов убедитесь в достаточной мощности сигнала.
 - Если вы выбрали проверку через мобильное приложение, убедитесь в достаточной мощности сигнала. Также помните, что скорость доставки и доступность зависят от расположения и поставщика услуг. 
 
-Если у вас смартфон, рекомендуем использовать [приложение Azure Authenticator](multi-factor-authentication-azure-authenticator).
+Если у вас смартфон, рекомендуем использовать [приложение Azure Authenticator](multi-factor-authentication-azure-authenticator.md).
 
 Можно переключаться между получением кодов проверки в текстовых сообщениях и через мобильное приложение, выбрав при входе параметр **Использовать другой вариант проверки**.
 
@@ -172,4 +172,4 @@
 
 Наконец, не забудьте оставить подробный отзыв на этой странице, чтобы мы могли обновить и улучшить ее, добавив дополнительные сведения.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

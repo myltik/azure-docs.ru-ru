@@ -1,6 +1,20 @@
-<properties pageTitle="API REST управления поиском Azure, версия 2015-02-28 | Microsoft Azure | Размещенная облачная служба поиска" description="API REST управления службой поиска Azure: версия 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties
+	pageTitle="API REST управления поиском Azure, версия 2015-02-28 | Microsoft Azure | Размещенная облачная служба поиска"
+	description="API REST управления службой поиска Azure: версия 2015-02-28"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.date="11/04/2015"
+	ms.author="heidist" />
 
 # Интерфейс API управления: версия 2015-02-28
 
@@ -39,7 +53,7 @@ API REST управления службой поиска Azure предоста
 
 Образец приложения описаны в [Приступая к работе с API REST для управления Поиском Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) демонстрирует методы проверки подлинности для каждого типа операции. Эта статья также включает инструкции по настройке клиентского приложения для использования Active Directory.
 
-Служба управления доступом для диспетчера ресурсов Azure использует встроенные роли владельца, участника и читателя. По умолчанию все администраторы службы имеют роль владельца. Дополнительные сведения см. в статье [Контроль доступа на основе ролей на классическом портале Azure](../role-based-access-control-configure.md).
+Служба управления доступом для диспетчера ресурсов Azure использует встроенные роли владельца, участника и читателя. По умолчанию все администраторы службы имеют роль владельца. Дополнительные сведения см. в статье [Контроль доступа на основе ролей на классическом портале Azure](../active-directory/role-based-access-control-configure.md).
 
 
 ### Сводка API-интерфейсов ##
@@ -812,4 +826,4 @@ API-ключи, особенно ключи администраторов, не
 
 Нет.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

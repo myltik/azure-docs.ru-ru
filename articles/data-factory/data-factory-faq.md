@@ -132,9 +132,9 @@
 Вы можете повторно выполнить срез одним из следующих способов:
 
 - Щелкните **Выполнить** в командной строке в колонке **СРЕЗ ДАННЫХ** для среза на портале. 
-- Выполните командлет **Set-AzureRmDataFactorySliceStatus** с состоянием, имеющим значение **PendingExecution** для этого среза.   
+- Выполните командлет **Set-AzureRmDataFactorySliceStatus** с состоянием, имеющим значение **Waiting** для этого среза.   
 	
-		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
 Дополнительные сведения об этом командлете см. в разделе [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status].
 
@@ -174,4 +174,4 @@
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

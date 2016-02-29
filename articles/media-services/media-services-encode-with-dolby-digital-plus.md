@@ -3,7 +3,7 @@
 	description="В этом разделе описывается кодирование мультимедиа с помощью Dolby Digital Plus." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
-	ms.author="juliako"/>
+	ms.date="02/17/2016"   
+	ms.author="anilmur"/>
 
 #Кодирование мультимедиа с помощью Dolby Digital Plus
 
@@ -600,7 +600,7 @@ Dolby Digital Plus поддерживается кодировщиком слу�
 
 **LEQA\_DI** — указывает Leq(A), а также Dialogue Intelligence
 
-**Примечание**.
+**Примечание.**
 
 Режим **EBU R128** можно включить через **ITU\_R\_BS\_1770\_2\_DI**
 
@@ -659,4 +659,4 @@ Dolby Digital Plus поддерживается кодировщиком слу�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

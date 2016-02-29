@@ -21,14 +21,14 @@
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-Узнайте, как создавать кластеры HDInsight с помощью шаблонов диспетчера ресурсов Azure (ARM). Дополнительные сведения см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md). Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-provision-clusters.md#cluster-creation-methods).
+Узнайте, как создавать кластеры HDInsight с помощью шаблонов диспетчера ресурсов Azure (ARM). Дополнительные сведения см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](../resource-group-template-deploy.md). Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ###Предварительные требования:
 
 Прежде чем следовать указаниям в этой статье, необходимо подготовить следующее:
 
 - [Подписка Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) и/или [Интерфейс командной строки Azure](xplat-cli-install.md). 
+- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) и/или [Интерфейс командной строки Azure](../xplat-cli-install.md). 
 
 ## Шаблоны ARM
 
@@ -38,8 +38,8 @@
 
 Дополнительные сведения о шаблоне ARM см. в следующих статьях:
 
-- [Шаблоны диспетчера ресурсов Azure](resource-group-authoring-templates.md)
-- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md)
+- [Шаблоны диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
+- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](../resource-group-template-deploy.md)
 
 
 ## Развертывание с помощью PowerShell
@@ -102,7 +102,7 @@
 
 	Скрипт PowerShell настраивает только имя кластера и имя учетной записи хранения. Вы можете задать другие значения в шаблоне ARM.
 	
-Дополнительные сведения см. в разделе [Развертывание с помощью PowerShell](resource-group-template-deploy.md#deploy-with-powershell).
+Дополнительные сведения см. в разделе [Развертывание с помощью PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
 
 ## Развертывание с помощью интерфейса командной строки Azure
 
@@ -115,22 +115,22 @@
 
 ## Развертывание с помощью REST API
 
-См. [Развертывание с помощью REST API](resource-group-template-deploy.md#deploy-with-the-rest-api).
+См. [Развертывание с помощью REST API](../resource-group-template-deploy.md#deploy-with-the-rest-api).
 
 ## Развертывание с помощью Visual Studio
 
 С помощью Visual Studio можно создать проект группы ресурсов и развернуть его в Azure, используя пользовательский интерфейс. Можно выбрать тип ресурсов, добавляемых в проект. Эти ресурсы будут автоматически добавляться в шаблон диспетчера ресурсов. Проект также предоставляет сценарий PowerShell для развертывания шаблона.
 
-Обзорные сведения об использовании групп ресурсов в Visual Studio см. в статье [Создание и развертывание групп ресурсов Azure с помощью Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Обзорные сведения об использовании групп ресурсов в Visual Studio см. в статье [Создание и развертывание групп ресурсов Azure с помощью Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ##Дальнейшие действия
 В этой статье вы ознакомились с несколькими способами создания кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-- Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание ресурсов с использованием библиотек .NET и шаблона](arm-template-deployment.md).
-- Подробный пример развертывания приложения см. в статье [Предсказуемые подготовка и развертывание микрослужб в Azure](app-service-deploy-complex-application-predictably.md).
-- Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
-- Дополнительную информацию о разделах в шаблоне диспетчера ресурсов Azure см. в статье [Создание шаблонов](resource-group-authoring-templates.md).
-- Список функций, которые можно использовать в шаблоне диспетчера ресурсов Azure, см. в статье [Функции шаблонов](resource-group-template-functions.md).
+- Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание ресурсов с использованием библиотек .NET и шаблона](../virtual-machines/arm-template-deployment.md).
+- Подробный пример развертывания приложения см. в статье [Предсказуемые подготовка и развертывание микрослужб в Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](../solution-dev-test-environments.md).
+- Дополнительную информацию о разделах в шаблоне диспетчера ресурсов Azure см. в статье [Создание шаблонов](../resource-group-authoring-templates.md).
+- Список функций, которые можно использовать в шаблоне диспетчера ресурсов Azure, см. в статье [Функции шаблонов](../resource-group-template-functions.md).
 
 
 ##Приложение А. Шаблон ARM
@@ -444,4 +444,4 @@
 	  }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

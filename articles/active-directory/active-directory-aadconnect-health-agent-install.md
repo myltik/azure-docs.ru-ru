@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/08/2016"
 	ms.author="billmath"/>
 
 
@@ -21,7 +21,7 @@
 
 
 
-# Установка агента Azure AD Connect Health 
+# Установка агента Azure AD Connect Health
 
 В этом документе описываются этапы установки и настройки агента Azure AD Connect Health для AD FS и синхронизации.
 
@@ -123,7 +123,7 @@
 
 - Служба AadSync Insights Azure AD Connect Health
 - Служба AadSync Monitoring Azure AD Connect Health
- 
+
 ![Проверка Azure AD Connect Health для синхронизации](./media/active-directory-aadconnect-health-sync/services.png)
 
 >[Azure.NOTE] Помните, что для использования службы Azure AD Connect Health требуется Azure AD Premium. Если Azure AD Premium отсутствует, вы не сможете завершить конфигурацию на портале Azure. Дополнительные сведения о требованиях см. [здесь](active-directory-aadconnect-health.md#requirements).
@@ -176,7 +176,23 @@
 	Get-AzureAdConnectHealthProxySettings
 
 
-[//]: # "Конец раздела конфигурации прокси-сервера агента"
+## Проверка подключения к службе Azure AD Connect Health
+Существуют проблемы, при которых агент Azure AD Connect Health может потерять соединение со службой Azure AD Connect Health. К ним относятся проблемы с сетью, с правами доступа и другие причины.
+
+Если агент не может отправить данные службе Azure AD Connect Health более 2 часов, появится предупреждение "Данные службы работоспособности не обновлены". Теперь, если это вдруг произойдет, вы сможете проверить, могут ли агенты Azure AD Connect Health отправлять данные в службу Azure AD Connect Health, выполнив следующую команду PowerShell с компьютера, с агентом которого возникают проблемы.
+
+    Test-AzureADConnectHealthConnectivity -Role Adfs
+
+Параметр role в настоящее время принимает следующие значения:
+	
+- Adfs
+- Sync
+
+Для просмотра подробных журналов можно использовать флаг -ShowResults в команде. Используйте следующий пример:
+
+    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResults
+
+>[AZURE.NOTE]Чтобы использовать средство подключения, необходимо сначала завершить регистрацию агента. Если вы не можете выполнить регистрацию агента, убедитесь, что соблюдены все [требования](active-directory-aadconnect-health.md#requirements) для Azure AD Connect Health. Эта проверка подключения выполняется по умолчанию во время регистрации агента.
 
 
 ## Связанные ссылки
@@ -187,4 +203,4 @@
 * [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

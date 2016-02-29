@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -52,7 +52,9 @@
 
 ## Развертывание шаблона диспетчера ресурсов в Azure с помощью Azure PowerShell
 
-Подробные инструкции по развертыванию шаблона с помощью PowerShell см. в статье [Развертывание шаблонов диспетчера ресурсов с помощью PowerShell](resource-group-template-deploy.md).
+Подробные инструкции по развертыванию шаблона с помощью PowerShell см. в статье [Развертывание шаблонов диспетчера ресурсов с помощью PowerShell](../resource-group-template-deploy.md).
+
+>[AZURE.NOTE] Для постоянной работы кластеров Service Fabric требуется определенное количество узлов, чтобы все время поддерживать доступность и сохранять состояние, которое называется "поддержание кворума". Поэтому обычно не рекомендуется завершать работу всех машин в кластере, пока не будет выполнено [полное резервное копирование состояния](service-fabric-reliable-services-backup-restore.md), так как это может быть небезопасно.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
@@ -63,4 +65,4 @@
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

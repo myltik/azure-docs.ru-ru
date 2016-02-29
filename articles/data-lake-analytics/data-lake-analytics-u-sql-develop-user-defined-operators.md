@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 
@@ -26,16 +26,16 @@
 - Visual Studio 2015, Visual Studio 2013 с обновлением 4 или Visual Studio 2012 с установленным Visual C++. 
 - Пакет SDK Microsoft Azure для .NET (версии 2.5 или выше). Его можно установить с помощью установщика веб-платформы.
 - Учетная запись аналитики озера данных. [Начало работы с аналитическим модулем озера данных Azure при помощи портала Azure](data-lake-analytics-get-started-portal.md).
-- Пройдите руководство [Приступая к работе с U-SQL Studio для аналитики озера данных Azure](data-lake-analytics-u-sql-studio-get-started.md).
-- Подключитесь к Azure. См. руководство [Приступая к работе с U-SQL Studio для аналитики озера данных Azure](data-lake-analytics-u-sql-studio-get-started.md#connect-to-azure). 
-- Загрузите исходные данные. См. руководство [Приступая к работе с U-SQL Studio для аналитики озера данных Azure](data-lake-analytics-u-sql-studio-get-started.md#upload-source-data-files). 
+- Пройдите руководство [Приступая к работе с U-SQL Studio для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md).
+- Подключитесь к Azure. См. руководство [Приступая к работе с U-SQL Studio для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md#connect-to-azure). 
+- Загрузите исходные данные. См. руководство [Приступая к работе с U-SQL Studio для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md#upload-source-data-files). 
 
 ## Определение и использование пользовательских операторов в U-SQL
 
 **Создание и отправка задания U-SQL**
 
 1. В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
-2. Выберите **проект U-SQL**.
+2. Выберите тип **Проект U-SQL**.
 
 	![новый проект U-SQL в Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
@@ -147,4 +147,4 @@
 - [Приступая к работе с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
 - [Использование инструментов озера данных для Visual Studio для разработки приложений U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Все статьи по управлению приложениями в Azure Active Directory | Microsoft Azure"
+	pageTitle="Указатель статей по управлению приложениями в Azure Active Directory | Microsoft Azure"
 	description="Узнайте, как настроить срок действия сертификатов федерации, а также обновлять сертификаты с истекающим сроком действия."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/16/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Указатель статей по управлению приложениями в Azure Active Directory
@@ -24,7 +24,7 @@
 
 ##Обзор статей
 
-Статьи в этом разделе подходят в качестве отправных точек для тех, кому необходимо краткое описание функций управления приложениями в Azure AD. Мы более подробно рассмотрим эти функции в дальнейшей части руководства.
+Статьи в этом разделе подходят в качестве отправных точек для тех, кому необходимо краткое описание функций управления приложениями в Azure AD.
 
 | Путеводитель по статьям | |
 | :---: | --- |
@@ -32,6 +32,18 @@
 | Обзор различных функций в Azure AD, связанных с включением единого входа, определением пользователей, у которых есть доступ к приложениям, и способов запуска приложений | [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md) |
 | Обзор различных этапов интеграции приложений в Azure AD | [Руководство по интеграции Azure Active Directory с приложениями](active-directory-integrating-applications-getting-started.md)<br /><br />[Интеграция единого входа Azure Active Directory с приложениями SaaS](active-directory-sso-integrate-saas-apps.md)<br /><br />[Управление доступом к приложениям](active-directory-managing-access-to-apps.md) |
 | Технические сведения о представлении приложений в Azure AD | [Как и почему приложения добавляются в Azure AD](active-directory-how-applications-are-added.md) |
+
+##Статьи по устранению неполадок
+
+В этом разделе даются ссылки на соответствующие руководства по устранению неполадок. В остальной части страницы вы найдете подробное описание каждой области функций.
+
+| Область функций | |
+| :---: | --- |
+| Федеративный единый вход | [Отладка единого входа на основе SAML в приложения в Azure Active Directory](active-directory-saml-debugging.md) |
+| Единый вход на основе пароля | [Устранение неполадок, связанных с расширением панели доступа для Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Прокси приложения | [Устранение неполадок прокси-сервера приложений](active-directory-application-proxy-troubleshoot.md) |
+| Единый вход между локальным AD и Azure AD | [Устранение неполадок в синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md#managing-password-synchronization)<br /><br />[Устранение неполадок в обратной записи паролей](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) | 
+| Динамическое членство в группах | [Устранение неполадок динамического членства в группах](active-directory-accessmanagement-troubleshooting.md) |
 
 ##Единый вход (SSO)
 
@@ -42,7 +54,7 @@
 | Путеводитель по статьям | |
 | :---: | --- |
 | Общие сведения о федеративном и других способах входа | [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md) |
-| Тысячи приложений SaaS, предварительно интегрированных с Azure AD, для которых можно с легкостью настроить единый вход | [Начало работы с коллекцией приложений Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps) (Полный список предварительно интегрированных приложений, поддерживающих федерацию)<br /><br />[Добавление приложения в коллекцию приложений Azure Active Directory](active-directory-app-gallery-listing.md) |
+| Тысячи приложений SaaS, предварительно интегрированных с Azure AD, для которых можно с легкостью настроить единый вход | [Начало работы с коллекцией приложений Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Полный список предварительно интегрированных приложений, поддерживающих федерацию](http://aka.ms/aadfederatedapps)<br /><br />[Добавление приложения в коллекцию приложений Azure Active Directory](active-directory-app-gallery-listing.md) |
 | Более 150 руководств по настройке единого входа для таких приложений, как [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md) и многих других | [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Настройка конфигурации единого входа вручную | [Настройка единого входа для приложений, которых нет в коллекции приложений Azure Active Directory](active-directory-saas-custom-apps.md)<br /><br />[Настройка утверждений, выпущенных в маркере SAML для предварительно интегрированных приложений в Azure Active Directory](active-directory-saml-claims-customization.md) |
 | Руководство по устранению неполадок для федеративных приложений, использующих протокол SAML | [Отладка единого входа на основе SAML в приложения в Azure Active Directory](active-directory-saml-debugging.md) |
@@ -58,7 +70,7 @@
 | :---: | --- |
 | Общие сведения о принципах работы единого входа на основе паролей и краткий технический обзор | [Единый вход на основе пароля](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | Сводка сценариев совместного использования учетных записей и способов решения этих проблем с помощью Azure AD | [Совместное использование учетных записей в Azure AD](active-directory-sharing-accounts.md) |
-| Автоматическое изменение пароля для определенных приложений с определенной периодичностью | [Automated Password Rollover (preview)](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) (Автоматическая смена пароля (предварительная версия)) |
+| Автоматическое изменение пароля для определенных приложений с определенной периодичностью | [Automated Password Rollover (preview) (Автоматическая смена пароля (предварительная версия))](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) |
 | Руководства по развертыванию и устранению неполадок для расширения управления паролями Azure AD с использованием Internet Explorer | [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md)<br /><br />[Устранение неполадок, связанных с расширением панели доступа для Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 
 Функция единого входа на основе паролей доступна для всех выпусков Azure AD, и ее можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), вы можете [использовать группы для предоставления доступа к приложениям](#how-to-manage-who-has-access-to-which-apps). Автоматическая смена пароля — это функция [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -77,7 +89,7 @@
 
 Прокси приложения доступно для всех выпусков Azure AD, и его можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), вы можете [использовать группы для предоставления доступа к приложениям](#how-to-manage-who-has-access-to-which-apps).
 
-Возможно, вас также заинтересуют [доменные службы Azure AD](active-directory-ds-overview.md), с помощью которых можно переносить локальные приложения в Azure, поддерживая их методы идентификации.
+Возможно, вас также заинтересуют [доменные службы Azure AD](../active-directory-domain-services/active-directory-ds-overview.md), с помощью которых можно переносить локальные приложения в Azure, поддерживая их методы идентификации.
 
 ###Включение единого входа между Azure AD и локальной службой AD
 
@@ -87,7 +99,9 @@
 | :---: | --- |
 | Общие сведения о параметрах единого входа, представленных в Azure AD Connect, а также сведения об управлении гибридными средами | [Параметры входа в Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Общие рекомендации по управлению средами с помощью локальной службы Active Directory и Azure Active Directory | [Рекомендации по разработке архитектуры гибридной идентификации в Azure Active Directory](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md) |
-| Рекомендации по реализации единого входа с помощью синхронизации паролей и использованию компонента обратной записи паролей и самостоятельного сброса пароля Azure AD | [Службы синхронизации Azure AD Connect: реализация синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Приступая к работе с компонентами управления паролями](active-directory-passwords-getting-started.md) |
+| Руководство по реализации единого входа с помощью синхронизации паролей | [Реализация синхронизации паролей с использованием Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Устранение неполадок в синхронизации паролей](https://support.microsoft.com/ru-RU/kb/2855271) |
+| Руководство по реализации единого входа с помощью обратной записи паролей | [Приступая к работе с компонентами управления паролями в Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Устранение неполадок в обратной записи паролей](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Руководство по реализации единого входа с использованием сторонних поставщиков удостоверений | [Список совместимых сторонних поставщиков удостоверений, которых можно использовать для реализации единого входа](https://aka.ms/ssoproviders) | 
 | Каким образом пользователи Windows 10 могут получить преимущества единого входа с помощью присоединения к Azure AD | [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-overview.md) |
 
 Azure AD Connect доступно для [всех выпусков Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Функция самостоятельного сброса пароля Azure AD поддерживается в выпусках [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) и [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Компонент обратной записи паролей в локальную службу AD — это функция [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -116,9 +130,9 @@ Azure AD Connect доступно для [всех выпусков Azure Activ
 | :---: | --- |
 | Общие сведения о принципах работы Cloud App Discovery | [Поиск несанкционированных облачных приложений с Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) |
 | Подробные сведения о принципах работы Cloud App Discovery и ответы на вопросы о конфиденциальности | [Вопросы безопасности и конфиденциальности Cloud App Discovery](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
-| Часто задаваемые вопросы | [FAQ for Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) (Часто задаваемые вопросы о Cloud App Discovery) |
-| Руководства по развертыванию Cloud App Discovery | [Group Policy Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)(Руководство по развертыванию групповой политики)<br /><br />[System Center Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)(Руководство по развертыванию System Center)<br /><br />[Параметры реестра Cloud App Discovery для прокси-служб](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
-| Журнал изменений для обновлений агента Cloud App Discovery | [Change log](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx) (Журнал изменений) |
+| Часто задаваемые вопросы | [FAQ for Cloud App Discovery (Часто задаваемые вопросы о Cloud App Discovery)](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
+| Руководства по развертыванию Cloud App Discovery | [Руководство по развертыванию групповой политики](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[Руководство по развертыванию System Center](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Параметры реестра Cloud App Discovery для прокси-служб](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
+| Журнал изменений для обновлений агента Cloud App Discovery | [Change log (Журнал изменений)](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx) |
 
 Cloud App Discovery — это функция [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -143,7 +157,7 @@ Cloud App Discovery — это функция [Azure AD Premium](https://azure
 | Путеводитель по статьям | |
 | :---: | --- |
 | Рекомендации для ИТ-специалистов и разработчиков приложений по интеграции приложений с Azure AD | [Azure AD и приложения: руководство для разработчиков](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md) |
-| Практическое руководство для поставщиков приложений по добавлению приложений в коллекцию приложений Azure AD | [Listing your Application in the Azure Active Directory Application Gallery](active-directory-app-gallery-listing) (Добавление приложения в коллекцию приложений Azure Active Directory) |
+| Практическое руководство для поставщиков приложений по добавлению приложений в коллекцию приложений Azure AD | [Listing your Application in the Azure Active Directory Application Gallery (Добавление приложения в коллекцию приложений Azure Active Directory)](active-directory-app-gallery-listing) |
 | Управление доступом к разработанным приложениям с помощью Azure Active Directory | [Azure AD и приложения: требование назначения пользователей](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Azure AD и приложения: назначение пользователей для приложения](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Azure AD и приложения: назначение групп для приложения](active-directory-applications-guiding-developers-assigning-groups.md) |
 
 Тех, кто разрабатывает потребительские приложения, может заинтересовать [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/). Благодаря этому решению вам не придется разрабатывать систему идентификации для управления пользователями. [Подробнее](../active-directory-b2c/active-directory-b2c-overview.md).
@@ -160,7 +174,7 @@ Cloud App Discovery — это функция [Azure AD Premium](https://azure
 | Обзор функций управления доступом Azure AD | [Управление доступом к приложениям](active-directory-managing-access-to-apps.md)<br /><br />[Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)<br /><br />[Использование группы для управления доступом к приложениям SaaS](active-directory-accessmanagement-group-saasapps.md) |
 | Включение самостоятельного управления приложениями и группами | [Самостоятельный доступ к приложениям и делегированное управление приложениями с помощью Azure Active Directory](active-directory-self-service-application-access.md)<br /><br />[Настройка Azure Active Directory для управления самостоятельным доступом к приложениям](active-directory-accessmanagement-self-service-group-management.md) |
 | Указания по настройке групп в Azure AD | [Управление группами безопасности в Azure Active Directory](active-directory-accessmanagement-manage-groups.md)<br /><br />[Управление владельцами группы](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Выделенные группы в Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md) |
-| Использование динамических групп для автоматического заполнения участников группы с помощью правил членства на основе атрибутов | [Создание простого правила для настройки динамического членства для группы](active-directory-accessmanagement-simplerulegroup.md)<br /><br />[Использование атрибутов для создания расширенных правил](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[Устранение неполадок динамического членства в группах](active-directory-accessmanagement-troubleshooting.md) |
+| Использование динамических групп для автоматического заполнения участников группы с помощью правил членства на основе атрибутов | [Создание простого правила настройки динамического членства для группы](active-directory-accessmanagement-simplerulegroup.md)<br /><br />[Использование атрибутов для создания расширенных правил](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[Устранение неполадок динамического членства в группах](active-directory-accessmanagement-troubleshooting.md) |
 
 Управление доступом к приложениям на основе групп поддерживается в [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) и [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Самостоятельное управление группами и приложениями, а также динамические группы — это функции [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -183,7 +197,7 @@ Cloud App Discovery — это функция [Azure AD Premium](https://azure
 
 | Путеводитель по статьям | |
 | :---: | --- |
-| Сравнение различных параметров развертывания приложений с поддержкой единого входа для пользователей | [Deploying Azure AD Integrated Applications to Users](active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) (Развертывание интегрированных приложений Azure AD для пользователей) |
+| Сравнение различных параметров развертывания приложений с поддержкой единого входа для пользователей | [Deploying Azure AD Integrated Applications to Users (Развертывание интегрированных приложений Azure AD для пользователей)](active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) |
 | Обзор панели доступа и эквивалентной мобильной версии MyApps | [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md)<br />— [Для iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Для Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Получение доступа к приложениям Azure AD на веб-сайте Office 365 | [Средство запуска приложений Office 365](https://support.office.com/ru-RU/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Получение доступа к приложениям Azure AD с мобильного приложения Intune Managed Browser | [Управление доступом в Интернет с помощью политик управляемого браузера в Microsoft Intune](https://technet.microsoft.com/ru-RU/library/dn878029.aspx)<br />— [Для iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Для Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
@@ -214,4 +228,4 @@ Cloud App Discovery — это функция [Azure AD Premium](https://azure
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

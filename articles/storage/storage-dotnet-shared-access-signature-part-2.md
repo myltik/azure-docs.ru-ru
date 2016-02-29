@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -543,9 +543,9 @@
 
 ## Дальнейшие действия
 
-[Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](../storage-dotnet-shared-access-signature-part-1/)
+[Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](storage-dotnet-shared-access-signature-part-1.md)
 
-[Управление доступом к ресурсам хранилища Azure](http://msdn.microsoft.com/library/azure/ee393343.aspx)
+[Управление анонимным доступом на чтение к контейнерам и большим двоичным объектам](storage-manage-access-to-resources.md)
 
 [Делегирование доступа с помощью подписи общего доступа (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
@@ -554,4 +554,4 @@
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

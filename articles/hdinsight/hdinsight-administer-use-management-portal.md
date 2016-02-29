@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/17/2016"
 	ms.author="jgao"/>
 
 # Управление кластерами Hadoop в HDInsight с помощью портала Azure
@@ -36,7 +36,7 @@
 Перед началом работы с этой статьей необходимо иметь следующее:
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Учетная запись хранения Azure**. Кластер HDInsight использует контейнер хранилища больших двоичных объектов Azure в качестве файловой системы по умолчанию. Дополнительные сведения о том, каким образом хранилище больших двоичных объектов Azure обеспечивает удобную работу с кластерами HDInsight, см. в разделе [Использование хранилища больших двоичных объектов Azure с HDInsight](../hdinsight-use-blob-storage.md). Сведения о создании учетной записи хранения Azure см. в разделе [Создание учетной записи хранения](../storage-create-storage-account.md).
+- **Учетная запись хранения Azure**. Кластер HDInsight использует контейнер хранилища больших двоичных объектов Azure в качестве файловой системы по умолчанию. Дополнительные сведения о том, каким образом хранилище больших двоичных объектов Azure обеспечивает удобную работу с кластерами HDInsight, см. в разделе [Использование хранилища больших двоичных объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md). Сведения о создании учетной записи хранения Azure см. в разделе [Создание учетной записи хранения](../storage/storage-create-storage-account.md).
 
 ##Запуск портала
 
@@ -132,7 +132,7 @@ HDInsight работает со множеством компонентов Hado
 	
 	- **Имя узла**: имя кластера.
 	- **URL-адрес кластера**.
-	- **Состояние**: возможны варианты "Прервано", "Принято", "Хранилище кластера подготовлено", "Конфигурация виртуальной машины Azure", "Конфигурация HDInsight", "Оперативный", "Выполняется", "Ошибка", "Удаление", "Удалено", "Время ожидания истекло", "Удаление добавлено в очередь", "Истекло время ожидания удаления", "Ошибка удаления", "Исправление добавлено в очередь", "Смена сертификатов в очереди", "Изменение размера поставлено в очередь" и "Настройка кластера".
+	- **Состояние**: возможны варианты Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization.
 	- **Регион**: расположение Azure. Поддерживаемые расположения Azure перечислены в раскрывающемся списке **Регион** на странице [Цены — HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 	- **Дата создания**.
 	- **Операционная система**: **Windows** или **Linux**.
@@ -211,12 +211,12 @@ HDInsight работает со множеством компонентов Hado
 
 ##Приостановка и завершение работы кластеров
 
-Большинство заданий Hadoop представляют собой пакетные задания, выполняемые от случая к случаю. Обычно кластеры Hadoop в течение долгих промежутков времени не используются для обработки данных. В случае с HDInsight ваши данные хранятся в службе хранилища Azure, что позволяет безопасно удалить неиспользуемый кластер.
+Большинство заданий Hadoop представляют собой пакетные задания, выполняемые от случая к случаю. Обычно кластеры Hadoop в течение долгих промежутков времени не используются для обработки данных. В случае с HDInsight ваши данные хранятся в службе хранилища Azure, что позволяет безопасно удалить неиспользуемый кластер. 
 Плата за кластеры HDInsight взимается, даже когда они не используются. Поскольку стоимость кластера во много раз превышает стоимость хранилища, экономически целесообразно удалять неиспользуемые кластеры.
 
 Этот процесс можно выполнять автоматически несколькими способами:
 
-- С помощью фабрики данных Azure. Выполняемые по запросу и самоопределяющиеся связанные службы HDInsight описаны в статьях [Связанная служба Azure HDInsight](../data-factory-compute-linked-services.md/#azure-hdinsight-linked-service) и [Выполняйте преобразование и анализ с фабрикой данных Azure](../data-factory-data-transformation-activities.md).
+- С помощью фабрики данных Azure. Выполняемые по запросу и самоопределяющиеся связанные службы HDInsight описаны в статьях [Связанная служба Azure HDInsight](../data-factory/data-factory-compute-linked-services.md/#azure-hdinsight-linked-service) и [Выполняйте преобразование и анализ с фабрикой данных Azure](../data-factory/data-factory-data-transformation-activities.md).
 - С помощью Azure PowerShell. См. статью [Анализ данных о задержке рейсов с помощью Hive в HDInsight](hdinsight-analyze-flight-delay-data.md).
 - С помощью интерфейса командной строки Azure. См. статью [Управление кластерами Hadoop в HDInsight с использованием интерфейса командной строки Azure (CLI Azure)](hdinsight-administer-use-command-line.md)
 - С помощью пакета SDK для HDInsight .NET. См. статью [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md).
@@ -292,7 +292,7 @@ HDInsight работает со множеством компонентов Hado
 
 	![История заданий на портале HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-	Щелкните **имя запроса**, чтобы увидеть подробную информацию о нем, в том числе свойства задания, **запрос задания** и **выходные данные задания**. Здесь также можно загрузить на локальный компьютер сам запрос и результат его работы.
+	Щелкните **имя запроса**, чтобы увидеть подробную информацию о нем, в том числе свойства задания, **запрос задания** и **выходные данные задания. Здесь также можно загрузить на локальный компьютер сам запрос и результат его работы.
 
 - **Обозреватель файлов**. Просмотр учетной записи хранения по умолчанию и связанных учетных записей хранения.
 
@@ -394,10 +394,10 @@ HDInsight работает со множеством компонентов Hado
 * [Администрирование HDInsight с помощью CLI Azure](hdinsight-administer-use-command-line.md)
 * [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md)
 * [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Начало работы с Azure HDInsight](../hdinsight-get-started.md)
+* [Начало работы с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Какая версия Hadoop включена в Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

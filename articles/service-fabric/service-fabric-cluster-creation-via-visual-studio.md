@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="02/12/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Настройка кластера Service Fabric с помощью Visual Studio
@@ -45,7 +45,7 @@
 |sourceVaultValue |*Идентификатор ресурса* хранилища ключей, где хранится сертификат, который обеспечивает защиту кластера.|
 |certificateUrlValue |URL-адрес сертификата безопасности кластера.|
 
-Шаблон диспетчера ресурсов Service Fabric Visual Studio создает безопасный кластер, защищенный с помощью сертификата. Этот сертификат идентифицируется по трем последним параметрам шаблона (`certificateThumbprint`, `sourceVaultValue` и `certificateUrlValue`) и должен существовать в **хранилище ключей Azure**. Дополнительные сведения о создании сертификата безопасности кластера см. в статье [Защита кластера Service Fabric с помощью сертификатов](service-fabric-cluster-security.md).
+Шаблон диспетчера ресурсов Service Fabric Visual Studio создает безопасный кластер, защищенный с помощью сертификата. Этот сертификат идентифицируется по трем последним параметрам шаблона (`certificateThumbprint`, `sourceVaultValue` и `certificateUrlValue`) и должен существовать в **хранилище ключей Azure**. Дополнительные сведения о создании сертификата безопасности кластера см. в статье [Защита кластера Service Fabric с помощью сертификатов](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates).
 
 ## Необязательно. Добавление общих портов приложения
 Также можно изменить открытые порты приложений кластера перед его развертыванием. По умолчанию в шаблоне открыты только два TCP-порта (80 и 8081). Если вашим приложениям необходимо больше открытых портов, измените определение балансировщика нагрузки Azure в шаблоне. Определение хранится в файле основного шаблона (`SecureFabricCluster.json`). Откройте этот файл и выполните поиск `loadBalancedAppPort`. Вы заметите, что каждый порт связан с тремя артефактами.
@@ -106,6 +106,8 @@
 
 Если возникли ошибки, перейдите на [портал Azure](https://portal.azure.com/) и проверьте **Уведомления**. В области уведомлений будут находиться подробные диагностические сведения о неудачном развертывании группы ресурсов.
 
+>[AZURE.NOTE] Для постоянной работы кластеров Service Fabric требуется определенное количество узлов, чтобы все время поддерживать доступность и сохранять состояние, которое называется "поддержание кворума". Поэтому обычно не рекомендуется завершать работу всех машин в кластере, пока не будет выполнено [полное резервное копирование состояния](service-fabric-reliable-services-backup-restore.md), так как это может быть небезопасно.
+
 ## Дальнейшие действия
 - [Узнайте больше о настройке кластера Service Fabric с помощью портала Azure](service-fabric-cluster-creation-via-portal.md)
 - [Узнайте больше о развертывании приложений Service Fabric и управлении ими с помощью Visual Studio](service-fabric-manage-application-in-visual-studio.md)
@@ -115,4 +117,4 @@
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="prasannas"/>
+    manager="stevenpo"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="12/04/2015" 
+    ms.date="02/17/2016" 
     ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с Igloo Software
@@ -64,7 +64,7 @@
     ![Igloo](./media/active-directory-saas-igloo-software-tutorial/IC783963.png "Igloo")
 ##Настройка единого входа
   
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Igloo Software со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. В рамках этой процедуры потребуется передать в клиент Central Desktop сертификат в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Igloo Software со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. В рамках этой процедуры потребуется передать в клиент Central Desktop сертификат в кодировке Base-64. Если вы не знакомы с этой процедурой, просмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Чтобы настроить единый вход, выполните следующие действия.
 
@@ -148,10 +148,10 @@
 
     ![Назначить пользователей](./media/active-directory-saas-igloo-software-tutorial/IC783974.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем нажмите кнопку **Да**, чтобы подтвердить назначение.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-igloo-software-tutorial/IC767830.png "Да")
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

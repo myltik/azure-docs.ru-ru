@@ -201,7 +201,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 Для создания базы данных SQL Azure, в которую будут экспортированы данные, выполните следующие действия.
 
-> [AZURE.IMPORTANT] Перед выполнением этих действий необходимо выполнить действия, описанные в разделе [Установка и настройка консоли Azure](xplat-cli-install.md). Установку консоли и последующие действия для создания базы данных можно выполнить в кластере HDInsight или на локальной рабочей станции.
+> [AZURE.IMPORTANT] Перед выполнением этих действий необходимо выполнить действия, описанные в разделе [Установка и настройка консоли Azure](../xplat-cli-install.md). Установку консоли и последующие действия для создания базы данных можно выполнить в кластере HDInsight или на локальной рабочей станции.
 
 1. Для создания нового сервера баз данных SQL Azure используйте следующую команду:
 
@@ -361,7 +361,7 @@ Apache Oozie — это система рабочих процессов и ко
 		  </property>
 		</configuration>
 
-	* Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
+	* Замените все вхождения ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
 
 	> [AZURE.WARNING] В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasb:///) приведет к сбою при запуске задания RunHiveScript.
 
@@ -392,7 +392,7 @@ Apache Oozie — это система рабочих процессов и ко
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	Часть **http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** — это URL-адрес, который используется в команде Oozie.
+	Часть ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** — это URL-адрес, который используется в команде Oozie.
 
 2. Используйте следующую команду для создания переменной среды для URL-адреса, чтобы не вводить его в каждой команде:
 
@@ -721,4 +721,4 @@ Oozie REST API позволяет создавать собственные ут
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

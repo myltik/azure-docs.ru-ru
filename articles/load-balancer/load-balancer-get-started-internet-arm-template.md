@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/18/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Начало работы по созданию балансировщика нагрузки для Интернета с использованием шаблона ARM
@@ -30,7 +30,7 @@
 
 ## Развертывание шаблона ARM с помощью кнопки развертывания
 
-Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](http://go.microsoft.com/fwlink/?LinkId=544801), щелкните **Deploy to Azure** (Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
+Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](http://go.microsoft.com/fwlink/?LinkId=544801), нажмите **Deploy to Azure** (Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
 
 ## Развертывание шаблона ARM с помощью PowerShell
 
@@ -38,9 +38,9 @@
 
 1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
 
-2. Выполните командлет **New-AzureRmResourceGroup**, чтобы создать группу ресурсов с помощью этого шаблона.
+2. Выполните командлет **New-AzureRmResourceGroupDeployment**, чтобы создать группу ресурсов с помощью шаблона.
 
-		New-AzureRmResourceGroup -Name TestRG -Location uswest `
+		New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'	
 
@@ -48,7 +48,7 @@
 
 Чтобы развернуть шаблон ARM с помощью интерфейса командной строки Azure, выполните следующие действия.
 
-1. Если вы никогда не использовали Azure CLI, см. статью [Установка и настройка CLI Azure](xplat-cli.md) и следуйте инструкциям в ней вплоть до момента выбора своей учетной записи и подписки Azure.
+1. Если вы еще не пользовались Azure CLI, см. статью [Установка и настройка CLI Azure](xplat-cli.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Выполните команду **azure config mode**, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
 		azure config mode arm
@@ -70,4 +70,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

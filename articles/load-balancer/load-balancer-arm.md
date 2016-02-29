@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -63,7 +63,7 @@
 
 [Сетевые командлеты Azure](https://msdn.microsoft.com/library/azure/mt163510.aspx) можно использовать для создания подсистемы балансировки нагрузки. Приступая к работе с командлетами ARM и API-интерфейсами REST
 
-- [Создание подсистемы балансировки нагрузки с помощью диспетчера ресурсов Azure](../load-balancer-arm-powershell)
+- [Создание подсистемы балансировки нагрузки с помощью диспетчера ресурсов Azure](load-balancer-get-started-internet-arm-ps.md)
 
 - [Использование Azure CLI с диспетчером ресурсов Azure (ARM)](../xplat-cli-azure-resource-manager)
 
@@ -76,4 +76,4 @@
 
 Если вашему приложению необходимо поддерживать подключения для серверов за балансировщиком нагрузки, можно получить дополнительные сведения о [параметрах времени ожидания простоя TCP для балансировщика нагрузки](load-balancer-tcp-idle-timeout.md). Вы узнаете о поведении неактивного подключения при использовании балансировщика нагрузки Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -20,7 +20,7 @@
 
 # Используйте учитывающий время координатор Oozie с Hadoop в HDInsight для определения рабочих процессов и координации заданий
 
-Узнайте, как определять рабочие процессы и координаторы, а также как по времени запускать задания координатора. Перед чтением этой статьи рекомендуется изучить [Использование Oozie с HDInsight][hdinsight-use-oozie]. Для получения сведений о фабрике данных Azure см. статью [Использование Pig и Hive с фабрикой данных](../data-factory/data-factory-pig-hive-activities.md).
+Узнайте, как определять рабочие процессы и координаторы, а также как по времени запускать задания координатора. Перед чтением этой статьи рекомендуется изучить [Использование Oozie с HDInsight][hdinsight-use-oozie]. Для получения сведений о фабрике данных Azure см. статью [Использование Pig и Hive с фабрикой данных](../data-factory/data-factory-data-transformation-activities.md).
 
 > [AZURE.NOTE] В этой статье требуется кластер HDInsight на основе Windows. Дополнительные сведения об использовании Oozie, включая задания на основе времени, в кластере под управлением Linux см. в разделе[Использование Oozie с Hadoop для определения и запуска рабочих процессов в HDInsight под управлением Linux](hdinsight-use-oozie-linux-mac.md)
 
@@ -84,11 +84,11 @@ Apache Oozie — это система рабочих процессов и ко
 	<tr><td>Пароль для входа базы данных SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Пароль для входа базы данных SQL</td></tr>
 	<tr><td>Имя базы данных SQL</td><td>$sqlDatabaseName</td><td></td><td>База данных Azure SQL, куда Sqoop экспортирует данные. </td></tr>
 	</table>
+	
+	> [AZURE.NOTE] По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, в частности из службы Azure HDInsight. Если этот параметр брандмауэра отключен, нужно включить его на портале Azure. Инструкции по созданию базы данных SQL и настройке правил брандмауэра см. в разделе [Создание и настройка базы данных SQL]\[sqldatabase-create-configure].
 
-	> [AZURE.NOTE]По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, в частности из службы Azure HDInsight. Если этот параметр брандмауэра отключен, нужно включить его на портале Azure. Инструкции по созданию базы данных SQL и настройке правил брандмауэра см. в разделе [Создание и настройка базы данных SQL][sqldatabase-create-configure].
 
-
-> [AZURE.NOTE]Введите значения в таблицы. Это будет полезно при прохождении данного учебника.
+> [AZURE.NOTE] Введите значения в таблицы. Это будет полезно при прохождении данного учебника.
 
 
 ##<a id="defineworkflow"></a>Определение рабочего процесса Oozie и связанного с ним сценария HiveQL
@@ -193,23 +193,18 @@ Apache Oozie — это система рабочих процессов и ко
 	<tr><td>${nameNode}</td><td>Укажите URL-адрес узла имен заданий Hadoop. Используйте стандартный адрес wasb:// для файловой системы, например <i>wasb://&lt;имя_контейнера>@&lt;имя_учетной_записи_хранилища>.blob.core.windows.net</i>.</td></tr>
 	<tr><td>${queueName}</td><td>Указывает имя очереди, в которую будет отправлено задание. Используйте <strong>значение по умолчанию</strong>.</td></tr>
 	</table>
-
-
 	<table border = "1">
 	<tr><th>Переменная действия Hive</th><th>Описание</th></tr>
 	<tr><td>${hiveDataFolder}</td><td>Исходный каталог для команды создания таблицы Hive.</td></tr>
 	<tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции INSERT OVERWRITE.</td></tr>
 	<tr><td>${hiveTableName}</td><td>Имя таблицы Hive, ссылающейся на файлы данных log4j.</td></tr>
 	</table>
-
-
 	<table border = "1">
 	<tr><th>Переменная действия Sqoop</th><th>Описание</th></tr>
 	<tr><td>${sqlDatabaseConnectionString}</td><td>Строка подключения для базы данных SQL.</td></tr>
 	<tr><td>${sqlDatabaseTableName}</td><td>Таблица базы данных  Azure SQL, в которую будут экспортированы данные.</td></tr>
 	<tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции Hive INSERT OVERWRITE. Это та же папка, что и каталог для экспорта Sqoop (export-dir).</td></tr>
 	</table>
-
 	Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в [документации на Apache Oozie 4.0][apache-oozie-400] (для кластера HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] (для кластера HDInsight версии 2.1).
 
 2. Сохраните файл как **C:\Tutorials\UseOozie\workflow.xml** в кодировке ANSI (ASCII). (Используйте Блокнот, если ваш текстовый редактор не предоставляет такую возможность.)
@@ -252,7 +247,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 HDInsight использует хранилище BLOB-объектов Azure для хранения данных. wasb:// является реализацией распределенной файловой системы Hadoop (HDFS) в хранилище BLOB-объектов Azure, предоставляемой корпорацией Майкрософт. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
 
-В процессе подготовки кластера HDInsight в качестве файловой системы по умолчанию устанавливаются учетная запись хранения BLOB-объектов Azure и конкретный контейнер из этой учетной записи, так же как и в HDFS. Помимо этой учетной записи хранения в процессе подготовки можно добавить дополнительные учетные записи хранения из той же или других подписок Azure. Инструкции по добавлению дополнительных учетных записей хранения см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision]. Чтобы упростить сценарий Azure PowerShell, используемый в этом учебнике, все файлы хранятся в контейнере файловой системы по умолчанию, расположенном в */tutorials/useoozie*. Имя контейнера по умолчанию совпадает с именем кластера HDInsight. Синтаксис :
+В процессе подготовки кластера HDInsight в качестве файловой системы по умолчанию устанавливаются учетная запись хранения BLOB-объектов Azure и конкретный контейнер из этой учетной записи, так же как и в HDFS. Помимо этой учетной записи хранения в процессе подготовки можно добавить дополнительные учетные записи хранения из той же или других подписок Azure. Инструкции по добавлению дополнительных учетных записей хранения см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision]. Чтобы упростить сценарий Azure PowerShell, используемый в этом учебнике, все файлы хранятся в контейнере файловой системы по умолчанию, расположенном в */tutorials/useoozie*. Имя контейнера по умолчанию совпадает с именем кластера HDInsight. Синтаксис:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
@@ -645,7 +640,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 **Проверка журнала ошибок задания**
 
-Для устранения неполадок рабочего процесса можно использовать файл журнала Oozie C:\apps\dist\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log на головном узле кластера. Сведения о RDP см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-admin-portal].
+Для устранения неполадок рабочего процесса можно использовать файл журнала Oozie C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\\logs\\Oozie.log на головном узле кластера. Сведения о RDP см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-admin-portal].
 
 **Повторное выполнение учебника**
 
@@ -703,8 +698,8 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
@@ -714,7 +709,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
 [hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
@@ -744,4 +739,4 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0218_2016-->

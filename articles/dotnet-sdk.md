@@ -36,7 +36,7 @@
 - [Эмулятор хранилища Microsoft Azure](#stgemulator)
 - [Средства хранилища Microsoft Azure](#stgtools)
 - [Библиотеки Microsoft Azure для .NET](#libraries)
-- [Средства HDInsight для Visual Studio](#hdinsight) и [Драйвер Microsoft Hive ODBC](#hdinsight)
+- [Средство HDInsight для Visual Studio и драйвер ODBC для Microsoft Hive](#hdinsight)
 - [Пакет SDK версии 1.0 для мобильного приложения Microsoft Azure](#mobile)
 - [Установка Microsoft Azure PowerShell](#ps)
 
@@ -101,7 +101,7 @@
 
 Средства HDInsight в обозревателе серверов позволяют перемещаться по базам данных Hive и связанным хранилищам учетных записей кластеров HDInsight, создавать таблицы, а также создавать и отправлять запросы Hive. Дополнительную информацию см. в статье [Начало работы со средствами HDInsight Hadoop для Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-###<a id="mobile">Пакет SDK для мобильных приложений Microsoft Azure
+###<a id="mobile"></a>Пакет SDK версии 1.0 для мобильных приложений Microsoft Azure
 
 Инструменты для работы с [Мобильным приложением службы приложений Azure](app-service-mobile/app-service-mobile-value-prop.md).
 
@@ -186,4 +186,4 @@ Azure PowerShell позволяет [автоматизировать созда
 
 Справочная документация клиентских библиотек Azure см. в разделе [Справочник по Azure для .NET](/documentation/api/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

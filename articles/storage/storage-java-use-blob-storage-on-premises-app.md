@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="micurd"/>
+	ms.author="rmcmurray"/>
 
 # Локальное приложение с хранилищем больших двоичных объектов
 
@@ -366,4 +366,4 @@
   [Справочник по пакету SDK для клиента хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
   [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

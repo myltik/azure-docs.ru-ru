@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 
@@ -42,7 +42,7 @@
 
 	Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
->[AZURE.NOTE]Для LoadBalancerDistribution можно задать sourceIP для балансировки нагрузки по 2 кортежам (исходный IP-адрес, IP-адрес назначения), sourceIPProtocol для балансировки нагрузки по 3 кортежам (исходный IP-адрес, IP-адрес назначения, протокол) или none для поведения по умолчанию (балансировка нагрузки по 5 кортежам).
+>[AZURE.NOTE] Для LoadBalancerDistribution можно задать sourceIP для балансировки нагрузки по 2 кортежам (исходный IP-адрес, IP-адрес назначения), sourceIPProtocol для балансировки нагрузки по 3 кортежам (исходный IP-адрес, IP-адрес назначения, протокол) или none для поведения по умолчанию (балансировка нагрузки по 5 кортежам).
 
 
 Получение конфигурации режима распределения балансировщика нагрузки для конечной точки
@@ -149,4 +149,4 @@ LoadBalancerDistribution может иметь значение sourceIP для 
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

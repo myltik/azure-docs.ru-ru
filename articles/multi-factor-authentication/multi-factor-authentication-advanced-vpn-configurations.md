@@ -7,14 +7,7 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/16/2016"" ms.author="billmath"/>
 
 # Расширенные сценарии с использованием многофакторной проверки подлинности Azure и VPN сторонних поставщиков
 Проверку Multi-Factor Authentication Azure можно использовать для быстрого подключения к широкому спектру сторонних решений VPN. В их число входят устройства VPN Cisco® ASA, Citrix NetScaler SSL, а также Juniper Networks Secure Access/Pulse Secure Connect Secure SSL.
@@ -43,4 +36,4 @@
 [Настройка VPN Juniper/Pulse Secure SSL и многофакторной проверки подлинности Azure для LDAP](http://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx)| Интеграция устройства VPN Juniper/Pulse Secure SSL с многофакторной проверкой подлинности Azure по протоколу LDAP|
 [Настройка VPN Juniper/Pulse Secure SSL и многофакторной проверки подлинности Azure для RADIUS](http://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Интеграция устройства VPN Juniper/Pulse Secure SSL с многофакторной проверкой подлинности Azure по протоколу RADIUS
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->
