@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="01/19/2016"
+    ms.date="02/16/2016"
     ms.author="elizapo" />
 
 # Новые возможности Azure RemoteApp
@@ -27,6 +27,7 @@
 |Распространяемый пакет MSI для клиента Windows ([отзывы](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/))| X| |
 |Клиент на основе HTML5 для Azure RemoteApp|X ||
 |Поддержка диспетчера ресурсов Azure (ARM)||X|
+|Поддержка ресурсов Azure версии 2| |X|
 |Поставщик облачных решений (CSP)||X|
 |Доступность в Индии|X||
 |Доступность в Соединенном Королевстве||X|
@@ -46,4 +47,4 @@
 - Доступность в австралийских центрах обработки данных
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

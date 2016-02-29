@@ -151,8 +151,8 @@
 
 Чтобы без труда отправлять все статическое содержимое из приложения ASP.NET в конечную точку или развертывать веб-приложение с помощью непрерывной доставки (пример см. в разделе [Непрерывная доставка для облачных служб в Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md)), можно воспользоваться Azure PowerShell и автоматизировать синхронизацию последних файлов содержимого с BLOB-объектами Azure при каждом развертывании веб-приложения. Например, можно выполнить скрипт из раздела [Отправка файлов содержимого из приложения ASP.NET в BLOB-объекты Azure](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a), чтобы отправить все файлы содержимого в приложение ASP.NET. Использование скрипта
 
-4. Из меню **Пуск** запустите **Microsoft Azure PowerShell**.
-5. В окне Azure PowerShell запустите `Get-AzurePublishSettingsFile`, чтобы скачать файл параметров публикации для учетной записи Azure.
+4. В меню **Пуск** выберите **Windows PowerShell**.
+5. В окне PowerShell запустите команду `Get-AzurePublishSettingsFile`, чтобы скачать файл параметров публикации для вашей учетной записи Azure.
 6. После загрузки файла параметров публикации выполните 
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
@@ -273,4 +273,4 @@
 - [Использование CDN для Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

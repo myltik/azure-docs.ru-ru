@@ -171,7 +171,7 @@
 
 **Azure PowerShell**
 
-1. В окне **Пуск** или в меню **Пуск** найдите **Azure PowerShell**. Щелкните правой кнопкой мыши пункт **Azure PowerShell** и выберите **Запуск от имени администратора**.
+1. В **меню Пуск** или на **Начальном экране** найдите **Windows PowerShell**. Щелкните правой кнопкой мыши пункт **Windows PowerShell** и выберите **Запуск от имени администратора**.
 
 	> [AZURE.NOTE] Если оболочка **Azure PowerShell** не установлена, см. информацию об установке и настройке в статье [Начало работы с командлетами Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
@@ -289,4 +289,4 @@ HTM-файлы содержат следующие разделы:
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

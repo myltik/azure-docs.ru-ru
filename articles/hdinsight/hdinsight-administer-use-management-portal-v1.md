@@ -36,14 +36,14 @@
 Перед началом работы с этой статьей необходимо иметь следующее:
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Учетная запись хранения Azure**. Кластер HDInsight использует контейнер хранилища больших двоичных объектов Azure в качестве файловой системы по умолчанию. Дополнительные сведения о том, каким образом хранилище больших двоичных объектов Azure обеспечивает удобную работу с кластерами HDInsight, см. в разделе [Использование хранилища больших двоичных объектов Azure с HDInsight](../hdinsight-use-blob-storage.md). Сведения о создании учетной записи хранения Azure см. в разделе [Создание учетной записи хранения](../storage-create-storage-account.md).
+- **Учетная запись хранения Azure**. Кластер HDInsight использует контейнер хранилища больших двоичных объектов Azure в качестве файловой системы по умолчанию. Дополнительные сведения о том, каким образом хранилище больших двоичных объектов Azure обеспечивает удобную работу с кластерами HDInsight, см. в разделе [Использование хранилища больших двоичных объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md). Сведения о создании учетной записи хранения Azure см. в разделе [Создание учетной записи хранения](../storage/storage-create-storage-account.md).
 
 
 ##Подготовка кластеров HDInsight к работе
 
 Вы можете подготавливать кластеры HDInsight на классическом портале Azure с помощью процедуры быстрого или настраиваемого создания. Инструкции см. по следующим ссылкам.
 
-- [Подготовка кластера с помощью быстрого создания](../hdinsight-get-started.md#provision)
+- [Подготовка кластера с помощью быстрого создания](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Подготовка кластера с помощью настраиваемого создания](hdinsight-provision-clusters.md#portal)
 
 [AZURE.INCLUDE [список центров обработки данных](../../includes/hdinsight-pricing-data-centers-clusters.md)]
@@ -182,7 +182,7 @@ HDInsight работает со множеством компонентов Hado
 	cd %hcatalog_home%
 
 ##Масштабирование кластеров
-См. раздел [Масштабирование кластеров Hadoop в HDInsight](hdinsight-hadoop-cluster-scaling.md)
+См. раздел [Масштабирование кластеров Hadoop в HDInsight](hdinsight-administer-use-management-portal.md#scale-clusters)
 
 ##Дальнейшие действия
 Из этой статьи вы узнали, как создать кластер HDInsight с помощью классического портала Azure и как открыть программу командной строки Hadoop. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
@@ -191,11 +191,11 @@ HDInsight работает со множеством компонентов Hado
 * [Администрирование HDInsight с помощью CLI Azure](hdinsight-administer-use-command-line.md)
 * [Подготовка кластеров HDInsight к работе](hdinsight-provision-clusters.md)
 * [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Начало работы с Azure HDInsight](../hdinsight-get-started.md)
+* [Начало работы с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Какая версия Hadoop включена в Azure HDInsight?](hdinsight-component-versioning.md)
 
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal-v1/hdi.createrdpuser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

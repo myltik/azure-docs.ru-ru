@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать подключаемый модуль Smooth Streaming служб мультимедиа Azure для платформы Open Source Media Framework." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="amitr" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
-	ms.author="juliako"/>
+	ms.date="02/17/2016"
+	ms.author="amitr"/>
 
 
+# Использование подключаемого модуля Smooth Streaming Майкрософт для платформы Adobe Open Source Media Framework
 
-# Использование подключаемого модуля Smooth Streaming Майкрософт для платформы Adobe Open Source Media Framework #
-
-##Обзор ##
+##Обзор
 
 
 Подключаемый модуль Smooth Streaming для платформы Open Source Media Framework 2.0 (SS для OSMF) расширяет возможности OSMF по умолчанию и добавляет возможности воспроизведения контента Smooth Streaming для новых и существующих проигрывателей OSMF. Подключаемый модуль также добавляет возможность воспроизведения Smooth Streaming в SMP.
@@ -202,9 +201,8 @@ package
 
 В следующем фрагменте кода показано, как загрузить подключаемый модуль SS для OSMF динамически и воспроизвести простое видео с помощью класса MediaFactory OSMF. Перед включением кода SS для OSMF скопируйте динамический модуль "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" в папку проекта, если загрузка будет выполняться с помощью протокола FILE, или скопируйте его на веб-сервер для загрузки с помощью протокола HTTP. Нет необходимости включать "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" в ссылки проекта.
 
-```
-package 
-{
+ 
+пакет {
 	
 	import flash.display.*;
 	import org.osmf.media.*;
@@ -334,9 +332,9 @@ package
 		
 	}
 }
-```
 
 ##Воспроизведение Strobe Media с помощью динамического подключаемого модуля SS ODMF
+
 Динамический подключаемый модуль Smooth Streaming для OSMF совместим с проигрывателем [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Подключаемый модуль SS для OSMF можно использовать для поддержки воспроизведения контента в SMP. Для этого скопируйте "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" на веб-сервер, чтобы выполнять загрузку по протоколу HTTP, и выполните следующие действия:
 
 1.	Откройте [страницу настройки Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html). 
@@ -412,4 +410,4 @@ package
 
 [Адаптивный подключаемый модуль Майкрософт для потоковой передачи для обновления OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

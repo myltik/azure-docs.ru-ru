@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="02/16/2016"
 	ms.author="jeffstok"/>
 
 
@@ -32,7 +32,7 @@ Azure Stream Analytics является полностью управляемо�
 
 - Установите Visual Studio 2012 или 2013.
 - Скачанный и установленный [пакет SDK для Azure .NET](https://azure.microsoft.com/downloads/).
-- Создайте группу ресурсов Azure в своей подписке. Ниже приведен пример сценария Azure PowerShell. Дополнительную информацию об Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md).  
+- Создайте группу ресурсов Azure в своей подписке. Ниже приведен пример сценария Azure PowerShell. Дополнительную информацию об Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).  
 
 
 		# Log in to your Azure account
@@ -151,7 +151,7 @@ Azure Stream Analytics является полностью управляемо�
 
 Значение переменной **resourceGroupName** должно быть таким же, как имя группы ресурсов, созданной или выбранной на предварительных шагах.
 
-Инструкции по автоматизации этапа создания задач, связанного с представлением учетных данных, см. в статье [Проверка подлинности субъекта-службы с помощью диспетчера ресурсов Azure](./articles/resource-group-authenticate-service-principal.md).
+Инструкции по автоматизации этапа создания задач, связанного с представлением учетных данных, см. в статье [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](../resource-group-authenticate-service-principal.md).
 
 В дальнейших разделах этой статьи предполагается, что этот код находится в начале метода **Main**.
 
@@ -361,9 +361,9 @@ Azure Stream Analytics является полностью управляемо�
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
+[stream.analytics.developer.guide]: stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

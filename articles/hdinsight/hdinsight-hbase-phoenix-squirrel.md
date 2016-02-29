@@ -20,7 +20,7 @@
 
 Узнайте о том, как использовать [Apache Phoenix](http://phoenix.apache.org/) в HDInsight, а также как установить и настроить SQuirreL на рабочей станции для подключения к кластеру HBase в HDInsight. Дополнительные сведения о Phoenix см. в разделе [Phoenix за 15 минут или меньше](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Для информации по грамматике Phoenix обратитесь к разделу [Грамматика Phoenix](http://phoenix.apache.org/language/index.html).
 
->[AZURE.NOTE]Для получения информации о версии Phoenix в HDInsight см. раздел [Новые возможности версий кластера Hadoop, предоставляемых HDInsight][hdinsight-versions].
+>[AZURE.NOTE] Для получения информации о версии Phoenix в HDInsight см. раздел [Новые возможности версий кластера Hadoop, предоставляемых HDInsight][hdinsight-versions].
 
 ##Использование SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) — это утилита командной строки для выполнения SQL.
@@ -91,7 +91,7 @@
 
 - Кластер HBase, развернутый в виртуальной сети Azure с виртуальной машиной DNS. Инструкции см. в разделе [Подготовка кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet]. 
 
-	>[AZURE.IMPORTANT]Необходимо установить DNS-сервер в виртуальной сети. Для получения инструкций обратитесь к разделу [Настройка VPN-подключения между двумя виртуальными сетями Azure](hdinsight-hbase-geo-replication-configure-DNS.md).
+	>[AZURE.IMPORTANT] Необходимо установить DNS-сервер в виртуальной сети. Для получения инструкций обратитесь к разделу [Настройка VPN-подключения между двумя виртуальными сетями Azure](hdinsight-hbase-geo-replication-configure-DNS.md).
 
 - Получить для кластера HBase DNS-суффикс, зависящий от подключения. Для этого войдите в кластер с помощью RDP и запустите команду IPConfig. DNS-суффикс имеет следующий вид:
 
@@ -155,7 +155,7 @@
 
 	Не закрывайте командную строку: Она понадобится в следующей процедуре.
 
-	>[AZURE.NOTE]Поскольку был создан корневой сертификат, из которого будут создаваться клиентские сертификаты, вы можете экспортировать этот сертификат вместе с его закрытым ключом и сохранить в безопасном месте, где его можно будет восстановить.
+	>[AZURE.NOTE] Поскольку был создан корневой сертификат, из которого будут создаваться клиентские сертификаты, вы можете экспортировать этот сертификат вместе с его закрытым ключом и сохранить в безопасном месте, где его можно будет восстановить.
 
 **Создание клиентского сертификата**
 
@@ -216,7 +216,7 @@
 2. Откройте/запустите jar-файл. Для него требуется среда [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Нажмите кнопку **Далее** дважды.
 4. Укажите путь, для которого у вас есть разрешения на запись, и нажмите кнопку **Далее**.
-	>[AZURE.NOTE]Папка установки по умолчанию — C:\\Program Files\\squirrel-sql-3.6. Для записи в эту папку программе установки необходимо предоставить права администратора. Можно открыть командную строку от имени администратора, перейти в папку bin Java, а затем выполнить
+	>[AZURE.NOTE] Папка установки по умолчанию — C:\\Program Files\\squirrel-sql-3.6. Для записи в эту папку программе установки необходимо предоставить права администратора. Можно открыть командную строку от имени администратора, перейти в папку bin Java, а затем выполнить
 	>
 	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. Нажмите **ОК** для подтверждения создания целевого каталога.
@@ -242,7 +242,7 @@ JAR-файл драйвера phoenix находится в кластере HBa
 	- **Пример URL-адреса**: jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
 	- **Имя класса**: org.apache.phoenix.jdbc.PhoenixDriver
 
-	>[AZURE.WARNING]В примере URL-адреса следует использовать исключительно символы нижнего регистра. Можно использовать весь набор zookeeper в случае, если один из них не работает. Их имена — zookeeper0, zookeeper1 и zookeeper2.
+	>[AZURE.WARNING] В примере URL-адреса следует использовать исключительно символы нижнего регистра. Можно использовать весь набор zookeeper в случае, если один из них не работает. Их имена — zookeeper0, zookeeper1 и zookeeper2.
 
 	![Драйвер HDInsight HBase Phoenix SQuirreL][img-squirrel-driver]
 4. Нажмите кнопку **ОК**.
@@ -289,7 +289,7 @@ JAR-файл драйвера phoenix находится в кластере HBa
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
+[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
@@ -306,4 +306,4 @@ JAR-файл драйвера phoenix находится в кластере HBa
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

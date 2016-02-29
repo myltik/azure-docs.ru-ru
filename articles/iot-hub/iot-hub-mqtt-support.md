@@ -18,7 +18,7 @@
 
 # Поддержка MQTT в центре IoT
 
-Центр IoT позволяет устройствам взаимодействовать с конечными точками устройств центра IoT с помощью протокола [MQTT v3.1.1][lnk-mqtt-org].
+Центр IoT позволяет устройствам взаимодействовать с конечными точками устройств центра IoT с помощью протокола [MQTT v3.1.1][lnk-mqtt-org] и порта 8883. Центр IoT требует того, чтобы весь обмен данными с устройствами был защищен с помощью протокола TLS/SSL.
 
 ## Подключение к центру IoT
 
@@ -81,4 +81,4 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

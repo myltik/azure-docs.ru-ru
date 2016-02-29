@@ -16,7 +16,12 @@
 	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
+
 # Мониторинг конвейеров фабрики данных Azure и управление ими
+> [AZURE.SELECTOR]
+- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+
 Служба фабрики данных предоставляет полное и достоверное представление о службах хранения, обработки и перемещения данных. Она помогает быстро оценить работоспособность конвейера данных от начала до конца, выявить проблемы и при необходимости предпринять действия по исправлению. Вы также можете в визуальном режиме отслеживать происхождение данных и взаимосвязи между разными данными во всех ваших источниках, а также просматривать журналы по выполнению заданий, работоспособности системы и зависимостям, не покидая одной панели мониторинга.
 
 В этой статье описываются мониторинг, управление и отладка конвейеров. В ней также приводятся инструкции по настройке оповещений в случае сбоев.
@@ -96,7 +101,7 @@
 <td>ValidationRetry</td><td>Ожидание повторения проверки.</td>
 </tr>
 <tr>
-
+&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Проверка выполняется.</td>
 </tr>
 <td></td>
@@ -270,15 +275,13 @@
 
 ### Использование Azure PowerShell
 
-Вы можете повторно обработать проблемные срезы, используя командлет Set-AzureRmDataFactorySliceStatus.
+Вы можете повторно обработать проблемные срезы, используя командлет Set-AzureRmDataFactorySliceStatus. Синтаксис и другие сведения об этом командлете см. в разделе [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx).
 
-	Set-AzureRmDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+**Пример.** В следующем примере состояние всех срезов в таблице DAWikiAggregatedData в фабрике данных WikiADF меняется на "Waiting".
 
-**Пример.** В следующем примере состояние всех срезов в таблице DAWikiAggregatedData в фабрике данных WikiADF меняется на PendingExecution.
+**Примечание.** Для UpdateType задано значение UpstreamInPipeline. Это означает, что каждый срез в этой таблице и всех зависимых (восходящих) таблицах, используемых в качестве входных таблиц для действия в конвейере, переходит в состояние "Waiting". Этот параметр может иметь еще одно значение — Individual.
 
-**Примечание.** Для UpdateType задано значение UpstreamInPipeline. Это означает, что каждый срез в этой таблице и всех зависимых (восходящих) таблицах, используемых в качестве входных таблиц для действия в конвейере, переходит в состояние PendingExecution. Этот параметр может иметь еще одно значение — Individual.
-
-	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## Создание оповещений
@@ -567,4 +570,4 @@ OnDemandClusterDeleted | Succeeded
 
 Вы также можете использовать командлет **Add-AlertRule**, чтобы выполнить развертывание правила оповещения. Дополнительные сведения и примеры см. в разделе [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

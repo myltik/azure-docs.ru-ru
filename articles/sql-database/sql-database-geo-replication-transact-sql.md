@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""
     authors="carlrabeler"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="01/25/2015"
+    ms.date="02/12/2016"
     ms.author="carlrab"/>
 
 # Настройка георепликации базы данных SQL Azure с помощью Transact-SQL
@@ -233,4 +233,4 @@
 - [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
 - [База данных SQL — документация](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

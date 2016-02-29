@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/11/2016"
    ms.author="telmos"/>
 
 # Модели развертывания Azure
@@ -60,12 +60,11 @@
 - **Командлеты PowerShell с шаблоном диспетчера ресурсов Azure**. Вы можете использовать PowerShell для создания ресурсов Azure с помощью шаблона диспетчера ресурсов Azure. Можно сохранять такие шаблоны и управлять их версиями. Дополнительные сведения см. в статье [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md). Для решения типовых задач предусмотрены [шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/), которые также можно загрузить и изменить.
 
 ## Интерфейс командной строки
-Вы можете создавать и настраивать ресурсы Azure на компьютерах под управлением Windows, OS X или Linux с помощью интерфейса командной строки (CLI). Сведения об установке CLI в операционной системе см. в статье [Установка Azure CLI](xplat-cli-install.md). Как и в PowerShell, в CLI предусмотрены различные команды, используемые при создании ресурсов с помощью [диспетчера ресурсов](xplat-cli-azure-resource-manager.md) или в рамках [классической модели развертывания (управления службами)](virtual-machines-command-line-tools.md).
+Вы можете создавать и настраивать ресурсы Azure на компьютерах под управлением Windows, OS X или Linux с помощью интерфейса командной строки (CLI). Сведения об установке CLI в операционной системе см. в статье [Установка Azure CLI](xplat-cli-install.md). Как и в PowerShell, в CLI предусмотрены различные команды, используемые при создании ресурсов с помощью [диспетчера ресурсов](xplat-cli-azure-resource-manager.md) или в рамках [классической модели развертывания (управления службами)](virtual-machines/virtual-machines-command-line-tools.md).
 
 ## Дальнейшие действия
 
-- Читайте подробнее о [диспетчере ресурсов](/resource-group-overview.md).
-- Узнайте, как [разрабатывать шаблоны](/best-practices-resource-manager-design-templates.md).
-- Используйте [рекомендации](/best-practices-resource-manager-examples.md).
+- Читайте подробнее о [диспетчере ресурсов](resource-group-overview.md).
+- Узнайте, как [разрабатывать шаблоны](best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

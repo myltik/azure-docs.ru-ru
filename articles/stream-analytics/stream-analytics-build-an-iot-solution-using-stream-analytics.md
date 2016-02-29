@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"
 />
 
@@ -37,7 +37,7 @@
 
 Для успешного выполнения заданий в этом учебнике необходимо соблюсти следующие предварительные требования.
 
--   Последняя версия [Azure PowerShell](../install-configure-powershell.md)
+-   Последняя версия [Azure PowerShell](../powershell-install-configure.md)
 -   Visual Studio 2015 или бесплатная версия [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 -   [Подписка Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Права администратора на компьютере
@@ -150,7 +150,7 @@
 
 Скачайте и сохраните вспомогательную папку [TollApp](https://github.com/streamanalytics/samples/releases) и файлы. Убедитесь, что скачивается последняя версия.
 
-Откройте окно "Microsoft Azure PowerShell" **от имени администратора**. Если у вас нет Azure PowerShell, следуйте инструкциям по установке в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md).
+Откройте окно "Microsoft Azure PowerShell" **от имени администратора**. Если у вас нет Azure PowerShell, следуйте инструкциям по установке в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 Windows автоматически блокирует файлы PS1, DLL и EXE, скачанные из Интернета. Перед выполнением сценария необходимо задать политику выполнения. Убедитесь, что окно Azure PowerShell открыто от имени администратора. Выполните команду "Set-ExecutionPolicy unrestricted". При появлении запроса введите "Y".
 
@@ -534,4 +534,4 @@ Azure Stream Analytics поддерживает масштабируемость
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

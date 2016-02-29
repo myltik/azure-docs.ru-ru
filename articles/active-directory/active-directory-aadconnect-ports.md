@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="02/09/2016"
 	ms.author="billmath"/>
 
 # Порты и протоколы, необходимые для гибридной идентификации
@@ -74,15 +74,14 @@
 В следующих таблицах описываются конечные точки, порты и протоколы, необходимые для взаимодействия между агентами Azure AD Connect Health и Azure AD.
 
 ### Таблица 6а. Порты и протоколы для агента Azure AD Connect Health для (AD FS и синхронизации) и Azure AD
-В этой таблице описываются порты и протоколы, необходимые для взаимодействия между агентами Azure AD Connect Health и Azure AD.
+В этой таблице описываются следующие исходящие порты и протоколы, необходимые для взаимодействия между агентами Azure AD Connect Health и Azure AD.
 
 | Протокол |порты; |Описание
 | --------- | --------- |--------- |
-| HTTP|80 (TCP или UDP)|
-|HTTPS|443 (TCP или UDP)|
-|Azure Service Bus|5671 (TCP или UDP)|
+|HTTPS|443 (TCP или UDP)| Исходящие
+|Azure Service Bus|5671 (TCP или UDP)| Исходящие
 
 ### 6б. Конечные точки для агента Azure AD Connect Health для (AD FS и синхронизации) и Azure AD
 Список конечных точек см. в [разделе "Требования" для агента Azure AD Connect Health](active-directory-aadconnect-health.md#requirements).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

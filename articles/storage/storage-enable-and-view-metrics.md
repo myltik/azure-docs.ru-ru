@@ -3,7 +3,7 @@
 	description="Как включить метрики хранилища для служб больших двоичных объектов, очередей, таблиц и файлов." 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
+	authors="robinsh" 
 	manager="carmonm" 
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="02/14/2016" 
+	ms.author="robinsh"/>
 
 # Включение метрик хранилища Azure и просмотр данных метрик
 
@@ -58,7 +58,7 @@
 
 `Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob`
 
-Дополнительную информацию о настройке командлетов Azure PowerShell для работы с подпиской Azure и о выборе учетной записи хранения по умолчанию см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md).
+Дополнительную информацию о настройке командлетов Azure PowerShell для работы с подпиской Azure и о выборе учетной записи хранения по умолчанию см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 ## Как программно включить метрики хранилища
 
@@ -201,7 +201,7 @@
 - В таблице емкости больших двоичных объектов ежедневно добавляются две строки (если пользователь выбрал использование журналов). При этом размер этой таблицы ежедневно увеличивается примерно на 300 байтов.
 
 ## Дальнейшие действия:
-[Включение ведения журнала хранилища и доступ к данным журнала](https://msdn.microsoft.com/library/dn782840.aspx)
+[Включение ведения журнала и доступа к данным журнала хранилища](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

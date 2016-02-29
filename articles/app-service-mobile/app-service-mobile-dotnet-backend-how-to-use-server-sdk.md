@@ -138,7 +138,7 @@
 
 ## <a name="publish-server-project"></a>Практическое руководство. Публикация серверного проекта
 
-В этом разделе показано, как опубликовать серверный проект .NET из Visual Studio. Кроме того, для развертывания серверного проекта вы можете использовать Git или любой из методов, описанных в [документации по развертыванию службы приложений Azure](../app-service-web/web-site-deploy.md).
+В этом разделе показано, как опубликовать серверный проект .NET из Visual Studio. Кроме того, для развертывания серверного проекта вы можете использовать Git или любой из методов, описанных в [документации по развертыванию службы приложений Azure](../app-service-web/web-sites-deploy.md).
 
 1. В Visual Studio выполните повторную сборку проекта, чтобы восстановить пакеты NuGet.
 
@@ -445,4 +445,4 @@ SID является производным от идентификатора п
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

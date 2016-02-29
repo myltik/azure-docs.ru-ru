@@ -122,6 +122,6 @@ Spark в HDInsight, кроме того, включает [драйвер ODBC](
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

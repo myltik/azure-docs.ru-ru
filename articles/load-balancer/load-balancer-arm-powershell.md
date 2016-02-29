@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Приступая к настройке подсистемы балансировки нагрузки для Интернета с помощью диспетчера ресурсов Azure
@@ -54,7 +54,7 @@
 
 
 ### Шаг 1.
-Убедитесь, что выбран режим PowerShell для использования командлетов ARM. Дополнительную информацию см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](powershell-azure-resource-manager.md).
+Убедитесь, что выбран режим PowerShell для использования командлетов ARM. Дополнительные сведения см. в статье [Использование Windows PowerShell с диспетчером ресурсов](powershell-azure-resource-manager.md).
 
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
@@ -242,7 +242,7 @@ PS C:\> $backendnic1
 
 Используйте команду Add-AzureVMNetworkInterface, чтобы присвоить сетевую карту виртуальной машине.
 
-Пошаговые инструкции по созданию виртуальной машины и назначению сетевой карты см. в статье [Создание и предварительная настройка виртуальной машины под управлением Windows с помощью диспетчера ресурсов и Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) (варианты 4 или 5).
+Пошаговые инструкции по созданию виртуальной машины и назначению сетевой карты см. в статье [Создание и настройка виртуальной машины Windows с помощью диспетчера ресурсов и Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) (вариант 4 или 5).
 
 ## Обновление существующего балансировщика нагрузки
 
@@ -272,7 +272,7 @@ PS C:\> $backendnic1
 
 	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE]Чтобы пропустить подтверждение удаления, можно использовать необязательный ключ -Force.
+>[AZURE.NOTE] Чтобы пропустить подтверждение удаления, можно использовать необязательный ключ -Force.
 
 
 ## См. также
@@ -282,4 +282,4 @@ PS C:\> $backendnic1
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

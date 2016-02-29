@@ -21,7 +21,7 @@
 
 ## Обзор
 
-В этой статье показано, как реализовать типичные сценарии с использованием хранилища BLOB-объектов Microsoft Azure. Примеры написаны на Objective-C с использованием [библиотеки хранилища Azure для iOS](https://github.com/Azure/azure-storage-ios). Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** больших двоичных объектов. Дополнительные сведения о BLOB-объектах см. в разделе [Дальнейшие действия](#next-steps). Можно также загрузить [пример приложения](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample), чтобы просмотреть варианты использования хранилища Azure в приложении iOS.
+В этой статье показано, как реализовать типичные сценарии с использованием хранилища BLOB-объектов Microsoft Azure. Примеры написаны на Objective-C и используют [клиентскую библиотеку службы хранилища Azure для iOS](https://github.com/Azure/azure-storage-ios). Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** больших двоичных объектов. Дополнительные сведения о BLOB-объектах см. в разделе [Дальнейшие действия](#next-steps). Можно также загрузить [пример приложения](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample), чтобы просмотреть варианты использования хранилища Azure в приложении iOS.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -88,7 +88,7 @@
 
 В следующем примере показано, как использовать Azure CLI для создания маркера SAS, который предоставляет разрешения на чтение и запись для контейнера *sascontainer* до 12:00 (UTC) 5 сентября 2015 г.
 
-1. Прежде всего, ознакомьтесь с этим [руководством](../xplat-cli/#how-to-install-the-azure-cli), чтобы узнать, как установить Azure CLI и подключиться к подписке Azure.
+1. См. статью [Установка Azure CLI](../xplat-cli-install.md), чтобы узнать, как установить Azure CLI и подключиться к подписке Azure.
 
 2. Затем введите следующую команду в Azure CLI, чтобы получить строку подключения для своей учетной записи:
 
@@ -111,7 +111,7 @@
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-Как видите, при использовании маркера SAS в приложении iOS вам не нужно предоставлять имя и ключ учетной записи. Дополнительные сведения о SAS см. в [учебнике по подписанному URL-адресу](../storage-dotnet-shared-access-signature-part-1).
+Как видите, при использовании маркера SAS в приложении iOS вам не нужно предоставлять имя и ключ учетной записи. Дополнительные сведения о SAS см. в статье [Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](../storage-dotnet-shared-access-signature-part-1).
 
 ##Асинхронные операции
 > [AZURE.NOTE] Все методы, которые выполняют запрос к службе, являются асинхронными операциями. Из образцов кода понятно, что у этих методов есть обработчик завершения. Код внутри обработчика завершения выполняется **после** завершения запроса. Код за пределами обработчика завершения (следующий за ним) выполняется **во время** выполнения запроса.
@@ -348,15 +348,11 @@
 
 Вы изучили основную информацию о хранилище больших двоичных объектов. Дополнительную информацию о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-- [Библиотека хранилища Azure для iOS]
-- [REST API службы хранилища Azure]
-- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
-- [Блог рабочей группы службы хранилища Azure]
+- [Клиентская библиотека хранилища Azure для iOS](https://github.com/azure/azure-storage-ios)
+- [API-интерфейс REST служб хранилища Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
+- [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage)
 
 Если у вас есть вопросы по данной библиотеке, вы можете опубликовать их на нашем [форуме MSDN по Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) или на сайте [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Если у вас есть предложения по функциям хранилища Azure, вы можете опубликовать их на сайте [отзывов о хранилище Azure](https://feedback.azure.com/forums/217298-storage/).
 
-[Библиотека хранилища Azure для iOS]: https://github.com/azure/azure-storage-ios
-[REST API службы хранилища Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

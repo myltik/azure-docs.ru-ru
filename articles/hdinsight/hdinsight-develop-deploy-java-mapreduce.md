@@ -202,7 +202,7 @@
 
 3. После завершения выполнения команды в каталоге __wordcountjava\\target__ будет находиться файл с именем __wordcountjava-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE]Файл __wordcountjava-1.0-SNAPSHOT.jar__ является uberjar.
+	> [AZURE.NOTE] Файл __wordcountjava-1.0-SNAPSHOT.jar__ является uberjar.
 
 
 ##<a name="test"></a>Тестирование программы в эмуляторе
@@ -231,7 +231,7 @@
 
 В этом учебнике в качестве файлов данных используются текстовые файлы .txt, расположенные в каталоге %hadoop\_home%.
 
-> [AZURE.NOTE]В командах Hadoop HDFS учитывается регистр.
+> [AZURE.NOTE] В командах Hadoop HDFS учитывается регистр.
 
 **Копирование файлов данных в эмулятор HDFS**
 
@@ -304,7 +304,7 @@
 
 
 ##<a id="upload"></a>Отправка данных и приложения в хранилище больших двоичных объектов Azure
-Azure HDInsight использует для хранения данных хранилище BLOB-объектов Azure. При подготовке кластера HDInsight контейнер хранилища BLOB-объектов Azure используется для хранения системных файлов. Для хранения файлов данных можно использовать этот контейнер по умолчанию или другой контейнер (в той же учетной записи хранения Azure или в другой учетной записи хранения в том же центре обработки данных, где находится кластер).
+Azure HDInsight использует для хранения данных хранилище BLOB-объектов Azure. При подготовке кластера HDInsight контейнер хранилища BLOB-объектов Azure используется для хранения системных файлов. Для хранения файлов данных можно использовать этот контейнер по умолчанию или другой контейнер (в той же учетной записи хранения Azure или в другой учетной записи хранения в том же регионе, где находится кластер).
 
 В этом учебнике вы создадите контейнер для файлов данных и приложения MapReduce в отдельной учетной записи хранения. Файлы данных представляют собой текстовые файлы, которые находятся в каталоге **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** на рабочей станции с эмулятором.
 
@@ -316,7 +316,7 @@ Azure HDInsight использует для хранения данных хра
 		$subscriptionName = "<AzureSubscriptionName>"
 		$storageAccountName_Data = "<AzureStorageAccountName>"  
 		$containerName_Data = "<ContainerName>"
-		$location = "<MicrosoftDataCenter>"  # For example, "East US"
+		$location = "<Region>"  # For example, "East US"
 
 	Переменная **$subscripionName** связана с вашей подпиской Azure. Необходимо указать имя **$storageAccountName\_Data** и **$containerName\_Data**. Ограничения именования см. в разделе [Присвоение имен и ссылки на контейнеры, BLOB-объекты и метаданные](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
 
@@ -455,7 +455,7 @@ Azure HDInsight использует для хранения данных хра
 		# The Storage account and the HDInsight cluster variables
 		$subscriptionName = "<AzureSubscriptionName>"
 		$stringPrefix = "<StringForPrefix>"
-		$location = "<MicrosoftDataCenter>"     ### Must match the data Storage account location
+		$location = "<Region>"     ### Must match the data Storage account location
 		$clusterNodes = <NumberOFNodesInTheCluster>
 
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
@@ -592,22 +592,22 @@ Azure HDInsight использует для хранения данных хра
 
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-emulator]: ../hdinsight-get-started-emulator.md
 [hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md
 
 
 
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

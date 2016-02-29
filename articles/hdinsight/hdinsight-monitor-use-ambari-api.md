@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/17/2016"
 	ms.author="jgao"/>
 
 # Отслеживание кластеров Hadoop в HDInsight с помощью интерфейса Ambari API
 
 Узнайте, как наблюдать за кластерами HDInsight версии 3.1 и 2.1 с помощью интерфейсов Ambari API.
 
-> [AZURE.NOTE]Информация в этой статье касается преимущественно кластеров HDInsight на платформе Windows, которые предоставляют версию интерфейса API REST Ambari только для чтения. Информацию о кластерах на платформе Linux см. в разделе [Управление кластерами Hadoop с помощью Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.NOTE] Информация в этой статье касается преимущественно кластеров HDInsight на платформе Windows, которые предоставляют версию интерфейса API REST Ambari только для чтения. Информацию о кластерах на платформе Linux см. в разделе [Управление кластерами Hadoop с помощью Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## Что такое Ambari?
 
@@ -40,19 +40,17 @@
 
 - [cURL][curl] (необязательно). Для установки см. раздел [выпусков и скачиваемых файлов cURL][curl-download].
 
-	>[AZURE.NOTE]При использовании команды cURL в Windows для значений параметров указывайте двойные кавычки вместо одинарных.
+	>[AZURE.NOTE] При использовании команды cURL в Windows для значений параметров указывайте двойные кавычки вместо одинарных.
 
 - **Кластер Azure HDInsight**. Указания по подготовке кластеров см. в разделе [Приступая к работе с HDInsight][hdinsight-get-started] или [Подготовка кластеров HDInsight][hdinsight-provision]. Для выполнения учебника необходимы следующие данные:
 
-Свойство кластера|Имя переменной Azure PowerShell|Значение|Описание
----|---|---|---
-Имя кластера HDInsight.|$clusterName||Это имя вашего кластера HDInsight.
-Имя пользователя кластера|$clusterUsername||Имя пользователя кластера, указанное при подготовке.
-Пароль кластера|$clusterPassword||Пароль пользователя кластера.
+    Свойство кластера|Имя переменной Azure PowerShell|Значение|Описание
+    ---|---|---|---
+    Имя кластера HDInsight.|$clusterName||Это имя вашего кластера HDInsight.
+    Имя пользователя кластера|$clusterUsername||Имя пользователя кластера, указанное при подготовке.
+    Пароль кластера|$clusterPassword||Пароль пользователя кластера.
 
-	> [AZURE.NOTE] Введите значения в таблицу. Это будет полезно для изучения данного учебника.
-
-
+    >[AZURE.NOTE] Введите значения в таблицу. Это будет полезно для изучения данного учебника.
 
 ## Приступая к работе
 
@@ -163,16 +161,16 @@
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-documentation]: /documentation/services/hdinsight/
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

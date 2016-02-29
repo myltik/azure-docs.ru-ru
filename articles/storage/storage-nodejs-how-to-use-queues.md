@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -31,7 +31,7 @@
 
 ## Создание приложения Node.js
 
-Создайте пустое приложение Node.js. Инструкции по созданию приложения Node.js см. в статьях [Создание и развертывание приложения Node.js на веб-сайте Azure], [Облачная служба Node.js][Node.js Cloud Service] (с помощью Windows PowerShell) или [Веб-сайт с WebMatrix].
+Создайте пустое приложение Node.js. Инструкции по созданию приложения Node.js см. в статьях [Создание веб-приложения Node.js в службе приложений Azure], [Построение и развертывание приложения Node.js в облачной службе Azure] (с использованием Windows PowerShell) или [Создание и развертывание веб-приложения Node.js в Azure с использованием WebMatrix].
 
 ## Настройка приложения для доступа к хранилищу
 
@@ -315,10 +315,10 @@ ACL реализуется с помощью массива политик до�
 
   [Пакет SDK хранилища Azure для Node]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Portal]: portal.azure.com
-  [Создание и развертывание приложения Node.js на веб-сайте Azure]: ../web-sites-nodejs-develop-deploy-mac.md
-  [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Веб-приложение Node.js, использующее службу таблиц Azure]: ../storage-nodejs-use-table-storage-web-site.md
+  [Azure Portal]: https://portal.azure.com
+  [Создание веб-приложения Node.js в службе приложений Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+  [Веб-приложение Node.js, использующее службу таблиц Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 
 
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -327,8 +327,8 @@ ACL реализуется с помощью массива политик до�
 
 
 
-  [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
+  [Построение и развертывание приложения Node.js в облачной службе Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Веб-сайт с WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+  [Создание и развертывание веб-приложения Node.js в Azure с использованием WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Вход с помощью вызова на рабочий или мобильный телефон при работе со службой Azure Multi-Factor Authentication
@@ -38,4 +38,4 @@
 
 <li>После этого вы войдете в систему.</li>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

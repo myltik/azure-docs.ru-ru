@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Синхронизация Azure AD Connect: технические концепции
+В этой статье приводится сводка раздела [Основные сведения об архитектуре](active-directory-aadconnectsync-technical-concepts.md).
 
 Служба синхронизации Azure AD Connect основана на устойчивой платформе синхронизации метакаталогов. В следующих разделах описываются основные понятия синхронизации метакаталогов. Основывающиеся на MIIS, ILM и FIM, службы синхронизации Azure Active Directory предоставляют следующую платформу для подключения к источникам данных, синхронизации данных между источниками данных, а также для подготовки и отзыва удостоверений.
 
@@ -89,4 +90,4 @@
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

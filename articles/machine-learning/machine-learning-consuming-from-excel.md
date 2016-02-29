@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="02/12/2016"
 	ms.author="tedway"/>
 
 
@@ -27,7 +27,7 @@
 
 ## Действия
 
-1. Опубликуйте веб-службу. На [этой странице](machine-learning-walkthrough-5-publish-web-service.md) объясняется, как это сделать. В настоящее время функция книги Excel поддерживается только для служб обработки запросов и ответов с один выходом (то есть, с одной меткой оценки).
+1. Опубликуйте веб-службу. На [этой странице](machine-learning-walkthrough-5-publish-web-service.md) объясняется, как это сделать. В настоящее время функция книги Excel поддерживается только для служб обработки запросов и ответов с один выходом (то есть с одной меткой оценки).
 
 2. После создания веб-службы щелкните раздел **ВЕБ-СЛУЖБЫ** в левой части студии, а затем выберите веб-службу, которую нужно использовать в Excel.
 
@@ -71,4 +71,4 @@
 [3]: ./media/machine-learning-consuming-from-excel/enablecontent.png
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

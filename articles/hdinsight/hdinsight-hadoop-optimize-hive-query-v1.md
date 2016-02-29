@@ -206,11 +206,11 @@ Hive поддерживает различные форматы. Наприме�
 ##<a id="nextsteps"></a>Дальнейшие действия
 В этой статье вы узнали некоторые распространенные методы оптимизации запросов Hive. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-- [Использование Apache Hive в HDInsight](../hdinsight-using-hive.md)
+- [Использование Apache Hive в HDInsight](hdinsight-use-hive.md)
 - [Анализ данных о задержке рейсов с помощью Hadoop в HDInsight](hdinsight-analyze-flight-delay-data.md)
 - [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data.md)
 - [Анализ данных датчика с помощью консоли запросов Hive с Hadoop в HDInsight](hdinsight-hive-analyze-sensor-data.md)
-- [Использование Hive в HDInsight для анализа журналов веб-сайтов](../hdinsight-hive-analyze-web-site-log.md)
+- [Использование Hive в HDInsight для анализа журналов веб-сайтов](hdinsight-hive-analyze-website-log.md)
 
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png
@@ -218,4 +218,4 @@ Hive поддерживает различные форматы. Наприме�
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -20,7 +20,7 @@
 
 # Управление ресурсами кластера Apache Spark в Azure HDInsight (Windows)
 
-> [AZURE.NOTE]Теперь HDInsight предоставляет кластеры Spark в Linux. Сведения о том, как управлять ресурсами кластера Spark в HDInsight на платформе Linux, см. в разделе [Управление ресурсами кластера Apache Spark в Azure HDInsight (Linux)](hdinsight-apache-spark-resource-manager.md).
+> [AZURE.NOTE] Теперь HDInsight предоставляет кластеры Spark в Linux. Сведения о том, как управлять ресурсами кластера Spark в HDInsight на платформе Linux, см. в разделе [Управление ресурсами кластера Apache Spark в Azure HDInsight (Linux)](hdinsight-apache-spark-resource-manager.md).
 
 Диспетчер ресурсов является компонентом панели мониторинга кластера Spark, с помощью которого можно управлять ресурсами, например ядрами и объемом ОЗУ, используемыми каждым приложением, которое выполняется в кластере.
 
@@ -73,15 +73,15 @@
 * [Использование Spark в HDInsight для создания приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

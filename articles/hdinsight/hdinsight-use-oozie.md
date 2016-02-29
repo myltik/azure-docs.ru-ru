@@ -173,7 +173,7 @@ RunHiveScript имеет несколько переменных. Вы пере�
 Сценарий PowerShell в этом разделе выполняет следующие действия:
 
 1. Подключение к Azure.
-2. Создание группы ресурсов Azure. Подробнее об этом см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](powershell-azure-resource-manager.md).
+2. Создание группы ресурсов Azure. Подробнее об этом см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 3. Создание сервера базы данных SQL Azure, базы данных SQL Azure и двух таблиц. Они используются действием Sqoop в рабочем процессе.
 
 	Имя таблицы — *log4jLogCount*.
@@ -635,11 +635,11 @@ RunHiveScript имеет несколько переменных. Вы пере�
 
 
 
-[azure-data-factory-pig-hive]: ../data-factory/data-factory-pig-hive-activities.md
+[azure-data-factory-pig-hive]: ../data-factory/data-factory-data-transformation-activities.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
@@ -650,7 +650,7 @@ RunHiveScript имеет несколько переменных. Вы пере�
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
 
 [hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
@@ -680,4 +680,4 @@ RunHiveScript имеет несколько переменных. Вы пере�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"/>
 
 #Заметки о выпуске Stream Analytics
@@ -127,10 +127,10 @@ TIMESTAMP BY для разнородных событий | Если один п
 ## Дальнейшие действия
 
 - [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
-- [Приступая к работе с Azure Stream Analytics](../stream.analytics.get.started.md)
+- [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md)
 - [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -57,10 +57,11 @@
 6.	**Максимальный размер задания:** размер задания определяется емкостью используемых жестких дисков и максимальным объемом данных, который может быть сохранен в учетной записи хранения. Каждое задание может содержать не более 10 жестких дисков.
 7.  **Поддерживаемые операционные системы:** клиент может использовать одну из следующих операционных систем для подготовки жесткого диска с помощью средства импорта и экспорта Azure перед отправкой в Azure: Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2.  
 
-  > [AZURE.IMPORTANT] 
-    Если для подготовки диска используется компьютер с Windows 10, обратитесь к инструкциям в [разделе вопросов и ответов](#frequently-asked-questions).
-    
-    - External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
+  > [AZURE.IMPORTANT]
+  >  
+  >  - Если для подготовки диска используется компьютер с Windows 10, см. инструкции в [разделе вопросов и ответов](#frequently-asked-questions).
+  >  
+  >  - Эта служба не поддерживает внешние жесткие диски, имеющие встроенный USB-адаптер. Не подготавливайте внешний жесткий диск. Диск во внешнем корпусе также нельзя использовать для импорта данных. Используйте **внутренний** жесткий диск 3,5 дюйма, SATA II или III. Если диск SATA нельзя подключить непосредственно к компьютеру, воспользуйтесь внешним адаптером SATA-USB. Ознакомьтесь со списком рекомендуемых адаптеров в разделе вопросов и ответов.
 
 ## Создание задания импорта на классическом портале Azure##
 
@@ -186,7 +187,7 @@
 - При выборе режима шифрования укажите **Режим совместимости (лучше всего подходит для дисков, которые могут быть перемещены из этого устройства)**.  
 - После завершения шифрования запустите средство импорта и экспорта Azure для копирования данных на этот жесткий диск.   
 - Используйте параметр */bk* и укажите ключ восстановления в качестве значения этого параметра.   
-- НЕ используйте параметры */format* и */ encrypt*.  
+- НЕ используйте параметры */format* и */encrypt*.  
 
 **Как определяется цена на службу импорта и экспорта?**
 
@@ -290,4 +291,4 @@
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

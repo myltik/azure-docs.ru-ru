@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/14/2016" 
 	ms.author="tamram"/>
 
 # Начните работать с хранилищем Azure за пять минут 
@@ -30,7 +30,7 @@
 
 1. Чтобы скомпилировать и собрать приложение, на компьютере должна быть установлена версия [Visual Studio](https://www.visualstudio.com/). 
 
-2. Установите последнюю версию [SDK Azure для .NET](https://azure.microsoft.com/downloads/). Пакет SDK включает образцы проектов Azure QuickStart, эмулятор хранения Azure и [клиентскую библиотеку хранилища Azure для .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
+2. Установите последнюю версию [SDK Azure для .NET](https://azure.microsoft.com/downloads/). Пакет SDK включает образцы проектов Azure QuickStart, эмулятор хранения Azure и [клиентскую библиотеку хранилища Azure для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 3. Убедитесь, что на компьютере установлен [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653), так как это необходимо для образцов проектов Azure QuickStart, которые мы будем использовать в этом учебнике.
 
@@ -39,7 +39,7 @@
 4. Вам потребуются подписка Azure и учетная запись хранения Azure.
 
     - О получении подписки Azure см. в разделах [Бесплатная пробная версия](https://azure.microsoft.com/pricing/free-trial/), [Варианты приобретения](https://azure.microsoft.com/pricing/purchase-options/) и [Предложения для участников](https://azure.microsoft.com/pricing/member-offers/) (для участников MSDN, Microsoft Partner Network, BizSpark и других программ корпорации Майкрософт).
-    - Чтобы создать учетную запись хранения в Azure, см. раздел [Создание, управление и удаление учетной записи хранения](storage-create-storage-account.md).
+    - Чтобы создать учетную запись хранения в Azure, см. статью [Об учетных записях хранения Azure](storage-create-storage-account.md#create-a-storage-account).
 
 ## Запуск первого приложения хранилища Azure в хранилище Azure в облаке
 
@@ -98,15 +98,16 @@
 Дополнительные сведения о хранилище Azure:
 
 * [Введение в службу хранилища Microsoft Azure](storage-introduction.md)
-* [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md)
-* [Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md)
-* [Использование хранилища очередей из .NET](storage-dotnet-how-to-use-queues.md)
-* [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
+* [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md)
+* [Приступая к работе с хранилищем таблиц Azure с помощью .NET](storage-dotnet-how-to-use-tables.md)
+* [Приступая к работе с хранилищем очередей Azure с помощью .NET](storage-dotnet-how-to-use-queues.md)
+* [Приступая к работе с хранилищем файлов Azure в Windows](storage-dotnet-how-to-use-files.md)
+* [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 * [Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [Клиентская библиотека хранилища Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-* [REST API службы хранилища Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Клиентская библиотека хранилища Microsoft Azure для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+* [API-интерфейс REST служб хранилища Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

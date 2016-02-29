@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/17/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -66,7 +66,7 @@
 <!--Article references-->
 [business continuity overview]: ../sql-database/sql-database-business-continuity.md
 [Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
-[Варианты избыточности хранилища Azure]: storage-redundancy/#read-access-geo-redundant-storage-ra-grs.md
+[Варианты избыточности хранилища Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Обзор непрерывности бизнес-процессов базы данных SQL]: ../sql-database/sql-database-business-continuity.md
 [Восстановление базы данных после ошибки пользователя в хранилище данных SQL]: sql-data-warehouse-business-continuity-recover-from-user-error.md
 
@@ -78,4 +78,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

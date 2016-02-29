@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Как работает управление паролями
@@ -102,7 +102,7 @@
 ## Ссылки на документацию по сбросу паролей
 Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
-* [**Сброс собственного пароля**](active-directory-passwords-update-your-own-password.md) — узнайте, как сбросить или изменить свой пароль пользователя системы
+* [**Сброс собственного пароля**](active-directory-passwords-update-your-own-password.md) — узнайте, как сбросить или изменить свой пароль пользователя системы.
 * [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
 * [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
 * [**Рекомендации**](active-directory-passwords-best-practices.md) — узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.
@@ -121,4 +121,4 @@
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

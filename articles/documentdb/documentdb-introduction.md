@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/16/2016" 
 	ms.author="mimig"/>
 
 # Введение DocumentDB: база данных NoSQL JSON
@@ -77,11 +77,11 @@ Azure DocumentDB предоставляет ресурсы посредство�
 Загрузить | Документация
 --- | ---
 [ПАКЕТ SDK .NET](http://go.microsoft.com/fwlink/?LinkID=402989) | [Библиотека для .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)
-[Пакет SDK для Node.js](http://go.microsoft.com/fwlink/?LinkID=402990) | [Библиотека для Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)
-[Пакет SDK для Java](http://go.microsoft.com/fwlink/?LinkID=402380) | [Библиотека для Java](http://dl.windowsazure.com/documentdb/javadoc/)
-[Пакет SDK для JavaScript](http://go.microsoft.com/fwlink/?LinkID=402991) | [Библиотека для JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/)
-Недоступно | [Пакет SDK для серверного JavaScript](http://dl.windowsazure.com/documentDB/jsserverdocs/)
-[Пакет SDK для Python](https://pypi.python.org/pypi/pydocumentdb) | [Библиотека для Python](http://dl.windowsazure.com/documentDB/pythondocs/)
+[Пакет SDK для Node.js](http://go.microsoft.com/fwlink/?LinkID=402990) | [Библиотека для Node.js](http://azure.github.io/azure-documentdb-node/)
+[Пакет SDK для Java](http://go.microsoft.com/fwlink/?LinkID=402380) | [Библиотека для Java](http://azure.github.io/azure-documentdb-java/)
+[Пакет SDK для JavaScript](http://go.microsoft.com/fwlink/?LinkID=402991) | [Библиотека для JavaScript](http://azure.github.io/azure-documentdb-js/)
+Недоступно | [Пакет SDK для серверного JavaScript](http://azure.github.io/azure-documentdb-js-server/)
+[Пакет SDK для Python](https://pypi.python.org/pypi/pydocumentdb) | [Библиотека для Python](http://azure.github.io/azure-documentdb-python/)
 
 Помимо основных операций создания, чтения, обновления и удаления данных Azure DocumentDB предоставляет обширный интерфейс запросов SQL для извлечения документов JSON и поддержку транзакционного исполнения логики приложения JavaScript на стороне сервера. Интерфейсы выполнения запросов и сценарий доступны во всех библиотеках платформы, а также через интерфейс API REST.
 
@@ -111,4 +111,4 @@ DocumentDB позволяет вам реализовать логику при�
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

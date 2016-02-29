@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -39,6 +39,7 @@
 | **Функции** ||
 | [Службы синхронизации Azure AD Connect: реализация синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md) | Описано, как работает синхронизация паролей, как реализовать и использовать эту функцию, а также как устранять связанные с ней неполадки. |
 | [Предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | Описано, как работает функция, которая позволяет *предотвратить случайное удаление* компонентов, и приведены рекомендации по ее настройке. |
+| [Планировщик](active-directory-aadconnectsync-feature-scheduler.md) | Описывает встроенный планировщик, который импортирует, синхронизирует и экспортирует данные. |
 | **Операции** ||
 | [Службы синхронизации Azure AD Connect: рабочие задачи и рекомендации](active-directory-aadconnectsync-operations.md) | Описание рабочих задач, например аварийного восстановления. |
 | **Дополнительные сведения и ссылки** ||
@@ -50,4 +51,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

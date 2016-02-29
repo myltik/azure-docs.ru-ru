@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
 # Развертывание приложения с использованием шаблона диспетчера ресурсов Azure
@@ -107,6 +107,8 @@
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
           [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
+     Если шаблон включает параметр с именем, которое совпадает с одним из параметров в команде для развертывания шаблона (например: включить в шаблон параметр с именем **ResourceGroupName**, которое совпадает с именем параметра **ResourceGroupName** в командлете [New AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), вам будет предложено указать название для параметра с суффиксом **FromTemplate** (например **ResourceGroupNameFromTemplate**). В общем случае следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
 
 6. Вот как можно получить информацию о сбоях развертывания.
 
@@ -282,4 +284,4 @@
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

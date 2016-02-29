@@ -40,7 +40,7 @@
 
 ## Установка и использование Node.js и npm
 
-Если файл уже Node.js установлен в вашей системе, используйте следующую команду для установки Azure CLI:
+В другом случае, если файл уже Node.js установлен в вашей системе, используйте следующую команду для установки Azure CLI:
 
 	npm install azure-cli -g
 
@@ -137,7 +137,7 @@ azure --version
 Корпорация Майкрософт часто выпускает обновленные версии Azure CLI. Переустановите интерфейс командной строки (CLI) с помощью установщика операционной системы или, если установлены Node.js и npm, введите следующую команду (в системах Linux может потребоваться использовать режим **sudo**).
 
 ```
-npm upgrade -g azure-cli
+npm update -g azure-cli
 ```
 
 ## Дополнительные ресурсы
@@ -158,4 +158,4 @@ npm upgrade -g azure-cli
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

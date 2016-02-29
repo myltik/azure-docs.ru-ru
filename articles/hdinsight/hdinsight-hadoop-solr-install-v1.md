@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="02/12/2016" 
 	ms.author="nitinme"/>
 
 # Установка и использование Solr на кластерах HDInsight Hadoop
@@ -189,11 +189,11 @@ Solr можно установить в кластере любого типа (
 - [Установка R в кластерах HDInsight][hdinsight-install-r]. Пример действия сценария для установки R
 - [Установка Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md). Пример действия сценария для установки Giraph
 
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

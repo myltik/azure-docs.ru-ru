@@ -36,7 +36,7 @@
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Рабочая станция с Azure PowerShell.**. Обратитесь к разделу [Установка и использование Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Инструкции см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md). Для выполнения сценариев Azure PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Использование командлета Set-ExecutionPolicy][2].
+- **Рабочая станция с Azure PowerShell.**. Обратитесь к разделу [Установка и использование Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Инструкции см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md). Для выполнения сценариев Azure PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Использование командлета Set-ExecutionPolicy][2].
 
 	Перед выполнением сценариев Azure PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета:
 
@@ -84,7 +84,7 @@ DNS-сервер является необязательным, но в неко
 
 **Создание учетной записи хранения Azure и контейнера больших двоичных объектов для кластера:**
 
-> [AZURE.NOTE] Кластеры HDInsight используют хранилища BLOB-объектов Azure для хранения данных. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с Hadoop в HDInsight](../hdinsight-use-blob-storage.md). Вам понадобится учетная запись хранения и контейнер для хранения BLOB-объектов. Расположение учетной записи хранения должно соответствовать расположению виртуальной сети и кластера.
+> [AZURE.NOTE] Кластеры HDInsight используют хранилища BLOB-объектов Azure для хранения данных. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с Hadoop в HDInsight](hdinsight-hadoop-use-blob-storage.md). Вам понадобится учетная запись хранения и контейнер для хранения BLOB-объектов. Расположение учетной записи хранения должно соответствовать расположению виртуальной сети и кластера.
 
 Как и другие кластеры HDInsight, для кластера HBase требуется учетная запись хранения Azure и контейнер хранилища больших двоичных объектов в качестве файловой системы по умолчанию. Расположение учетной записи хранения должно соответствовать расположению виртуальной сети и кластера. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с Hadoop в HDInsight][hdinsight-storage]. При подготовке кластера HBase можно создать новую учетную запись хранения и контейнер или использовать уже существующие. В этой процедуре показано, как создать учетную запись хранения и контейнер хранилища больших двоичных объектов с помощью классического портала Azure.
 
@@ -186,11 +186,11 @@ DNS-сервер является необязательным, но в неко
 
 	> [AZURE.NOTE] Эта страница используется также для настройки кластера во время установки. Дополнительную информацию см. в разделе [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md).
 
-Чтобы начать работу с новым HBase кластером, можно использовать процедуры, которые представлены в разделе [Приступая к работе с HBase с Hadoop в HDInsight](../hdinsight-hbase-get-started.md).
+Чтобы начать работу с новым HBase кластером, можно использовать процедуры, которые представлены в разделе [Приступая к работе с HBase с Hadoop в HDInsight](hdinsight-hbase-tutorial-get-started.md).
 
 ##Подключение к подготовленному в виртуальной сети кластеру HBase с помощью интерфейсов API удаленного вызова процедур (RPC) Java для HBase
 
-1.	Подготовьте виртуальную машину IaaS в той же виртуальной сети Azure и той же подсети. Поэтому виртуальная машина и кластер HBase будут использовать один и тот же внутренний сервер DNS для разрешения имен узлов. Чтобы сделать это, необходимо выбрать параметр **Из коллекции** и выбрать виртуальную сеть вместо центра обработки данных. Инструкции см. в разделе [Создание виртуальной машины под управлением Windows Server](../virtual-machines-windows-tutorial.md). Достаточно стандартного образа Windows Server 2012 с виртуальной машиной небольшого размера.
+1.	Подготовьте виртуальную машину IaaS в той же виртуальной сети Azure и той же подсети. Поэтому виртуальная машина и кластер HBase будут использовать один и тот же внутренний сервер DNS для разрешения имен узлов. Чтобы сделать это, необходимо выбрать параметр **Из коллекции** и выбрать виртуальную сеть вместо центра обработки данных. Инструкции см. в разделе [Создание виртуальной машины под управлением Windows Server](../virtual-machines/virtual-machines-windows-tutorial.md). Достаточно стандартного образа Windows Server 2012 с виртуальной машиной небольшого размера.
 
 2.	При использовании Java-приложения для удаленного подключения к HBase необходимо использовать полное доменное имя (FQDN). Чтобы определить это, вам необходимо получить DNS-суффикс кластера HBase. Для этого воспользуйтесь Curl, чтобы создать запрос к Ambari, или удаленным рабочим столом, чтобы подключиться к кластеру.
 
@@ -378,11 +378,11 @@ DNS-сервер является необязательным, но в неко
 
 В этом учебнике вы узнали, как подготовить к работе кластер HBase. Дополнительные сведения см. на следующих ресурсах:
 
-- [Приступая к работе с HDInsight](../hdinsight-get-started.md)
+- [Приступая к работе с HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md)
 - [Подготовка кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md)
-- [Приступая к работе с HBase с Hadoop в HDInsight](../hdinsight-hbase-get-started.md)
-- [Анализ мнений пользователей Twitter с использованием HBase в HDInsight](../hdinsight-hbase-twitter-sentiment.md)
+- [Приступая к работе с HBase с Hadoop в HDInsight](hdinsight-hbase-tutorial-get-started.md)
+- [Анализ мнений пользователей Twitter с использованием HBase в HDInsight](hdinsight-hbase-analyze-twitter-sentiment.md)
 - [Обзор виртуальной сети][vnet-overview]
 
 
@@ -390,10 +390,10 @@ DNS-сервер является необязательным, но в неко
 [2]: http://technet.microsoft.com/library/ee176961.aspx
 [3]: http://technet.microsoft.com/library/hh847889.aspx
 
-[hbase-get-started]: ../hdinsight-hbase-get-started.md
-[hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment.md
+[hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
+[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [vnet-overview]: ../virtual-network/virtual-networks-overview.md
-[vm-create]: ../virtual-machines-windows-tutorial.md
+[vm-create]: ../virtual-machines/virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://management.windowsazure.com
 [azure-create-storageaccount]: ../storage-create-storage-account.md
@@ -411,15 +411,15 @@ DNS-сервер является необязательным, но в неко
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: ../powershell-install-configure.md
 
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage-powershell]: ../hdinsight-use-blob-storage.md#powershell
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage-powershell]: hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -430,4 +430,4 @@ DNS-сервер является необязательным, но в неко
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Подготовка сведений для нового кластера HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Использование действия сценария для настройки кластера HBase"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

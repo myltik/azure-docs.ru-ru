@@ -1,6 +1,6 @@
 <properties
    pageTitle="Развертывание приложения Node.js с помощью MongoDB | Microsoft Azure"
-   description="Пошаговое руководство по упаковке нескольких приложений для развертывания в кластере Service Fabric в Azure"
+   description="Пошаговое руководство по упаковке нескольких пользовательских приложений для развертывания в кластере Service Fabric в Azure"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
 
 # Развертывание нескольких пользовательских приложений
 
-В этой статье показано, как упаковать и развернуть несколько приложений в Azure Service Fabric с помощью предварительной версии средства упаковки Service Fabric, которое доступно по ссылке [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+В этой статье показано, как упаковать и развернуть несколько пользовательских приложений в Azure Service Fabric с помощью предварительной версии средства упаковки Service Fabric, которое доступно по ссылке [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
 
-Для сборки пакета Service Fabric вручную прочтите статью [Развертывание существующего приложения в Service Fabric](service-fabric-deploy-existing-app.md).
+Для сборки пакета Service Fabric вручную прочтите статью [Развертывание настраиваемого приложения в Service Fabric](service-fabric-deploy-existing-app.md).
 
 Хотя в этом пошаговом руководстве показано, как развернуть приложение с клиентом Node.js и MongoDB в качестве хранилища данных, эти действия можно применить к любому приложению, которое зависит от другого приложения.
 
@@ -125,7 +125,7 @@ Service Fabric должна запустить MongoDB с помощью ком�
 ```
 mongod.exe --dbpath [path to data]
 ```
-> [AZURE.NOTE]В случае сбоя узла, если вы поместили каталог данных MongoDB в локальный каталог узла, данные не сохраняются. Следует использовать устойчивое хранилище или реализовать набор реплик MongoDB, чтобы предотвратить потерю данных.
+> [AZURE.NOTE] В случае сбоя узла, если вы поместили каталог данных MongoDB в локальный каталог узла, данные не сохраняются. Следует использовать устойчивое хранилище или реализовать набор реплик MongoDB, чтобы предотвратить потерю данных.
 
 В PowerShell или командной строке средство упаковки запускается со следующими параметрами:
 
@@ -182,7 +182,7 @@ mongod.exe --dbpath [path to data]
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStore' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
 
 Write-Host 'Registering application type...'
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\NodeAppType'
@@ -196,6 +196,6 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 ## Дальнейшие действия
 
-- Узнайте, как [вручную упаковать приложение в пакет](service-fabric-deploy-existing-app.md).
+- Узнайте, как [вручную упаковать пользовательское приложение в пакет](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

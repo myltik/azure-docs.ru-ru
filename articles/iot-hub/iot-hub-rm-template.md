@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание центра IoT с помощью шаблона диспетчера ресурсов | Microsoft Azure"
-	description="Следуйте инструкциям этого учебника, чтобы приступить к работе с помощью шаблонов диспетчера ресурсов и создать центр IoT с помощью программы C# или PowerShell."
+	pageTitle="Создание центра IoT с помощью программы C# и шаблона диспетчера ресурсов Azure | Microsoft Azure"
+	description="Следуйте инструкциям этого учебника, чтобы приступить к работе с помощью шаблонов диспетчера ресурсов и создать центр IoT с помощью программы C#."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="dominicbetts"
@@ -13,16 +13,16 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/23/2015"
+     ms.date="02/12/2016"
      ms.author="dobett"/>
 
-# Учебник. Создание центра IoT с помощью программы C#
+# Создание центра IoT с помощью программы C# и шаблона диспетчера ресурсов Azure
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Введение
 
-Диспетчер ресурсов Azure можно использовать для создания центров Azure IoT программным способом и управления ими. В этом учебнике показано, как использовать шаблон диспетчера ресурсов для создания центра IoT из программы на C#.
+Диспетчер ресурсов Azure (ARM) можно использовать для создания центров Azure IoT и управления ими программным способом. В этом учебнике показано, как использовать шаблон диспетчера ресурсов для создания центра IoT из программы на C#.
 
 > [AZURE.NOTE] В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../resource-manager-deployment-model.md). В этой статье описывается использование модели развертывания на основе диспетчера ресурсов.
 
@@ -30,9 +30,8 @@
 
 - Microsoft Visual Studio 2015.
 - Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][lnk-free-trial].
+- [Учетная запись хранения Azure][lnk-storage-account], в которой можно хранить файлы шаблона.
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] или более поздней версии.
-
-> [AZURE.TIP] В этой статье описывается, как создать новый центр IoT с помощью программы на C# и шаблона ARM. В данной статье также можно использовать [шаблон ARM](#submit-a-template-to-create-an-iot-hub) со сценарием PowerShell вместо программы на C#. Статья [Использование Azure PowerShell с диспетчером ресурсов Azure][lnk-powershell-arm] описывает, как написать сценарий PowerShell, использующий шаблон ARM для создания ресурса Azure, такого как центр IoT.
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -42,35 +41,31 @@
 
 2. В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите **Управление пакетами NuGet**.
 
-3. В диспетчере пакетов NuGet найдите **Microsoft.Azure.Management.Resources**. Выберите версию **2.18.11-preview**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
+3. В диспетчере пакетов NuGet выберите **Включить предварительный выпуск** и введите **Microsoft.Azure.Management.Resources** в строке поиска. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
 
-4. В диспетчере пакетов NuGet найдите **Microsoft.IdentityModel.Clients.ActiveDirectory**. Выберите версию **2.19.208020213**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензии.
+4. В диспетчере пакетов NuGet найдите **Microsoft.IdentityModel.Clients.ActiveDirectory**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензии.
 
-5. В диспетчере пакетов NuGet найдите **Microsoft.Azure.Common**. Выберите версию **2.1.0**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
+5. В диспетчере пакетов NuGet найдите **Microsoft.Azure.Common**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
 
 6. Откройте файл Program.cs и замените существующие инструкции **using** следующим кодом.
 
     ```
     using System;
-    using System.IO;
-    using System.Net;
-    using System.Net.Http.Headers;
-    using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
     using Microsoft.Azure.Management.Resources.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Rest;
     ```
     
-7. В Program.cs добавьте следующие статические переменные, заменив значения заполнителей. Вы записали **ApplicationId**, **SubscriptionId**, **TenantId** и **Password** ранее в этом учебнике. **Resource group name** — это имя группы ресурсов, используемых при создании центра IoT. Это может быть существующая группа ресурсов или новая. **IoT Hub name** — это имя создаваемого центра IoT, например **MyIoTHub**. **Deployment name** — это имя развертывания, например **Deployment\_01**.
+7. В Program.cs добавьте следующие статические переменные, заменив значения заполнителей. Вы записали **ApplicationId**, **SubscriptionId**, **TenantId** и **Password** ранее в этом учебнике. **Имя вашей учетной записи хранения** — имя учетной записи хранения Azure, в которой будут храниться файлы шаблона. **Resource group name** — это имя группы ресурсов, используемых при создании центра IoT. Это может быть существующая группа ресурсов или новая. **Deployment name** — это имя развертывания, например **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
-    static string subscriptionId = "{Your SubscriptionId";
+    static string subscriptionId = "{Your SubscriptionId}";
     static string tenantId = "{Your TenantId}";
     static string password = "{Your application Password}";
-    
+    static string storageAddress = "https://{Your storage account name}.blob.core.windows.net";
     static string rgName = "{Resource group name}";
-    static string iotHubName = "{IoT Hub name}";
     static string deploymentName = "{Deployment name}";
     ```
 
@@ -78,24 +73,26 @@
 
 ## Отправка шаблона для создания центра IoT
 
-Используйте шаблон JSON для создания нового центра IoT в группе ресурсов. Можно также использовать шаблон для изменения существующего центра IoT.
+Для создания нового центра IoT в группе ресурсов используйте шаблон JSON и файл параметров. Можно также использовать шаблон для изменения существующего центра IoT.
 
-1. В Обозревателе решений щелкните правой кнопкой проект, нажмите **Добавить**, затем щелкните **Новый элемент**. Добавьте новый файл JSON с именем **template.json** в проект.
+1. В обозревателе решений щелкните правой кнопкой мыши проект, выберите пункт **Добавить**, а затем щелкните **Новый элемент**. Добавьте новый файл JSON с именем **template.json** в проект.
 
-2. В обозревателе решений выберите **template.json**, а затем в разделе **Свойства** установите для параметра **Копировать в выходной каталог** значение **Всегда копировать**.
-
-3. Замените содержимое файла **template.json** следующим определением ресурса для добавления нового стандартного центра IoT для региона **Восток США**:
+2. Замените содержимое файла **template.json** следующим определением ресурса для добавления нового стандартного центра IoT для региона **Восток США**:
 
     ```
     {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-    "contentVersion": "1.0.0.0",
-
-    "resources": [
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "hubName": {
+          "type": "string"
+        }
+      },
+      "resources": [
       {
-        "apiVersion": "2015-08-15-preview",
-        "type": "Microsoft.Devices/Iothubs",
-        "name": "[IotHubName]",
+        "apiVersion": "2016-02-03",
+        "type": "Microsoft.Devices/IotHubs",
+        "name": "[parameters('hubName')]",
         "location": "East US",
         "sku": {
           "name": "S1",
@@ -106,70 +103,92 @@
           "location": "East US"
         }
       }
-    ]
+      ],
+      "outputs": {
+        "hubKeys": {
+          "value": "[listKeys(resourceId('Microsoft.Devices/IotHubs', parameters('hubName')), '2016-02-03')]",
+          "type": "object"
+        }
+      }
     }
     ```
 
-4. Добавьте в класс Program.cs следующий метод:
+3. В обозревателе решений щелкните правой кнопкой мыши проект, выберите пункт **Добавить**, а затем щелкните **Новый элемент**. Добавьте в проект новый файл JSON с именем **parameters.json**.
+
+4. Замените содержимое файла **parameters.json** следующим параметром, который задает имя нового центра IoT для **mynewiothub**:
+
+    ```
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "hubName": { "value": "mynewiothub" }
+      }
+    }
+    ```
+
+5. В **обозревателе сервера** подключитесь к подписке Azure и в учетной записи хранения создайте новый контейнер с названием **шаблоны**. На панели **Свойства** установите разрешение **Общий доступ на чтение** для контейнера **шаблоны** в значение **Большой двоичный объект**.
+
+6. В **обозревателе сервера** щелкните правой кнопкой мыши контейнер **шаблоны**, а затем нажмите кнопку **Просмотр контейнера больших двоичных объектов**. Нажмите кнопку **Отправить большой двоичный объект**, выберите два файла **parameters.json** и **templates.json**, и нажмите кнопку **Открыть** для передачи файлов JSON в контейнер **шаблоны**. URL-адреса больших двоичных объектов, содержащих данные JSON, таковы:
+
+    ```
+    https://{Your storage account name}.blob.core.windows.net/templates/parameters.json
+    https://{Your storage account name}.windows.net/templates/template.json
+    ```
+
+7. Добавьте в класс Program.cs следующий метод:
     
     ```
-    static bool CreateIoTHub(ResourceManagementClient client)
+    static void CreateIoTHub(ResourceManagementClient client)
     {
         
     }
     ```
 
-5. Добавьте следующий код в метод **CreateIoTHub** для загрузки файла шаблона, добавьте имя центра IoT и отправьте шаблон в диспетчер ресурсов Azure:
+5. Добавьте следующий код в метод **CreateIoTHub** для отправки файлов шаблонов и параметров диспетчеру ресурсов Azure:
 
     ```
-    string template = File.ReadAllText("template.json");
-    template = template.Replace("[IotHubName]", iotHubName);
-    var createResponse = client.Deployments.CreateOrUpdateAsync(
-      rgName,
-      deploymentName,
-      new Deployment()
-      {
-        Properties = new DeploymentProperties
-        {
-          Mode = DeploymentMode.Incremental,
-          Template = template
-        }
-      }).Result;
-    ```
-
-6. Добавьте следующий код в метод **CreateIoTHub**, который ожидает успешного завершения развертывания:
-
-    ```
-    string state = createResponse.Deployment.Properties.ProvisioningState;
-    while (state != "Succeeded" && state != "Failed")
-    {
-      var getResponse = client.Deployments.GetAsync(
+    var createResponse = client.Deployments.CreateOrUpdate(
         rgName,
-        deploymentName).Result;
+        deploymentName,
+        new Deployment()
+        {
+          Properties = new DeploymentProperties
+          {
+            Mode = DeploymentMode.Incremental,
+            TemplateLink = new TemplateLink
+            {
+              Uri = storageAddress + "/templates/template.json"
+            },
+            ParametersLink = new ParametersLink
+            {
+              Uri = storageAddress + "/templates/parameters.json"
+            }
+          }
+        });
+    ```
 
-      state = getResponse.Deployment.Properties.ProvisioningState;
-      Console.WriteLine("Deployment state: {0}", state);
-    }
+6. Добавьте следующий код в метод **CreateIoTHub**, который отображает состояние и ключи для нового центра IoT:
+
+    ```
+    string state = createResponse.Properties.ProvisioningState;
+    Console.WriteLine("Deployment state: {0}", state);
 
     if (state != "Succeeded")
     {
       Console.WriteLine("Failed to create iothub");
-      return false;
     }
-    return true;
+    Console.WriteLine(createResponse.Properties.Outputs);
     ```
-
-[AZURE.INCLUDE [iot-hub-retrieve-keys](../../includes/iot-hub-retrieve-keys.md)]
 
 ## Завершение и запуск приложения
 
-Теперь можно завершить приложение путем вызова методов **CreateIoTHub** и **ShowIoTHubKeys**, а затем собрать и запустить его.
+Теперь можно завершить приложение, вызвав метод **CreateIoTHub**, а затем собрать и запустить приложение.
 
 1. Добавьте в конец метода **Main** следующий код:
 
     ```
-    if (CreateIoTHub(client))
-        ShowIoTHubKeys(client, token.AccessToken);
+    CreateIoTHub(client);
     Console.ReadLine();
     ```
     
@@ -183,15 +202,17 @@
 
 ## Дальнейшие действия
 
+После развертывания центра IoT с использованием шаблона диспетчера ресурсов Azure и программы на C# вас могут заинтересовать следующие статьи:
+
 - Ознакомьтесь с возможностями [API REST поставщика ресурсов центра IoT][lnk-rest-api].
 - Сведения о дополнительных возможностях диспетчера ресурсов Azure см. в статье [Обзор диспетчера ресурсов Azure][lnk-azure-rm-overview].
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
-[lnk-powershell-install]: https://azure.microsoft.com/ru-RU/blog/azps-1-0-pre/
+[lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: ./resource-group-overview.md
-[lnk-powershell-arm]: ./powershell-azure-resource-manager.md
+[lnk-azure-rm-overview]: ../resource-group-overview.md
+[lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

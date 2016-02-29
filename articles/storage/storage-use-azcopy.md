@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/15/2016" 
 	ms.author="micurd"/>
 
 # Приступая к работе со служебной программой командной строки AzCopy
@@ -22,7 +22,7 @@
 
 AzCopy — это служебная программа командной строки, предназначенная для копирования данных в хранилище BLOB-объектов, файлов и таблиц Microsoft Azure и из него. AzCopy позволяет переносить данные из файловой системы в хранилище Azure и обратно с помощью простой команды и при оптимальной производительности. Кроме того, можно копировать данные из одного объекта в другой в пределах одной учетной записи хранения или из одной такой записи в другую.
 
-> [AZURE.NOTE]В этом руководстве предполагается, что у вас установлена AzCopy 5.0 или более поздней версии.
+> [AZURE.NOTE] В этом руководстве предполагается, что у вас установлена AzCopy 5.0 или более поздней версии.
 
 Предварительная версия библиотеки перемещения данных хранилища Microsoft Azure теперь доступна для загрузки из [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement). Библиотека перемещения данных является базовой библиотекой AzCopy. Исходный код доступен на [GitHub](https://github.com/Azure/azure-storage-net-data-movement). Дополнительные сведения см. в разделе [Введение в предварительную версию библиотеки движения данных в хранилище Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
 
@@ -38,7 +38,7 @@ AzCopy — это служебная программа командной ст
 
 	AzCopy /Source:<source> /Dest:<destination> /Pattern:<filepattern> [Options]
 
-> [AZURE.NOTE]В самом начале работы с AzCopy версии 3.0.0 вам необходимо задать каждый параметр в командной строке, включая имя самого параметра, так как этого требует синтаксис командной строки, *например*, `/ParameterName:ParameterValue`.
+> [AZURE.NOTE] В самом начале работы с AzCopy версии 3.0.0 вам необходимо задать каждый параметр в командной строке, включая имя самого параметра, так как этого требует синтаксис командной строки, *например*, `/ParameterName:ParameterValue`.
 
 ## Написание первой команды AzCopy
 
@@ -81,7 +81,7 @@ AzCopy — это служебная программа командной ст
   <tr>
     <td><b>/Pattern:&lt;file-pattern></b></td>
       <td>
-          Параметр определяет шаблон файла, который указывает, какие именно файлы нужно копировать. Поведение дополнительного параметра "/Pattern" определяется местоположением исходных данных, а также наличием параметра «рекурсивный режим». Рекурсивный режим задается с помощью параметра "/S.".
+          Параметр определяет шаблон файла, который указывает, какие именно файлы нужно копировать. Поведение дополнительного параметра "/Pattern" определяется местоположением исходных данных, а также наличием параметра "рекурсивный режим". Рекурсивный режим задается с помощью параметра "/S.".
           <br /><br />
           Если определенный источник представляет собой каталог в файловой системе, то используются стандартные подстановочные знаки, и предоставленный шаблон файла сравнивается с файлами в каталоге. При задании параметра "/S." AzCopy также выполняет сравнение определенного шаблона со всеми файлами в любых подпапках каталога.
           <br /><br />
@@ -246,7 +246,7 @@ AzCopy — это служебная программа командной ст
   </tr>
   <tr>
     <td><b>/A</b></td>
-    <td>Отправляет только файлы с установленным атрибутом «Архивный».</td>
+    <td>Отправляет только файлы с установленным атрибутом "Архивный".</td>
     <td>Да</td>
     <td>Да<br /></td>
     <td>Нет</td>
@@ -446,7 +446,7 @@ AzCopy — это служебная программа командной ст
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-Дополнительные сведения о работе с ключами доступа к хранилищу см. в разделе [Просмотр, копирование и повторное создание ключей доступа к хранилищу](../storage-create-storage-account/#regeneratestoragekeys).
+Дополнительные сведения о работе с ключами доступа к хранилищу см. в разделе [Управление ключами доступа к хранилищу](storage-create-storage-account.md#manage-your-storage-access-keys).
 
 ### Копирование BLOB-объекта через копирование на стороне сервера
 
@@ -936,7 +936,7 @@ AzCopy предназначен для максимального использ
 
 ## Версии AzCopy
 
-> [AZURE.NOTE]Рекомендуем установить последнюю версию AzCopy — так вы получите новые функции и более высокую производительность.
+> [AZURE.NOTE] Рекомендуем установить последнюю версию AzCopy — так вы получите новые функции и более высокую производительность.
 
 | Version (версия) | Новые возможности | Указанная версия клиентской библиотеки .NET | Целевая версия API REST хранилища |
 |---------|-----------------------------------------------------------------------------------------------------------------|--------|----------|
@@ -964,22 +964,21 @@ AzCopy предназначен для максимального использ
 
 ### Документация по хранилищу Azure:
 
-- [Введение в хранилище Azure](storage-introduction.md)
-- [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md)
-- [Использование хранилища файлов из .NET](storage-dotnet-how-to-use-files.md)
-- [Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md)
-- [Создание и удаление учетной записи хранения, а также управление ею](storage-create-storage-account.md)
-- [Использование службы импорта и экспорта для передачи данных в хранилище BLOB-объектов](storage-import-export-service.md)
+- [Введение в службу хранилища Microsoft Azure](storage-introduction.md)
+- [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md)
+- [Приступая к работе с хранилищем файлов Azure в Windows](storage-dotnet-how-to-use-files.md)
+- [Приступая к работе с хранилищем таблиц Azure с помощью .NET](storage-dotnet-how-to-use-tables.md)
+- [Об учетных записях хранения Azure](storage-create-storage-account.md)
+- [Использование службы импорта и экспорта Azure для передачи данных в хранилище BLOB-объектов](storage-import-export-service.md)
 
 ### Записи блога по хранилищу Azure:
-- [DML: введение в предварительную версию библиотеки движения данных в хранилище Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+- [Введение в предварительную версию библиотеки движения данных в хранилище Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 - [AzCopy: введение в синхронное копирование и настраиваемый тип содержимого](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 - [AzCopy: выпуск общедоступной версии AzCopy 3.0 и предварительной версии AzCopy 4.0 с поддержкой таблиц и файлов](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-- [AzCopy: оптимизированные сценарии для крупномасштабного копирования](http://go.microsoft.com/fwlink/?LinkId=507682)
 - [Введение в службы файлов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [AzCopy: поддержка геоизбыточного хранилища для доступа с правом чтения](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 - [AzCopy: передача данных с использованием перезапускаемого режима и маркера SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 - [AzCopy: использование копирования больших двоичных объектов между разными учетными записями](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: отправка и скачивание файлов для больших двоичных объектов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

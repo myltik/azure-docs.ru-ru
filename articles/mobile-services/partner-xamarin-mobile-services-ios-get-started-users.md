@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/11/2016"
 	ms.author="donnam"/>
 
 # Добавление проверки подлинности к приложению мобильных служб
@@ -78,7 +78,7 @@
             }
         }
 
-	> [AZURE.NOTE]Если вы используете поставщик удостоверений, отличный от учетной записи Майкрософт, замените значение, передаваемое в метод **LoginAsync** выше, одним из следующих: _Facebook_, _Twitter_, _Google_ или _WindowsAzureActiveDirectory_.
+	> [AZURE.NOTE] Если вы используете поставщик удостоверений, отличный от учетной записи Майкрософт, замените значение, передаваемое в метод **LoginAsync** выше, одним из следующих: _Facebook_, _Twitter_, _Google_ или _WindowsAzureActiveDirectory_.
 
 3. Переместите запрос для таблицы **TodoItem** из конструктора **TodoService** в новый метод с именем **CreateTable**:
 
@@ -155,4 +155,4 @@
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -17,7 +17,7 @@
 	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
-#Создание списка рекомендуемых фильмов с помощью Apache Mahout и Hadoop в HDInsight на платформе Linux (предварительная версия)
+#Создание списка рекомендуемых фильмов с помощью Apache Mahout и Hadoop в HDInsight на платформе Linux
 
 [AZURE.INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
@@ -25,7 +25,7 @@
 
 Mahout — это библиотека [машинного обучения][ml] для Apache Hadoop. Mahout содержит алгоритмы для обработки данных, такие как фильтрация, классификация и кластеризация. В этой статье вы будете использовать подсистему рекомендаций для создания рекомендаций к просмотру на основе фильмов, уже просмотренных вашими друзьями.
 
-> [AZURE.NOTE] Действия, описанные в этом документе, требуют Hadoop в кластере HDInsight на платформе Linux (предварительная версия). Сведения об использовании Mahout с кластерами на базе Windows см. в разделе [Создание списка рекомендуемых фильмов с помощью Apache Mahout и Hadoop в HDInsight на платформе Windows](hdinsight-mahout.md)
+> [AZURE.NOTE] Действия, описанные в этом документе, требуют Hadoop в кластере HDInsight на платформе Linux. Сведения об использовании Mahout с кластерами на базе Windows см. в разделе [Создание списка рекомендуемых фильмов с помощью Apache Mahout и Hadoop в HDInsight на платформе Windows](hdinsight-mahout.md)
 
 ##Предварительные требования
 
@@ -267,4 +267,4 @@ Mahout — это библиотека [машинного обучения][ml]
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

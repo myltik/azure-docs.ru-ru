@@ -34,7 +34,7 @@
 
 - Подписка Azure. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Кластер Apache Spark. Инструкции см. в разделе [Создание кластеров Apache Spark в Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
-- [Концентратор событий Azure](service-bus-event-hubs-csharp-ephcs-getstarted.md).
+- [Концентратор событий Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 - Рабочая станция, на которой установлено программное обеспечение Microsoft Visual Studio 2013. Инструкции см. в статье [Установка Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ##<a name="createeventhub"></a>Создание концентратора событий Azure
@@ -184,14 +184,14 @@
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

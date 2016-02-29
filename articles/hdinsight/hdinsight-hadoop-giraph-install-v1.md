@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="02/12/2016" 
 	ms.author="nitinme"/>
 
 # Установка Giraph в кластерах HDInsight Hadoop и использование Giraph для обработки диаграмм больших объемов
@@ -190,4 +190,4 @@ Giraph можно установить в кластере любого типа
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

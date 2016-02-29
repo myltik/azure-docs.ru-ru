@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="02/16/2016"
    ms.author="larryfr"/>
 
 # Использование Hive с Hadoop в HDInsight с помощью удаленного рабочего стола
@@ -113,6 +113,11 @@
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
+Если вы используете Tez с Hive, обратитесь к следующим документам для сведений об отладке:
+
+* [Использование пользовательского интерфейса Tez в HDInsight на платформе Windows](hdinsight-debug-tez-ui.md)
+
+* [Использование представления Ambari Tez в HDInsight на платформе Linux](hdinsight-debug-ambari-tez-view.md)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
@@ -144,4 +149,4 @@
 [Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

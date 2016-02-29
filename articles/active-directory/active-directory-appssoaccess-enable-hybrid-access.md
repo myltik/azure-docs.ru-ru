@@ -3,6 +3,7 @@
 	description="Включите доступ извне с помощью Azure Active Directory для приложений, выполняющихся в частной сети."
 	services="active-directory"
 	documentationCenter=""
+	keywords="доступ к приложениям, прокси-сервер приложений, гибридный доступ"
 	authors="femila"
 	manager="stevenpo"
 	editor=""/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 # Гибридный доступ с прокси-сервером приложений
@@ -43,4 +44,4 @@
 - [Включение прокси приложения Azure AD](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [Публикация приложений с помощью прокси-сервера приложений Azure AD](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

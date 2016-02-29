@@ -1,6 +1,8 @@
-A Site-to-Site connection can be configured in both deployment models and by using several different tools. See the table below for more information. We update this table as new articles, new deployment models and tools become available for this configuration. When an article is available, we link directly to it from the table.
+Подключение "сеть–сеть" можно настроить в обеих моделях развертывания с помощью различных средств. Дополнительные сведения см. в таблице ниже. Мы обновили эту таблицу, так как для этой конфигурации стали доступны новые статьи, новые модели развертывания и новые средства. Если статья доступна, таблица ссылается на нее напрямую.
 
-| **Deployment Model / Tool** | **Classic Portal** | **Azure Portal** | **PowerShell** |
+| **Модель развертывания/средство** | **Классический портал** | **Портал Azure** | **PowerShell** |
 |-----------------------|----------------|--------------|------------|
-| **Classic**              | [Article](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md)       | Yes          | Yes        |
-| **Resource Manager**      | No             | No    | [Article](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)  |
+| **Классический** | [Статья](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) | Да | Да |
+| **Диспетчер ресурсов** | Нет | Нет | [Статья](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) |
+
+<!---HONumber=AcomDC_0218_2016-->

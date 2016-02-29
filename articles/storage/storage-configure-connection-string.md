@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/17/2016"
 	ms.author="tamram"/>
 
 # Настройка строк подключения службы хранилища Azure
@@ -37,7 +37,7 @@
 
 Хранение строки подключения в файле конфигурации упрощает обновление строки подключения для переключения между эмулятором хранения и учетной записью хранения Azure в облаке. Необходимо только изменить строку подключения, чтобы указать учетную запись хранения.
 
-Вы можете использовать класс Azure [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) для доступа к строке подключения во время выполнения независимо от того, где выполняется приложение.
+Вы можете использовать класс [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) для доступа к строке подключения во время выполнения независимо от того, где выполняется приложение.
 
 ## Создание строки подключения в эмуляторе хранения
 
@@ -57,7 +57,7 @@
 	AccountName=storagesample;
 	AccountKey=<account-key>
 
-> [AZURE.NOTE]Служба хранилища Azure поддерживает как HTTP, так и HTTPS в строке подключения; однако настоятельно рекомендуется использовать HTTPS.
+> [AZURE.NOTE] Служба хранилища Azure поддерживает как HTTP, так и HTTPS в строке подключения; однако настоятельно рекомендуется использовать HTTPS.
 
 ## Создание строки подключения к явной конечной точке хранилища
 
@@ -119,4 +119,4 @@
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Устранение неполадок с заданиями аналитики озера данных Azure с помощью портала Azure
@@ -26,9 +26,9 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Базовые знания о процедуре выполнения заданий аналитики озера данных**. См. раздел [Начало работы с аналитическим модулем озера данных Azure при помощи портала Azure](data-lake-analytics-get-started-use-portal.md).
-- **Учетная запись аналитики озера данных**. См. раздел [Начало работы с аналитическим модулем озера данных Azure при помощи портала Azure](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
-- **Копия образца данных в учетной записи хранения озера данных по умолчанию**. См. статью [Подготовка образца данных](data-lake-analytics-get-started-use-portal.md.md#prepare-source-data)
+- **Базовые знания о процедуре выполнения заданий аналитики озера данных**. См. раздел [Начало работы с аналитическим модулем озера данных Azure при помощи портала Azure](data-lake-analytics-get-started-portal.md).
+- **Учетная запись аналитики озера данных**. См. раздел [Начало работы с аналитическим модулем озера данных Azure при помощи портала Azure](data-lake-analytics-get-started-portal.md#create-adl-analytics-account).
+- **Копия образца данных в учетной записи хранения озера данных по умолчанию**. См. статью [Подготовка образца данных](data-lake-analytics-get-started-portal.md#prepare-source-data)
 
 ##Отправка задания аналитики озера данных
 
@@ -107,7 +107,7 @@
 
 - [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md)
 - [Начало работы с аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-- [Начало работы с аналитикой озера данных Azure и U-SQL с помощью Visual Studio](data-lake-analytics-get-started-u-sql-studio.md)
+- [Начало работы с аналитикой озера данных Azure и U-SQL с помощью Visual Studio](data-lake-analytics-u-sql-get-started.md)
 - [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

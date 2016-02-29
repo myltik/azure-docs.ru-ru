@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="larryfr"/>
 
 # Настройка кластеров HDInsight под управлением Linux с помощью действия сценария
@@ -55,6 +55,7 @@ HDInsight предоставляет несколько скриптов для 
 **Установка R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. См. статью [Установка и использование R в кластерах HDInsight](hdinsight-hadoop-r-scripts-linux.md).
 **Установка Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md).
 **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install-linux.md).
+| **Предварительная загрузка библиотек Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. См. [Добавление библиотек Hive в кластеры HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## Использование действия сценария с помощью портала Azure
 
@@ -390,12 +391,9 @@ HDInsight предоставляет несколько скриптов для 
 
 	![Снимок экрана операций](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	В этом расположении журналы упорядочены по узлам headnode, workdernode и zookeeper. Примерами могут служить:
-	* **головной узел** – `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **рабочий узел** – `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
-	* **узел Zookeeper** – `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+	В этом расположении журналы упорядочены по узлам headnode, workdernode и zookeeper. Примерами могут служить: * **головной узел** – `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net` * **рабочий узел** – `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net` * **узел Zookeeper** – `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* Все stdout и stderr соответствующего узла передаются в учетную запись хранилища. Для каждого действия сценария есть файл **output-*.txt** и  **errors-\*.txt** . Выходной TXT-файл содержит сведения об универсальном коде ресурса (URI) сценария, который был запущен на узле. Например:
+* Все stdout и stderr соответствующего узла передаются в учетную запись хранилища. Для каждого действия сценария есть файл **output-*.txt** и **errors-*.txt**. Выходной TXT-файл содержит сведения об универсальном коде ресурса (URI) сценария, который был запущен на узле. Например:
 
 		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -446,4 +444,4 @@ HDInsight предоставляет несколько скриптов для 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Этапы создания кластера"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

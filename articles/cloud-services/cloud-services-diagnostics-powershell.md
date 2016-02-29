@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="saurabh"/>
 
 
@@ -23,43 +23,86 @@
 
 ## Включение расширения диагностики как части развертывания облачной службы
 
-Этот подход хорошо подходит для сценариев непрерывной интеграции, где можно включить расширение диагностики. Расширение диагностики можно включить в процессе развертывания облачной службы, передав параметр *ExtensionConfiguration* в командлет [New-AzureDeployment](https://msdn.microsoft.com/library/azure/mt589089.aspx). Параметр *ExtensionConfiguration* принимает массив конфигураций диагностики, которые могут быть созданы с помощью командлета [New-AzureServiceDiagnosticsExtensionConfig](https://msdn.microsoft.com/library/azure/mt589168.aspx).
+Этот подход удобен для сценариев непрерывной интеграции, в которых в ходе развертывания облачной службы можно включить расширение системы диагностики. При развертывании новой облачной службы можно включить расширение системы диагностики, передав параметр *ExtensionConfiguration* командлету [New-AzureDeployment](https://msdn.microsoft.com/library/azure/mt589089.aspx). Параметр *ExtensionConfiguration* принимает массив конфигураций диагностики, которые могут быть созданы с помощью командлета [New-AzureServiceDiagnosticsExtensionConfig](https://msdn.microsoft.com/library/azure/mt589168.aspx).
 
 В следующем примере показано включение диагностики для облачной службы с веб-ролью и рабочей ролью, каждая из которых имеет свою конфигурацию диагностики.
 
 	$service_name = "MyService"
 	$service_package = "CloudService.cspkg"
 	$service_config = "ServiceConfiguration.Cloud.cscfg"
-	$diagnostics_storagename = "myservicediagnostics"
 	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
 	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
-	$primary_storagekey = (Get-AzureStorageKey -StorageAccountName "$diagnostics_storagename").Primary
-	$storage_context = New-AzureStorageContext -StorageAccountName $diagnostics_storagename -StorageAccountKey $primary_storagekey
-
-	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -Storage_context $storageContext -DiagnosticsConfigurationPath $webrole_diagconfigpath
-	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -StorageContext $storage_context -DiagnosticsConfigurationPath $workerrole_diagconfigpath
-	  
+	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
+	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
 	 
 	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig) 
 
+Если файл конфигурации диагностики содержит элемент StorageAccount с именем учетной записи хранения, то командлет New-AzureServiceDiagnosticsExtensionConfig автоматически использует эту учетную запись хранения. Для этого учетная запись хранения должна входить в ту же подписку, что и развертываемая облачная служба.
 
+В пакете SDK Azure 2.6 и более поздних версий файлы конфигурации расширения, создаваемые выходной целью публикации MSBuild, будут включать имя учетной записи хранения на основе строки конфигурации диагностики, указанной в файле конфигурации службы (.cscfg). Приведенный ниже сценарий показывает, как анализировать файлы конфигурации расширения из выходной цели публикации и настраивать расширение системы диагностики для каждой роли при развертывании облачной службы.
+
+	$service_name = "MyService"
+	$service_package = "C:\build\output\CloudService.cspkg"
+	$service_config = "C:\build\output\ServiceConfiguration.Cloud.cscfg"
+	
+	#Find the Extensions path based on service configuration file
+	$extensionsSearchPath = Join-Path -Path (Split-Path -Parent $service_config) -ChildPath "Extensions"
+	
+	$diagnosticsExtensions = Get-ChildItem -Path $extensionsSearchPath -Filter "PaaSDiagnostics.*.PubConfig.xml"
+	$diagnosticsConfigurations = @()
+	foreach ($extPath in $diagnosticsExtensions)
+	{
+	#Find the RoleName based on file naming convention PaaSDiagnostics.<RoleName>.PubConfig.xml
+	$roleName = ""
+	$roles = $extPath -split ".",0,"simplematch"
+	if ($roles -is [system.array] -and $roles.Length -gt 1)
+	    {
+	    $roleName = $roles[1] 
+	    $x = 2
+	    while ($x -le $roles.Length)
+	        {
+	           if ($roles[$x] -ne "PubConfig")
+	            {
+	                $roleName = $roleName + "." + $roles[$x]
+	            }
+	            else
+	            {
+	                break
+	            }
+	            $x++
+	        }
+	    $fullExtPath = Join-Path -path $extensionsSearchPath -ChildPath $extPath
+	    $diagnosticsconfig = New-AzureServiceDiagnosticsExtensionConfig -Role $roleName -DiagnosticsConfigurationPath $fullExtPath
+	    $diagnosticsConfigurations += $diagnosticsconfig
+	    }
+	}
+	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration $diagnosticsConfigurations
+
+Visual Studio Online использует аналогичный подход для автоматических развертываний облачных служб с расширением системы диагностики. Полный пример см. в файле [Publish-AzureCloudDeployment.ps1](https://github.com/Microsoft/vso-agent-tasks/blob/master/Tasks/AzureCloudPowerShellDeployment/Publish-AzureCloudDeployment.ps1).
+
+Если в конфигурации диагностики нет элемента StorageAccount, в командлет необходимо передать параметр StorageAccountName. Если параметр StorageAccountName указан, командлет использует учетную запись хранения, указанную в этом параметре, а не в файле конфигурации диагностики.
+
+Если учетная запись хранения диагностики и облачная служба относятся к разным подпискам, в командлет необходимо явным образом передать параметры StorageAccountName и StorageAccountKey. Параметр StorageAccountKey не требуется, если учетная запись хранения диагностических данных входит в ту же подписку, так как при включении расширения диагностики командлет автоматически запрашивает и устанавливает значение ключа. Если же учетная запись хранения диагностических данных входит в другую подписку, командлет не сможет получить ключ автоматически, а значит, его необходимо явно указать с помощью параметра StorageAccountKey.
+
+	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
+	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
+ 
 
 ## Включение расширения диагностики в существующей облачной службе
 
-Для включения диагностики в уже работающей облачной службе можно использовать командлет [Set-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589140.aspx).
+Для включения или обновления конфигурации диагностики в уже работающей облачной службе можно использовать командлет [Set-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589140.aspx).
 
 
 	$service_name = "MyService"
-	$diagnostics_storagename = "myservicediagnostics"
 	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
 	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
-	$primary_storagekey = (Get-AzureStorageKey -StorageAccountName "$diagnostics_storagename").Primary
-	$storage_context = New-AzureStorageContext -StorageAccountName $diagnostics_storagename -StorageAccountKey $primary_storagekey
- 
-	Set-AzureServiceDiagnosticsExtension -StorageContext $storage_context -DiagnosticsConfigurationPath $webrole_diagconfigpath -ServiceName $service_name -Slot Production -Role "WebRole" 
-	Set-AzureServiceDiagnosticsExtension -StorageContext $storage_context -DiagnosticsConfigurationPath $workerrole_diagconfigpath -ServiceName $service_name -Slot Production -Role "WorkerRole"
- 
+
+	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
+	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
+	
+	Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name 
+	  
 
 ## Получение текущей конфигурации расширения диагностики
 Получите текущую конфигурацию диагностики для облачной службы с помощью командлета [Get-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589204.aspx).
@@ -84,4 +127,4 @@
 - В статье [Схема конфигурации диагностики](https://msdn.microsoft.com/library/azure/dn782207.aspx) поясняются различные параметры XML-конфигураций для расширения диагностики.
 - Сведения о включении расширения диагностики для виртуальных машин см. в статье [Создание виртуальной машины Windows с мониторингом и диагностикой с помощью шаблона диспетчера ресурсов Azure](virtual-machines-extensions-diagnostics-windows-template.md)  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

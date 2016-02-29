@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="02/17/2016"
     ms.author="liviodlc"/>
 
 #Учебник. Интеграция Google Apps с Azure Active Directory
@@ -22,7 +22,7 @@
 
 ##Предварительные требования
 
-1. Для доступа к Azure Active Directory через [портал управления Azure](https://manage.windowsazure.com) необходима действующая подписка Azure.
+1. Для доступа к Azure Active Directory через [классический портал Azure](https://manage.windowsazure.com) необходима действующая подписка Azure.
 
 2. У вас должен быть действительный клиент для работы с [Google Apps for Work](https://www.google.com/work/apps/) или [Google Apps for Education](https://www.google.com/edu/products/productivity-tools/). Для любой из этих служб можно воспользоваться бесплатной пробной учетной записью.
 
@@ -32,9 +32,27 @@
 
 > [AZURE.VIDEO enable-single-sign-on-to-google-apps-in-2-minutes-with-azure-ad]
 
+##Часто задаваемые вопросы
+
+1. **Вопрос. Поддерживают ли Chromebooks и другие устройства Chrome единый вход Azure AD?**
+
+	Ответ. Да, пользователи смогут войти в свои устройства Chromebook, используя свои учетные данные Azure AD. Сведения о том, почему учетные данные могут быть запрошены у пользователей дважды, см. в этой [статье о поддержке Google Apps](https://support.google.com/chrome/a/answer/6060880).
+
+2. **Вопрос. Если включить единый вход, смогут ли пользователи использовать свои учетные данные Azure AD для входа в любой продукт Google, такой как Google Classroom, GMail, Google Drive, YouTube и т. д?**
+
+	Ответ. Да, в зависимости от того, [какие приложения Google](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) вы решили включить или отключить для вашей организации.
+
+3. **Вопрос. Можно ли включить единый вход только для подмножества пользователей Google Apps?**
+
+	Ответ. Нет, при включении единого входа всем пользователям Google Apps вашей организации сразу же потребуется использовать свои учетные данные для проверки подлинности Azure AD. Поскольку Google Apps не поддерживает наличие нескольких поставщиков удостоверений, то в качестве поставщика удостоверений для среды Google Apps может быть использован либо Azure AD, либо Google — но не оба одновременно.
+
+4. **Вопрос. Если пользователь выполнил вход в Windows, пройдет ли он автоматическую проверку подлинности в Google Apps без запроса пароля?**
+
+	Ответ. Существует два варианта включения этого сценария. Во-первых, пользователи могут входить в устройства Windows 10 через [присоединение к Azure Active Directory](active-directory-azureadjoin-overview.md). Кроме того, пользователи могут входить в устройства Windows, присоединенные к домену локального каталога Active Directory, для которого разрешен единый вход Azure AD через развертывание [служб федерации Active Directory (AD FS)](active-directory-aadconnect-user-signin.md). Разумеется, в обоих случаях необходимо выполнить действия следующего учебника для включения единого входа между Azure AD и Google Apps.
+
 ##Шаг 1. Добавление Google Apps в каталог
 
-1. На [портале управления Azure](https://manage.windowsazure.com) в области навигации слева щелкните **Active Directory**.
+1. На [классическом портале Azure](https://manage.windowsazure.com) в области навигации слева щелкните **Active Directory**.
 
 	![Выберите Active Directory в области навигации слева.][0]
 
@@ -176,7 +194,7 @@
 
 4. Если вы еще не добавили имя личного домена в Azure Active Directory, выполните следующие действия.
 
-	- На [портале управления Azure](https://manage.windowsazure.com) в области навигации слева щелкните **Active Directory**. Выберите свой каталог в списке каталогов. 
+	- На [классическом портале Azure](https://manage.windowsazure.com) в области навигации слева щелкните **Active Directory**. Выберите свой каталог в списке каталогов. 
 
 	- Щелкните **Домены** в меню верхнего уровня, а затем нажмите кнопку **Добавить пользовательский домен**.
 
@@ -295,4 +313,4 @@
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

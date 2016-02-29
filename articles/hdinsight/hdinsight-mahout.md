@@ -32,7 +32,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 * Как запускать задания Mahout с помощью Windows PowerShell.
 
-* как запускать задания Mahout из командной строки Hadoop;
+* - как запускать задания Mahout из командной строки Hadoop;
 
 * Как устанавливать Mahout на кластерах HDInsight версий 3.0 и 2.0.
 
@@ -104,7 +104,7 @@ Mahout — это библиотека [машинного обучения][ml]
             -Container $container `
             -Context $context
     
-    Она передает файл __u.data__ в каталог __example/data/u.data__ в хранилище по умолчанию вашего кластера. Теперь получить доступ к этим данным можно будет с помощью универсального кода ресурса (URI) __wasb:///example/data/u.data__ из заданий HDInsight.
+    Она передает файл __u.data__ в каталог __example/data/u.data__ в хранилище по умолчанию вашего кластера. Теперь получить доступ к этим данным можно будет с помощью универсального кода ресурса (URI) \_\___wasb:///example/data/u.data__ из заданий HDInsight.
 
 ###Выполнение задания
 
@@ -410,7 +410,7 @@ Mahout — это библиотека [машинного обучения][ml]
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Это задание также создает файл, расположенный в __wasb:///example/data/predictions/KDDTest+.arff.out__. Однако этот файл имеет машиночитаемый формат.
+  Это задание также создает файл, расположенный в \_\___wasb:///example/data/predictions/KDDTest+.arff.out__. Однако этот файл имеет машиночитаемый формат.
 
 > [AZURE.NOTE] Задания Mahout не перезаписывают существующие файлы. Если вы хотите заново запустить эти задания, то нужно удалить файлы, созданные предыдущими заданиями.
 
@@ -428,9 +428,9 @@ Mahout устанавливается на кластерах HDInsight верс
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	После того как построение завершится, вы сможете найти JAR-файл здесь: __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] После выпуска Mahout 1.0 появится возможность использовать встроенные пакеты с HDInsight 3.0.
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. Загрузите файл jar в каталог __example/jars__ в хранилище по умолчанию для вашего кластера. Замените CLUSTERNAME в следующем сценарии на имя кластера HDInsight, а FILENAME замените на путь к файлу __mahout-coure-0.9-job.jar__.
 
@@ -519,7 +519,7 @@ Mahout устанавливается на кластерах HDInsight верс
 [aps]: ../powershell-install-configure.md
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: ../hdinsight-get-started.md
+[getstarted]: hdinsight-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest
@@ -530,4 +530,4 @@ Mahout устанавливается на кластерах HDInsight верс
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

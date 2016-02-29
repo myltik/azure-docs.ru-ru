@@ -2,16 +2,7 @@
 
 Необходимо проверять подлинность всех операций, выполняемых с ресурсами с помощью [Диспетчера ресурсов Azure][lnk-authenticate-arm], используя Azure Active Directory (AD). Для такой настройки проще всего использовать PowerShell или интерфейс командной строки Azure.
 
-Если вы еще не установили [Azure PowerShell 1.0][lnk-powershell-install], это можно сделать с помощью следующих команд PowerShell. Вам потребуется запустить PowerShell от имени администратора.
-
-```
-# Install the Azure Resource Manager modules from PowerShell Gallery
-Install-Module AzureRM
-Install-AzureRM
-
-# Install the Azure Service Management module from PowerShell Gallery
-Install-Module Azure
-```
+Чтобы продолжить, установите [Azure PowerShell 1.0][lnk-powershell-install] или более поздней версии.
 
 Ниже показано, как настроить проверку пароля для приложения AD с помощью PowerShell. Эти команды можно выполнять в обычном сеансе PowerShell.
 
@@ -26,12 +17,12 @@ Install-Module Azure
 3. Воспользуйтесь следующей командой для создания нового приложения Azure Active Directory, заменив в ней заполнители:
 
     - **{Display name}:** отображаемое имя вашего приложения, например **MySampleApp**.
-    - **{Home page URL}:** URL-адрес домашней страницы вашего приложения, например **http://mysampleapp/home**. Этот URL-адрес необязательно должен указывать на реальное приложение.
-    - **{Application identifier}:** уникальный идентификатор, например **http://mysampleapp**. Этот URL-адрес необязательно должен указывать на реальное приложение.
-    - **{Password}:** пароль, который будет использоваться для проверки подлинности в вашем приложении.
+    - **{Home page URL}:** URL-адрес домашней страницы вашего приложения, например ****http://mysampleapp/home**. Этот URL-адрес необязательно должен указывать на реальное приложение.
+- **{Application identifier}:** уникальный идентификатор, например ****http://mysampleapp**. Этот URL-адрес необязательно должен указывать на реальное приложение.
+- **{Password}:** пароль, который будет использоваться для проверки подлинности в вашем приложении.
 
     ```
-    New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} IdentifierUris {Application identifier} -Password {Password}
+    New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
     ```
     
 4. Запишите значение **ApplicationId** для созданного приложения. Этот идентификатор потребуется позднее.
@@ -56,6 +47,6 @@ Install-Module Azure
 - Пароль
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: https://azure.microsoft.com/ru-RU/blog/azps-1-0-pre/
+[lnk-powershell-install]: ../powershell-install-configure.md
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

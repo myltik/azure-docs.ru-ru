@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="ryancraw"/>
 
 #Моделирование данных в DocumentDB#
@@ -393,4 +393,4 @@
 Наконец, рекомендации по моделированию и сегментированию данных для мультитенантных приложений можно найти в статье [Масштабирование мультитенантного приложения с помощью Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="02/11/2016"
 	ms.author="jodebrui"/>
 
 
@@ -231,7 +231,7 @@ end
 ```
 
 
-Чтобы создать версию предыдущего скрипта T-SQL для ostress.exe на диске (\_ondisk), просто измените оба вхождения подстроки *\_inmem* на *\_ondisk* . Эти замены влияют на имена таблиц и хранимых процедур.
+Чтобы создать версию предыдущего скрипта T-SQL для ostress.exe на диске (\_ondisk), просто измените оба вхождения подстроки*\_inmem* на *\_ondisk*. Эти замены влияют на имена таблиц и хранимых процедур.
 
 
 ### Установка служебных программ RML и ostress
@@ -277,8 +277,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 Выполнить предыдущую команду ostress.exe можно так.
 
 
-1. Чтобы удалить все данные, внесенные в ходе предыдущих запусков, сбросьте содержимое базы данных, выполнив следующую команду в SSMS: 
-```
+1. Чтобы удалить все данные, внесенные в ходе предыдущих запусков, сбросьте содержимое базы данных, выполнив следующую команду в SSMS: ```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -303,8 +302,7 @@ EXECUTE Demo.usp_DemoReset;
 Получив результат выполнения \_inmem, выполните следующие действия для запуска \_ondisk:
 
 
-1. Выполните сброс базы данных, запустив следующую команду в SSMS. Это удалит все данные, внесенные в ходе предыдущего запуска.
-```
+1. Выполните сброс базы данных, запустив следующую команду в SSMS. Это удалит все данные, внесенные в ходе предыдущего запуска. ```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -318,6 +316,12 @@ EXECUTE Demo.usp_DemoReset;
 #### Ожидаемые результаты сравнения
 
 Наши тесты с использованием In-Memory демонстрируют **9-кратное** улучшение производительности для упрощенных рабочих нагрузок. При этом программа ostress выполняется на виртуальной машине Azure, расположенной в том же регионе Azure, что и база данных.
+
+
+
+<a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
+
+&nbsp;
 
 
 ## B. Установка образца In-Memory Analytics
@@ -525,4 +529,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - [Мониторинг хранилища In-Memory](sql-database-in-memory-oltp-monitoring.md) для компонента In-Memory OLTP.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

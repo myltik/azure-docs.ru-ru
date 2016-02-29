@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/16/2016"
 	ms.author="jutang"/>
 
 # Использование табличного хранилища из Java
@@ -208,12 +208,12 @@
 
 Если вы хотите узнать больше о других API-интерфейсах Azure, пожалуйста перейдите по следующим ссылкам.
 
-- [Пакет Azure SDK для Java](http://azure.microsoft.com/develop/java/)
+- [Центр разработчика Java](http://azure.microsoft.com/develop/java/)
 - [Пакет SDK для службы хранилища Azure для Java](https://github.com/azure/azure-storage-java)
 - [Пакет SDK для службы хранилища Azure для Android](https://github.com/azure/azure-storage-android)
 - [Справочник по пакету SDK для клиента хранилища Azure](http://dl.windowsazure.com/storage/javadoc/)
-- [REST API службы хранилища Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [API-интерфейс REST служб хранилища Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

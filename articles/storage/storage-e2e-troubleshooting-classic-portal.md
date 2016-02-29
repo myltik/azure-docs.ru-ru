@@ -25,7 +25,7 @@
 
 В этом учебнике показано, как определить конкретные ошибки, которые могут повлиять на производительность, и устранить их с помощью средств, предоставляемых корпорацией Майкрософт и службой хранилища Azure, для оптимизации клиентского приложения.
 
-В этом учебнике содержатся практические исследования сквозного сценария устранения неполадок. Подробное концептуальное руководство по устранению неполадок в приложениях хранилища Azure см. в разделе [Мониторинг, диагностика и устранение неполадок хранилища](storage-monitoring-diagnosing-troubleshooting.md).
+В этом учебнике содержатся практические исследования сквозного сценария устранения неполадок. Подробное концептуальное руководство по устранению неполадок в приложениях хранилища Azure см. в статье [Мониторинг, диагностика и устранение неисправностей службы хранилища Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Средства для устранения неполадок приложений хранилища Azure
 
@@ -38,9 +38,9 @@
 
 - **Классический портал Azure**. Настроить метрики и ведение журнала для учетной записи хранения можно на [классическом портале Azure](https://manage.windowsazure.com). Можно также просматривать диаграммы и графики, которые показывают, как производительность приложения изменяется со временем, и настроить оповещения для уведомления в случае, если производительность выполняемого приложения отличается от ожидаемой для указанной метрики.
 	
-	В разделе [Мониторинг учетной записи хранения](storage-monitor-storage-account.md) приведены сведения о настройке мониторинга на классическом портале Azure.
+	Информацию о настройке мониторинга на классическом портале Azure см. в статье [Мониторинг учетной записи хранения на портале Azure ](storage-monitor-storage-account.md).
 
-- **AzCopy**. Журналы сервера для службы хранилища Azure хранятся в виде BLOB-объектов, чтобы можно было использовать AzCopy для копирования BLOB-объектов журнала в локальный каталог для анализа с помощью анализатора сообщений (Майкрософт). В разделе [Использование AzCopy со службой хранилища Microsoft Azure](storage-use-azcopy.md) приведены дополнительные сведения о AzCopy.
+- **AzCopy**. Журналы сервера для службы хранилища Azure хранятся в виде BLOB-объектов, чтобы можно было использовать AzCopy для копирования BLOB-объектов журнала в локальный каталог для анализа с помощью анализатора сообщений (Майкрософт). Дополнительную информацию об AzCopy см. в статье [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md).
 
 - **Анализатор сообщений (Майкрософт)**. Анализатор сообщений — это средство, которое использует файлы журналов и отображает данные журнала в визуальном формате, упрощающем фильтрацию, поиск и группирование данных журнала в полезные выборки, которые можно использовать для анализа ошибок и проблем производительности. См. [Руководство по работе с анализатором сообщений (Майкрософт)](http://technet.microsoft.com/library/jj649776.aspx) для получения дополнительных сведений об анализаторе сообщений.
 
@@ -92,7 +92,7 @@
 
 **На классическом портале Azure**
 
-Чтобы настроить ведение журнала и метрики для вашей учетной записи хранения с помощью портала, следуйте инструкциям в разделе [Мониторинг учетной записи хранилища](storage-monitor-storage-account.md).
+Чтобы настроить ведение журнала и метрики для учетной записи хранения с помощью портала, следуйте инструкциям в статье [Мониторинг учетной записи хранения на портале Azure](storage-monitor-storage-account.md).
 
 > [AZURE.NOTE] Поминутные метрики невозможно задавать с помощью классического портала Azure. Тем не менее рекомендуется установить их для целей данного учебника, а также для изучения проблем производительности в приложении. Поминутные метрики можно задать с помощью PowerShell, как показано ниже, программно либо через классический портал Azure.
 >
@@ -100,7 +100,7 @@
 
 **Через PowerShell**
 
-Чтобы начать работу с PowerShell для Azure, см. раздел [Установка и настройка Azure PowerShell](../install-configure-powershell.md).
+Чтобы начать работу с PowerShell для Azure, см. раздел [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 1. Выполните командлет [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) в окне PowerShell, чтобы добавить свою учетную запись пользователя Azure.
 
@@ -130,11 +130,9 @@
 
 ### Настройка ведения журнала на стороне клиента .NET
 
-Чтобы настроить ведение журнала клиентского приложения .NET, включите диагностику .NET в файле конфигурации приложения (web.config или app.config). Подробные сведения см. в разделах [Ведение журнала на стороне клиента с помощью клиентской библиотеки хранилища](http://msdn.microsoft.com/library/azure/dn782839.aspx) и [Ведение журнала на стороне клиента с использованием пакета SDK хранилища Microsoft Azure для Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) на сайте MSDN.
+Чтобы настроить ведение журнала клиентского приложения .NET, включите диагностику .NET в файле конфигурации приложения (web.config или app.config). Подробные сведения см. в статьях [Клиентские ведения журнала с клиентской библиотеки хранилища .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) и [Ведение журнала на стороне клиента с помощью SDK хранилища Microsoft Azure для Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) на сайте MSDN.
 
 Клиентский журнал содержит подробные сведения о том, как клиент готовит запрос, получает и обрабатывает ответ.
-
-Ведение клиентского журнала настраивается в файле app.config или web.config в приложении. Дополнительные сведения см. в разделе [Ведение журнала на стороне клиента с помощью клиентской библиотеки хранилища](http://msdn.microsoft.com/library/azure/dn782839.aspx) на сайте MSDN.
 
 Клиентская библиотека хранилища хранит данные журнала на стороне клиента в расположении, указанном в файле конфигурации приложения (web.config или app.config).
 
@@ -182,7 +180,7 @@
 
 ![Диаграмма метрик на портале](./media/storage-e2e-troubleshooting-classic-portal/portal-metrics-chart-1.png)
 
-Дополнительные сведения о добавлении метрик на странице "Мониторинг" см. в разделе [Добавление метрик в таблицу метрик](storage-monitor-storage-account.md#addmonitoringmetrics).
+Дополнительные сведения о добавлении метрик на странице "Мониторинг" см. в разделе [Добавление метрик в таблицу метрик](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table).
 
 > [AZURE.NOTE] После включения метрик хранилища может потребоваться некоторое время, чтобы данные метрик отобразились на классическом портале Azure. Это вызвано тем, что почасовые метрики для предыдущего часа не отображаются на классическом портале Azure, пока не истечет текущий час. Кроме того, в настоящее время на классическом портале Azure не отображаются поминутные метрики. Поэтому в зависимости от времени включения метрик может потребоваться до двух часов, чтобы увидеть данные метрик на портале.
 
@@ -194,9 +192,9 @@
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-AzCopy можно загрузить на странице [Загрузки Azure](https://azure.microsoft.com/downloads/). Дополнительные сведения об использовании AzCopy см. в разделе [Использование AzCopy с хранилищем Microsoft Azure](storage-use-azcopy.md).
+AzCopy можно загрузить на странице [Загрузки Azure](https://azure.microsoft.com/downloads/). Дополнительную информацию об использовании AzCopy см. в статье [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md).
 
-Дополнительные сведения о загрузке журналов на стороне сервера в разделе [Включение ведения журнала хранилища и доступ к данным журнала](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Дополнительные сведения о загрузке журналов на стороне сервера см. в разделе [Загрузка данных журнала хранилища](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## Использование анализатора сообщений (Майкрософт) для анализа данных журнала
 
@@ -347,32 +345,21 @@ AzCopy можно загрузить на странице [Загрузки Azu
 | Для изучения... | Использование выражения фильтра | Выражение применяется к журналу (клиента, сервера, сети, всех) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Непредвиденные задержки при доставке сообщений в очередь | AzureStorageClientDotNetV4.Description содержит "Повторное выполнение неудавшейся операции". | Клиент |
-| Увеличение HTTP в PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Сеть |
+| Увеличение HTTP в PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Сеть |
 | Увеличение PercentTimeoutError | HTTP.Response.StatusCode == 500 | Сеть |
-| Увеличение PercentTimeoutError (все) |    *StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
-| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
-| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network |
-| 404 (all) | *StatusCode == 404 | All |
-| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network |
-| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network |
-| 409 (all) | *StatusCode == 409 | All |
-| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
-| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server |
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network |
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| Увеличение PercentTimeoutError (все) |    **StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Дальнейшие действия
 
 Дополнительные сведения о сквозных сценариях устранения ошибок в службы хранилище Azure см. следующие ресурсы:
 
-- [Мониторинг, диагностика и устранение неполадок службы хранилища](storage-monitoring-diagnosing-troubleshooting.md)
+- [Наблюдение, диагностика и устранение неисправностей хранилища Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
 - [Аналитика службы хранилища](http://msdn.microsoft.com/library/azure/hh343270.aspx)
-- [Мониторинг учетной записи хранения](storage-monitor-storage-account.md)
-- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
+- [Мониторинг учетной записи хранения на портале Azure](storage-monitor-storage-account.md)
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 - [Руководство по работе с анализатором сообщений (Майкрософт)](http://technet.microsoft.com/library/jj649776.aspx)
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

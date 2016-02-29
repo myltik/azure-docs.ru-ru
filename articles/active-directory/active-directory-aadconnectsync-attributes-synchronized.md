@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -426,6 +426,27 @@
 | msExchUserHoldPolicies| X| | | Хранение для судебного разбирательства: позволяет облачным службам определять, на каких пользователей действует хранение для судебного разбирательства.|
 | proxyAddresses| X| X| X| Вставляется только адрес x500 из Exchange Online.|
 
+## Обратная запись устройств
+Объекты устройств создаются в Active Directory. Это могут быть устройства, присоединенные к Azure AD, или компьютеры Windows 10, присоединенные к домену.
+
+| Имя атрибута| Устройство| Комментарий |
+| --- | :-: | --- |
+| altSecurityIdentities | X| |
+| displayName | X| |
+| Различающееся имя | X| |
+| msDS-CloudAnchor | X| |
+| msDS-DeviceID | X| |
+| msDS-DeviceObjectVersion | X| |
+| msDS-DeviceOSType | X| |
+| msDS-DeviceOSVersion | X| |
+| msDS-DevicePhysicalIDs | X| |
+| msDS-KeyCredentialLink | X| Только со схемой Windows Server 2016 AD |
+| msDS-IsCompliant | X| |
+| msDS-IsEnabled | X| |
+| msDS-IsManaged | X| |
+| msDS-RegisteredOwner | X| |
+
+
 ## Примечания об атрибутах
 - Если используется альтернативный идентификатор, локальный атрибут userPrincipalName будет синхронизирован с атрибутом Azure AD onPremisesUserPrincipalName. Атрибут «Альтернативный идентификатор», например почта, будет синхронизирован с атрибутом Azure AD userPrincipalName.
 
@@ -435,4 +456,4 @@
 
 Ознакомьтесь с дополнительными сведениями об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

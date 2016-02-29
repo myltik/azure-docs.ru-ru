@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
 # Развертывание службы диспетчера StorSimple для виртуального массива StorSimple
@@ -105,10 +105,10 @@
 
 ## Дальнейшие действия
 
-- Узнайте больше о том, как [начать](storsimple-ova-deploy1-portal-prep.md) развертывание виртуального массива StorSimple.
+- Узнайте, как [приступить к работе](storsimple-ova-deploy1-portal-prep.md) с виртуальным массивом StorSimple.
 	
-- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-ova-manager-service-administration.md).
+- Узнайте, как [администрировать устройство StorSimple](storsimple-ova-web-ui-admin.md).
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

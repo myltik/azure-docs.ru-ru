@@ -13,11 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="billmath"/>
 
 # Дальнейшие действия и управление Azure AD Connect
 Ниже приведены дополнительные сведения, которые помогут вам настроить Azure Active Directory Connect в соответствии с потребностями вашей организации.
+
+## Дополнительная настройка службы AD FS
+Вы можете настроить иллюстрации и эмблемы страниц входа AD FS. Для этого войдите в AD FS и используйте для этих изменений PSH.
+
+	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
+
+Полное описание вариантов настройки см. в разделе [Настройка страниц входа AD FS](https://technet.microsoft.com/library/dn280950.aspx).
 
 ## Назначение пользователям лицензий Azure AD Premium и Enterprise Mobility
 
@@ -69,4 +76,4 @@
 ## Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

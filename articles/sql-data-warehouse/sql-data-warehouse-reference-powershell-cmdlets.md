@@ -27,7 +27,7 @@
 ## Получение и запуск командлетов Azure PowerShell
 
 1. Чтобы загрузить модуль Azure PowerShell, запустите [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
-2. Чтобы запустить модуль, введите в окне запуска **Microsoft Azure PowerShell**.
+2. Чтобы запустить модуль, введите в окне запуска **Windows PowerShell**.
 3. Если ваша учетная запись не добавлена на компьютер, запустите приведенный ниже командлет. (Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell]()).
 
 	```
@@ -133,4 +133,4 @@ $retorePoints
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

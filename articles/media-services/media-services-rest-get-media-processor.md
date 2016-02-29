@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+	ms.date="02/14/2016" 
 	ms.author="juliako"/>
 
 
@@ -38,8 +38,8 @@
 Azure Media Indexer| Позволяет сделать мультимедийные файлы и контент доступными для поиска, а также создавать дорожки и ключевые слова для субтитров.|[Индексирование файлов мультимедиа с помощью индексатора мультимедийных данных Azure](media-services-index-content.md)
 Azure Media Hyperlapse (предварительная версия)|Позволяет сгладить "неровности" видео с помощью стабилизации видео. Также позволяет ускорить содержимое в виде пригодного к использованию клипа.|		[Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
 Расшифровка хранилища| Позволяет расшифровать мультимедийные активы, которые были зашифрованы с помощью шифрования хранилища.|Недоступно
-Microsoft Azure Media Packager|Позволяет преобразовать мультимедийные активы из формата MP4 в формат Smooth Streaming. Позволяет также преобразовать мультимедийные активы из формата Smooth Streaming в формат Apple HTTP Live Streaming (HLS).|[Строки предустановок задачи для Azure Media Packager](http://msdn.microsoft.com/library/hh973635.aspx)
-Microsoft Azure Media Encryptor|Позволяет шифровать мультимедийные активы с использованием PlayReady Protection.|[Строки предустановок задачи для Azure Media Packager](http://msdn.microsoft.com/library/hh973610.aspx)
+Azure Media Packager|Позволяет преобразовать мультимедийные активы из формата MP4 в формат Smooth Streaming. Позволяет также преобразовать мультимедийные активы из формата Smooth Streaming в формат Apple HTTP Live Streaming (HLS).|[Строки предустановок задачи для Azure Media Packager](http://msdn.microsoft.com/library/hh973635.aspx)
+Azure Media Encryptor|Позволяет шифровать мультимедийные активы с использованием PlayReady Protection.|[Строки предустановок задачи для Azure Media Packager](http://msdn.microsoft.com/library/hh973610.aspx)
 
 ##Получение MediaProcessor
 
@@ -103,4 +103,4 @@ Microsoft Azure Media Encryptor|Позволяет шифровать мульт
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

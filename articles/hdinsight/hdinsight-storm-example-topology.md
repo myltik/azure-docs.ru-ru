@@ -31,7 +31,7 @@
 | [Определение популярных тем Twitter с помощью Storm в HDInsight][3c86c7c8] | Trident | Java, Trident |
 | [Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (C#)][844d1d81] | Концентраторы событий | C# и Java |
 | [Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md) | Концентраторы событий | Java |
-| [Использование средств Power BI (предварительная версия) для визуализации данных из топологии Storm][94d15238] | Power BI | C# |
+| [Использование Power Bi для визуализации данных из топологии Storm][94d15238] | Power BI | C# |
 | [Анализ данных датчиков с помощью Storm и HBase в HDInsight][ab894747] | Концентраторы событий, HBase, Socket.IO, веб-панель мониторинга | C#, Java, JavaScript, HTML |
 | [Обработка данных с датчиков автомобиля из концентраторов событий с использованием Storm в HDInsight][246ee964] | Концентраторы событий, DocumentDb, хранилище больших двоичных объектов Azure (WASB) | C#, Java |
 | [Извлечение, преобразование и загрузка данных из концентраторов событий Azure в HBase с использованием Storm в HDInsight][b4b68194] | Концентраторы событий, HBase | C# |
@@ -61,4 +61,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Этот проект содержит шаблоны для «воронок», «сит» и топологий, обеспечивающих взаимодействие с различными сервисами Azure, такими как концентраторы событий, DocumentDB и база данных SQL."
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

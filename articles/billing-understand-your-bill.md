@@ -3,8 +3,8 @@
    description="Расшифровка счета Azure"
    services=""
    documentationCenter="Azure"
-   authors="kareni"
-   manager="jocho"
+   authors="erihur"
+   manager="kareni"
    editor=""
    tags="billing"/>
 
@@ -14,38 +14,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/22/2015"
-   ms.author="kareni"/>
+   ms.date="02/04/2016"
+   ms.author="erihur"/>
 
 
 # Расшифровка счета за использование Microsoft Azure
 
-Стоимость подписки Microsoft Azure зависит от тарифного плана. Некоторые тарифные планы, например Visual Studio Ultimate с подпиской MSDN, включают в себя ежемесячные кредиты, которые можно использовать в любой службе Azure в зависимости от потребностей.
+Стоимость подписки Microsoft Azure зависит от тарифного плана. Некоторые тарифные планы, например Visual Studio Enterprise (MPN), включают в себя ежемесячные кредиты, которые можно использовать в любой службе Azure в зависимости от потребностей.
 
 В отчет за текущий расчетный период могут быть включены сведения о неявном использовании (не более 24 часов) из прошлого расчетного периода.
 
 Дополнительные сведения о планах использования и ценах см. на странице [Варианты приобретения Microsoft Azure](https://azure.microsoft.com/pricing/purchase-options/).
 
-Ниже приводится полный список служб Microsoft Azure.
+<!-- The below links cover a complete list of all Microsoft Azure services.
 
-- [Список сведений о службе (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
-- [Список сведений о службе (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
+<!-- - [Service Details list (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+<!-- - [Service Details list (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
-*Примечание. Ссылка **csv1** указывает на заголовки столбцов для CSV версии 1, а ссылка **csv2** ― на заголовки столбцов для CSV версии 2. Эти файлы обновляются ежемесячно.*
+<!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
+<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
 
-## Содержание
+## Content:
 
-С помощью данного раздела вы без труда разберетесь с любым счетом.
+This topic helps you with the following tasks when reading your bill.
 
--  Просмотр и загрузка счета за Azure
--  Сведения о клиенте
--  Разбивка по итоговой сумме счета
--  Разбивка по текущим расходам
--  Сведения в нижнем колонтитуле
--  Разъяснение дополнительной информации
--  Разбивка по стоимости использования
--  Анализ данных о ежедневном использовании
+-  View or Download a Bill for Azure
+-  Customer Information
+-  Understand the Invoice Summary
+-  Understand the Current Charges
+-  Footer Information
+-  Understand the Additional Information
+-  Understand Detailed Usage Charges
+-  Analyze Daily Usage Data -->
 
 ### Просмотр и загрузка счета за Microsoft Azure
 
@@ -77,8 +78,10 @@
     ![Сводка — выставленные счета 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
+***Важно!*** *Сборы, выставленные в счетах для международных заказчиков, приведены только для оценки, так как банки имеют различную стоимость для коэффициентов конвертации.*
 
-**Ниже приведено несколько выписок для двух различных предложений по Microsoft Azure.**
+
+Ниже приведено несколько выписок для двух различных предложений по Microsoft Azure.
 
  **ТИП ПРЕДЛОЖЕНИЯ** | **ОПИСАНИЕ** | **ЗАГРУЗКА** |
  :--------- |:-------- | :-------|
@@ -107,7 +110,7 @@
 Адрес для оплаты подписки Microsoft Azure.
 
 ### Предложение подписки
-Тип приобретенного предложения подписки (например, оплата по мере использования, MSDN — Visual Studio Ultimate и т. д.)
+Тип приобретенного предложения подписки (например, оплата по мере использования, MSDN — Visual Studio Enterprise и т. д.)
 
 ### Электронная почта владельца учетной записи
 Адрес электронной почты, использованной при регистрации учетной записи Microsoft Azure.
@@ -141,7 +144,7 @@
 Скидки на использование службы, применяемые в отношении текущего счета, должны отображаться в этой строке.
 
 ### Корректировка
-Корректировкой считаются различные кредиты или неоплаченные расходы, применяемые в отношении текущего счета. Например, если вы пользуетесь тарифным планом Visual Studio Ultimate с подпиской MSDN, в этой строке будет отображаться ежемесячный кредит. В случае отказа от подписки сума расходов за ежемесячное использование будет превышать сумму ежемесячного кредита с начала текущего расчетного периода до даты отмены подписки.
+Корректировкой считаются различные кредиты или неоплаченные расходы, применяемые в отношении текущего счета. Например, если вы пользуетесь тарифным планом Visual Studio Enterprise с подпиской MSDN, в этой строке будет отображаться ежемесячный кредит. В случае отказа от подписки сума расходов за ежемесячное использование будет превышать сумму ежемесячного кредита с начала текущего расчетного периода до даты отмены подписки.
 
 ## Сведения в нижнем колонтитуле
 ![Нижний колонтитул](./media/billing-understand-your-bill/footerinformation.png)
@@ -256,10 +259,10 @@ Cлужба | Потребленная служба | Этот столбец и
 
 - [Изменение кредитной карты в учетной записи Microsoft Azure](https://msdn.microsoft.com/library/azure/dn736050.aspx)
 
-- [Что делать в случае отключения подписки Azure?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
+<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
 
 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

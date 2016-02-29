@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="02/16/2016"
    ms.author="larryfr"/>
 
 #Использование Hive с Hadoop в HDInsight с применением Beeline
@@ -211,6 +211,12 @@ Beeline также можно использовать для запуска ф�
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
+Если вы используете Tez с Hive, обратитесь к следующим документам для сведений об отладке:
+
+* [Использование пользовательского интерфейса Tez в HDInsight на платформе Windows](hdinsight-debug-tez-ui.md)
+
+* [Использование представления Ambari Tez в HDInsight на платформе Linux](hdinsight-debug-ambari-tez-view.md)
+
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -237,4 +243,4 @@ Beeline также можно использовать для запуска ф�
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

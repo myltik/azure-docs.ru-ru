@@ -125,7 +125,7 @@
 
 ## Диагностика Azure
 
-Данные [системы диагностики Azure](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) включают в себя события управления ролями, счетчики производительности и журналы приложений. Их можно отправить в Application Insights для последующего отображения вместе с остальными данными телеметрии, что упростит выполнение диагностики проблем.
+Данные [системы диагностики Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) включают в себя события управления ролями, счетчики производительности и журналы приложений. Их можно отправить в Application Insights для последующего отображения вместе с остальными данными телеметрии, что упростит выполнение диагностики проблем.
 
 Система диагностики Azure особенно полезна в случае неожиданного сбоя роли или ошибки ее запуска.
 
@@ -261,7 +261,7 @@
 ## Связанные разделы
 
 * [Настройка системы диагностики Azure для отправки данных в Application Insights](app-insights-azure-diagnostics.md)
-* [Отправка данных системы диагностики Azure в Application Insights с помощью PowerShell])(app-insights-powershell-azure-diagnostics.md)
+* [Отправка данных диагностики Azure в Application Insights с помощью PowerShell](app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -279,4 +279,4 @@
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -23,6 +23,7 @@
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 
+
 ## Передача и привязка нового SSL-сертификата ##
 
 Сценарий: пользователь хочет привязать SSL-сертификат к одному из своих веб-приложений.
@@ -30,6 +31,15 @@
 Зная имя группы ресурсов, в которую входит веб-приложение, имя веб-приложения, путь к PFX-файлу сертификата на компьютере пользователя, пароль к сертификату и пользовательское имя узла, можно создать привязку SSL-подключения с помощью следующей команды PowerShell:
 
     New-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -CertificateFilePath PathToPfxFile -CertificatePassword PlainTextPwd -Name www.contoso.com
+
+Обратите внимание, что перед добавлением привязки SSL для веб-приложения необходимо настроить имя узла (пользовательский домен). Если имя узла не настроено, то при запуске командлета New-AzureRmWebAppSSLBinding будет выдана ошибка "Имя узла не существует". Имя узла можно добавить непосредственно с портала или с помощью Azure PowerShell. Настроить имя узла перед запуском командлета New-AzureRmWebAppSSLBinding можно с помощью следующего фрагмента PowerShell.
+  
+    $webApp = Get-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup  
+    $hostNames = $webApp.HostNames  
+    $HostNames.Add("www.contoso.com")  
+    Set-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup -HostNames $HostNames   
+  
+Важно понимать, что командлет Set-AzureRmWebApp перезаписывает имена узлов для веб-приложения. Таким образом, в приведенном выше фрагменте PowerShell производится добавление имен узлов для веб-приложения в существующий список.
 
 ## Передача и привязка существующего SSL-сертификата ##
 
@@ -61,4 +71,4 @@
 - [Введение в среду службы приложения](app-service-app-service-environment-intro.md)
 - [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

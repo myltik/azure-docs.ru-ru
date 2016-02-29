@@ -165,13 +165,13 @@
 
 ###Кластеры HBase
 
-* [Начало работы с HBase в HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [Начало работы с HBase в HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Разработка приложений Java для HBase в HDInsight](hdinsight-hbase-build-java-maven-linux)
 
 ###Кластеры Storm
 
 * [Разработка приложений Java для Storm в HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python.md)
+* [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Развертывание и мониторинг топологий с помощью Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ###Кластеры Spark
@@ -182,4 +182,4 @@
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

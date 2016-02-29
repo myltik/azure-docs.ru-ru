@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="12/17/2015"
+      ms.date="02/15/2016"
       ms.author="jutang" />
 
 
@@ -120,14 +120,13 @@
 
 ### Тематические статьи и видео
 
-- [Хранилище файлов Azure ― удобная облачная файловая система SMB для Windows и Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-- [Использование хранилища файлов Azure в Windows](storage-dotnet-how-to-use-files.md)
-- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
+- [Хранилище файлов Azure: удобная облачная файловая система SMB для Windows и Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+- [Приступая к работе с хранилищем файлов Azure в Windows](storage-dotnet-how-to-use-files.md)
 
 ### Средства для работы с хранилищем файлов
 
-- [Использование AzCopy со службой хранилища Microsoft Azure](storage-use-azcopy.md)
-- [Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure](storage-azure-cli.md#create-and-manage-file-shares)
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
+- [Создание общих папок и управление ими](storage-azure-cli.md#create-and-manage-file-shares) с помощью интерфейса командной строки Azure.
 
 ### Справочные материалы
 
@@ -135,9 +134,9 @@
 
 ### Записи блога
 
-- [Хранилище файлов Azure стало общедоступным](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Подробный обзор хранилища файлов Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
+- [Хранилище файлов Azure стало общедоступным](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+- [Inside Azure File Storage (Хранилище файлов Azure: взгляд изнутри)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 - [Введение в службы файлов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->
