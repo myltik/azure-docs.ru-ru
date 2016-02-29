@@ -18,8 +18,8 @@
 # Развертывание виртуального устройства StorSimple в Azure и управление им (Обновление 2)
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [Обновления 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Обновления 1](../articles/storsimple/storsimple-virtual-device-u1.md)
 - [GA Release](../articles/storsimple/storsimple-virtual-device.md)
 
 ##Обзор
@@ -146,7 +146,8 @@
 
 Перед тем, как начать эту процедуру, убедитесь, что у вас есть копия ключа шифрования данных службы. Ключ шифрования данных службы был создан при настройке первого устройства StorSimple, и его рекомендовалось сохранить в защищенном месте. Если у вас нет копии ключа шифрования данных службы, следует обратиться в службу поддержки Майкрософт за помощью.
 
-Выполните следующие действия, чтобы настроить и зарегистрировать виртуальное устройство StorSimple.[AZURE.INCLUDE [Настройка и регистрация виртуального устройства](../../includes/storsimple-configure-register-virtual-device.md)]
+Выполните следующие действия, чтобы настроить и зарегистрировать виртуальное устройство StorSimple.
+[AZURE.INCLUDE [Настройка и регистрация виртуального устройства](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Шаг 3 (необязательный). Изменение параметров конфигурации устройства
 
