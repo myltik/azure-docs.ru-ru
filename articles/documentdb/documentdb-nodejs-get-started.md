@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="hero-article" 
-	ms.date="11/18/2015"
+	ms.date="02/19/2016"
 	ms.author="anhoh"/>
 
 # Руководство по NoSQL Node.js: консольное приложение Node.js DocumentDB  
@@ -323,13 +323,7 @@ DocumentDB поддерживает [полнофункциональные за
 
 Теперь, когда вы настроили в приложении все необходимые функции, давайте их вызовем.
 
-Порядок вызова функций будет следующим: 
-    * *getOrCreateDatabase*
-        * *getOrCreateCollection*
-            * *getOrCreateDocument*
-                * *getOrCreateDocument*
-                    * *queryCollection*
-                        * *cleanup*
+Порядок вызова функций будет следующим: * *getOrCreateDatabase* * *getOrCreateCollection* * *getOrCreateDocument* * *getOrCreateDocument* * *queryCollection* * *cleanup*
 
 Добавьте следующий фрагмент кода в конец файла ```app.js```.
 
@@ -431,8 +425,7 @@ DocumentDB поддерживает [полнофункциональные за
 -   [учетная запись DocumentDB][documentdb-create-account];
 -   решение [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started), доступное в GitHub.
 
-Установите модуль **documentdb** с помощью npm. Используйте следующую команду:
-* ```npm install documentdb --save```
+Установите модуль **documentdb** с помощью npm. Используйте следующую команду: * ```npm install documentdb --save```
 
 Затем в файле ```config.js``` обновите значения config.endpoint и config.authKey, как описано в разделе [Шаг 3. Настройка конфигурации приложения](#Config).
 
@@ -449,4 +442,4 @@ DocumentDB поддерживает [полнофункциональные за
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

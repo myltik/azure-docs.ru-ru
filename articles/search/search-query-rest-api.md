@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/17/2016"
 	ms.author="heidist"/>
 
 # Создание запросов в службе поиска Azure с помощью вызовов REST
@@ -67,4 +67,4 @@
 
 При успешном выполнении запроса возвращается код состояния «200 OK», а результаты поиска сохраняются в формате JSON в тексте ответа. Дополнительные сведения см. в разделе «Ответ» на [этой странице](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

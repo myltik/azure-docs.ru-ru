@@ -78,11 +78,90 @@
 
 ### Задания в службе Azure Stream Analytics
 
-**Задание 1. Телеметрия**. Работает на входящем потоке телеметрии устройства, используя две команды. Первая команда отправляет все сообщения телеметрии с устройств в постоянное хранилище больших двоичных объектов. Вторая команда вычисляет среднее, минимальное и максимальное значения влажности в течение пятиминутного «скользящего» окна. Эти данные также отправляются в хранилище больших двоичных объектов.
+**Задание 1. Телеметрия**. Работает на входящем потоке телеметрии устройства, используя два способа. Первый отправляет все сообщения телеметрии с устройств в постоянное хранилище BLOB-объектов. Второй вычисляет среднее, минимальное и максимальное значения влажности в течение пятиминутного скользящего окна. Эти данные также отправляются в хранилище больших двоичных объектов. Это задание использует следующее определение запроса:
 
-**Задание 2. Сведения об устройстве**. Фильтрует из входящего потока сообщений сообщения с информацией об устройстве и отправляет их в конечную точку концентратора событий. Устройство отправляет сообщения с информацией об устройстве при запуске и в ответ на команду **SendDeviceInfo**.
+```
+WITH 
+    [StreamData]
+AS (
+    SELECT
+        *
+    FROM 
+      [IoTHubStream] 
+    WHERE
+        [ObjectType] IS NULL -- Filter out device info and command responses
+) 
 
-**Задание 3. Правила**. Оценивает входящие телеметрические значения температуры и влажности и сравнивает с пороговым значением для устройства. Пороговые значения задаются в редакторе правил, который входит в решение. Каждая пара устройство/значение хранится с отметкой времени в большом двоичном объекте, который считывается обработчиком Stream Analytics как **Ссылочные данные**. Задание сравнивает все непустые значения с заданным пороговым значением для устройства. Если значение превышает условие «>», задание выводит событие **сигнал**, которое указывает, что пороговое значение превышено, и указывает устройство, значение и значения отметки времени.
+SELECT
+    *
+INTO
+    [Telemetry]
+FROM
+    [StreamData]
+
+SELECT
+    DeviceId,
+    AVG (Humidity) AS [AverageHumidity], 
+    MIN(Humidity) AS [MinimumHumidity], 
+    MAX(Humidity) AS [MaxHumidity], 
+    5.0 AS TimeframeMinutes 
+INTO
+    [TelemetrySummary]
+FROM
+    [StreamData]
+WHERE
+    [Humidity] IS NOT NULL
+GROUP BY
+    DeviceId, 
+    SlidingWindow (mi, 5)
+```
+
+**Задание 2. Сведения об устройстве**. Фильтрует из входящего потока сообщений сообщения с информацией об устройстве и отправляет их в конечную точку концентратора событий. Устройство отправляет сообщения с информацией об устройстве при запуске и в ответ на команду **SendDeviceInfo**. Это задание использует следующее определение запроса:
+
+```
+SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
+```
+
+**Задание 3. Правила**. Оценивает входящие телеметрические значения температуры и влажности и сравнивает с пороговым значением для устройства. Пороговые значения задаются в редакторе правил, который входит в решение. Каждая пара устройство/значение хранится с отметкой времени в большом двоичном объекте, который считывается обработчиком Stream Analytics как **Ссылочные данные**. Задание сравнивает все непустые значения с заданным пороговым значением для устройства. Если значение превышает условие ">", задание выводит событие **оповещение**, которое указывает, что пороговое значение превышено, и указывает устройство, значение и значения метки времени. Это задание использует следующее определение запроса:
+
+```
+WITH AlarmsData AS 
+(
+SELECT
+     Stream.DeviceID,
+     'Temperature' as ReadingType,
+     Stream.Temperature as Reading,
+     Ref.Temperature as Threshold,
+     Ref.TemperatureRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+
+UNION ALL
+
+SELECT
+     Stream.DeviceID,
+     'Humidity' as ReadingType,
+     Stream.Humidity as Reading,
+     Ref.Humidity as Threshold,
+     Ref.HumidityRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
+)
+
+SELECT *
+INTO DeviceRulesMonitoring
+FROM AlarmsData
+
+SELECT *
+INTO DeviceRulesHub
+FROM AlarmsData
+```
 
 ### Обработчик событий
 
@@ -145,4 +224,4 @@
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

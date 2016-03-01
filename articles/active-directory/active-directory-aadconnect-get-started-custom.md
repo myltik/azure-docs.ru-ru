@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/18/2016"
+	ms.date="02/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # Выборочная установка Azure AD Connect
@@ -26,7 +26,7 @@
 | Раздел | |
 | --------- | --------- |
 | **Загрузка Azure AD Connect** | [Загрузка Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
-| **Оборудование и необходимые компоненты** | [Azure AD Connect: оборудование и необходимые компоненты](active-directory-aadconnect-prerequisites.md) |
+| **Оборудование и необходимые компоненты** | [Azure AD Connect: оборудование и необходимые компоненты](active-directory-aadconnect-prerequisites.md#hardware-requirements-for-azure-ad-connect) |
 | **Учетные записи, используемые для установки** | [Учетные записи и разрешения Azure AD Connect](active-directory-aadconnect-accounts-permissions.md) |
 | Установка с помощью стандартных параметров | [Экспресс-установка Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Обновление из DirSync | [Обновление из средства синхронизации Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
@@ -228,4 +228,4 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 
 Ознакомьтесь с дополнительными сведениями об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/11/2016"
-	ms.author="bwren;sngun"/>
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren"/>
 
 # Обзор службы автоматизации Azure
 
@@ -41,7 +41,7 @@ Runbook в службе автоматизации Azure основаны на W
 
 ## Создание модулей Runbook с помощью службы автоматизации Azure 
 
-Вы можете [создавать собственные модули Runbook](automation-creating-importing-runbook.md) с нуля или изменять модули в [коллекции Runbook](http://msdn.microsoft.com/library/azure/dn781422.aspx) в соответствии с собственными требованиями. Вы можете выбрать три разных [типа Runbook](automation-runbook-types.md) на основе ваших требований и возможностей PowerShell. Если вы предпочитаете работать непосредственно с кодом PowerShell, то можно использовать [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks) или [Runbook рабочего процесса PowerShell](automation-runbook-types.md#powershell-workflow-runbooks), которые вы можете изменять в автономном режиме или в [текстовом редакторе](http://msdn.microsoft.com/library/azure/dn879137.aspx) на портале Azure. Если вы предпочитаете изменять Runbook без необходимости работать с его кодом, то можно создать [графический Runbook](automation-runbook-types.md#graphical-runbooks) с помощью [графического редактора](automation-graphical-authoring-intro.md) на портале предварительной версии Azure.
+Вы можете [создавать собственные модули Runbook](automation-creating-importing-runbook.md) с нуля или изменять модули в [коллекции Runbook](http://msdn.microsoft.com/library/azure/dn781422.aspx) в соответствии с собственными требованиями. Вы можете выбрать три разных [типа Runbook](automation-runbook-types.md) на основе ваших требований и возможностей PowerShell. Если вы предпочитаете работать непосредственно с кодом PowerShell, то можно использовать [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks) или [Runbook рабочего процесса PowerShell](automation-runbook-types.md#powershell-workflow-runbooks), которые вы можете изменять в автономном режиме или в [текстовом редакторе](http://msdn.microsoft.com/library/azure/dn879137.aspx) на портале Azure. Если вы предпочитаете изменять модули Runbook, не прибегая к работе над кодом, создайте [графический модуль Runbook](automation-runbook-types.md#graphical-runbooks). Для этого можно использовать [графический редактор](automation-graphical-authoring-intro.md) на портале Azure.
 
 Предпочитаете смотреть, а не читать? Посмотрите указанный ниже видеоролик, показанный на презентации Microsoft Ignite в мае 2015 года. Примечание. Несмотря на то, что основные концепции и жизненный цикл, о которых рассказывается в этом видеоролике, по-прежнему актуальны, с момента записи этого видеоролика служба автоматизации Azure сделала большой шаг вперед. Теперь она оснащена более функциональным пользовательским интерфейсом на портале Azure и поддерживает дополнительные возможности.
 
@@ -62,7 +62,7 @@ Runbook в службе автоматизации Azure основаны на W
 
 ## Получение модулей и конфигураций 
 
-[Модули PowerShell](automation-runbook-gallery.md#modules-in-powershell-gallery), содержащие командлеты, которые разрешается использовать в модулях Runbook и конфигурациях DSC, можно получить из [коллекции PowerShell](http://www.powershellgallery.com/). Вы можете открыть эту коллекцию на портале предварительной версии Azure и импортировать модули непосредственно в службу автоматизации Azure. Также можно скачать и импортировать модули вручную. Модули нельзя устанавливать непосредственно с портала Azure, но вы можете скачать и установить их, как любой другой модуль.
+[Модули PowerShell](automation-runbook-gallery.md#modules-in-powershell-gallery), содержащие командлеты, которые разрешается использовать в модулях Runbook и конфигурациях DSC, можно получить из [коллекции PowerShell](http://www.powershellgallery.com/). Вы можете открыть эту коллекцию на портале Azure и импортировать модули непосредственно в службу автоматизации Azure. Также можно скачать и импортировать модули вручную. Модули нельзя устанавливать непосредственно с портала Azure, но вы можете скачать и установить их, как любой другой модуль.
 
 
 ## Примеры практического применения автоматизации Azure 
@@ -101,4 +101,4 @@ Runbook в службе автоматизации Azure основаны на W
 
 **Да! Нам нужна обратная связь.** Если вы ищете модуль интеграции или определенное решение для службы автоматизации Azure, в котором используются модули Runbook, разместите соответствующий запрос на сайте "Центр сценариев". Если вы хотите оставить отзыв или запрос на ту или иную функцию для службы автоматизации Azure, оставляйте их на сайте [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Спасибо!
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

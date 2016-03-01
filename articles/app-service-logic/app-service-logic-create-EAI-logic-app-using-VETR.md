@@ -13,11 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 
 # Создание приложения логики EAI с помощью VETR
+
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
 
 Большинство сценариев интеграции приложений (EAI) преобразовывают данные между источником и назначением. Такие сценарии часто имеют общий набор требований.
 
@@ -108,7 +110,7 @@
 
 Ниже перечислены некоторые полезные статьи.
 
-[Управление приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md) <br/> [Мониторинг приложений логики](app-service-logic-monitor-your-logic-apps.md)
+[Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md) <br/> [Мониторинг приложений логики](app-service-logic-monitor-your-logic-apps.md)
 
 <!--image references -->
 [1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.PNG
@@ -117,4 +119,4 @@
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

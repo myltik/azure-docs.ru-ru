@@ -26,11 +26,11 @@
 
 В этой статье предполагается, что вы уже работали с C# и Visual Studio. Также предполагается, что вы можете выполнить требования к созданию учетной записи для службы хранилища и пакетной службы Azure. Эти требования перечислены ниже.
 
-### учетные записи;
+### Учетные записи
 
-- **Учетная запись Azure** — если у вас еще нет подписки Azure, вы можете за несколько минут создать бесплатную пробную учетную запись на странице [бесплатной пробной версии Azure](http://azure.microsoft.com/pricing/free-trial/).
-- **Учетная запись пакетной службы** — если у вас есть подписка Azure, [создайте учетную запись пакетной службы Azure и начните управлять ею](batch-account-create-portal.md).
-- **Учетная запись хранения** — см. раздел "Создание учетной записи хранения" в статье [Об учетных записях хранения Azure](../storage-create-storage-account.md).
+- **Учетная запись Azure**. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure][azure_free_account].
+- **Учетная запись пакетной службы**. Если у вас есть подписка Azure, [создайте учетную запись пакетной службы Azure и начните управлять ею](batch-account-create-portal.md).
+- **Учетная запись хранения**. См. раздел "Создание учетной записи хранения" в статье [Об учетных записях хранения Azure](./../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
@@ -160,7 +160,7 @@ private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobCli
 
 Когда контейнеры будут созданы, приложение сможет отправлять файлы, которые будут использоваться задачами.
 
-> [AZURE.TIP] [How to use Blob Storage from .NET](./../storage/storage-dotnet-how-to-use-blobs.md) Статья "Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET" содержит хороший обзор работы с контейнерами службы хранилища Azure и большими двоичными объектами. Вы должны ознакомиться с этой статьей, прежде чем приступать к работе с пакетной службой.
+> [AZURE.TIP] [How to use Blob Storage from .NET](./../storage/storage-dotnet-how-to-use-blobs.md)Статья "Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET" содержит хороший обзор работы с контейнерами службы хранилища Azure и большими двоичными объектами. Вы должны ознакомиться с этой статьей, прежде чем приступать к работе с пакетной службой.
 
 ## Шаг 2. Отправка приложения задач и файлов данных
 
@@ -642,6 +642,7 @@ Sample complete, hit ENTER to exit...
 - Ознакомьтесь с другими способами обработки рабочей нагрузки "N часто употребляемых слов" с помощью пакетной службы. См. пример приложения [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
+[azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
@@ -696,4 +697,4 @@ Sample complete, hit ENTER to exit...
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Учетные данные службы хранилища на портале"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Рабочий процесс решения пакетной службы (сокращенная схема)"
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

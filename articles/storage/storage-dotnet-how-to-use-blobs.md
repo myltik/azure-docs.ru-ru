@@ -25,7 +25,13 @@
 
 Хранилище BLOB-объектов Azure — это служба, хранит данные (файлы) в облаке. В хранилище BLOB-объектов могут храниться текстовые или двоичные данные любого типа, например документы, файлы мультимедиа или установщики приложений. Хранилище BLOB-объектов иногда называют также хранилищем объектов.
 
-В этом руководстве показано, как написать код .NET для некоторых распространенных сценариев использования хранилища BLOB-объектов Azure. Эти сценарии включают отправку, перечисление, загрузку и удаление больших двоичных объектов. Для прохождения описанных в руководстве инструкций требуется около часа.
+### О данном учебнике
+
+В этом руководстве показано, как написать код .NET для некоторых распространенных сценариев использования хранилища BLOB-объектов Azure. Эти сценарии включают отправку, перечисление, загрузку и удаление больших двоичных объектов.
+
+**Предполагаемое время выполнения:** 45 минут.
+
+**Предварительные требования**
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -353,9 +359,9 @@
 - [Приступая к работе с хранилищем таблиц для .NET](storage-dotnet-how-to-use-tables.md)
 - [Приступая к работе с хранилищем очередей для .NET](storage-dotnet-how-to-use-queues.md)
 - [Приступая к работе с хранилищем файлов для .NET](storage-dotnet-how-to-use-files.md)
-- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
-- [Как использовать базу данных SQL Azure в приложениях .NET](../sql-database/sql-database-dotnet-how-to-use.md)
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 - [Использование хранилища больших двоичных объектов Azure с пакетом SDK веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+- [Использование базы данных SQL из .NET (C#)](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -368,4 +374,4 @@
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

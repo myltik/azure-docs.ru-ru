@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # Аналитики для приложений Windows Phone и приложений Магазина
@@ -83,6 +83,7 @@
 4. Добавьте файл ApplicationInsights.config в корневой каталог проекта и вставьте скопированный c портала ключ инструментирования. Ниже приведен пример XML-кода для этого файла конфигурации.
 
 	```xml
+
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
@@ -96,6 +97,7 @@
 5. Добавьте приведенный ниже код инициализации. Мы рекомендуем добавить этот код в конструктор `App()`. Если выполнить это действие в другом месте, можно пропустить автоматический сбор сведений о первых просмотрах страниц.
 
 ```C#
+
 	public App()
 	{
 	   // Add this initilization line. 
@@ -207,4 +209,4 @@
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

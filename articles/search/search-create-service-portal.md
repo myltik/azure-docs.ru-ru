@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/05/2016"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Создание службы поиска Azure на портале Azure
@@ -25,7 +25,7 @@
 
 ## Бесплатное добавление службы поиска Azure в подписку
 
-Администратор может подключить Поиск Azure к существующей подписке Azure бесплатно (при выборе общей службы). Вы также можете получить [бесплатную пробную подписку](../includes/free-trial-note.md), чтобы оценить эту службу.
+Администратор может подключить Поиск Azure к существующей подписке Azure бесплатно (при выборе общей службы). Эту службу можно также оценить с помощью [бесплатной пробной подписки](../../includes/free-trial-note.md).
 
 1. Войдите на [портал Azure](https://portal.azure.com).
 
@@ -126,4 +126,4 @@
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

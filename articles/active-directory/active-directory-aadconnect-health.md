@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.date="02/17/2016"
 	ms.author="billmath"/>
 
 # Мониторинг локальной инфраструктуры идентификации и служб синхронизации в облаке.
@@ -122,5 +122,6 @@ Azure AD Connect Health для синхронизации отслеживает
 * [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
 * [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

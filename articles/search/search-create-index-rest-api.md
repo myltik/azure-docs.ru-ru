@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Создание индекса службы поиска Azure с помощью REST API
@@ -65,4 +65,4 @@
 
 При успешном выполнении запроса возвращается код состояния «201 — Создан ресурс». Дополнительные сведения о создании индекса с помощью REST API см. на [этой странице](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

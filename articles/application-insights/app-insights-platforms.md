@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/07/2016"
+	ms.date="02/22/2016"
 	ms.author="awills"/>
 
 # Application Insights: языки, платформы, интеграция
@@ -39,10 +39,11 @@
 + [ASP.NET — для приложений, которые уже доступны в Интернете](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
-+ [Веб-приложения и виртуальные машины Azure](../insights-perf-analytics.md)
++ [Веб-приложения и виртуальные машины Azure](../azure-portal/insights-perf-analytics.md)
 + [Облачные службы Azure](app-insights-cloudservices.md) — рабочие роли и веб-роли
 + [CRM Online от Microsoft Dynamics.](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
++ [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE — для приложений, которые уже доступны в Интернете](app-insights-java-live.md)
@@ -83,4 +84,4 @@
 
 Если для языка или платформы, которые вы используете, не существует пакета SDK, возможно, вы захотите создать его. Просмотрите код существующих пакетов SDK, перечисленных в описании [проекта пакета SDK для Application Insights на GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->
