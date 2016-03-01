@@ -333,7 +333,7 @@ Red Teaming — один из самых важных компонентов р
 
 - [Центр Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx)
 
-- К Microsoft Azure или Office 365 можно обратиться через *[*http://www.microsoft.com/security/msrc/default.aspx*](http://www.microsoft.com/security/msrc/default.aspx)[] (http://www.microsoft.com/security/msrc/default.aspx) или по электронной почте **secure@microsoft.com*.
+- К Microsoft Azure или Office 365 можно обратиться через [*http://www.microsoft.com/security/msrc/default.aspx*](http://www.microsoft.com/security/msrc/default.aspx)[ ](http://www.microsoft.com/security/msrc/default.aspx) или по электронной почте *secure@microsoft.com*.
 
 - [Интервью с Марком Руссиновичем (Mark Russinovich) об обеспечении безопасности Microsoft Azure, сосредоточенное на нововведения тестирования на защиту от несанкционированного доступа](http://blogs.technet.com/b/matthewms/archive/2013/07/02/an-interview-with-mark-russinovich-on-windows-azure-amp-security-update-on-penetration-testing.aspx).
 
@@ -430,4 +430,4 @@ Red Teaming — один из самых важных компонентов р
 
 *(c) Корпорация Майкрософт (Microsoft Corporation), 2014. Все права защищены. Этот документ предоставляется "как есть". Сведения и мнения, представленные в данном документе, включая URL-адреса и ссылки на другие веб-сайты, могут быть изменены без предварительного уведомления. Вы берете на себя риски, связанные с использованием этого документа. Некоторые примеры являются вымышленными и приводятся исключительно в демонстрационных целях. Все сходства с реальными ситуациями случайны. Настоящий документ не предоставляет юридических прав на интеллектуальную собственность в отношении продуктов корпорации Майкрософт. Разрешается копирование и использование настоящего документа в справочных целях.*
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

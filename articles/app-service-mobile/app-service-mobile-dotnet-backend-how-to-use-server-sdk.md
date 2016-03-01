@@ -49,7 +49,7 @@
 
 Чтобы создать проект мобильных приложений в Visual Studio, необходимо установить [пакет Azure SDK для .NET](https://azure.microsoft.com/downloads/) версии 2.8.1 или более поздней. После установки пакета SDK создайте новое приложение ASP.NET:
 
-1. Откройте диалоговое окно **Новый проект** (последовательно выберите *Файл* > **Создать** > **Проект**).
+1. Откройте диалоговое окно **Новый проект** (последовательно выберите *Файл* > **Создать** > **Проект**).
 
 2. Разверните раздел **Шаблоны** > **Visual C#** и выберите **Интернет**.
 
@@ -445,4 +445,4 @@ SID является производным от идентификатора п
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->
