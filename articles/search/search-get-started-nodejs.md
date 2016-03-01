@@ -17,12 +17,15 @@
 	ms.author="heidist"/>
 
 # Начало работы с Поиском Azure на NodeJS
+> [AZURE.SELECTOR]
+- [Portal](search-get-started-portal.md)
+- [.NET](search-get-started-dotnet.md)
 
 Узнайте, как создать собственное приложение поиска на NodeJS на базе Поиска Azure. В этом руководстве [REST API службы поиска Azure](https://msdn.microsoft.com/library/dn798935.aspx) используется для создания объектов и операций, используемых в этом уроке.
 
 Мы использовали [NodeJS](https://nodejs.org) и NPM, [Sublime Text 3](http://www.sublimetext.com/3) и Windows PowerShell в Windows 8.1 для разработки и проверки этого кода.
 
-Чтобы запустить этот пример, вам потребуется служба поиска Azure, в которой можно зарегистрироваться на [портале Azure](https://portal.azure.com). Пошаговые инструкции приведены в статье [Создание службы поиска Azure на классическом портале Azure](search-create-service-portal.md).
+Чтобы запустить этот пример, вам потребуется служба поиска Azure. Создать в ней учетную запись можно на [портале Azure](https://portal.azure.com). Пошаговые инструкции приведены в статье [Создание службы поиска Azure на портале Azure](search-create-service-portal.md).
 
 ## О данных
 
@@ -118,4 +121,4 @@
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

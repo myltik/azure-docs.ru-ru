@@ -10,7 +10,7 @@
 <tags 
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="02/03/2016"
@@ -190,7 +190,7 @@
 
 > [AZURE.NOTE]
 >
-> Свойство **\_\_permissions** применимо только к корневому элементу.
+> **__Свойство **\_\_permissions** применимо только к корневому элементу.
 >
 > Роль **владельца** применима только к корневому элементу.
 >
@@ -262,4 +262,4 @@
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

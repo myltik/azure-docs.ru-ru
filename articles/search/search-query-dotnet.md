@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="02/10/2016"
 	ms.author="heidist"/>
 
 #Создание запросов в службе поиска Azure с помощью .NET
@@ -63,4 +63,4 @@
 
 Второй вызов использует выражение OData $filter «category eq 'Luxury'». Это ограничивает поиск документами, в которых поле category точно совпадает со строкой Luxury. Дополнительные сведения о синтаксисе OData можно найти в статье [Синтаксис выражений OData в службе поиска Azure](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->
