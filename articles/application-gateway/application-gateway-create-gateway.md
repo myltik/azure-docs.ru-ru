@@ -78,7 +78,7 @@
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 
- *Description*, *InstanceCount* и *GatewaySize* — необязательные параметры.
+ *Description*, *InstanceCount* и *GatewaySize* — необязательные параметры.
 
 
 Чтобы проверить создание шлюза, используйте командлет **Get-AzureApplicationGateway**.
@@ -344,7 +344,7 @@
 
 ## Проверка состояния шлюза
 
-Чтобы проверить состояние шлюза, используйте командлет **Get-AzureApplicationGateway**. Если командлет **Start-AzureApplicationGateway** на предыдущем этапе выполнен успешно, параметр *State* будет иметь значение Running, а параметры *Vip* и *DnsName* — действительные значения.
+Чтобы проверить состояние шлюза, используйте командлет **Get-AzureApplicationGateway**. Если командлет **Start-AzureApplicationGateway** на предыдущем этапе выполнен успешно, параметр *State* будет иметь значение Running, а параметры *Vip* и *DnsName* — действительные значения.
 
 В следующем примере показан рабочий шлюз приложений, готовый к приему трафика, отправляемого по адресу `http://<generated-dns-name>.cloudapp.net`.
 
