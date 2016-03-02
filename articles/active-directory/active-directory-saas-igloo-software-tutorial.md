@@ -76,7 +76,7 @@
 
     ![Единый вход Microsoft Azure AD](./media/active-directory-saas-igloo-software-tutorial/IC783965.png "Единый вход Microsoft Azure AD")
 
-3.  На странице **Настройка URL-адреса приложения** введите в текстовое поле **URL-адрес для входа в Igloo Software** URL-адрес вашей службы в формате "**https://company.igloocommunities.com/?signin*" и нажмите **Далее**.
+3.  На странице **Настройка URL-адреса приложения** введите в текстовое поле **URL-адрес для входа в Igloo Software** URL-адрес вашей службы в формате "*https://company.igloocommunities.com/?signin*" и нажмите **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-igloo-software-tutorial/IC773625.png "Настройка URL-адреса приложения")
 
@@ -154,4 +154,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->
