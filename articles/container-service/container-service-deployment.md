@@ -156,9 +156,9 @@ New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESO
  
 ### Provide template parameters
  
-If you are familiar with PowerShell, you know that you can cycle through the available parameters for a cmdlet by typing a minus sign (-) and then pressing the TAB key. This same functionality also works with parameters that you define in your template. As soon as you type the template name, the cmdlet fetches the template, parses the parameters, and adds the template parameters to the command dynamically. This makes it very easy to specify the template parameter values. And, if you forget a required parameter value, PowerShell prompts you for the value.
+Если вы знакомы с PowerShell, вы знаете,что вы можете проходить по кругу все доступные параметры для командлета. Для этого введите знак минус (-) и нажмите клавишу TAB. Точно так же это работает с параметрами, которые вы определили в шаблоне. Как только вы введете имя шаблона, командлет получит шаблон, проанализирует его параметры и динамически добавит их в команду. Таким образом можно легко указать значения параметров шаблона. Если вы забыли значение обязательного параметра, PowerShell подскажет его вам.
  
-Below is the full command with parameters included. You can provide your own values for the names of the resources.
+Ниже показана полная команда с включенными параметрами. Вы можете указать собственные значения для имен ресурсов.
 
 ```
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 ....
@@ -173,4 +173,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-Temp
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
