@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать подключаемый модуль Smooth Streaming служб мультимедиа Azure для платформы Open Source Media Framework." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="amitr" 
+	authors="juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/17/2016"
-	ms.author="amitr"/>
+	ms.author="juliako"/>
 
 
 # Использование подключаемого модуля Smooth Streaming Майкрософт для платформы Adobe Open Source Media Framework
@@ -410,4 +410,4 @@ package
 
 [Адаптивный подключаемый модуль Майкрософт для потоковой передачи для обновления OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

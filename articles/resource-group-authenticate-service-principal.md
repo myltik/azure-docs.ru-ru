@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="02/21/2016"
    ms.author="tomfitz"/>
 
 # Проверка подлинности субъекта-службы в диспетчере ресурсов Azure
@@ -25,9 +25,11 @@
 Можно использовать Azure PowerShell или Azure CLI для Mac, Linux и Windows. Если вы еще не установили Azure PowerShell, см. статью [Как установить и настроить Azure PowerShell](./powershell-install-configure.md). Если у вас не установлен интерфейс CLI Azure для Mac, Linux или Windows, см. статью [Установка и настройка CLI Azure](xplat-cli-install.md). Подробнее об использовании портала для выполнения этих шагов см. в разделе [Создание приложения Active Directory и субъекта-службы с помощью портала](resource-group-create-service-principal-portal.md).
 
 ## Основные понятия
-1. Azure Active Directory (AAD) — это служба управления удостоверениями и доступом, созданная для облака. Дополнительные сведения см. в статье [Служба Azure Active Directory](active-directory/active-directory-whatis.md).
-2. Субъект-служба — это экземпляр приложения в каталоге, которому требуется доступ к другим ресурсам.
-3. Приложение AD — запись в каталоге, которая связывает некоторое приложение со службой AAD. Дополнительные сведения см. в статье [Проверка подлинности в службе Azure AD: основы](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
+1. Azure Active Directory (AAD) — это служба управления удостоверениями и доступом, созданная для облака. Дополнительные сведения см. в статье [Что такое Azure Active Directory](active-directory/active-directory-whatis.md).
+2. Субъект-служба — это экземпляр приложения в каталоге, которому требуется доступ к другим ресурсам.
+3. Приложение AD — запись в каталоге, которая связывает некоторое приложение со службой AAD.
+
+Более подробное описание приложений и субъектов-служб см. в разделе [Объекты приложений и объекты субъектов-служб](active-directory/active-directory-application-objects.md). Дополнительные сведения об аутентификации Active Directory см. в статье [Сценарии проверки подлинности в Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 ## Проверка подлинности субъекта-службы по паролю: PowerShell
 
@@ -312,4 +314,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

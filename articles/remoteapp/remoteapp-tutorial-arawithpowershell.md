@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Начало работы с Azure RemoteApp с помощью PowerShell | Microsoft Azure"
-   description="Инструкции по началу работы с платформой Azure RemoteApp с помощью командной оболочки PowerShell"
+   pageTitle="Использование командлетов PowerShell с Azure RemoteApp | Microsoft Azure"
+   description="Узнайте, как использовать командлеты Windows PowerShell в Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
    authors="guscatalano"
@@ -13,24 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="12/05/2015"
-   ms.author="guscatal;spatnaik;elizapo"/>
+   ms.date="02/23/2016"
+   ms.author="elizapo"/>
 
 
 
-# Начало работы с Azure RemoteApp с помощью PowerShell
+# Использование командлетов Windows PowerShell с Azure RemoteApp
 =====================================
 
+ Для администрирования и обслуживания коллекций можно использовать командлеты PowerShell для Azure RemoteApp. Используйте следующие сведения, чтобы приступить к работе.
 
-## Загрузка командлетов
+## Загрузка командлетов 
 -------------
-Сначала необходимо загрузить командлеты PowerShell для Azure [здесь](http://go.microsoft.com/?linkid=9811175); в их состав уже входят командлеты для RemoteApp.
+Сначала скачайте командлеты Azure PowerShell [отсюда](http://go.microsoft.com/?linkid=9811175). В их состав уже входят командлеты для RemoteApp.
 
-Справочные сведения об использовании командлетов для Azure RemoteApp представлены [здесь](https://msdn.microsoft.com/library/mt428031.aspx).
+Ознакомьтесь со [справкой по командлетам для Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
 
 ## Настройка командлетов Azure для работы с подпиской
 ------------------
 С помощью [этого руководства](../powershell-install-configure.md) вы сможете сделать так, чтобы командлеты можно было использовать с вашей подпиской Azure.
+
+Чтобы быстро приступить к работе:
+
+1.	Скачайте и установите [командлеты Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
+2.	Запустите Microsoft Azure PowerShell.
+3.	Выполните **Add-AzureAccount** для аутентификации в подписке Azure. При появлении запроса введите имя пользователя и пароль, которые используются для входа на портал Azure.  
+4.	Выполните **Get-AzureSubscription**, чтобы получить список подписок, связанных с вашей учетной записью. 
+5.	Выполните **Select-AzureSubscription** и укажите имя или идентификатор подписки для использования в консоли PowerShell.
+
+Поздравляем, консоль Azure PowerShell настроена и готова к работе. Имейте в виду, что вам потребуется повторять шаги 2–5 при каждом запуске консоли Azure PowerShell.
 
 ## Создание облачной коллекции
 --------------------
@@ -99,5 +110,6 @@
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
+ 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

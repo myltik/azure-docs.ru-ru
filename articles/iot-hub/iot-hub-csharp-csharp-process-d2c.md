@@ -93,13 +93,13 @@
 
 [хранилище больших двоичных объектов Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-dotnet-how-to-use-blobs/
 [фабрика данных Azure]: https://azure.microsoft.com/ru-RU/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.microsoft.com/ru-RU/documentation/services/hdinsight/
+[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [очередь служебной шины]: https://azure.microsoft.com/ru-RU/documentation/articles/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
 
-[руководстве для разработчиков центра IoT Azure, посвященному передаче сообщений с устройства в облако]: https://azure.microsoft.com/ru-RU/documentation/articles/iot-hub-devguide/#d2c
+[руководстве для разработчиков центра IoT Azure, посвященному передаче сообщений с устройства в облако]: https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#d2c
 
 [хранилище Azure]: https://azure.microsoft.com/ru-RU/documentation/services/storage/
 [служебной шине Azure]: https://azure.microsoft.com/ru-RU/documentation/services/service-bus/
@@ -113,8 +113,8 @@
 [Руководство по центру IoT]: iot-hub-guidance.md
 [Руководство разработчика по центру IoT]: iot-hub-devguide.md
 [Приступая к работе с центром IoT]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[Supported devices]: iot-hub-tested-configurations.md
 [Центр разработчика IoT Azure]: https://azure.microsoft.com/develop/iot
 [Центре разработчиков центра IoT Azure]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -197,10 +197,10 @@
 
 Способы сбора необработанных исключений, выдаваемых веб-приложениями разных типов, см. в статье [Мониторинг исключений в Application Insights](app-insights-asp-net-exceptions.md).
 
-Образец веб-роли имеет контроллеры MVC5 и веб-API 2. Необработанные исключения из 2 регистрируются такими объектами:
+Образец веб-роли имеет контроллеры MVC5 и веб-API 2. Необработанные исключения из 2 регистрируются такими объектами:
 
 * объектом [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs), заданным [здесь](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12) для контроллеров MVC5;
-* объектом [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs), заданным [здесь](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) для контроллеров веб-API 2.
+* объектом [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs), заданным [здесь](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) для контроллеров веб-API 2.
 
 Для рабочих ролей есть два способа отслеживания исключений.
 
@@ -230,7 +230,7 @@
 
 ## Коррелированная телеметрия для рабочих ролей
 
-Если вы видите причины неудавшихся запросов или запросов с высокой задержкой, это значит, что вы обладаете широким спектром возможностей диагностики. При работе с веб-ролями пакет SDK автоматически настраивает корреляцию между связанными данными телеметрии. Для рабочих ролей вы можете использовать пользовательский инициализатор телеметрии, чтобы задать атрибут общего контекста Operation.Id, и тогда эта возможность будет доступна для всех сведений телеметрии. Вы сможете узнать причину сбоя или задержки — зависимость или ваш код — с одного взгляда.
+Если вы видите причины неудавшихся запросов или запросов с высокой задержкой, это значит, что вы обладаете широким спектром возможностей диагностики. При работе с веб-ролями пакет SDK автоматически настраивает корреляцию между связанными данными телеметрии. Для рабочих ролей вы можете использовать пользовательский инициализатор телеметрии, чтобы задать атрибут общего контекста Operation.Id, и тогда эта возможность будет доступна для всех сведений телеметрии. Вы сможете узнать причину сбоя или задержки — зависимость или ваш код — с одного взгляда.
 
 Этот процесс описывается далее.
 
@@ -258,6 +258,10 @@
 
 В [примере](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) отслеживается служба, которая имеет веб-роль и две рабочие роли.
 
+## Исключение "метод не найден" при выполнении в облачных службах Azure
+
+Выполняется сборка для .NET 4.6? Версия 4.6 не поддерживается автоматически в ролях облачных служб Azure. [Установите версию 4.6 в каждой роли](../cloud-services/cloud-services-dotnet-install-dotnet.md), прежде чем запустить приложение.
+
 ## Связанные разделы
 
 * [Настройка системы диагностики Azure для отправки данных в Application Insights](app-insights-azure-diagnostics.md)
@@ -279,4 +283,4 @@
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

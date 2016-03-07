@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Изменение паролей StorSimple | Microsoft Azure" 
+   pageTitle="Изменение паролей StorSimple | Microsoft Azure" 
    description="В этом разделе показано, как использовать службу диспетчера StorSimple для изменения паролей диспетчера моментальных снимков StorSimple и администратора устройства." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -26,7 +26,7 @@
 
 Программное обеспечение диспетчера моментальных снимков StorSimple находится на узле Windows и позволяет администраторам управлять созданием резервных копий для устройства StorSimple в виде локальных и облачных моментальных снимков.
 
-При настройке устройства в диспетчере моментальных снимков StorSimple вас попросят указать IP-адрес и пароль устройства для проверки подлинности устройства для хранения данных. Этот пароль сначала настраивается в интерфейсе Windows PowerShell. Подробные сведения см. в статье [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough.md) в разделе [Шаг 3. Настройка и регистрация устройства средствами Windows PowerShell для StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+При настройке устройства в диспетчере моментальных снимков StorSimple вас попросят указать IP-адрес и пароль устройства для проверки подлинности устройства для хранения данных. Этот пароль сначала настраивается в интерфейсе Windows PowerShell. Подробные сведения см. в статье [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough.md) в разделе [Шаг 3. Настройка и регистрация устройства средствами Windows PowerShell для StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 На классическом портале можно изменить пароль, который был задан с помощью интерфейса Windows PowerShell во время регистрации. Чтобы изменить пароль диспетчера моментальных снимков StorSimple, выполните следующие действия.
 
@@ -44,7 +44,7 @@
  
 ## Изменение пароля администратора устройства
 
-При использовании интерфейса Windows PowerShell для доступа к устройству StorSimple вам потребуется ввести пароль администратора устройства. После регистрации первого устройства StorSimple в службе пароль по умолчанию для этого интерфейса — *Password1*. Для обеспечения безопасности ваших данных необходимо изменить этот пароль в конце регистрации. Закончить регистрацию, не изменив пароль, невозможно. Подробные сведения см. в статье [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough.md) в разделе [Шаг 3. Настройка и регистрация устройства средствами Windows PowerShell для StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+При использовании интерфейса Windows PowerShell для доступа к устройству StorSimple вам потребуется ввести пароль администратора устройства. После регистрации первого устройства StorSimple в службе пароль по умолчанию для этого интерфейса — *Password1*. Для обеспечения безопасности ваших данных необходимо изменить этот пароль в конце регистрации. Закончить регистрацию, не изменив пароль, невозможно. Подробные сведения см. в статье [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough.md) в разделе [Шаг 3. Настройка и регистрация устройства средствами Windows PowerShell для StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 На классическом портале Azure можно изменить пароль, который был задан с помощью интерфейса Windows PowerShell во время регистрации. Чтобы изменить пароль администратора устройства, выполните следующие действия.
 
@@ -68,4 +68,4 @@
 
 - Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

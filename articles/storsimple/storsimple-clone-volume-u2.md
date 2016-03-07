@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Клонирование тома StorSimple | Microsoft Azure"
+   pageTitle="Клонирование тома StorSimple | Microsoft Azure"
    description="В разделе рассматриваются разные типы клонов, ситуации их использования и клонирование отдельного тома с помощью резервного набора данных."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="alkohli" />
 
-# Клонирование тома с помощью службы диспетчера StorSimple (обновление 2)
+# Клонирование тома с помощью службы диспетчера StorSimple (обновление 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
 
@@ -117,4 +117,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

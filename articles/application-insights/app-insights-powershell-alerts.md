@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Настройка оповещений в Application Insights с помощью PowerShell
 
 Вы можете автоматизировать настройку [оповещений](app-insights-alerts.md) в [Visual Studio Application Insights](app-insights-overview.md).
+
+Кроме того, вы можете [установить веб-перехватчики для автоматизации реагирования на оповещение](../azure-portal/insights-webhooks-alerts.md).
 
 ## Однократная настройка
 
@@ -25,13 +27,13 @@
 
 Установите модуль Azure Powershell на компьютере, где требуется выполнять сценарии.
 
- * Установите [установщик веб-платформы Майкрософт (версии 5 или более поздней)](http://www.microsoft.com/web/downloads/platform.aspx).
+ * Установите [установщик веб-платформы Майкрософт (версии 5 или более поздней)](http://www.microsoft.com/web/downloads/platform.aspx).
  * Используйте его для установки Microsoft Azure PowerShell.
 
 
 ## Подключение к Azure
 
-Запустите Azure PowerShell и [подключитесь к вашей подписке](powershell-install-configure.md).
+Запустите Azure PowerShell и [подключитесь к вашей подписке](../powershell-install-configure.md).
 
 ```PowerShell
 
@@ -131,6 +133,9 @@ performanceCounter | [Производительность](app-insights-configu
 remoteDependencyFailed| [Dependency](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
 request,<br/>requestFailed|[Server request](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
+## Объекты Webhook
+
+Вы можете [автоматизировать свой ответ на оповещение](../azure-portal/insights-webhooks-alerts.md). При возникновении оповещения Azure будет вызывать выбранный вами веб-адрес.
 
 ## См. также
 
@@ -138,8 +143,9 @@ request,<br/>requestFailed|[Server request](app-insights-configuration-with-appl
 * [Сценарий настройки Application Insights](app-insights-powershell-script-create-resource.md)
 * [Создание ресурсов Application Insights и веб-тестов на основе шаблонов](app-insights-powershell.md)
 * [Автоматизация связывания системы диагностики Microsoft Azure с Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Автоматизация реагирования на оповещение](../azure-portal/insights-webhooks-alerts.md)
 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

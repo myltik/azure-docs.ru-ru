@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Определение политик лаборатории
+
+> [AZURE.NOTE] Щелкните следующую ссылку, чтобы просмотреть видео для этой статьи: [Как создавать настраиваемые артефакты](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab).
 
 ## Обзор
 
@@ -100,4 +102,4 @@
 
 1. Нажмите **Сохранить**.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

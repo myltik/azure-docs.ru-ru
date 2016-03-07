@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="02/22/2016"
    ms.author="carlrab"/>
 
-# Устранение проблем совместимости Базы данных SQL Server перед миграцией в Базу данных SQL
+# Устранение проблем совместимости Базы данных SQL Server с SSMS перед миграцией в Базу данных SQL
 
 Существует несколько способов решения обнаруженных проблем совместимости исходной Базы данных SQL Server.
 
@@ -33,4 +33,4 @@
 
 [Выберите метод миграции](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

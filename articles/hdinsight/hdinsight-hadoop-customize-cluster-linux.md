@@ -19,8 +19,6 @@
 
 # Настройка кластеров HDInsight под управлением Linux с помощью действия сценария
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
-
 В HDInsight есть параметр конфигурации **Действие сценария**, вызывающий пользовательские сценарии, с помощью которых можно настроить кластер в процессе создания. Эти сценарии можно использовать, чтобы устанавливать на нем дополнительное программное обеспечение или изменять конфигурацию приложений.
 
 > [AZURE.NOTE] Информация, приведенная в этой статье, относится только к кластерам HDInsight под управлением Linux. Версию данной статьи для кластеров под управлением Windows см. в разделе [Настройка кластеров HDInsight с помощью действия сценария (Windows)](hdinsight-hadoop-customize-cluster.md).
@@ -55,7 +53,7 @@ HDInsight предоставляет несколько скриптов для 
 **Установка R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. См. статью [Установка и использование R в кластерах HDInsight](hdinsight-hadoop-r-scripts-linux.md).
 **Установка Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md).
 **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install-linux.md).
-| **Предварительная загрузка библиотек Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. См. [Добавление библиотек Hive в кластеры HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
+| **Предварительная загрузка библиотек Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. См. статью [Добавление библиотек Hive в кластеры HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## Использование действия сценария с помощью портала Azure
 
@@ -78,7 +76,7 @@ HDInsight предоставляет несколько скриптов для 
 
 ## Использование действия сценария на основе шаблонов диспетчера ресурсов Azure
 
-В этом разделе для создания кластера HDInsight используются шаблоны диспетчера ресурсов Azure, а для установки пользовательских компонентов в кластере (в данном примере — R) — действие сценария. Ниже приведен пример шаблона ARM для создания кластера с помощью действия сценария.
+В этом разделе для создания кластера HDInsight используются шаблоны диспетчера ресурсов Azure, а для установки пользовательских компонентов в кластере (в данном примере — R) — действие сценария. Ниже приведен пример шаблона ARM для создания кластера с помощью действия сценария.
 
 ### Перед началом работы
 
@@ -447,4 +445,4 @@ HDInsight предоставляет несколько скриптов для 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Этапы создания кластера"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

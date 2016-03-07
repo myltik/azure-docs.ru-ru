@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Заметки развертывания для Application Insights | Microsoft Azure"
+    pageTitle="Заметки о выпуске для Application Insights | Microsoft Azure"
     description="Добавление маркеров развертывания или сборки для диаграмм обозревателя метрик в Application Insights."
     services="application-insights"
     documentationCenter=".net"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/22/2016"
     ms.author="awills"/>
 
 # Заметки к выпуску в Application Insights
@@ -42,7 +42,7 @@
 1. Выполните вход в [портал Microsoft Azure](https://portal.azure.com) и откройте ресурс Application Insights, который используется для мониторинга вашего приложения. (Или [создайте новый](app-insights-overview.md), если вы этого еще не сделали.)
 2. Откройте **Параметры**, **Доступ к API** и сделайте копию значения **ИД Application Insights**.
 
-    ![На сайте portal.azure.com откройте ресурс Application Insights и выберите "Параметры". Откройте "Доступ к API". Скопируйте](./media/app-insights-annotations/20.png)
+    ![На сайте portal.azure.com откройте ресурс Application Insights и выберите "Параметры". Откройте "Доступ к API". Скопируйте идентификатор приложения.](./media/app-insights-annotations/20.png)
 
 2. В отдельном окне браузера откройте (или создайте) шаблон выпуска, который управляет развертываниями из Visual Studio Team Services.
 
@@ -69,8 +69,13 @@
 
 5. Наконец, **сохраните** определение выпуска.
 
-## Заметки к развертыванию
+## Примечания к выпуску
 
 Теперь при каждом развертывании нового выпуска с помощью шаблона выпуска заметки будут отправляться в Application Insights. Заметки будут отображаться на диаграммах в обозревателе метрик.
 
-<!---HONumber=AcomDC_0121_2016-->
+Щелкните любой маркер заметки, чтобы открыть подробные сведения о выпуске, включая запросившую сторону, ветвь системы управления версиями, определение выпуска, среду и многое другое.
+
+
+![Щелкните любой маркер заметки о выпуске.](./media/app-insights-annotations/60.png)
+
+<!---HONumber=AcomDC_0224_2016-->

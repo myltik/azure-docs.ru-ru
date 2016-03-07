@@ -181,7 +181,7 @@
     public static void main( String[] args ) throws IOException
     ```
 
-12. В метод **main** в классе **App** добавьте следующий код. Этот код создает экземпляр **EventHubClient**, чтобы подключиться к конечной точке, совместимой с концентраторами событий, в центре IoT. Затем он создает два потока для чтения из двух разделов. Замените значения **{youriothubkey}**, **{youreventhubcompatiblenamespace}** и **{youreventhubcompatiblename}** значениями, записанными ранее. Значение заполнителя **{youreventhubcompatiblenamespace}** поступает из **конечной точки, совместимой с концентраторами событий**, отображаясь в формате **xxxxnamespace.servicebus.windows.net**.
+12. В метод **main** в классе **App** добавьте следующий код. Этот код создает экземпляр **EventHubClient**, чтобы подключиться к конечной точке, совместимой с концентраторами событий, в центре IoT. Затем он создает два потока для чтения из двух разделов. Замените значения **{youriothubkey}**, **{youreventhubcompatiblenamespace}** и **{youreventhubcompatiblename}** значениями, записанными ранее. Значение заполнителя **{youreventhubcompatiblenamespace}** поступает из **конечной точки, совместимой с концентраторами событий**, отображаясь в формате **xxxxnamespace**. (Иначе говоря, удалите префикс ****sb://** и суффикс **.servicebus.windows.net** из значения конечной точки, совместимой с концентраторами событий, полученного от портала).
 
     ```
     String policyName = "iothubowner";
@@ -228,4 +228,4 @@
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

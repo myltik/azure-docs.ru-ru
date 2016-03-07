@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="02/19/2016" 
 	ms.author="tamram"/>
 
 # Управление анонимным доступом на чтение к контейнерам и большим двоичным объектам
@@ -40,7 +40,7 @@
 
 - [На портале Azure](https://portal.azure.com)
 - Программно, используя клиентскую библиотеку хранилища или API REST.
-- C помощью PowerShell. Сведения о задании разрешений контейнера из Azure PowerShell см. в разделе [Использование Azure PowerShell с хранилищем Azure](storage-powershell-guide-full#how-to-manage-azure-blobs).
+- C помощью PowerShell. Сведения о задании разрешений контейнера из Azure PowerShell см. в разделе [Использование Azure PowerShell с хранилищем Azure](storage-powershell-guide-full.md#how-to-manage-azure-blobs).
 
 ### Установка разрешений контейнера через портал Azure
 
@@ -155,4 +155,4 @@
 - [Подписи общего доступа: общие сведения о модели SAS](storage-dotnet-shared-access-signature-part-1.md)
 - [Делегирование доступа с помощью подписанного URL-адреса](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

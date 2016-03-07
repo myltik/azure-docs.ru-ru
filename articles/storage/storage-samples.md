@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="01/06/2016"
+   ms.date="02/21/2016"
    ms.author="tamram" />
 
 # Примеры для службы хранилища Azure
@@ -28,12 +28,12 @@
 
 Для просмотра примеров .NET загрузите [Клиентскую библиотеку хранилища .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) на NuGet. Клиентская библиотека хранилища .NET также доступна в [пакете Azure SDK для .NET](https://azure.microsoft.com/downloads/).
 
-* [Начните работать с таблицами, очередями и большими двоичными объектами Azure за 5 минут](storage-getting-started-guide.md)
+* [Начните работать с хранилищем Azure за пять минут](storage-getting-started-guide.md)
 * [Управление параллелизмом с помощью службы хранилища Azure: пример приложения](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
 * [Начало работы с BLOB-объектами](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataBlobStorage)
 * [Начало работы с таблицами](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
 * [Начало работы с очередями](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataStorageQueue)
-* [Начало работы с файлами](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
+* [Начало работы с файлами](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage)
 
 ## Примеры для Java
 
@@ -85,4 +85,4 @@
 - [Исходный код для клиентской библиотеки хранилища C++](https://github.com/Azure/azure-storage-cpp)
 - [Справочник по клиентской библиотеке C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

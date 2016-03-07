@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Управление маршрутизацией и использование виртуальных модулей в диспетчере ресурсов с помощью PowerShell | Microsoft Azure"
-   description="Сведения о том, как управлять маршрутизацией и использовать виртуальные модули в Azure PowerShell"
+   description="Узнайте, как управлять маршрутизацией и использовать виртуальные модули в диспетчере ресурсов с помощью PowerShell."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-#Создание определяемых пользователем маршрутов (UDR) в PowerShell
+#Создание определяемых пользователем маршрутов (UDR) в диспетчере ресурсов с помощью PowerShell
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -56,7 +56,7 @@
 		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
->[AZURE.WARNING]Результаты выполнения представленной выше команды отображают содержимое объекта конфигурации виртуальной сети, который существует только на том компьютере, где выполняется PowerShell. Чтобы сохранить эти параметры в Azure, выполните командлет **Set-AzureVirtualNetwork**.
+>[AZURE.WARNING] Результаты выполнения представленной выше команды отображают содержимое объекта конфигурации виртуальной сети, который существует только на том компьютере, где выполняется PowerShell. Чтобы сохранить эти параметры в Azure, выполните командлет **Set-AzureVirtualNetwork**.
 
 7. Сохраните новую конфигурацию подсети в Azure.
 
@@ -68,7 +68,7 @@
 		ResourceGroupName : TestRG
 		Location          : westus
 		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"7df26c0e-652f-4754-bc4e-733fef7d5b2b"
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              : 
 		                    Name         Value
@@ -236,4 +236,4 @@
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

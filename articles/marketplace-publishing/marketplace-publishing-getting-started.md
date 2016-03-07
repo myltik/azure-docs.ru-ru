@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="02/12/2016"
    ms.author="hascipio" />
 
 # Как опубликовать предложение в Microsoft Azure Marketplace
@@ -47,6 +47,7 @@
 - [Поддержка издателей][suppt-general]
 - [Основные сведения об отчетах Seller Insights][suppt-rpt-insights]
 - [Основные сведения об отчетах о выплатах][suppt-rpt-payouts]
+- [Как изменить статус участия в программе поощрения поставщиков облачных решений](marketplace-publishing-csp-incentive.md)
 - [Решение распространенных проблем с публикацией в Marketplace][suppt-common]
 
 ## Дополнительные ресурсы
@@ -81,4 +82,4 @@
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

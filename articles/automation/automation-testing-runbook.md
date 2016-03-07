@@ -12,20 +12,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="bwren" />
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren" />
 
 # Тестирование модуля Runbook в службе автоматизации Azure
 При тестировании модуля Runbook запускается его [черновая версия](automation-creating-importing-runbook.md#publishing-a-runbook) и завершаются все действия, которые он выполняет. Журнал заданий не создается, однако в области вывода теста отображаются потоки [Выходные данные](automation-runbook-output-and-messages.md#output-stream) и [Предупреждения и ошибки](automation-runbook-output-and-messages.md#message-streams). Сообщения, предназначенные для [подробного потока](automation-runbook-output-and-messages.md#message-streams), отображаются в области выходных данных, только если [ переменная $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) имеет значение Continue.
 
 Несмотря на то что выполняется черновая версия, модуль Runbook выполняет рабочий процесс в обычном режиме и выполняет все действия с использованием ресурсов среды. В связи с этим тестировать модули Runbook можно только в непроизводственных ресурсах.
 
-Процедура тестирования для всех [типов модулей Runbook](automation-runbook-types.md) одна и та же и выполняется одинаково и в текстовом, и в графическом редакторе на портале предварительной версии Azure.
+Процедура тестирования для всех [типов модулей Runbook](automation-runbook-types.md) одна и та же и выполняется одинаково и в текстовом, и в графическом редакторе на портале Azure.
 
 
-## Тестирование модуля Runbook на портале предварительной версии Azure
+## Тестирование модуля Runbook на портале Azure
 
-На портале Azure предварительной версии можно работать с любыми [типами модулей Runbook](automation-runbook-types.md).
+На портале Azure можно работать с любыми [типами модулей Runbook](automation-runbook-types.md).
 
 1. Откройте черновую версию модуля Runbook либо в [текстовом](automation-editing-a-runbook#Portal), либо в [графическом редакторе](automation-graphical-authoring-intro.md).
 2. Нажмите кнопку **Тест**, чтобы открыть колонку «Тест».
@@ -55,4 +55,4 @@
 - [Изменение текстовых модулей Runbook в службе автоматизации Azure](automation-edit-textual-runbook.md)
 - [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Клонирование тома StorSimple | Microsoft Azure"
+   pageTitle="Клонирование тома StorSimple | Microsoft Azure"
    description="В разделе рассматриваются разные типы клонов, ситуации их использования и клонирование отдельного тома с помощью резервного набора данных."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -97,4 +97,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

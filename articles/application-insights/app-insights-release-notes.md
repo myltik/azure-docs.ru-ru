@@ -20,8 +20,9 @@
 
 Ниже приведены подробные заметки о выпуске и инструкции по обновлению для наших пакетов SDK.
 
-* [.NET](app-insights-release-notes-dotnet.md)
-* [Адаптеры ведения журнала .NET](app-insights-release-notes-dotnet-logging.md)
+* [Пакет SDK для веб-сервера ASP.NET](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)
+* [Базовый пакет SDK для .NET](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
+* [Адаптеры ведения журнала .NET](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/releases)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android/releases)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
@@ -34,4 +35,4 @@
 
 Ознакомьтесь также с нашими [обновлениями службы](https://azure.microsoft.com/updates/?service=application-insights), которые содержат сводку основных улучшений службы Application Insights.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

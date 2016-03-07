@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Профили оценки (REST API службы поиска Azure: версия 2015-02-28-Preview) | Microsoft Azure | Размещенная облачная служба поиска"
+	pageTitle="Профили оценки (REST API службы Поиска Azure, версия 2015-02-28-Preview) | Microsoft Azure | API Поиска Azure (предварительная версия)"
 	description="Поиск Azure — это размещенная облачная служба поиска, которая поддерживает настройку ранжированных результатов на основе определяемых пользователем профилей повышения."
 	services="search"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="11/04/2015" />
+	ms.date="02/18/2016" />
 
 # Профили оценки (API REST службы "Поиск Azure", версия 2015-02-28-Preview)
 
-> [AZURE.NOTE]В этой статье описываются профили оценки, доступные в версии [2015-02-28-Preview](search-api-2015-02-28-preview.md). В настоящее время версия `2015-02-28`, документация к которой приведена на сайте [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx), ничем не отличается от описанной здесь версии `2015-02-28-Preview`.
+> [AZURE.NOTE] В этой статье описываются профили оценки, доступные в версии [2015-02-28-Preview](search-api-2015-02-28-preview.md). Сейчас нет различий между версией `2015-02-28`, описанной на сайте [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx), и версией `2015-02-28-Preview`, описанной в этой статье. Однако мы предлагаем этот документ, чтобы обеспечить полную документацию по API.
 
 ## Обзор
 
@@ -55,7 +55,7 @@
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-Этот запрос выполняет поиск слова inn и передает текущее расположение. Обратите внимание, что этот запрос содержит другие параметры, такие как `scoringParameter`. Параметры запроса описаны в [разделе, в котором рассматривается поиск документов (API службы "Поиск Azure")](search-api-2015-02-28-preview/#SearchDocs.md).
+Этот запрос выполняет поиск слова inn и передает текущее расположение. Обратите внимание, что этот запрос содержит другие параметры, такие как `scoringParameter`. Параметры запроса описаны в [разделе, в котором рассматривается поиск документов (API службы "Поиск Azure")](search-api-2015-02-28-preview/#SearchDocs).
 
 Щелкните [Пример](#example), чтобы просмотреть более подробный пример профиля оценки.
 
@@ -372,4 +372,4 @@
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016--->

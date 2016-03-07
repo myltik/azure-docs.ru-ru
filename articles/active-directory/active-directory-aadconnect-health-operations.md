@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/17/2016"
 	ms.author="billmath"/>
 
 # Операции Azure AD Connect Health
@@ -106,17 +106,20 @@ Azure AD Connect поддерживает управление доступом 
 #### Шаг 1. Выбор подходящей области доступа
 Чтобы разрешить пользователю доступ на уровне *всех экземпляров служб* в Azure AD Connect Health, откройте главную колонку в Azure AD Connect Health.<br>
 #### Шаг 2. Добавление пользователей, групп и назначение ролей
-1. Щелкните элемент «Пользователи» в разделе «Настройка».<br> ![Контроль доступа на основе ролей для Azure AD Connect Health. Главная колонка](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+1. Щелкните элемент «Пользователи» в разделе «Настройка».<br> 
+![Контроль доступа на основе ролей для Azure AD Connect Health. Главная колонка](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Выберите "Добавить".
-3. В качестве «Роли» выберите «Владелец»<br>. ![Контроль доступа на основе ролей для Azure AD Connect Health. Добавить пользователя](./media/active-directory-aadconnect-health/RBAC_add.png)
+3. В качестве «Роли» выберите «Владелец»<br>. 
+![Контроль доступа на основе ролей для Azure AD Connect Health. Добавить пользователя](./media/active-directory-aadconnect-health/RBAC_add.png)
 4. Введите имя или идентификатор целевого пользователя или целевой группы. Одновременно можно выбрать сразу несколько пользователей или групп. Нажмите «Выбрать». ![Контроль доступа на основе ролей для Azure AD Connect Health. Выбрать пользователя](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Нажмите «ОК».<br>
 
-6. После завершения назначения ролей пользователи и (или) группы отображаются в списке.<br> ![Контроль доступа на основе ролей для Azure AD Connect Health. Список пользователей](./media/active-directory-aadconnect-health/RBAC_user_list.png)
+6. После завершения назначения ролей пользователи и (или) группы отображаются в списке.<br> 
+![Контроль доступа на основе ролей для Azure AD Connect Health. Список пользователей](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Эти действия позволяют разрешить доступ для указанных пользователей и групп в соответствии с назначенным им ролями.
 >[AZURE.NOTE]
-— Глобальные администраторы всегда имеют полный доступ ко всем операциям, однако их учетные записи не отображаются в указанном выше списке. 
+— Глобальные администраторы всегда имеют полный доступ ко всем операциям, однако их учетные записи не отображаются в указанном выше списке.
 — Функция "Пригласить пользователей" НЕ поддерживается в Azure AD Connect Health.
 
 #### Шаг 3. Общий доступ к расположению колонки для пользователей или групп
@@ -139,5 +142,6 @@ Azure AD Connect поддерживает управление доступом 
 * [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
 * [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

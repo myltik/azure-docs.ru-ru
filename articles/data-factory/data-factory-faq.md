@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Фабрика данных Azure — часто задаваемые вопросы
@@ -65,7 +65,7 @@
  
 ### Каковы ограничения на число фабрик данных/конвейеров/действий/наборов данных?
  
-См. раздел **Ограничения фабрики данных Azure** в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md#data-factory-limits).
+См. раздел **Ограничения фабрики данных Azure** в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md#data-factory-limits).
 
 
 ### В чем заключается взаимодействие разработчика со службой фабрики данных Azure?
@@ -174,4 +174,4 @@
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

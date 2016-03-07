@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/10/2016"
    ms.author="sameerch"/>
 
 
 # Приступая к работе с соединителем баз данных Oracle: добавление в приложение логики
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+
 Подключитесь к локальному серверу базы данных Oracle, чтобы создавать и изменять сведения или данные. Соединители можно использовать в приложениях логики для извлечения, обработки или отправки данных в рамках рабочего процесса. Используя соединитель Oracle в рабочем процессе, можно реализовать множество сценариев. Например, вы можете выполнить следующие действия.
 
 - Предоставить раздел данных, размещенных в базе данных Oracle, через веб-приложение или мобильное приложение;
@@ -118,4 +120,4 @@
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Рекомендации по реализации плана тестирования JMeter для Elasticsearch | Microsoft Azure"
+   pageTitle="Реализация плана тестирования JMeter для Elasticsearch | Microsoft Azure"
    description="Инструкции по выполнению тестов производительности для Elasticsearch с помощью JMeter."
    services=""
    documentationCenter="na"
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
-   ms.author="mabsimms"/>
+   ms.date="02/18/2016"
+   ms.author="masimms"/>
    
-# Рекомендации по реализации плана тестирования JMeter для Elasticsearch
+# Реализация плана тестирования JMeter для Elasticsearch
 
-Это материал из [цикла статей, посвященных вопросам Elasticsearch](guidance-elasticsearch-introduction.md).
+Этот материал входит в [цикл статей](guidance-elasticsearch.md).
 
-Тесты производительности в Elasticsearch были реализованы с использованием планов тестирования JMeter и кода Java, внедренного в форме теста JUnit для выполнения таких задач, как отправка данных в кластер. Планы тестирования и код JUnit описываются в документах "Максимальное увеличение производительности приема данных с помощью Elasticsearch в Azure" и "Максимальное увеличение производительности запросов и агрегирования данных с помощью Elasticsearch в Azure".
+Тесты производительности в Elasticsearch были реализованы с использованием планов тестирования JMeter и кода Java, внедренного в форме теста JUnit для выполнения таких задач, как отправка данных в кластер. Планы тестирования и код JUnit описываются в документах [Настройка производительности приема данных для Elasticsearch в Azure][] и [Tuning Data Aggregation and Query Performance for Elasticsearch on Azure][].
 
-В этом документе представлен ключевой опыт создания и применения таких планов тестирования. Более общие рекомендации по эффективному применению JMeter см. на странице [JMeter Best Practices](http://jmeter.apache.org/usermanual/best-practices.html) (Рекомендации по JMeter) на веб-сайте Apache JMeter.
+В этом документе представлен ключевой опыт создания и применения таких планов тестирования. Более общие рекомендации по эффективному применению JMeter см. на странице [JMeter Best Practices](http://jmeter.apache.org/usermanual/best-practices.html) на веб-сайте Apache JMeter.
 
 ## Реализация плана тестирования JMeter
 
@@ -33,11 +33,13 @@
 
 - Старайтесь не создавать слишком много потоков в группе потоков. Чрезмерное число потоков может привести к сбою JMeter и исключениям, связанным с нехваткой памяти. Лучше добавить несколько подчиненных серверов JMeter, на каждом из которых будет выполняться небольшое число потоков, чем пытаться запускать большое число потоков на одном сервере JMeter.
 
-![](./media/guidance-elasticsearch-jmeter-testing1.png)
+![](./media/guidance-elasticsearch/jmeter-testing1.png)
 
-- Чтобы оценить производительность кластера, включите в план тестирования подключаемый модуль [сборщика показателей Perfmon](http://jmeter-plugins.org/wiki/PerfMon/) — это прослушиватель JMeter, который входит в число стандартных подключаемых модулей JMeter. Сохраняйте необработанные данные как набор CSV-файлов и обрабатывайте их после завершения теста. Это более эффективно и создает меньше нагрузки на JMeter, чем попытка обрабатывать данные по мере их записи. Для импорта данных и формирования ряда графиков для аналитических целей можно использовать такой инструмент, как Excel.
+- Чтобы оценить производительность кластера, включите в план тестирования подключаемый модуль [сборщика показателей Perfmon](http://jmeter-plugins.org/wiki/PerfMon/) — это прослушиватель JMeter, который входит в число стандартных подключаемых модулей JMeter. Сохраняйте необработанные данные как набор CSV-файлов и обрабатывайте их после завершения теста. Это более эффективно и создает меньше нагрузки на JMeter, чем попытка обрабатывать данные по мере их записи. 
 
-![](./media/guidance-elasticsearch-jmeter-testing2.png)
+Для импорта данных и формирования ряда графиков для аналитических целей можно использовать такой инструмент, как Excel.
+
+![](./media/guidance-elasticsearch/jmeter-testing2.png)
 
 Рекомендуется фиксировать следующие данные:
 
@@ -57,19 +59,19 @@ sh:-c:vmstat 1 5 | awk 'BEGIN { line=0;total=0;}{line=line+1;if(line&gt;1){total
 
 - Для записи данных о производительности и частоте успешных и неудачных операций используйте отдельные прослушиватели статистического отчета. Записывайте данные об успешных и неудачных операциях в разные файлы.
 
-![](./media/guidance-elasticsearch-jmeter-testing3.png)
+![](./media/guidance-elasticsearch/jmeter-testing3.png)
 
 - Старайтесь, чтобы каждый тестовый случай JMeter был максимально простым — это позволит вам соотносить производительность и конкретные действия во время теста. Если тестовый случай требует сложной логики, ее можно включить в тест JUnit и использовать для выполнения теста дискретизатора запросов JUnit в JMeter.
 
-- Для выполнения таких HTTP-операций, как GET, POST, PUT и DELETE используйте дискретизатор HTTP-запросов. Например, для поиска в Elasticsearch можно использовать запрос POST, указав параметры запроса в поле *Данные основного текста*:
+- Для выполнения таких HTTP-операций, как GET, POST, PUT и DELETE используйте дискретизатор HTTP-запросов. Например, для поиска в Elasticsearch можно использовать запрос POST, указав параметры запроса в поле *Body Data* (Данные основного текста):
 
-![](./media/guidance-elasticsearch-jmeter-testing4.png)
+![](./media/guidance-elasticsearch/jmeter-testing4.png)
 
 - В целях воспроизводимости и повторного использования планы тестирования JMeter рекомендуется параметризовать. Впоследствии выполнение планов тестирования можно будет автоматизировать с помощью сценариев.
 
 ## Выполнение JUnit
 
-Сложный код можно включить в план тестирования JMeter, создав один или несколько тестов JUnit. Тест JUnit можно написать, используя Java IDE, например Eclipse. Инструкции по настройке соответствующей среды разработки см. в статье "Создание и развертывание образца JUnit JMeter для тестирования производительности Elasticsearch".
+Сложный код можно включить в план тестирования JMeter, создав один или несколько тестов JUnit. Тест JUnit можно написать, используя Java IDE, например Eclipse. В статье [Развертывание дискретизатора JUnit для JMeter при тестировании производительности Elasticsearch][] содержатся сведения о настройке соответствующей среды разработки.
 
 Вот некоторые рекомендации по написанию кода для теста JUnit:
 
@@ -84,7 +86,7 @@ private String clusterName = "";
 private int itemsPerBatch = 0;
 
 /* JUnit test class constructor */
-public ElasticSearchLoadTest2(String params) {
+public ElasticsearchLoadTest2(String params) {
 	/* params is a string containing a set of comma separated values for:
 		hostName
 		indexName
@@ -134,4 +136,9 @@ public void bulkInsertTest() throws IOException {
 }
 ```
 
-<!---HONumber=AcomDC_0211_2016-->
+[Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
+[Настройка производительности приема данных для Elasticsearch в Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md
+[Развертывание дискретизатора JUnit для JMeter при тестировании производительности Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
+[Tuning Data Aggregation and Query Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-aggregation-and-query-performance.md
+
+<!---HONumber=AcomDC_0224_2016-->

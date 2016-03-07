@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="sstein"/>
 
 # Обновление базы данных SQL Azure до версии 12 с помощью PowerShell
@@ -80,7 +80,7 @@
 
     $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
 
-Дополнительные сведения см. в статьях [Рекомендации по выбору пула эластичных баз данных для базы данных SQL Azure](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) и [Рекомендации по выбору ценовой категории для базы данных SQL Azure](sql-database-service-tier-advisor.md).
+Дополнительные сведения см. в статьях [Рекомендации по выбору пула эластичных баз данных SQL](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) и [Рекомендации по выбору ценовой категории для базы данных SQL](sql-database-service-tier-advisor.md).
 
 
 
@@ -177,14 +177,14 @@
 Дополнительная информация о мониторинге:
 
 - [Руководство по производительности базы данных SQL Azure для отдельных баз данных](http://msdn.microsoft.com/library/azure/dn369873.aspx).
-- [Вопросы цены и производительности для пула эластичных баз данных](sql-database=elastic-pool-guidance.md).
+- [Вопросы цены и производительности для пула эластичных баз данных](sql-database-elastic-pool-guidance.md).
 - [Мониторинг базы данных SQL Azure с помощью динамических представлений управления](sql-database-monitoring-with-dmvs.md)
 
 
 
 **Оповещения:** настройте оповещения на портале Azure, чтобы получать уведомления о приближении показателя потребления DTU для обновленной базы данных к заданному максимальному уровню. На портале Azure можно настроить оповещения базы данных для различных метрик производительности, например DTU, ЦП, ввода-вывода и журнала. Перейдите к своей базе данных и выберите **Правила оповещения** в колонке **Параметры**.
 
-Например, можно настроить оповещение в сообщении электронной почты об относительном потреблении DTU, если среднее относительное потребление DTU превышает 75 % за последние 5 минут. См. статью [Получение уведомлений об оповещениях](insights-receive-alert-notifications.md), чтобы больше узнать о настройке уведомлений об оповещениях.
+Например, можно настроить оповещение в сообщении электронной почты об относительном потреблении DTU, если среднее относительное потребление DTU превышает 75 % за последние 5 минут. См. статью [Получение уведомлений об оповещениях](../azure-portal/insights-receive-alert-notifications.md), чтобы больше узнать о настройке уведомлений об оповещениях.
 
 
 
@@ -201,4 +201,4 @@
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

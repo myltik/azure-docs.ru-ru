@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="02/18/2016"
 	ms.author="curtand"/>
 
 # Назначение ролей администратора в Azure Active Directory (Azure AD)
@@ -31,6 +31,7 @@
 - **Администратор паролей**: сбрасывает пароли, управляет запросами на обслуживание и отслеживает работоспособность службы. Администраторы паролей могут сбрасывать пароли только для пользователей и других администраторов паролей.
 
 - **Администратор службы**: управляет запросами на обслуживание и отслеживает работоспособность службы.
+
 > [AZURE.NOTE]
 > Чтобы назначить пользователю роль администратора службы, глобальный администратор наделяет его правами администратора в такой службе, как Exchange Online, и затем назначает ему роль администратора службы на классическом портале Azure.
 
@@ -94,7 +95,7 @@
 
 - Чтобы подробнее узнать о том, как осуществляется доступ к ресурсам в Microsoft Azure, обратитесь к статье [Основные сведения о доступе к ресурсам в Azure](active-directory-understanding-resource-access.md).
 
-- Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в разделе [Как подписки Azure связаны с Azure Active Directory] (active-directory-how-subscriptions-associated directory.md)
+- Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в разделе [Как подписки Azure связаны с Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 - [Управление пользователями](active-directory-create-users.md)
 
@@ -102,4 +103,4 @@
 
 - [Управление группами](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

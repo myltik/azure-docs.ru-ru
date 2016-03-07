@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Приступая к работе с Application Insights на Java в Eclipse
@@ -260,4 +260,4 @@ Application Insights может тестировать ваш веб-сайт ч
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

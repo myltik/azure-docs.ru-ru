@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Начало работы с табличным хранилищем и подключенными службами Visual Studio (ASP.NET)
 
 ## Обзор
-В этой статье описывается, как приступить к использованию хранилища таблиц Azure в Visual Studio после создания учетной записи хранения Azure или указания ссылки на нее в проекте ASP.NET с помощью диалогового окна **Добавление подключенных служб** в Visual Studio. В этой статье показано, как выполнять типовые задачи в таблицах Azure, включая создание и удаление таблицы, а также работать с сущностями таблицы. Примеры написаны на C#, и в них используется [клиентская библиотека службы хранилища Azure для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Дополнительные сведения об использовании хранилища таблиц Azure см. в разделе [Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md).
+В этой статье описывается, как приступить к использованию хранилища таблиц Azure в Visual Studio после создания учетной записи хранения Azure или указания ссылки на нее в проекте ASP.NET с помощью диалогового окна **Добавление подключенных служб** в Visual Studio. В этой статье показано, как выполнять типовые задачи в таблицах Azure, включая создание и удаление таблицы, а также работать с сущностями таблицы. Примеры написаны на языке C# и используют [клиентскую библиотеку службы хранилища Microsoft Azure для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Более общие сведения об использовании хранилища таблиц Azure см. в разделе [Приступая к работе с хранилищем таблиц Azure с помощью .NET](storage-dotnet-how-to-use-tables.md).
 
 В табличном хранилище Azure можно хранить большие объемы структурированных данных. Эта служба — хранилище данных NoSQL, которое принимает вызовы внутри и снаружи облака Azure с проверкой подлинности. Таблицы Azure идеально подходят для хранения нереляционных структурированных данных.
 
@@ -57,12 +57,41 @@
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
 
+## Добавление сущности в таблицу
+
+Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей с именем **CustomerEntity** который использует имя клиента как ключ строки, а фамилию клиента — как ключ раздела.
+
+	public class CustomerEntity : TableEntity
+	{
+	    public CustomerEntity(string lastName, string firstName)
+	    {
+	        this.PartitionKey = lastName;
+	        this.RowKey = firstName;
+	    }
+
+	    public CustomerEntity() { }
+
+	    public string Email { get; set; }
+
+	    public string PhoneNumber { get; set; }
+	}
+
+Операции с таблицами с участием сущностей выполняются с использованием объекта **CloudTable**. Его создание описано ранее, в разделе «Доступ к таблицам в коде». Объект **TableOperation** представляет операции, которые необходимо выполнить. В следующем примере кода показано создание объекта **CloudTable** и объекта **CustomerEntity**. Чтобы подготовить операцию, создается **TableOperation** для вставки сущности customer в таблицу. Наконец, эта операция выполняется путем вызова CloudTable.ExecuteAsync.
+
+	// Create a new customer entity.
+	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
+	customer1.Email = "Walter@contoso.com";
+	customer1.PhoneNumber = "425-555-0101";
+
+	// Create the TableOperation that inserts the customer entity.
+	TableOperation insertOperation = TableOperation.Insert(customer1);
+
+	// Execute the insert operation.
+	await peopleTable.ExecuteAsync(insertOperation);
 
 ## Вставка пакета сущностей
 
-В таблицу можно вставить несколько сущностей с помощью одной операции записи. В следующем примере кода показано создание двух объектов сущности (Jeff Smith и Ben Smith), добавление их в объект **TableBatchOperation** с помощью метода Insert и запуск операции с помощью вызова **CloudTable.ExecuteBatchAsync**.
-
-	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
+В таблицу можно вставить несколько сущностей с помощью одной операции записи. Указанный ниже пример кода создает два объекта сущностей (Jeff Smith и Ben Smith), добавляет их в объект **TableBatchOperation** с помощью метода Insert и запускает операцию с помощью вызова **CloudTable.ExecuteBatchAsync**.
 
 	// Create the batch operation.
 	TableBatchOperation batchOperation = new TableBatchOperation();
@@ -86,8 +115,6 @@
 
 ## Получение всех сущностей в разделе
 Чтобы запросить все сущности из таблицы, используйте объект **TableQuery**. Следующий пример кода задает фильтр для сущностей с ключом раздела "Smith". Этот пример выводит на консоль поля каждой сущности в результатах запроса.
-
-	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
 	// Construct the query operation for all customer entities where PartitionKey="Smith".
     TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
@@ -113,24 +140,20 @@
 ## Получение одной сущности
 Можно написать запрос для получения отдельной сущности. Следующий пример кода использует **TableOperation** для указания клиента "Ben Smith". Этот метод возвращает только одну сущность, а не коллекцию, а возвращаемое значение в **TableResult.Result** является объектом **CustomerEntity**. Указание ключа секции и ключа строки в запросе — самый быстрый способ для получения одной сущности из службы таблиц.
 
-        // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
-
-        // Create a retrieve operation that takes a customer entity.
-        TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+	// Create a retrieve operation that takes a customer entity.
+    TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
 	// Execute the retrieve operation.
 	TableResult retrievedResult = await peopleTable.ExecuteAsync(retrieveOperation);
-
+	
 	// Print the phone number of the result.
 	if (retrievedResult.Result != null)
-	   Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
+		Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
 ## Удаление сущности
 После нахождения сущности ее можно удалить. В следующем примере код выполняет поиск сущности с именем "Ben Smith" и при нахождении удаляет ее.
-
-	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
 	// Create a retrieve operation that expects a customer entity.
 	TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
@@ -159,4 +182,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

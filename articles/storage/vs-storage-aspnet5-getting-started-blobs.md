@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Начало работы с хранилищем больших двоичных объектов Azure и подключенными службами Visual Studio (ASP.NET 5)
@@ -22,11 +22,9 @@
 
 В этой статье описывается, как приступить к использованию хранилища больших двоичных объектов Azure в Visual Studio после создания учетной записи хранения Azure или указания ссылки на нее в проекте ASP.NET 5 с помощью диалогового окна "Добавление подключенных служб" в Visual Studio.
 
-Хранилище больших двоичных объектов Azure — это служба хранения большого количества неструктурированных данных, к которым можно получить доступ практически из любой точки мира по протоколам HTTP или HTTPS. Один большой двоичный объект может быть любого размера. Большими двоичными объектами могут быть изображения, аудио- и видеофайлы, необработанные данные и файлы документов. В этой статье описывается, как приступить к работе с хранилищем больших двоичных объектов после создания учетной записи хранения Azure с помощью диалогового окна **Добавление подключенных служб** в проекте ASP.NET 5.
+Хранилище больших двоичных объектов Azure — это служба хранения большого количества неструктурированных данных, к которым можно получить доступ практически из любой точки мира по протоколам HTTP или HTTPS. Один большой двоичный объект может быть любого размера. Большими двоичными объектами могут быть изображения, аудио- и видеофайлы, необработанные данные и файлы документов. В этой статье описывается, как приступить к работе с хранилищем больших двоичных объектов после создания учетной записи хранения Azure с помощью диалогового окна **Добавление подключенных служб** в проекте ASP.NET 5.
 
-Так же как файлы располагаются в папках, большие двоичные объекты хранилища располагаются в контейнерах. После создания хранилища вы можете создать один или несколько контейнеров в нем. Например, можно создать хранилище с именем "Альбом", в нем создать контейнеры "изображения" для хранения картинок и "аудио" для хранения аудиофайлов. После создания контейнеров в них можно отправлять индивидуальные большие двоичные объекты. Дополнительные сведения о выполнении программных операций с большими двоичными объектами см. в статье [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md "Использование хранилища BLOB-объектов из .NET").
-
-
+Так же как файлы располагаются в папках, большие двоичные объекты хранилища располагаются в контейнерах. После создания хранилища вы можете создать один или несколько контейнеров в нем. Например, можно создать хранилище с именем "Альбом", в нем создать контейнеры "изображения" для хранения картинок и "аудио" для хранения аудиофайлов. После создания контейнеров в них можно отправлять индивидуальные большие двоичные объекты. Дополнительные сведения о выполнении программных операций с большими двоичными объектами см. в статье [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md).
 
 ##Доступ к контейнерам больших двоичных объектов в коде
 
@@ -60,7 +58,7 @@
 
 ##Создание контейнера в коде
 
-Вы также можете использовать объект **CloudBlobClient** для создания контейнера в учетной записи хранения. Вам нужно всего лишь добавить вызов **CreateIfNotExistsAsync**, как это сделано в следующем коде.
+Вы также можете использовать объект **CloudBlobClient** для создания контейнера в учетной записи хранения. Вам нужно всего лишь добавить вызов **CreateIfNotExistsAsync**, как это сделано в следующем коде:
 
 	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -99,36 +97,36 @@
 Для перечисления BLOB-объектов в контейнере сначала необходимо получить ссылку на контейнер. После этого вы сможете извлекать из контейнера большие двоичные объекты и каталоги с помощью метода **ListBlobsSegmentedAsync**. Для доступа к широкому набору свойств и методов возвращаемого объекта **IListBlobItem** необходимо преобразовать его в объект**CloudBlockBlob**, **CloudPageBlob** или **CloudBlobDirectory**. Если тип большого двоичного объекта неизвестен, можно использовать проверку типов, чтобы определить нужный. Следующий код показывает, как получить и вывести URI каждого элемента в контейнере.
 
 	BlobContinuationToken token = null;
-        do
+    do
+    {
+        BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(token);
+        token = resultSegment.ContinuationToken;
+
+        foreach (IListBlobItem item in resultSegment.Results)
         {
-            BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(token);
-            token = resultSegment.ContinuationToken;
-
-            foreach (IListBlobItem item in resultSegment.Results)
+            if (item.GetType() == typeof(CloudBlockBlob))
             {
-                if (item.GetType() == typeof(CloudBlockBlob))
-                {
-                    CloudBlockBlob blob = (CloudBlockBlob)item;
-                    Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
-                }
-
-                else if (item.GetType() == typeof(CloudPageBlob))
-                {
-                    CloudPageBlob pageBlob = (CloudPageBlob)item;
-
-                    Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
-                }
-
-                else if (item.GetType() == typeof(CloudBlobDirectory))
-                {
-                    CloudBlobDirectory directory = (CloudBlobDirectory)item;
-
-                    Console.WriteLine("Directory: {0}", directory.Uri);
-                }
+                CloudBlockBlob blob = (CloudBlockBlob)item;
+                Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
             }
-        } while (token != null);
 
-Можно вывести список содержимого контейнера BLOB-объектов и другими способами. Подробнее об этом см. в статье [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+            else if (item.GetType() == typeof(CloudPageBlob))
+            {
+                CloudPageBlob pageBlob = (CloudPageBlob)item;
+
+                Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
+            }
+
+            else if (item.GetType() == typeof(CloudBlobDirectory))
+            {
+                CloudBlobDirectory directory = (CloudBlobDirectory)item;
+
+                Console.WriteLine("Directory: {0}", directory.Uri);
+            }
+        }
+    } while (token != null);
+
+Можно вывести список содержимого контейнера BLOB-объектов и другими способами. Подробнее см. в разделе [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
 
 ##Загрузка BLOB-объектов
 Чтобы скачать большой двоичный объект, сначала получите ссылку на него, а затем вызовите метод **DownloadToStreamAsync**. В следующем примере метод **DownloadToStreamAsync** используется для переноса содержимого большого двоичного объекта в объект потока, который затем можно сохранить в локальном файле.
@@ -142,7 +140,7 @@
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-Вы можете сохранить BLOB-объекты в виде файлов и другими способами. Подробнее об этом см. в статье [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md/#download-blobs).
+Вы можете сохранить BLOB-объекты в виде файлов и другими способами. Подробнее см. в разделе [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md#download-blobs).
 
 ##Удаление большого двоичного объекта
 Чтобы удалить большой двоичный объект, сначала получите ссылку на него, а затем вызовите метод **DeleteAsync**.
@@ -157,4 +155,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

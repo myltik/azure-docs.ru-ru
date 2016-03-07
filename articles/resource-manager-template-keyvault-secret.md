@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Шаблон диспетчера ресурсов для секретного кода в хранилище ключей | Microsoft Azure"
+   pageTitle="Шаблон диспетчера ресурсов для секретного кода в хранилище ключей | Microsoft Azure"
    description="В этой статье демонстрируется схема диспетчера ресурсов для развертывания секретных кодов хранилища ключей с помощью шаблона."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
@@ -171,7 +171,6 @@
                 "type": "secrets",
                 "name": "[parameters('secretName')]",
                 "apiVersion": "2015-06-01",
-                "tags": { "displayName": "secret" },
                 "properties": {
                     "value": "[parameters('secretValue')]"
                 },
@@ -227,4 +226,4 @@
 - Общие сведения о хранилищах ключей см. в разделе [Приступая к работе с хранилищем ключей Azure](./key-vault/key-vault-get-started.md).
 - Пример ссылки на секретный код хранилища ключей при развертывании шаблонов см. в статье [ Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->
