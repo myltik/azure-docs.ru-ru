@@ -19,7 +19,7 @@
 
 # Создание кластеров Hadoop под управлением Windows в HDInsight с помощью шаблонов ARM
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Узнайте, как создавать кластеры HDInsight с помощью шаблонов диспетчера ресурсов Azure (ARM). Дополнительные сведения см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](../resource-group-template-deploy.md). Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-provision-clusters.md#cluster-creation-methods).
 
@@ -48,7 +48,7 @@
 
 **Развертывание кластера с помощью шаблона ARM**
 
-1. Сохраните JSON-файл из [приложения А](#appx-a-arm-template) на своей рабочей станции.
+1. Сохраните JSON-файл из [приложения А](#appx-a-arm-template) на своей рабочей станции.
 2. При необходимости установите параметры.
 3. Запустите шаблон с помощью следующего сценария PowerShell:
 
@@ -444,4 +444,4 @@
 	  }
 	}
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,18 +1,19 @@
-There are 3 VPN Gateway SKUs:
+Существует 3 SKU VPN-шлюза:
 
-- Basic
+- базовая;
 - Standard
-- High Performance
+- высокопроизводительная
 
-The table below shows the gateway types and the estimated aggregate throughput. 
-Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
+В следующей таблице приведены типы шлюзов с приблизительной суммарной пропускной способностью. Цены на шлюзы зависят от артикулов. Сведения о ценах см. в разделе [Стоимость VPN-шлюзов ](https://azure.microsoft.com/pricing/details/vpn-gateway/). Эта таблица относится к классической модели развертывания и модели диспетчера ресурсов.
 
 
-|    | **VPN Gateway throughput** | **VPN Gateway max IPsec tunnels** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
+| | **Пропускная способность VPN-шлюза** | **Макс. количество IPsec- туннелей для VPN-шлюза** | **Пропускная способность шлюза для ExpressRoute** | **Сосуществование VPN-шлюза и ExpressRoute**|
 |--- |----------------------------|-----------------------------------|-------------------------------------|-----------------------------------------|
-| **Basic SKU**              |  100 Mbps | 10                         |  500 Mbps                           | No   |
-| **Standard SKU**           |  100 Mbps | 10                         | 1000 Mbps                           | Yes  |
-| **High Performance SKU**   | 200 Mbps  | 30                         | 2000 Mbps                           | Yes  |
+| **SKU "Базовый"** | 100 Мбит/с | 10 | 500 Мбит/с | Нет |
+| **SKU "Стандартный"** | 100 Мбит/с | 10 | 1000 Мбит/с | Да |
+| **SKU "Высокопроизводительный"** | 200 Мбит/с | 30 | 2000 Мбит/с | Да |
 
 
-**Note:** The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.
+**Примечание.** Пропускная способность VPN — это примерное значение, основанное на измерениях между несколькими виртуальными сетями в одном регионе Azure. Невозможно предугадать, какую пропускную способность вы получите при распределенных подключениях через Интернет, но ее значение следует считать максимальным.
+
+<!---HONumber=AcomDC_0224_2016-->

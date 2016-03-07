@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Добавление репозитория артефактов Git в DevTest Lab
+
+> [AZURE.NOTE] Щелкните следующую ссылку, чтобы просмотреть видео для этой статьи: [Как добавить частный репозиторий артефактов в лабораторию для разработки и тестирования](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab).
 
 ## Обзор
 
@@ -115,4 +117,4 @@
     3. Введите сохраненный **персональный маркер доступа** в хранилище артефактов.
     4. Нажмите **Сохранить**.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/20/2016"
 	ms.author="rmcmurray"/>
 
 # Локальное приложение с хранилищем больших двоичных объектов
@@ -26,8 +26,9 @@
 
 - Установленный пакет Java Developer Kit (JDK) версии 1.6 или более поздней.
 - Установленный пакет Azure SDK.
-- JAR-файл для библиотек Azure для Java и JAR-файлы для любых применимых зависимостей, установлены и указаны в пути сборки, который используется компилятором Java. Сведения об установке библиотек Azure для Java см. в разделе [Скачивание пакета SDK для Azure для Java].
-- Настроенная учетная запись хранения Azure. Имя и ключ учетной записи хранения используются в коде в этой статье. Сведения о создании учетной записи хранения см. в разделе [Создание учетной записи хранения]; сведения о получении ключа учетной записи см. в разделе [Управление учетными записями хранения][].
+- JAR-файл для библиотек Azure для Java и JAR-файлы для любых применимых зависимостей, установлены и указаны в пути сборки, который используется компилятором Java. Сведения об установке библиотек Azure для Java см. в разделе [Скачивание пакета SDK для Azure для Java](java-download-azure-sdk.md).
+- Настроенная учетная запись хранения Azure. Имя и ключ учетной записи хранения используются в коде в этой статье. Сведения о создании учетной записи хранения см. в разделе [Создание учетной записи хранения](storage-create-storage-account.md#create-a-storage-account). Сведения о получении ключа учетной записи см. в разделе [Просмотр и копирование ключей доступа к хранилищу](storage-create-storage-account.md#view-and-copy-storage-access-keys).
+
 - Вы создали локальный файл изображения, который был сохранен с именем c:\\myimages\\image1.jpg. Как вариант, можно изменить конструктор **FileInputStream** в данном примере, чтобы использовать другой путь и другое имя для изображения.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -347,23 +348,15 @@
         }
     }
 
-Обзор других классов и методов хранилища больших двоичных объектов см. в статье [Использование хранилища BLOB-объектов из Java].
+Обзор других классов и методов хранилища больших двоичных объектов см. в статье [Использование хранилища BLOB-объектов из Java](storage-java-how-to-use-blob-storage.md).
 
 ## Дальнейшие действия
 
 Дополнительную информацию о выполнении более сложных задач хранения см. по указанным ссылкам.
 
-- [Пакет SDK для службы хранилища Azure для Java][]
-- [Справочник по пакету SDK для клиента хранилища Azure][]
-- [REST API службы хранилища Azure][]
-- [Блог рабочей группы службы хранилища Azure][]
+- [Пакет SDK для службы хранилища Azure для Java](https://github.com/azure/azure-storage-java)
+- [Справочник по пакету SDK для клиента хранилища Azure](http://dl.windowsazure.com/storage/javadoc/)
+- [API-интерфейс REST служб хранилища Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-  [Скачивание пакета SDK для Azure для Java]: http://go.microsoft.com/fwlink/?LinkID=525671
-  [Создание учетной записи хранения]: storage-create-storage-account.md#create-a-storage-account
-  [Управление учетными записями хранения]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
-  [Использование хранилища BLOB-объектов из Java]: storage-java-how-to-use-blob-storage.md
-  [Пакет SDK для службы хранилища Azure для Java]: https://github.com/azure/azure-storage-java
-  [Справочник по пакету SDK для клиента хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
-  [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

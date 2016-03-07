@@ -28,15 +28,15 @@
 Существует два разных API, которые поддерживают восстановление базы данных хранилища данных SQL: Azure PowerShell и REST API. Для доступа к функции восстановления хранилища данных SQL можно использовать любой из этих API.
 
 ## Восстановление активной базы данных
-В случае ошибки пользователя, которая привела к непреднамеренному изменению данных, базу данных можно восстановить в любой точке восстановления, срок хранения которой еще не истек. Моментальные снимки активной базы данных создаются как минимум через каждые 8 часов и хранятся в течение 7 дней.
+В случае ошибки пользователя, которая привела к непреднамеренному изменению данных, базу данных можно восстановить в любой точке восстановления, срок хранения которой еще не истек. Моментальные снимки активной базы данных создаются как минимум через каждые 8 часов и хранятся в течение 7 дней.
 
 ### PowerShell
 
-Используйте Azure PowerShell для программного восстановления базы данных. Чтобы загрузить модуль Azure PowerShell, запустите [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+Используйте Azure PowerShell для программного восстановления базы данных. Чтобы загрузить модуль Azure PowerShell, запустите [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Чтобы узнать версию, выполните командлет Get-Module -ListAvailable -Name Azure. В этой статье используются командлеты, выполняемые в Azure PowerShell версии 1.0.4.
 
 Для восстановления базы данных используйте командлет [Start-AzureSqlDatabaseRestore][].
 
-1. Откройте Microsoft Azure PowerShell.
+1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
 3. Выберите подписку, содержащую базу данных, которую надо восстановить.
 4. Откройте список точек восстановления базы данных (требуется режим управления ресурсами Azure).
@@ -46,23 +46,26 @@
 
 ```
 
-Add-AzureAccount
-Get-AzureSubscription
-Select-AzureSubscription -SubscriptionName "<Subscription_name>"
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
-# List database restore points
-Switch-AzureMode AzureResourceManager
-Get-AzureSqlDatabaseRestorePoints -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" -ResourceGroupName "<YourResourceGroupName>"
+# List the last 10 database restore points
+((Get-AzureRMSqlDatabaseRestorePoints -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" -ResourceGroupName "<YourResourceGroupName>").RestorePointCreationDate)[-10 .. -1]
+
+	# Or for all restore points
+	Get-AzureRmSqlDatabaseRestorePoints -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" -ResourceGroupName "<YourResourceGroupName>"
 
 # Pick desired restore point using RestorePointCreationDate
 $PointInTime = "<RestorePointCreationDate>"
 
-# Get the specific database to restore
-Switch-AzureMode AzureServiceManagement
-$Database = Get-AzureSqlDatabase -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>"
+# Get the specific database name to restore
+(Get-AzureRmSqlDatabase -ServerName "<YourServerName>" -ResourceGroupName "<YourResourceGroupName>").DatabaseName | where {$_ -ne "master" }
+#or
+Get-AzureRmSqlDatabase -ServerName "<YourServerName>" –ResourceGroupName "<YourResourceGroupName>"
 
 # Restore database
-$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerName>" -SourceDatabase $Database -TargetDatabaseName "<NewDatabaseName>" -PointInTime $PointInTime
+$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerName>" -SourceDatabaseName "<YourDatabaseName>" -TargetDatabaseName "<NewDatabaseName>" -PointInTime $PointInTime
 
 # Monitor progress of restore operation
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
@@ -138,4 +141,4 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

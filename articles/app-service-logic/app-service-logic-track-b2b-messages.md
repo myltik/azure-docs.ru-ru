@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 
 # Отслеживание сообщений B2B
+
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
 
 ## Сведения об отслеживании B2B
 Взаимодействие B2B включает обработку сообщений между торговыми партнерами. Отношения задаются как соглашения между двумя торговыми партнерами. Посте установки взаимодействия необходимо настроить наблюдение, чтобы убедиться, что взаимодействие происходило надлежащим образом.
@@ -45,4 +47,4 @@
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.png
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

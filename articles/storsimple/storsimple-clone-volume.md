@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Клонирование тома StorSimple | Microsoft Azure"
+   pageTitle="Клонирование тома StorSimple | Microsoft Azure"
    description="В разделе рассматриваются разные типы клонов, ситуации их использования и клонирование отдельного тома с помощью резервного набора данных."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -45,8 +45,7 @@
 
   1. Укажите целевое устройство. Это расположение, где будет создана копия. Можно выбрать одно устройство или указать другое устройство. При выборе тома, связанного с другими поставщиками облачных служб (не Azure), в раскрывающемся списке целевого устройства будут отображаться только физические устройства. Нельзя клонировать на виртуальное устройство том, связанный с другими поставщиками облачной службы.
 
-        >  [AZURE.NOTE] Убедитесь, что на целевом устройстве достаточно места для клонирования.
-
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. Укажите уникальное имя для клона. Имя должно содержать от 3 до 127 символов.
   3. Нажмите кнопку со стрелкой ![значок стрелки](./media/storsimple-clone-volume/HCS_ArrowIcon.png), чтобы перейти к следующей странице.
 
@@ -97,4 +96,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

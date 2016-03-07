@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/21/2016"
 	ms.author="micurd"/>
 
 # Использование хранилища BLOB-объектов из Xamarin (Предварительная версия)
@@ -49,7 +49,7 @@ URI подписи коллективного доступа для нового
 
 Созданная для контейнера подпись коллективного доступа будет действительна в течение следующего дня. Подписанный URL-адрес предоставляет полные права (*т.е.* на чтение, запись, удаление и создание списка) для больших двоичных объектов в контейнере.
 
-Для получения дополнительной информации см. раздел [Учебник по подписи коллективного доступа SAS для .NET](storage-dotnet-shared-access-signature-part-2.md).
+Дополнительные сведения о подписанных URL-адресах см. в разделе [Подписанные URL-адреса: создание и использование подписанного URL-адреса в службе BLOB-объектов](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Создание нового приложения Xamarin
 
@@ -173,10 +173,11 @@ URI подписи коллективного доступа для нового
 
 Дополнительные сведения о BLOB-объектах, таблицах и очередях вы можете получить перейдя по следующим ссылкам:
 
-[Знакомство со службой хранилища Microsoft Azure](storage-introduction.md) 
-[Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md) 
-[Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md) 
-[Использование хранилища очередей из .NET](storage-dotnet-how-to-use-queues.md) 
-[Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
+- [Введение в службу хранилища Microsoft Azure](storage-introduction.md)
+- [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md)
+- [Приступая к работе с хранилищем таблиц Azure с помощью .NET](storage-dotnet-how-to-use-tables.md)
+- [Приступая к работе с хранилищем очередей Azure с помощью .NET](storage-dotnet-how-to-use-queues.md)
+- [Приступая к работе с хранилищем файлов Azure в Windows](storage-dotnet-how-to-use-files.md)
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

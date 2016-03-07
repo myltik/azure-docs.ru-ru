@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # Использование хранилища больших двоичных объектов из PHP
@@ -42,7 +42,7 @@
 
 Чтобы использовать интерфейсы API службы BLOB-объектов Azure, требуется:
 
-1. Ссылка на файл автозагрузчика с использованием инструкции [require\_once][require_once] и
+1. Ссылка на файл автозагрузчика с использованием инструкции [require\_once] и
 2. Ссылка на любые классы, которые могут использоваться.
 
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder**.
@@ -291,9 +291,9 @@
 Вы изучили основную информацию о службе BLOB-объектов Azure. Дополнительную информацию о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
 - Посетите [блог команды разработчиков хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-- См. пример блочного BLOB-объекта РНР по адресу: <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
-- См. пример страничного BLOB-объекта PHP по адресу: <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
-- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
+- См. [пример блочного BLOB-объекта РНР](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php).
+- См. [пример страничного BLOB-объекта PHP](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php).
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
  
 Дополнительные сведения также можно найти в [Центре разработчика PHP](/develop/php/).
 
@@ -302,8 +302,8 @@
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
-[require_once]: http://php.net/require_once
+[require\_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

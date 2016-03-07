@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # Разработка базы данных на C&#x23;: создание и настройка пула эластичных баз данных для базы данных SQL
@@ -27,17 +27,14 @@
 
 В этой статье описано, как создать [пул эластичных баз данных](sql-database-elastic-pool.md) для баз данных SQL из приложения, используя методы разработки баз данных на C#.
 
-> [AZURE.NOTE]Сейчас пулы эластичных баз данных предоставляются в виде предварительной версии, которая доступна только с серверами Базы данных SQL версии 12. Если у вас есть сервер базы данных SQL версии 11, с помощью PowerShell вы можете в один шаг [обновить его до версии 12 и создать пул](sql-database-upgrade-server.md).
+> [AZURE.NOTE] Сейчас пулы эластичных баз данных предоставляются в виде предварительной версии, которая доступна только с серверами Базы данных SQL версии 12. Если у вас есть сервер базы данных SQL версии 11, с помощью PowerShell вы можете в один шаг [обновить его до версии 12 и создать пул](sql-database-upgrade-server-powershell.md).
 
 В примерах используется [библиотека базы данных SQL Azure для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Код разбит на отдельные фрагменты для ясности, и пример консольного приложения объединяет все команды в нижней части этой статьи.
 
-Библиотека баз данных SQL Azure для .NET предоставляет API на основе [диспетчера ресурсов Azure](resource-group-overview.md), который создает оболочку для [REST API базы данных SQL на основе диспетчера ресурсов](https://msdn.microsoft.com/library/azure/mt163571.aspx). Эта клиентская библиотека следует общему шаблону для клиентских библиотек на основе диспетчера ресурсов. Для работы диспетчера ресурсов требуется наличие группы ресурсов и выполнение аутентификации с помощью [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
-<br>
+> [AZURE.NOTE] Библиотека базы данных SQL для .NET предоставляется в виде предварительной версии.
 
-> [AZURE.NOTE]Библиотека базы данных SQL для .NET предоставляется в виде предварительной версии.
 
-<br>
 
 Если у вас еще нет подписки Azure, щелкните **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ** в верхней части этой страницы. После оформления подписки вернитесь к этой статье. Бесплатный экземпляр Visual Studio см. на странице [Загрузки Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
@@ -91,10 +88,10 @@
     ![Получение идентификатора клиента][9]
 
 
-1. В нижней части страницы щелкните **Добавить приложение**.
+1. В нижней части страницы нажмите **Добавить приложение**.
 1. Выберите **Приложения Майкрософт**.
 1. Выберите **API управления службами Azure**, а затем завершите работу мастера.
-2. Теперь с помощью выбранного API предоставьте разрешения, которые необходимы для доступа к этому API. Для этого выберите элемент **Доступ к управлению службами Azure (предварительная версия)**.
+2. С помощью выбранного API теперь нужно предоставлять конкретные разрешения, необходимые для доступа к этому API, выбрав **Доступ к управлению службами Azure (предварительная версия)**.
 
     ![Установка разрешений][2]
 
@@ -123,20 +120,15 @@
 Клиентское приложение должно получить маркер доступа приложения для текущего пользователя. Первый раз, когда код выполняется пользователем, ему будет предложено ввести свои учетные данные пользователя, и результирующий маркер будет кэширован локально. При последующих вызовах маркер будет извлечен из кэша, и пользователю будет предложено войти, только если истек срок действия маркера.
 
 
-    /// <summary>
-    /// Prompts for user credentials when first run or if the cached credentials have expired.
-    /// </summary>
-    /// <returns>The access token from AAD.</returns>
     private static AuthenticationResult GetAccessToken()
     {
         AuthenticationContext authContext = new AuthenticationContext
-            ("https://login.windows.net/" /* AAD URI */
-                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
+            ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
         AuthenticationResult token = authContext.AcquireToken
             ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/,
-        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
+                clientId,
+        new Uri(redirectUri) /* redirect URI */,
         PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
         return token;
@@ -144,7 +136,7 @@
 
 
 
-> [AZURE.NOTE]Примеры в этой статье используют синхронную форму каждого запроса API и блокируют до завершения вызова REST на базовой службе. Доступны асинхронные методы.
+> [AZURE.NOTE] Примеры в этой статье используют синхронную форму каждого запроса API и блокируют до завершения вызова REST на базовой службе. Доступны асинхронные методы.
 
 
 
@@ -214,7 +206,7 @@
 
 
 
-Чтобы разрешить другим службам Azure доступ к серверу, добавьте правило брандмауэра и задайте для параметров StartIpAddress и EndIpAddress значение 0.0.0.0. Обратите внимание, что это правило разрешает доступ к серверу из *любой* подписки Azure.
+Чтобы разрешить другим службам Azure доступ к серверу, добавьте правило брандмауэра и задайте для параметров StartIpAddress и EndIpAddress значение 0.0.0.0. Обратите внимание, что это разрешает доступ к серверу трафику Azure от *любой* подписки Azure.
 
 
 ## Создание базы данных
@@ -293,7 +285,7 @@
 
 ## Перемещение существующей базы данных в пул эластичных баз данных
 
-*Кроме того, после создания пула можно использовать Transact-SQL для перемещения существующих баз данных в пул и из него. Подробнее об этом см. в разделе [Справочник по пулам эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Кроме того, после создания пула можно использовать Transact-SQL для перемещения существующих баз данных в пул и из него. Подробнее об этом см. в разделе [Справочник по пулам эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 В следующем примере существующая база данных Azure переносится в пул:
 
@@ -325,7 +317,7 @@
 
 ## Создание новой базы данных внутри пула эластичных баз данных
 
-*Кроме того, после создания пула можно использовать Transact-SQL для создания эластичных баз данных в пуле. Подробнее об этом см. в разделе [Справочник по пулам эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Кроме того, после создания пула можно использовать Transact-SQL для создания эластичных баз данных в пуле. Подробнее об этом см. в разделе [Справочник по пулам эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 В следующем примере новая база данных создается непосредственно в пуле.
 
@@ -388,14 +380,13 @@
         private static AuthenticationResult GetAccessToken()
         {
             AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */
-                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
+                ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
             AuthenticationResult token = authContext.AcquireToken
                 ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/,
-                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
-                PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
+                    clientId,
+            new Uri(redirectUri) /* redirect URI */,
+            PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
             return token;
         }
@@ -585,4 +576,4 @@
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

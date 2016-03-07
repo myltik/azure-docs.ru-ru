@@ -3,7 +3,7 @@
 	description="Эта статья содержит ответы на часто задаваемые вопросы об Azure AD Connect Health. Здесь предоставлена информация об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке."
 	services="active-directory"
 	documentationCenter=""
-	authors="karavar"
+	authors="billmath"
 	manager="samueld"
 	editor="curtand"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="vakarand"/>
+	ms.date="02/17/2016"
+	ms.author="billmath;vakarand"/>
 
 
 # Часто задаваемые вопросы об Azure AD Connect Health
@@ -25,7 +25,7 @@
 
 
 
-**Вопрос. Я управляю несколькими каталогами Azure AD. Как выполнить переключение на один из них с помощью Azure Active Directory Premium?**
+**Вопрос. Я управляю несколькими каталогами Azure AD. Как выполнить переключение на один из них с помощью Azure Active Directory Premium?**
 
 Можно переключиться между различными каталогами Azure AD, щелкнув имя выполнившего вход пользователя в правом верхнем углу и выбрав соответствующую учетную запись. Если учетной записи нет в списке, выполните выход, а затем войдите, используя учетные данные каталога, для которого включено предложение Azure Active Directory Premium.
 
@@ -99,5 +99,6 @@
 * [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
 * [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
+* [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -113,8 +113,8 @@
 [Руководство по центру IoT]: iot-hub-guidance.md
 [Руководство разработчика по центру IoT]: iot-hub-devguide.md
 [Приступая к работе с центром IoT]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[Supported devices]: iot-hub-tested-configurations.md
 [Центр разработчика IoT Azure]: https://azure.microsoft.com/develop/iot
 [Центре разработчиков центра IoT Azure]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

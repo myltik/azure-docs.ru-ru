@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/05/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # Проверка работоспособности службы и оповещение о проблемах
@@ -107,4 +107,4 @@
 ## Дальнейшие действия
 [Подробный обзор работоспособности в Service Fabric](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

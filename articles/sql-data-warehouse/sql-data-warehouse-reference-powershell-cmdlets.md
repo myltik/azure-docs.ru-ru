@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Начало работы с командлетами в хранилище данных SQL"
+   pageTitle="Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL"
    description="Приостановка и перезапуск хранилища данных SQL с помощью командлетов PowerShell"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sidneyh"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/11/2016"
-   ms.author="mausher;sidneyh;barbkess;sonyama"/>
+   ms.date="02/22/2016"
+   ms.author="barbkess;mausher;sonyama"/>
 
-# Начало работы с командлетами хранилища данных Azure и интерфейсами REST API
+# Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL
 
 Хранилищем данных SQL вы можете управлять с помощью командлетов Azure PowerShell или интерфейсов REST API.
 
-Команды, заданные для **базы данных SQL Azure**, используются также для **хранилища данных SQL**. Текущий список см. в статье [Командлеты SQL Azure](https://msdn.microsoft.com/library/mt574084.aspx). Командлеты **Suspend-AzureRmSqlDatabase** и **Resume-AzureRmSqlDatabase** (ниже) — это дополнения, предназначенные для хранилища данных SQL.
+Команды, заданные для **базы данных SQL Azure**, используются также для **хранилища данных SQL**. Текущий список см. в статье [Командлеты SQL Azure](https://msdn.microsoft.com/library/mt574084.aspx). Командлеты **Suspend-AzureRmSqlDatabase** и **Resume-AzureRmSqlDatabase** (ниже) — это дополнения, предназначенные для хранилища данных SQL.
 
 Точно так же интерфейсы REST API для **базы данных SQL Azure** можно использовать для экземпляров **хранилища данных SQL**. Текущий список см. в статье [Операции для баз данных Azure SQL](https://msdn.microsoft.com/library/azure/dn505719.aspx).
 
@@ -89,7 +89,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 
 Свойство|Описание
 ---|---
-RestorePointType|ДИСКРЕТНЫЕ И НЕПРЕРЫВНЫЕ ТОЧКИ ВОССТАНОВЛЕНИЯ. Дискретные точки восстановления — это возможные точки во времени, до которых можно восстановить базу данных хранилища Azure SQL. Непрерывные точки восстановления — это самые ранние возможные точки во времени, до которых можно восстановить базу данных Azure SQL. Базу данных можно восстановить до любой точки во времени после самой ранней точки.
+RestorePointType|ДИСКРЕТНЫЕ И НЕПРЕРЫВНЫЕ ТОЧКИ ВОССТАНОВЛЕНИЯ. Дискретные точки восстановления — это возможные точки во времени, до которых можно восстановить базу данных хранилища Azure SQL. Непрерывные точки восстановления — это самые ранние возможные точки во времени, до которых можно восстановить базу данных Azure SQL. Базу данных можно восстановить до любой точки во времени после самой ранней точки.
 EarliestRestoreDate|Самое раннее время восстановления (заполняется, если свойство restorePointType непрерывно)
 RestorePointCreationDate |Время создания моментального снимка резервной копии (заполняется, если свойство restorePointType дискретно)
 
@@ -133,4 +133,4 @@ $retorePoints
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

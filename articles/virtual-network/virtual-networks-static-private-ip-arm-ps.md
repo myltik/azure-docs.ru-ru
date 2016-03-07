@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Как задать статический частный IP-адрес в режиме ARM с помощью PowerShell | Microsoft Azure"
-   description="Основные сведения о статических IP-адресах (DIP) и управлении ими в режиме ARM с помощью PowerShell"
+   pageTitle="Как задать статический частный IP-адрес в диспетчере ресурсов с помощью PowerShell | Microsoft Azure"
+   description="Основные сведения о статических частных IP-адресах и управлении ими в диспетчере ресурсов Azure с помощью PowerShell."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# Как задать статический частный IP-адрес в PowerShell
+# Как задать статический частный IP-адрес в диспетчере ресурсов с помощью PowerShell
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
@@ -189,7 +189,7 @@
 ## Дальнейшие действия
 
 - Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](../virtual-networks-reserved-public-ip).
-- Ознакомьтесь с информацией об [общедоступных IP-адресах уровня экземпляра (ILPIP)](../virtual-networks-instance-level-public-ip).
-- Ознакомьтесь с информацией о [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+- Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](../virtual-networks-instance-level-public-ip).
+- Ознакомьтесь с [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

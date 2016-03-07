@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
 
 
 # Приступая к работе с соединителем SMTP: добавление в приложение логики
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview, щелкните [API SMTP](../connectors/create-api-smtp.md).
+
 Подключайтесь к серверу SMTP и отправляйте сообщения электронной почты, в том числе сообщения с вложениями. Действие "Отправить электронное письмо" соединителя SMTP позволяет отправить сообщение электронной почты по указанным адресам.
 
 Приложения логики могут запускаться на основе разных источников данных и предлагать соединители для получения и обработки данных в рамках рабочего процесса. Соединитель SMTP можно добавить в рабочий процесс компании и обрабатывать данные в рамках этого процесса приложения логики.
@@ -54,40 +56,35 @@ None | Отправка электронной почты
 
 6. Нажмите кнопку **Создать**.
 
-> [AZURE.IMPORTANT]На некоторых серверах SMTP могут возникать проблемы с работой этого соединителя (SendGrid и Gmail). Если вам нужно отправлять почту из SendGrid, в нашем [репозитории GitHub](https://github.com/logicappsio/SendGridAPI) есть специальный API, который напрямую взаимодействует с API SendGrid.
+> [AZURE.IMPORTANT] На некоторых серверах SMTP могут возникать проблемы с работой этого соединителя (SendGrid и Gmail). Если вам нужно отправлять почту из SendGrid, в нашем [репозитории GitHub](https://github.com/logicappsio/SendGridAPI) есть специальный API, который напрямую взаимодействует с API SendGrid.
 
 ## Использование соединителя SMTP в приложении логики
 После создания соединителя SMTP его можно использовать в качестве действия в приложении логики. Для этого:
 
-1.	Создайте новое приложение логики:
-![][2]
-2.	Откройте раздел **Триггеры и действия**, чтобы открыть конструктор приложений логики и настроить рабочий процесс:
-![][3]
-3.	Соединитель SMTP отображается в разделе коллекции «Приложения API в этой группе ресурсов» с правой стороны. Выберите его:
-![][4]
+1.	Создайте новое приложение логики: ![][2]
+2.	Перейдите в раздел **Триггеры и действия**, чтобы открыть конструктор приложений логики и настроить рабочий процесс: ![][3]
+3.	Соединитель SMTP отображается в разделе коллекции «Приложения API в этой группе ресурсов» с правой стороны. Выберите его: ![][4]
 4.	Выберите соединитель SMTP, чтобы автоматически добавить его в конструктор рабочих процессов.
 
 Теперь можно настроить соединитель SMTP для использования в рабочем процессе. Выберите действие **Отправить письмо** и настройте входные свойства следующим образом:
 
-	Свойство | Описание
+	Property | Description
 	--- | ---
-	Кому | Введите адрес электронной почты получателя. При вводе нескольких адресов электронной почты отделите их точкой с запятой (;). Например, введите recipient1@domain.com;recipient2@domain.com.
-	Копия | Введите адрес электронной почты получателя копии письма. При вводе нескольких адресов электронной почты отделите их точкой с запятой (;). Например, введите recipient1@domain.com;recipient2@domain.com.
-	Тема | Введите тему электронного сообщения.
-	Сообщение | Введите текст электронного сообщения.
-	В формате HTML | Если для этого свойства установлено значение true, содержимое письма отправляется как HTML.
-	СК | Введите адрес электронной почты получателя скрытой копии письма. При вводе нескольких адресов электронной почты отделите их точкой с запятой (;). Например, введите recipient1@domain.com;recipient2@domain.com.
-	Важность | Укажите важность письма (нормальная, низкая, высокая).
-	Вложения | Вложения, отправляемые вместе с сообщением электронной почты. Доступны следующие поля: <ul><li>Содержимое (строка)</li><li>Кодировка для пересылки содержимого (массив) (“none”|”base64”)</li><li>Тип содержимого (строка)</li><li>Идентификатор содержимого (строка)</li><li>Имя файла (строка)</li><li>
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
-
-![][5]
-![][6]
+![][5] ![][6]
 
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. раздел [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Если вы хотите начать работу с приложениями логики Azure до создания учетной записи Azure, перейдите на веб-сайт [пробного использования приложений логики](https://tryappservice.azure.com/?appservice=logic). На этом сайте вы сможете быстро создать кратковременное приложение логики начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+>[AZURE.NOTE] Если вы хотите начать работу с приложениями логики Azure до создания учетной записи Azure, перейдите на веб-сайт [пробного использования приложений логики](https://tryappservice.azure.com/?appservice=logic). На этом сайте вы сможете быстро создать кратковременное приложение логики начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
 Справку по API REST Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -101,4 +98,4 @@ None | Отправка электронной почты
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

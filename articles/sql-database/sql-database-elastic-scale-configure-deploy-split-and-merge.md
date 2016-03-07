@@ -4,7 +4,7 @@
 	services="sql-database"  
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sidneyh" />
 
 # Учебник по инструменту разбиения и объединения эластичной базы данных
@@ -42,9 +42,9 @@
 
 ### Настройка службы разбиения и объединения
 
-1. В папке, куда вы скачали файлы Split/Merge, создайте копию файла **ServiceConfiguration.Template.cscfg**, который поставляется вместе с **SplitMergeService.cspkg**, и назовите его **ServiceConfiguration.cscfg**.
+1. В папке, куда вы скачали файлы Split-Merge, создайте копию файла **ServiceConfiguration.Template.cscfg**, который поставляется вместе с **SplitMergeService.cspkg**, и переименуйте его в **ServiceConfiguration.cscfg**.
 
-2. Откройте в текстовом редакторе файл ServiceConfiguration.cscfg. Мы рекомендуем использовать Visual Studio, так как он проверяет входные данные, например формат отпечатков сертификатов.
+2. Откройте **ServiceConfiguration.cscfg** в текстовом редакторе, например Visual Studio, который проверяет входные данные, например формат отпечатков сертификатов.
 
 3. Создайте новую базу данных или выберите существующую для хранения состояния операций разбиения и объединения и получите строку подключения к этой базе.
 
@@ -334,4 +334,4 @@
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

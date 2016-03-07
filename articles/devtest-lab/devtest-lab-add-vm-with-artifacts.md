@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Добавление виртуальной машины с артефактами в Azure DevTest Lab
+
+> [AZURE.NOTE] Щелкните следующую ссылку, чтобы просмотреть видео для этой статьи: [Как создавать виртуальные машины с артефактами в лаборатории для разработки и тестирования](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab).
 
 ## Обзор
 
@@ -96,6 +98,6 @@
 
 ## Дальнейшие действия
 
-Узнайте, как [создавать пользовательские артефакты для виртуальной машины](devtest-lab-artifact-author.md).
+- Узнайте, как [создавать пользовательские артефакты для виртуальной машины](devtest-lab-artifact-author.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

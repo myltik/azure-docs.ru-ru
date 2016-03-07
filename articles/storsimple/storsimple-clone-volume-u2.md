@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Клонирование тома StorSimple | Microsoft Azure"
+   pageTitle="Клонирование тома StorSimple | Microsoft Azure"
    description="В разделе рассматриваются разные типы клонов, ситуации их использования и клонирование отдельного тома с помощью резервного набора данных."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="alkohli" />
 
-# Клонирование тома с помощью службы диспетчера StorSimple (обновление 2)
+# Клонирование тома с помощью службы диспетчера StorSimple (обновление 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
 
@@ -55,11 +55,11 @@
 
   1. Укажите целевое устройство. Это расположение, где будет создана копия. Можно выбрать одно устройство или указать другое устройство. При выборе тома, связанного с другими поставщиками облачных служб (не Azure), в раскрывающемся списке целевого устройства будут отображаться только физические устройства. Нельзя клонировать на виртуальное устройство том, связанный с другими поставщиками облачной службы.
 
-        >[AZURE.NOTE] Убедитесь, что на целевом устройстве достаточно места для клонирования.
+        >[AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
 
   2. Укажите уникальное имя для клона. Имя должно содержать от 3 до 127 символов.
     
-        >[AZURE.NOTE] В поле **Клонировать том как** будет стоять значение **Многоуровневый**, даже если вы клонируете локально закрепленный том. Этот параметр изменить нельзя. Если же вы хотите, чтобы клонированный том также был локально закреплен, то клон можно преобразовать в локально закрепленный том после того, как вы успешно завершите клонирование. Сведения о преобразовании многоуровневого тома в локально закрепленный см. в разделе [Изменение типа тома](storsimple-manage-volumes-u2.md#change-the-volume-type).
+        >[AZURE.NOTE] The **Clone Volume As** field will be **Tiered** even if you are cloning a locally pinned volume. You cannot change this setting; however, if you need the cloned volume to be locally pinned as well, you can convert the clone to a locally pinned volume after you successfully create the clone. For information about converting a tiered volume to a locally pinned volume, go to [Change the volume type](storsimple-manage-volumes-u2.md#change-the-volume-type).
 
         ![Clone wizard 1](./media/storsimple-clone-volume-u2/clone1.png) 
 
@@ -117,4 +117,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

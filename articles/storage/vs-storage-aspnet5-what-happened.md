@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Что произошло с моим проектом ASP.NET 5 (подключенными к службе хранилища Azure службами Visual Studio)?
@@ -36,6 +36,6 @@
 ## Добавлена строка подключения к хранилищу Azure
 В файле config.json проекта был создан элемент с ключом и строкой подключения выбранной учетной записи хранилища.
 
-Дополнительные сведения см. в разделе [ASP.NET 5](http://www.asp.net/vnext).
+Дополнительную информацию см. на веб-сайте, посвященном [ASP.NET 5](http://www.asp.net/vnext).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

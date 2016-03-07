@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Экспорт данных телеметрии из Application Insights
@@ -42,7 +42,7 @@
 
 ![Прокрутите вниз и щелкните "Непрерывный экспорт"](./media/app-insights-export-telemetry/01-export.png)
 
-Добавьте параметры экспорта, а затем выберите [учетную запись хранилища Azure](../storage-introduction.md), где требуется разместить данные:
+Добавьте параметры экспорта, а затем выберите [учетную запись хранилища Azure](../storage/storage-introduction.md), где требуется разместить данные:
 
 ![Последовательно щелкните "Добавить", "Назначение экспорта", "Учетная запись хранения" и затем создайте новое хранилище или выберите существующее.](./media/app-insights-export-telemetry/02-add.png)
 
@@ -149,7 +149,7 @@
 * [Экспорт в SQL с использованием рабочей роли][exportcode]
 * [Экспорт в SQL с использованием Stream Analytics][exportasa]
 * [Экспорт в Power BI с использованием Stream Analytics](app-insights-export-power-bi.md)
- * Обратите внимание, что это — нестандартный способ использования Power BI. Есть [адаптер](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), который не требует непрерывного экспорта.
+ * Обратите внимание, что это — нестандартный способ использования Power BI. Есть [адаптер](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), который не требует непрерывного экспорта.
 
 
 Для больших объемов данных рассмотрите возможность использования [HDInsight](https://azure.microsoft.com/services/hdinsight/) – кластеров Hadoop в облаке. HDInsight предоставляет широкий набор технологий для управления и анализа больших объемов данных.
@@ -170,7 +170,6 @@
 
     Если учетная запись принадлежит организации, необходимо быть членом группы владельцев или участников.
 
-    <!-- Your account has to be either a paid-for account, or in the free trial period. -->
 
 * *Могу ли я экспортировать данные непосредственно в свое локальное хранилище?*
 
@@ -196,7 +195,7 @@
 
 ## Примеры кода
 
-* [Потоковая передача данных Application Insights в Power BI](app-insights-export-power-bi.md)
+* [Потоковая передача данных Application Insights в Power BI](app-insights-export-power-bi.md)
 * [Анализ экспортированного JSON при помощи рабочей роли][exportcode]
 * [Экспорт в SQL с использованием Stream Analytics][exportasa]
 
@@ -210,4 +209,4 @@
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

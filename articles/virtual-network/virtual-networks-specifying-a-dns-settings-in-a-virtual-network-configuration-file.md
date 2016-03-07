@@ -1,27 +1,30 @@
 <properties 
-   pageTitle="Задание параметров DNS в файле конфигурации виртуальной сети | Microsoft Azure"
-   description="Изменение параметров DNS-сервера в виртуальной сети с помощью файла конфигурации виртуальной сети"
+   pageTitle="Задание параметров DNS в файле конфигурации виртуальной сети | Microsoft Azure"
+   description="Как изменить параметры DNS-сервера в виртуальной сети с помощью файла конфигурации виртуальной сети в классической модели развертывания."
    services="virtual-network"
    documentationCenter="na"
-   authors="joaoma"
+   authors="telmosampaio"
    manager="carmonm"
-   editor="tysonn" />
+   editor="tysonn" 
+   tags="azure-service-management" />
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/25/2015"
-   ms.author="joaoma" />
+   ms.date="02/23/2016"
+   ms.author="telmos" />
 
 # Задание параметров DNS в файле конфигурации виртуальной сети
 
 Файл конфигурации сети содержит два элемента, позволяющих задавать параметры службы доменных имен (DNS): **DnsServers** и **DnsServerRef**. Список DNS-серверов можно добавить, задав их IP-адреса и ссылочные имена в элементе **DnsServers**. После этого в элементе **DnsServerRef** можно указать записи DNS-серверов из элемента DnsServers, которые будут применяться для различных сетевых сайтов в виртуальной сети.
 
->[AZURE.IMPORTANT] Дополнительную информацию о том, как настроить файл конфигурации сети, см. в разделе [Настройка виртуальной сети с помощью файлов конфигурации сети](virtual-networks-using-network-configuration-file.md). Информацию о каждом элементе, содержащемся в файле конфигурации сети, см. в разделе [Схема конфигурации виртуальной сети Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания.
 
 Файл конфигурации сети может содержать следующие элементы. Заголовок каждого элемента связан со страницей, содержащей дополнительную информацию о параметрах значений элемента.
+
+>[AZURE.IMPORTANT] Дополнительную информацию о том, как настроить файл конфигурации сети, см. в разделе [Настройка виртуальной сети с помощью файлов конфигурации сети](virtual-networks-using-network-configuration-file.md). Информацию о каждом элементе, содержащемся в файле конфигурации сети, см. в разделе [Схема конфигурации виртуальной сети Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 [Элемент DNS](http://go.microsoft.com/fwlink/?LinkId=248093)
 
@@ -47,10 +50,8 @@
 
 ## Дальнейшие действия
 
-[Настройка виртуальной сети с помощью файлов конфигурации сети](virtual-networks-using-network-configuration-file.md)
+- Ознакомьтесь со [схемой конфигурации виртуальной сети Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
+- Ознакомьтесь со [схемой конфигурации службы Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
+- [Настройте виртуальную сеть с помощью файлов конфигурации сети](virtual-networks-using-network-configuration-file.md).
 
-[Схема настройки виртуальной сети Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
-
-[Схема конфигурации службы Azure](https://msdn.microsoft.com/library/windowsazure/ee758710)
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

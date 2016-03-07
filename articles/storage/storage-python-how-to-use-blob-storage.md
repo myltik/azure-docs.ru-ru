@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/11/2016"
 	ms.author="emgerner"/>
 
 # Использование хранилища больших двоичных объектов Azure из Python
@@ -22,7 +22,7 @@
 
 ## Обзор
 
-В этой статье описано, как реализовать типичные сценарии с использованием хранилища больших двоичных объектов. Примеры написаны на Python и используют пакет [Хранилище Azure для Python][]. Здесь описаны такие сценарии, как отправка, перечисление, скачивание и удаление больших двоичных объектов.
+В этой статье описано, как реализовать типичные сценарии с использованием хранилища больших двоичных объектов. Примеры написаны на Python, и в них используется [пакет SDK для службы хранилища Microsoft Azure для Python]. Здесь описаны такие сценарии, как отправка, перечисление, скачивание и удаление больших двоичных объектов.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -30,89 +30,99 @@
 
 ## Создание контейнера
 
-> [AZURE.NOTE]Если требуется установить Python или [пакет Azure для Python][], см. [Руководство по установке Python](../python-how-to-install.md).
+В зависимости от требуемого типа большого двоичного объекта создайте объект **BlockBlobService**, **AppendBlobService** или **PageBlobService**. В следующем коде используется объект **BlockBlobService**. Добавьте следующий код в начало любого файла Python, из которого планируется получать программный доступ к хранилищу BLOB-объектов Azure.
 
-Объект **BlobService** позволяет работать с контейнерами и BLOB-объектами. Следующий код создает объект **BlobService**. Добавьте следующий код в начало любого файла Python, из которого планируется получать доступ к службе хранилища Azure программным способом.
+	from azure.storage.blob import BlockBlobService
 
-	from azure.storage.blob import BlobService
+Следующий код создает объект **BlockBlobService**, используя имя и ключ учетной записи хранения. Замените myaccount и mykey фактическими значениями имени и ключа учетной записи.
 
-Следующий код создает объект **BlobService**, используя имя и ключ доступа учетной записи. Замените myaccount и mykey фактическими значениями учетной записи и ключа.
-
-	blob_service = BlobService(account_name='myaccount', account_key='mykey')
+	block_blob_service = BlockBlobService(account_name='myaccount', account_key='mykey')
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-В следующем примере кода для создания контейнера (если он не существует) можно использовать объект **BlobService**.
+В следующем примере кода для создания контейнера (если он не существует) можно использовать объект **BlockBlobService**.
 
-	blob_service.create_container('mycontainer')
+	block_blob_service.create_container('mycontainer')
 
-По умолчанию новый контейнер является закрытым, поэтому необходимо указать ключ доступа к хранилищу (как делалось раньше), чтобы скачать большие двоичные объекты из этого контейнера. Чтобы сделать файлы в этом контейнере доступными для всех пользователей, вы можете создать контейнер и предоставить открытый доступ, используя следующий код.
+По умолчанию новый контейнер является закрытым, поэтому необходимо указать ключ доступа к хранилищу (как делалось раньше), чтобы скачать большие двоичные объекты из этого контейнера. Чтобы сделать большие двоичные объекты в этом контейнере доступными для всех пользователей, вы можете создать контейнер и предоставить открытый доступ, используя следующий код.
 
-	blob_service.create_container('mycontainer', x_ms_blob_public_access='container')
+	from azure.storage.blob import PublicAccess
+	block_blob_service.create_container('mycontainer', public_access=PublicAccess.Container)
 
 Либо можно изменить контейнер после его создания, используя следующий код.
 
-	blob_service.set_container_acl('mycontainer', x_ms_blob_public_access='container')
+	block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.Container)
 
 После этого изменения любой пользователь в Интернете сможет видеть большие двоичные объекты в общедоступном контейнере, но изменить или удалить их сможете только вы.
 
 ## Отправка BLOB-объекта в контейнер
 
-Чтобы отправить данные в blob-объект, используйте методы **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** или **put\_block\_blob\_from\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
+Чтобы создать большой двоичный объект и передать данные, используйте методы **create\_block\_blob\_from\_path**, **create\_block\_blob\_from\_stream**, **create\_block\_blob\_from\_bytes** или **create\_block\_blob\_from\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
 
-**put\_block\_blob\_from\_path** отправляет содержимое файла из заданного пути, **put\_block\_blob\_from\_file** отправляет содержимое уже открытого файла или потока. **put\_block\_blob\_from\_bytes** отправляет массив байтов, **put\_block\_blob\_from\_text** отправляет заданное значение текста с использованием определенного кодирования (по умолчанию UTF-8).
+**create\_block\_blob\_from\_path** передает содержимое файла из заданного пути, **create\_block\_blob\_from\_stream** передает содержимое уже открытого файла или потока. **create\_block\_blob\_from\_bytes** передает массив байтов, а **create\_block\_blob\_from\_text** передает заданное текстовое значение в заданной кодировке (по умолчанию — UTF-8).
 
 В следующем примере содержимое файла **sunset.png** передается в большой двоичный объект **myblob**.
 
-	blob_service.put_block_blob_from_path(
+	from azure.storage.blob import ContentSettings
+	block_blob_service.create_block_blob_from_path(
         'mycontainer',
-        'myblob',
+        'myblockblob',
         'sunset.png',
-        x_ms_blob_content_type='image/png'
-    )
+        content_settings=ContentSettings(content_type='image/png')
+				)
 
 ## Перечисление BLOB-объектов в контейнере
 
-Чтобы перечислить большие двоичные объекты в контейнере, используйте метод **list\_blobs**. Каждый вызов **list\_blobs** возвращает сегмент результатов. Чтобы получить все результаты, проверьте **next\_marker** результатов и при необходимости повторно вызовите **list\_blobs**. Следующий код выводит на консоль **имя** каждого большого двоичного объекта в контейнере.
+Чтобы перечислить большие двоичные объекты в контейнере, используйте метод **list\_blobs**. Этот метод возвращает генератор. Следующий код выводит на консоль **имя** каждого большого двоичного объекта в контейнере.
 
-	blobs = []
-	marker = None
-	while True:
-		batch = blob_service.list_blobs('mycontainer', marker=marker)
-		blobs.extend(batch)
-		if not batch.next_marker:
-			break
-		marker = batch.next_marker
-	for blob in blobs:
+	generator = block_blob_service.list_blobs('mycontainer')
+	for blob in generator:
 		print(blob.name)
 
 ## Скачивание больших двоичных объектов
 
-В каждом сегменте результатов может содержаться переменное количество больших двоичных объектов (до 5000). Если для определенного сегмента существует **next\_marker**, контейнер может содержать много больших двоичных объектов.
-
-Чтобы скачать данные из большого двоичного объекта, используйте **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** или **get\_blob\_to\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
+Чтобы скачать данные из большого двоичного объекта, используйте **get\_blob\_to\_path**, **get\_blob\_to\_stream**, **get\_blob\_to\_bytes** или **get\_blob\_to\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
 
 В примере ниже показано использование метода **get\_blob\_to\_path** для скачивания содержимого большого двоичного объекта **myblob** и его сохранения в файл **out-sunset.png**.
 
-	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
+	block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
 
 ## Удаление большого двоичного объекта
 
 Наконец, чтобы удалить BLOB-объект, вызовите **deleteBlob**.
 
-	blob_service.delete_blob('mycontainer', 'myblob')
+	block_blob_service.delete_blob('mycontainer', 'myblockblob')
+
+## Запись в расширенный большой двоичный объект
+
+Добавочный большой двоичный объект оптимизирован для операций добавления, например ведения журналов. Как и блочный BLOB-объект, добавочный большой двоичный объект состоит из блоков, но при добавлении нового блока в добавочный большой двоичный объект он всегда добавляется в конец этого объекта. Вы не можете обновить или удалить существующий блок в добавочном большом двоичном объекте. Идентификаторы блоков в добавочном большом двоичном объекте не отображаются, как в блочном BLOB-объекте.
+
+Каждый блок в добавочном большом двоичном объекте может иметь разный размер (не более 4 МБ), кроме того, добавочный большой двоичный объект может содержать не более 50 000 блоков. Таким образом, максимальный размер добавочного большого двоичного объекта немного превышает 195 ГБ (4 МБ X 50 000 блоков).
+
+Приведенный ниже пример создает новый добавочный большой двоичный объект и добавляет в него некоторые данные, имитируя простые операции ведение журнала.
+
+	from azure.storage.blob import AppendBlobService
+	append_blob_service = AppendBlobService(account_name='myaccount', account_key='mykey')
+
+	# The same containers can hold all types of blobs
+	append_blob_service.create_container('mycontainer')
+
+	# Append blobs must be created before they are appended to
+	append_blob_service.create_blob('mycontainer', 'myappendblob')
+	append_blob_service.append_blob_from_text('mycontainer', 'myappendblob', u'Hello, world!')
+
+	append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob')
 
 ## Дальнейшие действия
 
-Вы изучили основную информацию о хранилище больших двоичных объектов. Дополнительную информацию о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
+Вы ознакомились с базовыми понятиями о хранилище BLOB-объектов. Дополнительные сведения см. по следующим ссылкам.
 
-- Посетите [блог команды разработчиков хранилища Azure][].
-- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
+- [Центр по разработке для Python](/develop/python/)
+- [API-интерфейс REST служб хранилища Azure](http://msdn.microsoft.com/library/azure/dd179355)
+- [Блог рабочей группы службы хранилища Azure]
+- [Пакет SDK для службы хранилища Microsoft Azure для Python]
 
-Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
+[Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
 
-[блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-[пакет Azure для Python]: https://pypi.python.org/pypi/azure
-[Хранилище Azure для Python]: https://pypi.python.org/pypi/azure-storage
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

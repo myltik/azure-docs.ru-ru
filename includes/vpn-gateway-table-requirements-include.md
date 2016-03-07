@@ -1,12 +1,14 @@
-The table below lists the requirements for policy-based and route-based VPN gateways. This table applies to both the Resource Manager and classic deployment models. For the classic model, Policy-based VPN gateways are the same as Static gateways, and Route-based gateways are the same as Dynamic gateways.
+В таблице ниже перечислены требования к VPN-шлюзам с маршрутизацией на основе политик и маршрутов. Эта таблица относится к классической модели развертывания и модели диспетчера ресурсов. При классической модели VPN-шлюзы с маршрутизацией на основе политик совпадают со статическими шлюзами, а шлюзы с маршрутизацией на основе маршрутов — с динамическими шлюзами.
 
 
-|   | **Policy-based Basic VPN Gateway** | **Route-based Basic VPN Gateway** | **Route-based Standard VPN Gateway**   | **Route-based High Performance VPN Gateway** |
+| | **Базовый VPN-шлюз на основе политик** | **Базовый VPN-шлюз на основе маршрутов** | **Стандартный VPN-шлюз на основе маршрутов** | **Высокопроизводительный VPN-шлюз на основе маршрутов** |
 |---|---------------------------------------|---------------------------------------|----------------------------|----------------------------------|
-|    **Site-to-Site connectivity   (S2S)**  | Policy-based VPN configuration        | Route-based VPN configuration  | Route-based VPN configuration     | Route-based VPN configuration    |
-| **Point-to-Site connectivity (P2S**)      | Not supported   | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S) |
-| **Authentication method**                 |    Pre-shared key  | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity |
-| **Maximum number of S2S connections**       | 1                              | 10                                                                    | 10                                | 30                               |
-| **Maximum number of P2S connections**       | Not supported                  | 128                                                                   | 128                               | 128                              |
-|**Active routing support (BGP)**           | Not supported                  | Not supported                                                         | Not supported                     | Not supported                    |
+| **подключение «сеть —сеть»** | конфигурация VPN на основе политик | конфигурация VPN на основе маршрутов | конфигурация VPN на основе маршрутов | конфигурация VPN на основе маршрутов |
+| **Подключение "точка-сеть"** | Не поддерживается | поддерживается (может сосуществовать с подключением «сеть —сеть») | поддерживается (может сосуществовать с подключением «сеть —сеть») | поддерживается (может сосуществовать с подключением «сеть —сеть») |
+| **метод проверки подлинности** | общий ключ | Общий ключ для подключения "сеть-сеть", сертификаты для подключения "точка-сеть" | Общий ключ для подключения "сеть-сеть", сертификаты для подключения "точка-сеть" | Общий ключ для подключения "сеть-сеть", сертификаты для подключения "точка-сеть" |
+| **максимальное число подключений «сеть —сеть»** | 1 | 10 | 10 | 30 |
+| **максимальное число подключений «точка —сеть»** | Не поддерживается | 128 | 128 | 128 |
+|**активная поддержка маршрутизации (BGP)** | Не поддерживается | Не поддерживается | Не поддерживается | Не поддерживается |
  
+
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Управление маршрутизацией и использование виртуальных модулей в диспетчере ресурсов с помощью шаблона | Microsoft Azure"
-   description="Сведения о том, как управлять маршрутизацией и использовать виртуальные модули с помощью шаблонов"
+   description="Узнайте, как управлять маршрутизацией и использовать виртуальные модули в диспетчере ресурсов с помощью шаблона."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-#Создание определяемых пользователем маршрутов (UDR) с помощью шаблона
+#Создание определяемых пользователем маршрутов (UDR) в диспетчере ресурсов с помощью шаблона
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -29,9 +29,9 @@
 
 ## Ресурсы определяемого пользователем маршрута в файле шаблона
 
-Вы можете просмотреть и скачать [пример шаблона](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).
+Вы можете просмотреть и скачать [образец шаблона](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).
 
-В разделе ниже показано определение определяемого пользователем маршрута переднего плана в файле azuredeploy-vnet-nsg-udr.json на основе описанного выше сценария.
+В разделе ниже показано определение определяемого пользователем маршрута переднего плана в файле **azuredeploy-vnet-nsg-udr.json** на основе описанного выше сценария.
 
 	"apiVersion": "2015-06-15",
 	"type": "Microsoft.Network/routeTables",
@@ -108,7 +108,7 @@
 
 ## Развертывание шаблона ARM с помощью кнопки развертывания
 
-Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [этой ссылке](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), щелкните **Deploy to Azure** (Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
+Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), нажмите **Deploy to Azure** (Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
 
 ## Развертывание шаблона ARM с помощью PowerShell
 
@@ -116,13 +116,17 @@
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md). Войдите в Azure и выберите подписку.
+1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
 
-3. Выполните командлет **New-AzureRmResourceGroup**, чтобы создать группу ресурсов с помощью этого шаблона.
+2. Выполните командлет `New-AzureRmResourceGroup` для создания группы ресурсов.
 
-		New-AzureRmResourceGroup -Name TestRG -Location westus `
-		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json'	
+		New-AzureRmResourceGroup -Name TestRG -Location westus
+
+3. Выполните командлет `New-AzureRmResourceGroupDeployment` для развертывания шаблона.
+
+		New-AzureRmResourceGroupDeployment -Name DeployUDR -ResourceGroupName TestRG `
+		    -TemplateUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json `
+		    -TemplateParameterUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json	    	
 
 	Ожидаемые выходные данные:
 
@@ -164,14 +168,14 @@
 		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
 		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
 		                    
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Развертывание шаблона ARM с помощью интерфейса командной строки Azure
 
 Чтобы развернуть шаблон ARM с помощью интерфейса командной строки Azure, выполните следующие действия.
 
-1. Если вы еще не пользовались Azure CLI, см. статью [Установка и настройка CLI Azure](xplat-cli.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
-2. Выполните команду **azure config mode**, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
+1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+2. Выполните команду `azure config mode`, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
 		azure config mode arm
 
@@ -390,6 +394,6 @@
 		data:    
 		info:    group show command OK
 
->[AZURE.TIP]Если отображаются не все ресурсы, выполните команду **azure group deployment show**, чтобы состояние подготовки развертывания имело значение *Успешно выполнено*.
+>[AZURE.TIP] Если отображаются не все ресурсы, выполните команду `azure group deployment show`, чтобы состояние подготовки развертывания имело значение *Успешно выполнено*.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

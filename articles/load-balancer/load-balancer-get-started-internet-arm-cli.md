@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Создание балансировщика нагрузки для Интернета в диспетчере ресурсов с помощью интерфейса командной строки Azure | Microsoft Azure"
+   pageTitle="Создание балансировщика нагрузки для Интернета в диспетчере ресурсов с помощью интерфейса командной строки Azure | Microsoft Azure"
    description="Узнайте, как создать балансировщик нагрузки для Интернета в диспетчере ресурсов с помощью интерфейса командной строки Azure."
    services="load-balancer"
    documentationCenter="na"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="02/12/2015"
    ms.author="joaoma" />
 
 # Начало работы по созданию балансировщика нагрузки для Интернета с помощью интерфейса командной строки Azure
@@ -49,7 +49,7 @@
 
 ## Настройка интерфейса командной строки для использования диспетчера ресурсов
 
-1. Если вы никогда не использовали Azure CLI, см. статью [Установка и настройка CLI Azure](xplat-cli.md) и следуйте инструкциям в ней вплоть до момента выбора своей учетной записи и подписки Azure.
+1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка CLI Azure](../../articles/xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи и подписки Azure.
 
 2. Выполните команду **azure config mode**, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
@@ -61,7 +61,7 @@
 
 ## Создание виртуальной сети и общедоступного IP-адреса для пула IP-адресов клиентской части
 
-### Шаг 1
+### Шаг 1
 
 Создайте виртуальную сеть *NRPVnet* в регионе "Восток США" с помощью группы ресурсов *NRPRG*.
 
@@ -71,14 +71,14 @@
 
 	azure network vnet subnet create NRPRG NRPVnet NRPVnetSubnet -a 10.0.0.0/24
 
-### Шаг 2
+### Шаг 2
 
-Создайте общедоступный IP-адрес *NRPPublicIP*, который будет использоваться пулом IP-адресов клиентской части, с DNS-именем *loadbalancernrp.eastus.cloudapp.azure.com*. В команде ниже используется статическое выделение и время ожидания при простое 4 минуты.
+Создайте общедоступный IP-адрес *NRPPublicIP*, который будет использоваться пулом IP-адресов клиентской части, с DNS-именем *loadbalancernrp.eastus.cloudapp.azure.com*. В команде ниже используется статическое выделение и время ожидания при простое 4 минуты.
 
 	azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
 
->[AZURE.IMPORTANT]Балансировщик нагрузки будет использовать метку домена общедоступного IP-адреса в качестве своего полного доменного имени (FQDN). В этом заключается отличие от классического развертывания, при котором в качестве полного доменного имени балансировщика нагрузки используется облачная служба. В этом примере используется полное доменное имя *loadbalancernrp.eastus.cloudapp.azure.com*.
+>[AZURE.IMPORTANT] Балансировщик нагрузки будет использовать метку домена общедоступного IP-адреса в качестве своего полного доменного имени (FQDN). В этом заключается отличие от классического развертывания, при котором в качестве полного доменного имени балансировщика нагрузки используется облачная служба. В этом примере используется полное доменное имя *loadbalancernrp.eastus.cloudapp.azure.com*.
 
 ## Создание балансировщика нагрузки
 
@@ -90,13 +90,13 @@
 
 В приведенном ниже примере создается пул IP-адресов клиентской части, который будет принимать входящий сетевой трафик для балансировщика нагрузки, а также пул IP-адресов серверной части, который будет отправлять сетевой трафик с балансировкой нагрузки.
 
-### Шаг 1 
+### Шаг 1 
 
 Создайте пул IP-адресов клиентской части, связывающий общедоступный IP-адрес, созданный на предыдущем этапе, и балансировщик нагрузки.
 
 	azure network lb frontend-ip create nrpRG NRPlb NRPfrontendpool -i nrppublicip
 
-### Шаг 2 
+### Шаг 2 
 
 Настройте пул адресов серверной части для приема входящего трафика из пула IP-адресов клиентской части.
 
@@ -106,35 +106,35 @@
 
 В примере ниже создаются следующие элементы:
 
-- правило NAT, которое направляет весь входящий трафик с порта 3441 на порт 3389<sup>1</sup>;
-- правило NAT, которое направляет весь входящий трафик с порта 3442 на порт 3389;
+- правило NAT, которое направляет весь входящий трафик с порта 21 на порт 22<sup>1</sup>;
+- правило NAT, которое направляет весь входящий трафик с порта 23 на порт 22;
 - правило балансировщика нагрузки, которое балансирует весь входящий трафик на порту 80, перенаправляя трафик на порт 80 других адресов в пуле серверной части;
 - правило пробы, согласно которому будет проверяться состояние работоспособности на странице *HealthProbe.aspx*.
 
-<sup>1</sup> Правила NAT сопоставлены с конкретным экземпляром виртуальной машины, находящимся в зоне действия балансировщика нагрузки. Входящий сетевой трафик на порт 3341 будет отправляться в конкретную виртуальную машину через порт 3389, сопоставленный с правилом NAT в приведенном ниже примере. Необходимо выбрать для правила NAT протокол UDP или TCP. Нельзя назначить оба протокола одному и тому же порту.
+<sup>1</sup> Правила NAT сопоставлены с конкретным экземпляром виртуальной машины, находящимся в зоне действия балансировщика нагрузки. Входящий сетевой трафик на порт 21 будет отправляться в конкретную виртуальную машину на порт 22, сопоставленный с правилом NAT в приведенном ниже примере. Необходимо выбрать для правила NAT протокол UDP или TCP. Нельзя назначить оба протокола одному и тому же порту.
 
-### Шаг 1
+### Шаг 1
 
 Создайте правила NAT.
 
-	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n rdp1 -p tcp -f 3441 -b 3389
-	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n rdp2 -p tcp -f 3442 -b 3389
+	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh1 -p tcp -f 21 -b 22
+	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh2 -p tcp -f 23 -b 22
 
 Параметры
 
-- **-g** — имя группы ресурсов;
-- **-l** — имя балансировщика нагрузки; 
-- **-n** — имя ресурса (правила NAT, правила проверки или правила балансировки нагрузки);
-- **-p** — протокол (TCP или UDP);  
-- **-f** — порт серверной части, который следует использовать (команда пробы использует параметр -f для определения пути пробы);
-- **-b** — порт серверной части, который следует использовать.
+- **-g** — имя группы ресурсов;
+- **-l** — имя балансировщика нагрузки; 
+- **-n** — имя ресурса (правила NAT, правила проверки или правила балансировки нагрузки);
+- **-p** — протокол (TCP или UDP);  
+- **-f** — порт серверной части, который следует использовать (команда пробы использует параметр -f для определения пути пробы);
+- **-b** — порт серверной части, который следует использовать.
 
-### Шаг 2
+### Шаг 2
 
 Создайте правило балансировщика нагрузки.
 
 	azure network lb rule create nrprg nrplb lbrule -p tcp -f 80 -b 80 -t NRPfrontendpool -o NRPbackendpool
-### Шаг 3.
+### Шаг 3.
 
 Создайте пробу работоспособности.
 
@@ -184,20 +184,20 @@
 	data:      Backend address pool          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
 	data:
 	data:    Inbound NAT rules:
-	data:      Name                          : rdp1
+	data:      Name                          : ssh1
 	data:      Provisioning state            : Succeeded
 	data:      Protocol                      : Tcp
-	data:      Frontend port                 : 3441
-	data:      Backend port                  : 3389
+	data:      Frontend port                 : 21
+	data:      Backend port                  : 22
 	data:      Enable floating IP            : false
 	data:      Idle timeout in minutes       : 4
 	data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
 	data:
-	data:      Name                          : rdp2
+	data:      Name                          : ssh2
 	data:      Provisioning state            : Succeeded
 	data:      Protocol                      : Tcp
-	data:      Frontend port                 : 3442
-	data:      Backend port                  : 3389
+	data:      Frontend port                 : 23
+	data:      Backend port                  : 22
 	data:      Enable floating IP            : false
 	data:      Idle timeout in minutes       : 4
 	data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
@@ -216,7 +216,7 @@
 
 Вам необходимо создать сетевые адаптеры (или изменить существующие) и связать их с правилами NAT, правилами балансировщика нагрузки и пробами.
 
-### Шаг 1 
+### Шаг 1 
 
 Создайте сетевой адаптер *lb-nic1-be* и свяжите его с правилом NAT *rdp1*, а также с пулом адресов серверной части *NRPbackendpool*.
 	
@@ -224,12 +224,12 @@
 
 Параметры
 
-- **-g** — имя группы ресурсов;
-- **-n** — имя для ресурса сетевого адаптера;
-- **--subnet-name** — имя подсети; 
-- **--subnet-vnet-name** — имя виртуальной сети;
-- **-d** — идентификатор ресурса пула серверной части (начинается с /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>); 
-- **-e** — идентификатор правила NAT, который будет связан с ресурсом сетевого адаптера (начинается с /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>).
+- **-g** — имя группы ресурсов;
+- **-n** — имя для ресурса сетевого адаптера;
+- **--subnet-name** — имя подсети; 
+- **--subnet-vnet-name** — имя виртуальной сети;
+- **-d** — идентификатор ресурса пула серверной части (начинается с /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>); 
+- **-e** — идентификатор правила NAT, который будет связан с ресурсом сетевого адаптера (начинается с /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>).
 
 
 Ожидаемые выходные данные:
@@ -258,19 +258,19 @@
 	data:
 	info:    network nic create command OK
 
-### Шаг 2
+### Шаг 2
 
 Создайте сетевой адаптер *lb-nic2-be* и свяжите его с правилом NAT *rdp2*, а также с пулом адресов серверной части *NRPbackendpool*.
 
  	azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
 
-### Шаг 3. 
+### Шаг 3. 
 
 Создайте виртуальную машину *web1* и свяжите ее с сетевым адаптером *lb-nic1-be*. Учетная запись хранения *web1nrp* была создана перед выполнением следующей команды.
 
 	azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT]Виртуальные машины в балансировщике нагрузки должны находиться в одной группе доступности. Создайте группу доступности с помощью команды `azure availset create`.
+>[AZURE.IMPORTANT] Виртуальные машины в балансировщике нагрузки должны находиться в одной группе доступности. Создайте группу доступности с помощью команды `azure availset create`.
 
 Выходные данные будут выглядеть следующим образом:
 
@@ -291,11 +291,11 @@
 	+ Creating VM "web1"
 	info:    vm create command OK
 
->[AZURE.NOTE]Информационное сообщение **В этой сетевой карте не настроен параметр publicIP** является ожидаемым, так как сетевая карта, созданная для балансировщика нагрузки, будет подключаться к Интернету через общедоступный IP-адрес балансировщика нагрузки.
+>[AZURE.NOTE] Информационное сообщение **В этой сетевой карте не настроен параметр publicIP** является ожидаемым, так как сетевая карта, созданная для балансировщика нагрузки, будет подключаться к Интернету через общедоступный IP-адрес балансировщика нагрузки.
 
 Так как сетевой адаптер *lb-nic1-be* связан с правилом NAT *rdp1*, вы можете подключиться к виртуальной машине *web1* с помощью RDP через порт 3441 в балансировщике нагрузки.
 
-### Шаг 4.
+### Шаг 4.
 
 Создайте виртуальную машину *web2* и свяжите ее с сетевым адаптером *lb-nic2-be*. Учетная запись хранения *web1nrp* была создана перед выполнением следующей команды.
 
@@ -322,10 +322,10 @@
 
 ## Дальнейшие действия
 
-[Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-internal-getstarted.md)
+[Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-cli.md)
 
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

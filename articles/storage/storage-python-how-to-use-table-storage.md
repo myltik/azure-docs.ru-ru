@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/11/2016"
 	ms.author="emgerner"/>
 
 
@@ -23,14 +23,11 @@
 
 ## Обзор
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища таблиц Azure. Примеры написаны на Python и используют пакет [Хранилище Azure для Python][]. Здесь описаны такие сценарии, как создание и удаление таблицы, а также вставка и запрос сущностей в таблице.
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища таблиц Azure. Примеры написаны на Python, и в них используется [пакет SDK для службы хранилища Microsoft Azure для Python]. Здесь описаны такие сценарии, как создание и удаление таблицы, а также вставка и запрос сущностей в таблице.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
-
-[AZURE.NOTE]Если требуется установить Python или [пакет Azure для Python][], см. [Руководство по установке Python](../python-how-to-install.md).
-
 
 ## Создание таблицы
 
@@ -38,7 +35,7 @@
 
 	from azure.storage.table import TableService, Entity
 
-Следующий код создает объект **TableService**, используя имя и ключ доступа учетной записи хранения. Замените myaccount и mykey фактическими значениями учетной записи и ключа.
+Следующий код создает объект **TableService**, используя имя и ключ доступа учетной записи хранения. Замените myaccount и mykey фактическими значениями имени и ключа учетной записи.
 
 	table_service = TableService(account_name='myaccount', account_key='mykey')
 
@@ -46,7 +43,7 @@
 
 ## Добавление сущности в таблицу
 
-Чтобы добавить сущность, сначала создайте словарь, который определяет имена и значения свойств сущности. Обратите внимание, что для каждой сущности необходимо указать **PartitionKey** и **RowKey**. Это уникальные идентификаторы сущностей. Вы можете запрашивать эти значения гораздо быстрее, чем другие свойства. Система использует **PartitionKey**, чтобы автоматически распространять сущности таблиц на множество узлов хранилища. Сущности с одним значением **PartitionKey** хранятся на одном узле. **RowKey** — это уникальный идентификатор сущности в разделе, которому она принадлежит.
+Чтобы добавить сущность, сначала создайте словарь или сущность, которая определяет имена и значения свойств сущности. Обратите внимание, что для каждой сущности необходимо указать **PartitionKey** и **RowKey**. Это уникальные идентификаторы сущностей. Вы можете выполнить запрос этих значений гораздо быстрее, чем других свойств. Система использует **PartitionKey**, чтобы автоматически распространять сущности таблиц на множество узлов хранилища. Сущности с одним значением **PartitionKey** хранятся на одном узле. **RowKey** — это уникальный идентификатор сущности в разделе, которому она принадлежит.
 
 Чтобы добавить сущность в таблицу, передайте объект словаря в метод **insert\_entity**.
 
@@ -66,27 +63,38 @@
 
 Этот код показывает, как заменить старую версию имеющейся сущности на обновленную версию.
 
-	task = {'description' : 'Take out the garbage', 'priority' : 250}
-	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
+	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage', 'priority' : 250}
+	table_service.update_entity('tasktable', task)
 
 Если обновляемая сущность отсутствует, операция обновления завершается ошибкой. Если вам необходимо сохранить сущность независимо от того, существовала ли она ранее, следует использовать метод **insert\_or\_replace\_entity**. В следующем примере первый вызов заменит существующую сущность. Второй вызов вставит новую сущность, поскольку сущность с указанным **PartitionKey** и **RowKey** в таблице отсутствует.
 
-	task = {'description' : 'Take out the garbage again', 'priority' : 250}
-	table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task)
+	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage again', 'priority' : 250}
+	table_service.insert_or_replace_entity('tasktable', task)
 
-	task = {'description' : 'Buy detergent', 'priority' : 300}
-	table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '3', task)
+	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '3', 'description' : 'Buy detergent', 'priority' : 300}
+	table_service.insert_or_replace_entity('tasktable', task)
 
 ## Изменение группы сущностей
 
-Иногда имеет смысл отправлять совместно несколько операций в пакете для атомарной обработки сервером. Чтобы сделать это, используйте метод **begin\_batch** для **TableService**, а затем вызовите обычную последовательность операций. Если требуется отправить пакет, вызовите метод **commit\_batch**. Обратите внимание, что для изменения в пакетном режиме все сущности должны находиться в одном разделе. В следующем примере показано добавление двух сущностей в пакете.
+Иногда имеет смысл отправлять совместно несколько операций в пакете для атомарной обработки сервером. Чтобы сделать это, используйте класс **TableBatch**. Если требуется отправить пакет, вызовите метод **commit\_batch**. Обратите внимание, что для изменения в пакетном режиме все сущности должны находиться в одном разделе. В следующем примере показано добавление двух сущностей в пакете.
 
+	from azure.storage.table import TableBatch
+	batch = TableBatch()
 	task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
 	task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
-	table_service.begin_batch()
-	table_service.insert_entity('tasktable', task10)
-	table_service.insert_entity('tasktable', task11)
-	table_service.commit_batch()
+	batch.insert_entity(task10)
+	batch.insert_entity(task11)
+	table_service.commit_batch('tasktable', batch)
+
+Для пакетов также можно использовать синтаксис диспетчера контекста:
+
+	task12 = {'PartitionKey': 'tasksSeattle', 'RowKey': '12', 'description' : 'Go grocery shopping', 'priority' : 400}
+	task13 = {'PartitionKey': 'tasksSeattle', 'RowKey': '13', 'description' : 'Clean the bathroom', 'priority' : 100}
+
+	with table_service.batch('tasktable') as batch:
+		batch.insert_entity(task12)
+		batch.insert_entity(task13)
+
 
 ## Запрос сущности
 
@@ -100,7 +108,7 @@
 
 Этот пример находит все задачи в Сиэтле на основе **PartitionKey**.
 
-	tasks = table_service.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'")
+	tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'")
 	for task in tasks:
 		print(task.description)
 		print(task.priority)
@@ -111,9 +119,9 @@
 
 Запрос в следующем коде возвращает только описания сущностей в таблице.
 
-[AZURE.NOTE]Следующий фрагмент работает только для службы облачного хранения. Он не поддерживается эмулятором хранения.
+[AZURE.NOTE] Следующий фрагмент работает только для службы облачного хранения. Он не поддерживается эмулятором хранения.
 
-	tasks = table_service.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'", 'description')
+	tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
 	for task in tasks:
 		print(task.description)
 
@@ -131,15 +139,14 @@
 
 ## Дальнейшие действия
 
-Вы изучили основную информацию о хранилище таблиц. Дополнительную информацию о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
+Вы ознакомились с основными понятиями хранилища таблиц. Дополнительные сведения см. по следующим ссылкам.
 
--   См. справочник MSDN: [Служба хранилища Azure][].
--   Посетите [блог команды разработчиков службы хранилища Azure][].
+- [Центр по разработке для Python](/develop/python/)
+- [API-интерфейс REST служб хранилища Azure](http://msdn.microsoft.com/library/azure/dd179355)
+- [Блог рабочей группы службы хранилища Azure]
+- [Пакет SDK для службы хранилища Microsoft Azure для Python]
 
-Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
+[Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
 
-[блог команды разработчиков службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-[пакет Azure для Python]: https://pypi.python.org/pypi/azure
-[Хранилище Azure для Python]: https://pypi.python.org/pypi/azure-storage
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

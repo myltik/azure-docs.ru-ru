@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/23/2016"
+   ms.date="02/22/2016"
    ms.author="tomfitz"/>
 
 # Поставщики диспетчера ресурсов, регионы, версии API и схемы
@@ -35,9 +35,7 @@
 | Службы жизненного цикла Dynamics | Да | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (предварительная версия) | Да | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Виртуальные машины | Да | [Интерфейс REST виртуальной машины](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| Виртуальные машины (классические) | Ограничено | - | - | 
-| Удаленное приложение | Нет| - | - | 
-| Облачные службы (классические) | Ограничено (см. ниже) | - | - | - |
+| Виртуальные машины (классические) | Ограничено | - | - | | Удаленное приложение | Нет| - | - | | Облачные службы (классические) | Ограничено (см. ниже) | - | - | - |
 
 Пункт "Виртуальные машины (классические)" относится к ресурсам, которые были развернуты с помощью классической модели развертывания, а не через модель развертывания диспетчера ресурсов. Как правило эти ресурсы не поддерживают операции диспетчера ресурсов, однако некоторые операции стали доступны. Дополнительные сведения об этих моделях развертывания вы найдете в статье [Общие сведения о развертывании с помощью диспетчера ресурсов и классическом развертывании](resource-manager-deployment-model.md).
 
@@ -114,8 +112,7 @@
 | ------- | ------- | -------- | ------ | ------ |
 | Службы BizTalk | Да | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Service Bus | Да | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Служба архивации | Нет | - | - | 
-| Site Recovery | Нет | - | - |
+| Служба архивации | Нет | - | - | | Site Recovery | Нет | - | - |
 
 ## Управление удостоверениями и доступом 
 
@@ -184,7 +181,22 @@ Azure Active Directory работает с диспетчером ресурсо
     
 ### Инфраструктура CLI Azure
 
-Сохранить информацию для поставщика ресурсов в файл можно с помощью следующей команды.
+Следующий пример демонстрирует получение всех доступных поставщиков ресурсов.
+
+    azure provider list
+    
+Результат должен быть аналогичен приведенному ниже:
+
+    info:    Executing command provider list
+    + Getting ARM registered providers
+    data:    Namespace                        Registered
+    data:    -------------------------------  -------------
+    data:    Microsoft.ApiManagement          Unregistered
+    data:    Microsoft.AppService             Registered
+    data:    Microsoft.Authorization          Registered
+    ...
+
+Сохранить информацию для определенного поставщика ресурсов в файл можно с помощью следующей команды.
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
@@ -278,4 +290,4 @@ Azure Active Directory работает с диспетчером ресурсо
 - Сведения о создании шаблонов диспетчера ресурсов см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 - Сведения о развертывании ресурсов см. в статье [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->
