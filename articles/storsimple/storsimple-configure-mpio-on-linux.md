@@ -467,23 +467,23 @@
 |Тип|Команда|Описание|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|Запуск службы iSCSI|
-|`service iscsid stop`|Остановка службы iSCSI|
-|`service iscsid restart`|Перезапуск службы iSCSI|
-|`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Обнаружение доступных целевых объектов по указанному адресу|
-|`iscsiadm -m node --login -T <TARGET_IQN>`|Вход в целевой объект iSCSI|
-|`iscsiadm -m node --logout -p <Target_IP>`|Выход из целевого объекта iSCSI|
-|`cat /etc/iscsi/initiatorname.iscsi`|Вывод имени инициатора iSCSI|
-|`iscsiadm –m session –s <sessionid> -P 3`|Проверка состояния сеанса iSCSI и тома, обнаруженного на узле|
-|`iscsi –m session`|Показывает все сеансы iSCSI, установленные между узлом и устройством StorSimple|
+||`service iscsid stop`|Остановка службы iSCSI|
+||`service iscsid restart`|Перезапуск службы iSCSI|
+||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Обнаружение доступных целевых объектов по указанному адресу|
+||`iscsiadm -m node --login -T <TARGET_IQN>`|Вход в целевой объект iSCSI|
+||`iscsiadm -m node --logout -p <Target_IP>`|Выход из целевого объекта iSCSI|
+||`cat /etc/iscsi/initiatorname.iscsi`|Вывод имени инициатора iSCSI|
+||`iscsiadm –m session –s <sessionid> -P 3`|Проверка состояния сеанса iSCSI и тома, обнаруженного на узле|
+||`iscsi –m session`|Показывает все сеансы iSCSI, установленные между узлом и устройством StorSimple|
 | | | |
 |**Поддержка нескольких каналов ввода-вывода**|`service multipathd start`|Запуск управляющей программы многоканального ввода-вывода|
-|`service multipathd stop`|Остановка управляющей программы многоканального ввода-вывода|
-|`service multipathd restart`|Перезапуск управляющей программы многоканального ввода-вывода|
-|`chkconfig multipathd on` </br> ИЛИ </br> `mpathconf –with_chkconfig y`|Обеспечение запуска управляющей программы многоканального ввода-вывода во время загрузки|
-|`multipathd –k`|Запуск интерактивной консоли для устранения неполадок|
-|`multipath –l`|Вывод списка подключений и устройств с многоканальным вводом-выводом|
-|`mpathconf --enable`|Создание примера файла mulitpath.conf в `/etc/mulitpath.conf`|
-|
+||`service multipathd stop`|Остановка управляющей программы многоканального ввода-вывода|
+||`service multipathd restart`|Перезапуск управляющей программы многоканального ввода-вывода|
+||`chkconfig multipathd on` </br> ИЛИ </br> `mpathconf –with_chkconfig y`|Обеспечение запуска управляющей программы многоканального ввода-вывода во время загрузки|
+||`multipathd –k`|Запуск интерактивной консоли для устранения неполадок|
+||`multipath –l`|Вывод списка подключений и устройств с многоканальным вводом-выводом|
+||`mpathconf --enable`|Создание примера файла mulitpath.conf в `/etc/mulitpath.conf`|
+||||
 
 ## Дальнейшие действия
 

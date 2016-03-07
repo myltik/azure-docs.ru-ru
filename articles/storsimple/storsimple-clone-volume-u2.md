@@ -55,11 +55,11 @@
 
   1. Укажите целевое устройство. Это расположение, где будет создана копия. Можно выбрать одно устройство или указать другое устройство. При выборе тома, связанного с другими поставщиками облачных служб (не Azure), в раскрывающемся списке целевого устройства будут отображаться только физические устройства. Нельзя клонировать на виртуальное устройство том, связанный с другими поставщиками облачной службы.
 
-        >[AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
+        >[AZURE.NOTE] Убедитесь, что на целевом устройстве достаточно места для клонирования.
 
   2. Укажите уникальное имя для клона. Имя должно содержать от 3 до 127 символов.
     
-        >[AZURE.NOTE] The **Clone Volume As** field will be **Tiered** even if you are cloning a locally pinned volume. You cannot change this setting; however, if you need the cloned volume to be locally pinned as well, you can convert the clone to a locally pinned volume after you successfully create the clone. For information about converting a tiered volume to a locally pinned volume, go to [Change the volume type](storsimple-manage-volumes-u2.md#change-the-volume-type).
+        >[AZURE.NOTE] В поле **Клонировать том как** будет стоять значение **Многоуровневый**, даже если вы клонируете локально закрепленный том. Этот параметр изменить нельзя. Если же вы хотите, чтобы клонированный том также был локально закреплен, то клон можно преобразовать в локально закрепленный том после того, как вы успешно завершите клонирование. Сведения о преобразовании многоуровневого тома в локально закрепленный см. в разделе [Изменение типа тома](storsimple-manage-volumes-u2.md#change-the-volume-type).
 
         ![Clone wizard 1](./media/storsimple-clone-volume-u2/clone1.png) 
 

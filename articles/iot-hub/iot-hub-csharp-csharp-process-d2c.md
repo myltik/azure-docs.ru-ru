@@ -93,13 +93,13 @@
 
 [хранилище больших двоичных объектов Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-dotnet-how-to-use-blobs/
 [фабрика данных Azure]: https://azure.microsoft.com/ru-RU/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.microsoft.com/ru-RU/documentation/services/hdinsight/
+[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [очередь служебной шины]: https://azure.microsoft.com/ru-RU/documentation/articles/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
 
-[руководстве для разработчиков центра IoT Azure, посвященному передаче сообщений с устройства в облако]: https://azure.microsoft.com/ru-RU/documentation/articles/iot-hub-devguide/#d2c
+[руководстве для разработчиков центра IoT Azure, посвященному передаче сообщений с устройства в облако]: https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#d2c
 
 [хранилище Azure]: https://azure.microsoft.com/ru-RU/documentation/services/storage/
 [служебной шине Azure]: https://azure.microsoft.com/ru-RU/documentation/services/service-bus/

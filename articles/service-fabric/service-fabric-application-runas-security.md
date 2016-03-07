@@ -94,13 +94,13 @@
 Теперь откройте файл MySetup.bat и добавьте следующие команды.
 
 ~~~
-REM Set a system environment variable. This requires administrator privilege
+REM Задайте системную переменную среды. Для этого требуется привилегия администратора privilege
 setx -m TestVariable "MyValue"
-echo System TestVariable set to > out.txt
-echo %TestVariable% >> out.txt
+echo System TestVariable со значением > test.txt
+echo %TestVariable% >> test.txt
 
-REM To delete this system variable us
-REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
+REM Чтобы удалить эту системную переменную, используйте
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
 ~~~
 
 Затем скомпилируйте и разверните решение в кластере локальной разработки. После запуска службы (отображено в обозревателе Service Fabric) вы можете убедиться в успешном выполнении файла MySetup.bat двумя способами. Откройте командную строку PowerShell и введите следующую команду.

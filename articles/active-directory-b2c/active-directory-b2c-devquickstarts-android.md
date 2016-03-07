@@ -750,9 +750,11 @@ public class ToDoActivity extends Activity {
 
  Разработчики могут пропустить пользователя брокера с помощью следующего вызова:
 
-    ```java
+    ```
+    java
      AuthenticationSettings.Instance.setSkipBroker(true);
     ```
+
 > [AZURE.NOTE] Чтобы упростить быстрое руководство B2C, мы решили пропустить пользователя broker в образце кода.
 
 Теперь создадим вспомогательные методы, которые в результате вызовов проверки подлинности в API Task будут получать только маркер.
@@ -893,9 +895,18 @@ ADAL для Android представляет пользователя в вид�
  
  **В тот же файл** с именем `ToDoActivity.java` добавим указанный ниже код.
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
- ```
+```
 
 
 В следующем фрагменте кода мы добавим маркер доступа в запрос.
@@ -966,7 +977,9 @@ ADAL для Android представляет пользователя в вид�
 
 Готовый пример в виде ZIP-файла находится [здесь](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip). Кроме того, можно клонировать его с GitHub.
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
+```
 
 
 ### Важная информация
