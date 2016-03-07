@@ -301,7 +301,9 @@
 13.  Просмотрите информацию на странице **Сводка**.
 
 	![Сводка](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
->[AZURE.WARNING] Необходимо настроить прокси агента служб восстановления Microsoft Azure. После завершения установки запустите приложение с именем "Оболочка служб восстановления Microsoft Azure" из меню "Пуск" Windows. В открывшемся командном окне выполните следующий набор команд, чтобы настроить параметры прокси-сервера.
+
+>[AZURE.WARNING] Необходимо настроить прокси агента служб восстановления Microsoft Azure.
+>После завершения установки запустите приложение с именем "Оболочка служб восстановления Microsoft Azure" из меню "Пуск" Windows. В открывшемся командном окне выполните следующий набор команд, чтобы настроить параметры прокси-сервера.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword
 	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
@@ -755,6 +757,6 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Сведения о восстановлении размещения](site-recovery-failback-azure-to-vmware-classic.md) и о том, как перенести запущенные в Azure компьютеры, для которых выполнена отработка отказа, обратно в локальную среду.
 
-<!----HONumber=AcomDC_0218_2016-->
+<!-----HONumber=AcomDC_0218_2016-->
 
 
