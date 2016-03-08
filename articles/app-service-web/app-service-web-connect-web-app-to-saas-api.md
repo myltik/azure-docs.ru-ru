@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
-	ms.date="12/24/2015"
+	ms.date="02/26/2016"
 	ms.author="cfowler"/>
 
 # Подключение веб-приложения к приложению API в службе приложений Azure
@@ -47,7 +47,7 @@
 
 	![Выберите существующее приложение API.](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
-	>[AZURE.NOTE]Код клиента для подключения к API приложению создается автоматически из конечной точки Swagger API.
+	>[AZURE.NOTE] Код клиента для подключения к API приложению создается автоматически из конечной точки Swagger API.
 
 1. Чтобы использовать созданный код API, откройте файл HomeController.cs и замените действие `Contact` следующим:
 
@@ -65,16 +65,16 @@
 
 1. Обновите представление `Contact` для отражения динамического списка контактов с помощью следующего кода:
 	<pre>// Добавьте в самое начало файла представления
-	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
+	@model IList&lt;MyContactsList.Web.Models.Contact>
 	
 	// Замените электронные адреса по умолчанию на следующие
-    &lt;h3&gt;Public Contacts&lt;/h3&gt;
-    &lt;ul&gt;
-        @foreach (var contact in Model)
-        {
-            &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
-        }
-    &lt;/ul&gt; 
+	&lt;h3>Общие контакты &lt;/h3>
+	&lt;ul>
+	    @foreach (var contact in Model)
+	    {
+	        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
+	    }
+	&lt;/ul> 
 	</pre>
 
 	![Обновления кода Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
@@ -83,10 +83,10 @@
 
 Следуйте инструкциям из раздела [Развертывание веб-приложения Azure](web-sites-deploy.md).
 
->[AZURE.NOTE]Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+>[AZURE.NOTE] Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

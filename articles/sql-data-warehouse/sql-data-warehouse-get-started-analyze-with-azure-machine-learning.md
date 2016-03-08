@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Анализ данных с помощью машинного обучения Azure
@@ -140,4 +140,4 @@
 [загрузить демонстрационные данные вручную]: sql-data-warehouse-get-started-manually-load-samples.md
 [Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

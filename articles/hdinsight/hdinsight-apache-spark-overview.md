@@ -13,7 +13,7 @@
 	ms.workload="big-data" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
@@ -124,4 +124,4 @@ Spark в HDInsight, кроме того, включает [драйвер ODBC](
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

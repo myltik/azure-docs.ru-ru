@@ -3,7 +3,7 @@
 	description="Узнайте, какие преимущества обеспечивает служба автоматизации Azure, и получите ответы на часто задаваемые вопросы, чтобы приступить к созданию и использованию модулей Runbook и службы Azure Automation DSC."
 	services="automation"
 	documentationCenter=""
-	authors="SnehaGunda"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016"
+	ms.date="02/23/2016"
 	ms.author="magoedte;bwren"/>
 
 # Обзор службы автоматизации Azure
@@ -101,4 +101,4 @@ Runbook в службе автоматизации Azure основаны на W
 
 **Да! Нам нужна обратная связь.** Если вы ищете модуль интеграции или определенное решение для службы автоматизации Azure, в котором используются модули Runbook, разместите соответствующий запрос на сайте "Центр сценариев". Если вы хотите оставить отзыв или запрос на ту или иную функцию для службы автоматизации Azure, оставляйте их на сайте [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Спасибо!
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

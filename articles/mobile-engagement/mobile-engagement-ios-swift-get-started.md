@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
 	ms.topic="get-started-article"
-	ms.date="09/22/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 # Начало работы с Azure Mobile Engagement для приложений iOS в Swift
 
 > [AZURE.SELECTOR]
-- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Универсальные приложения Windows](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
 - [iOS | Obj C](mobile-engagement-ios-get-started.md)
 - [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
@@ -66,7 +66,7 @@
 
 	![][2]
 
-5. Откройте вкладку `Build Phases` и в меню `Link Binary With Libraries` добавьте среды, как это показано ниже. **ПРИМЕЧАНИЕ**. Вам нужно включить `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration` :
+5. Откройте вкладку `Build Phases` и в меню `Link Binary With Libraries` добавьте платформы, как показано на рисунке ниже. **ПРИМЕЧАНИЕ**. Платформы `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration` являются обязательными.
 
 	![][3]
 
@@ -209,4 +209,4 @@ Mobile Engagement позволяет взаимодействовать и св�
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

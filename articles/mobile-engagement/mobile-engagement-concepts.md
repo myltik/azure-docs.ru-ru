@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="02/26/2016"
 	ms.author="piyushjo" />
 
 # Основные понятия Azure Mobile Engagement
@@ -85,4 +85,4 @@ Mobile Engagement идентифицирует пользователей с п�
 - [Пакет SDK для Azure Mobile Engagement (iOS)](mobile-engagement-ios-sdk-overview.md)
 - [Пакет Android SDK для Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

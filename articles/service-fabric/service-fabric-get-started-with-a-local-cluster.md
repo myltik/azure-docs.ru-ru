@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/20/2015"
+   ms.date="02/26/2016"
    ms.author="seanmck"/>
 
 # Начало развертывания и обновления приложений в локальном кластере
@@ -117,6 +117,10 @@
 
 3. Наконец, просмотрите список разделов для WordCountService:
 
+    ```powershell
+    Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
+    ```
+
     ![Просмотр разделов службы в PowerShell][ps-getsfpartitions]
 
     Набор использованных команд (например, все команды PowerShell для Service Fabric) доступен для любого локального или удаленного кластера, к которому вы можете подключиться.
@@ -166,7 +170,7 @@
 
 ## Дальнейшие действия
 - Теперь, когда вы развернули и обновили предварительно собранные приложения, вы можете [выполнить сборку своего приложения в Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
-- Все описанные в этой статье действия, применяемые к локальному кластеру, можно также выполнять в [кластере Azure](service-fabric-cluster-creation-via-portal.md).
+- Все описанные в этой статье действия, выполняемые в локальном кластере, можно также выполнять в [кластере Azure](service-fabric-cluster-creation-via-portal.md).
 - В этой статье описано самое простое обновление. Чтобы узнать больше о преимуществах и гибкости обновлений Service Fabric, см. [документацию по обновлению](service-fabric-application-upgrade.md).
 
 <!-- Images -->
@@ -186,4 +190,4 @@
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

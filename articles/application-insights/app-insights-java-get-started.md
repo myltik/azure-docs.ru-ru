@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Приступая к работе с Application Insights в веб-проекте Java | Microsoft Azure"
-	description="Мониторинг производительности и использования веб-сайта Java с помощью Application Insights"
+	pageTitle="Анализ веб-приложений Java с помощью Application Insights | Microsoft Azure"
+	description="Мониторинг производительности и использования веб-сайта Java с помощью Application Insights."
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/24/2016"
+	ms.date="03/02/2016"
 	ms.author="awills"/>
 
 # Приступая к работе с Application Insights в веб-проекте Java
@@ -52,7 +52,7 @@
 
 *Выберите подходящий метод для проекта.*
 
-#### Если вы создаете динамический веб-проект в Eclipse...
+#### Если вы используете Eclipse для создания проекта Maven или динамического веб-проекта…
 
 Используйте [пакет SDK Application Insights для подключаемого модуля Java][eclipse].
 
@@ -80,7 +80,7 @@
     </dependencies>
 
 
-* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>1.0.n</version>`. Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](app-insights-release-notes-java.md) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>1.0.n</version>`. Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Требуется обновить пакет SDK до новой версии?* Обновите зависимости проекта.
 
 #### Если вы используете Gradle...
@@ -98,7 +98,7 @@
       // or applicationinsights-core for bare API
     }
 
-* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например * `version:'1.0.n'`. *Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](app-insights-release-notes-java.md).*
+* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например * `version:'1.0.n'`. *Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Обновление пакета SDK до новой версии*
  * Обновите зависимости проекта.
 
@@ -118,7 +118,7 @@
 
 * *Чтобы обновить пакет SDK после появления новой версии:*
  * Загрузите последнюю версию [пакета SDK Application Insights для Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) и установите ее вместо более старых версий.
- * Изменения описаны в статье [Заметки о выпуске пакета SDK](app-insights-release-notes-java.md).
+ * Изменения описаны в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
 
@@ -398,4 +398,4 @@ Application Insights может тестировать ваш веб-сайт ч
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,22 +12,24 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Учебник. Создание и мониторинг фабрики данных с помощью Azure PowerShell
+# Учебник. Создание конвейера с действием копирования с помощью Azure PowerShell
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Обзор учебника](data-factory-get-started.md)
+- [Редактор фабрики данных](data-factory-get-started-using-editor.md)
+- [Visual Studio](data-factory-get-started-using-vs.md)
+- [PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
-В учебнике [Начало работы с фабрикой данных Azure][adf-get-started] рассматривается создание и мониторинг фабрики данных Azure при помощи [портала Azure][azure-portal]. В этом учебнике создается и отслеживается фабрика данных Azure с помощью командлетов Azure PowerShell. Конвейер в фабрике данных, который создается на этом уроке, будет выполнять копирование данных из двоичного объекта Azure в базу данных SQL Azure.
+В учебнике [Начало работы с фабрикой данных Azure][adf-get-started] рассматривается создание и мониторинг фабрики данных Azure при помощи [портала Azure][azure-portal]. В этом учебнике создается и отслеживается фабрика данных Azure с помощью командлетов Azure PowerShell. Конвейер в фабрике данных, который вы создадите в ходе изучения этого руководства, копирует данные из двоичного объекта Azure в базу данных SQL Azure с помощью действия копирования.
+
+Действие копирования означает перемещение данных в фабрику данных Azure. Это действие выполняется глобально доступной службой, обеспечивающей безопасное, надежное и масштабируемое копирование данных из одного хранилища в другое. Дополнительные сведения о действии копирования см. в статье [Действия перемещения данных](data-factory-data-movement-activities.md).
 
 > [AZURE.IMPORTANT] 
-Перед изучением этого учебника, пожалуйста, перейдите к статье [Обзор учебника](data-factory-get-started.md) и выполните необходимые предварительные действия.
+Перед выполнением этого учебника, пожалуйста, перейдите к статье [Обзор учебника](data-factory-get-started.md) и выполните необходимые предварительные действия.
 >   
 > В этой статье рассматриваются не все командлеты фабрики данных. Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных](https://msdn.microsoft.com/library/dn820234.aspx).
   
@@ -43,7 +45,7 @@
 	1. Выполните командлет **Add-AzureAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.
 	2. Выполните командлет **Get-AzureSubscription**, чтобы просмотреть все подписки для этой учетной записи.
 	3. Выполните командлет **Select-AzureSubscription**, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна совпадать с той, которая используется на портале Azure.
-4. Переключитесь в режим AzureResourceManager, поскольку командлеты фабрики данных Azure доступны только в этом режиме: **Switch-AzureMode AzureResourceManager**.
+4. Переключитесь в режим AzureResourceManager, так как командлеты фабрики данных Azure доступны только в этом режиме (**Switch-AzureMode AzureResourceManager**).
   
 
 ##В этом учебнике рассматриваются следующие темы:
@@ -57,7 +59,7 @@
 [Шаг 4. Создание и запуск конвейера](#CreateAndRunAPipeline) | На этом шаге создается конвейер с именем **ADFTutorialPipeline** в фабрике данных **ADFTutorialDataFactoryPSH**. Данный конвейер будет иметь **действие копирования**, которое копирует данные из большого двоичного объекта Azure в выходную таблицу базы данных Azure.
 [Шаг 5. Мониторинг наборов данных и конвейера](#MonitorDataSetsAndPipeline) | На этом шаге выполняется мониторинг наборов данных и конвейера при помощи Azure PowerShell.
 
-## <a name="CreateDataFactory"></a>Шаг 1. Создание фабрики данных Azure
+## <a name="CreateDataFactory"></a>Шаг 1. Создание фабрики данных Azure
 На этом шаге с помощью Azure PowerShell создается фабрика данных Azure с именем **ADFTutorialDataFactoryPSH**.
 
 1. Откройте Azure PowerShell и выполните следующую команду. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
@@ -155,7 +157,7 @@
 * Создайте таблицу с именем **emp** в базе данных SQL Azure, на которую указывает **AzureSqlLinkedService**.
 
 
-1. Запустите "Блокнот", вставьте следующий текст и сохраните его с именем **emp.txt** в папке **C:\\ADFGetStartedPSH** на жестком диске. 
+1. Запустите «Блокнот», вставьте следующий текст и сохраните его с именем **emp.txt** в папке **C:\\ADFGetStartedPSH** на жестком диске. 
 
         John, Doe
 		Jane, Doe
@@ -422,6 +424,8 @@
 
 Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных][cmdlet-reference].
 
+## См. также
+Дополнительные сведения о **действии копирования** в фабрике данных Azure см. в статье [Действия перемещения данных](data-factory-data-movement-activities.md).
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -443,4 +447,4 @@
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

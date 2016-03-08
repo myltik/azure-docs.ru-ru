@@ -1,68 +1,97 @@
 <properties
-	pageTitle="Создание индекса службы поиска Azure с помощью REST API | Microsoft Azure | Размещенная облачная служба поиска"
-	description="Индекс можно создать в коде с помощью пакета службы поиска Azure и HTTP REST API."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Создание индекса службы поиска Azure с помощью REST API | Microsoft Azure | Размещенная облачная служба поиска"
+    description="Программное создание индекса с помощью HTTP REST API службы поиска Azure."
+    services="search"
+    documentationCenter=""
+    authors="ashmaka"
+    manager=""
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="02/18/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="rest-api"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="02/29/2016"
+    ms.author="ashmaka"/>
 
 # Создание индекса службы поиска Azure с помощью REST API
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-an-index.md)
-- [Portal](search-create-index-portal.md)
+- [Обзор](search-what-is-an-index.md)
+- [Портал](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
 - [REST](search-create-index-rest-api.md)
 
-В этой статье мы расскажем, как создать индекс с помощью [REST API службы поиска Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). Часть содержимого ниже взята из статьи [Создание индекса (REST API службы поиска Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx). Дополнительные сведения см. в родительской статье.
 
-Для создания индекса необходимо подключение к службе поиска. Обычно оно устанавливается с помощью httpClient.
+Эта статья поможет вам создать [индекс](https://msdn.microsoft.com/library/azure/dn798941.aspx) службы поиска Azure с помощью [REST API службы поиска Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). Чтобы создать индекс службы поиска Azure с помощью REST API, вам нужно отправить один HTTP-запрос POST к конечной точке службы поиска Azure по определенному адресу. Определение индекса будет содержаться в тексте запроса как JSON-содержимое правильного формата.
 
-## Определение схемы индекса
+Перед выполнением инструкций, приведенных в этом руководстве, и созданием индекса следует [создать службу поиска Azure](search-create-service-portal.md).
 
-Чтобы создать индекс с помощью REST API, отправьте запрос POST к конечной точке URL-адреса службы поиска Azure. Структура индекса определяется с помощью JSON в тексте запроса.
+## 1\. Определение ключа API администратора службы поиска Azure
+Подготовив службу поиска Azure, вы можете отправлять HTTP-запросы к конечной точке вашей службы по определенному URL-адресу, используя REST API. При этом *все* запросы API должны содержать ключ API, который был создан для подготовленной службы поиска. Если есть действительный ключ, для каждого запроса устанавливаются отношения доверия между приложением, которое отправляет запрос, и службой, которая его обрабатывает.
 
-**Запрос и заголовки запроса**
+1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/).
+2. Перейдите к колонке службы поиска Azure.
+3. Щелкните значок "Ключи".
 
-В примере ниже необходимо использовать конечную точку URL-адреса вашей службы, в частности указать имя службы и правильную версию API (текущая версия API на момент публикации этого документа — 2015-02-28). Кроме того, в заголовках запроса необходимо указать первичный ключ администратора, полученный при [создании службы](https://msdn.microsoft.com/library/azure/dn798941.aspx/).
+Ваша служба получит *ключи администратора* и *ключи запросов*.
+  * Первичные и вторичные *ключи администратора* предоставляют полный доступ ко всем операциям, включая возможность управлять службой, создавать и удалять индексы, индексаторы и источники данных. Ключей два, поэтому вы можете и дальше использовать вторичный ключ, если решите повторно создать первичный ключ, и наоборот.
+  * *Ключи запросов* предоставляют только разрешение на чтение индексов и документов; обычно они добавляются в клиентские приложения, которые создают запросы на поиск.
 
-	POST https://[servicename].search.windows.net/indexes?api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key]
+Для создания индекса можно использовать первичный или вторичный ключ администратора.
+
+## 2\. Определение индекса службы поиска Azure с помощью JSON-содержимого правильного формата
+Создать индекс можно с помощью одного HTTP-запроса POST к службе. Текст HTTP-запроса POST должен содержать один объект JSON, определяющий индекс службы поиска Azure.
+1. Первое свойство этого объекта JSON — имя индекса.
+2. Второе свойство — массив JSON с именем `fields`, содержащий отдельный объект JSON для каждого поля в индексе. Каждый из этих объектов JSON содержит несколько пар "имя — значение" для каждого из атрибутов поля, включая name, type и т. д.
+
+При проектировании индекса важно помнить об удобстве работы с поиском и бизнес-потребностях, поэтому каждому полю необходимо назначить [правильные атрибуты](https://msdn.microsoft.com/library/azure/dn798941.aspx). Эти атрибуты контролируют, какие функции поиска (фильтрация, фасетная навигация, сортировка полнотекстового поиска и т. д.) применяются к каждому полю. Если атрибут не указан, по умолчанию будет использоваться соответствующая функция поиска, если вы специально не отключите ее.
+
+В нашем примере мы присвоили индексу имя hotels и определили поля следующим образом:
+
+```JSON
+{
+    "name": "hotels",  
+    "fields": [
+        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
+        {"name": "baseRate", "type": "Edm.Double"},
+        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
+        {"name": "hotelName", "type": "Edm.String", "facetable": false},
+        {"name": "category", "type": "Edm.String"},
+        {"name": "tags", "type": "Collection(Edm.String)"},
+        {"name": "parkingIncluded", "type": "Edm.Boolean", "sortable": false},
+        {"name": "smokingAllowed", "type": "Edm.Boolean", "sortable": false},
+        {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
+        {"name": "rating", "type": "Edm.Int32"},
+        {"name": "location", "type": "Edm.GeographyPoint"}
+    ]
+}
+```
+
+Мы тщательно выбрали атрибуты индекса для каждого поля в зависимости от того, как мы планируем использовать их в приложении. Например, `hotelId` — это уникальный ключ, который, скорее всего, не будет известен пользователям, ищущим гостиницы. Поэтому мы отключаем полнотекстовый поиск для этого поля, задав для `searchable` значение `false`, что экономит место в индексе.
+
+Обратите внимание, что только одно поле в индексе типа `Edm.String` должно быть назначено как поле key.
+
+Определение индекса выше использует настраиваемый языковой анализатор для поля `description_fr`, так как оно предназначено для текста на французском языке. Дополнительные сведения о языковых анализаторах см. в [статье о поддержке языков на сайте MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx), а также в соответствующей [записи блога](https://azure.microsoft.com/blog/language-support-in-azure-search/).
+
+## 3\. Отправка HTTP-запроса
+1. Используя определение индекса в качестве текста запроса, отправьте HTTP-запрос POST в конечную точку службы поиска Azure по URL-адресу. В URL-адресе следует использовать имя службы в качестве имени узла. Также важно правильно указать `api-version` (версию API) как параметр строки запроса (текущая версия API на момент публикации этого документа — `2015-02-28`).
+2. В заголовках запроса укажите `Content-Type` в качестве `application/json`. Необходимо также указать ключ администратора службы, который мы определили в заголовке `api-key` (см. шаг 1).
 
 
-**Текст запроса**
+    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28 Content-Type: application/json api-key: [api-key]
 
-Здесь указывается имя индекса (в данном случае — hotels), а также [имена, типы и атрибуты полей](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+При успешном выполнении запроса возвращается код состояния 201 (индекс создан). Дополнительные сведения о создании индекса с помощью REST API см. в справочнике по API на сайте [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Дополнительные сведения о других кодах состояния HTTP, которые могут быть возвращены в случае сбоя, см. в [этой статье](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-	{
-		"name": "hotels",  
-		"fields": [
-			{"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
-			{"name": "baseRate", "type": "Edm.Double"},
-			{"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-			{"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer:"fr.lucene"},
-			{"name": "hotelName", "type": "Edm.String"},
-			{"name": "category", "type": "Edm.String"},
-			{"name": "tags", "type": "Collection(Edm.String)"},
-			{"name": "parkingIncluded", "type": "Edm.Boolean"},
-			{"name": "smokingAllowed", "type": "Edm.Boolean"},
-			{"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-			{"name": "rating", "type": "Edm.Int32"},
-			{"name": "location", "type": "Edm.GeographyPoint"}
-		]
-	}
+Если вы завершили работу с индексом и хотите удалить его, просто отправьте HTTP-запрос DELETE. Например, индекс hotels удаляется так:
 
-При успешном выполнении запроса возвращается код состояния «201 — Создан ресурс». Дополнительные сведения о создании индекса с помощью REST API см. на [этой странице](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
+    api-key: [api-key]
 
-<!---HONumber=AcomDC_0224_2016-->
+## Далее
+Создав индекс поиска Azure, вы можете передать содержимое в индекс, чтобы начать поиск данных.
+
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="01/21/2016"
 	ms.author="tdykstra"/>
 
@@ -112,4 +112,4 @@
 
 В этой статье вы познакомились с функциями проверки подлинности и авторизации службы приложений, которые можно использовать для приложений API. Изучив следующее руководство, вы узнаете, как применять [проверку подлинности пользователя для приложений API в службе приложений Azureй](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

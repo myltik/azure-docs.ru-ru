@@ -9,7 +9,7 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="02/10/2016"
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="02/26/2016"
 
 	ms.author="femila"/>
 
@@ -30,4 +30,4 @@
 | Развертывание | [Сценарии использования и рекомендации по развертыванию для подключения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Включение Microsoft Passport for Work в организации](active-directory-azureadjoin-passport-deployment.md)<br><br> [Обзор службы Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)<br><br> |
 | Задачи пользователя | [Настройка нового устройства под управлением Windows 10 для работы с Azure AD](active-directory-azureadjoin-user-frx.md) <br><br> [Настройка устройства с Windows 10 для работы с Azure AD с помощью меню "Параметры"](active-directory-azureadjoin-user-upgrade.md) <br><br> [Присоединение личного устройства к своей организации](active-directory-azureadjoin-personal-device.md) |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

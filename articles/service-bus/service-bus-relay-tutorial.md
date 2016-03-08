@@ -475,7 +475,7 @@ namespace Microsoft.ServiceBus.Samples
 	using System.ServiceModel;
 	```
 
-1. Повторите предыдущие шаги, чтобы добавить в проект ссылку на файл Microsoft.ServiceBus.dll и пространство имен [Microsoft.ServiceBus](https://msdn.microsoft.com/library/microsoft.servicebus.aspx).
+1. Установите [пакет NuGet для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 1. Добавьте определение контракта службы в пространство имен, как показано в следующем примере. Обратите внимание, что это определение идентично определению в проекте **Service**. Этот код следует добавить в верхнюю часть пространства имен `Microsoft.ServiceBus.Samples`.
 
@@ -716,15 +716,11 @@ namespace Microsoft.ServiceBus.Samples
 
 	В окне консоли вы увидите примерно следующее. Обратите внимание, что здесь приведены лишь примеры возможных значений.
 
-	`Your Service Namespace: myNamespace`
-
-	`Your SAS Key: <SAS key value>`
+	`Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
 	Приложение службы запускается, и в окне консоли отображается адрес, по которому оно выполняет прослушивание (см. следующий пример).
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
-
-    `Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
     
 1. Запустите клиентское приложение. Созданный исполняемый файл для клиентского приложения Echo с именем EchoClient.exe будет располагаться в папке проекта клиента \\bin\\Debug\\EchoClient.exe (для отладки) или \\bin\\Release\\EchoClient.exe (для выпуска). Дважды щелкните файл, чтобы запустить клиентское приложение.
 
@@ -827,4 +823,4 @@ namespace Microsoft.ServiceBus.Samples
 
 [классический портал Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

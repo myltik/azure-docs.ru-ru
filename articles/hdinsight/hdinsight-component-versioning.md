@@ -13,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.topic="get-started-article"
+	ms.date="02/29/2016"
 	ms.author="jgao"/>
 
 
@@ -38,7 +38,7 @@ Apache Zookeeper|3\.4.6|3\.4.6|3\.4.5|3\.4.5|
 Apache Storm|0\.10.0|0\.9.3|0\.9.1||
 Apache Mahout|0\.9.0+|0\.9.0|0\.9.0||
 Apache Phoenix|4\.4.0|4\.2.0|4\.0.0.2.1.7.0-2162||
-Apache Spark|1\.3.1|1\.3.1|||
+Apache Spark|1\.5.2 (только для Linux, экспериментальная сборка)|1\.3.1 (только для Windows)|||
 
 
 **Получение сведений о текущей версии компонентов**
@@ -123,7 +123,7 @@ HDI 1.6|HDP 1.1|Нет|28\.10.2013|Да|26\.04.2014|31\.05.2015
 
 **Дата устаревания** — это дата, после которой версия кластера не может быть создана в HDInsight.
 
-> [AZURE.NOTE]Кластеры HDInsight 2.1 и 3.0 работают под управлением гостевой ОС Azure [семейства 4](../cloud-services-guestos-update-matrix.md), которая использует 64-разрядную версию Windows Server 2012 R2 и поддерживает .NET Framework 4.0, 4.5. и 4.5.1.
+> [AZURE.NOTE] Кластеры HDInsight 2.1 и 3.0 работают под управлением гостевой ОС Azure [семейства 4](../cloud-services/cloud-services-guestos-update-matrix.md), которая использует 64-разрядную версию Windows Server 2012 R2 и поддерживает .NET Framework 4.0, 4.5. и 4.5.1.
 
 ## Заметки о выпуске Hortonworks, связанные с версиями HDInsight##
 
@@ -167,4 +167,4 @@ HDI 1.6|HDP 1.1|Нет|28\.10.2013|Да|26\.04.2014|31\.05.2015
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

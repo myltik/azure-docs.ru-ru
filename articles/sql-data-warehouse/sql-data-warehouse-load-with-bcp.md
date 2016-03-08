@@ -10,18 +10,18 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
 # Загрузка данных с помощью bcp
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Фабрика данных](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase;](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 
@@ -49,7 +49,7 @@
 - Установленная служебная программа командной строки bcp
 - Установленная служебная программа командной строки SQLCMD
 
->[AZURE.NOTE]Вы можете загрузить служебные программы bcp и sqlcmd в [Центре загрузки Майкрософт][].
+>[AZURE.NOTE] Вы можете загрузить служебные программы bcp и sqlcmd в [Центре загрузки Майкрософт][].
 
 ## Импорт данных в хранилище данных SQL
 
@@ -78,7 +78,7 @@ WITH
 );
 GO
 ```
->[AZURE.NOTE]В разделе [Проектирование таблиц][] из группы разделов по разработке приведены дополнительные сведения о параметрах, доступных для предложения WITH.
+>[AZURE.NOTE] В разделе [Проектирование таблиц][] из группы разделов по разработке приведены дополнительные сведения о параметрах, доступных для предложения WITH.
 
 ### Шаг 2. Создание файла источника данных
 
@@ -101,7 +101,7 @@ GO
 
 Сохраните файл в локальный временный каталог C:\\Temp\\DimDate2.txt.
 
-> [AZURE.NOTE]Важно помнить, что bcp.exe не поддерживает кодировку UTF-8. Используйте файлы в кодировке ASCII или UTF-16 для файлов при работе с bcp.exe.
+> [AZURE.NOTE] Важно помнить, что bcp.exe не поддерживает кодировку UTF-8. Используйте файлы в кодировке ASCII или UTF-16 для файлов при работе с bcp.exe.
 
 ### Шаг 3. Подключение и импорт данных
 С помощью программы bcp подключитесь и импортируйте данные, для чего замените в следующей команде значения соответствующим образом.
@@ -174,7 +174,7 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 20150101,1,3
 ```
 
->[AZURE.NOTE]Из-за особенностей распределенных систем порядок данных, взятых из разных баз данных хранилища данных SQL, может не совпадать. При необходимости параметр queryout может использоваться для указания, какой запрос Transact-SQL следует выполнить.
+>[AZURE.NOTE] Из-за особенностей распределенных систем порядок данных, взятых из разных баз данных хранилища данных SQL, может не совпадать. При необходимости параметр queryout может использоваться для указания, какой запрос Transact-SQL следует выполнить.
 
 ## Дальнейшие действия
 Общие сведения о загрузке см. в разделе [Загрузка данных в хранилище данных SQL][]. Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][].
@@ -196,4 +196,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Центре загрузки Майкрософт]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

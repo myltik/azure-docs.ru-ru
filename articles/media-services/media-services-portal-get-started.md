@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="02/25/2016"
 	ms.author="juliako"/>
 
 
@@ -139,7 +139,7 @@
 
 ### Кодирование
 
-В этом разделе описаны шаги, которые можно предпринять для кодирования содержимого с помощью кодировщика мультимедиа Azure на классическом портале Azure.
+В этом разделе описаны шаги, которые можно предпринять для кодирования содержимого с помощью стандартного кодировщика служб мультимедиа на классическом портале Azure.
 
 1.  Выберите файл, который следует закодировать. Если кодирование поддерживается для этого типа файла, кнопка **ОБРАБОТАТЬ** в нижней части страницы "СОДЕРЖИМОЕ" будет активна.
 4. В диалоговом окне **Обработка** выберите обработчик **Media Encoder Standard**.
@@ -253,4 +253,4 @@ URL-адрес потоковой передачи имеет следующий
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

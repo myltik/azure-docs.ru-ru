@@ -3,7 +3,7 @@
     description="Учебник, в котором рассказывается, как создать, протестировать и опубликовать простой текстовый Runbook с помощью рабочего процесса PowerShell."
     services="automation"
     documentationCenter=""
-    authors="bwren"
+    authors="mgoedtel"
     manager="stevenka"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;bwren"/>
 
 # Первый Runbook рабочего процесса PowerShell
@@ -117,4 +117,4 @@
 -	[Первый графический Runbook](automation-first-runbook-graphical.md)
 -	[Мой первый модуль Runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

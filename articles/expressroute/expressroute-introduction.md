@@ -4,12 +4,12 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="01/16/2016"
@@ -124,4 +124,4 @@ ExpressRoute обладает постоянно растущей экосист
 	- [Настройка маршрутизации](expressroute-howto-routing-classic.md)
 	- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

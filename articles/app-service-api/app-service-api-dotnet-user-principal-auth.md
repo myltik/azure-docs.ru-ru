@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="01/26/2016"
 	ms.author="tdykstra"/>
 
@@ -337,4 +337,4 @@
 
 Из этого руководства вы узнали, как использовать проверку подлинности в службе приложений для приложения API и как вызывать приложение API с помощью библиотеки ADAL JS. В следующем руководстве вы узнаете, как [обеспечить безопасный доступ к приложению API в сценариях взаимодействия между службами](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Предварительная версия Azure Active Directory B2C: создание клиента Azure Active Directory B2C | Microsoft Azure"
-	description="Раздел о том, как создать клиент Azure Active Directory B2C"
+	pageTitle="Предварительная версия Azure Active Directory B2C: создание клиента Azure Active Directory B2C | Microsoft Azure"
+	description="Раздел о том, как создать клиент Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="swkrish"
@@ -12,11 +12,11 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="swkrish"/>
 
-# Предварительная версия Azure Active Directory B2C: создание клиента Azure AD B2C
+# Предварительная версия Azure Active Directory B2C: создание клиента Azure AD B2C
 
 Чтобы начать работу с Microsoft Azure Active Directory (Azure AD) B2C, выполните три шага, описанные в этой статье.
 
@@ -29,9 +29,9 @@
 > [AZURE.NOTE]
 В настоящее время предварительную версию Azure AD B2C можно использовать бесплатно, однако в ней есть ограничение в 50 000 пользователей на клиента. Подписка Azure необходима для доступа к [классическому порталу Azure](http://manage.windowsazure.com/).
 
-## Шаг 2. Создание клиента Azure AD B2C
+## Шаг 2. Создание клиента Azure AD B2C
 
-Чтобы создать клиент Azure AD B2C, выполните указанные ниже действия. Сейчас функции B2C нельзя включить в существующих каталогах, если они у вас есть.
+Чтобы создать клиент Azure AD B2C, выполните указанные ниже действия. Сейчас функции B2C нельзя включить в существующих каталогах, если они у вас есть.
 
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com/) под именем администратора подписки. Это та же рабочая или учебная учетная запись либо учетная запись Майкрософт, которая использовалась для регистрации в Azure.
 2. Щелкните **Создать** > **Службы приложений** > **Active Directory** > **Каталог** > **Настраиваемое создание**.
@@ -44,7 +44,7 @@
 
     ![Снимок экрана: флажок создания каталога B2C](./media/active-directory-b2c-get-started/create-b2c-directory.png)
 
-6. Ваш клиент создан и должен отобразиться в расширении Active Directory. Кроме того, теперь вы — глобальный администратор клиента. При необходимости можно добавить других глобальных администраторов.
+6. Ваш клиент создан и должен отобразиться в расширении Active Directory. Кроме того, теперь вы — глобальный администратор клиента. При необходимости можно добавить других глобальных администраторов.
 
     > [AZURE.IMPORTANT]
     Создание клиента может занять до двух минут. Если вы испытываете проблемы при создании клиента, обратитесь к разделу [Создание клиента Azure AD или клиента Azure AD B2C — проблемы и способы их устранения](active-directory-b2c-support-create-directory.md) за рекомендациями.
@@ -74,4 +74,4 @@
 
 Узнайте, как зарегистрировать приложение в Azure AD B2C и создать приложение быстрого запуска, обратившись к разделу [Предварительная версия Azure Active Directory B2C: регистрация приложения](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

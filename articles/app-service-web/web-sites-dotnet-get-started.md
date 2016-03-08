@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/07/2015"
+	ms.date="02/29/2016"
 	ms.author="tdykstra"/>
 
 # Создание веб-приложения ASP.NET в службе приложений Azure
@@ -22,8 +22,8 @@
 - [.Net](web-sites-dotnet-get-started.md)
 - [Node.js](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [PHP — Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP — FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
 ## Обзор
@@ -79,7 +79,7 @@
 
 3. Убедитесь, что выбрана версия **.NET Framework 4.5.2**.
 
-4.  Для мониторинга доступности, производительности и использования веб-приложения используется служба [Azure Application Insights](app-insights-overview.md). Если вы не хотите ее использовать, снимите флажок **Добавить Application Insights в проект**.
+4.  Для мониторинга доступности, производительности и использования веб-приложения используется служба [Azure Application Insights](../application-insights/app-insights-overview.md). Если вы не хотите ее использовать, снимите флажок **Добавить Application Insights в проект**.
 
 4. Присвойте приложению имя **MyExample**.
 
@@ -301,4 +301,4 @@
 ## Изменения
 * Руководство по переходу от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

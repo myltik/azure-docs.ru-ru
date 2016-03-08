@@ -13,12 +13,12 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/17/2016"
 	ms.author="nitinme"/>
 
 
-# Начало работы. Создание кластера Apache Spark в Azure HDInsight (Linux) и выполнение интерактивных запросов с помощью SQL Spark
+# Начало работы. Создание кластера Apache Spark в Azure HDInsight (Linux) и выполнение интерактивных запросов с помощью SQL Spark
 
 Узнайте, как создать кластер Apache Spark в HDInsight и выполнять интерактивные запросы Spark SQL в кластере Spark с помощью записной книжки [Jupyter](https://jupyter.org).
 
@@ -106,7 +106,7 @@
 	| ------------------ | --------------------- |
 	| ![Индикатор подготовки на начальной панели](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioning.png) | ![Плитка подготовки кластера](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioned.png) |
 
-	> [AZURE.NOTE] Обычно создание кластера занимает около 15 минут. Вы можете отслеживать процесс создания с помощью элемента на начальной панели или записи **Уведомления** в левой части страницы.
+	> [AZURE.NOTE] Обычно создание кластера занимает около 15 минут. Вы можете отслеживать процесс создания с помощью элемента на начальной панели или записи **Уведомления** в левой части страницы.
 
 10. После завершения создания щелкните элемент кластера Spark на начальной панели, чтобы открыть колонку кластера.
 
@@ -235,4 +235,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->
