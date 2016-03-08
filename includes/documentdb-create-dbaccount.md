@@ -1,7 +1,7 @@
 1.	Войдите на [портал Microsoft Azure](https://portal.azure.com/), подключенный к сети.
 2.	На навигационной панели щелкните **Создать**, затем **Данные + хранилище** и **DocumentDB**.
 
-	![Снимок экрана портала Azure при создании базы данных. Выделена кнопка «Создать», элемент «Данные + хранилище» в колонке «Создать» и «Azure DocumentDB» в колонке «Данные + хранилище»](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+	![Снимок экрана портала Azure при создании базы данных. Выделена кнопка «Создать», элемент «Данные + хранилище» в колонке «Создать» и «Azure DocumentDB» в колонке «Данные + хранилище»](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
 3. В разделе **Новая учетная запись DocumentDB** укажите желаемую конфигурацию учетной записи DocumentDB.
 
@@ -16,19 +16,20 @@
 
 	- В поле **Расположение** укажите географическое расположение, где будет размещена учетная запись DocumentDB.
 
-4.	После настройки параметров DocumentDB нажмите кнопку **Создать**. Создание учетной записи DocumentDB может занять несколько минут. Для проверки состояния можно отслеживать прогресс на начальной панели. ![Снимок экрана: плитка "Создание" для уровня Startboard – создатель базы данных в Интернете](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	После настройки параметров DocumentDB нажмите кнопку **Создать**. Создание учетной записи DocumentDB может занять несколько минут. Для проверки состояния можно отслеживать прогресс на начальной панели.
+![Снимок экрана: плитка "Создание" для уровня Startboard – создатель базы данных в Интернете](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
 
 	Или вы можете наблюдать за ходом выполнения на портале "Уведомления".
 
-	![Быстрое создание баз данных — снимок экрана: центр уведомлений, где показано, что создается учетная запись DocumentDB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)
+	![Быстрое создание баз данных — снимок экрана: центр уведомлений, где показано, что создается учетная запись DocumentDB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)
 
-	![Снимок экрана: центр уведомлений, где показано, что учетная запись DocumentDB успешно создана и развернута в группе ресурсов — уведомление создателя базы данных в Интернете](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
+	![Снимок экрана: центр уведомлений, где показано, что учетная запись DocumentDB успешно создана и развернута в группе ресурсов — уведомление создателя базы данных в Интернете](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
 5.	После создания учетной записи DocumentDB она готова к использованию с параметрами по умолчанию на веб-портале. Обратите внимание, что по умолчанию для уровня согласованности учетной записи DocumentDB будет установлено значение **Сеанс**. Параметр согласованности по умолчанию можно изменить. Для этого на панели команд вверху нажмите кнопку **Параметры** и в колонке **Все параметры** в разделе **Функция** щелкните пункт **Согласованность по умолчанию**.
 
-    ![Снимок экрана: колонка "Группа ресурсов" — начало разработки приложения](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)
+    ![Снимок экрана: колонка "Группа ресурсов" — начало разработки приложения](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)
 
-    ![Снимок экрана: колонка "Уровень согласованности" — "Согласованность сеанса"](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)
+    ![Снимок экрана: колонка "Уровень согласованности" — "Согласованность сеанса"](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps

@@ -28,7 +28,7 @@
 
 В этом разделе показано, как использовать Azure Mobile Engagement, чтобы понять направление использования приложения и отправлять push-уведомления сегментированным пользователям приложения Windows Phone Silverlight. В этом учебнике описывается простой сценарий вещания с использованием Mobile Engagement. Здесь вы создадите пустое приложение Windows Phone Silverlight, которое будет собирать основные данные и получать push-уведомления, используя службу push-уведомлений (Майкрософт) (MPNS).
 
-> [AZURE.NOTE] Если вы ориентируетесь на Windows Phone 8.1 (без Silverlight), см. [руководство по универсальным приложениям для Windows](mobile-engagement-windows-store-dotnet-get-started.md).
+> [AZURE.NOTE] Если вы ориентируетесь на Windows Phone 8.1 (без Silverlight), см. [руководство по универсальным приложениям для Windows](mobile-engagement-windows-store-dotnet-get-started.md).
 
 Для работы с данным учебником требуется следующее:
 
@@ -37,27 +37,27 @@
 
 > [AZURE.IMPORTANT] Изучение этого учебника является необходимым для перехода к другим учебникам по Mobile Engagement для приложений Windows Phone Silverlight, а для его прохождения у вас должна быть активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.
 
-##<a id="setup-azme"></a>Настройка Mobile Engagement для приложения Windows Phone
+##<a id="setup-azme"></a>Настройка Mobile Engagement для приложения Windows Phone
 
-[AZURE.INCLUDE [Создание приложения Mobile Engagement на портале](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Создание приложения Mobile Engagement на портале](../../includes/mobile-engagement-create-app-in-portal.md)]
 
 ##<a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
 
-В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. Полную документацию по интеграции см. в статье [Интеграция пакета Mobile Engagement Windows Phone SDK](../mobile-engagement-windows-phone-sdk-overview/)
+В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. Полную документацию по интеграции см. в статье [Интеграция пакета Mobile Engagement Windows Phone SDK](../mobile-engagement-windows-phone-sdk-overview/)
 
 Мы создадим базовое приложение в Visual Studio, чтобы продемонстрировать интеграцию.
 
 ###Создание проекта для Windows Phone Silverlight
 
-Указанные ниже действия предполагают использование Visual Studio 2015, хотя они и аналогичны действиям с использованием более ранних версий Visual Studio.
+Указанные ниже действия предполагают использование Visual Studio 2015, хотя они и аналогичны действиям с использованием более ранних версий Visual Studio.
 
-1. Запустите Visual Studio и на **начальном** экране выберите пункт **Создать проект**.
+1. Запустите Visual Studio и на **начальном** экране выберите пункт **Создать проект**.
 
-2. Во всплывающем окне последовательно выберите пункты **Windows 8**, **Windows Phone** и **Пустое приложение (Windows Phone Silverlight)**. Введите необходимые значения в поля **Имя** и **Имя решения**, а затем нажмите кнопку **ОК**.
+2. Во всплывающем окне последовательно выберите пункты **Windows 8**, **Windows Phone** и **Пустое приложение (Windows Phone Silverlight)**. Введите необходимые значения в поля **Имя** и **Имя решения**, а затем нажмите кнопку **ОК**.
 
     ![][1]
 
-3. Вы можете выбрать версию **Windows Phone 8.0** или **Windows Phone 8.1**.
+3. Вы можете выбрать версию **Windows Phone 8.0** или **Windows Phone 8.1**.
 
 Вы создали приложение Windows Phone Silverlight, в которое нам предстоит интегрировать пакет SDK для Azure Mobile Engagement.
 
@@ -72,7 +72,7 @@
 
     ![][2]
 
-3. Теперь вставьте строку подключения, которую вы скопировали ранее для приложения Mobile Engagement, в файл `Resources\EngagementConfiguration.xml` между тегами `<connectionString>` и `</connectionString>`.
+3. Теперь вставьте строку подключения, которую вы скопировали ранее для приложения Mobile Engagement, в файл `Resources\EngagementConfiguration.xml` между тегами `<connectionString>` и `</connectionString>`.
 
     ![][3]
 

@@ -22,8 +22,8 @@
 - [.Net](web-sites-dotnet-get-started.md)
 - [Node.js](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
-- [PHP — Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP — FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [PHP — Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP — FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
 В этом учебнике мы используем [Средства Python для Visual Studio], чтобы создать простое веб-приложение опросника с помощью шаблонов PTVS. Также доступна [видеоверсия](https://www.youtube.com/watch?v=oKCApIrS0Lo) этого учебника.
@@ -39,7 +39,7 @@
  - [Образцы VSIX средств Python 2.2 для Visual Studio].
  - [Пакет SDK для Azure для VS 2013] или [пакет SDK для Azure для VS 2015].
  - [Python 2.7 (32-разрядная версия)].
- - Django 1.6 или более старая версия.
+ - Django 1.6 или более старая версия.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -49,7 +49,7 @@
 
 В этом разделе мы создадим проект Visual Studio с помощью шаблона. Мы создадим виртуальную среду и установим необходимые пакеты. Мы создадим локальную базу данных с помощью sqlite. После этого мы запустим приложение локально.
 
-1.  В Visual Studio выберите **Файл** > **Создать проект**.
+1.  В Visual Studio выберите **Файл** > **Создать проект**.
 
 1.  В шаблонах проекта PTVS Samples VSIX в секции **Python** выберите **Примеры**. Выберите **Веб-проект опросов Django** и нажмите кнопку «ОК», чтобы создать проект.
 
@@ -101,7 +101,7 @@
 
 1.  Войдите на [портал Azure](https://portal.azure.com/).
 
-1.  В верхней части области навигации щелкните **Создать**. Выберите **Данные + хранилище** > **База данных MySQL**.
+1.  В верхней части области навигации щелкните **Создать**. Выберите **Данные + хранилище** > **База данных MySQL**.
 
   
 

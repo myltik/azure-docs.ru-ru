@@ -31,7 +31,7 @@ Azure Active Directory является платформой для управл
 
 1. [Azure Active Directory Graph API](active-directory-graph-api.md): используйте Azure Active Directory Graph API для программного доступа к Azure Active Directory через конечные точки REST API. Обратите внимание, что API Graph Azure AD также доступен через [Microsoft Graph](https://graph.microsoft.io/) — унифицированный API, обеспечивающий доступ к нескольким API облачной службы Майкрософт через одну конечную точку REST API и с использованием единого маркера доступа.
 
-1. [Библиотеки проверки подлинности Azure Active Directory](active-directory-authentication-libraries.md). Выполняйте проверку подлинности пользователей, которым требуются маркеры доступа, с помощью библиотек проверки подлинности Azure AD для .NET, JavaScript, Objective-C, Android и т. д.
+1. [Библиотеки проверки подлинности Azure Active Directory](active-directory-authentication-libraries.md). Выполняйте проверку подлинности пользователей, которым требуются маркеры доступа, с помощью библиотек проверки подлинности Azure AD для .NET, JavaScript, Objective-C, Android и т. д.
 
 
 ## Приступая к работе
@@ -70,7 +70,7 @@ Azure Active Directory является платформой для управл
 - [Добавление приложения в коллекцию приложений Azure Active Directory](active-directory-app-gallery-listing.md)
 - [Основные сведения о манифесте приложения Azure Active Directory](active-directory-application-manifest.md)
 - [Создание приложения с помощью API Office 365](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
-- [Отправка веб-приложений для Office 365 на панель мониторинга продавца](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- [Отправка веб-приложений для Office 365 на панель мониторинга продавца](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 - [Предварительная версия. Как создавать приложения для входа пользователей с личными, рабочими и учебными учетными записями](active-directory-appmodel-v2-overview.md)
 - [Предварительная версия. Как создавать приложения, которые выполняют регистрацию и вход пользователей](../active-directory-b2c/active-directory-b2c-overview.md)
 
@@ -86,7 +86,7 @@ Azure Active Directory является платформой для управл
 
 - [Библиотеки Azure Active Directory с открытым исходным кодом](http://github.com/AzureAD). Чтобы быстро найти исходный код библиотеки, воспользуйтесь нашим [списком библиотек](active-directory-authentication-libraries.md).
 
-- [Примеры кода Azure Active Directory ](https://github.com/azure-samples?query=active-directory). Самый простой способ навигации по списку примеров — это [индекс примеров кода](active-directory-code-samples.md).
+- [Примеры кода Azure Active Directory ](https://github.com/azure-samples?query=active-directory). Самый простой способ навигации по списку примеров — это [индекс примеров кода](active-directory-code-samples.md).
 
 
 ### API Graph
@@ -116,7 +116,7 @@ Azure Active Directory является платформой для управл
 
 ## Видеоролики
 
-### Build 2015
+### Build 2015
 
 В этих обзорных презентациях представители разработчиков освещают ключевые темы, связанные с разработкой приложений с помощью Azure Active Directory, включая IDMaaS, проверку подлинности, федерацию удостоверений и единый вход.
 
@@ -125,7 +125,7 @@ Azure Active Directory является платформой для управл
 - [Разработка современных приложений в машинном коде с помощью Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/)
 
 ### Azure, пятница
-[Azure, пятница](https://azure.microsoft.com/documentation/videos/azure-friday/) — это еженедельная серия коротких (10–15 минут) видеоинтервью со специалистами на разные темы, связанные с Azure. Используйте функцию фильтра служб на странице, чтобы просмотреть все видео Azure Active Directory.
+[Azure, пятница](https://azure.microsoft.com/documentation/videos/azure-friday/) — это еженедельная серия коротких (10–15 минут) видеоинтервью со специалистами на разные темы, связанные с Azure. Используйте функцию фильтра служб на странице, чтобы просмотреть все видео Azure Active Directory.
 
 - [Удостоверение Azure 101](https://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Удостоверение Azure 102](https://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -139,6 +139,6 @@ Azure Active Directory является платформой для управл
 
 - [Облачная идентификация](http://www.cloudidentity.net). Соображения об управлении удостоверениями от главного руководителя программы Azure Active Directory.
 
-- [Azure Active Directory в Твиттере](https://twitter.com/azuread). Объявления Azure Active Directory длиной не более 140 знаков.
+- [Azure Active Directory в Твиттере](https://twitter.com/azuread). Объявления Azure Active Directory длиной не более 140 знаков.
 
 <!---HONumber=AcomDC_0302_2016-->

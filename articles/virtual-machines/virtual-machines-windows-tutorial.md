@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Создание виртуальной машины Windows на портале Azure | Microsoft Azure"
+	pageTitle="Создание виртуальной машины Windows на портале Azure | Microsoft Azure"
 	description="Узнайте, как на портале Azure с помощью Azure Marketplace создать виртуальную машину (виртуальный компьютер) Windows."
 	keywords="виртуальная машина Windows, создать виртуальную машину, виртуальный компьютер, настроить виртуальную машину"
 	services="virtual-machines"
@@ -20,10 +20,10 @@
 # Создание виртуальной машины Windows на портале Azure#
 
 > [AZURE.SELECTOR]
-- [Портал — Windows](virtual-machines-windows-tutorial.md)
+- [Портал — Windows](virtual-machines-windows-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [PowerShell — шаблон](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Portal — Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [PowerShell — шаблон](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal — Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [CLI](virtual-machines-linux-tutorial.md)
 
 В этом руководстве мы покажем, как на портале Azure всего за несколько минут можно создать виртуальную машину Windows. В качестве примера мы создадим виртуальную машину с помощью образа Windows Server 2012 R2 Datacenter, но это лишь один из многих образов, предлагаемых в Azure. Доступность образов зависит от подписки. Например, подписчикам MSDN могут быть доступны образы рабочих столов.
@@ -48,13 +48,13 @@
 
 1. Войдите на портал Azure.
 
-2. В меню концентратора щелкните элементы **Создать** > **Вычисления** > **Windows Server 2012 R2 Datacenter**.
+2. В меню концентратора щелкните элементы **Создать** > **Вычисления** > **Windows Server 2012 R2 Datacenter**.
 
 	![Снимок экрана с образами виртуальной машины Azure, доступными на портале предварительной версии](./media/virtual-machines-windows-tutorial/marketplace_new.png)
 
 	>[AZURE.TIP] Чтобы найти дополнительные образы, щелкните **Marketplace**, а затем выполните поиск среди доступных элементов или отфильтруйте их.
 
-3. На странице **Windows Server 2012 R2 Datacenter** в разделе **Выбор модели развертывания** щелкните **Диспетчер ресурсов**. Щелкните **Создать**.
+3. На странице **Windows Server 2012 R2 Datacenter** в разделе **Выбор модели развертывания** щелкните **Диспетчер ресурсов**. Щелкните **Создать**.
 
 	![Снимок экрана с моделью развертывания, доступной для выделения при создании виртуальной машины Azure](./media/virtual-machines-windows-tutorial/marketplace_search_select.png)
 

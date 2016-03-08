@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Импорт данных в службу поиска Azure с помощью .NET | Microsoft Azure | Размещенная облачная служба поиска"
+	pageTitle="Импорт данных в службу поиска Azure с помощью .NET | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Отправка данных в индекс службы поиска Azure с помощью пакета SDK для .NET или библиотеки .NET."
 	services="search"
 	documentationCenter=""

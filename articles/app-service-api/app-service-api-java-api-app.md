@@ -24,7 +24,7 @@
 
 ## Предварительные требования
 
-1. [Java Developer Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (или более поздней версии).
+1. [Java Developer Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (или более поздней версии).
 1. Платная или [бесплатная пробная версия](https://azure.microsoft.com/pricing/free-trial/) подписки на [Microsoft Azure](https://azure.microsoft.com/).
 1. Установка [Maven](https://maven.apache.org/) на компьютере, на котором ведется разработка.
 1. Установка Git на компьютере, на котором ведется разработка. 

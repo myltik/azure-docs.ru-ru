@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Что такое Azure RemoteApp? | Microsoft Azure" 
+	pageTitle="Что такое Azure RemoteApp? | Microsoft Azure" 
 	description="Узнайте, как совместно использовать приложения и ресурсы для любого устройства с помощью Azure RemoteApp." 
 	services="remoteapp" 
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Руководство по базам данных SQL: создание базы данных SQL с помощью C# | Microsoft Azure" 
+	pageTitle="Руководство по базам данных SQL: создание базы данных SQL с помощью C# | Microsoft Azure" 
 	description="Используйте базы данных SQL для разработки приложений на основе SQL и C#. Создайте базу данных Azure SQL с помощью C# и библиотеки баз данных SQL для .NET." 
 	keywords="учебник sql, sql и c#"   
 	services="sql-database" 
@@ -50,7 +50,7 @@
 
 ## Установка необходимых библиотек
 
-Чтобы создать базу данных SQL с помощью C#, установите с помощью [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) следующие пакеты, которые содержат нужные библиотеки управления. Для этого в Visual Studio последовательно выберите элементы **Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**.
+Чтобы создать базу данных SQL с помощью C#, установите с помощью [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) следующие пакеты, которые содержат нужные библиотеки управления. Для этого в Visual Studio последовательно выберите элементы **Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**.
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
     Install-Package Microsoft.Azure.Management.Resources –Pre

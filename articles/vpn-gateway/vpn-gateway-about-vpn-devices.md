@@ -45,8 +45,8 @@
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [Инструкции по настройке](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | Не совместимо |
 | Check Point | Security Gateway | R75.40, R75.40VS | [Инструкции по настройке](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [Инструкции по настройке](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco | ASA | 8\.3 | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | Не совместимо |
-| Cisco | ASR | IOS 15.1 (на основе политик), IOS 15.2 (на основе маршрутов) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco | ISR | IOS 15.0 (на основе политик), IOS 15.1 (на основе маршрутов) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco | ASR | IOS 15.1 (на основе политик), IOS 15.2 (на основе маршрутов) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
+| Cisco | ISR | IOS 15.0 (на основе политик), IOS 15.1 (на основе маршрутов) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix | Устройство CloudBridge MPX или виртуальное устройство VPX | Недоступно | [Инструкции по интеграции](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Не совместимо |
 | Dell SonicWALL | Серия TZ, серия NSA, серия SuperMassive, серия NSA класса E | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Инструкции — SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [инструкции — SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Инструкции — SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [инструкции — SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Серия BIG-IP | Недоступно | [Инструкции по настройке](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Не совместимо |
@@ -64,7 +64,7 @@
 
 ## Непроверенные VPN-устройства
 
-Если ваше устройство не отображается в представленной выше таблице проверенных VPN-устройств, оно может поддерживать подключение типа "сайт — сайт". Убедитесь, что ваше VPN-устройство соответствует минимальным требованиям, указанным в разделе "Требования к шлюзу" статьи [О шлюзах VPN](vpn-gateway-about-vpngateways.md#gateway-requirements). Устройства, соответствующие минимальным требованиям, также должны хорошо работать с VPN-шлюзами. Чтобы получить дополнительную информацию и инструкции по настройке, обратитесь к изготовителю устройства.
+Если ваше устройство не отображается в представленной выше таблице проверенных VPN-устройств, оно может поддерживать подключение типа "сайт — сайт". Убедитесь, что ваше VPN-устройство соответствует минимальным требованиям, указанным в разделе "Требования к шлюзу" статьи [О шлюзах VPN](vpn-gateway-about-vpngateways.md#gateway-requirements). Устройства, соответствующие минимальным требованиям, также должны хорошо работать с VPN-шлюзами. Чтобы получить дополнительную информацию и инструкции по настройке, обратитесь к изготовителю устройства.
 
 
 ## Изменение примеров конфигурации устройств
@@ -112,7 +112,11 @@
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | Версия IKE | IKEv1 | IKEv2 |
 | Алгоритм хэширования | SHA1(SHA128) | SHA1(SHA128) |
-| Время существования сопоставления безопасности второго этапа (время) | 3600 сек | - | | Время существования сопоставления безопасности второго этапа (пропускная способность) | 102 400 000 КБ | - | | Предложения для шифрования и аутентификации IPsec SA (в порядке предпочтения) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Н/д | См. *предложения для сопоставлений безопасности IPsec для шлюзов на основе маршрутов* (ниже) || Полная безопасность пересылки (PFS) | Нет | Да (группа 1 Диффи-Хелмана) || Обнаружение неиспользуемых одноранговых узлов | Не поддерживается | Поддерживается |
+| Время существования сопоставления безопасности второго этапа (время) | 3600 сек | - |
+| Время существования сопоставления безопасности второго этапа (пропускная способность) | 102 400 000 КБ | - |
+| Предложения для шифрования и аутентификации IPsec SA (в порядке предпочтения) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Н/д | См. *предложения для сопоставлений безопасности IPsec для шлюзов на основе маршрутов* (ниже) |
+| Полная безопасность пересылки (PFS) | Нет | Да (группа 1 Диффи-Хелмана) |
+| Обнаружение неиспользуемых одноранговых узлов | Не поддерживается | Поддерживается |
 
 ### Предложения для сопоставлений безопасности IPsec для шлюзов на основе маршрутов
 
@@ -136,7 +140,8 @@
 | 14 | AH MD5 с ESP DES с HMAC со значением NULL, без предлагаемого времени существования | AH MD5 с ESP DES MD5, без времени существования |
 | 15 | AH SHA1 с ESP DES SHA1, без времени существования | ESP SHA, без времени существования |
 | 16 | AH MD5 с ESP DES MD5, без времени существования | ESP MD5, без времени существования |
-| 17 | - | AH SHA, без времени существования || 18 | - | AH MD5, без времени существования |
+| 17 | - | AH SHA, без времени существования |
+| 18 | - | AH MD5, без времени существования |
 
 
 - Можно указать NULL-шифрование ESP IPsec с высокопроизводительными VPN-шлюзами на основе маршрутизации. NULL-шифрование не защищает данные при передаче. Его следует использовать только в случаях, когда требуется максимальная пропускная способность и минимальная задержка. Клиенты могут выбрать его в случаях, когда данные передаются между виртуальными сетями или где-то в решении применяется другое шифрование.

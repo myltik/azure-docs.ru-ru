@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Приступая к работе со службой Azure Multi-Factor Authentication" 
-	description="Выберите подходящее решение многофакторной проверки подлинности, выяснив, что является объектом защиты и где находятся пользователи. После этого выберите облако, сервер Multi-Factor Authentication или службы AD FS." 
+	description="Выберите подходящее решение многофакторной проверки подлинности, выяснив, что является объектом защиты и где находятся пользователи. После этого выберите облако, сервер Multi-Factor Authentication или службы AD FS." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -49,8 +49,8 @@
 Местонахождение пользователей| Решение
 ------------- | :------------- | 
 Azure Active Directory| Multi-Factor Authentication в облаке|
-Azure AD и локальная служба AD с использованием федерации в AD FS| Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication 
-Azure AD и локальная служба AD с использованием DirSync, Azure AD Sync, Azure AD Connect без синхронизации паролей|Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication 
+Azure AD и локальная служба AD с использованием федерации в AD FS| Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication 
+Azure AD и локальная служба AD с использованием DirSync, Azure AD Sync, Azure AD Connect без синхронизации паролей|Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication 
 Azure AD и локальная служба AD с использованием DirSync, Azure AD Sync, Azure AD Connect с синхронизацией паролей|Multi-Factor Authentication в облаке
 Локальная служба Active Directory|Сервер Multi-Factor Authentication
 

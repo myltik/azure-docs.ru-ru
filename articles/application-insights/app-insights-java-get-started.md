@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Анализ веб-приложений Java с помощью Application Insights | Microsoft Azure"
+	pageTitle="Анализ веб-приложений Java с помощью Application Insights | Microsoft Azure"
 	description="Мониторинг производительности и использования веб-сайта Java с помощью Application Insights."
 	services="application-insights"
     documentationCenter="java"
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) — это расширяемая служба аналитики, позволяющая оценивать производительность и использование работающего приложения. С ее помощью можно [выявлять и диагностировать проблемы с производительностью и исключения](app-insights-detect-triage-diagnose.md), а также [писать код][api] для отслеживания действия, которые выполняют с приложением пользователи.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) — это расширяемая служба аналитики, позволяющая оценивать производительность и использование работающего приложения. С ее помощью можно [выявлять и диагностировать проблемы с производительностью и исключения](app-insights-detect-triage-diagnose.md), а также [писать код][api] для отслеживания действия, которые выполняют с приложением пользователи.
 
 ![пример данных](./media/app-insights-java-get-started/5-results.png)
 
@@ -366,7 +366,7 @@
 
 Application Insights может тестировать ваш веб-сайт через равные промежутки времени для проверки, работает ли он и правильно ли отвечает на запросы. [Чтобы выполнить настройку][availability], прокрутите вниз и щелкните "Доступность".
 
-![Прокрутите вниз, щелкните «Доступность», а затем — «Добавить веб-тест».](./media/app-insights-java-get-started/31-config-web-test.png)
+![Прокрутите вниз, щелкните «Доступность», а затем — «Добавить веб-тест».](./media/app-insights-java-get-started/31-config-web-test.png)
 
 Если ваш сайт выйдет из строя, вы получите диаграмму значений времени ответа, а также уведомление по электронной почте.
 
