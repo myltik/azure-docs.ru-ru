@@ -51,12 +51,12 @@
 
 В папке *\articles* содержатся статьи в формате Markdown (файлы с расширением *.md*).
 
-Статьи в корневом каталоге публикуются на сайте Azure.Microsoft.com по адресу **http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
+Статьи в корневом каталоге публикуются на сайте Azure.Microsoft.com по адресу *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
 * **Имена файлов статей**. См. [руководство по именованию файлов](./contributor-guide/file-names-and-locations.md).
 
-Статьи в служебных папках публикуются на сайте Azure.Microsoft.com по адресу
-*http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
+Статьи в служебных папках публикуются на сайте Azure.Microsoft.com по адресу 
+*http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*.
 
 * **Подпапки для содержимого мультимедиа**. Папка *\articles* содержит папку *\media*, предназначенную для файлов мультимедиа из статей корневого каталога. В папке media хранятся вложенные папки с изображениями для каждой статьи. В служебных папках есть отдельная папка media для статей из каждой служебной папки. Папка с изображениями для статьи называется так же, как и файл статьи, но без расширения *.md*.
 
@@ -90,9 +90,9 @@
 
 Во всех статьях в этом репозитории используется разметка Markdown, принятая для GitHub. Вот список полезных ресурсов:
 
-- [Основные сведения о разметке Markdown](https://help.github.com/articles/markdown-basics/).
+- [Основные сведения о разметке Markdown.](https://help.github.com/articles/markdown-basics/)
 
-- [Подсказки по разметке Markdown в печатном формате](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true).
+- [Подсказки по разметке Markdown в печатном формате.](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
 - Наш список редакторов для Markdown см. в статье [Установка и настройка средств для создания документации в GitHub](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
 
@@ -104,4 +104,4 @@
 
 Список всех статей этого руководства приведен в [указателе](./contributor-guide/contributor-guide-index.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0307_2016-->
