@@ -14,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
@@ -48,7 +48,11 @@
 
 Эмулятор Microsoft HDInsight устанавливается через установщик веб-платформы Майкрософт.
 
-> [AZURE.NOTE] Эмулятор HDInsight в настоящее время поддерживает только операционные системы на английском языке. Если у вас установлена предыдущая версия эмулятора, перед установкой последней версии эмулятора необходимо предварительно удалить два следующих компонента, выбрав на панели управления «Программы и компоненты»: <ul> <li>эмулятор Microsoft HDInsight для Azure или HDInsight Developer Preview (в зависимости от того, что установлено)</li>; <li>платформу данных Hortonworks Data Platform.</li> </ul>
+> [AZURE.NOTE] Эмулятор HDInsight в настоящее время поддерживает только операционные системы на английском языке. Если у вас установлена​​ предыдущая версия эмулятора, перед установкой последней версии в панели управления в разделе "Программы и компоненты" необходимо предварительно удалить два компонента:
+><ul>
+> <li>Эмулятор Microsoft HDInsight для Microsoft Azure или HDInsight Developer Preview в зависимости от того, что установлено.</li>
+> <li>Hortonworks Data Platform</li>
+> </ul>
 
 
 **Установка эмулятора HDInsight**
@@ -259,7 +263,22 @@ JAR-файл и исходные файлы находятся в папке C:\
 
 		hadoop jar .\Java\w3c_scenarios.jar "microsoft.hadoop.w3c.TotalHitsForPage" "/w3c/input/small/data_w3c_small.txt" "/w3c/output"
 
-	В следующей таблице описаны элементы этой команды: <table border="1"> <tr><td>Параметр</td><td>Примечание</td></tr> <tr><td>w3c\_scenarios.jar</td><td>JAR-файл находится в папке C:\\hdp\\GettingStarted\\Java.</td></tr> <tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>Тип может быть заменен одним из следующих: <ul> <li>microsoft.hadoop.w3c.AverageTimeTaken</li>; <li>microsoft.hadoop.w3c.ErrorsByPage</li>; </ul></td></tr> <tr><td>/w3c/input/small/data\_w3c\_small.txt</td>.<td>Входной файл может быть заменен одним из следующих: <ul> <li>/w3c/input/medium/data\_w3c\_medium.txt</li>; <li>/w3c/input/large/data\_w3c\_large.txt</li>; </ul></td></tr> <tr><td>/w3c/output</td>.<td>Это имя выходной папки.</td></tr> </table>
+	В следующей таблице описаны элементы этой команды:
+	<table border="1">
+	<tr><td>Параметр</td><td>Примечание.</td></tr>
+	<tr><td>w3c_scenarios.jar</td><td>Необходимый JAR-файл находится в папке C:\hdp\GettingStarted\Java.</td></tr>
+	<tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>Тип может быть заменен одним из следующих:
+	<ul>
+	<li>microsoft.hadoop.w3c.AverageTimeTaken</li>
+	<li>microsoft.hadoop.w3c.ErrorsByPage</li>
+	</ul></td></tr>
+	<tr><td>/w3c/input/small/data_w3c_small.txt</td><td>Входной файл может быть заменен одним из следующих:
+	<ul>
+	<li>/w3c/input/medium/data_w3c_medium.txt</li>
+	<li>/w3c/input/large/data_w3c_large.txt</li>
+	</ul></td></tr>
+	<tr><td>/w3c/output</td><td>Это имя выходной папки.</td></tr>
+	</table>
 
 4. Выполните следующую команду, чтобы отобразить выходной файл:
 
@@ -317,8 +336,17 @@ JAR-файл и исходные файлы находятся в папке C:\
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
-	В следующей таблице описаны элементы этой команды: <table border="1"> <tr><td>Файл</td><td>Описание</td></tr> <tr><td>C:\\hdp\\hive-0.13.0.2.1.3.0-1981\\bin\\hive.cmd</td><td>Командный сценарий Hive.</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3ctotalhitsbypage.hql</td><td> Вы можете заменить файл сценария Hive одним из следующих: <ul> <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3caveragetimetaken.hql</li>; <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3cerrorsbypage.hql</li>. </ul> </td></tr>
-
+	В следующей таблице описаны элементы этой команды:
+	<table border="1">
+	<tr><td>Файл</td><td>Описание</td></tr>
+	<tr><td>C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd</td><td>Командный скрипт Hive.</td></tr>
+	<tr><td>C:\hdp\GettingStarted\Hive\w3c\w3ctotalhitsbypage.hql</td><td> Файл сценария Hive можно заменить одним из следующих файлов:
+	<ul>
+	<li>C:\hdp\GettingStarted\Hive\w3c\w3caveragetimetaken.hql</li>
+	<li>C:\hdp\GettingStarted\Hive\w3c\w3cerrorsbypage.hql</li>
+	</ul>
+	</td></tr>
+	
 	</table>
 
 	Скрипт HiveQL: w3ctotalhitsbypage.hql:
@@ -359,12 +387,25 @@ JAR-файл и исходные файлы находятся в папке C:\
 
 		C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
 
-	В следующей таблице описаны элементы этой команды: <table border="1"> <tr><td>Файл</td><td>Описание</td></tr> <tr><td>C:\\hdp\\pig-0.12.1.2.1.3.0-1981\\bin\\pig.cmd</td>.<td>Командный сценарий Pig.</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Pig\\w3c\\TotalHitsForPage.pig</td><td> Вы можете заменить файл сценария Pig Latin одним из следующих: <ul> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\AverageTimeTaken.pig</li>; <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\ErrorsByPage.pig</li> </ul>. </td></tr> <tr><td>/w3c/input/small/data\_w3c\_small.txt</td><td> Вы можете заменить этот параметр файлом большего размера:
-
+	В следующей таблице показаны элементы этой команды:
+	<table border="1">
+	<tr><td>Файл</td><td>Описание</td></tr>
+	<tr><td>C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd</td><td>Командный скрипт Pig.</td></tr>
+	<tr><td>C:\hdp\GettingStarted\Pig\w3c\TotalHitsForPage.pig</td><td> Файл сценария на Pig Latin можно заменить одним из следующих файлов:
 	<ul>
-<li>/w3c/input/medium/data_w3c_medium.txt</li>
-<li>/w3c/input/large/data_w3c_large.txt</li>
-</ul></td></tr> </table>
+	<li>C:\hdp\GettingStarted\Pig\w3c\AverageTimeTaken.pig</li>
+	<li>C:\hdp\GettingStarted\Pig\w3c\ErrorsByPage.pig</li>
+	</ul>
+	</td></tr>
+	<tr><td>/w3c/input/small/data_w3c_small.txt</td><td> Можно заменить этот параметр файлом большего размера:
+	
+	<ul>
+	<li>/w3c/input/medium/data_w3c_medium.txt</li>
+	<li>/w3c/input/large/data_w3c_large.txt</li>
+	</ul>
+	
+	</td></tr>
+	</table>
 
 	Должен быть получен результат, аналогичный приведенному ниже:
 
@@ -497,4 +538,4 @@ The samples currently contain all the required binaries, so building is not requ
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

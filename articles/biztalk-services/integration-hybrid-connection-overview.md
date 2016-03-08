@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Обзор гибридных подключений | Microsoft Azure"
-	description="Сведения о гибридных подключениях, в том числе о безопасности, TCP-портах и поддерживаемых конфигурациях. MABS, WABS."
+	description="Сведения о гибридных подключениях, безопасности, TCP-портах и поддерживаемых конфигурациях. MABS, WABS."
 	services="biztalk-services"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+	manager="erikre"
+	editor=""/>
 
 <tags
 	ms.service="biztalk-services"
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="02/29/2016"
 	ms.author="mandia"/>
 
 
 # Обзор гибридных подключений
-В этой статье представлены гибридные подключения, список поддерживаемых конфигураций и список необходимых портов TCP.
+В этой статье приведены обзорная информация о гибридных подключениях, список поддерживаемых конфигураций и список необходимых TCP-портов.
 
 
 ## Что такое гибридное подключение
 
-Гибридное подключение является компонентом службы Azure BizTalk. Гибридное подключение обеспечивает простой и удобный способ соединения веб-приложений Azure (ранее — веб-сайты) и мобильных приложений Azure (ранее — мобильные службы) в службе приложений Azure с локальными ресурсами, защищенными брандмауэром.
+Гибридное подключение является компонентом службы Azure BizTalk. Гибридное подключение обеспечивает простой и удобный способ соединения веб-приложений Azure (ранее — веб-сайты) и мобильных приложений Azure (ранее — мобильные службы) в службе приложений Azure с локальными ресурсами, защищенными брандмауэром.
 
 ![через гибридные подключения][HCImage]
 
@@ -35,7 +35,7 @@
 - приложения, использующие гибридные подключения, имеют доступ только к определенным локальным ресурсам, опубликованным через гибридное подключение;
 - вы можете подключиться к любому локальному ресурсу, который использует статический TCP-порт: например, SQL Server, MySQL, веб-интерфейсы API HTTP и большинство настраиваемых веб-служб.
 
-	> [AZURE.NOTE]Службы на базе протокола TCP, использующие динамические порты (такие как пассивным режим FTP или расширенный пассивный режим), в настоящее время не поддерживаются.
+	> [AZURE.NOTE] Службы на базе протокола TCP, использующие динамические порты (такие как пассивным режим FTP или расширенный пассивный режим), в настоящее время не поддерживаются.
 
 - Можно использовать со всеми платформами, поддерживаемыми веб-приложениями (.NET, PHP, Java, Python, Node.js) и мобильными приложениями (Node.js, .NET).
 - Веб-приложения и мобильные приложения могут осуществлять доступ к локальным ресурсам таким же образом, как если бы веб-приложение или мобильное приложение находились в вашей локальной сети. Например, одна и та же строка подключения может использоваться как локально, так и в Azure.
@@ -91,7 +91,7 @@
 
 ## Дальнейшие действия
 
-[Создание гибридных подключений и управление ими](integration-hybrid-connection-create-manage.md)<br/> [Подключение веб-сайта Azure к локальным ресурсам](../web-sites-hybrid-connection-get-started.md)<br/> [Подключение локального SQL Server из веб-приложений Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Мобильные службы Azure и гибридные подключения](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+[Создание гибридных подключений и управление ими](integration-hybrid-connection-create-manage.md)<br/> [Подключение веб-сайта Azure к локальным ресурсам](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/> [Подключение локального SQL Server из веб-приложений Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Мобильные службы Azure и гибридные подключения](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 
 ## См. также
@@ -103,4 +103,4 @@
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

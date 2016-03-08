@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Импорт данных в службу поиска Azure с помощью .NET | Microsoft Azure | Размещенная облачная служба поиска"
+	pageTitle="Импорт данных в службу поиска Azure с помощью .NET | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Отправка данных в индекс службы поиска Azure с помощью пакета SDK для .NET или библиотеки .NET."
 	services="search"
 	documentationCenter=""
@@ -19,13 +19,13 @@
 
 # Импорт данных в службу поиска Azure с помощью .NET
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
+- [Обзор](search-what-is-data-import.md)
+- [Портал](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [Индексаторы](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-В этой статье показано, как заполнить индекс с помощью [пакета SDK для .NET службы поиска Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx). Содержимое ниже взято из статьи [Использование службы поиска Azure в приложении .NET](search-howto-dotnet-sdk.md). Пошаговые инструкции см. в родительской статье.
+Из этой статьи вы узнаете, как заполнить индекс с помощью [пакета SDK службы поиска Azure для .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx). Содержимое ниже взято из статьи [Использование службы поиска Azure в приложении .NET](search-howto-dotnet-sdk.md). Пошаговые инструкции см. в родительской статье.
 
 Для импорта данных необходимо наличие ранее созданного индекса.
 
@@ -98,7 +98,7 @@
 
         try
         {
-            var batch = IndexBatch.Upload(sitecoreItems);
+            var batch = IndexBatch.Upload(documents);
             indexClient.Documents.Index(batch);
         }
         catch (IndexBatchException e)
@@ -119,11 +119,11 @@
 
 Вторая часть создает `IndexAction` для каждого элемента `Hotel`, а затем группирует их в новый элемент `IndexBatch`. Затем этот пакет отправляется в индекс службы поиска Azure с помощью метода `Documents.Index`.
 
-> [AZURE.NOTE] В этом примере мы просто отправляем документы. Чтобы изменить или удалить существующий документ, вы можете использовать метод `Merge`, `MergeOrUpload` или `Delete` соответственно.
+> [AZURE.NOTE] В этом примере мы просто отправляем документы. Чтобы удалить документ или внести изменения в существующий документ, используйте методы `Delete`, `Merge` или `MergeOrUpload` соответственно.
 
 Третья часть метода — это блок catch, который обрабатывает важные ошибки индексирования. Если службе поиска Azure не удается индексировать некоторые документы в пакете, `Documents.Index` вызывает `IndexBatchException`. Это может произойти, если вы индексируете документы службы при интенсивной нагрузке. **Настоятельно рекомендуется явно обрабатывать этот случай в коде.** Вы можете задержать и повторить попытку индексирования  
 соответствующих документов либо занести ошибку в журнал и продолжить работу, как в нашем примере, а также выполнить другие действия в зависимости от требований вашего приложения к целостности данных.
 
 Затем метод выполняет задержку на две секунды. Индексирование в службе поиска Azure происходит асинхронно, поэтому образец приложения должен подождать немного, пока документы не станут доступными для поиска. Такие задержки обычно необходимы только в демонстрациях, тестах и примерах приложений.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

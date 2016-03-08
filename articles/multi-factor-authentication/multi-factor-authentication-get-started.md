@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Приступая к работе со службой Azure Multi-Factor Authentication" 
-	description="Выберите подходящее решение многофакторной проверки подлинности, выяснив, что является объектом защиты и где находятся пользователи. После этого выберите облако, сервер Multi-Factor Authentication или службы AD FS." 
+	description="Выберите подходящее решение многофакторной проверки подлинности, выяснив, что является объектом защиты и где находятся пользователи. После этого выберите облако, сервер Multi-Factor Authentication или службы AD FS." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/16/2016" 
+	ms.date="02/24/2016" 
 	ms.author="billmath"/>
 
 #Выбор решения многофакторной безопасности
@@ -49,8 +49,8 @@
 Местонахождение пользователей| Решение
 ------------- | :------------- | 
 Azure Active Directory| Multi-Factor Authentication в облаке|
-Azure AD и локальная служба AD с использованием федерации в AD FS| Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication 
-Azure AD и локальная служба AD с использованием DirSync, Azure AD Sync, Azure AD Connect без синхронизации паролей|Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication 
+Azure AD и локальная служба AD с использованием федерации в AD FS| Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication 
+Azure AD и локальная служба AD с использованием DirSync, Azure AD Sync, Azure AD Connect без синхронизации паролей|Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication 
 Azure AD и локальная служба AD с использованием DirSync, Azure AD Sync, Azure AD Connect с синхронизацией паролей|Multi-Factor Authentication в облаке
 Локальная служба Active Directory|Сервер Multi-Factor Authentication
 
@@ -73,7 +73,7 @@ Azure AD и локальная служба AD с использованием D
 Настраиваемые приветствия для телефонных вызовов | ● | ● 
 Настройка идентификатора вызывающей стороны для телефонных звонков | ● | ● 
 Надежные IP-адреса | ● | ● 
-Приостановка работы службы Multi-Factor Authentication для сохраненных устройств (общедоступная предварительная версия) | ● |  
+Запоминание многофакторной проверки подлинности для доверенных устройств (предварительная версия) | ● |  
 Условный доступ | ● | ● 
 Кэш | ● | ● 
 
@@ -81,4 +81,4 @@ Azure AD и локальная служба AD с использованием D
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

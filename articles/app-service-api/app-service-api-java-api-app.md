@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/22/2016"
 	ms.author="bradygaster"/>
 
 # Сборка и развертывание приложения API Java в службе приложений Azure
@@ -24,7 +24,7 @@
 
 ## Предварительные требования
 
-1. [Java Developer Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (или более поздней версии).
+1. [Java Developer Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (или более поздней версии).
 1. Платная или [бесплатная пробная версия](https://azure.microsoft.com/pricing/free-trial/) подписки на [Microsoft Azure](https://azure.microsoft.com/).
 1. Установка [Maven](https://maven.apache.org/) на компьютере, на котором ведется разработка.
 1. Установка Git на компьютере, на котором ведется разработка. 
@@ -195,14 +195,14 @@
             }
   
             @Override
-            public Response contactsGet()
+            public Response contactsGet(SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 return Response.ok().entity(list).build();
                 }
   
             @Override
-            public Response contactsGetById(Integer id)
+            public Response contactsGetById(Integer id, SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 Contact ret = null;
@@ -262,7 +262,7 @@
 
 	![Настройка Java в колонке приложения API](media/app-service-api-java-api-app/set-up-java.png)
 
-1. Щелкните пункт меню параметров **Учетные данные развертывания** и укажите имя пользователя и пароль, которые вы хотите использовать для публикации файлов в приложении API.
+1. Щелкните пункт **Учетные данные развертывания** и укажите имя пользователя и пароль, которые вы хотите использовать для публикации файлов в приложении API.
 
 	![Сброс учетных данных развертывания](media/app-service-api-java-api-app/deployment-credentials.png)
 
@@ -295,4 +295,4 @@
 
 Дополнительную информацию об использовании Java в Azure см. в разделе [Центр разработчиков Java](/develop/java/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

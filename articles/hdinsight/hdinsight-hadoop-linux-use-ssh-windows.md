@@ -11,7 +11,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="01/22/2016"
@@ -23,7 +23,7 @@
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 - [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) позволяет удаленно выполнять операции в кластерах HDInsight на основе Liux с помощью интерфейса командной строки. Этот документ содержит информацию о подключении к HDInsight из клиентов Windows с помощью клиента SSH PuTTY.
+[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) позволяет удаленно выполнять операции в кластерах HDInsight на основе Linux с помощью интерфейса командной строки. Этот документ содержит информацию о подключении к HDInsight из клиентов Windows с помощью клиента SSH PuTTY.
 
 > [AZURE.NOTE] При описании действий в данной статье предполагается, что вы используете клиент Windows. Если вы используете клиент OS X, Linux или Unix, см. статью [Использование SSH с Hadoop под управлением Linux в HDInsight в Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -229,4 +229,4 @@ SSH — это служебная программа для входа в сис
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

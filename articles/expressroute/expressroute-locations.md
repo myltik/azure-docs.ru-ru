@@ -54,13 +54,13 @@ ExpressRoute поддерживается во всех регионах и ра
 
 ### Рабочая среда Azure
 
-| **Поставщик услуг** |**Microsoft Azure** | **Office 365 и CRM Online** | **Расположения** |
+| **Поставщик услуг** |**Microsoft Azure** | **Office 365 и CRM Online** | **Расположения** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | Поддерживаются | Поддерживаются | Амстердам, Кремниевая долина, Сингапур, Вашингтон, округ Колумбия |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Поддерживаются | Поддерживаются | Амстердам, Даллас, Лондон, Кремниевая долина, Сингапур, Вашингтон (округ Колумбия) |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Поддерживаются | Поддерживаются | Амстердам, Гонконг, Лондон, Кремниевая долина, Сингапур, Токио, Вашингтон (округ Колумбия) |
 |**China Telecom Global** | Поддерживаются | Не поддерживается | Гонконг |
-|**Cologix** | Скоро | Не поддерживается | Монреаль+, Торонто+ |
+|**Cologix** | Скоро | Скоро | Монреаль+, Торонто+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Поддерживаются | Поддерживаются | Амстердам, Дублин, Лондон |
 | **Comcast** | Поддерживаются | Не поддерживается | Кремниевая долина, Вашингтон, округ Колумбия |
 | **CoreSite** | Поддерживаются | Поддерживаются | Лос-Анджелес | 
@@ -69,15 +69,15 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[InterCloud](https://www.intercloud.com/)** | Поддерживаются | Поддерживаются | Амстердам, Лондон, Сингапур, Вашингтон, округ Колумбия |
 | **Internet Solutions - Cloud Connect** | Поддерживаются | Поддерживаются | Амстердам, Лондон |
 | **Interxion** | Поддерживаются | Поддерживаются | Амстердам, Лондон |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Поддерживаются | Поддерживаются | Амстердам, Чикаго, Даллас, Лондон, Сиэтл, Кремниевая долина, Вашингтон, округ Колумбия |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Поддерживаются | Поддерживаются | Амстердам, Чикаго, Даллас, Лондон, Сиэтл, Кремниевая долина, Вашингтон, округ Колумбия |
 | **Megaport** | Поддерживаются | Поддерживаются | Даллас, Лос-Анджелес, Мельбурн, Нью-Йорк, Сиэтл, Сидней, Вашингтон (округ Колумбия) |
 | **MTN** | Поддерживаются | Поддерживаются | Лондон |
 | **NEXTDC** | Поддерживаются | Поддерживаются | Мельбурн, Сидней |
-| **NTT Communications** | Поддерживаются | Скоро | Лондон, Токио |
+| **NTT Communications** | Поддерживаются | Поддерживаются | Лондон, Токио |
 | **[Orange](http://www.orange-business.com/)** | Поддерживаются | Поддерживаются | Амстердам, Гонконг, Лондон, Кремниевая долина, Сингапур, Вашингтон, округ Колумбия |
 | **PCCW Global Limited** | Поддерживаются | Поддерживаются | Гонконг |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Поддерживаются | Не поддерживается | Сингапур |
-| **Softbank** | Скоро | Не поддерживается | Осака, Токио | 
+| **Softbank** | Скоро | Скоро | Осака, Токио | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Поддерживаются | Поддерживаются | Амстердам, Ченнаи, Гонконг, Лондон, Мумбаи, Сингапур, Вашингтон (округ Колумбия) |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Поддерживаются | Поддерживаются | Амстердам, Лондон |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Поддерживаются | Не поддерживается | Мельбурн, Сидней |
@@ -141,4 +141,4 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

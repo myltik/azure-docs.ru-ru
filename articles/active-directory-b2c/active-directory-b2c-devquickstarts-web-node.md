@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Добавление варианта входа в веб-приложение nodeJS для предварительной версии Azure B2C| Microsoft Azure"
+	pageTitle="Добавление входа в веб-приложение Node.js для предварительной версии Azure B2C | Microsoft Azure"
 	description="Как создать веб-приложение Node.js, позволяющее пользователям входить с помощью клиента B2C."
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -12,71 +12,68 @@
 	ms.workload="identity"
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.topic="hero-article"
+	ms.date="02/25/2016"
 	ms.author="brandwe"/>
 
-# Предварительная версия B2C: добавление варианта входа в веб-приложение NodeJS
 
+# Предварительная версия B2C: добавление входа в веб-приложение Node.js
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]
-	В этой статье не рассматривается реализация входа, регистрации и управления профилями с помощью Azure AD B2C. Она посвящена вызову веб-API после того, как пользователь прошел проверку подлинности. Прочитайте [руководство по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md), чтобы изучить основы Azure AD B2C.
+**Passport** — промежуточный слой проверки подлинности для Node.js. Гибкая модульная структура Passport позволяет незаметно устанавливать его в любом приложении на основе Express или в веб-приложении Restify. Полный набор стратегий поддерживает проверку подлинности с помощью имени пользователя и пароля, Facebook, Twitter и других средств.
 
-**Passport** — промежуточный слой проверки подлинности для Node.js. Он имеет очень гибкую и модульную структуру, которая позволяет сравнительно незаметно размещать данный слой в любом приложении на основе Express или в веб-приложении Resitify. Полный набор стратегий поддерживает процесс проверки подлинности с помощью имени пользователя и пароля, Facebook, Twitter и проч. Мы разработали стратегию для Microsoft Azure Active Directory. Мы установим этот модуль, а затем добавим подключаемый модуль Microsoft Azure Active Directory `passport-azure-ad`.
+> [AZURE.NOTE] В этой статье не рассматривается реализация входа, регистрации и управления профилями с помощью Azure Active Directory B2C. Она посвящена вызову веб-API после того, как пользователь прошел проверку подлинности. Чтобы изучить основы Azure AD B2C, прочитайте [руководство по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
-Чтобы сделать это, необходимо:
+Мы разработали стратегию для Azure Active Directory (Azure AD). Сначала необходимо установить этот модуль, а затем добавить подключаемый модуль Azure AD `passport-azure-ad`.
 
-1. зарегистрировать приложение в Azure AD;
-2. Настроить приложение для использования подключаемого модуля azure-ad-passport Passport.
+Для этого необходимо выполнить следующие действия.
+
+1. Зарегистрировать приложение с помощью Azure AD.
+2. Настроить в приложении использование подключаемого модуля `passport-azure-ad`.
 3. использовать Passport для выдачи запросов на вход и выход в Azure AD.
-4. распечатать данные о пользователе.
+4. Ввести данные пользователя.
 
-Код в этом учебнике размещен на портале [GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). Для понимания процесса можно [скачать основу приложения как ZIP-файл](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) или клонировать ее:
+Код, используемый в этом руководстве, размещен на портале [GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). Вы можете [загрузить схему приложения как ZIP-файл](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip). Ее также можно клонировать:
 
-```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git
-```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
-Готовое приложение также приводится в конце этого руководства.
+Готовое приложение приводится в конце этого руководства.
 
-> [AZURE.WARNING] 	Для предварительной версии B2C следует использовать тот же идентификатор клиента или идентификатор приложения и политики как для сервера задач веб-API, так и для клиента, который к нему подключается. Это верно для учебников по iOS и Android. Если ранее вы создали приложение в любом из этих руководств, используйте эти значения и не создавайте новые в дальнейшем.
+> [AZURE.WARNING] 	Работая с предварительной версией B2C, используйте для сервера задач веб-API и для клиента, который к нему подключается, одни и те же политики и **идентификатор клиента** или **идентификатор приложения**. Это также верно для руководств по iOS и Android. Если ранее вы создали приложение, следуя инструкциям одного из этих руководств, используйте готовые значения. Новые создавать не нужно.
 
-## 1\. Создание каталога Azure AD B2C
+## Создание каталога Azure AD B2C
 
-Перед использованием Azure AD B2C необходимо создать каталог или клиент. Каталог — это контейнер для всех пользователей, приложений, групп и т. д. Если каталог B2C еще не создан, [создайте его](active-directory-b2c-get-started.md).
+Перед использованием Azure AD B2C необходимо создать каталог или клиент. Каталог — это контейнер для всех ваших пользователей, приложений, групп и т. д. Прежде чем продолжать работу с руководством, [создайте каталог B2C](active-directory-b2c-get-started.md), если он еще не создан.
 
-## 2\. Создание приложения
+## Создание приложения
 
-Теперь необходимо создать приложение в каталоге B2C. Оно будет передавать в Azure AD сведения, необходимые для безопасного взаимодействия с вашим приложением. В этом случае как клиентское приложение, так и веб-API будут представлены одним **идентификатором приложения**, так как они включают в себя одно приложение логики. Создайте приложение, выполнив [эти указания](active-directory-b2c-app-registration.md). Не забудьте
+Затем необходимо создать приложение в каталоге B2C. Таким образом в Azure AD поступят сведения, необходимые для безопасного взаимодействия с вашим приложением. И клиентское приложение, и веб-API будут представлены одним **идентификатором приложения**, так как они включают в себя одно приложение логики. Создайте приложение, выполнив [эти указания](active-directory-b2c-app-registration.md). Не забудьте сделать следующее.
 
-- Включите в приложение **веб-приложение или веб-API**.
-- Введите `http://localhost/TodoListService` как **URL-адрес ответа**. Это — URL-адрес по умолчанию для этого примера кода.
-- Создайте для своего приложения **секрет приложения** и скопируйте его. Скоро он вам понадобится. Обратите внимание, что это значение должно быть [экранировано для XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) перед использованием.
-- Скопируйте **идентификатор приложения**, назначенный приложению. Он также вам скоро понадобится.
+- Включите в приложение **веб-приложение** или **веб-API**.
+- Введите `http://localhost/TodoListService` как **URL-адрес ответа**. Это URL-адрес по умолчанию для данного примера кода.
+- Создайте для своего приложения **секрет приложения** и скопируйте его. Оно понадобится вам позднее. Обратите внимание, что перед использованием это значение должно быть [экранировано для XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
+- Скопируйте **идентификатор приложения**, назначенный приложению. Этот идентификатор также понадобится вам позднее.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3\. Создание политик
+## Создание политик
 
-В Azure AD B2C всякое взаимодействие с пользователем определяется [**политикой**](active-directory-b2c-reference-policies.md). Это приложение содержит три вида идентификации: регистрация, вход и вход с помощью учетной записи Facebook. Вам нужно создать по одной политике каждого типа, как описано в [справочнике по политикам](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). При создании трех политик обязательно сделайте следующее.
+В Azure AD B2C любое взаимодействие с пользователем определяется [политикой](active-directory-b2c-reference-policies.md). Это приложение содержит три вида идентификации: регистрация, вход и вход с помощью учетной записи Facebook. Вам нужно создать по одной политике каждого типа, как описано в [справочной статье о политиках](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). При создании трех политик обязательно выполните указанные ниже действия.
 
-- В политике регистрации выберите **Отображаемое имя** и другие атрибуты регистрации.
+- В политике регистрации выберите атрибут **Отображаемое имя** и другие атрибуты регистрации.
 - В каждой политике выберите утверждения приложения **Отображаемое имя** и **Идентификатор объекта**. Можно также выбрать другие утверждения.
 - Скопируйте **имя** каждой политики после ее создания. У него должен быть префикс `b2c_1_`. Эти имена политик понадобятся вам через некоторое время.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Создав три политики, можно приступать к созданию приложения.
+Создав три политики, можно приступать к сборке приложения.
 
 Обратите внимание, что в данной статье не рассматривается использование политик, которые вы только что создали. Дополнительные сведения о работе политик в Azure AD B2C см. в [руководстве по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
+## Добавление предварительных требований в ваш каталог
 
-
-## 4\. Добавление предварительных требований в ваш каталог
-
-В командной строке сделайте текущей корневую папку, если это еще не было сделано, и выполните следующие команды:
+В окне командной строки замените каталоги на корневую папку, если вы еще этого не сделали. Выполните следующие команды:
 
 - `npm install express`
 - `npm install ejs`
@@ -91,24 +88,23 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Ope
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- Кроме того, в схему шаблона быстрого запуска мы включили специальный раздел `passport-azure-ad` для предварительной версии.
+Кроме того, в схему быстрого запуска мы включили раздел `passport-azure-ad` для предварительной версии.
 
 - `npm install passport-azure-ad`
 
+Будет выполнена установка библиотек, которые зависят от `passport-azure-ad`.
 
-Будет выполнена установка библиотек, которые зависят от passport-azure-ad.
+## Настройка в приложении использования стратегии Passport-Node.js
+Настройте в ПО промежуточного слоя Express использование протокола проверки подлинности OpenID Connect. Кроме всего прочего, Passport будет использоваться для выдачи запросов на вход и выход, управления сеансами пользователей и получения сведений о пользователях.
 
-## 5\. Настройка приложения для использования стратегии passport-node-js
-Здесь мы настроим промежуточный слой Express для использования протокола проверки подлинности OpenID Connect. Кроме всего прочего, Passport будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
-
--	Сначала откройте файл `config.js` в корневом каталоге проекта, а затем укажите параметры конфигурации приложения в разделе `exports.creds`.
-    -	`clientID:` — это **идентификатор приложения**, присвоенный приложению на портале регистрации.
-    -	`returnURL` — это **универсальный код ресурса (URI) перенаправления**, который вы указали на портале.
-    - `tenantName:` — это **имя клиента** вашего приложения, например contoso.onmicrosoft.com.
+Откройте файл `config.js` в корне проекта и введите значения конфигурации приложения в разделе `exports.creds`.
+- `clientID` — это **идентификатор приложения**, назначенный приложению на портале регистрации.
+- `returnURL` — это **URI перенаправления**, который вы указали на портале.
+- `tenantName` — это имя клиента вашего приложения, например **contoso.onmicrosoft.com**.
 
 [AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-- Затем откройте в корневом каталоге проекта файл `app.js` и добавьте вызов стратегии `OIDCStrategy`, входящей в состав `passport-azure-ad`.
+Откройте файл `app.js` в корневой папке проекта. Добавьте следующий вызов, чтобы вызвать стратегию `OIDCStrategy`, которая поставляется с `passport-azure-ad`.
 
 
 ```JavaScript
@@ -120,14 +116,14 @@ var log = bunyan.createLogger({
 });
 ```
 
-- После этого используйте стратегию, которую мы только что использовали в ссылке, чтобы обрабатывать запросы на вход.
+Используйте стратегию, указанную для обработки запросов на вход.
 
 ```JavaScript
-// Use the OIDCStrategy within Passport. (Section 2)
+// Use the OIDCStrategy in Passport (Section 2).
 //
-//   Strategies in passport require a `validate` function, which accept
-//   credentials (in this case, an OpenID identifier), and invoke a callback
-//   with a user object.
+//   Strategies in Passport require a "validate" function that accepts
+//   credentials (in this case, an OpenID identifier), and invokes a callback
+//   by using a user object.
 passport.use(new OIDCStrategy({
     callbackURL: config.creds.returnURL,
     realm: config.creds.realm,
@@ -158,21 +154,21 @@ passport.use(new OIDCStrategy({
   }
 ));
 ```
-Passport использует аналогичную схему для всех своих стратегий (Twitter, Facebook и т. д.), представленных всеми модулями записи стратегий. Просматривая стратегию, можно увидеть, что мы передаем function(), у которой есть маркер, и обрабатываем параметры. Стратегия возвратится к нам после выполнения всей своей работы. После ее возврата потребуется сохранить пользователя и спрятать маркер, так как нам больше не придется его запрашивать.
+Passport использует аналогичный шаблон для всех своих стратегий (в том числе Twitter и Facebook). Все авторы стратегии придерживаются этого шаблона. Если взглянуть на стратегию, можно увидеть, что вы передаете ей `function()` с маркером и `done` в качестве параметра. Стратегия будет возвращена после выполнения всех задач. Сохраните данные пользователя и маркер, чтобы не задавать их в следующий раз повторно.
 
 > [AZURE.IMPORTANT]
-Приведенный выше код принимает всех пользователей, которые прошли аутентификацию на сервере. Это называется автоматической регистрацией. На рабочих серверах не нужно разрешать другим пользователям входить без выбранной вами регистрации. Это типично для клиентских приложений, в которых разрешается регистрация через Facebook, но затем последуют запросы на дополнительную информацию. Если бы это не был пример приложения, мы могли бы извлечь электронный адрес из возвращенного объекта маркера и затем запросить дополнительную информацию. Так как это всего лишь тестовый сервер, мы просто добавим их в базу данных в памяти.
+Приведенный выше код принимает всех пользователей, которые проходят проверку подлинности на сервере. Это называется автоматической регистрацией. Если вы используете рабочие серверы, вам не следует пропускать пользователей, если они не пройдут через установленный процесс регистрации. Этот шаблон часто используется в потребительских приложениях. Они позволяют регистрироваться с помощью Facebook, но затем появляется запрос на ввод дополнительных сведений. Если бы это не был пример приложения, мы могли бы извлечь электронный адрес из возвращенного объекта маркера, а затем запросить у пользователя дополнительную информацию. Так как это всего лишь тестовый сервер, мы просто добавим пользователей в базу данных в памяти.
 
-- Далее добавим методы, которые позволят отслеживать список вошедших пользователей согласно требованиям Passport. Сюда относится сериализация и десериализация информации о пользователе:
+Добавьте методы, которые позволяют отслеживать пользователей, выполнивших вход, в соответствии с требованиями Passport. Сюда относится сериализация и десериализация информации о пользователе:
 
 ```JavaScript
 
 // Passport session setup. (Section 2)
 
-//   To support persistent login sessions, Passport needs to be able to
-//   serialize users into and deserialize users out of the session.  Typically,
-//   this will be as simple as storing the user ID when serializing, and finding
-//   the user by ID when deserializing.
+//   To support persistent sign-in sessions, Passport needs to be able to
+//   serialize users into and deserialize users out of sessions. Typically,
+//   this is as simple as storing the user ID when Passport serializes a user
+//   and finding the user by ID when Passport deserializes that user.
 passport.serializeUser(function(user, done) {
   done(null, user.email);
 });
@@ -183,7 +179,7 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-// array to hold logged in users
+// Array to hold users who have signed in
 var users = [];
 
 var findByEmail = function(email, fn) {
@@ -199,7 +195,7 @@ var findByEmail = function(email, fn) {
 
 ```
 
-- Далее добавим код для загрузки ядра Express. Как вы видите, мы используем шаблон по умолчанию /views и /routes, предоставляемый Express.
+Добавьте код для загрузки ядра Express. В следующем коде используется шаблон по умолчанию `/views` и `/routes`, предоставленный Express.
 
 ```JavaScript
 
@@ -216,8 +212,8 @@ app.configure(function() {
   app.use(cookieParser());
   app.use(expressSession({ secret: 'keyboard cat', resave: true, saveUninitialized: false }));
   app.use(bodyParser.urlencoded({ extended : true }));
-  // Initialize Passport!  Also use passport.session() middleware, to support
-  // persistent login sessions (recommended).
+  // Initialize Passport!  Also use passport.session() middleware to support
+  // persistent sign-in sessions (recommended).
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
@@ -226,7 +222,7 @@ app.configure(function() {
 
 ```
 
-- Наконец, мы добавим маршруты POST, которые будут передавать в ядро `passport-azure-ad` запросы на вход.
+Добавьте маршруты `POST`, которые будут передавать фактические запросы на вход в ядро `passport-azure-ad`:
 
 ```JavaScript
 
@@ -234,23 +230,23 @@ app.configure(function() {
 
 // GET /auth/openid
 //   Use passport.authenticate() as route middleware to authenticate the
-//   request.  The first step in OpenID authentication will involve redirecting
-//   the user to their OpenID provider.  After authenticating, the OpenID
-//   provider will redirect the user back to this application at
+//   request. The first step in OpenID authentication involves redirecting
+//   the user to an OpenID provider. After the user is authenticated,
+//   the OpenID provider redirects the user back to this application at
 //   /auth/openid/return
 
 app.get('/auth/openid',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    log.info('Authenitcation was called in the Sample');
+    log.info('Authentication was called in the Sample');
     res.redirect('/');
   });
 
 // GET /auth/openid/return
 //   Use passport.authenticate() as route middleware to authenticate the
-//   request.  If authentication fails, the user will be redirected back to the
-//   login page.  Otherwise, the primary route function function will be called,
-//   which, in this example, will redirect the user to the home page.
+//   request. If authentication fails, the user will be redirected back to the
+//   sign-in page. Otherwise, the primary route function will be called.
+//   In this example, it redirects the user to the home page.
 app.get('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
@@ -260,9 +256,9 @@ app.get('/auth/openid/return',
 
 // POST /auth/openid/return
 //   Use passport.authenticate() as route middleware to authenticate the
-//   request.  If authentication fails, the user will be redirected back to the
-//   login page.  Otherwise, the primary route function function will be called,
-//   which, in this example, will redirect the user to the home page.
+//   request. If authentication fails, the user will be redirected back to the
+//   sign-in page. Otherwise, the primary route function will be called.
+//   In this example, it will redirect the user to the home page.
 
 app.post('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
@@ -272,11 +268,11 @@ app.post('/auth/openid/return',
   });
 ```
 
-## 4\. Использование Passport для выдачи запросов на вход и выход в Azure AD
+## Использование Passport для выдачи запросов на вход и выход в Azure AD
 
-Теперь в приложении настроена связь с конечной точкой версии 2.0 с использованием протокола проверки подлинности OpenID Connect. Подключаемый модуль `passport-azure-ad` сам создает сообщения проверки подлинности, проверяет токены из Azure AD и поддерживает сеанс пользователя. Осталось дать пользователям возможность входа, выхода и сбора дополнительной информации о вошедшем в систему пользователе.
+Теперь в приложении настроена связь с конечной точкой версии 2.0 с использованием протокола проверки подлинности OpenID Connect. Подключаемый модуль `passport-azure-ad` сам создает сообщения проверки подлинности, проверяет маркеры из Azure AD и поддерживает сеанс пользователя. Осталось предоставить пользователям возможности входа и выхода, а также собрать дополнительную информацию о вошедших в систему пользователях.
 
-- Сначала добавьте в файл `app.js` метод по умолчанию, а также методы входа, учетной записи и выхода.
+Сначала добавьте в файл `app.js` стандартные методы входа, учетной записи и выхода:
 
 ```JavaScript
 
@@ -304,23 +300,23 @@ app.get('/logout', function(req, res){
 
 ```
 
--	Рассмотрим это подробно.
-    -	Маршрут `/` выполнит перенаправление в представление index.ejs, передавая сведения о пользователе в запросе (если они есть).
-    - Маршрут `/account` сначала ***проверит, выполнен ли вход *** (это мы реализуем ниже), а затем передаст сведения о пользователе в запросе. Таким образом мы сможем получить дополнительные сведения о пользователе.
-    - Маршрут `/login` вызовет структуру проверки подлинности azuread-openidconnect из `passport-azuread` и, если проверка не будет пройдена, перенаправит пользователя назад к /login
-    - `/logout` просто вызовет logout.ejs (и маршрут), который очищает файлы cookie, и вернет пользователя к index.ejs
+Подробное описание этих методов приводится здесь.
+- Маршрут `/` выполнит перенаправление в представление `index.ejs`, передавая сведения о пользователе в запросе (если они есть).
+- Маршрут `/account` сначала проверяет, прошли ли вы проверку подлинности (его реализация показана ниже). Затем он передает сведения о пользователе в запросе, чтобы можно было получить дополнительные сведения о пользователе.
+- Маршрут `/login` вызывает структуру проверки подлинности `azuread-openidconnect` из `passport-azure-ad`. Если не удается вызвать структуру, маршрут перенаправляет пользователя обратно к `/login`.
+- `/logout` просто вызывает `logout.ejs` (и соответствующий маршрут). Это приводит к очистке файлов cookie, а затем перенаправляет пользователя обратно к `index.ejs`.
 
 
-- В конец файла `app.js` добавьте метод EnsureAuthenticated, который используется в `/account` выше.
+В последней части файла `app.js` добавьте метод `EnsureAuthenticated`, используемый в маршруте `/account`.
 
 ```JavaScript
 
-// Simple route middleware to ensure user is authenticated. (Section 4)
+// Simple route middleware to ensure that the user is authenticated. (Section 4)
 
-//   Use this route middleware on any resource that needs to be protected.  If
-//   the request is authenticated (typically via a persistent login session),
-//   the request will proceed.  Otherwise, the user will be redirected to the
-//   login page.
+//   Use this route middleware on any resource that needs to be protected. If
+//   the request is authenticated (typically via a persistent sign-in session),
+//   then the request will proceed. Otherwise, the user will be redirected to the
+//   sign-in page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')
@@ -328,7 +324,7 @@ function ensureAuthenticated(req, res, next) {
 
 ```
 
-- Наконец, создайте в `app.js` сам сервер.
+Наконец, создайте сам сервер в `app.js`.
 
 ```JavaScript
 
@@ -337,11 +333,11 @@ app.listen(3000);
 ```
 
 
-## 5\. Создание представлений и маршрутов в Express для вызова политик
+## Создание представлений и маршрутов в Express для вызова политик
 
-Наш файл `app.js` готов. Теперь надо просто добавить маршруты и представления, которые позволят нам вызывать политики входа и регистрации, а также обработают созданные нами маршруты `/logout` и `/login`.
+Файл `app.js` готов. Осталось добавить маршруты и представления, которые позволяют вызывать политики входа и регистрации. Они также обрабатывают созданные вами маршруты `/logout` и `/login`.
 
-- Создайте в корневом каталоге маршрут `/routes/index.js`.
+Создайте в корневом каталоге маршрут `/routes/index.js`.
 
 ```JavaScript
 
@@ -354,7 +350,7 @@ exports.index = function(req, res){
 };
 ```
 
-- Создание маршрута `/routes/user.js` в корневом каталоге
+Создайте в корневом каталоге маршрут `/routes/user.js`.
 
 ```JavaScript
 
@@ -367,72 +363,68 @@ exports.list = function(req, res){
 };
 ```
 
-Эти простые маршруты будут передавать запрос в наши представления, включая пользователя, если он имеется.
+Эти простые маршруты передают запросы представлениям. Они содержат данные пользователя, если он есть.
 
-- Создайте в корневом каталоге представление `/views/index.ejs`. Это простая страница, которая будет вызывать политики входа и выхода и позволит получать информацию об учетной записи. Обратите внимание, что вы можете использовать условное выражение `if (!user)`, так как сведения о пользователе, передаваемые в запросе, свидетельствуют о том, что в систему вошел пользователь.
+Создайте представление `/views/index.ejs` в корневом каталоге. Это простая страница, которая вызывает политики входа и выхода. Вы также можете использовать ее для получения сведений об учетной записи. Обратите внимание, что вы можете использовать условное значение `if (!user)`, так как данные о пользователе передаются в запросе в качестве доказательства того, что пользователь выполнил вход.
 
 ```JavaScript
 <% if (!user) { %>
-	<h2>Welcome! Please log in.</h2>
-	<a href="/login/?p=your facebook policy">Sign In with Facebook</a>
-	<a href="/login/?p=your email sign-in policy">Sign In With Email</a>
-	<a href="/login/?p=your email sign-up policy">Sign Up With Email</a>
+	<h2>Welcome! Please sign in.</h2>
+	<a href="/login/?p=your facebook policy">Sign in with Facebook</a>
+	<a href="/login/?p=your email sign-in policy">Sign in with email</a>
+	<a href="/login/?p=your email sign-up policy">Sign up with email</a>
 <% } else { %>
 	<h2>Hello, <%= user.displayName %>.</h2>
-	<a href="/account">Account Info</a></br>
-	<a href="/logout">Log Out</a>
+	<a href="/account">Account info</a></br>
+	<a href="/logout">Log out</a>
 <% } %>
 ```
 
-- Создайте в корневом каталоге представление `/views/account.ejs`, чтобы мы могли просматривать дополнительную информацию, которую `passport-azuread` передает в запрос пользователя.
+Создайте представление `/views/account.ejs` в корневом каталоге, чтобы вы могли просматривать дополнительную информацию, которую `passport-azure-ad` помещает в запрос пользователя.
 
 ```Javascript
 <% if (!user) { %>
-	<h2>Welcome! Please log in.</h2>
-	<a href="/login">Log In</a>
+	<h2>Welcome! Please sign in.</h2>
+	<a href="/login">Sign in</a>
 <% } else { %>
 <p>displayName: <%= user.displayName %></p>
 <p>givenName: <%= user.name.givenName %></p>
 <p>familyName: <%= user.name.familyName %></p>
 <p>UPN: <%= user._json.upn %></p>
 <p>Profile ID: <%= user.id %></p>
-<p>Full Claimes</p>
+<p>Full Claims</p>
 <%- JSON.stringify(user) %>
 <p></p>
 <a href="/logout">Log Out</a>
 <% } %>
 ```
 
-Наконец, постройте и запустите свое приложение!
+Выполните сборку и запустите приложение.
 
 Запустите `node app.js` и перейдите на страницу `http://localhost:3000`.
 
 
-Зарегистрируйтесь или войдите в приложение с помощью адреса электронной почты или учетной записи Facebook. Выйдите и снова войдите в другую учетную запись.
-
-
+Зарегистрируйтесь или войдите в приложение с помощью адреса электронной почты или учетной записи Facebook. Выйдите и снова войдите от имени другого пользователя.
 
 ##Дальнейшие действия
 
-Готовый пример (без ваших значений конфигурации) [можно скачать в виде ZIP-файла здесь](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip) или клонировать с GitHub.
+Полный пример (без ваших значений конфигурации) [можно загрузить в виде ZIP-файла](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Кроме того, его можно клонировать из GitHub:
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git```
 
-Теперь можно перейти к более сложным темам. Можно попробовать:
+Теперь можно перейти к более сложным темам. Попробуйте ознакомиться с такими материалами:
 
-[Защита веб-API с помощью модели B2C в Node.js >>](active-directory-b2c-devquickstarts-api-node.md)
+[Предварительная версия B2C: защита веб-API с помощью Node.js](active-directory-b2c-devquickstarts-api-node.md)
 
 <!--
 
 For additional resources, check out:
-You can now move onto more advanced B2C topics.  You may want to try:
+You can now move on to more advanced B2C topics. You might try:
 
-[Calling a node.js Web API from a node.js Web App >>]()
+[Call a Node.js web API from a Node.js web app]()
 
 [Customizing the your B2C App's UX >>]()
 
 -->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Создание учетной записи базы данных (кроме БД SQL) — бесплатная пробная версия | Microsoft Azure"
+	pageTitle="Создание учетной записи базы данных (кроме БД SQL) — бесплатная пробная версия | Microsoft Azure"
 	description="Узнайте, как создать учетные записи базы данных с помощью средства создания интернет-баз данных для Azure DocumentDB, управляемой базы данных документов NoSQL для JSON. Получите бесплатную пробную версию сегодня."
 	keywords="Бесплатная пробная версия, средство создания оперативных баз данных, создать базу данных, создание базы данных, documentdb, azure, Microsoft azure"
 	services="documentdb"
@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="documentdb"
-	ms.workload="data-services" 
+	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -20,8 +20,8 @@
 # Создание учетной записи базы данных DocumentDB на портале Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documentdb-create-account.md)
-- [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
+- [Портал Azure](documentdb-create-account.md)
+- [Azure CLI и ARM](documentdb-automation-resource-manager-cli.md)
 
 Чтобы использовать Microsoft Azure DocumentDB, необходимо создать учетную запись базы данных DocumentDB с помощью портала Azure, шаблонов диспетчера ресурсов Azure или интерфейса командной строки Azure (CLI). В этой статье показано, как создать учетную запись базы данных на портале Azure. Чтобы создать учетную запись базы данных с помощью диспетчера ресурсов Azure или Azure CLI, см. статью [Автоматизация создания учетной базы данных DocumentDB](documentdb-automation-resource-manager-cli.md).
 
@@ -48,4 +48,4 @@
 -	[Схема обучения для DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Модель ресурсов и понятия DocumentDB](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

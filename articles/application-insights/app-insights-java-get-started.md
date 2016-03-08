@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Приступая к работе с Application Insights в веб-проекте Java | Microsoft Azure"
-	description="Мониторинг производительности и использования веб-сайта Java с помощью Application Insights"
+	pageTitle="Анализ веб-приложений Java с помощью Application Insights | Microsoft Azure"
+	description="Мониторинг производительности и использования веб-сайта Java с помощью Application Insights."
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/24/2016"
+	ms.date="03/02/2016"
 	ms.author="awills"/>
 
 # Приступая к работе с Application Insights в веб-проекте Java
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) — это расширяемая служба аналитики, позволяющая оценивать производительность и использование работающего приложения. С ее помощью можно [выявлять и диагностировать проблемы с производительностью и исключения](app-insights-detect-triage-diagnose.md), а также [писать код][api] для отслеживания действия, которые выполняют с приложением пользователи.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) — это расширяемая служба аналитики, позволяющая оценивать производительность и использование работающего приложения. С ее помощью можно [выявлять и диагностировать проблемы с производительностью и исключения](app-insights-detect-triage-diagnose.md), а также [писать код][api] для отслеживания действия, которые выполняют с приложением пользователи.
 
 ![пример данных](./media/app-insights-java-get-started/5-results.png)
 
@@ -52,7 +52,7 @@
 
 *Выберите подходящий метод для проекта.*
 
-#### Если вы создаете динамический веб-проект в Eclipse...
+#### Если вы используете Eclipse для создания проекта Maven или динамического веб-проекта…
 
 Используйте [пакет SDK Application Insights для подключаемого модуля Java][eclipse].
 
@@ -80,7 +80,7 @@
     </dependencies>
 
 
-* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>1.0.n</version>`. Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](app-insights-release-notes-java.md) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>1.0.n</version>`. Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Требуется обновить пакет SDK до новой версии?* Обновите зависимости проекта.
 
 #### Если вы используете Gradle...
@@ -98,7 +98,7 @@
       // or applicationinsights-core for bare API
     }
 
-* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например * `version:'1.0.n'`. *Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](app-insights-release-notes-java.md).*
+* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например * `version:'1.0.n'`. *Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Обновление пакета SDK до новой версии*
  * Обновите зависимости проекта.
 
@@ -118,7 +118,7 @@
 
 * *Чтобы обновить пакет SDK после появления новой версии:*
  * Загрузите последнюю версию [пакета SDK Application Insights для Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) и установите ее вместо более старых версий.
- * Изменения описаны в статье [Заметки о выпуске пакета SDK](app-insights-release-notes-java.md).
+ * Изменения описаны в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
 
@@ -366,7 +366,7 @@
 
 Application Insights может тестировать ваш веб-сайт через равные промежутки времени для проверки, работает ли он и правильно ли отвечает на запросы. [Чтобы выполнить настройку][availability], прокрутите вниз и щелкните "Доступность".
 
-![Прокрутите вниз, щелкните «Доступность», а затем — «Добавить веб-тест».](./media/app-insights-java-get-started/31-config-web-test.png)
+![Прокрутите вниз, щелкните «Доступность», а затем — «Добавить веб-тест».](./media/app-insights-java-get-started/31-config-web-test.png)
 
 Если ваш сайт выйдет из строя, вы получите диаграмму значений времени ответа, а также уведомление по электронной почте.
 
@@ -398,4 +398,4 @@ Application Insights может тестировать ваш веб-сайт ч
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

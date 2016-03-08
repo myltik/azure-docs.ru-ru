@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory B2C: создание клиента Azure AD B2C
@@ -74,4 +74,4 @@
 
 Узнайте, как зарегистрировать приложение в Azure AD B2C и создать приложение быстрого запуска, обратившись к разделу [Предварительная версия Azure Active Directory B2C: регистрация приложения](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

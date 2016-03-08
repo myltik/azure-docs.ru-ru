@@ -9,10 +9,10 @@
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="03/02/2016"
    ms.author="cherylmc" />
 
 # О VPN-устройствах для подключений VPN-шлюзов типа "сеть-сеть"
@@ -44,18 +44,18 @@
 | Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | Не совместимо |
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [Инструкции по настройке](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | Не совместимо |
 | Check Point | Security Gateway | R75.40, R75.40VS | [Инструкции по настройке](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [Инструкции по настройке](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco | ASA | 8\.3 | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) | Не совместимо |
-| Cisco | ASR | IOS 15.1 (на основе политик), IOS 15.2 (на основе маршрутов) | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) |
-| Cisco | ISR | IOS 15.0 (на основе политик), IOS 15.1 (на основе маршрутов) | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) |
+| Cisco | ASA | 8\.3 | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | Не совместимо |
+| Cisco | ASR | IOS 15.1 (на основе политик), IOS 15.2 (на основе маршрутов) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
+| Cisco | ISR | IOS 15.0 (на основе политик), IOS 15.1 (на основе маршрутов) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix | Устройство CloudBridge MPX или виртуальное устройство VPX | Недоступно | [Инструкции по интеграции](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Не совместимо |
 | Dell SonicWALL | Серия TZ, серия NSA, серия SuperMassive, серия NSA класса E | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Инструкции — SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [инструкции — SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Инструкции — SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [инструкции — SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Серия BIG-IP | Недоступно | [Инструкции по настройке](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Не совместимо |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [Инструкции по настройке](http://docs.fortinet.com/fortigate/admin-guides) | [Инструкции по настройке](http://docs.fortinet.com/fortigate/admin-guides) |
 | Internet Initiative Japan (IIJ) | Серия SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Инструкции по настройке](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | Не совместимо |
-| Juniper | SRX | JunOS 10.2 (на основе политик), JunOS 11.4 (на основе маршрутов) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
-| Juniper | Серия J | JunOS 10.4r9 (на основе политик), JunOS 11.4 (на основе маршрутов) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
-| Juniper | ISG | ScreenOS 6.3 (на основе политик и на основе маршрутов) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
-| Juniper | SSG | ScreenOS 6.2 (на основе политик и на основе маршрутов) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
+| Juniper | SRX | JunOS 10.2 (на основе политик), JunOS 11.4 (на основе маршрутов) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
+| Juniper | Серия J | JunOS 10.4r9 (на основе политик), JunOS 11.4 (на основе маршрутов) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
+| Juniper | ISG | ScreenOS 6.3 (на основе политик и на основе маршрутов) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
+| Juniper | SSG | ScreenOS 6.2 (на основе политик и на основе маршрутов) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft | Служба маршрутизации и удаленного доступа | Windows Server 2012 | Не совместимо | [Примеры Майкрософт](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Openswan | Openswan | 2\.6.32 | (Ожидается в ближайшее время) | Не совместимо |
 | Palo Alto Networks | Все устройства под управлением PAN-OS 5.0 или более поздней версии | PAN-OS 5x или более поздняя версия | [Palo Alto Networks](https://support.paloaltonetworks.com/) | Не совместимо |
@@ -148,4 +148,4 @@
 
 - Для распределенных подключений через Интернет используйте параметры по умолчанию VPN-шлюзов Azure с алгоритмами шифрования и хэширования, перечисленными в таблице выше, чтобы обеспечить безопасность обмена важными данными.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

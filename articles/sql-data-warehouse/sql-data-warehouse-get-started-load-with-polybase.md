@@ -10,18 +10,18 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
 # Загрузка данных в хранилище данных SQL с помощью PolyBase
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Фабрика данных](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase;](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 В этом руководстве показано, как загрузить данные в хранилище данных SQL с помощью AzCopy и PolyBase. Изучив руководство, вы будете знать:
@@ -43,7 +43,7 @@
     ![Средства хранилища Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## Шаг 1. Добавление данных в хранилище больших двоичных объектов Azure
+## Шаг 1. Добавление данных в хранилище больших двоичных объектов Azure
 
 Чтобы загрузить данные, нам нужно сначала поместить демонстрационные данные в хранилище BLOB-объектов Azure. На этом шаге мы заполним демонстрационными данными большой двоичный объект хранилища Azure. Затем с помощью PolyBase мы загрузим эти данные в базу данных хранилища данных SQL.
 
@@ -72,7 +72,7 @@
 
 Найдите конечную точку службы BLOB-объектов следующим образом.
 
-1. На классическом портале Azure выберите элемент **Обзор** > **Учетные записи хранения**.
+1. На классическом портале Azure выберите элемент **Обзор** > **Учетные записи хранения**.
 2. Щелкните учетную запись хранения, которую хотите использовать.
 3. В колонке учетной записи хранения выберите «BLOB-объекты».
 
@@ -86,9 +86,9 @@
 
 Найдите ключ к хранилищу данных Azure следующим образом.
 
-1. На начальном экране щелкните **Обзор** > **Учетные записи хранения**.
+1. На начальном экране щелкните **Обзор** > **Учетные записи хранения**.
 2. Щелкните учетную запись хранения, которую вы хотите использовать.
-3. Выберите **Все параметры** > **Ключи доступа**.
+3. Выберите **Все параметры** > **Ключи доступа**.
 4. Скопируйте один из ключей доступа в буфер обмена.
 
     ![Копирование ключа к хранилищу данных Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
@@ -124,7 +124,7 @@
     ![Просмотр хранилища BLOB-объектов Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## Шаг 2. Создание внешней таблицы для демонстрационных данных
+## Шаг 2. Создание внешней таблицы для демонстрационных данных
 
 В этом разделе мы создадим внешнюю таблицу, которая определяет демонстрационные данные.
 
@@ -150,7 +150,9 @@ CREATE MASTER KEY;
 
 
 -- B: Create a database scoped credential
--- Provide your Azure storage account key. The identity is associated with the credential. -- It is not used for authentication to Azure storage.
+-- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
+-- SECRET: Provide your Azure storage account key. 
+
 
 CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential 
 WITH 
@@ -160,18 +162,21 @@ WITH
 
 
 -- C: Create an external data source
--- Specify the blob service endpoint and the name of the database-scoped credential.
+-- LOCATION: Provide Azure storage account name and blob container name.
+-- CREDENTIAL: Provide the credential created in the previous step.
 
 CREATE EXTERNAL DATA SOURCE AzureStorage 
 WITH (	
-    TYPE = Hadoop, 
-    LOCATION = 'wasbs://datacontainer@pbdemostorage.blob.core.windows.net',
+    TYPE = HADOOP, 
+    LOCATION = 'wasbs://<blob_container_name>@<azure_storage_account_name>.blob.core.windows.net',
     CREDENTIAL = AzureStorageCredential
 ); 
 
 
 -- D: Create an external file format
--- Specify the way the sample data is formatted in the Azure storage blobs.
+-- FORMAT_TYPE: Type of file format in Azure storage (supported: DELIMITEDTEXT, RCFILE, ORC, PARQUET).
+-- FORMAT_OPTIONS: Specify field terminator, string delimiter, date format etc. for delimited text files.
+-- Specify DATA_COMPRESSION method if data is compressed.
 
 CREATE EXTERNAL FILE FORMAT TextFile 
 WITH (
@@ -181,9 +186,9 @@ WITH (
 
 
 -- E: Create the external table
--- Specify the fields and data types for the table. This needs to match the data
--- in the sample file. Also specify the path to the data from the root directory
--- of the data source.
+-- Specify column names and data types. This needs to match the data in the sample file. 
+-- LOCATION: Specify path to file or directory that contains the data (relative to the blob container). 
+-- To point to all files under the blob container, use LOCATION='.'
 
 CREATE EXTERNAL TABLE dbo.DimDate2External (
     DateId INT NOT NULL, 
@@ -191,13 +196,13 @@ CREATE EXTERNAL TABLE dbo.DimDate2External (
     FiscalQuarter TINYINT NOT NULL
 )
 WITH (
-    LOCATION='datedimension/', 
+    LOCATION='/datedimension/', 
     DATA_SOURCE=AzureStorage, 
     FILE_FORMAT=TextFile
 );
 
 
--- Run a PolyBase query to verify the external table
+-- Run a query on the external table
 
 SELECT count(*) FROM dbo.DimDate2External;
 
@@ -228,7 +233,7 @@ SELECT * FROM [dbo].[DimDate2External];
 
 ![Просмотр внешней таблицы](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## Шаг 5. Создание статистики для загруженных данных 
+## Шаг 5. Создание статистики для загруженных данных 
 
 Хранилище данных SQL не создает и не обновляет статистику автоматически. Поэтому после первой загрузки нужно создать статистику для каждого столбца каждой таблицы, чтобы обеспечить высокую производительность. Также важно обновлять статистику после существенных изменений данных.
 
@@ -281,4 +286,4 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [Создание учетных данных для базы данных (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.topic="hero-article"
+	ms.date="02/25/2016"
 	ms.author="dastrock"/>
 
 # Предварительная версия Azure Active Directory B2C: типы приложений
@@ -130,4 +130,4 @@ Accept: application/json
 
 Этот сценарий веб-API с цепочками может поддерживаться путем предоставления учетных данных носителя JWT OAuth 2.0 или потока On-Behalf-Of. Однако в предварительной версии Azure AD B2C поток On-Behalf-Of еще не реализован.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

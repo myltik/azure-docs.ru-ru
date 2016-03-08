@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Руководство по базам данных SQL: создание базы данных SQL с помощью C# | Microsoft Azure" 
+	pageTitle="Руководство по базам данных SQL: создание базы данных SQL с помощью C# | Microsoft Azure" 
 	description="Используйте базы данных SQL для разработки приложений на основе SQL и C#. Создайте базу данных Azure SQL с помощью C# и библиотеки баз данных SQL для .NET." 
 	keywords="учебник sql, sql и c#"   
 	services="sql-database" 
@@ -11,7 +11,7 @@
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
    ms.date="01/22/2016"
@@ -22,7 +22,7 @@
 **Отдельная база данных**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-get-started.md)
+- [Портал Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -34,7 +34,7 @@
 
 Код разбит на отдельные фрагменты для ясности, и пример консольного приложения объединяет все команды в нижней части этой статьи.
 
-Библиотека базы данных SQL Azure для .NET предоставляет API на основе [диспетчера ресурсов Azure](resource-group-overview.md), который создает оболочку для [API REST базы данных SQL на основе диспетчера ресурсов](https://msdn.microsoft.com/library/azure/mt163571.aspx). Эта клиентская библиотека следует общему шаблону для клиентских библиотек на основе диспетчера ресурсов. Диспетчеру ресурсов необходимы группы ресурсов и проверка подлинности с помощью [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+Библиотека базы данных SQL Azure для .NET предоставляет API на основе [диспетчера ресурсов Azure](../resource-group-overview.md), который создает оболочку для [API REST базы данных SQL на основе диспетчера ресурсов](https://msdn.microsoft.com/library/azure/mt163571.aspx). Эта клиентская библиотека следует общему шаблону для клиентских библиотек на основе диспетчера ресурсов. Диспетчеру ресурсов необходимы группы ресурсов и проверка подлинности с помощью [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
@@ -50,7 +50,7 @@
 
 ## Установка необходимых библиотек
 
-Чтобы создать базу данных SQL с помощью C#, установите с помощью [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) следующие пакеты, которые содержат нужные библиотеки управления. Для этого в Visual Studio последовательно выберите элементы **Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**.
+Чтобы создать базу данных SQL с помощью C#, установите с помощью [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) следующие пакеты, которые содержат нужные библиотеки управления. Для этого в Visual Studio последовательно выберите элементы **Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**.
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
     Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -66,7 +66,7 @@
 Для создания нового приложения и его регистрации в правильном Active Directory сделайте следующие.
 
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com/).
-1. В левой части выберите службу **Active Directory**, укажите каталог для проверки подлинности приложения и щелкните его **имя**.
+1. В левой части выберите службу **Active Directory**, а затем щелкните **имя** каталога для проверки подлинности приложения.
 
     ![Руководство по базам данных SQL: настройка Azure Active Directory (AAD).][1]
 
@@ -463,4 +463,4 @@
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->
