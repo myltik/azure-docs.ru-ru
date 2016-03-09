@@ -177,4 +177,4 @@
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [классический портал Azure]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!------HONumber=AcomDC_0218_2016-->
