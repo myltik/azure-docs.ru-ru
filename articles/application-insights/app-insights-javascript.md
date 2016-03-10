@@ -238,4 +238,4 @@ Application Insights можно использовать с любыми веб-
 * [Пользовательские события и метрики](app-insights-api-custom-events-metrics.md)
 * [Сборка, измерение и обучение](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

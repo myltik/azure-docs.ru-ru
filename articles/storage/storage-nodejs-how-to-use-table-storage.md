@@ -448,4 +448,4 @@ ACL реализуется с помощью массива политик до�
   [Веб-приложение Node.js, использующее службу таблиц Azure]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

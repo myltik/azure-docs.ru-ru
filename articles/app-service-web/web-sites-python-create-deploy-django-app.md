@@ -518,4 +518,4 @@ Azure предоставляет службы баз данных, которы�
 [документации по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [Документация по Django]: https://www.djangoproject.com/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
