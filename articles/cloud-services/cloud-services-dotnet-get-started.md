@@ -815,4 +815,4 @@
 * [Управление облачными службами](cloud-services-how-to-manage.md)
 * [Хранилище Azure](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

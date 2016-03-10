@@ -163,4 +163,4 @@
 - [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Репозиторий [пакетов Azure SDK для Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

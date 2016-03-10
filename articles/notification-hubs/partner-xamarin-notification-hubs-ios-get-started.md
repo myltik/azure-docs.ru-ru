@@ -329,4 +329,4 @@ Push-уведомления обычно отправляются через с�
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [портале Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

@@ -815,4 +815,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 Дополнительные сведения см. в статье [Документация по веб-заданиям Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!------HONumber=AcomDC_1217_2015-->
+<!-------HONumber=AcomDC_1217_2015-->
