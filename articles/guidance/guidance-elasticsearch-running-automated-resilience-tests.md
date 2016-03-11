@@ -121,7 +121,11 @@ npm install
 | `verbose` | Указывает, используется ли для выходных данных сценария режим подробного протоколирования | `true` |
 | `remote` | Указывает, как выполняются тесты JMeter: локально или на удаленных серверах | `true` |
 | `cluster.clusterName` | Имя кластера ElasticSearch. | `elasticsearch` |
-| `cluster.jumpboxIp` | IP-адрес виртуальной машины Jumpbox |-| | `cluster.username` | Пользователь-администратор, созданный при развертывании кластера |-| | `cluster.password` | Пароль пользователя-администратора |-| | `cluster.loadBalancer.ip` | IP-адрес балансировщика нагрузки Elasticsearch |-| | `cluster.loadBalancer.url` | Базовый URL-адрес балансировщика нагрузки |-|
+| `cluster.jumpboxIp` | IP-адрес виртуальной машины Jumpbox |-| 
+| `cluster.username` | Пользователь-администратор, созданный при развертывании кластера |-| 
+| `cluster.password` | Пароль пользователя-администратора |-| 
+| `cluster.loadBalancer.ip` | IP-адрес балансировщика нагрузки Elasticsearch |-| 
+| `cluster.loadBalancer.url` | Базовый URL-адрес балансировщика нагрузки |-|
 
 ## Выполнение тестов
 

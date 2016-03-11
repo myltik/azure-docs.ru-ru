@@ -243,4 +243,4 @@ MPIO представляет собой дополнительный компо
 - Для управления устройством StorSimple используется [служба Диспетчера StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx).
  
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
