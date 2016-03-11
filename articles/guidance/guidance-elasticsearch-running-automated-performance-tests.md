@@ -89,9 +89,18 @@
 
 * [query-config-win.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-win.ini) и [query-config-nix.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-nix.ini). Эти файлы содержат одни и те же сведения, файл *win* отформатирован в соответствии с путями и именами файлов Windows, файл *nix* отформатирован в соответствии с путями и именами файлов Linux.
 
-  ```ini [DEFAULT] debug=true #if true shows console logs.
+  ```ini
+  [DEFAULT]
+  debug=true #if true shows console logs.
 
-  [RUN] pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #path where tests results are saved. jmx=C:\\Users\\administrator1\\testplan.jmx #path to the JMeter test plan. machines=10.0.0.1,10.0.02,10.0.0.3 #IPs of the Elasticsearch data nodes separated by commas. reports=aggr,err,tps,waitio,cpu,network,disk,response,view #Name of the reports separated by commas. tests=idx1 #Elasticsearch index name to test. properties=run.properties #Name of the properties file. ```
+  [RUN]
+  pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #path where tests results are saved.
+  jmx=C:\\Users\\administrator1\\testplan.jmx #path to the JMeter test plan.
+  machines=10.0.0.1,10.0.02,10.0.0.3 #IPs of the Elasticsearch data nodes separated by commas.
+  reports=aggr,err,tps,waitio,cpu,network,disk,response,view #Name of the reports separated by commas.
+  tests=idx1 #Elasticsearch index name to test.
+  properties=run.properties #Name of the properties file.
+  ```
 
   Измените этот файл, чтобы указать местоположения результатов тестов, имя запускаемого плана тестирования JMeter, IP-адреса узлов данных Elasticsearch отчеты, в которых будут находиться создаваемые необработанные данные производительности, и имя (или имена) тестируемого индекса. Если файл *run.properties* находится в другой папке или другом каталоге, укажите полный путь к этому файлу.
 
@@ -116,4 +125,4 @@
 [Развертывание дискретизатора JUnit JMeter для тестирования производительности Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 [Развертывание дискретизатора JUnit для JMeter для тестирования производительности Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
