@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/28/2016" 
 	ms.author="aniedea"/>
 
 
@@ -32,7 +32,7 @@
 
 ##Использование веб-службы
 
-Эта служба принимает 4 аргумента и выполняет проверку гипотезы для долей.
+Эта служба принимает 4 аргумента и выполняет проверку гипотезы для долей.
 
 Входные аргументы:
 
@@ -45,7 +45,7 @@
 
 >Эта служба, размещенная в Azure Marketplace, основана на OData. Вызвать ее можно методами POST и GET.
 
-Есть несколько способов использования службы в автоматическом режиме (см. пример приложения [здесь](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx)).
+Есть несколько способов использования службы в автоматическом режиме (см. пример приложения [здесь](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx)).
 
 ###Начало кода C# для использования веб-службы:
 
@@ -130,4 +130,4 @@
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

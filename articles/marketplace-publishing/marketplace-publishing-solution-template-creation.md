@@ -31,7 +31,8 @@
   ![рисунок][img-pubportal-sol-templ-new]
 
 ### 3\. Начните с топологий
-Шаблон решения служит родительским элементом для всех своих топологий. В одном шаблоне предложений или решения можно определить сразу несколько топологий. Когда предложение переходит к стадии промежуточного развертывания, вместе с ним отправляются все его топологии. Чтобы определить предложение, выполните следующие действия: создайте топологию (как правило, в качестве имени топологии для шаблона решения используется идентификатор топологии). Идентификатор топологии включается в URL-адрес, как показано ниже.
+Шаблон решения служит родительским элементом для всех своих топологий. В одном шаблоне предложений или решения можно определить сразу несколько топологий. Когда предложение переходит к стадии промежуточного развертывания, вместе с ним отправляются все его топологии. Выполните следующее, чтобы определить предложение:
+- Создайте топологию (как правило, в качестве имени топологии для шаблона решения используется "идентификатор топологии"). Идентификатор топологии включается в URL-адрес, как показано ниже.
 
   Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
@@ -40,7 +41,9 @@
 - Добавьте новую версию.
 
 ### 4\. Сертифицируйте версии топологии
-Передайте ZIP-файл, содержащий все файлы, необходимые для подготовки соответствующей версии топологии. Этот ZIP-файл должен содержать следующее: файлы *mainTemplate.json* и *createUiDefinition.json* в корневой папке; все связанные шаблоны и необходимые скрипты.
+Передайте ZIP-файл, содержащий все файлы, необходимые для подготовки соответствующей версии топологии. Этот ZIP-файл должен содержать следующее:
+- файлы *mainTemplate.json* и *createUiDefinition.json* в корневом каталоге;
+- связанные шаблоны и все необходимые сценарии.
 
 Отправив ZIP-файл, нажмите кнопку **Сертификация запроса**. Команда сертификации Майкрософт проверит файлы и выполнит сертификацию топологии.
 
@@ -67,11 +70,11 @@
 
 - Диспетчер ресурсов Azure: [Создание шаблонов Azure ARM](../resource-group-authoring-templates/) и [Простые примеры шаблонов ARM](https://github.com/rjmax/ArmExamples)
 
-- Регулирование учетной записи хранения: [Отслеживание регулирования учетной записи хранения](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) и [Хранилище класса Premium](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-whru-RUing-premium-storage)
+- Регулирование учетной записи хранения: [Отслеживание регулирования учетной записи хранения](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) и [Хранилище класса Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets-whru-RUing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

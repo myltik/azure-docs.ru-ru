@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Заметки о выпуске пакета SDK для Windows Phone Silverlight
 
-##3\.2.0 (22.01.2016 г.)
+##3\.2.0 (22.01.2016 г.)
 Входит в пакет NuGet *MicrosoftAzure.MobileEngagement* **версии 3.3.0**
 
 -   По URL-адресам действия доступны настраиваемые схемы, ms-appx и ms-appdata.
@@ -43,4 +43,4 @@
 -   Улучшения безопасности.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

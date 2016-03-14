@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # collectd: метрики производительности Unix в Application Insights
@@ -40,7 +40,7 @@
 На компьютере с сервером Unix выполните указанные ниже действия.
 
 1. Установите [collectd](http://collectd.org/) 5.4.0 или более поздней версии.
-2. Загрузите [подключаемый модуль записи Application Insights collectd](https://azuredownloads.blob.core.windows.net/applicationinsights/applicationinsights-collectd-1.0.1.jar). Запишите номер версии.
+2. Загрузите [подключаемый модуль записи Application Insights collectd](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). Запишите номер версии.
 3. Скопируйте подключаемый модуль JAR в `/usr/share/collectd/java`.
 3. Отредактируйте файл `/etc/collectd/collectd.conf`:
  * Убедитесь, что [подключаемый модуль Java](https://collectd.org/wiki/index.php/Plugin:Java) включен.
@@ -143,4 +143,4 @@
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

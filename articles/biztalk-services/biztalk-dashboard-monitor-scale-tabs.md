@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -31,20 +31,20 @@
 В зависимости от версии служб BizTalk не все параметры в списке могут быть доступны.
 <table border="1">
     <tr>
-        <td><strong>Получение инструментов</strong></td>
+        <td><strong>Получить инструменты</strong></td>
 
-        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
+        <td>Загрузите пакет SDK служб BizTalk для установки шаблонов проектов Visual Studio на локальном компьютере, предназначенном для разработки. Эти шаблоны создают проекты Visual Studio для <strong>служб BizTalk</strong> (мост) и <strong>артефактов служб BizTalk</strong> (преобразование), которые развертываются в службе BizTalk.
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
+		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Использование пакета SDK для служб BizTalk в Azure</a> и <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Установка пакета SDK служб BizTalk Azure</a>&#160;— разделы с инструкциями по началу работы.
         </td>
     </tr>
 
     <tr>
-        <td><strong>Create partner agreements</strong></td>
+        <td><strong>Создание партнерских соглашений</strong></td>
 
-        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
+        <td>Открывает портал служб BizTalk в Azure (размещенный в Azure), где выполняется добавление партнеров, а также создание соглашений X12, AS2 и EDIFACT EDI.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
+        Шаги для начала работы приводятся в разделе <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Настройка EDI, AS2 и EDIFACT на портале служб BizTalk</a>.
         </td>
     </tr>
 
@@ -240,12 +240,12 @@
 ![Выберите «Добавить метрику»][AddMetrics]
 3. Проверьте метрики производительности, которые должны отображаться.
 4. Щелкните по флажку, чтобы вернуться на вкладку **Монитор**.
-5. Чтобы вывести значение метрики на диаграмме, щелкните кружок рядом с этой метрикой.  
+5. Чтобы вывести значение метрики на диаграмме, щелкните кружок рядом с этой метрикой.
 
-	Например, метрика **Использование ЦП** затенена, и ее выходные данные не отображаются на графике:  
+	Например, метрика **Загрузка ЦП** отображается серым цветом (неактивна), и ее выходные данные не отображаются на диаграмме.
 ![Метрика загрузки ЦП неактивна][GrayedMetric]  
 
-	Выберите серый кружок, чтобы включить метрику **Использование ЦП** для вывода ее данных на графике:  
+	Чтобы активировать метрику **Загрузка ЦП** и отобразить ее выходные данные на диаграмме, щелкните выделенный серым цветом кружок.
 ![Метрика загрузки ЦП активна][EnabledMetric]
 
 6. Чтобы удалить метрику из диаграммы и списка, выберите **Удалить метрики** на панели задач. Чтобы вернуть метрику в список, выберите **Добавить метрики** на панели задач, отметьте нужную метрику, а затем щелкните по флажку, чтобы вернуться на вкладку **Монитор**. Выберите серый кружок, чтобы включить метрику.
@@ -339,7 +339,7 @@
 
 Информацию о создании гибридных подключений на веб-сайтах Azure см. в статье [Гибридное подключение: подключение веб-сайта Azure к локальному ресурсу](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-Чтобы использовать гибридные подключения в мобильных службах Azure, см. раздел [Мобильные службы Azure и гибридные подключения](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+Чтобы использовать гибридные подключения в мобильных службах Azure, см. раздел [Мобильные службы Azure и гибридные подключения](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 Чтобы создать гибридные подключения или управлять ими в службах Azure BizTalk, см. раздел [Гибридные подключения](integration-hybrid-connection-overview.md).
 
@@ -365,4 +365,4 @@
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

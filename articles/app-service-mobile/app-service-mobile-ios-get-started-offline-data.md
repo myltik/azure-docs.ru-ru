@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/29/2016"
 	ms.author="krisragh"/>
 
 # Включение автономной синхронизации для мобильного приложения iOS
@@ -88,10 +88,7 @@
 
     Второй параметр для `pullWithQuery` — это идентификатор запроса, который используется для *добавочной синхронизации*. Добавочная синхронизация извлекает только те записи, которые были изменены с момента последней синхронизации, используя для этого метку времени `UpdatedAt` записи (в локальном хранилище она называется `updatedAt`). Идентификатор запроса должен быть описательной строкой, уникальной для каждого логического запроса в приложении. Чтобы явно отказаться от добавочной синхронизации, передайте `nil` в качестве идентификатора запроса. Помните, что это может привести к снижению производительности, поскольку при каждой операции принудительного получения будут извлекаться все записи.
 
-	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
- -->
-
-5. В классе `QSTodoService` метод `syncData` вызывается после операций, которые изменяют данные, — `addItem` и `completeItem`. Он также вызывается из `QSTodoListViewController.refresh`, поэтому пользователь получает последние данные при каждом выполнении жеста обновления. Приложение также выполняет синхронизацию при запуске, поскольку `QSTodoListViewController.init` вызывает `refresh`.
+5. В классе `QSTodoService` метод `syncData` вызывается после операций, которые изменяют данные, а именно `addItem` и `completeItem`. Он также вызывается из `QSTodoListViewController.refresh`, поэтому пользователь получает последние данные при каждом выполнении жеста обновления. Приложение также выполняет синхронизацию при запуске, поскольку `QSTodoListViewController.init` вызывает `refresh`.
 
     Поскольку `syncData` вызывается при каждом изменении данных, это приложение предполагает, что пользователь находится в сети каждый раз, когда вносит изменения в данные. В другом разделе мы обновим приложение, чтобы пользователи могли изменять данные, даже работая в автономном режиме.
 
@@ -190,7 +187,7 @@
 
 3. Просмотрите содержимое удаленной таблицы TodoItem:
 
-    + Для серверной части Node.js перейдите на [портал Azure](https://portal.azure.com/), затем на странице серверной части своего мобильного приложения щелкните **Easy Tables** > **TodoItem**, чтобы просмотреть содержимое таблицы `TodoItem`.
+    + Для серверной части Node.js перейдите на [портал Azure](https://portal.azure.com/), затем на странице серверной части своего мобильного приложения щелкните **Easy Tables** > **TodoItem**, чтобы просмотреть содержимое таблицы `TodoItem`.
    	+ Для серверной части .NET просмотрите содержимое таблицы с помощью средства SQL, например SQL Server Management Studio, или с помощью клиента REST, например Fiddler или Postman.
 
     Убедитесь, что новые элементы *не* были синхронизированы с сервером.
@@ -223,8 +220,6 @@
 
     Если вы хотите явно отказаться от добавочной синхронизации, передайте `nil` в качестве идентификатора запроса. В этом случае при каждом вызове `pullWithQuery` будут извлекаться все записи, что может снижать уровень производительности.
 
-<!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
- -->
 
 ## Дополнительные ресурсы
 
@@ -246,4 +241,4 @@
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

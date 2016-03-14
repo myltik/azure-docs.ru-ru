@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Учебник. Использование действия копирования в конвейере фабрики данных Azure"
+	pageTitle="Учебник. Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL Azure"
 	description="В этом учебнике показано, как использовать действие копирования в конвейере фабрики данных Azure для копирования данных из больших двоичных объектов Azure в базу данных SQL Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -16,14 +16,16 @@
 	ms.date="02/01/2016"
 	ms.author="spelluru"/>
 
-# Учебник. Копирование данных из хранилища BLOB-объектов Azure в Azure SQL
+# Учебник. Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL Azure
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Обзор учебника](data-factory-get-started.md)
+- [Редактор фабрики данных](data-factory-get-started-using-editor.md)
+- [с использованием PowerShell.](data-factory-monitor-manage-using-powershell.md)
+- [Visual Studio](data-factory-get-started-using-vs.md)
 
-Руководство, представленное в этой статье, поможет быстро перейти к использованию службы фабрики данных Azure. В этом учебнике будет создана фабрика данных Azure и конвейер в фабрике данных, который будет выполнять копирование данных из хранилища больших двоичных объектов Azure в базу данных SQL Azure.
+В этом учебнике будет создана фабрика данных Azure и конвейер с действием копирования, который будет выполнять копирование данных из хранилища BLOB-объектов Azure в базу данных SQL Azure.
+
+Действие копирования означает перемещение данных в фабрику данных Azure. Это действие выполняется глобально доступной службой, обеспечивающей безопасное, надежное и масштабируемое копирование данных из одного хранилища в другое. Дополнительные сведения о действии копирования см. в статье [Действия перемещения данных](data-factory-data-movement-activities.md).
 
 > [AZURE.NOTE] Подробный обзор службы фабрики данных см. в статье [Введение в фабрику данных Azure][data-factory-introduction].
 
@@ -90,15 +92,17 @@
 
 	**Если на вашем компьютере установлен SQL Server 2012/2014**, следуйте инструкциям в статье [Шаг 2. Подключение к базе данных SQL управляющей базы данных SQL Azure при помощи SQL Server Management Studio][sql-management-studio] для подключения к серверу Azure SQL Server и запуска скрипта SQL. Обратите внимание, что в этой статье для настройки брандмауэра сервера Azure SQL Server используется [классический портал Azure](http://manage.windowsazure.com), а не [портал Azure](https://portal.azure.com).
 
-	**Если на компьютере установлено программное обеспечение Visual Studio 2013**, на [портале Azure](https://portal.azure.com) щелкните концентратор **ПРОСМОТР** слева, щелкните **Серверы SQL**, выберите свою базу данных и нажмите кнопку **Открыть в Visual Studio** на панели инструментов, чтобы подключиться к серверу Azure SQL Server и запустить скрипт. Если клиенту не разрешен доступ к серверу Azure SQL Server, следует настроить брандмауэр вашего сервера Azure SQL Server, чтобы разрешить доступ с вашей машины (IP-адрес). См. статью выше, чтобы ознакомиться с шагами по настройке брандмауэра для сервера Azure SQL Server.
+	**Если на компьютере установлено программное обеспечение Visual Studio 2013**, на [портале Azure](https://portal.azure.com) щелкните концентратор **ПРОСМОТР** слева, щелкните **Серверы SQL**, выберите свою базу данных и нажмите кнопку **Открыть в Visual Studio** на панели инструментов, чтобы подключиться к серверу Azure SQL Server и запустить скрипт. Если клиенту не разрешен доступ к серверу Azure SQL Server, следует настроить брандмауэр вашего сервера Azure SQL Server, чтобы разрешить доступ с вашей машины (IP-адрес). См. статью выше, чтобы ознакомиться с шагами по настройке брандмауэра для сервера Azure SQL Server.
 
 
 Выполните следующее:
 
 - Щелкните ссылку [Использование редактора фабрики данных](data-factory-get-started-using-editor.md) вверху, чтобы пройти руководство, используя редактор фабрики данных, который является компонентом классического портала Azure.
 - Щелкните ссылку [Использование PowerShell](data-factory-monitor-manage-using-powershell.md) вверху, чтобы пройти учебник с помощью Azure PowerShell.
-- Щелкните ссылку [Использование Visual Studio](data-factory-get-started-using-vs.md), чтобы изучить руководство с применением Visual Studio 2013.
- 
+- Щелкните ссылку [Использование Visual Studio](data-factory-get-started-using-vs.md), чтобы изучить руководство с применением Visual Studio 2013.
+
+## Действие копирования
+Дополнительные сведения о действии копирования в фабрике данных Azure см. в статье [Действия перемещения данных](data-factory-data-movement-activities.md).
 
 
 <!--Link references-->
@@ -111,4 +115,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

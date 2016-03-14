@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/24/2015" 
+	ms.date="02/26/2016" 
 	ms.author="naziml"/>
 
 # Настройка брандмауэра веб-приложения (WAF) для среды службы приложений
@@ -99,4 +99,4 @@ Barracuda WAF использует TCP-порт 8000 для настройки �
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

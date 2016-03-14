@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="camsoper" 
- manager="dwrede" 
+<properties
+ pageTitle="Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure"
+ description=""
+ services="cdn"
+ documentationCenter=".NET"
+ authors="camsoper"
+ manager="erikre"
  editor=""/>
-<tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/02/2015" 
+<tags
+ ms.service="cdn"
+ ms.workload="media"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="02/25/2016" 
  ms.author="casoper"/>
 
 #Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure
@@ -25,12 +25,12 @@
 
 В следующем XML-коде показан пример использования параметра **clientCache** для указания максимального возраста в 3 дня:
 
-	<configuration> 
-	  <system.webServer> 
-	        <staticContent> 
-	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" /> 
-	        </staticContent> 
-	  </system.webServer> 
+	<configuration>
+	  <system.webServer>
+	        <staticContent>
+	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
+	        </staticContent>
+	  </system.webServer>
 	</configuration>
 
 При указании **UseMaxAge** в ответ добавляется Cache-Control: max-age=<nnn> на основе значения, указанного в атрибуте **CacheControlMaxAge**. Формат временного диапазона для атрибута **cacheControlMaxAge** имеет вид <days>.<hours>:<min>:<sec>. Дополнительные сведения об узле **clientCache** см. в разделе [Кэш клиента<clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).
@@ -50,4 +50,4 @@
 
 [Управление сроком действия содержимого BLOB-объекта в сети доставки содержимого (CDN) Azure](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

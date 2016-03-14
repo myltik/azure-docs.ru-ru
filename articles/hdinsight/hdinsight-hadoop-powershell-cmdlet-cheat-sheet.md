@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/25/2016" 
 	ms.author="nitinme"/>
 
 
 # Памятка по командлетам PowerShell для стандартных задач Hadoop в Microsoft Azure HDInsight
 
-Microsoft Azure HDInsight позволяет выполнять задачи Hadoop в кластере с помощью командлетов PowerShell. В **памятке по командлетам PowerShell для Microsoft Azure HDInsight ** указаны командлеты PowerShell для выполнения наиболее распространенных задач Hadoop, таких как создание и удаление кластера, выполнение заданий и т. д. Вы также можете ознакомиться со списком всех командлетов PowerShell, доступных для Microsoft Azure HDInsight.
+Microsoft Azure HDInsight позволяет выполнять задачи Hadoop в кластере с помощью командлетов PowerShell. В **памятке по командлетам PowerShell для Microsoft Azure HDInsight ** указаны командлеты PowerShell для выполнения наиболее распространенных задач Hadoop, таких как создание и удаление кластера, выполнение заданий и т. д. Вы также можете ознакомиться со списком всех командлетов PowerShell, доступных для Microsoft Azure HDInsight.
 
 ## Памятка по HDInsight: модель управления службами
 
@@ -34,4 +34,4 @@ Microsoft Azure HDInsight позволяет выполнять задачи Had
 
 * [Схема обучения для HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

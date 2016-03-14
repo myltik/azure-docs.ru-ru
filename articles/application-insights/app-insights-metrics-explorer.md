@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Исследование метрик в Application Insights
@@ -194,11 +194,11 @@
 
 ### Непрерывный экспорт
 
-Для внешней обработки данных вам понадобится непрерывный экспорт. Для этого используйте функцию [Непрерывный экспорт](app-insights-export-telemetry.md).
+Если необходимо постоянно экспортировать данные для внешней обработки, используйте [непрерывный экспорт](app-insights-export-telemetry.md).
 
 ### Power BI
 
-Если вам необходимы представления данных с еще большими возможностями, [экспортируйте данные в Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+Если вам нужны представления данных с еще большими возможностями, данные можно [экспортировать в Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## Дальнейшие действия
 
@@ -214,4 +214,4 @@
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0302_2016-->

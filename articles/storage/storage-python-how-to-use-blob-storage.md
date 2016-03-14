@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="emgerner"/>
+	ms.date="02/29/2016"
+	ms.author="jehine"/>
 
 # Использование хранилища больших двоичных объектов Azure из Python
 
@@ -57,14 +57,14 @@
 
 ## Отправка BLOB-объекта в контейнер
 
-Чтобы создать большой двоичный объект и передать данные, используйте методы **create\_block\_blob\_from\_path**, **create\_block\_blob\_from\_stream**, **create\_block\_blob\_from\_bytes** или **create\_block\_blob\_from\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
+Чтобы создать BLOB-объект и передать данные, используйте метод **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** или **create\_blob\_from\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
 
-**create\_block\_blob\_from\_path** передает содержимое файла из заданного пути, **create\_block\_blob\_from\_stream** передает содержимое уже открытого файла или потока. **create\_block\_blob\_from\_bytes** передает массив байтов, а **create\_block\_blob\_from\_text** передает заданное текстовое значение в заданной кодировке (по умолчанию — UTF-8).
+**create\_blob\_from\_path** передает содержимое файла из заданного пути, **create\_blob\_from\_stream** передает содержимое уже открытого файла или потока. **create\_blob\_from\_bytes** передает массив байтов, а **create\_blob\_from\_text** передает заданное текстовое значение в заданной кодировке (по умолчанию — UTF-8).
 
 В следующем примере содержимое файла **sunset.png** передается в большой двоичный объект **myblob**.
 
 	from azure.storage.blob import ContentSettings
-	block_blob_service.create_block_blob_from_path(
+	block_blob_service.create_blob_from_path(
         'mycontainer',
         'myblockblob',
         'sunset.png',
@@ -120,9 +120,9 @@
 - [Центр по разработке для Python](/develop/python/)
 - [API-интерфейс REST служб хранилища Azure](http://msdn.microsoft.com/library/azure/dd179355)
 - [Блог рабочей группы службы хранилища Azure]
-- [пакет SDK для службы хранилища Microsoft Azure для Python]
+- [Пакет SDK для службы хранилища Microsoft Azure для Python]
 
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

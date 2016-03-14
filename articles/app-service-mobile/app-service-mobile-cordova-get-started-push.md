@@ -31,7 +31,7 @@
 Для работы с этим учебником требуется:
 
 * [Учетная запись Google] с подтвержденным адресом электронной почты.
-* Компьютер с [Visual Studio Community 2015] или более поздней версии.
+* Компьютер с [Visual Studio Community 2015] или более поздней версии.
 * [Средства Visual Studio для Apache Cordova].
 * [Активная учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Выполненный [ознакомительный проект Apache Cordova]. Другие учебники (например по [проверке подлинности]) могут быть пройдены раньше, но это не является обязательным условием.
@@ -76,113 +76,124 @@
 
 ### Установка подключаемого модуля Apache Cordova для push-уведомлений
 
-Приложения Apache Cordova не обрабатывают возможностей устройства или сети изначально. Эти возможности обеспечиваются подключаемыми модулями, которые публикуются в [npm] или в GitHub. Подключаемый модуль `phonegap-plugin-push` используется для обработки push-уведомлений сети. Установка из командной строки:
+Приложения Apache Cordova не обрабатывают возможностей устройства или сети изначально. Эти возможности обеспечиваются подключаемыми модулями, которые публикуются в [npm](https://www.npmjs.com/) или GitHub. Подключаемый модуль `phonegap-plugin-push` используется для обработки push-уведомлений сети.
+
+Подключаемый модуль push-уведомлений можно установить одним из следующих способов:
+
+**из командной строки:**
 
     cordova plugin add phonegap-plugin-push
 
-Установка подключаемого модуля в Visual Studio:
+**в Visual Studio:**
 
 1.  Откройте файл `config.xml` в обозревателе решений.
-2.  Щелкните **Подключаемые модули** (с левой стороны), а затем **Пользовательские** (наверху).
-3.  В качестве источника установки выберите **Git**. В качестве источника введите `https://github.com/phonegap/phonegap-plugin-push`.
-4.  Щелкните стрелку рядом с источником установки, а затем **Добавить**.
+2.  Щелкните **Подключаемые модули** > **Настраиваемые**, выберите **Git** как источник установки, затем в качестве источника введите `https://github.com/phonegap/phonegap-plugin-push`.
+	
+	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
+	
+4.  Щелкните стрелку рядом с источником установки, а затем щелкните **Добавить**.
 
-Подключаемый модуль push-уведомлений будет установлен.
+Теперь подключаемый модуль push-уведомлений установлен.
 
 ### Установка служб Android Google Play
 
 Подключаемый модуль PhoneGap передает push-уведомления через службы Google Play. Для установки:
 
 1.  Откройте **Visual Studio**.
-2.  Щелкните **Средства** => **Android** => **Диспетчер SDK Android**.
+2.  Щелкните **Сервис** > **Android** > **Android SDK Manager** (Диспетчер пакетов SDK для Android).
 3.  Установите флажок рядом с каждым необходимым пакетом SDK в папке Extras, который не был установлен. Требуются следующие пакеты:
     * Библиотека поддержки Android версии 23 или более поздней
     * Репозиторий поддержки Android версии 20 или более поздней
     * Службы Google Play версии 27 или более поздней
     * Репозиторий Google версии 22 или более поздней
-4.  Щелкните пункт **Установить пакеты**.
+4.  Щелкните **Install Packages** (Установить пакеты).
 5.  Дождитесь завершения процесса установки.
 
-Необходимые на данный момент библиотеки перечислены в [документации по установке подключаемого модуля для push-уведомлений PhoneGap].
+Необходимые на данный момент библиотеки перечислены в [документации по установке подключаемого модуля push-уведомлений PhoneGap].
 
 ### Регистрация устройства для получения push-уведомлений при запуске
 
-Добавьте вызов метода `registerForPushNotifications()` в обратный вызов при входе в систему или в конец метода `onDeviceReady()`:
+1. Добавьте вызов метода **registerForPushNotifications** в обратный вызов при входе в систему или в конец метода **onDeviceReady**:
 
-    // Login to the service
-    client.login('google')
-        .then(function () {
-            // Create a table reference
-            todoItemTable = client.getTable('todoitem');
+ 
+		// Login to the service.
+		client.login('google')
+		    .then(function () {
+		        // Create a table reference
+		        todoItemTable = client.getTable('todoitem');
+		
+		        // Refresh the todoItems
+		        refreshDisplay();
+		
+		        // Wire up the UI Event Handler for the Add Item
+		        $('#add-item').submit(addItemHandler);
+		        $('#refresh').on('click', refreshDisplay);
+		
+				// Added to register for push notifications.
+		        registerForPushNotifications();
+		
+		    }, handleError);
 
-            // Refresh the todoItems
-            refreshDisplay();
+	В этом примере показан вызов **registerForPushNotifications** после успешного прохождения аутентификации, что рекомендуется при использовании в приложении push-уведомлений и аутентификации.
 
-            // Wire up the UI Event Handler for the Add Item
-            $('#add-item').submit(addItemHandler);
-            $('#refresh').on('click', refreshDisplay);
+2. Добавьте новый метод `registerForPushNotifications()` следующим образом:
 
-            registerForPushNotifications();
+	    // Register for Push Notifications.
+		// Requires that phonegap-plugin-push be installed.
+	    var pushRegistration = null;
+	    function registerForPushNotifications() {
+	        pushRegistration = PushNotification.init({
+	            android: {
+	                senderID: 'Your_Project_ID'
+	            },
+	            ios: {
+	                alert: 'true',
+	                badge: 'true',
+	                sound: 'true'
+	            },
+	            wns: {
+	
+	            }
+	        });
+	
+	        pushRegistration.on('registration', function (data) {
+	            client.push.register('gcm', data.registrationId);
+	        });
+	
+	        pushRegistration.on('notification', function (data, d2) {
+	            alert('Push Received: ' + data.message);
+	        });
+	
+	        pushRegistration.on('error', handleError);
+	    }
 
-        }, handleError);
-
-Реализуйте `registerForPushNotifications()` следующим образом:
-
-    /**
-     * Register for Push Notifications - requires the phonegap-plugin-push be installed
-     */
-    var pushRegistration = null;
-    function registerForPushNotifications() {
-        pushRegistration = PushNotification.init({
-            android: {
-                senderID: 'YourProjectID'
-            },
-            ios: {
-                alert: 'true',
-                badge: 'true',
-                sound: 'true'
-            },
-            wns: {
-
-            }
-        });
-
-        pushRegistration.on('registration', function (data) {
-            client.push.register('gcm', data.registrationId);
-        });
-
-        pushRegistration.on('notification', function (data, d2) {
-            alert('Push Received: ' + data.message);
-        });
-
-        pushRegistration.on('error', handleError);
-    }
-
-Замените значение _YourProjectID_ на числовой идентификатор проекта для вашего приложения, взятый из [консоли разработчиков Google].
+3. В приведенном выше коде замените значение `Your_Project_ID` числовым идентификатором проекта своего приложения, полученным на сайте [Google Developer Console].
 
 ## Тестирование приложения с помощью опубликованной мобильной службы
 
-Приложение можно проверить, подключив телефон Android напрямую с помощью USB-кабеля. Вместо **эмулятора Google Android** выберите **устройство**. Visual Studio загрузит приложение на устройство и запустит приложение. После этого вы будете работать с приложением на устройстве.
+Приложение можно проверить, подключив телефон Android напрямую с помощью USB-кабеля. Вместо ** Эмулятор Google Android** выберите **Устройство**. Visual Studio загрузит приложение на устройство и запустит приложение. После этого вы будете работать с приложением на устройстве.
 
 Усовершенствуйте интерфейс разработки. В разработке приложения Android вам помогут приложения для демонстрации экрана, например [Mobizen], транслирующие экран Android в веб-браузер на компьютере.
+
+Можно также проверить приложение Android в эмуляторе Android. Не забудьте сначала добавить учетную запись Google в эмулятор.
 
 ##<a name="next-steps"></a>Дальнейшие действия
 
 * Прочитайте о [центрах уведомлений], чтобы получить дополнительные сведения о push-уведомлениях.
-* Продолжите работу с учебником [Добавление проверки подлинности] для приложения Apache Cordova, если вы это еще не сделали.
+* Продолжите работу с учебником [Добавление проверки подлинности в приложение Apache Cordova], если вы этого еще не сделали.
 
 <!-- URLs -->
-[Добавление проверки подлинности]: app-service-mobile-cordova-get-started-users.md
+[Добавление проверки подлинности в приложение Apache Cordova]: app-service-mobile-cordova-get-started-users.md
 [ознакомительного проекта Apache Cordova]: app-service-mobile-cordova-get-started.md
 [ознакомительный проект Apache Cordova]: app-service-mobile-cordova-get-started.md
 [проверке подлинности]: app-service-mobile-cordova-get-started-users.md
 [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Учетная запись Google]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-[консоли разработчиков Google]: https://console.developers.google.com/home/dashboard
-[документации по установке подключаемого модуля для push-уведомлений PhoneGap]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
+[Google Developer Console]: https://console.developers.google.com/home/dashboard
+[документации по установке подключаемого модуля push-уведомлений PhoneGap]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [Mobizen]: https://www.mobizen.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2015]: http://www.visualstudio.com/
 [Средства Visual Studio для Apache Cordova]: https://www.visualstudio.com/ru-RU/features/cordova-vs.aspx
 [центрах уведомлений]: ../notification-hubs/notification-hubs-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

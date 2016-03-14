@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Руководство по устранению неполадок Azure Mobile Engagement — Информация о запросе на обслуживание" 
+   pageTitle="Руководство по устранению неполадок Azure Mobile Engagement — Информация о запросе на обслуживание" 
    description="Информация о запросе на обслуживание, необходимая службе поддержки для устранения неполадок в работе Azure Mobile Engagement." 
    services="mobile-engagement" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="06/18/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Информация о запросе на обслуживание
@@ -34,10 +34,10 @@
 - Результаты тестов, выполненных по инструкциям в [Руководствах по устранению неполадок](http://go.microsoft.com/fwlink/?LinkId=524382)
 
 ## Код: релевантные сведения о коде 
-- Версия пакета SDK и платформы приложения (Android SDK 2.4.1, iOS 1.16.2 и т. д.)
+- Версия пакета SDK и платформы приложения (Android SDK 2.4.1, iOS 1.16.2 и т. д.)
 - Каталог загрузки рабочего приложения (или файлы APK/TGZ приложения в разработке).
 - Файл AndroidManifest.xml и/или любой фрагмент кода приложения, связанный с Mobile Engagement (для дополнительного устранения неполадок)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

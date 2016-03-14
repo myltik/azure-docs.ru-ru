@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET
@@ -48,7 +48,7 @@
 
 
 
-> [AZURE.NOTE]Если вы используете мобильные службы в качестве серверной службы, см. раздел [Версии мобильных служб](../mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) этого учебника.
+> [AZURE.NOTE] Если вы используете мобильные службы в качестве серверной службы, см. раздел [Версии мобильных служб](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) этого учебника.
 
 
 
@@ -388,4 +388,4 @@
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

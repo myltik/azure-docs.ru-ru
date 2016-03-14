@@ -8,11 +8,16 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/10/2016"
-
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/26/2016"
 	ms.author="femila"/>
 
-# Сценарии использования и рекомендации по развертыванию для присоединения к Azure AD
+# Сценарии использования и рекомендации по развертыванию для присоединения к Azure AD 
 
 ## Сценарии использования для присоединения к Azure AD
 ### Сценарий 1. Основная часть ресурсов предприятия находится в облаке
@@ -87,4 +92,4 @@
 * [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

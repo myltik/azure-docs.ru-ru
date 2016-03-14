@@ -3,8 +3,8 @@
 	description="Узнайте, как выполнять дополнительное кодирование с помощью рабочего процесса Premium кодировщика мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="02/25/2016" 
 	ms.author="juliako"/>
 
 #Дополнительное кодирование с помощью рабочего процесса Premium кодировщика мультимедиа
@@ -30,7 +30,7 @@
 
 - [Форматы, которые поддерживаются рабочим процессом Premium кодировщика мультимедиа](media-services-premium-workflow-encoder-formats.md) — описание файла форматирования и поддерживаемые кодеки **рабочего процесса Premium кодировщика мультимедиа**.
 
-- В разделе [Сравнение кодировщиков](media-services-encode-asset.md#compare_encoders) сравниваются возможности кодирования **расширенного рабочего процесса кодировщика мультимедиа** и **стандартного кодировщика мультимедиа** и **кодировщика мультимедиа Azure**.
+- В разделе [Сравнение кодировщиков](media-services-encode-asset.md#compare_encoders) сравниваются возможности кодирования **расширенного рабочего процесса кодировщика мультимедиа** и **стандартного кодировщика мультимедиа**.
 
 В этом разделе показаны способы кодирования с помощью обработчика мультимедиа **Media Encoder Premium Workflow** с использованием .NET.
 
@@ -279,4 +279,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

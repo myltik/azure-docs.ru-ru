@@ -1,36 +1,37 @@
-## Create a backup vault for a VM
+## Создание хранилища архивации для виртуальной машины
 
-A backup vault is an entity that stores all the backups and recovery points that have been created over time. The backup vault also contains the backup policies that will be applied to the virtual machines being backed up.
+Хранилище архивации — это сущность, в которой хранятся созданные резервные копии и точки восстановления. Хранилище архивации также содержит политики резервного копирования, применяемые к виртуальным машинам, для которых настроена архивация.
 
-This image shows the relationships between the various Azure Backup entities:
-![Azure Backup entities and relationships](./media/backup-create-vault-for-vms/vault-policy-vm.png)
+На рисунке ниже показаны связи между разными сущностями службы архивации Azure. ![Сущности и связи службы архивации Azure](./media/backup-create-vault-for-vms/vault-policy-vm.png)
 
-To create a backup vault:
+Создание хранилища службы архивации
 
-1. Sign in to the [Azure portal](http://manage.windowsazure.com/).
+1. Войдите на [портал Azure](http://manage.windowsazure.com/).
 
-2. In the Azure portal click **New** > **Hybrid Integration** > **Backup**. When you click **Backup**, you will automatically switch to the classic portal (shown after the Note).
+2. На портале Azure щелкните **Создать** > **Гибридная интеграция** > **Служба архивации**. При нажатии кнопки **Служба архивации** выполняется автоматический переход на классический портал (см. после примечания).
 
-    ![Ibiza portal](./media/backup-create-vault-for-vms/Ibiza-portal-backup01.png)
+    ![Портал Ibiza](./media/backup-create-vault-for-vms/Ibiza-portal-backup01.png)
 
-    >[AZURE.NOTE] If your subscription was last used in the classic portal, then your subscription may open in the classic portal. In this event, to create a backup vault, click **New** > **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create** (see the image below).
+    >[AZURE.NOTE] Если в последний раз ваша подписка использовалась на классическом портале, она может открыться там же. В этом случае для создания хранилища архивации щелкните **Создать** > **Службы данных** > **Службы восстановления** > **Хранилище архивации** > **Быстрое создание** (см. изображение ниже).
 
-    ![Create backup vault](./media/backup-create-vault-for-vms/backup_vaultcreate.png)
+    ![Создание хранилища службы архивации](./media/backup-create-vault-for-vms/backup_vaultcreate.png)
 
-3. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+3. В поле **Имя** введите понятное имя для идентификации хранилища. Имя должно быть уникальным в пределах подписки Azure. Введите имя длиной от 2 до 50 знаков. Имя должно начинаться с буквы, оно может содержать только буквы, цифры и дефисы.
 
-4. In **Region**, select the geographic region for the vault. The vault must be in the same region as the virtual machines that you want to protect. If you have virtual machines in multiple regions, you must create a backup vault in each region. There is no need to specify storage accounts to store the backup data--the backup vault and the Azure Backup service handle this automatically.
+4. В поле **Область** выберите географический регион для хранилища архивации. Хранилище должно находиться в том же регионе, что и виртуальные машины, которые необходимо защитить. Если у вас есть виртуальные машины в нескольких регионах, создайте хранилище архивации в каждом из этих регионов. Нет необходимости указывать учетные записи хранения для хранения данных архивации: хранилище и служба архивации Azure делают это автоматически.
 
-5. In **Subscription** select the subscription you want to associate with the backup vault. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
+5. В поле **Подписка** выберите подписку, которую нужно связать с хранилищем архивации. Вариантов будет несколько только в том случае, если учетная запись вашей организации связана с несколькими подписками Azure.
 
-5. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
+5. Щелкните **Создать хранилище**. Для создания резервного хранилища может потребоваться некоторое время. Уведомления о состоянии процесса см. в нижней части портала.
 
-    ![Create vault toast notification](./media/backup-create-vault-for-vms/creating-vault.png)
+    ![Всплывающее уведомление о создании хранилища](./media/backup-create-vault-for-vms/creating-vault.png)
 
-6. A message will confirm that the vault has been successfully created. It will be listed on the **recovery services** page as **Active**. Make sure to choose the appropriate storage redundancy option right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#azure-backup---storage-redundancy-options).
+6. Успешное создание хранилища подтверждается сообщением. На странице **служб восстановления** оно будет иметь состояние **Активно**. Сразу после создания хранилища выберите соответствующее значение избыточности хранилища. См. дополнительные сведения о [настройке избыточности хранилища в хранилище службы архивации](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 
-    ![List of backup vaults](./media/backup-create-vault-for-vms/backup_vaultslist.png)
+    ![Список хранилищ службы архивации](./media/backup-create-vault-for-vms/backup_vaultslist.png)
 
-7. Click the backup vault to go to the **Quick Start** page, where the instructions for backing up Azure virtual machines are shown.
+7. Щелкните резервное хранилище, чтобы перейти на страницу **Быстрый запуск**, где отображаются инструкции по резервному копированию виртуальных машин Azure.
 
-    ![Virtual machine backup instructions on the Dashboard page](./media/backup-create-vault-for-vms/vmbackup-instructions.png)
+    ![Инструкции для архивации виртуальной машины на странице панели мониторинга](./media/backup-create-vault-for-vms/vmbackup-instructions.png)
+
+<!---HONumber=AcomDC_0302_2016-->

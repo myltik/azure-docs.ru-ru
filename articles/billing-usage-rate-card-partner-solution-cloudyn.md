@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="11/02/2015"
+   ms.date="02/19/2016"
    ms.author="mobandyo;bryanla"/>
 
 # API использования и RateCard в Microsoft Azure позволяют Cloudyn предоставлять ITFM для клиентов 
@@ -90,4 +90,4 @@ Cloudyn применяет как API использования, так и API 
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0302_2016-->

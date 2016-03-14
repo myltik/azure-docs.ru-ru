@@ -52,7 +52,7 @@
 
 Убедитесь, что вы используете последнюю рабочую версию модуля диспетчера ресурсов Azure (ARM) для PowerShell.
 
-### Шаг 1
+### Шаг 1
 
 		PS C:\> Login-AzureRmAccount
 
@@ -64,13 +64,13 @@
 
 		PS C:\> Get-AzureRmSubscription 
 
-### Шаг 3. 
+### Шаг 3. 
 
 Выберите, какие подписки Azure будут использоваться. <BR>
 
 		PS C:\> Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
 
-### Шаг 4.
+### Шаг 4.
 
 Создайте группу ресурсов (пропустите этот шаг, если вы используете существующую группу).
 
@@ -80,7 +80,7 @@
 
 ## Создание виртуальной сети и общедоступного IP-адреса для пула IP-адресов клиентской части
 
-### Шаг 1
+### Шаг 1
 
 Создайте подсеть и виртуальную сеть.
 
@@ -97,7 +97,7 @@
 
 ## Создание пула IP-адресов клиентской части и пула адресов серверной части
 
-### Шаг 1 
+### Шаг 1 
 
 Создайте пул IP-адресов клиентской части с именем *LB-Frontend*, использующий общедоступный IP-адрес *PublicIp*.
 
@@ -120,7 +120,7 @@
 - балансировщик нагрузки, который использует все объекты выше.
 
 
-### Шаг 1
+### Шаг 1
 
 Создайте правила NAT.
 
@@ -128,19 +128,26 @@
 
 	$inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP2 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
-### Шаг 2
+### Шаг 2
 
 Создайте правило балансировщика нагрузки.
 
 	$lbrule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 
-### Шаг 3.
+### Шаг 3.
 
-Создайте пробу работоспособности.
-
+Создайте пробу работоспособности. Существует два способа настройки пробы:
+ 
+проба HTTP
+	
 	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+или
 
-### Шаг 4.
+проба TCP.
+	
+	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+
+### Шаг 4.
 
 Создайте балансировщик нагрузки с помощью объектов, созданных ранее.
 
@@ -150,7 +157,7 @@
 
 Вам необходимо создать сетевые интерфейсы (или изменить существующие) и связать их с правилами NAT, правилами балансировщика нагрузки и пробами.
 
-### Шаг 1 
+### Шаг 1 
 
 Получите виртуальную сеть и подсеть виртуальной сети, в которых должны быть созданы сетевые карты.
 
@@ -163,13 +170,13 @@
 	
 	$backendnic1= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic1-be -Location 'West US' -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 
-### Шаг 3.
+### Шаг 3.
 
-Создайте сетевую карту *lb-nic2-be* и сопоставьте ее со вторым правилом NAT, а также с первым (и единственным) пулом адресов серверной части.
+Создайте сетевую карту *lb-nic2-be* и сопоставьте ее со вторым правилом NAT, а также с первым (и единственным) серверным пулом адресов.
 
 	$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic2-be -Location 'West US' -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 
-### Шаг 4.
+### Шаг 4.
 
 Проверьте сетевые адаптеры.
 
@@ -222,7 +229,7 @@
 
 
 
-### Шаг 5
+### Шаг 5
 
 С помощью командлета `Add-AzureRmVMNetworkInterface` назначьте сетевые карты различным виртуальным машинам.
 
@@ -231,7 +238,7 @@
 
 Если виртуальная машина у вас уже есть, добавьте сетевой интерфейс, выполнив описанные ниже действия:
 
-#### Шаг 1 
+#### Шаг 1 
 
 Загрузите ресурс балансировщика нагрузки в переменную (если вы это еще не сделали). Имя переменной — $lb. Используйте имена из ресурса балансировщика нагрузки, созданного ранее.
 
@@ -243,19 +250,19 @@
 
 	PS C:\> $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
 
-#### Шаг 3. 
+#### Шаг 3. 
 
 Загрузите в переменную созданный ранее сетевой интерфейс. Имя переменной — $nic. Имя сетевого интерфейса совпадает с именем в приведенном выше примере.
 
 	$nic =get-azurermnetworkinterface –name lb-nic1-be -resourcegroupname NRP-RG
 
-#### Шаг 4.
+#### Шаг 4.
 
 Измените конфигурацию серверной части в сетевом интерфейсе.
 
 	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
-#### Шаг 5 
+#### Шаг 5 
 
 Сохраните объект сетевого интерфейса.
 
@@ -266,20 +273,20 @@
 ## Обновление существующего балансировщика нагрузки
 
 
-### Шаг 1
+### Шаг 1
 
 Используя балансировщик нагрузки из предыдущего примера, присвойте переменной $slb ссылку на объект балансировщика нагрузки, используя метод Get-AzureLoadBalancer.
 
 	$slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
-### Шаг 2
+### Шаг 2
 
 В следующем примере вы добавите новое входящее правило NAT для порта 81 на клиентской части и порта 8181 на серверной части, которое будет применяться к пулу существующего балансировщика нагрузки.
 
 	$slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol TCP
 
 
-### Шаг 3.
+### Шаг 3.
 
 Сохраните новую конфигурацию, используя командлет Set-AzureLoadBalancer.
 
@@ -295,10 +302,10 @@
 
 ## Дальнейшие действия
 
-[Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-internal-getstarted.md)
+[Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
 
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

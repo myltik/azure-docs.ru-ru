@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="12/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="cephalin"/>
 
 # Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией Azure Active Directory #
@@ -47,7 +47,7 @@
 - Клиент Azure Active Directory с пользователями в различных группах
 - Разрешения на создание приложений в клиенте Azure Active Directory
 - Visual Studio 2013 или более поздней версии
-- [Пакет SDK Azure, начиная с версии 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
+- [Пакет SDK Azure, начиная с версии 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
 
 <a name="bkmk_sample"></a>
 ## Использование примера приложения в качестве шаблона бизнес-приложения ##
@@ -68,7 +68,7 @@
 
 3.	В представлении только что созданного приложения Azure Active Directory на [классическом портале Azure](https://manage.windowsazure.com) щелкните вкладку **ПОЛЬЗОВАТЕЛИ**. Затем назначьте выбранным пользователям выбранные роли.
 
-	>[AZURE.NOTE]Для назначения ролей группам необходимо обновить ваш клиент Azure Active Directory до версии [Azure Active Directory Premium](/pricing/details/active-directory/). Если вы видите вкладку **ПОЛЬЗОВАТЕЛИ** вместо вкладки **ПОЛЬЗОВАТЕЛИ И ГРУППЫ** в интерфейсе классического портала приложения, вы можете попробовать Azure Active Directory Premium, перейдя на вкладку **ЛИЦЕНЗИИ** вашего клиента Azure Active Directory.
+	>[AZURE.NOTE] Для назначения ролей группам необходимо обновить ваш клиент Azure Active Directory до версии [Azure Active Directory Premium](/pricing/details/active-directory/). Если вы видите вкладку **ПОЛЬЗОВАТЕЛИ** вместо вкладки **ПОЛЬЗОВАТЕЛИ И ГРУППЫ** в интерфейсе классического портала приложения, вы можете попробовать Azure Active Directory Premium, перейдя на вкладку **ЛИЦЕНЗИИ** вашего клиента Azure Active Directory.
 
 3.	Завершив настройку приложения, введите `F5` в Visual Studio, чтобы запустить приложение ASP.NET.
 
@@ -143,7 +143,7 @@
 
 	> [AZURE.NOTE] Необходимые разрешения зависят от желаемой функциональности приложения. Чтобы задать некоторые разрешения, требуется роль **глобального администратора**, но разрешения, необходимые для этого учебника, требуют использования только роли **Пользователь**.
 
-9.  Щелкните **Сохранить**.  
+9.  Щелкните **Сохранить**.
 
 10.  Прежде чем покинуть страницу сохраненной конфигурации, скопируйте следующую информацию в текстовый редактор.
 
@@ -152,11 +152,11 @@
 
 11. В Visual Studio откройте в своем проекте файл **Web.Release.config**. Вставьте следующий XML-код в тег `<configuration>` и замените значение каждого ключа на информацию, сохраненную для нового приложения Azure Active Directory.
 	<pre class="prettyprint">
-&lt;appSettings>
-   &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-   &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-   &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>
+	&lt;appSettings>
+	   &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+	   &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+	   &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+	&lt;/appSettings></pre>
 
 	Убедитесь, что значение ida:PostLogoutRedirectUri заканчивается косой чертой "/".
 
@@ -198,16 +198,16 @@
 		    }
 		}
 
-6.	Откройте файл DAL\\RoleClaimContext.cs и добавьте выделенный код:  
+6.	Откройте файл DAL\\RoleClaimContext.cs и добавьте выделенный код:
 	<pre class="prettyprint">
-    public class RoleClaimContext : DbContext
-    {
-        public RoleClaimContext() : base("RoleClaimContext") { }
-
-        public DbSet&lt;Task&gt; Tasks { get; set; }
-        <mark>public DbSet&lt;WorkItem&gt; WorkItems { get; set; }</mark>
-        public DbSet&lt;TokenCacheEntry&gt; TokenCacheEntries { get; set; }
-    }</pre>
+	public class RoleClaimContext : DbContext
+	{
+	    public RoleClaimContext() : base("RoleClaimContext") { }
+	
+	    public DbSet&lt;Task> Tasks { get; set; }
+	    <mark>public DbSet&lt;WorkItem> WorkItems { get; set; }</mark>
+	    public DbSet&lt;TokenCacheEntry> TokenCacheEntries { get; set; }
+	}</pre>
 
 7.	Постройте проект, чтобы сделать новую модель доступной для логики формирования шаблона в Visual Studio.
 
@@ -224,41 +224,42 @@
 11. Добавьте выделенные оформления [Authorize] к соответствующим действиям ниже.
 	<pre class="prettyprint">
 	...
-
-    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-    public class WorkItemsController : Controller
-    {
+	
+	<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+	public class WorkItemsController : Controller
+	{
 		...
-
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public ActionResult Create()
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Edit(int? id)
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult&gt; Delete(int? id)
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
-        ...
+	
+	    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+	    public ActionResult Create()
+	    ...
+	
+	    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+	    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+	    ...
+	
+	    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+	    public async Task&lt;ActionResult> Edit(int? id)
+	    ...
+	
+	    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+	    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+	    ...
+	
+	    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+	    public async Task&lt;ActionResult> Delete(int? id)
+	    ...
+	
+	    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+	    public async Task&lt;ActionResult> DeleteConfirmed(int id)
+	    ...
 	}</pre>
+
 	Так как нас интересует сопоставление ролей в пользовательском интерфейсе классического портала Azure, достаточно просто убедиться, что каждое действие авторизует соответствующую роль.
 
-	> [AZURE.NOTE] В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken и утверждений](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
-	> + Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию требуется для маркера защиты от подделки.
-	> + Если каталог Azure Active Directory синхронизирован с AD FS, в связи с установленным доверием AD FS также по умолчанию не отправляется утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider. Однако вы можете вручную настроить AD FS для отправки этого утверждения.
+	> [AZURE.NOTE] В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
+	> + Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию необходим для маркера защиты от подделки.
+	> + Если Azure Active Directory является каталогом, синхронизированным с AD FS, то инструмент доверия AD FS по умолчанию также не отправляет утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, хотя AD FS можно настроить вручную для отправки такого утверждения. }
 	> Мы займемся этим на следующем шаге.
 
 12.  В файле App\_Start\\Startup.Auth.cs добавьте следующую строку кода в метод `ConfigureAuth`. Щелкните правой кнопкой мыши по каждой ошибке разрешения имен, чтобы ее исправить.
@@ -283,55 +284,55 @@
             return result.AccessToken;
         }
 		
-14.	В файле Views\\WorkItems\\Create.cshtml (автоматически сформированный на основе шаблона элемент) найдите вспомогательный метод `Html.BeginForm` и измените его следующим:  
+14.	В файле Views\\WorkItems\\Create.cshtml (автоматически сформированный на основе шаблона элемент) найдите вспомогательный метод `Html.BeginForm` и измените его следующим:
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
 	{
 	    @Html.AntiForgeryToken()
-	    
-	    &lt;div class="form-horizontal"&gt;
-	        &lt;h4&gt;WorkItem&lt;/h4&gt;
-	        &lt;hr /&gt;
+	
+	    &lt;div class="form-horizontal">
+	        &lt;h4>WorkItem&lt;/h4>
+	        &lt;hr />
 	        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 	
-	        &lt;div class="form-group"&gt;
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type=&quot;hidden&quot;</mark> } })
-	                @Html.ValidationMessageFor(model =&gt; model.AssignedToID, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
+	        &lt;div class="form-group">
+	            &lt;div class="col-md-10">
+	                @Html.EditorFor(model => model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type="hidden"</mark> } })
+	                @Html.ValidationMessageFor(model => model.AssignedToID, "", new { @class = "text-danger" })
+	            &lt;/div>
+	        &lt;/div>
 	
-	        &lt;div class="form-group"&gt;
-	            @Html.LabelFor(model =&gt; model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EditorFor(model =&gt; model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
-	                @Html.ValidationMessageFor(model =&gt; model.AssignedToName, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
+	        &lt;div class="form-group">
+	            @Html.LabelFor(model => model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10">
+	                @Html.EditorFor(model => model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model => model.AssignedToName, "", new { @class = "text-danger" })
+	            &lt;/div>
+	        &lt;/div>
 	
-	        &lt;div class="form-group"&gt;
-	            @Html.LabelFor(model =&gt; model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EditorFor(model =&gt; model.Description, new { htmlAttributes = new { @class = "form-control" } })
-	                @Html.ValidationMessageFor(model =&gt; model.Description, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
+	        &lt;div class="form-group">
+	            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10">
+	                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+	            &lt;/div>
+	        &lt;/div>
 	
-	        &lt;div class="form-group"&gt;
-	            @Html.LabelFor(model =&gt; model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EnumDropDownListFor(model =&gt; model.Status, htmlAttributes: new { @class = "form-control" })
-	                @Html.ValidationMessageFor(model =&gt; model.Status, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
+	        &lt;div class="form-group">
+	            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10">
+	                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
+	                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+	            &lt;/div>
+	        &lt;/div>
 	
-	        &lt;div class="form-group"&gt;
-	            &lt;div class="col-md-offset-2 col-md-10"&gt;
-	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> /&gt;
-	            &lt;/div&gt;
-	        &lt;/div&gt;
-	    &lt;/div&gt;
+	        &lt;div class="form-group">
+	            &lt;div class="col-md-offset-2 col-md-10">
+	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> />
+	            &lt;/div>
+	        &lt;/div>
+	    &lt;/div>
 	
-	    <mark>&lt;script&gt;
+	    <mark>&lt;script>
 	            // People/Group Picker Code
 	            var maxResultsPerPage = 14;
 	            var input = document.getElementById("AssignedToName");
@@ -340,13 +341,13 @@
 	
 	            var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
 	
-	            // Submit the selected user/group to be asssigned.
+	            // Отправьте выбранного пользователя или группу для назначения.
 	            $("#submit-button").click({ picker: picker }, function () {
 	                if (!picker.Selected())
 	                    return;
 	                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
 	            });
-	    &lt;/script&gt;</mark>
+	    &lt;/script></mark>
 	
 	}</pre>
 
@@ -389,4 +390,4 @@
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

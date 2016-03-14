@@ -103,7 +103,7 @@
 
 ## Проверка пользовательского домена, предназначенного для федерации с локальным каталогом
 
-1.  Загрузка и запуск Azure AD Connect Средство Azure AD Connect предложит вам [добавить предоставленные им DNS-записи](active-directory-aadconnect-get-started-custom.md#select-the-azure-ad-domain-that-you-wish-to-federate).
+1.  Загрузка и запуск Azure AD Connect Инструмент Azure AD Connect предложит вам [добавить предоставленные им записи DNS](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
 ## Доменные имена третьего уровня
 
@@ -125,4 +125,4 @@
 - [Изменение регистратора DNS для пользовательского доменного имени](active-directory-add-domain-change-registrar.md)
 - [Удаление пользовательского доменного имени в Azure Active Directory](active-directory-add-domain-delete-domain.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

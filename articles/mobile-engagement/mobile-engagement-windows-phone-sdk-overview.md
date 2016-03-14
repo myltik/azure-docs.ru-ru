@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Общие сведения о пакете SDK для Windows Phone Silverlight для Azure Mobile Engagement
@@ -32,7 +32,7 @@
 
 ##Заметки о выпуске
 
-###3\.2.0 (22.01.2016 г.)
+###3\.2.0 (22.01.2016 г.)
 Входит в пакет NuGet *MicrosoftAzure.MobileEngagement* **версии 3.3.0**
 
 -   По URL-адресам действия доступны настраиваемые схемы, ms-appx и ms-appdata.
@@ -55,4 +55,4 @@
 См. статью [Процедуры обновления](mobile-engagement-windows-phone-upgrade-procedure/).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

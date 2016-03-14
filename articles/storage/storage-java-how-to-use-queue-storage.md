@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="micurd"/>
+	ms.date="02/29/2016"
+	ms.author="robmcm"/>
 
 # Использование хранилища очередей из Java
 
@@ -393,4 +393,4 @@
 [API-интерфейс REST служб хранилища Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

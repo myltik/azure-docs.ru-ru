@@ -74,6 +74,7 @@
 Это приложение создает простой WebAPI, оптимизированный для мобильных устройств, с одной конечной точкой (`/tables/TodoItem`), которая с помощью динамической схемы предоставляет доступ к базовому хранилищу данных SQL без проверки подлинности. Этот пример подходит к следующим примерам использования клиентских библиотек.
 
 - [Быстрый запуск клиента Android]
+- [Быстрый запуск клиента Apache Cordova]
 - [Быстрый запуск клиента iOS.]
 - [Быстрый запуск клиента Магазина Windows Phone.]
 - [Быстрый запуск клиента Xamarin.iOS.]
@@ -325,7 +326,7 @@ Microsoft Azure предоставляет множество механизмо
         }
     };
 
-Мы рекомендуем добавить _azureMobile.js_ в _GITIGNORE_-файл (или в другой файл игнорирования для системы управления исходным кодом), чтобы не допустить сохранения паролей в облаке. Параметры рабочей версии всегда следует настраивать через "Параметры приложения" на [портале Azure].
+Мы рекомендуем добавить _azureMobile.js_ в _GITIGNORE_-файл (или в другой файл игнорирования для системы управления исходным кодом), чтобы не допустить сохранения паролей в облаке. Параметры рабочей версии всегда следует настраивать через «Параметры приложения» на [портале Azure].
 
 ### <a name="howto-appsettings"></a>Параметры приложения для настройки мобильного приложения
 
@@ -366,7 +367,7 @@ Microsoft Azure предоставляет множество механизмо
 
 3. В окне **Группа ресурсов** введите имя своего приложения.
 
-4. Будет выбран план службы приложений по умолчанию. Если вы хотите изменить план службы приложений, выберите "План службы приложений" > **+ Создать**. Введите имя нового плана службы приложений и выберите подходящее расположение. Щелкните "Ценовая категория" и выберите соответствующую категорию для своей службы. Щелкните **Просмотреть все**, чтобы просмотреть другие варианты тарификации, например **Бесплатный** и **Общий**. Выберите ценовую категорию и нажмите кнопку **Выбрать**. В колонке **План служб приложений** нажмите кнопку **ОК**.
+4. Будет выбран план службы приложений по умолчанию. Если вы хотите изменить план службы приложений, выберите «План службы приложений» > **+ Создать**. Введите имя нового плана службы приложений и выберите подходящее расположение. Щелкните "Ценовая категория" и выберите соответствующую категорию для своей службы. Щелкните **Просмотреть все**, чтобы просмотреть другие варианты тарификации, например **Бесплатный** и **Общий**. Выберите ценовую категорию и нажмите кнопку **Выбрать**. В колонке **План служб приложений** нажмите кнопку **ОК**.
 
 5. Щелкните **Создать**. При этом создается серверная часть мобильного приложения, где позже будет развернут серверный проект. Подготовка серверной части мобильного приложения может занять несколько минут. Когда серверная часть мобильного приложения будет подготовлена, на портале для нее откроется колонка **Параметры**.
 
@@ -429,6 +430,67 @@ Microsoft Azure предоставляет множество механизмо
   - значение *disabled* указывает, что эта таблица сейчас отключена.
 
 Если свойство доступа нельзя определить, будет разрешен доступ без проверки подлинности.
+
+### <a name="howto-tables-getidentity"></a>Практическое руководство. Использование утверждений аутентификации для таблиц
+
+Можно настроить несколько утверждений, запрашиваемых при настройке аутентификации. Обычно эти утверждения недоступны через объект `context.user`. Тем не менее, их можно извлечь с помощью метода `context.user.getIdentity()`. Метод `getIdentity()` возвращает обещание, которое разрешается в объект. Объект помечается ключом метода аутентификации (facebook, google, twitter, microsoftaccount или aad).
+
+Например, если вы настраиваете аутентификацию учетных записей Майкрософт и запрашиваете утверждение электронного адреса, то можете добавить электронный адрес в запись следующим образом:
+
+    var azureMobileApps = require('azure-mobile-apps');
+
+    // Create a new table definition
+    var table = azureMobileApps.table();
+
+    table.columns = {
+        "emailAddress": "string",
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.dynamicSchema = false;
+    table.access = 'authenticated';
+
+    /**
+    * Limit the context query to those records with the authenticated user email address
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function queryContextForEmail(context) {
+        return context.user.getIdentity().then((data) => {
+            context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
+            return context.execute();
+        });
+    }
+
+    /**
+    * Adds the email address from the claims to the context item - used for
+    * insert operations
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function addEmailToContext(context) {
+        return context.user.getIdentity().then((data) => {
+            context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
+            return context.execute();
+        });
+    }
+
+    // Configure specific code when the client does a request
+    // READ - only return records belonging to the authenticated user
+    table.read(queryContextForEmail);
+
+    // CREATE - add or overwrite the userId based on the authenticated user
+    table.insert(addEmailToContext);
+
+    // UPDATE - only allow updating of record belong to the authenticated user
+    table.update(queryContextForEmail);
+
+    // DELETE - only allow deletion of records belong to the authenticated uer
+    table.delete(queryContextForEmail);
+
+    module.exports = table;
+
+Чтобы узнать, какие утверждения доступны, используйте веб-браузер для просмотра конечной точки `/.auth/me` своего сайта.
 
 ### <a name="howto-tables-disabled"></a>Практическое руководство. Запрет доступа к определенным операциям с таблицей
 
@@ -561,7 +623,7 @@ Microsoft Azure предоставляет множество механизмо
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-Конечная точка swagger будет находиться в http://_yoursite_.azurewebsites.net/swagger. Доступ к пользовательскому интерфейсу Swagger можно получить с помощью конечной точки `/swagger/ui`. Обратите внимание, что Swagger возвращает ошибку для конечной точки / при настройке обязательной проверки подлинности для всего приложения. Для получения наилучших результатов разрешите получать запросы без проверки подлинности в параметрах проверки подлинности и авторизации в службе приложений Azure, а затем назначьте для управления проверкой подлинности свойство `table.access`.
+Конечная точка swagger будет находиться в http://_yoursite_.azurewebsites.net/swagger. Доступ к пользовательскому интерфейсу Swagger можно получить с помощью конечной точки `/swagger/ui`. Обратите внимание, что Swagger возвращает ошибку для конечной точки / при настройке обязательной проверки подлинности для всего приложения. Для получения наилучших результатов разрешите получать запросы без аутентификации в параметрах аутентификации и авторизации в службе приложений Azure, а затем управляйте аутентификацией через свойство `table.access`.
 
 Кроме того, вы можете добавить параметр Swagger в файл `azureMobile.js`, если поддержка Swagger требуется только при локальной разработке.
 
@@ -645,9 +707,9 @@ Microsoft Azure предоставляет множество механизмо
 
 Для настраиваемых служб API, требующих проверки подлинности, необходимо использовать тот же маркер, что и для конечных точек доступа к таблицам.
 
-### <a name="howto-customapi-auth"></a>Практическое руководство: обработка отправки больших файлов
+### <a name="howto-customapi-auth"></a>Практическое руководство. Обработка передачи больших файлов
 
-Пакет SDK для мобильных приложений Azure использует [промежуточный слой анализатора текста запроса](https://github.com/expressjs/body-parser) для приема и расшифровки содержимого текста запроса в отправке. Анализатор текста запроса можно предварительно настроить для приема отправки больших файлов:
+Пакет SDK для мобильных приложений Azure использует [промежуточный слой анализатора текста запроса](https://github.com/expressjs/body-parser) для приема и расшифровки содержимого текста запроса в отправляемых данных. Анализатор текста запроса можно предварительно настроить для приема отправки больших файлов:
 
 	var express = require('express'),
         bodyParser = require('body-parser'),
@@ -766,6 +828,7 @@ Microsoft Azure предоставляет множество механизмо
 
 <!-- URLs -->
 [Быстрый запуск клиента Android]: app-service-mobile-android-get-started.md
+[Быстрый запуск клиента Apache Cordova]: app-service-mobile-cordova-get-started.md
 [Быстрый запуск клиента iOS.]: app-service-mobile-ios-get-started.md
 [Быстрый запуск клиента Xamarin.iOS.]: app-service-mobile-xamarin-ios-get-started.md
 [Быстрый запуск клиента Xamarin.Android.]: app-service-mobile-xamarin-android-get-started.md
@@ -806,4 +869,4 @@ Microsoft Azure предоставляет множество механизмо
 [промежуточного слоя ExpressJS]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

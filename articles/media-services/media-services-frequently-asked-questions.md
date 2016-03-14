@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
 
@@ -47,7 +47,7 @@
 
 Вопрос. Как повернуть видео в процессе кодирования?
 
-Ответ. [Стандартный кодировщик служб мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md) поддерживает поворот на 90, 180 или 270 градусов. По умолчанию задается значение Auto, при котором система пытается обнаружить метаданные поворота во входящем файле MP4/MOV и обеспечить соответствующую компенсацию. Включите следующий элемент **Sources** в одну из предустановок JSON, определенных [здесь](http://msdn.microsoft.com/library/azure/mt269960.aspx):
+Ответ. [Стандартный кодировщик служб мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md) поддерживает поворот на 90, 180 или 270 градусов. По умолчанию задается значение Auto, при котором система пытается обнаружить метаданные поворота во входящем файле MP4/MOV и обеспечить соответствующую компенсацию. Включите следующий элемент **Sources** в одну из предустановок JSON, определенных [здесь](http://msdn.microsoft.com/library/azure/mt269960.aspx):
 	
 	"Version": 1.0,
 	"Sources": [
@@ -70,4 +70,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

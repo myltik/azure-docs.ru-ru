@@ -79,7 +79,7 @@
 
 Объект **ShardMapManager** создается с помощью шаблона [фабрики](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Метод **[ShardMapManagerFactory.GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)** использует учетные данные (включая имя сервера и имя базы данных, содержащей глобальную карту сегментов) в форме **ConnectionString** и возвращает экземпляр **ShardMapManager**.
 
-Экземпляр **ShardMapManager** должен создаваться только один раз для каждого домена приложения в коде инициализации приложения. **ShardMapManager** может содержать любое число карт сегментов. Многим приложениям достаточно одной карты сегментов, но в некоторых случаях применяются разные наборы баз данных, которые используются в разных схемах или имеют уникальное назначение. В таком случае желательно использовать несколько карт сегментов.
+**Обратите внимание**: экземпляр **ShardMapManager** должен создаваться только один раз для каждого домена приложения в коде инициализации приложения. Создание дополнительных экземпляров ShardMapManager в том же домене приложения приведет к повышенному потреблению ресурсов памяти и ЦП приложением. **ShardMapManager** может содержать любое число карт сегментов. Многим приложениям достаточно одной карты сегментов, но в некоторых случаях применяются разные наборы баз данных, которые используются в разных схемах или имеют уникальное назначение. В таком случае желательно использовать несколько карт сегментов.
 
 В этом коде приложение пытается открыть существующий **ShardMapManager** с помощью [метода TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx). Если объекты, представляющие глобальный диспетчер карт **ShardMapManager** (GSM), еще не существуют в базе данных, клиентская библиотека создает их с помощью метода [CreateSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx).
 
@@ -251,7 +251,7 @@
     
     Для успешного выполнения этих операций необходимо указать существующие сервер и базу данных, которая играет роль целевого сегмента. Эти методы не изменяют сами базы данных, они изменяют только метаданные в сопоставлении сегментов.
 
-* Для создания или удаления точек или диапазонов, сопоставляемых с сегментами, используйте методы **[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn841993.aspx)**, **[DeleteMapping](https://msdn.microsoft.com/library/azure/dn824200.aspx)** [класса RangeShardMapping](https://msdn.microsoft.com/library/azure/dn807318.aspx) и метод **[CreatePointMapping](https://msdn.microsoft.com/library/azure/dn807218.aspx)** класса [ListShardMap](https://msdn.microsoft.com/library/azure/dn842123.aspx).
+* Для создания или удаления точек или диапазонов, сопоставляемых с сегментами, используйте методы **[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn841993.aspx)** и **[DeleteMapping](https://msdn.microsoft.com/library/azure/dn824200.aspx)** [класса RangeShardMapping](https://msdn.microsoft.com/library/azure/dn807318.aspx) и метод **[CreatePointMapping](https://msdn.microsoft.com/library/azure/dn807218.aspx)** класса [ListShardMap](https://msdn.microsoft.com/library/azure/dn842123.aspx).
     
     Один сегмент может быть сопоставлен со множеством разных точек или диапазонов. Эти методы изменяют только метаданные, но не изменяют данные, хранящиеся в сегментах. Если для обеспечения согласованности с операциями **DeleteMapping** требуется удалить данные из базы данных, необходимо будет выполнить операции удаления отдельно, но с использованием этих методов.
 
@@ -282,4 +282,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

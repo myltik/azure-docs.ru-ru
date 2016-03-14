@@ -3,7 +3,7 @@
    description="Графическая разработка позволяет создавать модули Runbook для службы автоматизации Azure без работы с кодом. Эта статья содержит вводные сведения о графическом создании и всю информацию, необходимую, чтобы приступить к созданию графического Runbook."
    services="automation"   
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Графическая разработка в службе автоматизации Azure
@@ -419,4 +419,4 @@
 - [Операторы](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

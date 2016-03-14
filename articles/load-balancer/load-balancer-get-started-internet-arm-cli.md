@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/12/2015"
+   ms.date="02/24/2016"
    ms.author="joaoma" />
 
 # Начало работы по созданию балансировщика нагрузки для Интернета с помощью интерфейса командной строки Azure
@@ -328,4 +328,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

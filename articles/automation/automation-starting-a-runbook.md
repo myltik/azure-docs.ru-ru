@@ -3,7 +3,7 @@
    description="Кратко рассматриваются различные методы, которые позволяют запускать модуль Runbook в службе автоматизации Azure с помощью портала Azure и Windows PowerShell."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/19/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren"/>
 
 # Запуск модуля Runbook в службе автоматизации Azure
@@ -189,4 +189,4 @@ jsmith
 
 -	Архитектура Runbook в текущей статье содержит подробное описание о гибридных модулей Runbook. Дополнительную информацию см. в статье [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

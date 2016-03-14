@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/26/2016" 
 	ms.author="nitinme"/>
 
 # Настройка кластеров HDInsight с помощью действия скрипта
@@ -57,7 +57,7 @@ HDInsight предоставляет несколько скриптов для 
 **Установка Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. См. статью [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark].
 **Установка R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. См. статью [Установка и использование R в кластерах HDInsight][hdinsight-install-r].
 **Установка Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
-— **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
+— **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
 
 
 
@@ -69,16 +69,18 @@ HDInsight предоставляет несколько скриптов для 
 	![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-customize-cluster-v1/HDI.CustomProvision.Page6.png "Использование действия сценария для настройки кластера")
 	
 	<table border='1'>
-	<tr><th>Свойство</th><th>Значение</th></tr>
-	<tr><td>Имя</td>
-		<td>Укажите имя для действия сценария.</td></tr>
-	<tr><td>URI-адрес сценария</td>
-		<td>Укажите URI для сценария, который вызывается для настройки кластера.</td></tr>
-	<tr><td>Тип узла</td>
-		<td>Укажите узлы, на которых выполняется сценарий настройки. Вы можете выбрать одно из трех значений: <b>Все узлы</b>, <b>Только головные узлы</b> или <b>Только рабочие узлы</b>.
-	<tr><td>Параметры</td>
-		<td>Укажите параметры, если они требуются для сценария.</td></tr>
-</table>Можно добавить несколько действий сценария для установки нескольких компонентов в кластере.
+		<tr><th>Свойство</th><th>Значение</th></tr>
+		<tr><td>Имя</td>
+			<td>Укажите имя для действия сценария.</td></tr>
+		<tr><td>URI-адрес сценария</td>
+			<td>Укажите URI для сценария, который вызывается для настройки кластера.</td></tr>
+		<tr><td>Тип узла</td>
+			<td>Укажите узлы, на которых выполняется сценарий настройки. Вы можете выбрать одно из трех значений: <b>Все узлы</b>, <b>Только головные узлы</b> или <b>Только рабочие узлы</b>.
+		<tr><td>Параметры</td>
+			<td>Укажите параметры, если они требуются для сценария.</td></tr>
+	</table>
+
+	Можно добавить несколько действий сценария для установки нескольких компонентов в кластере.
 
 3. Щелкните галочку, чтобы начать подготовку кластера.
   
@@ -176,4 +178,4 @@ HDInsight предоставляет несколько скриптов для 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Этапы подготовки кластера"
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

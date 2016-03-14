@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать центры уведомлений Azure из серверной части Java." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.author="wesmc"/>
 
 # Использование концентраторов уведомлений из Java
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -304,4 +304,4 @@ API установки — это альтернативный механизм 
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

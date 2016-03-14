@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,7 +33,7 @@
 
 Гибридное подключение можно создать на портале Azure с помощью веб-приложений **или** служб BizTalk.
 
-**Подробности о создании гибридных подключений с помощью веб-приложений** см. в статье [Подключение веб-приложений Azure к локальным ресурсам](../web-sites-hybrid-connection-get-started.md).
+**Подробности о создании гибридных подключений с помощью веб-приложений** см. в статье [Подключение веб-приложений Azure к локальным ресурсам](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 **Создание гибридных подключений в службах BizTalk**
 
@@ -61,9 +61,9 @@
 
 ## <a name="LinkWebSite"></a>Связывание веб-приложения Azure или мобильного приложения Azure
 
-Чтобы связать веб-сайт Azure с существующим гибридным подключением, в колонке "Гибридные подключения" выберите элемент **Использовать существующее гибридное подключение**. См. раздел [Подключение веб-приложений Azure к локальным ресурсам](../web-sites-hybrid-connection-get-started.md).
+Чтобы связать веб-сайт Azure с существующим гибридным подключением, в колонке "Гибридные подключения" выберите элемент **Использовать существующее гибридное подключение**. См. раздел [Подключение веб-приложений Azure к локальным ресурсам](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
-Чтобы связать мобильное приложение службу Azure с существующим гибридным подключением, при изменении или создании мобильной службы выберите пункт **Добавить гибридное подключение**. См. статью [Мобильные службы Azure и гибридные подключения](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+Чтобы связать мобильное приложение службу Azure с существующим гибридным подключением, при изменении или создании мобильной службы выберите пункт **Добавить гибридное подключение**. См. статью [Мобильные службы Azure и гибридные подключения](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 
 ## <a name="InstallHCM"></a>Локальная установка диспетчера гибридных подключений
@@ -85,7 +85,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 3. On the on-premises resource, install the Hybrid Connection Manager from the MSI file. 
 4. Using Windows PowerShell, type: 
 > Add-HybridConnection -ConnectionString “*Your On-Premises Connection String that you copied*” 
--->
+--> 
 
 #### Дополнительно
 - Гибридные подключения поддерживают локальные ресурсы, установленные в следующих операционных системах:
@@ -112,14 +112,16 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 #### Копирование или повторное создание строк гибридных подключений
 
-1. Войдите на [классический портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Перейдите на [классический портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. В левой панели навигации щелкните **Службы BizTalk**, а затем выберите нужную службу BizTalk. 
 3. Откройте вкладку **Гибридные подключения**: ![вкладка "Гибридные подключения"][HybridConnectionTab]
 4. Выберите гибридное подключение. На панели задач нажмите кнопку **Управление подключением**: ![Управление параметрами][HCManageConnection]
 
 	В разделе **Управление подключением** содержится перечень строк подключения к приложению и локальных строк подключения. Вы можете скопировать сроки подключений или повторно создать ключ доступа, используемый в строке подключения.
 
-	**При повторном создании** общий ключ доступа, используемый в строке подключения, будет изменен. Выполните следующие действия: на классическом портале Azure в приложении Azure выберите пункт **Синхронизировать ключи**, а затем повторно запустите пункт **Настройка локального подключения**. Локальный ресурс автоматически настроится для использования обновленной основной строки подключения.
+	**При повторном создании** общий ключ доступа, используемый в строке подключения, будет изменен. Выполните следующее:
+	- На классическом портале Azure в приложении Azure выберите пункт **Синхронизировать ключи**.
+	- Повторно запустите **программу локальной установки**. Локальный ресурс автоматически настроится для использования обновленной основной строки подключения.
 
 
 #### Применение групповой политики для контроля локальных ресурсов, используемых гибридным подключением
@@ -138,7 +140,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 ## Далее
 
-[Подключение веб-приложений Azure к локальным ресурсам](../web-sites-hybrid-connection-get-started.md) [Подключение к локальному SQL Server из веб-приложений Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Мобильные службы Azure и гибридные подключения](../mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Обзор гибридных подключений](integration-hybrid-connection-overview.md)
+[Подключение веб-приложений Azure к локальным ресурсам](../app-service-web/web-sites-hybrid-connection-get-started.md) [Подключение к локальному SQL Server из веб-приложений Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Мобильные службы Azure и гибридные подключения](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Обзор гибридных подключений](integration-hybrid-connection-overview.md)
 
 
 ## См. также
@@ -150,4 +152,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

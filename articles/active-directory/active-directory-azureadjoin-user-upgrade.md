@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/26/2016"
 	ms.author="femila"/>
 
 # Настройка устройства с Windows 10 для работы с Azure AD с помощью меню «Параметры»
@@ -42,4 +42,4 @@
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 * [Проверка подлинности удостоверений без использования паролей с помощью службы Microsoft Passport](active-directory-azureadjoin-passport.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

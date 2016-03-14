@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/29/2016" 
 	ms.author="cephalin"/>
 
 
@@ -41,13 +41,15 @@
 -	Активная [учетная запись Microsoft Azure](/account/).
 -	Visual Studio 2015 с [пакетом Azure SDK для .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) Если вы используете Visual Studio, действия могут отличаться.
 
-> [AZURE.NOTE] Для выполнения приведенных в этом учебнике инструкций необходима учетная запись Azure. Вы можете [создать ее бесплатно](/pricing/free-trial/): при этом вы получаете кредиты, с помощью которых можно проверить в действии платные службы Azure, и даже после их израсходования сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты. Вы можете [активировать преимущества подписчика Visual Studio](/pricing/member-offers/msdn-benefits-details/): ваша подписка на Visual Studio каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.
+> [AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure.
+> + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после израсходования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-приложения.
+> + Вы можете [активировать преимущества подписчика Visual Studio](/pricing/member-offers/msdn-benefits-details/) — каждый месяц ваша подписка Visual Studio предоставляет вам кредиты, которые можно использовать для оплаты служб Azure.
 >
-> Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+> Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
 ## Развертывание веб-приложения в Azure с интегрированной конечной точкой CDN ##
 
-В этом разделе вы будете развертывать шаблон приложения MVC ASP.NET по умолчанию в Visual Studio 2013 в службе приложений Azure, а интегрируете его с новой конечной точкой CDN. Выполните приведенные далее инструкции.
+В этом разделе вы будете развертывать шаблон приложения MVC ASP.NET по умолчанию в Visual Studio 2015 в службе приложений Azure, а интегрируете его с новой конечной точкой CDN. Выполните приведенные далее инструкции.
 
 1. В Visual Studio 2015 создайте новое веб-приложение ASP.NET, последовательно выбрав в строке меню **Файл -> Создать -> Проект > Интернет -> Веб-приложение ASP.NET**. Назначьте ей имя и нажмите кнопку **ОК**.
 
@@ -75,36 +77,49 @@
 
 	После завершения публикации вы увидите опубликованное веб-приложение в браузере.
 
-1. Чтобы создать конечную точку CDN, войдите на [классический портал Azure](https://manage.windowsazure.com).
-2. Последовательно выберите пункты **Создать** > **Службы приложений** > **CDN** > **Быстрое создание**. Выберите **http://*&lt;sitename>*.azurewebsites.net/** и нажмите кнопку **Создать**.
+1. Чтобы создать конечную точку CDN, войдите на [портал Azure](https://portal.azure.com).
+2. Щелкните **+ Создать** > **Мультимедиа + CDN** > **CDN**.
+
+	![](media/cdn-websites-with-cdn/create-cdn-profile.png)
+
+3. Укажите **CDN**, **расположение**, **группу ресурсов**, **ценовую категорию**, после чего нажмите кнопку **Создать**.
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE] После создания конечной точки CDN классический портал отображает ее URL-адрес и исходный домен, с которым она интегрирована. Однако полное распространение конфигурации новой конечной точки CDN во все расположения узлов CDN может занять некоторое время.
+4. В колонке **CDN Profile** (профиль CDN) нажмите кнопку **+ Endpoint** (Создать конечную точку). Присвойте ей имя, выберите пункт **Веб-приложение** из раскрывающегося списка **Тип источника** и свое веб-приложение из раскрывающегося списка **Origin hostname** (Имя узла источника). Нажмите кнопку **Добавить**.
 
-3. На классическом портале откройте вкладку **CDN** и щелкните имя только что созданной конечной точки CDN.
+	![](media/cdn-websites-with-cdn/cdn-profile-blade.png)
+
+
+
+	> [AZURE.NOTE] После создания конечной точки CDN в колонке **Конечная точка** будет отображен ее URL-адрес CDN и исходный домен, с которым она интегрирована. Однако полное распространение конфигурации новой конечной точки CDN во все расположения узлов CDN может занять некоторое время.
+
+3. В колонке **Конечная точка** щелкните имя только что созданной конечной точки CDN.
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
-3. Нажмите **Включить строку запроса**, чтобы включать строки запроса в кэш CDN. После этого те же самые ссылки, доступ к которым осуществляется с помощью разных строк запроса, будут кэшироваться как отдельные записи.
+3. Нажмите кнопку **Настроить**. В колонке **Настройка** из раскрывающегося списка **Query string caching behavior** (Режим кэширования строки запроса) выберите пункт **Cache every unique URL** (Кэшировать каждый уникальный URL-адрес). Нажмите кнопку **Сохранить**.
+
 
 	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-	>[AZURE.NOTE] Хотя включение поддержки строки запроса в этом разделе учебника не обязательно, для удобства это можно сделать как можно раньше, так как распространение любого изменения во все узлы CDN занимает некоторое время, и нежелательно, чтобы содержание без включенных строк запроса засорял кэш CDN (обновление контента CDN будет рассматриваться позднее).
+После этого те же самые ссылки, доступ к которым осуществляется с помощью разных строк запроса, будут кэшироваться как отдельные записи.
 
-2. Теперь щелкните адрес конечной точки CDN. Если конечная точка готова, вы увидите свое веб-приложение. Если возникает ошибка **HTTP 404**, конечная точка CDN не готова. Вам нужно подождать около часа, чтобы конфигурация сети CDN распространилась на все пограничные узлы.
+>[AZURE.NOTE] Хотя включение поддержки строки запроса в этом разделе учебника не обязательно, для удобства это можно сделать как можно раньше, так как распространение любого изменения во все узлы CDN занимает некоторое время, и нежелательно, чтобы содержание без включенных строк запроса засорял кэш CDN (обновление контента CDN будет рассматриваться позднее).
+
+2. Теперь перейдите по адресу конечной точки CDN. Если конечная точка готова, вы увидите свое веб-приложение. Если возникает ошибка **HTTP 404**, конечная точка CDN не готова. Вам нужно подождать около часа, чтобы конфигурация сети CDN распространилась на все пограничные узлы. 
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
-1. Далее попытайтесь получить доступ к файлу **~/Content/bootstrap.css** в своем проекте ASP.NET. В окне браузера перейдите по адресу **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. В моей настройке это следующий URL-адрес:
+1. Далее попытайтесь получить доступ к файлу **~/Content/bootstrap.css** в своем проекте ASP.NET. В окне браузера перейдите по адресу **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**. В моей настройке это следующий URL-адрес:
 
-		http://az673227.vo.msecnd.net/Content/bootstrap.css
+		http://az673227.azureedge.net/Content/bootstrap.css
 
 	Он соответствует следующему исходному URL-адресу в конечной точке CDN:
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-	При переходе на адрес **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css** вам будет предложено загрузить файл bootstrap.css, происходящий из вашего веб-приложения в Azure.
+	При переходе на адрес **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css** вам будет предложено скачать файл bootstrap.css, полученный из вашего веб-приложения в Azure.
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
@@ -164,7 +179,7 @@
 
 Чтобы настроить это действие контроллера, выполните следующие действия.
 
-1. В папке *\\Controllers* создайте новый CS-файл с именем *MemeGeneratorController.cs* и замените содержимое следующим кодом. Замените путь к файлу на `~/Content/chuck.bmp`, а имя CDN — на `yourCDNName`.
+1. В папке *\\Controllers* создайте новый CS-файл с именем *MemeGeneratorController.cs* и замените содержимое следующим кодом. Замените путь к файлу на `~/Content/chuck.bmp`, а имя CDN — на `yourCDNName`.
 
 
         using System;
@@ -215,7 +230,7 @@
               }
               else // Get content from Azure CDN
               {
-                return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+                return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
               }
             }
 
@@ -301,13 +316,13 @@
       }
       else // Get content from Azure CDN
       {
-        return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+        return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
       }
     }
 
 Если подключен локальный отладчик, то вы получите обычный интерфейс отладки с локальным перенаправлением. Если отладчик работает в веб-приложении Azure, то перенаправление будет выполняться сюда:
 
-	http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 Он соответствует следующему исходному URL-адресу в конечной точке CDN:
 
@@ -367,7 +382,7 @@
           bundles.UseCdn = true;
           var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
             .GetName().Version.ToString();
-          var cdnUrl = "http://<yourCDNName>.vo.msecnd.net/{0}?v=" + version;
+          var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                 "~/Scripts/jquery-{version}.js"));
@@ -398,7 +413,7 @@
 
 	тот же самый:
 
-		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.vo.msecnd.net/bundles/jquery?v=<W.X.Y.Z>"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
 
 	Этот конструктор указывает, что при локальной отладке с помощью объединения и минификации ASP.NET должна выполняться обработка отдельных файлов скриптов, но с использованием указанного адреса CDN для доступа к соответствующему скрипту. Однако отметим две важных характеристики этого тщательно созданного URL-адреса CDN.
 	
@@ -415,11 +430,11 @@
 4. Просмотрите код HTML для этой страницы. При каждой публикации изменений веб-приложения Azure вы должны видеть обработанный URL-адрес CDN с уникальной строкой версии. Например:
 	
         ...
-        <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-        <script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449"></script>
+        <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
+        <script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
         ...
-        <script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449"></script>
-        <script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
         ...
 
 5. Перейдите в режим отладки приложения ASP.NET в Visual Studio, нажав клавишу `F5`.
@@ -448,7 +463,7 @@
         {
           var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
             .GetName().Version.ToString();
-          var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
+          var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
           bundles.UseCdn = true;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
@@ -506,13 +521,13 @@
 	
 	```
 	...
-<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+	<link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
 <script>(function() {
                 var loadFallback,
                     len = document.styleSheets.length;
                 for (var i = 0; i < len; i++) {
                     var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+		if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) {
                         var meta = document.createElement('meta');
                         meta.className = 'sr-only';
                         document.head.appendChild(meta);
@@ -526,13 +541,13 @@
                 return true;
             }())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 	... 
-	<script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
 	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
- 	<script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
+ 	<script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
  	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
 	...
 	```
@@ -543,7 +558,7 @@
 
 	Но поскольку первая часть выражения '||' будет всегда возвращать значение true (в строке прямо над этой), функция document.write() никогда не будет выполняться.
 
-6. Чтобы проверить, правильно ли работает сценарий резервного действия, вернитесь в панель мониторинга своей конечной точки CDN и щелкните **Отключить конечную точку**.
+6. Чтобы проверить, правильно ли работает сценарий резервного действия, вернитесь в колонку своей конечной точки CDN и щелкните **Остановить**.
 
 	![](media/cdn-websites-with-cdn/13-test-fallback.png)
 
@@ -561,4 +576,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Политики диспетчера ресурсов Azure | Microsoft Azure"
+	pageTitle="Политики диспетчера ресурсов Azure | Microsoft Azure"
 	description="В этом разделе описывается, как предотвращать нарушения в различных областях, таких как подписки, ресурсы и группы ресурсов, с помощью политик диспетчера ресурсов Azure."
 	services="azure-resource-manager"
 	documentationCenter="na"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/18/2015"
+	ms.date="02/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Применение политик для управления ресурсами и контроля доступа
@@ -46,7 +46,7 @@
 
 ## Структура определения политики
 
-Определение политики создается с использованием JSON. Оно состоит из одного или нескольких условий или логических операторов, определяющих действия и результат, который будет достигнут при выполнении этих условий.
+Определение политики создается с использованием JSON. Оно состоит из одного или нескольких условий или логических операторов, определяющих действия и результат, который будет достигнут при выполнении этих условий. Схема публикуется в [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json).
 
 Как правило, политика содержит следующие элементы.
 
@@ -90,15 +90,45 @@
 
 ## Поля и источники
 
-Условия формируются с помощью полей и источников. Поле представляет свойства в полезных данных запроса ресурса. Источник представляет характеристики самого запроса.
+Условия формируются с помощью полей и источников. Поле представляет свойства в полезных данных запроса ресурса, используемые для описания состояния ресурса. Источник представляет характеристики самого запроса.
 
 Поддерживаются следующие поля и источники.
 
-Поля: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
+Поля:**name**, **kind**, **type**, **location**, **tags**, **tags.*** и **property alias**.
 
 Источники: **action**.
 
+Псевдоним свойства — имя, которое можно использовать в определении политики для доступа к определенным свойствам типа ресурса, например параметрам и SKU. Он действует во всех версиях API, в которых существует это свойство. Псевдонимы можно получить с помощью приведенного ниже REST API (поддержка PowerShell будет добавлена в будущем).
+
+    GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+	
+Определение псевдонима выглядит примерно так. Как видите, псевдоним определяет пути в различных версиях API, даже если имя свойства изменено.
+
+    "aliases": [
+      {
+        "name": "Microsoft.Storage/storageAccounts/sku.name",
+        "paths": [
+          {
+            "path": "Properties.AccountType",
+            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
+          }
+        ]
+      }
+    ]
+
+Сейчас поддерживается следующие псевдонимы.
+
+| Имя псевдонима | Описание |
+| ---------- | ----------- |
+| {resourceType}/sku.name | Поддерживаемые типы ресурса: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles. |
+| {resourceType}/sku.family | Поддерживаемый тип ресурса — Microsoft.Cache/Redis. |
+| {resourceType}/sku.capacity | Поддерживаемый тип ресурса — Microsoft.Cache/Redis. |
+| Microsoft.Cache/Redis/enableNonSslPort | |
+| Microsoft.Cache/Redis/shardCount | |
+
+
 Дополнительные сведения о действиях см. в статье [RBAC. Встроенные роли](active-directory/role-based-access-built-in-roles.md). В настоящее время политика работает только для запросов PUT.
+
 
 ## Примеры определения политик
 
@@ -168,6 +198,35 @@
         "effect" : "deny"
       }
     }
+
+### Использование утвержденных SKU
+
+Ниже примере показано использование псевдонима свойства для ограничения номеров SKU. В приведенном ниже примере для использования учетными записями хранения утверждены только Standard\_LRS и Standard\_GRS.
+
+    {
+      "if": {
+        "allOf": [
+          {
+            "source": "action",
+            "like": "Microsoft.Storage/storageAccounts/*"
+          },
+          {
+            "not": {
+              "allof": [
+                {
+                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "in": ["Standard_LRS", "Standard_GRS"]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+    
 
 ### Соглашение об именовании
 
@@ -327,4 +386,4 @@
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->
