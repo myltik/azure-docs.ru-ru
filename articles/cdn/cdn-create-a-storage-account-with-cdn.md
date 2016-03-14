@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Использование CDN | Microsoft Azure" 
-	description="Узнайте, как использовать сеть доставки содержимого (CDN) Azure для доставки больших объемов контента посредством кэширования BLOB-объектов и статического контента." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Использование CDN | Microsoft Azure"
+	description="Узнайте, как использовать сеть доставки содержимого (CDN) Azure для доставки больших объемов контента посредством кэширования BLOB-объектов и статического контента."
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
@@ -71,7 +71,7 @@ CDN можно включить для кэширования содержимо
 1. На [портале управления Azure](https://portal.azure.com) в верхней левой части щелкните **Создать**. В колонке **Новый** выберите **Носитель + CDN**, а затем **CDN**.
 
     Появится колонка нового профиля сети CDN.
-    
+
     ![Новый профиль сети CDN][new-cdn-profile]
 
 2. Введите имя профиля сети CDN.
@@ -93,15 +93,15 @@ CDN можно включить для кэширования содержимо
 1. На [портале управления Azure](https://portal.azure.com) перейдите к профилю сети CDN. На предыдущем шаге вы могли прикрепить его к панели мониторинга. Если профиль не прикреплен, найдите его, нажав кнопку **Обзор**, выбрав **Профили CDN** и щелкнув профиль, к которому нужно добавить конечную точку.
 
     Появится колонка профиля сети CDN.
-    
+
     ![Профиль сети CDN][cdn-profile-settings]
-    
+
 2. Нажмите кнопку **Добавить конечную точку**.
 
     ![Кнопка "Добавить конечную точку"][cdn-new-endpoint-button]
 
     Появится колонка **Добавление конечной точки**.
-    
+
     ![Колонка "Добавление конечной точки"][cdn-add-endpoint]
 
 3. Введите **имя** конечной точки сети CDN. Это имя будет использоваться для доступа к кэшированным ресурсам в домене `<EndpointName>.azureedge.net`.
@@ -154,4 +154,4 @@ http://<*имя\_конечной\_точки*>.azureedge.net/<*общедост
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

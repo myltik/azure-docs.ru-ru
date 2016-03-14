@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Управление доступом на основе ролей с помощью интерфейса командной строки Azure"
-	description="Управление доступом на основе ролей с помощью интерфейса командной строки Azure"
+	pageTitle="Контроль доступа на основе ролей с помощью интерфейса командной строки Azure"
+	description="Контроль доступа на основе ролей с помощью интерфейса командной строки Azure"
 	services="active-directory"
 	documentationCenter="na"
 	authors="kgremban"
@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](/role-based-access-control-xplat-cli-install.md)
+- [Интерфейс командной строки Azure](role-based-access-control-xplat-cli.md)
 
 Функция управления доступом на основе ролей (RBAC) на портале Azure и в API диспетчера ресурсов Azure позволяет очень точно управлять доступом к подписке и ресурсам. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
 
@@ -30,10 +30,10 @@
 
 ## Предварительные требования ##
 
-Чтобы использовать интерфейс интерфейс командной строки Azure для управления RBAC, вам понадобится:
+Чтобы использовать Azure CLI для управления RBAC, вам понадобится:
 
 - Интерфейс командной строки Azure версии 0.8.8 или более поздней. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. статью [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md);
-- Чтобы узнать, как настраивать и использовать диспетчер ресурсов Azure в интерфейсе командной строки Azure, также прочитайте руководство [Использование Azure CLI для Mac, Linux и Windows с диспетчером ресурсов Azure](../xplat-cli-azure-resource-manager.md).
+- Чтобы узнать, как настраивать и использовать Azure Resource Manager в Azure CLI, также прочитайте руководство [Использование Azure CLI для Mac, Linux и Windows с диспетчером ресурсов Azure](../xplat-cli-azure-resource-manager.md).
 
 ## В этом учебнике рассматриваются следующие темы: ##
 
@@ -116,13 +116,13 @@ RBAC работает только с диспетчером ресурсов Az
 
 Затем используйте `azure role assignment create`, чтобы создать назначение роли. Например:
 
- 	#Создание назначения роли "Читатель" пользователю на уровне текущей подписки:
+ 	#This will create a role assignment at the current subscription level for a user as a reader:
     `azure role assignment create --upn <user's email> -o Reader`
 
-	#Создание назначения роли на уровне группы ресурсов:
+	#This will create a role assignment at a resource group level:
     `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
-	#Создание назначения роли на уровне ресурса:
+	#This will create a role assignment at a resource level:
     `azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
 
 ## <a id="verify"></a>Проверка разрешений ##
@@ -140,12 +140,12 @@ RBAC работает только с диспетчером ресурсов Az
 
 Чтобы узнать больше об управлении доступом на основе ролей с помощью интерфейса командной строки Azure, воспользуйтесь следующими ресурсами:
 
-- [Управление доступом на основе ролей в Azure](../role-based-access-control-configure.md)
+- [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md)
 - [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md)
 - [Использование интерфейса командной строки Azure с диспетчером ресурсов](../xplat-cli-azure-resource-manager.md)
-- [Использование групп ресурсов для управления ресурсами Azure](../azure-preview-portal-using-resource-groups.md): узнайте, как создавать группы ресурсов и управлять ими на портале управления Azure.
+- [Управление ресурсами Azure с помощью портала Azure](../azure-portal/resource-group-portal.md): узнайте, как создавать группы ресурсов и управлять ими на портале Azure.
 - [Блог Azure](http://blogs.msdn.com/windowsazure): узнайте о новых возможностях в Azure.
 - [Настройка управления доступом на основе ролей с помощью Windows PowerShell](role-based-access-control-powershell.md)
 - [Устранение неполадок управления доступом на основе ролей](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

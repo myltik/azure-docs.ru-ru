@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/29/2015"
+   ms.date="02/19/2016"
    ms.author="mbaldwin"/>
 
 
@@ -33,7 +33,7 @@
 
 * Укажите учетные данные для тестового клиента или учетной записи с приложением, которое команда Azure AD может использовать для тестирования интеграции.  
 
-* Приведите инструкции для команды Azure AD по входу и подключению экземпляра Azure AD к вашему приложению с помощью [платформы согласия Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/).
+* Приведите инструкции для команды Azure AD по входу и подключению экземпляра Azure AD к вашему приложению с помощью [платформы согласия Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework).
 
 * Предоставьте любые дополнительные инструкции, необходимые команде Azure AD для проверки единого входа с использованием вашего приложения.
 
@@ -97,4 +97,4 @@
 > 
 > Приложите логотип приложения (PNG-файл, 150 x 122 пикселя, сплошной цвет фона):
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

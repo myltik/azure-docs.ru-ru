@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="03/01/2016"
    ms.author="larryfr"/>
 
 # Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)
@@ -52,7 +52,7 @@
 
 ##Общие сведения о примере
 
-Пример [hdinsight-java-storm-eventhub](https://github.com/Blackmist/hdinsight-java-storm-eventhub) включает две топологии:
+Пример [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) включает две топологии:
 
 Топология __com.microsoft.example.EventHubWriter__ записывает случайные данные в концентратор событий Azure. Данные генерируются с помощью воронки и представляют собой случайные идентификатор устройства и значение устройства. Определенное устройство получает команду на передачу идентификатора строки и числового значения.
 
@@ -280,10 +280,12 @@
 4. Выберите **Настроить** и создайте две новые политики доступа, используя следующую информацию.
 
 	<table>
-<tr><th>Имя</th><th>Разрешения</th></tr>
-<tr><td>Модуль записи</td><td>Отправка</td></tr>
-<tr><td>читатель.</td><td>Прослушивание</td></tr>
-</table>После создания разрешений выберите значок **Сохранить** в нижней части страницы. Будут созданы политики совместного доступа, которые будут использоваться для отправки (writer) сообщений этому концентратору событий и их прослушивания (reader).
+	<tr><th>Имя</th><th>Разрешения</th></tr>
+	<tr><td>Модуль записи</td><td>Отправка</td></tr>
+	<tr><td>читатель.</td><td>Прослушивание</td></tr>
+	</table>
+
+	После создания разрешений выберите значок **Сохранить** в нижней части страницы. Будут созданы политики совместного доступа, которые будут использоваться для отправки (writer) сообщений этому концентратору событий и их прослушивания (reader).
 
 	![политики](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
@@ -291,7 +293,7 @@
 
 ## Загрузка и сборка проекта
 
-1. Загрузите проект [hdinsight-java-storm-eventhub](https://github.com/Blackmist/hdinsight-java-storm-eventhub) с сайта GitHub в виде ZIP-архива либо клонируйте проект локально с помощью [git](https://git-scm.com/).
+1. Загрузите проект [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) с сайта GitHub в виде ZIP-архива либо клонируйте проект локально с помощью [git](https://git-scm.com/).
 
 2. Установите пакеты, включенные в проект, в локальный репозиторий Maven, используя следующие команды. Это позволит использовать воронку и сито концентратора событий, а также HdfsBolt для записи в хранилище Azure (WASB).
 
@@ -476,4 +478,4 @@ EventHubSpout периодически передает информацию о 
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

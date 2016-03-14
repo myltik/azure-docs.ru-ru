@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/16/2016"
 	ms.author="tdykstra"/>
 
@@ -56,4 +56,4 @@ URL-адрес определения интерфейса API для прило
 
 Пошаговые инструкции по созданию, развертыванию и использованию приложений API см. в статье [Приступая к работе с приложениями API в службе приложений Azure](app-service-api-dotnet-get-started.md).
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

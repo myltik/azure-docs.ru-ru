@@ -1,5 +1,5 @@
 <properties
-   	pageTitle="Создание кластеров Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight с помощью пакета SDK для HDInsight .NET | Microsoft Azure"
+   	pageTitle="Создание кластеров Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight с помощью пакета SDK для HDInsight .NET | Microsoft Azure"
    	description="Узнайте, как создавать кластеры Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight с помощью пакета SDK для HDInsight .NET."
    	services="hdinsight"
    	documentationCenter=""
@@ -23,7 +23,7 @@
 
 Пакет SDK для HDInsight .NET предоставляет клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из приложения .NET Framework. В этом документе показано, как создать кластер HDInsight под управлением Linux с помощью пакета SDK для .NET.
 
-> [AZURE.IMPORTANT] Действия, описанные в этом документе, позволяют создать кластер с одним узлом рабочей роли. Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
+> [AZURE.IMPORTANT] Действия, описанные в этом документе, позволяют создать кластер с одним узлом рабочей роли. Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
 >
 > Дополнительные сведения о размерах узлов и их стоимости см. в статье [Сведения о ценах на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -35,7 +35,7 @@
 
 ## Создание кластеров
 
-1. Откройте Visual Studio 2013 или 2015.
+1. Откройте Visual Studio 2013 или 2015.
 
 2. Создайте новый проект Visual Studio со следующими параметрами:
 
@@ -48,8 +48,9 @@
 
 6. Чтобы установить пакеты, выполните в консоли следующую команду:
 
-        Install-Package Microsoft.Azure.Common.Authentication -pre
+        Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
+        Install-Package Microsoft.Azure.Management.Resources -Pre
 
     Эти команды добавляют библиотеки .NET и ссылки на них в текущий проект Visual Studio.
 
@@ -63,6 +64,7 @@
         using Microsoft.Azure.Common.Authentication.Models;
         using Microsoft.Azure.Management.HDInsight;
         using Microsoft.Azure.Management.HDInsight.Models;
+        using Microsoft.Azure.Management.Resources;
 
         namespace CreateHDInsightCluster
         {
@@ -100,6 +102,9 @@
 
                     var tokenCreds = GetTokenCloudCredentials();
                     var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+                    
+                    var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+                    var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
                     _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
@@ -358,4 +363,4 @@
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

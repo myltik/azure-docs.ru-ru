@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="01/08/2016"
+ ms.date="03/01/2016"
  ms.author="larryfr"/>
 
 # Использование средств Power BI для визуализации данных из топологии Apache Storm
@@ -63,7 +63,7 @@ Power BI позволяет визуально представлять данн
 
 ## Скачивание примера
 
-Скачайте [пример Power BI с HDInsight C# Storm](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Для этого скопируйте или клонируйте его с помощью [git](http://git-scm.com/) либо используйте ссылку **Скачать**, чтобы скачать ZIP-файл архива.
+Скачайте [пример Power BI с HDInsight C# Storm](https://github.com/Azure-Samples/hdinsight-dotnet-storm-powerbi). Для этого скопируйте или клонируйте его с помощью [git](http://git-scm.com/) либо используйте ссылку **Скачать**, чтобы скачать ZIP-файл архива.
 
 ## Настройка примера
 
@@ -139,4 +139,4 @@ Power BI позволяет визуально представлять данн
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

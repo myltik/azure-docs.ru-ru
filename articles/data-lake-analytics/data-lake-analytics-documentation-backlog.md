@@ -48,7 +48,7 @@ U-SQL | Параметры проверки подлинности ADLS | 1 | О
 
 Область |Раздел | location
 ------------- | ------------- | -------------- 
-служба | Координация развертывания аналитики озера данных с другими службами Azure с использованием шаблонов ARM | [расположение](../data-lake-analytics-manage-use-powershell.md)
+служба | Координация развертывания аналитики озера данных с другими службами Azure с использованием шаблонов ARM | [расположение](data-lake-analytics-manage-use-powershell.md)
 
 ## Предоставление обратной связи по списку запланированной документации
 Существует несколько способов предоставить обратную связь по списку запланированной документации.
@@ -57,4 +57,4 @@ U-SQL | Параметры проверки подлинности ADLS | 1 | О
 * Отправить запрос по внесению предложенных изменений в данный документ в [репозиторий содержимого Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Отправить сообщение по адресу [adlafeedback на сайте microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

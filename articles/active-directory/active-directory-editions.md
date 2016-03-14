@@ -117,7 +117,8 @@ Azure Active Directory — это служба, которая предоста
 
 
 
-<br> <hr>
+<br>
+<hr>
 ## Общие функции
 #### Объекты каталога 
 
@@ -152,7 +153,8 @@ Azure Active Directory — это служба, которая предоста
 - [Общие сведения о регистрации устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 
 
-<br> <hr>
+<br>
+<hr>
 #### Единый вход (SSO)
 
 **Тип:** общие функции
@@ -172,7 +174,8 @@ Azure Active Directory — это служба, которая предоста
 
 - [Управление приложениями с помощью Azure Active Directory (AD)](active-directory-enable-sso-scenario.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Самостоятельное изменение паролей для пользователей облака
 
 **Тип:** общие функции
@@ -188,7 +191,8 @@ Azure Active Directory — это служба, которая предоста
 - [Как изменить свой пароль](active-directory-passwords-update-your-own-password.md)
 
 
-<br> <hr>
+<br>
+<hr>
 #### Подключение (механизм синхронизации, позволяющий организовать совместный доступ к локальным каталогам через Azure Active Directory) 
 
 **Тип:** общие функции
@@ -204,7 +208,8 @@ Azure Active Directory — это служба, которая предоста
 
 - [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Отчеты о безопасности или использовании
 
 **Тип:** общие функции
@@ -220,7 +225,8 @@ Azure Active Directory — это служба, которая предоста
 
 - [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md)
 
-<br> <hr>
+<br>
+<hr>
 
 ## Возможности выпусков "Премиум" и "Базовый"
 #### Управление ресурсами на основе групп и их подготовка
@@ -238,7 +244,8 @@ Azure Active Directory — это служба, которая предоста
 
 - [Использование группы для управления доступом к приложениям SaaS](active-directory-accessmanagement-group-saasapps.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Самостоятельный сброс паролей для пользователей облака
 
 **Тип:** базовые функции
@@ -254,7 +261,8 @@ Azure Active Directory — это служба, которая предоста
 
 - [Сброс паролей Azure AD для пользователей и администраторов](active-directory-passwords.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Фирменная символика компании (настройка страницы входа и панели доступа)
 
 **Тип:** базовые функции
@@ -270,7 +278,8 @@ Azure Active Directory — это служба, которая предоста
 
 - [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Прокси приложения
 
 **Тип:** базовые функции
@@ -286,7 +295,8 @@ Azure Active Directory — это служба, которая предоста
 
 - [Как обеспечить безопасный удаленный доступ к локальным приложениям](active-directory-application-proxy-get-started.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Соглашение об уровне обслуживания 99,9 %
 
 **Тип:** базовые функции
@@ -302,7 +312,8 @@ Azure Active Directory — это служба, которая предоста
 
 - [Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/)
 
-<br> <hr>
+<br>
+<hr>
 
 ## Функции уровня "Премиум"
 #### Самостоятельное управление группами, самостоятельное добавление приложений, динамические группы
@@ -350,7 +361,8 @@ Azure Active Directory — это служба, которая предоста
 
 - [Что такое Azure Multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Сервер "MIM CAL + MIM" 
 
 Права на программное обеспечение Microsoft Identity Manager Server предоставляются вместе с лицензиями на любой выпуск Windows Server. Поскольку диспетчер удостоверений (Майкрософт) работает на операционной системе Windows Server, если сервер использует действительную лицензированную копию Windows Server, диспетчер удостоверений (Майкрософт) может быть установлен и может использоваться на этом сервере. Для Microsoft Identity Manager Server не требуется отдельной лицензии.
@@ -383,7 +395,8 @@ Azure Active Directory — это служба, которая предоста
 
 - [Поиск неуправляемых облачных приложений с помощью Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Connect Health
 
 **Тип:** функции уровня "Премиум"
@@ -399,7 +412,8 @@ Azure Active Directory — это служба, которая предоста
 
 - [Мониторинг локальной инфраструктуры идентификации и служб синхронизации в облаке.](active-directory-aadconnect-health.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Автоматическая ротация паролей для групповых учетных записей
 
 **Тип:** функции уровня "Премиум"
@@ -412,7 +426,8 @@ Azure Active Directory — это служба, которая предоста
 | | | ![Проверка][12]| |
 
 
-<br> <hr>
+<br>
+<hr>
 ## Присоединение к Azure Active Directory — только функции Windows 10
 #### Подключите устройство к службам Azure AD, Desktop SSO, Microsoft Passport для Azure AD и службе восстановления Administrator Bitlocker
 
@@ -448,10 +463,11 @@ Azure Active Directory — это служба, которая предоста
 **Доступные функции предварительной версии:**
 
 - [служба совместной работы Azure AD B2B;](active-directory-b2b-collaboration-overview.md)
-- условный доступ;
 - [административные единицы;](active-directory-administrative-units-management.md)
 - управление привилегированными пользователями;
 - [интеграция приложений по управлению персоналом.](active-directory-saas-workday-inbound-tutorial.md)
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md).
+- [Защита идентификации Azure Active Directory](active-directory-identityprotection.md).
 
 
 
@@ -467,4 +483,4 @@ Azure Active Directory — это служба, которая предоста
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

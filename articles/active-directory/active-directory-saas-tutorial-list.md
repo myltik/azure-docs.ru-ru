@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Список учебников по интеграции приложений SaaS с Azure AD | Microsoft Azure"
+    pageTitle="Список учебников по интеграции приложений SaaS с Azure AD | Microsoft Azure"
     description="Учебники по настройке единого входа Azure Active Directory для различных сторонних приложений SaaS."
     services="active-directory"
     documentationCenter=""
@@ -13,17 +13,16 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/23/2016"
+    ms.date="03/02/2016"
     ms.author="markvi"/>
 
 #Список учебников по интеграции приложений SaaS с Azure Active Directory
 
 Чтобы помочь вам интегрировать все облачные (SaaS) приложения с Azure Active Directory, мы разработали коллекцию учебников. В этих руководствах описаны все необходимые этапы настройки.
 
-Полный список предварительно интегрированных в Azure AD приложений SaaS см. в разделе [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+Полный список предварительно интегрированных в Azure AD приложений SaaS см. в разделе [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 ##Список учебников
-
 
 | Логотип| Имя приложения |
 | --- | --- |
@@ -65,6 +64,7 @@
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Clarizen.jpg)| [Clarizen](https://go.microsoft.com/fwLink/?LinkID=403229&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Clever.jpg)| [Clever](https://go.microsoft.com/fwLink/?LinkID=530228&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_ClickTime.jpg)| [ClickTime](https://go.microsoft.com/fwLink/?LinkID=403236&clcid=0x409)|
+| ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_NewSignature.jpg)| [Cloud Management Portal for Microsoft Azure](https://go.microsoft.com/fwLink/?LinkID=708680&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_CloudPassage.jpg)| [CloudPassage](https://go.microsoft.com/fwLink/?LinkID=512732&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Concur.jpg)| [Concur](https://go.microsoft.com/fwLink/?LinkID=309575&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Condeco.jpg)| [Condeco](https://go.microsoft.com/fwLink/?LinkID=708660&clcid=0x409)|
@@ -73,6 +73,7 @@
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_CSStars.jpg)| [CS Stars](https://go.microsoft.com/fwLink/?LinkID=530245&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Directions.jpg)| [Directions on Microsoft](https://go.microsoft.com/fwLink/?LinkID=522557&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_DocuSign.jpg)| [DocuSign](https://go.microsoft.com/fwLink/?LinkID=403254&clcid=0x409)|
+| ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Domo.jpg)| [Domo](https://go.microsoft.com/fwLink/?LinkID=708692&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Dropbox.jpg)| [Dropbox for Business](https://go.microsoft.com/fwLink/?LinkID=309581&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Druva.jpg)| [Druva](https://go.microsoft.com/fwLink/?LinkID=530221&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_eBuilder.jpg)| [e-Builder](https://go.microsoft.com/fwLink/?LinkID=510261&clcid=0x409)|
@@ -195,6 +196,7 @@
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday](https://go.microsoft.com/fwLink/?LinkID=286020&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Workrite.jpg)| [Workrite](https://go.microsoft.com/fwLink/?LinkID=530242&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_xMattersOnDemand.jpg)| [xMatters OnDemand](https://go.microsoft.com/fwLink/?LinkID=403231&clcid=0x409)|
+| ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Yardi.jpg)| [Yardi eLearning](https://go.microsoft.com/fwLink/?LinkID=733444&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Zendesk.jpg)| [Zendesk](https://go.microsoft.com/fwLink/?LinkID=403255&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_ZohoMail.jpg)| [Zoho Mail](https://go.microsoft.com/fwLink/?LinkID=403220&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Zoom.jpg)| [Zoom](https://go.microsoft.com/fwLink/?LinkID=403225&clcid=0x409)|
@@ -206,9 +208,10 @@
 
 
 
+
 ##Связанные статьи
 
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 - [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

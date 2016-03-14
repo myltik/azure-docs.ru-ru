@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/24/2016"
    ms.author="joaoma" />
 
 # Настройка параметров DNS в файле конфигурации службы
@@ -29,7 +29,7 @@
         <DnsServer name="ID3" IPAddress="IPAddress3" />
       </DnsServers>
 
->[AZURE.WARNING]Атрибут **name** в элементе **DnsServer** используется только в качестве имени ссылки. Он не представляет имя узла для DNS-сервера. Каждое значение атрибута **DnsServer** должно быть уникальным во всей подписке Microsoft Azure.
+>[AZURE.WARNING] Атрибут **name** в элементе **DnsServer** используется только в качестве имени ссылки. Он не представляет имя узла для DNS-сервера. Каждое значение атрибута **DnsServer** должно быть уникальным во всей подписке Microsoft Azure.
 
 ## См. также
 
@@ -41,4 +41,4 @@
 
 [Параметры виртуальной сети на портале управления](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

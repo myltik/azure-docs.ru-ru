@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
 
@@ -32,14 +32,14 @@
 
 Имя обработчика мультимедиа|Описание|Дополнительные сведения
 ---|---|---
-Кодировщик мультимедиа Azure|Позволяет выполнять задачи кодирования с использованием кодировщика мультимедиа Azure.|[Кодировщик мультимедиа Azure](media-services-encode-asset.md#azure_media_encoder)
-Стандартный кодировщик служб мультимедиа|Позволяет выполнять задачи кодирования с использованием стандартного кодировщика мультимедиа.|[Кодировщик мультимедиа Azure](media-services-encode-asset.md#media_encoder_standard)
-Расширенный рабочий процесс кодировщика мультимедиа|Позволяет выполнять задачи кодирования с использованием расширенного рабочего процесса кодировщика мультимедиа.|[Расширенный рабочий процесс кодировщика мультимедиа](media-services-encode-asset.md#media_encoder_premium_wokrflow)
-Azure Media Indexer| Позволяет сделать мультимедийные файлы и контент доступными для поиска, а также создавать дорожки и ключевые слова для субтитров.|[Индексирование файлов мультимедиа с помощью индексатора мультимедийных данных Azure](media-services-index-content.md)
-Azure Media Hyperlapse (предварительная версия)|Позволяет сгладить "неровности" видео с помощью стабилизации видео. Также позволяет ускорить содержимое в виде пригодного к использованию клипа.|		[Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
-Расшифровка хранилища| Позволяет расшифровать мультимедийные активы, которые были зашифрованы с помощью шифрования хранилища.|Недоступно
-Azure Media Packager|Позволяет преобразовать мультимедийные активы из формата MP4 в формат Smooth Streaming. Позволяет также преобразовать мультимедийные активы из формата Smooth Streaming в формат Apple HTTP Live Streaming (HLS).|[Строки предустановок задачи для Azure Media Packager](http://msdn.microsoft.com/library/hh973635.aspx)
-Azure Media Encryptor|Позволяет шифровать мультимедийные активы с использованием PlayReady Protection.|[Строки предустановок задачи для Azure Media Packager](http://msdn.microsoft.com/library/hh973610.aspx)
+Стандартный кодировщик служб мультимедиа|Предоставляет стандартные возможности для кодирования по запросу. |[Обзор и сравнение кодировщиков мультимедиа Azure по запросу](media-services-encode-asset.md)
+Расширенный рабочий процесс кодировщика мультимедиа|Позволяет выполнять задачи кодирования с использованием расширенного рабочего процесса кодировщика мультимедиа.|[Обзор и сравнение кодировщиков мультимедиа Azure по запросу](media-services-encode-asset.md)
+Azure Media Indexer| Позволяет сделать мультимедийные файлы и контент доступными для поиска, а также создавать дорожки и ключевые слова для субтитров.|[Azure Media Indexer](media-services-index-content.md)
+Azure Media Hyperlapse (предварительная версия)|Позволяет сгладить "неровности" видео с помощью стабилизации видео. Также позволяет ускорить содержимое в виде пригодного к использованию клипа.|[Azure Media Hyperlapse](media-services-hyperlapse-content.md)
+Кодировщик мультимедиа Azure|Цена снижена
+Расшифровка хранилища| Цена снижена|
+Azure Media Packager|Цена снижена|
+Azure Media Encryptor|Цена снижена|
 
 ##Получение MediaProcessor
 
@@ -47,44 +47,43 @@ Azure Media Encryptor|Позволяет шифровать мультимеди
 >
 >При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в разделе [Настройка для разработки REST API служб мультимедиа](media-services-rest-how-to-use.md).
 
->После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой универсальный код ресурса (URI) служб мультимедиа. Последующие вызовы необходимо осуществлять к новому URI, как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect_programmatically.md).
+>После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой универсальный код ресурса (URI) служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect_programmatically.md).
 
 
+Следующий вызов REST показывает, как получить экземпляр обработчика мультимедиа по имени (в данном случае это **стандартный кодировщик мультимедиа**).
 
-Следующий вызов REST показывает, как получить экземпляр обработчика мультимедиа по имени (в данном случае это **кодировщик мультимедиа Azure**).
+
 
 	
 Запрос:
 
-	GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20Encoder' HTTP/1.1
+	GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
 	User-Agent: Microsoft ADO.NET Data Services
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-477b-2233-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423635565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=6zwXEn7YJzVJbVCNpqDUjBLuE5iUwsdJbWvJNvpY3%2b8%3d
+	Authorization: Bearer <token>
 	x-ms-version: 2.11
 	Host: media.windows.net
 	
 Ответ:
+		
+	. . .
 	
-	HTTP/1.1 200 OK
-	Cache-Control: no-cache
-	Content-Length: 273
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Server: Microsoft-IIS/8.5
-	x-ms-client-request-id: 8a291764-4ed7-405d-aa6e-d3ebabb0b3f6
-	request-id: dceeb559-48b5-48e1-81d3-d324b6203d51
-	x-ms-request-id: dceeb559-48b5-48e1-81d3-d324b6203d51
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	X-Powered-By: ASP.NET
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Wed, 11 Feb 2015 00:19:56 GMT
-	
-	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors","value":[{"Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609","Description":"Azure Media Encoder","Name":"Azure Media Encoder","Sku":"","Vendor":"Microsoft","Version":"4.4"}]}
-
-
+	{  
+	   "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
+	   "value":[  
+	      {  
+	         "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+	         "Description":"Media Encoder Standard",
+	         "Name":"Media Encoder Standard",
+	         "Sku":"",
+	         "Vendor":"Microsoft",
+	         "Version":"1.1"
+	      }
+	   ]
+	}
 
 
 ##Схемы обучения работе со службами мультимедиа
@@ -97,10 +96,7 @@ Azure Media Encryptor|Позволяет шифровать мультимеди
 
 
 ##Дальнейшие действия
-Теперь, когда вы знаете, как получить экземпляр обработчика мультимедиа, перейдите в раздел [Кодировка актива][], в котором будет показано, как использовать кодировщик Azure Media для кодирования актива.
 
-[Кодировка актива]: media-services-rest-encode-asset.md
-[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
-[How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
+Теперь, когда вы знаете, как получить экземпляр обработчика мультимедиа, перейдите в раздел [Кодировка актива](media-services-rest-get-started.md), в котором будет показано, как использовать стандартный кодировщик мультимедиа для кодирования ресурса-контейнера.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

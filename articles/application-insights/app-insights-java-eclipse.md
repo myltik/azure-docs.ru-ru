@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Приступая к работе с Application Insights на Java в Eclipse
@@ -49,7 +49,16 @@
 ## Создание ресурса Application Insights в Azure
 
 1. Войдите на [портал Azure](https://portal.azure.com).
-2. 
+2. Создайте новый ресурс Application Insights.  
+
+    ![Нажмите кнопку "+" и выберите пункт "Application Insights"](./media/app-insights-java-eclipse/01-create.png)  
+3. Задайте тип приложения: веб-приложение Java.  
+
+    ![Введите имя, выберите веб-приложение Java и нажмите кнопку "Создать"](./media/app-insights-java-eclipse/02-create.png)  
+4. Найдите ключ инструментирования нового ресурса. Далее будет необходимо вставить его в проект кода.  
+
+    ![В обзоре нового ресурса щелкните "Свойства" и скопируйте ключ инструментирования](./media/app-insights-java-eclipse/03-key.png)
+
 
 ## Добавление Application Insights в ваш проект
 
@@ -260,4 +269,4 @@ Application Insights может тестировать ваш веб-сайт ч
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

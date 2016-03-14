@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="12/15/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 # Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией AD FS
@@ -65,7 +65,7 @@
 
 	Вы увидите, что код просто выдает запрос проверки подлинности для проверки подлинности пользователя с помощью WS-Federation. Вся проверка подлинности настраивается в App\_Start\\Startup.Auth.cs.
 
-4.  Откройте App_Start\Startup.Auth.cs. В методе `ConfigureAuth` найдите строку:
+4.  Откройте App\_Start\\Startup.Auth.cs. В методе `ConfigureAuth` найдите строку:
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -79,14 +79,14 @@
 	-	Идентификатор RP: `https://contoso.com/MyLOBApp`
 	-	Адрес метаданных: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
-5.	В App_Start\Startup.Auth.cs замените статические определения строки как показано ниже.
+5.	В App\_Start\\Startup.Auth.cs замените статические определения строки как показано ниже.
 	<pre class="prettyprint">
 	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
 	<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
 	<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
 	<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
 	<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
-
+	
 	<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
 	</pre>
 
@@ -102,7 +102,7 @@
 	  <mark><del>&lt;add key="ida:Tenant" value="[Введите имя клиента, например contoso.onmicrosoft.com]" /></del></mark>
 	  <mark>&lt;add key="ida:RPIdentifier" value="[Введите идентификатор проверяющей стороны, настроенной в AD FS, например https://localhost:44320/]" /></mark>
 	  <mark>&lt;add key="ida:ADFS" value="[Введите полное доменное имя службы AD FS, например adfs.contoso.com]" /></mark>
-
+	
 	&lt;/appSettings>
 	</pre>
 
@@ -135,9 +135,9 @@
 
 11. В Visual Studio откройте в своем проекте файл **Web.Release.config**. Вставьте следующий XML-код в тег `<configuration>` и замените значение ключа URL-адресом публикуемого веб-приложения.
 	<pre class="prettyprint">
-&lt;appSettings>
-   &lt;add key="ida:RPIdentifier" value="<mark>[например, https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>
+	&lt;appSettings>
+	   &lt;add key="ida:RPIdentifier" value="<mark>[например, https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+	&lt;/appSettings></pre>
 
 После завершения операции вы получите два идентификатора RP, настроенных в проекте: один для среды отладки в Visual Studio, а второй для опубликованного веб-приложения в Azure. Доверие с проверяющей стороной (RP) будет необходимо настроить для каждой из двух сред в AD FS. Во время отладки параметры приложения в файле Web.config используются для того, чтобы конфигурация **Отладка** работала с AD FS. После его публикации (по умолчанию публикуется конфигурация **Выпуск**) отправляется измененный файл Web.config, в котором содержатся изменения параметров приложения в файле Web.Release.config.
 
@@ -151,7 +151,7 @@
 > [AZURE.NOTE] Не забудьте выполнить указанные ниже действия для обеих сред.
 
 4.	На сервере AD FS выполните вход с использование учетных данных, имеющих права управления для AD FS.
-5.	Откройте оснастку управления AD FS. Щелкните правой кнопкой мыши **AD FS\Доверенные отношения\Доверенные отношения с проверяющей стороной** и выберите **Добавить отношение доверия с проверяющей стороной**.
+5.	Откройте оснастку управления AD FS. Щелкните правой кнопкой мыши **AD FS\\Доверенные отношения\\Доверенные отношения с проверяющей стороной** и выберите **Добавить отношение доверия с проверяющей стороной**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
@@ -177,7 +177,7 @@
 
 7.	На странице **Настройка идентификаторов** убедитесь, что URL-адрес SSL проекта уже есть в списке, и щелкните **Далее**. Щелкайте **Далее** на всех страницах мастера до конца, выбирая значения по умолчанию.
 
-	> [AZURE.NOTE]В файле App_Start\Startup.Auth.cs проекта Visual Studio этот идентификатор сопоставляется со значением <code>WsFederationAuthenticationOptions.Wtrealm</code> во время федеративной аутентификации. По умолчанию URL-адрес приложения из предыдущего шага добавляется как идентификатор RP.
+	> [AZURE.NOTE] В файле App\_Start\\Startup.Auth.cs проекта Visual Studio этот идентификатор сопоставляется со значением <code>WsFederationAuthenticationOptions.Wtrealm</code> во время федеративной аутентификации. По умолчанию URL-адрес приложения из предыдущего шага добавляется как идентификатор RP.
 
 8.	Настройка приложения RP для проекта в AD FS завершена. Далее необходимо настроить это приложение, чтобы оно отправляло утверждения, необходимые вашему приложению. При окончании работы мастера по умолчанию открывается диалоговое окно **Изменение правил для утверждений** и можно сразу приступить к настройке. Как минимум, настроим следующие утверждения (со схемами в круглых скобках):
 
@@ -199,17 +199,17 @@
 10.	Выберите **Отправить утверждения с использованием настраиваемого правила** и щелкните **Далее**.
 11.	Вставьте следующий язык правила в поле **Настраиваемое правило**, присвойте правилу имя **В соответствии с идентификатором сеанса** и нажмите кнопку **Готово**.  
 	<pre class="prettyprint">
-c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-	=> add(
-		store = "_OpaqueIdStore",
-		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
-		query = "{0};{1};{2};{3};{4}",
-		param = "useEntropy",
-		param = c1.Value,
-		param = c1.OriginalIssuer,
-		param = "",
-		param = c2.Value);
+	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+		=> add(
+			store = "_OpaqueIdStore",
+			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+			query = "{0};{1};{2};{3};{4}",
+			param = "useEntropy",
+			param = c1.Value,
+			param = c1.OriginalIssuer,
+			param = "",
+			param = c2.Value);
 	</pre>
 
 	Настраиваемое правило должно выглядеть следующим образом:
@@ -253,7 +253,7 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 - AD FS успешно выполняют проверку подлинности пользователя AD и перенаправляют вас обратно на домашнюю страницу приложения
 - AD FS успешно отправляет утверждение имени (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) приложению. Это подтверждается тем, что имя пользователя отображается в углу. 
 
-Если утверждение имени отсутствует, вы увидите **Здравствуйте, !**. В файле Views\Shared\_LoginPartial.cshtml можно увидеть, что для отображения имени пользователя здесь используется `User.Identity.Name`. Как уже отмечалось ранее, ASP.NET заполняет это свойство утверждением имени прошедшего проверку подлинности пользователя, если оно доступно в токене SAML. Чтобы просмотреть все утверждения, отправленные AD FS, вставьте точку останова в Controllers\HomeController.cs в методе действия индекса. После аутентификации пользователя проверьте коллекцию `System.Security.Claims.Current.Claims`.
+Если утверждение имени отсутствует, вы увидите **Здравствуйте, !**. В файле Views\\Shared\\_LoginPartial.cshtml можно увидеть, что для отображения имени пользователя здесь используется `User.Identity.Name`. Как уже отмечалось ранее, ASP.NET заполняет это свойство утверждением имени прошедшего проверку подлинности пользователя, если оно доступно в токене SAML. Чтобы просмотреть все утверждения, отправленные AD FS, вставьте точку останова в Controllers\\HomeController.cs в методе действия индекса. После аутентификации пользователя проверьте коллекцию `System.Security.Claims.Current.Claims`.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -262,23 +262,23 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 
 После включения членств в группах в качестве утверждений ролей в конфигурации отношения доверия с проверяющей стороной вы можете использовать их непосредственно в оформлении `[Authorize(Roles="...")]` для контроллеров и действий. В бизнес-приложении с шаблоном создать- прочитать-обновить-удалить (CRUD) можно выполнять авторизацию определенных ролей для доступа к каждому действию. На сегодня просто попробуем, как работает эта функция на примере существующего контроллера Home.
 
-1. Откройте Controllers\HomeController.cs.
+1. Откройте Controllers\\HomeController.cs.
 2. Оформите методы действия `About` и `Contact` по примеру, показанному ниже, используя членства в группе безопасности пользователя, прошедшего аутентификацию.  
 	<pre class="prettyprint">
 	<mark>[Authorize(Roles="Тестовая группа")]</mark>
 	public ActionResult About()
 	{
-    ViewBag.Message = "Страница описания вашего приложения.";
-
-    return View();
+	    ViewBag.Message = "Страница описания вашего приложения.";
+	
+	    return View();
 	}
-
+	
 	<mark>[Authorize(Roles="Администраторы домена")]</mark>
 	public ActionResult Contact()
 	{
-    ViewBag.Message = "Ваша страница контактов.";
-
-    return View();
+	    ViewBag.Message = "Ваша страница контактов.";
+	
+	    return View();
 	}
 	</pre>
 
@@ -289,9 +289,9 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Если исследовать эту ошибку в средстве просмотра событий на сервере AD FS, обнаружится следующее сообщение об исключении:  
+	При анализе этой ошибки в средстве просмотра событий на сервере AD FS можно увидеть это сообщение об исключении:
 	<pre class="prettyprint">
-	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>Один и тот же сеанс браузера клиента сделал 6 запросов за последние 11 секунд.</mark> Обратитесь к администратору для получения дополнительной информации. 
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>один клиентский сеанс браузера сделал 6 запросов за последние 11 секунд.</mark> Обратитесь к администратору за дополнительной информацией.
 	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
 	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
 	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
@@ -356,4 +356,4 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
  
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

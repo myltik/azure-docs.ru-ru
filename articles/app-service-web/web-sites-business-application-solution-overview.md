@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 
@@ -117,6 +117,7 @@
 [кэша Redis для Azure]: /blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
 [состояние сеанса ASP.NET]: https://msdn.microsoft.com/library/azure/dn690522.aspx
 [кэш вывода]: https://msdn.microsoft.com/library/azure/dn798898.aspx
+[диспетчера трафика Azure]: http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
 
 [Ознакомьтесь]: web-sites-monitor.md
 [Azure Application Insights]: http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
@@ -125,4 +126,4 @@
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -3,7 +3,7 @@
 	description="Важные вопросы при планировании резервного копирования виртуальных машин в Azure"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor=""
 	keywords="резервное копирование виртуальных машин, резервное копирование виртуальных машин"/>
@@ -121,4 +121,4 @@
 - [Восстановление виртуальных машин](backup-azure-restore-vms.md)
 - [Устранение проблем с резервным копированием виртуальных машин](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -3,7 +3,7 @@
 	description="Используйте этот учебник, чтобы узнать, как управлять хранилищами и серверами службы архивации Azure."
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="Jim-Parker"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/15/2015"
-	ms.author="jimpark; aashishr; giridham"/>
+	ms.author="jimpark; markgal"/>
 
 
 # Управление хранилищами и серверами службы архивации Azure
@@ -54,4 +54,4 @@
 - Дополнительную информацию о службе архивации Azure см. в статье [Обзор службы архивации Azure](backup-introduction-to-azure-backup.md).
 - Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

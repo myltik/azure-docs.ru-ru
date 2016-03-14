@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -93,7 +93,7 @@
  
      а. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа на сайт QuickHelp (например, * https://quickhelp.com/bsiazure/*).
 
-     >[AZURE.NOTE] Обратитесь в службу поддержки QuickHelp, если вы не знаете URL-адрес входа.
+     > [AZURE.NOTE] Обратитесь в службу поддержки QuickHelp, если вы не знаете URL-адрес входа.
 
      b. Нажмите кнопку **Далее**.
 
@@ -255,4 +255,4 @@ QuickHelp поддерживает JIT-подготовку. Это означа
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

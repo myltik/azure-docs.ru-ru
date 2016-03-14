@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2015"
+	ms.date="02/16/2016"
 	ms.author="nitinme"/>
 
 # Настройка кластеров HDInsight под управлением Windows с помощью действия сценария
@@ -62,16 +62,18 @@ HDInsight предоставляет несколько скриптов для 
 	![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Использование действия сценария для настройки кластера")
 
 	<table border='1'>
-	<tr><th>Свойство</th><th>Значение</th></tr>
-	<tr><td>Имя</td>
-		<td>Укажите имя для действия сценария.</td></tr>
-	<tr><td>URI-адрес сценария</td>
-		<td>Укажите URI для сценария, который вызывается для настройки кластера.</td></tr>
-	<tr><td>Головной/рабочий</td>
-		<td>Укажите узлы (**Головной** или **Рабочий**), на которых выполняется сценарий настройки.</b>
-	<tr><td>Параметры</td>
-		<td>Укажите параметры, если они требуются для сценария.</td></tr>
-</table>Нажмите клавишу ВВОД, чтобы добавить несколько действий сценария для установки нескольких компонентов в кластере.
+		<tr><th>Свойство</th><th>Значение</th></tr>
+		<tr><td>Имя</td>
+			<td>Укажите имя для действия сценария.</td></tr>
+		<tr><td>URI-адрес сценария</td>
+			<td>Укажите URI для сценария, который вызывается для настройки кластера.</td></tr>
+		<tr><td>Головной/рабочий</td>
+			<td>Укажите узлы (**Головной** или **Рабочий**), на которых выполняется сценарий настройки.</b>
+		<tr><td>Параметры</td>
+			<td>Укажите параметры, если они требуются для сценария.</td></tr>
+	</table>
+
+	Нажмите клавишу ВВОД, чтобы добавить несколько действий сценария для установки нескольких компонентов в кластере.
 
 3. Щелкните **Выбрать**, чтобы сохранить конфигурацию действия сценария и продолжить создание кластера.
 
@@ -175,6 +177,7 @@ HDInsight предоставляет несколько скриптов для 
 
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
+		Install-Package Microsoft.Azure.Management.Resources -Pre
 
 2. Используйте следующие инструкции using в файле Program.cs:
 
@@ -187,6 +190,7 @@ HDInsight предоставляет несколько скриптов для 
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
+		using Microsoft.Azure.Management.Resources;
 
 3. Замените существующий код в файле класса следующим:
 
@@ -212,6 +216,9 @@ HDInsight предоставляет несколько скриптов для 
 
             var tokenCreds = GetTokenCloudCredentials();
             var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+            
+            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
             _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
@@ -316,4 +323,4 @@ HDInsight предоставляет несколько скриптов для 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Этапы создания кластера"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

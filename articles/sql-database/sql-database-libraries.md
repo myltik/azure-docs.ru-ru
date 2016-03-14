@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="pehteh"/>
 
 # Библиотеки подключений для Базы данных SQL и SQL Server
@@ -28,10 +28,10 @@
 | :--- | :--- | :--- | :--- | :--- | :-- |
 | .NET | Кроссплатформенная (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4\.5+ | Поставщик SQL Server для платформы .NET Framework | . |
 | PHP | Windows | [PHP для SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2\.0+ | Драйвер PHP для SQL Server | [Ссылка](http://msdn.microsoft.com/library/dn865013.aspx) |
-| Java | Windows | [JDBC для SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0+ | Драйвер JDBC типа 4, который обеспечивает подключение к базе данных через стандартные API JDBC | [Ссылка](http://msdn.microsoft.com/library/dn425070.aspx) |
+| Java | Windows | [JDBC для SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0+ | Драйвер JDBC типа 4, который обеспечивает подключение к базе данных через стандартные API JDBC | [Ссылка](https://msdn.microsoft.com/library/mt654048.aspx) |
 | ODBC | Windows | [ODBC для SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0+ | Драйвер Microsoft ODBC для SQL Server | [Ссылка](http://msdn.microsoft.com/library/jj730308.aspx) |
-| ODBC | Suse Linux | [ODBC для SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Драйвер Microsoft ODBC для SQL Server | . |
-| ODBC | Redhat Linux | [ODBC для SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Драйвер Microsoft ODBC для SQL Server | . |
+| ODBC | Suse Linux | [ODBC для SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Драйвер Microsoft ODBC для SQL Server | [Ссылка](https://msdn.microsoft.com/ru-RU/library/hh568451.aspx) |
+| ODBC | Redhat Linux | [ODBC для SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Драйвер Microsoft ODBC для SQL Server | [Ссылка](https://msdn.microsoft.com/ru-RU/library/hh568451.aspx) |
 
 ### Поддержка ODBC
 
@@ -52,20 +52,22 @@
 
 ## Библиотеки сторонних производителей
 
-> [AZURE.IMPORTANT]В следующей таблице представлены библиотеки, выпускаемых сторонними производителями в соответствии с условиями лицензии для стороннего программного обеспечения. Вы несете ответственность за проверку и соблюдение соответствующих лицензий сторонних производителей для использования этих библиотек. Вы берете на себя риски, связанные с использованием этих библиотек. Корпорация Майкрософт не предоставляет никаких гарантий, явных или подразумеваемых, относительно предоставленной здесь информации и предоставляет эти данные исключительно для удобства пользователей. Данный документ не подразумевает какого-либо одобрения со стороны корпорации Майкрософт. <br/><br/>Обновление и поддержка информации, находящейся в разделе "Библиотеки сторонних производителей", возлагается на открытое сообщество разработчиков за счет использования репозитория [azure-content](http://github.com/Azure/azure-content/), который принадлежит **Azure** на сайте GitHub.com. Корпорация Майкрософт рекомендует разработчикам самим обновлять этот раздел. Персонал Майкрософт *НЕ* намерен поддерживать размещенную в нем информацию, в частности из-за того, что по каждой конкретной библиотеке стороннего производителя есть другие, более опытные специалисты. Спасибо.
+> [AZURE.IMPORTANT] В следующей таблице представлены библиотеки, выпускаемых сторонними производителями в соответствии с условиями лицензии для стороннего программного обеспечения. Вы несете ответственность за проверку и соблюдение соответствующих лицензий сторонних производителей для использования этих библиотек. Вы берете на себя риски, связанные с использованием этих библиотек. Корпорация Майкрософт не предоставляет никаких гарантий, явных или подразумеваемых, относительно предоставленной здесь информации и предоставляет эти данные исключительно для удобства пользователей. Данный документ не подразумевает какого-либо одобрения со стороны корпорации Майкрософт. <br/><br/>Обновление и поддержка информации, находящейся в разделе "Библиотеки сторонних производителей", возлагается на открытое сообщество разработчиков за счет использования репозитория [azure-content](http://github.com/Azure/azure-content/), который принадлежит **Azure** на сайте GitHub.com. Корпорация Майкрософт рекомендует разработчикам самим обновлять этот раздел. Персонал Майкрософт *НЕ* намерен поддерживать размещенную в нем информацию, в частности из-за того, что по каждой конкретной библиотеке стороннего производителя есть другие, более опытные специалисты. Спасибо.
 
 В следующей таблице представлены библиотеки, выпускаемые сторонними производителями, например другими компаниями или сообществами. Библиотеки, выпускаемых корпорацией Майкрософт, представлены в предыдущем разделе этой темы.
 
 | платформа | Библиотеки |
 | :-- | :-- |
-| Python | [pymssql *(org, stable)*](http://pymssql.org/en/stable/)<br/><br/>[pymssql *(org)*](http://pymssql.org/) |
-| Node.js | [Tedious *(npmjs)*](http://www.npmjs.com/package/tedious) |
-| Node.js | [Node-MSSQL *(github, patriksimek)*](https://github.com/patriksimek/node-mssql)<br/><br/>[Node-MSSQL *(npmjs)*](https://www.npmjs.com/package/node-mssql)<br/><br/>[Node-MSSQL-Connector *(npmjs)*](https://www.npmjs.com/package/node-mssql-connector) |
-| Node.js | [Edge.js *(github com, tjanczuk)*](https://github.com/tjanczuk/edge)<br/><br/>[Edge.js *(tjanczuk, github io)*](http://tjanczuk.github.io/edge/) |
-| . | [FreeTDS *(org)*](http://www.freetds.org/) |
+| Ruby | [tinytds *(org, stable)*](https://rubygems.org/gems/tiny_tds/versions/0.7.0) |
+| GO | [go-mssqldb *(org, stable)*](https://github.com/denisenkom/go-mssqldb) |
+| Python | [pymssql *(org, stable)*](http://pymssql.org/en/stable/) |
+| Node.js | [Node-MSSQL *(npmjs)*](https://www.npmjs.com/package/node-mssql)<br/><br/>[Node-MSSQL-Connector *(npmjs)*](https://www.npmjs.com/package/node-mssql-connector) |
+| C++ | [FreeTDS *(org)*](http://www.freetds.org/) |
+
+
 
 <!--
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

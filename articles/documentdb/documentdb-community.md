@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="01/29/2016"
+  ms.date="02/24/2016"
   ms.author="andrl"/>
 
 # Портал сообщества
@@ -62,6 +62,15 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 
 Ознакомьтесь с проектом на сайте [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
+
+### fluent-plugin-documentdb
+
+*Йоичи Кавасаки (Yoichi Kawasaki)*
+
+fluent-plugin-documentdb — это подключаемый модуль Fluentd для вывода в Azure DocumentDB.
+
+Ознакомьтесь с ним на сайтах [Github](https://github.com/yokawasa/fluent-plugin-documentdb) и [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
+
 <br/><br/>
 
 *Узнайте о других проектах DocumentDB с открытым исходным кодом на сайте [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
@@ -80,7 +89,13 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 
 **Записи участников сообщества:**
 
-* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) (Написание скриптов на стороне сервера в Azure DocumentDB) — *Роберт Шелдон (Robert Sheldon)*
+* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/). *Йоичи Кавасаки (Yoichi Kawasaki)*
+
+* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/). *Питер Маннехалт (Peter Mannerhult)*
+
+* [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/). *Джордж Сааде (George Saadeh)*
+
+* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/). *Роберт Шелдон (Robert Sheldon)*
 
 * [**DocumentDB в качестве приемника данных для Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) — *Ян Хентшель (Jan Hentschel)*
 
@@ -138,7 +153,7 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Мерван Чинта (Merwan Chinta) | Остин, Техас | 28 января 2016 г. | Недоступно |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Венсан-Филипп Лозон (Vincent-Philippe Lauzon) | Монреаль, Квебек, Канада | 1 декабря 2015 г. | Недоступно |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | Дэвид Мекоген (David Makogon) | Сиэтл, Вайоминг | 12 ноября 2015 г. | Недоступно |
-| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Джефф Ренц (Jeff Renz), Эндрю Хо (Andrew Hoh), Аравинд Рамачандран (Aravind Ramachandran), Джон Макинтайр (John Macintyre) | Сиэтл, Вайоминг | 27–30 октября 2015 г. | Недоступно |
+| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Джефф Ренц (Jeff Renz), Эндрю Хо (Andrew Hoh), Аравинд Рамачандран (Aravind Ramachandran), Джон Макинтайр (John Macintyre) | Сиэтл, Вайоминг | 27–30 октября 2015 г. | [Developing Modern Applications on Azure](https://www.youtube.com/watch?v=k5Z24HX-RyQ) |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | Дэвид Мекоген (David Makogon), Райан Кроукур (Ryan Crawcour) | Коламбус, Огайо | 23 октября 2015 г. | Недоступно |
 | [SQL Saturday № 430 — София, 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Леонард Лоубел (Leonard Lobel) | София, Болгария | 10 октября 2015 г. | Недоступно |
 | [SQL Saturday № 429 — Порту, 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | Леонард Лоубел (Leonard Lobel) | Порту, Португалия | 3 октября 2015 г. | Недоступно |
@@ -167,6 +182,8 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 
 | Показать | Докладчик | Дата | Серия |
 | ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| Integration User Group | Хан Вонг (Han Wong) | 17 февраля 2016 г. | [Analyze and visualize non-relational data with DocumentDB + Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| Channel 9: современные приложения | Тара Шанкар Джана (Tara Shankar Jana) | 13 декабря 2016 г. | [Take a modern approach to data in your apps](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Мигель Куинтеро (Miguel Quintero) | 10 декабря 2015 г. | [DocumentDB — общий взгляд](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Integration User Group | Ховард Эдидин (Howard Edidin) | 9 ноября 2015 г. | [Использование Azure DocumentDB для интеграции в здравоохранении: часть 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
 | Integration User Group | Ховард Эдидин (Howard Edidin) | 5 октября 2015 г. | [Использование Azure DocumentDB для интеграции в здравоохранении](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
@@ -267,4 +284,4 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 
 Хотите стать мастером DocumentDB? Несмотря на то, что критериев для отбора мастеров DocumentDB не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, как, например, StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

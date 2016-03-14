@@ -3,8 +3,8 @@
         description="Создайте файловый ресурс Azure в облаке с помощью этого пошагового руководства. Управляйте содержимым файлового ресурса и подключайте файловый ресурс из виртуальной машины Azure под управлением Linux или из локального приложения с поддержкой SMB 3.0."
         services="storage"
         documentationCenter="na"
-        authors="jasontang501"
-        manager="jahogg"
+        authors="mine-msft"
+        manager="aungoo"
         editor="tysonn" />
 
 <tags ms.service="storage"
@@ -12,8 +12,8 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="02/15/2016"
-      ms.author="jutang" />
+      ms.date="02/29/2016"
+      ms.author="minet" />
 
 
 # Использование хранилища файлов Azure в Linux
@@ -139,4 +139,4 @@
 - [Введение в службы файлов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

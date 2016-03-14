@@ -22,7 +22,7 @@
 
 ## Обзор
 
-[Хранилище Azure Premium Storage](../storage-premium-storage-preview-portal.md) — это хранилище нового поколения, обеспечивающее малую задержку и высокую пропускную способность ввода-вывода. Данное хранилище лучше справляется с интенсивными нагрузками ввода-вывода, как, например, SQL Server на [виртуальных машинах](https://azure.microsoft.com/services/virtual-machines/) IaaS.
+[Хранилище Azure Premium Storage](../storage/storage-premium-storage.md) — это хранилище нового поколения, обеспечивающее малую задержку и высокую пропускную способность ввода-вывода. Данное хранилище лучше справляется с интенсивными нагрузками ввода-вывода, как, например, SQL Server на [виртуальных машинах](https://azure.microsoft.com/services/virtual-machines/) IaaS.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
@@ -91,12 +91,12 @@
 
 Следующая команда **New-AzureStorageAccountPowerShell** с **типом** Premium\_LRS создает учетную запись хранения Premium:
 
-    $newstorageaccountname = "danpremstor" 
+    $newstorageaccountname = "danpremstor"
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
 
 ### Настройки кэша виртуальных жестких дисков
 
-Основное различие между созданием дисков, входящих в учетную запись хранилища Premium — параметр кэша диска. Для томов данных SQL Server рекомендуется использовать **Кэширование чтения**. В качестве параметра кэша диска для томов журнала транзакций следует выбрать значение **Нет**. Это отличается от рекомендаций для учетных записей хранения Standard.
+Основное различие между созданием дисков, входящих в учетную запись хранилища Premium — параметр кэша диска. Для томов данных SQL Server рекомендуется использовать **Кэширование чтения**. В качестве параметра кэша диска для томов журнала транзакций следует выбрать значение ** Нет **. Это отличается от рекомендаций для учетных записей хранения Standard.
 
 После присоединения виртуальных жестких дисков параметры кэша изменить нельзя. Необходимо отсоединить и заново присоединить виртуальный жесткий диск с обновленным параметром.
 
@@ -112,7 +112,7 @@
 
 > [AZURE.NOTE] При наличии файлов данных SQL Server и файлов журнала на одном и том же томе выбор параметров кэширования зависит от схем доступа ввода-вывода для рабочих нагрузок базы данных. Только тестирование может показать, какой параметр кэширования лучше всего подходит для данного сценария.
 
-Однако при использовании Дискового пространства Windows, состоящего из нескольких виртуальных жестких дисков, вам необходимо будет просмотреть свои исходные скрипты, чтобы определить, к какому конкретно пулу относятся подключенные VHD — это позволит вам соответствующим образом настроить параметры кэша для каждого диска.
+Однако при использовании дискового пространства Windows, состоящего из нескольких виртуальных жестких дисков, вам необходимо будет просмотреть свои исходные скрипты, чтобы определить, к какому конкретно пулу относятся подключенные VHD — это позволит вам соответствующим образом настроить параметры кэша для каждого диска.
 
 При отсутствии доступа к исходному скрипту, показывающему, какие виртуальные жесткие диски относятся к пулу носителей, для определения связей между диском и пулом носителей можно использовать следующие шаги.
 
@@ -140,16 +140,16 @@
     Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
 	![GetStoragePool][5]
- 
+
 Теперь вы можете использовать эту информацию, чтобы связать подсоединенные VHD с физическими дисками в пулах носителей.
 
 После сопоставления виртуальных жестких дисков с пулами носителей их можно отсоединить и скопировать в учетную запись хранения Premium, после чего их можно присоединить с правильными параметрами кэша. См. пример в [приложении](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), шаги 8—12. Эти шаги показывают, как извлечь конфигурацию подключенного к виртуальной машине диска VHD в CSV-файл, скопировать диски VHD, изменить параметры кэша конфигурации диска и, наконец, повторно развернуть виртуальную машину как машину серии DS со всеми присоединенными дисками.
 
-### Пропускная способность хранилища виртуальной машины и хранилища VHD 
+### Пропускная способность хранилища виртуальной машины и хранилища VHD
 
 Рабочие показатели хранилища зависят от указанного размера виртуальной машины DS* и размеров виртуального жесткого диска. Виртуальные машины имеют различные квоты по числу виртуальных жестких дисков, которые можно к ним подключать, и по максимальной поддерживаемой пропускной способности (МБ/с). Дополнительные сведения по пропускной способности указаны в статье [Размеры виртуальных машин и облачных служб в Azure](virtual-machines-size-specs.md).
 
-Повышенная производительность диска достигается при увеличении размеров диска. Это следует учитывать при планировании миграции. Дополнительные сведения [см. в таблице производительности и типов дисков](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whru-RUing-premium-storage).
+Повышенная производительность диска достигается при увеличении размеров диска. Это следует учитывать при планировании миграции. Дополнительные сведения [см. в таблице производительности и типов дисков](../storage-premium-storage.md#scalability-and-performance-targets-whru-RUing-premium-storage).
 
 Наконец, следует помнить, что виртуальные машины имеют различную максимальную пропускную способность, которую они будут поддерживать для всех подключенных дисков. При высокой нагрузке возможно достижение максимальной пропускной способности, доступной для виртуальной машины данного размера. Например, Standard\_DS14 будет поддерживать до 512 МБ/с; таким образом, с тремя дисками P30 вы можете достичь максимальной пропускной способности диска виртуальной машины. Однако в данном примере лимит пропускной способности может быть превышен, в зависимости от состава операций чтения и записи ввода-вывода.
 
@@ -167,96 +167,96 @@
 
     $mysubscription = "DansSubscription"
     $location = "West Europe"
-    
-    #Set up subscription 
-    Set-AzureSubscription -SubscriptionName $mysubscription 
+
+    #Set up subscription
+    Set-AzureSubscription -SubscriptionName $mysubscription
     Select-AzureSubscription -SubscriptionName $mysubscription -Current  
 
 #### Шаг 1. Создайте учетную запись хранения Premium
 
 
     #Create Premium Storage account, note Type
-    $newxiostorageaccountname = "danspremsams" 
+    $newxiostorageaccountname = "danspremsams"
     New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
 
- 
+
 #### Шаг 2. Создайте новую облачную службу
 
-    $destcloudsvc = "danNewSvcAms" 
-    New-AzureService $destcloudsvc -Location $location 
+    $destcloudsvc = "danNewSvcAms"
+    New-AzureService $destcloudsvc -Location $location
 
 
 #### Шаг 3. Зарезервируйте VIP облачной службы (необязательно)
     #check exisitng reserved VIP
     Get-AzureReservedIP
-    
-    $reservedVIPName = “sqlcloudVIP” 
-    New-AzureReservedIP –ReservedIPName $reservedVIPName –Label $reservedVIPName –Location $location 
+
+    $reservedVIPName = “sqlcloudVIP”
+    New-AzureReservedIP –ReservedIPName $reservedVIPName –Label $reservedVIPName –Location $location
 
 #### Шаг 4. Создайте контейнер виртуальных машин
-    #Generate storage keys for later 
-    $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname 
-    
-    ##Generate storage acc contexts 
+    #Generate storage keys for later
+    $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
+
+    ##Generate storage acc contexts
     $xioContext = New-AzureStorageContext –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary   
-    
+
     #Create container
     $containerName = 'vhds'
     New-AzureStorageContainer -Name $containerName -Context $xioContext
 
 #### Шаг 5. Разместите виртуальный жесткий диск операционной системы в хранилище Standard или Premium
     #NOTE: Set up subscription and default storage account which will be used to place the OS VHD in
-    
+
     #If you want to place the OS VHD Premium Storage Account
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $newxiostorageaccountname  
-    
+
     #If you wanted to place the OS VHD Standard Storage Account but attach Premium Storage VHDs then you would run this instead:
-    $standardstorageaccountname = "danstdams" 
-    
+    $standardstorageaccountname = "danstdams"
+
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $standardstorageaccountname
 
 #### Шаг 6. Создайте виртуальную машину
     #Get list of available SQL Server Images from the Azure Image Gallery.
-    $galleryImage = Get-AzureVMImage | where-object {$_.ImageName -like "*SQL*2014*Enterprise*"} 
-    $image = $galleryImage.ImageName 
-    
+    $galleryImage = Get-AzureVMImage | where-object {$_.ImageName -like "*SQL*2014*Enterprise*"}
+    $image = $galleryImage.ImageName
+
     #Set up Machine Specific Information
     $vmName = "dsDan1"
     $vnet = "dansvnetwesteur"
     $subnet = "SQL"
     $ipaddr = "192.168.0.8"
-    
+
     #Remember to change to DS series VM
     $newInstanceSize = "Standard_DS1"
-    
-    #create new Avaiability Set 
+
+    #create new Avaiability Set
     $availabilitySet = "cloudmigAVAMS"
-    
+
     #Machine User Credentials
     $userName = "myadmin"
     $pass = "mycomplexpwd4*"
-    
+
     #Create VM Config
     $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
-    
+
     #Add Data and Log Disks to VM Config
     #Note the size specified ‘-DiskSizeInGB 1023’, this will attach 2 x P30 Premium Storage Disk Type
     #Utilising the Premium Storage enabled Storage account
-    
+
     $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-data1.vhd"
     $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCaching "None"  -DiskLabel "logDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-log1.vhd"
-    
+
     #Create VM
     $vmConfigsl  | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet ## Optional (-ReservedIPName $reservedVIPName)  
-    
+
     #Add RDP Endpoint
     $EndpointNameRDPInt = "3389"
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmName | Add-AzureEndpoint -Name "EndpointNameRDP" -Protocol "TCP" -PublicPort "53385" -LocalPort $EndpointNameRDPInt  | Update-AzureVM
-    
-    #Check VHD storage account, these should be in $newxiostorageaccountname 
+
+    #Check VHD storage account, these should be in $newxiostorageaccountname
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmName | Get-AzureDataDisk
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
-     
+
 
 ### Создайте новую виртуальную машину для использования хранилища Premium Storage с помощью настраиваемого образа
 
@@ -265,19 +265,19 @@
 #### Шаг 1. Создайте учетную запись хранения
     $mysubscription = "DansSubscription"
     $location = "West Europe"
-    
-    #Create Premium Storage account
-    $newxiostorageaccountname = "danspremsams" 
-    New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
-    
-    #Standard Storage account
-    $origstorageaccountname = "danstdams" 
- 
-#### Шаг 2. Создайте облачную службу
-    $destcloudsvc = "danNewSvcAms" 
-    New-AzureService $destcloudsvc -Location $location 
 
- 
+    #Create Premium Storage account
+    $newxiostorageaccountname = "danspremsams"
+    New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
+
+    #Standard Storage account
+    $origstorageaccountname = "danstdams"
+
+#### Шаг 2. Создайте облачную службу
+    $destcloudsvc = "danNewSvcAms"
+    New-AzureService $destcloudsvc -Location $location
+
+
 #### Шаг 3. Используйте существующий образ
 Вы можете использовать существующий образ. Вы также можете [взять образ существующей машины](virtual-machines-capture-image-windows-server.md). Обратите внимание, машина, образ которой вы создаете, не должна быть машиной DS*. После создания образа в следующих шагах показано, как скопировать его в учетную запись хранения Premium с помощью командлета PowerShell **Start-AzureStorageBlobCopy**.
 
@@ -286,30 +286,30 @@
     $originalstorage =  Get-AzureStorageKey -StorageAccountName $origstorageaccountname
     #Premium Storage account
     $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
-    
+
     #Set up contexts for the storage accounts:
     $origContext = New-AzureStorageContext  –StorageAccountName $origstorageaccountname -StorageAccountKey $originalstorage.Primary
     $destContext = New-AzureStorageContext  –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
- 
+
 #### Шаг 4. Скопируйте BLOB-объект между учетными записями хранения
-    #Get Image VHD 
+    #Get Image VHD
     $myImageVHD = "dansoldonorsql2k14-os-2015-04-15.vhd"
     $containerName = 'vhds'
-    
+
     #Copy Blob between accounts
     $blob = Start-AzureStorageBlobCopy -SrcBlob $myImageVHD -SrcContainer $containerName `
     -DestContainer vhds -Destblob "prem-$myImageVHD" `
     -Context $origContext -DestContext $destContext  
 
 #### Шаг 5. Регулярно проверяйте состояние копирования:
-    $blob | Get-AzureStorageBlobCopyState 
+    $blob | Get-AzureStorageBlobCopyState
 
 #### Шаг 6. Добавьте диск образа на репозиторий диска Azure в пункте «Подписка»
-    $imageMediaLocation = $destContext.BlobEndPoint+"/"+$myImageVHD 
+    $imageMediaLocation = $destContext.BlobEndPoint+"/"+$myImageVHD
     $newimageName = "prem"+"dansoldonorsql2k14"
-    
+
     Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
- 
+
 > [AZURE.NOTE] Вы можете обнаружить, что даже если состояние указывает на успешный результат, ошибка аренды диска может сохраняться. В этом случае подождите около 10 минут.
 
 #### Шаг 7. Постройте виртуальную машину
@@ -321,30 +321,30 @@
     $vnet = "westeur"
     $subnet = "Clients"
     $ipaddr = "192.168.0.41"
-    
+
     #This will need to be a new cloud service
     $destcloudsvc = "danregsvcamsxio2"
-    
+
     #Use to DS Series VM
     $newInstanceSize = "Standard_DS1"
-    
-    #create new Avaiability Set 
+
+    #create new Avaiability Set
     $availabilitySet = "cloudmigAVAMS3"
-    
+
     #Machine User Credentials
     $userName = "myadmin"
     $pass = "theM)stC0mplexP@ssw0rd!”
-     
-    
+
+
     #Create VM Config
     $vmConfigsl2 = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $newimageName  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
-    
-    $vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-Datadisk-1.vhd" 
-    $vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCaching "None"  -DiskLabel "LogDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-logdisk-1.vhd" 
-     
-    
-    
-    $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet 
+
+    $vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-Datadisk-1.vhd"
+    $vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCaching "None"  -DiskLabel "LogDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-logdisk-1.vhd"
+
+
+
+    $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 
 ## Существующие развернутые службы, не использующие группы доступности AlwaysOn
 
@@ -366,7 +366,7 @@
 В начале этого раздела мы рассмотрим, как AlwaysOn взаимодействует с сетью Azure. Затем мы разделим миграции на два сценария: миграции, в которых допускается некоторое время простоя, и миграции, при которых необходимо добиться минимального времени простоя.
 
 Локальные группы доступности AlwaysOn сервера SQL Server используют прослушиватель локально, при этом он регистрирует виртуальное имя DNS и IP-адрес, который разделяется между одним или несколькими серверами SQL. При подключении клиентов они направляются через IP-адрес прослушивателя на основной сервер SQL. Это сервер, которому на данный момент принадлежит ресурс IP-адреса AlwaysOn.
- 
+
 ![DeploymentsUseAlwaysOn][6]
 
 В Microsoft Azure можно иметь только один IP-адрес сетевой карты на виртуальной машине, поэтому для достижения того же уровня абстракции, что и при локальной работе, Azure использует IP-адрес, присвоенный внутренним или внешним подсистемам балансировки нагрузки (ILB/ELB). Разделенный между серверами ресурс IP-адреса настраивается на тот же IP, что и ILB/ELB. Он отображается в DNS, а клиентский трафик передается через ILB/ELB на реплику основного сервера SQL Server. ILB/ELB известно, какой сервер SQL является основным, поскольку он использует пробы для проверки ресурса IP-адреса AlwaysOn. В предыдущем примере он проверяет каждый узел, имеющий конечную точку, на которую ссылается ELB/ILB. Узел, который ответит, является основным сервером SQL.
@@ -401,17 +401,15 @@
 1. Создайте два новых сервера SQL в новой облачной службе с присоединенным хранилищем Premium.
 1. Скопируйте ПОЛНЫЕ резервные копии и восстановите их с помощью **NORECOVERY**.
 1. Скопируйте зависимые объекты «не из базы данных пользователя», например имена входа и т. д.
-1. Создайте новую внутреннюю подсистему балансировки нагрузки (ILB) или используйте внешнюю подсистему балансировки нагрузки (ELB), а затем настройте конечные точки с балансировкой нагрузки на обоих новых узлах.  
-
-> [AZURE.NOTE] Прежде чем продолжить, проверьте, чтобы конечная точка была правильно настроена для всех узлов.  
-
+1. Создайте новую внутреннюю подсистему балансировки нагрузки (ILB) или используйте внешнюю подсистему балансировки нагрузки (ELB), а затем настройте конечные точки с балансировкой нагрузки на обоих новых узлах.
+> [AZURE.NOTE] Прежде чем продолжить, проверьте, чтобы конечная точка была правильно настроена для всех узлов.
 
 1. Остановите доступ пользователя или приложения к SQL Server (если используются пулы носителей).
 1. Остановите службы ядра SQL Server на всех узлах (если используются пулы носителей).
-1. Добавьте новые узлы в кластер и запустите полную проверку. 
+1. Добавьте новые узлы в кластер и запустите полную проверку.
 1. Если проверка прошла успешно, запустите все службы SQL Server.
 1. Выполните резервное копирование журналов транзакций и восстановление баз данных пользователя.
-1. Добавьте новые узлы в группу доступности AlwaysOn и поместите репликацию в **Syncronous**. 
+1. Добавьте новые узлы в группу доступности AlwaysOn и поместите репликацию в **Syncronous**.
 1. Добавьте ресурс IP-адреса новой облачной службы ILB/ELB через PowerShell для AlwaysOn на основе примера с несколькими узлами, приведенного в [приложении](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). В кластерах Windows установите **Возможных владельцев** ресурса **IP-адреса**, указав новые узлы. См. раздел «Добавление ресурса IP-адреса в одной подсети» в [приложении](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 1. Выполните отработку отказа для одного из новых узлов.
 1. Укажите новые узлы как «Партнеры автоматической отработки отказов» и проверьте отработку отказов.
@@ -424,7 +422,7 @@
 - Вы можете управлять началом передачи копий баз данных во вторичные реплики. Это отличается от использования командлета Azure **Start-AzureStorageBlobCopy** для копирования виртуальных жестких дисков, так как это асинхронная копия.
 
 ##### Недостатки
-- При использовании пулов носителей Windows возникает время простоя во время полной проверки кластеров для новых дополнительных узлов. 
+- При использовании пулов носителей Windows возникает время простоя во время полной проверки кластеров для новых дополнительных узлов.
 - В зависимости от версии SQL Server и существующего количества вторичных реплик вы можете не иметь возможности добавить несколько вторичных реплик, не удалив уже существующие.
 - При настройке вторичных реплик передача данных SQL может занять много времени.
 - В случае параллельной работы новых машин это может повлечь дополнительные расходы при миграции.
@@ -491,7 +489,7 @@
 ##### Шаги высокого уровня
 
 В настоящем документе не представлено полное и исчерпывающее описание, однако в [приложении](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) содержатся детальные сведения, которыми вы можете воспользоваться.
- 
+
 ![MinimalDowntime][8]
 
 - Получите конфигурацию диска и удалите узел (не удаляйте подключенные виртуальные жесткие диски).
@@ -1119,7 +1117,7 @@
 	![Приложение15][25]
 
 ## Дополнительные ресурсы
-- [Хранилище Azure Premium](../storage-premium-storage-preview-portal.md)
+- [Хранилище Azure Premium](../storage/storage-premium-storage.md)
 - [Виртуальные машины](https://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md)
 
@@ -1150,4 +1148,4 @@
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0302_2016-->

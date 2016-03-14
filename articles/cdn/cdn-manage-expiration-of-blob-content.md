@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Управление сроком действия содержимого BLOB-объекта в сети доставки содержимого (CDN) Azure" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="camsoper" 
- manager="dwrede" 
+<properties
+ pageTitle="Управление сроком действия содержимого BLOB-объекта в сети доставки содержимого (CDN) Azure"
+ description=""
+ services="cdn"
+ documentationCenter=".NET"
+ authors="camsoper"
+ manager="erikre"
  editor=""/>
-<tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/02/2015" 
+<tags
+ ms.service="cdn"
+ ms.workload="media"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="02/25/2016" 
  ms.author="casoper"/>
 
 
@@ -22,7 +22,7 @@
 
 Имеется два варианта управления сроком жизни.
 
-1.	Не задавайте значения кэша, чтобы использовать срок жизни по умолчанию длиной в 7 дней. 
+1.	Не задавайте значения кэша, чтобы использовать срок жизни по умолчанию длиной в 7 дней.
 2.	Явно задайте свойство *x-ms-blob-cache-control* в запросе **Put Blob**, **Put Block List** или **Set Blob Properties** или используйте управляемую библиотеку Azure для задания свойства [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx). При установке этого свойства задается значение заголовка *Cache-Control* BLOB-объекта. В заголовке или свойстве должно быть указано соответствующее значение в секундах. Например, чтобы задать максимальный период кэширования, равный одному году, можно указать заголовок запроса `x-ms-blob-cache-control: public, max-age=31556926`. Дополнительные сведения о задании заголовков кэширования см. в [спецификации HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
 
 Любое содержимое, которое вы хотите кэшировать через CDN, должно храниться в вашей учетной записи хранения Azure в виде общедоступного BLOB-объекта. Дополнительные сведения о службе BLOB-объектов Azure см. в разделе **Основные понятия службы BLOB-объектов**.
@@ -40,7 +40,7 @@
 	using System;
 	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.StorageClient;
-	
+
 	namespace BlobsInCDN
 	{
 	    class Program
@@ -50,31 +50,31 @@
 	            //Specify storage credentials.
 	            StorageCredentialsAccountAndKey credentials = new StorageCredentialsAccountAndKey("storagesample",
 	                "m4AHAkXjfhlt2rE2BN/hcUR4U2lkGdCmj2/1ISutZKl+OqlrZN98Mhzq/U2AHYJT992tLmrkFW+mQgw9loIVCg==");
-	            
+
 	            //Create a reference to your storage account, passing in your credentials.
 	            CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
-	            
+
 	            //Create a new client object, which will provide access to Blob service resources.
 	            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-	
+
 	            //Create a new container.
 	            CloudBlobContainer container = blobClient.GetContainerReference("cdncontent");
 	            container.CreateIfNotExist();
-	
+
 	            //Specify that the container is publicly accessible.
 	            BlobContainerPermissions containerAccess = new BlobContainerPermissions();
 	            containerAccess.PublicAccess = BlobContainerPublicAccessType.Container;
 	            container.SetPermissions(containerAccess);
-	
+
 	            //Create a new blob and write some text to it.
 	            CloudBlob blob = blobClient.GetBlobReference("cdncontent/testblob.txt");
 	            blob.UploadText("This is a test blob.");
-	
+
 	            //Set the Cache-Control header on the blob to specify your desired refresh interval.
 	            blob.SetCacheControl("public, max-age=31536000");
 	        }
 	    }
-	
+
 	    public static class BlobExtensions
 	    {
 	        //A convenience method to set the Cache-Control header.
@@ -96,4 +96,4 @@
 
 [Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN Azure)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

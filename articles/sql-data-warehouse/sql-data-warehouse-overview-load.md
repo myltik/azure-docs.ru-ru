@@ -112,7 +112,6 @@ WITH
     FORMAT_TYPE = DELIMITEDTEXT 
 ,   FORMAT_OPTIONS  (
                         FIELD_TERMINATOR ='|' 
-                    ,   USE_TYPE_DEFAULT = TRUE
                     )
 );
 
@@ -204,4 +203,4 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [документации хранилища Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-create-storage-account/
 [документации по ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

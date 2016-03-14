@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="02/11/2016"  
+ 	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
 
@@ -27,11 +27,25 @@
 
 При использовании REST следует принимать во внимание следующие соображения.
 
+- При запросе сущностей существует ограничение в 1000 сущностей, возвращаемых за один раз, так как в открытой версии 2 REST количество результатов запросов ограничено 1000. Вам нужно щелкнуть **Пропустить** и **Принять** (.NET) или **в начало** (REST), как описано [в этом примере .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) и [в этом примере REST API](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
-- При использовании JSON необходимо задать заголовок Accept в [подробном формате JSON](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/). Odata не сможет разобрать свойство \_\_metadata в запросе, если не установить его в "verbose".
+- Если вы используете JSON и указываете ключевое слово **\_\_metadata** в запросе (например, для ссылки на связанный объект), то вы ДОЛЖНЫ задать для заголовка **Accept** [подробный формат JSON](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (см. следующий пример). Odata "не поймет" свойство **\_\_metadata** в запросе, если не задать для него подробный формат.
 
-	**Accept**: application/json;odata=verbose
-- При запросе сущностей существует ограничение в 1000 сущностей, возвращаемых за один раз, так как в открытой версии 2 REST количество результатов запросов ограничено 1000. Вам нужно нажать **Пропустить** и **Принять** (.NET) и **в начало** (REST), как описано [в этом примере .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) и [в этом примере REST API](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+		POST https://media.windows.net/API/Jobs HTTP/1.1
+		Content-Type: application/json;odata=verbose
+		Accept: application/json;odata=verbose
+		DataServiceVersion: 3.0
+		MaxDataServiceVersion: 3.0
+		x-ms-version: 2.11
+		Authorization: Bearer <token> 
+		Host: media.windows.net
+		
+		{
+			"Name" : "NewTestJob", 
+			"InputMediaAssets" : 
+				[{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
+		. . . 
+		
 
 ## Стандартные заголовки HTTP-запроса, поддерживаемые службами мультимедиа
 
@@ -118,4 +132,4 @@ HEAD|Возвращает метаданные объекта для ответ�
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

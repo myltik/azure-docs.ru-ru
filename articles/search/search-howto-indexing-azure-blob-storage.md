@@ -57,7 +57,7 @@ ms.author="eugenesh" />
 
 	{
 	  "name" : "blob-indexer",
-	  "dataSourceName" : " blob-datasource ",
+	  "dataSourceName" : "blob-datasource",
 	  "targetIndexName" : "my-target-index",
 	  "schedule" : { "interval" : "PT2H" }
 	}
@@ -209,4 +209,4 @@ AzureSearch\_SkipContent | True | Указывает, что индексато�
 
 Если вам нужна какая-либо функция или у вас есть идеи, которые можно было бы реализовать, сообщите об этом на [сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

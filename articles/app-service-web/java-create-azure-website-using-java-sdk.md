@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/25/2016" 
 	ms.author="v-donntr"/>
 
 
@@ -541,7 +541,14 @@
 1. В FileZilla щелкните **Файл > Диспетчер сайтов**.
 2. В диалоговом окне **Диспетчер сайтов** щелкните **Создать сайт**. В **Выберите запись** отобразиться новый пустой FTP-сайт с запросом на указание имени. Укажите имя `AzureWebDemo-FTP` для использования в этой процедуре.
 
-    На вкладке **Общие** укажите следующие параметры: **Узел** — введите значение параметра **Имя узла FTP**, которое вы скопировали на панели мониторинга; **Порт** (оставьте это поле пустым, так как передача осуществляется пассивно, и порт определит сервер); **Протокол** — протокол передачи файлов FTP; **Шифрование** — используйте простой FTP; **Тип входа** — обычный; **Пользователь** — введите имя пользователя FTP или развертывания, которое вы скопировали на панели мониторинга. Это полное имя пользователя FTP в таком формате: *webappname\\username*; **Пароль** — введите пароль, указанный при установке учетных данных развертывания.
+    На вкладке **Общие** укажите следующие параметры.
+    - **Узел:** введите **имя узла FTP**, скопированное из панели мониторинга.
+    - **Порт:** (оставьте поле пустым, так как это пассивная передача, и сервер будет определять, какой порт использовать).
+    - **Протокол:** протокол передачи файлов FTP.
+    - **Шифрование:** используйте простой FTP.
+    - **Тип входа:** обычный.
+    - **Пользователь:** укажите пользователя развертывания или узла FTP, который был скопирован из панели мониторинга. Это полное имя пользователя FTP, которое имеет вид *имя\_веб-приложения\\имя\_пользователя*.
+    - **Пароль:** введите пароль, указанный при задании учетных данных развертывания.
 
     На вкладке **Параметры передачи** выберите **Пассивный**.
 
@@ -594,10 +601,10 @@
 [набора средств Azure для Eclipse]: https://msdn.microsoft.com/library/azure/hh690946.aspx
 [классический портал Azure]: https://manage.windowsazure.com
 [Что такое каталог Azure AD?]: http://technet.microsoft.com/library/jj573650.aspx
-[Создание и передача сертификата управления для Azure]: http://msdn.microsoft.com/library/azure/gg551722.aspx
+[Создание и передача сертификата управления для Azure]: ../cloud-services/cloud-services-certs-create.md
 [Инструмент управления сертификатами и ключом (keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
-[WebSiteManagementClient]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html
+[WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/azure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [портале Azure]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

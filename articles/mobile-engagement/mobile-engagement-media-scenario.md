@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="11/23/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo"/>
 
 #Реализация службы Mobile Engagement в мультимедийном приложении
@@ -101,4 +101,4 @@
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

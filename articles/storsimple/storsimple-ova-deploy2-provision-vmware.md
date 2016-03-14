@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
 
-# Развертывание виртуального массива StorSimple — подготовка виртуального массива в VMware (предварительная версия)
+# Развертывание виртуального массива StorSimple — подготовка виртуального массива в VMware
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
 ## Обзор 
-Это руководство по подготовке применяется только к виртуальным массивам StorSimple (также известным как локальные виртуальные устройства StorSimple или виртуальные устройства StorSimple) под управлением версии 1.1.1.0 (общедоступная предварительная версия). В руководстве описана подготовка и подключение виртуального массива StorSimple в главной системе под управлением VMware ESXi 5.5 и более поздних версий.
+Этот учебник по подготовке относится к виртуальным массивам StorSimple (также известным как локальные виртуальные устройства StorSimple или виртуальные устройства StorSimple) общедоступной версии, выпущенной в марте 2016 года. В руководстве описана подготовка и подключение виртуального массива StorSimple в главной системе под управлением VMware ESXi 5.5 и более поздних версий.
 
-Для подготовки и подключения виртуального устройства требуются права администратора. Подготовка и начальная настройка могут занять около 10 минут.
+Для подготовки и подключения виртуального устройства требуются права администратора. Подготовка и начальная настройка могут занять около 10 минут.
 
-> [AZURE.IMPORTANT]
-> 
-> Эта общедоступная предварительная версия предназначена исключительно для оценки. Установка этой версии в рабочей среде не поддерживается.
 
 ## Предварительные требования к подготовке
 
@@ -38,9 +35,9 @@
 
 Перед тем как начать, убедитесь в следующем.
 
--   Выполнены все инструкции из статьи [Deploy StorSimple Virtual Array — Prepare the portal (Preview)](storsimple-ova-deploy1-portal-prep.md) (Развертывание виртуального массива StorSimple — подготовка портала (предварительная версия)).
+-   Выполнены все инструкции из статьи [Deploy StorSimple Virtual Array — Prepare the portal](storsimple-ova-deploy1-portal-prep.md).
 
--   Образ виртуального устройства для VMware скачан с портала Azure. Дополнительные сведения см. в разделе [Шаг 3. Загрузка образа виртуального устройства](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
+-   Образ виртуального устройства для VMware скачан с портала Azure. Дополнительные сведения см. в разделе [Шаг 3. Скачивание образа виртуального устройства](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
 
 ### Для виртуального устройства StorSimple 
 
@@ -108,7 +105,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image3.png)
 
-1.  На панели справа в разделе **Datastores** (Хранилища данных) выберите хранилище данных, в которое необходимо отправить файл VMDK. В хранилище данных должно быть достаточно свободного пространства для дисков операционной системы и данных.
+1.  На панели справа в разделе **Datastores** (Хранилища данных) выберите хранилище данных, в которое необходимо отправить VMDK-файл. В хранилище данных должно быть достаточно свободного пространства для дисков операционной системы и данных.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image4.png)
 
@@ -162,7 +159,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image19.png)
 
-1.  На странице **Guest Operating System** (Операционная система на виртуальной машине) задайте для параметра **Guest Operating System** (Операционная система на виртуальной машине) значение **Windows**. Для параметра **Version** (Версия) в раскрывающемся списке выберите значение **Microsoft Windows Server 2012 (64-bit)** (Microsoft Windows Server 2012 (64-разрядная версия)).
+1.  На странице **Guest Operating System** (Гостевая операционная система) задайте для параметра **Guest Operating System** (Гостевая операционная система) значение **Windows**. Для параметра **Version** (Версия) из раскрывающегося списка выберите значение **Microsoft Windows Server 2012 (64-bit)** (Microsoft Windows Server 2012 (64-разрядная версия)).
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image20.png)
 
@@ -178,7 +175,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image23.png)
 
-1.  На странице **SCSI Controller** (SCSI-контроллер) примите значение по умолчанию **LSI Logic SAS controller** (SAS-контроллер с логикой LSI).
+1.  На странице **SCSI Controller** (Контроллер SCSI) примите значение по умолчанию **LSI Logic SAS controller** (Контроллер SAS с логикой LSI).
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image24.png)
 
@@ -283,7 +280,7 @@
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/image46.png)
 
-При возникновении любой другой ошибки во время начальной настройки с помощью локального веб-интерфейса см. сведения о соответствующих рабочих процессах в статье [Use the Web UI to administer your StorSimple Virtual Array (preview)](storsimple-ova-web-ui-admin.md) (Управление виртуальным массивом StorSimple с помощью веб-интерфейса (предварительная версия)).
+При возникновении любой другой ошибки во время начальной настройки с помощью локального веб-интерфейса см. сведения о соответствующих рабочих процессах в статье [Использование пользовательского веб-интерфейса для администрирования виртуального массива StorSimple (предварительная версия)](storsimple-ova-web-ui-admin.md).
 
 -   Выполнение диагностических тестов для [устранения неполадок при настройке веб-интерфейса](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 
@@ -291,8 +288,8 @@
 
 ## Дальнейшие действия
 
--   [Deploy StorSimple Virtual Array - Set up as file server (Preview)](storsimple-ova-deploy3-fs-setup.md) (Развертывание виртуального массива StorSimple — настройка в качестве файлового сервера (предварительная версия))
+-   [Deploy StorSimple Virtual Array - Set up as file server (Preview) (Развертывание виртуального массива StorSimple — настройка в качестве файлового сервера (предварительная версия))](storsimple-ova-deploy3-fs-setup.md)
 
--   [Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server (preview)](storsimple-ova-deploy3-iscsi-setup.md) (Развертывание виртуального массива StorSimple — настройка в качестве сервера iSCSI (предварительная версия))
+-   [Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server (preview) (Развертывание виртуального массива StorSimple — настройка в качестве сервера iSCSI (предварительная версия))](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="01/11/2016"
+   ms.date="02/26/2016"
    ms.author="coreyp"/>
 
 # Подключение компьютеров для управления с помощью Azure Automation DSC
@@ -103,7 +103,7 @@
      -VM $vm `
      -Publisher Microsoft.Powershell `
      -ExtensionName DSC `
-     -Version 2.13 `
+     -Version 2.14 `
      -PublicConfiguration $PublicConfiguration `
      -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
@@ -374,4 +374,4 @@
 * [Командлеты Automation DSC Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Цены на Automation DSC Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="sql-database"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/17/2016"
 	ms.author="daleche"/>
 
@@ -212,8 +212,7 @@
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-Дополнительные сведения см. в статье
-[Практическое руководство. Настройка параметров брандмауэра для базы данных SQL](sql-database-configure-firewall-settings.md).
+Дополнительные сведения см. в статье [Практическое руководство. Настройка параметров брандмауэра для базы данных SQL](sql-database-configure-firewall-settings.md).
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -239,8 +238,7 @@
 Если клиентская программа установлена на виртуальной машине Azure, см. статью <br/>[Порты, кроме 1433, для ADO.NET 4.5 и базы данных SQL версии 12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-Основные сведения о конфигурации портов и IP-адресов собраны в статье
-[Настройка брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md).
+Основные сведения о конфигурации портов и IP-адресов собраны в статье [Настройка брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md).
 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
@@ -552,4 +550,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* — это лицензированная общая библиотека Apache 2.0 для повторных попыток, написанная на языке **Python**, которая позволяет легко добавить режим повтора куда угодно.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

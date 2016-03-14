@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/14/2016"   
+	ms.date="03/01/2016"   
 	ms.author="juliako"/>
 
 
@@ -35,20 +35,20 @@
 
 Статическую упаковку также можно использовать для выполнения следующих задач. Однако рекомендуется использовать динамическое шифрование.
 
-- Использование статического шифрования для защиты ваших Smooth и MPEG DASH с PlayReady
-- Использование статического шифрования для защиты HLSv3 с AES-128
-- Использование статического шифрования для защиты HLSv3 с PlayReady
+- Использование статического шифрования для защиты данных в формате Smooth и MPEG DASH с использованием PlayReady
+- Использование статического шифрования для защиты HLSv3 с использованием AES-128
+- Использование статического шифрования для защиты HLSv3 с использованием PlayReady
 
 
 ## Проверка MP4-файлов с переменной скоростью, закодированных с помощью внешних кодировщиков
 
-Если вы хотите использовать набор MP4-файлов с переменной скоростью (с несколькими скоростями), которые не были закодированы с помощью Media Services Encoder, эти файлы следует проверить перед дальнейшей обработкой. Media Services Packager может проверить ресурс, содержащий набор MP4-файлов, и определить, можно ли упаковать ресурс в формат Smooth Streaming или HLS. Если проверка завершается неудачно, задача обработки также завершится с ошибкой. Файл XML, определяющий предустановку для задачи проверки, можно найти в разделе [Предустановка задачи для Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
+Если вы хотите использовать набор MP4-файлов с адаптивной скоростью (с несколькими скоростями), которые не были закодированы с помощью кодировщиков служб мультимедиа, эти файлы следует проверить перед дальнейшей обработкой. Media Services Packager может проверить ресурс, содержащий набор MP4-файлов, и определить, можно ли упаковать ресурс в формат Smooth Streaming или HLS. Если проверка завершается неудачно, задача обработки также завершится с ошибкой. Файл XML, определяющий предустановку для задачи проверки, можно найти в разделе [Предустановка задачи для Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
 
->[AZURE.NOTE]Во избежание проблем во время выполнения используйте Media Services Encoder для создания содержимого, а Media Services Packager для проверки содержимого. Если сервер потокового воспроизведения по запросу не может выполнить синтаксический анализ исходных файлов во время выполнения, вы получите ошибку HTTP 1.1 "415 Тип содержимого не поддерживается". Несколько неудачных попыток анализа исходных файлов влияют на производительность сервера потокового воспроизведения по запросу и могут снизить пропускную способность, доступную для обработки других запросов. Службы мультимедиа Azure предлагают Соглашение об уровне обслуживания (SLA) для служб потокового воспроизведения по запросу; тем не менее, если сервер используется неправильно описанным выше образом, это соглашение не учитывается.
+>[AZURE.NOTE]Во избежание проблем во время выполнения используйте стандартный кодировщик мультимедиа для создания содержимого, а упаковщик служб мультимедиа — для проверки содержимого. Если сервер потокового воспроизведения по запросу не может выполнить синтаксический анализ исходных файлов во время выполнения, вы получите ошибку HTTP 1.1 "415 Тип содержимого не поддерживается". Несколько неудачных попыток анализа исходных файлов влияют на производительность сервера потокового воспроизведения по запросу и могут снизить пропускную способность, доступную для обработки других запросов. Службы мультимедиа Azure предлагают Соглашение об уровне обслуживания (SLA) для служб потокового воспроизведения по запросу; тем не менее, если сервер используется неправильно описанным выше образом, это соглашение не учитывается.
 
 В этом разделе показано, как выполнить задачу проверки. В нем также показано, как просмотреть состояние и сообщение об ошибке для задания, которое завершилось с состоянием ошибки JobStatus.Error.
 
-Чтобы проверить файлы MP4 с помощью Media Services Packager, необходимо создать собственный файл манифеста (ISM) и загрузить его вместе с исходными файлами в учетную запись служб мультимедиа. Ниже приведен пример ISM-файла, созданного кодировщиком мультимедиа Azure. Имена файлов чувствительны к регистру. Также убедитесь, что текст в ISM-файле представлен в кодировке UTF-8.
+Чтобы проверить файлы MP4 с помощью Media Services Packager, необходимо создать собственный файл манифеста (ISM) и загрузить его вместе с исходными файлами в учетную запись служб мультимедиа. Ниже приведен пример ISM-файла, созданного стандартным кодировщиком мультимедиа. Имена файлов чувствительны к регистру. Также убедитесь, что текст в ISM-файле представлен в кодировке UTF-8.
 
 	
 	<?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -519,13 +519,13 @@
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -864,13 +864,13 @@
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeSingleMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -1235,13 +1235,13 @@
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeSingleMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -1447,4 +1447,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

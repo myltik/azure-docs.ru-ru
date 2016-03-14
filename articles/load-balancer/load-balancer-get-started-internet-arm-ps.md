@@ -136,9 +136,16 @@
 
 ### Шаг 3.
 
-Создайте пробу работоспособности.
-
+Создайте пробу работоспособности. Существует два способа настройки пробы:
+ 
+проба HTTP
+	
 	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+или
+
+проба TCP.
+	
+	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 ### Шаг 4.
 
@@ -165,7 +172,7 @@
 
 ### Шаг 3.
 
-Создайте сетевую карту *lb-nic2-be* и сопоставьте ее со вторым правилом NAT, а также с первым (и единственным) пулом адресов серверной части.
+Создайте сетевую карту *lb-nic2-be* и сопоставьте ее со вторым правилом NAT, а также с первым (и единственным) серверным пулом адресов.
 
 	$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic2-be -Location 'West US' -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 
@@ -295,10 +302,10 @@
 
 ## Дальнейшие действия
 
-[Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-internal-getstarted.md)
+[Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
 
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

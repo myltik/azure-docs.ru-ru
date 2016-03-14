@@ -13,25 +13,40 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
+   ms.date="02/29/2016"
    ms.author="nitinme"/>
 
 # Начало работы с хранилищем озера данных Azure с помощью пакета SDK .NET
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
+- [Использование портала](data-lake-store-get-started-portal.md)
+- [с использованием PowerShell.](data-lake-store-get-started-powershell.md)
+- [Использование пакета .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Использование Azure CLI](data-lake-store-get-started-cli.md)
+- [Использование Node.js](data-lake-store-manage-use-nodejs.md)
 
-Узнайте, как с помощью пакета SDK .NET хранилища озера данных Azure создать учетную запись озера данных Azure и выполнить базовые операции, такие как создание папок, передача и загрузка файлов данных, удаление учетной записи и т. д. Дополнительные сведения об озере данных см. в разделе [Хранилище озера данных Azure](data-lake-store-overview.md).
+Узнайте, как с помощью пакета SDK .NET хранилища озера данных Azure создать учетную запись озера данных Azure и выполнить базовые операции, такие как создание папок, передача и загрузка файлов данных, удаление учетной записи и т. д. Дополнительные сведения об озере данных см. в разделе [Хранилище озера данных Azure](data-lake-store-overview.md).
 
 ## Предварительные требования
 
 * Visual Studio 2013 или 2015 Для выполнения инструкций ниже использовалась Visual Studio 2015.
 * **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
+* Создайте приложение Azure Active Directory (AAD) и получите его **идентификатор клиента** и **универсальный код ресурса (URI) ответа**. Дополнительные сведения о приложениях AAD и инструкции о том, как получить идентификатор клиента, см. в разделе [Создание приложения Active Directory и субъекта-службы с помощью портала](../resource-group-create-service-principal-portal.md). После создания приложения универсальный код ресурса (URI) ответа также будет доступен на портале.
+
+## Как выполнить аутентификацию с помощью Azure Active Directory?
+
+В приведенном ниже фрагменте кода представлено два метода аутентификации.
+
+* **Интерактивный**, при котором пользователь выполняет вход с помощью приложения. Это реализовано в методе `AuthenticateUser` в следующем фрагменте кода.
+
+* **Неинтерактивный**, при котором приложение предоставляет свои собственные учетные данные. Это реализовано в методе `AuthenticateAppliaction` в следующем фрагменте кода.
+
+Несмотря на то, что в приведенном ниже фрагменте кода есть методы для обоих подходов, в этой статье используется метод `AuthenticateUser`. Этот метод требует предоставить идентификатор клиентского приложения AAD и универсальный код ресурса (URI) ответа. По ссылке в разделе предварительных требований можно просмотреть инструкции о том, как получить их.
+
+>[AZURE.NOTE] Если вы хотите изменить фрагмент кода и использовать метод `AuthenticateApplication`, в качестве входных данных метода помимо идентификатора клиента и универсального кода ресурса (URI) ответа необходимо также указать ключ аутентификации клиента. Статья [Создание приложения Active Directory и субъекта-службы с помощью портала](../resource-group-create-service-principal-portal.md) также содержит сведения о том, как создать и получить ключ аутентификации клиента.
+
+
 
 ## Создание приложения .NET
 
@@ -55,15 +70,19 @@
 	2. На вкладке **Диспетчер пакетов NuGet** в поле **Источник пакета** задайте значение **nuget.org** и установите флажок **Включить предварительный выпуск**.
 	3. Найдите и установите следующие пакеты хранилища озера данных:
 	
-		* Microsoft.Azure.Management.DataLake.Store
-		* Microsoft.Azure.Management.DataLake.StoreUploader
-        * Microsoft.IdentityModel.Clients.ActiveDirectory
+		* `Microsoft.Azure.Management.DataLake.Store`
+		* `Microsoft.Azure.Management.DataLake.StoreUploader`
 
 		![Добавление источника Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Создание новой учетной записи озера данных Azure")
 
-	4. Закройте **Диспетчер пакетов Nuget**.
+	4. Также установите пакет `Microsoft.IdentityModel.Clients.ActiveDirectory` для использования аутентификации Azure Active Directory.
 
-7. Откройте файл **Program.cs** и замените существующий блок кода следующим. Кроме того, укажите значения параметров в фрагменте кода, например параметров subscriptionId, dataLakeAccountName и localPath.
+		![Добавление источника Nuget](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "Создание новой учетной записи озера данных Azure")
+
+
+	5. Закройте **Диспетчер пакетов Nuget**.
+
+7. Откройте файл **Program.cs** и замените существующий блок кода следующим. Кроме того, задайте значения параметров, вызываемых во фрагменте кода, например **\_adlsAccountName**, **\_resourceGroupName**, и замените заполнители **APPLICATION-CLIENT-ID**, **APPLICATION-REPLY-URI** и **SUBSCRIPTION-ID** соответствующими значениями.
 
 	Этот код используется в процессе создания учетной записи хранилища озера данных, создания папок в хранилище, передачи и скачивания файлов и, наконец, удаления учетной записи. Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 	
@@ -103,10 +122,8 @@
                     string remoteFilePath = remoteFolderPath + "file.txt";
                     
                     // Authenticate the user
-                    // For more information about applications and instructions on how to get a client ID, see: 
-                    //   https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-create-service-principal-portal/
                     var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
-                        "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REDIRECT-URI>")); // TODO: Replace bracketed values.
+                        "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REPLY-URI>")); // TODO: Replace bracketed values.
                     
                     SetupClients(tokenCreds, "<SUBSCRIPTION-ID>"); // TODO: Replace bracketed value.
 
@@ -300,7 +317,7 @@
 ## Дальнейшие действия
 
 - [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
-- [Использование аналитики озера данных Azure с хранилищем озера данных](data-lake-analytics-get-started-portal.md)
+- [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

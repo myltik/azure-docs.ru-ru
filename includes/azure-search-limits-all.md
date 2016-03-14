@@ -1,30 +1,17 @@
-Resource|Free|Basic (Preview) <sup>6</sup>|S1|S2
+Ресурс|Бесплатно|Базовый (предварительная версия) <sup>6</sup>|S1|S2
 ---|---|---|---|----
-Maximum search services|N/A|---|12 per Azure subscription|12 per Azure subscription
-Maximum storage size <sup>1</sup>|50 MB or 10,000 documents|2 GB per service|25 GB per partition or 300 GB documents per service|100 GB per partition or 1.2 TB per service
-Maximum documents hosted|10,000 total|1 million per service|15 million per partition (up to 180 million documents per service)|60 million per partition (up to 720 million documents per service)
-Maximum indexes|3|5|50|200
-Maximum indexers|3|5|50|200
-Maximum indexer datasources|3|5|50|200
-Index: maximum fields per index|1000|100 <sup>5</sup>|1000|1000
-Index: maximum scoring profiles per index|16|16|16|16
-Index: maximum functions per profile|8|8|8|8
-Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents
-Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours
-Queries per second (QPS) <sup>2</sup>|N/A|~3 per replica|~15 per replica|~60 per replica
-Scale out: maximum search units (SU) <sup>3</sup>|N/A|Up to 3 units (3 replicas and 1 partition)|36 units|36 units
-Pricing <sup>4</sup>|N/A|$75 per SU per month|$250 per SU per month|$1000 per SU per month
+Максимальное количество служб поиска|Н/Д|---|12 на одну подписку Azure|12 на одну подписку Azure Максимальный размер хранилища <sup>1</sup>|50 МБ или 10000 документов|2 ГБ на одну службу|25 ГБ на раздел или 300 ГБ документов на одну службу|100 ГБ на раздел или 1,2 ТБ на службу Максимальное количество размещенных документов|10000|1 миллион на службу|15 миллионов на раздел (до 180 миллионов документов на службу)|60 миллионов на раздел (до 720 миллионов документов на службу) Максимальное количество индексов|3|5|50|200 Максимальное количество индексаторов|3|5|50|200 Максимальное количество источников данных индексаторов|3|5|50|200 Индекс: максимальное количество полей на индекс|1000|100 <sup>5</sup>|1000|1000 Индекс: максимальное количество профилей оценки на индекс|16|16|16|16 Индекс: максимальное количество функций на профиль|8|8|8|8 Индексатор: максимальная нагрузка индексатора на вызов|10000 документов|Ограничено только максимальным количеством документов|Ограничено только максимальным количеством документов|Ограничено только максимальным количеством документов Индексаторы: максимальное время выполнения|3 минуты|24 часа|24 часа|24 часа Количество запросов в секунду (QPS) <sup>2</sup>|Н/Д|Ок. 3 на реплику|Ок. 15 на реплику|Ок. 60 на реплику Масштабирование: максимальное количество единиц поиска (SU) <sup>3</sup>|Н/Д|До 3 единиц (3 реплики и 1 раздел)|36 единиц|36 единиц Цены <sup>4</sup>|Н/Д|75 долларов за единицу поиска в месяц|250 долларов за единицу поиска в месяц|1000 долларов за единицу поиска в месяц
 
-<sup>1</sup> Storage size is either a fixed amount or the number of documents per service, whichever comes first.
+<sup>1</sup> Размер хранилища представляет собой фиксированный размер или число документов на службу, в зависимости от того, какая из этих величин меньше.
 
-<sup>2</sup> QPS is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput will vary depending on your data and the nature of the query.
+<sup>2</sup> QPS определяется приблизительно, в зависимости от эвристики, с использованием имитированных и фактических нагрузок клиента для получения предполагаемых значений. Точная пропускная способность QPS будет зависеть от характера данных и природы запроса.
 
-<sup>3</sup> Search units are the billable unit for either a replica or a partition. You need both for both storage, indexing, and query operations. See [Capacity Planning](../articles/search/search-capacity-planning.md) for valid combinations of replicas and partitions that keep you within the maximum limit of 3 or 36 units, for Basic and Standard respectively.
+<sup>3</sup> Единицы поиска — это тарифицируемые единицы для реплики или секции. Они необходимы для хранилища, индексирования и операций запроса. Допустимые сочетания реплик и разделов, позволяющие оставаться в допустимых пределах (3 и 36 единиц для уровней "Базовый" и "Стандартный" соответственно) см. в разделе [Планирование емкости](../articles/search/search-capacity-planning.md).
 
-<sup>4</sup> Price is for the U.S. market, illustrating relative costs among alternative tiers. Different markets have different prices. Refer to the [Pricing page](https://azure.microsoft.com/pricing/details/search/) for rates in other currencies. The rate is per search unit (SU). At the S1 level, a configuration of 3 search units (say 3 replicas and 1 partition) would cost $750 per month on average. If you scale down to fewer SU within the month, the bill is prorated so that you are charged only for what you use.
+<sup>4</sup> Цена — на рынке США, иллюстрирующая относительные затраты между альтернативными уровнями. Различные рынки имеют различные цены. Для цен в других валютах обратитесь к [странице цен](https://azure.microsoft.com/pricing/details/search/). Цена определяется за одну единицу поиска (SU). На уровне S1 конфигурация из 3 единиц поиска (например 3 реплики и 1 раздел) будет стоить в среднем 750 долларов в месяц. При масштабировании до меньшего количества единиц поиска в месяц счет пересчитывается так, что вы платите только за то, что фактически используете.
 
-<sup>5</sup> This is not a typo. Basic tier has a limit of 100 fields per index. It is the only tier that has this lower limit.
+<sup>5</sup> Это не опечатка. Уровень "Базовый" ограничен 100 полями на один индекс. Это единственный уровень с таким нижним пределом.
 
-<sup>6</sup> [Basic tier](http://aka.ms/azuresearchbasic) is available at an introductory rate of 50% off the full price during the preview period.
+<sup>6</sup> [Уровень "Базовый"](http://aka.ms/azuresearchbasic) доступен по вводной цене в размере 50 % от полной цены на этапе предварительной версии.
 
-
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="11/02/2015"
+   ms.date="02/19/2016"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # Интеграция Cloud Cruiser и API выставления счетов Microsoft Azure
@@ -213,12 +213,13 @@ Cloud Cruiser может по-разному использовать интег
 + Подробные инструкции по созданию книг и отчетов Cloud Cruiser см. в электронной [документации](http://docs.cloudcruiser.com/) по Cloud Cruiser (требуется действительное имя входа). Для получения дополнительных сведений о Cloud Cruiser обратитесь по адресу [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
 + В статье [Получение ценных сведений о потреблении ресурсов Microsoft Azure](billing-usage-rate-card-overview.md) приведены общие сведения об API использования ресурсов и RateCard в Azure.
 + В статье [Справочник по API REST выставления счетов в Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) приведены дополнительные сведения о двух API, которые входят в состав набора API, предоставляемого диспетчером ресурсов Azure.
-+ Если вы хотите подробнее изучить код примера, посетите страницу "Образцы кода API выставления счетов Microsoft Azure" на сайте [Образцы кодов Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
++ Если вы хотите подробнее изучить код примера, посетите страницу "Образцы кода API выставления счетов Microsoft Azure" сайте [Образцы кодов Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ### Подробнее
 + В статье [Обзор диспетчера ресурсов Azure](resource-group-overview.md) приведены дополнительные сведения о диспетчере ресурсов Azure.
 
 <!--Image references-->
+ 
 [1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Рис. 1. Создание новой коллекции"
 [2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Рис. 2. Импорт данных из новой коллекции"
 [3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "Рис. 3. Действия преобразования для обработки данных, собранных из API RateCard"
@@ -234,4 +235,4 @@ Cloud Cruiser может по-разному использовать интег
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Рис. 13 — создание новых полей для информации тега"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Рис. 14 — заполнение структуры учетной записи данными из результатов поиска"
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

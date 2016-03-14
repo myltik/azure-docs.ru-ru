@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Использование службы управления API для создания HTTP-запросов"
-   description="Узнайте, как использовать политики запросов и ответов в службе управления API для вызова внешних служб из API."
-   services="api-management"
-   documentationCenter=""
-   authors="darrelmiller"
-   manager=""
-   editor=""/>
+	pageTitle="Использование службы управления API для создания HTTP-запросов"
+	description="Узнайте, как использовать политики запросов и ответов в службе управления API для вызова внешних служб из API."
+	services="api-management"
+	documentationCenter=""
+	authors="darrelmiller"
+	manager=""
+	editor=""/>
 
 <tags
-   ms.service="api-management"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/01/2016"
-   ms.author="v-darmi"/>
+	ms.service="api-management"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="02/19/2016"
+	ms.author="v-darmi"/>
 
 
 # Использование внешних служб из службы управления API Azure
@@ -269,4 +269,4 @@
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

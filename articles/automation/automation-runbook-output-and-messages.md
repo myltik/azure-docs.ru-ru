@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Выходные данные и сообщения Runbook в службе автоматизации Azure | Microsoft Azure"
    description="Описывает способы создания и извлечения выходных данных и сообщений об ошибках из модулей Runbook в службе автоматизации Azure."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="03/02/2016"
+   ms.author="magoedte;bwren" />
 
 # Выходные данные и сообщения Runbook в службе автоматизации Azure
 
@@ -51,7 +51,7 @@
 	   Write-Verbose "Verbose outside of function"
 	   Write-Output "Output outside of function"
 	   $functionOutput = Test-Function
-	
+
 	   Function Test-Function
 	   {
 	      Write-Verbose "Verbose inside of function"
@@ -77,7 +77,7 @@
 	Workflow Test-Runbook
 	{
 	   [OutputType([string])]
-	
+
 	   $output = "This is some string output."
 	   Write-Output $output
 	}
@@ -93,7 +93,7 @@
 Создайте предупреждение или сообщение об ошибке с помощью командлета [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) или [Write-Error](http://technet.microsoft.com/library/hh849962.aspx). Действия также могут записывать данные в эти потоки.
 
 	#The following lines create a warning message and then an error message that will suspend the runbook.
-	
+
 	$ErrorActionPreference = "Stop"
 	Write-Warning –Message "This is a warning message."
 	Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
@@ -107,7 +107,7 @@
 Для создания подробного сообщения используется командлет [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx).
 
 	#The following line creates a verbose message.
-	
+
 	Write-Verbose –Message "This is a verbose message."
 
 ### Поток отладки
@@ -152,20 +152,42 @@ Windows PowerShell использует [привилегированные пе
 
 В следующем примере запускается пример Runbook и ожидается его завершение. После завершения его поток вывода собирается из задания.
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" 
-	
+	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+
 	$doLoop = $true
 	While ($doLoop) {
 	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
 	   $status = $job.Status
-	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
+	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
 	}
-	
+
 	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+
+### Графическая разработка
+
+Для графических модулей Runbook дополнительное ведение журнала доступно в виде трассировки на уровне действий. Существует два уровня трассировки: базовая и подробная. Базовая трассировка включает время начала и окончания каждого действия в модуле Runbook, а также сведения обо всех повторных действиях, включая число попыток и время начала. Подробная трассировка включает те же данные, что и базовая, плюс входные и выходные данные каждого действия. В настоящее время записи трассировки ведутся с использованием подробного потока, поэтому при включении трассировки необходимо также включать подробное ведение журнала. Для графических модулей Runbook с включенной трассировкой ведение записей о ходе выполнения не требуется, поскольку базовая трассировка не только решает эту задачу, но и является более информативной.
+
+![Представление потоков заданий графической разработки](media/automation-runbook-output-and-messages/job_streams_view_blade.png)
+
+На приведенном выше снимке экрана видно, что при включении подробного журнала и трассировки для графических модулей Runbook представление потоков заданий в рабочей среде содержит гораздо больше данных. Эти дополнительные сведения могут пригодиться во время поиска и устранения неисправностей, связанных с модулем Runbook. Включайте их только для этой цели, в обычном режиме подобная детализация не требуется. Записи трассировки могут быть очень многочисленными. При трассировке графических модулей Runbook создается от двух до четырех записей на каждое действие в зависимости от того, какая выбрана трассировка — базовая или подробная. Если эти данные не требуются для контроля за выполнением модуля Runbook в целях устранения неисправностей, трассировку можно отключить.
+
+**Чтобы включить трассировку на уровне действий, выполните указанные ниже действия.**
+
+ 1. На портале Azure выберите свою учетную запись в службе автоматизации.
+
+ 2. Щелкните плитку **Модули Runbook**, чтобы открыть список модулей Runbook.
+
+ 3. В колонке "Модули Runbook" выберите графический модуль Runbook.
+
+ 4. В колонке "Параметры" для выбранного модуля щелкните **Ведение журнала и трассировка**.
+
+ 5. В разделе "Записи ведения журнала" колонки "Ведение журнала и трассировка" щелкните **Включить**, чтобы включить подробное ведение журнала, а в колонке "Трассировка на уровне действий" измените уровень трассировки с **Базовой** на **Подробную** в зависимости от того, какой уровень трассировки вам требуется.<br>
+
+    ![Колонка ведения журналов и трассировки графической разработки](media/automation-runbook-output-and-messages/logging_and_tracing_settings_blade.png)
 
 ## Связанные статьи
 
 - [Отслеживание задания Runbook](automation-runbook-execution.md)
 - [Дочерние Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

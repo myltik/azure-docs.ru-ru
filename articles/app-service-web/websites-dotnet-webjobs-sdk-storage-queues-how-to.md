@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="02/29/2016" 
 	ms.author="tdykstra"/>
 
 # Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure
@@ -611,4 +611,4 @@ public static void ErrorMonitor(
 В этом руководстве предоставлены примеры кода обработки обычных сценариев для работы с очередями Azure. Дополнительную информацию об использовании веб-заданий Azure и пакета SDK для веб-заданий см. в статье [Рекомендуемые ресурсы по веб-заданиям Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

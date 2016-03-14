@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/26/2016"
 	ms.author="asmalser"/>
 
 #Настройка утверждений, выпущенных в маркере SAML для предварительно интегрированных приложений в Azure Active Directory
@@ -54,9 +54,7 @@
 
 Если для заданного пользователя нет сохраненного значения выбранного атрибута, это утверждение не будет выпущено в маркере.
 
-**Примечание.** При синхронизации данных пользователя из локального каталога Active Directory с использовании последней предварительной версии средства подключения AAD поддерживаются только значения **user.onpremisesecurityidentifier** и **user.onpremisesamaccountname**. Загрузить предварительную версию средства подключения можно по следующей ссылке:
-
-http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
+**Примечание.** Значения **user.onpremisesecurityidentifier** и **user.onpremisesamaccountname** поддерживаются только при синхронизации данных пользователя из локального каталога Active Directory с помощью [инструмента Azure AD Connect](active-directory-aadconnect.md).
 
 ## Связанные статьи
 
@@ -70,4 +68,4 @@ http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

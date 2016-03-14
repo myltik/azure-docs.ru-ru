@@ -47,7 +47,7 @@
 
 1. Войдите в свою учетную запись Azure. После предоставления учетных данных команда возвращает информацию о вашей учетной записи.
 
-    Azure PowerShell 1.0.
+    Azure PowerShell 1.0.
 
          PS C:\> Login-AzureRmAccount
 
@@ -284,4 +284,4 @@
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Расположение узлов POP сети доставки содержимого Azure (CDN)" 
-	description="В этом разделе перечислены точки присутствия сети доставки содержимого (CDN) Azure" 
-	services="cdn" 
-	documentationCenter="" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Расположение узлов POP сети доставки содержимого Azure (CDN)"
+	description="В этом разделе перечислены точки присутствия сети доставки содержимого (CDN) Azure"
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
 #Расположение узлов POP сети доставки содержимого Azure (CDN)
 
 В этом разделе перечислены доступные в текущий момент точки присутствия (узлы POP) сети CDN Microsoft Azure.
-   
+
 
 ![Расположение POP сети доставки содержимого (CDN)](./media/cdn-pop-locations/CDN_POP_locations_update.png)
 
@@ -76,6 +76,6 @@
 ##Австралия
 
 - Мельбурн
-- Сидней 
+- Сидней
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

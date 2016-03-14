@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать центры уведомлений Azure из серверной части PHP." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.date="02/29/2016" 
+	ms.author="wesmc"/>
 
 # Использование концентраторов уведомлений из PHP
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -248,7 +248,7 @@
 * Продолжить изучение функции тегов в концентраторах уведомлений в [учебнике "Срочные новости"]
 * Изучить отправку уведомлений отдельным пользователям в [учебнике "Уведомление пользователей"]
 
-Дополнительные сведения также можно найти в [Центре разработчика PHP](/develop/php/).
+Дополнительную информацию можно найти также в [Центре разработчика PHP](/develop/php/).
 
 [Образец оболочки PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Примере оболочки PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
@@ -256,4 +256,4 @@
 [учебнике по началу работы]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

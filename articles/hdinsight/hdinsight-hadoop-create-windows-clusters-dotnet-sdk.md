@@ -42,8 +42,9 @@
 1. Создайте в Visual Studio новое консольное приложение C#.
 2. Выполните следующую команду Nuget в окне консоли диспетчера пакетов NuGet.
 
-		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Common.Authentication -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+		Install-Package Microsoft.Azure.Management.Resources -Pre
 
 6. В обозревателе решений дважды щелкните файл **Program.cs**, чтобы открыть его, вставьте указанный ниже код и укажите значения для переменных:
 
@@ -55,6 +56,7 @@
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
+		using Microsoft.Azure.Management.Resources;
 		
 		namespace CreateHDInsightCluster
 		{
@@ -82,7 +84,10 @@
 		
 					var tokenCreds = GetTokenCloudCredentials();
 					var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-		
+					
+					var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+					resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+					
 					_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 				
 					var parameters = new ClusterCreateParameters
@@ -220,4 +225,4 @@
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

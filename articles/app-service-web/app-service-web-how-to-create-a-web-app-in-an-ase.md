@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="01/14/2016"
 	ms.author="ccompy"/>
 
@@ -58,11 +58,11 @@
 
 	URL-адрес веб-приложения в среде ASE имеет следующий формат:
 
-	[*имя_сайта*].[*имя среды службы приложений*].p.azurewebsites.net
+	[*имя\_сайта*].[*имя среды службы приложений*].p.azurewebsites.net
 
 	вместо
 
-	[*имя_сайта*].azurewebsites.net
+	[*имя\_сайта*].azurewebsites.net
 
 ## <a name="createplan"></a> Создание плана службы приложений
 
@@ -118,4 +118,4 @@
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

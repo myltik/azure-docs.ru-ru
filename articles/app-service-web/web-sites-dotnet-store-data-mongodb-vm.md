@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="02/29/2016" 
 	ms.author="cephalin"/>
 
 
@@ -22,7 +22,7 @@
 
 С помощью Git можно развернуть приложение ASP.NET в веб-приложениях службы приложений Azure. В этом учебнике будет создано простое приложение списка задач ASP.NET MVC, которое подключается к базе данных MongoDB, работающей на виртуальной машине в Azure. [MongoDB][MongoDB] является популярной, высокопроизводительной базой данных NoSQL с открытым исходным кодом. После запуска и тестирования приложения ASP.NET на компьютере разработчика приложение будет отправлено в веб-приложения службы Azure с помощью Git.
 
->[AZURE.NOTE]Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+>[AZURE.NOTE] Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
 
 ## Фоновые знания ##
@@ -48,7 +48,7 @@
 В этом учебном курсе предполагается, что вы создали виртуальную машину в Azure. После создания виртуальной машины необходимо установить на ней MongoDB.
 
 * Создание виртуальной машины Windows и установка MongoDB описаны в разделе [Установка MongoDB на виртуальной машине под управлением Windows Server в Azure][InstallMongoOnWindowsVM].
-* Кроме того, при создании виртуальной машины Linux и установке MongoDB можно обратиться к разделу [Установка MongoDB на виртуальную машину под управлением CentOS Linux в Azure][InstallMongoOnCentOSLinuxVM].
+
 
 После создания виртуальной машины в Azure и установки MongoDB обязательно запомните DNS-имя виртуальной машины (например, "testlinuxvm.cloudapp.net") и внешний порт для MongoDB, указанный в конечной точке. Эти сведения потребуются позже в данном учебном курсе.
 
@@ -470,8 +470,7 @@ MongoDB обеспечивает поддержку приложений C# на
 [ASP.NET]: http://www.asp.net/
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
 [MongoDB]: http://www.mongodb.org
-[InstallMongoOnCentOSLinuxVM]: /manage/linux/common-tasks/mongodb-on-a-linux-vm/
-[InstallMongoOnWindowsVM]: /manage/windows/common-tasks/install-mongodb/
+[InstallMongoOnWindowsVM]: ../virtual-machines/virtual-machines-install-mongodb-windows-server.md
 [VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
 [VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
 
@@ -501,4 +500,4 @@ MongoDB обеспечивает поддержку приложений C# на
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

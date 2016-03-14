@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/11/2016"
+ 	ms.date="03/01/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [Известные проблемы](#issues)
 - [Журнал версий интерфейса API REST](#rest_version_history)
+- [Выпуск: февраль 2016 г.](#feb_changes16)
 - [Выпуск: январь 2016 г.](#jan_changes_16)
 - [Выпуск: декабрь 2015 г.](#dec_changes_15)
 - [Выпуск: ноябрь 2015 г.](#nov_changes_15)
@@ -66,7 +67,7 @@
 При кодировании ресурс-контейнера с именем файла, содержащим escape-последовательности символов (например, %20), появляется ошибка "MediaProcessor: файл не найден".|Имена файлов, которые будут добавляться в актив и затем кодироваться, должны содержать только буквы, цифры и пробелы. Эта проблема будет исправлена в следующем обновлении.
 Метод ListBlobs, входящий в состав пакета SDK хранилища Azure версии 3.x, приводит к сбою.|Службы мультимедиа создают URL-адреса SAS на основе версии [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx). Если вы хотите использовать пакет SDK хранилища Azure для создания списка BLOB-объектов в контейнере BLOB-объектов, используйте метод [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx), входящий в пакет SDK хранилища Azure версии 2.x. Метод ListBlobs, входящий в состав пакета SDK хранилища Azure версии 3.x, будет вызывать сбой.
 Механизм регулирования служб мультимедиа ограничивает использование ресурсов для приложений, создающих избыточный запрос к службе. Службой может быть возвращен код состояния HTTP "Service Unavailable (503)".|Дополнительную информацию см. в описании кода состояния HTTP 503 в разделе [Коды ошибок служб мультимедиа Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
-При запросе сущностей существует ограничение в 1000 сущностей, возвращаемых за один раз, так как в открытой версии 2 REST количество результатов запросов ограничено 1000. | Вам нужно нажать **Пропустить** и **Принять** (.NET) и **в начало** (REST), как описано [в этом примере .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) и [в этом примере REST API](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+При запросе сущностей существует ограничение в 1000 сущностей, возвращаемых за один раз, так как в открытой версии 2 REST количество результатов запросов ограничено 1000. | Вам нужно щелкнуть **Пропустить** и **Принять** (.NET) или **в начало** (REST), как описано [в этом примере .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) и [в этом примере REST API](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 
 ### <a id="dotnet_issues"></a>Проблемы с пакетом SDK служб мультимедиа для .NET
@@ -79,6 +80,16 @@
 
 Информацию о журнале версий интерфейса API REST служб мультимедиа см. в [Справочнике по API-интерфейсу REST для служб мультимедиа Azure].
 
+##<a id="feb_changes16"></a>Выпуск: февраль 2016 г.
+
+Последняя версия пакета SDK служб мультимедиа Azure для .NET (3.5.3) содержит исправление ошибки, связанной с Widevine. Устраненная проблема: AssetDeliveryPolicy не удавалось повторно использовать для нескольких ресурсов-контейнеров, зашифрованных с помощью Widevine. В рамках этого исправления в пакет SDK добавлено следующее свойство: **WidevineBaseLicenseAcquisitionUrl**.
+	
+	Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+	    new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+	{
+	    {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
+	    
+	};
 
 ##<a id="jan_changes_16"></a>Выпуск: январь 2016 г.
 
@@ -548,7 +559,7 @@ API REST служб мультимедиа обновлены до версии 
 
 * EncryptionUtils.GetCertificateFromStore(). Этот метод больше не создает исключение о пустой ссылке, связанное со сбоем при поиске сертификата в связи с ошибками конфигурации сертификата.
 
-##<a id="november_changes_12"></a>Выпуск: ноябрь 2012 г.
+##<a id="november_changes_12">Выпуск: ноябрь 2012 г.</a>
 
 Изменения, указанные в этом разделе — это обновления, включенные в пакет SDK в ноябре 2012 г. (версия 2.0.0.0). В связи с этими изменениями может потребоваться внести изменения или переработать код, созданный для предварительного выпуска пакета SDK за июнь 2012 г.
 
@@ -646,4 +657,4 @@ API REST служб мультимедиа обновлены до версии 
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

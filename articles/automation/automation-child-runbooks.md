@@ -3,7 +3,7 @@
    description="Описывает различные методы запуска Runbook в службе автоматизации Azure из другого Runbook и обмена информацией между ними."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Дочерние модули Runbook в службе автоматизации Azure
@@ -94,4 +94,4 @@
 - [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md)
 - [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

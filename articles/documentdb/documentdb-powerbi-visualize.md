@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/26/2016" 
 	ms.author="hawong"/>
 
 # Учебник по Power BI для DocumentDB: визуализация данных с помощью соединителя Power BI
@@ -194,4 +194,4 @@
 - Дополнительные сведения о Power BI см. [здесь](https://support.powerbi.com/knowledgebase).
 - Для получения дополнительных сведений о DocumentDB щелкните [здесь](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

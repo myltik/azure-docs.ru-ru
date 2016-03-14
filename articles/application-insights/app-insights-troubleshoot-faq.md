@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="02/26/2016" 
 	ms.author="awills"/>
  
 # Вопросы — Application Insights для ASP.NET
 
-## Устранение неполадок
+## Проблемы с конфигурацией
 
 *У меня не получается настроить компоненты, о которых идет речь в таких статьях:*
 
@@ -153,4 +153,4 @@
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

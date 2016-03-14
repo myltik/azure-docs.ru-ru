@@ -71,15 +71,16 @@
 
 2. В следующем окне укажите сведения о проекте.
 
-	![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
-
 	* Введите имя и расположение проекта.
-	* Для **Project SDK** требуется версия Java выше седьмой.
-	* Для **Scala SDK** щелкните **Создать**, а затем **Загрузить** и выберите версию Scala. **Не используйте версию 2.11.x**. В этом примере используется версия **2.10.6**.
+	* Для **пакета SDK для Project** требуется версия Java выше седьмой.
+	* Для **пакета SDK для Scala** щелкните **Создать**, а затем **Загрузить**, после чего выберите версию Scala. **Не используйте версию 2.11.x**. В этом примере используется версия **2.10.6**.
 	
 		![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
-	* Для **Spark SDK** загрузите и используйте пакет SDK [отсюда](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
+	* Для **пакета SDK для Spark** скачайте и используйте пакет SDK [отсюда](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
+
+		![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
+
 	* Нажмите кнопку **Готово**
 
 3. Определите структуру проекта для создания артефакта (запакованный JAR-файл), который в конечном итоге будет содержать выполняемый в кластере код.
@@ -204,16 +205,16 @@
 
 2. В следующем окне укажите сведения о проекте.
 
-	![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
-
 	* Введите имя и расположение проекта.
-	* Для **Project SDK** требуется версия Java выше седьмой.
-	* Для **Scala SDK** щелкните **Создать**, а затем **Загрузить** и выберите версию Scala. **Не используйте версию 2.11.x**. В этом примере используется версия **2.10.6**.
+	* Для **пакета SDK для Project** требуется версия Java выше седьмой.
+	* Для **пакета SDK для Scala** щелкните **Создать**, а затем **Загрузить**, после чего выберите версию Scala. **Не используйте версию 2.11.x**. В этом примере используется версия **2.10.6**.
 	
 		![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
-	* Для **Spark SDK** загрузите и используйте пакет SDK [отсюда](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
+	* Для **пакета SDK для Spark** скачайте и используйте пакет SDK [отсюда](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
 	* Нажмите кнопку **Готово**
+
+		![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
 
 3. Определите структуру проекта для создания артефакта (запакованный JAR-файл), который в конечном итоге будет содержать выполняемый в кластере код.
 
@@ -317,4 +318,4 @@
 
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Задание параметров DNS в файле конфигурации виртуальной сети | Microsoft Azure"
+   pageTitle="Задание параметров DNS в файле конфигурации виртуальной сети | Microsoft Azure"
    description="Как изменить параметры DNS-сервера в виртуальной сети с помощью файла конфигурации виртуальной сети в классической модели развертывания."
    services="virtual-network"
    documentationCenter="na"
@@ -7,7 +7,7 @@
    manager="carmonm"
    editor="tysonn" 
    tags="azure-service-management" />
-<tags 
+<tags  
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -15,6 +15,7 @@
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
    ms.author="telmos" />
+
 
 # Задание параметров DNS в файле конфигурации виртуальной сети
 
@@ -52,6 +53,6 @@
 
 - Ознакомьтесь со [схемой конфигурации виртуальной сети Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
 - Ознакомьтесь со [схемой конфигурации службы Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
-- [Настройте виртуальную сеть с помощью файлов конфигурации сети](virtual-networks-using-network-configuration-file.md).
+- [Настройка виртуальной сети с помощью файлов конфигурации сети](virtual-networks-using-network-configuration-file.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

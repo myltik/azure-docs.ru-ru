@@ -13,17 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="02/29/2016"
 	ms.author="kgremban"/>
 
 # Управление доступом на основе ролей с помощью интерфейса командной строки Azure
 
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
+- [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
 
 ## Список ролей для управления доступом на основе ролей (RBAC)
+
+>[AZURE.IMPORTANT] Перед использованием командлетов в этой статье необходимо [установить Azure CLI](../xplat-cli-install.md).
+
 ###	Вывод списка всех доступных ролей
 Для вывода списка всех доступных ролей используйте команду:
 
@@ -154,4 +157,4 @@
 ## Разделы о RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

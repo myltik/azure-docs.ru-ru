@@ -47,7 +47,9 @@
  
 - **Операционная система**
 
-	Вы можете подготовить кластеры HDInsight в одной из следующих операционных систем: **Windows (Windows Server 2012 R2 Datacenter)**, **Linux (Ubuntu 12.04 LTS для Linux)**. HDInsight позволяет настраивать кластеры Linux в Azure. Настройте кластер Linux, если вы знакомы с Linux или Unix, выполняете миграцию из существующего решения Hadoop на платформе Linux или хотите с легкостью выполнить интеграцию с компонентами экосистемы Hadoop, созданными для Linux. Дополнительную информацию см. в разделе [Приступая к работе с Hadoop в Linux на платформе HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+	Кластер HDInsight можно подготовить на одной из двух операционных систем.
+	- **HDInsight на платформе Windows (Windows Server 2012 R2 Datacenter)**:
+	- **HDInsight на платформе Linux (Ubuntu 12.04 LTS для Linux)**: HDInsight предоставляет возможность настроить кластеры Linux в Azure. Настройте кластер Linux, если вы знакомы с Linux или Unix, выполняете миграцию из существующего решения Hadoop на платформе Linux или хотите с легкостью выполнить интеграцию с компонентами экосистемы Hadoop, созданными для Linux. Дополнительную информацию см. в разделе [Приступая к работе с Hadoop в Linux на платформе HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). 
 
 
 - **Версия HDInsight**
@@ -78,16 +80,25 @@
 
 	![Роли кластера HDInsight Hadoop](./media/hdinsight-provision-clusters-v1/HDInsight.HBase.roles.png)
 
-	Кластеры HBase для HDInsight развертываются с тремя ролями: головные серверы (два узла), региональные серверы (по крайней мере один узел) и узлы Master/Zookeeper (три узла).
+	Кластеры HBase для HDInsight развертываются с тремя ролями:
+	- головные серверы (2 узла);
+	- региональные серверы (по крайней мере 1 узел);
+	- узлы Master/Zookeeper (3 узла).
 	
 	![Роли кластера HDInsight Hadoop](./media/hdinsight-provision-clusters-v1/HDInsight.Storm.roles.png)
 
-	Кластеры Storm для HDInsight развертываются с тремя ролями: узлы Nimbus (два узла), наблюдающие серверы (по крайней мере один узел) и узлы Zookeeper (три узла).
+	Кластеры Storm для HDInsight развертываются с тремя ролями:
+	- узлы Nimbus (2 узла);
+	- наблюдающие серверы (по крайней мере 1 узел);
+	- узлы Zookeeper (3 узла).
 	
 
 	![Роли кластера HDInsight Hadoop](./media/hdinsight-provision-clusters-v1/HDInsight.Spark.roles.png)
 
-	Кластеры Spark для HDInsight развертываются с тремя ролями: головной узел (два узла), рабочий узел (по крайней мере один узел) и узлы Zookeeper (три узла; уровень A1 — бесплатно).
+	Кластеры Spark для HDInsight развертываются с тремя ролями:
+	- головной узел (два узла);
+	- рабочий узел (как минимум 1 узел);
+	- узлы Zookeeper (3 узла) (бесплатно для узлов Zookeeper A1).
 
 	Клиенты оплачивают использование этих узлов на протяжении всего срока существования кластера. Начисление начинается сразу после создания кластера и завершается при его удалении (нельзя высвободить память, выделенную для кластеров, или приостановить их работу). На размер оплаты влияет размер кластера. Для учебных целей рекомендуется использовать один узел данных. Дополнительные сведения о ценах на HDInsight см. в статье [Цены на HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -686,8 +697,9 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 6. Чтобы установить пакеты, выполните в консоли следующую команду:
 
-		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Common.Authentication -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+		Install-Package Microsoft.Azure.Management.Resources -Pre
 
 	Эти команды добавляют библиотеки .NET и ссылки на них в текущий проект Visual Studio.
 
@@ -700,6 +712,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
+		using Microsoft.Azure.Management.Resources;
 
 		namespace CreateHDICluster
 		{
@@ -728,6 +741,9 @@ HDInsight использует контейнер хранилища BLOB-объ
 		        {
 		            var tokenCreds = GetTokenCloudCredentials();
 		            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+		            
+		            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+		            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 		
 		            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 		
@@ -801,4 +817,4 @@ HDInsight использует контейнер хранилища BLOB-объ
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

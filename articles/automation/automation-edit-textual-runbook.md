@@ -3,7 +3,7 @@
 	description="В этой статье представлены различные процедуры для работы с модулями Runbook PowerShell и рабочих процессов PowerShell в службе автоматизации Azure с помощью текстового редактора."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/18/2016"
+	ms.date="02/23/2016"
 	ms.author="magoedte;bwren" />
 
 # Изменение текстовых модулей Runbook в службе автоматизации Azure
@@ -107,7 +107,7 @@
 
 ## Изменение модуля Runbook в службе автоматизации Azure с помощью Windows PowerShell
 
-Чтобы изменить модуль Runbook с помощью Windows PowerShell, используйте любой редактор и сохраните его в виде файла PS1. Командлет [Get AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) позволяет извлечь содержимое модуля Runbook, а командлет [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) — заменить существующий черновой модуль Runbook на измененный.
+Чтобы изменить модуль Runbook с помощью Windows PowerShell, используйте любой редактор и сохраните его в виде файла PS1. Командлет [Get AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) позволяет извлечь содержимое модуля Runbook, а командлет [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) — заменить существующий черновой модуль Runbook на измененный.
 
 ### Извлечение содержимого модуля Runbook с помощью Windows PowerShell
 
@@ -144,4 +144,4 @@
 - [Расписания](automation-schedules.md)
 - [Переменные](automation-variables.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

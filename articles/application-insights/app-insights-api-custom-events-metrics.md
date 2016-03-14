@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 # API Application Insights для пользовательских событий и метрик 
@@ -196,7 +196,29 @@
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
+#### Время просмотра страниц
 
+По умолчанию время, отображаемое как «Время загрузки страницы», отсчитывается от момента отправки запроса браузером до вызова события загрузки страницы в браузере.
+
+Вместо этого вы можете выбрать один из таких вариантов:
+
+* Задайте явную длительность вызова [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview).
+ * `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`
+* Используйте вызовы времени просмотра страницы `startTrackPage` и `stopTrackPage`.
+
+*JavaScript*
+
+    // To start timing a page:
+    appInsights.startTrackPage("Page1");
+
+...
+
+    // To stop timing and log the page:
+    appInsights.stopTrackPage("Page1", url, properties, measurements);
+
+Имя, используемое в качестве первого параметра, связывает вызовы start и stop. По умолчанию используется имя текущей страницы.
+
+Полученные длительности загрузки страниц, отображаемые в обозревателе метрик, являются производными интервала между вызовами start и stop. Выбор рассматриваемого интервала за вами.
 
 ## Отслеживание запросов
 
@@ -436,7 +458,7 @@
     telemetry.trackEvent("WinGame", properties, metrics);
 
 
-> [AZURE.NOTE]Постарайтесь не указывать в свойствах личные сведения.
+> [AZURE.NOTE] Постарайтесь не указывать в свойствах личные сведения.
 
 **При использовании метрик** откройте обозреватель метрик и выберите метрику из группы «Пользовательские»:
 
@@ -479,7 +501,7 @@
 
     telemetry.TrackEvent(event);
 
-> [AZURE.WARNING]Не используйте один и тот же экземпляр элемента телеметрии (в этом примере `event`) для вызова Track*() несколько раз. Это может привести к отправке телеметрии с неверной конфигурацией.
+> [AZURE.WARNING] Не используйте один и тот же экземпляр элемента телеметрии (в этом примере `event`) для многократного вызова Track*(). Это может привести к отправке телеметрии с неверной конфигурацией.
 
 #### <a name="timed"></a> События времени
 
@@ -707,7 +729,7 @@
 
 * *Существует ли REST API для получения данных из портала?*
 
-    Да, его выпуск ожидается вскоре. Пока рекомендуется использовать[непрерывный экспорт](app-insights-export-telemetry.md).
+    Да, его выпуск ожидается вскоре. Пока рекомендуется использовать [непрерывный экспорт](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Дальнейшие действия
 
@@ -736,4 +758,4 @@
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

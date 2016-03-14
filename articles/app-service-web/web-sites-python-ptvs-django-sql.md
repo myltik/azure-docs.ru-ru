@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/13/2015"
+	ms.date="02/25/2016"
 	ms.author="huguesv"/>
 
 
@@ -33,12 +33,13 @@
  - Visual Studio 2013 или 2015
  - [Инструменты Python 2.2 для Visual Studio]
  - [Образцы VSIX средств Python 2.2 для Visual Studio]
- - [Пакет инструментов SDK Azure для VS 2013] или [пакет инструментов SDK Azure для VS 2015]
+ - [Пакет SDK для Azure для VS 2013] или [пакет SDK для Azure для VS 2015].
  - [Python 2.7 (32-разрядная версия)]
+ - Django 1.6 или более ранняя версия.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+>[AZURE.NOTE] Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
 ## Создание проекта
 
@@ -209,8 +210,8 @@
 [Средства Python для Visual Studio]: http://aka.ms/ptvs
 [Инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Образцы VSIX средств Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Пакет инструментов SDK Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[пакет инструментов SDK Azure для VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Пакет SDK для Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[пакет SDK для Azure для VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [Удаленная отладка в Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
@@ -219,4 +220,4 @@
 [Документация по Django]: https://www.djangoproject.com/
 [База данных SQL]: /documentation/services/sql-database/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

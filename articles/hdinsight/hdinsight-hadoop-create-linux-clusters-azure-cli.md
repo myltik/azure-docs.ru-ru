@@ -1,5 +1,5 @@
 <properties
-   	pageTitle="Создание кластеров Hadoop, HBase и Storm на базе Linux в HDInsight с помощью кроссплатформенного Azure CLI | Microsoft Azure"
+   	pageTitle="Создание кластеров Hadoop, HBase и Storm на базе Linux в HDInsight с помощью кроссплатформенного Azure CLI | Microsoft Azure"
    	description="Узнайте, как создать кластеры HDInsight под управлением Linux с помощью кроссплатформенного Azure CLI, шаблонов диспетчера ресурсов Azure и Azure REST API. Вы можете указать тип кластера (Hadoop, HBase или Storm) либо использовать сценарии для установки настраиваемых компонентов."
    	services="hdinsight"
    	documentationCenter=""
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/22/2016"
+   	ms.date="02/29/2016"
    	ms.author="larryfr"/>
 
 #Создание кластеров под управлением Linux в HDInsight с помощью Azure CLI
@@ -27,7 +27,7 @@ Azure CLI представляет собой кроссплатформенну
 
 В этом документе описан поэтапный процесс создания нового кластера HDInsight с использованием шаблона и Azure CLI.
 
-> [AZURE.IMPORTANT] При выполнении действий, описанных в этом документе, используется стандартное количество рабочих узлов (4) для кластера HDInsight. Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
+> [AZURE.IMPORTANT] При выполнении действий, описанных в этом документе, используется стандартное количество рабочих узлов (4) для кластера HDInsight. Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
 >
 > Дополнительные сведения о размерах узлов и их стоимости см. в статье [Сведения о ценах на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -57,8 +57,8 @@ Azure CLI представляет собой кроссплатформенну
 
 4. Создайте шаблон для кластера HDInsight. Вот некоторые основные примеры шаблонов:
 
-    * [Кластер под управлением Linux с использованием открытого ключа SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-publickey)
-    * [Кластер под управлением Linux с использованием пароля для учетной записи SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-password)
+    * [Кластер под управлением Linux с использованием открытого ключа SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-publickey)
+    * [Кластер под управлением Linux с использованием пароля для учетной записи SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)
 
     Оба эти шаблона также создают учетную запись хранения Azure, которую HDInsight использует по умолчанию.
 
@@ -83,7 +83,7 @@ Azure CLI представляет собой кроссплатформенну
 5. Для создания пустой группы ресурсов выполните указанную ниже команду. Замените __RESOURCEGROUPNAME__ именем, которое хотите использовать для этой группы. Вместо __LOCATION__ укажите центр обработки данных, в котором необходимо создать кластер HDInsight.
 
         azure group create RESOURCEGROUPNAME LOCATION
-    
+
     > [AZURE.NOTE] Если имя расположения содержит пробелы, заключите его в кавычки. Например, "Юг центральных США".
 
 6. Чтобы создать начальное развертывание для этой группы ресурсов, выполните указанную ниже команду. Замените __PATHTOTEMPLATE__ путем к файлу шаблона __azuredeploy.json__. Замените __PATHTOPARAMETERSFILE__ на путь к файлу __azuredeploy.parameters.json__. Замените __RESOURCEGROUPNAME__ именем группы, созданной на предыдущем этапе.
@@ -95,7 +95,7 @@ Azure CLI представляет собой кроссплатформенну
 7. Развертывание может занять определенное время, примерно 15 минут. Чтобы просмотреть информацию о развертывании, выполните указанную ниже команду. Замените __RESOURCEGROUPNAME__ именем группы ресурсов, созданной на предыдущем этапе.
 
         azure group log show -l RESOURCEGROUPNAME
-    
+
     После завершения развертывания в поле __Состояние__ отобразится значение __Успешно__. Если во время развертывания произойдет сбой, получить дополнительные сведения об этом сбое можно будет с помощью следующей команды:
 
         azure group log show -l -v RESOURCEGROUPNAME
@@ -121,4 +121,4 @@ Azure CLI представляет собой кроссплатформенну
 * [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Развертывание и мониторинг топологий со Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->
