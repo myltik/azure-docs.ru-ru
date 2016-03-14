@@ -20,7 +20,7 @@
 
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-native-switcher](../../includes/active-directory-b2c-devquickstarts-native-switcher.md)]-->
-
+<BR>
 Azure Active Directory (Azure AD) B2C позволяет добавлять в приложения мощные функции для самостоятельного управления удостоверениями. Это можно сделать, выполнив несколько простых действий. В этой статье описывается, как создать приложение .NET WPF "Список дел", которое предусматривает регистрацию и вход пользователя, а также управление профилем. Приложение будет поддерживать регистрацию и вход в систему по имени пользователя или адресу электронной почты, а также по учетной записи в социальной сети, такой как Facebook или Google.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
@@ -346,4 +346,4 @@ You can now move on to more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016--->
