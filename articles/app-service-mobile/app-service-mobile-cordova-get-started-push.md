@@ -31,7 +31,7 @@
 Для работы с этим учебником требуется:
 
 * [Учетная запись Google] с подтвержденным адресом электронной почты.
-* Компьютер с [Visual Studio Community 2015] или более поздней версии.
+* Компьютер с [Visual Studio Community 2015] или более поздней версии.
 * [Средства Visual Studio для Apache Cordova].
 * [Активная учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Выполненный [ознакомительный проект Apache Cordova]. Другие учебники (например по [проверке подлинности]) могут быть пройдены раньше, но это не является обязательным условием.
@@ -192,7 +192,7 @@
 [Google Developer Console]: https://console.developers.google.com/home/dashboard
 [документации по установке подключаемого модуля push-уведомлений PhoneGap]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [Mobizen]: https://www.mobizen.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2015]: http://www.visualstudio.com/
 [Средства Visual Studio для Apache Cordova]: https://www.visualstudio.com/ru-RU/features/cordova-vs.aspx
 [центрах уведомлений]: ../notification-hubs/notification-hubs-overview.md
 

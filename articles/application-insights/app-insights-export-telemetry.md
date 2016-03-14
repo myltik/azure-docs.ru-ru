@@ -152,7 +152,7 @@
 * [Экспорт в SQL с использованием рабочей роли][exportcode]
 * [Экспорт в SQL с использованием Stream Analytics][exportasa]
 * [Экспорт в Power BI с использованием Stream Analytics](app-insights-export-power-bi.md)
- * Обратите внимание, что это — нестандартный способ использования Power BI. Есть [адаптер](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), который не требует непрерывного экспорта.
+ * Обратите внимание, что это — нестандартный способ использования Power BI. Есть [адаптер](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), который не требует непрерывного экспорта.
 
 
 Для больших объемов данных рассмотрите возможность использования [HDInsight](https://azure.microsoft.com/services/hdinsight/) – кластеров Hadoop в облаке. HDInsight предоставляет широкий набор технологий для управления и анализа больших объемов данных.
@@ -198,7 +198,7 @@
 
 ## Примеры кода
 
-* [Потоковая передача данных Application Insights в Power BI](app-insights-export-power-bi.md)
+* [Потоковая передача данных Application Insights в Power BI](app-insights-export-power-bi.md)
 * [Анализ экспортированного JSON при помощи рабочей роли][exportcode]
 * [Экспорт в SQL с использованием Stream Analytics][exportasa]
 

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Список учебников по интеграции приложений SaaS с Azure AD | Microsoft Azure"
+    pageTitle="Список учебников по интеграции приложений SaaS с Azure AD | Microsoft Azure"
     description="Учебники по настройке единого входа Azure Active Directory для различных сторонних приложений SaaS."
     services="active-directory"
     documentationCenter=""
@@ -20,7 +20,7 @@
 
 Чтобы помочь вам интегрировать все облачные (SaaS) приложения с Azure Active Directory, мы разработали коллекцию учебников. В этих руководствах описаны все необходимые этапы настройки.
 
-Полный список предварительно интегрированных в Azure AD приложений SaaS см. в разделе [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+Полный список предварительно интегрированных в Azure AD приложений SaaS см. в разделе [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 ##Список учебников
 

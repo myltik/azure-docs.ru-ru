@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Настройка нового устройства под управлением Windows 10 для работы с Azure AD | Microsoft Azure"
+	pageTitle="Настройка нового устройства под управлением Windows 10 для работы с Azure AD | Microsoft Azure"
 	description="В этом разделе рассматривается, как пользователи могут настроить присоединение к Azure AD при первом включении компьютера."
 	services="active-directory"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="02/26/2016"
 	ms.author="femila"/>
 
-# Настройка нового устройства под управлением Windows 10 для работы с Azure AD
+# Настройка нового устройства под управлением Windows 10 для работы с Azure AD
 
 Пользователи Windows 10 могут присоединить свои устройства к Azure Active Directory при первом запуске (FRX). Это позволяет организациям предоставлять сотрудникам или студентам стандартные новые устройства или давать им возможность выбирать собственные (CYOD). Если на устройстве установлена операционная система Windows 10 Профессиональная или Windows 10 Корпоративная, автоматически запускается процесс установки устройств, принадлежащих компании.
 
@@ -25,7 +25,8 @@
 
 
 1. При включении нового устройства и запуске установки появляется сообщение **Подготовка**. Настройте устройство согласно инструкциям на экране.
-2. Для начала выберите свой регион и язык. Примите условия лицензионного соглашения об использовании программного обеспечения Майкрософт. ![Настройка для вашего региона](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
+2. Для начала выберите свой регион и язык. Примите условия лицензионного соглашения об использовании программного обеспечения Майкрософт. 
+![Настройка для вашего региона](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
 3. Выберите сеть для подключения к Интернету.
 4. Укажите, является ли ваше устройство личным или корпоративным. Если устройство корпоративное, щелкните **Это устройство принадлежит моей организации**. После этого начнется процесс присоединения к Azure AD. В ОС Windows 10 Профессиональная экран будет выглядеть так:
 <center>
@@ -45,11 +46,11 @@
 > [AZURE.NOTE] Присоединение к локальному домену Active Directory Windows Server при первом запуске Windows не поддерживается. Если вы планируете присоединить компьютер к домену, следует выбрать ссылку **Настроить Windows с локальной учетной записью**. Затем вы сможете присоединиться к домену из меню параметров компьютера, как это делали раньше.
 
 ## Дополнительная информация
-* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
 * [Проверка подлинности удостоверений без использования паролей с помощью службы Microsoft Passport](active-directory-azureadjoin-passport.md)
-* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
 <!---HONumber=AcomDC_0302_2016-->

@@ -59,7 +59,7 @@ ADAL доступна на различных платформах.
 
 [Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md)
 
-[Сценарии проверки подлинности в Azure Active Directory](active-directory-authentication-scenarios.md)
+[Сценарии проверки подлинности в Azure Active Directory](active-directory-authentication-scenarios.md)
 
 [Примеры кода Azure Active Directory](active-directory-code-samples.md)
 

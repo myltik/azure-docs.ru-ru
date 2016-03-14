@@ -15,13 +15,13 @@
 	ms.date="02/26/2016" 
 	ms.author="awills"/>
  
-# Вопросы — Application Insights для ASP.NET
+# Вопросы — Application Insights для ASP.NET
 
 ## Проблемы с конфигурацией
 
 *У меня не получается настроить компоненты, о которых идет речь в таких статьях:*
 
-* [Troubleshooting no data - Application Insights for .NET](app-insights-asp-net-troubleshoot-no-data.md) (Устранение неполадок, связанных с отсутствием данных, — Application Insights для .NET);
+* [Troubleshooting no data - Application Insights for .NET](app-insights-asp-net-troubleshoot-no-data.md) (Устранение неполадок, связанных с отсутствием данных, — Application Insights для .NET);
 * [раздел "Устранение неполадок"](app-insights-monitor-performance-live-website-now.md#troubleshooting);
 * [Настройка системы диагностики Azure для входа в Application Insights](app-insights-azure-diagnostics.md);
 * [Устранение неполадок, а также вопросы и ответы по Application Insights для Java](app-insights-java-troubleshoot.md);

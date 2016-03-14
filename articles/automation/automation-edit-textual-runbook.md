@@ -107,7 +107,7 @@
 
 ## Изменение модуля Runbook в службе автоматизации Azure с помощью Windows PowerShell
 
-Чтобы изменить модуль Runbook с помощью Windows PowerShell, используйте любой редактор и сохраните его в виде файла PS1. Командлет [Get AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) позволяет извлечь содержимое модуля Runbook, а командлет [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) — заменить существующий черновой модуль Runbook на измененный.
+Чтобы изменить модуль Runbook с помощью Windows PowerShell, используйте любой редактор и сохраните его в виде файла PS1. Командлет [Get AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) позволяет извлечь содержимое модуля Runbook, а командлет [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) — заменить существующий черновой модуль Runbook на измененный.
 
 ### Извлечение содержимого модуля Runbook с помощью Windows PowerShell
 

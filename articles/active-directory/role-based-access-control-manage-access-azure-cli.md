@@ -34,7 +34,7 @@
 
 В следующем примере показан список *всех доступных ролей*.
 
-![Снимок экрана: командная строка RBAC Azure — список ролей Azure](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-list.png)
+![Снимок экрана: командная строка RBAC Azure — список ролей Azure](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-list.png)
 
 ###	Вывод списка действий роли
 Для вывода списка действий роли используйте команду:
@@ -43,7 +43,7 @@
 
 В следующем примере показаны действия ролей *Участник* и *Участник виртуальной машины*.
 
-![Снимок экрана: командная строка RBAC Azure — отображение ролей Azure](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-show.png)
+![Снимок экрана: командная строка RBAC Azure — отображение ролей Azure](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-show.png)
 
 ##	Вывод списка доступа
 ###	Вывод списка назначений ролей, действующих в группе ресурсов
@@ -53,13 +53,13 @@
 
 В следующем примере показаны назначения ролей, действующие для группы *pharma-sales-projecforcast*.
 
-![Снимок экрана: командная строка RBAC Azure — список назначений ролей Azure по группам](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
+![Снимок экрана: командная строка RBAC Azure — список назначений ролей Azure по группам](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ###	Вывод списка назначений ролей для пользователя, включая назначения для групп пользователя
 
 В следующем примере показаны назначения ролей, действующие для пользователя **sameert@aaddemo.com*.
 
-![Снимок экрана: командная строка RBAC Azure — список назначений ролей Azure по пользователям](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
+![Снимок экрана: командная строка RBAC Azure — список назначений ролей Azure по пользователям](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
 ##	Предоставление доступа
 После определения роли, которую вы хотите назначить, воспользуйтесь следующей командой для предоставления доступа:
@@ -73,7 +73,7 @@
 
 В следующем примере роль *Читатель* назначается *Команде Кристины Кох* в области действия *подписки*.
 
-![Снимок экрана: командная строка RBAC Azure — создание назначений ролей Azure по группам](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
+![Снимок экрана: командная строка RBAC Azure — создание назначений ролей Azure по группам](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
 
 ###	Назначение роли для приложения в области действия подписки
 Для назначения роли для приложения в области действия подписки воспользуйтесь командой:
@@ -82,7 +82,7 @@
 
 Следующий пример предоставляет роль *Участник* приложению *Azure AD* в выбранной подписке.
 
- ![Командная строка RBAC Azure — создание назначений ролей Azure по приложениям](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-2.png)
+ ![Командная строка RBAC Azure — создание назначений ролей Azure по приложениям](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-2.png)
 
 ###	Назначение роли пользователю в области действия группы ресурсов
 Для назначения роли пользователю в области действия группы ресурсов воспользуйтесь командой:
@@ -91,7 +91,7 @@
 
 Следующий пример предоставляет роль *Участник виртуальной машины* пользователю **samert@aaddemo.com* в области действия группы ресурсов *Pharma-Sales-ProjectForcast*.
 
-![Снимок экрана: командная строка RBAC Azure — создание назначений ролей Azure по пользователям](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
+![Снимок экрана: командная строка RBAC Azure — создание назначений ролей Azure по пользователям](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
 ###	Назначение роли для группы в области действия ресурса
 Для назначения роли для группы в области действия ресурса воспользуйтесь командой:
@@ -100,7 +100,7 @@
 
 Следующий пример предоставляет роль *Участник виртуальной машины* группе *Azure AD* в *подсети*.
 
-![Снимок экрана: командная строка RBAC Azure — создание назначений ролей Azure по группам](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-4.png)
+![Снимок экрана: командная строка RBAC Azure — создание назначений ролей Azure по группам](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-4.png)
 
 ##	Запрет доступа
 Чтобы удалить назначение роли, воспользуйтесь командой:
@@ -109,14 +109,14 @@
 
 Следующий пример удаляет назначение роли *Участник виртуальной машины* пользователя **sammert@aaddemo.com* в группе ресурсов *Pharma-Sales-ProjectForcast*. После этого выполняется удаление назначения ролей из группы в подписке.
 
-![Снимок экрана: командная строка RBAC Azure — удаление назначений ролей Azure](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
+![Снимок экрана: командная строка RBAC Azure — удаление назначений ролей Azure](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
 ## Создание настраиваемой роли
 Чтобы создать настраиваемую роль, используйте команду `azure role create`.
 
 В следующем примере создается настраиваемая роль с именем *Оператор виртуальной машины*, которая предоставляет доступ ко всем операциям чтения поставщиков ресурсов *Microsoft.Compute*, *Microsoft.Storage* и *Microsoft.Network*, а также доступ для запуска, перезапуска и мониторинга виртуальных машин. Настраиваемую роль можно использовать в двух подписках. В этом примере в качестве входного файла используется JSON-файл.
 
-![Снимок экрана: JSON — определение пользовательской роли](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
+![Снимок экрана: JSON — определение пользовательской роли](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
 
 ![Снимок экрана: командная строка RBAC Azure — создание ролей Azure](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
@@ -124,9 +124,9 @@
 
 Чтобы изменить настраиваемую роль, используйте команду `azure role show` для получения определения роли. Затем внесите необходимые изменения в определение роли. Наконец, с помощью `azure role set` сохраните измененное определение роли.
 
-В следующем примере в раздел **Actions** добавляется операция Microsoft.Insights/diagnosticSettings/*, а в раздел **AssignableScopes** настраиваемой роли "Оператор виртуальной машины" — подписка Azure.
+В следующем примере в раздел **Actions** добавляется операция Microsoft.Insights/diagnosticSettings/*, а в раздел **AssignableScopes** настраиваемой роли "Оператор виртуальной машины" — подписка Azure.
 
-![Снимок экрана: JSON — изменение определения пользовательской роли](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
+![Снимок экрана: JSON — изменение определения пользовательской роли](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
 
 ![Снимок экрана: командная строка RBAC Azure — настройка ролей Azure](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
@@ -144,7 +144,7 @@
 
 В следующем примере перечисляются все роли, доступные для назначения в выбранной подписке.
 
-![Снимок экрана: командная строка RBAC Azure — список ролей Azure](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
+![Снимок экрана: командная строка RBAC Azure — список ролей Azure](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
 
 В следующем примере настраиваемая роль *Оператор виртуальной машины* не доступна в подписке *Production4*, так как эта подписка не входит в **AssignableScopes** роли.
 

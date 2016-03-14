@@ -20,10 +20,10 @@
 # Создание виртуальной машины, работающей под управлением ОС Linux, на портале Azure
 
 > [AZURE.SELECTOR]
-- [Портал — Windows](virtual-machines-windows-tutorial.md)
+- [Портал — Windows](virtual-machines-windows-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [PowerShell — шаблон](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Портал — Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [PowerShell — шаблон](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Портал — Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-machines-linux-tutorial.md)
 
 <br>
@@ -35,6 +35,7 @@
 
 > [AZURE.NOTE] В данном учебнике показано, как создать виртуальную машину Azure, управляемую с помощью API группы ресурсов Azure. Дополнительные сведения см. в [обзоре групп ресурсов Azure](../resource-group-overview.md).
 
+</br>
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 

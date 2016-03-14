@@ -52,8 +52,8 @@
 ###Предварительные требования
 Чтобы ознакомиться с основными понятиями и общими процедурами создания и настройки, необходимо пройти следующие учебники:
 
-1. [Использование разделов и подписок Service Bus] — в этом руководстве подробно описывается работа с разделами и подписками служебной шины, создание пространства имен для хранения разделов и подписок, а также отправка и получение сообщений от них.
-2. [Учебник по центрам уведомлений для Windows Universal] — в этом учебнике рассказывается о том, как настроить приложение Магазина Windows и использовать центры уведомлений для регистрации и последующего получения уведомлений.
+1. [Использование разделов и подписок Service Bus] — в этом руководстве подробно описывается работа с разделами и подписками служебной шины, создание пространства имен для хранения разделов и подписок, а также отправка и получение сообщений от них.
+2. [Учебник по центрам уведомлений для Windows Universal] — в этом учебнике рассказывается о том, как настроить приложение Магазина Windows и использовать центры уведомлений для регистрации и последующего получения уведомлений.
 
 ###Пример кода
 
@@ -141,7 +141,7 @@
 	        ReceiveMessageAndSendNotification(connectionString);
 	    }
 
-	c. `CreateSubscription` используется для создания подписки служебной шины для раздела, в который серверная система будет отправлять сообщения. В зависимости от бизнес-сценария этот компонент будет создавать одну или несколько подписок на соответствующие разделы (например, некоторые получают сообщения из системы отдела кадров, другие — из системы финансового отдела и т. д.).
+	c. `CreateSubscription` используется для создания подписки служебной шины для раздела, в который серверная система будет отправлять сообщения. В зависимости от бизнес-сценария этот компонент будет создавать одну или несколько подписок на соответствующие разделы (например, некоторые получают сообщения из системы отдела кадров, другие — из системы финансового отдела и т. д.).
 
 	    static void CreateSubscription(string connectionString)
         {
@@ -268,7 +268,7 @@
 [служебной шиной Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
 [Использование разделов и подписок Service Bus]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [веб-задания Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
-[Учебник по центрам уведомлений для Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Учебник по центрам уведомлений для Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [учебника по центрам уведомлений для Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [классический портал Azure]: https://manage.windowsazure.com/
 [классическом портале Azure]: https://manage.windowsazure.com/

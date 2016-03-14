@@ -263,7 +263,7 @@
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-Затем добавьте код отправки, определяемый целевой мобильной платформой. В этом примере добавлены методы более высокого уровня, чтобы включить отправку уведомлений для определенной платформы, например send\_windows\_notification (для Windows), send\_apple\_notification (для Apple) и т. д.
+Затем добавьте код отправки, определяемый целевой мобильной платформой. В этом примере добавлены методы более высокого уровня, чтобы включить отправку уведомлений для определенной платформы, например send\_windows\_notification (для Windows), send\_apple\_notification (для Apple) и т. д.
 
 ### Магазин Windows и Windows Phone 8.1 (без Silverlight)
 

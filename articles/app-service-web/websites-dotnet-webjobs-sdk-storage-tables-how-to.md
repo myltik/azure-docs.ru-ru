@@ -24,7 +24,7 @@
 
 В этом руководстве предполагается, что вы уже знаете, [как создать проект веб-задания в Visual Studio со строками подключения, указывающими на вашу учетную запись хранения](websites-dotnet-webjobs-sdk-get-started.md) или [несколько учетных записей хранения](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 		
-В некоторых фрагментах кода демонстрируется использование атрибута `Table` в функциях, [вызванных вручную](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), т. е. без использования атрибутов запуска.
+В некоторых фрагментах кода демонстрируется использование атрибута `Table` в функциях, [вызванных вручную](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), т. е. без использования атрибутов запуска.
 
 ## <a id="ingress"></a> Как добавить сущность в таблицу
 

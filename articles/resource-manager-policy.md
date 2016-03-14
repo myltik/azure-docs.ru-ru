@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Политики диспетчера ресурсов Azure | Microsoft Azure"
+	pageTitle="Политики диспетчера ресурсов Azure | Microsoft Azure"
 	description="В этом разделе описывается, как предотвращать нарушения в различных областях, таких как подписки, ресурсы и группы ресурсов, с помощью политик диспетчера ресурсов Azure."
 	services="azure-resource-manager"
 	documentationCenter="na"

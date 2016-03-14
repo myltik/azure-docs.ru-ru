@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Настройка параметров DNS в файле конфигурации службы | Microsoft Azure"
+   pageTitle="Настройка параметров DNS в файле конфигурации службы | Microsoft Azure"
    description="Настройка пользовательских параметров DNS с помощью файла конфигурации службы для виртуальной сети"
    services="virtual-network"
    documentationCenter="na"

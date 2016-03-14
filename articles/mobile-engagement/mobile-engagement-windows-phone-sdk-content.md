@@ -34,7 +34,7 @@
  
 - `EngagementIconCloseDark.png`: значок "Закрыть" уведомлений рекламных кампаний в Mobile Engagement для темной темы Windows Phone.
 
-- `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Engagement (строку подключения Engagement, сообщение о сбое и т. д.).
+- `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Engagement (строку подключения Engagement, сообщение о сбое и т. д.).
  
 
 <!---HONumber=AcomDC_0302_2016-->

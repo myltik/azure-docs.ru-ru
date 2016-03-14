@@ -47,7 +47,7 @@
 - Клиент Azure Active Directory с пользователями в различных группах
 - Разрешения на создание приложений в клиенте Azure Active Directory
 - Visual Studio 2013 или более поздней версии
-- [Пакет SDK Azure, начиная с версии 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
+- [Пакет SDK Azure, начиная с версии 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
 
 <a name="bkmk_sample"></a>
 ## Использование примера приложения в качестве шаблона бизнес-приложения ##
@@ -63,7 +63,8 @@
 
 1.	Создайте клон или скачайте пример решения с сайта [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) в локальный каталог.
 
-2.	Воспользуйтесь указаниями в разделе [Запуск примера в однопользовательском приложении](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app), чтобы настроить приложение Azure Active Directory и проект. Обязательно выполните инструкции по преобразованию многопользовательского приложения в однопользовательское.
+2.	Воспользуйтесь указаниями в разделе [Запуск примера в однопользовательском приложении](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app), чтобы настроить приложение Azure Active Directory и проект.
+Обязательно выполните инструкции по преобразованию многопользовательского приложения в однопользовательское.
 
 3.	В представлении только что созданного приложения Azure Active Directory на [классическом портале Azure](https://manage.windowsazure.com) щелкните вкладку **ПОЛЬЗОВАТЕЛИ**. Затем назначьте выбранным пользователям выбранные роли.
 
@@ -258,7 +259,8 @@
 
 	> [AZURE.NOTE] В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
 	> + Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию необходим для маркера защиты от подделки.
-	> + Если Azure Active Directory является каталогом, синхронизированным с AD FS, то инструмент доверия AD FS по умолчанию также не отправляет утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, хотя AD FS можно настроить вручную для отправки такого утверждения. Мы займемся этим на следующем шаге.
+	> + Если Azure Active Directory является каталогом, синхронизированным с AD FS, то инструмент доверия AD FS по умолчанию также не отправляет утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, хотя AD FS можно настроить вручную для отправки такого утверждения. }
+	> Мы займемся этим на следующем шаге.
 
 12.  В файле App\_Start\\Startup.Auth.cs добавьте следующую строку кода в метод `ConfigureAuth`. Щелкните правой кнопкой мыши по каждой ошибке разрешения имен, чтобы ее исправить.
 

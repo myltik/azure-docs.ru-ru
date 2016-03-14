@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Отработка отказа и аварийное восстановление для устройства StorSimple | Microsoft Azure"
+   pageTitle="Отработка отказа и аварийное восстановление для устройства StorSimple | Microsoft Azure"
    description="Информация о том, как выполнить отработку отказа устройства StorSimple на то же устройство либо другое физическое или виртуальное устройство."
    services="storsimple"
    documentationCenter=""

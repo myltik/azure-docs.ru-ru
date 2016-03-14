@@ -180,7 +180,7 @@
 | sys.dm\_pdw\_nodes\_tran\_session\_transactions | [sys.dm\_tran\_session\_transactions (Transact-SQL)](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm\_pdw\_nodes\_tran\_top\_version\_generators | [sys.dm\_tran\_top\_version\_generators (Transact-SQL)](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-## Список динамических административных представлений SQL Server 2016 PolyBase, доступных в хранилище данных SQL
+## Список динамических административных представлений SQL Server 2016 PolyBase, доступных в хранилище данных SQL
 
 - [sys.dm\_exec\_compute\_node\_errors (Transact-SQL)](http://msdn.microsoft.com/library/mt146380.aspx)
 - [sys.dm\_exec\_compute\_node\_status (Transact-SQL)](http://msdn.microsoft.com/library/mt146382.aspx)

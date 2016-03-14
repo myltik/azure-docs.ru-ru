@@ -361,7 +361,7 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-deployment.md)]
 
 
-## Устранение неполадок — установка пакета
+## Устранение неполадок — установка пакета
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 

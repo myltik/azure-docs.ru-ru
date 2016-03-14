@@ -54,7 +54,8 @@
 
 В следующем коде создается объект `MobileServiceClient`, который используется для доступа к серверной части мобильных приложений.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient(
+	"MOBILE_APP_URL");
 
 В приведенном выше коде замените `MOBILE_APP_URL` URL-адресом серверной части мобильных приложений, который можно найти в колонке серверной части мобильных приложений на [портале Azure](https://portal.azure.com/).
 
@@ -257,7 +258,12 @@
 
 	await todoTable.UpdateAsync(todoItem);
 
-Для вставки нетипизированных данных можно использовать Json.NET следующим образом: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Привет всем"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
+Для вставки нетипизированных данных можно использовать Json.NET следующим образом: 
+	JObject jo = new JObject();
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+	jo.Add("Text", "Привет всем");
+	jo.Add("Complete", false);
+	var inserted = await table.UpdateAsync(jo);
 
 Обратите внимание, что при выполнении обновления необходимо указать идентификатор. Таким образом внутренний сервер определяет, какой экземпляр нужно обновить. Идентификатор можно получить из результатов вызова метода `InsertAsync`. При попытке обновить элемент без предоставления значения Id создается исключение `ArgumentException`.
 
@@ -451,7 +457,7 @@
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Некоторые элементы управления в управляемой среде выполнения Windows поддерживают интерфейс [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Этот интерфейс позволяет элементам управления запрашивать дополнительные данные во время прокрутки, выполняемой пользователем. Для универсальных приложений для Windows 8.1 предусмотрена встроенная поддержка этого интерфейса через класс `MobileServiceIncrementalLoadingCollection`, который автоматически обрабатывает вызовы из элементов управления. Чтобы использовать класс `MobileServiceIncrementalLoadingCollection` в приложениях для Windows, выполните следующее:
+Некоторые элементы управления в управляемой среде выполнения Windows поддерживают интерфейс [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Этот интерфейс позволяет элементам управления запрашивать дополнительные данные во время прокрутки, выполняемой пользователем. Для универсальных приложений для Windows 8.1 предусмотрена встроенная поддержка этого интерфейса через класс `MobileServiceIncrementalLoadingCollection`, который автоматически обрабатывает вызовы из элементов управления. Чтобы использовать класс `MobileServiceIncrementalLoadingCollection` в приложениях для Windows, выполните следующее:
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)

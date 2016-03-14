@@ -24,7 +24,7 @@
 
 Эта папка содержит все ресурсы, необходимые для Mobile Engagement. Вы также можете настроить их в соответствии с особенностями своего приложения.
 
-- `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Mobile Engagement (строку подключения Mobile Engagement, сообщение о сбое и т. д.).
+- `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Mobile Engagement (строку подключения Mobile Engagement, сообщение о сбое и т. д.).
 
 ### Папка /html
 

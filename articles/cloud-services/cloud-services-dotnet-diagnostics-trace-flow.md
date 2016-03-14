@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Трассировка потока в приложении облачных служб с помощью системы диагностики Azure | Microsoft Azure"
+	pageTitle="Трассировка потока в приложении облачных служб с помощью системы диагностики Azure | Microsoft Azure"
 	description="Добавление сообщений трассировки в приложения Azure для отладки, измерения производительности, мониторинга, анализа трафика и выполнения других задач."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -20,7 +20,7 @@
 
 # Трассировка потока в приложении облачных служб с помощью системы диагностики Azure
 
-Трассировка — это мониторинг выполнения запущенного приложения. Сведения об ошибках и выполнении приложения в журналы, текстовые файлы или на устройства для последующего анализа можно записывать с помощью классов [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [System.Diagnostics.Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx) и [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx). Дополнительные сведения о трассировке см. в разделе [Трассировка и инструментирование приложений](https://msdn.microsoft.com/library/zs6s4h68.aspx).
+Трассировка — это мониторинг выполнения запущенного приложения. Сведения об ошибках и выполнении приложения в журналы, текстовые файлы или на устройства для последующего анализа можно записывать с помощью классов [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [System.Diagnostics.Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx) и [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx). Дополнительные сведения о трассировке см. в разделе [Трассировка и инструментирование приложений](https://msdn.microsoft.com/library/zs6s4h68.aspx).
 
 
 ## Использование трассировочных операторов и переключателей

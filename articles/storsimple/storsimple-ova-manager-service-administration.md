@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Администрирование виртуального массива с помощью диспетчера StorSimple | Microsoft Azure"
+   pageTitle="Администрирование виртуального массива с помощью диспетчера StorSimple | Microsoft Azure"
    description="Узнайте, как управлять локальным виртуальным массивом StorSimple с помощью службы диспетчера StorSimple на классическом портале Azure."
    services="storsimple"
    documentationCenter=""
@@ -29,7 +29,7 @@
 - работать с пользовательским интерфейсом диспетчера StorSimple;
 - администрировать виртуальный массив StorSimple с помощью службы диспетчера StorSimple.
 
-> [AZURE.NOTE] Сведения о работе с устройствами StorSimple 8000 см. в статье [Использование службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+> [AZURE.NOTE] Сведения о работе с устройствами StorSimple 8000 см. в статье [Использование службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
 ## Подключение к службе диспетчера StorSimple
 
