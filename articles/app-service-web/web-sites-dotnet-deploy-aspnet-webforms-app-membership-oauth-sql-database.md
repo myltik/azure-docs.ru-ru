@@ -599,9 +599,9 @@ ASP.NET Identity — система членства, используемая �
 
 1. В **Обозревателе решений** добавьте в папке *Contacts* подпапку и присвойте ей имя *Admin*.
 2. Переместите следующие файлы из папки *Contacts* в папку *Contacts/Admin*:  
-	- *Delete.aspx *и* *Delete.aspx.cs*
-	- *Edit.aspx *и* *Edit.aspx.cs*
-	- *Insert.aspx *и* *Insert.aspx.cs*
+	- *Delete.aspx *и* Delete.aspx.cs*
+	- *Edit.aspx *и* Edit.aspx.cs*
+	- *Insert.aspx *и* Insert.aspx.cs*
 3. Обновите ссылки в *Contacts/Default.aspx*, добавив "Admin/" перед ссылками на страницы *Insert.aspx*, *Edit.aspx* и *Delete.aspx*:  
 
 		<%@ Page Title="ContactsList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="ContactManager.Contacts.Default" ViewStateMode="Disabled" %>
@@ -789,4 +789,4 @@ ASP.NET Identity — система членства, используемая �
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->

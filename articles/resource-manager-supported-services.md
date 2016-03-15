@@ -37,7 +37,8 @@
 | Service Fabric (предварительная версия) | Да | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Виртуальные машины | Да | [Интерфейс REST виртуальной машины](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
 | Виртуальные машины (классические) | Ограничено | - | - | 
-| Удаленное приложение | Нет| - | - | | Облачные службы (классические) | Ограничено (см. ниже) | - | - | - |
+| Удаленное приложение | Нет| - | - |
+| Облачные службы (классические) | Ограничено (см. ниже) | - | - | - |
 
 Пункт "Виртуальные машины (классические)" относится к ресурсам, которые были развернуты с помощью классической модели развертывания, а не через модель развертывания диспетчера ресурсов. Как правило эти ресурсы не поддерживают операции диспетчера ресурсов, однако некоторые операции стали доступны. Дополнительные сведения об этих моделях развертывания вы найдете в статье [Общие сведения о развертывании с помощью диспетчера ресурсов и классическом развертывании](resource-manager-deployment-model.md).
 
@@ -90,7 +91,8 @@
 | Хранилище озера данных | Да | | | |
 | HDInsights | Да | [Интерфейс REST HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Анализ потока | Да | [Steam Analytics REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| Машинное обучение | Нет | - | - | | Каталог данных | Нет | - | - |
+| Машинное обучение | Нет | - | - |
+| Каталог данных | Нет | - | - |
 
 ## Интернет вещей
 
@@ -303,4 +305,4 @@ Azure Active Directory работает с диспетчером ресурсо
 - Сведения о создании шаблонов диспетчера ресурсов см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 - Сведения о развертывании ресурсов см. в статье [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->
