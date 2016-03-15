@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="01/09/2016"
+	ms.date="03/04/2016"
 	ms.author="robmcm"/>
 
 # Создание веб-приложения Java в службе приложений Azure
@@ -178,4 +178,4 @@
 [подписаться на бесплатную пробную версию]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Пробное использование службы приложений]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.topic="hero-article" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 #Что такое управление API
@@ -26,7 +26,7 @@
 
 В этом разделе дан обзор основных концепций службы управления API .
 
->[AZURE.NOTE]Дополнительные сведения см. в техническом PDF-документе [Управление API в облаке: реализация потенциала API](http://j.mp/ms-apim-whitepaper), в котором приводятся основные сведения о службе управления API. Исследование CITO Research охватывает следующие темы.
+>[AZURE.NOTE] Дополнительные сведения см. в техническом PDF-документе [Управление API в облаке: реализация потенциала API](http://j.mp/ms-apim-whitepaper), в котором приводятся основные сведения о службе управления API. Исследование CITO Research охватывает следующие темы.
 >
 > - Общие требования и проблемы, связанные с использованием API:
 >     - отделение API и предоставление интерфейсной части;
@@ -114,4 +114,4 @@ API является основой экземпляра службы API Manage
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

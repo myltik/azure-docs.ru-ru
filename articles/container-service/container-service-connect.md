@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Подключение к кластеру службы контейнеров Azure | Microsoft Azure"
+   pageTitle="Подключение к кластеру службы контейнеров Azure | Microsoft Azure"
    description="Подключение к кластеру службы контейнеров Azure с помощью туннеля SSH."
    services="container-service"
    documentationCenter=""
@@ -33,7 +33,7 @@
 
 Теперь откройте оболочку и выполните следующую команду, где:
 
-**PORT** — это порт конечной точки, к которой требуется предоставить доступ. Для Swarm это 2375, для Mesos используйте порт 80. **USERNAME** — имя пользователя, указанное при развертывании кластера. **DNSPREFIX** — префикс DNS, указанный при развертывании кластера. **REGION** — область, в которой расположена ваша группа ресурсов.
+**PORT** — это порт конечной точки, к которой требуется предоставить доступ. Для Swarm это 2375, для Mesos используйте порт 80. **USERNAME** — имя пользователя, указанное при развертывании кластера. **DNSPREFIX** — префикс DNS, указанный при развертывании кластера. **REGION** — область, в которой расположена ваша группа ресурсов.
 
 ```
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
@@ -48,11 +48,11 @@ ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com 
 
 Связанные с Mesos конечные точки теперь доступны по адресу:
 
-- Mesos — `http://localhost/mesos`;
-- Marathon — `http://localhost/marathon`;
-- Chronos — `http://localhost/chronos`. 
+- Mesos — `http://localhost/mesos`;
+- Marathon — `http://localhost/marathon`;
+- Chronos — `http://localhost/chronos`. 
 
-Аналогичным образом и другие API для каждого приложения доступны через туннель Marathon — `http://localhost/marathon/v2`. Дополнительные сведения о различных доступных API см. в документации Mesosphere по [API для Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) и [API для Chronos](https://mesos.github.io/chronos/docs/api.html), а также в документации Apache по [API для планировщика Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Аналогичным образом и другие API для каждого приложения доступны через туннель Marathon — `http://localhost/marathon/v2`. Дополнительные сведения о различных доступных API см. в документации Mesosphere по [API для Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) и [API для Chronos](https://mesos.github.io/chronos/docs/api.html), а также в документации Apache по [API для планировщика Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ### Туннель Swarm
 
@@ -82,11 +82,13 @@ export DOCKER_HOST=:2375
 
 ![Подключение Putty](media/putty2.png)
 
-Выберите параметры `Tunnels` и `configure` для настройки портов перенаправления: **Source Port** (Порт источника) — любой порт (80 для Mesos и 2375 для Swarm) - **Destination** (Назначение) —localhost:80 (для Mesos) или localhost:2375 (для Swarm).
+Выберите в `Tunnels` и `configure` следующие порты для перенаправления:
+- **Порт источника:** выберите желаемый порт (80 для Mesos и 2375 для Swarm).
+- **Назначение:** localhost:80 (для Mesos) или localhost:2375 (для Swarm)
 
 В следующем примере выполняется настройка для Mesos; для Docker Swarm эта процедура аналогична.
 
-> Порт 80 не должен использоваться при создании этого туннеля.
+> Порт 80 не должен использоваться при создании этого туннеля.
 
 ![Подключение Putty](media/putty3.png)
 
@@ -96,16 +98,16 @@ export DOCKER_HOST=:2375
 
 При настройке туннеля Mesos связанная конечная точка доступна по адресу:
 
-- Mesos — `http://localhost/mesos`;
-- Marathon — `http://localhost/marathon`;
-- Chronos — `http://localhost/chronos`. 
+- Mesos — `http://localhost/mesos`;
+- Marathon — `http://localhost/marathon`;
+- Chronos — `http://localhost/chronos`. 
 
-При настройке туннеля для Docker Swarm доступ к кластеру Swarm может осуществляться через интерфейс командной строки Docker. Необходимо сначала настроить переменную среды Windows с именем `DOCKER_HOST` и значением ` :2375`.
+При настройке туннеля для Docker Swarm доступ к кластеру Swarm может осуществляться через интерфейс командной строки Docker. Сначала необходимо настроить переменную среды Windows с именем `DOCKER_HOST` и значением ` :2375`.
 
 ## Дальнейшие действия
  
 Развертывание контейнеров и управление ими с помощью Mesos или Swarm.
  
-- [Container management with the REST API](./container-service-mesos-marathon-rest.md) (Управление контейнерами с помощью REST API).
+- [Container management with the REST API (Управление контейнерами с помощью REST API).](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

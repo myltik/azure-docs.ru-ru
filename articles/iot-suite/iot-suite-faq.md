@@ -1,5 +1,5 @@
 <properties
-  pageTitle="Часто задаваемые вопросы по Azure IoT Suite | Microsoft Azure"
+  pageTitle="Часто задаваемые вопросы по Azure IoT Suite | Microsoft Azure"
   description="Часто задаваемые вопросы об IoT Suite"
   services=""
   suite="iot-suite"
@@ -14,7 +14,7 @@
   ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="11/17/2015"
+  ms.date="03/02/2016"
   ms.author="araguila"/>
    
 # Часто задаваемые вопросы об IoT Suite
@@ -35,7 +35,7 @@
 
 ### Как удалить клиент AAD?
 
-См. запись блога Эрика Голпа (Eric Golpe) [Пошаговое руководство по удалению клиента Azure AD][lnk-delete-aad-tennant].
+См. запись блога Эрика Голпа (Eric Golpe) [Пошаговое руководство по удалению клиента Azure AD][lnk-delete-aad-tennant].
 
 
 [lnk-azure-portal]: https://portal.azure.com
@@ -43,4 +43,4 @@
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

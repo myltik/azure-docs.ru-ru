@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.date="03/07/2016"
 	ms.author="nitinme"/>
 
 
@@ -23,6 +23,8 @@
 Узнайте, как создать кластер Apache Spark в HDInsight и выполнять интерактивные запросы Spark SQL в кластере Spark с помощью записной книжки [Jupyter](https://jupyter.org).
 
    ![Приступая к работе с Apache Spark в HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Руководство по началу работы с Apache Spark в HDInsight. Описание шагов: создание учетной записи хранения; создание кластера; выполнение инструкций Spark SQL")
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 **Предварительные требования:**
 
@@ -52,7 +54,7 @@
 
     ![Создание нового кластера на портале предварительной версии Azure](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.1.png "Создание нового кластера на портале предварительной версии Azure")
 
-3. Введите **имя кластера**, выберите значение **Hadoop** для параметра **Тип кластера**, в раскрывающемся списке **Операционная система кластера** выберите **Ubuntu**, а затем укажите версию Spark. Рядом с именем кластера (если оно доступно) отобразится зеленый флажок.
+3. Введите **имя кластера**, выберите **Spark** в качестве **Типа кластера**, в раскрывающемся списке **Операционная система кластера** выберите **Linux**, а затем версию Spark. Рядом с именем кластера (если оно доступно) отобразится зеленый флажок.
 
 	![Введите имя и тип кластера](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.2.png "Введите имя и тип кластера")
 
@@ -168,7 +170,7 @@
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Поскольку вы используете ядро PySpark, вы можете запускать SQL-запрос напрямую для временной таблицы **hvac**, только что созданной с помощью волшебного слова `%%sql`. Дополнительные сведения о волшебном слове `%%sql`, а также о других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Поскольку вы используете ядро PySpark, то можете запускать SQL-запрос напрямую для временной таблицы **hvac**, только что созданной с помощью волшебного слова `%%sql`. Дополнительные сведения о волшебном слове `%%sql`, а также о других волшебных словах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"")
@@ -183,6 +185,10 @@
 
 
 6. Завершив работу с приложением, следует закрыть записную книжку, чтобы освободить ресурсы. Для этого в записной книжке в меню **Файл** выберите пункт **Закрыть и остановить**. Это завершит работу записной книжки и закроет ее.
+
+##Удаление кластера
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## <a name="seealso"></a>См. также:
@@ -235,4 +241,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

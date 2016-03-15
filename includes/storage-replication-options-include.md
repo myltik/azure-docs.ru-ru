@@ -20,10 +20,10 @@
 
 	> [AZURE.IMPORTANT] Вы можете изменить способ репликации данных после создания учетной записи хранения, если вы не указали ZRS при создании учетной записи. Обратите внимание, что если вы переключаетесь с LRS на GRS или RA-GRS, то это может привести к дополнительной одноразовой оплате за передачу данных.
  
-Дополнительную информацию о способах репликации службы хранилища Azure см. в статье [Параметры репликации хранилища Azure](../articles/storage/storage-redundancy.md).
+Дополнительную информацию о способах репликации службы хранилища Azure см. в статье [Репликация службы хранилища Azure](../articles/storage/storage-redundancy.md).
 
 Сведения о ценах на репликацию учетной записи хранения см. в статье [Цены на хранилища Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Сведения об архитектуре, которая обеспечивает устойчивость службы хранилища Azure, см. в статье блога [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Документ SOSP — служба хранилища Azure: высокодоступная облачная служба хранилища со строгой согласованностью).
+Сведения об архитектуре, которая обеспечивает устойчивость службы хранилища Azure, см. в статье блога [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Документ SOSP — служба хранилища Azure: высокодоступная облачная служба хранилища со строгой согласованностью).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->
