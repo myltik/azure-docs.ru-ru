@@ -125,4 +125,4 @@
 [Развертывание дискретизатора JUnit JMeter для тестирования производительности Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 [Развертывание дискретизатора JUnit для JMeter для тестирования производительности Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016-->
