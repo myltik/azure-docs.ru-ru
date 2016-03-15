@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="Использование пакета SDK .NET хранилища озера данных для разработки приложений | Azure" 
-   description="Использование пакета SDK .NET хранилища озера данных для разработки приложений" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Использование пакета SDK .NET хранилища озера данных для разработки приложений | Azure"
+   description="Использование пакета SDK .NET хранилища озера данных для разработки приложений"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="02/29/2016"
+   ms.workload="big-data"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 # Начало работы с хранилищем озера данных Azure с помощью пакета SDK .NET
@@ -67,15 +67,15 @@
 5. Добавьте пакеты Nuget в проект.
 
 	1. В обозревателе решений щелкните правой кнопкой мыши имя проекта и выберите пункт **Управление пакетами NuGet**.
-	2. На вкладке **Диспетчер пакетов NuGet** в поле **Источник пакета** задайте значение **nuget.org** и установите флажок **Включить предварительный выпуск**.
+	2. На вкладке **Диспетчер пакетов NuGet** в поле **Источник пакета** задайте значение **nuget.org** и установите флажок **Включить предварительные выпуски**.
 	3. Найдите и установите следующие пакеты хранилища озера данных:
-	
+
 		* `Microsoft.Azure.Management.DataLake.Store`
 		* `Microsoft.Azure.Management.DataLake.StoreUploader`
 
 		![Добавление источника Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Создание новой учетной записи озера данных Azure")
 
-	4. Также установите пакет `Microsoft.IdentityModel.Clients.ActiveDirectory` для использования аутентификации Azure Active Directory.
+	4. Также установите пакет `Microsoft.IdentityModel.Clients.ActiveDirectory` для использования аутентификации Azure Active Directory. Не забудьте *снять* флажок **Включить предварительные выпуски**, чтобы установить стабильную версию этого пакета.
 
 		![Добавление источника Nuget](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "Создание новой учетной записи озера данных Azure")
 
@@ -85,7 +85,7 @@
 7. Откройте файл **Program.cs** и замените существующий блок кода следующим. Кроме того, задайте значения параметров, вызываемых во фрагменте кода, например **\_adlsAccountName**, **\_resourceGroupName**, и замените заполнители **APPLICATION-CLIENT-ID**, **APPLICATION-REPLY-URI** и **SUBSCRIPTION-ID** соответствующими значениями.
 
 	Этот код используется в процессе создания учетной записи хранилища озера данных, создания папок в хранилище, передачи и скачивания файлов и, наконец, удаления учетной записи. Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
-	
+
         using System;
         using System.IO;
         using System.Security;
@@ -115,16 +115,16 @@
                     _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name for a NEW Store account.
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value. This resource group should already exist.
                     _location = "East US 2";
-                    
+
                     string localFolderPath = @"C:\local_path"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = @"C:\local_path\file.txt"; // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
                     string remoteFilePath = remoteFolderPath + "file.txt";
-                    
+
                     // Authenticate the user
                     var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
                         "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REPLY-URI>")); // TODO: Replace bracketed values.
-                    
+
                     SetupClients(tokenCreds, "<SUBSCRIPTION-ID>"); // TODO: Replace bracketed value.
 
                     // Run sample scenarios
@@ -185,7 +185,7 @@
 
                 // Authenticate the user with AAD through an interactive popup.
                 // You need to have an application registered with AAD in order to authenticate.
-                //   For more information and instructions on how to register your application with AAD, see: 
+                //   For more information and instructions on how to register your application with AAD, see:
                 //   https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
                 {
@@ -199,7 +199,7 @@
 
                 // Authenticate the application with AAD through the application's secret key.
                 // You need to have an application registered with AAD in order to authenticate.
-                //   For more information and instructions on how to register your application with AAD, see: 
+                //   For more information and instructions on how to register your application with AAD, see:
                 //   https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
                 {
@@ -240,7 +240,7 @@
                 {
                     var response = _adlsClient.Account.List(_adlsAccountName);
                     var accounts = new List<DataLakeStoreAccount>(response);
-                    
+
                     while (response.NextPageLink != null)
                     {
                         response = _adlsClient.Account.ListNext(response.NextPageLink);
@@ -320,4 +320,4 @@
 - [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

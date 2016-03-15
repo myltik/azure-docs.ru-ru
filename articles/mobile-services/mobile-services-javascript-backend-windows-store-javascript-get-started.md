@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="02/10/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 # Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Создание приложения Windows в мобильных приложениях](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md).
 
 В этом учебнике показано, как добавить облачную серверную службу в приложение Магазина Windows на JavaScript с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение *To do list*, хранящее данные приложения в новой мобильной службе. Мобильная служба, которая будет создана, использует JavaScript для бизнес-логики на стороне сервера.
 
@@ -35,7 +38,7 @@
 
 ## Создание нового приложения для Магазина Windows
 
-После создания мобильной службы можно выполнить простые действия для быстрого запуска на классическом портале Azure, чтобы создать приложение Магазина Windows 8.1 на JavaScript, которое подключается к вашей мобильной службе.
+После создания мобильной службы можно выполнить простые действия для быстрого запуска на классическом портале Azure, чтобы создать приложение Магазина Windows 8.1 на JavaScript, которое подключается к вашей мобильной службе.
 
 1.  На [классическом портале Azure] щелкните **Мобильные службы** и выберите только что созданную мобильную службу.
 
@@ -89,4 +92,4 @@
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [классическом портале Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

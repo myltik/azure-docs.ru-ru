@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/01/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Подключение к хранилищу данных SQL с помощью Visual Studio
@@ -26,7 +26,7 @@
 
 ## Предварительные требования
 
-+ Образец базы данных AdventureWorksDW в хранилище данных SQL. Чтобы создать его, см. статью [Создание базы данных в хранилище данных SQL](sql-data-warehouse-get-started-provision.md). 
++ Образец базы данных AdventureWorksDW в хранилище данных SQL. Чтобы создать его, см. статью [Создание базы данных в хранилище данных SQL](sql-data-warehouse-get-started-provision.md).
 + SQL Server Data Tools для Visual Studio. Инструкции по установке и параметры см. в статье [Установка Visual Studio и (или) SSDT](sql-data-warehouse-install-visual-studio.md).
 
 ## Этап 1. Поиск полного имени сервера Azure SQL Server
@@ -45,7 +45,7 @@
 
 1. Откройте Visual Studio.
 2. Откройте обозреватель объектов SQL Server. Чтобы сделать это, последовательно выберите элементы **Представление** > **Обозреватель объектов SQL Server**.
- 
+
     ![Обозреватель объектов SQL Server][2]
 
 3. Щелкните значок **Добавить SQL Server**.
@@ -70,7 +70,7 @@
 
 Теперь, когда мы подключились к серверу, давайте напишем запрос.
 
-1. Щелкните правой кнопкой мыши базу данных в обозревателе объектов SQL Server. 
+1. Щелкните правой кнопкой мыши базу данных в обозревателе объектов SQL Server.
 
 2. Выберите пункт **Создать запрос**. Откроется окно нового запроса.
 
@@ -86,7 +86,7 @@
 
     ![Выполнение запроса][7]
 
-1. Просмотрите результаты запроса. В этом примере таблица FactInternetSales содержит 60 398 строк.
+1. Просмотрите результаты запроса. В этом примере таблица FactInternetSales содержит 60 398 строк.
 
     ![Результаты запроса][8]
 
@@ -108,4 +108,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

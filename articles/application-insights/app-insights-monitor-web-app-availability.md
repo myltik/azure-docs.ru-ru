@@ -233,6 +233,10 @@
 
 Отключение веб-тестов может потребоваться при выполнении обслуживания в службе.
 
+## Автоматизация
+
+Вы можете [использовать сценарии PowerShell, чтобы настроить веб-тест](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) автоматически.
+
 ## Вопросы? Проблемы?
 
 * *Можно ли вызывать код из моего веб-теста?*
@@ -389,4 +393,4 @@
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

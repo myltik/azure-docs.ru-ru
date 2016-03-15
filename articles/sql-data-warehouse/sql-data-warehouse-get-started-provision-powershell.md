@@ -13,19 +13,19 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/25/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Создание хранилища данных SQL с помощью Powershell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-data-warehouse-get-started-provision.md)
+- [Портал Azure](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
 ## Получение и запуск командлетов Azure PowerShell
 
-> [AZURE.NOTE]  Чтобы использовать Microsoft Azure Powershell с хранилищем данных SQL, следует загрузить и установить последнюю версию Azure PowerShell с командлетами ARM. Чтобы проверить версию, запустите `Get-Module -ListAvailable -Name Azure`. В этой статье используются командлеты, выполняемые в Azure PowerShell 1.0.3 и более поздних версий.
+> [AZURE.NOTE]  Чтобы использовать Microsoft Azure Powershell с хранилищем данных SQL, следует загрузить и установить последнюю версию Azure PowerShell с командлетами ARM. Чтобы проверить версию, запустите `Get-Module -ListAvailable -Name Azure`. В этой статье используются командлеты, выполняемые в Azure PowerShell 1.0.3 и более поздних версий.
 
 Если вы еще не настроили модуль PowerShell, необходимо скачать и настроить его.
 
@@ -42,13 +42,13 @@
 	```
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
-   
+
 ## Создание базы данных хранилища данных SQL
 Чтобы развернуть хранилище данных SQL, используйте командлет New-AzureRmSQLDatabase. Прежде чем выполнять команду, убедитесь в наличии следующих необходимых компонентов.
 
 ### Предварительные требования
 
-- Сервер Azure SQL Server V12 для размещения базы данных.
+- Сервер Azure SQL Server V12 для размещения базы данных.
 - Имя группы ресурсов для SQL Server.
 
 ### Команда развертывания
@@ -71,14 +71,14 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
  + **DatabaseName**: имя создаваемого хранилища данных SQL.
  + **ServerName**: имя сервера, который используется для создания (должен быть версии 12).
  + **ResourceGroupName**: используемая группа ресурсов. Чтобы найти доступные группы ресурсов, входящие в вашу подписку, используйте командлет Get-AzureResource.
- + **Edition**: необходимо установить выпуск DataWarehouse, чтобы создать хранилище данных SQL. 
+ + **Edition**: необходимо установить выпуск DataWarehouse, чтобы создать хранилище данных SQL.
 
 Справку по командам см. в разделе [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx).
 
-Сведения о параметрах см. в статье [Create Database (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt204021.aspx) (Создание базы данных (хранилище данных Azure SQL)).
+Сведения о параметрах см. в статье [Создание базы данных (хранилище данных SQL Azure)](https://msdn.microsoft.com/library/mt204021.aspx).
 
 ## Дальнейшие действия
-Подготовив хранилище данных SQL, вы можете [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] и [переноса][].
+После завершения подготовки хранилища данных SQL вы можете [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] и [переноса][].
 
 Если вы хотите подробнее узнать о том, как программно управлять хранилищем данных SQL, обратитесь к нашей документации по [Powershell][] или [REST API][].
 
@@ -96,4 +96,4 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Установка и настройка Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

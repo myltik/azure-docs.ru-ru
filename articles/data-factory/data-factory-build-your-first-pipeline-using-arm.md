@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Начало работы с фабрикой данных Azure (с помощью шаблона диспетчера ресурсов Azure)"
+	pageTitle="Создание фабрики данных (шаблон диспетчера ресурсов Azure) | Microsoft Azure"
 	description="Работая с этим руководством, вы создадите образец конвейера фабрики данных Azure с помощью шаблона диспетчера ресурсов Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/05/2016"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Построение конвейера фабрики данных Azure с помощью шаблона диспетчера ресурсов Azure
+# Руководство. Создание фабрики данных Azure с помощью шаблона диспетчера ресурсов Azure
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [Обзор учебника](data-factory-build-your-first-pipeline.md)
+- [Редактор фабрики данных](data-factory-build-your-first-pipeline-using-editor.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Шаблон диспетчера ресурсов](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 В этой статье вы найдете информацию о том, как создать свою первую фабрику данных Azure с помощью шаблона диспетчера ресурсов Azure (ARM).
@@ -37,7 +37,7 @@
 - Сведения о создании шаблонов диспетчера ресурсов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md). 
 
 
-## Шаг 1. Создание шаблона диспетчера ресурсов Azure
+## Шаг 1. Создание шаблона диспетчера ресурсов Azure
 
 Создайте в папке **C:\\ADFGetStarted** файл JSON с именем **ADFTutorialARM.json** со следующим содержимым:
 
@@ -215,13 +215,13 @@
 
 Обратите внимание на следующее.
 
-- С помощью вышеупомянутого файла JSON фабрика данных создает кластер HDInsight **под управлением Windows**. Также можно создать кластер HDInsight **под управлением Linux**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
-- Вместо используемого по запросу кластера HDInsight можно использовать **собственный кластер HDInsight**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
-- Кластер HDInsight создает **контейнер по умолчанию** в хранилище BLOB-объектов, которое указано в коде JSON (**linkedServiceName**). При удалении кластера HDInsight этот контейнер не удаляется. Это сделано специально. Если используется связанная служба HDInsight по запросу, кластер HDInsight создается для обработки каждого среза данных (если не используется динамический кластер **timeToLive**), после чего он удаляется.
+- С помощью вышеупомянутого файла JSON фабрика данных создает кластер HDInsight **под управлением Windows**. Также можно создать кластер HDInsight **под управлением Linux**. Дополнительные сведения см. в статье [Связанная служба HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+- Вместо доступного по запросу кластера HDInsight можно использовать **собственный кластер HDInsight**. Дополнительные сведения см. в статье [Связанная служба Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+- Кластер HDInsight создает **контейнер по умолчанию** в хранилище BLOB-объектов, указанном в коде JSON (**linkedServiceName**). При удалении кластера HDInsight этот контейнер не удаляется. Это сделано специально. В случае связанной службы HDInsight по запросу кластер HDInsight создается для обработки каждого среза данных (если не используется динамический кластер **timeToLive**) и удаляется по ее завершении.
 
-	По мере обработки новых срезов количество контейнеров в хранилище BLOB-объектов будет увеличиваться. Если эти контейнеры не используются для устранения неполадок с заданиями, удалите их — это позволит сократить расходы на хранение. Такие контейнеры имеют имена в формате "adf**имя\_вашей\_фабрики\_данных**-**имя\_связанной\_службы**-метка\_даты\_и\_времени". Для удаления контейнеров в хранилище Azure BLOB-объектов используйте такие средства, как [обозреватель хранилищ Microsoft](http://storageexplorer.com/).
+	По мере обработки новых срезов количество контейнеров в хранилище BLOB-объектов будет увеличиваться. Если эти контейнеры не используются для устранения неполадок с заданиями, удалите их — это позволит сократить расходы на хранение. Подобные контейнеры имеют имена вида "adf**имя\_вашей\_фабрики\_данных**-**имя\_связанной\_службы**-метка\_даты\_и\_времени". Для удаления контейнеров из хранилища BLOB-объектов Azure пользуйтесь такими средствами, как [обозреватель хранилищ Майкрософт](http://storageexplorer.com/).
 
-Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+Дополнительные сведения см. в статье [Связанная служба HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
 > [AZURE.NOTE] Еще один пример шаблона ARM для создания фабрики данных Azure можно найти на [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).
 
@@ -231,13 +231,13 @@
 	- Выполните командлет **Login-AzureRmAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.  
 	- Выполните командлет **Get-AzureSubscription**, чтобы просмотреть все подписки для этой учетной записи.
 	- Выполните командлет **Select-AzureSubscription SubscriptionName**, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна совпадать с той, которая используется на портале Azure.
-1. Выполните следующую команду, чтобы развернуть сущности фабрики данных с помощью шаблона, созданного на шаге 1. 
+1. Выполните следующую команду, чтобы развернуть сущности фабрики данных с помощью шаблона, созданного на шаге 1. 
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
 ## Мониторинг конвейера
  
-1.	Войдя на [портал Azure](https://portal.azure.com/), щелкните **Обзор** и выберите **Фабрики данных**. ![Просмотреть все -> Фабрики данных](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Войдя на [портал Azure](https://portal.azure.com/), щелкните **Обзор** и выберите **Фабрики данных**. ![Просмотреть все -> Фабрики данных](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	В колонке **Фабрики данных** выберите созданную фабрику данных (**TutorialFactoryARM**).	
 2.	В колонке **Фабрика данных** для своей фабрики данных щелкните элемент **Схема**. ![Плитка «Схема»](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	В **представлении схемы** вы увидите все конвейеры и наборы данных, используемые в этом руководстве.
@@ -246,10 +246,10 @@
 8. В представлении схемы дважды щелкните набор данных **AzureBlobOutput**. Вы увидите срез, который обрабатывается в данный момент.
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Как только обработка завершится, срез перейдет в состояние **Готово**. Обратите внимание, что создание кластера HDInsight по требованию обычно занимает некоторое время (около 20 минут). 
+9. Как только обработка завершится, срез перейдет в состояние **Готово**. Обратите внимание, что создание кластера HDInsight по требованию обычно занимает некоторое время (около 20 минут). 
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)	
 10. Когда срез перейдет в состояние **Готово**, проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов.  
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

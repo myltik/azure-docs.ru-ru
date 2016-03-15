@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Подключение и создание запросов с помощью Visual Studio
@@ -30,11 +30,11 @@
 
 ## Предварительные требования
 
-+ Visual Studio 2013/2015 — информацию о загрузке и установке Visual Studio 2015 и/или SSDT см. в статье [Установка Visual Studio и SSDT](sql-data-warehouse-install-visual-studio.md).
++ Visual Studio 2013/2015 — информацию о загрузке и установке Visual Studio 2015 и/или SSDT см. в статье [Установка Visual Studio и SSDT](sql-data-warehouse-install-visual-studio.md).
 
 ## Получение полного имени сервера Azure SQL
 
-Для подключения к базе данных требуется полное имя сервера ( ***имя\_сервера**.database.windows.net* ), содержащее базу данных, к которой необходимо подключиться.
+Для подключения к базе данных требуется полное имя сервера (****имя\_сервера**.database.windows.net*), содержащее базу данных, к которой необходимо подключиться.
 
 1. Перейдите на [портал Azure](https://portal.azure.com).
 2. Перейдите к базе данных, к которой нужно подключиться.
@@ -46,7 +46,7 @@
 
 1. Откройте Visual Studio.
 2. В меню «Просмотр» выберите пункт **Обозреватель объектов SQL Server**.
- 
+
 ![][2]
 
 3. Нажмите кнопку **Добавить SQL Server**.
@@ -91,4 +91,4 @@
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

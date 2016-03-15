@@ -1,31 +1,31 @@
-<properties 
-   pageTitle="Начало работы с хранилищем озера данных | Azure" 
-   description="Использование Azure PowerShell для создания учетной записи хранения озера данных и выполнения базовых операций" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Начало работы с хранилищем озера данных | Azure"
+   description="Использование Azure PowerShell для создания учетной записи хранения озера данных и выполнения базовых операций"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Начало работы с хранилищем озера данных Azure с помощью Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
+- [Использование портала](data-lake-store-get-started-portal.md)
+- [с использованием PowerShell.](data-lake-store-get-started-powershell.md)
+- [Использование пакета .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Использование Azure CLI](data-lake-store-get-started-cli.md)
+- [Использование Node.js](data-lake-store-manage-use-nodejs.md)
 
-Узнайте, как с помощью Azure PowerShell создать учетную запись хранения озера данных Azure и выполнять базовые операции, такие как создание папок, передача и загрузка файлов данных, удаление учетной записи и т. д. Дополнительные сведения о хранилище озера данных см. в статье [Обзор хранилища озера данных](data-lake-store-overview.md).
+Узнайте, как с помощью Azure PowerShell создать учетную запись хранения озера данных Azure и выполнять базовые операции, такие как создание папок, передача и загрузка файлов данных, удаление учетной записи и т. д. Дополнительные сведения о хранилище озера данных см. в статье [Обзор хранилища озера данных](data-lake-store-overview.md).
 
 ## Предварительные требования
 
@@ -35,9 +35,9 @@
 - **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
 
 
-##Установка Azure PowerShell 1.0 или более поздней версии
+##Установка Azure PowerShell 1.0 или более поздней версии
 
-См. раздел "Предварительные требования" статьи [Использование Azure PowerShell с диспетчером ресурсов Azure](powershell-azure-resource-manager.md#prerequisites).
+См. раздел "Предварительные требования" статьи [Использование Azure PowerShell с Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
 
 ## Создание учетной записи хранения озера данных Azure
 
@@ -45,15 +45,15 @@
 
         # Log in to your Azure account
 		Login-AzureRmAccount
-        
+
 		# List all the subscriptions associated to your account
 		Get-AzureRmSubscription
-		
-		# Select a subscription 
+
+		# Select a subscription
 		Set-AzureRmContext -SubscriptionId <subscription ID>
-        
+
 		# Register for Azure Data Lake Store
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore" 
+		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 
 2. Учетная запись хранения озера данных Azure связывается с группой ресурсов Azure. Для начала создайте группу ресурсов Azure.
@@ -118,8 +118,8 @@
 
 Чтобы удалить файл, используйте следующую команду:
 
-	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv 
-	
+	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
+
 При появлении запроса введите **Y**, чтобы удалить элемент. Если нужно удалить несколько файлов, можно указать все пути через запятую.
 
 	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
@@ -143,7 +143,7 @@
 ## Дальнейшие действия
 
 - [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
-- [Использование аналитики озера данных Azure с хранилищем озера данных](data-lake-analytics-get-started-portal.md)
+- [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

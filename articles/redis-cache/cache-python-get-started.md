@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor="v-lincan"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/03/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Использование кэша Redis для Azure с Python
@@ -51,7 +51,7 @@
 
   ## Добавление данных в кэш и их извлечение
 
-  >>> import redis >>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net', port=6380, db=0, password='<key>', ssl=True) >>> r.set('foo', 'bar') True >>> r.get('foo') b'bar'
+  >>> import redis r = redis.StrictRedis(host='<name>.redis.cache.windows.net', port=6380, db=0, password='<key>', ssl=True) >>> r.set('foo', 'bar') True >>> r.get('foo') b'bar'
 
 Замените *&lt;name&gt;* именем своего кэша, а *&lt;key&gt;* — ключом доступа.
 
@@ -60,4 +60,4 @@
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

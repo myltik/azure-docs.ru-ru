@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -65,13 +65,13 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 После подключения скопируйте следующий скрипт таблицы в командную строку sqlcmd и нажмите клавишу "ВВОД".
 
 ```
-CREATE TABLE DimDate2 
+CREATE TABLE DimDate2
 (
     DateId INT NOT NULL,
     CalendarQuarter TINYINT NOT NULL,
     FiscalQuarter TINYINT NOT NULL
 )
-WITH 
+WITH
 (
     CLUSTERED COLUMNSTORE INDEX,
     DISTRIBUTION = ROUND_ROBIN
@@ -134,7 +134,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4\. |2
 20151201 |4\. |2
 
-### Шаг 4. Создание статистики для вновь загруженных данных 
+### Шаг 4. Создание статистики для вновь загруженных данных
 
 Хранилище данных SQL Azure пока не поддерживает автоматическое создание или автоматическое обновление статистики. Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных. Подробные сведения о работе со статистикой см. в разделе [Статистика][] из группы разделов по разработке. Ниже приведен краткий пример создания статистики по табличным данным, загруженным в этом примере.
 
@@ -196,4 +196,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Центре загрузки Майкрософт]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

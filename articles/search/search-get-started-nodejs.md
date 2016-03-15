@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Начало работы со службой поиска Azure в NodeJS | Microsoft Azure | Размещенная облачная служба поиска"
+	pageTitle="Начало работы со службой поиска Azure в NodeJS | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Пошаговое создание приложения поиска в облачной службе поиска Azure с использованием NodeJS в качестве языка программирования."
 	services="search"
 	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
+	authors="EvanBoyle"
+	manager="pablocas"
 	editor="v-lincan"/>
 
 <tags
@@ -13,19 +13,19 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/11/2016"
-	ms.author="heidist"/>
+	ms.date="03/08/2016"
+	ms.author="evboyle"/>
 
 # Начало работы с Поиском Azure на NodeJS
 > [AZURE.SELECTOR]
-- [Portal](search-get-started-portal.md)
-- [.NET](search-get-started-dotnet.md)
+- [Портал](search-get-started-portal.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 Узнайте, как создать собственное приложение поиска на NodeJS на базе Поиска Azure. В этом руководстве [REST API службы поиска Azure](https://msdn.microsoft.com/library/dn798935.aspx) используется для создания объектов и операций, используемых в этом уроке.
 
 Мы использовали [NodeJS](https://nodejs.org) и NPM, [Sublime Text 3](http://www.sublimetext.com/3) и Windows PowerShell в Windows 8.1 для разработки и проверки этого кода.
 
-Чтобы запустить этот пример, вам потребуется служба поиска Azure. Создать в ней учетную запись можно на [портале Azure](https://portal.azure.com). Пошаговые инструкции приведены в статье [Создание службы поиска Azure на портале Azure](search-create-service-portal.md).
+Чтобы запустить этот пример, вам потребуется служба поиска Azure. Создать в ней учетную запись можно на [портале Azure](https://portal.azure.com). Пошаговые инструкции приведены в статье [Создание службы поиска Azure на портале](search-create-service-portal.md).
 
 ## О данных
 
@@ -33,7 +33,7 @@
 
 В этом приложении программа **DataIndexer** создает и загружает индекс с помощью конструкции [индексатора](https://msdn.microsoft.com/library/azure/dn798918.aspx), получая отфильтрованный набор данных USGS из общедоступной Базы данных SQL Azure. Учетные данные и сведения о подключении к сетевому источнику данных предоставляются в программном коде. Дальнейшая настройка не требуется.
 
-> [AZURE.NOTE] Мы применили фильтр к этому набору данных, чтобы не превысить ограничение ценовой категории для бесплатного использования, составляющее 10 000 документов. Если используется стандартная категория, это ограничение не накладывается. Дополнительные сведения об ограничениях каждой ценовой категории см. в разделе [Ограничения](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] Мы применили фильтр к этому набору данных, чтобы не превысить ограничение ценовой категории для бесплатного использования, составляющее 10 000 документов. Если используется стандартная категория, это ограничение не накладывается. Дополнительные сведения об ограничениях каждой ценовой категории см. в статье [Ограничения службы поиска](search-limits-quotas-capacity.md).
 
 
 <a id="sub-2"></a>
@@ -121,4 +121,4 @@
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/28/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
 
 
@@ -94,7 +94,7 @@
 
 ### Исключения
 
-Если вы [настроили отслеживание исключений](app-insights-asp-net-exception-mvc.md), отчеты об исключениях будут отображаться в окне поиска.
+Если вы [настроили отслеживание исключений](app-insights-asp-net-exceptions.md), отчеты об исключениях будут отображаться в окне поиска.
 
 Щелкните исключение, чтобы просмотреть трассировку стека. Если код приложения открыт в среде Visual Studio, можно щелкнуть трассировку стека в соответствующей строке кода.
 
@@ -126,7 +126,7 @@
 
 [Дополнительная информация о поиске](app-insights-diagnostic-search.md)
 
-* *Нет связанных событий?* Настройте [исключения сервера](app-insights-asp-net-exception-mvc.md) и [зависимости](app-insights-asp-net-dependencies.md).
+* *Нет связанных событий?* Настройте [исключения сервера](app-insights-asp-net-exceptions.md) и [зависимости](app-insights-asp-net-dependencies.md).
 
 
 ## Данные отсутствуют?
@@ -172,7 +172,7 @@
 ## Дальнейшие действия
 
 - [Данные пользователей и страниц](../article/application-insights/app-insights-javascript.md#selector1)
-- [Исключения](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [Исключения](../article/application-insights/app-insights-asp-net-exceptions.md#selector1)
 - [Зависимости](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Доступность](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
@@ -214,4 +214,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->
