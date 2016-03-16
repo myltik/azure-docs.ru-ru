@@ -117,7 +117,7 @@
 
     b. Чтобы передать скачанный файл метаданных Azure, нажмите кнопку **Browse** (Обзор), перейдите к файлу и щелкните **Upload Metadata** (Передать метаданные).
 
-    c. В текстовом поле **Email** (Электронный адрес) введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    c. В текстовом поле **Email** (Электронный адрес) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
     г) В текстовом поле **First Name** (Имя) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
@@ -255,4 +255,4 @@ QuickHelp поддерживает JIT-подготовку. Это означа
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->
