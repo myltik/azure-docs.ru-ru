@@ -91,7 +91,7 @@
 			HTTP/1.1 301 Moved Permanently
 			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-		Необходимо опубликовать последующие вызовы API по адресу https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Необходимо опубликовать последующие вызовы API по адресу https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ###Получение маркера доступа
 
