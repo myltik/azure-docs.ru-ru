@@ -102,7 +102,7 @@ public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticatio
 			 }
 ```
 
-## Send authentication requests
+## Отправка запросов проверки подлинности
 Теперь приложение правильно настроено для взаимодействия с конечной точки версии 2.0 с использованием протокола проверки подлинности OpenID Connect.  OWIN полностью возьмет на себя выполнение процессов создания сообщений проверки подлинности, проверки маркеров из Azure AD и поддержки сеанса пользователя.  Остается лишь предоставить пользователям возможность выполнять вход и выход.
 
 - Вы можете использовать теги авторизации в своих контроллерах, чтобы обязать пользователя выполнять вход перед доступом к конкретной странице.  Откройте `Controllers\HomeController.cs` и добавьте тег  `[Authorize]` в контроллер «О программе».
@@ -199,4 +199,4 @@ public ActionResult About()
 
 Дополнительные ресурсы: - [Руководство разработчика для версии 2.0](active-directory-appmodel-v2-overview.md) - [StackOverflow: тег azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
