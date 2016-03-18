@@ -1,0 +1,3 @@
+>[AZURE.NOTE]Мы советуем использовать последнюю версию клиентской библиотеки службы хранилища Azure для .NET для работы с этим учебником. Последняя версия библиотеки — 6.x. Ее можно загрузить на веб-сайте [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/). Источник клиентской библиотеки можно найти на сайте [GitHub](https://github.com/Azure/azure-storage-net).
+
+<!---HONumber=Nov15_HO2-->
