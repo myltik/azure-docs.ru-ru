@@ -269,4 +269,4 @@ Visual Studio создает ресурс в Application Insights, добавл�
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!-----HONumber=AcomDC_0211_2016-->
