@@ -66,7 +66,7 @@
 ## Функции и ограничения Azure AD
 
 На сервере Azure SQL Server можно подготовить перечисленных далее членов Azure Active Directory.
-- Собственные члены — члены, созданные в Azure AD в управляемом домене или в домене клиента. Дополнительные сведения см. в статье [Добавление собственного имени домена в Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/).
+- Собственные члены — члены, созданные в Azure AD в управляемом домене или в домене клиента. Дополнительные сведения см. в статье [Добавление собственного имени домена в Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-add-domain/).
 - Федеративные члены домена — члены, созданные в Azure AD с федеративным доменом. Дополнительные сведения см. в статье [Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 - Импортированные члены из других служб Azure Active Directory, являющиеся собственными или федеративными членами домена.
 - Группы Active Directory, созданные как группы безопасности.
@@ -92,7 +92,7 @@
 - Выполните федерацию локальных доменных служб Active Directory с Azure Active Directory.
 - С помощью инструмента **AD FS** в разделе **Служба**, **Конечные точки** включите **WS-Trust 1.3** для URL-пути **/adfs/services/trust/13/windowstransport**.
 
-Дополнительные сведения см. в статьях [Добавление собственного имени домена в Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Управление каталогом Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) и [Управление службой Azure AD с помощью Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Дополнительные сведения см. в статьях [Добавление собственного имени домена в Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Управление каталогом Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) и [Управление службой Azure AD с помощью Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Убедитесь, что ваша база данных расположена в базе данных SQL Azure V12.
 
@@ -251,7 +251,7 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 Используйте этот метод, если вы вошли в ОС Windows, используя учетные данные домена, для которого не настроена федерация с Azure. Или если используете проверку подлинности Azure AD с помощью Azure AD на основе исходного домена или домена клиента.
 
 1. Запустите Management Studio, и в диалоговом окне **Подключение к ядру СУБД** (или **Подключение к серверу**) в поле **Проверка подлинности** выберите пункт **Проверка пароля Active Directory**.
-2. В поле **Имя пользователя** введите свое имя пользователя Azure Active Directory в формате ****username@domain.com**. Это должна быть учетная запись из Azure Active Directory или учетная запись из федерации домена с Azure Active Directory.
+2. В поле **Имя пользователя** введите свое имя пользователя Azure Active Directory в формате **username@domain.com**. Это должна быть учетная запись из Azure Active Directory или учетная запись из федерации домена с Azure Active Directory.
 3. В поле **Пароль** введите пароль пользователя для учетной записи Azure Active Directory или учетной записи федеративного домена.
 4. Нажмите кнопку **Параметры**, и на странице **Свойства подключения** в поле **Подключение к базе данных** введите имя пользовательской базы данных для подключения.
 
@@ -335,4 +335,4 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0309_2016--->
