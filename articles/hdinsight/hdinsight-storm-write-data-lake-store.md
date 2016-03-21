@@ -102,7 +102,8 @@ ADLStoreBolt — имя, используемое для экземпляра Hd
 
 ##Сборка и упаковка топологии
 
-1. Загрузите пример проекта со страницы [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) в среду разработки.
+1. Загрузите пример проекта со страницы [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store
+](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) в среду разработки.
 
 2. Откройте файл `StormToDataLake\src\main\java\com\microsoft\example\StormToDataLakeStore.java` в редакторе и найдите строку, которая содержит `.withFsUrl("adl://MYDATALAKE.azuredatalakestore.net/")`. Измените __MYDATALAKE__ на имя хранилища озера данных Azure, которое вы использовали при создании своего сервера HDInsight.
 
@@ -207,7 +208,7 @@ __Для HDInsight под управлением Linux__.
 
 __Для HDInsight под управлением Windows__.
 
-1. С панели мониторинга Storm (https://CLUSTERNAME.azurehdinsight.net,) выберите ссылку __Пользовательский интерфейс Storm__ в верхней части страницы.
+1. С панели мониторинга Storm (https://CLUSTERNAME.azurehdinsight.net) выберите ссылку __Пользовательский интерфейс Storm__ в верхней части страницы.
 
 2. После загрузки пользовательского интерфейса Storm выберите ссылку __datalakewriter__.
 
@@ -225,4 +226,4 @@ __Для HDInsight под управлением Windows__.
 
 Теперь, когда вы узнали, как применять Storm для записи в хранилище озера данных Azure, изучите другие [примеры Storm для HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0309_2016--->
