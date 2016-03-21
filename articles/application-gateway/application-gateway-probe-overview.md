@@ -16,7 +16,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # Обзор мониторинга работоспособности шлюза приложений
@@ -67,4 +67,4 @@
 
 Ознакомившись со сведениями о мониторинге работоспособности шлюза приложений, можно настроить [пользовательскую проверку работоспособности](application-gateway-create-probe-ps.md) для диспетчера ресурсов Azure или [пользовательскую проверку работоспособности](application-gateway-create-probe-classic-ps.md) для классической модели развертывания Azure.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/29/2016"
 	ms.author="jgao"/>
 
@@ -167,4 +167,4 @@ HDI 1.6|HDP 1.1|Нет|28\.10.2013|Да|26\.04.2014|31\.05.2015
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

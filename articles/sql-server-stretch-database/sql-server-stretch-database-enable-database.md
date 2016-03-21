@@ -3,9 +3,9 @@
 	description="Узнайте, как настроить базу данных для растяжения базы данных."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="03/09/2016"
 	ms.author="douglasl"/>
 
 # Включение растяжения базы данных для базы данных
@@ -128,6 +128,8 @@ GO
 -   [Выполняйте резервное копирование и восстановление баз данных, для которых включено растяжение](sql-server-stretch-database-backup.md)
 
 ## См. также
-[Определение баз данных и таблиц для растяжения](sql-server-stretch-database-identify-databases.md) [Параметры инструкции ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+[Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+[Параметры ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Создание ресурсов Application Insights с помощью PowerShell
@@ -27,7 +27,7 @@
 
 Установите модуль Azure Powershell на компьютере, где требуется выполнять сценарии.
 
-1. Установите [установщик веб-платформы Майкрософт (версии 5 или более поздней)](http://www.microsoft.com/web/downloads/platform.aspx).
+1. Установите [установщик веб-платформы Майкрософт (версии 5 или более поздней)](http://www.microsoft.com/web/downloads/platform.aspx).
 2. Используйте его для установки Microsoft Azure PowerShell.
 
 ## Копирование JSON для существующих ресурсов
@@ -176,7 +176,7 @@
     * -webTestName — имя веб-теста, который нужно создать.
     * -url — это URL-адрес веб-приложения.
     * -text — это текстовая строка, отображаемая на веб-странице.
-    * -siteName — используется, если это веб-сайт Azure.
+    * -siteName — используется, если это веб-сайт Azure.
 
 
 ## Определение оповещений о метриках
@@ -317,7 +317,8 @@
 
 * [Создание ресурса Application Insights](app-insights-powershell-script-create-resource.md) — быстрый метод без использования шаблона.
 * [Настройка оповещений](app-insights-powershell-alerts.md)
+* [Creating an Application Insights Web Test and Alert Programmatically](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Отправка данных системы диагностики Azure в Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Создание заметок выпуска](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

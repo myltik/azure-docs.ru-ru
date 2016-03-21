@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Заметки о выпуске Stream Analytics | Microsoft Azure" 
-	description="Заметки об общедоступном выпуске Stream Analytics" 
+	description="Заметки о выпуске Stream Analytics" 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="03/03/2016" 
 	ms.author="jeffstok"/>
 
 #Заметки о выпуске Stream Analytics
+
+## Заметки о выпуске Stream Analytics за 03.03.2016 ##
+
+Этот выпуск содержит следующее обновление.
+
+Название | Описание
+---|---
+Новые элементы языка запросов Stream Analytics | Теперь у SAQL есть [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Страница MSDN о GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Страница MSDN о TRY_CAST") и [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Страница MSDN о REGEXMATC").
 
 ## Заметки о выпуске Stream Analytics от 10.12.2015 ##
 
@@ -25,7 +33,7 @@
 Название | Описание
 ---|---
 Обновление версии API REST | API REST обновлен до версии от 01.10.2015. Дополнительную информацию можно найти на сайте MSDN, в разделах [Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx) и [Machine Learning integration in Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
-Интеграция машинного обучения Azure | В этом выпуске обеспечена поддержка определяемых пользователем функций машинного обучения Azure. Учебник можно найти [здесь](stream-analytics-machine-learning-integration-tutorial.md), а объявление в блоге — [здесь](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
+Интеграция машинного обучения Azure | В этом выпуске обеспечена поддержка определяемых пользователем функций машинного обучения Azure. Подробнее об этом см. в [учебнике](stream-analytics-machine-learning-integration-tutorial.md), а также в [общих объявлениях в блоге](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
 
 ## Заметки о выпуске Stream Analytics от 12.11.2015 ##
 
@@ -65,7 +73,7 @@ TIMESTAMP BY для разнородных событий | Если один п
 
 Название|Описание
 ---|---
-Поддержка групп PowerBI|Чтобы разрешить совместное использование данных с другими пользователями Power BI, теперь задания Stream Analytics могут выполнять запись в [группы Power BI](stream-analytics-define-outputs.md#power-bi) внутри вашей учетной записи Power BI.
+Поддержка групп PowerBI|Чтобы разрешить совместное использование данных с другими пользователями Power BI, теперь задания Stream Analytics могут выполнять запись в [группы Power BI](stream-analytics-define-outputs.md#power-bi) внутри вашей учетной записи Power BI.
 
 ## Заметки о выпуске Stream Analytics от 20.08.2015 ##
 
@@ -133,4 +141,4 @@ TIMESTAMP BY для разнородных событий | Если один п
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+ 	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
 
 #Часто задаваемые вопросы  
 
-##Обзор
+##Общие часто задаваемые вопросы об AMS и ответы на них 
 
 Вопрос. Как осуществляется масштабирование индексирования?
 
@@ -39,11 +39,21 @@
 
 Вопрос. Службы мультимедиа Azure поддерживают хранение изображений?
 
-Ответ. Если вы хотите просто хранить JPEG- или PNG-изображения, используйте для этого хранилище двоичных объектов Azure. Не имеет смысла хранить их в вашей учетной записи служб мультимедиа, если вы не хотите связать их с видео- или аудиоресурсами. Или вам может понадобиться использовать изображения в качестве наложения в видеокодировщике. Кодировщик служб мультимедиа поддерживает наложение изображений поверх видео, поэтому JPEG и PNG указаны как поддерживаемые форматы входных данных. Дополнительные сведения см. в разделе [Создание наложений](https://msdn.microsoft.com/library/azure/dn640496.aspx).
+Ответ. Если вы хотите просто хранить JPEG- или PNG-изображения, используйте для этого хранилище двоичных объектов Azure. Не имеет смысла хранить их в вашей учетной записи служб мультимедиа, если вы не хотите связать их с видео- или аудиоресурсами. Или вам может понадобиться использовать наложение изображений в видеокодировщике. Стандартный кодировщик мультимедиа поддерживает наложение изображений на видео, поэтому JPEG и PNG указаны как поддерживаемые форматы входных данных. Дополнительные сведения см. в разделе [Создание наложений](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
 Вопрос. Как можно скопировать активы из одной учетной записи служб мультимедиа в другую?
 
-Ответ. Для копирования активов из одной учетной записи служб мультимедиа в другую используйте метод расширения [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354), доступный в репозитории [Расширения пакета SDK служб мультимедиа Azure для .NET](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Дополнительные сведения см. в [этой](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) теме форума.
+Ответ. Для копирования ресурсов-контейнер из одной учетной записи служб мультимедиа в другую с помощью .NET используйте метод расширения [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354), доступный в репозитории [Расширения пакета SDK служб мультимедиа Azure для .NET](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Дополнительные сведения см. в [этой](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) теме форума.
+
+Вопрос. Какие знаки поддерживаются в именах файлов при работе с AMS?
+
+Ответ. При создании URL-адресов для потоковой передачи содержимого службы мультимедиа используют значение свойства IAssetFile.Name (например, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Поэтому кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать следующие [символы, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Кроме того, может использоваться только один символ "." для расширения имени файла.
+
+
+Вопрос. Как можно подключиться с помощью REST?
+
+Ответ. После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой универсальный код ресурса (URI) служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect_programmatically.md).
+
 
 Вопрос. Как повернуть видео в процессе кодирования?
 
@@ -62,6 +72,9 @@
 	
 	...
 
+
+
+
 ##Схемы обучения работе со службами мультимедиа
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -70,4 +83,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

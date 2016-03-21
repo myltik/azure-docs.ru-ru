@@ -22,9 +22,9 @@
 
 В этом документе вы узнаете, как использовать средства HDInsight для Visual Studio, а также воронку и сито службы концентраторов событий для создания двух гибридных топологий C#/Java:
 
-* **EventHubWriter** — случайным образом генерирует данные и записывает их в службу концентраторов событий
+* **EventHubWriter** — случайным образом генерирует данные и записывает их в службу концентраторов событий
 
-* **EventHubReader** — считывает данные из службы концентраторов событий и сохраняет их в табличное хранилище Azure
+* **EventHubReader** — считывает данные из службы концентраторов событий и сохраняет их в табличное хранилище Azure
 
 [AZURE.NOTE] Шаги, описанные в этом документе, можно применять только к кластеру HDInsight под управлением Windows. Java-версию этого проекта, которая работает с кластером под управлением Linux или Windows, можно найти в разделе [Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
@@ -46,7 +46,7 @@
 
 ## Воронка и сито службы концентраторов событий
 
-Воронка и сито службы концентраторов событий — это компоненты Java, которые позволяют работать со службой концентраторов событий из Apache Storm. Хотя эти компоненты написаны на языке Java, средства HDInsight для Visual Studio позволяют создавать гибридные топологии, сочетающие в себе компоненты C# и Java.
+Воронка и сито службы концентраторов событий — это компоненты Java, которые позволяют работать со службой концентраторов событий из Apache Storm. Хотя эти компоненты написаны на языке Java, средства HDInsight для Visual Studio позволяют создавать гибридные топологии, сочетающие в себе компоненты C# и Java.
 
 Воронка и сито распространяются в виде отдельного файла архива Java (JAR) с именем **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**.
 
@@ -87,10 +87,12 @@
 4. Выберите **Настроить** и создайте две новые политики доступа, используя следующую информацию.
 
 	<table>
-<tr><th>Имя</th><th>Разрешения</th></tr>
-<tr><td>Модуль записи</td><td>Отправка</td></tr>
-<tr><td>читатель.</td><td>Прослушивание</td></tr>
-</table>После создания разрешений выберите значок **Сохранить** в нижней части страницы. Будут созданы политики совместного доступа, которые будут использоваться для отправки (writer) сообщений этому концентратору событий и их прослушивания (reader).
+	<tr><th>Имя</th><th>Разрешения</th></tr>
+	<tr><td>Модуль записи</td><td>Отправка</td></tr>
+	<tr><td>читатель.</td><td>Прослушивание</td></tr>
+	</table>
+
+	После создания разрешений выберите значок **Сохранить** в нижней части страницы. Будут созданы политики совместного доступа, которые будут использоваться для отправки (writer) сообщений этому концентратору событий и их прослушивания (reader).
 
 	![политики](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
@@ -126,11 +128,11 @@
 
 4. После создания проекта вы получите такие файлы:
 
-	* **Program.cs** — определяет топологию для проекта. Обратите внимание, что по умолчанию создается топология, состоящая из одной воронки и одного сита.
+	* **Program.cs** — определяет топологию для проекта. Обратите внимание, что по умолчанию создается топология, состоящая из одной воронки и одного сита.
 
-	* **Spout.cs** — пример воронки.
+	* **Spout.cs** — пример воронки.
 
-	* **Bolt.cs** — пример сита. Этот файл будет удален, так как вы будете использовать сито службы концентраторов событий для записи в концентратор событий.
+	* **Bolt.cs** — пример сита. Этот файл будет удален, так как вы будете использовать сито службы концентраторов событий для записи в концентратор событий.
 
 ### Конфигурация
 
@@ -141,13 +143,13 @@
 3. Введите следующие параметры. Используйте сведения для концентратора событий, созданного ранее, в столбце **Значение**.
 
 	<table>
-<tr><th style="text-align:left">Имя</th><th style="text-align:left">Тип</th><th style="text-align:left">Область</th></tr>
-<tr><td style="text-align:left">EventHubPolicyName</td><td style="text-align:left">string</td><td style="text-align:left">Приложение</td></tr>
-<tr><td style="text-align:left">EventHubPolicyKey</td><td style="text-align:left">string</td><td style="text-align:left">Приложение</td></tr>
-<tr><td style="text-align:left">EventHubNamespace</td><td style="text-align:left">string</td><td style="text-align:left">Приложение</td></tr>
-<tr><td style="text-align:left">EventHubName</td><td style="text-align:left">string</td><td style="text-align:left">Приложение</td></tr>
-<tr><td style="text-align:left">EventHubPartitionCount</td><td style="text-align:left">int</td><td style="text-align:left">Приложение</td></tr>
-</table>
+	<tr><th style="text-align:left">Имя</th><th style="text-align:left">Тип</th><th style="text-align:left">Область</th></tr>
+	<tr><td style="text-align:left">EventHubPolicyName</td><td style="text-align:left">string</td><td style="text-align:left">Приложение</td></tr>
+	<tr><td style="text-align:left">EventHubPolicyKey</td><td style="text-align:left">string</td><td style="text-align:left">Приложение</td></tr>
+	<tr><td style="text-align:left">EventHubNamespace</td><td style="text-align:left">string</td><td style="text-align:left">Приложение</td></tr>
+	<tr><td style="text-align:left">EventHubName</td><td style="text-align:left">string</td><td style="text-align:left">Приложение</td></tr>
+	<tr><td style="text-align:left">EventHubPartitionCount</td><td style="text-align:left">int</td><td style="text-align:left">Приложение</td></tr>
+	</table>
 
 4. Сохраните изменения и закройте страницу **Свойства**.
 
@@ -296,15 +298,17 @@
 3. Введите следующие параметры. Используйте сведения для концентратора событий и учетной записи хранения, созданные ранее, в столбце **Значение**.
 
 	<table>
-<tr><th style="text-align:left">Имя</th><th style="text-align:left">Тип</th><th style="text-align:left">Область</th></tr>
-<tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">string</th><th style="text-align:left">Приложение</th></tr>
-<tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">string</th><th style="text-align:left">Приложение</th></tr>
-<tr><th style="text-align:left">EventHubNamespace</th><th style="text-align:left">string</th><th style="text-align:left">Приложение</th></tr>
-<tr><th style="text-align:left">EventHubName</th><th style="text-align:left">string</th><th style="text-align:left">Приложение</th></tr>
-<tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">Приложение</th></tr>
-<tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(строка подключения)</th><th style="text-align:left">Приложение</th></tr>
-<tr><th style="text-align:left">TableName</th><th style="text-align:left">string</th><th style="text-align:left">Приложение</th></tr>
-</table>Для **TableName** введите имя таблицы, в которой должны храниться события.
+	<tr><th style="text-align:left">Имя</th><th style="text-align:left">Тип</th><th style="text-align:left">Область</th></tr>
+	<tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">string</th><th style="text-align:left">Приложение</th></tr>
+	<tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">string</th><th style="text-align:left">Приложение</th></tr>
+	<tr><th style="text-align:left">EventHubNamespace</th><th style="text-align:left">string</th><th style="text-align:left">Приложение</th></tr>
+	<tr><th style="text-align:left">EventHubName</th><th style="text-align:left">string</th><th style="text-align:left">Приложение</th></tr>
+	<tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">Приложение</th></tr>
+	<tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(строка подключения)</th><th style="text-align:left">Приложение</th></tr>
+	<tr><th style="text-align:left">TableName</th><th style="text-align:left">string</th><th style="text-align:left">Приложение</th></tr>
+	</table>
+
+	Для **TableName** введите имя таблицы, в которой должны храниться события.
 
     Для **StorageConnection** введите значение `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`. Замените **myAccount** и **myKey** именем учетной записи хранения и ключом, полученными ранее.
 
@@ -520,6 +524,10 @@
 
 ![изображение уничтожения топологии](./media/hdinsight-storm-develop-csharp-event-hub-topology/killtopology.png)
 
+##Удаление кластера
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## Примечания
 
 ### Контрольные точки
@@ -548,7 +556,7 @@ EventHubSpout периодически передает информацию о 
 
 > [AZURE.NOTE] Поскольку данные сохраняются в контейнере хранилища по умолчанию, новый кластер **должен** использовать учетную запись хранения и контейнер предыдущего кластера.
 
-## Сводка
+## Дальнейшие действия
 
 В этом документе рассмотрено использование воронки и сита Java службы концентраторов событий из топологии C# для работы с данными в концентраторе событий Azure. Дополнительные сведения о создании топологий C# см. в следующих статьях.
 
@@ -557,4 +565,4 @@ EventHubSpout периодически передает информацию о 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

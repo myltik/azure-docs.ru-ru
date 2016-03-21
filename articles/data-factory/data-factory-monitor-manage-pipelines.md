@@ -19,8 +19,8 @@
 
 # Мониторинг конвейеров фабрики данных Azure и управление ими
 > [AZURE.SELECTOR]
-- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [Использование портала Azure или Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Использование приложения по мониторингу и управлению](data-factory-monitor-manage-app.md)
 
 Служба фабрики данных предоставляет полное и достоверное представление о службах хранения, обработки и перемещения данных. Она помогает быстро оценить работоспособность конвейера данных от начала до конца, выявить проблемы и при необходимости предпринять действия по исправлению. Вы также можете в визуальном режиме отслеживать происхождение данных и взаимосвязи между разными данными во всех ваших источниках, а также просматривать журналы по выполнению заданий, работоспособности системы и зависимостям, не покидая одной панели мониторинга.
 
@@ -296,7 +296,7 @@ Azure регистрирует пользовательские события, 
 
 Вы можете создавать оповещения в этих пользовательских событиях и настраивать их для отправки уведомлений по электронной почте администраторам и соадминистраторам подписки. Кроме того, вы можете указать дополнительные адреса электронной почты пользователей, которые должны получать уведомления по электронной почте при выполнении определенных условий. Это очень полезно, когда нужно получать уведомления о сбоях, но не требуется постоянно отслеживать состояние фабрики данных.
 
-> [AZURE.NOTE] В данный момент портал не отображает оповещения о событиях. Используйте [приложение мониторинга и управления](data-factory-monitor-manage-app.md) для просмотра всех оповещений.
+> [AZURE.NOTE] В данный момент портал не отображает оповещения о событиях. Используйте [приложение по мониторингу и управлению](data-factory-monitor-manage-app.md) для просмотра всех оповещений.
 
 #### Настройка определения оповещения
 Чтобы задать определение оповещения, создайте файл JSON, описывающий операции, о которых вы хотите получать оповещения. В следующем примере отправляется электронное уведомление об операции RunFinished. Другими словами, оно отправляется в случае завершения цикла выполнения действия в фабрике данных со сбоем (состояние = FailedExecution).
@@ -349,7 +349,7 @@ Azure регистрирует пользовательские события, 
 Имя операции | Состояние | Дополнительное состояние
 -------------- | ------ | ----------
 RunStarted | Started | Starting
-RunFinished | Failed / Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
+RunFinished | Failed / Succeeded | FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned
 OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
@@ -357,7 +357,7 @@ OnDemandClusterDeleted | Succeeded
 Подробные сведения об элементах JSON, используемых в примере выше, см. в разделе [Создание правила оповещения](https://msdn.microsoft.com/library/azure/dn510366.aspx).
 
 #### Развертывание оповещения 
-Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureRmResourceGroupDeployment**, как показано в следующем примере:
+Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureRmResourceGroupDeployment**, как показано в следующем примере.
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
@@ -379,7 +379,7 @@ OnDemandClusterDeleted | Succeeded
 	Outputs           :
 
 #### Получение списка развертываний групп ресурсов Azure
-Чтобы получить список развертываний групп ресурсов Azure, используйте командлет **Get-AzureRmResourceGroupDeployment**, как показано в следующем примере:
+Чтобы получить список развертываний групп ресурсов Azure, используйте командлет **Get-AzureRmResourceGroupDeployment**, как показано в следующем примере.
 
 	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
@@ -545,11 +545,13 @@ OnDemandClusterDeleted | Succeeded
  
 Замените subscriptionId, resourceGroupName и dataFactoryName в приведенном выше примере на соответствующие значения.
 
-Сейчас для *metricName* можно указать только 2 значения: FailedRuns или SuccessfulRuns.
+*metricName* на данный момент поддерживает два значения:
+- FailedRuns и
+- SuccessfulRuns.
 
 **Развертывание оповещения**
 
-Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureRmResourceGroupDeployment**, как показано в следующем примере:
+Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureRmResourceGroupDeployment**, как показано в следующем примере.
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
@@ -581,4 +583,4 @@ OnDemandClusterDeleted | Succeeded
 
 ![Диалоговое окно "Перемещение ресурсов"](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

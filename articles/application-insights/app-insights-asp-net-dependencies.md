@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 
@@ -46,6 +46,10 @@
 Вам потребуется подписка на [Microsoft Azure](http://azure.com).
 
 ### Если приложение выполняется на сервере IIS
+
+Если веб-приложение использует .NET 4.6 или более позднюю версию, то вы автоматически получите отслеживание зависимостей, если в приложении [установлен пакет SDK для Application Insights](app-insights-asp-net.md). Больше делать ничего не нужно.
+
+В противном случае установите монитор состояний Application Insights на сервер.
 
 1. Войдите на веб-сервер IIS с учетными данными администратора.
 2. Скачайте и запустите [установщик монитора состояний](http://go.microsoft.com/fwlink/?LinkId=506648).
@@ -91,7 +95,7 @@
 
 ### Если это проект облачной службы Azure
 
-[Добавьте сценарии в веб-роли и рабочие роли](app-insights-cloudservices.md).
+[Добавьте сценарии в веб-роли и рабочие роли](app-insights-cloudservices.md#dependencies). Или [установите платформу .NET Framework 4.6 или более позднюю версию](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## <a name="diagnosis"></a> Диагностика проблем с производительностью зависимостей
 
@@ -185,7 +189,6 @@
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
@@ -193,4 +196,4 @@
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

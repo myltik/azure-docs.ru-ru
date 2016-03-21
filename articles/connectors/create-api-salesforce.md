@@ -14,16 +14,22 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="deonhe"/>
 
 # Начало работы с API-интерфейсом Salesforce
 Подключитесь к Salesforce, чтобы создавать объекты, получать их и выполнять многие другие действия. API Salesforce можно использовать из:
 
-- PowerApps; 
 - приложений логики. 
+- PowerApps.
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview. Чтобы узнать версию схемы 2014-12-01-preview, щелкните [API Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
+> [AZURE.SELECTOR]
+- [Приложения логики](../articles/connectors/create-api-salesforce.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
+
+&nbsp;
+
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview. Чтобы узнать версию схемы 2014-12-01-preview, щелкните [соединитель Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
 
 С помощью Salesforce вы можете:
 
@@ -32,7 +38,7 @@ ms.author="deonhe"/>
 - использовать действия по созданию объектов, их удалению и т. д. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, при создании нового объекта в Salesforce можно отправить сообщение с помощью Office 365.
 - Добавлять API Salesforce в службу PowerApps Enterprise. После этого пользователи смогут использовать этот API в своих приложениях. 
 
-Сведения о добавлении API в PowerApps Enterprise см. в статье [Регистрация API в PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Сведения о добавлении API в PowerApps Enterprise см. в статье [Регистрация API, управляемого корпорацией Майкрософт, или API, управляемого ИТ-службой](../power-apps/powerapps-register-from-available-apis.md).
 
 Сведения о добавлении операции в приложения логики см. в статье [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -47,32 +53,6 @@ API Salesforce предоставляет следующие триггеры и
 
 ## Создание подключения к Salesforce 
 
-### Добавление дополнительных настроек в PowerApps
-При добавлении Salesforce в PowerApps Enterprise нужно ввести значения **ключа приложения** и **секрета приложения** для приложения Salesforce. В приложении Salesforce также используется **URL-адрес перенаправления**. Если у вас нет приложения Salesforce, создайте его, выполнив приведенные ниже действия.
-
-1. [Войдите на домашнюю страницу разработчиков для Salesforce][5], выберите свой профиль и щелкните **Setup** (Настройка). ![домашняя страница SalesForce][6]
-
-3. Выберите **Создать** и **Приложения**. На странице **Apps** (Приложения) в разделе **Connected Apps** (Подключенные приложения) нажмите кнопку **New** (Создать). ![создание приложения SalesForce][7]
-
-4. На экране **Новое подключенное приложение**:
-
-	1. Введите значение в поле **Connected App Name** (Имя подключенного приложения).  
-	2. Введите значение в поле **API Name** (Имя API).  
-	3. Введите значение в поле **Contact Email** (Контактный электронный адрес).  
-	4. В разделе _API (Enable OAuth Settings)_ (API (включение параметров OAuth)) установите флажок **Enable OAuth Settings** (Включить параметры OAuth) и в поле **Callback URL** (URL-адрес обратного вызова) введите значение, которое отображалось при добавлении нового API Salesforce на портале Azure.  
-
-5. В разделе _Выбранные области OAuth_ добавьте следующие области в поле **Выбранные области OAuth**.
-
-	- Доступ к данным Chatter и управление ими (chatter\_api)
-	- Доступ к своим данным и управление ими (api)
-	- Разрешить доступ к своему уникальному идентификатору (openid)
-	- Выполнять запросы от вашего имени в любое время (refresh\_token, offline\_access)
-
-6. **Сохраните** изменения: ![новое приложение SalesForce][8]
-
-Скопируйте и вставьте значения **ключа приложения** и **секрета приложения** в конфигурацию Salesforce на портале Azure.
-
-### Добавление дополнительных настроек в приложения логики
 При добавлении API в приложения логики эти приложения необходимо авторизовать для подключения к Salesforce.
 
 1. Войдите в учетную запись Salesforce.
@@ -275,9 +255,10 @@ API Salesforce предоставляет следующие триггеры и
 
 
 ## Дальнейшие действия
-После добавления API Salesforce в PowerApps Enterprise [предоставьте пользователям разрешения](../power-apps/powerapps-manage-api-connection-user-access.md) на использование API в своих приложениях.
 
 [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Вы можете вернуться к [списку интерфейсов API](apis-list.md).
 
 
 [5]: https://developer.salesforce.com
@@ -285,4 +266,4 @@ API Salesforce предоставляет следующие триггеры и
 [7]: ./media/create-api-salesforce/salesforce-create-app.png
 [8]: ./media/create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

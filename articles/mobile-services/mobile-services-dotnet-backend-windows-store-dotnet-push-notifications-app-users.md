@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Рассылка push-уведомлений пользователям, прошедшим проверку подлинности (универсальное приложение для Windows 8.1) | Мобильные службы Azure"
-	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений конкретному прошедшему проверку подлинности пользователю при помощи универсального приложения для Windows 8.1."
+	pageTitle="Рассылка push-уведомлений пользователям, прошедшим проверку подлинности (универсальное приложение для Windows 8.1) | Мобильные службы Azure"
+	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений конкретному прошедшему проверку подлинности пользователю при помощи универсального приложения для Windows 8.1."
 	services="mobile-services,notification-hubs"
 	documentationCenter="windows"
 	authors="ggailey777"
@@ -13,17 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="03/05/2016"
 	ms.author="glenga"/>
 
 # Рассылка push-уведомлений проверенным пользователям
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Практическое руководство. Отправка push-уведомлений пользователю, прошедшему проверку подлинности](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#push-user).
 
 ##Обзор
 
@@ -67,4 +66,4 @@
 [Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 [Приступая к работе с push-уведомлениями в мобильных службах]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

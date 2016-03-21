@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Приступая к работе с API проверки подлинности Azure Mobile Engagement"
-	description="Это руководство по миграции, предназначенное для клиентов, которые использовали проверку подлинности API Capptain, а теперь будут применять для этого новые API Enagagement Azure Mobile." 
+	pageTitle="Аутентификация с помощью интерфейсов REST API Mobile Engagement"
+	description="Описывается аутентификация с помощью интерфейсов REST API Azure Mobile Engagement." 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="wesmc7777"
+	authors="piyushjo"
 	manager="erikre"
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/29/2016"
+	ms.date="03/07/2016"
 	ms.author="wesmc"/>
 
-# Azure Mobile Engagement. Использование API для проверки подлинности
+# Аутентификация с помощью интерфейсов REST API Mobile Engagement
 
 ## Обзор
 
@@ -183,4 +183,4 @@
 >[AZURE.NOTE] <br/>
 >1. Игнорируйте параметр корневого адреса API, как и ранее.<br/> 2. Используемое имя ресурса приложения должно отличаться от имени самого приложения. 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

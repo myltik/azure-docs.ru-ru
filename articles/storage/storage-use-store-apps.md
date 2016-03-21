@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Использование службы хранилища Azure в приложениях Магазина Windows | Microsoft Azure"
+	pageTitle="Использование службы хранилища Azure в приложениях Магазина Windows | Microsoft Azure"
 	description="Узнайте, как создать приложение магазина Windows, которое использует BLOB-объекты, очереди, таблицы или хранилище файлов Azure."
 	services="storage"
 	documentationCenter=""
@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/24/2016"
 	ms.author="tamram"/>
 	
 # Использование службы хранилища Azure в приложениях Магазина Windows
@@ -22,9 +22,9 @@
 
 ## Скачивание необходимых средств
 
-- [Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384) упрощает процесс построения, отладки, локализации, упаковки и развертывания приложений Магазина Windows.
-- [Клиентская библиотека хранилища Microsoft Azure для среды выполнения Windows](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) предоставляет библиотеку классов для работы со службой хранилища Azure.
-- [Инструменты служб данных WCF для приложений Магазина Windows](http://www.microsoft.com/download/details.aspx?id=30714) расширяют возможности добавления ссылок на службу за счет поддержки OData на стороне клиента для приложений Магазина Windows в Visual Studio 2012 и более поздних версий.
+- [Visual Studio](https://www.visualstudio.com/ru-RU/visual-studio-homepage-vs.aspx) упрощает процесс сборки, отладки, локализации, упаковки и развертывания приложений Магазина Windows. Требуется Visual Studio 2012 или более поздней версии.
+- [Клиентская библиотека хранилища Microsoft Azure](https://www.nuget.org/packages/WindowsAzure.Storage) предоставляет библиотеку классов среды выполнения Windows для работы со службой хранилища Azure.
+- [Инструменты служб данных WCF для приложений Магазина Windows](http://www.microsoft.com/download/details.aspx?id=30714) расширяют возможности добавления ссылки на службу за счет поддержки OData на стороне клиента для приложений Магазина Windows в Visual Studio.
 
 ## Разработка приложений
 
@@ -87,4 +87,4 @@
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/07/2016"
 	ms.author="tomfitz"/>
 
 
@@ -31,7 +31,7 @@
 
 ## Теги в шаблонах
 
-Добавить тег к ресурсу во время развертывания очень просто. Просто добавьте элемент **tags** к развертываемому ресурсу и укажите имя и значение тега. Имя и значение тега не должны заранее существовать в вашей подписке. Можно указать до 15 тегов для каждого ресурса.
+Для маркировки ресурса во время развертывания просто добавьте элемент **tags** к развертываемому ресурсу и укажите имя и значение тега. Имя и значение тега не должны заранее существовать в вашей подписке. Можно указать до 15 тегов для каждого ресурса.
 
 В следующем примере показана учетная запись хранения с тегом.
 
@@ -84,7 +84,7 @@
 
 ## Теги на портале
 
-Маркировать тегами ресурсы и группы ресурсов на портале очень просто. Используйте узел "Обзор" для перехода к ресурсу или группе ресурсов, которые вы хотите отметить тегами, и щелкните "Теги" в разделе "Обзор" в верхней части модуля.
+На портале можно добавить теги к существующим ресурсам и группам ресурсов. Используйте узел "Обзор" для перехода к ресурсу или группе ресурсов, которые вы хотите отметить тегами, и щелкните "Теги" в разделе "Обзор" в верхней части модуля.
 
 ![м](./media/resource-group-using-tags/tag-icon.png)
 
@@ -100,85 +100,82 @@
 
 ![Закрепление тегов на начальной панели](./media/resource-group-using-tags/pin-tags.png)
 
-## Маркировка с помощью PowerShell
-
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+## Теги и PowerShell
 
 Теги хранятся непосредственно в ресурсах и группах ресурсов, поэтому, чтобы просмотреть, какие теги уже применены, мы можем просто получить ресурс или группу ресурсов с помощью **Get-AzureRmResource** или **Get-AzureRmResourceGroup**, соответственно. Давайте начнем с группы ресурсов.
 
-    PS C:\> Get-AzureRmResourceGroup tag-demo
+    PS C:\> Get-AzureRmResourceGroup -Name tag-demo-group
 
-    ResourceGroupName : tag-demo
+    ResourceGroupName : tag-demo-group
+    Location          : westus
+    ProvisioningState : Succeeded
+    Tags              :
+                    Name         Value
+                    ===========  ==========
+                    Dept         Finance
+                    Environment  Production
+
+
+Этот командлет возвращает небольшой объем метаданных о группе ресурсов, включая информацию о примененных тегах, если они есть.
+
+При получении метаданных для ресурса теги не отображаются напрямую. Ниже вы увидите, что теги отображаются только как объект Hashtable.
+
+    PS C:\> Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group
+
+    Name              : tfsqlserver
+    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
+    ResourceName      : tfsqlserver
+    ResourceType      : Microsoft.Sql/servers
+    Kind              : v12.0
+    ResourceGroupName : tag-demo-group
+    Location          : westus
+    SubscriptionId    : {guid}
+    Tags              : {System.Collections.Hashtable}
+
+Чтобы просмотреть реальные теги, нужно извлечь свойство **Tags**.
+
+    PS C:\> (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
+    Dept: Finance
+    Environment: Production
+
+Вместо просмотра тегов для конкретного ресурса или группы ресурсов часто требуется получить все ресурсы или группы ресурсов, имеющие определенный тег и значение. Чтобы получить ресурсы или группы ресурсов с определенным тегом, используйте командлет **Find-AzureRmResourceGroup** с параметром **-Tag**.
+
+    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
+    tag-demo-group
+    web-demo-group
+
+Чтобы получить все ресурсы с определенным тегом и значением, используйте командлет **Find-AzureRmResource**.
+
+    PS C:\> Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
+    tfsqlserver
+    tfsqldatabase
+
+Чтобы добавить тег к группе ресурсов, не имеющей существующих тегов, просто воспользуйтесь командой **Set-AzureRmResourceGroup** и укажите объект тега.
+
+    PS C:\> Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
+
+    ResourceGroupName : test-group
     Location          : southcentralus
     ProvisioningState : Succeeded
     Tags              :
-    Permissions       :
-                    Actions  NotActions
-                    =======  ==========
-                    *
+                    Name          Value
+                    =======       =====
+                    Dept          IT
+                    Environment   Test
+                    
+С помощью команды **SetAzureRmResource** можно добавить теги к ресурсу, не имеющему существующих тегов.
 
-    Resources         :
-                    Name                             Type                                  Location
-                    ===============================  ====================================  ==============
-                    CPUHigh ExamplePlan              microsoft.insights/alertrules         eastus
-                    ForbiddenRequests tag-demo-site  microsoft.insights/alertrules         eastus
-                    LongHttpQueue ExamplePlan        microsoft.insights/alertrules         eastus
-                    ServerErrors tag-demo-site       microsoft.insights/alertrules         eastus
-                    ExamplePlan-tag-demo             microsoft.insights/autoscalesettings  eastus
-                    tag-demo-site                    microsoft.insights/components         centralus
-                    ExamplePlan                      Microsoft.Web/serverFarms             southcentralus
-                    tag-demo-site                    Microsoft.Web/sites                   southcentralus
+    PS C:\> Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
-
-Этот командлет возвращает небольшой объем метаданных о группе ресурсов, включая информацию о примененных тегах, если они есть. Для маркировки группы ресурсов воспользуйтесь командой **Set-AzureRmResourceGroup** и укажите имя и значение тега.
-
-    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
-
-    ResourceGroupName : tag-demo
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name     Value
-                    =======  =====
-                    project  tags
-                    env      demo
-
-Теги обновляются полностью, так что при добавлении одного тега к ресурсу, который уже содержит теги, вам потребуется использовать массив для сохранения всех необходимых тегов. Для этого можно выбрать существующие теги и добавить новый.
+Теги обновляются полностью, так что при добавлении одного тега к ресурсу, который уже содержит теги, вам потребуется использовать массив для сохранения всех необходимых тегов. Для этого сначала выберите существующие теги, добавьте в этот набор новый тег и повторно примените все теги.
 
     PS C:\> $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     PS C:\> $tags += @{Name="status";Value="approved"}
-    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag $tags
-
-    ResourceGroupName : tag-demo
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name     Value
-                    =======  ========
-                    project  tags
-                    env      demo
-                    status   approved
-
+    PS C:\> Set-AzureRmResourceGroup -Name test-group -Tag $tags
 
 Чтобы удалить тег, достаточно сохранить массив без него.
 
 Для ресурсов этот процесс аналогичен, за исключением того, что используются командлеты **Get-AzureRmResource** и **Set-AzureRmResource**.
-
-Чтобы получить ресурсы или группы ресурсов с определенным тегом, используйте командлет **Find-AzureRmResourceGroup** с параметром **-Tag**.
-
-    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
-    rbacdemo-group
-    tag-demo
-
-Для версий Azure PowerShell, выпущенных до версии 1.0, используйте следующие команды, чтобы получить ресурсы с определенным тегом.
-
-    PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
-    rbacdemo-group
-    tag-demo
-    PS C:\> Get-AzureResource -Tag @{ Name="env"; Value="demo" } | %{ $_.Name }
-    rbacdemo-web
-    rbacdemo-docdb
-    ...    
 
 Чтобы получить список всех тегов в подписке с помощью PowerShell, используйте командлет **Get-AzureRmTag**.
 
@@ -192,12 +189,69 @@
 
 С помощью командлета **New-AzureRmTag** в таксономию можно добавлять новые теги. Эти теги будут включены в автозаполнение, даже если они еще не были применены для ресурсов или групп ресурсов. Чтобы удалить имя или значение тега, сначала необходимо удалить тег из всех ресурсов, в которых он может применяться, а затем воспользоваться командлетом **Remove-AzureRmTag** для удаления тега из таксономии.
 
-## Добавление тегов с помощью REST API
+## Теги и CLI Azure
+
+Теги находятся непосредственно в ресурсах и их группах, поэтому, чтобы просмотреть, какие теги уже применены, мы можем просто получить ресурс или группу ресурсов с помощью командлета **azure group show**.
+
+    azure group show -n tag-demo-group
+    info:    Executing command group show
+    + Listing resource groups
+    + Listing resources for the group
+    data:    Id:                  /subscriptions/{guid}/resourceGroups/tag-demo-group
+    data:    Name:                tag-demo-group
+    data:    Location:            westus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: Dept=Finance;Environment=Production
+    data:    Resources:
+    data:
+    data:      Id      : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
+    data:      Name    : tfsqlserver
+    data:      Type    : servers
+    data:      Location: eastus2
+    data:      Tags    : Dept=Finance;Environment=Production
+    ...
+
+Для получения тегов только для группы ресурсов используйте программу JSON, например [jq](http://stedolan.github.io/jq/download/).
+
+    azure group show -n tag-demo-group --json | jq ".tags"
+    {
+      "Dept": "Finance",
+      "Environment": "Production" 
+    }
+
+Теги для конкретных ресурсов можно просмотреть с помощью командлета **azure resource show**.
+
+    azure resource show -g tag-demo-group -n tfsqlserver -r Microsoft.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
+    {
+      "Dept": "Finance",
+      "Environment": "Production"
+    }
+    
+Можно получить все ресурсы с определенным тегом и значением, как показано ниже.
+
+    azure resource list --json | jq ".[] | select(.tags.Dept == "Finance") | .name"
+    "tfsqlserver"
+    "tfsqlserver/tfsqldata"
+
+Теги обновляются полностью, поэтому при добавлении одного тега к ресурсу, уже содержащему теги, вам потребуется извлечь все существующие теги, которые нужно сохранить. Чтобы задать значения тегов для группы ресурсов, используйте командлет **azure group set** и укажите все теги для группы ресурсов.
+
+    azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
+    info:    Executing command group set
+    ...
+    data:    Name:                tag-demo-group
+    data:    Location:            westus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: Dept=Finance;Environment=Production;Project=Upgrade
+    ...
+    
+Можно вывести список существующих тегов в подписке с помощью командлета **azure tag list** и добавить новый тег с помощью командлета **azure tag create**. Чтобы удалить тег из таксономии подписки, сначала необходимо удалить тег из всех ресурсов, в которых он может применяться, а затем воспользоваться командлетом **azure tag delete**.
+
+## Теги и REST API
 
 Как на портале, так и в PowerShell «за кулисами» используется [интерфейс REST API диспетчера ресурсов](https://msdn.microsoft.com/library/azure/dn848368.aspx). Если требуется интегрировать теги в другую среду, их можно получить с помощью метода GET по идентификатору ресурса и обновить набор тегов с помощью вызова метода PATCH.
 
 
-## Добавление тегов и выставление счетов
+## Теги и выставление счетов
 
 Для поддерживаемых служб можно использовать теги, чтобы сгруппировать данные выставления счетов. Например, [виртуальные машины, интегрированные с диспетчером ресурсов Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md), позволяют определить и применить теги, чтобы упорядочить сведения об использовании выставления счетов для виртуальных машин. Если вы используете несколько виртуальных машин для различных организаций, можно использовать теги для группирования сведений об использовании по месту возникновения затрат. Теги также можно использовать для упорядочивания затрат по среде выполнения, например сведения об использовании выставления счетов для виртуальных машин, запущенных в рабочей среде.
 
@@ -214,4 +268,4 @@
 - Основные сведения об использовании Azure CLI для развертывания ресурсов см. в статье [Использование Azure CLI для Mac, Linux и Windows со службой управления ресурсами Azure](./xplat-cli-azure-resource-manager.md).
 - Общие сведения об использовании портала см. в статье [Управление ресурсами Azure с помощью портала Azure](./azure-portal/resource-group-portal.md).  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

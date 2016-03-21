@@ -1,7 +1,8 @@
 > [AZURE.SELECTOR]
-- [Overview](../articles/application-insights/app-analytics.md)
-- [Tour](../articles/application-insights/app-analytics-tour.md)
-- [Queries](../articles/application-insights/app-analytics-queries.md)
-- [Aggregation](../articles/application-insights/app-analytics-aggregations.md)
-- [Scalars](../articles/application-insights/app-analytics-scalars.md)
+- [Обзор](../articles/application-insights/app-analytics.md)
+- [Обзор](../articles/application-insights/app-analytics-tour.md)
+- [Запросы](../articles/application-insights/app-analytics-queries.md)
+- [Агрегирование](../articles/application-insights/app-analytics-aggregations.md)
+- [Скалярные значения](../articles/application-insights/app-analytics-scalars.md)
 
+<!---HONumber=AcomDC_0309_2016-->

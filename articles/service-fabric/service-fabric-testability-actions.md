@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Действия, доступные благодаря Testability | Microsoft Azure"
+   pageTitle="Действия, доступные благодаря Testability | Microsoft Azure"
    description="В этой статье рассматриваются действия по тестированию, доступные в Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -17,11 +17,11 @@
    ms.author="heeldin;motanv"/>
 
 # Действия, доступные благодаря Testability
-Для моделирования ненадежной инфраструктуры платформа Azure Service Fabric предоставляет разработчикам несколько способов имитировать различные реалистичные ошибки и смены состояний. Такие действия доступны благодаря компоненту Testability. Эти действия представляют из себя интерфейсы API низкого уровня, которые вызывают определенную ошибку, смену состояния или проверку. Сочетая эти действия, разработчик служб может написать комплексный сценариев тестирования своих служб.
+Для моделирования ненадежной инфраструктуры платформа Azure Service Fabric предоставляет разработчику несколько способов имитации различных реалистичных ошибок и переходов. Такие действия доступны благодаря компоненту Testability. Эти действия представляют из себя интерфейсы API низкого уровня, которые вызывают определенную ошибку, смену состояния или проверку. Сочетая эти действия, вы можете создать комплексные сценарии тестирования своих служб.
 
 В платформе Service Fabric доступны несколько распространенных сценариев тестирования, которые состоят из этих действий. Настоятельно рекомендуется использовать эти встроенные сценарии, тщательно подобранные для тестирования распространенных смен состояний и ошибок. Тем не менее действия можно использовать для создания настраиваемых сценариев тестирования, отличающихся расширенными возможностями по сравнению со встроенными сценариями или специально настроенных для вашего приложения.
 
-Реализации действий на языке C# представлены в сборке System.Fabric.Testability.dll. Модуль Testability PowerShell находится в сборке Microsoft.ServiceFabric.Testability.Powershell.dll. В процессе установки среды выполнения устанавливается модуль ServiceFabricTestability PowerShell, обеспечивающий легкость использования решений.
+Реализации действий на языке C# представлены в сборке System.Fabric.dll. Модуль PowerShell Service Fabric находится в сборке Microsoft.ServiceFabric.Powershell.dll. В процессе установки среды выполнения устанавливается модуль PowerShell Service Fabric, обеспечивающий легкость использования решений.
 
 ## Нормальные и ненормальные ошибки
 Действия, доступные благодаря Testability, делятся на две основных части.
@@ -51,9 +51,9 @@
 | ValidateApplication | Проверяет доступность и работоспособность всех служб Service Fabric в приложении обычно после инициирования ошибки в системе. | ValidateApplicationAsync | Test-ServiceFabricApplication | Не применяется |
 | ValidateService | Проверяет доступность и работоспособность службы Service Fabric обычно после инициирования ошибки в системе. | ValidateServiceAsync | Test-ServiceFabricService | Не применяется |
 
-## Выполнение действия, доступного благодаря Testability, с помощью Powershell
+## Выполнение действия тестирования с помощью PowerShell
 
-В этом учебнике показано, как выполнить действие, доступное благодаря Testability, с помощью PowerShell. Вы узнаете, как выполнить такое действие для тестирования локального (содержащего одно поле) кластера или кластера Azure. Microsoft.Fabric.Testability.Powershell.dll — модуль Testability PowerShell — устанавливается автоматически при установке MSI Microsoft Service Fabric. Этот модуль автоматически загружается при открытии командной строки PowerShell.
+В этом учебнике показано, как выполнить действие, доступное благодаря Testability, с помощью PowerShell. Вы узнаете, как выполнить такое действие для тестирования локального (содержащего одно поле) кластера или кластера Azure. Microsoft.Fabric.Powershell.dll — модуль PowerShell Service Fabric — устанавливается автоматически при установке MSI Microsoft Service Fabric. Этот модуль автоматически загружается при открытии командной строки PowerShell.
 
 Разделы учебника
 
@@ -68,7 +68,7 @@
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-Здесь действие **Restart-ServiceFabricNode** выполняется на узле с именем Node1. Режим завершения указывает, что не нужно проверять успешность выполнения действия по перезапуску. Указание для режима завершения значения Verify приведет к проверке успешности выполнения действия по перезапуску. Вместо того чтобы использовать имя узла, вы можете следующим образом указать узел с помощью ключа раздела и типа реплики:
+Здесь действие **Restart-ServiceFabricNode** выполняется на узле с именем Node1. Режим завершения указывает, что не нужно проверять успешность выполнения действия по перезапуску узла. Указание для режима завершения значения Verify приведет к проверке успешности выполнения действия по перезапуску. Вместо того чтобы использовать имя узла, вы можете следующим образом указать узел с помощью ключа раздела и типа реплики:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -168,14 +168,14 @@ class Test
 
         // Create FabricClient with connection and security information here
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        await fabricclient.ClusterManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
+        await fabricclient.FaultManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
     }
 
     static async Task RestartNodeAsync(string clusterConnection, string nodeName, BigInteger nodeInstanceId)
     {
         // Create FabricClient with connection and security information here
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        await fabricclient.ClusterManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
+        await fabricclient.FaultManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
     }
 }
 ```
@@ -235,4 +235,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Моделирование ошибок во время рабочих нагрузок службы](service-fabric-testability-workload-tests.md)
    - [Ошибки обмена данными между службами](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

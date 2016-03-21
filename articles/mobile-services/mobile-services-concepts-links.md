@@ -20,8 +20,6 @@
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
-&nbsp;
-
 Указанные ниже статьи содержат сведения о поведении мобильных служб Microsoft Azure. Эти статьи доступны также в форме справки на классическом портале Microsoft Azure.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
@@ -86,4 +84,4 @@
 - [Обработка ошибок](https://msdn.microsoft.com/library/azure/jj631632.aspx)
 - [Сочетания клавиш](https://msdn.microsoft.com/library/azure/jj552469.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

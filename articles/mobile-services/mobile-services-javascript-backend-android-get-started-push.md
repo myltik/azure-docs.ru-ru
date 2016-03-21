@@ -23,6 +23,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Добавление push-уведомлений в приложение Android](../app-service-mobile/app-service-mobile-android-get-started-push.md).
+
 ## Сводка
 
 В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android с помощью Google Cloud Messaging (GCM). Вы добавите push-уведомления в проект быстрого запуска, что является необходимым условием для этого руководства. Push-уведомления включаются с помощью центра уведомлений Azure, который включен мобильную службу. По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
@@ -156,4 +161,4 @@
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

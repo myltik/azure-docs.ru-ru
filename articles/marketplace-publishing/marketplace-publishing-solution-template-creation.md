@@ -36,7 +36,7 @@
 
   Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Портал предварительной версии Azure: https://ms.portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
+  Портал Azure: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 
 - Добавьте новую версию.
 
@@ -46,16 +46,6 @@
 - связанные шаблоны и все необходимые сценарии.
 
 Отправив ZIP-файл, нажмите кнопку **Сертификация запроса**. Команда сертификации Майкрософт проверит файлы и выполнит сертификацию топологии.
-
-Создание пакета можно также подтвердить, не разворачивая его для клиентов. Для этого выполните следующие действия:
-
-1. Сохраните файл *createUiDefinition.json* и сформируйте абсолютный URL-адрес. URL-адрес ДОЛЖЕН быть общедоступным.
-2. Закодируйте URL-адрес, воспользовавшись средством на странице [http://www.url-encode-decode.com/](http://www.url-encode-decode.com/).
-3. Замените текст, выделенный полужирным шрифтом, на местоположение (закодированный URL-адрес) файла *createUiDefinition.json*, который требует проверки.
-
-  > https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
-
-4. Скопируйте и вставьте URL-адрес в любой браузер и посмотрите, как файл createUiDefinition.json будет выглядеть для клиента.
 
   > [AZURE.TIP] Создание и сертификацию топологий шаблонов решений осуществляют ваши разработчики, а разработкой маркетинговых и юридических материалов может заняться коммерческий, маркетинговый или юридический отдел вашей компании.
 
@@ -77,4 +67,4 @@
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

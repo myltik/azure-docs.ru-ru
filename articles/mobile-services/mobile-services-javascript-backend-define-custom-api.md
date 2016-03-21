@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,15 +13,20 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 
 # Как определить конечную точку настраиваемого интерфейса API в серверной мобильной службе JavaScript
 
 > [AZURE.SELECTOR]
-- [JavaScript backend](./mobile-services-javascript-backend-define-custom-api.md)
-- [.NET backend](./mobile-services-dotnet-backend-define-custom-api.md)
+- [Серверная служба JavaScript](./mobile-services-javascript-backend-define-custom-api.md)
+- [Сервер .NET.](./mobile-services-dotnet-backend-define-custom-api.md)
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в разделе [Практическое руководство. Определение настраиваемого контроллера API](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#CustomAPI).
 
 В этом разделе показано, как определить конечную точку настраиваемого интерфейса API в серверной мобильной службе JavaScript. Настраиваемый интерфейс API позволяет определить пользовательские конечные точки с функциональными возможностями сервера, но он не сопоставляет их с операциями вставки, обновления, удаления или чтения базы данных. Настраиваемый интерфейс API предоставляет больше возможностей для контроля над сообщениями, включая заголовки HTTP и формат текста сообщения.
 
@@ -36,4 +41,4 @@
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

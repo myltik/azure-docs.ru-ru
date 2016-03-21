@@ -18,11 +18,12 @@
 
 # Добавление проверки подлинности в приложение мобильных служб для Android (серверная часть JavaScript)
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в разделе [Добавление проверки подлинности в приложение Android](../app-service-mobile/app-service-mobile-android-get-started-users.md).
 
 ## Сводка
 
@@ -106,4 +107,4 @@
 [Приступая к работе с мобильными службами]: mobile-services-android-get-started.md
 [Авторизация пользователей с помощью скриптов]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

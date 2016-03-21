@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Добавление проверки подлинности в универсальное приложение для Windows 8.1 | Microsoft Azure"
-	description="Информация об использовании мобильных служб для проверки подлинности пользователей универсального приложения для Windows 8.1 с помощью разных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
+	pageTitle="Добавление проверки подлинности в универсальное приложение для Windows 8.1 | Microsoft Azure"
+	description="Информация об использовании мобильных служб для проверки подлинности пользователей универсального приложения для Windows 8.1 с помощью разных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности к приложению мобильных служб
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Добавление проверки подлинности в приложение Windows](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md).
 
 ## Обзор
 
@@ -30,7 +30,7 @@
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Предварительно вам необходимо пройти учебник [Приступая к работе с мобильными службами] или [Добавление мобильных служб в существующее приложение](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
->[AZURE.NOTE]В этом учебнике показано, как проводить управляемую сервером проверку подлинности пользователей в приложениях для Магазина Windows и Магазина Windows Phone 8.1. Сведения о проверке подлинности, управляемой клиентом, см. в статье [Вход в мобильные службы Azure с помощью пакетов SDK Google, Facebook и корпорации Майкрософт](https://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
+>[AZURE.NOTE]В этом учебнике показано, как проводить управляемую сервером проверку подлинности пользователей в приложениях для Магазина Windows и Магазина Windows Phone 8.1. Сведения о проверке подлинности, управляемой клиентом, см. в статье [Вход в мобильные службы Azure с помощью пакетов SDK Google, Facebook и корпорации Майкрософт](https://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
 
 ##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
@@ -46,7 +46,7 @@
 
 &nbsp;&nbsp;7. В общем проекте откройте файл проекта App.xaml.cs, найдите определение объекта [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) и убедитесь в том, что он настроен на подключение к мобильной службе, работающей в Azure.
 
->[AZURE.NOTE]При использовании средств Visual Studio для подключения приложения к мобильной службе создаются два набора определений **MobileServiceClient** — по одному для каждой клиентской платформы. На этом этапе вы легко можете упростить созданный код, объединив определения **MobileServiceClient** в оболочке `#if...#endif` в одно определение без оболочки, которое может использоваться обеими версиями приложения. Этого не потребуется, если вы загрузили приложение быстрого запуска с [классического портала Azure].
+>[AZURE.NOTE]При использовании средств Visual Studio для подключения приложения к мобильной службе создаются два набора определений **MobileServiceClient** — по одному для каждой клиентской платформы. На этом этапе вы легко можете упростить созданный код, объединив определения **MobileServiceClient** в оболочке `#if...#endif` в одно определение без оболочки, которое может использоваться обеими версиями приложения. Этого не потребуется, если вы загрузили приложение быстрого запуска с [классического портала Azure].
 
 &nbsp;&nbsp;8. Нажмите клавишу F5, чтобы запустить приложение Магазина Windows. Убедитесь в том, что после его запуска возникает необработанное исключение с кодом состояния 401 (неавторизованный).
 
@@ -103,4 +103,4 @@
 [Справочник принципов использования мобильных служб .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

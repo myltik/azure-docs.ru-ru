@@ -12,24 +12,24 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="02/16/2016"
+    ms.date="03/08/2016"
     ms.author="elizapo" />
 
 # Новые возможности Azure RemoteApp
 
 Мы постоянно улучшаем и совершенствуем платформу Azure RemoteApp с учетом ваших мнений и пожеланий. Вот ориентировочные сроки реализации поддержки различных функций и возможностей в будущем.
 
-|Функция|Январь–март 2016 г.|Апрель–июнь 2016 г.|
+|Функция|Январь–март 2016 г.|Апрель–июнь 2016 г.|
 |-----------|-------|-------|
 |Служба Azure RemoteApp доступна как на [классическом портале Azure](http://manage.windowsazure.com), так и на [портале Azure](https://portal.azure.com). |X | |
 |Универсальное приложение Windows 10 с распространяемой средой для Azure RemoteApp — предварительная версия|X| |
-|Возможность публикации отдельных приложений для определенных пользователей — **частная предварительная версия** ([отзывы](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
+|Возможность публикации отдельных приложений для определенных пользователей — **частная предварительная версия** ([отзывы](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
 |Распространяемый пакет MSI для клиента Windows ([отзывы](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/))| X| |
 |Клиент на основе HTML5 для Azure RemoteApp|X ||
 |Поддержка диспетчера ресурсов Azure (ARM)||X|
 |Поддержка ресурсов Azure версии 2| |X|
 |Поставщик облачных решений (CSP)||X|
-|Доступность в Индии|X||
+|Доступность в Индии||X|
 |Доступность в Соединенном Королевстве||X|
 
 
@@ -47,4 +47,4 @@
 - Доступность в австралийских центрах обработки данных
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

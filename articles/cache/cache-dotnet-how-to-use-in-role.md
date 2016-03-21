@@ -4,7 +4,7 @@
 	services="cache" 
 	documentationCenter=".net" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 
@@ -38,7 +38,7 @@
 
 Кэш роли предоставляет новый способ кэширования с использованием части памяти виртуальных машин, которые размещают экземпляры роли в ваших облачных службах Azure (также известных как размещенные службы). Пользователи получили большую гибкость с точки зрения параметров развертывания. Кэш может иметь очень большие размеры, квоты для конкретного кэша отсутствуют.
 
->[AZURE.IMPORTANT]Начиная с пакета SDK для Azure версии 2.6, кэш роли использует пакет SDK для службы хранилища Microsoft Azure версии 4.3. В предыдущих версиях пакета SDK для Azure для кэша роли использовался пакет SDK для службы хранилища Azure версии 1.7. Приложения, использующие кэш роли с пакетами SDK для Azure до версии 2.6, следует перенести в пакет SDK для Azure версии 2.6 до того, как служба хранилища Azure версии 2011-08-18 будет выведена из эксплуатации (1 августа 2016 года). Дополнительную информацию см. в статье [Заметки о выпуске пакета SDK 2.6 для Azure. Кэш роли](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) и статье [Обновление по прекращению использования версий службы хранилища Microsoft Azure: продление срока до 2016 года](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
+>[AZURE.IMPORTANT] Начиная с пакета SDK для Azure версии 2.6, кэш роли использует пакет SDK для службы хранилища Microsoft Azure версии 4.3. В предыдущих версиях пакета SDK для Azure для кэша роли использовался пакет SDK для службы хранилища Azure версии 1.7. Приложения, использующие кэш роли с пакетами SDK для Azure до версии 2.6, следует перенести в пакет SDK для Azure версии 2.6 до того, как служба хранилища Azure версии 2011-08-18 будет выведена из эксплуатации (1 августа 2016 года). Дополнительную информацию см. в статье [Заметки о выпуске пакета SDK 2.6 для Azure. Кэш роли](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) и статье [Обновление по прекращению использования версий службы хранилища Microsoft Azure: продление срока до 2016 года](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 Кэширование в экземплярах роли имеет следующие преимущества:
 
@@ -375,7 +375,7 @@
 [Практическое руководство. Хранение кэширования выводимых данных страниц ASP.NET в кэше]: #store-page
 [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
  
-<!-- IMAGES -->
+<!-- IMAGES --> 
 [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
 [RoleCache2]: ./media/cache-dotnet-how-to-use-in-role/cache9.png
 [RoleCache3]: ./media/cache-dotnet-how-to-use-in-role/cache10.png
@@ -410,4 +410,4 @@
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

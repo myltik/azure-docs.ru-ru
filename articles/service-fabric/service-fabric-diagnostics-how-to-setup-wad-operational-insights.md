@@ -31,7 +31,9 @@
 * [Диспетчер ресурсов Azure](https://azure.microsoft.com/resource-group-overview/)
 
 ## Предварительные требования
-Для выполнения некоторых операций в этом документе будут использоваться следующие средства: [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/), [клиент диспетчера ресурсов Azure](https://github.com/projectkudu/ARMClient).
+Эти инструменты будут использоваться для некоторых операций в данном документе:
+* [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/)
+* [Клиент Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 
 ## Различные источники журналов, которые вы можете собирать
 1. **Журналы Service Fabric**. Генерируются платформой в стандартные каналы трассировки событий Windows (ETW) и EventSource. Журналы могут принадлежать к одному из следующих типов.
@@ -123,7 +125,7 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
                 }
             }
     },
-                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountNamee')]"
+                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
                 },
                 "protectedSettings": {
                     "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
@@ -167,7 +169,7 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 
 После создания JSO-файлов, как указано выше, внесите в них изменения с учетом особенностей вашей среды. Затем вызовите следующую команду, передав имя группы ресурсов для кластера Service Fabric. После успешного выполнения этой команды система диагностики будет развернута на всех виртуальных машинах и начнет отправлять журналы из кластера в таблицы в указанной учетной записи хранения Azure.
 
-Кроме того, перед вызовом этой команды развертывания вам может понадобиться выполнить некоторые настройки: добавить учетную запись Azure (`Add-AzureAccount`), выбрать подписку (`Select-AzureSubscription`) и переключиться в режим диспетчера ресурсов (`Switch-AzureMode AzureResourceManager`).
+Кроме того, перед вызовом этой команды развертывания вам может понадобиться выполнить некоторую настройку: добавить учетную запись Azure (`Add-AzureAccount`), выбрать подписку (`Select-AzureSubscription`) и переключиться в режим Resource Manager (`Switch-AzureMode AzureResourceManager`).
 
 ```ps
 
@@ -286,7 +288,7 @@ if ($existingConfig) {
 }
 ```
 
-Настроив рабочую область Operational Insights на чтение данных из таблиц в учетной записи хранилища Azure, войдите на портал и перейдите на вкладку **Служба хранилища** ресурса Operational Insights. Должно отобразиться примерно следующее: ![Настройка хранилища оперативной аналитики на портале Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
+Настроив рабочую область оперативной аналитики на чтение данных из таблиц в учетной записи хранения Azure, войдите на портал и перейдите на вкладку **Служба хранилища** ресурса оперативной аналитики. Должно отобразиться примерно следующее: ![Настройка хранилища оперативной аналитики на портале Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
 ### Просмотр журналов и поиск в них с помощью оперативной аналитики
 После того как вы настроите рабочую область оперативной аналитики для чтения журналов из указанной учетной записи хранения, журналы отобразятся в пользовательском интерфейсе оперативной аналитики только через 10 минут. Чтобы генерировались новые журналы, рекомендуем развернуть приложение Service Fabric в кластере: оно будет генерировать рабочие события из платформы Service Fabric.
@@ -325,4 +327,4 @@ if ($existingConfig) {
 ## Дальнейшие действия
 Ознакомьтесь с диагностическими событиями, которые создаются для [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) и [Reliable Services](service-fabric-reliable-services-diagnostics.md), чтобы лучше понять, на какие события необходимо обращать внимание во время устранения неполадок.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

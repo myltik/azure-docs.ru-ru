@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Загрузка данных в хранилище данных SQL
@@ -27,10 +27,10 @@
 
 Хотя все перечисленные выше методы можно использовать с хранилищем данных SQL, способность PolyBase прозрачно параллелизовать нагрузки из хранилища BLOB-объектов делает его самым быстрым средством для загрузки данных. Ознакомьтесь с дополнительными сведениями о [загрузке данных с помощью PolyBase][]. Кроме того, так как у многих пользователей начальная нагрузка от локальных источников составляет от сотен гигабайт до десятков терабайт, в разделе ниже мы поместили руководство по загрузке начальных данных.
 
-## Начальная загрузка в хранилище данных SQL из SQL Server 
+## Начальная загрузка в хранилище данных SQL из SQL Server
 При загрузке в хранилище данных SQL из локального экземпляра SQL Server рекомендуется следующее:
 
-1. Экспортируйте данные SQL Server в неструктурированные файлы с помощью **BCP**. 
+1. Экспортируйте данные SQL Server в неструктурированные файлы с помощью **BCP**.
 2. Используйте **AzCopy** или **Импорт и экспорт** (для более крупных наборов данных) для перемещения файлов в Azure.
 3. Настройте PolyBase для чтения файлов из вашей учетной записи хранения
 4. Создайте новые таблицы и загрузите данные с помощью **PolyBase**.
@@ -56,7 +56,7 @@ bcp <table> out "<Directory><File>" -c -T -S <Server Name> -d <Database Name> --
 ```
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
- 
+
 После успешного экспорта данных в файлы самое время переместить их в Azure. Это можно сделать с помощью AZCopy или с помощью службы импорта и экспорта, как описано в следующем разделе.
 
 ## Загрузка в Azure с помощью AZCopy или службы импорта и экспорта
@@ -80,13 +80,13 @@ AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Stor
 + **ExpressRoute**: как уже говорилось выше, этот процесс можно ускорить, если включен ExpressRoute. Обзор Express Route и шаги для настройки можно найти в [документации по ExpressRoute][].
 
 + **Структура папок**: для упрощения переноса с помощью PolyBase убедитесь, что каждая таблица сопоставлена собственной папке. Позже это сведет к минимуму и упростит шаги при загрузке с помощью PolyBase. Учитывая это, нет разницы, разбивается ли таблица на несколько файлов или даже каталогов в папке.
-	 
 
-## Настройка PolyBase 
+
+## Настройка PolyBase
 
 Теперь, когда данные хранятся в хранилище BLOB-объектов Azure, мы будем импортировать их в экземпляр хранилища данных SQL с помощью PolyBase. Следующие действия предназначены только для настройки, и многие из них необходимо выполнить один раз для каждого экземпляра хранилища данных SQL, пользователя или учетной записи хранения. Более подробно эти действия описаны в нашей документации по [загрузке с помощью PolyBase][].
 
-1. **Создайте главный ключ базы данных.** Эту операцию достаточно выполнить один раз для каждой базы данных. 
+1. **Создайте главный ключ базы данных.** Эту операцию достаточно выполнить один раз для каждой базы данных.
 
 2. **Создайте учетные данные уровня базы данных.** Данная операция потребуется только в том случае, если вы хотите создать новые учетные данные или пользователя, в противном случае можно воспользоваться ранее созданными учетными данными.
 
@@ -99,27 +99,27 @@ AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Stor
 CREATE MASTER KEY;
 
 -- Creating a database scoped credential
-CREATE DATABASE SCOPED CREDENTIAL <Credential Name> 
-WITH 
+CREATE DATABASE SCOPED CREDENTIAL <Credential Name>
+WITH
     IDENTITY = '<User Name>'
 ,   Secret = '<Azure Storage Key>'
 ;
 
 -- Creating external file format (delimited text file)
-CREATE EXTERNAL FILE FORMAT text_file_format 
-WITH 
+CREATE EXTERNAL FILE FORMAT text_file_format
+WITH
 (
-    FORMAT_TYPE = DELIMITEDTEXT 
+    FORMAT_TYPE = DELIMITEDTEXT
 ,   FORMAT_OPTIONS  (
-                        FIELD_TERMINATOR ='|' 
+                        FIELD_TERMINATOR ='|'
                     )
 );
 
 --Creating an external data source
-CREATE EXTERNAL DATA SOURCE azure_storage 
-WITH 
+CREATE EXTERNAL DATA SOURCE azure_storage
+WITH
 (
-    TYPE = HADOOP 
+    TYPE = HADOOP
 ,   LOCATION ='wasbs://<Container>@<Blob Path>'
 ,   CREDENTIAL = <Credential Name>
 )
@@ -128,35 +128,35 @@ WITH
 
 Теперь, когда учетная запись хранения настроена правильно, можно продолжить загрузку данных в хранилище данных SQL.
 
-## Загрузка данных с помощью PolyBase 
+## Загрузка данных с помощью PolyBase
 После настройки PolyBase можно загрузить данные непосредственно в хранилище данных SQL, просто создав внешнюю таблицу, указывающую на данные в хранилище и сопоставив эти данные с новой таблицей в хранилище данных SQL. Это можно сделать с помощью двух простых команд, указанных ниже.
 
 1. Используйте команду 'CREATE EXTERNAL TABLE' для определения структуры данных. Чтобы убедиться, что записи состояния данных осуществляются быстро и эффективно, рекомендуется создать сценарий для таблицы SQL Server в среде SSMS и затем настроить вручную с учетом отличий внешней таблицы. После создания внешней таблицы в Azure она будет по-прежнему указывать на то же расположение, даже если данные обновлены или добавлены дополнительные данные.  
 
 ```
 -- Creating external table pointing to file stored in Azure Storage
-CREATE EXTERNAL TABLE <External Table Name> 
+CREATE EXTERNAL TABLE <External Table Name>
 (
     <Column name>, <Column type>, <NULL/NOT NULL>
 )
-WITH 
+WITH
 (   LOCATION='<Folder Path>'
 ,   DATA_SOURCE = <Data Source>
 ,   FILE_FORMAT = <File Format>      
 );
 ```
 
-2. Загрузите данные с помощью инструкции 'CREATE TABLE...AS SELECT'. 
+2. Загрузите данные с помощью инструкции 'CREATE TABLE...AS SELECT'.
 
 ```
-CREATE TABLE <Table Name> 
-WITH 
+CREATE TABLE <Table Name>
+WITH
 (
 	CLUSTERED COLUMNSTORE INDEX,
 	DISTRIBUTION = <HASH(<Column Name>)>/<ROUND_ROBIN>
 )
-AS 
-SELECT  * 
+AS
+SELECT  *
 FROM    <External Table Name>
 ;
 ```
@@ -165,7 +165,7 @@ FROM    <External Table Name>
 
 В дополнение к инструкции `CREATE TABLE...AS SELECT` можно также загрузить данные из внешних таблиц в существующие таблицы с помощью инструкции INSERT...INTO.
 
-##  Создание статистики для вновь загруженных данных 
+##  Создание статистики для вновь загруженных данных
 
 Хранилище данных SQL Azure пока не поддерживает автоматическое создание или автоматическое обновление статистики. Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных. Подробные сведения о работе со статистикой см. в разделе [Статистика][] из группы разделов по разработке. Ниже приведен краткий пример создания статистики по табличным данным, загруженным в этом примере.
 
@@ -203,4 +203,4 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [документации хранилища Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-create-storage-account/
 [документации по ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

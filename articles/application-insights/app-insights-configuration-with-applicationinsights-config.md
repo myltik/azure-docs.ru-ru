@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="03/06/2015" 
 	ms.author="awills"/>
 
 # Настройка пакета SDK для Application Insights с использованием файла ApplicationInsights.config или ApplicationInsights.xml
@@ -137,7 +137,7 @@
 Вы можете [написать собственные обработчики данных телеметрии](app-insights-api-filtering-sampling.md#filtering).
 
 
-#### Обработчик адаптивной выборки телеметрии (начиная с версии 2.0.0-beta3)
+#### Обработчик адаптивной выборки телеметрии (начиная с версии 2.0.0-beta3)
 
 Эта функция включена по умолчанию. Если приложение отправляет слишком много телеметрических данных, обработчик удаляет часть из них.
 
@@ -157,7 +157,7 @@
 
 
 
-#### Обработчик выборки телеметрии с фиксированной частотой (начиная с версии 2.0.0-beta1)
+#### Обработчик выборки телеметрии с фиксированной частотой (начиная с версии 2.0.0-beta1)
 
 Также имеется стандартный [обработчик выборочной телеметрии](app-insights-api-filtering-sampling.md#sampling) (начиная с версии 2.0.1):
 
@@ -285,4 +285,4 @@
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

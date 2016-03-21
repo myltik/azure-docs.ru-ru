@@ -3,7 +3,7 @@
 	description="Описывается, как просмотреть отчеты об использовании и получении доступа, чтобы получить информацию о целостности и безопасности каталога вашей организации."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
+	authors="dhanyahk"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="kenhoff;Justinha;curtand"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 
 # Просмотр отчетов о доступе и использовании
@@ -99,7 +99,15 @@
 ## Отчеты об аномальных действиях
 <p>В отчетах об аномальных событиях при входе содержится информация о подозрительных событиях при входе на портал Azure, панель доступа Azure AD, Office 365, Sharepoint Online, Dynamics CRM Online и другие службы Microsoft Online Services.</p>
 <p>Все отчеты, за исключением отчета «Входы после нескольких неудачных попыток», также содержат сведения о подозрительных <i>федеративных</i> операциях входа в упомянутые выше службы независимо от поставщика федерации. </p>
-<p>Доступны следующие отчеты: </p><ul> <li>[Операции входа из неизвестных источников](active-directory-reporting-sign-ins-from-unknown-sources.md);</li> <li>[Операции входа после нескольких сбоев](active-directory-reporting-sign-ins-after-multiple-failures.md);</li> <li>[Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Операции входа с IP-адресов с подозрительными действиями](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md);</li> <li>[Нестандартные действия при входе](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Операции входа с возможно инфицированных устройств](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Пользователи с аномальными событиями при входе](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Пользователи с утерянными учетными данными</li></ul>
+<p>Доступны следующие отчеты: </p><ul>
+<li>[Операции входа из неизвестных источников](active-directory-reporting-sign-ins-from-unknown-sources.md).</li>
+<li>[Операции входа после нескольких сбоев](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
+<li>[Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li>
+<li>[Операции входа с IP-адресов с подозрительными действиями](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li>
+<li>[Нестандартные действия при входе](active-directory-reporting-irregular-sign-in-activity.md).</li>
+<li>[Операции входа с возможно инфицированных устройств](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
+<li>[Пользователи с аномальными событиями при входе](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li>
+<li>Пользователи с утерянными учетными данными</li></ul>
 
 
 
@@ -164,7 +172,7 @@
 
 Этот отчет содержит сведения об операциях входа для _всех_ приложений, к которым имеет доступ ваш каталог, включая предварительно интегрированные приложения Майкрософт.
 
-Предварительно интегрированные приложения Майкрософт включают Office 365, Sharepoint, портал управления Azure и другие.
+Предварительно интегрированные приложения Майкрософт включают Office 365, Sharepoint, портал управления Azure и другие.
 
 ![Сводка по использованию приложений](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
@@ -229,7 +237,7 @@
 | Операции входа в пользовательское бизнес-приложение, добавленное в каталог | Нет (ожидается вскоре) |
 | Операции входа в добавленное в каталог прокси-приложение для приложений Azure AD | Нет (ожидается вскоре) |
 
-> Примечание. Чтобы отчет содержал меньше ненужной информации, в нем не отображены операции входа, которые выполняет [помощник по входу в Microsoft Online Services](http://community.office365.com/ru-RU/w/sso/534.aspx).
+> Примечание. Чтобы отчет содержал меньше ненужной информации, в нем не отображены операции входа, которые выполняет [помощник по входу в Microsoft Online Services](http://community.office365.com/ru-RU/w/sso/534.aspx).
 
 
 
@@ -246,11 +254,11 @@
 
 - Свяжитесь с пользователем, чтобы проверить его действия.
 - Сброс пароля пользователя
-- [Включите многофакторную проверку подлинности](multi-factor-authentication-get-started.md), чтобы повысить уровень безопасности.
+- [Включите многофакторную проверку подлинности](../multi-factor-authentication/multi-factor-authentication-get-started.md), чтобы повысить уровень безопасности.
 
 ## Просмотр или скачивание отчета
 
-1. На портале управления Azure щелкните **Active Directory**, выберите имя каталога вашей организации и щелкните **Отчеты**.
+1. На классическом портале Azure щелкните **Active Directory**, а затем выберите имя каталога своей организации и щелкните **Отчеты**.
 2. На странице «Отчеты» выберите отчет, который нужно просмотреть или скачать.
 
     > [AZURE.NOTE] При первом использовании функции отчетности Azure Active Directory вы получите сообщение с предложением подтвердить согласие на использование. Если вы согласны, щелкните значок с флажком, чтобы продолжить.
@@ -260,9 +268,9 @@
     - за последние 7 дней;
     - за последние 30 дней.
 4. Щелкните значок галочки для выполнения отчета.
-	- На портале управления Azure будет отображаться до 1000 событий.
-5. Если применимо, щелкните **Скачать**, чтобы скачать отчет в сжатом формате с разделителями-запятыми (CSV) для автономного просмотра или архивирования.
-	- В загруженный файл будет включено до 75 000 событий.
+	- На классическом портале Azure будет отображаться до 1000 событий.
+5. Если применимо, щелкните **Скачать**, чтобы скачать отчет в виде сжатого CSV-файла (с разделителями-запятыми) для просмотра вне сети или архивирования.
+	- В загруженный файл будет включено до 75 000 событий.
 	- Дополнительные сведения см. в разделе [API отчетов Azure AD](active-directory-reporting-api-getting-started.md).
 
 ## Пропуск события
@@ -278,4 +286,4 @@
 - [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

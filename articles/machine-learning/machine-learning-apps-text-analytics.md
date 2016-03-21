@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/08/2016"
 	ms.author="onewth"/>
 
 
@@ -58,7 +58,7 @@ API возвращает определенный язык и численную
                
 	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-Ключ учетной записи можно найти в вашей учетной записи в [Azure Data Market](https://datamarket.azure.com/account/keys).
+Ключ учетной записи можно найти в вашей учетной записи в [Azure Data Market](https://datamarket.azure.com/account/keys). Обратите внимание, что в настоящее время в качества формата входных и выходных данных принимается только JSON. XML не поддерживается.
 
 ---
 
@@ -93,7 +93,7 @@ API возвращает определенный язык и численную
 
 **Пример запроса**
 
-В приведенном ниже вызове запрашиваются ключевые фразы в тексте "Замечательный отель для проживания, с уникальным декором и доброжелательным персоналом.".
+В приведенном ниже вызове запрашиваются ключевые фразы в тексте "It was a wonderful hotel to stay at, with unique decor and friendly staff".
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
 	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
@@ -383,4 +383,4 @@ API возвращает выходные данные в JSON в следующ
 | TopicId | Идентификатор раздела, которому была назначена запись. |
 | Distance | Уверенность в том, что запись принадлежит к разделу. Более близкое к нулю значение означает более высокую степень уверенности. |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

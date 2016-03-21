@@ -40,7 +40,8 @@ U-SQL | Синтаксические диаграммы грамматики | 1
 Средства | Использование средств диагностики | 1 | Ожидает | [@mumian](https://github.com/mumian) | 
 U-SQL | Объясните методы выполнения операций объединения JOIN на основе диапазонов | 1 | Ожидает | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | Параметры проверки подлинности ADLS | 1 | Ожидает | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
-
+U-SQL | Отправка задания кроссплатформенного CLI | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
+U-SQL | Обновления справочной документации по REDUCE и COMBINE | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
 
 
 
@@ -57,4 +58,4 @@ U-SQL | Параметры проверки подлинности ADLS | 1 | О
 * Отправить запрос по внесению предложенных изменений в данный документ в [репозиторий содержимого Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Отправить сообщение по адресу [adlafeedback на сайте microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->
