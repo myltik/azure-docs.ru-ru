@@ -242,94 +242,138 @@ ServiceProviderProperties        : {
 ServiceKey                       : **************************************
 Peerings                         : []
 
-**Step 7.  Create your routing configuration.**
+```
 
-For step-by-step instructions, refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-arm.md).
+**Шаг 7. Создайте конфигурацию маршрутизации.**
 
-**Step 8.  Link a virtual network to an ExpressRoute circuit.**
+Пошаговые инструкции см. в статье [Создание и изменение маршрутизации канала ExpressRoute с помощью диспетчера ресурсов Azure и PowerShell](expressroute-howto-routing-arm.md).
 
-Next, link a virtual network to your ExpressRoute circuit. You can use [this template](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) when you work with the Resource Manager deployment mode. We're currently working on steps to accomplish this by using PowerShell.
+**Шаг 8. Свяжите виртуальную сеть с каналом ExpressRoute.**
 
-## Get the status of an ExpressRoute circuit
+Теперь свяжите виртуальную сеть с каналом ExpressRoute. Если вы работаете в режиме развертывания Resource Manager, можно использовать [этот шаблон](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection). В настоящее время мы разрабатываем способ выполнения этого действия с помощью PowerShell.
 
-You can retrieve this information at any time by using the *Get-AzureRmExpressRouteCircuit* cmdlet. Making the call with no parameters will list all circuits.
+## Получение состояния канала ExpressRoute
+
+Эту информацию можно получить в любое время с помощью командлета *Get-AzureRmExpressRouteCircuit*. Если командлет вызывается без параметров, перечисляются все каналы.
 
 ```
 Get-AzureRmExpressRouteCircuit
 ```
 
-The response will be similar to the following example:
+Ответ будет выглядеть примерно так:
 
 ```
-Name : ExpressRouteARMCircuit ResourceGroupName : ExpressRouteResourceGroup Location : westus Id : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit Etag : W/"################################" ProvisioningState : Succeeded Sku : { "Name": "Standard\_MeteredData", "Tier": "Standard", "Family": "MeteredData" } CircuitProvisioningState : Enabled ServiceProviderProvisioningState : Provisioned ServiceProviderNotes : ServiceProviderProperties : { "ServiceProviderName": "Equinix", "PeeringLocation": "Silicon Valley", "BandwidthInMbps": 200 } ServiceKey : ************************************** Peerings :
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                     "Name": "Standard_MeteredData",
+                                     "Tier": "Standard",
+                                     "Family": "MeteredData"
+                                   }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+   		                             "ServiceProviderName": "Equinix",
+   		                             "PeeringLocation": "Silicon Valley",
+   		                             "BandwidthInMbps": 200
+   		                           }
+ServiceKey                       : **************************************
+Peerings                         : []
 ```
 
-You can get information on a specific ExpressRoute circuit by passing the resource group name and circuit name as a parameter to the call:
+Для получения сведений об определенном канале ExpressRoute передайте имя группы ресурсов и имя канала как параметр вызова.
 
 ```
 Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
-The response will look similar to the following example:
+Вы получите ответ следующего вида:
 
 ```
-Name : ExpressRouteARMCircuit ResourceGroupName : ExpressRouteResourceGroup Location : westus Id : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit Etag : W/"################################" ProvisioningState : Succeeded Sku : { "Name": "Standard\_MeteredData", "Tier": "Standard", "Family": "MeteredData" } CircuitProvisioningState : Enabled ServiceProviderProvisioningState : Provisioned ServiceProviderNotes : ServiceProviderProperties : { "ServiceProviderName": "Equinix", "PeeringLocation": "Silicon Valley", "BandwidthInMbps": 200 } ServiceKey : ************************************** Peerings :
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                     "Name": "Standard_MeteredData",
+   		                             "Tier": "Standard",
+   		                             "Family": "MeteredData"
+   		                           }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+                                     "ServiceProviderName": "Equinix",
+                                     "PeeringLocation": "Silicon Valley",
+                                     "BandwidthInMbps": 200
+   		                           }
+ServiceKey                       : **************************************
+Peerings                         : []
 ```
 
-You can get detailed descriptions of all parameters by running the following:
+Подробное описание всех параметров можно получить, выполнив следующую команду:
 
 ```
 get-help get-azurededicatedcircuit -detailed
 ```
 
-## Modify an ExpressRoute circuit
+## Изменение канала ExpressRoute
 
-You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
+Некоторые свойства канала ExpressRoute можно изменить, не повлияв на подключение.
 
-You can do the following, with no downtime:
+Вы можете выполнять следующие действия без простоя:
 
-- Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-- Increase the bandwidth of your ExpressRoute circuit.
+- включать и отключать надстройку ExpressRoute "Премиум" для канала ExpressRoute;
+- увеличивать пропускную способность канала ExpressRoute.
 
-For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md) page.
+Дополнительные сведения об ограничениях см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
 
-### Enable the ExpressRoute premium add-on
+### Включение надстройки ExpressRoute "Премиум"
 
-You can enable the ExpressRoute premium add-on for your existing circuit by using the following PowerShell snippet:
-
-```
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-
-$ckt.Sku.Tier = "Premium" $ckt.sku.Name = "Premium\_MeteredData"
-
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
-
-The circuit will now have the ExpressRoute premium add-on features enabled. Note that Microsoft will begin billing you for the premium add-on capability as soon as the command has successfully run.
-
-### Disable the ExpressRoute premium add-on
-
-You can disable the ExpressRoute premium add-on for the existing circuit by using the following PowerShell cmdlet:
+Вы можете включить надстройку ExpressRoute "Премиум" для существующего канала с помощью следующего фрагмента кода PowerShell:
 
 ```
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-$ckt.Sku.Tier = "Standard" $ckt.sku.Name = "Standard\_MeteredData"
+$ckt.Sku.Tier = "Premium"
+$ckt.sku.Name = "Premium_MeteredData"
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-The premium add-on is now disabled for the circuit.
+Теперь для канала включены функции надстройки ExpressRoute "Премиум". Обратите внимание, что вам будет выставлен счет за использование возможностей надстройки "Премиум" с момента успешного выполнения команды.
 
-Note that this operation can fail if you are using resources greater than what is permitted for the standard circuit.
+### Отключение надстройки ExpressRoute "Премиум"
 
-- Before you downgrade from premium to standard, you must ensure that the number of virtual networks linked to the circuit is less than 10. If you don't do so, your update request fails and Microsoft will bill you at premium rates.
-- You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail and Microsoft will bill you at premium rates.
-- Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session drops and won't be reenabled until the number of advertised prefixes goes below 4,000.
+Вы можете отключить надстройку ExpressRoute "Премиум" для существующего канала с помощью следующего командлета PowerShell:
 
-### Update the ExpressRoute circuit bandwidth
+```
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-For supported bandwidth options for your provider, check the [ExpressRoute FAQ](expressroute-faqs.md) page. You can pick any size greater than the size of your existing circuit. After you decide what size you need, use the following command to resize your circuit:
+$ckt.Sku.Tier = "Standard"
+$ckt.sku.Name = "Standard_MeteredData"
+
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
+
+Теперь надстройка "Премиум" для канала отключена.
+
+Обратите внимание, что эта операция может завершиться ошибкой, если использовать больше ресурсов, чем разрешено для стандартного канала.
+
+- Прежде чем переходить с канала "Премиум" на "Стандартный", убедитесь, что к каналу привязано менее 10 виртуальных сетей. Если этого не сделать, запрос на обновление завершится ошибкой и корпорация Майкрософт будет выставлять вам счета по тарифам ценовой категории "Премиум".
+- Все связи с виртуальными сетями в других геополитических регионах необходимо разорвать. Если этого не сделать, запрос на обновление завершится ошибкой и корпорация Майкрософт будет выставлять вам счета по тарифам ценовой категории "Премиум".
+- Для частного пиринга таблица маршрутов должна содержать менее 4000 маршрутов. Если в ней больше 4000 маршрутов, сеанс BGP будет сброшен. Его можно будет снова активировать только после того, как количество объявленных префиксов станет меньше 4000.
+
+### Обновление пропускной способности канала ExpressRoute
+
+Параметры пропускной способности, поддерживаемые для вашего поставщика, см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md). Можно выбрать любой размер, больший, чем размер существующего канала. Выберите необходимый размер и используйте следующую команду для изменения размера канала:
 
 ```
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -339,22 +383,23 @@ $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-Your circuit will be sized up on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, Microsoft will begin billing you for the updated bandwidth option.
+Размер канала будет изменен со стороны Майкрософт. Свяжитесь с поставщиком услуг подключения и попросите обновить конфигурации с его стороны в соответствии с этим изменением. Когда вы сообщите поставщику услуг об изменении размера канала, корпорация Майкрософт начнет выставлять счета за обновленную пропускную способность.
 
-**Important**: You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
+**Важно!** Уменьшить пропускную способность канала ExpressRoute без прерывания его работы нельзя. Для снижения пропускной способности нужно будет отозвать канал ExpressRoute и повторно подготовить новый канал ExpressRoute.
 
-## Delete and deprovision an ExpressRoute circuit
+## Удаление и отзыв канала ExpressRoute
 
-You can delete your ExpressRoute circuit by running the following command:
+Для удаления канала ExpressRoute выполните следующую команду:
 
 ```
-Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit" ```
+Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
+```
 
 Обратите внимание, что для успешного выполнения этой операции необходимо разорвать связи между каналом ExpressRoute и всеми виртуальными сетями. Если операция завершится ошибкой, проверьте, не привязаны ли к каналу какие-либо виртуальные сети.
 
-Если подготовка поставщика услуг канала ExpressRoute включена, ее состояние изменится с "включено" на *отключено*. Свяжитесь с поставщиком услуг, чтобы отменить подготовку канала с его стороны. Корпорация Майкрософт будет резервировать ресурсы и выставлять вам счета до тех пор, пока поставщик услуг не завершит отзыв канала и не отправит нам соответствующее уведомление.
+Если подготовка поставщика услуг канала ExpressRoute включена, ее состояние изменится с "Включено" на *Отключение*. Свяжитесь с поставщиком услуг, чтобы отменить подготовку канала с его стороны. Корпорация Майкрософт будет резервировать ресурсы и выставлять вам счета до тех пор, пока поставщик услуг не завершит отзыв канала и не отправит нам соответствующее уведомление.
 
-Если поставщик услуг отзовет канал (состояние подготовки у поставщика услуг изменилось на *не подготовлено*) до выполнения указанного выше командлета, корпорация Майкрософт отзовет канал и перестанет выставлять вам счета.
+Если поставщик услуг отзовет канал (состояние подготовки у поставщика услуг изменится на *Не подготовлено*) до выполнения указанного выше командлета, корпорация Майкрософт отзовет канал и перестанет выставлять вам счета.
 
 ## Дальнейшие действия
 
@@ -363,4 +408,4 @@ Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup"
 - [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-arm.md)
 - [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
