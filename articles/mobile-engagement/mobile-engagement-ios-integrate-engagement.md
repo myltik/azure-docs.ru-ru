@@ -44,6 +44,7 @@
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
+<br\>
 > [AZURE.NOTE] Среду AdSupport можно удалить. Службе Engagement необходима эта среда для сбора IDFA. Однако сбор IDFA можно отключить \<ios-sdk-engagement-idfa\>, чтобы обеспечить соответствие новой политике Apple в отношении этого идентификатора.
 
 
@@ -209,4 +210,4 @@ API службы Engagement позволяет использовать все �
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!----HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0302_2016-->
