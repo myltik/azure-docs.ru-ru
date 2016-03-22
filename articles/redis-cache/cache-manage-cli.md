@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Как создать кэш Redis для Azure и управлять им с помощью интерфейса командной строки Azure (Azure CLI)
 
 > [AZURE.SELECTOR]
 - [PowerShell](cache-howto-manage-redis-cache-powershell.md)
-- [Azure CLI](cache-manage-cli.md)
+- [Интерфейс командной строки Azure](cache-manage-cli.md)
 
 Интерфейс CLI Azure позволяет управлять инфраструктурой Azure с любой платформы. В этой статье показано, как создавать экземпляры кэша Redis для Azure и управлять ими с помощью Azure CLI.
 
@@ -28,10 +28,10 @@
 
 Для создания экземпляров кэша Redis для Azure и управления ими с помощью Azure CLI необходимо выполнить следующие действия.
 
--	Необходимо иметь учетную запись Azure. Если ее нет, можно создать [бесплатную пробную учетную запись](https://azure.microsoft.com/pricing/free-trial/) всего за пару минут.
+-	Необходимо иметь учетную запись Azure. Если ее нет, можно создать [бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/) всего за пару минут.
 -	[Установка Azure CLI](../xplat-cli-install.md).
--	Подключите установленный интерфейс Azure CLI к личной либо рабочей или учебной учетной записи Azure, затем выполните вход из Azure CLI с помощью команды `azure login`. Чтобы разобраться в различиях и сделать правильный выбор, изучите статью [Подключение к подписке Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
--	Перед выполнением любой из указанных ниже команд переключите Azure CLI в режим диспетчера ресурсов, выполнив команду `azure config mode arm`. Дополнительные сведения см. в подразделе [Настройка режима диспетчера ресурсов Azure](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
+-	Подключите установленный интерфейс Azure CLI к личной либо рабочей или учебной учетной записи Azure, затем выполните вход из Azure CLI с помощью команды `azure login`. Чтобы разобраться в различиях и сделать правильный выбор, изучите статью [Подключение к подписке Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
+-	Перед выполнением любой из указанных ниже команд переключите Azure CLI в режим диспетчера ресурсов, выполнив команду `azure config mode arm`. Дополнительные сведения см. в подразделе [Настройка режима диспетчера ресурсов Azure](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
 
 ## Свойства кэша Redis
 
@@ -271,4 +271,4 @@
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

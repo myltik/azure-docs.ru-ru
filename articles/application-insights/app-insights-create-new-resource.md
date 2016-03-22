@@ -12,14 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 # Создание нового ресурса Application Insights
-
-
-
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 В Visual Studio Application Insights данные о приложении отображаются в *ресурсе* Microsoft Azure. Таким образом, создание нового ресурса является частью [настройки Application Insights для мониторинга нового приложения][start]. Во многих случаях это можно сделать автоматически в IDE. Мы советуем по возможности использовать этот способ. Однако в некоторых случаях создавать ресурс необходимо вручную.
 
@@ -94,4 +90,4 @@
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

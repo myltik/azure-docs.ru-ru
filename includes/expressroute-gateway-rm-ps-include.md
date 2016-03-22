@@ -1,33 +1,33 @@
-## Configuration overview
+## Общие сведения о настройке
 
-The steps for this task use a VNet based on the values below. Additional settings and names are also outlined in this list. We don't use this list directly in any of the steps, although we do add variables based on the values in this list. You can copy the list to use as a reference, replacing the values with your own.
+Для выполнения этой задачи используйте виртуальную сеть со значениями, приведенными ниже. В этом списке также приведены дополнительные параметры и имена. Мы не используем этот список непосредственно ни на каком из шагов, несмотря на то, что добавляем переменные согласно значениям в этом списке. Вы можете скопировать список для справки, заменив значения собственными.
 
-Configuration reference list:
+Справочный список для настройки.
 	
-- Virtual Network Name = "TestVNet"
-- Virtual Network address space = 192.168.0.0/16
-- Resource Group = "TestRG"
-- Subnet1 Name = "FrontEnd" 
-- Subnet1 address space = "192.168.0.0/16"
-- Gateway Subnet name: "GatewaySubnet" You must always name a gateway subnet *GatewaySubnet*.
-- Gateway Subnet address space = "192.168.200.0/26"
-- Region = "East US"
-- Gateway Name = "GW"
-- Gateway IP Name = "GWIP"
-- Gateway IP configuration Name = "gwipconf"
-- VPN Type = "ExpressRoute" This VPN type is required for an ExpressRoute configuration.
-- Gateway Public IP Name = "gwpip"
+- Имя виртуальной сети: TestVNet.
+- Адресное пространство виртуальной сети: 192.168.0.0/16.
+- Группа ресурсов — TestRG.
+- Имя подсети Subnet1: FrontEnd. 
+- Адресное пространство Subnet1: 192.168.0.0/16.
+- Имя подсети шлюза: GatewaySubnet; подсеть шлюза всегда необходимо называть *GatewaySubnet*.
+- Адресное пространство шлюза подсети: 192.168.200.0/26.
+- Расположение — East US.
+- Имя шлюза: GW.
+- IP-имя шлюза: GWIP.
+- Имя конфигурации IP-адресов шлюза: gwipconf.
+- Тип VPN: ExpressRoute; для настройки ExpressRoute требуется этот тип VPN.
+- Общедоступное IP-имя шлюза: gwpip.
 
 
-## Add a gateway
+## Добавление шлюза
 
-1. Connect to your Azure Subscription. 
+1. Подключитесь к своей подписке Azure. 
 
 		Login-AzureRmAccount
 		Get-AzureRmSubscription 
 		Select-AzureRmSubscription -SubscriptionName "Name of subscription"
 
-2. Declare your variables for this exercise. This example will use the use the variables in the sample below. Be sure to edit this to reflect the settings that you want to use. 
+2. Объявите переменные для этого упражнения. Будут использоваться переменные, приведенные в примере ниже. Не забудьте изменить его в соответствии с параметрами, которые вы хотите использовать.
 		
 		$RG = "TestRG"
 		$Location = "East US"
@@ -36,31 +36,33 @@ Configuration reference list:
 		$GWIPconfName = "gwipconf"
 		$VNetName = "TestVNet"
 
-3. Store the virtual network object as a variable.
+3. Сохраните объект виртуальной сети как переменную.
 
 		$vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 
-4. Add a gateway subnet to your Virtual Network. The gateway subnet must be named "GatewaySubnet". You'll want to create a gateway that is /27 or larger (/26, /25, etc.).
+4. Создайте подсеть шлюза своей виртуальной сети. Подсеть шлюза должна иметь имя GatewaySubnet. Потребуется создать шлюз со значением /27 или больше (26, 25 и т. д.).
 			
 		Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
 
-5. Set the configuration.
+5. Теперь нужно настроить конфигурацию.
 
 			Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-6. Store the gateway subnet as a variable.
+6. Сохраните подсеть шлюза как переменную.
 
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 
-7. Request a public IP address. The IP address is requested before creating the gateway. You cannot specify the IP address that you want to use; it’s dynamically allocated. You'll use this IP address in the next configuration section. The AllocationMethod must be Dynamic.
+7. Запросите общедоступный IP-адрес. IP-адрес запрашивается перед создание шлюза. Указать необходимый IP-адрес нельзя, он выделяется динамически. Этот IP-адрес будет использоваться на следующем этапе конфигурации. Параметр AllocationMethod должен иметь значение Dynamic.
 
 		$pip = New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 
-8. Create the configuration for your gateway. The gateway configuration defines the subnet and the public IP address to use. In this step, you are specifying the configuration that will be used when you create the gateway. This step does not actually create the gateway object. Use the sample below to create your gateway configuration. 
+8. Создайте конфигурацию для шлюза. Конфигурация шлюза определяет используемые подсеть и общедоступный IP-адрес. На этом шаге вы задаете конфигурацию, которая будет использоваться при создании шлюза. Но пока объект шлюза не создается. Используйте следующий пример, чтобы создать конфигурацию шлюза.
 
 		$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -SubnetId $subnet.Id -PublicIpAddressId $pip.Id 
 
-9. Create the gateway. In this step, the **-GatewayType** is especially important. You must use the value **ExpressRoute**. Note that after running these cmdlets, the gateway can take 20 minutes or more to create.
+9. Создайте шлюз. На этом шаге особенно важен параметр **-GatewayType**. Необходимо использовать значение **ExpressRoute**. Обратите внимание, что после выполнения этих командлетов на создание шлюза может потребоваться 20 минут или больше.
 
 		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute
+
+<!---HONumber=AcomDC_0309_2016-->

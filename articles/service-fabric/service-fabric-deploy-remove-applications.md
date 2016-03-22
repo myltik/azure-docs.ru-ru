@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/10/2015"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # Развертывание приложения
@@ -24,7 +24,7 @@
 2. регистрация типа приложения;
 3. создание экземпляра приложения.
 
->[AZURE.NOTE]Если вы используете Visual Studio для развертывания и отладки приложений в локальном кластере разработки, все описанные ниже действия выполняются автоматически с помощью сценариев PowerShell, которые находятся в папке Scripts в проекте приложения. В этой статье приводятся основные сведения о действиях, выполняемых этими сценариями. Они помогут вам выполнять те же операции вне Visual Studio.
+>[AZURE.NOTE] Если вы используете Visual Studio для развертывания и отладки приложений в локальном кластере разработки, все описанные ниже действия выполняются автоматически с помощью сценариев PowerShell, которые находятся в папке Scripts в проекте приложения. В этой статье приводятся основные сведения о действиях, выполняемых этими сценариями. Они помогут вам выполнять те же операции вне Visual Studio.
 
 ## Загрузка пакета приложения
 
@@ -59,7 +59,7 @@ D:\TEMP\MYAPPLICATIONTYPE
     └───MyData
             init.dat
 
-PS D:\temp> Copy-ServiceFabricApplicationPackage MyApplicationType
+PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath MyApplicationType -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest))
 Copy application package succeeded
 
 PS D:\temp>
@@ -82,7 +82,7 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-Команда **Register-ServiceFabricApplicationType** возвращает данные только после того, как система успешно завершит копирование пакета приложения. Срок выполнения команды зависит от содержимого пакета приложения. При необходимости можно увеличить время ожидания, используя параметр **-TimeoutSec** (значение по умолчанию — 60 секунд).
+Команда **Register-ServiceFabricApplicationType** возвращает данные только после того, как система успешно завершит копирование пакета приложения. Срок выполнения команды зависит от содержимого пакета приложения. При необходимости можно увеличить время ожидания, используя параметр **-TimeoutSec** (значение по умолчанию — 60 секунд).
 
 Чтобы вывести список успешно зарегистрированных версий типов приложения, используйте команду **Get-ServiceFabricApplicationType**.
 
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

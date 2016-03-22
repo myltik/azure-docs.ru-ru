@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Перемещение данных в базу данных SQL Azure и из нее | Фабрика данных Azure" 
+	pageTitle="Перемещение данных в базу данных SQL Azure и из нее | Microsoft Azure" 
 	description="Узнайте, как переместить данные в базу данных SQL Azure и из нее с помощью фабрики данных Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -630,4 +630,4 @@
 
 	 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

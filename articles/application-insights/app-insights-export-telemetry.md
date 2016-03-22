@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
  
 # Экспорт данных телеметрии из Application Insights
@@ -31,7 +31,7 @@
 Если у вас еще нет "классической" учетной записи хранения, создайте ее.
 
 
-1. Создайте «классическую» учетную запись хранения в подписке на [портале Azure](https://portal.azure.com).
+1. Создайте учетную запись хранения в подписке на [портале Azure](https://portal.azure.com).
 
     ![На портале Azure выберите "Создать", "Данные", "Хранилище".](./media/app-insights-export-telemetry/030.png)
 
@@ -212,4 +212,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

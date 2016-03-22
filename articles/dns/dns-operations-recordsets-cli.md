@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Управление наборами записей и записями DNS в Azure DNS с помощью интерфейса командной строки | Microsoft Azure" 
+   pageTitle="Управление наборами записей и записями DNS в Azure DNS с помощью Azure CLI | Microsoft Azure" 
    description="Управляйте наборами записей и записями DNS в службе Azure DNS при размещении вашего домена в Azure DNS. Все команды интерфейса командной строки для операций с наборами записей и записями." 
    services="dns" 
    documentationCenter="na" 
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/21/2016"
+   ms.date="03/04/2016"
    ms.author="joaoma"/>
 
 # Как управлять записями DNS с помощью интерфейса командной строки
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-operations-recordsets-cli.md)
+- [Интерфейс командной строки Azure](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
 
-В этом руководстве показано, как управлять наборами записей и записями для зоны DNS.
+В этом руководстве показано, как управлять наборами записей и записями для зоны DNS с помощью кроссплатформенного Azure CLI.
 
 >[AZURE.NOTE] DNS Azure является исключительно службой диспетчера ресурсов Azure. У нее нет API ASM. Поэтому необходимо будет убедиться, что Azure CLI настроен на использование режима диспетчера ресурсов, с помощью команды azure config mode arm.
 
@@ -61,7 +61,7 @@ Azure DNS поддерживает [записи с подстановочным
 
 Команда `azure network dns record-set list` позволяет получить список всех записей в зоне DNS.
 
-### Вариант 1 
+### Вариант 1 
 Вывод списка всех наборов записей. Возвращает все наборы записей, независимо от имени и типа записи:
 
 	azure network dns record-set list myresourcegroup contoso.com
@@ -242,4 +242,4 @@ Azure DNS поддерживает [записи с подстановочным
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -133,10 +133,14 @@ Power BI позволяет визуально представлять данн
 
     ![Кнопка "Удалить" в сводке топологии](./media/hdinsight-storm-power-bi-topology/killtopology.png)
 
+## Удаление кластера
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## Дальнейшие действия
 
 В этом документе было рассмотрено, как отправлять данные из топологии Storm в Power BI с помощью REST. Дополнительные сведения о том, как работать с другими технологиями Azure, см. в следующих статьях:
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

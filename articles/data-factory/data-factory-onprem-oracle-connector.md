@@ -24,7 +24,7 @@
 Чтобы служба фабрики данных Azure могла подключаться к локальной базе данных Oracle, необходимо установить следующие компоненты.
 
 - Шлюз управления данными на том же компьютере, на котором размещена база данных, или на отдельном компьютере во избежание конкуренции за ресурсы. Шлюз управления данными — это программное обеспечение, которое обеспечивает безопасное и управляемое подключение локальных источников данных к облачным службам. Сведения о шлюзе управления данными см. в статье [Перемещение данных между локальными источниками и облаком](data-factory-move-data-between-onprem-and-cloud.md). 
-- [Компоненты доступа к данным Oracle (ODAC) для Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Должны быть установлены на главном компьютере, на котором установлен шлюз.
+- Поставщик данных Oracle для .NET. Входит в состав [компонентов доступа к данным Oracle (ODAC) для Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Установите соответствующую версию (32- или 64- разрядную) на главном компьютере, на котором установлен шлюз. 
 
 > [AZURE.NOTE] Советы по устранению неполадок, связанных с шлюзом или подключением, см. в разделе [Устранение неполадок шлюза](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
 
@@ -251,7 +251,7 @@ tableName | Имя таблицы в базе данных Oracle, на кото
 Свойство | Описание |Допустимые значения | Обязательно
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Используйте пользовательский запрос для чтения данных. | Строка запроса SQL. 
-Например: select * from MyTable <p>Если не указано другое, выполняется следующий оператор SQL: select * from MyTable</p> | Нет (если для **dataset** задано значение **tableName**)
+Например: select * from MyTable <br/><br/>Если не указано другое, выполняется следующий оператор SQL: select * from MyTable | Нет (если для **dataset** задано значение **tableName**)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -301,7 +301,7 @@ XML | Строка
 
 **Решение**
 
-1. Если поставщик данных .NET для Oracle не установлен, [установите](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) его и повторите сценарий. 
+1. Если поставщик данных .NET для Oracle не установлен, [установите](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html) его и повторите сценарий. 
 2. Если сообщение об ошибке появляется даже после установки поставщика, выполните следующие действия. 
 	1. Откройте файл конфигурации .NET 2.0 из папки: <system disk> \\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
 	2. Найдите **поставщик данных Oracle для .NET** и запись, аналогичную следующей, в разделе **system.data** -> **DbProviderFactories**: <add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
@@ -312,4 +312,4 @@ XML | Строка
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

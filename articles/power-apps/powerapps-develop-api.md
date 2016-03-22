@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="rajram"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="rajram"/>
 
 # Разработка API для PowerApps
@@ -32,16 +32,16 @@
 
 В следующих статьях рассказывается, как создать и развернуть API .Net, Java или Node.js в среде службы приложений:
 
-- [Создание и развертывание приложения API .NET в службе приложений Azure](../app-service-api-dotnet-get-started.md)
-- [Сборка и развертывание приложения API Java в службе приложений Azure](../app-service-api-java-api-app.md)
-- [Создание и развертывание приложения API Node.js в службе приложений Azure](../app-service-api-nodejs-api-app.md)
+- [Создание и развертывание приложения API .NET в службе приложений Azure](../app-service-api/app-service-api-dotnet-get-started.md)
+- [Сборка и развертывание приложения API Java в службе приложений Azure](../app-service-api/app-service-api-java-api-app.md)
+- [Создание и развертывание приложения API Node.js в службе приложений Azure](../app-service-api/app-service-api-nodejs-api-app.md)
 
 
 ## Шаг 2. Создание определения Swagger 2.0 для своего API
 
 Если следовать инструкциям в одной из статей, указанных в *Шаге 1*, стандартное определение Swagger 2.0 будет создано для вашего API автоматически. Чтобы оптимизировать его для PowerApps, настройте определение Swagger 2.0 с помощью следующих расширений схемы.
 
-Общие сведения о настройке определения API в Swagger 2.0 см. в статье [Настройка определений API, созданных в Swashbuckle](../app-service-api-dotnet-swashbuckle-customize.md).
+Общие сведения о настройке определения API в Swagger 2.0 см. в статье [Настройка определений API, созданных в Swashbuckle](../app-service-api/app-service-api-dotnet-swashbuckle-customize.md).
 
 ### Расширения схемы
 Помимо автоматически создаваемых Swashbuckle определений Swagger, существует несколько дополнительных расширений Swagger, доступных при создании API для PowerApps. В этом разделе приводится список этих расширений с описаниями.
@@ -130,4 +130,4 @@
 
 Это расширение полезно в сценариях, где входные данные для операции являются динамическими. Возьмем для примера SQL. У всех таблиц разные схемы. Поэтому, когда пользователь выбирает определенную таблицу, конструктору логических потоков приходится анализировать структуру таблицы, чтобы отобразить имена столбцов. В этом случае если определение Swagger содержит расширение _x-ms-dynamic-schema_, для извлечения схемы вызывается соответствующая операция.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

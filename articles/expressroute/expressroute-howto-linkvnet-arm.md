@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Связывание виртуальных сетей с каналами ExpressRoute | Microsoft Azure"
+   pageTitle="Связывание виртуальных сетей с каналами ExpressRoute | Microsoft Azure"
    description="В этой статье кратко описывается процедура связывания виртуальных сетей с каналами ExpressRoute."
    services="expressroute"
    documentationCenter="na"
@@ -19,11 +19,11 @@
 # Связывание виртуальных сетей с каналами ExpressRoute
 
 > [AZURE.SELECTOR]
-- [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
-- [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)
-- [Template - Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
+- [PowerShell — классическая модель](expressroute-howto-linkvnet-classic.md)
+- [PowerShell — Resource Manager](expressroute-howto-linkvnet-arm.md)
+- [Шаблон — Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
-В этой статье приводится краткое описание связывания виртуальных сетей с каналами ExpressRoute. Виртуальные сети могут быть в той же или другой подписке. Процедуры в этой статье относятся к виртуальным сетям, развернутым с помощью модели развертывания диспетчера ресурсов. Если вам нужно дать ссылку на виртуальную сеть, развернутую по классической модели развертывания, обратитесь к статье [Привязка виртуальной сети к каналу ExpressRoute](expressroute-howto-linkvnet-classic.md).
+В этой статье приводится краткое описание связывания виртуальных сетей с каналами ExpressRoute. Виртуальные сети могут быть в той же или другой подписке. Процедуры в этой статье относятся к виртуальным сетям, развернутым с помощью модели развертывания диспетчера ресурсов. Если вам нужно привязать виртуальную сеть, развернутую по классической модели развертывания, обратитесь к статье [Привязка виртуальной сети к каналу ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
 
 **О моделях развертывания Azure**
@@ -52,7 +52,7 @@
 
 ## Связывание виртуальной сети и канала ExpressRoute из разных подписок Azure
 
-Один канал ExpressRoute может одновременно использоваться несколькими подписками. На рисунке ниже схематично показан способ совместного использования каналов ExpressRoute несколькими подписками. Каждое маленькое облако внутри большого облака представляет подписки, принадлежащие различным подразделениям одной организации. Любое подразделение в организации может использовать свою собственную подписку для развертывания служб. Кроме того, оно может совместно использовать один выделенный канал ExpressRoute для подключения к корпоративной сети. Владельцем канала ExpressRoute может выступать одно подразделение (в данном примере — ИТ-подразделение). Другие подписки в организации могут использовать канал ExpressRoute.
+Один канал ExpressRoute может одновременно использоваться несколькими подписками. На рисунке ниже схематично показан способ совместного использования каналов ExpressRoute несколькими подписками. Каждое маленькое облако внутри большого облака представляет подписки, принадлежащие различным подразделениям одной организации. Любое подразделение в организации может использовать свою собственную подписку для развертывания служб. Кроме того, оно может совместно использовать один выделенный канал ExpressRoute для подключения к корпоративной сети. Владельцем канала ExpressRoute может выступать одно подразделение (в данном примере — ИТ-подразделение). Другие подписки в организации могут использовать канал ExpressRoute.
 
 >[AZURE.NOTE] Плата за подключение выделенного канала ExpressRoute и использование полосы пропускания будет взиматься с владельца выделенного канала. Полоса пропускания распределяется между всеми виртуальными сетями.
 
@@ -129,7 +129,7 @@
 Пользователь канала может активировать разрешение на связь, запустив следующий командлет.
 
 	$id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"	
-	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
 #### Освобождение разрешений на подключение
 
@@ -139,4 +139,4 @@
 
 Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

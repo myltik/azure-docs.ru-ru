@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Диагностика проблем с зависимостями в Application Insights
@@ -50,10 +50,11 @@
 
 платформа | Установить
 ---|---
-Сервер IIS | [Монитор состояния](app-insights-monitor-performance-live-website-now.md)
+Сервер IIS | Либо [установите монитор состояний на сервере](app-insights-monitor-performance-live-website-now.md), либо [обновите свое приложение, установив платформу .NET Framework 4.6 или более поздней версии](http://go.microsoft.com/fwlink/?LinkId=528259). 
 Веб-приложение Azure | [Расширение для Application Insights](../azure-portal/insights-perf-analytics.md)
 Веб-сервер Java | [Веб-приложения Java](app-insights-java-agent.md)
-Веб-страницы | [Монитор JavaScript](app-insights-javascript.md) (без дополнительной настройки, кроме мониторинга веб-страниц)
+Веб-страницы | [Монитор JavaScript](app-insights-javascript.md) (без дополнительной настройки, кроме мониторинга веб-страниц).
+Облачная служба | [Используйте задачу при запуске](app-insights-cloudservices.md#dependencies) или [установите платформу .NET Framework 4.6 или более поздней версии](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
 В случае с монитором состояния для серверов IIS вам не нужно заново компилировать проект с исходным кодом, используя пакет SDK для Application Insights.
 
@@ -139,4 +140,4 @@
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

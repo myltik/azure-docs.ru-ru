@@ -28,7 +28,7 @@
 
     ![][13]
 
-	Будет скачана, установлена и добавлена ссылка на [пакет концентратора событий служебной шины Azure — EventProcessorHost NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) со всеми его зависимостями.
+	Будет скачана, установлена и добавлена ссылка на [пакет концентратора событий служебной шины Azure — EventProcessorHost NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) со всеми его зависимостями.
 
 7. Щелкните правой кнопкой мыши проект **Получатель**, выберите пункт **Добавить**, а затем **Класс**. Присвойте классу имя **SimpleEventProcessor**, а затем нажмите кнопку **ОК**, чтобы создать класс.
 
@@ -96,26 +96,30 @@
 
 	Затем измените метод `Main` в классе `Program`, как показано ниже. Подставьте имя концентратора событий и строку подключения, учетную запись хранения и ключ, которые были скопированы в предыдущих разделах.
 
-        static void Main(string[] args)
-        {
-          string eventHubConnectionString = "{event hub connection string}";
-          string eventHubName = "{event hub name}";
-          string storageAccountName = "{storage account name}";
-          string storageAccountKey = "{storage account key}";
+    ```
+	static void Main(string[] args)
+    {
+      string eventHubConnectionString = "{event hub connection string}";
+      string eventHubName = "{event hub name}";
+      string storageAccountName = "{storage account name}";
+      string storageAccountKey = "{storage account key}";
           string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
               storageAccountName, storageAccountKey);
 
-          string eventProcessorHostName = Guid.NewGuid().ToString();
-          EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
-          Console.WriteLine("Registering EventProcessor...");
-          eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
+      string eventProcessorHostName = Guid.NewGuid().ToString();
+      EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
+      Console.WriteLine("Registering EventProcessor...");
+      var options = new EventProcessorOptions();
+      options.ExceptionReceived += (sender, e) => { Console.WriteLine(e.Exception); };
+      eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>(options).Wait();
 
-          Console.WriteLine("Receiving. Press enter key to stop worker.");
-          Console.ReadLine();
-          eventProcessorHost.UnregisterEventProcessorAsync().Wait();
-        }
+      Console.WriteLine("Receiving. Press enter key to stop worker.");
+      Console.ReadLine();
+      eventProcessorHost.UnregisterEventProcessorAsync().Wait();
+    }
+	````
 
-> [AZURE.NOTE]В данном учебнике используется один экземпляр [EventProcessorHost][]. Чтобы увеличить пропускную способность, рекомендуется запустить несколько экземпляров [EventProcessorHost][], как показано в примере [Обработка масштабированного события][]. В этом случае различные экземпляры автоматически координируются друг с другом для распределения нагрузки полученных событий. Если каждый из нескольких получателей должен обрабатывать *все* события, то необходимо использовать понятие **ConsumerGroup**. При получении события от разных компьютеров может оказаться полезным указать имена экземпляров [EventProcessorHost][] в компьютерах (или ролях), где они развернуты. Дополнительные сведения об этих темах см. в статьях [Общие сведения о концентраторах событий][] и [Руководство по программированию концентраторов событий][].
+> [AZURE.NOTE] В данном учебнике используется один экземпляр [EventProcessorHost][]. Чтобы увеличить пропускную способность, рекомендуется запустить несколько экземпляров [EventProcessorHost][], как показано в примере [Обработка масштабированного события][]. В этом случае различные экземпляры автоматически координируются друг с другом для распределения нагрузки полученных событий. Если каждый из нескольких получателей должен обрабатывать *все* события, то необходимо использовать понятие **ConsumerGroup**. При получении события от разных компьютеров может оказаться полезным указать имена экземпляров [EventProcessorHost][] в компьютерах (или ролях), где они развернуты. Дополнительные сведения об этих темах см. в статьях [Общие сведения о концентраторах событий][] и [Руководство по программированию концентраторов событий][].
 
 <!-- Links -->
 [Общие сведения о концентраторах событий]: event-hubs-overview.md
@@ -133,4 +137,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

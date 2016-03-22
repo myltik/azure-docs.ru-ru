@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Создание и публикация продукта в службе управления API Azure
@@ -148,4 +148,4 @@
 [Как создать и использовать группы для управления учетными записями разработчиков в службе управления Azure API]: api-management-howto-create-groups.md
 [Как создать и настраивать расширенные параметры продукта в службе управления Azure API]: api-management-howto-product-with-rules.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

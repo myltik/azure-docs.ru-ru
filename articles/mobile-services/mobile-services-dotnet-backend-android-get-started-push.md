@@ -17,11 +17,10 @@
 	ms.author="ricksal"/>
 
 # Добавление push-уведомлений к приложению мобильных служб
-
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+> Аналогичные сведения для мобильных приложений см. в статье [Добавление push-уведомлений в приложение Android](../app-service-mobile/app-service-mobile-android-get-started-push.md).
+ 
 &nbsp;
-
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -117,4 +116,4 @@
 [Рассылка широковещательных уведомлений подписчикам]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Отправка подписчикам уведомлений на основе шаблонов]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

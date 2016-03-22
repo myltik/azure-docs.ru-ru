@@ -3,8 +3,8 @@
    description="Как начать работу с API отчетов Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # Приступая к работе с API отчетов Azure AD
@@ -35,7 +35,7 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 
 
 ### Создание приложения
-- Перейдите на [портал управления Azure](https://manage.windowsazure.com/).
+- Перейдите на [классический портал Azure](https://manage.windowsazure.com/).
 - Перейдите в каталог.
 - Перейдите к приложениям.
 - На нижней панели щелкните «Добавить».
@@ -52,7 +52,7 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 - Перейдите к созданному приложению.
 - Выберите вкладку **Настройка**.
 - В разделе «Разрешения для других приложений»:
-	- Щелкните «Microsoft Azure Active Directory» > «Разрешения приложения», а затем выберите **Чтение данных каталога**.
+	- Щелкните "Azure Active Directory" > "Разрешения приложения", а затем выберите **Чтение данных каталога**.
 - На нижней панели щелкните **Сохранить**.
 
 
@@ -67,9 +67,9 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 - Идентификатор клиента приложения будет отображаться в поле **Идентификатор клиента**.
 
 #### Секрет клиента приложения
-- Откройте вкладку «Приложения».
+- Откройте вкладку **Приложения**.
 - Перейдите к созданному приложению.
-- Откройте вкладку «Настройка».
+- Откройте вкладку **Настройка**.
 - Создайте новый секретный ключ для своего приложения, выбрав длину в разделе «Ключи».
 - Ключ отобразится после сохранения. Убедитесь, что скопировали и вставили его в безопасном расположении, так как в дальнейшем не будет возможности его извлечь.
 
@@ -141,38 +141,38 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 	# Author: Michael McLaughlin (michmcla@microsoft.com)
 	# Date: January 20, 2016
 	# This requires the Python Requests module: http://docs.python-requests.org
-	
+
 	import requests
 	import datetime
 	import sys
-	
+
 	client_id = 'your-application-client-id-here'
 	client_secret = 'your-application-client-secret-here'
 	login_url = 'https://login.windows.net/'
-	tenant_domain = 'your-directory-name-here.onmicrosoft.com' 
-	
+	tenant_domain = 'your-directory-name-here.onmicrosoft.com'
+
 	# Get an OAuth access token
 	bodyvals = {'client_id': client_id,
 	            'client_secret': client_secret,
 	            'grant_type': 'client_credentials'}
-	
+
 	request_url = login_url + tenant_domain + '/oauth2/token?api-version=1.0'
 	token_response = requests.post(request_url, data=bodyvals)
-	
+
 	access_token = token_response.json().get('access_token')
 	token_type = token_response.json().get('token_type')
-	
+
 	if access_token is None or token_type is None:
 	    print "ERROR: Couldn't get access token"
 	    sys.exit(1)
-	
+
 	# Use the access token to make the API request
 	yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
-	
+
 	header_params = {'Authorization': token_type + ' ' + access_token}
 	request_string = 'https://graph.windows.net/' + tenant_domain + '/reports/auditEvents?api-version=beta&filter=eventTime%20gt%20' + yesterday   
 	response = requests.get(request_string, headers = header_params)
-	
+
 	if response.status_code is 200:
 	    print response.content
 	else:
@@ -195,4 +195,4 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 - Дополнительную информацию об отчетах об аудите см. в статье [События отчетов AD Azure об аудите ](active-directory-reporting-audit-events.md)
 - Дополнительную информацию о службе Graph API REST см. в разделе [Отчеты и события Azure AD (предварительная версия)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

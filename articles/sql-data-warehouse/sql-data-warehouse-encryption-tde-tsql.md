@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Начало работы с прозрачным шифрованием данных (TDE) хранилища данных SQL TSQL | Microsoft Azure" 
-   description="Начало работы с прозрачным шифрованием данных (TDE) хранилища данных SQL TSQL | Microsoft Azure" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="Начало работы с прозрачным шифрованием данных (TDE) хранилища данных SQL TSQL | Microsoft Azure"
+   description="Начало работы с прозрачным шифрованием данных (TDE) хранилища данных SQL TSQL | Microsoft Azure"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
+
 # Начало работы с прозрачным шифрованием данных (TDE)
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](sql-data-warehouse-encryption-tde.md)
+- [Классический портал Azure](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
 
 Прозрачное шифрование данных (TDE) хранилища данных SQL Azure помогает защититься от угрозы вредоносных атак за счет шифрования и расшифровки базы данных, связанных резервных копий и файлов журналов транзакций при хранении в реальном времени, не внося изменения в само приложение.
@@ -64,7 +64,7 @@ FROM
 
 Результат ```1``` означает зашифрованную, а ```0``` — незашифрованную базу данных.
 
- 
+
 <!--Anchors-->
 [Прозрачное шифрование данных (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

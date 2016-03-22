@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="cephalin"/>
 
 # Настройка промежуточных сред для веб-приложений в службе приложений Azure
@@ -66,7 +66,7 @@
 
 	![Название области развертывания][StagingTitle]
 
-5. Щелкните URL-адрес приложения в колонке слота. Обратите внимание, что слот развертывания имеет собственное имя узла и также является динамическим приложением. Сведения о том, как запретить общий доступ к слоту развертывания, см. в статье [Веб-приложения в службе приложений — блокирование веб-доступа к непроизводственным слотам развертывания](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+5. Щелкните URL-адрес приложения в колонке слота. Обратите внимание, что слот развертывания имеет собственное имя узла и также является динамическим приложением. Сведения о том, как запретить общий доступ к слоту развертывания, см. в статье [Веб-приложения в службе приложений — блокирование веб-доступа к непроизводственным слотам развертывания](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
 В созданном слоте развертывания изначально нет содержимого. Вы можете выполнить развертывание в область из другой ветви репозитория или вообще из другого репозитория. Вы также можете изменить конфигурацию области. Для обновлений содержимого используйте профиль публикации или учетные данные развертывания, связанные с областью развертывания. Например, вы можете выполнить [публикацию в эту область с помощью Git](web-sites-publish-source-control.md).
 
@@ -160,47 +160,59 @@
 <a name="PowerShell"></a>
 ## Командлеты Azure PowerShell для слотов развертывания
 
-Azure PowerShell — это модуль, предоставляющий командлеты для управления Azure с помощью Windows PowerShell, включая поддержку управления слотами развертывания веб-приложения в службе приложений Azure.
+Azure PowerShell — это модуль, предоставляющий командлеты для управления Azure с помощью Windows PowerShell, включая поддержку управления слотами развертывания веб-приложения в службе приложений Azure.
 
 - Информацию об установке и настройке Azure PowerShell и об аутентификации Azure PowerShell с подпиской Azure см. в разделе [Установка и настройка Microsoft Azure PowerShell](../powershell-install-configure.md).  
-
-- Чтобы использовать новый режим Диспетчера ресурсов Azure для командлетов PowerShell, для начала сделайте следующее: `Switch-AzureMode -Name AzureResourceManager`.
 
 ----------
 
 ### Создание веб-приложения
 
-`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]`
+```
+New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]
+```
 
 ----------
 
 ### Создание слота развертывания для веб-приложения
 
-`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -SlotName [deployment slot name] -Location [location] -AppServicePlan [app service plan name]`
+```
+New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [web app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
+```
 
 ----------
 
 ### Запуск многофазного переключения и применение конфигурации целевого слота к исходному слоту
 
-`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01`
+```
+$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
 
 ----------
 
 ### Сброс первого этапа многофазного переключения и восстановление конфигурации исходного слота
 
-`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01`
+```
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
+```
 
 ----------
 
 ### Переключение слотов развертывания
 
-`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01`
+```
+$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
 
 ----------
 
 ### Удаление слота развертывания
 
-`Remove-AzureResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01`
+```
+Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01
+```
 
 ----------
 
@@ -248,7 +260,7 @@ Azure PowerShell — это модуль, предоставляющий ком
 >[AZURE.NOTE] Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
 ## Дальнейшие действия ##
-[Веб-приложения в службе приложений — блокирование веб-доступа к непроизводственным слотам развертывания](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+[Веб-приложения в службе приложений — блокирование веб-доступа к непроизводственным слотам развертывания](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
 [Бесплатная пробная версия Microsoft Azure](/pricing/free-trial/)
 
@@ -271,4 +283,4 @@ Azure PowerShell — это модуль, предоставляющий ком
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -18,11 +18,12 @@
 
 # Добавление синхронизации автономных данных в приложение мобильных служб Android
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Включение автономной синхронизации для мобильного приложения Android](../app-service-mobile/app-service-mobile-android-get-started-offline-data.md).
 
 ## Сводка
 
@@ -149,7 +150,7 @@
 			syncAsync();
 			refreshItemsFromTable();
 
-	Данный код выполняется при нажатии кнопки **Обновить** в правом верхнем углу. Это основной способ синхронизации локального хранилища с Azure, который дополняет синхронизацию во время запуска. Учитывая, что извлечение данных из Azure — это относительно затратная операция, данный способ является эффективным, поскольку способствует применению пакетной обработки изменений при синхронизации. При необходимости вы можете предусмотреть в приложении синхронизацию при каждом изменении, добавив вызов `syncAsync` в методы `addItem` и `checkItem`.
+	Данный код выполняется при нажатии кнопки **Обновить** в правом верхнем углу. Это основной способ синхронизации локального хранилища с Azure, который дополняет синхронизацию во время запуска. Учитывая, что извлечение данных из Azure — это относительно затратная операция, данный способ является эффективным, поскольку способствует применению пакетной обработки изменений при синхронизации. При необходимости вы можете предусмотреть в приложении синхронизацию при каждом изменении, добавив вызов `syncAsync` в методы `addItem` и `checkItem`.
 
 
 ## Тестирование приложения
@@ -223,4 +224,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [Быстрый запуск мобильных служб]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

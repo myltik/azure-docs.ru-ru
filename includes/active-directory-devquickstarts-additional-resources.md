@@ -1,7 +1,7 @@
 ## Дополнительные ресурсы
 
-- [Руководство разработчика для Azure AD](active-directory-developers-guide.md)
+- [Руководство разработчика для Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/)
 - [Примеры Azure AD на GitHub](https://github.com/AzureAdSamples)
-- [CloudIdentity.com](https://cloudidentity.com)
+- [CloudIdentity.com](http://cloudidentity.com)
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=AcomDC_0309_2016-->

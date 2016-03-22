@@ -25,7 +25,7 @@
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Добавьте переменную **connectionString**, чтобы создать с ее помощью клиент устройства. Замените значения **{youriothubname}** именем центра IoT, а **{yourdeviceid}** и **{yourdevicekey}** — значениями для устройства, сгенерированными в разделе *Создание удостоверения устройства*:
+5. Добавьте переменную **connectionString**, чтобы создать с ее помощью клиент устройства. Замените значения **{youriothubname}** именем центра IoT, а **{yourdeviceid}** и **{yourdevicekey}** — значениями для устройства, сгенерированными в разделе *Создание удостоверения устройства*:
 
     ```
     var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
@@ -39,28 +39,43 @@
     function printResultFor(op) {
       return function printResult(err, res) {
         if (err) console.log(op + ' error: ' + err.toString());
-        if (res) console.log(op + ': message sent');
+        if (res) console.log(op + ' status: ' + res.constructor.name);
       };
     }
     ```
 
-7. Используйте функцию **setInterval**, чтобы отправлять новое сообщение в центр IoT каждую секунду:
+7. Создайте обратный вызов и используйте функцию **setInterval**, чтобы отправлять новое сообщение в центр IoT каждую секунду.
 
     ```
-    setInterval(function(){
-      var windSpeed = 10 + (Math.random() * 4);
-      var data = JSON.stringify({ deviceId: 'myFirstDevice', windSpeed: windSpeed });
-      var message = new Message(data);
-      console.log("Sending message: " + message.getData());
-      client.sendEvent(message, printResultFor('send'));
-    }, 1000);
+    var connectCallback = function (err) {
+      if (err) {
+        console.log('Could not connect: ' + err);
+      } else {
+        console.log('Client connected');
+
+        // Create a message and send it to the IoT Hub every second
+        setInterval(function(){
+            var windSpeed = 10 + (Math.random() * 4);
+            var data = JSON.stringify({ deviceId: 'mydevice', windSpeed: windSpeed });
+            var message = new Message(data);
+            console.log("Sending message: " + message.getData());
+            client.sendEvent(message, printResultFor('send'));
+        }, 2000);
+      }
+    };
     ```
 
-8. Сохраните и закройте файл **SimulatedDevice.js**.
+8. Откройте подключение к центру IoT и начните отправку сообщений.
+
+    ```
+    client.open(connectCallback);
+    ```
+
+9. Сохраните и закройте файл **SimulatedDevice.js**.
 
 > [AZURE.NOTE] Для простоты в этом руководстве не реализуются политики повтора. В рабочем коде следует реализовать политики повтора (например, экспоненциальную задержку), как указано в статье MSDN [Обработка временного сбоя][lnk-transient-faults].
 
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

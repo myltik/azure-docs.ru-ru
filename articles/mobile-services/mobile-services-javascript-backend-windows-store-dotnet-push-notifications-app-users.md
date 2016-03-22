@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
 # Рассылка push-уведомлений проверенным пользователям
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Практическое руководство. Отправка push-уведомлений пользователю, прошедшему проверку подлинности, с помощью тегов](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#push-user).
 
 ##Обзор
 В этом разделе показано, как передавать push-уведомления пользователю, прошедшему проверку подлинности, на любом зарегистрированном устройстве. В отличие от предыдущего учебника [Добавление push-уведомлений в приложение мобильных служб], в данном учебнике будут описаны изменения мобильной службы, обеспечивающие выполнение проверки подлинности пользователя перед регистрацией клиента в концентраторе уведомлений для получения push-уведомлений. Регистрация также изменяется — добавляется тег на основе идентификатора назначенного пользователя. Наконец, обновляется серверный скрипт, чтобы уведомление отправлялось не всем зарегистрированным пользователям, а только тем, кто прошел проверку подлинности.
@@ -96,4 +101,4 @@
 [Добавление push-уведомлений в приложение]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Добавление push-уведомлений в приложение мобильных служб]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

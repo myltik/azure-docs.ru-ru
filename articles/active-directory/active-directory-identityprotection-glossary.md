@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Глоссарий по защите идентификации | Microsoft Azure"
-	description="Глоссарий по защите идентификации"
+	pageTitle="Глоссарий по защите идентификации Azure Active Directory | Microsoft Azure"
+	description="Глоссарий по защите идентификации Azure Active Directory"
 	services="active-directory"
-	keywords="защита идентификации azure active directory, обнаружение облачных приложений, управление приложениями"
+	keywords="защита идентификации Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности, глоссарий"
 	documentationCenter=""
 	authors="markusvi"
 	manager="stevenpo"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="03/04/2016"
 	ms.author="markvi"/>
 
-# Глоссарий по защите идентификации 
+# Глоссарий по защите идентификации Azure Active Directory 
 
 
 ### Под угрозой (пользователь)	
@@ -164,4 +164,4 @@
 
 - [Защита идентификации Azure Active Directory](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Развертывание экземпляра службы управления Azure API в различных регионах Azure
@@ -22,7 +22,7 @@
 
 При создании службы управления API она содержит только одну [единицу][] и располагается в одном регионе Azure, который считается первичным. Однако через классический портал Azure можно легко добавить дополнительные регионы. В каждом регионе развертывается сервер шлюза управления API, и весь трафик вызовов направляется на ближайший из таких шлюзов. Если регион переходит в автономный режим, трафик автоматически перенаправляется к другому ближайшему шлюзу.
 
-> [AZURE.IMPORTANT]Развертывание в нескольких регионах доступно только для уровня **[Premium][]**.
+> [AZURE.IMPORTANT] Развертывание в нескольких регионах доступно только для уровня **[Premium][]**.
 
 ## <a name="add-region"> </a>Создание экземпляра службы управления API в новом регионе
 
@@ -75,4 +75,4 @@
 [единицу]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

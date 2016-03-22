@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -62,4 +62,4 @@ API и операции можно импортировать за один ша
 [Как импортировать определение API с операциями]: api-management-howto-import-api.md
 [Как создать и настроить расширенные настройки продукта]: api-management-howto-product-with-rules.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

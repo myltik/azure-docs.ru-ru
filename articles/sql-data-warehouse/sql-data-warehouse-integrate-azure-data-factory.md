@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Работа с фабрикой данных Azure и хранилищем данных SQL
 
 Фабрика данных Azure обеспечивает полностью управляемый способ передачи данных и выполнения хранимых процедур в хранилище данных SQL. Благодаря этому настройка и планирование сложных процедур ETL в хранилище данных SQL становятся проще. Более подробный обзор фабрики данных Azure см. в [документации к фабрике данных Azure][].
 
-## Перемещение данных 
+## Перемещение данных
 
 Фабрика Azure данных обеспечивает перемещение данных между локальными источниками и различными службами Azure. В целом текущая интеграция с фабрикой данных Azure поддерживает перемещение данных между следующими источниками:
 
@@ -51,4 +51,4 @@
 [документации к фабрике данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 [Copy data with Azure Data Factory]: https://azure.microsoft.com/ru-RU/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -51,16 +51,18 @@ Solr можно установить в кластере любого типа (
 	![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Использование действия сценария для настройки кластера")
 
 	<table border='1'>
-	<tr><th>Свойство</th><th>Значение</th></tr>
-	<tr><td>Имя</td>
-		<td>Укажите имя для действия сценария. Например, <b>Установить Solr</b>.</td></tr>
-	<tr><td>URI-адрес сценария</td>
-		<td>Укажите URI для сценария, который вызывается для настройки кластера. Например, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i>.</td></tr>
-	<tr><td>Тип узла</td>
-		<td>Укажите узлы, на которых выполняется сценарий настройки. Можно выбрать одно из трех значений: <b>Все узлы</b>, <b>Только головные узлы</b> или <b>Только рабочие узлы</b>.
-	<tr><td>Параметры</td>
-		<td>Укажите параметры, если они требуются для сценария. Сценарий для установки Solr не требует никаких параметров, поэтому можно оставить это поле пустым.</td></tr>
-</table>Можно добавить несколько действий сценария для установки нескольких компонентов в кластере. После добавления скриптов щелкните флажок, чтобы начать создание кластера.
+		<tr><th>Свойство</th><th>Значение</th></tr>
+		<tr><td>Имя</td>
+			<td>Укажите имя для действия сценария. Например, <b>Установить Solr</b>.</td></tr>
+		<tr><td>URI-адрес сценария</td>
+			<td>Укажите URI для сценария, который вызывается для настройки кластера. Например, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i>.</td></tr>
+		<tr><td>Тип узла</td>
+			<td>Укажите узлы, на которых выполняется сценарий настройки. Можно выбрать одно из трех значений: <b>Все узлы</b>, <b>Только головные узлы</b> или <b>Только рабочие узлы</b>.
+		<tr><td>Параметры</td>
+			<td>Укажите параметры, если они требуются для сценария. Сценарий для установки Solr не требует никаких параметров, поэтому можно оставить это поле пустым.</td></tr>
+	</table>
+
+	Можно добавить несколько действий сценария для установки нескольких компонентов в кластере. После добавления скриптов щелкните флажок, чтобы начать создание кластера.
 
 
 ## Использование Solr
@@ -175,7 +177,7 @@ Solr можно установить в кластере любого типа (
 
 Обратитесь к статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell). В этом примере показано, как установить Spark с помощью Azure PowerShell. Необходимо изменить сценарий для использования [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
-## Установка Sole с помощью пакета SDK для .NET
+## Установка Solr с помощью пакета SDK для .NET
 
 Обратитесь к статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). В этом примере показано, как установить Spark с помощью пакета SDK для .NET. Необходимо изменить сценарий для использования [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
@@ -198,4 +200,4 @@ Solr можно установить в кластере любого типа (
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

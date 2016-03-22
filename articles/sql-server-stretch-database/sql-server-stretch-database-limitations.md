@@ -3,9 +3,9 @@
 	description="Узнайте о критических препятствиях, которые необходимо устранить перед включением базы данных Stretch."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -92,4 +92,4 @@
 ## См. также
 [Определение баз данных и таблиц для базы данных Stretch с помощью помощника по базе данных Stretch](sql-server-stretch-database-identify-databases.md) [Включение базы данных Stretch для базы данных](sql-server-stretch-database-enable-database.md) [Включение базы данных Stretch для таблицы](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->
