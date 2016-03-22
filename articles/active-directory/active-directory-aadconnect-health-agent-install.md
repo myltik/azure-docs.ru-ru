@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.date="03/08/2016"
 	ms.author="billmath"/>
 
 
@@ -121,13 +121,31 @@
 
 Чтобы проверить, установлен ли агент, откройте службы и обратите внимание на следующее. Если вы выполнили настройку, эти службы должны работать. В противном случае они не запустятся, пока не будет выполнена настройка.
 
-- Служба AadSync Insights Azure AD Connect Health
-- Служба AadSync Monitoring Azure AD Connect Health
+- Служба Sync Insights Azure AD Connect Health
+- Служба Sync Monitoring Azure AD Connect Health
 
 ![Проверка Azure AD Connect Health для синхронизации](./media/active-directory-aadconnect-health-sync/services.png)
 
 >[Azure.NOTE] Помните, что для использования службы Azure AD Connect Health требуется Azure AD Premium. Если Azure AD Premium отсутствует, вы не сможете завершить конфигурацию на портале Azure. Дополнительные сведения о требованиях см. [здесь](active-directory-aadconnect-health.md#requirements).
 
+
+## Регистрация агента Azure AD Connect Health для синхронизации вручную
+Если после успешной установки Azure AD Connect произойдет сбой регистрации агента Azure AD Connect Health для синхронизации, можно использовать следующую команду PowerShell, чтобы зарегистрировать агент вручную.
+
+>[AZURE.IMPORTANT] Использование этой команды PowerShell необходимо только в том случае, если после установки Azure AD Connect произошел сбой регистрации агента.
+
+Приведенная ниже команда PowerShell требуется, ТОЛЬКО если регистрация агента работоспособности завершается сбоем даже после успешной установки и настройки Azure AD Connect. В таких случаях службы Azure AD Connect Health НЕ запустятся, пока агент не будет успешно зарегистрирован.
+ 	
+Агент Azure AD Connect Health для синхронизации можно зарегистрировать вручную с помощью следующей команды PowerShell:
+
+`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $false -StagingMode $false`
+
+Команда принимает следующие параметры:
+
+- AttributeFiltering. Значение $true (по умолчанию) используется, если служба Azure AD Connect не синхронизирует набор атрибутов по умолчанию и была настроена для использования отфильтрованного набора атрибутов. В противном случае используется значение $false.
+- StagingMode. Значение $false (по умолчанию) используется, если сервер Azure AD Connect НЕ находится в промежуточном режиме, $true — если сервер настроен на пребывание в промежуточном режиме.
+ 
+При появлении запроса на проверку подлинности следует использовать ту же учетную запись глобального администратора (например, admin@domain.onmicrosoft.com), которая использовалась для настройки Azure AD Connect.
 
 
 
@@ -206,4 +224,4 @@
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

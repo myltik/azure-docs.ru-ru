@@ -23,8 +23,8 @@
 - [.Net](web-sites-dotnet-get-started.md)
 - [Node.js](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [PHP — Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP — FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
 В этом учебнике описывается, как создать веб-приложение PHP-MySQL и развернуть его в [службе приложений](http://go.microsoft.com/fwlink/?LinkId=529714) с помощью Git. Вы будете использовать [PHP][install-php], средство командной строки MySQL (которое входит в состав [MySQL][install-mysql]) и [Git][install-git], установленный на компьютере. Инструкции, приведенные в этом учебнике, применимы к любой операционной системе, включая Windows, Mac и Linux. По завершении работы с этим учебником у вас будет работающее в Azure веб-приложение PHP-MySQL.
@@ -33,6 +33,7 @@
 
 * Как создать веб-приложение и базу данных MySQL с помощью [портала Azure](https://portal.azure.com). Поскольку модуль PHP включен в [веб-приложениях службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714) по умолчанию, никаких дополнительных действий для выполнения кода PHP не требуется.
 * Как опубликовать и повторно опубликовать свое приложение в Azure с помощью Git.
+* Как включить расширение Composer для автоматизации задач Composer при каждой операции `git push`.
 
 Руководствуясь этим учебником, вы создадите на языке PHP простое веб-приложение для регистрации. Это приложение будет размещено в веб-приложениях. Снимок экрана завершенного приложения приведен ниже:
 
@@ -213,7 +214,7 @@
 
 		php -S localhost:8000
 
-Теперь можно перейти к **http://localhost:8000/** для тестирования приложения.
+Теперь можно перейти к ****http://localhost:8000/** для тестирования приложения.
 
 
 ##Публикация приложения
@@ -264,6 +265,27 @@
 
 >[AZURE.NOTE] Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
+<a name="composer">
+## Включение расширения Composer для автоматизации задач Composer
+
+По умолчанию процесс развертывания git в службе приложений не выполняет никаких действий с файлом composer.json, если он есть в проект PHP. Чтобы включить обработку composer.json во время операции `git push`, активируйте расширение Composer.
+
+1. На [портале Azure](https://portal.azure.com) в колонке веб-приложения PHP щелкните **Средства** > **Расширения**.
+
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png)
+
+2. Щелкните **Добавить**, а затем — **Composer**.
+
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png)
+    
+3. Щелкните **ОК**, чтобы принять условия использования. Щелкните **ОК** еще раз, чтобы добавить расширение.
+
+    В колонке **Установленные расширения** появится расширение Composer. ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    
+4. Теперь выполните операции `git add`, `git commit` и `git push`, как в предыдущем разделе. Вы увидите, что расширение Composer устанавливает зависимости, определенные в файле composer.json.
+
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png)
+
 ## Дальнейшие действия
 
 Дополнительные сведения можно найти в [Центре разработчика PHP](/develop/php/).
@@ -303,4 +325,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->
