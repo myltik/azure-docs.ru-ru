@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/06/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Архитектура служебной шины
@@ -69,4 +69,4 @@
 - [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Решение для обмена сообщениями в очереди при помощи очередей служебной шины](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

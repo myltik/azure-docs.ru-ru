@@ -81,7 +81,7 @@
 	- **name**. Имя ресурса. Обратите внимание на фрагмент кода **[parameters('applicationGatewayName')]**. Он означает, что имя будет предоставлено пользователем или взято из файла параметров в процессе развертывания.
 	- **properties**. Список свойств для ресурса. Во время создания шлюза приложений этот шаблон использует виртуальную сеть и общедоступный IP-адрес.
 
-7. Вернитесь на страницу https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
+7. Вернитесь на страницу https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/.
 8. Щелкните **azuredeploy paremeters.json** и нажмите кнопку **RAW**.
 9. Сохраните файл в локальную папку на своем компьютере.
 10. Откройте только что сохраненный файл и измените значения параметров. Чтобы развернуть шлюз приложений в соответствии с задачами этого руководства, используйте приведенные ниже значения.
@@ -284,4 +284,4 @@
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # Учебник. Создание конвейера с действием копирования с помощью Azure PowerShell
@@ -22,7 +22,7 @@
 - [Редактор фабрики данных](data-factory-get-started-using-editor.md)
 - [Visual Studio](data-factory-get-started-using-vs.md)
 - [PowerShell](data-factory-monitor-manage-using-powershell.md)
-
+- [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
 
 В учебнике [Начало работы с фабрикой данных Azure][adf-get-started] рассматривается создание и мониторинг фабрики данных Azure при помощи [портала Azure][azure-portal]. В этом учебнике создается и отслеживается фабрика данных Azure с помощью командлетов Azure PowerShell. Конвейер в фабрике данных, который вы создадите в ходе изучения этого руководства, копирует данные из двоичного объекта Azure в базу данных SQL Azure с помощью действия копирования.
 
@@ -447,4 +447,4 @@
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->
