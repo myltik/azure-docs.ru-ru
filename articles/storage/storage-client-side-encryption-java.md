@@ -247,4 +247,4 @@
 	- [Клиентский](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) пакет.
 - Просмотрите [документацию по хранилищу ключей Azure](../key-vault/key-vault-whatis.md).  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
