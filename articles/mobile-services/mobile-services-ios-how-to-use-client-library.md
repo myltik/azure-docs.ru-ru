@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Использование клиентской библиотеки iOS для мобильных служб Azure
@@ -27,7 +27,7 @@
 
 В этом руководстве показано, как реализовать типичные сценарии с использованием [пакета SDK iOS] для мобильных служб Azure. Если вы еще не работали с мобильными службами, сначала изучите [краткий учебник по мобильным службам], чтобы научиться настраивать учетную запись, а также создавать таблицу и мобильную службу.
 
-> [AZURE.NOTE]В этом руководстве используется последняя версия [пакета SDK iOS для мобильных служб](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Если в проекте используется пакет SDK предыдущей версии, сначала обновите платформу в Xcode.
+> [AZURE.NOTE] В этом руководстве используется последняя версия [пакета SDK iOS для мобильных служб](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Если в проекте используется пакет SDK предыдущей версии, сначала обновите платформу в Xcode.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -97,7 +97,13 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
-`MSQuery` позволяет контролировать некоторые настройки запросов, включая следующие. Выполните запрос `MSQuery` путем вызова в нем `readWithCompletion`, как показано в следующем примере. * Задание порядка результатов. * Ограничение возвращаемых полей. * Ограничение количества возвращаемых записей. * Указание общего количества в ответе. * Задание строковых параметров настраиваемого запроса. * Применение дополнительных функций.
+`MSQuery` позволяет контролировать некоторые настройки запросов, включая следующие. Выполнение запроса `MSQuery` путем вызова в нем метода `readWithCompletion`, как показано в следующем примере.
+* Задание порядка результатов
+* Ограничение возвращаемых полей
+* Ограничение количества возвращаемых записей
+* Указание общего количества в ответе
+* Указание в запросе настраиваемых параметров строки запроса
+* Применение дополнительных функций
 
 
 ## <a name="sorting"></a>Практическое руководство. Сортировка данных с помощью MSQuery
@@ -336,4 +342,4 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [статье об обработчике конфликтов]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

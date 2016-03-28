@@ -3,8 +3,8 @@
 	description="Пример кода на языке C# включает логику повторных попыток для надежного взаимодействия с Базой данных SQL Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # Пример кода: логика повторов в C# для подключения к базе данных SQL
@@ -286,4 +286,4 @@ filetable_updates_2105058535    2105058535
 
 - [Руководство по базам данных SQL. Создание Базы данных SQL с помощью C# и библиотеки Базы данных SQL для .NET](sql-database-get-started-csharp.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

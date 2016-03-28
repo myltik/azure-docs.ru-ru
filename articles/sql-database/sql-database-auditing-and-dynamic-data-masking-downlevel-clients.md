@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="База данных SQL — поддержка клиентов прежних версий для аудита | Microsoft Azure" 
-	description="Сведения о поддержке клиентов прежних версий баз данных SQL для аудита." 
+	description="Узнайте о поддержке клиентов прежних версий баз данных SQL для аудита." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="11/12/2015" 
-	ms.author="nadavhelfman; ronitr"/>
+	ms.author="nadavh;ronitr"/>
  
 # База данных SQL — поддержка клиентов прежних версий для аудита
 
@@ -38,4 +38,4 @@
 
 **Примечание.** Описанное выше изменение полного доменного имени сервера можно использовать также для применения политики аудита уровня SQL Server без необходимости настройки в каждой базе данных (временное устранение рисков).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0316_2016-->

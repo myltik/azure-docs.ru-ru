@@ -1,21 +1,21 @@
-<properties 
- pageTitle="Высокая доступность и надежность планировщика" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Высокая доступность и надежность планировщика"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
- 
+
+
 # Высокая доступность и надежность планировщика
 
 ## Высокая доступность планировщика Azure
@@ -63,7 +63,7 @@
 ## См. также
 
  [Что такое планировщик?](scheduler-intro.md)
- 
+
  [Основные понятия, терминология и иерархия сущностей планировщика Azure](scheduler-concepts-terms.md)
 
  [Приступая к работе с планировщиком Azure на портале Azure](scheduler-get-started-portal.md)
@@ -79,12 +79,10 @@
  [Ограничения, значения по умолчанию и коды ошибок планировщика Azure](scheduler-limits-defaults-errors.md)
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
- 
- 
+
+
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

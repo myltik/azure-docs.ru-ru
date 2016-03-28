@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="02/07/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Авторизация пользователей на стороне службы в мобильных службах
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> [AZURE.SELECTOR]
+- [Сервер .NET.](mobile-services-dotnet-backend-service-side-authorization.md)
+- [Серверная служба JavaScript](mobile-services-javascript-backend-service-side-authorization.md)
 
 &nbsp;
 
-
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [How to: Restrict data access for authorized users](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#authorize), ссылка на которую приведена в статье "Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure".
 
 В этом разделе показано, как использовать логику на стороне сервера для авторизации пользователей. В этом учебнике описывается изменение контролеров таблицы, фильтрация запросов на основе идентификаторов пользователей и предоставление пользователям доступа только к их данным. Фильтрация результатов запроса по идентификатору пользователя — это самая простая форма авторизации. В зависимости от конкретного сценария вам также может потребоваться создать таблицы пользователей или ролей для отслеживания более подробных сведений авторизации пользователей, например конечных точек, к которым данному пользователю разрешен доступ.
 
@@ -84,4 +83,4 @@
 <!-- URLs. -->
 [Добавление проверки подлинности в существующее приложение мобильных служб]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

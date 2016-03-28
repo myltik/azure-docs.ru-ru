@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="02/22/2016"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
-# Устранение проблем совместимости Базы данных SQL Server с SSMS перед миграцией в Базу данных SQL
+# Устранение проблем совместимости Базы данных SQL Server перед миграцией в Базу данных SQL
 
 Существует несколько способов решения обнаруженных проблем совместимости исходной Базы данных SQL Server.
 
 > [AZURE.SELECTOR]
-- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
-- Use [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-- Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+- С помощью [мастера миграции SQL Azure (SAMW)](sql-database-cloud-migrate-fix-compatibility-issues.md)
+- Использование [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- Использование [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
 
 ## Использование среды SQL Server Management Studio
 
@@ -33,4 +33,4 @@
 
 [Выберите метод миграции](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

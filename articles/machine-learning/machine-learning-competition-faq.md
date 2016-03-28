@@ -3,7 +3,7 @@
 	description="Часто задаваемые вопросы о конкурсах Машинного обучения Microsoft Azure."
 	services="machine-learning"
 	documentationCenter=""
-	authors="garyericson"
+	authors="hning86"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
 # Часто задаваемые вопросы о конкурсе Машинного обучения Microsoft Azure
@@ -70,4 +70,4 @@
 
 Если вы победите в конкурсе, вам будет необходимо подписать заявление о соответствии требованиям, лицензию и форму освобождения от ответственности. Эта форма подтверждает правила конкурса. Победителям потребуется заполнить налоговую форму W-9 или форму W-8BEN, если они не платят налоги в США.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

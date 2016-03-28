@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/09/2015" 
+	ms.date="03/15/2016" 
 	ms.author="genemi"/>
 
 
@@ -35,7 +35,7 @@
 
 - Transact-SQL:
  - назначение контейнера хранилища Azure для целевого файла событий;
- - создание и запуск сеанса событий и т. д.
+ - создание и запуск сеанса событий и т. д.
 
 
 ## Предварительные требования
@@ -597,4 +597,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

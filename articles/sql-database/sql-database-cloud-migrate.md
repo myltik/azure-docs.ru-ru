@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="01/05/2016"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Миграция базы данных SQL Server в базу данных SQL в облаке
@@ -47,16 +47,16 @@
 Корпорация Майкрософт предоставляет несколько методов переноса совместимой базы данных SQL Server для различных сценариев. Выбор способа зависит от допустимости простоев, размера и сложности базы данных SQL Server и вашего подключения к облаку Microsoft Azure.
 
 > [AZURE.SELECTOR]
-- [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-- [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-- [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+- [Мастер миграции SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [Экспорт в BACPAC-файл](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Импорт из BACPAC-файла](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Репликация транзакций](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
 Первый вопрос, который нужно задать для выбора метода переноса, — можно ли вывести базу данных из рабочего режима на время переноса. Миграция базы данных при наличии активных транзакций может привести к несогласованности баз данных и повреждению базы данных. Существует множество методов замораживания базы данных — от запрета подключения клиента до создания [моментального снимка базы данных](https://msdn.microsoft.com/library/ms175876.aspx).
 
 Для переноса с минимальным временем простоя используйте [репликацию транзакций SQL Server](sql-database-cloud-migrate-compatible-using-transactional-replication.md), если база данных соответствует требованиям для репликации транзакций. Если вы можете позволить себе некоторое время простоя или выполняете тестовую миграцию рабочей базы данных для последующей полноценной миграции, воспользуйтесь одним из следующих трех методов.
 
-- [Мастер миграции SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md). Для переноса малых и средних совместимых баз данных SQL Server 2005 или более поздних версий достаточно запустить [мастер по развертыванию базы данных в Базе данных Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md) в среде SQL Server Management Studio.
+- [Мастер миграции SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md). Для переноса малых и средних совместимых баз данных SQL Server 2005 или более поздних версий достаточно запустить [мастер по развертыванию базы данных в Базе данных Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md) в среде SQL Server Management Studio.
 - [Экспорт в файл BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) и последующий [Импорт из файла BACPAC](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md). При наличии проблем подключения (отсутствие подключения, низкая пропускная способность или проблемы с тайм-аутом), а также для средних и больших баз данных используйте файл [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4). При выборе этого метода схема и данные базы данных SQL Server экспортируются в файл BACPAC, а затем файл BACPAC импортируется в Базу данных SQL с использованием мастера экспорта приложений уровня данных в SQL Server Management Studio или программы командной строки [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx).
 - Совместное использование BACPAC и BCP. Используйте файл [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) и [BCP](https://msdn.microsoft.com/library/ms162802.aspx) для больших баз данных для достижения более высокого уровня параллельной обработки с целью увеличения производительности, пусть и за счет увеличения сложности. С помощью этого метода выполните перенос схемы и данных отдельно.
  - [Экспортируйте только схему в файл BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md).
@@ -65,4 +65,4 @@
 
 	 ![Миграция базы данных SQL Server — миграция базы данных SQL в облако](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

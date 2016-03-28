@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -30,7 +30,7 @@
 ## Предварительные требования
 
 
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/)
+- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/)
 
 
 ### Установка необходимых модулей
@@ -40,7 +40,7 @@
 
 Убедитесь, что выбран правильный файл WHL.
 
-Например, если вы используете Python 2.7 на 64-разрядном компьютере, выберите файл pymssql‑2.1.1‑cp27‑none‑win\_amd64.whl. После загрузки файла WHL разместите его в папке C:/Python27.
+Например, если вы используете Python 2.7 на 64-разрядном компьютере, выберите файл pymssql‑2.1.1‑cp27‑none‑win\_amd64.whl. После загрузки файла WHL разместите его в папке C:/Python27.
 
 Теперь установите драйвер pymssql с помощью pip из командной строки. Перейдите в каталог C:/Python27 и выполните следующую команду:
 
@@ -84,7 +84,7 @@
 
 ## Шаг 4. Вставка строки
 
-В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от [внедрения кода SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
+В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от внедрения кода SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	import pymssql
@@ -121,4 +121,4 @@
 
 Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

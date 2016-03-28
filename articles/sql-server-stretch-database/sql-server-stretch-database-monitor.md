@@ -33,9 +33,17 @@
 Откройте динамическое административное представление **sys.dm\_db\_rda\_migration\_status**, чтобы увидеть, сколько пакетов и строк данных было перенесено. Дополнительные сведения см. в разделе [sys.dm\_db\_rda\_migration\_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
 ## <a name="Firewall"></a>Устранение неполадок переноса данных
+**Брандмауэр Azure блокирует подключения из моего локального сервера.**
+
+Может потребоваться добавить правило в параметрах брандмауэра Azure на сервере Azure, чтобы разрешить SQL Server взаимодействовать с удаленным сервером Azure.
+
+**Строки из таблицы, совместимой со Stretch, не переносятся в Azure. В чем заключается проблема?**
+
 На перенос может повлиять несколько проблем. Проверьте следующее.
 
 -   Проверьте сетевое подключение к компьютеру с SQL Server.
+
+-   Убедитесь, что брандмауэр Azure не запрещает SQL Server подключаться к удаленной конечной точке.
 
 -   В динамическом административном представлении **sys.dm\_db\_rda\_migration\_status** проверьте состояние последнего пакета. Если произошла ошибка, проверьте значения error\_number, error\_state и error\_severity для пакета.
 
@@ -44,9 +52,10 @@
     -   Дополнительные сведения о содержимом сообщения об ошибке SQL Server см. в разделе [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
 
 ## См. также
+
 [Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
 
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

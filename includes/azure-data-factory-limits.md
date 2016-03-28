@@ -5,10 +5,10 @@
 конвейеров в фабрике данных | 100 | 2500
 наборов данных в фабрике данных | 500 | 5000
 параллельных срезов на набор данных | 10 | 10
-байтов на объект для объектов pipeline <sup>1</sup> | 200 КБ | 2000 KB
+байтов на объект для объектов pipeline <sup>1</sup> | 200 КБ | 2000 KB
 байтов на объект для объектов dataset и linkedservice <sup>1</sup> | 30 КБ | 2000 KB
 полей на объект | 100 | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-байтов в поле имени или идентификатора | 2 КБ | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+байтов в поле имени или идентификатора | 2 КБ | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 байтов в поле | 30 КБ | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 Ядер кластера HDInsight по запросу в подписке <sup>2</sup> | 48 | [Обратитесь в службу поддержки.](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 Число повторных попыток выполнить действие конвейера | 1000 | MaxInt (32 разряда)
@@ -27,6 +27,6 @@
 
 ### Ограничения вызова веб-служб
 
-Для диспетчера ресурсов Azure действуют ограничения для вызовов API. Можно вызывать API с частотой, соответствующей [ограничениям API диспетчера ресурсов Azure](azure-subscription-service-limits/#resource-group-limits).
+Для диспетчера ресурсов Azure действуют ограничения для вызовов API. Можно вызывать API с частотой, соответствующей [ограничениям API диспетчера ресурсов Azure](../articles/azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

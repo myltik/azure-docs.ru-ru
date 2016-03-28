@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Перенос решения в хранилище данных SQL
@@ -45,11 +45,11 @@
 
 [Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
 [Сведения о загрузке]: sql-data-warehouse-overview-load.md
-[Справка по Transact-SQL]: sql-data-warehouse-overview-migrate.md
+[Справка по Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

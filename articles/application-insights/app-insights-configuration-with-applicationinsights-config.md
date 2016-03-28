@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="03/12/2016" 
 	ms.author="awills"/>
 
 # Настройка пакета SDK для Application Insights с использованием файла ApplicationInsights.config или ApplicationInsights.xml
@@ -54,7 +54,7 @@
 
 ### Телеметрия диагностики Application Insights
 
-`DiagnosticsTelemetryModule` информирует об ошибках в самом коде инструментирования Application Insights, например, если код не может получить доступ к счетчикам производительности или `ITelemetryInitializer` вызывает исключение. Телеметрия трассировки, собранная этим модулем, отображается в результатах [диагностического поиска][diagnostic].
+`DiagnosticsTelemetryModule` информирует об ошибках в самом коде инструментирования Application Insights, например, если код не может получить доступ к счетчикам производительности или `ITelemetryInitializer` вызывает исключение. Телеметрия трассировки, собранная этим модулем, отображается в результатах [диагностического поиска][diagnostic]. Отправляет диагностические данные по адресу dc.services.vsallin.net.
  
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
 * Пакет NuGet [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights). Если просто установить этот пакет, файл ApplicationInsights.config не создается автоматически. 
@@ -85,9 +85,9 @@
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` отслеживает необработанные исключения для рабочих ролей, служб Windows и консольных приложений.
 * Пакет NuGet [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
-### Основной API
+### Microsoft.ApplicationInsights
 
-Основной пакет содержит [основной API](https://msdn.microsoft.com/library/mt420197.aspx) пакета SDK. Его используют другие модули телеметрии, кроме того, вы можете [использовать его для определения собственной телеметрии](app-insights-api-custom-events-metrics.md).
+Пакет Microsoft.ApplicationInsights предоставляет [основной API](https://msdn.microsoft.com/library/mt420197.aspx) пакета SDK. Его используют другие модули телеметрии, кроме того, вы можете [использовать его для определения собственной телеметрии](app-insights-api-custom-events-metrics.md).
 
 * Нет записей в файле ApplicationInsights.config.
 * Пакет NuGet [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights). Если просто установить этот пакет NuGet, CONFIG-файл не создается.
@@ -123,12 +123,14 @@
  - `Language` получает значение, соответствующее имени `CurrentCulture`.
 * `DomainNameRoleInstanceTelemetryInitializer` обновляет свойства `RoleInstance` контекста `Device` для всех элементов телеметрии с учетом доменного имени компьютера, на котором выполняется веб-приложение.
 * `OperationNameTelemetryInitializer`обновляет свойство `Name` контекста `RequestTelemetry` и свойство `Name` контекста `Operation` всех элементов телеметрии в соответствии с методом HTTP, а также именами контроллера MVC ASP.NET и действия, вызываемого для обработки запроса.
-* `OperationIdTelemetryInitializer` обновляет свойство контекста `Operation.Id` всех элементов телеметрии, отслеживаемых при обработке запроса с автоматически созданным `RequestTelemetry.Id`.
+* `OperationIdTelemetryInitializer` или `OperationCorrelationTelemetryInitializer` обновляет свойство контекста `Operation.Id` всех элементов телеметрии, отслеживаемых при обработке запроса с автоматически созданным `RequestTelemetry.Id`.
 * `SessionTelemetryInitializer` обновляет свойство `Id` контекста `Session` для всех элементов телеметрии со значениями, извлеченными из файла cookie `ai_session`, созданного кодом JavaScript инструментирования Application Insights, который выполняется в браузере пользователя. 
-* `SyntheticTelemetryInitializer` обновляет свойства контекстов `User`, `Session` и `Operation` элементов телеметрии, отслеживаемых при обработке запроса от искусственного источника, например теста доступности или программы-робота поисковой системы. По умолчанию [обозреватель метрик](app-insights-metrics-explorer.md) не отображает данные телеметрии искусственных источников.
+* `SyntheticTelemetryInitializer` или `SyntheticUserAgentTelemetryInitializer` обновляет свойства контекстов `User`, `Session` и `Operation` элементов телеметрии, отслеживаемых при обработке запроса от искусственного источника, например теста доступности или программы-робота поисковой системы. По умолчанию [обозреватель метрик](app-insights-metrics-explorer.md) не отображает данные телеметрии искусственных источников. 
+
+    `<Filters>` задает идентификационные свойства запросов.
 * `UserAgentTelemetryInitializer` обновляет свойство `UserAgent` контекста `User` всех элементов телеметрии в соответствии с HTTP-заголовком запроса `User-Agent`.
 * `UserTelemetryInitializer` обновляет свойства `Id` и `AcquisitionDate` контекста `User` для всех элементов телеметрии со значениями, извлеченными из файла cookie `ai_user`, созданного кодом JavaScript инструментирования Application Insights, который выполняется в браузере пользователя.
-
+* `WebTestTelemetryInitializer` задает идентификатор пользователя, идентификатор сеанса и свойства искусственного источника для HTTP-запросов, поступающих из [тестов доступности](app-insights-monitor-web-app-availability.md). `<Filters>` задает идентификационные свойства запросов.
 
 ## Обработчики данных телеметрии (ASP.NET)
 
@@ -285,4 +287,4 @@
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -227,7 +227,7 @@ type | Для свойства type необходимо задать значе
 connectionString | В свойстве connectionString указываются сведения, необходимые для подключения к экземпляру базы данных Oracle. | Да 
 gatewayName | Имя шлюза, который будет использоваться для подключения к локальному серверу Oracle. | Да
 
-Подробную информацию о настройке учетных данных для локального источника данных Oracle см. в разделе [Настройка учетных данных и безопасность](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+Подробную информацию о настройке учетных данных для локального источника данных Oracle см. в разделе [Настройка учетных данных и безопасность](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 ## Свойства типа "Набор данных Oracle"
 
 Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Создание наборов данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (Oracle, BLOB-объекты Azure, таблицы Azure и т. д.).
@@ -312,4 +312,4 @@ XML | Строка
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

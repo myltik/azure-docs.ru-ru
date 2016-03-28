@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -83,7 +83,7 @@ Older Selector technique, with dynamic drop-down lists.
 
 ## Шаг 2. Подключение
 
-Функция [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) используется для подключения к базе данных SQL.
+Функция [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) используется для подключения к Базе данных SQL.
 
     require 'tiny_tds'
     client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
@@ -110,7 +110,7 @@ Older Selector technique, with dynamic drop-down lists.
 
 ## Шаг 4. Вставка строки
 
-В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от [внедрения кода SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
+В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от внедрения кода SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
 
 Чтобы использовать TinyTDS с Azure, рекомендуем выполнить несколько инструкций `SET`, чтобы изменить способ обработки определенной информации в текущем сеансе. Рекомендуемые инструкции `SET` предоставлены в примере кода. Например, инструкция `SET ANSI_NULL_DFLT_ON` позволяет использовать нулевые значения в новых столбцах, даже если допустимость нулевых значений в столбце не указана явным образом.
 
@@ -137,4 +137,4 @@ Older Selector technique, with dynamic drop-down lists.
     puts row
     end
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

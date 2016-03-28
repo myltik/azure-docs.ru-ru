@@ -1,8 +1,8 @@
 ## Отправка сообщений в центры событий
 
-В этом разделе мы напишем консольное приложение Java для отправки событий в центр событий. Мы будем использовать поставщик JMS AMQP из [проекта Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке Java, как показано [здесь](../service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Дополнительные сведения см. в [документации по Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) и [службе сообщений Java](http://www.oracle.com/technetwork/java/jms/index.html).
+В этом разделе мы создадим консольное приложение Java для отправки событий в концентратор событий. Мы будем использовать поставщик JMS AMQP из [проекта Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP с помощью Java, как показано [здесь](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Дополнительные сведения см. в [документации по Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) и описании [Java Messaging Service](http://www.oracle.com/technetwork/java/jms/index.html).
 
-1. В Eclipse установите [набор средств Azure для Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx), в том числе клиентские библиотеки Qpid JMS AMQP.
+1. В Eclipse установите [набор средств Azure для Eclipse](../articles/azure-toolkit-for-eclipse.md), в том числе клиентские библиотеки Qpid JMS AMQP.
 
 2. В Eclipse создайте новый проект Java с именем **Sender**.
 
@@ -92,4 +92,4 @@
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0316_2016-->

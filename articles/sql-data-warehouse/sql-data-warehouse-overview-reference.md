@@ -20,13 +20,10 @@
 
 Приведенные ниже статьи содержат справочные сведения о хранилище данных SQL.
 
-[Элементы языка Transact-SQL][]
-
-[Инструкции Transact-SQL][]
-
-[Системные представления Transact-SQL][]
-
-[Командлеты PowerShell][]
+- [Элементы языка Transact-SQL][]
+- [Инструкции Transact-SQL][]
+- [Системные представления Transact-SQL][]
+- [Командлеты PowerShell][]
 
 
 
@@ -45,4 +42,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

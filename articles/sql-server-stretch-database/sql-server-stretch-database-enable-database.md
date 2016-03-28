@@ -128,8 +128,9 @@ GO
 -   [Выполняйте резервное копирование и восстановление баз данных, для которых включено растяжение](sql-server-stretch-database-backup.md)
 
 ## См. также
+
 [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md)
 
 [Параметры ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

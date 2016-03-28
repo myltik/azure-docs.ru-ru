@@ -407,6 +407,7 @@ GO
 Чтобы проверить предикат фильтра, который применяется к таблице, откройте представление каталога **sys.remote\_data\_archive\_tables** и проверьте значение столбца **filter\_predicate**. Если значение равно null, то может архивироваться вся таблица. Дополнительные сведения см. в разделе [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## См. также
+
 [Инструкция ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

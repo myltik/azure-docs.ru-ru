@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="03/14/2016" 
 	ms.author="mimig"/>
 
 # Основные сведения о технологиях NoSQL в Azure
@@ -32,4 +32,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

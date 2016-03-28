@@ -78,7 +78,7 @@
 
 7. В области файла MainPage.cs, помеченной как `Offline sync`, раскомментируйте методы `InitLocalStoreAsync` и `SyncAsync`. Метод `InitLocalStoreAsync` инициализирует контекст синхронизации клиента с хранилищем SQLite. В Visual Studio можно выбрать все закомментированные строки и использовать клавиши **Ctrl**+**K**+**U**, чтобы раскомментировать их.
 
-	Обратите внимание, что в `SyncAsync` операция отправки выполняется для `MobileServiceClient.SyncContext`, а не `IMobileServicesSyncTable`. Это вызвано тем, что контекст отслеживает изменения, внесенные клиентом, для всех таблиц. Это позволяет реализовать сценарии, где существуют связи между таблицами. Подробнее об этом поведении см. в разделе [Автономная синхронизация данных в мобильных приложениях Azure].
+	Обратите внимание, что в `SyncAsync` операция отправки выполняется для `MobileServiceClient.SyncContext`, а не `IMobileServicesSyncTable`. Это вызвано тем, что контекст отслеживает изменения, внесенные клиентом, для всех таблиц. Подробнее об этом поведении см. в разделе [Автономная синхронизация данных в мобильных приложениях Azure].
 
         private async Task InitLocalStoreAsync()
         {
@@ -271,4 +271,4 @@
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: приложения с поддержкой автономного режима в мобильных службах Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

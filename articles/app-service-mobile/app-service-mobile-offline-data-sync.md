@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/14/2016"
 	ms.author="wesmc"/>
 
 # Автономная синхронизация данных в мобильных приложениях Azure
@@ -58,26 +58,7 @@
 
 *Контекст синхронизации* связан с объектом мобильного клиента (таким как `IMobileServiceClient` или `MSClient`) и отслеживает изменения, внесенные таблицей синхронизации. Контекст синхронизации обеспечивает *очередь операций*, содержащую упорядоченный список операций CUD (Create, Update, Delete — создание, обновление, удаление), которые позднее будут отправлены на сервер.
 
-Локальное хранилище связано с контекстом синхронизации посредством метода инициализации, например `IMobileServicesSyncContext.InitializeAsync(localstore)`, в пакете SDK для клиента .NET.
-
-<!-- TODO: link to client references -->
-
-
-<!--
-Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` along with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
-
-The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization.
-
-
-
-* The data objects on the client should have some system properties, most are not required.
-	* Managed
-		* Write out the attributes
-	* iOS
-		*table for the entity
-* Note: because the iOS local store is based on Core Data, the developer must define the following tables:
-	* System tables  -->
-
+Локальное хранилище связано с контекстом синхронизации посредством метода инициализации, например `IMobileServicesSyncContext.InitializeAsync(localstore)`, в [клиентском пакете SDK для .NET].
 
 ## Как работает автономная синхронизация
 
@@ -89,9 +70,9 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 
 * **Неявные отправки**: если для таблицы с ожидающими локальными обновлениями выполняется извлечение, сначала будет выполнена отправка в контексте синхронизации. Это позволяет свести к минимуму конфликты между изменениями, которые уже поставлены в очередь, и новыми данными с сервера.
 
-* **Добавочная синхронизация**: первый параметр операции извлечения — *имя запроса*, которое используется только на стороне клиента. Если используется имя запроса, отличное от NULL, пакет SDK для мобильных приложений Azure выполнит *добавочную синхронизацию*. Каждый раз, когда операция извлечения возвращает набор результатов, последняя метка времени `__updatedAt` из этого набора сохраняется в таблицах локальной системы пакета SDK. Последующие операции извлечения будут получать только записи после этой метки времени.
+* **Добавочная синхронизация**: первый параметр операции извлечения — *имя запроса*, которое используется только на стороне клиента. Если используется имя запроса, отличное от NULL, пакет SDK для мобильных приложений Azure выполнит *добавочную синхронизацию*. Каждый раз, когда операция извлечения возвращает набор результатов, последняя метка времени `updatedAt` из этого набора сохраняется в таблицах локальной системы пакета SDK. Последующие операции извлечения будут получать только записи после этой метки времени.
 
-  Для использования добавочной синхронизации ваш сервер должен возвращать осмысленные значения `__updatedAt`, а также поддерживать сортировку по этому полю. Но так как пакет SDK добавляет собственную сортировку по полю updatedAt, нельзя использовать запрос на извлечение, в котором есть собственное предложение `$orderBy$`.
+  Для использования добавочной синхронизации ваш сервер должен возвращать осмысленные значения `updatedAt`, а также поддерживать сортировку по этому полю. Но так как пакет SDK добавляет собственную сортировку по полю updatedAt, нельзя использовать запрос на извлечение, в котором есть собственное предложение `$orderBy$`.
 
   Именем запроса может быть любая строка на ваш выбор, но оно должно быть уникальным для каждого логического запроса в приложении. В противном случае разные операции извлечения могут перезаписать одну и ту же метку времени добавочной синхронизации, и запросы могут возвращать неправильные результаты.
 
@@ -100,11 +81,6 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 		await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
 
   Если вы хотите явно отказаться от добавочной синхронизации, передайте `null` в качестве идентификатора запроса. В этом случае при каждом вызове `PullAsync` будут извлекаться все записи, что может снижать уровень производительности.
-
-
-
-<!--   mymobileservice-code.azurewebsites.net/tables/TodoItem?$filter=(__updatedAt ge datetimeoffset'1970-01-01T00:00:00.0000000%2B00:00')&$orderby=__updatedAt&$skip=0&$top=50&__includeDeleted=true&__systemproperties=__updatedAt%2C__deleted
- -->
 
 * **Очистка**: можно очистить локальное хранилище с помощью `IMobileServiceSyncTable.PurgeAsync`. Это может потребоваться, если в базе данных клиента есть устаревшие данные или вы хотите отменить все ожидающие изменения.
 
@@ -120,11 +96,11 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 * [Windows 8.1: включение автономной синхронизации]
 
 <!-- Links -->
+[клиентском пакете SDK для .NET]: app-service-mobile-dotnet-how-to-use-client-library.md
+[Android: включение автономной синхронизации]: app-service-mobile-android-get-started-offline-data.md
+[iOS: включение автономной синхронизации]: app-service-mobile-ios-get-started-offline-data.md
+[Xamarin iOS: включение автономной синхронизации]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android: включение автономной синхронизации]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Windows 8.1: включение автономной синхронизации]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-[Android: включение автономной синхронизации]: ../app-service-mobile-android-get-started-offline-data.md
-[iOS: включение автономной синхронизации]: ../app-service-mobile-ios-get-started-offline-data.md
-[Xamarin iOS: включение автономной синхронизации]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Xamarin Android: включение автономной синхронизации]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Windows 8.1: включение автономной синхронизации]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

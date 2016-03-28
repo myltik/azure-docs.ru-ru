@@ -431,7 +431,7 @@
 	     } 
 	}
 
-Дополнительную информацию о настройке учетных данных для источника данных SQL Server см. в разделе [Настройка учетных данных и безопасность](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+Дополнительную информацию о настройке учетных данных для источника данных SQL Server см. в разделе [Настройка учетных данных и безопасность](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 
 ## Свойства типов наборов данных в SQL Server
 
@@ -637,4 +637,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

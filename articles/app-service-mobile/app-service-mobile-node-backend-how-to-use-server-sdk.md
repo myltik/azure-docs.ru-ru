@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -642,23 +642,23 @@ Microsoft Azure предоставляет множество механизмо
 	    // Send a push notification using APNS.
         context.push.apns.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error. 
-	        }           
+                // Do something or log the error.
+	        }
         });
     }
 
 Создав шаблонную регистрацию push-уведомлений с клиента, можно отправлять шаблонные push-сообщения на устройства на всех поддерживаемых платформах. В коде ниже показано, как отправить шаблонное уведомление.
 
 	// Define the template payload.
-	var payload = '{"messageParam": "This is a template payload."}'; 
+	var payload = '{"messageParam": "This is a template payload."}';
 
     // Only do the push if configured
     if (context.push) {
 		// Send a template notification.
         context.push.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
@@ -671,8 +671,8 @@ Microsoft Azure предоставляет множество механизмо
 		// Send a notification to the current user.
         context.push.send(context.user.id, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
@@ -815,12 +815,10 @@ Microsoft Azure предоставляет множество механизмо
     api.get.access = 'authenticated';
     module.exports = api;
 
-
-
 ## <a name="Debugging"></a><a name="howto-diagnostic-logs"></a>Практическое руководство. Отладка, диагностика и устранение неполадок мобильных приложений Azure
 
+Служба приложений Azure предоставляет несколько методов отладки и устранения неполадок в приложениях на Node.js. Ознакомьтесь со следующими статьями, чтобы приступить к устранению неполадок серверной части мобильной службы Node.js:
 
-Служба приложений Azure предоставляет несколько методов отладки и устранения неполадок в приложениях на Node.js. Доступны все указанные далее методы.
 - [Мониторинг службы приложений Azure]
 - [Включение ведения журналов диагностики в службе приложений Azure]
 - [Диагностика службы приложений Azure в Visual Studio]
@@ -872,7 +870,7 @@ Microsoft Azure предоставляет множество механизмо
 [3]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-config.png
 [4]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-authconfig.png
 [5]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-newuser-1.png
-[6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
+[6]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/dotnet-backend-create-db.png
 
 <!-- URLs -->
 [Быстрый запуск клиента Android]: app-service-mobile-android-get-started.md
@@ -917,4 +915,4 @@ Microsoft Azure предоставляет множество механизмо
 [промежуточного слоя ExpressJS]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->
