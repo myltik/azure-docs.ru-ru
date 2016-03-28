@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Импорт из BACPAC-файла в Базу данных SQL с помощью SSMS
@@ -21,16 +21,16 @@
 > [AZURE.SELECTOR]
 - [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-- [Azure Portal](sql-database-import.md)
+- [Портал Azure](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
 В этой статье показано, как импортировать данные в Базу данных SQL Server из [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-файла, используя мастер экспорта приложений на уровне данных в среде SQL Server Management Studio.
 
-> [AZURE.NOTE]При выполнении указанных ниже действий предполагается, что вы уже подготовили логический экземпляр SQL Azure и у вас есть сведения о подключении.
+> [AZURE.NOTE] При выполнении указанных ниже действий предполагается, что вы уже подготовили логический экземпляр SQL Azure и у вас есть сведения о подключении.
 
 1. Убедитесь, что у вас установлена последняя версия среды SQL Server Management Studio. Новые версии среды Management Studio обновляются ежемесячно для поддержания синхронизации с обновлениями портала Azure.
 
-	 >[AZURE.IMPORTANT]Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+	 > [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 2. Откройте среду Management Studio и подключитесь к исходной базе данных в обозревателе объектов.
 
@@ -54,4 +54,4 @@
 
 8.	На портале Azure просмотрите базу данных и ее свойства.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

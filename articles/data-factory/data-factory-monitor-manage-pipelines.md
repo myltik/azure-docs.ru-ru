@@ -378,6 +378,8 @@ OnDemandClusterDeleted | Succeeded
 	Parameters        :
 	Outputs           :
 
+> [AZURE.NOTE] Можно использовать REST API [Создать правило оповещения](https://msdn.microsoft.com/library/azure/dn510366.aspx) для создания правила оповещения. Полезные данные JSONВ аналогичны JSON в приведенном выше примере.
+
 #### Получение списка развертываний групп ресурсов Azure
 Чтобы получить список развертываний групп ресурсов Azure, используйте командлет **Get-AzureRmResourceGroupDeployment**, как показано в следующем примере.
 
@@ -583,4 +585,4 @@ OnDemandClusterDeleted | Succeeded
 
 ![Диалоговое окно "Перемещение ресурсов"](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

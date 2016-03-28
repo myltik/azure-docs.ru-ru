@@ -1,26 +1,26 @@
-<properties 
-    pageTitle="Подключение DocumentDB к службе Поиск Azure с помощью индексаторов | Microsoft Azure" 
+<properties
+    pageTitle="Подключение DocumentDB к службе Поиск Azure с помощью индексаторов | Microsoft Azure"
     description="В этой статье показано, как использовать индексатор службы поиска Azure с DocumentDB в качестве источника данных."
-    services="documentdb" 
-    documentationCenter="" 
-    authors="AndrewHoh" 
-    manager="jhubbard" 
+    services="documentdb"
+    documentationCenter=""
+    authors="AndrewHoh"
+    manager="jhubbard"
     editor="mimig"/>
 
-<tags 
-    ms.service="documentdb" 
-    ms.devlang="rest-api" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="NA" 
-    ms.workload="data-services" 
-    ms.date="02/01/2016" 
+<tags
+    ms.service="documentdb"
+    ms.devlang="rest-api"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-services"
+    ms.date="03/09/2016"
     ms.author="anhoh"/>
 
 #Подключение DocumentDB к службе поиска Azure с помощью индексаторов
 
 Если необходимо реализовать эффективные возможности поиска в данных DocumentDB, рекомендуется использовать индексатор службы поиска Azure для DocumentDB. В этой статье будет показано, как интегрировать Azure DocumentDB со службой поиска Azure без написания кода для поддержки инфраструктуры индексирования.
 
-Для этого необходимо [настроить учетную запись службы Поиск Azure](../search/search-get-started.md#start-with-the-free-service) (не требуется выполнять обновление до стандартного поиска), а затем вызвать [REST API службы Поиск Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) для создания **источника данных** DocumentDB и **индексатора** для него.
+Для этого необходимо [настроить учетную запись службы Поиск Azure](../search/search-create-service-portal.md) (не требуется выполнять обновление до стандартного поиска), а затем вызвать [REST API службы Поиск Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) для создания **источника данных** DocumentDB и **индексатора** для него.
 
 ##<a id="Concepts"></a>Понятия индексатора в службе Поиск Azure
 
@@ -32,17 +32,17 @@
 
 - однократное копирование данных для заполнения индекса;
 - Для синхронизации индекса с изменениями в источнике данных по расписанию. Расписание является частью определения индексатора.
-- Вызов по требованию обновлений индекса. 
+- Вызов по требованию обновлений индекса.
 
-##<a id="CreateDataSource"></a>Шаг 1. Создание источника данных
+##<a id="CreateDataSource"></a>Шаг 1. Создание источника данных
 
 Вызовите запрос HTTP POST для создания источника данных в службе поиска Azure, включая следующие заголовки запроса.
-    
+
     POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
 
-Параметр `api-version` является обязательным. Допустимые значения — `2015-02-28` или более поздняя версия.
+Параметр `api-version` является обязательным. Допустимые значения — `2015-02-28` или более поздняя версия.
 
 Текст запроса содержит определение источника данных, который должен включать следующие поля.
 
@@ -56,7 +56,7 @@
 
 - **container**:
 
-    - **name**: обязательное поле. Укажите коллекцию DocumentDB, которая будет индексироваться. 
+    - **name**: обязательное поле. Укажите коллекцию DocumentDB, которая будет индексироваться.
 
     - **query**: необязательное поле. Можно указать запрос на сведение произвольного документа JSON в неструктурированную схему, индексируемую поиском Azure.
 
@@ -68,10 +68,10 @@
 
 Политика обнаружения изменения данных предназначена для эффективного определения измененных элементов данных. В настоящее время единственной поддерживаемой политикой является политика `High Water Mark`, использующая свойство последней измененной отметки времени `_ts`, предоставленное DocumentDB. Эта политика указывается следующим образом.
 
-    { 
+    {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-        "highWaterMarkColumnName" : "_ts" 
-    } 
+        "highWaterMarkColumnName" : "_ts"
+    }
 
 Кроме того, потребуется добавить `_ts` в проекцию и предложение `WHERE` для запроса. Например:
 
@@ -82,10 +82,10 @@
 
 Строки, удаляемые из исходной таблицы, также следует удалить из индекса поиска. Политика обнаружения удаления данных предназначена для эффективного определения удаленных элементов данных. В настоящее время единственной поддерживаемой политикой является политика `Soft Delete` (удаление помечается особым флагом), которая указывается следующим образом:
 
-    { 
+    {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-        "softDeleteColumnName" : "the property that specifies whether a document was deleted", 
-        "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
+        "softDeleteColumnName" : "the property that specifies whether a document was deleted",
+        "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
 > [AZURE.NOTE] При использовании пользовательской проекции в предложение SELECT потребуется включить свойство.
@@ -102,7 +102,7 @@
         },
         "container": {
             "name": "myDocDbCollectionId",
-            "query": "SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark" 
+            "query": "SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark"
         },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -119,7 +119,7 @@
 
 Если источник данных был успешно создан, вы получите ответ HTTP 201 — Создано.
 
-##<a id="CreateIndex"></a>Шаг 2. Создание индекса
+##<a id="CreateIndex"></a>Шаг 2. Создание индекса
 
 Создайте целевой индекс поиска Azure, если это еще не сделано. Создать индекс можно с помощью [пользовательского интерфейса портала Azure](../search/search-get-started.md#test-service-operations) или [API создания индекса](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
@@ -168,10 +168,10 @@
 
 Если индекс был успешно создан, вы получите ответ HTTP 201 — Создано.
 
-##<a id="CreateIndexer"></a>Шаг 3. Создание индексатора
+##<a id="CreateIndexer"></a>Шаг 3. Создание индексатора
 
 Можно создать индексатор в службе поиска Azure с помощью запроса HTTP POST со следующими заголовками.
-    
+
     POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -190,7 +190,7 @@
 
 Индексатор может дополнительно задавать расписание. Если расписание уже имеется, индексатор будет выполняться согласно расписанию. Расписание имеет следующие атрибуты.
 
-- **interval**: обязательное поле. Значение длительности, указывающее интервал или период между запусками индексатора. Наименьший допустимый интервал — 5 минут, наибольший — один день. Значение должно быть отформатировано как значение dayTimeDuration XSD (ограниченное подмножество значения [продолжительности ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Используется следующий шаблон: `P(nD)(T(nH)(nM))`. Примеры: `PT15M` для каждых 15 минут, `PT2H` для каждых 2 часов. 
+- **interval**: обязательное поле. Значение длительности, указывающее интервал или период между запусками индексатора. Наименьший допустимый интервал — 5 минут, наибольший — один день. Значение должно быть отформатировано как значение dayTimeDuration XSD (ограниченное подмножество значения [продолжительности ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Используется следующий шаблон: `P(nD)(T(nH)(nM))`. Примеры: `PT15M` для каждых 15 минут, `PT2H` для каждых 2 часов.
 
 - **startTime**: обязательное поле. Параметр UTC datetime, указывающий время начала выполнения индексатора.
 
@@ -209,7 +209,7 @@
 
 Если указатель был успешно создан, вы получите ответ HTTP 201 — Создано.
 
-##<a id="RunIndexer"></a>Шаг 4. Запуск индексатора
+##<a id="RunIndexer"></a>Шаг 4. Запуск индексатора
 
 Помимо периодического выполнения по расписанию, индексатор можно вызвать по запросу, выполнив следующий запрос HTTP POST.
 
@@ -220,7 +220,7 @@
 
 Если индексатор успешно был вызван, вы получите ответ HTTP 202 — Принято.
 
-##<a name="GetIndexerStatus"></a>Шаг 5. Получение состояния индексатора
+##<a name="GetIndexerStatus"></a>Шаг 5. Получение состояния индексатора
 
 Для получения текущего состояния и истории выполнения индексатора можно выполнить запрос HTTP GET.
 
@@ -268,6 +268,5 @@
  - Дополнительные сведения об Azure DocumentDB см. на странице документации по [службе DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
  - Дополнительные сведения о поиске Azure см. на странице документации по [службе поиска](https://azure.microsoft.com/services/search/).
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

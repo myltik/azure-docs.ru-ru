@@ -3,7 +3,7 @@
 	description="Шаблон решения Microsoft Cortana Analytics для прогнозирования спроса на энергию в электроэнергетической компании."
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="yijichen"
+	authors="ireiter"
 	manager="ireiter"
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="yijichen;garye"/>
+	ms.author="ireiter;yijichen;garye"/>
 
 # Сборник шаблонов решений Cortana Analytics для прогнозирования энергопотребления  
 
@@ -384,4 +384,4 @@ MAPE — это средняя абсолютная погрешность в п
 
 Дополнительные сведения о каждом компоненте и полной архитектуре см. в разделе "Шаблон решения по прогнозированию спроса на энергию".
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

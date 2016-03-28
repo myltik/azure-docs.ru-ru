@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/08/2016"
    ms.author="barbkess;sonyama"/>
 
 #Темы, связанные с языком Transact-SQL
@@ -115,16 +115,16 @@
 
 
 ## Дальнейшие действия
-Дополнительные примеры TSQL см. в статье [Проектные решения и методики программирования для хранилища данных SQL][].
+Дополнительные примеры TSQL см. в разделе [Справочные темы по хранилищу данных SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Проектные решения и методики программирования для хранилища данных SQL]: sql-data-warehouse-overview-reference.md
+[Справочные темы по хранилищу данных SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="03/09/2016"
 	ms.author="larryfr"/>
 
 #Использование Sqoop с Hadoop в HDInsight (SSH)
@@ -42,12 +42,6 @@
 
 - **Azure CLI**: дополнительные сведения см. в разделе [Установка и настройка Azure CLI](../xplat-cli-install.md).
 
-- **Кластер HDInsight под управлением Linux**: указания по подготовке кластеров см. в статье [Приступая к работе с HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) или [Подготовка кластеров HDInsight к работе][hdinsight-provision].
-
-- **База данных SQL Azure**: этот документ содержит инструкции по созданию примера базы данных SQL. Дополнительные сведения о базе данных SQL см. в разделе [Приступая к работе с базой данных SQL Azure][sqldatabase-get-started].
-
-* **SQL Server**: шаги, приведенные в этом документе, также могут использоваться с некоторыми изменениями с SQL Server. Однако и кластер HDInsight, и SQL Server должны находиться в одной виртуальной сети Azure. Дополнительные сведения о конкретных требованиях по использованию данной статьи с SQL Server см. в разделе [Использование SQL Server](#using-sql-server).
-
 ##Ознакомление со сценарием
 
 Кластер HDInsight включает несколько примеров данных. Будет использована таблица Hive с именем **hivesampletable**, которая ссылается на файл данных в ****wasb:///hive/warehouse/hivesampletable**. Эта таблица содержит некоторые данные о мобильных устройствах. Схема таблицы Hive:
@@ -68,92 +62,66 @@
 
 Сначала необходимо экспортировать **hivesampletable** в базу данных SQL Azure или в SQL Server в таблицу **mobiledata**, а затем импортировать таблицу обратно в HDInsight в ****wasb:///tutorials/usesqoop/importeddata**.
 
-##Создание базы данных
 
-1. Откройте терминал или командную строку и используйте следующую команду для создания нового сервера базы данных SQL Azure:
+## Создание кластера и базы данных SQL
 
-        azure sql server create <adminLogin> <adminPassword> <region>
+1. Щелкните следующие изображение, чтобы открыть шаблон ARM на портале Azure.         
 
-    Например, `azure sql server create admin password "West US"`.
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    
+    Шаблон ARM хранится в общедоступном контейнере BLOB-объектов: **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    
+    Шаблон ARM вызывает пакет BACPAC для развертывания схем таблиц в базе данных SQL. Пакет BACPAC также находится в общедоступном контейнере BLOB-объектов по адресу: https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Чтобы использовать закрытый контейнер для BACPAC-файлов, используйте следующие значения в шаблоне:
+    
+        "storageKeyType": "Primary",
+        "storageKey": "<TheAzureStorageAccountKey>",
+    
+2. В колонке "Параметры" заполните следующие поля:
 
-    По завершении работы команды появится ответ, аналогичный приведенному ниже:
+    - **Имя кластера**. Введите имя создаваемого кластера Hadoop.
+    - **Имя для входа и пароль кластера**. По умолчанию для входа используется имя admin.
+    - **Имя пользователя SSH и пароль**.
+    - **Имя для входа на сервер базы данных SQL Azure и пароль**.
 
-        info:    Executing command sql server create
-        + Creating SQL Server
-        data:    Server Name i1qwc540ts
-        info:    sql server create command OK
+    В разделе переменных жестко заданы указанные далее значения.
+    
+    |Имя учетной записи хранения по умолчанию|<CluterName>store|
+    |----------------------------|-----------------|
+    |Имя сервера базы данных SQL Azure|<ClusterName>dbserver|
+    |Имя базы данных SQL Azure|<ClusterName>db|
+    
+    Запишите эти значения. Они потребуются позже в данном руководстве.
+    
+3\. Нажмите кнопку **ОК**, чтобы сохранить параметры.
 
-    > [AZURE.IMPORTANT] Обратите внимание на имя сервера, возвращаемое этой командой. Это краткое имя созданного сервера базы данных SQL. Полное доменное имя (FQDN) — **&lt;shortname&gt;.database.windows.net**.
+4\. В колонке **Настраиваемое развертывание** щелкните раскрывающийся список **Группа ресурсов** и выберите пункт **Создать**, чтобы создать новую группу ресурсов. Группа ресурсов — это контейнер, в который входит кластер, зависимая учетная запись хранения и другие связанные ресурсы.
 
-2. Используйте следующую команду для создания базы данных **sqooptest** на сервере базы данных SQL:
+5\. Щелкните **Условия использования**, а затем нажмите кнопку **Создать**.
 
-        azure sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
+6\. Нажмите кнопку **Создать**. Вы увидите новый элемент под названием "Идет отправка развертывания для развертывания шаблона". Процесс создания кластера и базы данных SQL занимает около 20 минут.
 
-    После ее завершения появится сообщение «ОК».
+Если вы решили использовать существующую базу данных SQL Azure или Microsoft SQL Server
 
-	> [AZURE.NOTE] Если появится ошибка от отсутствии доступа, необходимо добавить IP-адрес рабочей станции клиента для брандмауэра базы данных SQL с помощью следующей команды:
-	>
-	> `azure sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+- **База данных SQL Azure**: необходимо настроить правило брандмауэра для сервера базы данных SQL Azure, чтобы разрешить доступ с рабочей станции. Инструкции по созданию базы данных Azure SQL и настройке брандмауэра см. в статье [Приступая к работе с базой данных SQL Azure][sqldatabase-get-started]. 
 
-##Создание таблицы
+    > [AZURE.NOTE] По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, таких как Azure HDInsight. Если этот параметр брандмауэра отключен, его необходимо включить на портале предварительной версии Azure. Инструкции по созданию базы данных SQL Azure и настройке правил брандмауэра см. в статье [Создание и настройка базы данных SQL Azure][sqldatabase-create-configue].
 
-> [AZURE.NOTE] Существует множество способов подключения к базе данных SQL для создания таблицы. В приведенных ниже действиях используется [FreeTDS](http://www.freetds.org/) из кластера HDInsight.
+- **SQL Server**: если ваш кластер HDInsight находится в той же виртуальной сети Azure, что и SQL Server, эта статья поможет вам разобраться с импортом данных в базу данных SQL Server и их экспортом из нее.
 
-1. Используйте SSH для подключения к кластеру HDInsight под управлением Linux. Адрес, используемый при подключении: `CLUSTERNAME-ssh.azurehdinsight.net`, порт: `22`.
+    > [AZURE.NOTE] HDInsight поддерживает только географически привязанные виртуальные сети и на данный момент не работает с виртуальными сетями на основе территориальных групп.
 
-	Дополнительные сведения об использовании SSH для подключения к HDInsight см. в следующих документах:
+    * Сведения о создании и настройке виртуальной сети см. в статье [Задачи настройки виртуальной сети](../services/virtual-machines/).
 
-    * **Клиенты Linux, Unix или OS X**: в разделе [Подключение к кластеру HDInsight под управлением Linux из Linux, OS X или Unix](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
+        * При использовании SQL Server в центре обработки данных необходимо настроить тип соединения виртуальной сети либо как *сеть-сеть*, либо *как точка-сеть*.
 
-    * **Клиенты Windows**: в разделе [Подключение к кластеру HDInsight под управлением Linux из Windows](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)
+            > [AZURE.NOTE] Для виртуальных сетей с типом соединения **точка-сеть** на SQL Server должно быть запущено приложение настройки VPN-клиента, которое доступно на **панели мониторинга** в конфигурации виртуальной сети Azure.
 
-3. Используйте следующую команду для установки FreeTDS:
+        * При использовании SQL Server на виртуальной машине Azure можно использовать любую конфигурацию виртуальной сети, если виртуальная машина с SQL Server находится в той же виртуальной сети, что и HDInsight.
 
-        sudo apt-get --assume-yes install freetds-dev freetds-bin
+    * Сведения о создании кластера HDInsight в виртуальной сети см. в статье [Создание кластеров Hadoop в HDInsight с использованием настраиваемых параметров](hdinsight-provision-clusters.md).
 
-4. После установки FreeTDS используйте следующую команду для подключения к созданному серверу базы данных SQL:
-
-        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
-
-    Должен появиться результат, аналогичный приведенному ниже.
-
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to sqooptest
-        1>
-
-5. В командной строке `1>` введите следующее:
-
-        CREATE TABLE [dbo].[mobiledata](
-        [clientid] [nvarchar](50),
-        [querytime] [nvarchar](50),
-        [market] [nvarchar](50),
-        [deviceplatform] [nvarchar](50),
-        [devicemake] [nvarchar](50),
-        [devicemodel] [nvarchar](50),
-        [state] [nvarchar](50),
-        [country] [nvarchar](50),
-        [querydwelltime] [float],
-        [sessionid] [bigint],
-        [sessionpagevieworder] [bigint])
-        GO
-        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
-        GO
-
-    Если вводится инструкция `GO`, то оцениваются предыдущие инструкции. Сначала создается таблица **mobiledata**, а затем к ней добавляется кластеризованный индекс (требуемый базой данных SQL).
-
-    Используйте следующую команду для проверки создания таблицы:
-
-        SELECT * FROM information_schema.tables
-        GO
-
-    Вы должны увидеть результат, аналогичный приведенному ниже:
-
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        sqooptest       dbo     mobiledata      BASE TABLE
-
-8. В командной строке `1>` введите `exit`, чтобы выйти из служебной программы tsql.
+    > [AZURE.NOTE] Кроме того, SQL Server должен разрешать проверку подлинности. Для выполнения шагов, описанных в этой статье, вам понадобится использовать данные для входа на SQL Server.
+	
 
 ##Экспорт Sqoop
 
@@ -263,4 +231,4 @@ Sqoop можно также использовать для импорта и э
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -17,7 +17,7 @@
 	ms.author="douglasl"/>
 
 
-# Резервное копирование и восстановление баз данных, для которых включено растяжение 
+# Резервное копирование и восстановление баз данных, для которых включено растяжение
 
 Для резервного копирования и восстановления баз данных, для которых включено растяжение, можно продолжать использовать методы, которые вы используете. Дополнительные сведения о резервном копировании и восстановлении SQL Server см. в разделе [Резервное копирование и восстановление баз данных SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
 
@@ -59,7 +59,12 @@
 ![База данных с поддержкой растяжения после резервного копирования][StretchBackupImage4]
 
 ## См. также
-[Управление растяжением баз данных и устранение неполадок](sql-server-stretch-database-manage.md) [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) [Резервное копирование и восстановление баз данных SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
+
+[Управляйте растяжением баз данных и устраняйте неполадки](sql-server-stretch-database-manage.md)
+
+[sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
+
+[Архивация и восстановление баз данных SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
 <!--Image references-->
 [StretchBackupImage1]: ./media/sql-server-stretch-database-backup/StretchDBBackup1.png
@@ -67,4 +72,4 @@
 [StretchBackupImage3]: ./media/sql-server-stretch-database-backup/StretchDBBackup3.png
 [StretchBackupImage4]: ./media/sql-server-stretch-database-backup/StretchDBBackup4.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

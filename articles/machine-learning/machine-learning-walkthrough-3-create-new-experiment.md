@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="03/09/2016" 
 	ms.author="garye"/>
 
 
@@ -66,7 +66,7 @@
 5.	В диалоговом окне **Выбор столбцов** выберите в поле **Начинаются с** значение "Все столбцы".
 6.	Строка под полем **Начинаются с** позволяет включить или исключить определенные столбцы из области изменения [редактора метаданных][metadata-editor]. Поскольку нам требуется изменить *все* столбцы, удалите эту строку, нажав кнопку "минус" ("–") в правой части строки. Диалоговое окно должно выглядеть следующим образом: ![Селектор столбцов, где выделены все столбцы][4]
 7.	Установите флажок **ОК**.
-8.	На панели **Свойства** найдите параметр **Новые имена столбцов**. В этом поле введите список имен для 21 столбца набора данных с разделителями-запятыми и в порядке расположения столбцов. Вы можете получить имена столбцов из документации по наборам данных на веб-сайте UCI или скопировать и вставить следующий список.  
+8.	На панели **Свойства** найдите параметр **Новые имена столбцов**. В этом поле введите список имен для 21 столбца набора данных с разделителями-запятыми и в порядке расположения столбцов. Вы можете получить имена столбцов из документации по наборам данных на веб-сайте UCI или скопировать и вставить следующий список.  
 
 		  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
 
@@ -131,4 +131,4 @@
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

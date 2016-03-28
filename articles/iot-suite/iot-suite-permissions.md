@@ -112,7 +112,7 @@
 
 1. Создайте новый каталог AAD на [портале управления Azure][lnk-classic-portal].
 
-2. Перейдите на сайт <https://github.com/Azure/azure-iot-remote-monitoring>. Дополнительные сведения о развернутых облачных службах см. в статье [Развернутая облачная служба][lnk-wiki-clouddeployment].
+2. Перейдите на сайт <https://github.com/Azure/azure-iot-remote-monitoring>.
 
 3. Выполните команду `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` (например, `build.cmd cloud debug myRMSolution`).
 
@@ -140,10 +140,9 @@
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
-[lnk-assign-app-roles]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Manually-setting-up-roles-and-assigning-permissions-in-Azure-Active-Directory-(AAD)#assigning-users-to-the-roles
+[lnk-assign-app-roles]: https://azure.microsoft.com/documentation/articles/active-directory-application-manifest/
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
-[lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

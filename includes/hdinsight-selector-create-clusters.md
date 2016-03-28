@@ -1,6 +1,7 @@
 > [AZURE.SELECTOR-LIST (OS | Creation method)]
 - [Linux | Обзор](hdinsight-hadoop-provision-linux-clusters.md)
 - [Linux | Портал Azure](hdinsight-hadoop-create-linux-clusters-portal.md)
+- [Linux | Фабрика данных Azure](hdinsight-hadoop-create-linux-clusters-adf.md)
 - [Linux | Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
 - [Linux | Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 - [Linux | REST API](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
@@ -13,4 +14,4 @@
 - [Windows | Пакет SDK для .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
 - [Windows | Шаблоны ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

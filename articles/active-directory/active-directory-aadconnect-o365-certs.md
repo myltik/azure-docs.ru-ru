@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/14/2016"
 	ms.author="billmath"/>
 
 
@@ -55,7 +55,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 где `(your_FS_name) ` заменяется именем узла службы федерации, которое используется в вашей организации (например, fs.contoso.com). Если проверка двух этих параметров оказалась успешной, вам больше не нужно ничего делать.
 
-Пример: https://fs.contospocom/federationmetadata/2007-06/federationmetadata.xml
+Пример: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
 ## Если вы решили обновить сертификат вручную
 При обновлении сертификатов AD FS вручную необходимо обновить домен Office 365 с помощью команды PowerShell Update-MsolFederatedDomain, как показано в инструкции из раздела об обновлении вручную свойств доверия федерации Office 365, который приведен [здесь](#if-your-metadata-is-not-publicly-accessible).
@@ -101,4 +101,4 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 >[AZURE.NOTE] Если требуется поддержка нескольких доменов верхнего уровня, например contoso.com и fabrikam.com, необходимо использовать параметр SupportMultipleDomain с любыми командлетами. Дополнительные сведения см. в статье, описывающей поддержку нескольких доменов верхнего уровня. Наконец, убедитесь, что на всех серверах с прокси-службой веб-приложения установлен накопительный пакет обновления для [Windows Server за май 2014 г.](http://support.microsoft.com/kb/2955164). Иначе прокси-серверы могут не обновиться с помощью нового сертификата, что приведет к простою в работе.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

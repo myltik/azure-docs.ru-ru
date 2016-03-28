@@ -1,5 +1,5 @@
 <properties
- pageTitle="Центр IoT: руководство | Microsoft Azure"
+ pageTitle="Центр IoT: руководство | Microsoft Azure"
  description="Разделы, посвященные шлюзам, подготовке устройств и проверке подлинности для разработки решений IoT с помощью центра IoT Azure."
  services="iot-hub"
  documentationCenter=""
@@ -103,6 +103,8 @@ IoT решения хранят такие данные об отдельных 
 
 Более сложные варианты могут включать данные [мониторинга операций][lnk-devguide-opmon], позволяющие определять, какие устройства пытаются, но не могут установить подключение. Внедряя в решение шаблон пульса, учитывайте [Квоты и ограничения центра IoT][].
 
+> [AZURE.NOTE] Если состояние подключения устройства нужно решению IoT исключительно для того, чтобы определить, отправлять ли сообщения из облака на устройство, и сообщения не вещаются на большие наборы устройств, то следует рассмотреть заметно более простой способ — использовать небольшое время окончания срока действия. Это позволяет добиться того же результата, что и обслуживание реестра состояний подключения устройств, действующего по принципу пульса, но со значительно большей эффективностью. Запрашивая подтверждения сообщений у центра IoT, также можно узнать, какие устройства могут получать сообщения, а какие находятся не в сети или в неработоспособны. Дополнительную информацию о сообщениях C2D можно найти в [руководстве разработчика для центра IoT][lnk-devguide-messaging].
+
 ## Дальнейшие действия
 
 Дополнительные сведения о центре IoT в Azure см. по следующим ссылкам:
@@ -127,8 +129,9 @@ IoT решения хранят такие данные об отдельных 
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
+[lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [Квоты и ограничения центра IoT]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

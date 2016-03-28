@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="03/09/2016" 
 	ms.author="sethm"/>
 
 # Как использовать API службы сообщений Java (JMS) со служебной шиной и AMQP 1.0
@@ -29,11 +29,11 @@ AMQP 1.0 — это эффективный и надежный протокол 
 
 В этом руководстве предполагается, что вы уже создали пространство имен служебной шины, содержащее очередь с именем queue1. Если это не так, можно создать пространство имен и очередь, используя [классический портал Azure](http://manage.windowsazure.com). Дополнительную информацию о создании пространства имен и очередей служебной шины см. в статье [Как использовать очереди служебной шины](service-bus-dotnet-how-to-use-queues.md).
 
-> [AZURE.NOTE]Секционированные очереди и разделы также поддерживают AMQP. Дополнительные сведения см. в статьях [Секционированные сущности обмена сообщениями](service-bus-partitioning.md) и [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины](service-bus-partitioned-queues-and-topics-amqp-overview.md).
+> [AZURE.NOTE] Секционированные очереди и разделы также поддерживают AMQP. Дополнительные сведения см. в статьях [Секционированные сущности обмена сообщениями](service-bus-partitioning.md) и [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины](service-bus-partitioned-queues-and-topics-amqp-overview.md).
 
 ## Загрузка клиентской библиотеки AMQP 1.0 JMS
 
-Информацию о том, где скачать последнюю версию клиентской библиотеки Apache Qpid JMS AMQP 1.0, см. на странице [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
+Информацию о том, где скачать последнюю версию клиентской библиотеки Apache Qpid JMS AMQP 1.0, см. на странице [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
 При построении и запуске приложений JMS с использованием служебной шины необходимо добавить следующие 4 JAR-файла из архива распространения Apache Qpid JMS AMQP 1.0 в Java CLASSPATH:
 
@@ -85,7 +85,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 - **[username]**: имя издателя служебной шины.
 - **[password]**: ключ издателя служебной шины, закодированный в URL-адресе.
 
-> [AZURE.NOTE]Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа URL-кодирования доступна по адресу [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE] Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа URL-кодирования доступна по адресу [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 #### Настройка назначений
 
@@ -106,7 +106,7 @@ topic.[jndi_name] = [physical_name]
 - **[jndi\_name]**: логическое имя назначения. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().
 - **[physical\_name]**: имя сущности служебной шины, которой приложение отправляет сообщения или от которого оно получает сообщения.
 
-> [AZURE.NOTE]При получении данных из подписки раздела Service Bus физическое имя, указанное в JNDI, должно быть именем раздела. Имя подписки предоставляется при создании устойчивой подписки в коде приложения JMS. В [руководстве разработчика Service Bus AMQP 1.0](service-bus-amqp-dotnet.md) содержатся дополнительные сведения о работе с подписками разделов Service Bus в JMS.
+> [AZURE.NOTE] При получении данных из подписки раздела Service Bus физическое имя, указанное в JNDI, должно быть именем раздела. Имя подписки предоставляется при создании устойчивой подписки в коде приложения JMS. В [руководстве разработчика Service Bus AMQP 1.0](service-bus-amqp-dotnet.md) содержатся дополнительные сведения о работе с подписками разделов Service Bus в JMS.
 
 ### Написание приложения JMS
 
@@ -339,4 +339,4 @@ exit
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

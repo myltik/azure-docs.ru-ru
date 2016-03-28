@@ -1,19 +1,19 @@
-### Specifying JsonFormat
+### Указание JsonFormat
 
-If the format is set to **JsonFormat**, you can specify the following **optional** properties in the **Format** section.
+Если для свойства format задано значение **JsonFormat**, в разделе **Format** вы можете указать следующие **необязательные** свойства.
 
-| Property | Description | Required |
+| Свойство | Описание | Обязательно |
 | -------- | ----------- | -------- |
-| filePattern | Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is: **setOfObjects**. See sections below for details about these patterns.| No |
-| encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. | No | 
-| nestingSeparator | Character that is used to separate nesting levels. The **default** value is **. (dot)**. | No | 
+| filePattern | Шаблон данных, хранящихся в каждом JSON-файле. Допустимые значения: **setOfObjects** и **arrayOfObjects**. Значение **по умолчанию** — **setOfObjects**. Сведения об этих шаблонах см. в разделах ниже.| Нет |
+| encodingName | Имя кодировки. Список допустимых имен кодировок см. в описании свойства [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Например: windows-1250 или shift\_jis. **Значение по умолчанию** — **UTF-8**. | Нет | 
+| nestingSeparator | Символ, используемый для разделения уровней вложенности. **Значение по умолчанию** — **точка (.)**. | Нет | 
 
 
-#### setOfObjects file pattern
+#### Шаблон файла setOfObjects
 
-Each file contains single object, or line-delimited/concatenated multiple objects. When this option is chosen in an output dataset, copy will produce a single JSON file with each object per line (line-delimited).
+Каждый файл содержит один объект или несколько разделенных строками или объединенных объектов. Если этот параметр выбран в выходном наборе данных, в результате копирования будет создан JSON-файл, где каждый объект находится в отдельной строке (файл с разделителем-строкой).
 
-**single object** 
+**один объект**
 
 	{
 		"time": "2015-04-29T07:12:20.9100000Z",
@@ -24,7 +24,7 @@ Each file contains single object, or line-delimited/concatenated multiple object
 		"switch2": "Germany"
 	}
 
-**line-delimited JSON** 
+**JSON с разделителем-строкой**
 
 	{"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
 	{"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
@@ -32,7 +32,7 @@ Each file contains single object, or line-delimited/concatenated multiple object
 	{"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"789037573","callingnum2":"789044691","switch1":"UK","switch2":"Australia"}
 	{"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789044691","switch1":"US","switch2":"Australia"}
 
-**concatenated JSON**
+**объединенный JSON**
 
 	{
 		"time": "2015-04-29T07:12:20.9100000Z",
@@ -60,9 +60,9 @@ Each file contains single object, or line-delimited/concatenated multiple object
 	}
 
 
-#### arrayOfObjects file pattern. 
+#### Шаблон файла arrayOfObjects. 
 
-Each file contains an array of objects. 
+Каждый файл содержит массив объектов.
 
 	[
 	    {
@@ -123,9 +123,9 @@ Each file contains an array of objects.
 	    }
 	]
 
-### JsonFormat example
+### Пример JsonFormat
 
-If you have a JSON file with the following content:  
+Если у вас есть JSON-файл со следующим содержимым:
 
 	{
 		"Id": 1,
@@ -136,13 +136,13 @@ If you have a JSON file with the following content:
 		"Tags": ["Data Factory”, "Azure"]
 	}
 
-and you want to copy it into a an Azure SQL table in the following format: 
+и вы хотите скопировать его в таблицу SQL Azure в следующем формате:
 
-Id	| Name.First | Name.Middle | Name.Last | Tags
+Идентификатор | Name.First | Name.Middle | Name.Last | Теги
 --- | ---------- | ----------- | --------- | ----
-1 | John | null | Doe | ["Data Factory”, "Azure"]
+1 | Артем | null | Кузнецов | ["Data Factory", "Azure"]
 
-The input dataset with JsonFormat type is defined as follows: (partial definition with only the relevant parts)
+Входной набор данных с типом JsonFormat определяется следующим образом (частичное определение только соответствующих частей):
 
 	"properties": {
 		"structure": [
@@ -165,14 +165,15 @@ The input dataset with JsonFormat type is defined as follows: (partial definitio
 		}
 	}
 
-If the structure is not defined, the Copy Activity flattens the structure by default and copy every thing. 
+Если структура не определена, действие копирования сведет структуру по умолчанию и скопирует каждый элемент.
 
-#### Supported JSON structure
-Note the following: 
+#### Поддерживаемая структура JSON
+Обратите внимание на следующее:
 
-- Each object with a collection of name/value pairs will be mapped to one row of data in a tabular format. Objects can be nested and you can define how to flatten the structure in a dataset with the  nesting separator (.) by default. See the [JsonFormat example](#jsonformat-example) section above for an example.  
-- If the structure is not defined in the Data Factory dataset, the Copy Activity detects the schema from the first object and flatten the whole object. 
-- If the JSON input has an array, the Copy Activity converts the entire array value into a string. You can choose to skip it by using [column mapping or filtering](#column-mapping-with-translator-rules).
-- If there are duplicate name at the same level, the Copy Activity will pick the last one.
-- Property names are case sensitive. Two properties with same name but different casing will be treated as two separate properties. 
+- Каждый объект в коллекции пар "имя-значение" будет сопоставлен с одной строкой данных в табличном формате. Объекты могут быть вложенными, и вы можете определить, как свести структуру в наборе данных с разделителем вложения (.) по умолчанию. Пример см. в разделе [Пример JsonFormat](#jsonformat-example) выше.  
+- Если структура не определена в наборе данных фабрики данных, действие копирования обнаружит схему из первого объекта и выполнит сведение всего объекта. 
+- Если входной JSON-файл содержит массив, действие копирования преобразует все значение массива в строку. Это действие можно пропустить с помощью [сопоставления или фильтрации столбцов](#column-mapping-with-translator-rules).
+- Если на том же уровне существует повторяющееся имя, действие копирования выберет последнее имя.
+- В именах свойств учитывается регистр. Два свойства с одинаковым именем, но в разных регистрах будут рассматриваться как два отдельных свойства. 
 
+<!---HONumber=AcomDC_0316_2016-->

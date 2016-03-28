@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -30,7 +30,7 @@
 ## Предварительные требования
 
 
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
+- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
 
 
 ### Установка необходимых модулей
@@ -80,7 +80,7 @@
 
 ## Шаг 4. Вставка строки
 
-В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от [внедрения кода SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
+В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от внедрения кода SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	import pymssql
@@ -99,11 +99,11 @@
 Этот пример кода демонстрирует использование транзакций, в которых можно:
 
 
--начать транзакцию;
+— начать транзакцию;
 
--вставить строку данных;
+— вставить строку данных;
 
--откатить транзакцию для отмены вставки.
+— откатить транзакцию для отмены вставки.
 
 
 	import pymssql
@@ -117,4 +117,4 @@
 
 Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

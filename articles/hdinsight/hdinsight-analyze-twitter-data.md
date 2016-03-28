@@ -513,7 +513,7 @@ $hqlScriptFile|Расположение и имя файла скрипта Hive
 	Write-Host "`tThe blob container name is $defaultBlobContainerName." -ForegroundColor Yellow
 	
 	Write-Host "Create a context object ... " -ForegroundColor Green
-	$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $storageAccountKey  
+	$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey  
 	#endregion
 	
 	#region - Download blob and display blob
@@ -565,4 +565,4 @@ $hqlScriptFile|Расположение и имя файла скрипта Hive
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

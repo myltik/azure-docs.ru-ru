@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Миграция базы данных SQL Server в Базу данных SQL с помощью мастера развертывания базы данных в Базу данных Microsoft Azure
@@ -22,7 +22,7 @@
 
 ## Использование мастера развертывания базы данных в Базу данных Microsoft Azure
 
-> [AZURE.NOTE] В описанных ниже действиях предполагается, что у вас есть [подготовленный сервер Базы данных SQL](sql-database-get-started.md).
+> [AZURE.NOTE] В описанных ниже действиях предполагается, что у вас есть [подготовленный сервер Базы данных SQL](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/).
 
 1. Убедитесь, что у вас установлена последняя версия среды SQL Server Management Studio. Новые версии среды Management Studio обновляются ежемесячно для поддержания синхронизации с обновлениями портала Azure.
 
@@ -54,4 +54,4 @@
 
 [Устранение проблем совместимости базы данных](sql-database-cloud-migrate-fix-compatibility-issues.md) (если есть).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

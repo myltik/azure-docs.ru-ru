@@ -52,11 +52,11 @@
 
 ### Отключение растяжения базы данных для таблицы с помощью Transact-SQL
 
--   Чтобы отключить растяжение для таблицы и скопировать удаленные данные для таблицы из базы данных SQL Azure обратно на SQL Server, выполните следующую операцию. Эта операция не может быть отменена.
+-   Чтобы отключить Stretch для таблицы и скопировать удаленные данные для таблицы из Azure обратно в SQL Server, выполните следующую команду. Эта операция не может быть отменена.
 
     ```tsql
     ALTER TABLE <table name>
-       SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = OUTBOUND ) ) ;
+       SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;
     ```
     Эта операция включает расходы, связанные с передачей данных. Дополнительные сведения см. в разделе [Сведения о ценах — передача данных](https://azure.microsoft.com/pricing/details/data-transfers/).
 
@@ -90,6 +90,9 @@ ALTER DATABASE <database name>
 ```
 
 ## См. также
-[Параметры ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx) [Pause and resume Stretch Database](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+[Параметры ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+
+[Приостановите и возобновите растяжение баз данных](sql-server-stretch-database-pause.md)
+
+<!---HONumber=AcomDC_0316_2016-->

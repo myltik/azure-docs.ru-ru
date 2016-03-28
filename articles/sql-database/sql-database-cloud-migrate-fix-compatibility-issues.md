@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Устранение проблем совместимости Базы данных SQL Server перед миграцией в Базу данных SQL
@@ -21,9 +21,9 @@
 Существует несколько способов решения обнаруженных проблем совместимости исходной Базы данных SQL Server.
 
 > [AZURE.SELECTOR]
-- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
-- Use [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-- Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+- С помощью [мастера миграции SQL Azure (SAMW)](sql-database-cloud-migrate-fix-compatibility-issues.md)
+- Использование [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- Использование [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
 
 ## Использование мастера миграции SQL Azure
 
@@ -31,10 +31,10 @@
 
  ![Схема переноса SAMW](./media/sql-database-cloud-migrate/02SAMWDiagram.png)
 
-  >[AZURE.NOTE]Обратите внимание, что не все несовместимые схемы, которые способен обнаружить мастер, могут быть устранены с помощью встроенных средств преобразования. Если имеются несовместимые сценарии, которые не удается обработать, то о них будет сообщено как об ошибках. Такие сценарии будут внедрены в созданный сценарий с соответствующими комментариями. Если обнаружено много ошибок, используйте Visual Studio или SQL Server Management Studio для исправления каждой ошибки, которую невозможно исправить с помощью мастера миграции SQL Server.
+  > [AZURE.NOTE] Обратите внимание, что не все несовместимые схемы, которые способен обнаружить мастер, могут быть устранены с помощью встроенных средств преобразования. Если имеются несовместимые сценарии, которые не удается обработать, то о них будет сообщено как об ошибках. Такие сценарии будут внедрены в созданный сценарий с соответствующими комментариями. Если обнаружено много ошибок, используйте Visual Studio или SQL Server Management Studio для исправления каждой ошибки, которую невозможно исправить с помощью мастера миграции SQL Server.
 
 ## Следующий шаг: выбор метода миграции и ее выполнение
 
 [Выберите метод миграции](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->
