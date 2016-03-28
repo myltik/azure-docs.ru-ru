@@ -115,4 +115,4 @@
 * [Управление облачной службой](cloud-services-how-to-manage-portal.md).
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->
