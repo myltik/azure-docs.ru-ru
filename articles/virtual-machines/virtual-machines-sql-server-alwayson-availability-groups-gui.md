@@ -25,7 +25,7 @@
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Модель диспетчера ресурсов.
 
 
 В этом комплексном учебнике вы научитесь реализовывать группы доступности с помощью SWL Server AlwaysOn на виртуальных машинах Azure.

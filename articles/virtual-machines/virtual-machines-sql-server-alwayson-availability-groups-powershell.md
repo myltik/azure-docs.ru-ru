@@ -25,7 +25,7 @@
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Модель диспетчера ресурсов.
 
 
 Виртуальные машины Azure позволяют администраторам баз данных сократить затраты при реализации более высокого уровня доступности системы SQL Server. В этом учебнике рассказывается, как реализовать группу доступности с помощью сквозного соединения SQL Server AlwaysOn в среде Azure. В конце учебника ваше решение SQL Server AlwaysOn в Azure будет состоять из следующих элементов:
