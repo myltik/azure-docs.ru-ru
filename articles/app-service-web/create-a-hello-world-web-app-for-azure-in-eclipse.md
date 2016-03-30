@@ -74,15 +74,15 @@
 
   1. В раскрывающемся меню **Веб-контейнер** выберите соответствующее программное обеспечение для вашего приложения.
 
-        Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
+        На данный момент можно выбрать Tomcat 8, Tomcat 7 или Jetty 9. Последний дистрибутив выбранного программного обеспечения, предоставленный Azure, будет запущен в последнем дистрибутиве JDK 8, созданном Oracle и предоставленном Azure.
 
   1. В раскрывающемся меню **Подписка** выберите подписку, которую хотите использовать для этого развертывания.
 
   1. В раскрывающемся меню **Группа ресурсов** выберите группу ресурсов, с которой хотите связать свое веб-приложение.
 
-        Примечание: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
+        Примечание: группы ресурсов Azure позволяют сгруппировать связанные ресурсы, чтобы, например, удалить их одновременно.
 
-        You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
+        Можно выбрать существующую группу ресурсов (если она есть) и перейти к шагу g ниже, или создать новую, сделав следующее:
 
       * Нажмите кнопку **Создать**.
 
@@ -98,9 +98,9 @@
 
   1. В раскрывающемся меню **План службы приложений** перечислены планы службы приложений, связанные с выбранной группой ресурсов.
 
-        Примечание: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
+        Примечание: В плане службы приложений указываются такие сведения, как расположение веб-приложения, ценовая категория и размер вычислительной операции. Один план службы приложений можно использовать для нескольких веб-приложений, поэтому он поддерживается отдельно от развертывания конкретного веб-приложения.
 
-        You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
+        Можно выбрать существующий план службы приложений (если он есть) и перейти к шагу h ниже, или создать новый, сделав следующее:
 
       * Нажмите кнопку **Создать**.
 
@@ -122,7 +122,7 @@
 
   1. Щелкните **ОК**, чтобы завершить создание нового контейнера веб-приложения.
 
-        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
+        Подождите несколько секунд. Когда список контейнеров веб-приложений обновится, созданный контейнер веб-приложения должен быть выбран в списке.
 
 1. Теперь все готово для начального развертывания вашего веб-приложения в Azure:
 
@@ -203,4 +203,5 @@
 [13]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/13-Azure-Explorer-Web-App.png
 
 <!---HONumber=AcomDC_0309_2016-->
+
 
