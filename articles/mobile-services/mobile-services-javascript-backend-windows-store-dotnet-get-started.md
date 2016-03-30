@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="02/10/2016"
+	ms.date="03/16/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Создание приложения Windows](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md).
 
 В этом учебнике показано, как добавить облачную серверную службу в универсальное приложение Windows с помощью мобильных служб Azure. Решения для универсальных приложений Windows включают проекты для приложений Магазинов Windows 8.1 и Windows Phone 8.1 и общий проект. Дополнительные сведения см. в разделе [Создание универсальных приложений Windows для Windows и Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
 
@@ -98,4 +99,4 @@
 [классическом портале Azure]: https://manage.windowsazure.com/
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

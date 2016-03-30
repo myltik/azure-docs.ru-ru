@@ -89,4 +89,4 @@ client.get("key1",  function(err, reply) {
 
 [Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

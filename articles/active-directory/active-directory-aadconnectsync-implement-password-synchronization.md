@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/07/2016"
+	ms.date="03/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -90,7 +90,7 @@
 
 Если во время установки Azure AD Connect используются стандартные параметры, синхронизация паролей будет включена по умолчанию.
 
-Если во время установки Azure AD Connect используются пользовательские параметры, понадобится включить синхронизацию паролей на странице входа в систему. ![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
+Если во время установки Azure AD Connect используются пользовательские параметры, понадобится включить синхронизацию паролей на странице входа в систему. ![usersignin](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 
 Если используется **федерация с AD FS**, можно дополнительно включить синхронизацию паролей для архивации на случай сбоя инфраструктуры AD FS. Ее также можно включить, если вы планируете использовать доменные службы Azure AD.
 
@@ -116,13 +116,17 @@
 
 Запустите **Диспетчер службы синхронизации**, откройте раздел **Соединители**, выберите соединитель Active Directory, в котором находится пользователь, выберите **Пространство соединителя поиска** и найдите нужного пользователя.
 
-![csuser](./media/active-directory-aadsync-implement-password-synchronization/cspasswordsync.png)
+![csuser](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
 
 На странице пользователя щелкните вкладку **Журнал обращений и преобразований** и убедитесь, что как минимум для одного правила синхронизации в столбце **Синхронизация паролей** отображается значение **True**. В конфигурации по умолчанию это будет правило синхронизации с именем **Поступление из AD — учетная запись пользователя включена**.
 
+Вы должны [отследить пользователя](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) от метавселенной до пространства соединителя Azure AD и убедиться, что существует правило для исходящего трафика, в котором для параметра **Синхронизация паролей** задано значение **True**. В конфигурации по умолчанию это будет правило синхронизации с именем **Из внешней среды в AD — присоединение пользователя**.
+
+![csuser2](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
+
 Чтобы просмотреть сведения о синхронизации паролей объекта, нажмите кнопку **Журнал...** в нижней части этой страницы. Отобразится эта же страница с данными состояния синхронизации паролей пользователя за прошлую неделю.
 
-![object log](./media/active-directory-aadsync-implement-password-synchronization/csobjectlog.png)
+![object log](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
 Столбец состояния может иметь следующие значения, означающие проблемы и причины сбоя синхронизации паролей.
 
@@ -159,4 +163,4 @@
 * [Azure AD Connect Sync: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

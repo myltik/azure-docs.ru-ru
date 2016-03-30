@@ -39,7 +39,7 @@
 > [AZURE.IMPORTANT]
 Для пошагового прохождения этого руководства необходимо выполнить предварительные требования, описанные в статье [Начало работы с фабрикой данных Azure](data-factory-build-your-first-pipeline.md).
 
-## Шаг 1. Создание шаблона диспетчера ресурсов Azure
+## Создание шаблона ARM
 
 Создайте в папке **C:\\ADFGetStarted** файл JSON с именем **ADFTutorialARM.json** со следующим содержимым:
 
@@ -103,7 +103,7 @@
                                 "clusterSize": 4,
                                 "version":  "3.2",
             					"timeToLive": "00:05:00",
-                                "osType": "linux",
+                                "osType": "windows",
             					"linkedServiceName": "[variables('storageLinkedServiceName')]",
     						}
 	                    }
@@ -220,7 +220,7 @@
 
 Обратите внимание на следующее:
 
-- С помощью упомянутого выше файла JSON фабрика данных создает кластер HDInsight **под управлением Linux**. Также можно создать кластер HDInsight **под управлением Windows**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+- С помощью вышеупомянутого файла JSON фабрика данных создает кластер HDInsight **под управлением Windows**. Также можно создать кластер HDInsight **под управлением Linux**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
 - Вместо используемого по запросу кластера HDInsight можно использовать **собственный кластер HDInsight**. См. сведения о [связанной службе Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 - Кластер HDInsight создает **контейнер по умолчанию** в хранилище BLOB-объектов, указанном в коде JSON (**linkedServiceName**). При удалении кластера HDInsight этот контейнер не удаляется. Это сделано специально. Если используется связанная служба HDInsight по запросу, кластер HDInsight создается всякий раз, когда нужно обработать срез данных (если не используется динамический кластер **timeToLive**), после чего кластер удаляется.
 
@@ -230,7 +230,7 @@
 
 > [AZURE.NOTE] Еще один пример шаблона ARM для создания фабрики данных Azure можно найти на сайте [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).
 
-## Шаг 2: Развертывание сущностей фабрики данных с помощью шаблона диспетчера ресурсов Azure
+## Создание фабрики данных
 
 1. Откройте **Azure PowerShell** и выполните следующие команды. 
 	- Выполните командлет **Login-AzureRmAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.  
@@ -239,7 +239,7 @@
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
-## Мониторинг конвейера
+## Отслеживание конвейера
  
 1.	Войдя на [портал Azure](https://portal.azure.com/), щелкните **Обзор** и выберите **Фабрики данных**. ![Просмотреть все -> Фабрики данных](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	В колонке **Фабрики данных** выберите созданную фабрику данных (**TutorialFactoryARM**).	
@@ -256,4 +256,4 @@
 10. Когда срез перейдет в состояние **Готово**, проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов.  
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->
