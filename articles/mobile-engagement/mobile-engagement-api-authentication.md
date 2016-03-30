@@ -95,7 +95,7 @@
 1. Вызовите API со следующими параметрами и замените TENANT\_ID, CLIENT\_ID и CLIENT\_SECRET:
 
 	- **URL-адрес запроса** как **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
-- **Заголовок Content-Type HTTP** как *application/x-www-form-urlencoded*
+	- **Заголовок Content-Type HTTP** как *application/x-www-form-urlencoded*
 	- **Текст запроса HTTP** как *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
 
 	Вот пример запроса:
@@ -154,4 +154,4 @@
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->
