@@ -228,7 +228,7 @@
 
 
 ### Приступая к работе
-[Схема обучения для виртуальных машин Windows](https://azure.microsoft.com/ru-RU/documentation/learning-paths/virtual-machines/)
+[Схема обучения для виртуальных машин Windows](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Create a virtual machine running Windows in the Azure classic portal](virtual-machines-windows-classic-tutorial.md) (Создание виртуальной машины Windows на классическом портале Azure)
 
@@ -375,4 +375,4 @@
 
 [Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин в Azure](virtual-machines-windows-allocation-failure.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016--->
