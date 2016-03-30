@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Ресурсы для рабочих нагрузок пакетной службы HPC в облаке | Microsoft Azure"
+   pageTitle="Ресурсы для рабочих нагрузок пакетной службы HPC в облаке | Microsoft Azure"
    description="В этой статье приведены технические ресурсы, которые помогут вам выполнять крупномасштабные параллельные, пакетные и высокопроизводительные вычисления (HPC) в Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
@@ -48,14 +48,14 @@
 
 ### Пакет Microsoft HPC
 
-HPC Pack — это бесплатное решение HPC корпорации Майкрософт, созданное на основе технологий Microsoft Azure и Windows Server и поддерживающее рабочие нагрузки HPC как в Windows, так и в Linux.
+HPC Pack — это бесплатное решение HPC корпорации Майкрософт, созданное на основе технологий Microsoft Azure и Windows Server и поддерживающее рабочие нагрузки HPC как в Windows, так и в Linux.
 
-* [Загрузить пакет HPC 2012 R2 с обновлением 3](https://www.microsoft.com/download/details.aspx?id=49922)
+* [Загрузить пакет HPC 2012 R2 с обновлением 3](https://www.microsoft.com/download/details.aspx?id=49922)
 
 * [Документация](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [Параметры создания кластера HPC в Azure с помощью Microsoft HPC Pack и управления им](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
+* [Параметры создания кластера HPC в Azure с помощью Microsoft HPC Pack и управления им](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
 
 * [Ускорение в рабочие экземпляры Azure с помощью пакета HPC](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -76,7 +76,7 @@ HPC Pack — это бесплатное решение HPC корпораци
 
 ## Microsoft MPI
 
-[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) — это реализация стандарта MPI (Message Passing Interface — интерфейс передачи сообщений) от Майкрософт, предназначенная для разработки и запуска параллельных приложений на платформе Windows.
+[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) — это реализация стандарта MPI (Message Passing Interface — интерфейс передачи сообщений) от Майкрософт, предназначенная для разработки и запуска параллельных приложений на платформе Windows.
 
 
 * [Скачать MS-MPI](http://go.microsoft.com/FWLink/p/?LinkID=389556)
@@ -87,11 +87,12 @@ HPC Pack — это бесплатное решение HPC корпораци
 
 ## Экземпляры для ресурсоемких вычислений
 
-В Azure доступны [разные размеры](../virtual-machines/virtual-machines-size-specs.md) вычислительных ресурсов, включая экземпляры [A8 и A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) для ресурсоемких вычислений, поддерживающих подключение к внутренней сети RDMA для выполнения рабочих нагрузок HPC в Linux и Windows.
+В Azure доступны [разные размеры](../virtual-machines/virtual-machines-windows-sizes.md) вычислительных ресурсов, включая экземпляры [A8 и A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) для ресурсоемких вычислений, поддерживающих подключение к внутренней сети RDMA для выполнения рабочих нагрузок HPC в Linux и Windows.
 
-* [Настройка кластера Linux RDMA для выполнения приложений MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
-* [Настройка кластера RDMA в Windows с помощью Microsoft HPC Pack для выполнения приложений MPI](../virtual-machines/virtual-machines-windows-hpcpack-cluster-rdma.md)
+* [Настройка кластера Linux RDMA для выполнения приложений MPI](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
+
+* [Настройка кластера RDMA в Windows с помощью Microsoft HPC Pack для выполнения приложений MPI](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
 ## Проекты архитектуры
 
@@ -145,4 +146,4 @@ HPC Pack — это бесплатное решение HPC корпораци
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](https://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

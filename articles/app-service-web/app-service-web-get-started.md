@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/14/2016" 
+	ms.date="03/17/2016" 
 	ms.author="cephalin"
 />
 	
 # Начало работы с веб-приложениями в службе приложений Azure
 
-Это руководство поможет вам быстро приступить к развертыванию веб-приложений в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md). Приложив минимум усилий, вы сможете:
+Это руководство поможет вам быстро приступить к развертыванию веб-приложений в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md). Выполнив несколько простых действий, вы сможете:
 
 - развернуть образец веб-приложения (ASP.NET, PHP, Node.js, Java или Python);
 - уже через несколько секунд увидеть работающее приложение в режиме реального времени;
@@ -34,7 +34,7 @@
 
 - Git. Двоичный файл установки можно скачать [отсюда](http://www.git-scm.com/downloads). `git --version` можно запустить из любого терминала командной строки. 
 - Базовые знания о Git.
-- Azure CLI. Инструкции по установке см. [здесь](../xplat-cli-install.md).
+- Azure CLI. Инструкции по установке см. [здесь](../xplat-cli-install.md). `azure --version` можно запустить из любого терминала командной строки.
 - Учетная запись Microsoft Azure. Если у вас нет учетной записи, можно [подписаться на бесплатную пробную версию](/pricing/free-trial/?WT.mc_id=A261C142F) или [активировать преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] Чтобы увидеть службу приложений Azure в действии до создания учетной записи Azure, перейдите на страницу [пробного использования службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751). Там можно быстро создать кратковременное приложение начального уровня в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
@@ -49,15 +49,15 @@
 
     Для *&lt;github\_sample\_url>* используйте один из следующих URL-адресов в зависимости от выбранной платформы:
 
-    - ASP.NET: [https://github.com/azure-appservice-samples/aspnet-get-started.git](https://github.com/azure-appservice-samples/aspnet-get-started.git);
-    - PHP (CodeIgniter): [https://github.com/azure-appservice-samples/php-get-started.git](https://github.com/azure-appservice-samples/php-get-started.git);
-    - Node.js (Express): [https://github.com/azure-appservice-samples/nodejs-get-started.git](https://github.com/azure-appservice-samples/nodejs-get-started.git); 
-    - Python (Django): [https://github.com/azure-appservice-samples/python-get-started.git](https://github.com/azure-appservice-samples/python-get-started.git);
-    - Java: [https://github.com/azure-appservice-samples/java-get-started.git](https://github.com/azure-appservice-samples/java-get-started.git).
+    - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git);
+    - PHP (CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git);
+    - Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git); 
+    - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git);
+    - Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git).
 
-2. Выполните команду `CD` в корневом каталоге проекта для примера приложения. Например,
+2. С помощью команды `CD` перейдите в корневой каталог примера приложения. Например,
 
-        cd aspnet-get-started
+        cd app-service-web-dotnet-get-started
 
 3. Войдите в Azure:
 
@@ -93,15 +93,15 @@
 
 ## Обновление приложения
 
-Подобно тому, как вы впервые развернули приложение в Azure, теперь с помощью Git можно в любой момент передать из корневого каталога проекта (репозитория) изменения на рабочий сайт. Например, каждый раз, когда вам нужно отправить новые изменения, протестированные локально, просто выполните следующие команды из корневого каталога проекта (репозитория):
+Теперь с помощью Git можно в любой момент передать на рабочий сайт изменения из корневого каталога проекта (репозитория). Это можно сделать так же, как при первом развертывании приложения в Azure. Например, каждый раз, когда вам нужно отправить новое изменение, протестированное локально, просто выполните следующие команды из корневого каталога проекта (репозитория):
     
     git add .
-    git commit -m "<you_message>"
+    git commit -m "<your_message>"
     git push azure master
 
 ## Другие способы развертывания
 
-Существует множество способов, с помощью которых можно развернуть веб-приложение. Развертывание Git из локального репозитория — лишь один из них. Также есть интуитивно понятный мастер развертывания в Visual Studio, непрерывное развертывание непосредственно из GitHub, синхронизация содержимого из DropBox и множество других вариантов, включая метод FTP, с которым знакомы веб-разработчики. Дополнительные сведения о вариантах развертывания см. в статье [Развертывание приложения в службе приложений Azure](../app-service-web/web-sites-deploy.md).
+Существуют различные способы, с помощью которых можно развернуть веб-приложение. Развертывание Git из локального репозитория — лишь один из них. Другие варианты: развертывание напрямую из Visual Studio, постоянное развертывание с портала GitHub, синхронизация из DropBox или OneDrive, передача файлов через FTP и т. д. Дополнительные сведения о вариантах развертывания см. в статье [Развертывание приложения в службе приложений Azure](../app-service-web/web-sites-deploy.md).
 
 ## Просмотр приложения на портале Azure
 
@@ -115,7 +115,7 @@
 
     ![Представление первого приложения на портале в службе приложений Azure](./media/app-service-web-get-started/portal-view.png)
 
-Колонка приложения службы приложений содержит широкий набор параметров и средств для настройки, мониторинга, защиты приложения и устранения неполадок в нем. Уделите минуту, чтобы ознакомиться с этим интерфейсом, выполнив несколько простых действий:
+Колонка портала для приложения службы приложений содержит широкий набор параметров и средств для настройки, мониторинга, защиты приложения и устранения неполадок в нем. Уделите минуту, чтобы ознакомиться с этим интерфейсом, выполнив несколько простых действий:
 
 - Остановите приложение.
 - Перезапустите приложение.
@@ -127,7 +127,7 @@
 
 Поднимите развернутое приложение на следующий уровень. Защитите его с помощью проверки подлинности. Масштабируйте его в зависимости от потребностей. Настройте оповещения производительности. Все это можно сделать с помощью нескольких щелчков мыши. См. статью [Начало работы со службой приложений Azure (часть 2)](app-service-web-get-started-2.md).
 
-Также можно продолжить изучать способы создания веб-приложения для службы приложений с нуля:
+Также можно продолжить изучать способы создания веб-приложения для службы приложений с помощью разных языковых платформ:
 
 - [Создание веб-приложения ASP.NET в службе приложений Azure](web-sites-dotnet-get-started.md)
 - [Создание веб-приложения PHP в службе приложений Azure](web-sites-php-mysql-deploy-use-git.md)
@@ -135,10 +135,10 @@
 - [Создание веб-приложения Java в службе приложений Azure](web-sites-java-get-started.md)
 - [Создание веб-приложения Python в службе приложений Azure](web-sites-python-ptvs-django-mysql.md)
 
-Кроме того, существует множество материалов, демонстрирующих разные приложения, которые можно создать в службе приложений Azure: веб-приложения, серверные части мобильных приложений и приложения API.
+Или поищите дополнительные материалы, демонстрирующие разные приложения, которые можно создать в службе приложений Azure: веб-приложения, серверные части мобильных приложений и приложения API.
 
 - [Создание веб-приложений](/documentation/learning-paths/appservice-webapps/)
 - [Создание мобильных приложений](/documentation/learning-paths/appservice-mobileapps/)
 - [Создание приложений API](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

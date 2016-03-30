@@ -39,7 +39,7 @@
 
 Для работы с данным учебником требуется следующее:
 
-+ [пакет SDK для мобильных служб для iOS версии 2];
++ [Пакет SDK для мобильных служб для iOS версии 1.2.4]
 + последняя версия [Xcode];
 + устройство с iOS 8 (или более поздней версии);
 + участие в [программе для разработчиков на платформе Apple](https://developer.apple.com/programs/).
@@ -86,7 +86,7 @@
 
    	![Xcode — профиль подготовки][9]
 
-4. Загрузите [пакет SDK для мобильных служб для iOS версии 2.x] и распакуйте архив. В XCode щелкните проект правой кнопкой мыши и выберите параметр **Add Files to** (Добавить файлы в), чтобы добавить папку **WindowsAzureMessaging.framework** в проект XCode. Выберите **Copy items if needed** (Копировать элементы при необходимости), а затем щелкните **Add** (Добавить).
+4. Загрузите [пакет SDK для мобильных служб для iOS версии 1.2.4] и распакуйте архив. В XCode щелкните проект правой кнопкой мыши и выберите параметр **Add Files to** (Добавить файлы в), чтобы добавить папку **WindowsAzureMessaging.framework** в проект XCode. Выберите **Copy items if needed** (Копировать элементы при необходимости), а затем щелкните **Add** (Добавить).
 
 	>[AZURE.NOTE] Пакет SDK для концентраторов уведомлений в настоящее время не поддерживает Bitcode в Xcode 7. В разделе **Параметры построения** вашего проекта необходимо задать для параметра **Включить Bitcode** значение **Нет**.
 
@@ -486,9 +486,8 @@
 
 
 <!-- URLs. -->
-[Mobile Services iOS SDK version 1.2.4]: http://aka.ms/kymw2g
-[пакет SDK для мобильных служб для iOS версии 2]: https://github.com/Azure/azure-mobile-services/blob/master/CHANGELOG.ios.md#sdk-downloads
-[пакет SDK для мобильных служб для iOS версии 2.x]: https://github.com/Azure/azure-mobile-services/blob/master/CHANGELOG.ios.md#sdk-downloads
+[Пакет SDK для мобильных служб для iOS версии 1.2.4]: http://aka.ms/kymw2g
+[пакет SDK для мобильных служб для iOS версии 1.2.4]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -508,4 +507,4 @@
 [портала Azure]: https://portal.azure.com
 [портале Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

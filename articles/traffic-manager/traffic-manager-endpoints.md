@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Добавление, отключение, включение и удаление конечных точек
@@ -75,4 +75,4 @@
 
 [Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

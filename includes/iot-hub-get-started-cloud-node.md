@@ -95,7 +95,7 @@
     var Promise = require('bluebird');
     ```
 
-5. Добавьте следующие объявления переменных, заменив заполнители ранее записанными значениями. Значение заполнителя **{your event hub-compatible namespace}** поступает из **конечной точки, совместимой с концентраторами событий** и принимает форму **xxxxnamespace.servicebus.windows.net**.
+5. Добавьте следующие объявления переменных, заменив заполнители ранее записанными значениями. Значение заполнителя **{your event hub-compatible namespace}** поступает из поля **Конечная точка, совместимая с концентраторами событий** на портале и принимает форму **namespace.servicebus.windows.net** (без префикса **sb://*).
 
     ```
     var protocol = 'amqps';
@@ -182,4 +182,4 @@
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

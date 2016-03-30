@@ -19,14 +19,10 @@
 
 # <a name="getting-started"></a>Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Создание приложения Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started.md).
 
 В данном учебнике описывается добавление облачных служб внутреннего сервера в приложение Xamarin.Android с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение *To do list*, хранящее данные приложения в новой мобильной службе.
 
@@ -146,4 +142,4 @@
 [Azure]: http://azure.microsoft.com/
 [классическом портале Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

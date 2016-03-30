@@ -3,9 +3,9 @@
 	description="Узнайте, как можно создать многоуровневое приложение с помощью ASP.NET MVC и Azure. Такое приложение выполняется в облачной службе и обладает веб-ролью и рабочей ролью. В его работе используются: Entity Framework, база данных SQL, очереди и BLOB-объекты службы хранилища Azure."
 	services="cloud-services, storage"
 	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
-	editor="mollybos"/>
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/28/2015"
-	ms.author="tdykstra"/>
+	ms.date="03/21/2016"
+	ms.author="adegeo"/>
 
 # Начало работы с облачными службами Azure и ASP.NET
 
@@ -58,7 +58,7 @@
 Инструкции руководства применимы со следующими продуктами:
 
 * Visual Studio 2013
-* Visual Studio 2015
+* Visual Studio 2015
 
 Если у вас нет ни одного из этих продуктов, Visual Studio 2015 будет установлен автоматически при установке пакета SDK для Azure.
 
@@ -135,7 +135,7 @@
 
 1. В браузере откройте [классический портал Azure](http://manage.windowsazure.com).
 
-2. Последовательно выберите пункты **Создать > Вычисления > Облачная служба > Быстрое создание**.
+2. Последовательно выберите пункты **Создать > Вычисления > Облачная служба > Быстрое создание**.
 
 4. В поле ввода URL-адреса введите префикс URL-адреса.
 
@@ -155,7 +155,7 @@
 
 Когда приложение запускается в облаке, оно использует расположенную в облаке базу данных.
 
-1. На [классическом портале Azure](http://manage.windowsazure.com) последовательно выберите пункты **Создать > Службы данных > Базы данных SQL > Быстрое создание**.
+1. На [классическом портале Azure](http://manage.windowsazure.com) последовательно выберите пункты **Создать > Службы данных > Базы данных SQL > Быстрое создание**.
 
 1. В поле **Имя базы данных** введите *contosoads*.
 
@@ -191,7 +191,7 @@
 
 В реальном приложении обычно создают отдельные учетные записи для данных приложения и данных журналов, а также отдельные учетные записи для тестовых данных и рабочих данных. В этом учебнике будет использоваться одна запись.
 
-1. На [классическом портале Azure](http://manage.windowsazure.com) последовательно выберите пункты **Создать > Службы данных > Хранилище > Быстрое создание**.
+1. На [классическом портале Azure](http://manage.windowsazure.com) последовательно выберите пункты **Создать > Службы данных > Хранилище > Быстрое создание**.
 
 4. В поле ввода **URL-адреса** введите префикс URL-адреса.
 
@@ -223,11 +223,13 @@
 
 1. В проекте ContosoAdsWeb откройте файл преобразования *Web.Release.config* для файла приложения *Web.config*, удалите блок комментариев, содержащий элемент `<connectionStrings>` и вставьте вместо него следующий код.
 
-		<connectionStrings>
-	        <add name="ContosoAdsContext" connectionString="{connectionstring}"
-		    providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
-		</connectionStrings>
-
+    ```xml
+    <connectionStrings>
+        <add name="ContosoAdsContext" connectionString="{connectionstring}"
+        providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
+    </connectionStrings>
+    ```
+    
 	Оставьте файл открытым для редактирования.
 
 2. На [классическом портале Azure](http://manage.windowsazure.com) в области слева щелкните элемент **Базы данных SQL**, выберите базу данных, созданную для этого руководства, затем перейдите на вкладку **Панель мониторинга** и щелкните пункт **Показать строки подключения**.
@@ -264,29 +266,29 @@
 
 Строки подключения учетной записи хранения Azure для проектов рабочей роли и веб-роли сохраняются в настройках среды в проекте облачной службы. Для каждого проекта используется отдельный набор настроек, если приложение запущено локально или в облаке. Следует обновить настройки облачной среды для проектов рабочей роли и веб-роли.
 
-4. В **обозревателе решений** щелкните правой кнопкой мыши элемент **ContosoAdsWeb** в области **Роли** проекта **ContosoAdsCloudService**, а затем щелкните пункт **Свойства**.
+1. В **обозревателе решений** щелкните правой кнопкой мыши элемент **ContosoAdsWeb** в области **Роли** проекта **ContosoAdsCloudService**, а затем щелкните пункт **Свойства**.
 
 	![Свойства роли](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
-5. Перейдите на вкладку **Параметры**. В раскрывающемся списке **Конфигурация службы** выберите значение **Облако**.
+2. Перейдите на вкладку **Параметры**. В раскрывающемся списке **Конфигурация службы** выберите значение **Облако**.
 
 	![Конфигурация облака](./media/cloud-services-dotnet-get-started/sccloud.png)
 
-6. Выберите запись **StorageConnectionString**, и вы увидите кнопку с многоточием (**...**) в правом конце строки. Нажмите эту кнопку с многоточием, чтобы открыть диалоговое окно **Создание строки подключения учетной записи хранения**.
+3. Выберите запись **StorageConnectionString**, и вы увидите кнопку с многоточием (**...**) в правом конце строки. Нажмите эту кнопку с многоточием, чтобы открыть диалоговое окно **Создание строки подключения учетной записи хранения**.
 
 	![Откройте окно создания строки подключения](./media/cloud-services-dotnet-get-started/opencscreate.png)
 
-1. В диалоговом окне **Создание строки подключения к хранилищу** щелкните переключатель **Ваша подписка**, выберите учетную запись хранения, созданную ранее, и нажмите кнопку **ОК**. Если вы еще не вошли, появится запрос на ввод учетных данных учетной записи Azure.
+4. В диалоговом окне **Создание строки подключения к хранилищу** щелкните переключатель **Ваша подписка**, выберите учетную запись хранения, созданную ранее, и нажмите кнопку **ОК**. Если вы еще не вошли, появится запрос на ввод учетных данных учетной записи Azure.
 
 	![Создайте строку подключения хранилища](./media/cloud-services-dotnet-get-started/createstoragecs.png)
 
-1. Сохраните изменения.
+5. Сохраните изменения.
 
-2. Следуйте той же процедуре, которую использовали для строки подключения `StorageConnectionString`, чтобы задать строку подключения `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`.
+6. Следуйте той же процедуре, которую использовали для строки подключения `StorageConnectionString`, чтобы задать строку подключения `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`.
 
 	Эта строка подключения используется для журнала.
 
-2. Выполните ту же процедуру, которую использовали для роли **ContosoAdsWeb**, чтобы задать строки подключения для роли **ContosoAdsWorker**. Измените **конфигурацию службы** на **Облако**.
+7. Выполните ту же процедуру, которую использовали для роли **ContosoAdsWeb**, чтобы задать строки подключения для роли **ContosoAdsWorker**. Измените **конфигурацию службы** на **Облако**.
 
 Настройки среды роли, которые были заданы с использованием интерфейса Visual Studio, сохраняются в следующих файлах в проекте ContosoAdsCloudService:
 
@@ -296,28 +298,34 @@
 
 Например, ServiceDefinition.csdef включает следующие определения:
 
-		<ConfigurationSettings>
-		  <Setting name="StorageConnectionString" />
-		  <Setting name="ContosoAdsDbConnectionString" />
-		</ConfigurationSettings>
+```xml
+<ConfigurationSettings>
+    <Setting name="StorageConnectionString" />
+    <Setting name="ContosoAdsDbConnectionString" />
+</ConfigurationSettings>
+```
 
 Файл *ServiceConfiguration.Cloud.cscfg* включает значения, которые были введены для этих настроек в Visual Studio:
 
-		<Role name="ContosoAdsWorker">
-		  <Instances count="1" />
-		  <ConfigurationSettings>
-		    <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
-		    <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
-		    <!-- other settings not shown -->
-		  </ConfigurationSettings>
-		  <!-- other settings not shown -->
-		</Role>
+```xml
+<Role name="ContosoAdsWorker">
+    <Instances count="1" />
+    <ConfigurationSettings>
+        <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
+        <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
+        <!-- other settings not shown -->
+    
+    </ConfigurationSettings>
+    <!-- other settings not shown -->
+    
+</Role>
+```
 
 Параметр `<Instances>` указывает число виртуальных машин, на которых Azure будет запускать код рабочий роли. В раздел [Дальнейшие действия](#next-steps) включены ссылки на дополнительную информацию о горизонтальном масштабировании облачной службы.
 
 ###  Развертывание проекта в Azure
 
-3.	В **обозревателе решений** щелкните правой кнопкой мыши проект **ContosoAdsCloudService** и выберите **Опубликовать**.
+1.	В **обозревателе решений** щелкните правой кнопкой мыши проект **ContosoAdsCloudService** и выберите **Опубликовать**.
 
 	![Меню публикации](./media/cloud-services-dotnet-get-started/pubmenu.png)
 
@@ -331,21 +339,21 @@
 
 	Заданные на вкладке **Дополнительно** значения по умолчанию подходят для работы с этим учебником. Дополнительные сведения о вкладке "Дополнительно" см. в разделе [Мастер публикации приложения Azure](http://msdn.microsoft.com/library/hh535756.aspx).
 
-2. На этапе **Сводка** щелкните **Опубликовать**.
+4. На этапе **Сводка** щелкните **Опубликовать**.
 
 	![Сводка действий](./media/cloud-services-dotnet-get-started/pubsummary.png)
 
    В Visual Studio открывается окно **Журнал действий Azure**.
 
-2. Нажмите значок со стрелкой вправо, чтобы развернуть сведения о развертывании.
+5. Нажмите значок со стрелкой вправо, чтобы развернуть сведения о развертывании.
 
 	Развертывание может занять около 5 минут и более.
 
 	![Окно журнал действий Azure](./media/cloud-services-dotnet-get-started/waal.png)
 
-1. После завершения развертывания щелкните **URL-адрес веб-приложения** для запуска приложения.
+6. После завершения развертывания щелкните **URL-адрес веб-приложения** для запуска приложения.
 
-9. Теперь можно протестировать приложение, создавая, просматривая и редактируя некоторые элементы рекламы так же, как это происходило при локальном запуске приложения.
+7. Теперь можно протестировать приложение, создавая, просматривая и редактируя некоторые элементы рекламы так же, как это происходило при локальном запуске приложения.
 
 >[AZURE.NOTE] После завершения тестирования удалите или остановите облачную службу. Даже если облачная служба не используется, плата за нее начисляется, поскольку ресурсы виртуальной машины для нее зарезервированы. Если оставить ее работающей, любой кто найдет этот URL-адрес, сможет создать и просмотреть рекламу. На [классическом портале Azure](http://manage.windowsazure.com) перейдите на вкладку **Панель мониторинга** для облачной службы, а затем нажмите кнопку **Удалить** в нижней части страницы. Если необходимо временно предотвратить доступ посторонних к сайту, вместо этого щелкните **Остановить**. В этом случае плата будет взиматься. Можно повторить эту же процедуру для удаления базы данных SQL и учетной записи хранилища, если они больше не нужны.
 
@@ -397,29 +405,29 @@
 
 ### Обновите и добавьте пакеты NuGet
 
-11. Откройте диалоговое окно **Управление пакетами NuGet** для решения.
+1. Откройте диалоговое окно **Управление пакетами NuGet** для решения.
 
-12. В верхней части окна выберите пункт **Обновления**.
+2. В верхней части окна выберите пункт **Обновления**.
 
-13. Найдите пакет *WindowsAzure.Storage* и, если он есть в списке, выберите его и выберите веб-проект и проект рабочей роли для обновления пакета в этих проектах, а затем нажмите кнопку **Обновить**.
+3. Найдите пакет *WindowsAzure.Storage* и, если он есть в списке, выберите его и выберите веб-проект и проект рабочей роли для обновления пакета в этих проектах, а затем нажмите кнопку **Обновить**.
 
 	Клиентская библиотека хранилища обновляется чаще, чем шаблоны проектов Visual Studio, поэтому часто происходит так, что версию во вновь создаваемых проектах необходимо обновить.
 
-14. В верхней части окна выберите пункт **Обзор**.
+4. В верхней части окна выберите пункт **Обзор**.
 
-16. Найдите пакет NuGet *EntityFramework* и установите его во все проекты.
+5. Найдите пакет NuGet *EntityFramework* и установите его во все проекты.
 
-17. Найдите пакет NuGet *Microsoft.WindowsAzure.ConfigurationManager* и установите его в проект рабочей роли.
+6. Найдите пакет NuGet *Microsoft.WindowsAzure.ConfigurationManager* и установите его в проект рабочей роли.
 
 ### Установите ссылки проекта
 
-10. Задайте в проекте ContosoAdsWeb ссылку на проект ContosoAdsCommon. Щелкните правой кнопкой мыши проект ContosoAdsWeb и выберите пункты **Ссылки** — **Добавить ссылку**. В диалоговом окне **Диспетчер ссылок** выберите пункты **Решение — Проекты** на панели слева, выберите **ContosoAdsCommon**, а затем нажмите **ОК**.
+1. Задайте в проекте ContosoAdsWeb ссылку на проект ContosoAdsCommon. Щелкните правой кнопкой мыши проект ContosoAdsWeb и выберите пункты **Ссылки** — **Добавить ссылку**. В диалоговом окне **Диспетчер ссылок** выберите пункты **Решение — Проекты** на панели слева, выберите **ContosoAdsCommon**, а затем нажмите **ОК**.
 
-11. Задайте в проекте ContosoAdsWorker ссылку на проект ContosoAdsCommon.
+2. Задайте в проекте ContosoAdsWorker ссылку на проект ContosoAdsCommon.
 
 	ContosoAdsCommon будет содержать модель данных и контекстный класс Entity Framework, который будет использован как фоновой, так и интерфейсной службой.
 
-11. Задайте в проекте ContosoAdsWorker ссылку на `System.Drawing`.
+3. Задайте в проекте ContosoAdsWorker ссылку на `System.Drawing`.
 
 	Сборка используется внутренней службой для преобразования изображений в эскизы.
 
@@ -427,39 +435,43 @@
 
 В этом разделе настройте хранилище Azure и строки подключения SQL для локального тестирования. Инструкции по развертыванию ранее в этом руководстве объясняют, как установить строки подключения в случае, когда приложение работает в облаке.
 
-3. В проекте ContosoAdsWeb откройте файл приложения Web.config и вставьте следующий элемент `connectionStrings` после элемента `configSections`:
+1. В проекте ContosoAdsWeb откройте файл приложения Web.config и вставьте следующий элемент `connectionStrings` после элемента `configSections`:
 
-		<connectionStrings>
-		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
-		</connectionStrings>
-
+    ```xml
+    <connectionStrings>
+        <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    ```
+    
 	Если вы используете Visual Studio 2015, замените v11.0 на MSSQLLocalDB.
 
-3. Сохраните изменения.
+2. Сохраните изменения.
 
-2. В проекте ContosoAdsCloudService щелкните правой кнопкой мыши ContosoAdsWeb в разделе **Роли**, а затем щелкните **Свойства**.
+3. В проекте ContosoAdsCloudService щелкните правой кнопкой мыши ContosoAdsWeb в разделе **Роли**, а затем щелкните **Свойства**.
 
 	![Свойства роли](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
-3. В окне свойств **ContosAdsWeb [роль]** щелкните вкладку **Настройки** и затем щелкните **Добавить настройку**.
+4. В окне свойств **ContosAdsWeb [роль]** щелкните вкладку **Настройки** и затем щелкните **Добавить настройку**.
 
 	Оставьте **конфигурацию службы** установленной как **Все конфигурации**.
 
-4. Добавьте новую настройку с именем *StorageConnectionString*. Задайте **Тип** как *ConnectionString* и установите **Значение ** как *UseDevelopmentStorage=true*.
+5. Добавьте новую настройку с именем *StorageConnectionString*. Задайте **Тип** как *ConnectionString* и установите **Значение ** как *UseDevelopmentStorage=true*.
 
 	![Новая строка подключения](./media/cloud-services-dotnet-get-started/scall.png)
 
-5. Сохраните изменения.
+6. Сохраните изменения.
 
-3. Следуйте этой же процедуре для добавления строки подключения хранилища в свойства роли ContosoAdsWorker.
+7. Следуйте этой же процедуре для добавления строки подключения хранилища в свойства роли ContosoAdsWorker.
 
-5. Там же в окне свойств **ContosoAdsWorker [роль]** добавьте другую строку подключения:
+8. Там же в окне свойств **ContosoAdsWorker [роль]** добавьте другую строку подключения:
 
 	* Имя: ContosoAdsDbConnectionString
 	* Тип: строка
 	* Значение. Вставьте ту же строку подключения, которая была использована для проекта веб-роли. (Этот пример предназначен для Visual Studio 2013, не забудьте изменить источник данных при копировании этого примера для Visual Studio 2015.)
 
-			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
+	    ```
+        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
+        ```
 
 ### Добавьте файлы кода
 
@@ -471,10 +483,10 @@
 
 3. В проекте ContosoAdsCommon добавьте следующие файлы из загруженного проекта.
 	- *Global.asax.cs*.  
-	- В папку *Views\Shared*: файл <em>\_Layout.cshtml</em>.
-	- В папку *Views\Home*: файл *Index.cshtml*.
+	- В папку *Views\\Shared*: файл *\_Layout.cshtml*.
+	- В папку *Views\\Home*: файл *Index.cshtml*.
 	- В папку *Controllers*: *AdController.cs*
-	- В папку *Views\Ad* (вначале создайте эту папку): пять файлов *.cshtml*.
+	- В папку *Views\\Ad* (вначале создайте эту папку): пять файлов *.cshtml*.
 
 3. В проекте ContosoAdsCommon добавьте *WorkerRole.cs* из загруженного проекта.
 
@@ -490,60 +502,64 @@
 
 Файл Ad.cs определяет перечисляемый тип для класса Ad и класс сущностей POCO для информации в рекламе.
 
-		public enum Category
-		{
-		    Cars,
-		    [Display(Name="Real Estate")]
-		    RealEstate,
-		    [Display(Name = "Free Stuff")]
-		    FreeStuff
-		}
+```csharp
+public enum Category
+{
+    Cars,
+    [Display(Name="Real Estate")]
+    RealEstate,
+    [Display(Name = "Free Stuff")]
+    FreeStuff
+}
 
-		public class Ad
-		{
-		    public int AdId { get; set; }
+public class Ad
+{
+    public int AdId { get; set; }
 
-		    [StringLength(100)]
-		    public string Title { get; set; }
+    [StringLength(100)]
+    public string Title { get; set; }
 
-		    public int Price { get; set; }
+    public int Price { get; set; }
 
-		    [StringLength(1000)]
-		    [DataType(DataType.MultilineText)]
-		    public string Description { get; set; }
+    [StringLength(1000)]
+    [DataType(DataType.MultilineText)]
+    public string Description { get; set; }
 
-		    [StringLength(1000)]
-		    [DisplayName("Full-size Image")]
-		    public string ImageURL { get; set; }
+    [StringLength(1000)]
+    [DisplayName("Full-size Image")]
+    public string ImageURL { get; set; }
 
-		    [StringLength(1000)]
-		    [DisplayName("Thumbnail")]
-		    public string ThumbnailURL { get; set; }
+    [StringLength(1000)]
+    [DisplayName("Thumbnail")]
+    public string ThumbnailURL { get; set; }
 
-		    [DataType(DataType.Date)]
-		    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-		    public DateTime PostedDate { get; set; }
+    [DataType(DataType.Date)]
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+    public DateTime PostedDate { get; set; }
 
-		    public Category? Category { get; set; }
-		    [StringLength(12)]
-		    public string Phone { get; set; }
-		}
+    public Category? Category { get; set; }
+    [StringLength(12)]
+    public string Phone { get; set; }
+}
+```
 
 ### ContosoAdsCommon - ContosoAdsContext.cs
 
 Класс ContosoAdsContext указывает, что класс Ad используется коллекцией DbSet, которую Entity Framework хранит в базе данных SQL.
 
-		public class ContosoAdsContext : DbContext
-		{
-		    public ContosoAdsContext() : base("name=ContosoAdsContext")
-		    {
-		    }
-		    public ContosoAdsContext(string connString)
-		        : base(connString)
-		    {
-		    }
-		    public System.Data.Entity.DbSet<Ad> Ads { get; set; }
-		}
+```csharp
+public class ContosoAdsContext : DbContext
+{
+    public ContosoAdsContext() : base("name=ContosoAdsContext")
+    {
+    }
+    public ContosoAdsContext(string connString)
+        : base(connString)
+    {
+    }
+    public System.Data.Entity.DbSet<Ad> Ads { get; set; }
+}
+```
 
 Класс имеет два конструктора. Первый из них используется веб-проектом и указывает имя строки подключения, которая сохранена в файле Web.config Второй конструктор дает возможность передачи действующей строки подключения. Это необходимо проекту рабочей роли, поскольку он не имеет файла Web.config. Ранее было показано, где хранится строка подключения, а потом будет показано, как код извлекает строку подключения, когда он создает экземпляр класса DbContext.
 
@@ -553,40 +569,48 @@
 
 Код получает доступ к учетной записи хранилища, используя строку подключения из файла *.cscfg*.
 
-		var storageAccount = CloudStorageAccount.Parse
-		    (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+```csharp
+var storageAccount = CloudStorageAccount.Parse
+    (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+```
 
 Затем он получает ссылку на контейнер больших двоичных объектов *images*, создает контейнер, если он еще не существует, и устанавливает разрешения доступа к новому контейнеру. По умолчанию новые контейнеры разрешают доступ к большим двоичным объектам только клиентам с данными учетной записи хранения. Веб-сайту требуются общедоступные большие двоичные объекты, чтобы он мог выводить изображения с использованием URL-адресов, которые указывают на объекты изображений.
 
-		var blobClient = storageAccount.CreateCloudBlobClient();
-		var imagesBlobContainer = blobClient.GetContainerReference("images");
-		if (imagesBlobContainer.CreateIfNotExists())
-		{
-		    imagesBlobContainer.SetPermissions(
-		        new BlobContainerPermissions
-		        {
-		            PublicAccess =BlobContainerPublicAccessType.Blob
-		        });
-		}
+```csharp
+var blobClient = storageAccount.CreateCloudBlobClient();
+var imagesBlobContainer = blobClient.GetContainerReference("images");
+if (imagesBlobContainer.CreateIfNotExists())
+{
+    imagesBlobContainer.SetPermissions(
+        new BlobContainerPermissions
+        {
+            PublicAccess =BlobContainerPublicAccessType.Blob
+        });
+}
+```
 
 Аналогичный код получает ссылку на очередь *images* и создает новую очередь В этом случае изменений разрешений не требуется.
 
-		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		var imagesQueue = queueClient.GetQueueReference("images");
-		imagesQueue.CreateIfNotExists();
+```csharp
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+var imagesQueue = queueClient.GetQueueReference("images");
+imagesQueue.CreateIfNotExists();
+```
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Файл *_Layout.cshtml* устанавливает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
+Файл *\_Layout.cshtml* устанавливает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-Файл *Views\Home\Index.cshtml* выводит ссылки категорий на домашней странице. Ссылки передают целочисленное значение перечисляемого типа `Category` в переменную querystring на странице индекса Ads.
+Файл *Views\\Home\\Index.cshtml* выводит ссылки категорий на домашней странице. Ссылки передают целочисленное значение перечисляемого типа `Category` в переменную querystring на странице индекса Ads.
 
-		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
-		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
-		<li>@Html.ActionLink("Free stuff", "Index", "Ad", new { category = (int)Category.FreeStuff }, null)</li>
-		<li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
+```razor
+<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
+<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
+<li>@Html.ActionLink("Free stuff", "Index", "Ad", new { category = (int)Category.FreeStuff }, null)</li>
+<li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
+```
 
 ### ContosoAdsWeb - AdController.cs
 
@@ -594,101 +618,125 @@
 
 Затем код получает ссылку на контейнер больших двоичных объектов *images*, как показано ранее в *Global.asax.cs*. При этом он устанавливает [политику повторения](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) по умолчанию, подходящую для веб-приложения. Политика повторения с экспоненциальной задержкой по умолчанию может застопорить веб-приложение более чем на минуту при повторяющихся повторах во время кратковременного сбоя. Политика повторения здесь указывает ожидание в 3 секунды после каждой попытки, всего до 3 повторений.
 
-		var blobClient = storageAccount.CreateCloudBlobClient();
-		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
-		imagesBlobContainer = blobClient.GetContainerReference("images");
+```csharp
+var blobClient = storageAccount.CreateCloudBlobClient();
+blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+imagesBlobContainer = blobClient.GetContainerReference("images");
+```
 
 Аналогичный код получает ссылку на очередь *images*.
 
-		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
-		imagesQueue = queueClient.GetQueueReference("images");
+```csharp
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+imagesQueue = queueClient.GetQueueReference("images");
+```
 
 Большая часть кода контроллера обычна для работы с моделью данных Entity Framework с использованием класса DbContext. Исключением является метод `Create` HttpPost, который отправляет файл и сохраняет его в хранилище больших двоичных объектов. Связыватель модели предоставляет объект [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) для метода.
 
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<ActionResult> Create(
-		    [Bind(Include = "Title,Price,Description,Category,Phone")] Ad ad,
-		    HttpPostedFileBase imageFile)
+```csharp
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<ActionResult> Create(
+    [Bind(Include = "Title,Price,Description,Category,Phone")] Ad ad,
+    HttpPostedFileBase imageFile)
+```
 
 При выбора файла для отправки код отправляет его, сохраняет его в большом двоичном объекте и обновляет запись базы данных URL-адресом, который указывает на большой двоичный объект.
 
-		if (imageFile != null && imageFile.ContentLength != 0)
-		{
-		    blob = await UploadAndSaveBlobAsync(imageFile);
-		    ad.ImageURL = blob.Uri.ToString();
-		}
+```csharp
+if (imageFile != null && imageFile.ContentLength != 0)
+{
+    blob = await UploadAndSaveBlobAsync(imageFile);
+    ad.ImageURL = blob.Uri.ToString();
+}
+```
 
 Код отправки содержится в методе `UploadAndSaveBlobAsync`. Он создает имя GUID для большого двоичного объекта, отправляет и сохраняет файл, а также возвращает ссылку на сохраненный большой двоичный объект.
 
-		private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
-		{
-		    string blobName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
-		    CloudBlockBlob imageBlob = imagesBlobContainer.GetBlockBlobReference(blobName);
-		    using (var fileStream = imageFile.InputStream)
-		    {
-		        await imageBlob.UploadFromStreamAsync(fileStream);
-		    }
-		    return imageBlob;
-		}
+```csharp
+private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
+{
+    string blobName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
+    CloudBlockBlob imageBlob = imagesBlobContainer.GetBlockBlobReference(blobName);
+    using (var fileStream = imageFile.InputStream)
+    {
+        await imageBlob.UploadFromStreamAsync(fileStream);
+    }
+    return imageBlob;
+}
+```
 
 После того как метод HttpPost `Create` загружает большой двоичный объект и обновляет базу данных, он создает сообщение очереди для информирования фонового процесса о том, что изображение готово для преобразования в эскиз.
 
-		string queueMessageString = ad.AdId.ToString();
-		var queueMessage = new CloudQueueMessage(queueMessageString);
-		await queue.AddMessageAsync(queueMessage);
+```csharp
+string queueMessageString = ad.AdId.ToString();
+var queueMessage = new CloudQueueMessage(queueMessageString);
+await queue.AddMessageAsync(queueMessage);
+```
 
 Код для метода HttpPost `Edit` аналогичен, за одним исключением — если пользователь выбирает новый файл изображения, все существующие большие двоичные объекты должны быть удалены.
 
-		if (imageFile != null && imageFile.ContentLength != 0)
-		{
-		    await DeleteAdBlobsAsync(ad);
-		    imageBlob = await UploadAndSaveBlobAsync(imageFile);
-		    ad.ImageURL = imageBlob.Uri.ToString();
-		}
+```csharp
+if (imageFile != null && imageFile.ContentLength != 0)
+{
+    await DeleteAdBlobsAsync(ad);
+    imageBlob = await UploadAndSaveBlobAsync(imageFile);
+    ad.ImageURL = imageBlob.Uri.ToString();
+}
+```
 
 Ниже представлен пример кода, который удаляет большие двоичные объекты при удалении элемента рекламы.
 
-		private async Task DeleteAdBlobsAsync(Ad ad)
-		{
-		    if (!string.IsNullOrWhiteSpace(ad.ImageURL))
-		    {
-		        Uri blobUri = new Uri(ad.ImageURL);
-		        await DeleteAdBlobAsync(blobUri);
-		    }
-		    if (!string.IsNullOrWhiteSpace(ad.ThumbnailURL))
-		    {
-		        Uri blobUri = new Uri(ad.ThumbnailURL);
-		        await DeleteAdBlobAsync(blobUri);
-		    }
-		}
-		private static async Task DeleteAdBlobAsync(Uri blobUri)
-		{
-		    string blobName = blobUri.Segments[blobUri.Segments.Length - 1];
-		    CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(blobName);
-		    await blobToDelete.DeleteAsync();
-		}
+```csharp
+private async Task DeleteAdBlobsAsync(Ad ad)
+{
+    if (!string.IsNullOrWhiteSpace(ad.ImageURL))
+    {
+        Uri blobUri = new Uri(ad.ImageURL);
+        await DeleteAdBlobAsync(blobUri);
+    }
+    if (!string.IsNullOrWhiteSpace(ad.ThumbnailURL))
+    {
+        Uri blobUri = new Uri(ad.ThumbnailURL);
+        await DeleteAdBlobAsync(blobUri);
+    }
+}
+private static async Task DeleteAdBlobAsync(Uri blobUri)
+{
+    string blobName = blobUri.Segments[blobUri.Segments.Length - 1];
+    CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(blobName);
+    await blobToDelete.DeleteAsync();
+}
+```
 
-### ContosoAdsWeb - Views\Ad\Index.cshtml и Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml и Details.cshtml
 
 Файл *Index.cshtml* выводит эскиз с другими данными рекламы.
 
-		<img  src="@Html.Raw(item.ThumbnailURL)" />
+```razor
+<img src="@Html.Raw(item.ThumbnailURL)" />
+```
 
 Файл *Details.cshtml* выводит изображение в полном размере.
 
-		<img src="@Html.Raw(Model.ImageURL)" />
+```razor
+<img src="@Html.Raw(Model.ImageURL)" />
+```
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml и Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml и Edit.cshtml
 
 Файлы *Create.cshtml* и *Edit.cshtml* указывают кодирование формы, которое дает возможность контроллеру получить объект `HttpPostedFileBase`.
 
-		@using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
+```razor
+@using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
+```
 
 Элемент `<input>` сообщает браузеру, что нужно открыть диалоговое окно выбора файла.
 
-		<input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
+```razor
+<input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
+```
 
 ### ContosoAdsWorker - WorkerRole.cs - метод OnStart
 
@@ -696,8 +744,10 @@
 
 Метод `OnStart` получает строку подключения к базе данных из *CSCFG-файла* и передает ее в класс Entity Framework DbContext. Поставщик SQLClient используется по умолчанию, поэтому поставщик не нужно указывать.
 
-		var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionString");
-		db = new ContosoAdsContext(dbConnString);
+```csharp
+var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionString");
+db = new ContosoAdsContext(dbConnString);
+```
 
 Затем метод получит ссылку на учетную запись хранилища и создаст контейнер больших двоичных объектов и очередь, если они не существуют. Этот код аналогичен тому, что показан в методе `Application_Start` веб-роли.
 
@@ -705,34 +755,36 @@
 
 Метод `Run` вызывается, когда метод `OnStart` завершает свою начальную работу. Метод выполняет бесконечный цикл, в котором ждет новые сообщения в очереди и обрабатывает их, когда они прибывают.
 
-		public override void Run()
-		{
-		    CloudQueueMessage msg = null;
+```csharp
+public override void Run()
+{
+    CloudQueueMessage msg = null;
 
-		    while (true)
-		    {
-		        try
-		        {
-		            msg = this.imagesQueue.GetMessage();
-		            if (msg != null)
-		            {
-		                ProcessQueueMessage(msg);
-		            }
-		            else
-		            {
-		                System.Threading.Thread.Sleep(1000);
-		            }
-		        }
-		        catch (StorageException e)
-		        {
-		            if (msg != null && msg.DequeueCount > 5)
-		            {
-		                this.imagesQueue.DeleteMessage(msg);
-		            }
-		            System.Threading.Thread.Sleep(5000);
-		        }
-		    }
-		}
+    while (true)
+    {
+        try
+        {
+            msg = this.imagesQueue.GetMessage();
+            if (msg != null)
+            {
+                ProcessQueueMessage(msg);
+            }
+            else
+            {
+                System.Threading.Thread.Sleep(1000);
+            }
+        }
+        catch (StorageException e)
+        {
+            if (msg != null && msg.DequeueCount > 5)
+            {
+                this.imagesQueue.DeleteMessage(msg);
+            }
+            System.Threading.Thread.Sleep(5000);
+        }
+    }
+}
+```
 
 После каждой итерации цикла, если сообщение найдено в очереди, программа останавливается на секунду. Это защищает рабочую роль от создания ненужных затрат при использовании времени процессора и транзакций в хранилище. Команда Microsoft Customer Advisory рассказывала о разработчике, который забыл включить этот функционал, развернул код в рабочей среде и ушел в отпуск. Когда он вернулся, то выяснил, что забывчивость встала ему в копеечку.
 
@@ -740,32 +792,34 @@
 
 `ProcessQueueMessage` вызывается, когда сообщение найдено в очереди.
 
-		private void ProcessQueueMessage(CloudQueueMessage msg)
-		{
-		    var adId = int.Parse(msg.AsString);
-		    Ad ad = db.Ads.Find(adId);
-		    if (ad == null)
-		    {
-		        throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", adId.ToString()));
-		    }
+```csharp
+private void ProcessQueueMessage(CloudQueueMessage msg)
+{
+    var adId = int.Parse(msg.AsString);
+    Ad ad = db.Ads.Find(adId);
+    if (ad == null)
+    {
+        throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", adId.ToString()));
+    }
 
-		    CloudBlockBlob inputBlob = this.imagesBlobContainer.GetBlockBlobReference(ad.ImageURL);
+    CloudBlockBlob inputBlob = this.imagesBlobContainer.GetBlockBlobReference(ad.ImageURL);
 
-		    string thumbnailName = Path.GetFileNameWithoutExtension(inputBlob.Name) + "thumb.jpg";
-		    CloudBlockBlob outputBlob = this.imagesBlobContainer.GetBlockBlobReference(thumbnailName);
+    string thumbnailName = Path.GetFileNameWithoutExtension(inputBlob.Name) + "thumb.jpg";
+    CloudBlockBlob outputBlob = this.imagesBlobContainer.GetBlockBlobReference(thumbnailName);
 
-		    using (Stream input = inputBlob.OpenRead())
-		    using (Stream output = outputBlob.OpenWrite())
-		    {
-		        ConvertImageToThumbnailJPG(input, output);
-		        outputBlob.Properties.ContentType = "image/jpeg";
-		    }
+    using (Stream input = inputBlob.OpenRead())
+    using (Stream output = outputBlob.OpenWrite())
+    {
+        ConvertImageToThumbnailJPG(input, output);
+        outputBlob.Properties.ContentType = "image/jpeg";
+    }
 
-		    ad.ThumbnailURL = outputBlob.Uri.ToString();
-		    db.SaveChanges();
+    ad.ThumbnailURL = outputBlob.Uri.ToString();
+    db.SaveChanges();
 
-		    this.imagesQueue.DeleteMessage(msg);
-		}
+    this.imagesQueue.DeleteMessage(msg);
+}
+```
 
 Код читает базу данных для получения URL-адреса изображения, конвертирует изображение в эскиз, сохраняет эскиз в большой двоичный объект, добавляет в базу данных URL-адрес большого двоичного объекта эскиза и удаляет сообщение из очереди.
 
@@ -815,4 +869,4 @@
 * [Управление облачными службами](cloud-services-how-to-manage.md)
 * [Хранилище Azure](/documentation/services/storage/)
 
-<!------HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

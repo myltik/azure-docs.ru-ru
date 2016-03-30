@@ -3,9 +3,9 @@
 	description="В учебнике описывается, как создать веб-приложение PHP, которое хранит данные в MySQL, и развернуть его в Azure с помощью Git."
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"
+	editor=""
 	tags="mysql"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="PHP"
 	ms.topic="hero-article"
 	ms.date="02/09/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Создание веб-приложения PHP-MySQL в службе приложений Azure и развертывание с помощью Git
 
@@ -325,4 +325,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

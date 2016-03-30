@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/15/2016"
+    ms.date="03/22/2016"
     ms.author="sstein"/>
 
 # Создание пула эластичных баз данных (C&#x23;)
@@ -25,6 +25,8 @@
 
 
 Узнайте, как создавать [пулы эластичных баз данных](sql-database-elastic-pool.md) и управлять ими с помощью языка C&#x23;.
+
+Стандартные коды ошибок см. в статье [Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md).
 
 > [AZURE.NOTE] Сейчас пулы эластичных баз данных предоставляются в виде предварительной версии, которая доступна только с серверами Базы данных SQL версии 12. Если у вас есть сервер базы данных SQL версии 11, с помощью PowerShell вы можете в один шаг [обновить его до версии 12 и создать пул](sql-database-upgrade-server-portal.md).
 
@@ -45,7 +47,7 @@
         Properties = new ElasticPoolCreateOrUpdateProperties()
         {
             Edition = "Standard",
-            Dtu = 400
+            Dtu = 400,
             DatabaseDtuMin = 0,
             DatabaseDtuMax = 100
          }
@@ -106,13 +108,13 @@
 ## Пример создания пула эластичных баз данных с помощью языка C&#x23;
 
 
-Для выполнения этого примера требуются дополнительные библиотеки. Чтобы установить их, в Visual Studio запустите в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**) следующие команды.
+Для выполнения этого примера требуются дополнительные библиотеки. Чтобы установить их, в Visual Studio выполните в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**) следующие команды.
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Создайте консольное приложение и замените содержимое файла Program.cs приведенным ниже. Сведения о том, как получить идентификатор клиента и другие значения, см. в статье [Получение идентификатора клиента и ключа для доступа к базе данных SQL из кода](sql-database-client-id-keys.md).
+Создайте консольное приложение и замените содержимое файла Program.cs приведенным ниже. Сведения о том, как получить идентификатор клиента и другие значения, см. в статье [Get the client id and key for connecting to SQL Database from code](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -267,8 +269,8 @@
 
 ## Дальнейшие действия
 
-- [Управление пулом](sql-database-elastic-pool-manage-csharp.md).
-- [Задания обработки эластичных БД](sql-database-elastic-jobs-overview.md). Эти задания позволяют легко выполнять сценарии T-SQL для любого количества эластичных баз данных в пуле.
+- [Управление пулом.](sql-database-elastic-pool-manage-csharp.md)
+- [Создание заданий обработки эластичных БД](sql-database-elastic-jobs-overview.md). Эти задания позволяют легко выполнять сценарии T-SQL для любого количества эластичных баз данных в пуле.
 
 
 ## Дополнительные ресурсы
@@ -278,4 +280,4 @@
 - [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Справочник по пулам эластичных баз данных](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->
