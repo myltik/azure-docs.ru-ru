@@ -315,4 +315,4 @@
 
 - [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-linux-dockerextension.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->

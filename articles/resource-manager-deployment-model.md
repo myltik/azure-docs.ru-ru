@@ -44,7 +44,7 @@
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
+        Для вычислительных, сетевых ресурсов и ресурсов хранения можно выбрать модель развертывания с использованием диспетчера ресурсов или классическую модель. Выберите **Диспетчер ресурсов**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -188,4 +188,4 @@
 - Сведения о создании декларативных шаблонов развертывания см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 - Команды для развертывания шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->
