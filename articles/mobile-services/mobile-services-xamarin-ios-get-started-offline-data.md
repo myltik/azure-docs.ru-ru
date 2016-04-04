@@ -18,12 +18,12 @@
 
 # Использование автономной синхронизации данных в мобильных службах
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Включение автономной синхронизации для мобильного приложения Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-offline-data.md).
 
 В этом разделе рассматривается возможности автономной синхронизации мобильных служб Azure в приложении быстрого запуска для списка дел. Автономная синхронизация позволяет легко создавать приложения, которые можно использовать даже в случае отсутствия у пользователя доступа к сети.
 
@@ -180,9 +180,9 @@
 [Приступая к работе с мобильными службами]: mobile-services-ios-get-started.md
 [Использование клиентского компонента Xamarin для мобильных служб Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [обратимое удаление]: mobile-services-using-soft-delete.md
-[Обратимое удаление]: mobile-services-using-soft-delete.md
+
 [Xamarin Studio]: http://xamarin.com/download
 [расширением Xamarin]: http://xamarin.com/visual-studio
 [классический портал Azure]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

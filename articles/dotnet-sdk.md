@@ -63,7 +63,7 @@
 
 * [создавать, открывать и публиковать проекты облачных служб](cloud-services/cloud-services-dotnet-get-started.md);
 * [создавать пакеты развертывания для проектов облачных служб](http://msdn.microsoft.com/library/ff683672.aspx);
-* [создавать виртуальные машины Azure при создании новых веб-проектов](virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md);
+* [создавать виртуальные машины Azure при создании новых веб-проектов](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md);
 * [создавать сценарии PowerShell при создании новых виртуальных машин](http://msdn.microsoft.com/library/dn642480.aspx);
 * [просматривать настройки проекта облачных служб в окне свойств проекта Visual Studio и управлять ими;](http://msdn.microsoft.com/library/ee405486.aspx)
 * просматривать [облачные службы](http://msdn.microsoft.com/library/ff683675.aspx), [виртуальные машины](http://msdn.microsoft.com/library/jj131259.aspx) и [сервисную шину](http://msdn.microsoft.com/library/jj149828.aspx) в обозревателе серверов и управлять ими; 
@@ -186,4 +186,4 @@ Azure PowerShell позволяет [автоматизировать созда
 
 Справочная документация клиентских библиотек Azure см. в разделе [Справочник по Azure для .NET](/documentation/api/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

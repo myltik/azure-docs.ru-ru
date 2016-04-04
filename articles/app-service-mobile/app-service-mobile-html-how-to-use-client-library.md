@@ -32,10 +32,10 @@
 npm install azure-mobile-apps-client --save
 ```
 
-После установки библиотека находится в `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.js`. Скопируйте этот файл в свою область Интернета.
+После установки библиотека находится в `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`. Скопируйте этот файл в свою область Интернета.
 
 ```
-<script src="path/to/MobileServices.Web.js"></script>
+<script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
 Библиотеку также можно использовать как модуль ES2015 в средах CommonJS, таких как Browserify и Webpack, а также как библиотеку AMD. Например:
@@ -113,4 +113,4 @@ pushHandler.on('error', function (error) {
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [документации по объектам запросов]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2015"
+	ms.date="03/08/2016"
 	ms.author="genli"/>
 
 # Что делать в случае отключения подписки Azure?
@@ -43,4 +43,4 @@
 
 Подробнее об этом см. в разделе [Обращение в службу поддержки при возникновении проблем с оплатой или подпиской на Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

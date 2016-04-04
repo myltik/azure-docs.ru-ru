@@ -192,7 +192,7 @@
 ### Дополнительные сведения
 
 - [Виртуальные машины в Azure](https://azure.microsoft.com/services/virtual-machines/)
-- [Виртуальные машины Azure. Вопросы и ответы](virtual-machines-questions.md)
+- [Виртуальные машины Azure. Вопросы и ответы](virtual-machines/virtual-machines-linux-classic-faq.md)
 
 ## Рекомендации по проектированию
 
@@ -317,4 +317,4 @@
 - [Очереди Azure и очереди служебной шины: сходства и различия](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Включение диагностики в облачной службе](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

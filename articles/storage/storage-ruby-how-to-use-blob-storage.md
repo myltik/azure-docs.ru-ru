@@ -3,9 +3,9 @@
 	description="Узнайте, как отправлять, скачивать, перечислять и удалять содержимое больших двоичных объектов с помощью хранилища больших двоичных объектов. Примеры кода написаны на Ruby."
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Использование хранилища BLOB-объектов из Ruby
@@ -31,7 +31,7 @@
 
 ## Создание приложения Ruby
 
-Создайте приложение Ruby. Инструкции см. в разделе [Веб-приложение Ruby on Rails на виртуальной машине Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Создайте приложение Ruby. Инструкции см. в разделе [Веб-приложение Ruby on Rails на виртуальной машине Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Настройка приложения для доступа к хранилищу
 
@@ -155,4 +155,4 @@
 - Репозиторий [пакетов SDK Azure для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

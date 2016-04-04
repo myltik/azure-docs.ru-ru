@@ -1,11 +1,12 @@
 
 
-## Overview of Azure Resource Manager templates
+## Общие сведения о шаблонах диспетчера ресурсов Azure
 
-Azure Resource Manager templates allows you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources.
+Шаблон Azure Resource Manager позволяет декларативно задать инфраструктуру IaaS Azure на языке JSON, установив зависимости между ресурсами.
 
 
-See  [Authoring extension templates](virtual-machines-windows-extensions-authoring-templates.md) to learn more about authoring templates for using Extensions.
+Чтобы узнать больше о разработке шаблонов для использования расширений, см. статью о [разработке шаблонов расширения](virtual-machines-windows-extensions-authoring-templates.md).
 
-In this article we'll learn about troubleshooting some of the common VM extension failures.
+В этой статье вы узнаете, как устранять некоторые распространенные сбои в расширении виртуальной машины.
 
+<!---HONumber=AcomDC_0323_2016-->

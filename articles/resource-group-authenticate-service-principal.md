@@ -120,7 +120,7 @@
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. Получите приложение Active Directory. При входе в систему нужно будет указать идентификатор приложения.
+2. Получите приложение Active Directory. При входе нужно будет указать идентификатор приложения.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
@@ -231,7 +231,7 @@
 <a id="provide-certificate-through-automated-powershell-script" />
 ### Предоставление сертификата с помощью автоматизированного сценария PowerShell
 
-1. Получите приложение Active Directory. При входе в систему нужно будет указать идентификатор приложения.
+1. Получите приложение Active Directory. При входе нужно будет указать идентификатор приложения.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -517,4 +517,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

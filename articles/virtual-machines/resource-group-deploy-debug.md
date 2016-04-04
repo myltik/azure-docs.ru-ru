@@ -1,7 +1,7 @@
 <properties
    pageTitle="Устранение неполадок при развертывании групп ресурсов| Microsoft Azure"
    description="В статье описаны распространенные проблемы развертывания ресурсов, созданных с помощью модели развертывания диспетчера ресурсов, и показано, как обнаружить и устранить эти проблемы."
-   services="azure-resource-manager,virtual-machines"
+   services="azure-resource-manager,virtual-machines-linux"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
@@ -294,16 +294,16 @@ API-Интерфейс REST диспетчера ресурсов содержи
 В таких случаях следует перейти на портал и зарегистрировать проблему в службе поддержки, чтобы поднять свою квоту для региона, в котором требуется осуществить развертывание.
 
 > [AZURE.NOTE] Следует помнить, что для групп ресурсов квоты устанавливаются для каждого отдельного региона, а не для всей подписки. Если необходимо развернуть 30 ядер в западной части США, необходимо запросить 30 ядер управления ресурсами в этом регионе. Если необходимо развернуть 30 ядер в любом из регионов, к которым у вас есть доступ, следует запросить 30 ядер управления ресурсами во всех регионах.
-<!-- --> 
-Например, чтобы точно указать количество ядер, можно проверить регионы, для которых необходимо оценить квоту, с помощью следующей команды. Эта команда передает данные средству **jq** для анализа JSON. 
-<!-- --> 
-	azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' 
-	{ 
-	 "name": "virtualMachines", 
-	 "apiVersions": [ 
-	 "2015-05-01-preview", 
-	 "2014-12-01-preview" 
-	 ],
+<!-- -->
+Чтобы определить число ядер, например, можно проверить регионы, для которых следует запросить соответствующий размер квоты, используя следующую команду, которая передает данные в **jq** для синтаксического анализа JSON.
+<!-- -->
+        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+        {
+          "name": "virtualMachines",
+          "apiVersions": [
+            "2015-05-01-preview",
+            "2014-12-01-preview"
+          ],
           "locations": [
             "East US",
             "West US",
@@ -333,7 +333,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 Чтобы зарегистрировать поставщика, воспользуйтесь командой **Register-AzureProvider**.
 
-В PowerShell 1.0 используйте командлет **Get AzureRmResourceProvider**.
+В PowerShell 1.0 используйте командлет **Get-AzureRmResourceProvider**.
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
@@ -435,4 +435,4 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
  <properties
-	pageTitle="Добавление push-уведомлений в приложение мобильных служб (Xamarin.Forms) — мобильные службы"
+	pageTitle="Добавление push-уведомлений в приложение мобильных служб (Xamarin.Forms) — мобильные службы"
 	description="Узнайте, как использовать push-уведомления в приложениях Xamarin.Forms с помощью мобильных служб Azure."
 	documentationCenter="xamarin"
 	authors="wesmc7777"
@@ -13,16 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="01/22/2016"
+	ms.date="03/18/2016"
 	ms.author="wesmc"/>
 
 # Добавление push-уведомлений в приложение Xamarin.Forms
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Добавление push-уведомлений в приложение Xamarin.Forms](../app-service-mobile/app-service-mobile-xamarin-forms-get-started-push.md).
 
 ##Обзор
 
@@ -858,4 +859,4 @@ APNS использует сертификаты для аутентификац
 [Начальный пример push-уведомления Azure для приложения Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [Готовый пример push-уведомления Azure для приложения Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

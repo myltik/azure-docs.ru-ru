@@ -1,139 +1,141 @@
 
 
 
-This article addresses some common questions users ask about Azure virtual machines created with the classic deployment model.
+В этой статье содержатся ответы на некоторые распространенные вопросы о виртуальных машинах Azure, созданных с помощью классической модели развертывания.
 
-## What can I run on an Azure VM?
+## Что можно запускать на виртуальной машине Azure?
 
-All subscribers can run server software on an Azure virtual machine. You can run recent versions of Windows Server, as well as a variety of Linux distributions. For support details, see:
+Все подписчики могут запускать на виртуальной машине Azure серверное программное обеспечение. Вы можете запускать последние версии Windows Server, а также различные дистрибутивы Linux. Дополнительную информацию о поддержке см. в следующих ресурсах:
 
-• For Windows VMs -- [Microsoft server software support for Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• для виртуальных машин Windows: [Поддержка серверного программного обеспечения Майкрософт для виртуальных машин Azure](http://go.microsoft.com/fwlink/p/?LinkId=393550);
 
-• For Linux VMs -- [Linux on Azure-Endorsed Distributions](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+• для виртуальных машин Linux: [Linux в Azure — рекомендованные дистрибутивы](http://go.microsoft.com/fwlink/p/?LinkId=393551).
 
-For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks. For details, including instructions and limitations, see [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
+Для образов клиента Windows подписчикам MSDN Azure, а также подписчикам MSDN для разработки и тестирования с оплатой по мере использования доступны некоторые версии Windows 7 и Windows 8.1 для использования в целях разработки или тестирования. Дополнительную информацию, включая указания и ограничения, см. в статье [Образы клиента Windows для подписчиков MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
-## How much storage can I use with a virtual machine?
+## Какой объем памяти можно использовать с виртуальной машиной?
 
-Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](virtual-machines-linux-sizes.md).
+Каждый диск данных может иметь объем до 1 ТБ. Количество дисков данных, которое можно использовать, зависит от размера виртуальной машины. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-linux-sizes.md).
 
-An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=396819).
+Учетная запись хранения Azure предоставляет хранилище для диска операционной системы и любых дисков данных. Каждый из этих дисков представляет собой VHD-файл, хранящийся как страничный BLOB-объект. Информацию о ценах см. в разделе [Информация о ценах на хранилища](http://go.microsoft.com/fwlink/p/?LinkId=396819).
 
-## Which virtual hard disk types can I use?
+## Какие типы виртуальных жестких дисков можно использовать?
 
-Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDXyou want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines. 
+Azure поддерживает только фиксированные виртуальные жесткие диски формата VHD. Если вы хотите использовать в Azure диск формата VHDX, преобразуйте его с помощью диспетчера Hyper-V или командлета [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Затем с помощью командлета [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (в режиме управления службами Azure) отправьте полученный VHD в учетную запись хранения в Azure, чтобы можно было использовать его с виртуальными машинами.
 
-- For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](virtual-machines-linux-classic-create-upload-vhd.md).
+- Указания для Linux см. в статье [Создание и передача виртуального жесткого диска с операционной системой Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
-- For Windows instructions, see [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md).
+- Указания для Windows см. в статье [Создание и передача виртуального жесткого диска Windows Server в Azure](virtual-machines-windows-classic-createupload-vhd.md).
 
-## Are these virtual machines the same as Hyper-V virtual machines?
+## Эти виртуальные машины аналогичны виртуальным машинам Hyper-V?
 
-In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re not exactly the same. Both types provide virtualized hardware, and the VHD-format virtual hard disks are compatible. This means you can move them between Hyper-V and Azure. Three key differences that sometimes surprise Hyper-V users are:
+Во многих отношениях они аналогичны виртуальным машинам Hyper-V 1-го поколения, но не во всем. Оба типа предоставляют виртуализированное оборудование, и виртуальные жесткие диски в формате VHD взаимосовместимы. Это означает, что их можно перемещать между Hyper-V и Azure. Ниже перечислены три основных отличия, которые иногда удивляют пользователей Hyper-V:
 
-- Azure doesn’t provide console access to a virtual machine. There is no way to access a VM until it is done booting.
-- Azure VMs in most [sizes](virtual-machines-linux-sizes.md) have only 1 virtual network adapter, which means that they also can have only 1 external IP address. (The A8 and A9 sizes use a second network adapter for application communication between instances in limited scenarios.)
-- Azure VMs don't support Generation 2 Hyper-V VM features. For details about these features, see [Virtual Machine Specifications for Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) and [Generation 2 Virtual Machine Overview] (https://technet.microsoft.com/library/dn282285.aspx).
+- Azure не предоставляет консольный доступ к виртуальной машине. Невозможно получить доступ к виртуальной машине, пока она не завершит загрузку.
+- Виртуальные машины Azure большинства [размеров](virtual-machines-linux-sizes.md) имеют только один виртуальный сетевой адаптер. Это означает, что у них может быть только один внешний IP-адрес. (Размеры A8 и A9 используют второй сетевой адаптер для обмена данными приложений между экземплярами в ограниченном числе сценариев.)
+- Виртуальные машины Azure не поддерживают возможности виртуальных машин Hyper-V 2-го поколения. Дополнительную информацию об этих функциях см. в статьях [Спецификации виртуальных машин для Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) и [Обзор виртуальных машин 2 поколения](https://technet.microsoft.com/library/dn282285.aspx).
 
-## Can these virtual machines use my existing, on-premises networking infrastructure?
+## Могут ли эти виртуальные машины использовать имеющуюся локальную сетевую инфраструктуру?
 
-For virtual machines created in the classic deployment model, you can use Azure Virtual Network to extend your existing infrastructure. The approach is like setting up a branch office. You can provision and manage virtual private networks (VPNs) in Azure as well as securely connect them to on-premises IT infrastructure. For details, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
+Для виртуальных машин, созданных с помощью классической модели развертывания, для расширения имеющейся инфраструктуры можно использовать виртуальную сеть Azure. Этот подход аналогичен настройке филиала. В Azure можно подготавливать виртуальные частные сети (VPN) и управлять ими, а также безопасно подключать их к локальной ИТ-инфраструктуре. Дополнительную информацию см. в статье [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md).
 
-You’ll need to specify the network that you want the virtual machine to belong to when you create the virtual machine. You can’t join an existing virtual machine to a virtual network. However, you can work around this by detaching the virtual hard disk (VHD) from the existing virtual machine, and then use it to create a new virtual machine with the networking configuration you want.
+При создании виртуальной машины необходимо указывать сеть, к которой будет принадлежать эта виртуальная машина. Вы не сможете присоединить существующую виртуальную машину к виртуальной сети. Однако это можно обойти, отключив виртуальный жесткий диск (VHD) от существующей виртуальной машины, а затем использовав его для создания новой виртуальной машины с нужной сетевой конфигурацией.
 
-## How can I access  my virtual machine?
+## Как получить доступ к своей виртуальной машине?
 
-You need to establish a remote connection to log on to the virtual machine, using Remote Desktop Connection for a Windows VM or a Secure Shell (SSH) for a Linux VM. For instructions, see:
+Для входа в виртуальную машину необходимо установить удаленное подключение с помощью подключения к удаленному рабочему столу для виртуальной машины Windows или Secure Shell (SSH) для виртуальной машины Linux. Указания см. в таких статьях:
 
-- [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-windows-classic-connect-logon.md). A maximum of 2 concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
-- [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-classic-log-on.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
+- [Вход в виртуальную машину под управлением Windows Server](virtual-machines-windows-classic-connect-logon.md). Если сервер не настроен как узел сеансов служб удаленных рабочих столов, поддерживается не более 2 параллельных подключений.  
+- [Вход в виртуальную машину под управлением ОС Linux](virtual-machines-linux-classic-log-on.md) По умолчанию SSH поддерживает не более 10 параллельных подключений. Число доступных параллельных подключений можно увеличить, изменив файл конфигурации.
 
 
-If you’re having problems with Remote Desktop or SSH, install and use the [VMAccess](virtual-machines-windows-extensions-features.md) extension to help fix the problem. 
+При возникновении проблем с удаленным рабочим столом или SSH, чтобы устранить их, попробуйте установить и использовать расширение [VMAccess](virtual-machines-windows-extensions-features.md).
 
-For Windows VMs, additional options include:
+Для виртуальных машин Windows возможны следующие дополнительные варианты:
 
-- In the Azure classic portal, find the VM, then click **Reset Remote Access** from the Command bar.
-- Review [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
-- Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
+- На классическом портале Azure найдите виртуальную машину, а затем на панели команд щелкните **Сброс удаленного доступа**.
+- Ознакомьтесь с разделом [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](virtual-machines-windows-troubleshoot-rdp-connection.md).
+- Используйте удаленное взаимодействие Windows PowerShell для подключения к виртуальной машине или создайте дополнительные конечные точки для подключения других ресурсов к виртуальной машине. Дополнительную информацию см. в статье [Настройка конечных точек виртуальной машины](virtual-machines-windows-classic-setup-endpoints.md).
 
-If you’re familiar with Hyper-V, you might be looking for a tool similar to VMConnect. Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.
+Если вы знакомы с Hyper-V, то, возможно, ищете инструмент, аналогичный VMConnect. В Azure такой инструмент не предусмотрен, так как не поддерживается консольный доступ к виртуальной машине.
 
-## Can I use the temporary disk (the D: drive for Windows or /dev/sdb1 for Linux) to store data?
+## Можно ли использовать временный диск (диск D: для Windows или/dev/sdb1 для Linux) для хранения данных?
 
-You shouldn’t use the temporary disk (the D: drive by default for Windows or /dev/sdb1 for Linux) to store data. They are only temporary storage, so you would risk losing data that can’t be recovered. This can occur when the virtual machine moves to a different host. Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.
+Временный диск (диск D: для Windows или/dev/sdb1 для Linux) не следует использовать для хранения данных. Он обеспечивает лишь временное хранение, поэтому вы рискуете потерять данные, которые невозможно восстановить. Это может происходить, когда виртуальная машина перемещается на другой узел. Виртуальная машина может перемещаться, когда возникает необходимость в изменении ее размера, при обновлении узла, при сбое оборудования, а также по другим причинам.
 
-## How can I change the drive letter of the temporary disk?
+## Как изменить букву временного диска?
 
-On a Windows virtual machine, you can change the drive letter by moving the page file and reassigning drive letters, but you’ll need to make sure you do the steps in a specific order. For instructions, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md).
+На виртуальной машине Windows можно изменить букву диска, переместив файл подкачки и переназначив буквы дисков, но эти действия нужно выполнять в строго определенном порядке. Указания см. в статье [Изменение буквы диска для временного диска Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-## How can I upgrade the guest operating system?
+## Как обновить операционную систему на виртуальной машине?
 
-The term upgrade generally means moving to a more recent release of your operating system, while staying on the same hardware. For Azure VMs, the process for moving to a more recent release differs for Linux and Windows:
+Термин «обновление» обычно означает переход на более новую версию операционной системы с сохранением прежнего оборудования. В случае виртуальных машин Azure процесс перехода на более новую версию для ОС Linux и Windows выполняется по-разному.
 
-- For Linux VMs, use the package management tools and procedures appropriate for the distribution.
-- For a Windows virtual machine, you need to migrate the server using something like the Windows Server Migration Tools. Don’t attempt to upgrade the guest OS while it resides on Azure. It isn’t supported because of the risk of losing access to the virtual machine. If problems occur during the upgrade, you could lose the ability to start a Remote Desktop session and wouldn’t be able to troubleshoot the problems. 
+- Для виртуальных машин Linux используйте инструменты управления пакетами и процедуры, подходящие для конкретного дистрибутива.
+- Для виртуальной машины Windows необходимо осуществить миграцию сервера, например, с помощью средств миграции Windows Server. Не пытайтесь обновить гостевую ОС при размещении виртуальной машины в Azure. Эта операция не поддерживается из-за риска потери доступа к виртуальной машине. При возникновении проблем во время обновления вы можете потерять возможность запуска сеанса удаленного рабочего стола для устранения проблем. 
 
-For general details about the tools and processes for migrating a Windows Server, see [Migrate Roles and Features to Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940). 
+Общую информацию об инструментах и процедурах для миграции Windows Server см. в разделе [Перенос ролей и компонентов на Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
 
 
 
-## What's the default user name and password on the virtual machine?
+## Каковы имя пользователя и пароль по умолчанию на виртуальной машине?
 
-The images provided by Azure don’t have a pre-configured user name and password. When you create virtual machine using one of those images, you’ll need to provide a user name and password, which you’ll use to log on to the virtual machine.
+Образы, предоставляемые Azure, не имеют предустановленных имени пользователя и пароля. При создании виртуальной машины с помощью одного из этих образов, необходимо указать имя пользователя и пароль, которые будут использоваться для входа в виртуальную машину.
 
-If you’ve forgotten the user name or password and you’ve installed the VM Agent, you can install and use the [VMAccess](virtual-machines-windows-extensions-features.md) extension to fix the problem.
+Если вы забыли имя пользователя или пароль, то, если установлен агент виртуальных машин, для устранения проблемы можно установить расширение [VMAccess](virtual-machines-windows-extensions-features.md) и воспользоваться им.
 
-Additional details:
+Дополнительная информация
 
 
-- For the Linux images, if you use the Azure classic portal, ‘azureuser’ is given as a default user name, but you can change this by using ‘From Gallery’ instead of ‘Quick Create’ as the way to create the virtual machine. Using ‘From Gallery’ also lets you decide whether to use a password, an SSH key, or both to log you in. The user account is a non-privileged user that has ‘sudo’ access to run privileged commands. The ‘root’ account is disabled.
+- Для образов Linux при использовании классического портала Azure имя пользователя по умолчанию — azureuser, но это имя можно изменить, если в качестве способа создания виртуальной машины использовать не "Быстрое создание", а "Из коллекции". Кроме того, при использовании параметра «Из коллекции» вы можете указать, что будет использоваться для входа: пароль, ключ SSH или и то, и другое. Учетная запись пользователя представляет собой непривилегированного пользователя, имеющего доступ sudo на выполнение привилегированных команд. Учетная запись root отключена.
 
 
-- For Windows images, you’ll need to provide a user name and password when you create the VM. The account is added to the Administrators group.
+- Для образов Windows необходимо предоставить имя пользователя и пароль при создании виртуальной машины. Учетная запись добавляется в группу администраторов.
 
-## Can Azure run anti-virus on my virtual machines?
+## Может ли Azure запускать антивирусные программы на моей виртуальной машине?
 
-Azure offers several options for anti-virus solutions, but it’s up to you to manage it. For example, you might need a separate subscription for antimalware software, and you’ll need to decide when to run scans and install updates. You can add anti-virus support with a VM extension for Microsoft Antimalware, Symantec Endpoint Protection, or TrendMicro Deep Security Agent when you create a Windows virtual machine, or at a later point. The Symantec and TrendMicro extensions let you use a free limited-time trial subscription or an existing enterprise subscription. Microsoft Antimalware is free of charge. For details, see:
+Azure предлагает несколько вариантов решений для защиты от вирусов, но вы должны будете управлять ими. Например, может потребоваться отдельная подписка для антивредоносного ПО или придется решать, когда запускать сканирование и устанавливать обновления. Вы можете добавить антивирусную поддержку с расширением виртуальной машины для Microsoft Antimalware, Symantec Endpoint Protection или TrendMicro Deep Security Agent при создании виртуальной машины Windows или позднее. Расширения Symantec и TrendMicro позволяют использовать бесплатную пробную подписку на ограниченное время или существующую корпоративную подписку. Microsoft Antimalware предоставляется бесплатно. Дополнительные сведения см. в статье:
 
-- [How to install and configure Symantec Endpoint Protection on an Azure VM](http://go.microsoft.com/fwlink/p/?LinkId=404207)
-- [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-- [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
+- [Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure](http://go.microsoft.com/fwlink/p/?LinkId=404207)
+- [Установка и настройка Trend Micro Deep Security как услуги на ВМ Azure](http://go.microsoft.com/fwlink/p/?LinkId=404206)
+- [Развертывание решений по защите от вредоносных программ на виртуальных машинах Azure](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
-## What are my options for backup and recovery?
+## Каковы мои возможности в отношении резервного копирования и восстановления?
 
-Azure Backup is available as a preview in certain regions. For details, see [Back up Azure virtual machines](backup-azure-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
+В определенных регионах служба архивации Azure доступна в качестве предварительной версии. Дополнительные сведения см. в статье [Резервное копирование виртуальных машин Azure](backup-azure-vms.md). Доступны другие решения от сертифицированных партнеров. Чтобы узнать, что сейчас доступно, выполните поиск в Azure Marketplace.
 
-An additional option is to use the snapshot capabilities of blob storage. To do this, you’ll need to shut down the VM before any operation that relies on a blob snapshot. This saves pending data writes and puts the file system in a consistent state.
+Можно также использовать возможности моментальных снимков хранилища больших двоичных объектов. Для этого необходимо завершить работу виртуальной машины перед выполнением какой-либо операции на основе моментального снимка большого двоичного объекта. Это сохраняет ожидающие операции записи данных и поддерживает целостность файловой системы.
 
-## How does Azure charge for my VM?
+## Каким образом Azure взимает плату за виртуальную машину?
 
-Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. If you create the VM with a VM image containing certain pre-installed software, additional hourly software charges may apply. Azure charges separately for storage for the VM’s operating system and data disks. Temporary disk storage is free.
+Azure взимает почасовую оплату на основе размера и операционной системы виртуальной машины. При частичном использовании Azure взимает плату только за минуты использования. Если виртуальная машина создается из образа виртуальной машины, содержащего определенное предустановленное программное обеспечение, может взиматься дополнительная почасовая плата за ПО. Azure взимает отдельную плату за хранилище для операционной системы и дисков данных виртуальной машины. Временное хранилище дисков предоставляется бесплатно.
 
-You are charged when the VM status is Running or Stopped, but you are not charged when the VM status is Stopped (De-allocated). To put a VM in the Stopped (De-allocated) state, do one of the following:
+Оплата взимается, когда виртуальная машина находится в состоянии «Работает» или «Остановлена», и не взимается, когда она находится в состоянии «Остановлена (освобождена)». Для перевода виртуальной машины в состояние «Остановлена (освобождена)» выполните одно из следующих действий.
 
-- Shut down or delete the VM from the Azure classic portal.
-- Use the Stop-AzureVM cmdlet, available in the Azure PowerShell module.
-- Use the Shutdown Role operation in the Service Management REST API and specify StoppedDeallocated for the PostShutdownAction element.
+- Завершите работу виртуальной машины или удалите ее на классическом портале Azure.
+- Используйте командлет Stop-AzureVM в модуле Azure PowerShell.
+- Используйте операцию «Завершить работу роли» в REST API управления службами и укажите параметр StoppedDeallocated для элемента PostShutdownAction.
 
-For more details, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+Дополнительную информацию см. в разделе [Цены на виртуальные машины](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## Will Azure reboot my VM for maintenance?
+## Будет ли Azure перезагружать мою виртуальную машину для обслуживания?
 
-Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters. 
+Периодически Azure будет перезагружать вашу виртуальную машину в рамках регулярных плановых обновлений в центрах обработки данных Azure.
 
-Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM. For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.
+Кроме того, могут происходить случаи внепланового обслуживания, когда Azure обнаруживает серьезные проблемы с оборудованием, оказывающие воздействие на вашу виртуальную машину. В случае незапланированных событий Azure автоматически переносит виртуальную машину на работоспособный узел и перезапускает ее.
 
-For any standalone VM (meaning the VM isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update. Applications running on the VMs could experience downtime.
+Для любой автономной виртуальной машины (которая не входит в группу доступности) Azure уведомляет администратора службы подписки по почте по крайней мере за неделю до планового обслуживания, так как виртуальная машина может быть перезагружена во время обновления. Может возникнуть простой приложений, работающих на виртуальной машине.
 
-You also can use the Azure classic portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance. For details, see [Viewing VM Reboot Logs](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Для просмотра журналов перезагрузки при перезагрузке из-за планового обслуживания можно использовать классический портал Azure или Azure PowerShell. Дополнительную информацию см. в статье [Просмотр журналов перезагрузки виртуальной машины](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
-To provide redundancy, put two or more similarly configured VMs in the same availability set. This helps ensure at least one VM is available during planned or unplanned maintenance. Azure guarantees certain levels of VM availability for this configuration. For details, see [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
+Для обеспечения избыточности поместите две или более одинаково настроенных виртуальных машины в одну группу доступности. Это гарантирует, что по крайней мере одна виртуальная машина будет доступна во время планового или внепланового обслуживания. Azure гарантирует определенные уровни доступности виртуальных машин для этой конфигурации. Дополнительную информацию см. в статье [Управление доступностью виртуальных машин](virtual-machines-windows-manage-availability.md).
 
-## Additional resources
+## Дополнительные ресурсы
 
-[About Azure Virtual Machines](virtual-machines-linux-about.md)
+[О виртуальных машинах Azure](virtual-machines-linux-about.md)
 
-[Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-creation-choices.md)
+[Различные способы создания виртуальной машины Linux](virtual-machines-linux-creation-choices.md)
 
-[Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-creation-choices.md)
+[Различные способы создания виртуальной машины Windows](virtual-machines-windows-creation-choices.md)
+
+<!---HONumber=AcomDC_0323_2016-->

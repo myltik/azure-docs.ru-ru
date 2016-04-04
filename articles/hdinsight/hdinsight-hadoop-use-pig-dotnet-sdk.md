@@ -49,7 +49,7 @@
 
 Каждая подписка Azure определяется по значению GUID, известному как идентификатор подписки. Чтобы найти это значение, сделайте следующее.
 
-1. Посетите [портал Azure] [портал предварительной версии].
+1. Откройте [портал Azure](preview-portal).
 
 2. На панели в левой части портала выберите __ПРОСМОТРЕТЬ ВСЕ__, а затем в колонке __Обзор__ выберите __Подписки__.
 
@@ -60,27 +60,27 @@
 ##<a id="create"></a>Создание приложения
 
 1. Откройте Visual Studio 2012 или 2013
-2. В меню **Файл** выберите **Создать**, а затем — **Проект**.
+2. В меню **Файл** выберите **Создать**, а затем — **Проект**.
 3. Для нового проекта введите или выберите следующие значения.
 
 	<table>
-<tr>
-<th>Свойство</th>
-<th>Значение</th>
-</tr>
-<tr>
-<th>Категория</th>
-<th>Templates/Visual C#/Windows</th>
-</tr>
-<tr>
-<th>Шаблон</th>
-<th>Консольное приложение</th>
-</tr>
-<tr>
-<th>Имя</th>
-<th>SubmitPigJob</th>
-</tr>
-</table>
+	<tr>
+	<th>Свойство</th>
+	<th>Значение</th>
+	</tr>
+	<tr>
+	<th>Категория</th>
+	<th>Templates/Visual C#/Windows</th>
+	</tr>
+	<tr>
+	<th>Шаблон</th>
+	<th>Консольное приложение</th>
+	</tr>
+	<tr>
+	<th>Имя</th>
+	<th>SubmitPigJob</th>
+	</tr>
+	</table>
 4. Нажмите кнопку **ОК**, чтобы создать проект.
 5. В меню **Сервис** выберите пункт **Диспетчер пакетов библиотеки** или **Диспетчер пакетов Nuget**, а затем — **Консоль диспетчера пакетов**.
 6. Выполните следующую команду в консоли, чтобы установить пакеты SDK для .NET.
@@ -122,7 +122,6 @@
                     // Define the Pig job
                     var parameters = new PigJobSubmissionParameters()
                     {
-                        UserName = ExistingClusterUsername,
                         Query = queryString,
                     };
         
@@ -155,7 +154,7 @@
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 
-* [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md) 
+* [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 [портал предварительной версии]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0323_2016-->

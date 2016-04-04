@@ -173,7 +173,7 @@ BCP — это служебная программа командной стро
 
 ### Мастер развертывания Базы данных SQL Server на виртуальной машине Microsoft Azure
 
-**Мастер развертывания базы данных SQL Server на виртуальной машине Microsoft Azure** представляет собой простой и рекомендуемый способ перемещения данных из локального экземпляра SQL Server на сервер SQL Server на виртуальной машине Azure. Подробные указания, а также описание других вариантов, см. в разделе [Перенос базы данных в SQL Server на виртуальной машине Azure](../virtual-machines/virtual-machines-migrate-onpremises-database.md).
+**Мастер развертывания базы данных SQL Server на виртуальной машине Microsoft Azure** представляет собой простой и рекомендуемый способ перемещения данных из локального экземпляра SQL Server на сервер SQL Server на виртуальной машине Azure. Подробные указания, а также описание других вариантов, см. в разделе [Перенос базы данных в SQL Server на виртуальной машине Azure](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md).
 
 ### <a name="export-flat-file"></a>Экспорт в неструктурированный файл
 
@@ -217,11 +217,11 @@ SQL Server поддерживает:
 
 ## Ресурсы
 
-[Миграция базы данных в SQL Server на виртуальной машине Azure](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+[Миграция базы данных в SQL Server на виртуальной машине Azure](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)
 
-[Общие сведения об SQL Server на виртуальных машинах Azure](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
+[Общие сведения об SQL Server на виртуальных машинах Azure](../virtual-machines/virtual-machines-windows-classic-sql-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

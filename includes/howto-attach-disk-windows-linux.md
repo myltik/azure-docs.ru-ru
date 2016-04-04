@@ -1,5 +1,5 @@
 
-Дополнительную информацию о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-disks-vhds.md).
+Дополнительную информацию о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-linux-about-disks-vhds.md).
 
 ##<a id="attachempty"></a>Практическое руководство. Подключение пустого диска
 
@@ -10,12 +10,12 @@
 2. На панели команд нажмите кнопку **Присоединить**, а затем — **Присоединить пустой диск**.
 
 
-	![Подключение пустого диска](./media/howto-attach-disk-window-linux/AttachEmptyDisk.png)
+	![Подключение пустого диска](./media/howto-attach-disk-windows-linux/AttachEmptyDisk.png)
 
 3.	Откроется диалоговое окно **Подключение пустого диска**.
 
 
-	![Присоединить новый пустой диск](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
+	![Присоединить новый пустой диск](./media/howto-attach-disk-windows-linux/AttachEmptyDetail.png)
 
 
 	Выполните следующее:
@@ -28,7 +28,7 @@
 
 4.	После создания и подключения диска данных он отобразится на панели мониторинга виртуальной машины.
 
-	![Пустой диск данных успешно подключен](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
+	![Пустой диск данных успешно подключен](./media/howto-attach-disk-windows-linux/AttachEmptySuccess.png)
 
 > [AZURE.NOTE] После добавления диска данных необходимо войти в систему на виртуальной машине и инициализировать диск. После этого его можно будет использовать.
 
@@ -42,16 +42,16 @@
 2. На панели команд нажмите кнопку **Присоединить**, а затем выберите **Присоединить диск**.
 
 
-	![Присоединение диска данных](./media/howto-attach-disk-window-linux/AttachExistingDisk.png)
+	![Присоединение диска данных](./media/howto-attach-disk-windows-linux/AttachExistingDisk.png)
 
 
 3. Выберите диск данных и поставьте галочку, чтобы его отключить.
 
-	![Введите сведения о диске данных](./media/howto-attach-disk-window-linux/AttachExistingDetail.png)
+	![Введите сведения о диске данных](./media/howto-attach-disk-windows-linux/AttachExistingDetail.png)
 
 4.	После подключения диска данных он будет отображаться на панели мониторинга виртуальной машины.
 
 
-	![Диск данных успешно подключен](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
+	![Диск данных успешно подключен](./media/howto-attach-disk-windows-linux/AttachExistingSuccess.png)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

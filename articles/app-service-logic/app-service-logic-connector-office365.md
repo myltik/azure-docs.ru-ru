@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Приступая к работе с соединителем Office 365: добавление в приложение логики
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview, щелкните [API Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) или [API Office 365 Пользователи](../connectors/connectors-create-api-office365-users.md).
 
 Подключитесь к учетной записи Office 365, чтобы отправлять и получать электронные сообщения, а также управлять календарем и контактами. Вы можете выполнять различные действия, такие как отправка, получение и извлечение сообщений электронной почты, создание и удаление событий в календаре и создание, обновление, получение и удаление контактов.
 
@@ -131,4 +131,4 @@
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

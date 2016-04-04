@@ -185,7 +185,7 @@ PTVS работает с установленными экземплярами V
 [Django Project — зрелая веб-платформа/CMS]: http://www.djangoproject.com
 [IPython — расширенный интерфейс REPL/Notebook для Python]: http://ipython.org
 [IPython]: http://ipython.org
-[IPython Notebook в Azure]: virtual-machines-python-ipython-notebook.md
+[IPython Notebook в Azure]: virtual-machines-linux-jupyter-notebook.md
 [облачных службах]: cloud-services-python-ptvs.md
 [веб-сайтах]: web-sites-python-ptvs-django-mysql.md
 [Средства Python для Visual Studio]: http://aka.ms/ptvs
@@ -196,7 +196,7 @@ PTVS работает с установленными экземплярами V
 [Microsoft Azure SDK для Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
 [Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
 [How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
-[Создание виртуальной машины с ОС Linux]: virtual-machines-linux-tutorial.md
+[Создание виртуальной машины с ОС Linux]: virtual-machines-linux-cli-create.md
 [Создание веб-сайтов с помощью Django]: web-sites-python-create-deploy-django-app.md
 [Создание веб-сайтов с помощью Bottle]: web-sites-python-create-deploy-bottle-app.md
 [Создание веб-сайтов с помощью Flask]: web-sites-python-create-deploy-flask-app.md
@@ -205,4 +205,4 @@ PTVS работает с установленными экземплярами V
 [хранилища очередей]: storage-python-how-to-use-queue-storage.md
 [хранилища BLOB-объектов]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

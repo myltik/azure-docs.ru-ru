@@ -1,33 +1,33 @@
-## Load Balancer differences
+## Различия балансировки нагрузки
 
-There are different options to distribute network traffic using Microsoft Azure.  These options work differently from each other, having a different feature set and supports different scenarios.  They can each be used in isolation, or combining them.
+Есть различные варианты для распределения сетевого трафика с помощью Microsoft Azure. Эти варианты работают по-разному, имеют разные наборы функций и поддерживают разные сценарии. Их можно использовать по отдельности или вместе.
 
-- Azure Load Balancer works at the network layer (level 4 in the OSI network reference stack).  It provides network-level distribution of traffic across instances of an application running in the same Azure data center.
+- Подсистема балансировки нагрузки Azure работает на уровне сети (уровень 4 в эталонном стеке OSI). Она обеспечивает распределение трафика на уровне сети по экземплярам приложения, работающего в одном центре обработки данных Azure.
 
-- Application Gateway works at the application layer (level 7 in the OSI network reference stack).  It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
+- Шлюз приложений работает на уровне приложения (уровень 7 в эталонном стеке OSI). Он выступает в качестве службы обратного прокси-сервера, завершая подключение клиента и перенаправляя запросы к конечным точкам серверной части.
 
-- 	Traffic Manager works at the DNS level.  It uses DNS responses to direct end-user traffic to globally-distributed endpoints.  Clients then connect to those endpoints directly.
-The following table summarizes the features offered by each service:
+- 	Диспетчер трафика работает на уровне DNS. Он использует ответы DNS для перенаправления трафика конечных пользователей к глобально распределенным конечным точкам. Затем клиенты подключаются к этим конечным точкам напрямую. В следующей таблице перечислены возможности, предоставляемые каждой службой:
 
-|Azure Load Balancer |	Application Gateway | Traffic Manager |
+|Подсистема балансировщика нагрузки Azure |	Шлюз приложений | Диспетчер трафика |
 |---|---|---|
-|Technology| Network level (level 4) | Application level (level 7) |	DNS level |
-| Application protocols supported |	Any | HTTP and HTTPS | 	Any (An HTTP/S endpoint is required for endpoint monitoring) |
-| Endpoints | Azure VMs and Cloud Services role instances | Any Azure Internal IP address or public internet IP address | Azure VMs, Cloud Services, Azure Web Apps and external endpoints |
-| Vnet support | Can be used for both Internet facing and internal (Vnet) applications | Can be used for both Internet facing and internal (Vnet) applications |	Only supports Internet-facing applications |
-Endpoint Monitoring | supported via probes | supported via probes | supported via HTTP/HTTPS GET | 
-<BR>
-Azure Load Balancer and Application Gateway route network traffic to endpoints but they have different usage scenarios to which traffic to handle. The table below helps understanding the difference between the two load balancers:
+|Технология| Уровень сети (уровень 4) | Уровень приложения (уровень 7) |	Уровень DNS |
+| Поддерживаемые протоколы приложений |	Любой | HTTP и HTTPS | 	Любой (конечная точка HTTP или HTTPS обязательна для мониторинга конечных точек) |
+| Конечные точки | Экземпляры роли ВМ и облачных служб Azure | Любой внутренний IP-адрес Azure или общедоступный IP-адрес в Интернете | Виртуальные машины Azure, облачные службы, веб-приложения Azure и внешние конечные точки |
+| Поддержка виртуальной сети | Может использоваться для приложений с выходом в Интернет и внутренних приложений (в виртуальной сети) | Может использоваться для приложений с выходом в Интернет и внутренних приложений (в виртуальной сети) |	Поддерживает только приложения с выходом в Интернет |
+Мониторинг конечных точек | Поддерживается посредством проб | Поддерживается посредством проб | Поддерживается через метод GET в HTTP или HTTPS | 
+<BR> Подсистема балансировки нагрузки Azure и шлюз приложений маршрутизируют трафик к конечным точкам, но их сценарии использования при обработке трафика различаются. Таблица ниже помогает понять различие между этими подсистемами балансировки нагрузки:
 
 
-| Type | Azure Load Balancer | Application Gateway |
+| Тип | Подсистема балансировщика нагрузки Azure | Шлюз приложений |
 |---|---|---|
-| Protocols | UDP/TCP | HTTP/ HTTPS |
-| IP reservation | Supported | Not supported | 
-| Load balancing mode | 5 tuple(source IP, source port, destination IP,destination port, protocol type) | CookieBasedAffinity = false,rules = basic (Round-Robin) | 
-| Load balancing mode (source IP /sticky sessions) |  2 tuple (source IP and destination IP), 3 tuple (source IP, destination IP and port). Can scale up or down based on the number of virtual machines | CookieBasedAffinity = true,rules = basic (Roud-Robin) for new connections. |
-| health probes | Default: probe interval - 15 secs. Taken out of rotation: 2 Continuous failures. Supports user defined probes | Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user defined probes | 
-| SSL offloading | not supported | supported | 
+| Протоколы | UDP и TCP | HTTP и HTTPS |
+| Резервирование IP-адресов | Поддерживаются | Не поддерживается | 
+| Режим балансировки нагрузки | 5 кортежей (исходный IP-адрес, исходный порт, IP-адрес назначения, порт назначения, тип протокола) | CookieBasedAffinity = false, rules = basic (циклический перебор) | 
+| Режим балансировки нагрузки (исходный IP-адрес или прикрепленные сеансы) | 2 кортежа (исходный IP-адрес и IP-адрес назначения), 3 кортежа (исходный IP-адрес, конечный IP-адрес и порт). Можно масштабировать вверх или вниз в зависимости от числа виртуальных машин | CookieBasedAffinity = true, rules = basic (циклический перебор) для новых подключений. |
+| Пробы работоспособности | По умолчанию: интервал выборки — 15 секунд. Изъятие из ротации: 2 последовательных сбоя. Поддерживает пользовательские пробы | Интервал простоя пробы — 30 секунд. Изъятие после 5 последовательных сбоев в интерактивном трафике или одного сбоя пробы в режиме простоя. Поддерживает пользовательские пробы | 
+| Разгрузка SSL | Не поддерживается | Поддерживается | 
 
 
   
+
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # Приступая к работе с соединителем служебной шины Azure: добавление в приложение логики 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview, щелкните [API служебной шины](../connectors/create-api-servicebus.md).
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview, щелкните [API служебной шины](../connectors/connectors-create-api-servicebus.md).
 
 Подключитесь к служебной шине Azure, чтобы отправлять сообщения в очереди и разделы, а также получать сообщения из очередей и подписок. Соединители используются в приложениях логики в рамках «рабочего процесса».
 
@@ -97,4 +97,4 @@
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

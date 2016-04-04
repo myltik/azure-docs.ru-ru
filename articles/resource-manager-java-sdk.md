@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="03/16/2016"
    ms.author="navale;tomfitz;"/>
    
 # Пакет SDK Java для диспетчера ресурсов Azure
@@ -77,9 +77,12 @@
 Проверку подлинности для ARM обрабатывает Azure Active Directory (AD). Чтобы подключиться к любому API, сначала необходимо пройти проверку подлинности в Azure AD для получения маркера проверки подлинности, который можно передать в каждый запрос. Чтобы получить этот маркер, нужно создать приложение Azure AD и субъект-службу, которая будет использоваться для входа. Пошаговые инструкции см. в статье [Создание приложения Azure AD и субъекта-службы](./resource-group-create-service-principal-portal.md).
 
 После создания субъекта-службы у вас должны быть указанные ниже значения:
+
 * Идентификатор клиента (GUID)
 * Секрет клиента (строка)
-* Идентификатор клиента (GUID) или имя домена (строка). При наличии этих значений можно получить маркер доступа Active Directory, действующий в течение часа.
+* Идентификатор клиента (GUID) или имя домена (строка)
+
+При наличии этих значений можно получить маркер доступа Active Directory, действующий в течение часа.
 
 Пакет SDK для Java содержит вспомогательный класс AuthHelper, который создает маркер доступа после указания идентификатора клиента (client id), секрета и идентификатора клиента (tenant id). В следующем примере в классе [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-java/blob/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/authentication/ServicePrincipalExample.java) используется метод AuthHelper *getAccessTokenFromServicePrincipalCredentials* для получения маркера доступа.
 
@@ -155,10 +158,51 @@ DeploymentExtended deployment = ResourceHelper.createTemplateDeploymentFromURI(
         "1.0.0.0",
         parameters);
 ```
+## Вывод списка всех виртуальных машин
+Не обязательно использовать вспомогательные классы (хотя они могут упростить вашу жизнь), вместо них используйте непосредственно классы служб для каждого поставщика ресурсов. В этом примере мы выведем список некоторых ресурсов в рамках аутентифицированной подписки: для каждой группы ресурсов найдем виртуальные машины, и затем IP-адреса, связанные с ними.
+
+```java
+// authenticate and get access token
+Configuration config = createConfiguration();
+ResourceManagementClient resourceManagementClient = ResourceManagementService.create(config);
+ComputeManagementClient computeManagementClient = ComputeManagementService.create(config);
+NetworkResourceProviderClient networkResourceProviderClient = NetworkResourceProviderService.create(config);
+
+// list all resource groups     
+ArrayList<ResourceGroupExtended> resourceGroups = resourceManagementClient.getResourceGroupsOperations().list(null).getResourceGroups();
+for (ResourceGroupExtended resourcesGroup : resourceGroups) {
+   String rgName = resourcesGroup.getName();
+   System.out.println("Resource Group: " + rgName);
+   
+   // list all virtual machines
+   ArrayList<VirtualMachine> vms = computeManagementClient.getVirtualMachinesOperations().list(rgName).getVirtualMachines();
+   for (VirtualMachine vm : vms) {
+      System.out.println("    VM: " + vm.getName());
+      // list all nics
+      ArrayList<NetworkInterfaceReference> nics = vm.getNetworkProfile().getNetworkInterfaces();
+      for (NetworkInterfaceReference nicReference : nics) {
+         String[] nicURI = nicReference.getReferenceUri().split("/");
+         NetworkInterface nic = networkResourceProviderClient.getNetworkInterfacesOperations().get(rgName, nicURI[nicURI.length - 1]).getNetworkInterface();
+         System.out.println("        NIC: " + nic.getName());
+         System.out.println("        Is primary: " + nic.isPrimary());
+         ArrayList<NetworkInterfaceIpConfiguration> ips = nic.getIpConfigurations();
+
+         // find public ip address
+         for (NetworkInterfaceIpConfiguration ipConfiguration : ips) {
+               System.out.println("        Private IP address: " + ipConfiguration.getPrivateIpAddress());
+               String[] pipID = ipConfiguration.getPublicIpAddress().getId().split("/");
+               PublicIpAddress pip = networkResourceProviderClient.getPublicIpAddressesOperations().get(rgName, pipID[pipID.length - 1]).getPublicIpAddress();
+               System.out.println("        Public IP address: " + pip.getIpAddress());
+         }
+      }
+}  
+```
 
 Дополнительные примеры можно найти в примерах пакетов в разделе [templatedeployments](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/templatedeployments).
 
 ## Дополнительные материалы и помощь
-Документация по пакету SDK Azure для Java: [документы по Java](http://azure.github.io/azure-sdk-for-java/). При возникновении проблем с пакетом SDK сообщите об ошибке на странице [Issues](https://github.com/Azure/azure-sdk-for-java/issues) или просмотрите [StackOverflow для пакета SDK Azure Java](http://stackoverflow.com/questions/tagged/azure-java-sdk).
+Документация по пакету SDK Azure для Java: [документы по Java](http://azure.github.io/azure-sdk-for-java/).
 
-<!---HONumber=AcomDC_0316_2016-->
+При возникновении проблем с пакетом SDK сообщите об ошибке на странице [Issues](https://github.com/Azure/azure-sdk-for-java/issues) (Проблемы) или просмотрите [StackOverflow для пакета SDK Azure для Java](http://stackoverflow.com/questions/tagged/azure-java-sdk).
+
+<!---HONumber=AcomDC_0323_2016-->

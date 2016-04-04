@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Инструкции суммирования и функции статистической обработки в аналитике Application Insights" 
-	description="Справочник по статистическим функциям и инструкциям суммирования в аналитике Application Insights, мощной поисковой системе для Application Insights." 
+	pageTitle="Суммирование и агрегирование в аналитике Application Insights" 
+	description="Справочник по статистическим функциям и инструкции суммирования в аналитике, мощном инструменте поиска Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
-# Статистическая обработка в аналитике Application Insights
+# Агрегирование в аналитике
 
-[Аналитика Application Insights](app-analytics.md) — это мощная поисковая система для вашей телеметрии [Application Insights](app-insights-overview.md). На этих страницах описан AIQL, язык запросов аналитики Application Insights.
+[Аналитика](app-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -52,7 +52,7 @@
 * *Aggregation* — вызов агрегатной функции, например `count()` или `avg()`, с именами столбцов в качестве аргументов. Список статистических функций см. ниже.
 * *GroupExpression* — выражение для столбцов, предоставляющее набор уникальных значений. Обычно это либо имя столбца, которое уже предоставляет ограниченный набор значений, или функция `bin()` с числовым столбцом или столбцом времени в качестве аргумента. 
 
-Если указать числовое или временное выражение без `bin()`, аналитика AI автоматически применит его с интервалом `1h` для временных значений и интервалом `1.0` для числовых.
+Если указать числовое или временное выражение без `bin()`, аналитика автоматически применит его с интервалом `1h` для временных значений и интервалом `1.0` для числовых.
 
 Если выражение *GroupExpression* не указано, вся таблица будет суммирована в одну итоговую строку.
 
@@ -307,7 +307,7 @@ traces
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
-Они эквивалентны подмножеству аннотаций типов TypeScript, закодированному как динамическое значение AIQL. В Typescript пример схемы будет следующим:
+Они эквивалентны подмножеству аннотаций типов TypeScript, закодированному как динамическое значение. В Typescript пример схемы будет следующим:
 
     var someobject: 
     { 
@@ -463,4 +463,4 @@ traces
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

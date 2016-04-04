@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/16/2016"
 	ms.author="andrela"/>
 
 
@@ -106,5 +106,4 @@
     puts row
     end
 
-<!---HONumber=AcomDC_0107_2016-->
-<!---Line 81, add "[]"-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Установка интерфейса командной строки Azure | Microsoft Azure"
-	description="Установка Azure CLI на компьютерах c Mac OS, Linux и Windows и работа со службами Azure"
+	description="Установка Azure CLI на компьютерах c Mac OS, Linux и Windows и работа со службами Azure"
 	editor=""
 	manager="timlt"
 	documentationCenter=""
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="03/09/2016"
 	ms.author="danlep"/>
 
 # Установка Azure CLI
 
-Вы можете выполнить быструю установку интерфейса командной строки Azure (Azure CLI), чтобы использовать набор консольных команд с открытым кодом для управления ресурсами в среде Microsoft Azure. Выберите один из предоставленных пакетов установщика для установки Azure CLI в операционную систему, установите интерфейс командной строки с помощью Node.js и **npm** или в качестве контейнера на узле Docker. Дополнительные сведения и варианты установки см. в репозитории проектов на сайте [GitHub](https://github.com/azure/azure-xplat-cli).
+Вы можете выполнить быструю установку интерфейса командной строки Azure (Azure CLI), чтобы использовать набор консольных команд с открытым кодом для управления ресурсами в среде Microsoft Azure. У вас есть выбор: используйте один из предоставленных пакетов установщика для установки Azure CLI в операционную систему, установите интерфейс командной строки с помощью Node.js и **npm** или установите Azure CLI в качестве контейнера на узле Docker. Дополнительные сведения и варианты установки см. в репозитории проектов на сайте [GitHub](https://github.com/azure/azure-xplat-cli).
 
 
-После установки интерфейса Azure CLI вы сможете [подключить его в рамках своей подписки Azure](xplat-cli-connect.md) и выполнять команды **azure** из интерфейса командной строки (Bash, терминал, командная строка и т. д.) для работы с ресурсами Azure.
+После установки интерфейса Azure CLI вы сможете [подключить его в рамках своей подписки Azure](xplat-cli-connect.md) и выполнять команды **azure** из интерфейса командной строки (Bash, терминал, командная строка и т. д.) для работы с ресурсами Azure.
 
 
 
@@ -77,9 +77,9 @@
 	yum install npm [enter]
 	npm install -g azure-cli  [enter]
 
-### Установка Node.js и команды npm в Windows и Mac OS X
+### Установка Node.js и команды npm в Windows и Mac OS X
 
-Для установки Node.js и npm в Windows и OS X можно использовать установщики с сайта [Nodejs.org](https://nodejs.org/en/download/). Для завершения установки может потребоваться перезапустить компьютер. Чтобы проверить, правильно ли установлены Node.js и npm, в окне командной строки или программы Терминал введите следующую команду.
+Для установки Node.js и npm в Windows и OS X можно использовать установщики с сайта [Nodejs.org](https://nodejs.org/en/download/). Для завершения установки может потребоваться перезапустить компьютер. Чтобы проверить, правильно ли установлены Node.js и npm, в окне командной строки или программы Терминал введите следующую команду.
 
 	npm -v
 
@@ -117,8 +117,8 @@
 docker run -it microsoft/azure-cli
 ```
 
-## Выполнение команд Azure CLI
-После установки Azure CLI можно использовать команду **azure** в пользовательском интерфейсе командной строки (Bash, терминал, командная строка и т. д.). Например, чтобы выполнить команду справки, введите следующее:
+## Выполнение команд Azure CLI
+После установки Azure CLI можно использовать команду **azure** в пользовательском интерфейсе командной строки (Bash, терминал, командная строка и т. д.). Например, чтобы выполнить команду справки, введите следующее:
 
 ```
 azure help
@@ -142,20 +142,20 @@ npm update -g azure-cli
 
 ## Дополнительные ресурсы
 
-* [Использование Azure CLI с диспетчером ресурсов Azure][cliarm]
+* [Команды Azure CLI в режиме Azure Resource Manager (ARM)][cliarm]
 
-* [Использование Azure CLI для управления службами Azure][cliasm]
+* [Команды Azure CLI для режима управления службами Azure (ASM)][cliasm]
 
-* Дополнительные сведения об Azure CLI, а также о том, как загрузить исходный код, сообщить о проблемах или принять участие в проекте, см. в [репозитории GitHub для Azure CLI](https://github.com/azure/azure-xplat-cli).
+* Дополнительные сведения об Azure CLI, а также о том, как загрузить исходный код, сообщить о проблемах или принять участие в проекте, см. в [репозитории GitHub для Azure CLI](https://github.com/azure/azure-xplat-cli).
 
-* Если у вас возникли вопросы об использовании Azure CLI или Azure, посетите [форумы Azure](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=azurescripting).
+* Если у вас возникли вопросы об использовании Azure CLI или Azure, посетите [форумы Azure](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=azurescripting).
 
 
 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

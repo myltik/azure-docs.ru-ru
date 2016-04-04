@@ -1,28 +1,29 @@
 
-Diagnosing issues with an Microsoft Azure cloud service requires collecting the service’s log files on virtual machines as the issues occur. You can use the AzureLogCollector extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs.
-> [AZURE.NOTE]Descriptions for most of the logged information can be found at http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+Диагностика неполадок в облачной службе Microsoft Azure предусматривает сбор файлов журналов служб на виртуальных машинах по мере возникновения проблем. Вы можете использовать запускаемое по запросу расширение AzureVMLogCollector для однократного выполнения операций по сбору журналов из одной или нескольких виртуальных машин облачной службы (из веб-ролей или рабочих ролей) и передачи собранных файлов в учетную запись хранения Azure. Все эти действия выполняются без удаленного входа на виртуальные машины.
+> [AZURE.NOTE]Описание почти всей информации, которая записывается в журналы, см. в статье http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
 
-There are two modes of collection dependent on the types of files to be collected.
-- Azure Guest Agent Logs only (GA). This collection mode includes all the logs related to Azure guest agents and other Azure components.
-- All Logs (Full). This collection mode will collect all files in GA mode plus:
+Существует два режима сбора данных для файлов разных типов.
+- Только журналы гостевого агента Azure (GA). В этом режиме собираются все журналы, связанные с гостевыми агентами и другими компонентами Azure.
+- Все журналы (Full). В этом режиме собираются все файлы, которые собираются в режиме GA, а также:
 
-  - system and application event logs
+  - журналы событий системы и приложений;
   
-  - HTTP error logs
+  - журналы ошибок HTTP;
   
-  - IIS Logs
+  - Журналы IIS
   
-  - Setup logs
+  - журналы установки;
   
-  - other system logs
+  - другие системные журналы.
 
-In both collection modes, additional data collection folders can be specified by using a collection of the following structure:
+Для двух этих режимов сбора можно указать папки, в которые будут собираться дополнительные данные. Это можно сделать с помощью коллекции со следующей структурой.
 
-- **Name**: The name of the collection, which will be used as the name of subfolder inside the zip file to be collected.
+- **Name**: имя коллекции, которое будет использоваться как имя вложенной папки в ZIP-файле с собранной информацией.
 
-- **Location**: The path to the folder on the virtual machine where file will be collected.
+- **Location**: путь к папке на виртуальной машине, куда будет записан файл.
 
-- **SearchPattern**: The pattern of the names of files to be collected. Default is “*”
+- **SearchPattern**: шаблон имен файлов, которые будут собраны. Значение по умолчанию — *.
 
-- **Recursive**: if the files will be collected recursively under the folder.
-
+- **Recursive**: параметр определяет, будут ли файлы собраны рекурсивно в рамках заданной папки.
+
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Инструкции в аналитике приложений" 
-	description="Запросы, выражения и инструкции let в аналитике приложений, мощной поисковой системе для Application Insights." 
+	pageTitle="Инструкции в аналитике Application Insights" 
+	description="Запросы, выражения и инструкции let в аналитике, мощном инструменте поиска Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Инструкции в аналитике приложений
+# Инструкции аналитики в Application Insights
 
-[Аналитика приложений](app-analytics.md) — это мощная поисковая система для вашей телеметрии [Application Insights](app-insights-overview.md). На этих страницах описан CSL, язык запросов аналитики приложений.
-
+[Аналитика](app-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ## Модель данных
 
-В CSL:
+В AIQL:
 
 * *База данных* содержит ноль или более именованных *таблиц*.
 * *Таблица* содержит:
@@ -67,7 +66,7 @@ database("MyDb").Table
 
 ### Запросы данных
   
-Запросы только на чтение данных, хранящихся в аналитике приложений. Например:
+Запросы только на чтение данных, хранящихся в аналитике. Например:
 
 * `event` – возвращает все записи таблицы с именем "event".
 * `event | count` – возвращает число записей в таблице "event".
@@ -269,4 +268,4 @@ TopEvents(5, ago(7d))
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

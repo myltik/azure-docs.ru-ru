@@ -1,55 +1,53 @@
 
 
-This article shows you how to attach both new and existing disks to a virtual machine through the Azure portal. Before you do this, review these tips:
+В этой статье показано, как подключить новый и существующий диски к виртуальной машине на портале Azure. Перед этим ознакомьтесь со следующими советами:
 
-- The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
-- To use Premium storage, you'll need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage-preview-portal.md).
-- Disks attached to virtual machines are actually .vhd files in an Azure storage account. For details, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
-- For a new disk, you don't need to create it first because Azure creates it when you attach it.
-- For an existing disk, the .vhd file must be available in an Azure storage account. You can use a .vhd that's already there, if it's not attached to another virtual machine, or upload your own .vhd file to the storage account.
+- Размер виртуальной машины определяет, сколько дисков данных к ней можно подключить. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-linux-sizes.md).
+- Для использования хранилища Premium вам необходимо будет использовать виртуальную машину серии DS или GS. Эти виртуальные машины позволяют использовать диски из учетных записей хранения Premium и Standard. Хранилище Premium доступно в определенных регионах. Дополнительные сведения см. в статье [Хранилище Premium: хранилище высокой производительности для рабочих нагрузок виртуальных машин Azure](../storage/storage-premium-storage-preview-portal.md).
+- На самом деле диски, подключенные к виртуальным машинам, — это VHD-файлы в учетной записи хранения Azure. Дополнительную информацию см. в статье [О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-linux-about-disks-vhds.md).
+- Если вы подключаете новый диск, его не надо предварительно создавать. Azure создаст его при подключении.
+- Если вы подключаете существующий диск, его VHD-файл должен быть доступен в учетной записи хранения Azure. Можно использовать VHD, уже находящийся там, если он не подключен к другой виртуальной машине, или передать свой VHD-файл в учетную запись хранения.
 
-## Find the virtual machine
+## Поиск виртуальной машины
 
-1. Sign in to the Azure portal.
+1. Войдите на портал Azure.
 
-2. On the Hub menu, click **Virtual Machines**.
+2. В главном меню щелкните **Виртуальные машины**.
 
-3.	Select the virtual machine from the list.
+3.	Затем выберите виртуальную машину из списка.
 
-4. To the right, under **Essentials**, click **All settings**, and then click **Disks**.
+4. Справа в разделе **Основное** щелкните **Все параметры**, затем щелкните **Диски**.
 
-	![Open disk settings](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
+	![Открытие параметров диска](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
 
-Continue by following instructions for attaching either a new disk or an existing disk.
+Продолжайте, следуя указаниям по подключению нового или существующего диска.
 
-## Option 1: Attach a new disk
+## Вариант 1. Подключение нового диска
 
-1.	On the **Disks** blade, click **Attach new**.
+1.	В колонке **Диски** щелкните **Подключить новый**.
 
-2.	Review the default settings, update as necessary, and then click **OK**.
+2.	Просмотрите параметры по умолчанию, при необходимости измените их, затем нажмите кнопку **ОК**.
 
- 	![Review disk settings](./media/virtual-machines-common-attach-disk-portal/attach-new.png)
+ 	![Просмотр параметров диска](./media/virtual-machines-common-attach-disk-portal/attach-new.png)
 
-3.	After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.
+3.	После того как Azure создаст диск и подключит его к виртуальной машине, он появится в параметрах дисков виртуальной машины в разделе **Диски данных**.
 
-## Option 2: Attach an existing disk
+## Вариант 2. Подключение существующего диска
 
-1.	On the **Disks** blade, click **Attach existing**.
+1.	В колоне **Диски** щелкните **Подключить существующий**.
 
-2.	Under **Attach existing disk**, click **VHD File**.
+2.	В разделе **Подключение существующего диска** щелкните **VHD-файл**.
 
-	![Attach existing disk](./media/virtual-machines-common-attach-disk-portal/attach-existing.png)
+	![Подключение существующего диска](./media/virtual-machines-common-attach-disk-portal/attach-existing.png)
 
-3.	Under **Storage accounts**, select the account and container that holds the .vhd file.
+3.	В разделе **Учетные записи хранения** выберите учетную запись и контейнер, который содержит VHD-файл.
 
-	![Find VHD location](./media/virtual-machines-common-attach-disk-portal/find-storage-container.png)
+	![Поиск расположения VHD](./media/virtual-machines-common-attach-disk-portal/find-storage-container.png)
 
-4.	Select the .vhd file.
+4.	Выберите VHD-файл.
 
-5.	Under **Attach existing disk**, the file you just selected is listed under **VHD File**. Click **OK**.
+5.	В разделе **Подключение существующего диска** выбранный вами файл отображается в списке, расположенном в разделе **VHD-файл**. Нажмите кнопку **ОК**.
 
-6.	After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
+6.	После того как Azure подключит диск к виртуальной машине, он будет отображаться в параметрах дисков виртуальной машины в разделе **Диски данных**.
 
-
-
-
+<!---HONumber=AcomDC_0323_2016-->

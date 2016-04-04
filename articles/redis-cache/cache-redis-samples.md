@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="03/22/2016" 
 	ms.author="sdanie"/>
 
 # Примеры кэша Redis для Azure 
@@ -41,9 +41,7 @@
 
 Раздел [Использование кэша Redis для Azure с Python](cache-python-get-started.md) показывает, как приступить к работе с кэшем Redis для Azure с помощью Python и клиента [redis-py](https://github.com/andymccurdy/redis-py).
 
-[Пример PHP](https://msdn.microsoft.com/library/azure/dn690470.aspx#PHPExample) показывает, как приступить к использованию кэша Redis для Azure с помощью PHP и клиента [predis](https://github.com/nrk/predis).
-
-Раздел [Работа с объектами .NET в кэше](https://msdn.microsoft.com/library/azure/dn690521.aspx#Objects) показывает один из способов сериализации объектов .NET, чтобы можно было их записывать и считывать из экземпляра кэша Redis для Azure.
+Раздел [Работа с объектами .NET в кэше](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) показывает один из способов сериализации объектов .NET, чтобы можно было их записывать и считывать из экземпляра кэша Redis для Azure.
 
 ## Использование кэша Redis в качестве масштабируемой объединительной панели для ASP.NET SignalR
 
@@ -76,4 +74,4 @@
 
 Пример [Монитор пропускной способности](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) позволяет наблюдать за пропускной способностью, используемой на клиентском компьютере. Чтобы измерить пропускную способность, запустите пример на клиентском компьютере кэша, выполните вызовы кэша и отследите пропускную способность, передаваемую примером монитора пропускной способности.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

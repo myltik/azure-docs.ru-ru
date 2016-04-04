@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Расписания в службе автоматизации Azure | Microsoft Azure"
    description="Расписания службы автоматизации используются для планирования автоматического выполнения модулей Runbook в службе автоматизации Azure. В этой статье рассматривается создание расписаний."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
+   ms.date="03/18/2016"
    ms.author="bwren" />
 
 # Расписания в службе автоматизации Azure
 
-Расписания службы автоматизации используются для планирования автоматического выполнения модулей Runbook. Это может быть одна дата и время для однократного запуска модуля Runbook. Или это может быть повторяющееся расписание для запуска этого модуля несколько раз. Расписания обычно недоступны из модулей Runbook.
+Расписания службы автоматизации используются для планирования автоматического выполнения модулей Runbook. Это может быть одна дата и время для однократного запуска модуля Runbook. Или это может быть повторяющееся ежедневное или ежечасное расписание для запуска этого модуля несколько раз. Расписания обычно недоступны из модулей Runbook.
 
 >[AZURE.NOTE]  В настоящее время расписания не поддерживают конфигурации Azure Automation DSC.
 
@@ -60,12 +60,11 @@
 	$scheduleName = "My Daily Schedule"
 	$startTime = (Get-Date).Date.AddDays(1).AddHours(12)
 	$expiryTime = $startTime.AddYears(1)
-	
+
 	New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –StartTime $startTime –ExpiryTime $expiryTime –DayInterval 1
 
 
 ## См. также
 - [Создание расписания для Runbook в службе автоматизации Azure](automation-scheduling-a-runbook.md)
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Скалярные выражения в аналитике Application Insights" 
-	description="Числа, строки, динамические выражения и типы в аналитике Application Insights, мощном средстве поиска для Application Insights." 
+	pageTitle="Скалярные выражения в аналитике в Application Insights" 
+	description="Числа, строки, динамические выражения и типы в аналитике, мощном инструменте поиска Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,30 +12,32 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Скалярные выражения в аналитике Application Insights
+# Скалярные выражения в аналитике
 
 
-[Аналитика Application Insights](app-analytics.md) — это мощная поисковая система для вашей телеметрии [Application Insights](app-insights-overview.md). На этих страницах описан AIQL, язык запросов аналитики Application Insights.
+[Аналитика](app-analytics.md) — это мощный инструмент поиска 
+[Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ---
 
-[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor)
+[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) 
 <br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull)
-<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt)
-<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) 
+<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) 
+| [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
 
 
-Термин "скалярный" означает такие значения, как числовые или строковые, которые могут занимать одну ячейку в таблице AIQL. Скалярные выражения строятся из скалярных функций и операторов и возвращают скалярное значение. `sqrt(score)/100 > target+2` — скалярное выражение.
+Термин "скалярный" означает такие значения, как числовые или строковые, которые могут занимать одну ячейку в таблице. Скалярные выражения строятся из скалярных функций и операторов и возвращают скалярное значение. `sqrt(score)/100 > target+2` — скалярное выражение.
 
 К "скалярным" также относятся массивы и составные объекты, которые также могут храниться в одной ячейке базы данных.
 
@@ -43,22 +45,23 @@
 
 ## Скалярные значения
 
-[casts](#casts) | [comparisons](#scalar-comparisons)
-<br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons) 
+<br/>
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 Ниже приведены поддерживаемые типы.
 
 | Тип | Дополнительные имена | Эквивалентный тип .NET |
 | --------- | -------------------- | -------------------- |
-| `bool` | `boolean` | `System.Boolean` |
-| `datetime`| `date` | `System.DateTime` |
-| `dynamic` | | `System.Object` |
-| `guid` | `uuid`, `uniqueid` | `System.Guid` |
-| `int` | | `System.Int32` |
-| `long` | | `System.Int64` |
-| `double` | `real` | `System.Double` |
-| `string` | | `System.String` |
-| `timespan`| `time` | `System.TimeSpan` |
+| `bool`    | `boolean`            | `System.Boolean`     |
+| `datetime`| `date`               | `System.DateTime`    |
+| `dynamic` |                      | `System.Object`      |
+| `guid`    | `uuid`, `uniqueid`   | `System.Guid`        |
+| `int`     |                      | `System.Int32`       |
+| `long`    |                      | `System.Int64`       |
+| `double`  | `real`               | `System.Double`      |
+| `string`  |                      | `System.String`      |
+| `timespan`| `time`               | `System.TimeSpan`    |
 
 ### Приведение типов
 
@@ -139,7 +142,9 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 ```
 ### iff
 
-Функция `iff()` вычисляет первый аргумент (предикат) и возвращает значение второго или третьего аргументов, в зависимости от того, является ли предикат `true` или `false`. Второй и третий аргументы должны быть одного типа.
+Функция `iff()` вычисляет первый аргумент (предикат) и возвращает значение второго 
+или третьего аргументов, в зависимости от того, является ли 
+предикат `true` или `false`. Второй и третий аргументы должны быть одного типа.
 
 **Синтаксис**
 
@@ -224,7 +229,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 ## Числа
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
 | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Числовые литералы
@@ -242,12 +247,12 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 | – | Вычитание |
 | * | Умножение |
 | / | Деление || % | Остаток от деления | 
-||
-|`<` | Меньше
-|`<=`| Меньше или равно
-|`>` | Больше
-|`>=`| Больше или равно
-|`<>`| Не равно
+|| 
+|`<` | Меньше 
+|`<=`| Меньше или равно 
+|`>` | Больше 
+|`>=`| Больше или равно 
+|`<>`| Не равно 
 |`!=`| Не равно
 
 
@@ -270,7 +275,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 **Возвращает**
 
-Ближайшее число, кратное *roundTo* и меньшее *value*.
+Ближайшее число, кратное *roundTo* и меньшее *value*.  
  
     (toint((value/roundTo)-0.5)) * roundTo
 
@@ -555,7 +560,7 @@ T | where ... | extend Elapsed=now() - timestamp
 
 ### Скрываемые строковые литералы
 
-Скрываемые строковые литералы — это строки, которые аналитика Application Insights скрывает при выводе строки (например при трассировке). Для этого все скрываемые символы заменяются начальным символом (`*`).
+Скрываемые строковые литералы — это строки, которые аналитика скрывает при выводе строки (например, при трассировке). Для этого все скрываемые символы заменяются начальным символом (`*`).
 
 Для образования скрываемого строкового литерала укажите символ `h` или "H". Например:
 
@@ -666,14 +671,14 @@ h"hello"
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
-<a name="notempty"></a>
-<a name="isnotempty"></a>
+<a name="notempty"></a> 
+<a name="isnotempty"></a> 
 <a name="isempty"></a>
 ### isempty, isnotempty, notempty
 
     isempty("") == true
 
-True, если аргумент является пустой строкой или имеет значение null.
+True, если аргумент является пустой строкой или имеет значение null. 
 См. также [isnull](#isnull).
 
 
@@ -843,7 +848,7 @@ substring("ABCD", 0, 2)       // AB
 
 ## Массивы и объекты — динамические типы
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) 
 <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
@@ -858,7 +863,7 @@ substring("ABCD", 0, 2)       // AB
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Но используйте `arraylength` и другие функции AIQL (не ".length"!)
+* Но используйте `arraylength` и другие функции аналитики (не ".length"!).
 
 **Приведение типов** В некоторых случаях бывает необходимо привести тип элемента, который можно извлечь из объекта, поскольку его тип может варьироваться. Например, `summarize...to` необходим конкретный тип:
 
@@ -1078,7 +1083,7 @@ arraylength(parsejson('21')) == null
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-затем следующий фрагмент AIQL получает значение слота `duration` в объекте и из него получает два слота `duration.value` и `duration.min` (`118.0` и `110.0`, соответственно).
+Затем следующий фрагмент получает значение слота `duration` в объекте и из него получает два слота `duration.value` и `duration.min` (`118.0` и `110.0`, соответственно).
 
 ```AIQL
 T
@@ -1149,4 +1154,4 @@ range(1, 8, 3)
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016---->
+<!------HONumber=AcomDC_0323_2016-->

@@ -1,0 +1,442 @@
+<properties
+   pageTitle="Оптимизация транзакций для хранилища данных SQL | Microsoft Azure"
+   description="В этой статье вы найдете рекомендации по написанию эффективного кода для обновлений транзакций в хранилище данных SQL Azure."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="jrowlandjones"
+   manager="barbkess"
+   editor=""/>
+
+<tags
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="02/27/2016"
+   ms.author="jrj;barbkess"/>
+
+# Оптимизация транзакций для хранилища данных SQL
+
+В этой статье объясняется, как написать код транзакции, чтобы максимально повысить эффективность изменений.
+
+## Общее представление о транзакциях и ведении журнала
+
+Транзакции представляют собой важную часть ядра реляционной СУБД. Хранилище данных SQL использует транзакции во время изменения данных. Эти транзакции могут быть явными или неявными. Одиночные инструкции `INSERT`, `UPDATE` и `DELETE` являются примерами неявных транзакций. Явные транзакции открыто создает разработчик с помощью инструкций `BEGIN TRAN`, `COMMIT TRAN` или `ROLLBACK TRAN`. Эти транзакции обычно используются, когда несколько инструкций изменения нужно связать в одну неделимую единицу.
+
+Хранилище данных SQL Azure вносит изменения в базу данных с помощью журналов транзакций. У каждого распределения есть свой журнал транзакций. Запись в журналы транзакций выполняется автоматически. Настраивать что-либо не требуется. Этот процесс гарантирует запись, но в то же время увеличивает нагрузку на систему. Чтобы минимизировать этот эффект, нужно написать эффективный код транзакции. Такой код можно условно разделить на две категории.
+
+- Используйте конструкции минимального ведения журналов, когда это возможно.
+- Обрабатывайте данные в пакетах, чтобы избежать одиночных длительных транзакций.
+- Пользуйтесь шаблоном переключения разделов при внесении значительных изменений в тот или иной раздел.
+
+## Минимальное ведение журнала и полное ведение журнала
+В отличие от полностью регистрируемых операций, которые с помощью журнала транзакций отслеживают каждое изменение строки, минимально регистрируемые операции отслеживают только выделения экстента и изменения метаданных. Иными словами, в рамках минимального ведения журнала протоколируется только та информация, которая нужна, чтобы откатить транзакцию в случае сбоя или явного запроса (`ROLLBACK TRAN`). Так как в журнал транзакций вносится гораздо меньше информации, минимально регистрируемая операция отличается от полностью регистрируемой операции аналогичного размера более высокой производительностью. Кроме того, так как в журнал транзакций вносится меньше записей, создается меньше данных журнала и процесс ввода-вывода становится эффективнее.
+
+>[AZURE.NOTE] Минимально регистрируемые операции могут быть частью явных транзакций. Так как все изменения в структурах выделения отслеживаются, такие операции можно откатывать. Важно понимать, что минимальная регистрация изменений — это не отсутствие регистрации.
+
+## Минимально регистрируемые операции
+
+Минимально регистрируемыми могут быть такие операции:
+
+- CREATE TABLE AS SELECT (CTAS)
+- INSERT..SELECT
+- CREATE INDEX
+- ALTER INDEX REBUILD
+- DROP INDEX
+- TRUNCATE TABLE
+- DROP TABLE
+- ALTER TABLE SWITCH PARTITION
+
+<!--
+- MERGE
+- UPDATE on LOB Types .WRITE
+- SELECT..INTO
+-->
+
+## Условия минимального ведения журнала для операций массовой загрузки
+
+`CTAS` и `INSERT...SELECT` — это операции массовой загрузки. Тем не менее обе они зависят от определения целевой таблицы и сценария загрузки. В таблице, приведенной ниже, перечислены условия, в зависимости от которых ваша массовая операция будет регистрироваться полностью или минимально.
+
+| Первичный индекс | Сценарий загрузки | Режим ведения журнала |
+| --------------------------- | -------------------------------------------------------- | ------------ |
+| Куча | Любой | **Минимальный** |
+| Кластеризованный индекс | Пустая целевая таблица | **Минимальный** |
+| Кластеризованный индекс | Загруженные строки не перекрывают существующие страницы в целевом объекте | **Минимальный** |
+| Кластеризованный индекс | Загруженные строки перекрывают существующие страницы в целевом объекте | Полное |
+| Кластеризованный индекс columnstore | Размер пакета >= 102 400 для распределения с выравниванием по разделам | **Минимальный** |
+| Кластеризованный индекс columnstore | Размер пакета < 102 400 для распределения с выравниванием по разделам | Полное |
+
+Следует отметить, что любые записи, выполняемые для обновления вторичных или некластеризованных индексов, считаются полностью регистрируемыми операциями.
+
+> [AZURE.IMPORTANT] В хранилище данных SQL есть 60 распределений. Поэтому, если исходить из того, что все строки распределены равномерно и их целью является один раздел, пакет должен содержать 6 144 000 строк (или больше), чтобы быть минимально регистрируемым, когда запись выполняется в кластеризованный индекс columnstore. Если таблица секционирована и вставляемые строки охватывают границы раздела, потребуется 6 144 000 строк на границу раздела (при условии, что данные распределяются равномерно). Чтобы вставка данных в распределении была минимально регистрируемой, размер каждого раздела в каждом распределении должен превышать пороговое значение (102 400 строк).
+
+При загрузке данных в непустую таблицу с кластеризованным индексом некоторые строки могут быть полностью регистрируемыми, а некоторые — минимально. Кластеризованный индекс — это сбалансированное дерево страниц. Если страница, на которой выполняется запись, уже содержит строки другой транзакции, эти операции записи будут полностью регистрируемыми. Однако если страница пустая, то операция записи на ней будет минимально регистрируемой.
+
+## Полностью регистрируемые операции
+Кроме обновлений вторичных индексов (эти обновления являются полностью регистрируемыми операциями) есть и другие инструкции.
+ 
+Инструкции `UPDATE` и `DELETE` **всегда** являются полностью регистрируемыми операциями.
+
+Тем не менее эти инструкции можно оптимизировать, чтобы они выполнялись эффективнее.
+
+Ниже приведено четыре примера, в которых объясняется, как оптимизировать код полностью регистрируемых операций:
+
+- `CTAS`
+- Секционирование таблиц
+- Пакетные операции
+
+### Оптимизация крупных операций удаления с помощью CTAS
+Если необходимо удалить большой объем данных в таблице или разделе, часто разумнее применить параметр `SELECT` к данным, которые вы хотите оставить. При этом с помощью [CTAS][] создается новая таблица. После создания используйте пару команд [RENAME OBJECT][], чтобы поменять местами имена таблиц.
+
+```
+-- Delete all sales transactions for Promotions except PromotionKey 2.
+
+--Step 01. Create a new table select only the records we want to kep (PromotionKey 2)
+CREATE TABLE [dbo].[FactInternetSales_d]
+WITH
+(	CLUSTERED COLUMNSTORE INDEX
+,	DISTRIBUTION = HASH([ProductKey])
+, 	PARTITION 	(	[OrderDateKey] RANGE RIGHT 
+									FOR VALUES	(	20000101, 20010101, 20020101, 20030101, 20040101, 20050101
+												,	20060101, 20070101, 20080101, 20090101, 20100101, 20110101
+												,	20120101, 20130101, 20140101, 20150101, 20160101, 20170101
+												,	20180101, 20190101, 20200101, 20210101, 20220101, 20230101
+												,	20240101, 20250101, 20260101, 20270101, 20280101, 20290101
+												)
+)
+AS
+SELECT 	*
+FROM 	[dbo].[FactInternetSales]
+WHERE	[PromotionKey] = 2
+OPTION (LABEL = 'CTAS : Delete')
+;
+
+--Step 02. Rename the Tables to replace the 
+RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
+RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
+```
+
+### Оптимизация больших обновлений с помощью CTAS
+Если нужно обновить много строк в таблице или разделе, для этого, как правило, намного эффективнее использовать минимально регистрируемую операцию, например [CTAS][].
+
+В примере ниже полное обновление таблицы преобразовано в операцию `CTAS`, что делает возможным минимальное ведение журнала.
+
+В этом случае мы задним числом добавляем сумму скидки к сумме продаж в таблице.
+
+```
+--Step 01. Create a new table containing the "Update". 
+CREATE TABLE [dbo].[FactInternetSales_u]
+WITH
+(	CLUSTERED INDEX
+,	DISTRIBUTION = HASH([ProductKey])
+, 	PARTITION 	(	[OrderDateKey] RANGE RIGHT 
+									FOR VALUES	(	20000101, 20010101, 20020101, 20030101, 20040101, 20050101
+												,	20060101, 20070101, 20080101, 20090101, 20100101, 20110101
+												,	20120101, 20130101, 20140101, 20150101, 20160101, 20170101
+												,	20180101, 20190101, 20200101, 20210101, 20220101, 20230101
+												,	20240101, 20250101, 20260101, 20270101, 20280101, 20290101
+												)
+				)
+)
+AS 
+SELECT
+	[ProductKey]  
+,	[OrderDateKey] 
+,	[DueDateKey]  
+,	[ShipDateKey] 
+,	[CustomerKey] 
+,	[PromotionKey] 
+,	[CurrencyKey] 
+,	[SalesTerritoryKey]
+,	[SalesOrderNumber]
+,	[SalesOrderLineNumber]
+,	[RevisionNumber]
+,	[OrderQuantity]
+,	[UnitPrice]
+,	[ExtendedAmount]
+,	[UnitPriceDiscountPct]
+,	ISNULL(CAST(5 as float),0) AS [DiscountAmount]
+,	[ProductStandardCost]
+,	[TotalProductCost]
+,	ISNULL(CAST(CASE WHEN [SalesAmount] <=5 THEN 0
+		 ELSE [SalesAmount] - 5
+		 END AS MONEY),0) AS [SalesAmount]
+,	[TaxAmt]
+,	[Freight]
+,	[CarrierTrackingNumber] 
+,	[CustomerPONumber]
+FROM	[dbo].[FactInternetSales]
+OPTION (LABEL = 'CTAS : Update')
+;
+
+--Step 02. Rename the tables
+RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
+RENAME OBJECT [dbo].[FactInternetSales_u] TO [FactInternetSales];
+
+--Step 03. Drop the old table
+DROP TABLE [dbo].[FactInternetSales_old]
+```
+
+> [AZURE.NOTE] Повторное создание больших таблиц может быть удобнее, если использовать функции управления рабочими нагрузками хранилища данных SQL. Для получения дополнительных сведений см. раздел, посвященный управлению рабочими нагрузками, в статье о [параллелизме][].
+
+### Обновление данных с помощью переключения разделов
+Если вы столкнулись с крупномасштабными изменениями в рамках раздела, есть смысл воспользоваться шаблоном переключения разделов. Если изменения данных существенные и охватывают несколько разделов, то простая итерация по разделам приводит к тому же результату.
+
+Чтобы переключить разделы, выполните следующие действия.
+1. Создайте пустой выходной раздел.
+2. Выполните обновление в виде операции CTAS.
+3. Переключите существующие данные на выходную таблицу.
+4. Подключите новые данные.
+5. Очистите данные.
+
+Тем не менее нужно уметь определять разделы, которые следует переключить. Для этого нам понадобится вспомогательная процедура наподобие приведенной ниже.
+
+```
+CREATE PROCEDURE dbo.partition_data_get
+	@schema_name		   NVARCHAR(128)
+,	@table_name			   NVARCHAR(128)
+,	@boundary_value		   INT
+AS
+IF OBJECT_ID('tempdb..#ptn_data') IS NOT NULL
+BEGIN
+	DROP TABLE #ptn_data
+END
+CREATE TABLE #ptn_data
+WITH	(	DISTRIBUTION = ROUND_ROBIN
+		,	HEAP
+		)
+AS
+WITH CTE
+AS
+(
+SELECT 	s.name							AS [schema_name]
+,		t.name							AS [table_name]
+, 		p.partition_number				AS [ptn_nmbr]
+,		p.[rows]						AS [ptn_rows]
+,		CAST(r.[value] AS INT)			AS [boundary_value]
+FROM		sys.schemas					AS s
+JOIN		sys.tables					AS t	ON  s.[schema_id]		= t.[schema_id]
+JOIN		sys.indexes					AS i	ON 	t.[object_id]		= i.[object_id]
+JOIN		sys.partitions				AS p	ON 	i.[object_id]		= p.[object_id] 
+												AND i.[index_id]		= p.[index_id] 
+JOIN		sys.partition_schemes		AS h	ON 	i.[data_space_id]	= h.[data_space_id]
+JOIN		sys.partition_functions		AS f	ON 	h.[function_id]		= f.[function_id]
+LEFT JOIN	sys.partition_range_values	AS r 	ON 	f.[function_id]		= r.[function_id] 
+												AND r.[boundary_id]		= p.[partition_number]
+WHERE i.[index_id] <= 1
+)
+SELECT	*
+FROM	CTE
+WHERE	[schema_name]		= @schema_name
+AND		[table_name]		= @table_name
+AND		[boundary_value]	= @boundary_value
+OPTION (LABEL = 'dbo.partition_data_get : CTAS : #ptn_data')
+;
+GO
+```
+
+Эта процедура максимизирует повторное использование кода и делает пример переключения разделов более компактным.
+
+Приведенный ниже код содержит все пять действий, упомянутых выше. В результате получилась полноценная процедура переключения разделов.
+
+```
+--Create a partitioned aligned empty table to switch out the data 
+IF OBJECT_ID('[dbo].[FactInternetSales_out]') IS NOT NULL
+BEGIN
+	DROP TABLE [dbo].[FactInternetSales_out]
+END
+
+CREATE TABLE [dbo].[FactInternetSales_out]
+WITH
+(	DISTRIBUTION = HASH([ProductKey])
+,	CLUSTERED COLUMNSTORE INDEX
+, 	PARTITION 	(	[OrderDateKey] RANGE RIGHT 
+									FOR VALUES	(	20020101, 20030101
+												)
+				)
+)
+AS
+SELECT *
+FROM	[dbo].[FactInternetSales]
+WHERE 1=2
+OPTION (LABEL = 'CTAS : Partition Switch IN : UPDATE')
+;
+
+--Create a partitioned aligned table and update the data in the select portion of the CTAS
+IF OBJECT_ID('[dbo].[FactInternetSales_in]') IS NOT NULL
+BEGIN
+	DROP TABLE [dbo].[FactInternetSales_in]
+END
+
+CREATE TABLE [dbo].[FactInternetSales_in]
+WITH
+(	DISTRIBUTION = HASH([ProductKey])
+,	CLUSTERED COLUMNSTORE INDEX
+, 	PARTITION 	(	[OrderDateKey] RANGE RIGHT 
+									FOR VALUES	(	20020101, 20030101
+												)
+				)
+)
+AS 
+SELECT
+	[ProductKey]  
+,	[OrderDateKey] 
+,	[DueDateKey]  
+,	[ShipDateKey] 
+,	[CustomerKey] 
+,	[PromotionKey] 
+,	[CurrencyKey] 
+,	[SalesTerritoryKey]
+,	[SalesOrderNumber]
+,	[SalesOrderLineNumber]
+,	[RevisionNumber]
+,	[OrderQuantity]
+,	[UnitPrice]
+,	[ExtendedAmount]
+,	[UnitPriceDiscountPct]
+,	ISNULL(CAST(5 as float),0) AS [DiscountAmount]
+,	[ProductStandardCost]
+,	[TotalProductCost]
+,	ISNULL(CAST(CASE WHEN [SalesAmount] <=5 THEN 0
+		 ELSE [SalesAmount] - 5
+		 END AS MONEY),0) AS [SalesAmount]
+,	[TaxAmt]
+,	[Freight]
+,	[CarrierTrackingNumber] 
+,	[CustomerPONumber]
+FROM	[dbo].[FactInternetSales]
+WHERE	OrderDateKey BETWEEN 20020101 AND 20021231
+OPTION (LABEL = 'CTAS : Partition Switch IN : UPDATE')
+;
+
+--Use the helper procedure to identify the partitions
+--The source table
+EXEC dbo.partition_data_get 'dbo','FactInternetSales',20030101
+DECLARE @ptn_nmbr_src INT = (SELECT ptn_nmbr FROM #ptn_data)
+SELECT @ptn_nmbr_src
+
+--The "in" table
+EXEC dbo.partition_data_get 'dbo','FactInternetSales_in',20030101
+DECLARE @ptn_nmbr_in INT = (SELECT ptn_nmbr FROM #ptn_data)
+SELECT @ptn_nmbr_in
+
+--The "out" table
+EXEC dbo.partition_data_get 'dbo','FactInternetSales_out',20030101
+DECLARE @ptn_nmbr_out INT = (SELECT ptn_nmbr FROM #ptn_data)
+SELECT @ptn_nmbr_out
+
+--Switch the partitions over
+DECLARE @SQL NVARCHAR(4000) = '
+ALTER TABLE [dbo].[FactInternetSales]	SWITCH PARTITION '+CAST(@ptn_nmbr_src AS VARCHAR(20))	+' TO [dbo].[FactInternetSales_out] PARTITION '	+CAST(@ptn_nmbr_out AS VARCHAR(20))+';
+ALTER TABLE [dbo].[FactInternetSales_in] SWITCH PARTITION '+CAST(@ptn_nmbr_in AS VARCHAR(20))	+' TO [dbo].[FactInternetSales] PARTITION '		+CAST(@ptn_nmbr_src AS VARCHAR(20))+';'
+EXEC sp_executesql @SQL
+
+--Perform the clean-up
+TRUNCATE TABLE dbo.FactInternetSales_out;
+TRUNCATE TABLE dbo.FactInternetSales_in;
+
+DROP TABLE dbo.FactInternetSales_out
+DROP TABLE dbo.FactInternetSales_in
+DROP TABLE #ptn_data
+```
+
+### Разделение операций по изменению данных на управляемые блоки
+Операции по изменению больших объемов данных бывает полезно разбить на блоки или пакеты, чтобы определить единицу работы.
+
+Ниже приведен рабочий пример. В целях демонстрации указан небольшой размер пакета. В реальной среде он был бы гораздо больше.
+
+```
+SET NO_COUNT ON;
+IF OBJECT_ID('tempdb..#t') IS NOT NULL
+BEGIN
+	DROP TABLE #t;
+	PRINT '#t dropped';
+END
+
+CREATE TABLE #t
+WITH	(	DISTRIBUTION = ROUND_ROBIN
+		,	HEAP
+		)
+AS
+SELECT	ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS seq_nmbr
+,		SalesOrderNumber
+,		SalesOrderLineNumber
+FROM	dbo.FactInternetSales
+WHERE	[OrderDateKey] BETWEEN 20010101 and 20011231
+;
+
+DECLARE	@seq_start		INT = 1
+,		@batch_iterator	INT = 1
+,		@batch_size		INT = 50
+,		@max_seq_nmbr	INT = (SELECT MAX(seq_nmbr) FROM dbo.#t)
+;
+
+DECLARE	@batch_count	INT = (SELECT CEILING((@max_seq_nmbr*1.0)/@batch_size))
+,		@seq_end		INT = @batch_size
+;
+
+SELECT COUNT(*)
+FROM	dbo.FactInternetSales f
+
+PRINT 'MAX_seq_nmbr '+CAST(@max_seq_nmbr AS VARCHAR(20))
+PRINT 'MAX_Batch_count '+CAST(@batch_count AS VARCHAR(20))
+
+WHILE	@batch_iterator <= @batch_count
+BEGIN
+	DELETE
+	FROM	dbo.FactInternetSales
+	WHERE EXISTS
+	(
+			SELECT	1
+			FROM	#t t
+			WHERE	seq_nmbr BETWEEN  @seq_start AND @seq_end
+			AND		FactInternetSales.SalesOrderNumber		= t.SalesOrderNumber
+			AND		FactInternetSales.SalesOrderLineNumber	= t.SalesOrderLineNumber
+	)
+	;
+
+	SET @seq_start = @seq_end
+	SET @seq_end = (@seq_start+@batch_size);
+	SET @batch_iterator +=1;
+END
+```
+
+## Дополнительные рекомендации по операциям Pause (пауза) и Scale (масштаб)
+Работу хранилища данных SQL Azure можно по запросу приостановить или возобновить. Также его можно масштабировать. Когда вы приостанавливаете работу хранилища данных SQL или масштабируете его, важно понимать, что запущенные транзакции немедленно прекращаются, что, в свою очередь, откатывает открытые транзакции. Если в рамках рабочей нагрузки выполнено длительное и незавершенное изменение данных перед операцией паузы или масштабирования, это изменение нужно отменить. Это может повлиять на время, требующееся для того, чтобы полностью приостановить работу базы данных хранилища данных SQL Azure.
+
+> [AZURE.IMPORTANT] `UPDATE` и `DELETE` — это полностью регистрируемые операции, поэтому упомянутые операции отмены и повтора могут выполняться значительно дольше, чем такие же минимально регистрируемые операции.
+
+Лучше всего перед приостановкой работы или масштабированием хранилища данных SQL подождать, пока не завершатся текущие транзакции по изменению данных. Однако это не всегда удобно. Чтобы снизить риск длительного отката, выполните одно из следующих действий:
+
+- Перепишите долго выполняющиеся операции с помощью [CTAS][].
+- Разбейте операцию на блоки для работы с подмножествами строк.
+
+## Дальнейшие действия
+Дополнительные советы по разработке и материалы, связанные с приведенными примерами, см. в следующих статьях:
+
+- [Разработка][]
+- [Транзакции][]
+- [Секционирование таблиц][]
+- [Параллелизм][]
+- [CTAS;][]
+- [Переименование в хранилище данных SQL][]
+
+<!--Image references-->
+
+<!--ACOM references-->
+[Разработка]: sql-data-warehouse-overview-develop.md
+[Транзакции]: sql-data-warehouse-develop-transactions.md
+[Секционирование таблиц]: sql-data-warehouse-develop-table-partitions.md
+[table partition]: sql-data-warehouse-develop-table-partitions.md
+[Параллелизм]: sql-data-warehouse-develop-concurrency.md
+[параллелизме]: sql-data-warehouse-develop-concurrency.md
+[CTAS]: sql-data-warehouse-develop-ctas.md
+[CTAS;]: sql-data-warehouse-develop-ctas.md
+[RENAME OBJECT]: sql-data-warehouse-develop-rename.md
+[Переименование в хранилище данных SQL]: sql-data-warehouse-develop-rename.md
+
+<!--MSDN references-->
+[alter index]: https://msdn.microsoft.com/ru-RU/library/ms188388.aspx
+
+<!---HONumber=AcomDC_0323_2016-->

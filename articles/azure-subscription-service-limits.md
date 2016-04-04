@@ -130,7 +130,7 @@
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-Дополнительные сведения см. в статье [Размеры виртуальных машин](../articles/virtual-machines/virtual-machines-size-specs.md).
+Дополнительные сведения см. в статье [Размеры виртуальных машин](../articles/virtual-machines/virtual-machines-linux-sizes.md).
 
 **Учетные записи хранения Standard**
 
@@ -280,8 +280,8 @@
 
 [Основные сведения о лимитах Azure и их увеличении](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Размеры виртуальных машин и облачных служб для Azure](virtual-machines/virtual-machines-size-specs.md)
+[Размеры виртуальных машин и облачных служб для Azure](virtual-machines/virtual-machines-linux-sizes.md)
 
 [Размеры для облачных служб](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

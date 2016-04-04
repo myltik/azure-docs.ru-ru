@@ -30,7 +30,7 @@
 
 Для работы с этим учебником необходимо следующее.
 
-+ Среда разработки C. В этом учебнике предполагается, что применяется стек gcc на [виртуальной машине Azure Linux](../virtual-machines/virtual-machines-linux-tutorial.md) с Ubuntu 14.04. Инструкции для других сред будут предоставлены как внешние ссылки.
++ Среда разработки C. В этом учебнике предполагается, что применяется стек gcc на [виртуальной машине Azure Linux](../virtual-machines/virtual-machines-linux-cli-create.md) с Ubuntu 14.04. Инструкции для других сред будут предоставлены как внешние ссылки.
 
 + Microsoft Visual Studio Express 2013 для Windows.
 
@@ -118,4 +118,4 @@
 [развертывания обработки событий при помощи концентраторов событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Решение для обмена сообщениями в очереди]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

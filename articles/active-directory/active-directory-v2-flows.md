@@ -118,4 +118,4 @@ Accept: application/json
 
 Сценарий связанных веб-API может поддерживаться с помощью предоставления учетных данных носителя маркера JWT OAuth 2.0 или [потока "On-Behalf-Of"](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Однако поток "On-Behalf-Of" еще не реализован в конечной точке версии 2.0. Чтобы увидеть его в общедоступной службе Azure AD, изучите [пример кода "On-Behalf-Of" на GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

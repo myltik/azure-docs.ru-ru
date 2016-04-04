@@ -1,4 +1,5 @@
 
+
 <properties
 	pageTitle="Поток кода авторизации OAuth 2.0 в Azure AD | Microsoft Azure"
 	description="Построение веб-приложений с помощью реализации протокола проверки подлинности OAuth 2.0 в Azure AD."
@@ -13,7 +14,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
@@ -275,4 +276,4 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 | trace\_id | Уникальный идентификатор для запроса, который может помочь при диагностике. |
 | correlation\_id | Уникальный идентификатор для запроса, который может помочь при диагностике нескольких компонентов. |
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

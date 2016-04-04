@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Смоделированная гибридная облачная среда для тестирования | Microsoft Azure" 
 	description="Создание смоделированной гибридной облачной среды для ИТ-специалистов или тестирования разработки с использованием двух виртуальных сетей Azure и подключения тип VNet-to-VNet." 
-	services="virtual-network" 
+	services="virtual-machines-windows" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
@@ -50,7 +50,7 @@
 
 ## Этап 1. Настройка виртуальной сети TestLab
 
-Используйте указания в статье [Тестовая среда с базовой конфигурацией](virtual-machines-base-configuration-test-environment-resource-manager.md), чтобы настроить в виртуальной сети Azure с именем TestLab компьютеры DC1, APP1 и CLIENT1.
+Используйте указания в статье [Тестовая среда с базовой конфигурацией](virtual-machines-windows-test-config-env.md), чтобы настроить в виртуальной сети Azure с именем TestLab компьютеры DC1, APP1 и CLIENT1.
 
 Затем запустите командную строку Azure PowerShell.
 
@@ -213,6 +213,6 @@
 
 ## Дальнейшие действия
 
-- [Добавление новой виртуальной машины](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) к подсети TestVNET, например к подсети, где работает Microsoft SQL Server.
+- [Добавление новой виртуальной машины](virtual-machines-windows-create-powershell.md) к подсети TestVNET, например к подсети, где работает Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

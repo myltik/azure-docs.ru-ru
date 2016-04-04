@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="03/21/2016" 
 	ms.author="sdanie"/>
 
 
@@ -117,7 +117,7 @@
 
 	git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 
-После клонирования репозиторий доступен для просмотра и работы в локальной файловой системе. Дополнительные сведения см. в статье [Обзор структуры файлов и папок локального репозитория Git](#file-and-folder-structure-overview-of-local-git-repository).
+После клонирования репозиторий доступен для просмотра и работы в локальной файловой системе. Дополнительные сведения см. в разделе [Справочные сведения по структуре файлов и папок локального репозитория Git](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## Обновление локального репозитория самой последней конфигурацией экземпляра службы
 
@@ -279,6 +279,9 @@
 -	Управление экземпляром службы с помощью REST API
 	-	[Справочник по REST API для управления API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
+## Просмотр видеообзора
+
+> [AZURE.VIDEO configuration-over-git]
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png
@@ -294,4 +297,4 @@
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

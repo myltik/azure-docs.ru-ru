@@ -12,15 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="03/16/2016"
    ms.author="alkohli" />
 
 # Развертывание локального устройства StorSimple (с обновлением 1)
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
-- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
-- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
+- [Обновление 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Обновление 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [Выпуск общедоступной версии](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Обзор
 
@@ -33,7 +33,7 @@
 
 Чтобы завершить процесс установки и настройки, вам потребуются права администратора. Перед началом настройки рекомендуется изучить контрольный список конфигурации. Процессы развертывания и настройки могут занять некоторое время.
 
-> [AZURE.NOTE] Сведения о развертывании StorSimple, опубликованные на веб-сайте Microsoft Azure, применяются только к устройствам серии StorSimple 8000. Полные сведения об устройствах серии 7000 см. в статье [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Сведения о развертывании устройств серии 7000 см. в [кратком руководстве по системе StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> [AZURE.NOTE] Сведения о развертывании StorSimple, опубликованные на веб-сайте Microsoft Azure, применяются только к устройствам серии StorSimple 8000. Полные сведения об устройствах серии 5000 и 7000 см. в статье [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Сведения о развертывании устройств серии 5000 и 7000 см. в [кратком руководстве по системе StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
 ## Шаги по развертыванию
 
@@ -241,10 +241,10 @@
 
 ## Проверка наличия обновлений и их применение
 
-Обновление устройства может занять несколько часов. Выполните действия ниже, чтобы проверить наличие обновлений и применить их на своем устройстве. 
-<!--can take 1-4 hours-->
+Обновление устройства может занять несколько часов. Выполните следующие действия, чтобы проверить наличие обновлений и применить их на своем устройстве.
+<!--can take 1-4 hours--> 
 
-<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
+<!--Если шлюз настроен на сетевом интерфейсе, отличном от Data 0, перед установкой обновления необходимо будет отключить сетевые интерфейсы Data 2 и Data 3. Перейдите в раздел **Устройства > Настроить** и отключите интерфейсы Data 2 и Data 3. Эти интерфейсы необходимо будет снова включить после обновления устройства.-->
 
 #### Обновление устройства
 
@@ -290,4 +290,4 @@ MPIO представляет собой дополнительный компо
 - Для управления устройством StorSimple используется [служба Диспетчера StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,19 +1,21 @@
-## Sample Scenario
+## Пример сценария
 
-To better illustrate how to manage NSGs, this article uses the scenario below.
+Чтобы лучше проиллюстрировать управление группами безопасности сети, в этой статье используется представленный ниже сценарий.
 
-![VNet scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
+![Сценарий виртуальной сети](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-In this scenario you will create an NSG for each subnet in the **TestVNet** virtual network, as described below: 
+В этом сценарии мы создадим сетевую группу безопасности для каждой подсети в виртуальной сети **TestVNet**, как описано ниже:
 
-- **NSG-FrontEnd**. The front end NSG will be applied to the *FrontEnd* subnet, and contain two rules:	
-	- **rdp-rule**. This rule will allow RDP traffic to the *FrontEnd* subnet.
-	- **web-rule**. This rule will allow HTTP traffic to the *FrontEnd* subnet.
-- **NSG-BackEnd**. The back end NSG will be applied to the *BackEnd* subnet, and contain two rules:	
-	- **sql-rule**. This rule allows SQL traffic only from the *FrontEnd* subnet.
-	- **web-rule**. This rule denies all internet bound traffic from the *BackEnd* subnet.
+- **NSG-FrontEnd**. Сетевая группа безопасности переднего плана будет применена к подсети *FrontEnd* и будет содержать два правила:	
+	- **rdp-rule**. Это правило разрешит трафик RDP к подсети *FrontEnd*.
+	- **web-rule**. Это правило разрешит трафик HTTP к подсети *FrontEnd*.
+- **NSG-BackEnd**. Внутренняя сетевая группа безопасности будет применена к подсети *BackEnd* и будет содержать два правила:	
+	- **sql-rule**. Это правило разрешает трафик SQL только из подсети *FrontEnd*.
+	- **web-rule**. Это правило запрещает весь трафик из подсети *BackEnd* в Интернет.
 
-The combination of these rules create a DMZ-like scenario, where the back end subnet can only receive incoming traffic for SQL traffic from the front end subnet, and has no access to the Internet, while the front end subnet can communicate with the Internet, and receive incoming HTTP requests only.
+Сочетание этих правил образует сценарий, подобный сети периметра (также известной как DMZ), где внутренняя подсеть может получать только входящий трафик SQL из подсети переднего плана и не имеет доступа к Интернету, а подсеть переднего плана может взаимодействовать с Интернетом и получать только входящие запросы HTTP.
 
-To deploy the scenario described above, follow [this link](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal. In the sample instructions below, the template was used to deploy a resource group names **RG-NSG**. 
+Чтобы развернуть описанный выше шаблон, перейдите по [данной ссылке](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), щелкните **Deploy to Azure** (Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале. В приведенных ниже инструкциях к примеру шаблон был использован для развертывания имен групп ресурсов **RG-NSG**.
  
+
+<!---HONumber=AcomDC_0323_2016-->

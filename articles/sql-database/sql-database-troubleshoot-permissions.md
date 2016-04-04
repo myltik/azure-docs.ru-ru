@@ -29,12 +29,12 @@
 - См. [Практическое руководство. Настройка параметров брандмауэра для базы данных SQL](sql-database-configure-firewall-settings.md).
 
 ##Создание пользователей автономной базы данных в пользовательской базе данных
-- Используйте оператор [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). См. статью [Пользователи автономной базы данных — создание переносимой базы данных](https://msdn.microsoft.com/library/ff929188.aspx).
+- Используйте инструкцию [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). См. статью [Пользователи автономной базы данных — создание переносимой базы данных](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Проверка подлинности пользователей автономной базы данных с помощью Azure Active Directory
-- См. [Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md).
+- См. раздел [Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md).
 
 ## Создание дополнительных имен входа для привилегированных пользователей в виртуальной базе данных master
 Используйте оператор [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Дополнительные сведения см. в разделе "Управление именами входа" статьи [Управление базами данных и учетными записями в базе данных SQL Azure](sql-database-manage-logins.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

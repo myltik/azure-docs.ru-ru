@@ -1,72 +1,72 @@
 
 
-There are two levels of load balancing available for Azure infrastructure services:
+В службах инфраструктуры Azure доступны два уровня балансировки нагрузки.
 
-- **DNS Level**:  Load balancing for traffic to different cloud services located in different data centers, to different Azure websites located in different data centers, or to external endpoints. This is done with Azure Traffic Manager and the Round Robin load balancing method.
-- **Network Level**:  Load balancing of incoming Internet traffic to different virtual machines of a cloud service, or load balancing of traffic between virtual machines in a cloud service or virtual network. This is done with the Azure load balancer.
+- **Уровень DNS**: балансировка нагрузки для трафика в разных облачных службах, расположенных в разных центрах обработки данных, на разных веб-сайтах Azure, расположенных в разных центрах обработки данных, или на внешних конечных точках. Это делается с помощью диспетчера трафика Azure и метода балансировки нагрузки с циклическим перебором.
+- **Уровень сети**: балансировка нагрузки для входящего интернет-трафика на разных виртуальных машинах облачной службы или балансировка нагрузки трафика между виртуальными машинами в облачной службе или в виртуальной сети. Это осуществляется с помощью подсистемы балансировки нагрузки Azure.
 
-## Traffic Manager load balancing for cloud services and websites##
+## Балансировка нагрузки диспетчером трафика для облачных служб и веб-сайтов##
 
-Traffic Manager allows you to control the distribution of user traffic to endpoints, which can include cloud services, websites, external sites, and other Traffic Manager profiles. Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources. Your cloud services or websites can be running in different datacenters across the world.
+Диспетчер трафика позволяет управлять распределением пользовательского трафика на конечных точках, которые могут включать в себя облачные службы, веб-сайты, внешние сайты и другие профили диспетчера трафика. Диспетчер трафика применяет интеллектуальную подсистему политик в запросах системы доменных имен (DNS) для доменных имен ваших интернет-ресурсов. Ваши облачные службы и веб-сайты могут выполняться на различных центрах обработки данных по всему миру.
 
-You must use either REST or Windows PowerShell to configure external endpoints or Traffic Manager profiles as endpoints.
+Для настройки внешних конечных точек или профилей диспетчера трафика как конечных точек вам следует использовать REST или Windows PowerShell.
 
-Traffic Manager uses three load-balancing methods to distribute traffic:
+Диспетчер трафика использует три метода балансировки нагрузки для распределения трафика:
 
-- **Failover**:  Use this method when you want to use a primary endpoint for all traffic, but provide backups in case the primary becomes unavailable.
-- **Performance**:  Use this method when you have endpoints in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.
-- **Round Robin:**  Use this method when you want to distribute load across a set of cloud services in the same datacenter or across cloud services or websites in different datacenters.
+- **Отработка отказа**: применяйте этот метод, если хотите использовать первичную конечную точку для всего трафика, но обеспечьте резервирование на случай, если первичная точка станет недоступной.
+- **Производительность**: применяйте этот метод, если у вас есть конечные точки в разных географических расположениях, и вы хотите, чтобы запрашивающие клиенты использовали "ближайшую" конечную точку, что обеспечивает минимальную задержку.
+- **Циклический перебор**: применяйте этот метод, если хотите распределять нагрузку между облачными службами в одном центре обработки данных или между облачными службами и веб-сайтами в разных центрах обработки данных.
 
-For more information, see [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md).
+Дополнительную информацию см. в разделе [О методах балансировки нагрузки диспетчера трафика](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
-The following diagram shows an example of the Round Robin load balancing method for distributing traffic between different cloud services.
+На следующей схеме показан пример метода балансировки нагрузки с циклическим перебором для распределения трафика между разными облачными службами.
 
 ![loadbalancing](./media/virtual-machines-common-load-balance/TMSummary.png)
 
-The basic process is the following:
+Вот как выглядит базовый процесс:
 
-1.	An Internet client queries a domain name corresponding to a web service.
-2.	DNS forwards the name query request to Traffic Manager.
-3.	Traffic Manager chooses the next cloud service in the Round Robin list and sends back the DNS name. The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.
-4.	The Internet client connects with the cloud service chosen by Traffic Manager.
+1.	Интернет-клиент запрашивает доменное имя, соответствующее веб-службе.
+2.	Служба DNS перенаправляет запрос имени диспетчеру трафика.
+3.	Диспетчер трафика выбирает следующую облачную службу в списке циклического перебора и отправляет обратно DNS-имя. DNS-сервер интернет-клиента определяет IP-адрес для имени и отправляет его интернет-клиенту.
+4.	Интернет-клиент подключается к облачной службе, выбранной диспетчером трафика.
 
-For more information, see [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+Дополнительную информацию см. в разделе [Диспетчер трафика](../traffic-manager/traffic-manager-overview.md).
 
-## Azure load balancing for virtual machines ##
+## Балансировка нагрузки Azure для виртуальных машин ##
 
-Virtual machines in the same cloud service or virtual network can communicate with each other directly using their private IP addresses. Computers and services outside the cloud service or virtual network can only communicate with virtual machines in a cloud service or virtual network with a configured endpoint. An endpoint is a mapping of a public IP address and port to that private IP address and port of a virtual machine or web role within an Azure cloud service.
+Виртуальные машины в одной облачной службе или виртуальной сети могут напрямую подключаться друг к другу, используя частные IP-адреса. Компьютеры и службы за пределами облачной службы или виртуальной сети могут обмениваться данными только с виртуальными машинами в облачной службе или виртуальной сети с настроенной конечной точкой. Конечная точка — это сопоставление общедоступного IP-адреса и порта с частным IP-адресом и портом виртуальной машины или веб-роли в облачной службе Azure.
 
-The Azure Load Balancer randomly distributes a specific type of incoming traffic across multiple virtual machines or services in a configuration known as a load-balanced set. For example, you can spread the load of web request traffic across multiple web servers or web roles.
+Подсистема балансировки нагрузки Azure произвольно распределяет определенный тип входящего трафика между несколькими виртуальными машинами или службами в конфигурации, известной как набор балансировки нагрузки. Например, можно распределить нагрузку от трафика веб-запросов на несколько веб-серверов или веб-ролей.
 
-The following diagram shows a load-balanced endpoint for standard (unencrypted) web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
+На следующей схеме показана конечная точка с балансировкой нагрузки для стандартного (незашифрованного) веб-трафика, являющаяся общей для трех виртуальных машин для открытых и закрытых TCP-портов 80. Эти три виртуальные машины находятся в наборе балансировки нагрузки.
 
 ![loadbalancing](./media/virtual-machines-common-load-balance/LoadBalancing.png)
 
-For more information, see [Azure Load Balancer](../load-balancer/load-balancer-overview.md). For the steps to create a load-balanced set, see [Configure a load-balanced set](../load-balancer/load-balancer-internet-getstarted.md).
+Дополнительную информацию см. в разделе [Подсистема балансировки нагрузки Azure](../load-balancer/load-balancer-overview.md). Указания по созданию набора балансировки нагрузки см. в разделе [Настройка комплекта балансировки нагрузки](../load-balancer/load-balancer-internet-getstarted.md).
 
-Azure can also load balance within a cloud service or virtual network. This is known as internal load balancing and can be used in the following ways:
+Azure также может распределять нагрузку внутри облачной службы или виртуальной сети. Эта функция известна как внутренняя балансировка нагрузки и может использоваться в следующих целях:
 
-- To load balance between servers in different tiers of a multi-tier application (for example, between web and database tiers).
-- To load balance line-of-business (LOB) applications hosted in Azure without requiring additional load balancer hardware or software.
-- To include on-premises servers in the set of computers whose traffic is load balanced.
+- Для распределения нагрузки между серверами на различных уровнях многоуровневого приложения (например, между веб-уровнем и уровнем базы данных).
+- Для балансировки нагрузки в бизнес-приложениях, размещенных в Azure. При этом не требуется дополнительное оборудование или программное обеспечение для распределения нагрузки.
+- включая локальные серверы в наборе компьютеров, чей трафик балансируется.
 
-Similar to Azure load balancing, internal load balancing is facilitated by configuring an internal load-balanced set.
+По аналогии с балансировкой нагрузки Azure внутренняя балансировка нагрузки упрощается за счет настройки набора внутренней балансировки нагрузки.
 
-The following diagram shows an example of an internal load-balanced endpoint for a line of business (LOB) application that is shared among three virtual machines in a cross-premises virtual network.
+На следующей схеме показан пример конечной точки с внутренней балансировкой нагрузки для бизнес-приложения, которое является общим для трех виртуальных машин в виртуальной сети с подключением между организациями.
 
 ![loadbalancing](./media/virtual-machines-common-load-balance/LOBServers.png)
 
-## Load balancer considerations
+## Особенности балансировщика нагрузки
 
-A load balancer is configured by default to timeout an idle session in 4 minutes. If your application behind a load balancer leaves a connection idle for more than 4 minutes and it doesn't have a Keep-Alive configuration, the connection will be dropped. You can change the load balancer behavior to allow a [longer timeout setting for Azure load balancer](../load-balancer/load-balancer-tcp-idle-timeout.md).
+Балансировщик нагрузки по умолчанию ожидает ответ от бездействующего сеанса в течение 4 минут. Если в приложении с балансировщиком нагрузки не настроена проверка активности и бездействие подключения длится более 4 минут, подключение прекращается. Можно изменить поведение балансировщика нагрузки, чтобы [увеличить время ожидания для балансировщика нагрузки Azure](../load-balancer/load-balancer-tcp-idle-timeout.md).
 
-Other consideration is the type of distribution mode supported by Azure Load Balancer. You can configure source IP affinity (source IP, destination IP) or source IP protocol (source IP , destination IP and protocol). Check out [Azure Load Balancer distribution mode (source IP affinity)](../load-balancer/load-balancer-distribution-mode.md) for more information.
+Другой особенностью является тип распределения, поддерживаемый балансировщиком Azure. Вы можете настроить сходство IP-адреса источника (IP-адрес источника, IP-адрес назначения) или протокол IP-адреса источника (IP-адрес источника, IP-адрес назначения и протокол). Дополнительную информацию см. в статье [Режим распределения балансировщика нагрузки (соответствие исходному IP-адресу)](../load-balancer/load-balancer-distribution-mode.md).
 
 
-## Next steps
+## Дальнейшие действия
 
-For the steps to create a load-balanced set, see [Configure an internal load-balanced set](../load-balancer/load-balancer-internal-getstarted.md).
+Указания по созданию набора балансировки нагрузки см. в разделе [Настройка внутреннего набора с балансировкой нагрузки](../load-balancer/load-balancer-internal-getstarted.md).
 
-For more information about load balancer, see [Internal load balancing](../load-balancer/load-balancer-internal-overview.md).
+Дополнительные сведения см. в статье [Внутренняя балансировка нагрузки](../load-balancer/load-balancer-internal-overview.md).
 
-
+<!---HONumber=AcomDC_0323_2016-->

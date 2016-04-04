@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Развертывание виртуальной машины со статическим общедоступным IP-адресом с использованием портала Azure CLI
@@ -29,7 +29,7 @@
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## Шаг 1. Запуск сценария
+## Шаг 1. Запуск сценария
 
 Полный сценарий Bash можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Чтобы изменить сценарий для работы в вашей среде, сделайте следующее:
 
@@ -64,7 +64,7 @@
 		pipName="PIPWEB1"
 		dnsName="iaasstoryws1"
 
-## Шаг 2. Создание необходимых ресурсов для виртуальных машин
+## Шаг 2. Создание необходимых ресурсов для виртуальных машин
 
 Перед созданием виртуальной машины необходимо создать группу ресурсов, виртуальную сеть, общедоступный IP-адрес и сетевой адаптер для использования с виртуальной машиной.
 
@@ -106,7 +106,7 @@
 		    --subnet-id $subnetId \
 		    --public-ip-name $pipName
 
->[AZURE.TIP]Первая команда выше использует [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) и [манипуляции со строками](http://tldp.org/LDP/abs/html/string-manipulation.html) (в частности, удаление подстроки).
+>[AZURE.TIP] Первая команда выше использует [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) и [манипуляции со строками](http://tldp.org/LDP/abs/html/string-manipulation.html) (в частности, удаление подстроки).
 
 5. Создайте учетную запись хранения для размещения диска виртуальной машины с ОС.
 
@@ -136,7 +136,7 @@
 
 2. Сохраните файл скрипта.
 
-## Шаг 4. Запуск сценария
+## Шаг 4. Запуск сценария
 
 После внесения необходимых изменений и изучения указанного выше скрипта запустите сценарий.
 
@@ -227,4 +227,4 @@
 		info:    Creating VM "WEB1"
 		info:    vm create command OK
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

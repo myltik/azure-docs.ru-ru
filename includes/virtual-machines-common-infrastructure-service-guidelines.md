@@ -1,422 +1,423 @@
 
 
-Azure is an excellent platform to implement dev/test or proof-of-concept configurations, because it requires very little investment to test a particular approach to an implementation of your solutions. However, you must be able to distinguish the easy practices for a dev/test environment from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
+Azure — отличная платформа для реализации конфигураций разработки, тестирования или экспериментов, так как для тестирования того или иного варианта реализации решений требуется совсем немного инвестиций. Тем не менее вам следует отличать простые методы для сред разработки и тестирования от более сложных, детальных методов для полнофункционального, готового к работе варианта реализации для выполнения рабочей нагрузки ИТ-среды.
 
-This guidance identifies many areas for which planning is vital to the success of an IT workload in Azure. In addition, planning provides an order to the creation of the necessary resources. Although there is some flexibility, we recommend that you apply the order in this article to your planning and decision-making.
+В этом руководстве указаны многие области, требующие обязательного планирования для успешного выполнения рабочей нагрузки ИТ-среды в Azure. Кроме того, планирование позволяет определить порядок создания необходимых ресурсов. Некоторая гибкость вполне возможна, но мы рекомендуем применять при планировании и принятии решений указанный в данной статье порядок.
 
-This article was adapted from the content in the [Azure implementation guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) blog post. Thanks to Santiago Cánepa (Application Development Manager for Microsoft) and Hugo Salcedo (Application Development Manager for Microsoft) for their original material.
+Эта статья написана на основе записи блога [Рекомендации по реализации Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Благодарим Сантьяго Канепу (Santiago Cánepa) и Хьюго Сальседо (Hugo Salcedo) (руководителей отдела разработки приложений корпорации Майкрософт) за предоставленные исходные материалы.
 
-> [AZURE.NOTE] Affinity groups have been deprecated. Their use is not described here. For more information, see [About regional VNets and affinity groups](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+> [AZURE.NOTE] Территориальные группы являются устаревшими. Их использование здесь не описывается. Дополнительные сведения см. в статье [О региональных виртуальных сетях и территориальных группах](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
-## 1. Naming conventions
+## 1\. Соглашения об именовании.
 
-You should have a good naming convention in place before creating anything in Azure. A naming convention ensures that all the resources have a predictable name, which helps lower the administrative burden associated with managing those resources.
+Прежде чем создавать что-либо в Azure, следует задать надлежащее соглашение об именовании. Такое соглашение гарантирует предсказуемость имен всех ресурсов, позволяющую снизить административную нагрузку, связанную с управлением этими ресурсами.
 
-You might choose to follow a specific set of naming conventions defined for your entire organization or for a specific Azure subscription or account. Although it is easy for individuals within organizations to establish implicit rules when working with Azure resources, when a team needs to work on a project on Azure, that model does not scale well.
+Вы можете следовать некоторому набору соглашений об именовании, определенному для всей вашей организации, конкретной подписки Azure или учетной записи Azure. Хотя сотрудники организации могут с легкостью устанавливать неявные правила при работе с ресурсами Azure, такая модель плохо масштабируется, если команде нужно работать над проектом в Azure.
 
-You should agree on a set of naming conventions up front. There are some considerations regarding naming conventions that cut across the sets of rules that make up those conventions.
+Соглашения об именовании следует установить заранее. Некоторые рекомендации в отношении соглашений об именовании касаются набора правил, составляющих эти соглашения.
 
-### Affixes
+### Аффиксы
 
-When creating certain resources, Azure uses some defaults to simplify management of the resources that are associated with these resources. For example, when creating the first virtual machine for a new cloud service, the Azure classic portal attempts to use the virtual machine’s name for the name of a new cloud service for the virtual machine.
+При создании определенных ресурсов Azure использует некоторые значения по умолчанию, чтобы упростить управление ресурсами, сопоставленными с создаваемыми. Например, при создании первой виртуальной машины для новой облачной службы классический портал Azure попытается использовать имя виртуальной машины в качестве имени новой облачной службы для нее.
 
-Therefore, it is beneficial to identify types of resources that need an affix to identify that type. In addition, clearly specify whether the affix will be at:
+Следовательно, полезно определять типы ресурсов, для определения которых требуются аффиксы. Кроме того, необходимо явно указывать, где будет находиться аффикс:
 
-- The beginning of the name (prefix)
-- The end of the name (suffix)
+- в начале имени (префикс);
+- в конце имени (суффикс).
 
-For instance, here are two possible names for a resource group that hosts a calculation engine:
+Например, группа ресурсов, в которой размещено вычислительное ядро, может иметь такие два имени:
 
-- Rg-CalculationEngine (prefix)
-- CalculationEngine-Rg (suffix)
+- Rg-CalculationEngine (префикс);
+- CalculationEngine-Rg (суффикс).
 
-Affixes can refer to different aspects that describe the particular resources. The following table shows some examples typically used.
+Аффиксы относятся к различным аспектам, описывающим конкретные ресурсы. В следующей таблице приведены примеры типичных случаев.
 
-Aspect | Examples | Notes
+Аспект | Примеры | Примечания
 --- | --- | ---
-Environment | dev, stg, prod | Depending on the purpose and name of each environment.
-Location | usw (West US), use (East US 2) | Depending on the region of the datacenter or the region of the organization.
-Azure component, service, or product | Rg for resource group, Svc for cloud service, VNet for virtual network | Depending on the product for which the resource provides support.
-Role | sql, ora, sp, iis | Depending on the role of the virtual machine.
-Instance | 01, 02, 03, etc. | For resources that have more than one instance. For example, load balanced web servers in a cloud service.
+Среда | dev, stg, prod | Зависит от назначения и имени каждой среды.
+Расположение | usw (западная часть США), use (восточная часть США 2) | Зависит от региона, в котором располагается центр обработки данных или организация.
+Служба, продукт или компонент Azure | RG — группа ресурсов, SVC — облачная служба, VNET — виртуальная сеть | Зависит от продукта, для которого ресурс обеспечивает поддержку.
+Роль | sql, ora, sp, iis | Зависит от роли виртуальной машины.
+Экземпляр | 01, 02, 03 и т. д. | Для ресурсов, которые имеют более одного экземпляра. Например, веб-серверы с балансировкой нагрузки, размещенные в облачной службе.
 
-When establishing your naming conventions, make sure that they clearly state which affixes to use for each type of resource, and in which position (prefix vs suffix).
+При установке соглашений об именовании убедитесь, что они явно указывают, какие аффиксы используются для каждого типа ресурсов, и их расположение (префикс или суффикс).
 
-### Dates
+### Даты
 
-It is often important to determine the date of creation from the name of a resource. We recommend the YYYYMMDD date format. This format ensures that not only the full date is recorded, but also that two resources whose names differ only on the date will be sorted alphabetically and chronologically at the same time.
+Часто крайне важно определять дату создания по имени ресурса. Мы рекомендуем использовать формат даты ГГГГММДД. Этот формат обеспечивает не только запись полной даты, но и то, что два ресурса, имена которых отличаются только датой, будут отсортированы в алфавитном и хронологическом порядке одновременно.
 
-### Naming resources
+### Именование ресурсов
 
-You should define each type of resource in the naming convention, which should have rules that define how to assign names to each resource that is created. These rules should apply to all types of resources, for example:
+В соглашении об именовании необходимо определить каждый тип ресурсов и правила назначения имен каждому создаваемому ресурсу. Эти правила применяются ко всем типам ресурсов, например:
 
-- Subscriptions
-- Accounts
-- Storage accounts
-- Virtual networks
-- Subnets
-- Availability sets
-- Resource groups
-- Cloud services
-- Virtual machines
-- Endpoints
-- Network security groups
-- Roles
+- Подписки
+- учетные записи;
+- учетные записи хранения;
+- виртуальные сети;
+- Подсети
+- Группы доступности
+- Группы ресурсов
+- Облачных служб
+- Виртуальные машины
+- Конечные точки
+- Группы безопасности сети
+- Роли
 
-To ensure that the name provides enough information to determine to which resource it refers, you should use descriptive names.
+Используйте содержательные имена, которые позволяют безошибочно определить ресурсы, к которым они относятся.
 
-### Computer names
+### Имена компьютеров
 
-When administrators create a virtual machine, Microsoft Azure requires them to provide a virtual machine name of up to 15 characters. Azure uses the virtual machine name as the Azure virtual machine resource name. Azure uses the same name as the computer name for the operating system installed in the virtual machine. However, these names might not always be the same.
+Когда администратор создает виртуальную машину, Microsoft Azure требует указать ее имя, которое должно содержать не более 15 знаков. Microsoft Azure использует имя виртуальной машины в качестве имени ресурса виртуальной машины Azure. То же имя виртуальной машины Azure использует в качестве имени компьютера, заданного в операционной системе виртуальной машины. Однако эти имена могут и не совпадать.
 
-In case a virtual machine is created from a .vhd image file that already contains an operating system, the virtual machine name in Azure can differ from the virtual machine’s operating system computer name. This situation can add a degree of difficulty to virtual machine management, which we therefore do not recommend. Assign the Azure virtual machine resource the same name as the computer name that you assign to the operating system of that virtual machine.
+Если виртуальная машина создается с помощью VHD-файла образа, в котором уже определена операционная система, имя виртуальной машины в Azure может отличаться от имени компьютера, заданного в операционной системе виртуальной машины. В таком случае управление виртуальной машиной может усложниться, поэтому мы рекомендуем не допускать этого. Используйте имя ресурса виртуальной машины Azure, совпадающее с именем компьютера, заданным в операционной системе этой виртуальной машины.
 
-We recommend that the Azure virtual machine name be the same as the underlying operating system computer name. Because of this, follow the NetBIOS naming rules as described in [Microsoft NetBIOS computer naming conventions](https://support.microsoft.com/kb/188997/).
+Мы рекомендуем использовать имя виртуальной машины Azure, совпадающее с именем компьютера основной операционной системы. По этой причине старайтесь следовать правилам именования NetBIOS, как описано в статье [Соглашения об именовании компьютеров Microsoft NetBIOS](https://support.microsoft.com/kb/188997/).
 
-### Storage account names
+### Имена учетных записей хранения
 
-Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, in combination with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
+Имена учетных записей хранения создаются по особым правилам. Вы можете использовать только строчные буквы и цифры. Дополнительные сведения см. в статье [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account). Кроме того, имя учетной записи хранения в сочетании с core.windows.net должно являться глобально допустимым уникальным именем DNS. Например, если учетная запись хранения называется mystorageaccount, уникальными должны быть следующие имена DNS:
 
-- mystorageaccount.blob.core.windows.net
-- mystorageaccount.table.core.windows.net
-- mystorageaccount.queue.core.windows.net
+- mystorageaccount.blob.core.windows.net;
+- mystorageaccount.table.core.windows.net;
+- mystorageaccount.queue.core.windows.net.
 
 
-### Azure building block names
+### Имена стандартных блоков Azure
 
-Azure building blocks are application-level services that Azure offers, typically to those applications taking advantage of PaaS features, although IaaS resources might leverage some, like SQL Database, Traffic Manager, and others.
+Стандартные блоки Azure — это службы на уровне приложений, доступные в Azure, как правило, для приложений, использующих функции PaaS. Однако ресурсы IaaS могут использовать некоторые из них, например базы данных SQL, диспетчер трафика и др.
 
-These services rely on an array of artifacts that are created and registered in Azure. These also need to be considered in your naming conventions.
+Эти службы зависят от массива артефактов, созданных и зарегистрированных в Azure. Кроме того, они должны учитываться в ваших соглашениях об именовании.
 
-### Implementation guidelines recap for naming conventions
+### Обобщение рекомендаций по реализации, касающихся соглашений об именовании
 
-Decision:
+Решение
 
-- What are your naming conventions for Azure resources?
+- Каковы соглашения об именовании для ресурсов Azure?
 
-Task:
+Задача
 
-- Define the naming conventions in terms of affixes, hierarchy, string values, and other policies for Azure resources.
+- Определить соглашения об именовании с учетом применения аффиксов, иерархии, строковых значений и других политик для ресурсов Azure.
 
-## 2. Subscriptions and accounts
+## 2\. Подписки и учетные записи
 
-In order to work with Azure, you need one or more Azure subscriptions. Resources, like cloud services or virtual machines, exist in the context of those subscriptions.
+Для работы с Azure требуется одна или несколько подписок на Azure. Такие ресурсы, как облачные службы или виртуальные машины, доступны только при использовании этих подписок.
 
-- Enterprise customers typically have an Enterprise Enrollment, which is the top-most resource in the hierarchy, and is associated to one or more accounts.
-- For consumers and customers without an Enterprise Enrollment, the top-most resource is the account.
-- Subscriptions are associated to accounts, and there can be one or more subscriptions per account. Azure records billing information at the subscription level.
+- Как правило, у корпоративных клиентов есть Соглашение о регистрации Enterprise, которое считается ресурсом самого верхнего уровня в иерархии и сопоставлено с одной или несколькими учетными записями.
+- Для клиентов без Соглашения о регистрации Enterprise ресурсом верхнего уровня считается учетная запись.
+- Подписки сопоставлены с учетными записями. С одной учетной записью может быть связано несколько подписок. Azure хранит данные для выставления счетов на уровне подписки.
 
-Due to the limit of two hierarchy levels on the Account/Subscription relationship, it is important to align the naming convention of accounts and subscriptions to the billing needs. For instance, if a global company uses Azure, they might choose to have one account per region, and have subscriptions managed at the region level.
+Так как количество уровней иерархии для связи между учетной записью и подпиской ограничено двумя, важно, чтобы соглашение об именовании для учетных записей и подписок соответствовало требованиям к выставлению счетов. Например, если в транснациональной компании используется Azure, можно создать по одной учетной записи на регион и управлять подписками на уровне региона.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
-For instance, you might use this structure.
+Например, можно использовать указанную ниже структуру.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
-Following the same example, if a region decides to have more than one subscription associated to a particular group, then the naming convention should incorporate a way to encode the extra on either the account or the subscription name. This organization allows massaging billing data to generate the new levels of hierarchy during billing reports.
+Возьмем тот же пример. Если нужно сопоставить несколько подписок для региона с определенной группой, то соглашение об именовании должно предусматривать способ указания дополнительных сведений в имени учетной записи или подписки. Такая организация позволяет уплотнять данные для выставления счетов, чтобы можно было создавать уровни иерархии во время отправки отчетов о выставлении счетов.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-The organization could look like this.
+Организация может выглядеть следующим образом.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
-Microsoft provides detailed billing via a downloadable file for a single account or for all accounts in an enterprise agreement. You can process this file, for example, by using Microsoft Excel. This process would ingest the data, partition the resources that encode more than one level of the hierarchy into separate columns, and use a pivot table or PowerPivot to provide dynamic reporting capabilities.
+Корпорация Майкрософт выставляет детализированные счета в виде загружаемого файла для одной учетной записи или для всех учетных записей, включенных в Соглашение Enterprise. Вы можете обработать этот файл с помощью Microsoft Excel или других приложений. При этом будут приняты данные и разделены ресурсы, которые кодируют несколько уровней иерархии, на отдельные столбцы, а также будет использована сводная таблица или PowerPivot для предоставления возможностей динамических отчетов.
 
-### Implementation guidelines recap for subscriptions and accounts
+### Обзор рекомендаций по реализации, касающихся учетных записей и подписок
 
-Decision:
+Решение
 
-- What set of subscriptions and accounts do you need to host your IT workload or infrastructure?
+- Какие подписки и учетные записи необходимы для размещения рабочей нагрузки ИТ-среды или ИТ-инфраструктуры?
 
-Task:
+Задача
 
-- Create the set of subscriptions and accounts using your naming convention.
+- Создать набор подписок и учетных записей с использованием соглашения об именовании.
 
-## 3. Storage
+## 3\. Хранилище
 
-Azure Storage is an integral part of many Azure solutions. Azure Storage provides services for storing file data, unstructured data, and messages, and it is also part of the infrastructure supporting virtual machines.
+Хранилище Azure — неотъемлемая часть многих решений Azure. Хранилища Azure предоставляет службы для хранения файловых данных, неструктурированных данных и сообщений, а также является частью инфраструктуры, поддерживающей виртуальные машины.
 
-There are two types of storage accounts available from Azure. A standard storage account gives you access to blob storage (used for storing Azure virtual machine disks), table storage, queue storage, and file storage. Premium storage is designed for high-performance applications, such as SQL Servers in an AlwaysOn cluster, and currently supports Azure virtual machine disks only.
+В Azure доступны учетные записи хранения двух типов. Стандартная учетная запись хранения предоставляет доступ к хранилищу больших двоичных объектов (которое используется для хранения дисков виртуальных машин Azure), хранилищам таблиц, очередей и файлов. Хранилище Premium предназначено для высокопроизводительных приложений, например серверов SQL Server в кластере AlwaysOn, и сейчас поддерживает только диски виртуальных машин Azure.
 
-Storage accounts are bound to scalability targets. See [Microsoft Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#storage-limits) to become familiar with current Azure storage limits. Also see [Azure storage scalability and performance targets](../storage-scalability-targets.md).
+Учетные записи хранения привязаны к целевым показателям масштабируемости. Сведения о действующих ограничениях для хранилищ Azure вы можете получить в статье [Лимиты, квоты и ограничения подписки и обслуживания Microsoft Azure](../azure-subscription-service-limits.md#storage-limits). См. также статью [Целевые показатели масштабируемости и производительности хранилища Azure](../storage-scalability-targets.md).
 
-Azure creates virtual machines with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. This makes the temporary disk unfit for data that must persist during a system recycle, because the machine might silently be migrated from one node to another, losing any data in that disk. Do not store anything on the temporary drive.
+Azure создает виртуальные машины с диском операционной системы, временным диском и любым количеством дополнительных дисков данных. Диск операционной системы и диски данных — страничные BLOB-объекты Azure, тогда как временный диск хранится на локальном узле, на котором запущена виртуальная машина. По этой причине временный диск не подходит для данных, которые должны сохраняться во время перезапуска системы, ведь виртуальная машина может быть перенесена в другой узел без предупреждения с потерей всех данных на этом диске. Не храните ничего на временном диске.
 
-Operating system disks and data disks have a maximum size of 1023 gigabytes (GB) because the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can implement disk striping in Windows to surpass this limit.
+Максимальный размер дисков операционной системы и дисков данных составляет 1023 ГБ (гигабайт), так как максимальный размер большого двоичного объекта составляет 1024 ГБ и он должен содержать метаданные (нижний колонтитул) VHD-файла (ГБ — это 1024<sup>3</sup> байта). Чтобы преодолеть это ограничение, в Windows можно реализовать чередование дисков.
 
-### Striped disks
-Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
+### Диски с чередованием
+Использование чередования для дисков данных, помимо возможности создавать диски размером более 1023 ГБ, во многих случаях увеличивает производительность благодаря тому, что для единого тома хранилища используются несколько больших двоичных объектов. При чередовании дисков операции ввода-вывода для одного логического диска могут выполняться параллельно.
 
-Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
+Azure налагает ограничения на количество дисков данных и пропускную способность в зависимости от размера виртуальной машины. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-linux-sizes.md).
 
-If you are using disk striping for Azure data disks, consider the following guidelines:
+При использовании чередования дисков данных Azure придерживайтесь следующих рекомендаций:
 
-- Data disks should always be the maximum size (1023 GB)
-- Attach the maximum data disks allowed for the virtual machine size
-- Use storage spaces configuration
-- Use storage striping configuration
-- Avoid using Azure data disk caching options (caching policy = None)
+- Диски данных всегда должны иметь максимальный размер (1023 ГБ).
+- Присоединяйте столько дисков данных, сколько позволяет размер виртуальной машины.
+- Используйте конфигурацию дисковых пространств.
+- Используйте конфигурацию чередования дисков.
+- Избегайте кэширования дисков данных Azure (для политики кэширования нужно выбрать параметр "Нет").
 
-For more information, see [Storage spaces - designing for performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
+Дополнительные сведения см. в статье [Дисковые пространства: повышение производительности](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
-### Multiple storage accounts
+### Несколько учетных записей хранения
 
-Using multiple storage accounts to back the disks associated with many virtual machines ensures that the aggregated I/O of those disks is well below the scalability targets for each one of those storage accounts.
+Использование нескольких учетных записей хранения для поддержки дисков, сопоставленных с несколькими виртуальными машинами, гарантирует, что общий объем вводимых и выводимых данных на этих дисках будет намного ниже целевых показателей масштабируемости для каждой из этих учетных записей.
 
-We recommend that you start with the deployment of one virtual machine per storage account.
+Корпорация Майкрософт рекомендует для начала развернуть по одной виртуальной машине на каждую учетную запись хранения.
 
-### Storage layout design
+### Проектирование структуры хранилища
 
-To implement these strategies to implement the disk subsystem of the virtual machines with good performance, an IT workload or infrastructure typically takes advantage of many storage accounts. These host many VHD blobs. In some instances, more than one blob is associated to one single volume in a virtual machine.
+Чтобы можно было реализовать эти стратегии создания дисковой подсистемы виртуальных машин высокой производительности, для рабочей нагрузки ИТ-среды или ИТ-инфраструктуры обычно используется несколько учетных записей хранения. В них размещаются несколько больших двоичных объектов виртуальных жестких дисков. В некоторых случаях с одним томом на виртуальной машине сопоставляются несколько больших двоичных объектов.
 
-This situation can add complexity to the management tasks. Designing a sound strategy for storage, including appropriate naming for the underlying disks and associated VHD blobs is key.
+Это может усложнить задачи управления. Крайне важно разработать удачную стратегию хранения, включая соответствующие имена дисков и сопоставленных больших двоичных объектов для виртуальных жестких дисков.
 
-### Implementation guidelines recap for storage
+### Обзор рекомендаций по реализации, касающихся хранилищ
 
-Decisions:
+Решения
 
-- Do you need disk striping to create disks larger than 500 terabytes (TB)?
-- Do you need disk striping to achieve optimal performance for your workload?
-- What set of storage accounts do you need to host your IT workload or infrastructure?
+- Требуется ли чередование для создания дисков размером более 500 ТБ?
+- Требуется ли чередование дисков для достижения оптимальной производительности рабочей нагрузки?
+- Какие учетные записи хранения необходимы для размещения рабочей нагрузки в ИТ-среде или ИТ-инфраструктуры?
 
-Task:
+Задача
 
-- Create the set of storage accounts using your naming convention. You can use the Azure portal, the Azure classic portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
+- Создать набор учетных записей хранения с использованием соглашения об именовании. Вы можете использовать портал Azure, классический портал Azure или командлет PowerShell (**New-AzureStorageAccount**).
 
-## 4. Cloud services
+## 4\. Облачных служб
 
-Cloud services are a fundamental building block in Azure service management, both for PaaS and IaaS services. For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
+Облачные службы являются в системе Azure стандартным строительным блоком для управления службами PaaS и IaaS. В случае PaaS облачные службы представляют группу ролей, экземпляры которых могут взаимодействовать между собой. Облачные службы сопоставлены с общедоступным виртуальным IP-адресом и подсистемой балансировки нагрузки, которая принимает входящий трафик из Интернета и балансирует его нагрузку для ролей, настроенных на прием этого трафика.
 
-In the case of IaaS, cloud services offer similar functionality, although in most cases, the load balancer functionality is used to forward traffic to specific TCP or UDP ports from the Internet to the many virtual machines within that cloud service.
+В случае IaaS облачные службы предоставляют аналогичные функции, хотя в большинстве случаев возможности подсистемы балансировки нагрузки используются для перенаправления трафика из Интернета в определенные TCP- или UDP-порты на нескольких виртуальных машинах в облачных службах.
 
-> [AZURE.NOTE] Cloud services do not exist in Azure Resource Manager. For an introduction to the advantages of Resource Manager, see [Azure compute, network and storage providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md).
+> [AZURE.NOTE] В диспетчере ресурсов Azure отсутствуют облачные службы. Общую информацию о преимуществах диспетчера ресурсов см. в статье [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
-Cloud service names are especially important in IaaS because Azure uses them as part of the default naming convention for disks. The cloud service name can contain only letters, numbers, and hyphens. The first and last character in the field must be a letter or number.
+Имена облачных служб особо важны для IaaS, так как Azure использует их как составляющую соглашения об именовании по умолчанию для дисков. Имя облачной службы может содержать только буквы, цифры и дефисы. Первый и последний символ в поле должны быть буквами или цифрами.
 
-Azure exposes the cloud service names, because they are associated to the VIP, in the domain “cloudapp.net”. For a better user experience of the application, a vanity name should be configured as needed to replace the fully qualified cloud service name. This is typically done with a CNAME record in your public DNS that maps the public DNS name of your resource (for example, www.contoso.com) to the DNS name of the cloud service hosting the resource (for example, the cloud service hosting the web servers for www.contoso.com).
+Azure показывает имена облачных служб в домене cloudapp.net, так как они сопоставлены с виртуальным IP-адресом. Для удобства пользователя приложения следует выбрать запоминающееся имя вместо полного имени облачной службы. Обычно это делается с помощью записи CNAME в общедоступном DNS-сервере, который сопоставляет общедоступное DNS-имя ресурса (например, www.contoso.com) с DNS-именем облачной службы, в которой размещается ресурс (например, облачной службы с веб-серверами для www.contoso.com).
 
-In addition, the naming convention used for cloud services might need to tolerate exceptions because the cloud service names must be unique among all other Microsoft Azure cloud services, regardless of the Microsoft Azure tenant.
+Кроме того, может потребоваться, чтобы соглашение об именовании для облачных служб допускало исключения, так как имена облачных служб должны быть уникальными и отличаться от всех остальных облачных служб Microsoft Azure независимо от клиента Microsoft Azure.
 
-One important limitation of cloud services to consider is that only one virtual machine management operation can be performed at a time for all the virtual machines in the cloud service. When you perform a virtual machine management operation on one virtual machine in the cloud service, you must wait until it is finished before you can perform a new management operation on another virtual machine. Therefore, you should keep the number of virtual machines in a cloud service low.
+Одним важным ограничением облачных служб, которое следует учитывать, является то, что за раз можно выполнять только одну операцию управления виртуальной машиной в облачной службе. При выполнении операции управления на одной виртуальной машине в облачной службе вам следует дождаться ее завершения, прежде чем начинать следующую операцию управления на другой виртуальной машине. Поэтому в облачной службе следует хранить небольшое количество виртуальных машин.
 
-Azure subscriptions can support a maximum of 200 cloud services.
+Подписки на Azure могут поддерживать до 200 облачных служб.
 
-### Implementation guidelines recap for cloud services
+### Обзор рекомендаций по реализации, касающихся облачных служб
 
-Decision:
+Решение
 
-- What set of cloud services do you need to host your IT workload or infrastructure?
+- Какие облачные службы необходимы для размещения рабочей нагрузки в ИТ-среде или ИТ-инфраструктуры?
 
-Task:
+Задача
 
-- Create the set of cloud services using your naming convention. You can use the Azure classic portal or the **New-AzureService** PowerShell cmdlet.
+- Создать набор облачных служб с использованием соглашения об именовании. Вы можете использовать классический портал Azure или командлет PowerShell (**New-AzureService**).
 
-## 5. Virtual networks
+## 5\. виртуальные сети;
 
-The next logical step is to create the virtual networks necessary to support the communications across the virtual machines in the solution. Although it is possible to host multiple virtual machines of an IT workload within just one cloud service, virtual networks are recommended.
+Следующий логический шаг — создание виртуальных сетей, необходимых для поддержки взаимодействия между виртуальными машинами в решении. Несмотря на то, что несколько виртуальных машин для рабочей нагрузки ИТ-среды можно разместить в одной облачной службе, рекомендуется использовать виртуальные сети.
 
-Virtual networks are a container for virtual machines for which you can also specify subnets, custom addressing, and DNS configuration options. Virtual machines within the same virtual network can communicate directly with other computers within the same virtual network, regardless of which cloud service they are a member of. Within the virtual network, this communication remains private, without the need for the communication to go through the public endpoints. This communication can occur via IP address, or by name, using a DNS server installed in the virtual network, or on-premises, if the virtual machine is connected to the corporate network.
+Виртуальные сети — это контейнер для виртуальных машин, для которого также можно указать подсети, пользовательские адреса и параметры конфигурации DNS. Виртуальные машины в одной виртуальной сети могут взаимодействовать непосредственно с другими компьютерами в той же виртуальной сети независимо от того, в какие облачные службы они входят. В виртуальной сети это взаимодействие остается закрытым, и общедоступные конечные точки при этом не используются. Это взаимодействие может происходить с использованием IP-адреса или имени, с помощью DNS-сервера, установленного в виртуальной сети или локально, если виртуальная машина подключена к корпоративной сети.
 
-### Site connectivity
-If on-premises users and computers do not require ongoing connectivity to virtual machines in an Azure virtual network, create a cloud-only virtual network.
+### Подключение сайтов
+Если локальным пользователям и компьютерам не требуется постоянное подключение к виртуальным машинам в виртуальной сети Azure, создайте виртуальную сеть только в облаке.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
 
-This is typically for Internet-facing workloads, such as an Internet-based web server. You can manage these virtual machines using Remote Desktop connections, remote PowerShell sessions, Secure Shell (SSH) connections, and point-to-site VPN connections.
+Как правило, это практикуется при таких рабочих нагрузках, когда необходимо подключение к Интернету, например, в случае веб-серверов. Вы можете управлять этими виртуальными машинами с помощью подключений к удаленному рабочему столу, удаленных сеансов PowerShell, подключений Secure Shell (SSH) и VPN-подключений типа "точка-сеть".
 
-Because they do not connect to your on-premises network, cloud-only virtual networks can use any portion of the private IP address space.
+Облачные виртуальные сети могут использовать любую часть пространства внутренних IP-адресов, так как они не подключаются к локальной сети.
 
-If on-premises users and computers require ongoing connectivity to virtual machines in an Azure virtual network, create a cross-premises virtual network and connect it to your on-premises network with an ExpressRoute or site-to-site VPN connection.
+Если локальным пользователям и компьютерам необходимо постоянное подключение к виртуальным машинам в виртуальной сети Azure, создайте распределенную виртуальную сеть и подключите ее к локальной сети с помощью ExpressRoute или VPN-подключения типа "сеть-сеть".
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
-In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
+В этой конфигурации виртуальная сеть Azure по сути является облачным расширением локальной сети.
 
-Because they connect to your on-premises network, cross-premises virtual networks must use a portion of the address space used by your organization that is unique, and the routing infrastructure must support routing traffic to that portion by forwarding it to your on-premises VPN device.
+Так как распределенные виртуальные сети подключаются к локальной сети, они должны использовать уникальную часть используемого организацией адресного пространства, а инфраструктура маршрутизации должна поддерживать отправку трафика в эту часть путем его перенаправления на локальное VPN-устройство.
 
-To allow packets to travel from your cross-premises virtual network to your on-premises network, you must configure the set of relevant on-premises address prefixes as part of the local network definition for the virtual network. Depending on the address space of the virtual network and the set of relevant on-premises locations, there can be many address prefixes in the local network.
+Чтобы разрешить передачу пакетов из распределенной виртуальной сети в локальную сеть, необходимо настроить набор соответствующих префиксов локальных адресов в рамках определения локальной сети для виртуальной сети. В зависимости от адресного пространства виртуальной сети и набора соответствующих локальных расположений, в локальной сети может быть много префиксов адресов.
 
-You can convert a cloud-only virtual network to a cross-premises virtual network, but it will most likely require you to renumber your virtual network address space, your subnets, and the virtual machines that use static Azure-assigned IP addresses, known as Dynamic IPs (DIPs). Therefore, carefully consider the type of virtual networks you need (cloud-only versus cross-premises) before you create them.
+Облачную виртуальную сеть можно преобразовать в распределенную, но для этого, скорее всего, потребуется повторная нумерация адресного пространства виртуальной сети, подсетей и виртуальных машин, использующих назначенные для Azure статические IP-адреса, также называемые динамическими IP-адресами (DIP). Следовательно, необходимо точно определить, какой тип виртуальных сетей нужен (облачные или распределенные), прежде чем создавать их.
 
-### Subnets
-Subnets allow you to organize resources that are related, either logically (for example, one subnet for virtual machines associated to the same application), or physically (for example, one subnet per cloud service), or to employ subnet isolation techniques for added security.
+### Подсети
+Подсети позволяют упорядочивать связанные ресурсы либо логически (например, одна подсеть для виртуальных машин, сопоставленных с одним приложением), либо физически (например, одна подсеть для каждой облачной службы), а также использовать методы изоляции подсетей для повышения безопасности.
 
-For cross-premises virtual networks, you should design subnets with the same conventions that you use for on-premises resources, keeping in mind that **Azure always uses the first three IP addresses of the address space for each subnet**. To determine the number of addresses needed for the subnet, count the number of virtual machines that you need now, estimate for future growth, and then use the following table to determine the size of the subnet.
+В случае распределенных виртуальных сетей необходимо проектировать подсети по тем же правилам, которые используются для локальных ресурсов, учитывая, что **Azure всегда использует первые три IP-адреса в адресном пространстве для каждой подсети**. Чтобы определить количество адресов, необходимых для подсети, посчитайте виртуальные машины, которые необходимы сейчас, рассчитайте дальнейший рост, а затем используйте следующую таблицу для определения размера подсети.
 
-Number of virtual machines needed | Number of host bits needed | Size of the subnet
+Необходимое количество виртуальных машин | Необходимое количество битов узла | Размер подсети
 --- | --- | ---
 1–3 | 3 | /29
-4–11	 | 4 | /28
+4–11 | 4\. | /28
 12–27 | 5 | /27
 28–59 | 6 | /26
 60–123 | 7 | /25
 
-> [AZURE.NOTE] For normal on-premises subnets, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> – 2. For an Azure subnet, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> – 5 (2 plus 3 for the addresses that Azure uses on each subnet).
+> [AZURE.NOTE] В случае обычной локальной подсети с n битов узла максимальное количество адресов узла составляет 2<sup>n</sup> – 2. В случае подсети Azure с n битов узла максимальное количество адресов узла составляет 2<sup>n</sup> – 5 (2 плюс 3 в случае адресов, используемых Azure в каждой подсети).
 
-If you choose a subnet size that is too small, you will have to renumber and redeploy the virtual machines in the subnet.
+Если выбранный размер подсети слишком мал, потребуются повторные нумерация и развертывание виртуальных машин в подсети.
 
-### Implementation guidelines recap for virtual networks
+### Обзор рекомендаций по реализации, касающихся виртуальных сетей
 
-Decisions:
+Решения
 
-- What type of virtual network do you need to host your IT workload or infrastructure (cloud-only or cross-premises)?
-- For cross-premises virtual networks, how much address space do you need to host the subnets and virtual machines now and for reasonable expansion in the future?
+- Какой тип виртуальной сети необходим, чтобы разместить рабочую нагрузку ИТ-среды или ИТ-инфраструктуру (облачная или распределенная)?
+- Какое адресное пространство необходимо для размещения подсетей и виртуальных машин сейчас и при будущем целесообразном расширении, если используются распределенные виртуальные сети?
 
-Tasks:
+Задачи
 
-- Define the address space for the virtual network.
-- Define the set of subnets and the address space for each.
-- For cross-premises virtual networks, define the set of local network address spaces for the on-premises locations that the virtual machines in the virtual network need to reach.
-- Create the virtual network using your naming convention. You can use the Azure portal or the Azure classic portal.
+- Определить адресное пространство виртуальной сети.
+- Определить набор подсетей и адресного пространства для каждой из них.
+- Если используются распределенные виртуальные сети, определите набор адресных пространств локальной сети для локальных расположений, доступ к которым необходим виртуальным машинам в виртуальной сети.
+- Создайте виртуальную сеть, следуя соглашению об именовании. Вы можете использовать портал Azure или классический портал Azure.
 
-## 6. Availability sets
+## 6\. Группы доступности
 
-In Azure PaaS, cloud services contain one or more roles that execute application code. Roles can have one or more virtual machine instances that the fabric automatically provisions. At any given time, Azure might update the instances in these roles, but because they are part of the same role, Azure knows not to update all at the same time to prevent a service outage for the role.
+При использовании модели PaaS в Azure облачные службы содержат одну или несколько ролей, выполняющих код приложений. Для ролей могут быть предусмотрены один или несколько экземпляров виртуальных машин, которые автоматически подготавливаются структурой. Azure может обновлять экземпляры, предусмотренные для этих ролей, в любой момент, но так как они относятся к одной и той же роли, Azure не обновляет все экземпляры одновременно во избежание перерыва в обслуживании.
 
-In Azure IaaS, the concept of role is not significant, because each IaaS virtual machine represents a role with a single instance. In order to hint to Azure not to bring down two or more associated machines at the same time (for example, for operating system updates of the node where they reside), the concept of availability sets was introduced. An availability set tells Azure not to bring down all the machines in the same availability set at the same time to prevent a service outage. The virtual machine members of an availability set have a 99.95% uptime service level agreement.
+При использовании модели IaaS в Azure понятие роли не имеет значения, так как каждая виртуальная машина IaaS представляет роль с одним экземпляром. Чтобы запретить Azure останавливать работу сразу нескольких сопоставленных виртуальных машин (например, для обновления операционной системы узлов, на которых они развернуты), было введено понятие групп доступности. Группа доступности не позволяет Azure останавливать работу всех виртуальных машин, входящих в такую группу, одновременно, чтобы не было перерыва в обслуживании. На виртуальные машины в группе доступности действует соглашение об уровне обслуживания, предусматривающее непрерывную работу в течение 99,95 % времени.
 
-Availability sets must be part of the high-availability planning of the solution. An availability set is defined as the set of virtual machines within a single cloud service that have the same availability set name. You can create availability sets after you create cloud services.
+Группы доступности необходимо учитывать при планировании решения с высоким уровнем доступности. Группа доступности определяется как набор виртуальных машин в одной облачной службе, для которых указаны одинаковые имена группы доступности. Группы доступности можно создать после создания облачных служб.
 
-### Implementation guidelines recap for availability sets
+### Обзор рекомендаций по реализации, касающиеся групп доступности
 
-Decision:
+Решение
 
-- How many availability sets do you need for the various roles and tiers in your IT workload or infrastructure?
+- Сколько нужно групп доступности для различных ролей и уровней, предусмотренных для рабочей нагрузки ИТ-среды или ИТ-инфраструктуры?
 
-Task:
+Задача
 
-- Define the set of availability sets using your naming convention. You can associate a virtual machine to an availability set when you create the virtual machines, or you can associate a virtual machine to an availability set after the virtual machine has been created.
+- Определить набор групп доступности, следуя соглашению об именовании. Вы можете сопоставить виртуальную машину с группой доступности при создании виртуальной машины или после этого.
 
-## 7. Virtual machines
+## 7\. Виртуальные машины
 
-In Azure PaaS, Azure manages virtual machines and their associated disks. You must create and name cloud services and roles, and then Azure creates instances associated to those roles. In the case of Azure IaaS, it is up to you to provide names for the cloud services, virtual machines, and associated disks.
+При использовании модели PaaS Azure управляет виртуальными машинами и сопоставленными с ними дисками. Вам следует создать облачные службы и роли, а также присвоить им имена, после чего Azure создает экземпляры, сопоставленные с этими ролями. В случае использования модели IaaS в Azure необходимо указать имена облачных служб, виртуальных машин и сопоставленных с ними дисков.
 
-To reduce administrative burden, the Azure classic portal uses the computer name as a suggestion for the default name for the associated cloud service (in the case the customer chooses to create a new cloud service as part of the virtual machine creation wizard).
+Чтобы снизить административную нагрузку, классический портал Azure использует имя компьютера в качестве имени по умолчанию для сопоставленной облачной службы (если пользователь решит создать облачную службу с помощью мастера создания виртуальных машин).
 
-In addition, Azure names disks and their supporting VHD blobs using a combination of the cloud service name, the computer name, and the creation date.
+Кроме того, Azure присваивает имена дискам и их вспомогательным большим двоичным объектам виртуальных жестких дисков, используя сочетание имени облачной службы, имени компьютера и даты создания.
 
-In general, the number of disks is much greater than the number of virtual machines. You should be careful when manipulating virtual machines to prevent orphaning disks. Also, disks can be deleted without deleting the supporting blob. If this is the case, the blob remains in the storage account until manually deleted.
+Обычно количество дисков значительно больше, чем количество виртуальных машин. При управлении виртуальными машинами необходимо соблюдать осторожность, чтобы избежать их потери для дисков. Кроме того, вы можете удалять диски, не удаляя вспомогательный большой двоичный объект. В таком случае большой двоичный объект остается в учетной записи хранения, пока он не будет удален вручную.
 
-### Implementation guidelines recap for virtual machines
+### Обзор рекомендаций по реализации, касающихся виртуальных машин
 
-Decision:
+Решение
 
-- How many virtual machines do you need to provide for the IT workload or infrastructure?
+- Сколько виртуальных машин необходимо предоставить для рабочей нагрузки ИТ-среды или ИТ-инфраструктуры?
 
-Tasks:
+Задачи
 
-- Define each virtual machine name using your naming convention.
-- Create your virtual machines with the Azure portal, the Azure classic portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
+- Определить имя каждой виртуальной машины, следуя соглашению об именовании.
+- Вы можете создать виртуальные машины с помощью портала Azure, классического портала Azure, командлета PowerShell **New-AzureVM**, Azure CLI или шаблонов диспетчера ресурсов.
 
-## Example of an IT workload: The Contoso financial analysis engine
+## Пример рабочей нагрузки ИТ-среды: система финансового анализа Contoso
 
-The Contoso Corporation has developed a next-generation financial analysis engine with leading-edge proprietary algorithms to aid in futures market trading. They want to make this engine available to its customers as a set of servers in Azure, which consist of:
+Корпорация Contoso разработала систему финансового анализа нового поколения на основе собственных передовых алгоритмов, упрощающих торговлю на фьючерсной бирже. Эта система должна быть доступна клиентам корпорации благодаря набору серверов в Azure, содержащему следующее:
 
-- Two (and eventually more) IIS-based web servers running custom web services in a web tier
-- Two (and eventually more) IIS-based application servers that perform the calculations in an application tier
-- A SQL Server 2014 cluster with AlwaysOn availability groups (two SQL Servers and a majority node witness) that stores historical and ongoing calculation data in a database tier
-- Two Active Directory domain controllers for a self-contained forest and domain in the authentication tier, which is required by SQL Server clustering
-- All of the servers are located on two subnets; a front end subnet for the web servers and a back end subnet for the application servers, a SQL Server 2014 cluster, and domain controllers
+- Два (в дальнейшем — больше) веб-сервера на основе IIS с настраиваемыми веб-службами на уровне сети.
+- Два (в дальнейшем — больше) сервера приложений на основе IIS, выполняющих вычисления на уровне приложений.
+- Кластер SQL Server 2014 с группами доступности AlwaysOn (два сервера SQL Server и следящий сервер основных узлов), в котором хранятся данные журнала и данные о текущих вычислениях на уровне базы данных.
+- Два контроллера домена Active Directory для автономных леса и домена на уровне проверки подлинности, что необходимо для кластеризации SQL Server.
+- Все серверы располагаются в двух подсетях: подсети переднего плана для веб-серверов и внутренней подсети для серверов приложений, кластера SQL Server 2014 и контроллеров домена.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
-Incoming secure web traffic from the Contoso clients on the Internet needs to be load-balanced among the web servers. Calculation request traffic in the form of HTTP requests from the web servers needs to be balanced among the application servers. Additionally, the engine must be designed for high availability.
+В случае защищенного входящего веб-трафика от клиентов Contoso через Интернет необходима балансировка нагрузки для веб-серверов. Трафик запросов на вычисления в виде HTTP-запросов с веб-серверов должен быть распределен между серверами приложений. Кроме того, система должна быть рассчитана на высокий уровень доступности.
 
-The resulting design must incorporate:
+В результате проект должен включать:
 
-- A Contoso Azure subscription and account
-- Storage accounts
-- A virtual network with two subnets
-- Availability sets for the sets of servers with a similar role
-- Virtual machines
-- A single resource group
+- подписку на Azure и учетную запись Azure для Contoso;
+- учетные записи хранения;
+- виртуальную сеть с двумя подсетями;
+- группы доступности для групп серверов с аналогичной ролью;
+- Виртуальные машины
+- одну группу ресурсов.
 
-All of the above will follow these Contoso naming conventions:
+Все вышеуказанное должно соответствовать соглашению об именовании Contoso.
 
-- Contoso uses [IT workload]-[location]-[Azure resource] as a prefix. For this example, "azfae" (Azure Financial Analysis Engine) is the IT workload name and "use" (East US 2) is the location, because most of Contoso's initial customers are on the East Coast of the United States.
-- Storage accounts use contosoazfaeusesa[description] Note that contoso was added to the prefix to provide uniqueness, and storage account names do not support the use of hyphens.
-- Virtual networks use AZFAE-USE-VN[number].
-- Availability sets use azfae-use-as-[role].
-- Virtual machine names use azfae-use-vm-[vmname].
+- В Contoso используется префикс [рабочая нагрузка ИТ-среды]-[расположение]-[ресурс Azure]. В этом примере azfae (система финансового анализа Azure) — это имя рабочей нагрузки ИТ-среды, а use (восточная часть США 2) — это расположение, так как большинство первых клиентов компании Contoso проживают на восточном побережье США.
+- Для учетных записей хранения используется формат contosoazfaeusesa[описание]. Обратите внимание, что для уникальности к префиксу добавлено слово contoso, а имена учетных записей хранения не могут содержать дефисы.
+- Для виртуальных сетей используется формат AZFAE-USE-VN[номер].
+- Для групп доступности используется формат azfae-use-as-[роль].
+- Для имен виртуальных машин используется формат azfae-use-vm-[имя\_виртуальной\_машины].
 
-### Azure subscriptions and accounts
+### Подписки на Azure и учетные записи Azure
 
-Contoso is using their Enterprise subscription, named Contoso Enterprise Subscription, to provide billing for this IT workload.
+Компания Contoso использует подписку Enterprise Subscription под названием "Enterprise Subscription Contoso" для выставления счетов по этой рабочей нагрузке ИТ-среды.
 
-### Storage accounts
+### учетные записи хранения;
 
-Contoso determined that they needed two storage accounts:
+Компании Contoso нужны две учетных записи хранения:
 
-- **contosoazfaeusesawebapp** for the standard storage of the web servers, application servers, and domain controlles and their extra data disks
-- **contosoazfaeusesasqlclust** for the premium storage of the SQL Server cluster servers and their extra data disks
+- **contosoazfaeusesawebapp** в качестве обычного хранилища для веб-серверов, серверов приложений, контроллеров доменов и дополнительных дисков с данными.
+- **contosoazfaeusesasqlclust** в случае хранилище Premium для кластера SQL Server и дополнительных дисков с данными.
 
-### A virtual network with subnets
+### Виртуальная сеть с подсетями
 
-Because the virtual network does not need ongoing connectivity to the Contoso on-premises network, Contoso decided on a cloud-only virtual network.
+Так как виртуальная сеть не требует постоянного подключения к локальной сети Contoso, компания Contoso выбрала облачную виртуальную сеть.
 
-They created a cloud-only virtual network with the following settings using the Azure portal:
+Облачная виртуальная сеть создана на портале Azure с указанием следующих параметров:
 
-- Name: AZFAE-USE-VN01
-- Location: East US 2
-- Virtual network address space: 10.0.0.0/8
-- First subnet:
-	- Name: FrontEnd
-	- Address space: 10.0.1.0/24
-- Second subnet:
-	- Name: BackEnd
-	- Address space: 10.0.2.0/24
+- Имя: AZFAE-USE-VN01.
+- Расположение: восточная часть США 2.
+- Адресное пространство виртуальной сети: 10.0.0.0/8.
+- Первая подсеть:
+	- Имя: FrontEnd.
+	- Адресное пространство: 10.0.1.0/24.
+- Вторая подсеть:
+	- Имя: BackEnd.
+	- Адресное пространство: 10.0.2.0/24.
 
-### Availability sets
+### Группы доступности
 
-To maintain high availability of all four tiers of their financial analysis engine, Contoso decided on four availability sets:
+Чтобы обеспечить высокий уровень доступности всех четырех уровней системы финансового анализа, компания Contoso использует четыре группы доступности:
 
-- **azfae-use-as-dc** for the domain controllers
-- **azfae-use-as-web** for the web servers
-- **azfae-use-as-app** for the application servers
-- **azfae-use-as-sql** for the servers in the SQL Server cluster
+- **azfae-use-as-dc** для контроллеров домена;
+- **azfae-use-as-web** для веб-серверов;
+- **azfae-use-as-app** для серверов приложений;
+- **azfae-use-as-sql** для серверов в кластере SQL Server.
 
-These availability sets will be created along with the virtual machines.
+Эти группы доступности будут созданы вместе с виртуальными машинами.
 
-### Virtual machines
+### Виртуальные машины
 
-Contoso decided on the following names for their Azure virtual machines:
+Компания Contoso использует следующие имена для своих виртуальных машин Azure:
 
-- **azfae-use-vm-dc01** for the first domain controller
-- **azfae-use-vm-dc02** for the second domain controller
-- **azfae-use-vm-web01** for the first web server
-- **azfae-use-vm-web02** for the second web server
-- **azfae-use-vm-app01** for the first application server
-- **azfae-use-vm-app02** for the second application server
-- **azfae-use-vm-sql01** for the first SQL Server in the SQL Server cluster
-- **azfae-use-vm-sql02** for the second SQL Server in the SQL Server cluster
-- **azfae-use-vm-sqlmn01** for the majority node witness in the SQL Server cluster
+- **azfae-use-vm-dc01** для первого контроллера домена;
+- **azfae-use-vm-dc02** для второго контроллера домена;
+- **azfae-use-vm-web01** для первого веб-сервера;
+- **azfae-use-vm-web02** для второго веб-сервера;
+- **azfae-use-vm-app01** для первого сервера приложений;
+- **azfae-use-vm-app02** для второго сервера приложений;
+- **azfae-use-vm-sql01** для первого сервера SQL в кластере SQL Server;
+- **azfae-use-vm-sql02** для второго сервера SQL в кластере SQL Server;
+- **azfae-use-vm-sqlmn01** для следящего сервера основных узлов в кластере SQL Server.
 
-Here is the resulting configuration.
+Это конфигурация, которая получается в результате.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
 
-This configuration incorporates:
+Эта конфигурация включает:
 
-- A cloud-only virtual network with two subnets (FrontEnd and BackEnd)
-- Two storage accounts
-- Four availability sets, one for each tier of the financial analysis engine
-- The virtual machines for the four tiers
-- An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
-- An internal load balanced set for unencrypted web traffic from the web servers to the application servers
-- A single resource group
+- облачную виртуальную сеть с двумя подсетями (FrontEnd и BackEnd);
+- две учетные записи хранения;
+- четыре группы доступности, по одной для каждого уровня системы финансового анализа;
+- виртуальные машины для четырех уровней;
+- внешний набор с балансировкой нагрузки для веб-трафика HTTPS из Интернета на веб-серверы;
+- внешний набор с балансировкой нагрузки для незашифрованного веб-трафика с веб-серверов на серверы приложений.
+- одну группу ресурсов.
 
-## Additional resources
+## Дополнительные ресурсы
 
-[Microsoft Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#storage-limits)
+[Лимиты, квоты и ограничения подписки и обслуживания Microsoft Azure](../azure-subscription-service-limits.md#storage-limits)
 
-[Sizes for virtual machines](virtual-machines-linux-sizes.md)
+[Размеры виртуальных машин](virtual-machines-linux-sizes.md)
 
-[Azure storage scalability and performance targets](../storage-scalability-targets.md)
+[Целевые показатели масштабируемости и производительности хранилища Azure](../storage-scalability-targets.md)
 
-[Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
+[Примерная диаграмма архитектуры для расширения центра данных](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 
-[Azure compute, network, and storage providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
+[Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
+<!---HONumber=AcomDC_0323_2016-->

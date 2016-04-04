@@ -43,6 +43,8 @@ U-SQL | Объясните методы выполнения операций о
 U-SQL | Параметры проверки подлинности ADLS | 1 | Ожидает | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | Отправка задания кроссплатформенного CLI | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
 U-SQL | Обновления справочной документации по REDUCE и COMBINE | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
+Средства | Модульное тестирование инструментов озера данных Azure для определяемых пользователем функций U-SQL для Visual Studio | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
+Средства | Графики заданий и представление выполнения вершин в инструментах озера данных Azure для Visual Studio | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 
 
 
@@ -59,4 +61,4 @@ U-SQL | Обновления справочной документации по 
 * Отправить запрос по внесению предложенных изменений в данный документ в [репозиторий содержимого Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Отправить сообщение по адресу [adlafeedback на сайте microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

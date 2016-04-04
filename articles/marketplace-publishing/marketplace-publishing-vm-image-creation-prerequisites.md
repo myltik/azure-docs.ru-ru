@@ -33,7 +33,9 @@
 - Если вы пользуетесь операционной системой Linux, см. раздел «Создание VHD, совместимых с Azure (на базе Linux)» [руководства по публикации образов виртуальных машин](marketplace-publishing-vm-image-creation.md).
 - Если вы пользуетесь операционной системой Windows, см. раздел «Создание VHD, совместимых с Azure (на базе Windows)» [руководства по публикации образов виртуальных машин](marketplace-publishing-vm-image-creation.md).
 
-> [AZURE.NOTE] Для выполнения следующих действий требуется компьютер под управлением Windows: — запуск средства проверки сертификации; — создание подписанного URL-адреса VHD для отправки сертификации VHD.
+> [AZURE.NOTE] Доступ к компьютеру под управлением Windows необходим для:
+- запуска инструмента проверки сертификации;
+- создания подписанного URL-адреса VHD для передачи сертификации VHD.
 
 ## Разработка VHD
 Диски VHD Azure можно разрабатывать в облаке или локально.
@@ -46,9 +48,9 @@
 
 ## См. также
 - [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
-- [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../virtual-machines/virtual-machines-windows-tutorial/)
+- [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../virtual-machines/virtual-machines-windows-hero-tutorial/)
 
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->
