@@ -20,16 +20,18 @@
 # Скалярные выражения в аналитике
 
 
-[Аналитика](app-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
+[Аналитика](app-analytics.md) — это мощный инструмент поиска 
+[Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ---
 
 [ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) 
-<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) 
+<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull)
 <br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) 
-<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) 
+| [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
@@ -44,21 +46,22 @@
 ## Скалярные значения
 
 [casts](#casts) | [comparisons](#scalar-comparisons) 
-<br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+<br/>
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 Ниже приведены поддерживаемые типы.
 
 | Тип | Дополнительные имена | Эквивалентный тип .NET |
 | --------- | -------------------- | -------------------- |
-| `bool` | `boolean` | `System.Boolean` |
-| `datetime`| `date` | `System.DateTime` |
-| `dynamic` | | `System.Object` |
-| `guid` | `uuid`, `uniqueid` | `System.Guid` |
-| `int` | | `System.Int32` |
-| `long` | | `System.Int64` |
-| `double` | `real` | `System.Double` |
-| `string` | | `System.String` |
-| `timespan`| `time` | `System.TimeSpan` |
+| `bool`    | `boolean`            | `System.Boolean`     |
+| `datetime`| `date`               | `System.DateTime`    |
+| `dynamic` |                      | `System.Object`      |
+| `guid`    | `uuid`, `uniqueid`   | `System.Guid`        |
+| `int`     |                      | `System.Int32`       |
+| `long`    |                      | `System.Int64`       |
+| `double`  | `real`               | `System.Double`      |
+| `string`  |                      | `System.String`      |
+| `timespan`| `time`               | `System.TimeSpan`    |
 
 ### Приведение типов
 
@@ -139,7 +142,9 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 ```
 ### iff
 
-Функция `iff()` вычисляет первый аргумент (предикат) и возвращает значение второго или третьего аргументов, в зависимости от того, является ли предикат `true` или `false`. Второй и третий аргументы должны быть одного типа.
+Функция `iff()` вычисляет первый аргумент (предикат) и возвращает значение второго 
+или третьего аргументов, в зависимости от того, является ли 
+предикат `true` или `false`. Второй и третий аргументы должны быть одного типа.
 
 **Синтаксис**
 
@@ -162,7 +167,9 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a> <a name="isnotnull"/></a> <a name="notnull"/></a>
+<a name="isnull"/></a>
+<a name="isnotnull"/></a>
+<a name="notnull"/></a>
 ### isnull, isnotnull, notnull
 
     isnull(parsejson("")) == true
@@ -190,7 +197,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 | "" | нет
 |"x" | нет
 |parsejson("")|Да
-|parsejson("")|нет
+|parsejson("[]")|нет
 |parsejson("{}")|нет
 
 **Пример**
@@ -268,7 +275,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 **Возвращает**
 
-Ближайшее число, кратное *roundTo* и меньшее *value*.
+Ближайшее число, кратное *roundTo* и меньшее *value*.  
  
     (toint((value/roundTo)-0.5)) * roundTo
 
@@ -1147,4 +1154,4 @@ range(1, 8, 3)
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->
