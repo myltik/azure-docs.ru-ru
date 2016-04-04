@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/30/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Приступая к работе по созданию балансировщика нагрузки для Интернета для облачных служб
@@ -29,7 +29,7 @@
 
 ## Создайте балансировщик нагрузки при помощи CSDEF-файла
  
-Вы можете обновить облачную службу с помощью пакета Azure SDK для .NET 2.5. Параметры конечных точек для облачных служб создаются в файле [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
+Вы можете обновить облачную службу с помощью пакета Azure SDK для .NET 2.5. Параметры конечных точек для облачных служб создаются в файле [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
 
 В следующем примере показано, как настроить файл servicedefinition.csdef для облачного развертывания.
 
@@ -77,10 +77,10 @@
 
 ## Дальнейшие действия
 
-[Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-internal-getstarted.md)
+[Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
 
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

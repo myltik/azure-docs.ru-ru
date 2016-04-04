@@ -54,7 +54,7 @@
 
     Пример политики безопасности содержимого (для Azure Active Directory):
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'
 			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
     Замените `https://login.windows.net` узлом OAuth из приведенной выше таблицы. Дополнительные сведения об этом метатеге см. в [документации по политике безопасности содержимого].
@@ -96,11 +96,20 @@
 * Узнайте больше об [аутентификации] с использованием службы приложений Azure.
 * Продолжите работу с учебником, добавив в приложение Apache Cordova [push-уведомления].
 
+Подробнее об использовании пакетов SDK.
+
+* [Пакет SDK для Apache Cordova]
+* [Серверный пакет SDK для ASP.NET]
+* [Серверный пакет SDK для Node.js]
+
 <!-- URLs. -->
 [Начало работы с мобильными службами]: app-service-mobile-cordova-get-started.md
 [Приступая к работе с мобильными приложениями]: app-service-mobile-cordova-get-started.md
 [документации по политике безопасности содержимого]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [push-уведомления]: app-service-mobile-cordova-get-started-push.md
 [аутентификации]: app-service-mobile-auth.md
+[Пакет SDK для Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
+[Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

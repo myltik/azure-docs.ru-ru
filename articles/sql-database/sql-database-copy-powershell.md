@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Создание копии базы данных SQL Azure с помощью PowerShell | Microsoft Azure" 
+    pageTitle="Копирование базы данных SQL Azure с помощью PowerShell | Microsoft Azure" 
     description="Создание копии Базы данных SQL Azure с помощью PowerShell" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,27 +10,27 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="01/20/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Создание копии Базы данных SQL Azure с помощью PowerShell
+# Копирование базы данных SQL Azure с помощью PowerShell
 
 **Отдельная база данных**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Портал Azure](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 
 
 Ниже показано, как скопировать Базу данных SQL Azure с помощью PowerShell. Операция копирования базы данных копирует Базу данных SQL в новую базу данных с помощью командлета [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx). Такая копия представляет собой моментальный снимок базы данных, созданный на том же или на другом сервере.
 
-> [AZURE.NOTE]База данных SQL Azure автоматически создает и обслуживает резервные копии для каждой пользовательской базы данных, которую можно восстановить. Дополнительные сведения см. в статье [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md).
+> [AZURE.NOTE] База данных SQL Azure автоматически создает и обслуживает резервные копии для каждой пользовательской базы данных, которую можно восстановить. Дополнительные сведения см. в статье [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md).
 
 Скопированная база данных становится полностью работоспособной и не зависит от оригинала. На момент завершения копирования новая база данных будет транзакционно согласована с исходной базой данных. Уровень службы и производительности (ценовая категория) скопированная база данных наследует у оригинала. После завершения копирования копия становится полностью работоспособной и независимой. Именами входа, пользователями и разрешениями можно управлять независимо.
 
@@ -42,7 +42,7 @@
 
 - Подписка Azure. Если вам требуется подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
 - База данных Azure SQL. Если у вас нет базы данных SQL, создайте ее в соответствии с инструкциями в следующей статье: [Создание первой базы данных SQL Azure](sql-database-get-started.md).
-- Azure PowerShell. Вы можете скачать и установить модуль Azure PowerShell, запустив [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell. Вы можете скачать и установить модуль Azure PowerShell, запустив [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -146,4 +146,4 @@
 - [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
 - [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

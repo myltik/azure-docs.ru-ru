@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Оглавление статьи ";Управление привилегированными пользователями Azure AD";"
+   pageTitle="Приступая к работе с управлением привилегированными пользователями Azure AD"
    description="Узнайте, как управлять привилегированными пользователями с помощью расширения для управления привилегированными пользователями Azure Active Directory."
    services="active-directory"
    documentationCenter=""
@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/09/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Приступая к работе с управлением привилегированными пользователями Azure AD
@@ -37,4 +37,4 @@
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

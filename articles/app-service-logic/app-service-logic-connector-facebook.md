@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # Приступая к работе с соединителем Facebook: добавление в приложение логики
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview, щелкните [API Facebook](../connectors/create-api-facebook.md).
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview, щелкните [API Facebook](../connectors/connectors-create-api-facebook.md).
 
 Подключитесь к учетной записи Facebook, чтобы отправить сообщение или опубликовать фотографию. Приложения логики могут запускаться на основе разных источников данных и предлагать соединители для получения и обработки данных в рамках потока.
 
@@ -82,4 +82,4 @@
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

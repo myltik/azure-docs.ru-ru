@@ -1,21 +1,23 @@
 <!--author=alkohli last changed: 03/17/16-->
 
-## Troubleshooting update failures
+## Устранение ошибок при обновлении
 
-**What if you see a notification that the pre-upgrade checks have failed?**
+**Что делать, если появляется уведомление об ошибке при выполнении предварительных проверок?**
 
-If a pre-check fails, make sure that you have looked at the detailed notification bar at the bottom of the page. This provides guidance as to which pre-check has failed. The following illustration shows an instance in which such a notification appears. In this case, the controller health check and hardware component health check have failed. Under the **Hardware Status** section, you can see that both **Controller 0** and **Controller 1** components need attention.
+Если предварительная проверка завершается с ошибкой, обратите внимание на подробную панель уведомлений внизу страницы. Она позволяет понять, какая предварительная проверка завершилась с ошибкой. Ниже показан пример вывода такого уведомления. В этом случае проверки работоспособности контроллера и компонентов оборудования завершились с ошибкой. В разделе **Состояние оборудования** видно, что требуется проверить компоненты контроллеров **0** и **1**.
 
-  ![Pre-check failure](./media/storsimple-install-troubleshooting/HCS_PreUpdateCheckFailed-include.png)
+  ![Ошибка при предварительной проверке](./media/storsimple-install-troubleshooting/HCS_PreUpdateCheckFailed-include.png)
 
-You will need to make sure that both controllers are healthy and online. You will also need to make sure that all the hardware components in the StorSimple device are shown to be healthy on the Maintenance page. You can then try to install updates. If you are not able to fix the hardware component issues, then you will need to contact Microsoft Support for next steps.
+Вам необходимо убедиться, что оба контроллера готовы к работе и подключены к сети. Вам также необходимо убедиться, что все компоненты оборудования устройства StorSimple готовы к работе, согласно информации на странице "Обслуживание". После этого попробуйте установить обновления. Если вам не удается устранить проблемы с компонентами оборудования, обратитесь в службу поддержки корпорации Майкрософт для получения дальнейших инструкций.
 
-**What if you receive a "Could not install updates" error message, and the recommendation is to refer to the update troubleshooting guide to determine the cause of the failure?**
+**Что делать, если появляется сообщение об ошибке "Не удается установить обновления" и рекомендуется обратиться к руководству по устранению ошибок при обновлении, чтобы определить причину возникновения ошибки?**
 
-One likely cause for this could be that you do not have connectivity to the Microsoft Update servers. This is a manual check that needs to be performed. If you lose connectivity to the update server, your update job would fail. You can check the connectivity by running the following cmdlet from the Windows PowerShell interface of your StorSimple device:
+Одна из возможных причин — отсутствие подключения к серверам Центра обновления Майкрософт. Это необходимо проверить вручную. При потере подключения к серверу обновления задание обновления завершится с ошибкой. Состояние подключения можно проверить, выполнив следующий командлет через интерфейс Windows PowerShell на устройстве StorSimple:
 
  `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter>`
 
-Run the cmdlet on both controllers.
+Выполните командлет на обоих контроллерах.
 
-If you have verified the connectivity exists, and you continue to see this issue, please contact Microsoft Support for next steps.
+Если вы убедились в наличии подключения, но проблема не устранена, обратитесь в службу поддержки корпорации Майкрософт для получения дальнейших инструкций.
+
+<!---HONumber=AcomDC_0323_2016-->

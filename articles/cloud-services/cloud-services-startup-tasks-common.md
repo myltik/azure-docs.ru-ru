@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/21/2016" 
 ms.author="adegeo"/>
 
 # Стандартные задачи запуска в облачной службе
@@ -23,7 +23,7 @@ ms.author="adegeo"/>
 
 Многие из приведенных здесь задач используют
 
->[AZURE.NOTE]Задачи запуска неприменимы к виртуальным машинам, они подходят только для веб-ролей и рабочих ролей облачной службы.
+>[AZURE.NOTE] Задачи запуска неприменимы к виртуальным машинам, они подходят только для веб-ролей и рабочих ролей облачной службы.
 
 
 ## Определение переменных среды до запуска роли
@@ -60,7 +60,7 @@ ms.author="adegeo"/>
 </ServiceDefinition>
 ```
 
-В переменных также может использоваться [допустимое значение XPath Azure](https://msdn.microsoft.com/library/azure/hh404006.aspx) для ссылки на что-либо, относящееся к развертыванию. Вместо использования атрибута `value` определите дочерний элемент [RoleInstanceValue].
+В переменных также может использоваться [допустимое значение XPath Azure](cloud-services-role-config-xpath.md) для ссылки на что-либо, относящееся к развертыванию. Вместо использования атрибута `value` определите дочерний элемент [RoleInstanceValue].
 
 ```xml
 <Variable name="PathToStartupStorage">
@@ -503,4 +503,4 @@ Startup2.cmd:
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

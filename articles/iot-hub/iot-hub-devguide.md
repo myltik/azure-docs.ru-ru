@@ -68,7 +68,7 @@
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Иногда для пакета SDK требуется указать значение **Имя узла** или **Пространство имен**. В этом случае удалите схему из поля **Конечная точка, совместимая с концентраторами событий**. Например, если конечная точка, совместимая с концентраторами событий, это **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, **именем узла** будет **iothub-ns-myiothub-1234.servicebus.windows.net**, а **пространством имен** — **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Иногда для пакета SDK требуется указать значение **Имя узла** или **Пространство имен**. В этом случае удалите схему из поля **Конечная точка, совместимая с концентраторами событий**. Например, если конечная точка, совместимая с концентраторами событий, это ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, **именем узла** будет **iothub-ns-myiothub-1234.servicebus.windows.net**, а **пространством имен** — **iothub-ns-myiothub-1234**.
 
 Затем можно использовать любую политику безопасности общего доступа с разрешениями **ServiceConnect**, которые позволяют выполнять подключение к указанному концентратору событий.
 
@@ -305,7 +305,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 * `{policyName}@sas.root.{iothubName}` — если маркеры являются маркерами уровня концентратора;
 * `{deviceId}` — если маркеры являются маркерами уровня устройства.
 
-В обоих случаях поле пароля содержит маркер, как описано в статье [Маркеры безопасности центр IoT][lnk-sas-tokens].
+В обоих случаях поле пароля содержит маркер, как описано в статье [Маркеры безопасности центра IoT][lnk-sas-tokens].
 
 При использовании протокола MQTT пакет CONNECT содержит код deviceId как значение ClientId, {iothubhostname}/{deviceId} в поле "Имя пользователя", где {iothubhostname} — это полная запись CName центра IoT (например contoso.azure-devices.net), а маркер SAS — в поле "Пароль".
 
@@ -601,7 +601,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
-[lnk-sas-tokens]: iot-hub-sas-tokens
+[lnk-sas-tokens]: iot-hub-sas-tokens.md
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
@@ -634,4 +634,4 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

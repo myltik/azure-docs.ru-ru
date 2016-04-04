@@ -1,0 +1,25 @@
+<properties
+	pageTitle="Расширение виртуальных машин Docker для Linux в Azure"
+	description="Описано расширение Docker и контейнеры, расширения виртуальных машин Azure, а также приводятся ссылки на дополнительные ресурсы по созданию контейнеров Docker из CLI Azure и на портале."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor="tysonn"/>
+
+<tags
+	ms.service="virtual-machines-linux"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="10/21/2015"
+	ms.author="rasquill"/>
+
+# Расширение виртуальных машин Docker для Linux в Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+[AZURE.INCLUDE [virtual-machines-common-dockerextension](../../includes/virtual-machines-common-dockerextension.md)]
+
+<!---HONumber=AcomDC_0323_2016-->

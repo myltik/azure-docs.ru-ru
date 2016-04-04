@@ -23,7 +23,7 @@
 ## Включение удаленной отладки для облачных служб
 
 1. В агенте сборки настройте начальную среду для Azure, как описано в разделе [Сборка с помощью командной строки для Azure](http://msdn.microsoft.com/library/hh535755.aspx).
-2. Так как для пакета требуется среда выполнения удаленной отладки (msvsmon.exe), установите [инструменты удаленной отладки для Visual Studio 2015](http://www.microsoft.com/download/details.aspx?id=48155) (или [инструменты удаленной отладки для Microsoft Visual Studio 2013 с обновлением 5](https://www.microsoft.com/download/details.aspx?id=48156) в случае применения Visual Studio 2013). В качестве альтернативы можно скопировать двоичные файлы удаленной отладки из системы, где установлена Visual Studio.
+2. Так как для пакета требуется среда выполнения удаленной отладки (msvsmon.exe), установите [инструменты удаленной отладки для Visual Studio 2015](http://www.microsoft.com/ru-RU/download/details.aspx?id=48155) (или [инструменты удаленной отладки для Microsoft Visual Studio 2013 с обновлением 5](https://www.microsoft.com/ru-RU/download/details.aspx?id=48156) в случае применения Visual Studio 2013). В качестве альтернативы можно скопировать двоичные файлы удаленной отладки из системы, где установлена Visual Studio.
 3. Создайте сертификат, как описано в разделе [Общие сведения о сертификатах для облачных служб Azure](cloud-services-certs-create.md). Оставьте .pfx и отпечаток сертификата RDP, и загрузите сертификат в целевую облачную службу.
 4. Для сборки и упаковки с включенной функцией удаленной отладки используйте следующие параметры в командной строке MSBuild. (Подставьте фактические пути к системным и проектным файлам для элементов, заключенных в угловые скобки).
 
@@ -36,7 +36,7 @@
 
 ## Включение удаленной отладки для виртуальных машин
 
-1. Создайте виртуальную машину Azure. См. раздел [Создание виртуальной машины под управлением Windows Server](/virtual-machines/virtual-machines-windows-tutorial.md) или [Создание и управление виртуальными машинами Azure в Visual Studio](/vs-azure-tools-virtual-machines-create-manage.md).
+1. Создайте виртуальную машину Azure. См. раздел [Создание виртуальной машины под управлением Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md) или [Создание и управление виртуальными машинами Azure в Visual Studio](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md).
 2. На [странице классического портала Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851) откройте панель мониторинга виртуальной машины и найдите **ОТПЕЧАТОК СЕРТИФИКАТА RDP** виртуальной машины. Он используется для `ServerThumbprint` значения в конфигурации расширения.
 3. Создайте сертификат клиента, как описано в разделе [Общие сведения о сертификатах для облачных служб Azure](cloud-services-certs-create.md) (оставьте PFX-файл и отпечаток сертификата RDP).
 4. Установите Azure Powershell (0.7.4 или более поздней версии), как описано в разделе [Установка и настройка Azure PowerShell](/powershell-install-configure.md).
@@ -46,34 +46,34 @@
 
 	<pre>
 	Add-AzureAccount
-
+	
 	Select-AzureSubscription "My Microsoft Subscription"
-
+	
 	$vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
-
+	
 	$endpoints = @(
 	,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
 	,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
 	)
-
+	
 	foreach($endpoint in $endpoints)
 	{
 	Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
 	}
-
+	
 	$referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"
 	$publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
 	$extensionName = "RemoteDebugVS2015"
 	$version = "1.*"
 	$publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
-
+	
 	$vm | Set-AzureVMExtension `
 	-ReferenceName $referenceName `
 	-Publisher $publisher `
 	-ExtensionName $extensionName `
 	-Version $version `
 	-PublicConfiguration $publicConfiguration
-
+	
 	foreach($extension in $vm.VM.ResourceExtensionReferences)
 	{
 	if(($extension.ReferenceName -eq $referenceName) `
@@ -85,10 +85,10 @@
 	break
 	}
 	}
-
+	
 	$vm | Update-AzureVM
 	</pre>
 
 6. Импортируйте сертификат (.pfx) на машину, на которой имеется Visual Studio с установленным пакетом Azure SDK для .NET.
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

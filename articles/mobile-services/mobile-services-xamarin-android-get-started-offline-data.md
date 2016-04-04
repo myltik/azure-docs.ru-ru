@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="donnam"/>
 
 # Использование автономной синхронизации данных в мобильных службах
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Включение автономной синхронизации для мобильного приложения Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started-offline-data.md).
 
 В этом разделе рассматривается возможности автономной синхронизации мобильных служб Azure в приложении быстрого запуска для списка дел. Автономная синхронизация позволяет легко создавать приложения, которые можно использовать даже в случае отсутствия у пользователя доступа к сети.
 
@@ -51,8 +51,7 @@
 
 ## <a name="review-offline"></a>Обзор кода синхронизации мобильных служб
 
-Мобильные службы Azure с автономной синхронизацией позволяет конечным пользователям взаимодействовать с локальной базой данных в случае, когда сеть недоступна. Для использования этих возможностей в приложении необходимо инициализировать `MobileServiceClient.SyncContext` в локальном хранилище. Затем ссылаетесь на таблицу с помощью интерфейса `IMobileServiceSyncTable`. 
-В этом разделе рассматривается связанный код автономной синхронизации в `ToDoActivity.cs`.
+Мобильные службы Azure с автономной синхронизацией позволяет конечным пользователям взаимодействовать с локальной базой данных в случае, когда сеть недоступна. Для использования этих возможностей в приложении необходимо инициализировать `MobileServiceClient.SyncContext` в локальном хранилище. Затем ссылаетесь на таблицу с помощью интерфейса `IMobileServiceSyncTable`. В этом разделе рассматривается связанный код автономной синхронизации в `ToDoActivity.cs`.
 
 1. Откройте в Visual Studio или Xamarin Studio проект, созданный в ходе работы с учебником [Приступая к работе с мобильными службами]. Откройте файл `ToDoActivity.cs`.
 
@@ -177,4 +176,4 @@
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [классический портал Azure]: https://manage.windowsazure.com
 
-<!------HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

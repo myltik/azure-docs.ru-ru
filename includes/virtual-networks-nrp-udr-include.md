@@ -54,8 +54,8 @@
 
 ### Дополнительные ресурсы
 
-- Более подробная информация о [определяемых пользователем маршрутах](virtual-networks-udr-overview.md).
+- Более подробная информация об [определяемых пользователем маршрутах](../articles/virtual-network/virtual-networks-udr-overview.md).
 - Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt502549.aspx) для таблиц маршрутов.
-- Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt502539.aspx) для определяемых пользователем маршрутах (UDR).
+- Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt502539.aspx) для определяемых пользователем маршрутов (UDR).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

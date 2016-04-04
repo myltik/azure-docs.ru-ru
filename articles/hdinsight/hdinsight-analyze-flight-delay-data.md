@@ -710,7 +710,6 @@ Hadoop MapReduce представляет из себя пакетную обр�
 * [Использование Sqoop с HDInsight][hdinsight-use-sqoop]
 * [Использование Pig с HDInsight][hdinsight-use-pig]
 * [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
-* [Разработка программ потоковой передачи Hadoop на C# для HDInsight][hdinsight-develop-streaming]
 
 
 
@@ -730,7 +729,6 @@ Hadoop MapReduce представляет из себя пакетную обр�
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
@@ -742,4 +740,4 @@ Hadoop MapReduce представляет из себя пакетную обр�
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

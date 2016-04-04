@@ -47,7 +47,7 @@
 
     env\scripts\easy_install somepackage
 
-Вы также сможете использовать easy\\_install для установки из установщика EXE-файлов (некоторые совместимы с ZIP-файлами, и easy\\_install поддерживает их). Добавьте установщик в свой репозиторий и вызовите easy\\_install, передав путь к исполняемому файлу.
+Вы также сможете использовать easy\\_install для установки из установщика EXE-файлов (некоторые совместимы с ZIP-файлами, и easy\\_install поддерживает их). Добавьте установщик в свой репозиторий и вызовите easy\\_install, передав путь к исполняемому файлу.
 
 Добавьте следующее в скрипт развертывания:
 
@@ -64,8 +64,8 @@
 Рекомендуется удалить существующую виртуальную среду в приложении, чтобы при автоматическом управлении виртуальной средой не оставалось лишних файлов.
 
 
-[Создание виртуальной машины под управлением Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
+[Создание виртуальной машины под управлением Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++ для Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

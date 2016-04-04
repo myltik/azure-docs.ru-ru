@@ -23,7 +23,7 @@
 &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-> Аналогичные сведения для мобильных приложений см. в статье [Создание приложения iOS в мобильных приложениях Azure](../app-service-mobile/app-service-mobile-android-get-started.md).
+> Аналогичные сведения для мобильных приложений см. в статье [Создание приложения iOS в мобильных приложениях Azure](../app-service-mobile/app-service-mobile-ios-get-started.md).
 
 В этом учебнике показано, как добавить облачную серверную службу в приложение iOS с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение _To do list_, хранящее данные приложения в новой мобильной службе. Мобильная служба использует .NET и Visual Studio для серверной бизнес-логики. Сведения о создании мобильной службы с серверной бизнес-логикой на JavaScript см. в разделе [Серверная версия JavaScript] этой статьи.
 
@@ -101,4 +101,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Серверная версия JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

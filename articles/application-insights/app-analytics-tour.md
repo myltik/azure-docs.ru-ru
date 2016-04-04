@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Обзор аналитики Application Insights" 
-	description="Короткие примеры всех основных запросов в аналитике Application Insights, мощном средстве поиска для Application Insights." 
+	pageTitle="Обзор аналитики в Application Insights" 
+	description="Короткие примеры всех основных запросов в аналитике, мощном инструменте поиска Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Обзор аналитики Application Insights
+# Знакомство с аналитикой в Application Insights
 
 
-Аналитика Application Insights — это мощная диагностическая поисковая система для вашей телеметрии [Application Insights](app-insights-overview.md).
+[Аналитика](app-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -29,9 +29,9 @@
 
 ## Подключение к данным Application Insights
 
-Откройте аналитику в [колонке "Обзор"](app-insights-dashboards.md) вашего приложения в Application Insights:
+Откройте аналитику в [колонке "Обзор"](app-insights-dashboards.md) приложения в Application Insights.
 
-![На сайте portal.azure.com откройте ресурс Application Insights и выберите "Аналитика".](./media/app-analytics/001.png)
+![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-analytics/001.png)
 
 ## [Count](app-analytics-aggregations.md#count): подсчет строк
 
@@ -50,7 +50,7 @@
 ![](./media/app-analytics-tour/010.png)
 
 	
-[`Count`](app-analytics-aggregations.md#count) является одним из многих [операторов запросов](app-analytics-queries.md), с помощью которых можно организовать фильтрацию, изменение формы и объединение данных в канале в несколько этапов.
+[`Count`](app-analytics-aggregations.md#count) является одним из многих [операторов запроса](app-analytics-queries.md), с помощью которых можно организовать конвейер, фильтрацию, изменение формы и объединение данных в несколько этапов.
 	
 ## [Take](app-analytics-aggregations.md#take): показать n строк
 
@@ -136,7 +136,7 @@
 * `1d` (т. е. цифра 1, а затем "d") — это литерал интервала времени, который означает один день. Вот еще несколько литералов интервала времени: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (псевдоним `bin`) округляет значение до ближайшего числа, кратного указанному базовому значению. Поэтому `floor(aTime, 1s)` округляет время до ближайшей секунды.
 
-[Выражения](app-analytics-scalars.md) могут включать все обычные операторы (`+`, `-`…) и ряд полезных функций.
+[Выражения](app-analytics-scalars.md) могут включать в себя все обычные операторы (`+`, `-`…) и ряд полезных функций.
 
 ## [Extend](app-analytics-aggregations.md#extend): вычисление столбцов
 
@@ -216,7 +216,7 @@
 
 ## [Where](app-analytics-aggregations.md#where): фильтрация по условию
 
-Если вы настроили мониторинг Application Insights для [клиентской](app-insights-javascript.md) и серверной сторон вашего приложения, некоторые из данных телеметрии в базу данных поступают из браузеров.
+Если вы настроили мониторинг Application Insights для [клиентской](app-insights-javascript.md) и серверной сторон приложения, некоторые данные телеметрии в базу данных поступают из браузеров.
 
 Давайте посмотрим только на исключения, отправленные из браузеров:
 
@@ -436,9 +436,9 @@
     | take 30
 ```
 
-> Совет. Не добавляйте пустых строк между частями выражения в клиенте AI. Обязательно выполните все части.
+> Совет. Не добавляйте пустые строки между частями выражения в клиенте аналитики. Обязательно выполните все части.
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,27 +1,29 @@
 
 
 
-When you create a virtual machine in the [Azure portal](https://portal.azure.com) using the **Resource Manager** deployment model, the portal creates a public IP resource for the virtual machine. You can use this IP address to remotely access the virtual machine. Although the portal does not create a [fully qualified domain name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) or FQDN, by default, it is extremely easy to create one once the virtual machine is created. This article demonstrates the steps to create a DNS name or FQDN.
+При создании виртуальной машины на [портале Azure](https://portal.azure.com) с помощью модели развертывания **диспетчера ресурсов** портал создает ресурс общедоступного IP-адреса для виртуальной машины. Этот IP-адрес можно использовать для удаленного доступа к виртуальной машине. Несмотря на то, что портал не создает [полное доменное имя](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) по умолчанию, это легко можно сделать после того, как будет создана виртуальная машина. В этой статье показан процесс создания DNS-имени или полного доменного имени.
 
-The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images, using the **Resource Manager**. Follow these steps once your virtual machine starts running.
+В этой статье предполагается, что вы вошли в свою подписку в портале и создали виртуальную машину из доступных образов с помощью **диспетчера ресурсов**. После запуска виртуальной машины выполните следующие действия.
 
-1.  View the virtual machine settings on the portal and click on the Public IP address.
+1.  Откройте параметры виртуальной машины в портале и щелкните в поле "Общедоступный IP-адрес".
 
-    ![locate ip resource](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
+    ![найдите ресурс IP-адреса](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
 
-2.  Note that the DNS name for the Public IP is blank. Click **All settings** for the Public IP blade.
+2.  Обратите внимание на то, что для общедоступного IP-адреса DNS-имя будет пустым. Щелкните **Все параметры** в колонке "Общедоступный IP-адрес".
 
     ![settings ip](./media/virtual-machines-common-portal-create-fqdn/settingsIP.PNG)
 
-3.  Open the **Configuration** tab in the Public IP Settings. Enter the desired DNS name label and **Save** this configuration.
+3.  Откройте вкладку **Конфигурация** в разделе параметров общедоступного IP-адреса. Введите нужное DNS-имя и **сохраните** конфигурацию.
 
-    ![enter dns name label](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
+    ![введите метку имени DNS](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
 
-    The Public IP resource will now show this new DNS label on its blade.
+    Новое DNS-имя появится на вкладке ресурса с общедоступным IP-адресом.
 
-4.  Close the Public IP blades and go back to the virtual machine blade in the portal. Verify that the DNS name/FQDN appears next to the IP address for the Public IP resource.
+4.  Закройте колонки общедоступного IP-адреса и вернитесь в колонку виртуальной машины на портале. Убедитесь, что DNS-имя или полное доменное имя отображается рядом с IP-адресом ресурса с общедоступным IP-адресом.
 
-    ![FQDN is created](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
+    ![создается полное доменное имя](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
 
-    You can now connect remotely to the virtual machine using this DNS name. For example, use `SSH adminuser@testdnslabel.centralus.cloudapp.azure.com`, when connecting to a Linux virtual machine which has the fully qualified domain name of `testdnslabel.centralus.cloudapp.azure.com` and user name of `adminuser`.
+    Теперь вы можете удаленно подключиться к виртуальной машине с помощью этого имени DNS. Например, воспользуйтесь командой `SSH adminuser@testdnslabel.centralus.cloudapp.azure.com` для подключения к виртуальной машине Linux с полным доменным именем `testdnslabel.centralus.cloudapp.azure.com` от имени пользователя `adminuser`.
+
+<!---HONumber=AcomDC_0323_2016-->

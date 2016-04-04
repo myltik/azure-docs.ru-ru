@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="03/18/2016"
 	ms.author="larryfr"/>
 
 #Доступность и надежность кластеров Hadoop в HDInsight
@@ -166,4 +166,4 @@ URL-адрес указывает, что в настоящее время сл�
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

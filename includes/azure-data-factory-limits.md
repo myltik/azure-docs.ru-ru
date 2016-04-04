@@ -27,6 +27,6 @@
 
 ### Ограничения вызова веб-служб
 
-Для диспетчера ресурсов Azure действуют ограничения для вызовов API. Можно вызывать API с частотой, соответствующей [ограничениям API диспетчера ресурсов Azure](../articles/azure-subscription-service-limits/#resource-group-limits).
+Для диспетчера ресурсов Azure действуют ограничения для вызовов API. Можно вызывать API с частотой, соответствующей [ограничениям API диспетчера ресурсов Azure](../azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

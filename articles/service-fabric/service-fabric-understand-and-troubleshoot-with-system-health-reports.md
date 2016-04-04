@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Устранение неполадок с помощью отчетов о работоспособности системы | Microsoft Azure"
+   pageTitle="Устранение неполадок с помощью отчетов о работоспособности системы | Microsoft Azure"
    description="Содержит описание отчетов о работоспособности, отправляемых компонентами Azure Service Fabric, и их использовании для устранения неполадок с кластерами и приложениями."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/23/2016"
    ms.author="oanapl"/>
 
 # Устранение неполадок с помощью отчетов о работоспособности системы
@@ -43,7 +43,7 @@
 - **Дальнейшие действия**: выясните, почему теряется окружение (например, проверьте связь между узлами кластера).
 
 ## Системные отчеты о работоспособности узлов
-**System.FM** представляет собой службу диспетчера отработки отказов. Это система, которая управляет сведениями об узлах кластера. Каждый узел должен содержать один отчет системы System.FM о его состоянии. Сущности узла удаляются при его отключении.
+**System.FM** представляет собой службу диспетчера отработки отказов. Это система, которая управляет сведениями об узлах кластера. Каждый узел должен содержать один отчет системы System.FM о его состоянии. Сущности узла удаляются при удалении состояния узла (т. е. см. [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)).
 
 ### Включение и отключение узла
 Система System.FM сообщает о нормальном состоянии, если узел присоединяется к кольцевой сети (запускается и работает). Система выдает сообщение об ошибке, когда узел отключается от кольцевой сети (не работает из-за обновления или сбоя). Иерархия работоспособности, созданная в хранилище данных о работоспособности, выполняет действия в отношении развернутых сущностей в соответствии с отчетами об узлах System.FM. Узел считается виртуальным родительским элементом всех развернутых сущностей. Развернутые сущности на этом узле не предоставляются посредством запросов, если узел не работает или не создает отчеты, а также если на узле имеется экземпляр, отличный от экземпляра, связанного с сущностями. Когда System.FM сообщает о прекращении работы или перезапуске узла (новый экземпляр), хранилище данных о работоспособности автоматически удаляет развернутые сущности, которые могут существовать только на отключенном узле или предыдущем экземпляре узла.
@@ -76,7 +76,7 @@ HealthEvents          :
 
 
 ### Истечение срока действия сертификата
-**System.FabricNode** выдает предупреждение, когда приближается истечение срока действия сертификатов, используемых узлом. Для каждого узла есть три сертификата: **Certificate\_cluster**, **Certificate\_server** и **Certificate\_default\_client**. Если сертификат остается действительным по крайней мере еще в течение двух недель, в отчете сообщается об отсутствии проблем. Если срок действия истекает в течение двух недель, отображается отчет с предупреждением. Срок жизни этих событий не ограничен. Они удаляются при выходе узла из кластера.
+**System.FabricNode** выдает предупреждение, когда приближается истечение срока действия сертификатов, используемых узлом. У каждого узла есть три сертификата: **Certificate\_cluster**, **Certificate\_server** и **Certificate\_default\_client**. Если сертификат остается действительным по крайней мере еще в течение двух недель, в отчете сообщается об отсутствии проблем. Если срок действия истекает в течение двух недель, отображается отчет с предупреждением. Срок жизни этих событий не ограничен. Они удаляются при выходе узла из кластера.
 
 - **SourceId**: System.FabricNode.
 - **Свойство**: начинается с **Certificate** и содержит дополнительные сведения о типе сертификата.
@@ -102,7 +102,7 @@ HealthEvents          :
 Ниже показано событие State в приложении **fabric:/WordCount**.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Ok
@@ -163,6 +163,75 @@ HealthEvents          :
 - **Свойство**: State.
 - **Дальнейшие действия**: проверьте ограничения службы и текущее состояние расположения.
 
+Ниже показано нарушение для службы, для которой настроено 7 целевых реплик в кластере с 5 узлами.
+
+```xml
+PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
+
+
+ServiceName           : fabric:/WordCount/WordCountService
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.PLB', 
+                        Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                        
+PartitionHealthStates : 
+                        PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
+                        AggregatedHealthState : Warning
+                        
+HealthEvents          : 
+                        SourceId              : System.FM
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 10
+                        SentAt                : 3/22/2016 7:56:53 PM
+                        ReceivedAt            : 3/22/2016 7:57:18 PM
+                        TTL                   : Infinite
+                        Description           : Service has been created.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Ok = 3/22/2016 7:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.PLB
+                        Property              : ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b
+                        HealthState           : Warning
+                        SequenceNumber        : 131032232425505477
+                        SentAt                : 3/23/2016 4:14:02 PM
+                        ReceivedAt            : 3/23/2016 4:14:03 PM
+                        TTL                   : 00:01:05
+                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
+                        fabric:/WordCount/WordCountService Secondary Partition a1f83a35-d6bf-4d39-b90d-28d15f39599b could not be placed, possibly, 
+                        due to the following constraints and properties:  
+                        Placement Constraint: N/A
+                        Depended Service: N/A
+                        
+                        Constraint Elimination Sequence:
+                        ReplicaExclusionStatic eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
+                        ReplicaExclusionDynamic eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
+                        
+                        Nodes Eliminated By Constraints:
+                        
+                        ReplicaExclusionStatic:
+                        FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status: 
+                        None/None
+                        FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status: 
+                        None/None
+                        FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status: 
+                        None/None
+                        FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status: 
+                        None/None
+                        
+                        ReplicaExclusionDynamic:
+                        FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status: 
+                        None/None
+                        
+                        
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 3/22/2016 7:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
+```
+
 ## Системные отчеты о работоспособности разделов
 **System.FM** представляет собой службу диспетчера отработки отказов. Это система, которая управляет сведениями о разделах служб.
 
@@ -198,10 +267,10 @@ HealthEvents          :
                         Transitions           : ->Ok = 4/24/2015 6:33:31 PM
 ```
 
-Ниже показаны данные о работоспособности раздела, количество реплик в котором меньше целевого значения. Дальнейшие действия: получите описание раздела со сведениями о его конфигурации: **MinReplicaSetSize** равно 2, а **TargetReplicaSetSize** — 7. Затем получите данные о количестве узлов в кластере: пять. Поэтому в данном случае невозможно разместить две реплики.
+Ниже показаны данные о работоспособности раздела, количество реплик в котором меньше целевого значения. Дальнейшие действия: получите описание раздела со сведениями о его конфигурации: **MinReplicaSetSize** равно 2, а **TargetReplicaSetSize** — 7. Затем получите данные о количестве узлов в кластере: пять. Поэтому в данном случае невозможно разместить две реплики.
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
 
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 AggregatedHealthState : Warning
@@ -242,7 +311,7 @@ PS C:\> @(Get-ServiceFabricNode).Count
 ```
 
 ### Нарушение ограничений в отношении реплик
-Система **System.PLB** выдает предупреждение, если обнаруживает нарушение ограничений в отношении реплик и не может разместить реплики раздела.
+Система **System.PLB** выдает предупреждение, если обнаруживает нарушение ограничений реплик и не может разместить реплики секции.
 
 - **SourceId**: System.PLB.
 - **Свойство**: начинается с **ReplicaConstraintViolation**.
@@ -280,7 +349,7 @@ HealthEvents          :
 ### Состояние открытия реплики
 Описание этого отчета о работоспособности содержит время начала (в формате UTC) при вызове API.
 
-Система **System.RA** выдает предупреждение, если реплика открывается дольше заданного периода (по умолчанию 30 минут). Если API влияет на доступность службы, отчет выполняется гораздо быстрее (с заданным интервалом, который по умолчанию равен 30 секундам). Сюда входит время, необходимое для открытия репликатора и службы. Свойство меняется на ОК при открытии.
+Система **System.RA** выдает предупреждение, если реплика открывается дольше заданного периода (по умолчанию 30 минут). Если API влияет на доступность службы, отчет выполняется гораздо быстрее (с заданным интервалом, который по умолчанию равен 30 секундам). Сюда входит время, необходимое для открытия репликатора и службы. Свойство меняется на ОК при открытии.
 
 - **SourceId**: System.RA.
 - **Свойство**: **ReplicaOpenStatus**.
@@ -293,7 +362,7 @@ HealthEvents          :
 - **Свойство**: имя медленного API. В описании приводятся дополнительные сведения о времени, в течение которого в работе API наблюдалась задержка.
 - **Дальнейшие действия**: выясните причину, по которой вызов занимает больше времени, чем ожидалось.
 
-В следующем примере показан раздел с потерей кворума, а также приведены действия, позволяющие определить причину проблемы. Для одной из реплик получено предупреждение о состоянии работоспособности, поэтому мы получаем данные о ее работоспособности. Они свидетельствуют, что выполнение операции службы занимает больше времени, чем ожидалось (об этом событии сообщает система System.RAP). После получения этих сведений необходимо рассмотреть и изучить код службы. В этом случае реализация **RunAsync** службы с отслеживанием состояния вызывает необработанное исключение. Обратите внимание: так как реплики перезапускаются, с состоянием предупреждения может не отображаться ни одна реплика. Вы можете повторить попытку получения состояния работоспособности и проверить, есть ли различия в идентификаторе реплики. В некоторых случаях это помогает.
+В следующем примере показан раздел с потерей кворума, а также приведены действия, позволяющие определить причину проблемы. Для одной из реплик получено предупреждение о состоянии работоспособности, поэтому мы получаем данные о ее работоспособности. Они свидетельствуют, что выполнение операции службы занимает больше времени, чем ожидалось (об этом событии сообщает система System.RAP). После получения этих сведений необходимо рассмотреть и изучить код службы. В этом случае реализация **RunAsync** службы с отслеживанием состояния порождает необработанное исключение. Обратите внимание: так как реплики перезапускаются, с состоянием предупреждения может не отображаться ни одна реплика. Вы можете повторить попытку получения состояния работоспособности и проверить, есть ли различия в идентификаторе реплики. В некоторых случаях это помогает.
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
@@ -389,21 +458,21 @@ HealthEvents          :
 
 При запуске неисправного приложения с помощью отладчика исключение, выданное RunAsync, отображается в окне «Диагностические события»:
 
-![События диагностики Visual Studio 2015: сбой RunAsync в fabric:/HelloWorldStatefulApplication.][1]
+![События диагностики Visual Studio 2015: сбой RunAsync в fabric:/HelloWorldStatefulApplication.][1]
 
-Диагностические события Visual Studio 2015: сбой RunAsync в **fabric:/HelloWorldStatefulApplication**.
+События диагностики Visual Studio 2015: сбой RunAsync в **fabric:/HelloWorldStatefulApplication**.
 
 [1]: ./media/service-fabric-understand-and-troubleshoot-with-system-health-reports/servicefabric-health-vs-runasync-exception.png
 
 
 ### Переполнение очереди репликации
-Система **System.Replicator** выдает предупреждение при переполнении очереди репликации. На сервере-источнике это обычно происходит, так как одна или несколько вторичных реплик выполняются слишком медленно для подтверждения операций. На сервере-получателе это обычно происходит, если служба медленно применяет операции. Предупреждение удаляется при очистке очереди.
+**System.Replicator** выдает предупреждение при переполнении очереди репликации. На сервере-источнике это обычно происходит, так как одна или несколько вторичных реплик выполняются слишком медленно для подтверждения операций. На сервере-получателе это обычно происходит, если служба медленно применяет операции. Предупреждение удаляется при очистке очереди.
 
 - **SourceId**: System.Replicator.
-- **Свойство**: **PrimaryReplicationQueueStatus** или **SecondaryReplicationQueueStatus** в зависимости от роли реплики.
+- **Свойство**: **PrimaryReplicationQueueStatus** или **SecondaryReplicationQueueStatus**, в зависимости от роли реплики.
 
 ## Системные отчеты о работоспособности DeployedApplication
-**System.Hosting** — это система для работы с развернутыми сущностями.
+**System.Hosting** — это центр развернутых сущностей.
 
 ### Активация
 Система System.Hosting сообщает об отсутствии проблем, если приложение успешно активировано на узле. В противном случае отображается сообщение об ошибке.
@@ -440,14 +509,14 @@ HealthEvents                       :
 ```
 
 ### Загрузить
-Система **System.Hosting** сообщает об ошибке, если скачивание пакета приложения завершается сбоем.
+**System.Hosting** сообщает об ошибке, если скачивание пакета приложения завершается сбоем.
 
 - **SourceId**: System.Hosting.
 - **Свойство**: **Download:*версия\_развертывания***.
 - **Дальнейшие действия**: выясните причину ошибки при скачивании на узле.
 
 ## Системные отчеты о работоспособности DeployedServicePackage
-**System.Hosting** — это система для работы с развернутыми сущностями.
+**System.Hosting** — это центр развернутых сущностей.
 
 ### Активация пакета службы
 Система System.Hosting сообщает об отсутствии проблем, если пакет службы на узле успешно активирован. В противном случае отображается сообщение об ошибке.
@@ -460,10 +529,10 @@ HealthEvents                       :
 **System.Hosting** сообщает об отсутствии проблем, если каждый пакет кода успешно активирован. Если активация завершилась ошибкой, выводится заданное предупреждение. Если не удалось активировать **CodePackage** или если этот элемент завершил работу с ошибкой и превышением значения настроенного параметра **CodePackageHealthErrorThreshold**, система выдает сообщение об ошибке. Если пакет службы включает несколько пакетов кода, для каждого из них создается отчет об активации.
 
 - **SourceId**: System.Hosting.
-- **Свойство**: использует префикс **CodePackageActivation** и содержит имя пакета кода и точку входа как **CodePackageActivation:*имя\_пакета\_кода*:*SetupEntryPoint/EntryPoint*** (например, **CodePackageActivation:Code:SetupEntryPoint**).
+- **Свойство**: использует префикс **CodePackageActivation** и содержит имя пакета кода и точку входа вида **CodePackageActivation:*имя\_пакета\_кода*:*SetupEntryPoint/EntryPoint*** (например, **CodePackageActivation:Code:SetupEntryPoint**).
 
 ### Регистрация типа службы
-Система **System.Hosting** сообщает об отсутствии проблем, если тип службы успешно зарегистрирован. Система выдает сообщение об ошибке, если регистрация не выполнена вовремя (настраивается с помощью параметра **ServiceTypeRegistrationTimeout**). Если тип службы не регистрируется на узле из-за закрытия среды выполнения, система Hosting выдает предупреждение.
+**System.Hosting** сообщает об отсутствии проблем, если тип службы успешно зарегистрирован. Система выдает сообщение об ошибке, если регистрация не выполнена вовремя (настраивается с помощью параметра **ServiceTypeRegistrationTimeout**). Если тип службы не регистрируется на узле из-за закрытия среды выполнения, система Hosting выдает предупреждение.
 
 - **SourceId**: System.Hosting.
 - **Свойство**: использует префикс **ServiceTypeRegistration** и содержит имя типа службы (например, **ServiceTypeRegistration:FileStoreServiceType**).
@@ -517,7 +586,7 @@ HealthEvents          :
 ```
 
 ### Загрузить
-Система **System.Hosting** сообщает об ошибке при скачивании пакета службы.
+**System.Hosting** сообщает об ошибке при скачивании пакета службы.
 
 - **SourceId**: System.Hosting.
 - **Свойство**: **Download:*версия\_развертывания***.
@@ -537,4 +606,4 @@ HealthEvents          :
 
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

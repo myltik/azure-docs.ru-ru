@@ -32,10 +32,10 @@
 npm install azure-mobile-apps-client --save
 ```
 
-После установки библиотека находится в `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.js`. Скопируйте этот файл в свою область Интернета.
+После установки библиотека находится в `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`. Скопируйте этот файл в свою область Интернета.
 
 ```
-<script src="path/to/MobileServices.Web.js"></script>
+<script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
 Библиотеку также можно использовать как модуль ES2015 в средах CommonJS, таких как Browserify и Webpack, а также как библиотеку AMD. Например:
@@ -103,7 +103,7 @@ pushHandler.on('error', function (error) {
 <!-- URLs. -->
 [Быстрый запуск мобильного приложения Azure]: app-service-mobile-cordova-get-started.md
 [Приступая к работе с проверкой подлинности]: app-service-mobile-cordova-get-started-users.md
-[Добавление проверки подлинности в приложение]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [your first Apache Cordova app]: http://cordova.apache.org/#getstarted
@@ -111,6 +111,6 @@ pushHandler.on('error', function (error) {
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[документации по объектам запросов]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

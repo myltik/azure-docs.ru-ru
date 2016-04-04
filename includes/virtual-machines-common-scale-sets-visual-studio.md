@@ -1,80 +1,80 @@
 
 
-This article shows you how to deploy an Azure Virtual Machine Scale Set using a Visual Studio Resource Group Deployment.
+В этой статье описывается развертывание шаблонов масштабируемых наборов виртуальных машин с использованием развертывания группы ресурсов Visual Studio.
 
 
-[Azure Virtual Machine Scale Sets](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) are an Azure Compute resource to deploy and manage a collection of similar virtual machines with easily integrated options for auto-scale and load balancing. You can provision and deploy VM Scale Sets using [Azure Resource Manager (ARM) Templates](https://github.com/Azure/azure-quickstart-templates). ARM Templates can be deployed using Azure CLI, PowerShell, REST and also directly from Visual Studio. Visual Studio provides a set of example Templates which can be deployed as part of an Azure Resource Group Deployment project.
+[Масштабируемые наборы виртуальных машин Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) — вычислительный ресурс Azure для развертывания и управления коллекцией похожих виртуальных машин с легко интегрируемыми параметрами для автоматического масштабирования и балансировки нагрузки. Масштабируемые наборы виртуальных машин можно подготавливать и развертывать с помощью [шаблонов диспетчера ресурсов Azure (ARM)](https://github.com/Azure/azure-quickstart-templates). Шаблоны ARM можно развертывать с помощью интерфейса командной строки Azure, PowerShell, REST, а также непосредственно из Visual Studio. Visual Studio предоставляет набор примеров шаблонов, которые можно развернуть в рамках проекта развертывания группы ресурсов Azure.
 
-Azure Resource Group deployments are a way to group together and publish a set of related Azure resources in a single deployment operation. You can learn more about them here: [Creating and deploying Azure resource groups through Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy/).
+Развертывания группы ресурсов Azure позволяют сгруппировать несколько связанных ресурсов Azure и опубликовать их в одной операции развертывания. Дополнительные сведения о них можно получить в статье [Создание и развертывание групп ресурсов Azure с помощью Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy/).
 
-## Pre-requisites
+## Предварительные требования
 
-To get started deploying VM Scale Sets in Visual Studio you need the following:
+Чтобы приступить к развертыванию шаблонов масштабируемых наборов виртуальных машин в Visual Studio, вам потребуется следующее:
 
-- Visual Studio 2013 or 2015
-- Azure SDK 2.7 or 2.8
+- Visual Studio 2013 или 2015
+- Пакет SDK Azure версии 2.7 или 2.8
 
-Note: These instructions assume you are using Visual Studio 2015 with [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
+Обратите внимание: при выполнении этих инструкций предполагается, что вы используете Visual Studio 2015 с [пакетом SDK Azure версии 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
-## Creating a Project
+## Создание проекта
 
-1. Create a new project in Visual Studio 2015 by choosing **File | New | Project**.
+1. Создайте новый проект в Visual Studio 2015, выбрав **Файл | Создать | Проект**.
 
-	![File New][file_new]
+	![Создание файла][file_new]
 
-2. Under **Visual C# | Cloud**, choose **Azure Resource Manager** to create a project for deploying an ARM Template.
+2. В разделе **Visual C# | Облако** выберите **Диспетчер ресурсов Azure**, чтобы создать проект для развертывания шаблона ARM.
 
-	![Create Project][create_project]
+	![Создание проекта][create_project]
 
-3.  From the list of Templates, select either the Linux or Windows Virtual Machine Scale Set Template.
+3.  В списке шаблонов выберите шаблон масштабируемых наборов виртуальных машин для Linux или Windows.
 
-	![Select Template][select_Template]
+	![Выбор шаблона][select_Template]
 
-4. Once your project is created you’ll see PowerShell deployment scripts, an Azure Resource Manager Template, and a parameter file for the Virtual Machine Scale Set.
+4. После создания проекта вы увидите сценарии развертывания PowerShell, шаблон диспетчера ресурсов Azure и файл параметров для масштабируемого набора виртуальных машин.
 
-	![Solution Explorer][solution_explorer]
+	![Обозреватель решений][solution_explorer]
 
-## Customize your project
+## Настройка проекта
 
-Now you can edit the Template to customize it for your application's needs, such as adding VM extension properties or editing load balancing rules. By default the VM Scale Set Templates are configured to deploy the AzureDiagnostics extension which makes it easy to add autoscale rules. It also deploys a load balancer with a public IP address, configured with inbound NAT rules which let you connect to the VM instances with SSH (Linux) or RDP (Windows) – the front end port range starts at 50000, which means in the case of Linux, if you SSH to port 50000 of the public IP address (or domain name) you will be routed to port 22 of the first VM in the Scale Set. Connecting to port 50001 will be routed to port 22 of the second VM and so on.
+Теперь можно изменить шаблон, настроив его в соответствии с потребностями своего приложения, например, добавить свойства расширения виртуальной машины или изменить правила балансировки нагрузки. По умолчанию шаблоны масштабируемого набора виртуальных машин настроены для развертывания расширения AzureDiagnostics, которое позволяет легко добавлять правила автоматического масштабирования. Также развертывается балансировщик нагрузки с общедоступным IP-адресом, настроенный с правилами входящих подключений NAT, которые позволяют подключаться к экземплярам виртуальных машин с помощью SSH (Linux) или протокола удаленного рабочего стола (Windows) — диапазон портов клиента начинается с 50000, что в случае Linux означает, что если подключиться к порту 50000 общедоступного IP-адреса (или имени домена), то вы будете перенаправлены на порт 22 первой виртуальной машины в наборе. При подключении к порту 50001 вы будете перенаправлены на порт 22 второй виртуальной машины и т. д.
 
- A good way to edit your Templates with Visual Studio is to use the JSON Outline to organize the parameters, variables and resources. With an understanding of the schema Visual Studio can point out errors in your Template before you deploy it.
+ Удобный способ изменения шаблонов с помощью Visual Studio — использовать структуру JSON для организации параметров, переменных и ресурсов. Понимание схемы Visual Studio позволит обнаружить ошибки в шаблоне перед его развертыванием.
 
-![JSON Explorer][json_explorer]
+![Обозреватель JSON][json_explorer]
 
-## Deploy the project
+## Развертывание проекта
 
-6. Deploy the ARM Template to Azure to create the VM Scale Set resource. Right click on the project node, choose **Deploy | New Deployment**.
+6. Разверните шаблон ARM в Azure для создания ресурса масштабируемого набора виртуальных машин. Щелкните правой кнопкой мыши по проекту и выберите **Развернуть > Новое развертывание**.
 
-	![Deploy Template][5deploy_Template]
+	![Развертывание шаблона][5deploy_Template]
 
-7. Select your subscription in the “Deploy to Resource Group” dialog.
+7. Выберите свою подписку в диалоговом окне "Развертывание в группе ресурсов".
 
-	![Deploy Template][6deploy_Template]
+	![Развертывание шаблона][6deploy_Template]
 
-8. From here you can also create a new Azure Resource Group to deploy your Template to.
+8. В нем также можно создать новую группу ресурсов Azure для развертывания шаблона в эту группу.
 
-	![New Resource Group][new_resource]
+	![Создание группы ресурсов][new_resource]
 
-9. Next select the **Edit Parameters** button to enter parameters which will be passed to your Template, Certain values such as the username and password for the OS are required to create the deployment.
+9. Затем нажмите кнопку **Изменить параметры**, чтобы ввести параметры, которые будут переданы шаблону. Некоторые параметры, такие как имя пользователя и пароль для операционной системы, обязательны для создания развертывания.
 
-	![Edit Parameters][edit_parameters]
+	![Изменение параметров][edit_parameters]
 
-10. Now click **Deploy**. The **Output** window will show the deployment progress. Note that the the action is executing the **Deploy-AzureResourceGroup.ps1** script.
+10. Щелкните **Развернуть**. В окне **Вывод** отображается ход развертывания. Обратите внимание, что действие выполняет сценарий **Deploy-AzureResourceGroup.ps1**.
 
-	![Output Window][output_window]
+	![Окно вывода][output_window]
 
-## Exploring your VM Scale Set
+## Изучение масштабируемого набора виртуальных машин
 
-Once the deployment completes, you can view the new VM Scale Set in the Visual Studio **Cloud Explorer** (refresh the list). Cloud Explorer lets you manage Azure resources in Visual Studio while developing applications. You can also view your VM Scale Set in the Azure Portal and Azure Resource Explorer.
+После завершения развертывания можно просмотреть новый масштабируемый набор виртуальных машин в **Обозревателе облака** Visual Studio (обновите список). Обозреватель облака позволяет управлять ресурсами Azure в Visual Studio при разработке приложений. Масштабируемый набор виртуальных машин также можно просмотреть на портале Azure и в обозревателе ресурсов Azure.
 
-![Cloud Explorer][cloud_explorer]
+![Обозреватель облака][cloud_explorer]
 
- The portal provides the best way to visually manage your Azure infrastructure with a web browser, while Azure Resource Explorer provides an easy way to explorer and debug Azure resources, giving a window into the “instance view” and also showing PowerShell commands for the resources you are looking at. While VM Scale Sets are in preview, the Resource Explorer will show the most detail for your VM Scale Sets.
+ С помощью портала удобнее всего визуально управлять инфраструктурой Azure в браузере, а с помощью обозревателя ресурсов Azure просматривать и отлаживать ресурсы Azure, переключив окно в "режим просмотра экземпляров" и воспользовавшись командами PowerShell для ресурсов, которые вы просматриваете. Хотя масштабируемые наборы виртуальных машин находятся в предварительной версии, в обозревателе ресурсов будут показаны наиболее полные сведения о масштабируемых наборах виртуальных машин.
 
-## Next steps
+## Дальнейшие действия
 
-Once you’ve successfully deployed VM Scale Sets through Visual Studio you can further customize your project to suit your application requirements. For example setting up autoscale by adding an Insights resource, adding infrastructure to your Template like standalone VMs, or deploying applications using the custom script extension. A good source of example Templates can be found in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) GitHub repository (search for "vmss").
+После успешного развертывания масштабируемых наборов виртуальных машин с помощью Visual Studio можно выполнить дальнейшую настройку проекта в соответствии с требованиями приложения. Например, можно настроить автоматическое масштабирование, добавив ресурс Insights, добавить инфраструктуру в шаблон в качестве автономных виртуальных машин или развернуть приложения с помощью расширения пользовательского сценария. Хорошим источником примеров шаблонов является репозиторий [Шаблоны быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates) в GitHub (введите "vmss" в строке поиска).
 
 [file_new]: ./media/virtual-machines-common-scale-sets-visual-studio/1-FileNew.png
 [create_project]: ./media/virtual-machines-common-scale-sets-visual-studio/2-CreateProject.png
@@ -87,3 +87,5 @@ Once you’ve successfully deployed VM Scale Sets through Visual Studio you can 
 [edit_parameters]: ./media/virtual-machines-common-scale-sets-visual-studio/8-EditParameter.png
 [output_window]: ./media/virtual-machines-common-scale-sets-visual-studio/9-Output.png
 [cloud_explorer]: ./media/virtual-machines-common-scale-sets-visual-studio/12-CloudExplorer.png
+
+<!---HONumber=AcomDC_0323_2016-->

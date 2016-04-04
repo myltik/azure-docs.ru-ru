@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/08/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Технический справочник по универсальному соединителю SQL
@@ -22,7 +22,7 @@
 
 - Microsoft Identity Manager 2016 (MIM2016);
 - Forefront Identity Manager 2010 R2 (FIM2010R2).
-    -   Необходимо установить исправление 4.1.3461.0 или пакет исправлений [KB2870703](https://support.microsoft.com/kb/2870703).
+    -   Необходимо установить исправление 4.1.3671.0 или более позднюю версию ([KB3092178](https://support.microsoft.com/kb/3092178)).
 
 Для MIM2016 и FIM2010R2 соединитель можно загрузить из [центра загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -297,4 +297,4 @@
 
 -	Сведения о том, как включить ведение журнала для устранения неполадок соединителя, см. в статье [Включение трассировки событий Windows для соединителей](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

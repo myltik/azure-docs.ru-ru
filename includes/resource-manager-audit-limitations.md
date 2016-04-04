@@ -1,7 +1,8 @@
-The audit log contains all actions performed on your resources. You can use the audit logs to find an error when troubleshooting or 
-to monitor how a user in your organization modified a resource.
+Журнал аудита содержит все действия, выполненные с ресурсами. Журналы аудита можно использовать для поиска ошибки при устранении неполадок, а также для наблюдения за тем, как пользователь в вашей организации изменяет ресурс.
 
-There are two important limitations to keep in mind when working with audit logs:
+При работе с журналами аудита следует помнить о двух важных ограничениях.
 
-1. Audit logs are only retained for 90 days.
-2. You can only query for a range of 15 days or less.
+1. Журналы аудита сохраняются только в течение 90 дней.
+2. Вы можете отправить запрос на получение данных за период не более 15 дней.
+
+<!---HONumber=AcomDC_0323_2016-->

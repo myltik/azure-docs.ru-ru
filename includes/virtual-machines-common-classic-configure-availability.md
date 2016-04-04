@@ -1,95 +1,96 @@
 
 
 
-An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For details about how this works, see [Manage the availability of virtual machines] [].
+Группа доступности позволяет поддерживать доступность виртуальных машин во время простоев, например связанных с обслуживанием. Размещение двух или более одинаково настроенных виртуальных машин в группе доступности создает избыточность, необходимую для обеспечения доступности приложений или служб, выполняемых на виртуальной машине. Дополнительные сведения см. в статье [Управление доступностью виртуальных машин][].
 
-It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For details about load-balanced endpoints, see [Load balancing for Azure infrastructure services] [].
+Чтобы обеспечить постоянную доступность и эффективность работы приложения, рекомендуется использовать и группы доступности, и балансировку нагрузки конечных точек. Информация о балансировке нагрузки конечных точек представлена в статье [Балансировка нагрузки для служб инфраструктуры Azure][].
 
-In the classic deployment model, you can put virtual machines into an availability set by using one of two options:
+В классической модели развертывания поместить виртуальную машину в группы доступности можно одним из двух способов:
 
-- [Option 1: Create a virtual machine and an availability set at the same time] []. Then, add new virtual machines to the set when you create those virtual machines.
-- [Option 2: Add an existing virtual machine to an availability set] [].
+- [Вариант 1. Одновременное создание виртуальной машины и группы доступности][]. Затем добавляйте создаваемые виртуальные машины в эту группу.
+- [Вариант 2. Добавление существующей виртуальной машины к группе доступности][].
 
->[AZURE.NOTE] In the classic model, virtual machines that you want to put in the same availability set must belong to the same cloud service.
+>[AZURE.NOTE] В классической модели виртуальные машины, которые вы хотите поместить в одну группу доступности, должны относиться к одной облачной службе.
 
-## <a id="createset"> </a>Option 1: Create a virtual machine and an availability set at the same time##
+## <a id="createset"> </a>Вариант 1. Одновременное создание виртуальной машины и группы доступности##
 
-You can use either the Azure classic portal or Azure PowerShell commands to do this.
+Для этого можно использовать классический портал Azure или команды Azure PowerShell.
 
-To use the Azure classic portal:
+На классическом портале Azure
 
-1. If you haven't already done so, sign in to the Azure classic portal.
+1. Войдите на классический портал Azure, если вы этого еще не сделали.
 
-2. On the command bar, click **New**.
+2. На панели команд нажмите **Создать**.
 
-3. Click **Virtual Machine**, and then click **From Gallery**.
+3. Щелкните **Виртуальная машина** и **Из коллекции**.
 
-4. Use the first two screens to select an image, a user name and password, and so on. For more details, see [Create a virtual machine running Windows][].
+4. На первых двух экранах выберите образ, укажите имя пользователя и пароль и т. д. Более подробно этот процесс описан в статье [Создание виртуальной машины под управлением Windows][].
 
-5. In the third screen, you can configure resources for networking, storage, and availability. Do the following:
+5. На третьем экране вы можете настроить ресурсы сети, хранилища и доступности. Выполните следующее:
 
-	1. Choose the appropriate cloud service. Leave it set to **Create a new cloud service** (unless you are adding this new virtual machine to an existing virtual machine cloud service). Then, under **Cloud Service DNS Name**, type a name. The DNS name becomes part of the URI that's used to contact the virtual machine. The cloud service acts as a communications and isolation group. All virtual machines in the same cloud service can communicate with each other, can be set up for load balancing, and can be placed in the same availability set.
+	1. Выберите имя нужной облачной службы. Оставьте выбранным вариант **Создать новую облачную службу**, если вы не добавляете новую виртуальную машину в существующую облачную службу виртуальных машин. Затем укажите имя в поле **DNS-имя облачной службы**. DNS-имя становится частью URI, который используется для связи с виртуальной машиной. Облачная служба играет роль группы связи и изоляции. Все виртуальные машины в одной облачной службе могут взаимодействовать друг с другом, их можно настроить для балансировки нагрузки и добавить в одну группу доступности.
 
-	2. Under **Region/Affinity Group/Virtual Network**, specify a virtual network if you plan to use one. **Important**: If you want a virtual machine to use a virtual network, you must join the virtual machine to the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the virtual machine. For more information, see [Virtual Network Overview][].
+	2. В поле **Регион, территориальная группа, виртуальная сеть** укажите виртуальную сеть, если вы планируете ее использовать. **Внимание!** Если вы хотите, чтобы виртуальная машина использовала виртуальную сеть, при создании этой виртуальной машины обязательно подключите ее к виртуальной сети. Вы не сможете подключить виртуальную машину к виртуальной сети после создания ВМ. Дополнительные сведения см. в статье [Общие сведения о виртуальных сетях][].
 
-	3. Create the availability set. Under **Availability Set**, leave it set to **Create an availability set**. Then, type a name for the set.
+	3. Создайте группу доступности. В поле **Группа доступности** выберите вариант **Создать группу доступности**. Укажите имя группы.
 
-	4. Create the default endpoints and add more endpoints if needed. You also can add endpoints later.
+	4. Создайте конечные точки по умолчанию и при необходимости добавьте дополнительные конечные точки. Их также можно добавить позже.
 
-	![Create an availability set for a new virtual machine](./media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
+	![Создание группы доступности для новой виртуальной машины](./media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
 
-6. On the fourth screen, click the extensions that you want to install. Extensions provide features that make it easier to manage the virtual machine, such as running antimalware or resetting passwords. For details, see [Azure VM Agent and VM Extensions](virtual-machines-windows-classic-agents-and-extensions.md).
+6. На четвертом экране выберите расширения, которые хотите установить. Расширения обеспечивают функциональность, которая облегчает управление виртуальной машиной, например запуск антивирусного ПО или восстановление паролей. Информацию см. в разделе [Агент виртуальных машин Azure и расширения виртуальных машин](virtual-machines-windows-classic-agents-and-extensions.md).
 
-7.	Click the arrow to create the virtual machine and the availability set.
+7.	Щелкните стрелку, чтобы создать виртуальную машину и группу доступности.
 
-	From the dashboard of the new virtual machine, you can click **Configure** to see that the virtual machine belongs to the new availability set.
+	Из панели мониторинга новой виртуальной машины щелкните **Настройки**, чтобы убедиться, что виртуальная машина принадлежит к новой группе доступности.
 
-To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see the following:
+Чтобы использовать команды Azure PowerShell для создания виртуальной машины Azure и добавления ее в новую или существующую группу доступности, ознакомьтесь со следующими статьями.
 
 
-- [Use Azure PowerShell to create and preconfigure Linux-based virtual machines](virtual-machines-linux-classic-createpowershell.md)
-- [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md)
+- [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux](virtual-machines-linux-classic-createpowershell.md)
+- [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-windows-classic-create-powershell.md)
 
-## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set##
+## <a id="addmachine"> </a>Вариант 2. Добавление существующей виртуальной машины к группе доступности##
 
-In the Azure classic portal, you can add existing virtual machines to an existing availability set
- or create a new one for them. (Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.) The steps are almost the same. With Azure PowerShell, you can add the virtual machine to an existing availability set.
+На классическом портале Azure можно добавить существующие виртуальные машины к существующей группе доступности либо создать для них новую. (Учитывайте, что виртуальные машины из одной группы доступности должны входить в одну облачную службу.) Выполняемые действия практически идентичны. С помощью Azure PowerShell можно добавить виртуальную машину к существующей группе доступности.
 
-1. If you have not already done so, sign in to the Azure classic portal.
+1. Войдите на классический портал Azure, если вы этого еще не сделали.
 
-2. On the command bar, click **Virtual Machines**.
+2. На панели команд щелкните **Виртуальные машины**.
 
-3. From the list of virtual machines, select the name of the virtual machines that you want to add to the set.
+3. Выберите из списка имя виртуальной машины, которую хотите добавить к группе.
 
-4. From the tabs below the virtual machine name, click **Configure**.
+4. На вкладках под именем виртуальной машины щелкните **Настроить**.
 
-5. In the Settings section, find **Availability Set**. Do one of the following:
+5. В разделе "Параметры" найдите **Группу доступности**. Выполните одно из следующих действий.
 
-	A. Select **Create an availability set**, and then type a name for the set.
+	О. Выберите пункт **Создать группу доступности** и введите имя для этой группы.
 
-	B. Select **Select an availability set**, and then select a set from the list.
+	B. Выберите пункт **Выбрать группу доступности** и выберите имя группы из списка.
 
-	![Create an availability set for an existing virtual machine](./media/virtual-machines-common-classic-configure-availability/VMavailabilityExistingVM.png)
+	![Создание группы доступности для существующей виртуальной машины](./media/virtual-machines-common-classic-configure-availability/VMavailabilityExistingVM.png)
 
-6. Click **Save**.
+6. Щелкните **Сохранить**.
 
-To use Azure PowerShell commands, open an administrator-level Azure PowerShell session and run the following command. For the placeholders (such as &lt;VmCloudServiceName&gt;), replace everything within the quotes, including the < and > characters, with the correct names.
+Чтобы использовать команды Azure PowerShell, откройте сеанс Azure PowerShell уровня администратора и выполните следующую команду. Для заполнителей (таких как &lt;VmCloudServiceName&gt;) замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
 
 	Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
->[AZURE.NOTE] The virtual machine might have to be restarted to finish adding it to the availability set.
+>[AZURE.NOTE] Возможно, вам нужно будет перезапустить виртуальную машину, чтобы завершить ее добавление к группе доступности.
 
-## Additional resources
+## Дополнительные ресурсы
 
-[Articles for virtual machines in Service Management]
+[Статьи по виртуальным машинам в управлении службами]
 
 <!-- LINKS -->
-[Option 1: Create a virtual machine and an availability set at the same time]: #createset
-[Option 2: Add an existing virtual machine to an availability set]: #addmachine
+[Вариант 1. Одновременное создание виртуальной машины и группы доступности]: #createset
+[Вариант 2. Добавление существующей виртуальной машины к группе доступности]: #addmachine
 
-[Load balancing for Azure infrastructure services]: virtual-machines-linux-load-balance.md
-[Manage the availability of virtual machines]: virtual-machines-linux-manage-availability.md
+[Балансировка нагрузки для служб инфраструктуры Azure]: virtual-machines-linux-load-balance.md
+[Управление доступностью виртуальных машин]: virtual-machines-linux-manage-availability.md
 
-[Create a virtual machine running Windows]: virtual-machines-windows-hero-tutorial.md
-[Virtual Network overview]: virtual-networks-overview.md
-[Articles for virtual machines in Service Management]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines 
+[Создание виртуальной машины под управлением Windows]: virtual-machines-windows-hero-tutorial.md
+[Общие сведения о виртуальных сетях]: virtual-networks-overview.md
+[Статьи по виртуальным машинам в управлении службами]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
+
+<!---HONumber=AcomDC_0323_2016-->

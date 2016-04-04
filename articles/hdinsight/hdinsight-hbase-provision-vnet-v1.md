@@ -194,7 +194,7 @@ DNS-сервер является необязательным, но в неко
 
 ##Подключение к подготовленному в виртуальной сети кластеру HBase с помощью интерфейсов API удаленного вызова процедур (RPC) Java для HBase
 
-1.	Подготовьте виртуальную машину IaaS в той же виртуальной сети Azure и той же подсети. Поэтому виртуальная машина и кластер HBase будут использовать один и тот же внутренний сервер DNS для разрешения имен узлов. Чтобы сделать это, необходимо выбрать параметр **Из коллекции** и выбрать виртуальную сеть вместо центра обработки данных. Инструкции см. в разделе [Создание виртуальной машины под управлением Windows Server](../virtual-machines/virtual-machines-windows-tutorial.md). Достаточно стандартного образа Windows Server 2012 с виртуальной машиной небольшого размера.
+1.	Подготовьте виртуальную машину IaaS в той же виртуальной сети Azure и той же подсети. Поэтому виртуальная машина и кластер HBase будут использовать один и тот же внутренний сервер DNS для разрешения имен узлов. Чтобы сделать это, необходимо выбрать параметр **Из коллекции** и выбрать виртуальную сеть вместо центра обработки данных. Инструкции см. в разделе [Создание виртуальной машины под управлением Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). Достаточно стандартного образа Windows Server 2012 с виртуальной машиной небольшого размера.
 
 2.	При использовании Java-приложения для удаленного подключения к HBase необходимо использовать полное доменное имя (FQDN). Чтобы определить это, вам необходимо получить DNS-суффикс кластера HBase. Для этого воспользуйтесь Curl, чтобы создать запрос к Ambari, или удаленным рабочим столом, чтобы подключиться к кластеру.
 
@@ -397,7 +397,7 @@ DNS-сервер является необязательным, но в неко
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [vnet-overview]: ../virtual-network/virtual-networks-overview.md
-[vm-create]: ../virtual-machines/virtual-machines-windows-tutorial.md
+[vm-create]: ../virtual-machines/virtual-machines-windows-hero-tutorial.md
 
 [azure-portal]: https://management.windowsazure.com
 [azure-create-storageaccount]: ../storage-create-storage-account.md
@@ -434,4 +434,4 @@ DNS-сервер является необязательным, но в неко
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Подготовка сведений для нового кластера HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Использование действия сценария для настройки кластера HBase"
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

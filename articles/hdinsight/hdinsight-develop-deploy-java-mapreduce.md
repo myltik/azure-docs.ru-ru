@@ -283,7 +283,7 @@
 
 	![HDI.EMulator.WordCount.Run][image-emulator-wordcount-run]
 
-	На снимке экрана видно, что процедуры map и reduce завершены на 100 %. Здесь также указывается идентификатор задания. Для получения того же отчета можно открыть ярлык **Состояние Hadoop MapReduce** на вашем рабочем столе и найти идентификатор задания.
+	На снимке экрана видно, что процедуры map и reduce завершены на 100 %. Здесь также указывается идентификатор задания. Для получения того же отчета можно открыть ярлык **Состояние Hadoop MapReduce** на вашем рабочем столе и найти идентификатор задания.
 
 Для запуска задания MapReduce можно также использовать Azure PowerShell. Инструкции см. в разделе [Приступая к работе с эмулятором HDInsight][hdinsight-emulator].
 
@@ -400,7 +400,7 @@ Azure HDInsight использует для хранения данных хра
 		$jarFile = "C:\Tutorials\WordCountJava\wordcountjava\target\wordcountjava-1.0-SNAPSHOT.jar"
 		$blobFolder = "WordCount/jars"
 
-	Значения переменных **$storageAccountName\\_Data** и **$containerName\\_Data** — те же, что вы определили в последней процедуре, то есть файл данных и приложение будут переданы в тот же контейнер в той же учетной записи хранения.
+	Значения переменных **$storageAccountName\\_Data** и **$containerName\\_Data** — те же, что вы определили в последней процедуре, то есть файл данных и приложение будут переданы в тот же контейнер в той же учетной записи хранения.
 
 	Заметьте, целевой является папка **WordCount/jars**.
 
@@ -571,8 +571,7 @@ Azure HDInsight использует для хранения данных хра
 ##<a id="nextsteps"></a>Дальнейшие действия
 В этом учебнике вы узнали, как разработать задание MapReduce на языке Java, протестировать приложение в эмуляторе HDInsight и написать скрипт Azure PowerShell для подготовки кластера HDInsight и выполнения задания MapReduce в кластере. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-- [Разработка программ MapReduce с потоковой передачей C# Hadoop для HDInsight][hdinsight-develop-streaming]
-- [Начало работы с Azure HDInsight][hdinsight-get-started]
+- [Приступая к работе с Azure HDInsight][hdinsight-get-started]
 - [Приступая к работе с эмулятором HDInsight][hdinsight-emulator]
 - [Использование хранилища больших двоичных объектов Azure с HDInsight][hdinsight-storage]
 - [Администрирование HDInsight с использованием Azure PowerShell][hdinsight-admin-powershell]
@@ -590,7 +589,6 @@ Azure HDInsight использует для хранения данных хра
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-emulator]: ../hdinsight-get-started-emulator.md
@@ -610,4 +608,4 @@ Azure HDInsight использует для хранения данных хра
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

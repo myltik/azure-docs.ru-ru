@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Управление привилегированными пользователями Azure AD: изменение и просмотр параметров по умолчанию для роли"
+   pageTitle="Как изменить или просмотреть параметры активации по умолчанию для роли | Microsoft Azure"
    description="Узнайте, как изменять параметры по умолчанию для привилегированных пользователей с помощью расширения для управления привилегированными пользователями Azure Active Directory."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/10/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Управление привилегированными пользователями Azure AD: изменение и просмотр параметров активации по умолчанию для роли
@@ -52,4 +52,4 @@
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

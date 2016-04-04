@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с аутентификацией (Xamarin.Android) — мобильные службы"
+	pageTitle="Приступая к работе с аутентификацией (Xamarin.Android) — мобильные службы"
 	description="Узнайте, как использовать аутентификацию в приложении мобильных служб Azure для Xamarin.Android."
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -18,12 +18,12 @@
 
 # Добавление проверки подлинности к приложению мобильных служб
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Добавление проверки подлинности в приложение Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md).
 
 <p>В этом разделе показано, как аутентифицировать пользователей в мобильных службах Azure с помощью приложения Xamarin.Android. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.</p>
 
@@ -142,4 +142,4 @@
 [Авторизация пользователей с помощью скриптов]: mobile-services-javascript-backend-service-side-authorization.md
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

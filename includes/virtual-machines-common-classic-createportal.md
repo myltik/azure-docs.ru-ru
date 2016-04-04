@@ -1,15 +1,16 @@
 
 
-A *custom* virtual machine simply means a virtual machine that you create using the **From Gallery** option because it gives you more configuration choices than the **Quick Create** option. These choices include:
+*Настраиваемая* виртуальная машина — это просто виртуальная машина, созданная с помощью параметра **Из коллекции**, что дает больший выбор настроек, чем параметр **Быстрое создание**. Вот какие параметры доступны:
 
-- Connecting the virtual machine to a virtual network.
-- Installing the Azure Virtual Machine Agent and Azure Virtual Machine Extensions, such as for antimalware.
-- Adding the virtual machine to existing cloud services.
-- Adding the virtual machine to an existing Storage account.
-- Adding the virtual machine to an availability set.
+- подключение виртуальной машины к виртуальной сети;
+- установка агента виртуальной машины Azure и расширений виртуальной машины Azure, например для защиты от вредоносных программ;
+- добавление виртуальной машины в существующую облачную службу;
+- добавление виртуальной машины в существующую учетную запись хранения;
+- добавление виртуальной машины в группу доступности.
 
-> [AZURE.IMPORTANT] If you want your virtual machine to use a virtual network so you can connect to it directly by host name or set up cross-premises connections, make sure that you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For details on virtual networks, see [Azure Virtual Network overview](virtual-networks-overview.md).
+> [AZURE.IMPORTANT] Если к виртуальной машине необходимо подключаться с помощью имени узла по виртуальной сети или настроить подключения между организациями, при создании виртуальной машины обязательно укажите виртуальную сеть. Виртуальную машину можно настроить для подключения к виртуальной сети только при ее создании. Дополнительную информацию о виртуальных сетях см. в разделе [Обзор виртуальных сетей Azure](virtual-networks-overview.md).
 
 
-## To create the virtual machine
+## Создание виртуальной машины
 
+<!---HONumber=AcomDC_0323_2016-->

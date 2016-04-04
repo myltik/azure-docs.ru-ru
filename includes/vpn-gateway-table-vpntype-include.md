@@ -1,23 +1,25 @@
-### VPN type for the Resource Manager deployment model
+### Тип VPN для модели развертывания Resource Manager
 
-|      | **Route-based**    | **Policy-based** |
+| | **На основе маршрутов** | **На основе политик** |
 |-----------------------------------|--------------------|------------------|
-| **Site-to-Site**                  | yes                | yes              |
-| **VNet-to-VNet**                  | yes                | no               |
-| **Multi-Site**                    | yes                | no               |
-| **S2S and ExpressRoute coexist**  | not yet available  | no               |
-| **Point-to-Site**                 | yes                | no               |
-| **Classic to Resource Manager**   | yes                | no               |
+| **Сеть-сеть** | Да | Да |
+| **Подключение между виртуальными сетями** | Да | Нет |
+| **Несколько сайтов** | Да | Нет |
+| **Сосуществование подключения типа "сеть-сеть" и ExpressRoute** | Пока недоступно | Нет |
+| **Точка-сеть** | Да | Нет |
+| **Классический для диспетчера ресурсов** | Да | Нет |
 
 
-### VPN type for the classic deployment model
+### Тип VPN для классической модели развертывания
 
 
-|       | **Dynamic**        | **Static**   |
+| | **Динамический** | **Статическое** |
 |---------------------------------------------|--------------------|--------------|
-| **Site-to-Site**                            | yes                | yes          |
-| **VNet-to-VNet**                            | yes                | no           |
-| **Multi-Site**                              | yes                | no           |
-| **S2S and ExpressRoute coexist**            | yes                | no           |
-| **Point-to-Site**                           | yes                | no           |
-| **Classic to Resource Manager**             | yes                | no           |
+| **Сеть-сеть** | Да | Да |
+| **Подключение между виртуальными сетями** | Да | Нет |
+| **Несколько сайтов** | Да | Нет |
+| **Сосуществование подключения типа "сеть-сеть" и ExpressRoute** | Да | Нет |
+| **Точка-сеть** | Да | Нет |
+| **Классический для диспетчера ресурсов** | Да | Нет |
+
+<!---HONumber=AcomDC_0323_2016-->

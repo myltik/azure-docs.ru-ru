@@ -182,6 +182,6 @@
 
 ## Дальнейшие действия
 
-- Настройка [рабочей среды](../virtual-machines/virtual-machines-workload-high-availability-LOB-application-overview.md).
+- Настройте [рабочую среду](../virtual-machines/virtual-machines-windows-lob-overview.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

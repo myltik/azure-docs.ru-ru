@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Руководство пользователя агента Linux | Microsoft Azure" 
 	description="Узнайте, как установить и настроить агент Linux (waagent) для управления взаимодействием виртуальной машины с Azure Fabric Controller." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
@@ -64,7 +64,7 @@
 ###Получение агента Linux
 Последнюю версию агента Linux вы можете напрямую получить:
 
-- [у различных поставщиков дистрибутивов, работающих с Linux в Azure](http://support.microsoft.com/kb/2805216);
+- [у различных поставщиков дистрибутивов, работающих с Linux в Azure;](http://support.microsoft.com/kb/2805216)
 - из репозитория [Github открытого исходного кода для агента Linux для Azure](https://github.com/Azure/WALinuxAgent).
 
 
@@ -317,8 +317,8 @@
 - См. следующие ресурсы, если вам нужно настроить точку подключения диска ресурсов и пространство подкачки в образах облаков Ubuntu во время подготовки.
 
  - [Вики-сайт по Ubuntu: настройка разделов подкачки](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
- - [Включение пользовательских данных в виртуальную машину Azure](virtual-machines-how-to-inject-custom-data.md)
+ - [Включение пользовательских данных в виртуальную машину Azure](virtual-machines-windows-classic-inject-custom-data.md)
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

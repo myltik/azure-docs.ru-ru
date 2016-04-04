@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="03/17/2016" 
 	ms.author="sdanie"/>
 
 # Кэш Redis для Azure. Вопросы и ответы
@@ -220,10 +220,31 @@ ConnectTimeout|Время ожидания в миллисекундах для 
 
 -	При наличии кэша уровня "Стандартный" или "Премиум" вы можете запускать команды Redis с помощью [консоли Redis](cache-configure.md#redis-console). Это — защищенный способ выполнения команд Redis на портале Azure.
 -	Также можно использовать средства командной строки Redis. Чтобы воспользоваться ими, выполните следующие действия.
-	-	Загрузите [программы командной строки Redis](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
+	-	Загрузите [программы командной строки Redis](https://github.com/MSOpenTech/redis/releases/).
 	-	Подключитесь к кэшу с помощью `redis-cli.exe`. Передайте конечную точку кэша, используя параметр -h и ключ с параметром -a, как показано в следующем примере.
 		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
 	-	Обратите внимание, что программы командной строки Redis не работают с портом SSL, но можно использовать программу, такую как `stunnel`, для безопасного подключения этих программ к порту SSL в соответствии с указаниями в записи блога [Объявление о поставщике состояний сеансов ASP.NET для предварительной версии Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+
+<a name="cache-emulator"></a>
+## Существует локальный эмулятор кэша Redis для Azure?
+
+Локального эмулятора кэша Redis для Azure нет, но можно запустить версию MSOpenTech redis-server.exe из [программ командной строки Redis](https://github.com/MSOpenTech/redis/releases/) на локальном компьютере и подключиться к нему, чтобы получить возможности, аналогичные локальному эмулятору кэша, как показано в следующем примере.
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+		// Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+	    return ConnectionMultiplexer.Connect("127.0.0.1");
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
+
+При необходимости можно настроить файл [redis.conf](http://redis.io/topics/config) для более точного соответствия [параметрам кэша по умолчанию](cache-configure.md#default-redis-server-configuration) онлайнового кэша Redis для Azure.
 
 <a name="cache-common-patterns"></a>
 ## Приведите некоторые распространенные шаблоны кэша и рекомендации.
@@ -282,4 +303,4 @@ ConnectTimeout|Время ожидания в миллисекундах для 
 
 [параметр конфигурации "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

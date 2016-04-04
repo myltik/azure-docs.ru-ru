@@ -1,4 +1,6 @@
 
 
 
-Take advantage of Microsoft HPC Pack and Azure compute and infrastructure services to create and manage a cloud-based high performance computing (HPC) cluster. [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) is Microsoft's free HPC solution built on Microsoft Azure and Windows Server technologies and supports both Windows and Linux HPC workloads. A cloud-based HPC Pack cluster provides a cluster administrator or independent software vendor (ISV) a flexible, scalable platform to run compute-intensive applications while reducing investment in an on-premises compute cluster infrastructure.
+Используйте преимущества пакета Microsoft HPC и служб вычислений и инфраструктуры Azure для создания кластера высокопроизводительных вычислений (HPC) и управления им. [Пакет HPC](https://technet.microsoft.com/library/jj899572.aspx) — это бесплатное решение Майкрософт для высокопроизводительных вычислений, созданное на основе технологий Microsoft Azure и Windows Server, которое поддерживает рабочие нагрузки HPC как в Windows, так и в Linux. Облачный кластер пакета HPC предоставляет администратору кластера или независимому поставщику ПО (ISV) гибкую, масштабируемую платформу для запуска приложений с большим количеством вычислений, сокращая инвестиции в инфраструктуру локального вычислительного кластера.
+
+<!---HONumber=AcomDC_0323_2016-->

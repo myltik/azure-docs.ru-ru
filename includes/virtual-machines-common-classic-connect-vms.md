@@ -1,47 +1,49 @@
 
 
 
-Virtual machines created with the classic deployment model are always placed in a cloud service. The cloud service acts as a container and provides a unique public DNS name, a public IP address, and a set of endpoints to access the virtual machine over the Internet. The cloud service can be in a virtual network, but that's not a requirement.
+Виртуальные машины, созданные по классической модели развертывания, всегда размещаются в облачной службе. Облачная служба выступает в качестве контейнера и предоставляет уникальное общедоступное DNS-имя, общедоступный IP-адрес и набор конечных точек для доступа к виртуальной машине через Интернет. Облачная служба может находиться в виртуальной сети, но это не обязательно.
 
-If a cloud service isn't in a virtual network, it's called a *standalone* cloud service. The virtual machines in a standalone cloud service can only communicate with other virtual machines by using the other virtual machines’ public DNS names, and the traffic travels over the Internet. If a cloud service is in a virtual network, the virtual machines in that cloud service can communicate with all other virtual machines in the virtual network without sending any traffic over the Internet.
+Если облачная служба не находится в виртуальной сети, она называется *автономной*. Виртуальные машины в изолированной облачной службе могут взаимодействовать с другими виртуальными машинами только с помощью общедоступных DNS-имен других виртуальных машин, при этом трафик проходит через Интернет. Если облачная служба находится в виртуальной сети, виртуальные машины в этой облачной службе могут взаимодействовать со всеми остальными виртуальными машинами в виртуальной сети без отправки трафика через Интернет.
 
-If you place your virtual machines in the same standalone cloud service, you can still use load balancing and availability sets. For details, see [Load balancing virtual machines](load-balance-virtual-machines.md) and [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md). However, you can't organize the virtual machines on subnets or connect a standalone cloud service to your on-premises network. Here's an example:
+Если разместить виртуальные машины в одной автономной облачной службе, можно использовать балансировку нагрузки и группы доступности. Дополнительные сведения см. в разделах [Балансировка нагрузки виртуальных машин](load-balance-virtual-machines.md) и[ Управление доступностью виртуальных машин](virtual-machines-windows-manage-availability.md). Тем не менее, невозможно упорядочить виртуальные машины в подсетях или подключить автономную облачную службу к локальной сети. Ниже приведен пример:
 
-![Virtual machines in a standalone cloud service](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
+![Виртуальные машины в автономной облачной службе](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
-If you place your virtual machines in a virtual network, you can decide how many cloud services you want to use for load balancing and availability sets. Additionally, you can organize the virtual machines on subnets in the same way as your on-premises network and connect the virtual network to your on-premises network. Here's an example:
+Если разместить виртуальные машины в виртуальной сети, можно варьировать количество облачных служб, используемых для балансировки нагрузки и групп доступности. Кроме того, можно упорядочить виртуальные машины в подсетях таким же образом, как в локальной сети и подключить виртуальную сеть к локальной сети. Ниже приведен пример:
 
-![Virtual machines in a virtual network](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
+![Виртуальные машины в виртуальной сети](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
-Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription. To review this and other limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md).
+Виртуальные сети — рекомендуемый способ подключения виртуальных машин в Azure. Рекомендуется настраивать каждый уровень приложения в отдельной облачной службе. Вместе с тем, для соответствия максимальному количеству облачных служб для одной подписки (200 служб) может потребоваться объединить некоторые виртуальные машины из различных уровней приложения в одной облачной службе. Сведения об этом и других ограничениях можно найти в разделе [Подписка Azure, границы, квоты и ограничения службы](azure-subscription-service-limits.md).
 
-## Connect VMs in a virtual network
+## Подключение виртуальных машин в виртуальной сети
 
-To connect virtual machines in a virtual network:
+Для подключения виртуальных машин в виртуальной сети необходимо выполнить следующие действия.
 
-1.	Create the virtual network in the [Azure portal](virtual-networks-create-vnet-classic-pportal.md).
-2.	Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure classic portal, click **New > Compute > Cloud Service > Custom Create** for each cloud service.
-3.	To create each new virtual machine, click **New > Compute > Virtual Machine > From Gallery**. Choose the correct cloud service and virtual network for the VM. If the cloud service is already joined to a virtual network, its name will already be selected for you.
+1.	Создайте виртуальную сеть на [портале Azure](virtual-networks-create-vnet-classic-pportal.md).
+2.	Создайте набор облачных служб для вашего развертывания, отражающих структуру групп доступности и балансировки нагрузки. На классическом портале Azure для каждой облачной службы последовательно выберите пункты **Создать > Среда выполнения приложений > Облачная служба > Создать пользовательскую службу**.
+3.	Для создания каждой виртуальной машины последовательно выберите пункты **Создать > Среда выполнения приложений > Виртуальная машина > Из коллекции**. Выберите необходимую облачную службу и виртуальную сеть для виртуальной машины. Если облачная служба уже присоединена к виртуальной сети, ее имя будет выбрано автоматически.
 
-![Selecting a cloud service for a virtual machine](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
+![Выбор облачной службы для виртуальной машины](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
 
-## Connect VMs in a standalone cloud service
+## Подключение виртуальных машин в автономной облачной службе
 
-To connect virtual machines in a standalone cloud service:
+Подключение виртуальных машин в автономной облачной службе:
 
-1.	Create the cloud service in the [Azure classic portal](http://manage.windowsazure.com). Click **New > Compute > Cloud Service > Custom Create**. Or, you can create the cloud service for your deployment when you create your first virtual machine.
+1.	Создайте облачную службу на [классическом портале Azure](http://manage.windowsazure.com). щелкните **Создать > Вычисления > Облачная служба > Настраиваемое создание**. Создать облачную службу для развертывания также можно в момент создания первой виртуальной машины.
 
-2.	When you create the virtual machines, choose the name of cloud service created in the previous step.
+2.	При создании виртуальных машин укажите имя облачной службы, созданной на предыдущем шаге.
 
-	![Add a virtual machine to an existing cloud service](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
+	![Добавление виртуальной машины в существующую облачную службу](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
 
-##Resources
-[Load balancing virtual machines](load-balance-virtual-machines.md)
+##Ресурсы
+[Балансировка нагрузки виртуальных машин](load-balance-virtual-machines.md)
 
-[Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md)
+[Управление доступностью виртуальных машин](virtual-machines-windows-manage-availability.md)
 
-After you create a virtual machine, it's a good idea to add a data disk so your services and workloads have a location to store data. See one of the following:
+После создания виртуальной машины рекомендуется добавить диск данных, чтобы ваши службы и рабочие нагрузки имели расположение для хранения данных. См .один из следующих разделов:
 
-[How to Attach a Data Disk to a Linux Virtual Machine](virtual-machines-linux-classic-attach-disk.md)
+[Подключение диска данных к виртуальной машине Linux](virtual-machines-linux-classic-attach-disk.md)
 
-[How to Attach a Data Disk to a Windows Virtual Machine](virtual-machines-windows-classic-attach-disk.md)
+[Подключение диска данных к виртуальной машине Windows](virtual-machines-windows-classic-attach-disk.md)
+
+<!---HONumber=AcomDC_0323_2016-->

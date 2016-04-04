@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Аналитика приложений — мощная поисковая система для Application Insights" 
-	description="Обзор аналитики приложений — мощной поисковой системы для Application Insights." 
+	pageTitle="Аналитика — мощный инструмент поиска Application Insights" 
+	description="Обзор аналитики — мощного инструмента поиска Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
 
-# Аналитика Application Insights: обзор языка
+# Аналитика в Application Insights
 
 
-[Аналитика Application Insights](app-analytics.md) — это мощный обработчик запросов для телеметрии [Application Insights](app-insights-overview.md). На этих страницах описан AIQL, язык запросов аналитики Application Insights.
+[Аналитика](app-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
-Типичный запрос AIQL содержит *исходную* таблицу и ряд *операторов*, разделенных `|`.
+Типичный запрос содержит *исходную* таблицу и ряд *операторов*, разделенных `|`.
 
 Например, давайте выясним, в какое время суток граждане Хайдерабада испытывают наше веб-приложение. Кроме того, давайте еще посмотрим, какие коды результата возвращаются в ответ на их HTTP-запросы.
 
@@ -79,4 +79,4 @@
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

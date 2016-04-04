@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Управление привилегированными пользователями Azure AD: как включить обязательную многофакторную проверку подлинности"
+   pageTitle="Как сделать многофакторную проверку подлинности обязательной | Microsoft Azure"
    description="Узнайте, как включить обязательную многофакторную проверку подлинности для привилегированных пользователей с помощью расширения для управления привилегированными пользователями Azure Active Directory."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Управление привилегированными пользователями Azure: как сделать использование MFA обязательным
+# Управление привилегированными пользователями Azure AD: как сделать использование MFA обязательным
 
 Мы рекомендуем использовать многофакторную проверку подлинности для всех администраторов.
 
@@ -41,4 +41,4 @@
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

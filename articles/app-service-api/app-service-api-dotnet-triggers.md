@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/16/2016" 
 	ms.author="guayan"/>
 
 # Триггеры приложения API службы приложений Azure
+
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений API со схемой версии 2014-12-01-preview.
+
 
 ## Обзор
 
@@ -339,4 +342,4 @@
     }
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

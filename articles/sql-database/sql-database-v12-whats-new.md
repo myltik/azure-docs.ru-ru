@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/08/2016" 
+	ms.date="03/21/2016" 
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,7 @@
 Основной целью Базы данных SQL версии 12 было улучшение совместимости с Microsoft SQL Server 2014 и ее сохранение по мере выпуска новых версий SQL Server. Помимо прочего, версия 12 вышла на один уровень с сервером SQL Server с точки зрения возможностей программирования. Например:
 
 
-- [оконные функции](http://msdn.microsoft.com/library/bb934097.aspx) и поддержка [OVER](http://msdn.microsoft.com/library/ms189461.aspx); 
+- [оконные функции](http://msdn.microsoft.com/library/ms189798.aspx) и поддержка [OVER](http://msdn.microsoft.com/library/ms189461.aspx); 
 
 - [XML-индексы](http://msdn.microsoft.com/library/bb934097.aspx) и [выборочные XML-индексы](http://msdn.microsoft.com/library/jj670104.aspx);
 
@@ -166,4 +166,4 @@
 
 [Дополнительные условия использования для предварительных версий Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -365,7 +365,7 @@
 
 	c. Найдите значение objectid для субъекта-службы приложения TodoListAPI и сохраните его в расположении, из которого сможете скопировать его позже.
 
-7. На портале Azure перейдите к колонке веб-приложения, в котором развернут проект ToDoListAngular.
+7. На портале Azure перейдите к колонке приложения API, в которое был развернут проект ToDoListDataAPI.
 
 9. Щелкните элементы **Параметры > Параметры приложения**.
 
@@ -417,4 +417,4 @@
 
 Сведения о других способах развертывания проектов Visual Studio в приложениях API с помощью Visual Studio или функции [автоматизации развертывания](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) из [системы управления версиями](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control) см. в статье [Развертывание приложения в службе приложений Azure](../app-service-web/web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

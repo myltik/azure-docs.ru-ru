@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Управление привилегированными пользователями Azure: роли"
+   pageTitle="Роли в PIM | Microsoft Azure"
    description="Узнайте, какие роли можно использовать для привилегированных пользователей с помощью расширения для управления привилегированными пользователями Azure."
    services="active-directory"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Управление привилегированными пользователями Azure: роли
+# Управление привилегированными пользователями Azure AD: роли
 
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
-## Роли из Azure Active Directory, Office 365 и других источников
+## Роли из Azure Active Directory, Office 365 и других источников
 
 Система управления привилегированными пользователями Azure (PIM) использует указанные ниже роли в качестве ролей администраторов по умолчанию.
 
@@ -30,7 +30,7 @@
 - администратора пользователей;
 - администратора паролей.
 
-Дополнительные сведения о ролях Office 365, Exchange Online, Sharepoint Online и Skype для бизнеса см. в статье [Назначение ролей администратора в Office 365](https://support.office.com/ru-RU/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=ru-RU&rs=ru-RU&ad=US).
+Дополнительные сведения о ролях Office 365, Exchange Online, Sharepoint Online и Skype для бизнеса см. в статье [Назначение ролей администратора в Office 365](https://support.office.com/ru-RU/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=ru-RU&rs=ru-RU&ad=US).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
@@ -40,7 +40,7 @@
 ## Роли пользователей и вход в систему
 > [AZURE.NOTE]Чтобы пользователь мог входить в систему управления привилегированными пользователями Azure, у него должна быть лицензия на использование Azure.
 
-## Назначение лицензии пользователю в Azure AD
+## Назначение лицензии пользователю в Azure AD
 
 > [AZURE.NOTE] Параметр лицензии отображается только тогда, когда для этой подписки на самом деле имеются лицензии.
 
@@ -57,4 +57,4 @@
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

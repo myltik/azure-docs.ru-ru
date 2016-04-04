@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="03/21/2016"
 	ms.author="spelluru"/>
 
 # Перемещение данных в озеро данных Azure и обратно с помощью фабрики данных Azure
@@ -58,7 +58,7 @@
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -69,7 +69,7 @@
 Далее приводятся пошаговые инструкции по созданию связанной службы хранилища озера данных Azure с помощью редактора фабрики данных.
 
 1. Щелкните **Новое хранилище данных** на панели команд и выберите **Хранилище озера данных Azure**.
-2. В редакторе JSON введите URI озера данных как значение свойства **datalakeUri**.
+2. В редакторе JSON введите универсальный код ресурса (URI) озера данных как значение свойства **dataLakeStoreUri**.
 3. Щелкните кнопку **Авторизовать** на панели команд. Появится всплывающее окно.
 
 	![Кнопка "Авторизовать"](./media/data-factory-azure-data-lake-connector/authorize-button.png)
@@ -235,7 +235,7 @@
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -405,7 +405,7 @@
 | Свойство | Описание | Обязательно |
 | :-------- | :----------- | :-------- |
 | type | Для свойства type следует задать значение **AzureDataLakeStore** | Да |
-| dataLakeUri | Указывает сведения об учетной записи хранилища озера данных Azure в следующем формате: https://<Azure Data Lake account name>.azuredatalake.net/webhdfs/v1 | Да |
+| dataLakeStoreUri | Указывает сведения об учетной записи хранилища озера данных Azure в следующем формате: https://<Azure Data Lake account name>.azuredatalake.net/webhdfs/v1 | Да |
 | authorization | Нажмите кнопку **Авторизовать** в **редакторе фабрики данных** и введите учетные данные. URL-адрес авторизации будет создан автоматически и присвоен этому свойству. | Да |
 | sessionId | Идентификатор сеанса OAuth из сеанса авторизации oauth. Каждый идентификатор сеанса является уникальным и используется только один раз. Он создается автоматически при использовании редактора данных фабрики. | Да |  
 | accountName | Имя учетной записи озера данных | Нет |
@@ -608,4 +608,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -50,6 +50,7 @@
 
 Ниже перечислены средства, которые можно использовать:
  
+* [Azure Stream Analytics](../stream-analytics-data-lake-output). События, принятые в концентраторы событий, могут записываться в озеро данных Azure с помощью вывода хранилища озера данных Azure.
 * [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md). Данные из кластера Storm можно напрямую записывать в хранилище озера данных.
 * [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost). Можно получать события из концентраторов событий и затем записывать их в хранилище озера данных с помощью [пакета SDK для .NET хранилища озера данных](data-lake-store-get-started-net-sdk.md).
 
@@ -84,7 +85,7 @@
 
 Для отправки наборов данных размером в несколько терабайт использование описанных выше методов иногда может быть медленным и затратным процессом. В таких ситуациях подойдут приведенные далее варианты.
 
-* **"Автономная" отправка данных**. Используйте [службу импорта и экспорта Azure](../storage/storage-import-export-service.md) для отправки жестких дисков с данными в центр обработки данных Azure. После этого ваши данные будут отправлены в BLOB-объект хранилища Azure. Затем с помощью [фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) или [средства AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) можно переместить данные из BLOB-объектов хранилища Azure в хранилище озера данных.
+* **"Автономная" передача данных**. Используйте [службу импорта и экспорта Azure](../storage/storage-import-export-service.md) для доставки жестких дисков с данными в центр обработки данных Azure. После этого ваши данные будут переданы в большой двоичный объект хранилища Azure. Затем с помощью [фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) или [инструмента AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) можно переместить данные из больших двоичных объектов хранилища Azure в хранилище озера данных.
 
 	>[AZURE.NOTE] При использовании службы импорта и экспорта размеры файлов на дисках, отправляемых в ЦОД Azure, не должны превышать 200 ГБ.
 
@@ -133,4 +134,4 @@
 * Сначала с помощью [фабрики данных Azure переместите данные из хранилища озера данных в хранилище данных SQL Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores).
 * После этого вы можете [интегрировать Power BI с хранилищем данных SQL Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi) для создания визуального представления данных.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

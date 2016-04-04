@@ -3,9 +3,9 @@
 	description="Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="storage" 
@@ -14,7 +14,7 @@
 	ms.devlang="ruby" 
 	ms.topic="article" 
 	ms.date="02/23/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Использование хранилища очередей из Ruby
@@ -31,7 +31,7 @@
 
 ## Создание приложения Ruby
 
-Создайте приложение Ruby. Инструкции см. в разделе [Веб-приложение Ruby on Rails на виртуальной машине Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Создайте приложение Ruby. Инструкции см. в разделе [Веб-приложение Ruby on Rails на виртуальной машине Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Настройка приложения для доступа к хранилищу
 
@@ -162,4 +162,4 @@
 Сравнение службы очередей Azure, описанной в этой статье, и очередей служебной шины Azure, описанных в статье [Как использовать очереди служебной шины](/develop/ruby/how-to-guides/service-bus-queues/), см. в статье [Очереди Azure и очереди служебной шины: сходства и различия](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
  
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

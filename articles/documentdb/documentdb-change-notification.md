@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="03/10/2016" 
+    ms.date="03/17/2016" 
     ms.author="b-hoedid"/>
 
 # Уведомления о новых или измененных ресурсах DocumentDB с использованием приложений логики
@@ -624,7 +624,7 @@ DocumentDB является репозиторием для документов
 
 Код создается из действия в конструкторе. Изменять код не требуется.
 
-Если вы не знаете, как использовать API BLOB-объектов Azure, см. статью [Начало работы с API хранилища BLOB-объектов Azure](../connectors/create-api-azureblobstorage.md).
+Если вы не знаете, как использовать API больших двоичных объектов Azure, см. статью [Начало работы с API хранилища BLOB-объектов Azure](../connectors/connectors-create-api-azureblobstorage.md).
 
 #### Операции
 
@@ -1156,4 +1156,4 @@ EmailTo | Адрес электронной почты, на который бу
 
 Дополнительные сведения о DocumentDB см. на странице [схемы обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

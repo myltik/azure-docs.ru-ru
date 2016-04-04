@@ -1,0 +1,26 @@
+<properties
+ pageTitle="Агент виртуальной машины Azure и расширения | Microsoft Azure"
+ description="Статья описывает агент, расширения, а также способы установки агента с помощью классической модели развертывания."
+ services="virtual-machines-linux"
+ documentationCenter=""
+ authors="squillace"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
+
+<tags
+ ms.service="virtual-machines-linux"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-linux"
+ ms.workload="infrastructure-services"
+ ms.date="01/04/2016"
+ ms.author="rasquill"/>
+
+#Обзор агента и расширений виртуальной машины
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
+[AZURE.INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
+
+<!---HONumber=AcomDC_0323_2016-->

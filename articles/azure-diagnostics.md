@@ -58,7 +58,7 @@
 Более подробные сведения см. в статьях:
 - [Использование диагностики Azure с Application Insights для облачных служб](./application-insights/app-insights-cloudservices.md)
 - [Трассировка потока в приложении облачных служб с помощью системы диагностики Azure](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-- [Использование PowerShell для настройки диагностики в облачных службах](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
+- [Использование PowerShell для настройки диагностики в облачных службах](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
 
 
 ## Виртуальные машины с использованием диагностики Azure
@@ -66,8 +66,8 @@
 - [Настройка диагностики Azure на виртуальной машине Azure](./virtual-machines-dotnet-diagnostics.md)
 
 Более подробные сведения см. в статьях:
-- [Использование PowerShell для настройки диагностики на виртуальных машинах Azure](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
-- [Создание виртуальной машины Windows с мониторингом и диагностикой с использованием шаблона диспетчера ресурсов Azure](./virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md)
+- [Использование PowerShell для настройки диагностики на виртуальных машинах Azure](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
+- [Создание виртуальной машины Windows с мониторингом и диагностикой с использованием шаблона диспетчера ресурсов Azure](./virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
 ## Service Fabric с использованием диагностики Azure
 Начните со статьи [Мониторинг приложения Service Fabric](./service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). В дереве навигации слева от нее вы найдете ссылки на множество других статей по диагностике Service Fabric.
@@ -79,4 +79,4 @@
 - Узнайте, как [направлять данные диагностики Azure в Application Insights](./azure-diagnostics-configure-applicationinsights.md).
 - Если возникнут проблемы с запуском диагностики или поиском данных в таблицах хранилища Azure, см. статью [Устранение неполадок системы диагностики Azure](./azure-diagnostics-troubleshooting.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

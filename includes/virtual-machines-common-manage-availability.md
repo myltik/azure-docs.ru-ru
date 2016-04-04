@@ -1,50 +1,52 @@
-## Understand planned vs. unplanned maintenance
-There are two types of Microsoft Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
+## Сравнение планового и внепланового обслуживания
+На доступность ваших виртуальных машин могут повлиять такие два типа событий платформы Microsoft Azure: плановое и внеплановое обслуживание.
 
-- **Planned maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. The majority of these updates are performed without any impact upon your virtual machines or cloud services. However, there are instances where these updates require a reboot of your virtual machine to apply the required updates to the platform infrastructure.
+- **События запланированного обслуживания** — это периодические обновления, осуществляемые корпорацией Майкрософт на базовой платформе Azure для улучшения общей надежности, производительности и безопасности инфраструктуры платформы, на которой работают ваши виртуальные машины. Большинство таких обновлений выполняется без какого-либо воздействия на ваши виртуальные машины или облачные службы. Тем не менее в некоторых случаях требуется перезагрузить виртуальную машину, чтобы применить необходимые обновления к инфраструктуре платформы.
 
-- **Unplanned maintenance events** occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical machine hosting your virtual machine to a healthy physical machine. Such events are rare, but may also cause your virtual machine to reboot.
+- **События незапланированного обслуживания** происходят в тех случаях, когда в оборудовании или физической инфраструктуре, на основе которых работает виртуальная машина, происходит какая-либо ошибка. Это могут быть сбои локальной сети или локальных жестких дисков, а также другие ошибки на уровне стойки. При выявлении такой ошибки платформа Azure автоматически выполнит перенос вашей виртуальной машины с неработоспособной физической машины, где она размещена, на исправную. Это происходит редко, но также может быть причиной перезагрузки вашей виртуальной машины.
 
-## Follow best practices when you design your application for high availability
-To reduce the impact of downtime due to one or more of these events, we recommend the following high availability best practices for your virtual machines:
+## Следуйте рекомендациям, чтобы обеспечить высокий уровень доступности разрабатываемых вами приложений
+Чтобы уменьшить воздействие простоя из-за одного или нескольких из описанных здесь событий, мы рекомендуем вам выполнить на своих виртуальных машинах следующие действия по обеспечению высокого уровня доступности.
 
-* [Configure multiple virtual machines in an Availability Set for redundancy]
-* [Configure each application tier into separate Availability Sets]
-* [Combine the Load Balancer with Availability Sets]
-* [Avoid single instance virtual machines in Availability Sets]
+* [Настройка нескольких виртуальных машин в группе доступности для обеспечения избыточности]
+* [Настройка каждого уровня приложений в отдельной группе доступности]
+* [Объединение подсистемы балансировки нагрузки с группами доступности]
+* [Избежание наличия одиночных экземпляров виртуальных машин в группах доступности]
 
-### Configure multiple virtual machines in an Availability Set for redundancy
-To provide redundancy to your application, we recommend that you group two or more virtual machines in an Availability Set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information about service level agreements, see the “Cloud Services, virtual machines, and Virtual Network” section in [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+### Настройка нескольких виртуальных машин в группе доступности для обеспечения избыточности
+Чтобы обеспечить избыточность для своего приложения, мы рекомендуем сгруппировать две или больше виртуальных машин в группе доступности. Эта конфигурация обеспечит доступность не менее одной виртуальной машины и достижение показателя 99,95 % уровня обслуживания (SLA) Azure как при событиях запланированного обслуживания, так и при незапланированного. Дополнительные сведения о соглашениях об уровне обслуживания см. в разделе «Облачные службы, виртуальные машины и виртуальная сеть» в [соглашении об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/).
 
-Each virtual machine in your Availability Set is assigned an Update Domain (UD) and a Fault Domain (FD) by the underlying Azure platform. For a given Availability Set, five non-user-configurable UDs are assigned to indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. When more than five virtual machines are configured within a single Availability Set, the sixth virtual machine will be placed into the same UD as the first virtual machine, the seventh in the same UD as the second virtual machine, and so on. The order of UDs being rebooted may not proceed sequentially during planned maintenance, but only one UD will be rebooted at a time.
+Платформа Azure назначает каждой виртуальной машине в группе доступности домен обновления (UD) и домен сбоя (FD). Для заданной группы доступности присваивается пять доменов обновления, без возможности изменения пользователем, чтобы указать группы виртуальных машин и базовое физическое оборудование, которые могут быть одновременно перезагружены. Если в одной группе доступности настраивается более пяти виртуальных машин, то шестая виртуальная машина будет помещена в тот же домен обновления, что первая виртуальная машина, седьмая — что и вторая, и т. д. Порядок перезагрузки доменов обновления при выполнении запланированного обслуживания может не быть последовательным, но одновременно будет перезагружаться только один домен обновления.
 
-FDs define the group of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your Availability Set are separated across two FDs. While placing your virtual machines into an Availability Set does not protect your application from operating system or application-specific failures, it does limit the impact of potential physical hardware failures, network outages, or power interruptions.
-
-<!--Image reference-->
-   ![UD FD configuration](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
-
->[AZURE.NOTE] For instructions, see [How to Configure an Availability Set for virtual machines] [].
-
-### Configure each application tier into separate Availability Sets
-If the virtual machines in your Availability Set are all nearly identical and serve the same purpose for your application, we recommend that you configure an Availability Set for each tier of your application.  If you place two different tiers in the same Availability Set, all virtual machines in the same application tier can be rebooted at once. By configuring at least two virtual machines in an Availability Set for each tier, you guarantee that at least one virtual machine in each tier will be available.
-
-For example, you could put all the virtual machines in the front-end of your application running IIS, Apache, Nginx, etc., in a single Availability Set. Make sure that only front-end virtual machines are placed in the same Availability Set. Similarly, make sure that only data-tier virtual machines are placed in their own Availability Set, like your replicated SQL Server virtual machines or your MySQL virtual machines.
+Домены сбоя определяют группу виртуальных машин, которые совместно используют общий источник питания и сетевой коммутатор. По умолчанию виртуальные машины, настроенные вами в группе доступности, разделяются на два домена сбоя. Внесение виртуальных машин в группу доступности не защитит ваше приложение от сбоев, связанных с операционной системой или приложениями, однако это ограничит последствия сбоев физического оборудования, сети и электропитания.
 
 <!--Image reference-->
-   ![Application tiers](./media/virtual-machines-common-manage-availability/application-tiers.png)
+   ![Настройка домена обновления и домена сбоя](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+
+>[AZURE.NOTE] Необходимые инструкции см. в статье [Настройка группы доступности для виртуальных машин][].
+
+### Настройка каждого уровня приложений в отдельной группе доступности
+Если все виртуальные машины в группе доступности примерно идентичны и служат для одной и той же цели приложения, мы рекомендуем настраивать по одной группе доступности для каждого уровня приложения. Если разместить два различных уровня в одной группе доступности, то можно одновременно перезапускать все виртуальные машины на одном уровне приложения. Настроив хотя бы по две виртуальные машины в группе доступности для каждого уровня, вы гарантируете, что хотя бы одна виртуальная машина на каждом уровне будет доступна.
+
+Например, вы можете поместить все виртуальные машины из внешнего интерфейса приложения под управлением IIS, Apache, Nginx и т. д. в одну группу доступности. Убедитесь, что в одну группу доступности помещены только виртуальные машины из интерфейсной части. Аналогичным образом убедитесь, что в другую группу доступности помещены только виртуальные машины уровня данных, например реплицированные виртуальные машины SQL Server или MySQL.
+
+<!--Image reference-->
+   ![Уровни приложений](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 
-### Combine the Load Balancer with Availability Sets
-Combine the Azure Load Balancer with an Availability Set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Note that not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, read [Load Balancing virtual machines](virtual-machines-linux-load-balance.md).
+### Объединение подсистемы балансировки нагрузки с группами доступности
+Для получения максимальной устойчивости приложения объедините подсистему балансировки нагрузки Azure с группой доступности. Подсистема балансировки нагрузки Azure распределяет трафик между несколькими виртуальными машинами. Наши виртуальные машины стандартного уровня включают в себя подсистему балансировки нагрузки Azure. Обратите внимание, что не все уровни виртуальных машин имеют балансировщик нагрузки Azure. Дополнительные сведения о балансировке нагрузки виртуальных машин см. в статье [Балансировка нагрузки виртуальных машин](virtual-machines-linux-load-balance.md).
 
-If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event will affect the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and Availability Set enables traffic to be continuously served by at least one instance.
+Если подсистема балансировки нагрузки не настроена для балансировки трафика между несколькими виртуальными машинами, то любое запланированное событие обслуживания будет оказывать воздействие на единственную виртуальную машину, обслуживающую трафик, что приведет к сбою на уровне приложений. Если поместить несколько виртуальных машин одного уровня в одну подсистему балансировки нагрузки и группу доступности, то трафик будет непрерывно обслуживаться хотя бы одним экземпляром.
 
-### Avoid single instance virtual machines in Availability Sets
-Avoid leaving a single instance virtual machine in an Availability Set by itself. Virtual machines in this configuration do not qualify for a SLA guarantee and will face downtime during Azure planned maintenance events. Please note, single virtual machine instance within an Availability Set, will also receive advanced email notification in multi-instance virtual machines planned maintenance notification. 
+### Не оставляйте в группах доступности одиночные экземпляры виртуальных машин
+Избегайте ситуации, когда в группе доступности остается один экземпляр виртуальной машины. В такой конфигурации виртуальные машины не смогут обеспечивать уровень обслуживания, предусмотренный соглашением об уровне обслуживания, и будут простаивать во время плановых сеансов обслуживания Azure. Обратите внимание, что на виртуальных машинах с несколькими экземплярами и запланированным уведомлением об обслуживании одиночный экземпляр виртуальной машины в группе доступности также будет получать дополнительные уведомления по электронной почте.
 
 <!-- Link references -->
-[Configure multiple virtual machines in an Availability Set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configure each application tier into separate Availability Sets]: #configure-each-application-tier-into-separate-availability-sets
-[Combine the Load Balancer with Availability Sets]: #combine-the-load-balancer-with-availability-sets
-[Avoid single instance virtual machines in Availability Sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[How to Configure An Availability Set for virtual machines]: virtual-machines-windows-classic-configure-availability.md
+[Настройка нескольких виртуальных машин в группе доступности для обеспечения избыточности]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
+[Настройка каждого уровня приложений в отдельной группе доступности]: #configure-each-application-tier-into-separate-availability-sets
+[Объединение подсистемы балансировки нагрузки с группами доступности]: #combine-the-load-balancer-with-availability-sets
+[Избежание наличия одиночных экземпляров виртуальных машин в группах доступности]: #avoid-single-instance-virtual-machines-in-availability-sets
+[Настройка группы доступности для виртуальных машин]: virtual-machines-windows-classic-configure-availability.md
+
+<!---HONumber=AcomDC_0323_2016-->

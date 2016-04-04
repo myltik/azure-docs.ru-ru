@@ -18,6 +18,11 @@
 
 # Развертывание службы Azure Site Recovery с использованием PowerShell и диспетчера ресурсов Azure
 
+> [AZURE.SELECTOR]
+- [Классический портал Azure](site-recovery-hyper-v-site-to-azure.md)
+- [PowerShell — Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+
+
 
 ## Обзор
 
@@ -262,4 +267,4 @@ Azure PowerShell — это модуль, предоставляющий ком�
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -63,7 +63,7 @@
 
 ## Создание приложения Ruby
 
-Инструкции см. в разделе [Создание приложения Ruby в Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Инструкции см. в разделе [Создание приложения Ruby в Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Настройка приложения для использования служебной шины
 
@@ -238,4 +238,4 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 [классический портал Azure]: http://manage.windowsazure.com
 [классическом портале Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

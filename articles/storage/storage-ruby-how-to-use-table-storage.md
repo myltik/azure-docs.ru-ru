@@ -3,9 +3,9 @@
 	description="Сведения об использовании табличного хранилища Azure в Azure. Примеры написаны с помощью Ruby API."
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Использование табличного хранилища Azure в Ruby
@@ -31,7 +31,7 @@
 
 ## Создание приложения Ruby
 
-Указания о том, как создать приложение Ruby, см. в разделе [Веб-приложение Ruby on Rails на виртуальной машине Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Инструкции о том, как создать приложение Ruby, см. в разделе [Веб-приложение Ruby on Rails на виртуальной машине Azure](../virtual-machines/virtual-machines-ruby-rails-linux-classic-web-app.md).
 
 ## Настройка приложения для доступа к хранилищу
 
@@ -163,4 +163,4 @@
 - [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Репозиторий [пакетов Azure SDK для Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

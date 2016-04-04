@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/16/2016"
 	ms.author="billmath"/>
 
 # Дальнейшие действия и управление Azure AD Connect
 Ниже приведены дополнительные сведения, которые помогут вам настроить Azure Active Directory Connect в соответствии с потребностями вашей организации.
+
+## Добавление дополнительных администраторов синхронизации
+По умолчанию только пользователь, выполнивший установку, и локальные администраторы смогут управлять установленным модулем синхронизации. Чтобы предоставить дополнительным пользователям доступ к модулю синхронизации и возможность управлять им, найдите группу ADSyncAdmins на локальном сервере и добавьте их в эту группу.
 
 ## Дополнительная настройка службы AD FS
 Вы можете настроить иллюстрации и эмблемы страниц входа AD FS. Для этого войдите в AD FS и используйте для этих изменений PSH.
@@ -58,7 +61,7 @@
 
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
-Дополнительные сведения о планировщике синхронизации Azure AD Connect см. в разделе [Azure AD Connect Scheduler](active-directory-aadconnectsync-feature-scheduler.md).
+Дополнительные сведения о планировщике синхронизации Azure AD Connect см. в разделе [Синхронизация Azure AD Connect: планировщик](active-directory-aadconnectsync-feature-scheduler.md).
 
 
 ## Дополнительные задачи в Azure AD Connect
@@ -78,4 +81,4 @@
 ## Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

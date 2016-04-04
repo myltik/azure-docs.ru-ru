@@ -1,65 +1,67 @@
 
 
-[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating application data and computing on shared resources. You can use the [Azure Docker VM extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md) to the [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) to create a Docker VM that hosts any number of containers for your applications on Azure.
+[Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных приложения и вычислений при использовании общих ресурсов. Можно использовать [расширение Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) в [агенте Linux для Azure](virtual-machines-linux-agent-user-guide.md) для создания виртуальной машины, в которой будет размещено любое количество контейнеров с приложениями Azure.
 
-This topic describes:
+Содержание этого раздела:
 
-+ [Docker and Linux Containers]
-+ [How to use the Docker VM Extension with Azure]
-+ [Virtual Machine Extensions for Linux and Windows]
++ [Контейнеры Docker и Linux]
++ [Использование расширения виртуальных машин Docker в Azure]
++ [Расширения виртуальных машин для Linux и Windows]
 
-To create Docker-enabled VMs right now, see:
+Для создания виртуальных машин с поддержкой Docker см. раздел
 
-+ [How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]
-+ [How to use the Docker VM Extension with the Azure classic portal]
-+ [How to Get Started Quickly with Docker in the Azure Marketplace]
++ [Использование расширения виртуальных машин Docker из интерфейса командной строки Azure (CLI Azure)]
++ [Использование расширения виртуальных машин Docker на классическом портале Azure]
++ [Быстрое начало работы с Docker в Azure Marketplace]
 
-To learn more about the extension and how it works, see the [Docker Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md).
+Дополнительные сведения о расширении и способе его работы см. в разделе [Руководство пользователя по расширению Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md).
 
-## Docker and Linux Containers
-[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources and provides other services that enable you to build or assemble applications quickly and distribute them between other Docker containers.
+## Контейнеры Docker и Linux
+[Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных и вычислений при использовании общих ресурсов и обеспечивающий другие службы, которые позволяют быстро создавать или компоновать приложения и распространять их среди других контейнеров Docker.
 
-Docker and Linux containers are not [Hypervisors](http://en.wikipedia.org/wiki/Hypervisor) such as Windows Hyper-V and [KVM](http://www.linux-kvm.org/page/Main_Page) on Linux (there are many other examples). Hypervisors virtualize the underlying operating system to enable complete operating systems (called *virtual machines*) to run inside the hypervisor as if they were an application.
+Docker и контейнеры Linux не являются [гипервизорами](http://en.wikipedia.org/wiki/Hypervisor), такими как Windows Hyper-V и [KVM](http://www.linux-kvm.org/page/Main_Page) в Linux (существует множество других примеров). Гипервизоры виртуализируют базовую операционную систему для того, чтобы полноценные операционные системы (называемые *виртуальными машинами*) могли выполняться внутри гипервизора так, как будто они являются приложением.
 
-Docker and other *container* approaches have radically decreased both the start-up time consumed and processing and storage overhead required by using the process and file system isolation features of the Linux kernel to expose only kernel features to an otherwise isolated container.
+Докер и другие подходы с использованием *контейнеров* позволили радикально уменьшить как время запуска, так и затраты на обработку и необходимый объем хранимой информации при помощи возможностей изоляции процессов и файловой системы с использованием особенностей ядра Linux, предоставляя полностью изолированным контейнерам доступ только к возможностям ядра.
 
-The following table describes at a very high level the kind of feature differences that exist between hypervisors and Linux containers. Note that some features maybe more or less desirable depending upon your own application needs.
+Следующая таблица содержит обзорное описание функциональных различий между гипервизорами и контейнерами Linux. Обратите внимание, что полезность ряда функций зависит от потребностей конкретного приложения.
 
-|   Feature      | Hypervisors | Containers  |
+| Функция | Гипервизоры | Контейнеры |
 | :------------- |-------------| ----------- |
-| Process Isolation | More or less complete | If root is obtained, container host could be compromised |
-| Memory on disk required | Complete OS plus apps | App requirements only |
-| Time taken to start up | Substantially Longer: Boot of OS plus app loading | Substantially shorter: Only apps need to start because kernel is already running  |
-| Container Automation | Varies widely depending on OS and apps | [Docker image gallery](https://registry.hub.docker.com/); others
+| Изоляция процессов | Более или менее полная | При получении корневого процесса узел контейнера может быть поставлен под угрозу |
+| Требуется память на диске | Полная версия ОС и приложения | Только требования приложений |
+| Время для запуска | Значительно дольше: загрузка ОС и приложений | Значительно быстрее: необходим только запуск приложений, так как ядро уже работает |
+| Автоматизация контейнера | Зависит от ОС и приложений | [Коллекция образов Docker](https://registry.hub.docker.com/); прочее
 
-To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+Обзорное обсуждение контейнеров и их преимуществ см. на [доске по Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
-For more information about what Docker is and how it really works, see [What is Docker?](https://www.docker.com/whatisdocker/)
+Для получения дополнительной информации о расширении Docker и о том, как оно функционирует, см. раздел [Что такое Docker?](https://www.docker.com/whatisdocker/)
 
-#### Docker and Linux Container Security Best Practices
+#### Советы и рекомендации по безопасности контейнеров Docker и Linux
 
-Because containers do share access to the host computer's kernel, if malicious code is able to gain root it may also be able to gain access not only to the host computer but also the other containers. To secure your container system more strongly than the default configuration, [Docker recommends](https://docs.docker.com/articles/security/) using addition group-policy or [role-based security](http://en.wikipedia.org/wiki/Role-based_access_control) as well, such as [SELinux](http://selinuxproject.org/page/Main_Page) or [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), for example, as well as reducing as much as possible the kernel capabilities that the containers are granted. In addition, there are many other documents on the Internet that describe approaches to security using containers like Docker.
+Поскольку контейнеры предоставляют общий доступ к ядру главного компьютера, то в случае, если вредоносный код сможет получить права привилегированного пользователя, он также может оказаться в состоянии получить доступ не только к компьютеру, но и к другим контейнерам. Чтобы обеспечить безопасность для системы контейнеров на более высоком уровне по сравнению с конфигурацией по умолчанию, [Docker рекомендует](https://docs.docker.com/articles/security/) использовать дополнительную групповую политику или [обеспечение безопасности на основе ролей](http://en.wikipedia.org/wiki/Role-based_access_control), а также, например, [SELinux](http://selinuxproject.org/page/Main_Page) или [AppArmor](http://wiki.apparmor.net/index.php/Main_Page) и максимальное уменьшение возможностей ядра, доступных контейнерам. Кроме того, в Интернете есть много других документов, которые описывают подходы к обеспечению безопасности при использовании таких контейнеров, как Docker.
 
-## How to use the Docker VM Extension with Azure
+## Использование расширения виртуальных машин Docker в Azure
 
-The Docker VM Extension is a component that is installed in the VM instance that you create which itself installs the Docker engine and manages remote communication with the VM. There are two ways to install the VM Extension: You can create your VM using the management portal or you can create it from the Azure Command-line Interface (Azure CLI).
+Расширение виртуальных машин Docker — это компонент, который устанавливается в созданном экземпляре виртуальной машины. Он самостоятельно устанавливает механизм Docker и управляет удаленным соединением с виртуальной машиной. Есть два способа установить расширение виртуальной машины: можно создать виртуальную машину с помощью портала управления либо из кроссплатформенного интерфейса командной строки Azure (CLI Azure).
 
-You can use the portal to add the Docker VM Extension to any compatible Linux VM (currently, the only image that supports it is the Ubuntu 14.04 LTS image more recent than July). Using the Azure CLI command line, however, you can install the Docker VM Extension and create and upload your Docker communication certificates all at the same time when you create the VM instance.
+С помощью портала можно добавить расширение виртуальных машин Docker в любую совместимую виртуальную машину Linux (в настоящее время поддерживается только образ Ubuntu 14.04 LTS, созданный позже июля). Однако с помощью командной строки CLI Azure можно установить расширение виртуальной машины Docker и создать и загрузить сертификаты связи Docker одновременно с созданием экземпляра виртуальной машины.
 
-To create Docker-enabled VMs right now, see:
+Для создания виртуальных машин с поддержкой Docker см. раздел
 
-+ [How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]
-+ [How to use the Docker VM Extension with the Azure classic portal]
++ [Использование расширения виртуальных машин Docker из интерфейса командной строки Azure (CLI Azure)]
++ [Использование расширения виртуальных машин Docker на классическом портале Azure]
 
-## Virtual Machine Extensions for Linux and Windows
-The [Docker VM extension for Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) is just one of several VM extensions that provide special behaviour, and more are in development. For example, several of the [Linux VM Agent extension](virtual-machines-linux-agent-user-guide.md) features allow you to modify and manage the Virtual Machine, including security features, kernel and networking features, and so on. The VMAccess extension for example lets you reset the administrator password or SSH key.
+## Расширения виртуальных машин для Linux и Windows
+[Расширение виртуальных машин Docker для Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) — это лишь одно из нескольких расширений виртуальных машин, которые обеспечивают особое поведение, а еще больше таких расширений находятся на стадии разработки. Например, некоторые возможности [расширения агента ВМ Linux](virtual-machines-linux-agent-user-guide.md) позволяют изменять виртуальную машину и управлять ей, включая компоненты обеспечения безопасности, ядро, сетевые компоненты и т. д. Например, расширение VMAccess позволяет сбросить пароль администратора или ключ SSH.
 
-For a complete list, see [Azure VM Extensions](virtual-machines-windows-extensions-features.md).
+Полный список приведен в разделе [Расширения виртуальных машин Azure](virtual-machines-windows-extensions-features.md).
 
 <!--Anchors-->
-[How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[How to use the Docker VM Extension with the Azure classic portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
-[How to Get Started Quickly with Docker in the Azure Marketplace]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-ubuntu-quickstart/
-[Docker and Linux Containers]: #Docker-and-Linux-Containers
-[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Использование расширения виртуальных машин Docker из интерфейса командной строки Azure (CLI Azure)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[Использование расширения виртуальных машин Docker на классическом портале Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[Быстрое начало работы с Docker в Azure Marketplace]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-ubuntu-quickstart/
+[Контейнеры Docker и Linux]: #Docker-and-Linux-Containers
+[Использование расширения виртуальных машин Docker в Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Расширения виртуальных машин для Linux и Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+
+<!---HONumber=AcomDC_0323_2016-->

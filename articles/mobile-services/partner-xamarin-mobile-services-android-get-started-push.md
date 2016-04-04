@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/17/2016"
 	ms.author="glenga"/>
 
 # Добавление push-уведомлений к приложению мобильных служб
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Добавление push-уведомлений в приложение Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started-push.md).
 
 ##Обзор
 В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Xamarin.Android. В этом учебнике вам предстоит добавить push-уведомления в проект [Приступая к работе с мобильными службами] с помощью службы Google Cloud Messaging (GCM). По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
@@ -45,7 +45,7 @@
 
 ##<a id="update-scripts"></a>Обновление зарегистрированного скрипта вставки для отправки уведомлений
 
->[AZURE.TIP]Ниже показано, как на классическом портале Azure обновить сценарий, зарегистрированный для операции вставки в таблице TodoItem. Вы также можете вызвать и изменить этот скрипт мобильной службы непосредственно в Visual Studio на узле Azure в обозревателе сервера.
+>[AZURE.TIP] Ниже показано, как на классическом портале Azure обновить сценарий, зарегистрированный для операции вставки в таблице TodoItem. Вы также можете вызвать и изменить этот скрипт мобильной службы непосредственно в Visual Studio на узле Azure в обозревателе сервера.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -72,11 +72,11 @@
 
 * [Приступая к работе с проверкой подлинности](mobile-services-android-get-started-users.md) <br/>Узнайте, как проверять подлинность пользователей приложения с разными типами учетных записей, используя мобильные службы.
 
-* [Что такое концентраторы уведомлений?](../notification-hubs-overview.md) <br/>Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
+* [Что такое концентраторы уведомлений?](../notification-hubs/notification-hubs-overview.md) <br/>Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
 
 * [Отладка приложений концентраторов уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Устранение неполадок и отладка решений на основе концентраторов уведомлений.
 
-* [Использование клиентской библиотеки .NET для мобильных служб](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Узнайте, как использовать мобильные службы с кодом Xamarin C#.
+* [Использование клиентской библиотеки .NET для мобильных служб](mobile-services-dotnet-how-to-use-client-library.md) <br/>Узнайте, как использовать мобильные службы с кодом Xamarin C#.
 
 * [Справочник серверных скриптов мобильных служб](mobile-services-how-to-use-server-scripts.md) <br/>Узнайте, как реализовать бизнес-логику в мобильной службе.
 
@@ -87,4 +87,4 @@
 [Xamarin.Android]: http://xamarin.com/download/
 [мобильные службы Azure]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

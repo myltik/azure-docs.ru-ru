@@ -1,40 +1,42 @@
 
 
-Images are used in Azure to provide a new virtual machine with an operating system. An image might also have one or more data disks. Images are available from several sources:
+Для предоставления новой виртуальной машины с операционной системой в Azure используются образы. Образ может иметь один или несколько дисков данных. Образы доступны в нескольких источниках:
 
--	Azure offers images in the [Marketplace](https://azure.microsoft.com/gallery/virtual-machines/). You’ll find recent versions of Windows Server and distributions of the Linux operating system. Some images also contain applications, such as SQL Server. MSDN Benefit and MSDN Pay-as-You-Go subscribers have access to additional images.
--	The open source community offers images through [VM Depot](http://vmdepot.msopentech.com/List/Index).
--	You also can store and use your own images in Azure, by either capturing an existing Azure virtual machine for use as an image or uploading an image.
+-	Azure предлагает образы в [Marketplace](https://azure.microsoft.com/gallery/virtual-machines/). Вы найдете последние версии Windows Server и дистрибутивы операционной системы Linux. Некоторые образы также содержат приложения, например SQL Server. Подписчики программ "Преимущества MSDN" и "Оплата по мере использования MSDN" имеют доступ к дополнительным образам.
+-	Сообщество разработчиков ПО с открытым исходным кодом предлагает образы через [хранилище виртуальных машин](http://vmdepot.msopentech.com/List/Index).
+-	Кроме того, в Azure также можно хранить и использовать собственные образы либо путем захвата существующей виртуальной машины Azure для использования ее в качестве образа, либо путем отправки образа.
 
-## About VM images and OS images
+## Об образах виртуальных машин и образах ОС
 
-Two types of images can be used in Azure: *VM image* and *OS image*. A VM image includes an operating system and all disks attached to a virtual machine when the image is created. This is the newer type of image. Before VM images were introduced, an image in Azure could have only a generalized operating system and no additional disks. A VM image that contains only a generalized operating system is basically the same as the original type of image, the OS image.
+В Azure можно использовать два типа образов — *образ виртуальной машины* и *образ ОС*. Образ виртуальной машины включает операционную систему и все диски, присоединенные к виртуальной машине на момент создания образа. Это более новый тип образа. Перед появлением образов виртуальных машин образ в Azure мог иметь только обобщенную операционную систему без дополнительных дисков. Образ виртуальной машины, содержащий только обобщенную операционную систему, по сути, является исходным типом образа — образом ОС.
 
-You can create your own images, based on a virtual machine in Azure, or a virtual machine running elsewhere that you copy and upload. If you want to use an image to create more than one virtual machine, you’ll need to prepare it for use as an image by generalizing it. To create a Windows Server image, run the Sysprep command on the server to generalize it before you upload the .vhd file. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://go.microsoft.com/fwlink/p/?LinkId=392030). To create a Linux image, depending on the software distribution, you’ll need to run a set of commands that are specific to the distribution, as well as run the Azure Linux Agent.
+Вы можете создавать собственные образы на основе виртуальных машин в Azure или же скопировать и передать виртуальную машину, которая работает где-то еще. Если образ необходимо использовать для создания нескольких виртуальных машин, то его следует подготовить в качестве обобщенного образа. Для создания образа Windows Server выполните команду Sysprep на сервере, чтобы обобщить его перед передачей VHD-файла. Дополнительные сведения о программе Sysprep см. в статье [Использование программы Sysprep: введение](http://go.microsoft.com/fwlink/p/?LinkId=392030). Для создания образа Linux с определенным набором программного обеспечения необходимо запустить соответствующий набор команд и агента Azure Linux.
 
-## Working with images
+## Работа с образами
 
-You can use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows or Azure PowerShell module to manage the images available to your Azure subscription. You also can use the Azure classic portal for some image tasks, but the command line gives you more options.
+Для управления образами, доступными по вашей подписке Azure, вы можете использовать интерфейс командной строки Azure (CLI) для Mac, Linux и Windows или модуля Azure PowerShell. Некоторые операции с образами можно выполнить на классическом портале Azure, однако командная строка предоставляет больше возможностей.
 
-For information about using these tools with Resource Manager deployments, see [Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md).
+Сведения об использовании этих средств вместе с развертыванием диспетчера ресурсов см. в статье [Просмотр и выбор образов виртуальных машин Azure с помощью командной оболочки PowerShell и инфраструктуры Azure CLI](virtual-machines-linux-cli-ps-findimage.md).
 
-For examples of using the tools in a classic deployment:
+Примеры использования этих средств в классическом развертывании:
 
-- For CLI, see "Commands to manage your Azure virtual machine images" in [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](virtual-machines-command-line-tools.md)
-- For Azure PowerShell, see the following list of commands. For an example of finding an image to create a VM, see "Step 3: Determine the ImageFamily" in [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-windows-classic-create-powershell.md)
+- Информацию об интерфейсе командной строки см. в разделе «Команды для управления образами виртуальных машин Azure» статьи [Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows](virtual-machines-command-line-tools.md).
+- Для работы с Azure PowerShell ознакомьтесь со следующим списком команд. Пример поиска образа для создания виртуальной машины см. в разделе «Шаг 3. Определение ImageFamily» статьи [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-windows-classic-create-powershell.md).
 
--	**Get all images**:`Get-AzureVMImage`returns a list of all the images available in your current subscription: your images as well as those provided by Azure or partners. This means you might get a large list. The next examples show how to get a shorter list.
--	**Get image families**:`Get-AzureVMImage | select ImageFamily` gets a list of image families by showing strings **ImageFamily** property.
--	**Get all images in a specific family**: `Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family}`
--	**Find VM Images**: `Get-AzureVMImage | where {(gm –InputObject $_ -Name DataDiskConfigurations) -ne $null} | Select -Property Label, ImageName` this works by filtering the DataDiskConfiguration property, which only applies to VM Images. This example also filters the output to only the label and image name.
--	**Save a generalized image**: `Save-AzureVMImage –ServiceName "myServiceName" –Name "MyVMtoCapture" –OSState "Generalized" –ImageName "MyVmImage" –ImageLabel "This is my generalized image"`
--	**Save a specialized image**: `Save-AzureVMImage –ServiceName "mySvc2" –Name "MyVMToCapture2" –ImageName "myFirstVMImageSP" –OSState "Specialized" -Verbose`
->[Azure.Tip] The OSState parameter is required if you want to create a VM image, which includes data disks as well as the operating system disk. If you don’t use the parameter, the cmdlet creates an OS image. The value of the parameter indicates whether the image is generalized or specialized, based on whether the operating system disk has been prepared for reuse.
--	**Delete an image**: `Remove-AzureVMImage –ImageName "MyOldVmImage"`
+-	**Получить все образы**. `Get-AzureVMImage` возвращает список всех образов, доступных в вашей текущей подписке,— ваших, а также предоставленных Azure или партнерами. Это значит, что вы можете получить большой список. В следующих примерах показано, как сократить список.
+-	**Получить семейства образов**. `Get-AzureVMImage | select ImageFamily` возвращает список семейств образов, отображая свойство строк **ImageFamily**.
+-	**Получить все образы из указанного семейства**. `Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family}`
+-	**Найти образы виртуальных машин**. `Get-AzureVMImage | where {(gm –InputObject $_ -Name DataDiskConfigurations) -ne $null} | Select -Property Label, ImageName` проводит фильтрацию по свойству DataDiskConfiguration, которое применяется только к образам виртуальных машин. В этом примере выходные данные также фильтруются, и выводятся только метка и имя образа.
+-	**Сохранить обобщенный образ**. `Save-AzureVMImage –ServiceName "myServiceName" –Name "MyVMtoCapture" –OSState "Generalized" –ImageName "MyVmImage" –ImageLabel "This is my generalized image"`
+-	**Сохранить специализированный образ**. `Save-AzureVMImage –ServiceName "mySvc2" –Name "MyVMToCapture2" –ImageName "myFirstVMImageSP" –OSState "Specialized" -Verbose`
+>[Azure.Tip] Параметр OSState является обязательным, если вы хотите создать образ виртуальной машины, содержащий диски с данными, а также диск операционной системы. Если не указать этот параметр, командлет создает образ ОС. Значение параметра указывает, является ли образ обобщенным или специальным и основывается ли он на диске операционной системы, подготовленном для повторного использования.
+-	**Удалить образ**. `Remove-AzureVMImage –ImageName "MyOldVmImage"`
 
 
-## Additional resources
+## Дополнительные ресурсы
 
-[Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-creation-choices.md)
+[Различные способы создания виртуальной машины Linux](virtual-machines-linux-creation-choices.md)
 
-[Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md)
+[Различные способы создания виртуальной машины Windows](virtual-machines-windows-creation-choices.md)
+
+<!---HONumber=AcomDC_0323_2016-->

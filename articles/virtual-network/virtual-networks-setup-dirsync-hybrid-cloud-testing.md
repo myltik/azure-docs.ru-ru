@@ -116,7 +116,7 @@
 
 Далее следует включить синхронизацию каталогов для пробной версии Office 365 FastTrack.
 
-1.	На компьютере CLIENT1 на странице **Центр администрирования Office 365** в левой области щелкните **Пользователи**, а затем — **Активные пользователи**.
+1.	На компьютере CLIENT1 на странице **Центр администрирования Office 365** в левой области щелкните **Пользователи**, а затем — **Активные пользователи**.
 2.	Для **синхронизации Active Directory** щелкните **Настройка**.
 3.	На странице «Настройка синхронизации Active Directory и управление ею» на шаге 3 щелкните **Активировать**.
 4.	При появлении запроса **Активировать синхронизацию Active Directory?** щелкните **Активировать**. После этого на шаге 3 отображается сообщение **Синхронизация Active Directory включена**.
@@ -181,8 +181,8 @@
 
 [Создание имитации гибридной облачной среды для тестирования](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
-[Гибридные облачные тестовые среды Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
+[Гибридные облачные тестовые среды Azure](../virtual-machines/virtual-machines-windows-classic-hybrid-test-env.md)
 
-[Руководство по реализации служб инфраструктуры Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Руководство по реализации служб инфраструктуры Azure](../virtual-machines/virtual-machines-linux-infrastructure-service-guidelines.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

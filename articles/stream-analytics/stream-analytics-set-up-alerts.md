@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -28,7 +28,7 @@
 
 Правила на основе метрик можно настраивать через портал либо [программным путем](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a), используя данные в журналах операций.
 
-## Настройка оповещений через портал Azure
+## Настройка оповещений через классический портал Azure
 
 Есть два способа настройки оповещений на портале управления Azure:
 
@@ -51,7 +51,7 @@
 
 ## Настройка оповещений с помощью журналов операций
 
-1.	Откройте вкладку **Оповещения** в службах управления на [портале Azure](https://manage.windowsazure.com).  
+1.	Откройте вкладку **Оповещения** в службах управления на [классическом портале Azure](https://manage.windowsazure.com).  
 2.	Нажмите **Добавить правило**.  
 
     ![Критерии](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)
@@ -60,19 +60,19 @@
 
     ![Определение оповещения](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)
 
-## Настройка оповещений на портале предварительной версии Azure ##
+## Настройка оповещений на портале Azure ##
 
-На портале предварительной версии Azure перейдите к нужному заданию Stream Analytics и откройте раздел **Мониторинг**. В появившейся колонке **Метрика** выберите команду **Добавить оповещение**.
+На портале Azure перейдите к нужному заданию Stream Analytics и откройте раздел **Мониторинг**. В появившейся колонке **Метрика** выберите команду **Добавить оповещение**.
 
-  ![Настройка портала предварительной версии Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
+  ![Настройка портала Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
 
 Правилу оповещения можно дать имя и выбрать описание, которое будет отображаться в уведомлении по электронной почте.
 
 Если вы выбрали раздел "Метрики", нужно задать условия и пороговое значение для метрики.
 
-  ![Выбор метрики на портале предварительной версии Azure](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
+  ![Выбор метрики на портале Azure](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
 
-Дополнительные сведения о настройке оповещений на портале предварительной версии Azure см. в статье [Получение уведомлений](./azure-portal/insights-receive-alert-notifications.md).
+Дополнительные сведения о настройке оповещений на портале Azure см. в статье [Получение уведомлений](../azure-portal/insights-receive-alert-notifications.md).
 
 ## Получение справки
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
@@ -85,4 +85,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->
