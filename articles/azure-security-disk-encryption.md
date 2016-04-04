@@ -145,21 +145,21 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 	- Пример допустимого URL-адреса секрета:
 
-		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Пример допустимого URL-адреса KEK:
 
-		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Шифрование диска Azure не поддерживает указание номеров портов в URL-адресах секрета и KEK хранилища ключей. Ниже приведены примеры поддерживаемых URL-адресов хранилища ключей.
 
  	- Недопустимый URL-адрес хранилища ключей:
 
-		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Допустимый URL-адрес хранилища ключей:
 
-		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Чтобы использовать функцию дискового шифрования Azure, конфигурация конечной точки VM IaaS должна соответствовать следующим требованиям:
 

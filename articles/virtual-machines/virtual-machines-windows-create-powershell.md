@@ -40,7 +40,7 @@
 
 Существует два основных способа установки — с помощью [коллекции PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) или [установщика веб-платформы](http://aka.ms/webpi-azps). Обновления для установщика веб-платформы будут выпускаться ежемесячно. Обновления для коллекции PowerShell будут выпускаться на постоянной основе.
 
-Дополнительные сведения см. в статье [Azure PowerShell 1.0](https://azure.microsoft.com/ru-RU/blog/azps-1-0/).
+Дополнительные сведения см. в статье [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 ## Шаг 2. Настройка подписки
 
@@ -393,4 +393,4 @@
 
 [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

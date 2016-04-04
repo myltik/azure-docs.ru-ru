@@ -46,7 +46,7 @@
 1. В меню **Файл** выберите **Новый проект**.
 3. В диалоговом окне **Новый проект** разверните узел **Visual C#**, выберите **Интернет**, а затем **Веб-приложение ASP.NET**. Присвойте приложению имя **ContactManager** и нажмите кнопку **ОК**.
 
-	![Диалоговое окно "Новый проект"](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.png)
+	![Диалоговое окно "Новый проект"](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)
 
 1. В диалоговом окне **Новый проект ASP.NET** выберите шаблон **MVC**, установите флажок **Веб-интерфейс API**, а затем щелкните **Изменить аутентификацию**.
 
@@ -120,7 +120,7 @@
 
 ### Локальный запуск приложения
 
-1. Для запуска приложения нажмите сочетание клавиш CTRL+F5. Домашняя страница приложения откроется в браузере, используемом по умолчанию. ![Главная страница списка дел](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
+1. Для запуска приложения нажмите сочетание клавиш CTRL+F5. Домашняя страница приложения откроется в браузере, используемом по умолчанию. ![Главная страница списка дел](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
 
 Это все, что требуется для создания приложения, которое будет развернуто в Azure. Далее вы добавите функции для работы с базой данных.
 
@@ -202,7 +202,7 @@ Visual Studio начнет процесс копирования файлов в
 
 1. В диалоговом окне **Добавление Scaffold** выберите **Контроллер MVC с представлениями, использующий Entity Framework** и щелкните **Добавить**.
 
- ![Добавление контролера](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
+ ![Добавление контролера](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
 
 6. Укажите имя контроллера **HomeController**. Выберите класс модели **Contact**. Нажмите кнопку **Новый контекст данных** и оставьте значение "ContactManager.Models.ContactManagerContext", предлагаемое по умолчанию в разделе **Новый тип контекста данных**. Щелкните **Добавить**.
 
@@ -504,7 +504,7 @@ Visual Studio начнет процесс копирования файлов в
 
 1. В диалоговом окне **Добавление Scaffold** введите **Контроллер веб-интерфейса API 2 с действиями, использующий Entity Framework** и щелкните **Добавить**.
 
-	![Добавление контролера API](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.png)
+	![Добавление контролера API](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
 
 4. В диалоговом окне **Добавление контроллера** введите «ContactsController» в качестве имени контроллера. В раскрывающемся списке **Класс модели** выберите "Contact (ContactManager.Models)". Оставьте значение по умолчанию для элемента **Класс контекста данных**.
 
@@ -810,4 +810,4 @@ Visual Studio начнет процесс копирования файлов в
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
