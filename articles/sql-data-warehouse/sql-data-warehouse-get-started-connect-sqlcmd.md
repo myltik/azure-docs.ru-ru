@@ -3,7 +3,7 @@
    description="Начало работы. Подключение к хранилищу данных SQL и выполнение запросов."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Подключение и создание запросов с помощью SQLCMD
@@ -45,17 +45,17 @@
 
 ## Подключение к хранилищу данных SQL с помощью sqlcmd
 
-Чтобы подключиться к определенному экземпляру хранилища данных SQL с помощью sqlcmd, откройте командную строку и введите **sqlcmd** и строку подключения к базе данных хранилища данных SQL. Строка подключения должна содержать следующие параметры:
+Чтобы подключиться к определенному экземпляру хранилища данных SQL с помощью sqlcmd, откройте командную строку и введите **sqlcmd** и строку подключения к базе данных хранилища данных SQL. В строке подключения необходимо указать следующие обязательные параметры:
 
++ **Server (-S):** сервер в виде `<`имя сервера`>`.database.windows.net
++ **Database (-D):** имя базы данных.
 + **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
 + **Password (-P)** — пароль, связанный с пользователем.
-+ **Server (-S):** сервер в виде `<`имя сервера`>`.database.windows.net
-+ **Database (-D)** — имя базы данных.
 + **Enable Quoted Identifiers (-I)** — для подключения к экземпляру хранилища данных SQL необходимо включить заключенные в кавычки идентификаторы.
 
 Таким образом, для подключения к экземпляру хранилища данных SQL нужно ввести следующее:
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
 ```
 
@@ -63,9 +63,9 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 
 После подключения можно подавать любые поддерживаемые инструкции Transact-SQL для экземпляра.
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
-1> SELECT COUNT(*) FROM dbo.FactInternetSales;
+1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
@@ -83,4 +83,4 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

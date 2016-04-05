@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/09/2016"
+   ms.date="03/26/2016"
    ms.author="seanmck"/>
 
 # Подготовка среды разработки
@@ -21,29 +21,27 @@
 
 ## Предварительные требования
 ### Поддерживаемые версии операционных систем
-Поддерживаются следующие операционные системы:
+Для разработки поддерживаются следующие операционные системы:
 
-- Windows 8 и Windows 8.1;
+- Windows 7
+- Windows 8 и Windows 8.1;
 - Windows Server 2012 R2
 - Windows 10
 
-### Visual Studio 2015
+### Visual Studio 2015
 
-Если установлена платформа Visual Studio 2015, набор инструментов для Service Fabric может отличаться. Загрузить Visual Studio 2015 можно [на веб-сайте Visual Studio][2].
+Для набора инструментов Service Fabric нужна как минимум платформа Visual Studio 2015. Visual Studio2015 можно загрузить [на веб-сайте Visual Studio][2].
 
-> [AZURE.NOTE] Если у вас не установлена ни одна из поддерживаемых операционных систем или вы не хотите устанавливать на компьютер Visual Studio 2015, настройте виртуальную машину Azure c предустановленным программным обеспечением Windows Server 2012 R2 и Visual Studio 2015. Это можно сделать с помощью образа из коллекции виртуальных машин Azure.
+> [AZURE.NOTE] Если у вас не установлена ни одна из поддерживаемых операционных систем или вы не хотите устанавливать на компьютер Visual Studio, настройте виртуальную машину Azure c предустановленным программным обеспечением Windows Server 2012 R2 и Visual Studio. Это можно сделать с помощью образа из коллекции виртуальных машин Azure.
 
 ## Установка среды выполнения, пакета SDK и инструментов
 
-Установите компоненты Service Fabric с помощью установщика веб-платформы, следуя этим инструкциям:
+Установите компоненты Service Fabric с помощью установщика веб-платформы, Существует три варианта установки:
 
-1. [Загрузите пакет SDK][3], используя установщик веб-платформы.
+- [Установка среды выполнения Service Fabric, пакета SDK и средств для Visual Studio 2015](full-bundle-vs2015)
+- [Установка среды выполнения Service Fabric, пакета SDK и средств для предварительной версии Visual Studio 2015](full-bundle-dev15)
+- [Установка только среды выполнения Service Fabric и пакета SDK (без средств для Visual Studio)](core-sdk)
 
-2. Чтобы приступить к установке, нажмите кнопку **Установить**.
-
-3. Прочитайте и примите условия лицензионного соглашения.
-
-Установка начнется автоматически.
 
 ## Включение сценариев PowerShell
 
@@ -65,6 +63,8 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Страница кампании Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Ссылка WebPI"
+[full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Ссылка VS 2015 WebPI"
+[full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Ссылка Dev15 WebPI"
+[core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Ссылка Core SDK WebPI"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

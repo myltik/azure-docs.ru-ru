@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="03/25/2016"
    ms.author="larryfr"/>
 
 #Использование SSH с Hadoop на основе Linux в HDInsight из Windows
@@ -121,7 +121,11 @@ SSH — это служебная программа для входа в сис
 
 	![интерфейс PuTTY, выбор закрытого ключа](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
 
-3. В поле **Категория** выберите **Сеанс**. На экране **Основные параметры вашего сеанса PuTTY** в поле **Имя узла (или IP-адрес)** введите адрес SSH своего сервера HDInsight. Адрес SSH — это имя кластера с суффиксом **-ssh.azurehdinsight.net**. Например, **mycluster-ssh.azurehdinsight.net**.
+3. В поле **Категория** выберите **Сеанс**. На экране **Основные параметры вашего сеанса PuTTY** в поле **Имя узла (или IP-адрес)** введите адрес SSH своего сервера HDInsight. К кластеру можно подключиться с помощью двух адресов SSH.
+
+    * __Адрес головного узла__ — чтобы подключиться к головному узлу кластера, используйте имя кластера с суффиксом **-ssh.azurehdinsight.net**. Например, **mycluster-ssh.azurehdinsight.net**.
+    
+    * __Адрес граничного узла__ — если вы подключаетесь к серверу R в кластере HDInsight, вы можете подключиться к граничному узлу сервера R с помощью адреса __RServer.CLUSTERNAME.ssh.azurehdinsight.net__, где CLUSTERNAME — имя кластера. Например, __RServer.mycluster.ssh.azurehdinsight.net__.
 
 	![интерфейс PuTTY с введенным адресом SSH](./media/hdinsight-hadoop-linux-use-ssh-windows/puttyaddress.png)
 
@@ -229,4 +233,4 @@ SSH — это служебная программа для входа в сис
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

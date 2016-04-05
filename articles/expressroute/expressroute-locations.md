@@ -64,8 +64,9 @@ ExpressRoute поддерживается во всех регионах и ра
 |**Cologix** | Поддерживаются | Скоро | Монреаль+, Торонто |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Поддерживаются | Поддерживаются | Амстердам, Дублин, Лондон |
 | **Comcast** | Поддерживаются | Не поддерживается | Кремниевая долина, Вашингтон (округ Колумбия) |
-| **CoreSite** | Поддерживаются | Поддерживаются | Лос-Анджелес | 
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Поддерживаются | Поддерживаются | Лос-Анджелес | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Поддерживаются | Поддерживаются | Амстердам, Атланта, Чикаго, Даллас, Гонконг, Лондон, Лос-Анджелес, Мельбурн, Нью-Йорк, Осака, Сан-Пауло, Сиэтл, Кремниевая долина, Сингапур, Сидней, Токио, Вашингтон (округ Колумбия), Торонто |
+| **euNetworks** | Поддерживаются | Поддерживаются | Амстердам |
 | **[Internet Initiative Japan Inc. (IIJ)](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | Поддерживаются | Поддерживаются | Осака, Токио |
 | **[InterCloud](https://www.intercloud.com/)** | Поддерживаются | Поддерживаются | Амстердам, Лондон, Сингапур, Вашингтон (округ Колумбия) |
 | **Internet Solutions - Cloud Connect** | Поддерживаются | Поддерживаются | Амстердам, Лондон |
@@ -134,6 +135,7 @@ ExpressRoute поддерживается во всех регионах и ра
 
 |**Поставщик услуг подключения**|**Exchange**|**Одноранговые расположения**|
 |---|---|---|
+|**Alaska Communications**|Equinix|Сиэтл;|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Кремниевая долина|
 
 ## Системные интеграторы ExpressRoute
@@ -152,4 +154,4 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

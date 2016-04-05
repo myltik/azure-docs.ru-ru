@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/14/2016"
+   ms.date="03/29/2016"
    ms.author="navale;tomfitz"/>
    
 # Пошаговое руководство по созданию шаблона Resource Manager
 
-В этой статье рассматриваются инструкции по созданию шаблона Resource Manager. Предполагается, что вы уже знакомы со службами Azure, которые хотите развернуть, но вы не знаете, как представить эту инфраструктуру в шаблоне. Вы создадите шаблон, основанный на [двух виртуальных машинах с балансировщиком нагрузки и шаблоне правил балансировщика нагрузки](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) из [коллекции быстрого запуска](https://github.com/Azure/azure-quickstart-templates). Эти же методы можно применять к любому создаваемому шаблону.
+В этой статье рассматриваются инструкции по созданию шаблона Resource Manager. Вы создадите шаблон, основанный на [двух виртуальных машинах с балансировщиком нагрузки и шаблоне правил балансировщика нагрузки](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) из [коллекции быстрого запуска](https://github.com/Azure/azure-quickstart-templates). Эти же методы можно применять к любому создаваемому шаблону.
 
 Рассмотрим общую архитектуру.
 
@@ -310,7 +310,7 @@
 ## Виртуальная машина
 Вы создадите две виртуальные машины с помощью функции copyIndex(), как вы делали это в разделе [Сетевые интерфейсы](#network-interface). Создание виртуальной машины зависит от учетной записи хранения, сетевого интерфейса и группы доступности. Эта виртуальная машина будет создана из образа из магазина. В свойстве `storageProfile` определено, что `imageReference` используется для определения издателя образа, предложения, SKU и версии. В конце настраивается профиль диагностики для включения диагностирования виртуальной машины.
 
-Соответствующие свойства для образа из магазина см. в статье [Просмотр и выбор образов виртуальных машин Azure с помощью оболочки Windows PowerShell и инфраструктуры Azure CLI](./virtual-machines/resource-groups-vm-searching.md). Для образов, опубликованных сторонними поставщиками, необходимо указать другое свойство с именем `plan`. Пример можно найти в [этом шаблоне](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) из коллекции быстрого запуска.
+Чтобы найти соответствующие свойства для образа marketplace, следуйте инструкциям в статьях [Navigate and select Linux virtual machine images in Azure with CLI or Powershell](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) (Поиск и выбор образов виртуальных машин Linux в Azure с помощью CLI или Powershell) или [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md) (Поиск и выбор образов виртуальных машин Windows в Azure с помощью Powershell или CLI). Для образов, опубликованных сторонними поставщиками, необходимо указать другое свойство с именем `plan`. Пример можно найти в [этом шаблоне](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) из коллекции быстрого запуска.
 
 
 ```json
@@ -503,4 +503,4 @@
 - Дополнительную информацию о структуре шаблона см. в статье о [создании шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 - Инструкции по развертыванию шаблонов см. в статье о [развертывании группы ресурсов с помощью Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

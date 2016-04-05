@@ -195,7 +195,7 @@
 
 [Troubleshooting Azure Windows VM extension failures](virtual-machines-windows-extensions-troubleshoot.md) (Устранение сбоев в расширениях виртуальных машин Azure)
 
-[Troubleshooting resource group deployments with Azure Portal](resource-group-deploy-debug.md) (Устранение неполадок в развертываниях групп ресурсов с помощью портала Azure)
+[Troubleshooting resource group deployments with Azure Portal (Устранение неполадок в развертываниях групп ресурсов с помощью портала Azure)](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-windows-troubleshoot-app-connection.md)
 
@@ -375,4 +375,4 @@
 
 [Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин в Azure](virtual-machines-windows-allocation-failure.md)
 
-<!----HONumber=AcomDC_0323_2016---->
+<!----HONumber=AcomDC_0330_2016-->

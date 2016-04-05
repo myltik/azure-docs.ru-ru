@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/26/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Создание хранилища данных SQL с помощью Powershell
@@ -25,21 +25,21 @@
 
 ## Получение и запуск командлетов Azure PowerShell
 
-> [AZURE.NOTE]  Чтобы использовать Microsoft Azure Powershell с хранилищем данных SQL, следует загрузить и установить последнюю версию Azure PowerShell с командлетами ARM. Чтобы проверить версию, запустите `Get-Module -ListAvailable -Name Azure`. В этой статье используются командлеты, выполняемые в Azure PowerShell 1.0.3 и более поздних версий.
+> [AZURE.NOTE]  Чтобы использовать Microsoft Azure Powershell с хранилищем данных SQL, следует загрузить и установить последнюю версию Azure PowerShell с командлетами ARM. Чтобы проверить версию, запустите `Get-Module -ListAvailable -Name Azure`. В этой статье используются командлеты, выполняемые в Azure PowerShell версии 1.0.3 или более поздней.
 
 Если вы еще не настроили модуль PowerShell, необходимо скачать и настроить его.
 
-1. Чтобы загрузить модуль Azure PowerShell, запустите [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+1. Чтобы загрузить модуль Azure PowerShell, запустите [установщик веб-платформы Майкрософт](http://aka.ms/webpi-azps). Дополнительные сведения об этом установщике см. в статье [Установка и настройка Azure PowerShell][].
 2. Чтобы запустить модуль, введите в окне запуска **Windows PowerShell**.
-3. Используйте этот командлет для входа в диспетчер ресурсов Azure. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell][].
+3. Используйте этот командлет для входа в диспетчер ресурсов Azure.
 
-	```
+	```Powershell
 	Login-AzureRmAccount
 	```
 
 4. Выберите подписку, которую вы хотите использовать для текущего сеанса.
 
-	```
+	```Powershell
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
 
@@ -55,13 +55,13 @@
 
 Эта команда развернет новую базу данных в хранилище данных SQL.
 
-```
+```Powershell
 New-AzureRmSqlDatabase -RequestedServiceObjectiveName "<Service Objective>" -DatabaseName "<Data Warehouse Name>" -ServerName "<Server Name>" -ResourceGroupName "<ResourceGroupName>" -Edition "DataWarehouse"
 ```
 
 В этом примере новая база данных с именем mynewsqldw1 и целевым уровнем обслуживания DW400 будет развернута на сервере с именем sqldwserver1, который находится в группе ресурсов с именем mywesteuroperesgp1.
 
-```
+```Powershell
 New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw1" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
 ```
 
@@ -96,4 +96,4 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Установка и настройка Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->
