@@ -195,7 +195,7 @@
 
 [Troubleshooting Azure Windows VM extension failures](virtual-machines-windows-extensions-troubleshoot.md) (Устранение сбоев в расширениях виртуальных машин Azure)
 
-[Troubleshooting resource group deployments with Azure Portal](resource-group-deploy-debug.md) (Устранение неполадок в развертываниях групп ресурсов с помощью портала Azure)
+[Troubleshooting resource group deployments with Azure Portal (Устранение неполадок в развертываниях групп ресурсов с помощью портала Azure)](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-windows-troubleshoot-app-connection.md)
 
@@ -256,7 +256,7 @@
 
 [Создание настраиваемой виртуальной машины под управлением Windows](virtual-machines-windows-classic-createportal.md)
 
-[Capture an image of an Azure Windows virtual machine created with the classic deployment model](virtual-machines-windows-classic-capture-image.md) (Запись образа виртуальной машины Microsoft Azure, созданной с помощью классической модели развертывания)
+[Capture an image of an Azure Windows virtual machine created with the classic deployment model](virtual-machines-windows-classic-capture-image.md) (Запись образа виртуальной машины Windows Azure, созданной с помощью классической модели развертывания)
 
 [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md) (Создание и передача виртуального жесткого диска Windows Server в Azure)
 
@@ -375,4 +375,4 @@
 
 [Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин в Azure](virtual-machines-windows-allocation-failure.md)
 
-<!----HONumber=AcomDC_0323_2016---->
+<!---HONumber=AcomDC_0330_2016-->

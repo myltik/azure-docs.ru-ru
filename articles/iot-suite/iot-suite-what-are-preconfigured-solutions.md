@@ -34,8 +34,7 @@
 
 | Решение | Прием данных | Идентификация устройства | Команды и управление | Правила и действия | Прогнозная аналитика |
 |------------------------|-----|-----|-----|-----|-----|
-| [Удаленный мониторинг][lnk-remote-monitoring] | Да | Да | Да | Да | – | 
-| [Прогнозируемое обслуживание][lnk-predictive-maintenance] | Да | Да | Да | Да | Да |
+| [Удаленный мониторинг][lnk-remote-monitoring] | Да | Да | Да | Да | – | | [Прогнозируемое обслуживание][lnk-predictive-maintenance] | Да | Да | Да | Да | Да |
 
 - *Прием данных*: прием данных в облако в нужном масштабе.
 - *Удостоверение устройства*: управление уникальными идентификаторами всех подключенных устройств.
@@ -115,6 +114,8 @@
 
 ## Дальнейшие действия
 
+Дополнительные сведения об архитектурах решений IoT см. в документе [Эталонная архитектура служб IoT Microsoft Azure][lnk-refarch].
+
 Дополнительные сведения о предварительно настроенных решениях IoT см. в следующих статьях:
 
 - [Приступая к работе с предварительно настроенными решениями IoT][lnk-preconf-get-started]
@@ -133,5 +134,6 @@
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

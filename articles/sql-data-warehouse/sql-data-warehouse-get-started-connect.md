@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/26/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Подключение к хранилищу данных SQL с помощью Visual Studio
@@ -42,8 +42,9 @@
     ![Полное имя сервера][1]
 
 ## Этап 2. Подключение к базе данных SQL
+Для получения наилучших результатов используйте Visual Studio 2015 с [последним обновлением SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
 
-1. Откройте Visual Studio.
+1. Откройте Visual Studio 2013 или 2015.
 2. Откройте обозреватель объектов SQL Server. Чтобы сделать это, последовательно выберите элементы **Представление** > **Обозреватель объектов SQL Server**.
 
     ![Обозреватель объектов SQL Server][2]
@@ -58,7 +59,8 @@
 
     - **Имя сервера**. Введите *имя сервера*, найденное выше.
     - **Проверка подлинности**. Выберите Аутентификация на SQL-сервере.
-    - **Имя для входа** и **Пароль**. Введите имя пользователя и пароль для сервера Azure SQL Server.
+    - **Имя пользователя** и **Пароль**. Введите имя пользователя и пароль для сервера Azure SQL Server.
+    - **Имя базы данных**. Введите имя базы данных для базы данных хранилища данных SQL.
     - Щелкните **Подключить**.
 
 1. Чтобы исследовать данные, разверните сервер Azure SQL Server. Вы можете просмотреть базы данных, связанные с сервером. Разверните AdventureWorksDW, чтобы просмотреть таблицы в образце базы данных.
@@ -78,9 +80,9 @@
 
 3. Скопируйте следующий запрос TSQL в окно запроса.
 
-	```
-	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```sql
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
 
 4. Выполните запрос. Для этого щелкните зеленую стрелку или воспользуйтесь сочетанием клавиш `CTRL`+`SHIFT`+`E`.
 
@@ -108,4 +110,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

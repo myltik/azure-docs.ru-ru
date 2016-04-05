@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/23/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # Просмотр, изменение, создание и отправка документов JSON с помощью проводника документов DocumentDB
@@ -158,4 +158,4 @@
 
 [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/) — еще один полезный ресурс, который поможет вам узнать больше о DocumentDB.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,10 +1,10 @@
-<properties 
-    pageTitle="Создание пула эластичных баз данных (PowerShell) | Microsoft Azure" 
-    description="Узнайте, как создать пул эластичных баз данных с помощью PowerShell для горизонтального масштабирования ресурсов и управления для нескольких баз данных." 
-	services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jhubbard" 
+<properties
+    pageTitle="Создание пула эластичных баз данных (PowerShell) | Microsoft Azure"
+    description="Узнайте, как создать пул масштабируемых эластичных баз данных с помощью PowerShell для горизонтального масштабирования ресурсов и управления для нескольких баз данных."
+	services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
     ms.devlang="NA"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="03/15/2016"
+    ms.workload="data-management"
+    ms.date="03/27/2016"
     ms.author="sstein"/>
 
-# Создание пула эластичных баз данных (PowerShell) 
+# Создание пула эластичных баз данных с помощью PowerShell
 
 > [AZURE.SELECTOR]
 - [Портал Azure](sql-database-elastic-pool-create-portal.md)
@@ -33,16 +33,14 @@
 
 Для работы вам понадобится Azure PowerShell 1.0 или более поздняя версия. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
+## Создание пула
 
-
-## Создание пула эластичных баз данных
-
-Пул эластичных баз данных создается с помощью командлета [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx).
+Командлет [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) создает пул.
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-## Создание эластичной базы данных в пуле эластичных баз данных
+## Создание эластичной базы данных в пуле
 
 Чтобы создать базу данных непосредственно в пуле, выполните командлет [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) с заданным параметром **ElasticPoolName**.
 
@@ -51,7 +49,7 @@
 
 
 
-## Перемещение автономной базы данных в пул эластичных баз данных
+## Перемещение автономной базы данных в пул
 
 Чтобы переместить существующую базу данных в пул, выполните командлет [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) с заданным параметром **ElasticPoolName**.
 
@@ -59,7 +57,7 @@
 
 
 
-## Пример создания пула эластичных баз данных с помощью PowerShell
+## Создайте примера пула PowerShell
 
 Этот сценарий создает новый сервер, поэтому когда появится запрос ввести имя пользователя и пароль, введите учетные данные администратора нового сервера (не учетные данные Azure).
 
@@ -72,7 +70,7 @@
 
     Login-AzureRmAccount
     Set-AzureRmContext -SubscriptionId $subscriptionId
-    
+
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $location -ServerVersion "12.0"
     New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
@@ -86,11 +84,11 @@
 ## Дальнейшие действия
 
 - [Управление пулом.](sql-database-elastic-pool-manage-powershell.md)
-- [Создание заданий обработки эластичных БД](sql-database-elastic-jobs-overview.md). Эти задания позволяют легко выполнять сценарии T-SQL для любого количества эластичных баз данных в пуле.
+- [Создание заданий обработки эластичных БД](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение сценариев T-SQL для любого количества эластичных баз данных в пуле.
 
 
 ## Справка по эластичным базам данных
 
 Дополнительные сведения об эластичных базах данных и пулах см. в статье [Справочник по пулу эластичных баз данных для базы данных SQL](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,18 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/29/2016"
+	ms.date="03/25/2016"
 	ms.author="piyushjo" />
 
 # Приступая к работе с Azure Mobile Engagement для универсальных приложений для Windows
 
-> [AZURE.SELECTOR]
-- [Универсальные приложения Windows](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS | Obj C](mobile-engagement-ios-get-started.md)
-- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
-- [Cordova](mobile-engagement-cordova-get-started.md)
+[AZURE.INCLUDE [Выбор других руководств](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 В этом разделе показано, как применять Azure Mobile Engagement для анализа использования приложений и отправки push-уведомлений сегментированным пользователям универсального приложения для Windows. В этом учебнике описывается простой сценарий вещания с использованием Mobile Engagement. Вы создадите пустое универсальное приложение для Windows, которое будет собирать основные данные об использовании приложений и получать push-уведомления, используя службу push-уведомлений Windows (WPNS).
 
@@ -33,7 +27,7 @@
 + Visual Studio 2013
 + Пакет NuGet [MicrosoftAzure.MobileEngagement]
 
-> [AZURE.IMPORTANT] Прохождение этого учебника является необходимым условием для изучения всех других учебников, посвященных Mobile Engagement для универсальных приложений для Windows. Для работы с ним необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.
+> [AZURE.NOTE] Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-store-dotnet-get-started).
 
 ##<a id="setup-azme"></a>Настройка Mobile Engagement для универсального приложения для Windows
 
@@ -213,4 +207,4 @@ Mobile Engagement позволяет взаимодействовать и св�
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

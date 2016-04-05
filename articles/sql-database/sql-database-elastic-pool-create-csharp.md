@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Создание пула эластичных баз данных (C#) | Microsoft Azure"
-    description="Используйте методы разработки баз данных на C# для создания пула эластичных баз данных SQL Azure, чтобы совместно использовать ресурсы нескольких баз данных."
+    pageTitle="Создание пула эластичных баз данных с помощью C# | Microsoft Azure"
+    description="Используйте методы разработки баз данных на C# для создания пула масштабируемых эластичных баз данных в Базе данных SQL Azure, чтобы совместно использовать ресурсы нескольких баз данных."
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/22/2016"
+    ms.date="03/24/2016"
     ms.author="sstein"/>
 
-# Создание пула эластичных баз данных (C&#x23;)
+# Создание пула эластичных баз данных с помощью C&#x23;
 
 > [AZURE.SELECTOR]
 - [Портал Azure](sql-database-elastic-pool-create-portal.md)
@@ -37,7 +37,7 @@
 
 
 
-## Создание пула эластичных баз данных
+## Создание пула
 
 
     // Create elastic pool: configure create or update parameters and properties explicitly
@@ -56,7 +56,7 @@
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Перемещение существующей базы данных в пул эластичных баз данных
+## Перемещение существующей базы данных в пул
 
 
     // Retrieve current database properties
@@ -82,7 +82,7 @@
 
 
 
-## Создание новой базы данных внутри пула эластичных баз данных
+## Создание базы данных в пуле
 
 
     // Create a database: configure create or update parameters and properties explicitly
@@ -105,7 +105,7 @@
 
 
 
-## Пример создания пула эластичных баз данных с помощью языка C&#x23;
+## Создание примера пула C&#x23;
 
 
 Для выполнения этого примера требуются дополнительные библиотеки. Чтобы установить их, в Visual Studio выполните в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**) следующие команды.
@@ -145,7 +145,7 @@
         static string adminPassword = "<server password (store it securely!)>";
         static string serverVersion = "12.0";
 
-        // elastic database pool variables
+        // pool variables
         static string elasticPoolName = "<pool name>";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -168,7 +168,7 @@
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -270,7 +270,7 @@
 ## Дальнейшие действия
 
 - [Управление пулом.](sql-database-elastic-pool-manage-csharp.md)
-- [Создание заданий обработки эластичных БД](sql-database-elastic-jobs-overview.md). Эти задания позволяют легко выполнять сценарии T-SQL для любого количества эластичных баз данных в пуле.
+- [Создание заданий обработки эластичных БД](sql-database-elastic-jobs-overview.md). Эти задания позволяют выполнять сценарии T-SQL для любого количества эластичных баз данных в пуле.
 
 
 ## Дополнительные ресурсы
@@ -280,4 +280,4 @@
 - [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Справочник по пулам эластичных баз данных](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

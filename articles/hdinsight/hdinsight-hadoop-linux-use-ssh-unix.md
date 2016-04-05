@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="03/25/2016"
    ms.author="larryfr"/>
 
 #Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X
@@ -116,11 +116,15 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 В сеансе терминала воспользуйтесь командой SSH для подключения к головному узлу кластера, указав имя пользователя и адрес.
 
-* **Адрес SSH** — это имя кластера с добавленным в конце суффиксом **-ssh.azurehdinsight.net**. Например, **mycluster-ssh.azurehdinsight.net**.
+* **Адрес SSH** — к кластеру можно подключиться, используя два адреса SSH.
+
+    * **Подключение к головному узлу** — это имя кластера с добавленным в конце суффиксом **-ssh.azurehdinsight.net**. Например, **mycluster-ssh.azurehdinsight.net**.
+    
+    * **Подключение к граничному узлу**. Если используется кластер сервера R в HDInsight, кластер также будет содержать граничный узел, доступ к которому можно получить с помощью адреса **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, где __CLUSTERNAME__ — имя кластера.
 
 * **Имя пользователя** — имя пользователя SSH, указанное при создании кластера.
 
-В следующем примере выполняется подключение к кластеру **mycluster** с именем пользователя **me**:
+В следующем примере выполняется подключение к головному кластеру 0 **mycluster** с именем пользователя **me**:
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -132,7 +136,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Если порт не указан, то по умолчанию SSH будет использовать порт 22, который подключается к головному узлу 0 в кластере HDInsight. При использовании порта 23 выполняется подключение к головному узлу 1. Дополнительные сведения о головных узлах см. в статье [Доступность и надежность кластеров Hadoop в HDInsight](hdinsight-high-availability-linux.md).
+Если вы подключаетесь с помощью адреса для подключения к головному узлу и порт не указан, то по умолчанию SSH будет использовать порт 22, который подключается к головному узлу 0 в кластере HDInsight. При использовании порта 23 выполняется подключение к головному узлу 1. Дополнительные сведения о головных узлах см. в статье [Доступность и надежность кластеров Hadoop в HDInsight](hdinsight-high-availability-linux.md).
 
 ###Подключение к рабочим узлам
 
@@ -239,4 +243,4 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

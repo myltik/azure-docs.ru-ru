@@ -37,7 +37,6 @@ Azure Active Directory B2C — это комплексное облачное р
 Регулярно просматривайте указанные ниже страницы и узнавайте о будущих изменениях в предварительной версии Azure Active Directory B2C. Кроме того, мы будет сообщать о нововведениях в Twitter (учетная запись @AzureAD).
 
 - Узнайте о нашей [платформе расширяемых политик](active-directory-b2c-reference-policies.md), а также о типах политик, которые можно создать и использовать в приложениях.
-- Добавьте в закладки нашу [страницу работоспособности службы](active-directory-b2c-service-health.md), чтобы получать уведомления о незначительных проблемах, состоянии службы и устраненных рисках. Также продолжайте отслеживать [панель мониторинга состояния Azure](https://azure.microsoft.com/status/).
 - Текущие [ограничения для предварительной версии](active-directory-b2c-limitations.md).
 
 ## Статьи с инструкциями
@@ -56,7 +55,7 @@ Azure Active Directory B2C — это комплексное облачное р
 Следующие ссылки позволят глубже изучить службу:
 
 - См. страницу [Цены на Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
-- См. материалы на сайте Stack Overflow (Переполнение стека) по тегам [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) и [adal](http://stackoverflow.com/questions/tagged/adal).
+- См. материалы на сайте Stack Overflow (Переполнение стека) [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) и [adal](http://stackoverflow.com/questions/tagged/adal).
 - Сообщите нам свое мнение о предварительной версии на сайте [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/). Мы будем рады обратной связи. В заголовке сообщения укажите «AzureADB2C:», чтобы мы смогли его найти.
 - Azure Active Directory B2C поддерживает стандартные отраслевые протоколы OpenID Connect и OAuth 2.0, используя модель регистрации приложений (модель приложений версии 2.0).
   - [Справочник по протоколу модели приложений версии 2.0](active-directory-b2c-reference-protocols.md)
@@ -64,4 +63,4 @@ Azure Active Directory B2C — это комплексное облачное р
 - См. статью [Предварительная версия Azure Active Directory B2C: часто задаваемые вопросы](active-directory-b2c-faqs.md).
 - [Предварительная версия Azure Active Directory B2C: регистрация запросов на поддержку для Azure Active Directory B2C](active-directory-b2c-support.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->
