@@ -2368,7 +2368,7 @@ DocumentDB обеспечивает модель программировани�
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9.	Методика вычисления запросов для больших баз данных — [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10.	Обработка запросов в параллельных реляционных СУБД (Query Processing in Parallel Relational Database Systems), IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
+11.	Lu, Ooi, Tan, Обработка запросов в параллельных реляционных СУБД (Query Processing in Parallel Relational Database Systems), IEEE Computer Society Press, 1994.
 12.	Кристофер Олстон (Christopher Olston), Бенджамин Рид (Benjamin Reed), Аткарш Сривастава (Utkarsh Srivastava), Рави Камар (Ravi Kumar), Эндрю Томкинс (Andrew Tomkins): Язык Pig. Не такой уж и незнакомый язык для обработки данных (Pig Latin: A Not-So-Foreign Language for Data Processing), SIGMOD 2008 г.
 13.     Ж. Графе (G. Graefe). Каскадные платформы для оптимизации запросов. IEEE Data Eng. Bull., 18(3): 1995 г.
 
@@ -2378,4 +2378,4 @@ DocumentDB обеспечивает модель программировани�
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->
