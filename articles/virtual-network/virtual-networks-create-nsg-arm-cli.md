@@ -105,7 +105,7 @@
 	- **-n (или --name)**. Имя нового правила. В нашем случае это *rdp-rule*.
 	- **-c (или --access)**. Уровень доступа для правила (Deny или Allow).
 	- **-p (или --protocol)**. Протокол для правила (TCP, UDP или «*»).
-- **-r (or --direction)**. Направление подключения (Inbound или Outbound).
+	- **-r (or --direction)**. Направление подключения (Inbound или Outbound).
 	- **-y (или --priority)**. Приоритет правила.
 	- **-f (или --source-address-prefix)**. Префикс адреса источника в CIDR или использование тегов по умолчанию.
 	- **-o (или --source-port-range)**. Исходный порт или диапазон портов.
@@ -269,4 +269,4 @@
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->
