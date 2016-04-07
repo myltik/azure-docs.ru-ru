@@ -246,7 +246,8 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 | + | Добавить |
 | – | Вычитание |
 | * | Умножение |
-| / | Деление || % | Остаток от деления | 
+| / | Деление |
+| % | Остаток от деления | 
 || 
 |`<` | Меньше 
 |`<=`| Меньше или равно 
@@ -1154,4 +1155,4 @@ range(1, 8, 3)
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!------HONumber=AcomDC_0323_2016-->
+<!-------HONumber=AcomDC_0323_2016-->
