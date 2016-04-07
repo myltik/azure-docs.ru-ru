@@ -69,9 +69,9 @@
 
 3. Введите следующий код в окне запроса:
 
-	``sql
+    ```sql
 	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```
 
 4. Выполните запрос.
 
