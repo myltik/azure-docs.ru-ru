@@ -125,10 +125,10 @@
 |Средство развертывания|Классический|Диспетчер ресурсов|
 |---|---|---|
 |Классический портал.|![Нет][red]|![Нет][red]|
-|Портал Azure|![Да][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Да][green]</a>|
-|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Да][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Да][green]</a>|
-|Инфраструктура CLI Azure|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Да][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Да][green]</a>|
-|Шаблон ARM|![Нет][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Да][green]</a>|
+|Портал Azure|![Да][green]|[![Да][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal)|
+|PowerShell|[![Да][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps)|[![Да][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps)|
+|Инфраструктура CLI Azure|[![Да][green]](https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli)|[![Да][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli)|
+|Шаблон ARM|![Нет][red]|[![Да][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template)|
 
 |**Ключ**|![Да][green] Поддерживается. Щелкните, чтобы открыть статью.|![Нет][red] Не поддерживается.|
 |---|---|---|
