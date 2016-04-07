@@ -79,7 +79,7 @@ SQL Server 2014 с пакетом обновления 1 включает осн
 
 Если виртуальная машина остановлена, найдите ее на текущем портале и запишите ее образ.
 
-Дополнительные сведения о записи образа см. в статье [Capture an image of an Azure Windows virtual machine created with the classic deployment model](../virtual-machines/virtual-machines-windows-classic-capture-image.md).
+Дополнительные сведения о записи образа см. в статье [Запись образа виртуальной машины Azure Windows, созданной с использованием классической модели развертывания](../virtual-machines/virtual-machines-windows-classic-capture-image.md).
 
 
 ### 5\. Добавление образа к образам шаблонов Azure RemoteApp
@@ -159,3 +159,4 @@ SQL Server 2014 с пакетом обновления 1 включает осн
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
 <!---HONumber=AcomDC_0323_2016-->
+
