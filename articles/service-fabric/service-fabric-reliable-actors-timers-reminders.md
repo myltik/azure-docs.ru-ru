@@ -3,7 +3,7 @@
    description="Общие сведения о таймерах и напоминаниях для надежных субъектов Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="myamanbh"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/15/2016"
-   ms.author="amanbha"/>
+   ms.author="vturecek"/>
 
 
 # Таймеры субъектов
