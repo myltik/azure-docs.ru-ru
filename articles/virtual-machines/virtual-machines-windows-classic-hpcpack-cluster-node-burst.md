@@ -79,13 +79,13 @@ ms.service="virtual-machines-windows"
 
 После добавления и запуска узлов их можно использовать для выполнения заданий кластера.
 
-Если при развертывании узлов Azure возникли проблемы, см. статью "Устранение неполадок развертываний узлов Azure с помощью пакета Microsoft HPC"(http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
+Если при развертывании узлов Azure возникли проблемы, см. статью [Устранение неполадок развертываний узлов Azure с помощью пакета Microsoft HPC](http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
 
 ## Дальнейшие действия
 
-* Если вам требуется автоматическое увеличение или уменьшение вычислительных ресурсов Azure в соответствии с текущей рабочей нагрузкой заданий и задач в кластере, см. статью [Автоматическое увеличение и сжатие вычислительных ресурсов Azure в кластере пакета HPC](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+* Если вам требуется автоматическое увеличение или уменьшение вычислительных ресурсов Azure в соответствии с текущей рабочей нагрузкой заданий и задач в кластере, см. статью [Automatically scale Azure compute resources up and down in an HPC Pack cluster according to the cluster workload](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

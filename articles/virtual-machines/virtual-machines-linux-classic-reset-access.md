@@ -30,7 +30,7 @@
 
 ![](./media/virtual-machines-linux-classic-reset-access/Portal-RDP-Reset-Linux.png)
 
-Чтобы сбросить имя и пароль учетной записи пользователя с привилегиями sudo или открытым ключом SSH на [портале Azure](https://portal.azure.com), щелкните **Обзор** > **Виртуальные машины** > *ваша виртуальная машина Linux * > **Все параметры** > **Сброс пароля**. Ниже приведен пример.
+Чтобы сбросить имя и пароль учетной записи пользователя с привилегиями sudo или открытым ключом SSH на [портале Azure](https://portal.azure.com), щелкните **Обзор** > **Виртуальные машины** > *ваша виртуальная машина Linux* > **Все параметры** > **Сброс пароля**. Ниже приведен пример.
 
 ![](./media/virtual-machines-linux-classic-reset-access/Portal-PW-Reset-Linux.png)
 
@@ -317,4 +317,4 @@
 [Расширения и компоненты виртуальных машин Azure]: virtual-machines-windows-extensions-features.md
 [Подключение к виртуальной машине Azure с помощью RDP или SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
