@@ -117,4 +117,4 @@
 * Автоматизация развертывания виртуальных машин и рабочих нагрузок, а также управления ими с помощью [шаблонов Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 * Вы также можете быстро [создать виртуальную машину Linux](virtual-machines-linux-quick-create-cli.md) с помощью интерфейса командной строки Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
