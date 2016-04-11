@@ -19,13 +19,18 @@
 # Скалярные выражения в аналитике
 
 
-[Аналитика](app-analytics.md) позволяет выполнять расширенные запросы к данным телеметрии приложения, собранным службой [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики.
+[Аналитика](app-analytics.md) позволяет выполнять расширенные запросы к данным телеметрии приложения, собранным службой 
+[Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ---
 
-[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) <br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) <br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) <br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) 
+<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull)
+<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) 
+<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) 
+| [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
@@ -39,21 +44,23 @@
 
 ## Скалярные значения
 
-[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons) 
+<br/>
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 Ниже приведены поддерживаемые типы.
 
 | Тип | Дополнительные имена | Эквивалентный тип .NET |
 | --------- | -------------------- | -------------------- |
-| `bool` | `boolean` | `System.Boolean` |
-| `datetime`| `date` | `System.DateTime` |
-| `dynamic` | | `System.Object` |
-| `guid` | `uuid`, `uniqueid` | `System.Guid` |
-| `int` | | `System.Int32` |
-| `long` | | `System.Int64` |
-| `double` | `real` | `System.Double` |
-| `string` | | `System.String` |
-| `timespan`| `time` | `System.TimeSpan` |
+| `bool`    | `boolean`            | `System.Boolean`     |
+| `datetime`| `date`               | `System.DateTime`    |
+| `dynamic` |                      | `System.Object`      |
+| `guid`    | `uuid`, `uniqueid`   | `System.Guid`        |
+| `int`     |                      | `System.Int32`       |
+| `long`    |                      | `System.Int64`       |
+| `double`  | `real`               | `System.Double`      |
+| `string`  |                      | `System.String`      |
+| `timespan`| `time`               | `System.TimeSpan`    |
 
 ### Приведение типов
 
@@ -134,7 +141,9 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 ```
 ### iff
 
-Функция `iff()` вычисляет первый аргумент (предикат) и возвращает значение второго или третьего аргументов, в зависимости от того, является ли предикат `true` или `false`. Второй и третий аргументы должны быть одного типа.
+Функция `iff()` вычисляет первый аргумент (предикат) и возвращает значение второго 
+или третьего аргументов, в зависимости от того, является ли 
+предикат `true` или `false`. Второй и третий аргументы должны быть одного типа.
 
 **Синтаксис**
 
@@ -157,7 +166,9 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a> <a name="isnotnull"/></a> <a name="notnull"/></a>
+<a name="isnull"/></a>
+<a name="isnotnull"/></a>
+<a name="notnull"/></a>
 ### isnull, isnotnull, notnull
 
     isnull(parsejson("")) == true
@@ -185,7 +196,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 | "" | нет
 |"x" | нет
 |parsejson("")|Да
-|parsejson("")|нет
+|parsejson("[]")|нет
 |parsejson("{}")|нет
 
 **Пример**
@@ -217,7 +228,8 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 ## Числа
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
+| [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Числовые литералы
 
@@ -231,7 +243,17 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | Добавить |
-| – | Вычитание || * | Умножение || / | Деление || % | Остаток от деления | || |`<` | Меньше |`<=`| Меньше или равно |`>` | Больше |`>=`| Больше или равно |`<>`| Не равно |`!=`| Не равно
+| – | Вычитание |
+| * | Умножение |
+| / | Деление |
+| % | Остаток от деления | 
+|| 
+|`<` | Меньше 
+|`<=`| Меньше или равно 
+|`>` | Больше 
+|`>=`| Больше или равно 
+|`<>`| Не равно 
+|`!=`| Не равно
 
 
 
@@ -253,7 +275,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 **Возвращает**
 
-Ближайшее число, кратное *roundTo* и меньшее *value*.
+Ближайшее число, кратное *roundTo* и меньшее *value*.  
  
     (toint((value/roundTo)-0.5)) * roundTo
 
@@ -530,7 +552,7 @@ T | where ... | extend Elapsed=now() - timestamp
 
 Строки могут быть заключены в одинарные или двойные кавычки.
 
-Обратная косая черта (``) используется для экранирования символов, таких как `\t` (табуляция), `\n` (новая строка) и кавычек.
+Обратная косая черта (`\`) используется для экранирования символов, таких как `\t` (табуляция), `\n` (новая строка) и кавычек.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -649,12 +671,15 @@ h"hello"
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
-<a name="notempty"></a> <a name="isnotempty"></a> <a name="isempty"></a>
+<a name="notempty"></a> 
+<a name="isnotempty"></a> 
+<a name="isempty"></a>
 ### isempty, isnotempty, notempty
 
     isempty("") == true
 
-True, если аргумент является пустой строкой или имеет значение null. См. также [isnull](#isnull).
+True, если аргумент является пустой строкой или имеет значение null. 
+См. также [isnull](#isnull).
 
 
 **Синтаксис**
@@ -676,7 +701,7 @@ True, если аргумент является пустой строкой и�
 | "" | Да
 |"x" | нет
 |parsejson("")|Да
-|parsejson("")|нет
+|parsejson("[]")|нет
 |parsejson("{}")|нет
 
 
@@ -823,7 +848,8 @@ substring("ABCD", 0, 2)       // AB
 
 ## Массивы и объекты — динамические типы
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) 
+<br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Ниже приведен результат запроса на исключение Application Insights. Значение `details` является массивом.

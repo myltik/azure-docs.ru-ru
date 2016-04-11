@@ -241,7 +241,7 @@
 	
 	![Диалоговое окно "Добавление Scaffold"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rr6.png)
 
-1. В раскрывающемся списке **Класс модели** выберите** Контакт (ContactManager.Models)**. (См. изображение ниже.)
+1. В раскрывающемся списке **Класс модели** выберите **Контакт (ContactManager.Models)**. (См. изображение ниже.)
 
 1. В поле **Класс контекста модели** выберите **ApplicationDbContext (ContactManager.Models)**. **ApplicationDbContext** будет использоваться и для базы данных членства, и для наших контактных данных.
 
@@ -264,7 +264,7 @@
 
 		enable-migrations
 
-	Команда **enable-migrations** создает папку *Migrations *и помещает в нее файл *Configuration.cs*, который можно изменять и использовать для заполнения базы данных и настройки миграций.
+	Команда **enable-migrations** создает папку *Migrations* и помещает в нее файл *Configuration.cs*, который можно изменять и использовать для заполнения базы данных и настройки миграций.
 
 2. В окне **Консоль диспетчера пакетов** введите следующую команду:
 
@@ -759,4 +759,4 @@
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->

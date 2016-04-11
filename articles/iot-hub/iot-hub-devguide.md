@@ -68,7 +68,7 @@
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Иногда для пакета SDK требуется указать значение **Имя узла** или **Пространство имен**. В этом случае удалите схему из поля **Конечная точка, совместимая с концентраторами событий**. Например, если конечная точка, совместимая с концентраторами событий, это ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, **именем узла** будет **iothub-ns-myiothub-1234.servicebus.windows.net**, а **пространством имен** — **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Иногда для пакета SDK требуется указать значение **Имя узла** или **Пространство имен**. В этом случае удалите схему из поля **Конечная точка, совместимая с концентраторами событий**. Например, если конечная точка, совместимая с концентраторами событий, это **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, **именем узла** будет **iothub-ns-myiothub-1234.servicebus.windows.net**, а **пространством имен** — **iothub-ns-myiothub-1234**.
 
 Затем можно использовать любую политику безопасности общего доступа с разрешениями **ServiceConnect**, которые позволяют выполнять подключение к указанному концентратору событий.
 
@@ -639,4 +639,4 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->

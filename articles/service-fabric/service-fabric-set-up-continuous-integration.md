@@ -406,8 +406,8 @@
 
 Дополнительные сведения о непрерывной интеграции с приложениями Service Fabric см. в следующих статьях:
 
- - [Домашняя страница документации по сборке](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
- - [Развертывание агента построения](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
- - [Создание и настройка определения сборки](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
+- [Домашняя страница документации по сборке](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
+- [Развертывание агента построения](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
+- [Создание и настройка определения сборки](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
 <!---HONumber=AcomDC_0330_2016-->
