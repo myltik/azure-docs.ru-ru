@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,7 +65,7 @@
 4. В нижней части страницы нажмите кнопку **Добавить**.<br><br> ![Приложения][3]<br>
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.<br><br> ![Приложения][4]<br>
 6. В поле поиска введите **ADP GlobalView**.<br><br> ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_01.png)<br>
-7. В области результатов выберите **ADP GlobalView** и нажмите кнопку **Завершить**, чтобы добавить приложение. <br><br>
+7. В области результатов выберите **ADP GlobalView** и нажмите кнопку **Завершить**, чтобы добавить приложение. <br><br> ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_06.png)<br>
 
 ##  Настройка и проверка единого входа в Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в ADP GlobalView с использованием тестового пользователя Britta Simon.
@@ -95,20 +95,20 @@
 
 1. На классическом портале Azure на странице интеграции с приложением **ADP GlobalView** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**. <br><br> ![Настройка единого входа][6] <br>
 
-2. На странице **Как пользователи должны входить в ADP GlobalView?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**. <br><br> ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_03.png)<br>
+2. На странице **Как пользователи должны входить в ADP GlobalView?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**. <br><br> ![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_03.png) <br>
 
 3. На диалоговой странице **Настройка параметров приложения** выполните следующие действия. <br><br>![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_04.png) <br>
 
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес, используемый для идентификации приложения ADP GlobalView, воспользовавшись одним из двух шаблонов: **"https://<server name>.globalview.adp.com/federate2"**, **"https://<server name>.globalview.adp.com/federate"**
+    а. В текстовом поле **Идентификатор** введите URL-адрес, используемый для идентификации приложения ADP GlobalView, воспользовавшись одним из двух шаблонов: **https://<имя сервера>.globalview.adp.com/federate2**, **https://<имя сервера>.globalview.adp.com/federate**
 
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес, используемый Azure AD для отправки ответа приложению ADP GlobalView, воспользовавшись одним из двух шаблонов: **"https://<server name>.globalview.adp.com/federate2/sp/ACS.saml2"**, **"https://<server name>.globalview.adp.com/federate/sp/ACS.saml2"**
+    b. В текстовом поле **URL-адрес ответа** введите URL-адрес, используемый Azure AD для отправки ответа приложению ADP GlobalView, воспользовавшись одним из двух шаблонов: **https://<имя сервера>.globalview.adp.com/federate2/sp/ACS.saml2**, **https://<имя сервера>.globalview.adp.com/federate/sp/ACS.saml2**
 
     c. Нажмите кнопку **Далее**.
 
 
-4. На странице **Настройка единого входа в ADP GlobalView** выполните следующие действия: <br><br>![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_05.png) <br>
+4. На странице **Настройка единого входа в ADP GlobalView** выполните указанные ниже действия: <br><br>![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_05.png) <br>
 
     а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
 
@@ -190,7 +190,7 @@
 
 1. Чтобы открыть представление приложений, в представлении каталога на классическом портале Azure нажмите **Приложения** в верхнем меню. <br><br>![Назначение пользователя][201] <br>
 
-2. Из списка приложений выберите ** ADP GlobalView**. <br><br>![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_50.png) <br>
+2. Из списка приложений выберите **ADP GlobalView**. <br><br>![Настройка единого входа](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_50.png) <br>
 
 1. В верхнем меню щелкните **Пользователи**. <br><br>![Назначение пользователя][203] <br>
 
@@ -229,4 +229,4 @@
 [204]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

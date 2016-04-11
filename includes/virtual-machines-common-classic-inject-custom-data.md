@@ -43,7 +43,7 @@
 
 ### Образы облаков Ubuntu
 
-В большинстве образов Azure Linux вы изменяете /etc/waagent.conf, чтобы настроить временный диск ресурсов и файл подкачки. Дополнительную информацию см. в [руководстве пользователя агента Linux Azure](virtual-machines-linux-agent-user-guide.md).
+В большинстве образов Azure Linux вы изменяете /etc/waagent.conf, чтобы настроить временный диск ресурсов и файл подкачки. Дополнительную информацию см. в [руководстве пользователя агента Linux Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md).
 
 В образах Ubuntu Cloud для настройки диска ресурсов (который также называется временным) и раздела подкачки необходимо использовать пакет cloud-init. Дополнительные сведения см. на следующей странице на вики-сайте по Ubuntu: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
@@ -59,4 +59,4 @@
 
 [Интерфейс командной строки Azure](https://github.com/Azure/azure-xplat-cli)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

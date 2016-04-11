@@ -1,5 +1,5 @@
 
-Дополнительную информацию о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-linux-about-disks-vhds.md).
+Дополнительную информацию о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 ##<a id="attachempty"></a>Практическое руководство. Подключение пустого диска
 
@@ -54,4 +54,4 @@
 
 	![Диск данных успешно подключен](./media/howto-attach-disk-windows-linux/AttachExistingSuccess.png)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

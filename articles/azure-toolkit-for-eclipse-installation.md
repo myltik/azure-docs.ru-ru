@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/09/2016" 
+    ms.date="03/28/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
@@ -22,7 +22,7 @@
 
 В набор средств Azure для Eclipse входят шаблоны и функциональные возможности для простого создания, разработки, тестирования и развертывания приложений Azure с помощью среды разработки Eclipse. Это проект с открытым кодом, исходный код которого доступен по лицензии Apache License 2.0 на сайте проекта в GitHub по следующему URL-адресу:
 
-<https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>.
+<https://github.com/microsoft/azure-tools-for-java>
 
 Ниже приведен процесс установки набора средств Azure для Eclipse.
 
@@ -51,13 +51,13 @@
 
 ## См. также
 
-[Набор средств Azure для Eclipse][]
+[Набор средств Azure для Eclipse]
 
-[Создание приложения Hello World для Azure в Eclipse][]
+[Создание приложения Hello World для Azure в Eclipse]
 
-[Новые возможности набора средств Azure для Eclipse][]
+[Новые возможности набора средств Azure для Eclipse]
 
-Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][].
+Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure].
 
 <!-- URL List -->
 
@@ -65,6 +65,8 @@
 [центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Web Platform Installer (WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838
+[установщика веб-платформы (WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838
 [Новые возможности набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
@@ -72,4 +74,4 @@
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

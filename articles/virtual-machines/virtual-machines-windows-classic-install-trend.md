@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
-	ms.author="dkshir"/>
+	ms.date="03/28/2016"
+	ms.author="iainfou"/>
 
 
 # Установка и настройка Trend Micro Deep Security как услуги на ВМ Windows
@@ -87,4 +87,4 @@
 [Как войти в виртуальную машину под управлением Windows Server]: virtual-machines-windows-classic-connect-logon.md
 [Расширения и компоненты виртуальных машин Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Проектирование таблиц в хранилище данных SQL #
@@ -59,7 +59,7 @@
 
 С помощью следующего запроса в хранилище данных можно определить столбцы, которые содержат несовместимые типы:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -138,7 +138,7 @@ OR  y.[is_user_defined] = 1
 
 Ниже приведен пример циклически распределенной таблицы:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -158,7 +158,7 @@ WITH
 
 Вот еще пример циклически распределенной таблицы:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -205,7 +205,7 @@ WITH
 
 Ниже приведена таблица, хэш-распределенная по ProductKey.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -230,7 +230,7 @@ WITH
 
 Пример секционирования хранилища данных SQL с помощью команды `CREATE TABLE`:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -306,4 +306,4 @@ WITH
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

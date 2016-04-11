@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Защита базы данных в хранилище данных SQL
@@ -37,7 +37,7 @@
 
 Вначале подключитесь к базе данных master на сервере с именем администратора сервера и создайте новое имя входа на сервер.
 
-```
+```sql
 -- Connect to master database and create a login
 CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
@@ -45,8 +45,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
 Затем подключитесь к БД хранилища данных SQL с именем администратора сервера и создайте пользователя БД на базе только что созданного имени входа на сервер.
 
-```
-
+```sql
 -- Connect to SQL DW database and create a database user
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
@@ -59,7 +58,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 Авторизация подразумевает набор действий, которые можно выполнять в базе данных хранилища SQL Azure. Этот набор действий определяют разрешения учетной записи пользователя и присвоенные ей роли. Обычно пользователям рекомендуется предоставлять наименьшие необходимые привилегии. Хранилищем данных SQL Azure можно легко управлять с использованием ролей в T-SQL.
 
-```
+```sql
 EXEC sp_addrolemember 'db_datareader', 'ApplicationUser'; -- allows ApplicationUser to read data
 EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationUser to write data
 ```
@@ -74,14 +73,12 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 Управление базами данных и логическими серверами на классическом портале Azure или с помощью API-интерфейса диспетчера ресурсов Azure контролируется путем назначения ролей для учетной записи пользователя портала. Дополнительные сведения об этом см. в разделе [Контроль доступа на основе ролей на портале Azure][].
 
-
-
 ## Шифрование
 
 Хранилище данных SQL Azure поможет защитить ваши данные путем их шифрования, когда они находятся в неактивном состоянии или хранятся в файлах базы данных и ее резервных копиях, используя [прозрачное шифрование данных][]. Чтобы зашифровать базу данных, подключитесь к главной базе данных на сервере и выполните следующий код:
 
 
-```
+```sql
 
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
@@ -89,13 +86,9 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 Прозрачное шифрование данных также можно включить из параметров базы данных на [классическом портале Azure][].
 
-
-
 ## Аудит
 
 Аудит и отслеживание событий базы данных может помочь в постоянном обеспечении соответствия нормативным требованиям и обнаружении подозрительных действий. Аудит хранилища данных SQL позволяет фиксировать события, происходящие в базе данных, в журнале аудита в вашей учетной записи хранения Azure. Кроме того, благодаря интеграции аудита хранилища данных SQL с Microsoft Power BI обеспечиваются упрощенное создание подробных отчетов и проведение детализированного анализа. Дополнительные сведения см. в статье [Приступая к работе с аудитом Базы данных SQL][].
-
-
 
 ## Дальнейшие действия
 Дополнительные советы по разработке см. в статье [Общие сведения о разработке][].
@@ -119,4 +112,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Контроль доступа на основе ролей на портале Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

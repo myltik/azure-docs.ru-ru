@@ -3,7 +3,7 @@
    description="Узнайте о том, как организовать отслеживание рабочей нагрузки с помощью динамических административных представлений."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,68 +13,41 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="03/29/2016"
+   ms.author="sonyama;barbkess;sahajs"/>
 
 # Мониторинг рабочей нагрузки с помощью динамических административных представлений
 
 В этой статье рассказывается, как использовать динамические административные представления (DMV) для наблюдения за рабочей нагрузкой и проверки выполнения запросов в хранилище данных SQL Azure.
 
-
-
 ## Мониторинг подключений
 
-Для получения сведений о подключениях, установленных к базе данных в хранилище данных SQL Azure,можно использовать представление *sys.dm\_pdw\_nodes\_exec\_connections*. Кроме того, представление *sys.dm\_exec\_sessions* может оказаться полезным при получении сведений о всех активных подключениях пользователя.
+Представление [Sys.dm\_pdw\_exec\_sessions][] позволяет отслеживать подключения к базе данных хранилища данных SQL Azure. Это представление содержит активные сеансы, а также журнал недавно отключенных сеансов. Session\_id является первичным ключом для этого представления и назначается последовательно для каждого нового входа.
 
+```sql
+SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ```
-
-SELECT * FROM sys.dm_pdw_nodes_exec_connections;
-SELECT * FROM sys.dm_pdw_nodes_exec_sessions;
-
-```
-
-
-Используйте следующий запрос для получения сведений о текущем подключении.
-
-```
-
-SELECT *
-FROM sys.dm_pdw_nodes_exec_connections AS c
-   JOIN sys.dm_pdw_nodes_exec_sessions AS s
-   ON c.session_id = s.session_id
-WHERE c.session_id = @@SPID;
-
-```
-
-
-
-
 
 ## Проверка выполнения запроса
-Могут возникнуть ситуации, когда запрос не завершен или выполняется дольше, чем ожидалось. В таких случаях можно использовать следующие шаги для сбора данных и упростить работу с ними.
+Для отслеживания выполнения запроса начните с представления [sys.dm\_pdw\_exec\_requests][]. Это представление содержит выполняющиеся запросы, а также журнал запросов, которые недавно были выполнены. Идентификатор request\_id уникально идентифицирует каждый запрос и является первичным ключом для этого представления. Этот идентификатор назначается последовательно для каждого нового запроса. При запросе конкретного session\_id из этой таблицы будут показаны все запросы для данного входа в систему.
 
-
+Для ситуации, когда вы хотите исследовать выполнение для конкретного запроса, ниже приведены некоторые общие действия.
 
 ### Шаг 1. Поиск запроса для анализа
 
-```
-
+```sql
 -- Monitor running queries
 SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
 
--- Find the longest running queries
-SELECT * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
-
+-- Find the 10 longest running queries
+SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 ```
 
-Сохраните идентификатор запроса.
-
-
+Запишите идентификатор запроса, который вы хотите исследовать.
 
 ### Шаг 2. Проверка того, ожидает ли запрос ресурсы
 
-```
-
+```sql
 -- Find waiting tasks for your session.
 -- Replace request_id with value from Step 1.
 
@@ -92,23 +65,18 @@ FROM   sys.dm_pdw_waits waits
    ON waits.request_id=requests.request_id
 WHERE waits.request_id = 'QID33188'
 ORDER BY waits.object_name, waits.object_type, waits.state;
-
 ```
 
-
-В результатах представленного выше запроса содержатся сведения о состоянии ожидания запроса.
+В результатах представленного выше запроса будет показано состояние ожидания запроса.
 
 - Если запрос ожидает ресурсы из другого запроса, то состояние будет **AcquireResources**.
 - Если запрос содержит все необходимые ресурсы и не находится в состоянии ожидания, то состояние будет **Granted**. В этом случае следует просмотреть этапы запроса.
 
+### Шаг 3. Поиск этапа плана запроса, который выполняется дольше всех
 
+С помощью идентификатора запроса получите список этапов плана запроса из представления [sys.dm\_pdw\_request\_steps][]. Найдите самый долго выполняющийся этап, обратившись к сведениям об общем затраченном времени.
 
-
-### Шаг 3. Поиск этапа запроса, который выполняется дольше всех
-
-Используйте идентификатор запроса для получения списка всех этапов распределенного запроса. Найдите самый долго выполняющийся этап, обратившись к сведениям об общем затраченном времени.
-
-```
+```sql
 
 -- Find the distributed query plan steps for a specific query.
 -- Replace request_id with value from Step 1.
@@ -116,7 +84,6 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 SELECT * FROM sys.dm_pdw_request_steps
 WHERE request_id = 'QID33209'
 ORDER BY step_index;
-
 ```
 
 Сохраните индекс самого длительного этапа.
@@ -126,28 +93,22 @@ ORDER BY step_index;
 - Перейдите к шагу 4a для **операций SQL**: OnOperation, RemoteOperation, ReturnOperation.
 - Перейдите к шагу 4b для **операций перемещения данных**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-
-
-
 ### Шаг 4а. Поиск сведений о ходе выполнения этапа SQL
 
-Используйте идентификатор запроса и индекса этапа для получения сведений о распределении запросов SQL Server в рамках этапа SQL в запросе. Сохраните идентификатор и код SPID распределения.
+Используйте идентификатор запроса и индекс этапа для извлечения данных из представления [sys.dm\_pdw\_sql\_requests][], которое содержит сведения о выполнении запроса в распределенных экземплярах SQL Server. Запишите идентификатор распределения и SPID, если запрос все еще выполняется и вы хотите получить план из распределения SQL Server.
 
-```
-
+```sql
 -- Find the distribution run times for a SQL step.
 -- Replace request_id and step_index with values from Step 1 and 3.
 
 SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID33209' AND step_index = 2;
-
 ```
 
 
-Используйте следующий запрос, чтобы получить план выполнения SQL Server для этапа SQL на определенном узле.
+Если запрос в данный момент выполняется, можно использовать [DBCC PDW\_SHOWEXECUTIONPLAN][], чтобы получить план выполнения SQL Server для текущего выполняемого шага SQL для определенного распределения.
 
-```
-
+```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
 -- Replace distribution_id and spid with values from previous query.
 
@@ -155,14 +116,11 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
 ```
 
-
-
 ### Шаг 4b. Поиск сведений о ходе выполнения этапа DMS
 
-Используйте идентификатор запроса и индекса шага для получения сведений об этапе перемещения данных, выполняющемся при каждом распределении.
+Используйте идентификатор запроса и индекс этапа, чтобы получить сведения об этапе перемещения данных, выполняющемся при каждом распределении, из [sys.dm\_pdw\_dms\_workers][].
 
-```
-
+```sql
 -- Find the information about all the workers completing a Data Movement Step.
 -- Replace request_id and step_index with values from Step 1 and 3.
 
@@ -172,35 +130,38 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 ```
 
 - Перейдите к столбцу *total\_elapsed\_time*, чтобы просмотреть, имеется ли определенная операция распространения, выполнение которой занимает значительно больше времени, чем другие, для перемещения данных.
-- Обратитесь к столбцу *rows\_processed* для длительно выполняющейся операции распространения и проверьте, является ли количество перемещаемых этой операцией строк значительно большим по сравнению с другими. Это указывает на неравномерное смещение данных в запросе.
-
-
-
-
+- Обратитесь к столбцу *rows\_processed* для длительно выполняющейся операции распространения и проверьте, является ли количество перемещаемых этой операцией строк значительно большим по сравнению с другими. Если это так, то это может означать отклонение базовых данных.
 
 ## Проверка неравномерного смещения данных
 
-```
+Используйте [DBCC PDW\_SHOWSPACEUSED][] для поиска пространства, используемого таблицей.
 
+```sql
 -- Find data skew for a distributed table
 DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
-
 ```
 
+Результат этого запроса содержит сведения о количестве строк таблицы, которое хранится в каждом из 60 распределений базы данных. Для достижения оптимальной производительности строки в распределенной таблице должны быть равномерно распределены по всем распределениям.
 
-Результат этого запроса содержит сведения о количестве строк таблицы, которое хранится в каждом из 60 распределений базы данных. Для достижения оптимальной производительности строки в распределенной таблице должны быть равномерно распределены по всем распределениям. Дополнительные сведения можно найти в разделе, посвященном [конструктору таблиц][].
-
-
+Дополнительные сведения можно найти в разделе, посвященном [конструктору таблиц][].
 
 ## Дальнейшие действия
-Дополнительные советы по управлению хранилищем данных SQL см. в разделе [Общие сведения об управлении][].
+Дополнительные сведения о языке Transact-SQL и динамических административных представлениях (DMV) см. в [справочном обзоре][]. Дополнительные советы по управлению хранилищем данных SQL см. в [обзоре управления][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Общие сведения об управлении]: sql-data-warehouse-overview-manage.md
+[обзоре управления]: sql-data-warehouse-overview-manage.md
 [конструктору таблиц]: sql-data-warehouse-develop-table-design.md
+[справочном обзоре]: sql-data-warehouse-overview-reference.md
+[sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
+[sys.dm\_pdw\_exec\_requests]: http://msdn.microsoft.com/library/mt203887.aspx
+[Sys.dm\_pdw\_exec\_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
+[sys.dm\_pdw\_request\_steps]: http://msdn.microsoft.com/library/mt203913.aspx
+[sys.dm\_pdw\_sql\_requests]: http://msdn.microsoft.com/library/mt203889.aspx
+[DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
+[DBCC PDW\_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -6,79 +6,41 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management,hpc-pack"/>
+ tags="azure-service-management,azure-resource-manager,hpc-pack"/>
 <tags
  ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="11/25/2015"
+ ms.date="03/24/2016"
  ms.author="danlep"/>
 
 # Выполнение заданий OpenFoam в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC
 
-В этой статье рассказывается, как развернуть кластер пакета Microsoft HPC в Azure и выполнить задания [OpenFoam](http://openfoam.com/) с помощью Intel MPI на нескольких вычислительных узлах Linux, подключенных к сети Azure с технологией удаленного доступа к памяти (RDMA).
+В этой статье показан один из способов запуска OpenFoam в Azure. Вы будете разворачивать кластер пакета Microsoft HPC в Azure и выполнять задание [OpenFoam](http://openfoam.com/) с помощью Intel MPI на нескольких вычислительных узлах Linux, подключенных к сети Azure с технологией удаленного доступа к памяти (RDMA). Другие варианты запуска OpenFoam в Azure включают полностью настроенные коммерческие образы, доступные на рынке.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 OpenFOAM (англ. Open Field Operation and Manipulation) — это распространяемый бесплатно пакет программного обеспечения с открытым исходным кодом для вычислительной гидродинамики (CFD). Он широко используется в науке и технике, как в научных, так и в коммерческих организациях. Пакет содержит средства для сеточного разбиения (например, snappyHexMesh), включает средство распараллеливания расчетов для сложных геометрических объектов, а также функции предварительной и последующей обработки. Почти все процессы выполняются параллельно, что позволяет пользователям максимально задействовать ресурсы компьютера.
 
-Пакет Microsoft HPC предоставляет функции, необходимые для работы приложений высокопроизводительных и параллельных вычислений, включая приложения MPI, в кластерах виртуальных машин Microsoft Azure. Начиная с версии Microsoft HPC 2012 R2 с обновлением 2, пакет HPC также поддерживает приложения высокопроизводительных вычислений для Linux на виртуальных вычислительных машинах узла Linux, развернутых в кластере HPC. Общие сведения об использовании вычислительных узлов Linux и пакета HPC см. в статье [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+Пакет Microsoft HPC предоставляет функции, необходимые для работы приложений высокопроизводительных и параллельных вычислений, включая приложения MPI, в кластерах виртуальных машин Microsoft Azure. Пакет HPC также поддерживает приложения высокопроизводительных вычислений для Linux на виртуальных вычислительных узлах Linux, развернутых в кластере HPC. Общие сведения об использовании вычислительных узлов Linux и пакета HPC см. в статье [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
 >[AZURE.NOTE] В этой статье предполагается, что у вас есть опыт администрирования Linux и выполнения рабочих нагрузок MPI на кластерах Linux HPC.
 
 ## Предварительные требования
 
-*   **Кластер HPC с вычислительными узлами Linux**. Предварительные требования и действия для развертывания кластера HPC с вычислительными узлами Linux в Azure с помощью сценария Azure PowerShell и образов пакета HPC (из Azure Marketplace) см. в статье [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Дополнительные замечания по использованию экземпляров A8 с большим объемом вычислений для доступа к сети RDMA в Azure см. в статье [Об экземплярах A8, A9, A10 и A11 с большим объемом вычислений](virtual-machines-windows-a8-a9-a10-a11-specs.md).
-
-    Ниже приведен пример XML-файла конфигурации, который можно использовать со сценарием для развертывания в Azure кластера HPC, состоящего из головного узла Windows Server 2012 A8 (размера R2) и двух вычислительных узлов SUSE Linux Enterprise Server 12 (размера А8). Вместо используемых в файле имен подписки и службы подставьте свои значения.
-
-    >[AZURE.NOTE]Сейчас сети Linux RDMA в Azure поддерживаются только на виртуальных машинах, созданных из образа SUSE Linux Enterprise Server 12 с поддержкой RDMA, которые можно найти в Azure Marketplace (b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-sles-12-hpc-v20150708).
-
-    ```
-    <?xml version="1.0" encoding="utf-8" ?>
-    <IaaSClusterConfig>
-      <Subscription>
-        <SubscriptionName>Subscription-1</SubscriptionName>
-        <StorageAccount>allvhdsje</StorageAccount>
-      </Subscription>
-      <Location>Japan East</Location>  
-      <VNet>
-        <VNetName>suse12rdmavnet</VNetName>
-        <SubnetName>SUSE12RDMACluster</SubnetName>
-      </VNet>
-      <Domain>
-        <DCOption>HeadNodeAsDC</DCOption>
-        <DomainFQDN>hpclab.local</DomainFQDN>
-      </Domain>
-      <Database>
-        <DBOption>LocalDB</DBOption>
-      </Database>
-      <HeadNode>
-        <VMName>SUSE12RDMA-HN</VMName>
-        <ServiceName>suse12rdma-je</ServiceName>
-        <VMSize>A8</VMSize>
-        <EnableRESTAPI />
-        <EnableWebPortal />
-      </HeadNode>
-      <LinuxComputeNodes>
-        <VMNamePattern>SUSE12RDMA-LN%1%</VMNamePattern>
-        <ServiceName>suse12rdma-je</ServiceName>
-        <VMSize>A8</VMSize>
-        <NodeCount>2</NodeCount>
-        <ImageName>b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708</ImageName>
-      </LinuxComputeNodes>
-    </IaaSClusterConfig>
-```
+*   **Кластер пакета HPC с вычислительными узлами размера A8 или A9 Linux** — разверните кластер пакета HPC с вычислительными узлами размером A8 или A9 Linux в Azure, используя [шаблон Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) или [скрипт Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script). Предварительные требования и необходимые действия для обоих вариантов см. в статье [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Если выбран вариант развертывания сценария Powershell, см. пример файла конфигурации в примерах файлов в конце этой статьи для развертывания кластера пакета HPC на основе Azure, состоящего из головного узла Windows Server 2012 R2 размера A8 и 2 вычислительных узлов SUSE Linux Enterprise Server 12 размера A8. Вместо используемых в файле имен подписки и службы подставьте свои значения. 
 
     **Дополнительные сведения**
 
-    *   Развертывайте все вычислительные узлы Linux в пределах одной облачной службы для использования подключения к сети RDMA между узлами.
+    *   Сейчас сеть Linux RDMA в Azure поддерживается только на виртуальных машинах размера A8 или A9, созданных из образа SUSE Linux Enterprise Server 12, оптимизированного для высокой производительности вычислений, который можно найти в Azure Marketplace. Дополнительные рекомендации см. в статье [Сведения об экземплярах A8, A9, A10 и A11 с большим объемом вычислений](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+
+    *   Если вы выбрали вариант развертывания скрипта Powershell, развертывайте все вычислительные узлы Linux в пределах одной облачной службы, чтобы использовать сетевое подключение RDMA.
 
     *   Если после развертывания узлов Linux требуется создать SSH-подключение для выполнения дополнительных задач администрирования, перейдите на портал Azure, где можно найти сведения о SSH-подключении для каждой виртуальной машины Linux.
         
-*   **Intel MPI**. Для запуска OpenFOAM на вычислительных узлах Linux в Azure вам потребуется среда выполнения Intel MPI Library 5, которую можно загрузить на сайте [Intel.com](https://software.intel.com/ru-RU/intel-mpi-library/). Затем установите Intel MPI на вычислительные узлы Linux. Для этого после регистрации на сайте Intel перейдите по ссылке в письме с подтверждением на соответствующую веб-страницу и скопируйте ссылку для скачивания TGZ-файла для соответствующей версии Intel MPI. В этой статье используется Intel MPI версии 5.0.3.048.
+*   **Intel MPI**. Для запуска OpenFOAM на вычислительных узлах Linux в Azure вам потребуется среда выполнения Intel MPI Library 5, которую можно загрузить на сайте [Intel.com](https://software.intel.com/ru-RU/intel-mpi-library/) (требуется регистрация). Затем установите Intel MPI на вычислительные узлы Linux. Для этого после регистрации на сайте Intel перейдите по ссылке в письме с подтверждением на соответствующую веб-страницу и скопируйте ссылку для скачивания TGZ-файла для соответствующей версии Intel MPI. В этой статье используется Intel MPI версии 5.0.3.048.
 
 *   **Исходный пакет OpenFOAM.** Загрузите исходный пакет OpenFOAM для Linux на сайте [OpenFOAM Foundation](http://www.openfoam.org/download/source.php). В этой статье используется пакет версии 2.3.1, доступный для загрузки в виде файла OpenFOAM-2.3.1.tgz. Инструкции по распаковке и компиляции OpenFOAM на вычислительных узлах Linux приведены далее в этой статье.
 
@@ -159,7 +121,7 @@ OpenFOAM (англ. Open Field Operation and Manipulation) — это распр
 
 Сначала вам нужно выполнить несколько команд **clusrun**, чтобы установить библиотеки Intel MPI и OpenFOAM на все узлы Linux. Для доступа к файлам установки на разных узлах Linux используйте общий доступ к папке на головном узле.
 
->[AZURE.IMPORTANT]Приведенные действия по установке и компиляции являются примерами и требуют некоторых знаний в сфере администрирования Linux. Особенно это касается правильности установки зависимых компиляторов и библиотек. Возможно, в зависимости от версии Intel MPI и OpenFOAM вам потребуется изменить некоторые переменные среды или другие параметры. Дополнительные сведения см. в статьях [Руководство по установке библиотеки Intel MPI для Linux](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html) и [Установка исходного пакета OpenFOAM](http://www.openfoam.org/download/source.php).
+>[AZURE.IMPORTANT]Приведенные действия по установке и компиляции являются примерами и требуют некоторых знаний в сфере администрирования Linux для правильной установки зависимых компиляторов и библиотек. Возможно, в зависимости от версии Intel MPI и OpenFOAM вам потребуется изменить некоторые переменные среды или другие параметры. Дополнительные сведения см. в статьях [Руководство по установке библиотеки Intel MPI для Linux](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html) и [Установка исходного пакета OpenFOAM](http://www.openfoam.org/download/source.php).
 
 
 ### Установка пакета Intel MPI
@@ -274,7 +236,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     ![Изменение переменных шага][step_variables]
 
-5.  Укажите нужные значения переменных в файле system/decomposeParDict. В этом примере используется 2 узла Linux с 8 ядрами, поэтому присвойте параметру numberOfSubdomains значение 16, а параметру n hierarchicalCoeffs — (1 1 16), что означает выполнение задания OpenFOAM с созданием 16 параллельных процессов. Дополнительные сведения о параллельном выполнении заданий OpenFOAM см. в [Руководстве пользователя OpenFOAM: 3.4. Запуск приложений в параллельном режиме](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
+5.  Укажите нужные значения переменных в файле system/decomposeParDict. В этом примере используется 2 узла Linux с 8 ядрами, поэтому присвойте параметру numberOfSubdomains значение 16, а параметру n hierarchicalCoeffs — (1 1 16), что означает выполнение задания OpenFOAM с созданием 16 параллельных процессов. Дополнительные сведения см. в статье [Руководство пользователя OpenFOAM. 3.4. Запуск приложений в параллельном режиме.](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
 
     ![Разделение процессов][decompose]
 
@@ -368,7 +330,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     ![Ресурсы задания][job_resources]
 
-6.	Добавьте 4 задачи к заданию, используя следующие команды и параметры.
+6. Щелкните **Изменить задачи** в левой области навигации, а затем нажмите **Добавить**, чтобы добавить задачу в задание. Добавьте 4 задачи к заданию, используя следующие команды и параметры.
 
     >[AZURE.NOTE]Выполнение команды `source /openfoam/settings.sh` настраивает среды выполнения OpenFOAM и MPI, поэтому каждая из задач вызывает ее перед командой OpenFOAM.
 
@@ -424,7 +386,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
     hpccred delcreds
     ```
 
-8.	Выполнение задания занимает от нескольких десятков минут до нескольких часов в зависимости от заданных параметров. На тепловой карте вы увидите, что задание выполняется на 2 узлах Linux.
+8.	Выполнение задания занимает от нескольких десятков минут до нескольких часов в зависимости от заданных параметров. На тепловой карте вы увидите, что задание выполняется на узлах Linux.
 
     ![Тепловая карта][heat_map]
 
@@ -469,6 +431,43 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
 ## Файлы с примерами
 
+### Пример XML-файла конфигурации для развертывания кластера с помощью скрипта PowerShell
+
+ ```
+<?xml version="1.0" encoding="utf-8" ?>
+<IaaSClusterConfig>
+  <Subscription>
+    <SubscriptionName>Subscription-1</SubscriptionName>
+    <StorageAccount>allvhdsje</StorageAccount>
+  </Subscription>
+  <Location>Japan East</Location>  
+  <VNet>
+    <VNetName>suse12rdmavnet</VNetName>
+    <SubnetName>SUSE12RDMACluster</SubnetName>
+  </VNet>
+  <Domain>
+    <DCOption>HeadNodeAsDC</DCOption>
+    <DomainFQDN>hpclab.local</DomainFQDN>
+  </Domain>
+  <Database>
+    <DBOption>LocalDB</DBOption>
+  </Database>
+  <HeadNode>
+    <VMName>SUSE12RDMA-HN</VMName>
+    <ServiceName>suse12rdma-je</ServiceName>
+    <VMSize>A8</VMSize>
+    <EnableRESTAPI />
+    <EnableWebPortal />
+  </HeadNode>
+  <LinuxComputeNodes>
+    <VMNamePattern>SUSE12RDMA-LN%1%</VMNamePattern>
+    <ServiceName>suse12rdma-je</ServiceName>
+    <VMSize>A8</VMSize>
+    <NodeCount>2</NodeCount>
+      <ImageName>b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708</ImageName>
+  </LinuxComputeNodes>
+</IaaSClusterConfig>
+```
 
 ### Пример файла cred.xml
 
@@ -504,7 +503,7 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
   <PublicKey>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEkoEAGGc6wT16d4Ye+yN2hcqigdTGlMcjUlW6cAmRWYXLwkKoW3WlX3xAK0oQdMLqRDu2PVRPY3qfHURj0EEellpydeaSekp1fg27Rw2VKmEumu6Wxwo9HddXORPAQXTQ4yI0lWSerypckXVPeVjHetbkSci2foLedCbeBA9c/RyRgIUl227/pJKDNX2Rpqly0sY82nVWN/0p4NAyslexA0fGdBx+IgKnbU2JQKJeiwOomtEB/N492XRfCw2eCi7Ly3R8+U1KeBm+zH6Q8aH8ApqQohhLRw71bcWZ1g1bxd6HORxXOu0mFTzHbWFcZ9ILtXRl4Pt0x5Mve1AJXEKb username@servername;</PublicKey>
 </ExtendedData>
 ```
-### Пример файла silent.cfg
+### Пример файла silent.cfg для установки MPI
 
 ```
 # Patterns used to check silent configuration file
@@ -655,4 +654,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

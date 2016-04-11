@@ -14,18 +14,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="03/28/2016"
    ms.author="larryfr"/>
 
 # Сведения об использовании HDInsight в Linux
 
 Кластеры Azure HDInsight под управлением Linux предоставляют Hadoop в привычной среде Linux, выполняемой в облаке Azure. Для большинства задач они должны работать так же, как и любые другие установки Hadoop в Linux. В этом документе рассматриваются определенные отличия, которые при этом следует учитывать.
 
+##Предварительные требования
+
+При выполнении многих действий, описанных в этом документе, используются следующие служебные программы, которые может потребоваться установить в системе:
+
+* [cURL](https://curl.haxx.se/) — используется для взаимодействия с веб-службами;
+* [jq](https://stedolan.github.io/jq/) — используется для анализа документов JSON.
+
 ## Имена доменов
 
 При подключении к кластеру из Интернета следует использовать полное доменное имя (FQDN) **&lt;имя\_кластера>.azurehdinsight.net** или (только для SSH) **&lt;имя\_кластера>.aurehdinsight.net**.
 
-На внутреннем уровне каждый узел в кластере имеет имя, назначаемое при конфигурации кластера. Чтобы найти имена кластеров, посетите страницу __Узлы__ пользовательского веб-интерфейса Ambari или воспользуйтесь следующей командой, чтобы вернуть список узлов из API REST Ambari с помощью [cURL](http://curl.haxx.se/) и [jq](https://stedolan.github.io/jq/).
+На внутреннем уровне каждый узел в кластере имеет имя, назначаемое при конфигурации кластера. Чтобы найти имена кластеров, посетите страницу __Узлы__ пользовательского веб-интерфейса Ambari или воспользуйтесь следующей командой, чтобы вернуть список узлов из API REST Ambari:
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
@@ -98,7 +105,7 @@ HDInsight также позволяет связать несколько уче
 
 При создании кластера вы выбираете существующие учетную запись хранения Azure и контейнер, или можете создать новые. Если вы забудете, что именно выбрали, то сможете найти используемые по умолчанию учетную запись хранения и контейнер с помощью интерфейса API REST Ambari.
 
-1. Для получения информации о конфигурации HDFS используйте команду curl и выполните фильтрацию по [jq](https://stedolan.github.io/jq/):
+1. Для получения информации о конфигурации HDFS используйте команду curl и выполните фильтрацию с помощью [jq](https://stedolan.github.io/jq/):
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
     
@@ -242,8 +249,9 @@ HDInsight — управляемая служба. Это означает, чт
 
 ## Дальнейшие действия
 
+* [Миграция из кластера HDInsight под управлением Windows в кластер HDInsight под управлением Linux](hdinsight-migrate-from-windows-to-linux.md)
 * [Использование Hive с HDInsight](hdinsight-use-hive.md)
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

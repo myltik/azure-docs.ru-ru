@@ -64,8 +64,7 @@
 4. В нижней части страницы нажмите кнопку **Добавить**.<br><br> ![Приложения][3]<br>
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.<br><br> ![Приложения][4]<br>
 6. В поле поиска введите **Secure Deliver**.<br><br> ![Создание тестового пользователя Azure AD](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_01.png)<br>
-7. В области результатов выберите **Secure Deliver** и нажмите кнопку **Завершить**, чтобы добавить приложение. <br><br>
-
+7. В области результатов выберите **Secure Deliver** и нажмите кнопку **Завершить**, чтобы добавить приложение. <br><br> ![Создание тестового пользователя Azure AD](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_02.png)<br>
 ##  Настройка и проверка единого входа в Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Secure Deliver с использованием тестового пользователя Britta Simon.
 
@@ -77,7 +76,7 @@
 1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 4. **[Создание тестового пользователя Secure Deliver](#creating-a-secure-deliver-test-user)** требуется для создания пользователя Britta Simon в Secure Deliver, связанного с соответствующим пользователем в Azure AD.
-5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы разрешить Britta Simon использовать единый вход в Azure AD.
 5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### Настройка единого входа в Azure AD
@@ -90,17 +89,17 @@
 
 1. На портале Azure AD на странице интеграции с приложением **Secure Deliver** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**. <br><br> ![Настройка единого входа][6] <br>
 
-2. На странице **Как пользователи должны входить в Secure Deliver** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**. <br><br> ![Настройка единого входа](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_03.png)<br>
+2. На странице **Как пользователи должны входить в Secure Deliver** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**. <br><br> ![Настройка единого входа](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_03.png) <br>
 
 3. На диалоговой странице **Настройка параметров приложения** выполните следующие действия. <br><br>![Настройка единого входа](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_04.png) <br>
 
 
-    а. В текстовом поле "URL-адрес входа" введите URL-адрес, используемый пользователями для входа в приложение Secure Deliver, используя следующий шаблон: **"https://<название\_организации>.i-securedeliver.jp/sd/<название\_организации>"**.
+    а. В текстовом поле "URL-адрес входа" введите URL-адрес, применяемый пользователями для входа в приложение Secure Deliver, используя следующий шаблон: **"https://<название\_организации>.i-securedeliver.jp/sd/<название\_организации>"**.
 
     b. Нажмите кнопку **Далее**.
 
 
-4. На странице **Настройка единого входа в Secure Deliver** выполните следующие действия:<br><br>![Настройка единого входа](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_05.png) <br>
+4. На странице **Настройка единого входа в Secure Deliver** выполните указанные ниже действия: <br><br>![Настройка единого входа](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_05.png) <br>
 
     а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
 
@@ -193,7 +192,7 @@
 
 ### Проверка единого входа
 
-Цель этого раздела — проверить конфигурацию единого входа в Azure AD с помощью панели доступа.<br> Щелкнув элемент Secure Deliver на панели доступа, вы автоматически войдете в приложение Secure Deliver.
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.<br> Щелкнув элемент Secure Deliver на панели доступа, вы автоматически войдете в приложение Secure Deliver.
 
 
 ## Дополнительные ресурсы
@@ -220,4 +219,4 @@
 [204]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

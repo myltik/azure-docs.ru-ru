@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Использование машинного обучения Azure с хранилищем данных SQL
@@ -54,7 +54,7 @@
 7. Запрос к базе данных: введите инструкцию SQL, описывающую данные, которые необходимо получить. В этом случае данные будут считаны из таблицы Product с помощью следующего запроса.
 
 
-```
+```SQL
 SELECT ProductKey, EnglishProductName, StandardCost,
         ListPrice, Size, Weight, DaysToManufacture,
         Class, Style, Color
@@ -149,4 +149,4 @@ FROM dbo.DimProduct;
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Управление неравномерным распределением таблиц
@@ -27,7 +27,7 @@
 
 Запрос, подобный приведенному ниже представлению, может помочь выявить неравномерные таблицы.
 
-```
+```sql
 CREATE VIEW dbo.vDistributionSkew
 AS
 WITH base
@@ -113,7 +113,7 @@ FROM	size
 
 После создания представления мы можем просто запросить его, чтобы проверить неравномерность в таблицах, используя запрос, аналогичный показанному ниже.
 
-```
+```sql
 SELECT	[two_part_name]
 ,		[distribution_id]
 ,		[row_count]
@@ -152,4 +152,4 @@ ORDER BY [row_count] DESC
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

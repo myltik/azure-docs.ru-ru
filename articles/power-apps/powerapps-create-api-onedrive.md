@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Создание API OneDrive в PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Приложения логики](../articles/connectors/create-api-onedrive.md)
+- [Приложения логики](../articles/connectors/connectors-create-api-onedrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
 
 Добавьте API OneDrive в среду службы приложений (клиента) организации.
@@ -71,7 +71,7 @@
 
 ## См. раздел "Интерфейсы REST API".
 
-Справочник по [REST API OneDrive](../connectors/create-api-onedrive.md).
+Справочник по [REST API OneDrive](../connectors/connectors-create-api-onedrive.md).
 
 ## Сводка и дальнейшие действия
 С помощью инструкций в этом разделе вы добавили API OneDrive в PowerApps Enterprise. Теперь необходимо предоставить пользователям доступ к этому API, чтобы они могли добавлять его в свои приложения.
@@ -89,4 +89,4 @@
 [14]: ./media/powerapps-create-api-onedrive/browseall.png
 [15]: ./media/powerapps-create-api-onedrive/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,6 +1,6 @@
 В этой статье показаны эквивалентные команды интерфейса командной строки Microsoft Azure (Azure CLI) для создания виртуальных машин Azure и управления ими в режиме управления службами Azure и режиме диспетчера ресурсов Azure. Используйте ее в качестве удобного руководства по переноса сценариев из одной режима команд в другой.
 
-* Если вы не установили Azure CLI и не подключили его к своей подписке, см. статьи [Установка Azure CLI](../xplat-cli-install.md) и [Подключение к подписке Azure из Azure CLI](../xplat-cli-connect.md). Если вам нужно использовать команды режима диспетчера ресурсов, выполните подключение с помощью метода входа.
+* Если вы не установили Azure CLI и не подключили его к своей подписке, см. статьи [Установка Azure CLI](../articles/xplat-cli-install.md) и [Подключение к подписке Azure из Azure CLI](../articles/xplat-cli-connect.md). Если вам нужно использовать команды режима диспетчера ресурсов, выполните подключение с помощью метода входа.
 
 * Чтобы приступить к работе в режиме диспетчера ресурсов в интерфейсе командной строки Azure, необходимо переключить режимы команды. По умолчанию интерфейс командной строки Azure запускается в режиме управления службами. Чтобы перейти в режим диспетчера ресурсов, выполните команду `azure config mode arm`. Чтобы вернуться в режим управления службами, выполните команду `azure config mode asm`.
 
@@ -9,11 +9,11 @@
 ## Задачи виртуальных машин
 В следующей таблице сравниваются распространенные задачи виртуальных машин, которые можно выполнять с помощью команд интерфейса командной строки Azure в режиме диспетчера ресурсов и управления службами. Для многих команд диспетчера ресурсов необходимо передавать имя существующей группы ресурсов.
 
-> [AZURE.NOTE] Эти примеры не включают операции на основе шаблонов, которые обычно рекомендуются для развертываний виртуальных машин в диспетчере ресурсов. Дополнительные сведения см. в статье [Использование интерфейса командной строки Azure с диспетчером ресурсов Azure](../xplat-cli-azure-resource-manager.md) и [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates.md).
+> [AZURE.NOTE] Эти примеры не включают операции на основе шаблонов, которые обычно рекомендуются для развертываний виртуальных машин в диспетчере ресурсов. Дополнительные сведения см. в статье [Использование интерфейса командной строки Azure с диспетчером ресурсов Azure](../articles/xplat-cli-azure-resource-manager.md) и [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 Задача | Service Management | Диспетчер ресурсов
 -------------- | ----------- | -------------------------
-Создание самой простой виртуальной машины | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Получите `image-urn` из команды `azure vm image list`. Примеры см. в [этой статье](virtual-machines-linux-cli-ps-findimage.md).)
+Создание самой простой виртуальной машины | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Получите `image-urn` из команды `azure vm image list`. Примеры см. в [этой статье](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md).)
 Создание виртуальной машины Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Создание виртуальной машины Windows | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 Вывод списка виртуальных машин | `azure  vm list [options]` | `azure  vm list [options]`
@@ -42,6 +42,6 @@
 
 ## Дальнейшие действия
 
-* Дополнительные примеры команд для командной строки см. в разделах [Использование интерфейса командной строки Azure с управлением службами Azure](virtual-machines-command-line-tools.md) и [Использование интерфейса командной строки Azure с диспетчером ресурсов Azure](azure-cli-arm-commands.md).
+* Дополнительные примеры команд для командной строки см. в разделах [Использование интерфейса командной строки Azure с управлением службами Azure](../articles/virtual-machines-command-line-tools.md) и [Использование интерфейса командной строки Azure с диспетчером ресурсов Azure](../articles/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

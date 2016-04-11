@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="03/29/2016"
    ms.author="sameerch"/>
 
 # Создание API Dynamics CRM Online в PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Приложения логики](../articles/connectors/create-api-crmonline.md)
+- [Приложения логики](../articles/connectors/connectors-create-api-crmonline.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-crmonline.md)
 
 Добавьте API Dynamics CRM Online в среду службы приложений (клиента) организации.
@@ -66,7 +66,7 @@
 	> [AZURE.NOTE] Откроется раздел Active Directory на классическом портале Azure.
 
 3. Выберите имя клиента вашей организации:
- ![Запуск Azure Active Directory][7]
+![Запуск Azure Active Directory][7]
 
 4. Перейдите на вкладку **Приложения** и выберите **Добавить**: 
 ![Клиентские приложения AAD][8]
@@ -99,7 +99,7 @@
 
 ## См. раздел "Интерфейсы REST API".
 
-Справочник по [REST API Dynamics CRM Online](../connectors/create-api-crmonline.md).
+Справочник по [REST API Dynamics CRM Online](../connectors/connectors-create-api-crmonline.md).
 
 
 ## Сводка и дальнейшие действия
@@ -122,4 +122,4 @@
 [11]: ./media/powerapps-create-api-crmonline/contoso-aad-app.PNG
 [12]: ./media/powerapps-create-api-crmonline/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0330_2016-->

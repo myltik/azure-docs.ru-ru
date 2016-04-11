@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# Мониторинг пула эластичных баз данных и управление им (PowerShell) 
+# Мониторинг, управление и выбор размера пула эластичных баз данных с помощью PowerShell 
 
 > [AZURE.SELECTOR]
 - [Портал Azure](sql-database-elastic-pool-manage-portal.md)
@@ -35,7 +35,7 @@
 
 
 
-## Создание эластичной базы данных в пуле эластичных баз данных
+## Создание эластичной базы данных в пуле
 
 Чтобы создать базу данных непосредственно в пуле, выполните командлет [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) с заданным параметром **ElasticPoolName**.
 
@@ -43,34 +43,34 @@
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Перемещение автономной базы данных в пул эластичных баз данных
+## Перемещение автономной базы данных в пул
 
 Чтобы переместить существующую базу данных в пул, выполните командлет [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) с заданным параметром **ElasticPoolName**.
 
 	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Изменение параметров производительности пула эластичных баз данных
+## Изменение параметров производительности пула
 
-Чтобы изменить параметры производительности пула эластичных баз данных, используйте командлет [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx).
+Чтобы изменить параметры производительности пула, используйте командлет [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx).
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
-## Получение состояния операций пула эластичных баз данных
+## Получение состояния операций пула
 
-Вы можете отслеживать состояние операций пула эластичных баз данных, включая создание и обновления, с помощью командлета [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
+Вы можете отслеживать состояние операций пула, включая создание и обновление, с помощью командлета [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
 
 	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
-## Получение состояния перемещения эластичной базы данных в пул эластичных баз данных и из него
+## Получение состояния перемещения эластичной базы данных в пул и из него
 
 Вы можете отслеживать состояние операций эластичных баз данных, включая создание и обновления, с помощью командлета [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx).
 
 	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Получение данных об использовании пула эластичных баз данных
+## Получение данных по использованию пула
 
 Показатели, которые могут быть возвращены в виде процента от предельного значения пула ресурсов:
 
@@ -113,7 +113,7 @@
 
 Эти интерфейсы API совпадают с текущими интерфейсами API (версии 12), используемыми для мониторинга использования ресурсов автономной базы данных, за исключением следующего семантического различия:
 
-* Для этого интерфейса API полученные показатели выражаются в виде процента от каждого показателя databaseDtuMax (или эквивалентного предельного значения для базовой метрики, например ЦП, ввода/вывода и т. д.), установленного для данного пула эластичных баз данных. Например, 50 % загрузка любого из этих показателей указывает, что потребление ресурсов составляет 50 % от предельного значения БД для этого ресурса в родительском пуле эластичных баз данных. 
+* Для этого интерфейса API полученные показатели выражаются в виде процента от каждого показателя databaseDtuMax (или эквивалентного предельного значения для базовой метрики, например ЦП, ввод/вывод и т. д.), установленного для данного пула. Например, загрузка в 50 % для любого из этих показателей указывает, что потребление данного ресурса составляет 50 % от предельного значения потребления этого ресурса на одну БД для этого ресурса в родительском пуле. 
 
 Получите метрики:
 
@@ -132,7 +132,7 @@
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
-## Пример мониторинга пула эластичных баз данных и управления им (PowerShell)
+## Пример мониторинга пула и управления им с помощью PowerShell
 
 
     $subscriptionId = '<Azure subscription id>'
@@ -171,11 +171,11 @@
 
 ## Дальнейшие действия
 
-- [Создание заданий обработки эластичных БД](sql-database-elastic-jobs-overview.md). Эти задания позволяют легко выполнять сценарии T-SQL для любого количества эластичных баз данных в пуле.
+- [Создание заданий обработки эластичных БД](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение сценариев T-SQL для любого количества эластичных баз данных в пуле.
 
 
 ## Справка по эластичным базам данных
 
 Дополнительные сведения об эластичных базах данных и их пулах, включая интерфейс API и сведения об ошибках, можно узнать в статье [Справка по эластичным пулам баз данных](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

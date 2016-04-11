@@ -9,7 +9,7 @@
 * [Deploy WordPress backend by MySQL replication cluster with master-slave configuration](/documentation/templates/mysql-replication/) (Развертывание серверной части приложения WordPress с кластером репликации MySQL с помощью конфигурации "ведущий — ведомый")
 * [Deploy a WordPress app backend by SQL Azure DB managed by ProjectNami](/marketplace/partners/projectnami/projectnami/) (Развертывание серверной части приложения WordPress с базой данных SQL Azure под управлением ProjectNami)
   
-## Глава 2. Устранение неполадок в приложении WordPress
+## Устранение неполадок в приложении WordPress
 
 * [Способы устранения неполадок в приложении WordPress](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
 * [Gather usage telemetry using Azure Application Insights service](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/) (Сбор телеметрии использования с помощью службы Azure Application Insights)
@@ -18,7 +18,7 @@
 * [Использование различных правил автоисправления для автоматического устранения инцидентов в режиме реального времени](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [Резервное копирование веб-приложений в службе приложений Azure](../articles/app-service-web/web-sites-backup.md) и [Восстановление приложения в службе приложений Azure](../articles/app-service-web/web-sites-restore.md)
 
-## Глава 3. Производительность
+## Производительность
 
 * [Ускорение работы веб-приложения WordPress](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
 * [Как использовать кэш Redis](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) с помощью [подключаемого модуля кэша Redis](https://wordpress.org/plugins/wp-redis/)
@@ -28,4 +28,4 @@
 * [Кэширование сервера с помощью кэширования вывода IIS](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
 * [Включение кэширования браузера для статического содержимого](http://www.iis.net/configreference/system.webserver/staticcontent)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

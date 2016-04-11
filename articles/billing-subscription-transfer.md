@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="03/04/2015"
+   ms.date="03/04/2016"
    ms.author="genli"/>
 
 # Передача подписки Azure
@@ -71,7 +71,7 @@
 
     Это не полный список. Получателю следует рассмотреть возможность обновления всех секретных данных, связанных со службой, если он хочет ограничить доступ к своим ресурсам. Большинство ресурсов можно обновить следующим образом.
 
-    1.   Войдите на портал Azure: [*https://portal.azure.com*](https://portal.azure.com).
+    1.   Перейдите на портал Azure: [*https://portal.azure.com*](https://portal.azure.com).
 
     2.    Нажмите кнопку «Просмотреть все» -&gt; «Все ресурсы»
 
@@ -111,4 +111,4 @@
 4. Обновите оповещения о выставлении счетов для этой подписки в [центре учетных записей Azure](https://account.windowsazure.com/Subscriptions) [Подробнее](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Если вы работаете с партнером, рекомендуется обновить ИД партнера для этой подписки. Это можно сделать в [центре учетных записей Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

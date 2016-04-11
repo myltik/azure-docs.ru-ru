@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Эластичная производительность и масштабирование в хранилище данных SQL
@@ -40,7 +40,7 @@
 
 На [классическом портале Azure][] щелкните значок "Масштаб" в верхней части страницы хранилища данных SQL, а затем с помощью ползунка увеличьте или уменьшите количество DWU, выделяемых хранилищу данных, и нажмите кнопку "Сохранить". Если вы предпочитаете изменять масштаб программно, ниже приведен пример кода T-SQL, который изменяет распределение единиц DWU в хранилище данных SQL.
 
-```
+```sql
 ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
@@ -49,7 +49,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 Тот же результат можно получить и с помощью Powershell, используя приведенный ниже код.
 
-```
+```Powershell
 Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
 ```
 
@@ -64,20 +64,18 @@ Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.wind
 
 Приведенный ниже пример код демонстрирует, как выполнять приостановку с помощью PowerShell.
 
-```
+```Powershell
 Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
 "Server01" –DatabaseName "Database02"
 ```
 
 Возобновить вычисления с помощью PowerShell тоже очень просто.
 
-```
+```Powershell
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 Подробнее о том, как использовать PowerShell, см. в статье [Начало работы с командлетами хранилища данных Azure и интерфейсами REST API][].
-
-
 
 ## Дальнейшие действия
 Общие сведения о производительности см. в статье [Общие сведения о производительности][].
@@ -95,4 +93,4 @@ Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Se
 
 [классическом портале Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

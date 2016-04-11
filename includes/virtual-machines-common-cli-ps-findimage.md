@@ -1,33 +1,5 @@
 
 
-
-
-
-## Таблица часто используемых образов
-
-
-| PublisherName | ПРЕДЛОЖЕНИЕ | Sku |
-|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 |
-| OpenLogic | CentOS | 7\.1. |
-| CoreOS | CoreOS | Beta |
-| CoreOS | CoreOS | Stable |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 |
-| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Standard |
-| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
-| MicrosoftSQLServer | SQL2014 WS2012R2 | Enterprise-Optimized-for-DW |
-| MicrosoftSQLServer | SQL2014 WS2012R2 | Enterprise-Optimized-for-OLTP |
-| Canonical | UbuntuServer | 12\.04.5-LTS |
-| Canonical | UbuntuServer | 14\.04.2-LTS |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
-
-
 ## Инфраструктура CLI Azure
 
 > [AZURE.NOTE] В этой статье описывается, как найти и выбрать образы виртуальных машин, используя CLI Azure или Azure PowerShell последней версии. Для начала необходимо изменить режим диспетчера ресурсов. В случае использования интерфейса командной строки Azure запустите этот режим, введя `azure config mode arm`.
@@ -118,18 +90,11 @@
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-Теперь мы можем выбрать именно тот образ, который нам нужен. Инструкции, с помощью которых можно быстро создать виртуальную машину на основе полученных нами данных URN или воспользоваться шаблоном с этими данными, см. в статье [Использование инфраструктуры Azure CLI для Mac, Linux и Windows со средствами управления ресурсами Azure](xplat-cli-azure-resource-manager.md).
-
-### Видеоруководство
-
-В этом видеоролике демонстрируются описанные выше инструкции по использованию CLI.
-
-[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-cli]
-
+Теперь мы можем выбрать именно тот образ, который нам нужен. Инструкции, с помощью которых можно быстро создать виртуальную машину на основе полученных нами данных URN или воспользоваться шаблоном с этими данными, см. в статье [Использование инфраструктуры Azure CLI для Mac, Linux и Windows со средствами управления ресурсами Azure](../articles/xplat-cli-azure-resource-manager.md).
 
 ## PowerShell
 
-При использовании PowerShell введите `Switch-AzureMode AzureResourceManager`. Полную информацию об обновлении и настройке см. в статьях [Использование интерфейса командной строки Azure в режиме управления ресурсами](xplat-cli-azure-resource-manager.md) и [Использование Azure PowerShell в режиме управления ресурсами Azure](../powershell-azure-resource-manager.md).
+При использовании PowerShell введите `Switch-AzureMode AzureResourceManager`. Полную информацию об обновлении и настройке см. в статьях [Использование интерфейса командной строки Azure в режиме управления ресурсами](../articles/xplat-cli-azure-resource-manager.md) и [Использование Azure PowerShell в режиме управления ресурсами Azure](../articles/powershell-azure-resource-manager.md).
 
 > [AZURE.NOTE] В модулях Azure PowerShell версии выше 1.0 командлет `Switch-AzureMode` был удален. Если используется эта или более ранняя версия, в приведенных ниже командах замените `Azure` на `AzureRm`. Если вы используете модули Azure PowerShell версии ниже 1.0, то будете использовать приведенные ниже команды. Но сначала необходимо выполнить `Switch-AzureMode AzureResourceManager`.
 
@@ -229,4 +194,4 @@
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

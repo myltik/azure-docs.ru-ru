@@ -1,8 +1,5 @@
 
  
-
-Настройте первую или очередную базу данных Oracle для разработки и тестирования или рабочую базу данных Oracle на виртуальной машине в службах инфраструктуры Azure. Воспользуйтесь такими преимуществами, как простота конфигурации и возможность быстро развернуть рабочую нагрузку базы данных Oracle для увеличения емкости.
-
 ## Образы виртуальных машин Oracle
 
 Последний набор образов виртуальных машин на базе ОС Windows и Linux см. в статье [Список образов виртуальных машин Oracle](../articles/virtual-machines/virtual-machines-linux-classic-oracle-images.md).
@@ -35,4 +32,4 @@
 
 В статье [Настройка Oracle GoldenGate для Azure](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-goldengate.md) описаны этапы настройки базы данных и репликации.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Создание API Поиска Bing в PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Приложения логики](../articles/connectors/create-api-bingsearch.md)
+- [Приложения логики](../articles/connectors/connectors-create-api-bingsearch.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
 
 Добавьте API Поиска Bing в среду службы приложений (клиента) организации.
@@ -51,7 +51,7 @@
 
 ## См. раздел "Интерфейсы REST API".
 
-Справочник по [REST API Поиска Bing](../connectors/create-api-bingsearch.md).
+Справочник по [REST API Поиска Bing](../connectors/connectors-create-api-bingsearch.md).
 
 
 ## Сводка и дальнейшие действия
@@ -66,4 +66,4 @@
 [4]: ./media/powerapps-create-api-dropbox/browseall.png
 [5]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,6 +1,6 @@
 
 
-[Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных приложения и вычислений при использовании общих ресурсов. Можно использовать [расширение Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) в [агенте Linux для Azure](virtual-machines-linux-agent-user-guide.md) для создания виртуальной машины, в которой будет размещено любое количество контейнеров с приложениями Azure.
+[Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных приложения и вычислений при использовании общих ресурсов. Можно использовать [расширение Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) в [агенте Linux для Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md) для создания виртуальной машины, в которой будет размещено любое количество контейнеров с приложениями Azure.
 
 Содержание этого раздела:
 
@@ -64,4 +64,4 @@ Docker и контейнеры Linux не являются [гипервизор
 [Использование расширения виртуальных машин Docker в Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Расширения виртуальных машин для Linux и Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

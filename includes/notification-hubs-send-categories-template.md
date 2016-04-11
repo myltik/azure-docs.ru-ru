@@ -1,7 +1,7 @@
 
 В этом разделе показано, как отправлять экстренные новости в виде шаблонных уведомлений с тегами из консольного приложения .NET.
 
-Сведения об использовании уведомлений в мобильных службах см. в учебниках [Приступая к работе с push-уведомлениями](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md).
+При использовании мобильных приложений обратитесь к учебнику [Добавление push-уведомлений для мобильных приложений](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) и выберите платформу в верхней части страницы.
 
 Если вы хотите использовать Java или PHP, см. раздел [Использование концентраторов уведомлений из Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). Уведомления можно отправлять из любого серверного компонента с помощью [интерфейса REST центров уведомлений](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
@@ -78,4 +78,4 @@
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Создание API Office 365 Пользователи в PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Приложения логики](../articles/connectors/create-api-office365-users.md)
+- [Приложения логики](../articles/connectors/connectors-create-api-office365-users.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-users.md)
 
 Добавьте API Office 365 Пользователи в среду службы приложений (клиента) организации.
@@ -107,7 +107,7 @@
 
 ## См. раздел "Интерфейсы REST API".
 
-Справочник по [REST API Office 365 Пользователи](../connectors/create-api-office365-users.md).
+Справочник по [API REST Office 365 Пользователи](../connectors/connectors-create-api-office365-users.md).
 
 ## Сводка и дальнейшие действия
 В этом разделе вы добавили API пользователей Office 365 в PowerApps Enterprise. Теперь необходимо предоставить пользователям доступ к этому API, чтобы они могли добавлять его в свои приложения.
@@ -128,4 +128,4 @@
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!----HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0330_2016-->

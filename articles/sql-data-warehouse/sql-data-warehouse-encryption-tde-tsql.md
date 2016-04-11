@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/03/2016" 
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Начало работы с прозрачным шифрованием данных (TDE)
@@ -32,7 +32,7 @@
 1. Подключитесь к *главной* базе данных на сервере, где находится база данных, указав логин администратора или члена роли **dbmanager** в главной базе данных.
 2. Выполните следующий оператор для шифрования базы данных:
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -43,7 +43,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 1. Подключитесь к *главной* базе данных, указав логин администратора или члена роли **dbmanager** в главной базе данных.
 2. Выполните следующий оператор для шифрования базы данных:
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
@@ -54,7 +54,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 1. Подключитесь к *главной* базе данных или к экземпляру базы данных, указав логин администратора или члена роли **dbmanager** в главной базе данных.
 2. Выполните следующий оператор для шифрования базы данных:
 
-```
+```sql
 SELECT
 	[name],
 	[is_encrypted]
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

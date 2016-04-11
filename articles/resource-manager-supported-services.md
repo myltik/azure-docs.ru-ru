@@ -253,7 +253,7 @@ Azure Active Directory работает с диспетчером ресурсо
 
     azure location list
 
-Вы можете отфильтровать результаты расположения, например, с помощью средства **jq**. Дополнительные сведения о таких средствах, как jq, см. в статье [Полезные средства для работы с Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
+Вы можете отфильтровать результаты расположения с помощью служебной программы JSON, например [jq](https://stedolan.github.io/jq/).
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -305,4 +305,4 @@ Azure Active Directory работает с диспетчером ресурсо
 - Сведения о создании шаблонов диспетчера ресурсов см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 - Сведения о развертывании ресурсов см. в статье [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Хранимые процедуры в хранилище данных SQL
@@ -38,11 +38,11 @@
 
 Вызов хранимой процедуры верхнего уровня считается 1 уровнем вложенности.
 
-```
+```sql
 EXEC prc_nesting
 ```
 Если хранимая процедура также выполняет еще один вызов EXEC, то это увеличит уровень вложенности до 2.
-```
+```sql
 CREATE PROCEDURE prc_nesting
 AS
 EXEC prc_nesting_2  -- This call is nest level 2
@@ -50,7 +50,7 @@ GO
 EXEC prc_nesting
 ```
 Если вторая процедура затем выполняет какой-либо динамический SQL-запрос, то это увеличит уровень вложенности до 3.
-```
+```sql
 CREATE PROCEDURE prc_nesting_2
 AS
 EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
@@ -97,4 +97,4 @@ EXEC prc_nesting
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

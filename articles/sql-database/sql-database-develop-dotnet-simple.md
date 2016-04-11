@@ -24,21 +24,19 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-## Предварительные требования
-
-### .NET Framework
+## Шаг 1. Настройка среды разработки
 
 .NET Framework устанавливается вместе в Windows. Чтобы загрузить .NET Framework для Linux и Mac OS X, перейдите на страницу проекта [Mono Project](http://www.mono-project.com/).
 
-### База данных SQL
+## Шаг 2. Создание базы данных SQL
 
 Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
 
-## Шаг 1. Получение строки подключения
+## Шаг 3. Получение строки подключения
 
 [AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
-## Шаг 2. Подключение
+## Шаг 4. Подключение
 
 Для подключения к Базе данных SQL используется класс [System.Data.SqlClient.SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx).
 
@@ -58,7 +56,7 @@ class Sample
 }
 ```
 
-## Шаг 3. Выполнение запроса
+## Шаг 5. Выполнение запроса
 
 Для получения результирующего набора по запросу к Базе данных SQL можно использовать классы [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) и [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx). Обратите внимание, что System.Data.SqlClient также поддерживает извлечение данных в автономный набор [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx).
 
@@ -98,9 +96,9 @@ class Sample
 
 ```  
 
-## Шаг 4. Вставка строки
+## Шаг 6. Вставка строки
 
-В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от [внедрения кода SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
+В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от внедрения кода SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
 
 ```
 using System;
@@ -133,4 +131,11 @@ class Sample
 }
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+
+## Дальнейшие действия
+
+Сведения об использовании логики повторов путем обработки кодов временных ошибок для повышения устойчивости кода к сбоям см. в статье [Пример кода: логика повторов в C# для подключения к базе данных SQL](sql-database-develop-csharp-retry-windows.md).
+
+Возможные коды ошибок см. в статье [Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md).
+
+<!---HONumber=AcomDC_0330_2016-->

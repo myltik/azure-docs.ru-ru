@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Назначение переменных в хранилище данных SQL
@@ -25,14 +25,14 @@
 
 Инициализация переменных с помощью DECLARE — один из наиболее гибких способов задать значение переменной в хранилище данных SQL.
 
-```
+```sql
 DECLARE @v  int = 0
 ;
 ```
 
 С помощью DECLARE можно задать одновременно несколько переменных. Использовать `SELECT` или `UPDATE` для этого нельзя:
 
-```
+```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
 ,       @v1 INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Jones')
 ;
@@ -40,7 +40,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 
 Нельзя инициализировать и использовать переменную в одной и той же инструкции DECLARE. Чтобы проиллюстрировать это, ниже приведен **недопустимый** пример, так как @p1 инициализируется и используется в одной и той же инструкции DECLARE. Это приведет к ошибке.
 
-```
+```sql
 DECLARE @p1 int = 0
 ,       @p2 int = (SELECT COUNT (*) FROM sys.types where is_user_defined = @p1 )
 ;
@@ -51,7 +51,7 @@ SET — это очень распространенный метод задан
 
 Ниже приведены примеры допустимого задания переменной с помощью SET:
 
-```
+```sql
 SET     @v = (Select max(database_id) from sys.databases);
 SET     @v = 1;
 SET     @v = @v+1;
@@ -76,4 +76,4 @@ SET     @v +=1;
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

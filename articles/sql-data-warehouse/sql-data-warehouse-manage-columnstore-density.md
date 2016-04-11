@@ -1,6 +1,6 @@
 <properties
    pageTitle="Управление неравномерным распределением таблиц | Microsoft Azure"
-   description="Рекомендации, помогающие определить неравномерность распределения таблиц"
+   description="Рекомендации, помогающие определить неравномерность распределения данных в таблицах."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Управление индексами columnstore
@@ -24,7 +24,7 @@
 ## Запрос метаданных columnstore
 Для оценки плотности индекса columnstore нужно выполнить запрос системных метаданных. Ниже приведен пример того, сведения какого рода можно обнаружить.
 
-```
+```sql
 CREATE VIEW dbo.vColumnstoreDensity
 AS
 WITH CSI
@@ -73,7 +73,7 @@ FROM    CSI
 
 После создания представления можно легко анализировать метаданные columnstore. Ниже приводится пример запроса.
 
-```
+```sql
 SELECT	[table_name]
 ,		[table_partition_count]
 ,		[row_count_total]
@@ -150,4 +150,4 @@ WHERE	[table_name] = 'FactInternetSales'
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

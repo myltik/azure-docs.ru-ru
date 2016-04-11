@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Использование меток для инструментирования запросов в хранилище данных SQL
 Хранилище данных SQL поддерживает концепцию так называемых меток. Прежде чем углубляться в это понятие, рассмотрим следующий пример.
 
-```
+```sql
 SELECT *
 FROM sys.tables
 OPTION (LABEL = 'My Query Label')
@@ -32,7 +32,7 @@ OPTION (LABEL = 'My Query Label')
 
 Для поиска по метке можно использовать следующий запрос с применением динамических административных представлений:
 
-```
+```sql
 SELECT  *
 FROM    sys.dm_pdw_exec_requests r
 WHERE   r.[label] = 'My Query Label'
@@ -54,4 +54,4 @@ WHERE   r.[label] = 'My Query Label'
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

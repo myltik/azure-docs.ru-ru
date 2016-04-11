@@ -18,12 +18,6 @@
 
 # Создание виртуальной машины SQL Server в Azure (PowerShell)
 
-> [AZURE.SELECTOR]
-- [Классический портал.](virtual-machines-windows-classic-portal-sql.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-create.md)
-- [Портал Azure Resource Manager](virtual-machines-windows-portal-sql-server-provision.md)
-
-
 ## Обзор
 
 В данной статье описаны шаги по созданию виртуальной машины SQL Server в Azure с помощью командлетов PowerShell.
@@ -171,8 +165,8 @@
 
 Во многих случаях следующим этапом является миграция баз данных на новую виртуальную машину SQL. Руководство по миграции баз данных см. в статье [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-windows-classic-migrate-sql.md).
 
-Описание этих действий на классическом портале Azure см. в статье [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-classic-portal-sql.md).
+Если вам также интересно создание виртуальных машин SQL на портале Azure, см. статью [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-portal-sql-server-provision.md). Обратите внимание на то, что в пошаговом руководстве по работе с порталом виртуальные машины создаются с помощью рекомендованной модели, предусматривающей использование диспетчера ресурсов, а не классической модели, применяемой в разделе, посвященном PowerShell.
 
 В дополнение к этим ресурсам рекомендуем ознакомиться с [другими статьями, связанными с запуском SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/27/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess"/>
 
 # Оптимизация транзакций для хранилища данных SQL
@@ -89,7 +89,7 @@
 ### Оптимизация крупных операций удаления с помощью CTAS
 Если необходимо удалить большой объем данных в таблице или разделе, часто разумнее применить параметр `SELECT` к данным, которые вы хотите оставить. При этом с помощью [CTAS][] создается новая таблица. После создания используйте пару команд [RENAME OBJECT][], чтобы поменять местами имена таблиц.
 
-```
+```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
 
 --Step 01. Create a new table select only the records we want to kep (PromotionKey 2)
@@ -124,7 +124,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 В этом случае мы задним числом добавляем сумму скидки к сумме продаж в таблице.
 
-```
+```sql
 --Step 01. Create a new table containing the "Update". 
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
@@ -192,7 +192,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 
 Тем не менее нужно уметь определять разделы, которые следует переключить. Для этого нам понадобится вспомогательная процедура наподобие приведенной ниже.
 
-```
+```sql
 CREATE PROCEDURE dbo.partition_data_get
 	@schema_name		   NVARCHAR(128)
 ,	@table_name			   NVARCHAR(128)
@@ -240,7 +240,7 @@ GO
 
 Приведенный ниже код содержит все пять действий, упомянутых выше. В результате получилась полноценная процедура переключения разделов.
 
-```
+```sql
 --Create a partitioned aligned empty table to switch out the data 
 IF OBJECT_ID('[dbo].[FactInternetSales_out]') IS NOT NULL
 BEGIN
@@ -346,7 +346,7 @@ DROP TABLE #ptn_data
 
 Ниже приведен рабочий пример. В целях демонстрации указан небольшой размер пакета. В реальной среде он был бы гораздо больше.
 
-```
+```sql
 SET NO_COUNT ON;
 IF OBJECT_ID('tempdb..#t') IS NOT NULL
 BEGIN
@@ -439,4 +439,4 @@ END
 <!--MSDN references-->
 [alter index]: https://msdn.microsoft.com/ru-RU/library/ms188388.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

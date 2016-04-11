@@ -48,8 +48,6 @@
 
 - В системе установлены [командлеты Azure PowerShell](../powershell-install-configure.md).
 
-- Вы уже умеете подготавливать виртуальную машину SQL Server из коллекции виртуальных машин через графический интерфейс пользователя. Дополнительные сведения см. в статье [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-classic-portal-sql.md).
-
 - Вы хорошо понимаете принцип работы групп доступности AlwaysOn в локальных решениях. Дополнительные сведения см. в статье [Группы доступности AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## Подключение к подписке Azure и создание виртуальной сети
@@ -632,4 +630,4 @@
 
 Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

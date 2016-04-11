@@ -27,38 +27,20 @@
 В этом разделе представлен пример кода, написанный на Python. Пример кода запускается на компьютере с ОС Windows. Этот пример подключается к базе данных SQL Azure с помощью драйвера **pymssql**.
 
 
-## Предварительные требования
+## Шаг 1. Настройка среды разработки
 
+[Предварительные требования для использования драйвера pymssql Python для SQL Server](https://msdn.microsoft.com/library/mt694094.aspx#Windows)
 
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/)
-
-
-### Установка необходимых модулей
-
-
-Установите драйвер [pymssql](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql).
-
-Убедитесь, что выбран правильный файл WHL.
-
-Например, если вы используете Python 2.7 на 64-разрядном компьютере, выберите файл pymssql‑2.1.1‑cp27‑none‑win\_amd64.whl. После загрузки файла WHL разместите его в папке C:/Python27.
-
-Теперь установите драйвер pymssql с помощью pip из командной строки. Перейдите в каталог C:/Python27 и выполните следующую команду:
-
-	pip install pymssql‑2.1.1‑cp27‑none‑win_amd64.whl
-
-Инструкции по установке pip см. [здесь](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
-
-
-### База данных SQL
+## Шаг 2. Создание базы данных SQL
 
 Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
 
-## Шаг 1. Получение сведений о подключении
+## Шаг 3. Получение сведений о подключении
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Шаг 2. Подключение
+## Шаг 4. Подключение
 
 
 Функция [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) используется для подключения к базе данных SQL.
@@ -67,7 +49,7 @@
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
 
-## Шаг 3. Выполнение запроса
+## Шаг 5. Выполнение запроса
 
 Функция [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) может использоваться для извлечения результирующего набора из запроса к базе данных SQL. Эта функция фактически принимает любой запрос и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
@@ -82,7 +64,7 @@
 	    row = cursor.fetchone()
 
 
-## Шаг 4. Вставка строки
+## Шаг 6. Вставка строки
 
 В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от [внедрения кода SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
 
@@ -97,7 +79,7 @@
 	    row = cursor.fetchone()
 
 
-## Шаг 5. Откат транзакции
+## Шаг 7. Откат транзакции
 
 
 Этот пример кода демонстрирует использование транзакций, в которых можно:
@@ -121,4 +103,4 @@
 
 Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

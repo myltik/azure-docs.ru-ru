@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Создание API Office 365 Outlook в PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Приложения логики](../articles/connectors/create-api-office365-outlook.md)
+- [Приложения логики](../articles/connectors/connectors-create-api-office365-outlook.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
 
-Добавьте API Office 365 Outlook в среду службы приложений (клиента) организации. 
+Добавьте API Office 365 Outlook в среду службы приложений (клиента) организации.
 
 ## Создание API на портале Azure
 
@@ -41,7 +41,7 @@
 5. В разделе **Управление интерфейсами API** выберите **Добавить**, чтобы добавить новый API:  
 ![Добавление API][2]
 
-6. Введите описательное **имя** для API.  
+6. Введите описательное **имя** для API.
 	
 7. В поле **Источник** укажите **Доступные API**, чтобы выбрать встроенные API, а затем выберите **Office 365 Outlook**:  
 ![выбор API Office 365 Outlook][3]
@@ -84,7 +84,7 @@
 
 6. На экране **Свойства приложения**:  
 
-	1. Введите **URL-адрес входа** для своего приложения. Так как для PowerApps будет использоваться аутентификация AAD, в качестве URL-адреса входа укажите \_https://login.windows.net_.  
+	1. Введите **URL-адрес входа** для своего приложения. Так как для PowerApps будет использоваться аутентификация AAD, в качестве URL-адреса входа укажите _https://login.windows.net_.  
 	2. Введите допустимый **универсальный код ресурса (URI) идентификатора приложения** для своего приложения.  
 	3. Нажмите кнопку **ОК**.  
 
@@ -119,7 +119,7 @@
 
 ## См. раздел "Интерфейсы REST API".
 
-Справочник по [REST API Office 365 Outlook](../connectors/create-api-office365-outlook.md).
+Справочник по [REST API Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md).
 
 
 ## Сводка и дальнейшие действия
@@ -144,6 +144,4 @@
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!----HONumber=AcomDC_0309_2016-->
-
-
+<!----HONumber=AcomDC_0330_2016-->

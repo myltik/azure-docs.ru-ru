@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Загрузка данных в хранилище данных SQL
@@ -43,7 +43,7 @@
 
 Чтобы подготовить файлы для перемещения в Azure, необходимо экспортировать их в неструктурированные файлы. Это лучше всего сделать с помощью служебной программы командной строки BCP. Если служебная программа отсутствует, ее можно загрузить вместе с [Microsoft Command Line Utilities для SQL Server][]. Пример команды BCP может выглядеть следующим образом:
 
-```
+```sql
 bcp "select top 10 * from <table>" queryout "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Query
 or
 bcp <table> out "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Table
@@ -53,7 +53,7 @@ bcp <table> out "<Directory><File>" -c -T -S <Server Name> -d <Database Name> --
 
 Кроме того, так как мы будем загружать данные с помощью PolyBase, обратите внимание, что PolyBase еще не поддерживает UTF-16, так что все файлы должны быть в кодировке UTF-8. Это легко можно сделать, включив флаг "-c" в вашу команду BCP. Вы также можете преобразовать неструктурированные файлы из UTF-16 в UTF-8 с помощью приведенного ниже кода:
 
-```
+```PowerShell
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
 
@@ -92,9 +92,9 @@ AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Stor
 
 3. **Создайте формат внешнего файла.** Форматы внешних файлов также используются многократно, их потребуется создать только при загрузке нового типа файлов.
 
-4. **Создайте внешний источник данных.** Если навести указатель мыши на учетную запись хранения, можно использовать внешний источник данных при загрузке из того же контейнера. Для параметра LOCATION используйте расположение в формате wasbs://mycontainer@ test.blob.core.windows.net/path.
+4. **Создайте внешний источник данных.** Если навести указатель мыши на учетную запись хранения, можно использовать внешний источник данных при загрузке из того же контейнера. Для параметра LOCATION используйте расположение в формате wasbs://mycontainer@ test.blob.core.windows.net.
 
-```
+```sql
 -- Creating master key
 CREATE MASTER KEY;
 
@@ -133,7 +133,7 @@ WITH
 
 1. Используйте команду 'CREATE EXTERNAL TABLE' для определения структуры данных. Чтобы убедиться, что записи состояния данных осуществляются быстро и эффективно, рекомендуется создать сценарий для таблицы SQL Server в среде SSMS и затем настроить вручную с учетом отличий внешней таблицы. После создания внешней таблицы в Azure она будет по-прежнему указывать на то же расположение, даже если данные обновлены или добавлены дополнительные данные.  
 
-```
+```sql
 -- Creating external table pointing to file stored in Azure Storage
 CREATE EXTERNAL TABLE <External Table Name>
 (
@@ -148,7 +148,7 @@ WITH
 
 2. Загрузите данные с помощью инструкции 'CREATE TABLE...AS SELECT'.
 
-```
+```sql
 CREATE TABLE <Table Name>
 WITH
 (
@@ -170,7 +170,7 @@ FROM    <External Table Name>
 Хранилище данных SQL Azure пока не поддерживает автоматическое создание или автоматическое обновление статистики. Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных. Подробные сведения о работе со статистикой см. в разделе [Статистика][] из группы разделов по разработке. Ниже приведен краткий пример создания статистики по табличным данным, загруженным в этом примере.
 
 
-```
+```sql
 create statistics [<name>] on [<Table Name>] ([<Column Name>]);
 create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 ```
@@ -203,4 +203,4 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [документации хранилища Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-create-storage-account/
 [документации по ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

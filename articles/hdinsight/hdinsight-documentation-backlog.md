@@ -25,13 +25,14 @@
 Область |Раздел | Приоритет | Состояние | Кому назначено | Кем запрошено 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
 Создание кластера | Использование фабрики данных Azure для подготовки кластеров HDInsight | 2 | [Завершено](hdinsight-hadoop-create-linux-clusters-adf.md) | [@mumian](https://github.com/mumian) | - | 
-Автоматизация | Обновление статьи об [обновлении кластера Spark](hdinsight-apache-spark-jupyter-spark-sql.md) для использования шаблона ARM | 1 | [Завершено](hdinsight-apache-spark-jupyter-spark-sql.md#create-spark-cluster) | [@mumian](https://github.com/mumian) | -
-Автоматизация | Обновление статьи о [создании кластера Storm и запуска примеров Storm starter](hdinsight-apache-storm-tutorial-get-started-linux.md) для использования шаблона ARM | 1 | [Завершено](hdinsight-apache-storm-tutorial-get-started-linux.md#create-a-storm-cluster) | [@mumian](https://github.com/mumian) | -
-Автоматизация | Обновление статьи об [использовании Sqoop с кластером HDInsight с помощью SSH](hdinsight-use-sqoop-mac-linux.md) для использования шаблона| 1 | [Завершено](hdinsight-use-sqoop.md#create-cluster-and-sql-database) | [@mumian](https://github.com/mumian) | -
-Автоматизация | Обновление статьи об [анализе данных датчиков с помощью кластеров Apache Storm](hdinsight-storm-sensor-data-analysis.md) для использования шаблона ARM|2 | В ожидании | [@mumian](https://github.com/mumian) | -
-Хранилище | Статья с объяснением режимов хранения WASB и Storeas озера данных | 2 | В ожидании | [@mumian](https://github.com/mumian) | -
-Производительность | Рекомендации по настройке производительности для приложений MapReduce | 1 | В ожидании | [@blackmist](https://github.com/blackmist) | -
-Производительность | Рекомендации по настройке производительности для кластеров Spark |1 | В ожидании |[@nitinme](https://github.com/nitinme) | -
+Автоматизация | Обновление статьи о [создании кластера Spark](hdinsight-apache-spark-jupyter-spark-sql.md) для использования шаблона ARM | 1 | [Завершено](hdinsight-apache-spark-jupyter-spark-sql.md#create-spark-cluster) | [@mumian](https://github.com/mumian) |- 
+Автоматизация | Обновление статьи о [создании кластера Storm и выполнении примеров Storm starter](hdinsight-apache-storm-tutorial-get-started-linux.md) для использования шаблона ARM | 1 | [Завершено](hdinsight-apache-storm-tutorial-get-started-linux.md#create-a-storm-cluster) | [@mumian](https://github.com/mumian) |-
+ Автоматизация | Обновление статьи об [использовании Sqoop с кластером HDInsight с помощью SSH](hdinsight-use-sqoop-mac-linux.md) для использования шаблона ARM| 1 | [Завершено](hdinsight-use-sqoop.md#create-cluster-and-sql-database) | [@mumian](https://github.com/mumian) |-
+  Автоматизация | Обновление статьи об [анализе данных датчиков с помощью кластеров Apache Storm](hdinsight-storm-sensor-data-analysis.md) для использования шаблона ARM| 2 | В ожидании | [@mumian](https://github.com/mumian) | - 
+  Хранилище | Статья с описанием режимов хранения WASB и Storeas озера данных | 2 | В ожидании | [@mumian](https://github.com/mumian) | -
+   Производительность | Рекомендации по настройке производительности для приложений MapReduce | 1 | В ожидании | [@blackmist](https://github.com/blackmist) | -
+    Производительность | Рекомендации по настройке производительности для кластеров Spark |1 | В ожидании | [@nitinme](https://github.com/nitinme) | -
+     Разработка | неинтерактивная аутентификация в приложении .NET для HDInsight |2| В процессе написания | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
 ## Предоставление обратной связи по списку запланированной документации
@@ -40,4 +41,4 @@
 * Добавить комментарий ниже.
 * Отправить запрос по внесению предложенных изменений в данный документ в [репозиторий содержимого Azure](https://github.com/Azure/azure-content/blob/master/articles/hdinsight/hdinsight-documentation-backlog.md).
 
-<!-----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

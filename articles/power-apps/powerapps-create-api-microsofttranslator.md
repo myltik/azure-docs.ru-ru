@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Создание API Microsoft Translator в PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Приложения логики](../articles/connectors/create-api-microsofttranslator.md)
+- [Приложения логики](../articles/connectors/connectors-create-api-microsofttranslator.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-microsofttranslator.md)
 
 Добавьте API Microsoft Translator в среду службы приложений (клиента) организации. 
@@ -79,7 +79,7 @@
 
 ## См. раздел "Интерфейсы REST API".
 
-Справочник по [REST API Microsoft Translator](../connectors/create-api-microsofttranslator.md).
+Справочник по [REST API Microsoft Translator](../connectors/connectors-create-api-microsofttranslator.md).
 
 ## Сводка и дальнейшие действия
 С помощью инструкций в этом разделе вы добавили API Microsoft Translator в службу PowerApps Enterprise. Теперь необходимо предоставить пользователям доступ к этому API, чтобы они могли добавлять его в свои приложения: 
@@ -97,6 +97,4 @@
 [7]: ./media/powerapps-create-api-microsofttranslator/browseall.png
 [8]: ./media/powerapps-create-api-microsofttranslator/allresources.png
 
-<!----HONumber=AcomDC_0309_2016-->
-
-
+<!----HONumber=AcomDC_0330_2016-->

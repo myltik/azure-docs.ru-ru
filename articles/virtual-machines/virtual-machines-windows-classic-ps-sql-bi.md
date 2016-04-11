@@ -1,13 +1,13 @@
-<properties 
+<properties
 	pageTitle="Бизнес-аналитика SQL Server | Microsoft Azure"
 	description="В этой статье используются ресурсы, созданные с помощью классической модели развертывания, и описываются функции бизнес-аналитики, доступные для SQL Server, запущенного на виртуальных машинах Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
@@ -19,8 +19,8 @@
 # Бизнес-аналитика SQL Server на виртуальных машинах Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
- 
- 
+
+
 Коллекция виртуальных машин Microsoft Azure включает в себя образы, содержащие установки SQL Server. Выпуски SQL Server, поддерживаемые в образах коллекции, представляют сбой те же файлы установки, которые можно установить на локальных компьютерах и виртуальных машинах. В этом разделе приведены сводные данные об установленных в образах компонентах бизнес-аналитики SQL Server, а также о настройке, необходимой после подготовки виртуальной машины. Кроме того, в этом разделе описаны поддерживаемые топологии развертывания для компонентов бизнес-аналитики и рекомендации.
 
 ## Рекомендации по лицензированию
@@ -42,18 +42,18 @@
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) Следующий сценарий PowerShell возвращает список образов Azure, содержащих значение «SQL-Server» в элементе ImageName:
 
 	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
-	
+
 	$subscriptionID = ""    # REQUIRED: Provide your subscription ID.
 	$subscriptionName = "" # REQUIRED: Provide your subscription name.
 	$thumbPrint = "" # REQUIRED: Provide your certificate thumbprint.
 	$certificate = Get-Item cert:\currentuser\my\$thumbPrint # REQUIRED: If your certificate is in a different store, provide it here.-Ser  store is the one specified with the -ss parameter on MakeCert
-	
+
 	Set-AzureSubscription -SubscriptionName $subscriptionName -Certificate $certificate -SubscriptionID $subscriptionID
-	
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2014"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2014*"} | select imagename,category, location, label, description
-	
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2012"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2012*"} | select imagename,category, location, label, description
@@ -99,7 +99,7 @@
 - В рамках управления дисками рекомендуется хранить данные, журналы и файлы резервных копий на дисках, отличных от **C:** и **D:**. Например, создайте диски данных **E:** и **F:**.
 
 	- Политика кэширования диска для диска по умолчанию **C:** не является оптимальным выбором для работы с данными.
-	
+
 	- **D:** — это временный диск, который используется в основном для файла подкачки. Диск **D:** не является сохраняемым и не сохраняется в хранилище BLOB-объектов. Задачи управления, такие как изменение размера виртуальной машины, приводят к сбросу диска **D:**. **НЕ** рекомендуется использовать диск **D:** для файлов базы данных, включая tempdb.
 
 	Дополнительные сведения о создании и подключении дисков см. в разделе [Подключение диска с данными к виртуальной машине](virtual-machines-windows-classic-attach-disk.md).
@@ -165,11 +165,11 @@
 - Подключитесь к виртуальной машине с помощью подключения к удаленному рабочему столу Windows. В пользовательском интерфейсе удаленного рабочего стола выполните следующие действия.
 
 	1. Введите **имя облачной службы** в качестве имени компьютера.
-	
+
 	1. Введите двоеточие (:) и номер общего порта, настроенного для конечной точки удаленного рабочего стола TCP.
-		
+
 		Моя\_служба.облачное\_приложение.net:63133
-		
+
 		Дополнительные сведения см. в разделе [Что такое облачная служба](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
 **Запустите диспетчер конфигурации служб Reporting Services.**
@@ -279,11 +279,11 @@
 В следующей таблице перечислены некоторые параметры, доступные для публикации существующих отчетов с локального компьютера на сервер отчетов, размещенный на виртуальной машине Microsoft Azure.
 
 - **Построитель отчетов**. Виртуальная машина включает в себя ClickOnce-версию построителя отчетов Microsoft SQL Server. Для первого запуска построителя отчетов на виртуальной машине выполните следующие действия.
-											
+
 	1. Запустите браузер с правами администратора.
-	
+
 	1. Перейдите к диспетчеру отчетов на виртуальной машине и щелкните элемент **Построитель отчетов** на ленте.
-	
+
 	Дополнительные сведения см. в разделе [Установка, удаление и поддержка построителя отчетов](https://technet.microsoft.com/library/dd207038.aspx).
 
 - **SQL Server Data Tools**: виртуальная машина. Компонент SQL Server Data Tools устанавливается на виртуальной машине и может использоваться для создания **проектов сервера отчетов** и отчетов на виртуальной машине. SQL Server Data Tools может публиковать отчеты на сервере отчетов на виртуальной машине.
@@ -295,11 +295,11 @@
 - Создайте жесткий диск VHD, содержащий отчеты, а затем отправьте и подключите этот диск.
 
 	1. Создайте на локальном компьютере жесткий диск VHD, содержащий ваши отчеты.
-	
+
 	1. Создайте и установите сертификат управления.
-	
+
 	1. Отправьте VHD-файл в Azure с помощью командлета Add-AzureVHD, руководствуясь указаниями из статьи [Создание и передача виртуального жесткого диска Windows Server в Azure](virtual-machines-windows-classic-createupload-vhd.md).
-	
+
 	1. Подключите диск к виртуальной машине.
 
 ## Установка других служб и компонентов SQL Server
@@ -375,13 +375,13 @@
 - Если вы используете одну виртуальную машины и выполняются два следующих условия, вам не нужно создавать конечные точки виртуальной машины и открывать порты в брандмауэре на этой виртуальной машине.
 
 	- Вы не осуществляете удаленное подключение к компонентам SQL Server на виртуальной машине. Установка подключения удаленного рабочего стола к виртуальной машине и доступ к компонентам SQL Server локально в виртуальной машине не считаются удаленным подключением к компонентам SQL Server.
-	
+
 	- Вы не присоединяете виртуальную машину к локальному домену через виртуальную сеть Azure или некоторое другое решение туннелирования VPN.
 
 - Если виртуальная машина не присоединена к домену, но требуется установить удаленное подключение к компонентам SQL Server на виртуальной машине, выполните следующие действия.
 
 	- Откройте порты в брандмауэре на виртуальной машине.
-	
+
 	- Создайте конечные точки виртуальной машины для указанных портов (*).
 
 - Если виртуальная машина присоединена к домену с помощью VPN-туннеля, такого как виртуальная сеть Azure, конечные точки не требуются. Однако следует открыть порты в брандмауэре на виртуальной машине.
@@ -397,7 +397,7 @@
 
 - Создание конечных точек: [Настройка конечных точек виртуальной машины](virtual-machines-windows-classic-setup-endpoints.md).
 
-- SQL Server: см. раздел «Выполнение шагов по подключению к виртуальной машине с помощью SQL Server Management Studio» статьи [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-classic-portal-sql.md).
+- SQL Server: см. раздел «Выполнение шагов по подключению к виртуальной машине с помощью SQL Server Management Studio» статьи [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 На следующей схеме показаны порты, которые необходимо открыть в брандмауэре виртуальной машины, чтобы разрешить удаленный доступ к функциям и компонентам на виртуальной машине.
 
@@ -411,7 +411,7 @@
 
 - [Виртуальные машины](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-- [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-classic-portal-sql.md)
+- [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-portal-sql-server-provision.md)
 
 - [Подключение диска с данными к виртуальной машине](virtual-machines-windows-classic-attach-disk.md)
 
@@ -431,4 +431,4 @@
 
 - [Управление базой данных SQL Azure с помощью PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

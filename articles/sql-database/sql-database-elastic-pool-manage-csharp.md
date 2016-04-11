@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# Управление пулом эластичных баз данных (C&#x23;)
+# Управление пулом эластичных баз данных и выбор его размера с помощью C&#x23;
 
 > [AZURE.SELECTOR]
 - [Портал Azure](sql-database-elastic-pool-manage-portal.md)
@@ -36,7 +36,7 @@
 
 
 
-## Обновление пула эластичных баз данных
+## Обновление пула
 
 
     // Retrieve existing pool properties
@@ -60,7 +60,7 @@
 
 
 
-## Перемещение существующей базы данных в пул эластичных баз данных
+## Перемещение существующей базы данных в пул
 
 
     // Update database service objective to add the database to a pool
@@ -88,7 +88,7 @@
 
 
 
-## Создание новой базы данных внутри пула эластичных баз данных
+## Создание базы данных в пуле
 
 
     // Create a new database in the pool
@@ -111,7 +111,7 @@
 
 
 
-## Список всех баз данных в пуле эластичных баз данных
+## Получение списка всех баз данных в пуле
 
 В следующем примере создается список всех существующих в пуле баз данных.
 
@@ -126,7 +126,7 @@
 
 
 
-## Пример управления пулом эластичных баз данных с помощью C&#x23;
+## Управление пулом: пример C&#x23;
 
 Для выполнения этого примера требуются дополнительные библиотеки. Чтобы установить их, в Visual Studio выполните в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**) следующие команды.
 
@@ -148,7 +148,7 @@
     {
     class Program
     {
-        // elastic database pool variables
+        // pool variables
         static string poolName = "elasticPool1";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -191,7 +191,7 @@
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool with 400 pool eDTUs... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -212,7 +212,7 @@
             Console.WriteLine("Press Enter to update the pool to 1200 pool eDTUs.");
             Console.ReadLine();
 
-            // Update the elastic database pool
+            // Update the pool
             Console.WriteLine("Updating elastic database pool to 1200 pool eDTUs...");
             ElasticPoolCreateOrUpdateResponse epool2 = UpdateElasticDatabasePool();
             Console.WriteLine("Update of pool " + epool2.ElasticPool.Name + ": " + epool2.Status.ToString());
@@ -457,4 +457,4 @@
 - [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Справочник по пулам эластичных баз данных](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

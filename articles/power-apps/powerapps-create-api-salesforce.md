@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Создание API Salesforce в PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Приложения логики](../articles/connectors/create-api-salesforce.md)
+- [Приложения логики](../articles/connectors/connectors-create-api-salesforce.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
 
 Добавьте API Salesforce в среду службы приложений (клиента) организации.
@@ -82,7 +82,7 @@
 
 ## См. раздел "Интерфейсы REST API".
 
-Справочник по [REST API Salesforce](../connectors/create-api-salesforce.md).
+Справочник по [REST API Salesforce](../connectors/connectors-create-api-salesforce.md).
 
 ## Сводка и дальнейшие действия
 С помощью инструкций в этом разделе вы добавили API Salesforce в службу PowerApps Enterprise. Теперь необходимо предоставить пользователям доступ к этому API, чтобы они могли добавлять его в свои приложения:
@@ -101,4 +101,4 @@
 [14]: ./media/powerapps-create-api-salesforce/browseall.png
 [15]: ./media/powerapps-create-api-salesforce/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

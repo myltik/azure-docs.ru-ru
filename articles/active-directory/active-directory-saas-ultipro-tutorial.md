@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,7 +65,7 @@
 4. В нижней части страницы нажмите кнопку **Добавить**.<br><br> ![Приложения][3]<br>
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.<br><br> ![Приложения][4]<br>
 6. В поле поиска введите **Ultipro**.<br><br> ![Создание тестового пользователя Azure AD](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_01.png)<br>
-7. В области результатов выберите **Ultipro** и нажмите кнопку **Завершить**, чтобы добавить приложение. <br><br>
+7. В области результатов выберите **Ultipro** и нажмите кнопку **Завершить**, чтобы добавить приложение. <br><br> ![Создание тестового пользователя Azure AD](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_02.png)<br>
 
 ##  Настройка и проверка единого входа в Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Ultipro с использованием тестового пользователя Britta Simon.
@@ -95,11 +95,11 @@
 3. На диалоговой странице **Настройка параметров приложения** выполните следующие действия. <br><br>![Настройка единого входа](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_04.png) <br>
 
 
-    а. В текстовом поле "URL-адрес входа" введите URL-адрес, используемый пользователями для входа в приложение Ultipro по следующему шаблону: **"https://<название\_организации>.ultipro.com/"**.
+    а. В текстовом поле "URL-адрес входа" введите URL-адрес, используемый пользователями для входа в приложение Ultipro, по следующему шаблону: **"https://<название\_организации>.ultipro.com/"**.
 
     b. Нажмите кнопку **Далее**.
 
-4. На странице **Настройка единого входа в Ultipro** выполните следующие действия: <br><br>![Настройка единого входа](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_05.png) <br>
+4. На странице **Настройка единого входа в Ultipro** выполните указанные ниже действия: <br><br>![Настройка единого входа](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_05.png) <br>
 
     а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
 
@@ -221,4 +221,4 @@
 [204]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

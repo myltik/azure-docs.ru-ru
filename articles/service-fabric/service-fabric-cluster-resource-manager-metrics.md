@@ -122,7 +122,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Код:
 
 ```csharp
-this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("Foo", 42) });
+this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("metric1", 42) });
 ```
 
 Реплики или экземпляры службы могут сообщать о нагрузке только тех метрик, которые настроены для использования. Список метрик задается во время создания каждой службы. Если реплика или экземпляр пытается сообщить о нагрузке метрики, которая не настроена для использования, Service Fabric заносит отчет в журнал, но игнорирует его. Это означает, что метрика не будет использоваться во время вычисления или создания отчетов о состоянии кластера. Это чудесно, так как такое поведение позволяет больше экспериментировать. Код может измерять любимые метрики и сообщать обо всех метриках, которые он умеет измерять и о которых он умеет сообщать. А оператор может настраивать, поправлять и обновлять ресурс, изменяя правила для службы в режиме реального времени без изменения кода. Эти изменения могут включать, например, отключение метрик с отчетом, содержащим ошибки, перенастройку веса метрик на основе поведения или включение новой метрики только после развертывания и проверки кода.
@@ -196,4 +196,4 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

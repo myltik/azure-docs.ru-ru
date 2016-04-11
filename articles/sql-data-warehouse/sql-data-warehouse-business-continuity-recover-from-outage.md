@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/09/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess"/>
 
 # Восстановление базы данных после сбоя в хранилище данных SQL
@@ -52,7 +52,7 @@
 5. Создайте запрос на восстановление базы данных.
 6. Отслеживайте ход восстановления.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -113,4 +113,4 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationG
 [портал Azure]: https://portal.azure.com/
 [обратиться в службу поддержки]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

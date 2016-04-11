@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Создание API Google Диска в PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Приложения логики](../articles/connectors/create-api-googledrive.md)
+- [Приложения логики](../articles/connectors/connectors-create-api-googledrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-googledrive.md)
 
 Добавьте API Google Диска в среду службы приложений (клиента) организации.
@@ -89,7 +89,7 @@
 
 ## См. раздел "Интерфейсы REST API".
 
-Справочник по [REST API Google Диска](../connectors/create-api-googledrive.md).
+Справочник по [REST API Google Диска](../connectors/connectors-create-api-googledrive.md).
 
 ## Сводка и дальнейшие действия
 С помощью инструкций в этом разделе вы добавили API Google Drive в службу PowerApps Enterprise. Теперь необходимо предоставить пользователям доступ к этому API, чтобы они могли добавлять его в свои приложения:
@@ -115,4 +115,4 @@
 [15]: ./media/powerapps-create-api-googledrive/browseall.png
 [16]: ./media/powerapps-create-api-googledrive/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->
