@@ -1,21 +1,23 @@
-1. From the Visual Studio menu, select **File > New > Project**.
+1. В меню Visual Studio выберите **Файл > Создать > Проект**.
 
-1. The **New Project** dialog will display.
+1. Появится диалоговое окно **Новый проект**.
 
-	![New Project dialog](./media/create-aspnet5-app/create-web-app.png)
+	![Диалоговое окно "Новый проект"](./media/create-aspnet5-app/create-web-app.png)
 
-1. Under the **Templates** section of the **New Project** dialog, select **Visual C# > Web**.
+1. В разделе **Шаблоны** диалогового окна **Новый проект** выберите **Visual C# > Веб-проект**.
 
-1. Select **ASP.NET Web Application**.
+1. Выберите **Веб-приложение ASP.NET**.
 
-1. Give your new application a name (or take the default).
+1. Присвойте новому приложению имя (или оставьте имя по умолчанию).
 
-1. Tap **OK**.
+1. Нажмите кнопку **OK**.
 
-1. The **New ASP.NET Project** dialog will display.
+1. Откроется диалоговое окно **Новый проект ASP.NET**.
 
-	![New ASP.NET Project dialog](./media/create-aspnet5-app/choose-template.png)
+	![Диалоговое окно "Новый проект ASP.NET"](./media/create-aspnet5-app/choose-template.png)
 
-1. Under ASP.NET 5 Templates, select ASP.NET Web Application.
+1. В разделе "Шаблоны ASP.NET 5" выберите "Веб-приложение ASP.NET".
 
-1. Tap **OK**.
+1. Нажмите кнопку **OK**.
+
+<!---HONumber=AcomDC_0330_2016-->

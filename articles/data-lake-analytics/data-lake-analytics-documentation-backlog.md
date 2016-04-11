@@ -32,7 +32,8 @@ U-SQL | Обработка JSON | 2 | Ожидает | [@mumian](https://github.
 служба | Взаимодействие с Curl | 3 |Ожидает |[@mumian](https://github.com/mumian)
 U-SQL | Таблицы с секциями |1 | Ожидает | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Настройка производительности | 2 | Ожидает | [@MikeRys](https://github.com/mikerys) | 
-U-SQL | Руководство по программированию | 2 | Ожидает | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Руководство по программированию U-SQL UDO | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Руководство по программированию U-SQL | 2 | Ожидает | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Начало работы с U-SQL при наличии опыта работы с T-SQL | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
 U-SQL | Начало работы с U-SQL при наличии опыта работы с Hive | 1 | Ожидает | [@mumian](https://github.com/mumian)| [@MikeRys](https://github.com/mikerys)
 U-SQL | Синтаксические диаграммы грамматики | 1 | выполняется, воспользуйтесь [этим](http://bottlecaps.de/rr/ui) | [@mwinkle](https://github.com/mwinkle) | [@mwinkle](https://github.com/mwinkle)
@@ -42,7 +43,7 @@ U-SQL | Синтаксические диаграммы грамматики | 1
 U-SQL | Объясните методы выполнения операций объединения JOIN на основе диапазонов | 1 | Ожидает | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | Параметры проверки подлинности ADLS | 1 | Ожидает | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | Отправка задания кроссплатформенного CLI | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
-U-SQL | Обновления справочной документации по REDUCE и COMBINE | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
+U-SQL | Обновления справочной документации по REDUCE и COMBINE | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) |[@MikeRys](https://github.com/mikerys)
 Средства | Модульное тестирование инструментов озера данных Azure для определяемых пользователем функций U-SQL для Visual Studio | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 Средства | Графики заданий и представление выполнения вершин в инструментах озера данных Azure для Visual Studio | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 
@@ -61,4 +62,4 @@ U-SQL | Обновления справочной документации по 
 * Отправить запрос по внесению предложенных изменений в данный документ в [репозиторий содержимого Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Отправить сообщение по адресу [adlafeedback на сайте microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

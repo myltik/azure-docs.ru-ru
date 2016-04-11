@@ -20,40 +20,24 @@
 
 # Подключение к базе данных SQL с помощью Ruby в ОС Mac OS X (Yosemite)
 
-
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
+Этот раздел содержит пример кода Ruby, выполняемого на компьютере Mac с Yosemite для подключения к базе данных SQL Azure.
 
-Этот раздел содержит пример кода Ruby, выполняемого на клиентском компьютере Mac, где выполняется Yosemite, для подключения к базе данных SQL Azure.
+## Шаг 1. Настройка среды разработки
 
-## Предварительные требования
+[Предварительные требования для использования драйвера Ruby TinyTDS для SQL Server](https://msdn.microsoft.com/library/mt711041.aspx#Mac)
 
-### Установка необходимых модулей
-
-Откройте терминал и установите следующее:
-
-**1) Homebrew**: выполните указанную ниже команду из терминала. Она запустит загрузку диспетчера пакетов Homebrew на компьютер.
-
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-**2) FreeTDS:** выполните указанную ниже команду из терминала. На компьютере будет установлен FreeTDS, что необходимо для работы TinyTDS.
-
-    brew install FreeTDS
-
-**3) TinyTDS:** выполните указанную ниже команду из терминала. На компьютере установится TinyTDS.
-
-    gem install tiny_tds
-
-### База данных SQL
+## Шаг 2. Создание базы данных SQL
 
 Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
 
 
-## Шаг 1. Получение сведений о подключении
+## Шаг 3. Получение сведений о подключении
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Шаг 2. Подключение
+## Шаг 4. Подключение
 
 Функция [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) используется для подключения к Базе данных SQL.
 
@@ -62,7 +46,7 @@
     host: 'yourserver.database.windows.net', port: 1433,
     database: 'AdventureWorks', azure:true
 
-## Шаг 3. Выполнение запроса
+## Шаг 5. Выполнение запроса
 
 Функция [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) используется для извлечения результирующего набора из запроса к Базе данных SQL. Эта функция принимает запрос и возвращает результирующий набор. По результирующему набору выполняется итерация с помощью [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
 
@@ -76,9 +60,9 @@
     puts row
     end
 
-## Шаг 4. Вставка строки
+## Шаг 6. Вставка строки
 
-В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от [внедрения кода SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
+В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от внедрения кода SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 Чтобы использовать TinyTDS с Azure, рекомендуем выполнить несколько инструкций `SET`, чтобы изменить способ обработки определенной информации в текущем сеансе. Рекомендуемые инструкции `SET` предоставлены в примере кода. Например, инструкция `SET ANSI_NULL_DFLT_ON` позволяет использовать нулевые значения в новых столбцах, даже если допустимость нулевых значений в столбце не указана явным образом.
@@ -106,4 +90,4 @@
     puts row
     end
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

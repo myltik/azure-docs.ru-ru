@@ -13,22 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 # Пакет SDK для DocumentDB
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [Пакет SDK для .NET](documentdb-sdk-dotnet.md)
+- [Пакет SDK для Node.js](documentdb-sdk-node.md)
+- [Пакет SDK для Java](documentdb-sdk-java.md)
+- [Пакет SDK для Python](documentdb-sdk-python.md)
 
 ##Пакет SDK для DocumentDB Python
 
-<table> <tr><td>**Загрузить**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr> <tr><td>**Добавить**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr> <tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для Python](http://azure.github.io/azure-documentdb-python/)</td></tr> <tr><td>**Приступая к работе**</td><td>[Приступая к работе с пакетом SDK для Python](documentdb-python-application.md)</td></tr> <tr><td>**Текущая поддерживаемая платформа**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr> </table></br>
+<table>
+<tr><td>**Скачивание**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**Участие**</td><td>[GitHub] (https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для Python] (http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**Приступая к работе**</td><td>[Начало работы с пакетом SDK для Python](documentdb-python-application.md)</td></tr>
+<tr><td>**Текущая поддерживаемая платформа**</td><td>[Python&#160;2.7](https://www.python.org/download/releases/2.7/)</td></tr>
+</table></br>
 
 ## Заметки о выпуске
+
+### <a name="1.6.0"/>[1\.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
+- Реализованы [секционированные коллекции](documentdb-partition-data.md) и [определяемые пользователем уровни производительности](documentdb-performance-levels.md). 
 
 ### <a name="1.5.0"/>[1\.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
 - Добавьте сопоставители разделов "Хэш" и "Диапазон" для сегментирования приложений на разделы.
@@ -58,24 +67,14 @@
 
 Любые запросы в DocumentDB с помощью выведенного из эксплуатации SDK будут отклоняться службой.
 
-> [AZURE.WARNING]Поддержка всех версий пакета SDK для Azure DocumentDB для Java версии раньше **1.0.0** будет отменена **29 февраля 2016 года**.
+> [AZURE.WARNING]
+Поддержка всех версий пакета SDK для Azure DocumentDB для Java версии раньше **1.0.0** будет отменена **29 февраля 2016 года**.
 
 <br/>
 
 | Version (версия) | Дата выпуска | Дата вывода 
 | ---	  | ---	         | ---
-| [1\.5.0](#1.5.0) | 03 января 2016 г. |--- 
-| [1\.4.2](#1.4.2) | 06 октября 2015 г. |--- 
-| [1\.4.1](#1.4.1) | 06 октября 2015 г. |--- 
-| [1\.2.0](#1.2.0) | 06 августа 2015 г. |--- 
-| [1\.1.0](#1.1.0) | 09 июля 2015 г. |--- 
-| [1\.0.1](#1.0.1) | 25 мая 2015 г. |--- 
-| [1\.0.0](#1.0.0) | 07 апреля 2015 г. |---
-| предв. версия 0.9.4 | 14 января 2015 г. | 29 февраля 2016 г. 
-| предв. версия 0.9.3 | 09 декабря 2014 г. | 29 февраля 2016 г. 
-| предв. версия 0.9.2 | 25 ноября 2014 г. | 29 февраля 2016 г. 
-| предв. версия 0.9.1 | 23 февраля 2014 г. | 29 февраля 2016 г. 
-| предв. версия 0.9.0 | 21 августа 2014 г. | 29 февраля 2016 г.
+| [1\.6.0](#1.6.0) | 29 марта 2016 г. |--- | [1\.5.0](#1.5.0) | 03 января 2016 г. |--- | [1\.4.2](#1.4.2) | 06 октября 2015 г. |--- | [1\.4.1](#1.4.1) | 06 октября 2015 г. |--- | [1\.2.0](#1.2.0) | 06 августа 2015 г. |--- | [1\.1.0](#1.1.0) | 09 июля 2015 г. |--- | [1\.0.1](#1.0.1) | 25 мая 2015 г. |--- | [1\.0.0](#1.0.0) | 07 апреля 2015 г. |--- | предв. версия 0.9.4 | 14 января 2015 г. | 29 февраля 2016 г. | предв. версия 0.9.3 | 09 декабря 2014 г. | 29 февраля 2016 г. | предв. версия 0.9.2 | 25 ноября 2014 г. | 29 февраля 2016 г. | предв. версия 0.9.1 | 23 сентября 2014 г. | 29 февраля 2016 г. | предв. версия 0.9.0 | 21 августа 2014 г. | 29 февраля 2016 г.
 
 ## Часто задаваемые вопросы
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -84,4 +83,4 @@
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

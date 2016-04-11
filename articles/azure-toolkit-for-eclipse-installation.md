@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/09/2016" 
+    ms.date="03/28/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
@@ -22,7 +22,7 @@
 
 В набор средств Azure для Eclipse входят шаблоны и функциональные возможности для простого создания, разработки, тестирования и развертывания приложений Azure с помощью среды разработки Eclipse. Это проект с открытым кодом, исходный код которого доступен по лицензии Apache License 2.0 на сайте проекта в GitHub по следующему URL-адресу:
 
-<https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>.
+<https://github.com/microsoft/azure-tools-for-java>
 
 Ниже приведен процесс установки набора средств Azure для Eclipse.
 
@@ -31,11 +31,9 @@
 ## Установка набора средств Azure для Eclipse
 
 1. Запустите Eclipse.
-2. В меню Eclipse выберите <strong>Help</strong> (Справка), а затем <strong>Install New Software</strong> (Установка нового программного обеспечения), как показано на следующей схеме.
-    ![][ic590123]
-3. В диалоговом окне <strong>Available Software</strong> (Доступное программное обеспечение) в поле <strong>Work with</strong> (Работа с) введите <strong>http://dl.msopentech.com/eclipse</strong> и нажмите клавишу <strong>ВВОД</strong>.
-4. В области <strong>Name</strong> (Имя) установите флажок <strong>Azure Toolkit for Eclipse</strong> (Набор средств Azure для Eclipse) и снимите флажок <strong>Contact all update sites during install to find required software</strong> (Проверить все сайты обновления во время установки для поиска требуемого ПО). Экран должен выглядеть следующим образом:
-    ![][ic719482]
+2. В меню Eclipse выберите <strong>Help</strong> (Справка), а затем <strong>Install New Software</strong> (Установка нового программного обеспечения), как показано на следующей схеме. ![Установка набора средств Azure для Eclipse][ic590123]
+3. В диалоговом окне <strong>Available Software</strong> (Доступное программное обеспечение) в поле <strong>Work with</strong> (Работа с) введите <strong>http://dl.microsoft.com/eclipse</strong> и нажмите клавишу <strong>ВВОД</strong>.
+4. В области <strong>Name</strong> (Имя) установите флажок <strong>Azure Toolkit for Eclipse</strong> (Набор средств Azure для Eclipse) и снимите флажок <strong>Contact all update sites during install to find required software</strong> (Проверить все сайты обновления во время установки для поиска требуемого ПО). Экран должен выглядеть следующим образом: ![Установка набора средств Azure для Eclipse][ic719482]
 5. Если вы развернете узел <strong>Azure Toolkit for Eclipse</strong> (Набор средств Azure для Eclipse), то увидите следующие элементы:
     * **Azure Access Control Services Filter** (Фильтр служб контроля доступа Azure) — этот компонент обеспечивает поддержку проверки подлинности пользователей приложения с помощью служб Azure ACS.
     * **Azure Common Plugin** (Общий подключаемый модуль Azure) — этот компонент содержит общие функциональные возможности, используемые другими компонентами.
@@ -51,13 +49,13 @@
 
 ## См. также
 
-[Набор средств Azure для Eclipse][]
+[Набор средств Azure для Eclipse]
 
-[Создание приложения Hello World для Azure в Eclipse][]
+[Создание приложения Hello World для Azure в Eclipse]
 
-[Новые возможности набора средств Azure для Eclipse][]
+[Новые возможности набора средств Azure для Eclipse]
 
-Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][].
+Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure].
 
 <!-- URL List -->
 
@@ -72,4 +70,4 @@
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

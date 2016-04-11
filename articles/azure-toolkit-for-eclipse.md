@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/07/2016" 
+    ms.date="03/28/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -22,7 +22,7 @@
 
 В набор средств Azure для Eclipse входят шаблоны и функциональные возможности для простого создания, разработки, тестирования и развертывания приложений Azure с помощью среды разработки Eclipse. Это проект с открытым кодом, исходный код которого доступен по лицензии Apache License 2.0 на сайте проекта:
 
-* <https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>
+* <https://github.com/microsoft/azure-tools-for-java.>
 
 ## Приступая к работе с набором средств Azure для Eclipse ##
 
@@ -30,7 +30,7 @@
 
 * [Новые возможности набора средств Azure для Eclipse]
 * [Установка набора средств Azure для Eclipse]
-* [Создание приложения Hello World для Azure в Eclipse]
+* [Создание облачной службы Hello World для Azure в Eclipse]
 * [Создание веб-приложения Hello World для Azure в Eclipse]
 * [Отображение в Eclipse содержимого Javadoc для пакета библиотек Azure для Java]
 
@@ -77,7 +77,7 @@
 [Свойства роли Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Конечные точки службы Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Список учетных записей хранения Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Создание облачной службы Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web/create-a-hello-world-web-app-for-azure-in-eclipse.md
 [Отладка приложений Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Развертывание крупных систем]: http://go.microsoft.com/fwlink/?LinkID=699536
@@ -95,4 +95,4 @@
 [Использование библиотеки среды выполнения служб Azure в JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Новые возможности набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

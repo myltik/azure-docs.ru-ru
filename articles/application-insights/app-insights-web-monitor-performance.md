@@ -110,43 +110,52 @@ HTTP-запросы включают в себя все запросы GET и PO
 
 ## Счетчики производительности системы
 
-Некоторые метрики, доступные для выбора, представляют собой [счетчики производительности](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows содержит много таких счетчиков. Вы можете также определить свой счетчик.
+
+Windows содержит много счетчиков производительности. Вы можете также определить свой счетчик.
 
 (Для приложений, размещенных в Azure, [отправляйте данные системы диагностики Azure в Application Insights](app-insights-azure-diagnostics.md).)
 
-В этом примере показаны счетчики производительности, доступные по умолчанию. Мы [добавили отдельную диаграмму](app-insights-metrics-explorer.md#editing-charts-and-grids) для каждого счетчика и присвоили имена этим диаграммам, [сохранив их в избранное](app-insights-metrics-explorer.md#editing-charts-and-grids):
+Чтобы просмотреть набор часто используемых [счетчиков производительности](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters), откройте колонку **Серверы**. Вы также можете выбрать счетчики, изменив диаграмму и выбрав метрику в разделе счетчиков производительности:
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
 
+Полный набор метрик, доступных в системе Windows, можно определить с помощью команды PowerShell [`Get-Counter -ListSet *`](https://technet.microsoft.com/library/hh849685.aspx).
 
-Если требующиеся счетчики отсутствуют в списке свойств, их можно добавить в набор, который собирает пакет SDK. Откройте файл ApplicationInsights.config и измените директиву сборщика данных производительности:
+Если требующиеся счетчики отсутствуют в списке метрик, их можно добавить в набор, который собирает пакет SDK. Откройте файл ApplicationInsights.config и измените директиву сборщика данных производительности:
 
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
         <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
-Используется следующий формат: `\Category(instance)\Counter"`, а для категорий без экземпляров — просто `\Category\Counter`. Чтобы выяснить, какие счетчики доступны в системе, прочитайте [это введение](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
+Вы можете регистрировать данные как стандартных счетчиков, так и счетчиков, реализованных самостоятельно. Счетчик `\Objects\Processes` доступен во всех системах Windows. `\Sales...` — это пример пользовательского счетчика, который можно реализовать на веб-сервере.
+
+Используется следующий формат: `\Category(instance)\Counter"`, а для категорий без экземпляров — просто `\Category\Counter`.
+
 
 `ReportAs` требуется для имен счетчиков, которые содержат символы, отличные от букв, круглых скобок, косой черты, дефисов, символов подчеркивания, пробелов и точек.
 
-При указании экземпляра он будет собираться в качестве свойства CounterInstanceName обнаруженной метрики.
+При указании экземпляра он будет собираться в качестве измерения CounterInstanceName обнаруженной метрики.
 
-Для выполнения той же процедуры при желании можно написать код:
+### Сбор данных счетчиков производительности в коде
+
+Чтобы собрать данные счетчиков производительности системы и передать их в Application Insights, можно использовать следующий фрагмент кода:
+
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
+      @"\.NET CLR Memory([replace-with-application-process-name])# GC Handles", "GC Handles")));
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+
+То же самое можно сделать с пользовательскими метриками, созданными вами:
 
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
-Кроме того, чтобы собрать счетчики производительности системы и передать их в Application Insights, можно использовать следующий фрагмент кода:
-
-    var perfCollectorModule = new PerformanceCollectorModule();
-    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\.NET CLR Memory([replace-with-application-process-name])# GC Handles", "GC Handles")));
-    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+При необходимости
 
 ### Счетчики исключений
 
@@ -201,4 +210,4 @@ HTTP-запросы включают в себя все запросы GET и PO
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

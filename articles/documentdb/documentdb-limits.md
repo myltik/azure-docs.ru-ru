@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2016" 
-	ms.author="mimig"/>
+	ms.date="03/30/2016" 
+	ms.author="arramac"/>
 
 
 # Ограничения и квоты DocumentDB
@@ -24,4 +24,6 @@
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+Квоты, перечисленные со звездочкой (*), [могут быть изменены при обращении в службу поддержки Azure](documentdb-increase-limits.md).
+
+<!---HONumber=AcomDC_0330_2016-->

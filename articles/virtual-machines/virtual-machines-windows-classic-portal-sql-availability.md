@@ -54,7 +54,7 @@
 
 - У вас уже есть учетная запись Azure.
 
-- Вы уже умеете подготавливать виртуальную машину SQL Server из коллекции виртуальных машин через графический интерфейс пользователя. Дополнительные сведения см. в статье [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-classic-portal-sql.md).
+- Вы уже умеете подготавливать классическую виртуальную машину SQL Server из коллекции виртуальных машин через графический интерфейс пользователя.
 
 - Вы хорошо понимаете принцип работы групп доступности AlwaysOn. Дополнительные сведения см. в статье [Группы доступности AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -547,6 +547,6 @@
 ## Дальнейшие действия
 Решение SQL Server AlwaysOn на основе группы доступности в Azure успешно создано. Инструкции по настройке прослушивателя группы доступности см. в статье [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
-Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

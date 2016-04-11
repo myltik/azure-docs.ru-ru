@@ -82,8 +82,6 @@
 
 Службы, связанные с эмулятором HDInsight, не запускаются по умолчанию. Для запуска служб запустите из командной строки Hadoop командлет **start\_local\_hdp\_services.cmd** из папки C:\\hdp (расположение по умолчанию). Для автоматического запуска служб после перезагрузки компьютера запустите командлет **set-onebox-autostart.cmd**.
 
-Известные проблемы установки и запуска эмулятора HDInsight см. в статье [Заметки к версии эмулятора HDInsight](hdinsight-emulator-release-notes.md). Журнал установки находится по пути: **C:\\HadoopFeaturePackSetup\\HadoopFeaturePackSetupTools\\gettingStarted.winpkg.install.log**.
-
 ##<a name="vstools"></a>Использование эмулятора с инструментами HDInsight для Visual Studio
 
 Вы можете использовать инструменты HDInsight для Visual Studio, чтобы подключиться к эмулятору HDInsight. Информацию о том, как использовать инструменты Visual Studio с кластерами HDInsight в Azure, см. в статье [Начало работы со средствами HDInsight Hadoop для Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
@@ -508,7 +506,7 @@ The samples currently contain all the required binaries, so building is not requ
 
 - [Приступая к работе с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Разработка программ MapReduce на Java для HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Заметки к версии эмулятора HDInsight](hdinsight-emulator-release-notes.md)
+- [Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Форум MSDN с обсуждением HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
 
@@ -521,12 +519,12 @@ The samples currently contain all the required binaries, so building is not requ
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [hdinsight-emulator-install]: http://www.microsoft.com/web/gallery/install.aspx?appid=HDINSIGHT
-[hdinsight-emulator-release-notes]: hdinsight-emulator-release-notes.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 
 [Powershell-install-configure]: powershell-install-configure.md
@@ -536,4 +534,4 @@ The samples currently contain all the required binaries, so building is not requ
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

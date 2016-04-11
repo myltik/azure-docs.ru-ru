@@ -3,7 +3,7 @@
 	description="Дополнительные сведения о создании VHD-файлов Debian 7 и 8 для развертывания в Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="SuperScottz"
+	authors="szarkos"
 	manager="timlt"
 	editor=""
     tags="azure-resource-manager,azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="mingzhan"/>
+	ms.date="03/25/2016"
+	ms.author="szark"/>
 
 
 
@@ -34,7 +34,23 @@
 - Все VHD-диски должны иметь размер, кратный 1 МБ.
 
 
-## Debian 7.x и 8.x
+## Создание виртуальных жестких дисков Debian с помощью Azure-Manage
+
+Существуют средства для создания виртуальных жестких дисков Debian для Azure, такие как скрипты [azure-manage](https://gitlab.credativ.com/de/azure-manage) от компании [credativ](http://www.credativ.com/). Рекомендуется использовать их, а не создавать образ с нуля. Например, чтобы создать виртуальный жесткий диск Debian 8, выполните следующие команды для скачивания azure-manage (и зависимостей) и выполнения скрипта azure\_build\_image:
+
+	# sudo apt-get update
+	# sudo apt-get install git qemu-utils mbr kpartx debootstrap
+
+	# sudo apt-get install python3-pip
+	# sudo pip3 install azure-storage azure-servicemanagement-legacy pytest pyyaml
+	# git clone https://gitlab.credativ.com/de/azure-manage.git
+	# cd azure-manage
+	# sudo pip3 install .
+
+	# sudo azure_build_image --option release=jessie --option image_size_gb=30 --option image_prefix=debian-jessie-azure section
+
+
+## Подготовка виртуального жесткого диска Debian вручную
 
 1. В диспетчере Hyper-V выберите виртуальную машину.
 
@@ -44,22 +60,42 @@
 
 4. Отредактируйте файл `/etc/default/grub` и измените параметр **GRUB\_CMDLINE\_LINUX** следующим образом, чтобы включить дополнительные параметры ядра для Azure.
 
-        GRUB_CMDLINE_LINUX="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200 earlyprintk=ttyS0,115200 rootdelay=30"
 
 5. Перестройте grub и выполните команду:
 
         # sudo update-grub
 
-6. Установите пакеты зависимостей для агента Linux для Azure:
+6. Добавьте репозитории Azure Debian в файл /etc/apt/sources.list для Debian 6 или 7:
 
-        # apt-get install -y git parted
+	**Debian 6.x "Wheezy"**
 
-7.	Установите агенты Linux для Azure с сайта GitHub, используя [руководство](virtual-machines-linux-update-agent.md), и выберите версию 2.0.14:
+		deb http://debian-archive.trafficmanager.net/debian wheezy-backports main
+		deb-src http://debian-archive.trafficmanager.net/debian wheezy-backports main
+		deb http://debian-archive.trafficmanager.net/debian-azure wheezy main
+		deb-src http://debian-archive.trafficmanager.net/debian-azure wheezy main
 
-			# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent
-			# chmod +x waagent
-			# cp waagent /usr/sbin
-			# /usr/sbin/waagent -install -verbose
+
+	**Debian 7.x "Jessie"**
+
+		deb http://debian-archive.trafficmanager.net/debian jessie-backports main
+		deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
+		deb http://debian-archive.trafficmanager.net/debian-azure jessie main
+		deb-src http://debian-archive.trafficmanager.net/debian-azure jessie main
+
+
+7. Установите агент Linux для Azure:
+
+		# sudo apt-get update
+		# sudo apt-get install waagent
+
+8. Для Debian 7 необходимо запустить ядро на основе версии 3.16 из репозитория wheezy-backports. Сначала создайте файл с именем /etc/apt/preferences.d/linux.pref со следующим содержимым:
+
+		Package: linux-image-amd64 initramfs-tools
+		Pin: release n=wheezy-backports
+		Pin-Priority: 500
+
+	Затем выполните команду "sudo apt-get install linux-image-amd64", чтобы установить новое ядро.
 
 8. Отмените подготовку виртуальной машины, подготовьте ее к работе в среде Azure и выполните команду:
 
@@ -69,16 +105,9 @@
 
 9. В диспетчере Hyper-V выберите **Действие -> Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
-## Использование сценария Credativ для создания виртуального жесткого диска Debian
-
-На веб-сайте Credativ есть сценарий, который позволяет автоматически создавать виртуальный жесткий диск Debian. Его можно скачать [здесь](https://gitlab.credativ.com/de/azure-manage) и установить на виртуальной машине Linux. Чтобы создать виртуальный жесткий диск Debian (например Debian 7), выполните команду:
-
-        # azure_build_image --option release=wheezy --option image_prefix=lilidebian7 --option image_size_gb=30 SECTION
-
-Если при использовании этого сценария возникнут проблемы, сообщите о проблеме в Credativ [здесь](https://gitlab.credativ.com/groups/de/issues).
 
 ## Дальнейшие действия
 
-Теперь виртуальный жесткий диск Debian можно использовать для создания новых виртуальных машин Azure. Если вы впервые передаете VHD-файл в Azure, обратитесь к шагам 2 и 3 в статье [Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+Теперь виртуальный жесткий диск Debian можно использовать для создания новых виртуальных машин Azure. Если вы впервые отправляете VHD-файл в Azure, обратитесь к шагам 2 и 3 в статье [Создание и отправка виртуального жесткого диска с ОС Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

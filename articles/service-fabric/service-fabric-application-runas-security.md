@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
-   ms.author="mfussell"/>
+   ms.date="03/24/2016"
+   ms.author="msfussell"/>
 
 # Запуск от имени: запуск приложения Service Fabric с использованием разных разрешений безопасности
 Платформа Azure Service Fabric предоставляет возможность защиты приложений, работающих в кластере под разными учетными записями, с помощью функции **запуска от имени**. Кроме того, платформа защищает ресурсы, используемые приложениями с учетной записью пользователя, — файлы, каталоги и сертификаты.
@@ -94,13 +94,13 @@
 Теперь откройте файл MySetup.bat и добавьте следующие команды.
 
 ~~~
-REM Задайте системную переменную среды. Для этого требуется привилегия администратора privilege
+REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
-echo System TestVariable со значением > test.txt
-echo %TestVariable% >> test.txt
+echo System TestVariable set to > out.txt
+echo %TestVariable% >> out.txt
 
-REM Чтобы удалить эту системную переменную, используйте
-REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+REM To delete this system variable us
+REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
 Затем скомпилируйте и разверните решение в кластере локальной разработки. После запуска службы (отображено в обозревателе Service Fabric) вы можете убедиться в успешном выполнении файла MySetup.bat двумя способами. Откройте командную строку PowerShell и введите следующую команду.
@@ -110,7 +110,7 @@ PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Запишите имя узла с развернутой и запущенной службой в обозревателе Service Fabric (например, Node 1). Затем перейдите в рабочую папку экземпляра приложения и найдите файл out.txt, который показывает значение **TestVariable**. Например, если служба была развернута на узле Node 2, можно перейти по этому пути для **MyApplicationType**.
+Запишите имя узла с развернутой и запущенной службой в обозревателе Service Fabric (например Node 2). Затем перейдите в рабочую папку экземпляра приложения и найдите файл out.txt, который показывает значение **TestVariable**. Например, если служба была развернута на узле Node 2, можно перейти по этому пути для **MyApplicationType**.
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
@@ -351,4 +351,4 @@ Echo "Test console redirection which writes to the application log folder on the
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

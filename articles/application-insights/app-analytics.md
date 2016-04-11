@@ -16,12 +16,10 @@
 	ms.author="awills"/>
 
 
-
-
 # Аналитика в Application Insights
 
 
-[Аналитика](app-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
+[Аналитика](app-analytics.md) позволяет выполнять расширенные запросы к данным телеметрии приложения, собранным службой [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -66,6 +64,8 @@
 >[AZURE.NOTE] Мы рекомендуем начать со [знакомства с языком](app-analytics-tour.md).
 
 
+
+
 ## Подключение к данным Application Insights
 
 
@@ -74,9 +74,12 @@
 ![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-analytics/001.png)
 
 
+## Ограничения
+
+В настоящее время результаты запросов ограничены данными за последнюю неделю.
 
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

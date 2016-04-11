@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/14/2016"
+   ms.date="03/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Секции таблиц в хранилище данных SQL
@@ -38,9 +38,9 @@
 При создании кластеризованных индексов хранилища столбцов в хранилище данных SQL администратору базы данных следует учесть дополнительный фактор: номер строки. В таблицах типа CCI можно добиться высокой степени сжатия и помочь хранилищу данных SQL увеличить производительность запросов. В силу внутренних особенностей сжатия в хранилище данных SQL, каждая секция в таблице типа CCI должна содержать значительное количество строк перед сжатием данных. Кроме того, хранилище данных SQL распределяет данные по множеству дистрибутивов, каждый из которых затем разделяется на секции. Для оптимального сжатия и производительности в каждом дистрибутиве и секции должно содержаться не менее 100 000 строк. Вернемся к приведенному выше примеру. Если таблица фактов по продажам содержит 36 секций по месяцам, а хранилище данных SQL содержит 60 дистрибутивов, то за каждый месяц в таблице должно содержаться 6 миллионов строк, то есть 216 миллионов строк при заполнении данных за все месяцы. Если количество строк в таблице гораздо ниже рекомендуемого минимума, администратору базы данных следует рассмотреть вариант создания таблицы с меньшим числом секций, чтобы увеличить количество строк в каждом дистрибутиве.
 
 
-Чтобы изменить размер текущей базы данных на уровне секций, используйте запрос, подобный показанному ниже:
+Чтобы изменить размер текущей базы данных SQL Server на уровне секций, используйте запрос, подобный показанному ниже:
 
-```
+```sql
 SELECT      s.[name]                        AS      [schema_name]
 ,           t.[name]                        AS      [table_name]
 ,           i.[name]                        AS      [index_name]
@@ -54,7 +54,7 @@ SELECT      s.[name]                        AS      [schema_name]
 FROM        sys.schemas s
 JOIN        sys.tables t                    ON      t.[schema_id]         = s.[schema_id]
 JOIN        sys.partitions p                ON      p.[object_id]         = t.[object_id]
-JOIN        sys.allocation_units a          ON      a.[container_id]        = p.[partition_id]
+JOIN        sys.allocation_units a          ON      a.[container_id]      = p.[partition_id]
 JOIN        sys.indexes i                   ON      i.[object_id]         = p.[object_id]
                                             AND     i.[index_id]          = p.[index_id]
 JOIN        sys.data_spaces ds              ON      ds.[data_space_id]    = i.[data_space_id]
@@ -83,7 +83,7 @@ GROUP BY    s.[name]
 
 Можно узнать, сколько распределений в базе данных хранилища данных SQL, воспользовавшись следующим запросом:
 
-```
+```sql
 SELECT  COUNT(*)
 FROM    sys.pdw_distributions
 ;
@@ -96,7 +96,7 @@ FROM    sys.pdw_distributions
 
 Информацию о выделении памяти для каждого распределения можно получить с помощью запроса к динамическим административным представлениям регулятора ресурсов. На самом деле выделение памяти будет меньше, чем цифры ниже. Информация приведена на уровне рекомендации, ее можно использовать при планировании размера секций для операций управления данными.
 
-```
+```sql
 SELECT  rp.[name]								AS [pool_name]
 ,       rp.[max_memory_kb]						AS [max_memory_kb]
 ,       rp.[max_memory_kb]/1024					AS [max_memory_mb]
@@ -122,7 +122,7 @@ AND     rp.[name]    = 'SloDWPool'
 
 Ниже приведен пример секционированной таблицы columnstore, содержащей по одной строке в каждой секции:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
         [ProductKey]            int          NOT NULL
@@ -157,7 +157,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 
 Далее мы можем выполнить запрос числа строк, воспользовавшись представлением каталога `sys.partitions`:
 
-```
+```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
 ,       i.[name] as Index_name
 ,       p.partition_number as Partition_nmbr
@@ -174,7 +174,7 @@ WHERE t.[name] = 'FactInternetSales'
 
 Если мы попытаемся разделить эту таблицу, появится сообщение об ошибке:
 
-```
+```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
@@ -182,7 +182,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 Однако можно использовать `CTAS`, чтобы создать новую таблицу для хранения наших данных.
 
-```
+```sql
 CREATE TABLE dbo.FactInternetSales_20000101
     WITH    (   DISTRIBUTION = HASH(ProductKey)
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -200,7 +200,7 @@ WHERE   1=2
 
 Так как границы секций выровнены, переключение разрешено. Это позволит оставить исходную таблицу с пустым разделом, который мы впоследствии сможем разделить.
 
-```
+```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
@@ -208,7 +208,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 Все, что осталось сделать, — выровнять наши данные по новым границам секции границы с помощью `CTAS` и переключить данные обратно в основную таблицу.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -229,7 +229,7 @@ ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.Fa
 
 После завершения перемещение данных рекомендуется обновить статистику для целевой таблицы, чтобы убедиться, что она точно отражает новое распределение данных в соответствующих разделах:
 
-```
+```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
@@ -238,7 +238,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 1. Создайте таблицу как секционированную, но без значений секций.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -262,7 +262,7 @@ WITH
 
 2. Выполните `SPLIT` таблицы в процессе развертывания:
 
-```
+```sql
 -- Create a table containing the partition boundaries
 
 CREATE TABLE #partitions
@@ -336,4 +336,4 @@ DROP TABLE #partitions;
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,7 +1,5 @@
 
 
-Для задуманного функционирования рабочих нагрузок обычно требуется много ресурсов. Шаблоны диспетчера ресурсов Azure позволяют не только определять, каким образом настроены приложения, но и развертывать ресурсы для поддержки настроенных приложений. В этой статье представлены наиболее популярные шаблоны в коллекции и сведения об их развертывании с помощью портала Azure, Azure PowerShell или интерфейса командной строки Azure.
-
 ## Приложения
 
 В этой таблице вы сможете найти сведения о параметрах, используемых в шаблоне, проверить шаблон перед развертыванием или развернуть шаблон непосредственно с портала Azure.
@@ -26,7 +24,7 @@
 | WordPress | [Галерея](https://azure.microsoft.com/documentation/templates/wordpress-single-vm-ubuntu/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/wordpress-single-vm-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | ZooKeeper | [Галерея](https://azure.microsoft.com/documentation/templates/zookeeper-cluster-ubuntu-vm/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/zookeeper-cluster-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fzookeeper-cluster-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 
-Наряду с этими шаблонами можно также выполнять поиск по [коллекции шаблонов](https://azure.microsoft.com/documentation/templates/).
+Наряду с этими шаблонами, можно также выполнять поиск по [коллекции шаблонов](https://azure.microsoft.com/documentation/templates/).
 
 ## Портал Azure
 
@@ -59,7 +57,7 @@
 
 ## Инфраструктура CLI Azure
 
-[Установите Azure CLI](../xplat-cli-install.md), выполните вход и убедитесь, что команды Resource Manager включены. Инструкции см. в статье [Использование Azure CLI для Mac, Linux и Windows с диспетчером ресурсов Azure](../xplat-cli-azure-resource-manager.md).
+[Установите интерфейс командной строки Azure](../articles/xplat-cli-install.md), выполните вход и убедитесь в том, что команды Resource Manager включены. Инструкции см. в статье [Использование интерфейса командной строки Azure для Mac, Linux и Windows с помощью Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
 Выполните следующие команды, чтобы создать группу ресурсов и развертывание, заменив заключенный в скобки текст на имя группы ресурсов, расположение, имя развертывания и имя шаблона:
 
@@ -72,6 +70,6 @@
 
 Ознакомьтесь со всеми шаблонами в вашем распоряжении на сайте [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Узнайте больше о [диспетчере ресурсов Azure](../resource-group-template-deploy.md).
+Узнайте больше о [диспетчере ресурсов Azure](../articles/resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

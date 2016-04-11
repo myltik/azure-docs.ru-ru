@@ -1,6 +1,6 @@
 <properties
- pageTitle="Размеры виртуальных машин | Microsoft Azure"
- description="Список различных размеров виртуальных машин и их характеристик."
+ pageTitle="Размеры виртуальной машины Windows | Microsoft Azure"
+ description="Список различных размеров виртуальных машин Windows в Azure."
  services="virtual-machines-windows"
  documentationCenter=""
  authors="cynthn"
@@ -14,13 +14,13 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="03/09/2016"
+ ms.date="03/22/2016"
  ms.author="cynthn"/>
 
-# Размеры виртуальных машин
+# Размеры виртуальных машин Windows в Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+В этой статье описаны доступные размеры и разновидности виртуальных машин Windows, которые можно использовать для запуска приложений и рабочих нагрузок. Здесь также предоставлены рекомендации по развертыванию, которые нужно учитывать при планировании использования этих ресурсов. Подробнее о ценах на различные размеры см. в разделе [Цены на Виртуальные машины](https://azure.microsoft.com/pricing/details/virtual-machines/). Сведения о виртуальных машинах Linux см. в разделе [Размеры виртуальных машин Linux в Azure](virtual-machines-linux-sizes.md)
 
 [AZURE.INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

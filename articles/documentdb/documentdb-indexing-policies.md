@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="02/03/2016" 
+    ms.date="03/30/2016" 
     ms.author="arramac"/>
 
 
@@ -42,20 +42,12 @@
 
 В следующем фрагменте кода .NET показано, как задать пользовательскую политику индексирования во время создания коллекции. Здесь мы задаем политику с диапазонным индексом для строк и чисел с максимальной точностью. Эта политика позволяет выполнять запросы Order By к строкам.
 
-    var collection = new DocumentCollection { Id = "myCollection" };
+    DocumentCollection collection = new DocumentCollection { Id = "myCollection" };
     
     collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
-    
-    collection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
+    collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
 
-    await client.CreateDocumentCollectionAsync(database.SelfLink, collection);   
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), collection);   
 
 
 >[AZURE.NOTE] Схема JSON для политики индексации была изменена с помощью выпуска REST API (версия 2015-06-03), чтобы поддержать диапазонные индексы для строковых значений. Новую схему политики поддерживают пакет .NET SDK 1.2.0 и Java, Python и пакеты Node.js SDK 1.1.0. Более старые пакеты SDK используют REST API версии 2015-04-08 и поддерживают старую схему политики индексации.
@@ -70,7 +62,7 @@ DocumentDB поддерживает три режима индексирован
 
 **Lazy** (Асинхронный). Чтобы обеспечить максимальную пропускную способность приема документов, для коллекции DocumentDB можно настроить асинхронную согласованность, то есть когда запросы являются согласованными в конечном счете. Индекс обновляется асинхронно, когда коллекция DocumentDB не загружена, т. е. когда пропускная способность коллекции не используется полностью для обслуживания запросов пользователя. Для рабочих нагрузок типа "прием сейчас, запрос позже", требующих беспрепятственного приема документов, может подойти асинхронный режим индексирования.
 
-**None** (Нет). У коллекции с режимом индексирования None нет связанного индекса. Обычно это применимо для тех случаев, когда DocumentDB используется как хранилище пар "ключ — значение", а доступ к документам осуществляется только по свойству их идентификатора.
+**None** (Нет). У коллекции с режимом индексирования None нет связанного индекса. Обычно это применимо для тех случаев, когда DocumentDB используется как хранилище пар "ключ — значение", а доступ к документам осуществляется только по свойству их идентификатора.
 
 >[AZURE.NOTE] Настройка политики индексирования None имеет побочный эффект — удаляется любой существующий индекс. Используйте этот режим, если шаблонам доступа требуются только идентификатор и (или) самоссылающаяся ссылка.
 
@@ -462,7 +454,8 @@ DocumentDB представляет документы JSON и индексы в
             }
         });
         
-    collection = await client.CreateDocumentCollectionAsync(database.SelfLink, pathRange);
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+
 
 ### Типы данных, виды и степени точности индекса
 
@@ -565,7 +558,7 @@ DocumentDB также поддерживает вид пространствен
             }
         });
 
-    await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), rangeDefault);   
 
 
 > [AZURE.NOTE] DocumentDB возвращает ошибку, если запрос использует предложение Order By, но не имеет диапазонного индекса для запрашиваемого пути с максимальной точностью.
@@ -576,7 +569,8 @@ DocumentDB также поддерживает вид пространствен
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
     collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
     
-    collection = await client.CreateDocumentCollectionAsync(database.SelfLink, excluded);
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+
 
 
 ## Включение индексирования и отказ от него
@@ -590,7 +584,7 @@ DocumentDB также поддерживает вид пространствен
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
     // use the RequestOptions.IndexingDirective property.
-    client.CreateDocumentAsync(defaultCollection.SelfLink,
+    client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"),
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
@@ -638,7 +632,9 @@ DocumentDB позволяет внести изменения в политик�
 
     while (progress < 100)
     {
-        ResourceResponse<DocumentCollection> collectionReadResponse = await     client.ReadDocumentCollectionAsync(collection.SelfLink);
+        ResourceResponse<DocumentCollection> collectionReadResponse = await client.ReadDocumentCollectionAsync(
+            UriFactory.CreateDocumentCollectionUri("db", "coll"));
+
         progress = collectionReadResponse.IndexTransformationProgress;
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
@@ -673,19 +669,20 @@ API DocumentDB предоставляют сведения о метриках �
 Чтобы оценить квоты хранения и использования коллекции, запустите запрос HEAD или GET для ресурсов коллекции и выберите заголовки запросов x-ms-request-quota и x-ms-request-usage. В пакете SDK для .NET свойства [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) и [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) на вкладке [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) содержат соответствующие значения.
 
      // Measure the document size usage (which includes the index size) against   
-     // different policies.        
-     ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(collectionSelfLink);  
+     // different policies.
+     ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"));  
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
 Для оценки расходов на индексирование в каждой операции записи (создание, обновление или удаление) выберите заголовок x-ms-request-charge (или эквивалентное свойство [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) на вкладке [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) в SDK для .NET), чтобы измерить число единиц запроса, используемых такими операциями.
 
      // Measure the performance (request units) of writes.     
-     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);              
+     ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              
      Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
      
      // Measure the performance (request units) of queries.    
-     IDocumentQuery<dynamic> queryable =  client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();                                  
+     IDocumentQuery<dynamic> queryable =  client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"), queryString).AsDocumentQuery();
+
      double totalRequestCharge = 0;
      while (queryable.HasMoreResults)
      {
@@ -768,4 +765,4 @@ API DocumentDB предоставляют сведения о метриках �
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

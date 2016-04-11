@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Подключение к виртуальной машине SQL Server (классическое развертывание) | Microsoft Azure"
 	description="В этом разделе используются ресурсы, созданные на основе классической модели развертывания, и описывается подключение к серверу SQL Server на виртуальной машине в Azure. Сценарии различаются в зависимости от конфигурации сети и расположения клиента."
 	services="virtual-machines-windows"
@@ -7,13 +7,13 @@
 	manager="jeffreyg"
 	editor="monicar"    
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/18/2015"
+	ms.date="03/24/2016"
 	ms.author="jroth" />
 
 # Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)
@@ -28,9 +28,9 @@
 
 Однако виртуальные машины Azure отличаются некоторые характерными особенностями подключения к SQL Server. В этой статье сначала рассматриваются некоторые [общие сценарии подключения](#connection-scenarios), а затем предоставляются [подробные инструкции по настройке подключения к SQL Server на виртуальной машине Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-Эта статья посвящена подключению. Полное пошаговое руководство по подготовке и подключению см. в статье [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-classic-portal-sql.md).
+В этой статье рассматривается подключение к существующей виртуальной машине SQL Server на основе классической модели.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов. Если используются виртуальные машины диспетчера ресурсов, см. раздел [Подключение к виртуальной машине SQL Server в Azure с помощью диспетчера ресурсов](virtual-machines-windows-sql-connect.md).
 
 ## Сценарии подключения
 
@@ -72,7 +72,7 @@
 
 Предположим, вы настроили DNS. В таком случае вы можете подключиться к экземпляру SQL Server, указав имя узла виртуальной машины SQL Server в строке подключения. В следующем примере предполагается, что также настроена проверка подлинности Windows, а пользователю предоставили доступ к экземпляру SQL Server.
 
-	"Server=mysqlvm;Integrated Security=true" 
+	"Server=mysqlvm;Integrated Security=true"
 
 Обратите внимание, что в этом сценарии также можно указать IP-адрес виртуальной машины.
 
@@ -102,12 +102,10 @@
 
 ## Дальнейшие действия
 
-Инструкции по подготовке и действия по подключению приведены в статье [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-classic-portal-sql.md).
-
 Если вы также планируете использовать группы доступности AlwaysOn для обеспечения высокого уровня доступности и аварийного восстановления, следует реализовать прослушиватель. Клиенты баз данных подключаются к прослушивателю, а не непосредственно к одному из экземпляров SQL Server. Прослушиватель направляет клиентов к первичной реплике в группе доступности. Дополнительные сведения см. в статье [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 Важно просмотреть все рекомендации по обеспечению безопасности для системы SQL Server, выполняемой на виртуальной машине Azure. Дополнительные сведения см. в статье [Вопросы безопасности SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-security.md).
 
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

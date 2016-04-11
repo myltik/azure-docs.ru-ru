@@ -26,36 +26,19 @@
 
 В этом разделе представлен пример кода Node.js, работающий в ОС Ubuntu Linux. Подключение к базе данных SQL Azure осуществляется с помощью драйвера Tedious.
 
+## Шаг 1. Настройка среды разработки
 
-## Предварительные требования
+[Предварительные требования для использования драйвера Tedious Node.js для SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Ubuntu-Linux)
 
-
-Откройте терминал и установите **node** и **npm**, если они еще не установлены на компьютере.
-
-
-	sudo apt-get install node
-	sudo apt-get install npm
-
-
-После настройки на компьютере **node** и **npm** перейдите в каталог, в котором вы планируете создать проект Node.js, и введите следующие команды.
-
-
-	sudo npm init
-	sudo npm install tedious
-
-
-Команда **npm init** создает узел проекта. Чтобы сохранить значения по умолчанию во время создания проекта, удерживайте нажатой клавишу Enter, пока проект создается. Теперь в каталоге проекта появится файл **package.json**.
-
-
-### База данных SQL
+## Шаг 2. Создание базы данных SQL
 
 Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
 
-## Шаг 1. Получение сведений о подключении
+## Шаг 3. Получение сведений о подключении
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Шаг 2. Подключение
+## Шаг 4. Подключение
 
 Функция [new Connection](http://pekim.github.io/tedious/api-connection.html) используется для подключения к базе данных SQL.
 
@@ -74,7 +57,7 @@
 	});
 
 
-## Шаг 3. Выполнение запроса
+## Шаг 5. Выполнение запроса
 
 
 Все операторы SQL выполняются с помощью функции [new Request()](http://pekim.github.io/tedious/api-request.html). Если оператор возвращает строки, например оператор select, их можно будет извлечь с помощью функции [request.on()](http://pekim.github.io/tedious/api-request.html). Если строк нет, функция [request.on()](http://pekim.github.io/tedious/api-request.html) возвращает пустые списки.
@@ -123,9 +106,9 @@
 	}
 
 
-## Шаг 4. Вставка строки
+## Шаг 6. Вставка строки
 
-В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от [внедрения кода SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
+В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от внедрения кода SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	var Connection = require('tedious').Connection;
@@ -172,5 +155,4 @@
 
 Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_0107_2016-->
-<!---Line 128, add "[]"-->
+<!---HONumber=AcomDC_0330_2016-->

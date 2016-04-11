@@ -4,5 +4,6 @@
 - [Запросы](../articles/application-insights/app-analytics-queries.md)
 - [Агрегирование](../articles/application-insights/app-analytics-aggregations.md)
 - [Скалярные значения](../articles/application-insights/app-analytics-scalars.md)
+- [Если использовать метод](../articles/application-insights/app-analytics-using.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

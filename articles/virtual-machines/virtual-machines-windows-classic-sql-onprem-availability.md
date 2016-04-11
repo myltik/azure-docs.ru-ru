@@ -99,8 +99,8 @@
 
 ## Дальнейшие действия
 
-Вы можете не только использовать **мастер добавления реплики Azure** для расширения группы доступности AlwaysOn в Azure, но также полностью переместить некоторых рабочие нагрузки SQL Server в Azure. Чтобы приступить к работе, см. статью [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-classic-portal-sql.md).
+Вы можете не только использовать **мастер добавления реплики Azure** для расширения группы доступности AlwaysOn в Azure, но также полностью переместить некоторых рабочие нагрузки SQL Server в Azure. Чтобы приступить к работе, см. статью [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

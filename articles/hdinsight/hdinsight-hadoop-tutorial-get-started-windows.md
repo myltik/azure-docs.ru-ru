@@ -22,8 +22,8 @@
 # Руководство по Hadoop: приступая к работе с Hadoop в HDInsight на платформе Windows
 
 > [AZURE.SELECTOR]
-- [На основе Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
 - [На основе Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
+- [На основе Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
 
 Чтобы вы смогли понять, что такое Hadoop в Windows, и начать работу с HDInsight, в этом учебнике показано, как выполнять запрос Hive на неструктурированных данных в кластере Hadoop, а затем анализировать результаты в Microsoft Excel.
 
@@ -255,4 +255,4 @@
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

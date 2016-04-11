@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Временные таблицы в хранилище данных SQL
@@ -24,7 +24,7 @@
 ## Создание временных таблиц
 Создать временную таблицу очень просто. Все, что необходимо сделать — добавить # перед именем таблицы, как показано в примере ниже:
 
-```
+```sql
 CREATE TABLE #stats_ddl
 (
 	[schema_name]			NVARCHAR(128) NOT NULL
@@ -44,7 +44,7 @@ WITH
 
 Временные таблицы можно также создать с помощью `CTAS` точно таким же образом.
 
-```
+```sql
 CREATE TABLE #stats_ddl
 WITH
 (
@@ -102,7 +102,7 @@ FROM    t1
 
 Чтобы убедиться, что ваши инструкции `CREATE TABLE` выполняются успешно, важно проверить, что таблица уже не существует в сеансе. Это можно сделать с помощью простой проверки по приведенной ниже схеме:
 
-```
+```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
 	DROP TABLE #stats_ddl
@@ -113,7 +113,7 @@ END
 
 Также рекомендуется удалить временные таблицы с помощью `DROP TABLE`, когда вы закончите работу с ними в коде.
 
-```
+```sql
 DROP TABLE #stats_ddl
 ```
 
@@ -127,7 +127,7 @@ DROP TABLE #stats_ddl
 
 Представленная ниже хранимая процедура объединяет в себе приведенные выше примеры. Этот код можно использовать для формирования схемы данных DDL, необходимой для обновления статистики по каждому столбцу в базе данных:
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
 	,@sample_pct     tinyint
@@ -209,7 +209,7 @@ GO
 
 Это может привести к большей модульности и управляемости кода. Рассмотрим следующий пример:
 
-```
+```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
 
 DECLARE @i INT              = 1
@@ -254,4 +254,4 @@ DROP TABLE #stats_ddl;
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/22/2016"
+	ms.date="03/24/2016"
 	ms.author="jroth" />
 
 # Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure
@@ -22,7 +22,7 @@
 
 Виртуальные машины Microsoft Azure с SQL Server могут помочь удешевить базу данных, обеспечивающую высокий уровень доступности и аварийное восстановление (HADR). Виртуальные машины Azure поддерживают большинство решений HADR для SQL Server как для использования только в службе Azure, так и в качестве гибридных решений. Если решение предназначено только для использования в службе Azure, в ней выполняется вся система HADR. В гибридной конфигурации часть решения выполняется в Azure, а другая часть — в локальной сети организации. Гибкость среды Azure позволяет полностью или частично перемещать ресурсы в Azure в соответствии с бюджетом и требованиями систем баз данных SQL Server к HADR.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 ## Целесообразность использования решения HADR
@@ -142,7 +142,7 @@
 
 ## Дальнейшие действия
 
-Если требуется создать виртуальную машину Azure с SQL Server, см. статью [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-classic-portal-sql.md).
+Если требуется создать виртуальную машину Azure с SQL Server, см. статью [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Чтобы обеспечить максимальную производительность SQL Server на виртуальной машине Azure, см. указания в статье [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-windows-classic-sql-perf.md).
 
@@ -153,4 +153,4 @@
 - [Установка нового леса Active Directory в виртуальной сети Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Создание кластера WSFC для групп доступности AlwaysOn на виртуальной машине Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

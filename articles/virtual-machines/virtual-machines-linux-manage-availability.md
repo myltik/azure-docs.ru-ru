@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Управление доступностью виртуальных машин | Microsoft Azure"
-	description="Описывается, как использовать несколько виртуальных машин для обеспечения высокой доступности приложения Azure."
+	pageTitle="Управление доступностью виртуальных машин Linux | Microsoft Azure"
+	description="Описывается, как использовать несколько виртуальных машин для обеспечения высокой доступности приложения Linux в Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="kenazk"
@@ -19,8 +19,10 @@
 
 # Управление доступностью виртуальных машин Linux
 
+Изучите способы настройки нескольких виртуальных машин и управления ими для обеспечения высокой доступности приложения Linux в Azure. Вы также можете [управлять доступностью виртуальных машин Windows](virtual-machines-windows-manage-availability.md).
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

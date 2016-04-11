@@ -38,7 +38,7 @@
 
 	![Создание группы доступности для новой виртуальной машины](./media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
 
-6. На четвертом экране выберите расширения, которые хотите установить. Расширения обеспечивают функциональность, которая облегчает управление виртуальной машиной, например запуск антивирусного ПО или восстановление паролей. Информацию см. в разделе [Агент виртуальных машин Azure и расширения виртуальных машин](virtual-machines-windows-classic-agents-and-extensions.md).
+6. На четвертом экране выберите расширения, которые хотите установить. Расширения обеспечивают функциональность, которая облегчает управление виртуальной машиной, например запуск антивирусного ПО или восстановление паролей. Информацию см. в разделе [Агент виртуальных машин Azure и расширения виртуальных машин](../articles/virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
 
 7.	Щелкните стрелку, чтобы создать виртуальную машину и группу доступности.
 
@@ -47,8 +47,8 @@
 Чтобы использовать команды Azure PowerShell для создания виртуальной машины Azure и добавления ее в новую или существующую группу доступности, ознакомьтесь со следующими статьями.
 
 
-- [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux](virtual-machines-linux-classic-createpowershell.md)
-- [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-windows-classic-create-powershell.md)
+- [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux](../articles/virtual-machines/virtual-machines-linux-classic-createpowershell.md)
+- [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
 
 ## <a id="addmachine"> </a>Вариант 2. Добавление существующей виртуальной машины к группе доступности##
 
@@ -86,11 +86,11 @@
 [Вариант 1. Одновременное создание виртуальной машины и группы доступности]: #createset
 [Вариант 2. Добавление существующей виртуальной машины к группе доступности]: #addmachine
 
-[Балансировка нагрузки для служб инфраструктуры Azure]: virtual-machines-linux-load-balance.md
-[Управление доступностью виртуальных машин]: virtual-machines-linux-manage-availability.md
+[Балансировка нагрузки для служб инфраструктуры Azure]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
+[Управление доступностью виртуальных машин]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
 
-[Создание виртуальной машины под управлением Windows]: virtual-machines-windows-hero-tutorial.md
-[Общие сведения о виртуальных сетях]: virtual-networks-overview.md
+[Создание виртуальной машины под управлением Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Общие сведения о виртуальных сетях]: ../articles/virtual-network/virtual-networks-overview.md
 [Статьи по виртуальным машинам в управлении службами]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
-# Защита доступа к данным DocumentDB #
+# Защита доступа к данным DocumentDB
 
 В этой статье приведены общие сведения о защите доступа к данным, хранящимся в [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
@@ -27,7 +27,7 @@
 -	Что такое маркеры ресурсов DocumentDB?
 -	Как использовать пользователей и разрешения DocumentDB для защиты доступа к данным DocumentDB?
 
-##<a id="Sub1"></a>Понятия контроля доступа DocumentDB##
+## Понятия управления доступом DocumentDB
 
 DocumentDB содержит понятия первого класса, позволяющие контролировать доступ к ресурсам DocumentDB. В этом разделе ресурсы DocumentDB сгруппированы в две категории:
 
@@ -64,19 +64,20 @@ DocumentDB содержит понятия первого класса, позв
 
 ![Иллюстрация маркеров ресурсов DocumentDB](./media/documentdb-secure-access-to-data/resourcekeys.png)
 
-##<a id="Sub2"></a>Работа с главными ключами и ключами только для чтения DocumentDB ##
+## Работа с главными ключами и ключами только для чтения DocumentDB
+
 Как упоминалось ранее, главные ключи DocumentDB предоставляют полный административный доступ ко всем ресурсам в учетной записи DocumentDB, тогда как ключи только для чтения предоставляют доступ для чтения ко всем ресурсам в учетной записи. В следующем фрагменте кода показано, как использовать конечную точку учетной записи DocumentDB и главный ключ для создания DocumentClient и построения новой базы данных.
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
     //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
     //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
     
-	private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
+    private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
     private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
         
     client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
     
-	//Create Database
+    // Create Database
     Database database = await client.CreateDatabaseAsync(
         new Database
         {
@@ -84,7 +85,8 @@ DocumentDB содержит понятия первого класса, позв
         });
 
 
-##<a id="Sub3"></a>Общие сведения о маркерах ресурсов DocumentDB ##
+## Общие сведения о маркерах ресурсов DocumentDB
+
 Маркер ресурсов можно использовать(создавая пользователей и разрешения DocumentDB), если доступ к ресурсам в учетной записи DocumentDB требуется предоставить клиенту, которому нельзя доверять. Главные ключи DocumentDB включают в себя как первичный, так и вторичный ключ, и оба этих ключа предоставляют административный доступ к вашей учетной записи и всем ее ресурсам. Предоставление любого из главных ключей делает учетную запись уязвимой для вредоносного или небрежного использования.
 
 Аналогичным образом, ключи только для чтения DocumentDB предоставляют доступ для чтения ко всем ресурсам (за исключением ресурсов разрешений) в учетной записи DocumentDB и не могут использоваться для предоставления более детального доступа к определенным ресурсам DocumentDB.
@@ -104,16 +106,16 @@ DocumentDB содержит понятия первого класса, позв
 
 ![Рабочий процесс маркеров ресурсов DocumentDB](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
-##<a id="Sub4"></a>Работа с пользователями и разрешениями DocumentDB ##
+## Работа с пользователями и разрешениями DocumentDB
 Ресурс пользователя DocumentDB связан с базой данных DocumentDB. Каждая база данных может содержать несколько пользователей DocumentDB или не содержать ни одного. В следующем фрагменте кода показано, как создать ресурс пользователя DocumentDB.
 
-	//Create a user.
+    //Create a user.
     User docUser = new User
     {
         Id = "mobileuser"
     };
 
-    docUser = await client.CreateUserAsync(database.SelfLink, docUser);
+    docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
 
 > [AZURE.NOTE] Каждый пользователь DocumentDB обладает свойством PermissionsLink, используемым для получения списка разрешений, связанных с этим пользователем.
 
@@ -128,8 +130,7 @@ DocumentDB содержит понятия первого класса, позв
 
 В следующем фрагменте кода показано, как создать ресурс разрешения, прочесть маркер ресурса разрешения и связать разрешения с созданным выше пользователем.
 
-	//Create a permission.
-
+    // Create a permission.
     Permission docPermission = new Permission
     {
         PermissionMode = PermissionMode.Read,
@@ -137,30 +138,32 @@ DocumentDB содержит понятия первого класса, позв
         Id = "readperm"
     };
             
-	docPermission = await client.CreatePermissionAsync(docUser.SelfLink, docPermission);
-	Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+  docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission); Console.WriteLine(docPermission.Id + "имеет токен:" + docPermission.Token);
+  
+Если вы указали ключ секции для коллекции, то разрешение для ресурсов коллекции, документа и вложения также должно включать ResourcePartitionKey наряду с ResourceLink.
 
 Чтобы получить все ресурсы разрешений, связанные с конкретным пользователем, DocumentDB предоставляет каждому объекту пользователя доступ к каналу разрешений. В следующем фрагменте кода показано, как получить разрешение, связанное с созданным выше пользователем, сформировать список разрешений и создать новый DocumentClient от имени пользователя.
 
-	//Read a permission feed.
-    FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(docUser.SelfLink);
-	
-	List<Permission> permList = new List<Permission>();
-    
-	foreach (Permission perm in permFeed)
+    //Read a permission feed.
+    FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
+      UriFactory.CreateUserUri("db", "myUser"));
+
+    List<Permission> permList = new List<Permission>();
+      
+    foreach (Permission perm in permFeed)
     {
         permList.Add(perm);
     }
             
-    DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
+    DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 
 > [AZURE.TIP] Допустимый интервал времени по умолчанию для маркеров ресурсов составляет 1 час. Однако продолжительность действия маркера можно задать явным образом. Ее значение не должно превышать 5 часов.
 
-##<a name="NextSteps"></a>Дальнейшие действия
+## Дальнейшие действия
 
 - Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
 - Дополнительные сведения об управлении главными ключами и ключами только для чтения можно узнать [здесь](documentdb-manage-account.md).
 - Сведения о создании маркеров авторизации DocumentDB можно узнать [здесь](https://msdn.microsoft.com/library/azure/dn783368.aspx).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -15,7 +15,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="03/18/2016"
+      ms.date="03/28/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Краткое руководство по API Graph Azure AD
@@ -26,7 +26,7 @@ API Graph Azure Active Directory обеспечивает программный
 
 ## Как составить URL-адрес Graph API
 
-В API Graph для доступа к данным и объектам каталога (другими словами, к ресурсам и сущностям), с которыми требуется выполнять операции CRUD, можно использовать URL-адреса на основе протокола OData. URL-адреса, используемые в API Graph, состоят из четырех основных частей — корня службы, идентификатора клиента, пути к ресурсу и строки параметров запроса: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Возьмем, к примеру, следующий URL-адрес: `https://graph.windows.net/contoso.com/groups?api-version=1.5`.
+В API Graph для доступа к данным и объектам каталога (другими словами, к ресурсам и сущностям), с которыми требуется выполнять операции CRUD, можно использовать URL-адреса на основе протокола OData. URL-адреса, используемые в API Graph, состоят из четырех основных частей — корня службы, идентификатора клиента, пути к ресурсу и строки параметров запроса: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Возьмем, к примеру, следующий URL-адрес: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
 - **Корень службы**. В API Graph Azure AD корень службы всегда https://graph.windows.net.
 - **Идентификатор клиента**. Это может быть имя проверенного (зарегистрированного) домена, в примере выше — contoso.com. Это также может быть идентификатор объекта клиента или псевдоним myorganization или me. Дополнительные сведения см. в статье [Адресация сущностей и операций в Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
@@ -35,26 +35,19 @@ API Graph Azure Active Directory обеспечивает программный
 
 ## Версии API Graph
 
-Для API Graph были выпущены следующие версии.
-
-* Бета-версия.
-* Версия 1.5.
-* Версия 2013-11-08.
-* Версия 2013-04-05.
-
-Версия для запроса API Graph указывается в параметре запроса api-version. Для версии 1.5 используется числовое значение версии: api-version=1.5. Для предыдущих версий используйте строку даты, соответствующую формату ГГГГ-ММ-ДД. Пример: api-version=2013-11-08. Для компонентов предварительной версии используйте строку beta. Пример: api-version=beta. Дополнительные сведения о различиях между версиями API Graph см. в разделе [Управление версиями API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
+Версия для запроса API Graph указывается в параметре запроса api-version. Для версии 1.5 и более поздних используется числовое значение версии: api-version=1.6. Для предыдущих версий используйте строку даты, соответствующую формату ГГГГ-ММ-ДД. Пример: api-version=2013-11-08. Для компонентов предварительной версии используйте строку beta. Пример: api-version=beta. Дополнительные сведения о различиях между версиями API Graph см. в разделе [Управление версиями API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
 
 ## Метаданные API Graph
 
-Для получения файла метаданных API Graph добавьте сегмент $metadata после идентификатора клиента в URL-адресе. Например, следующий URL-адрес возвращает метаданные для демонстрационной компании, используемой Graph Explorer: `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.5`. Можно ввести этот URL-адрес в адресной строке веб-браузера для просмотра метаданных. Возвращаемый документ метаданных с расширением CSDL описывает сущности и сложные типы, их свойства, а также функции и действия, представляемые запрошенной версией API Graph. Если параметр api-version не задан, то возвращаются метаданные для самой последней версии.
+Для получения файла метаданных API Graph добавьте сегмент $metadata после идентификатора клиента в URL-адресе. Например, следующий URL-адрес возвращает метаданные для демонстрационной компании, используемой Graph Explorer: `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.6`. Можно ввести этот URL-адрес в адресной строке веб-браузера для просмотра метаданных. Возвращаемый документ метаданных с расширением CSDL описывает сущности и сложные типы, их свойства, а также функции и действия, представляемые запрошенной версией API Graph. Если параметр api-version не задан, то возвращаются метаданные для самой последней версии.
 
 ## Стандартные запросы
 
 В разделе [Стандартные запросы Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries) представлены стандартные запросы, которые могут использоваться с Graph Azure AD, включая запросы для доступа к ресурсам верхнего уровня в каталоге и запросы для выполнения операций в каталоге.
 
-Например, `https://graph.windows.net/contoso.com/tenantDetails?api-version=1.5` возвращает сведения об организации для каталога contoso.com.
+Например, `https://graph.windows.net/contoso.com/tenantDetails?api-version=1.6` возвращает сведения об организации для каталога contoso.com.
 
-Или `https://graph.windows.net/contoso.com/users?api-version=1.5` перечисляет все объекты пользователя в каталоге contoso.com.
+Или `https://graph.windows.net/contoso.com/users?api-version=1.6` перечисляет все объекты пользователя в каталоге contoso.com.
 
 ## Использование Graph Explorer
 
@@ -62,18 +55,18 @@ API Graph Azure Active Directory обеспечивает программный
 
 > [AZURE.IMPORTANT] Graph Explorer не поддерживает запись или удаление данных из каталога. С помощью Graph Explorer можно выполнять только операции чтения в каталоге Azure AD.
 
-Ниже показан результат, который отобразится, если перейти в Graph Explorer, выбрать параметр "Использовать демонстрационную компанию" и ввести `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.5`, чтобы отобразить всех пользователей в демонстрационном каталоге:
+Ниже показан результат, который отобразится, если перейти в Graph Explorer, выбрать параметр "Использовать демонстрационную компанию" и ввести `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6`, чтобы отобразить всех пользователей в демонстрационном каталоге:
 
-![Обозреватель API Graph Azure AD](./media/active-directory-graph-api-quickstart/screen_shot.jpg)
+![Обозреватель API Graph Azure AD](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Загрузка Graph Explorer**. Чтобы загрузить этот инструмент, перейдите по адресу [https://graphexplorer.cloudapp.net/](https://graphexplorer.cloudapp.net/). Выберите **Использовать демонстрационную компанию**, чтобы запустить Graph Explorer для обработки данных из примера клиента. Учетные данные для использования демонстрационной компании не требуются. Вы также можете щелкнуть **Войти** и выполнить вход с использованием учетных данных Azure AD, чтобы запустить Graph Explorer для работы с вашим клиентом. При запуске Graph Explorer для своего собственного клиента вам или вашему администратору потребуется предоставить согласие в процессе входа. Если у вас есть подписка Office 365, это означает, что у вас также имеется клиент Azure AD. Учетные данные, используемые для входа в Office 365, в действительности являются учетными записями Azure AD, и эти учетные данные можно использовать в Graph Explorer.
 
-**Выполнение запроса**. Для выполнения запроса введите запрос в текстовом поле запроса и нажмите кнопку **ПОЛУЧИТЬ** или клавишу **ВВОД**. Результаты появятся в поле ответа. Например, с помощью `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5` можно получить список всех объектов групп в демонстрационном каталоге.
+**Выполнение запроса**. Для выполнения запроса введите запрос в текстовом поле запроса и нажмите кнопку **ПОЛУЧИТЬ** или клавишу **ВВОД**. Результаты появятся в поле ответа. Например, с помощью `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.6` можно получить список всех объектов групп в демонстрационном каталоге.
 
 Обратите внимание на следующие возможности и ограничения Graph Explorer.
 - Возможность автозаполнения в наборах ресурсов. Чтобы опробовать эту возможность, нажмите кнопку **Использовать демонстрационную компанию** и щелкните в текстовом поле запроса (где отображается URL-адрес компании). В раскрывающемся списке можно выбрать набор ресурсов.
 
-- Поддерживает псевдонимы адресации me и myorganization. Например, можно использовать `https://graph.windows.net/me?api-version=1.5` для возврата объекта пользователя, выполнившего вход, или `https://graph.windows.net/myorganization/users?api-version=1.5` для возврата всех пользователей в текущем каталоге. Обратите внимание, что при использовании псевдонима me для демонстрационной компании возвращается ошибка, так как ни один пользователь не выполнил вход и не выдал запрос.
+- Поддерживает псевдонимы адресации me и myorganization. Например, можно использовать `https://graph.windows.net/me?api-version=1.6` для возврата объекта пользователя, выполнившего вход, или `https://graph.windows.net/myorganization/users?api-version=1.6` для возврата всех пользователей в текущем каталоге. Обратите внимание, что при использовании псевдонима me для демонстрационной компании возвращается ошибка, так как ни один пользователь не выполнил вход и не выдал запрос.
 
 - Раздел заголовков ответа. Его можно использовать для устранения проблем, возникающих при выполнении запросов.
 
@@ -93,7 +86,7 @@ API Graph Azure Active Directory обеспечивает программный
 
 1. Откройте веб-отладчик Fiddler и перейдите на вкладку **Composer** (Средство создания).
 2. Так как требуется создать новую группу безопасности, выберите в раскрывающемся меню **Post** в качестве метода HTTP. Дополнительные сведения об операциях и разрешениях в объекте группы см. в описании [Group](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity) в разделе [Справочник по Azure AD Graph REST API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-3. В поле рядом с методом **Post** в качестве URL-адреса запроса введите следующее: `https://graph.windows.net/mytenantdomain/groups?api-version=1.5`.
+3. В поле рядом с методом **Post** в качестве URL-адреса запроса введите следующее: `https://graph.windows.net/mytenantdomain/groups?api-version=1.6`.
 
     > [AZURE.NOTE] Необходимо заменить mytenantdomain доменным именем собственного каталога Azure AD.
 
@@ -127,4 +120,4 @@ Content-Type: application/json
 - Узнайте больше о [API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 - Дополнительная информация: [Azure AD Graph API Permission Scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

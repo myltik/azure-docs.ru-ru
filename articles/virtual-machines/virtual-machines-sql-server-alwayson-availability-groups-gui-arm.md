@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Портал — диспетчер ресурсов](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Портал — классический](virtual-machines-windows-classic-portal-sql-availability.md)
+- [Портал — классическая модель](virtual-machines-windows-classic-portal-sql-availability.md)
 - [PowerShell — классическая модель](virtual-machines-windows-classic-ps-sql-availability.md)
 
 <br/>
@@ -54,7 +54,7 @@
 
 - У вас уже есть учетная запись Azure. Если у вас ее нет, [зарегистрируйтесь, чтобы воспользоваться пробной версией](http://azure.microsoft.com/pricing/free-trial/).
 
-- Вы уже умеете подготавливать виртуальную машину SQL Server из коллекции виртуальных машин через графический интерфейс пользователя. Дополнительные сведения см. в статье [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-classic-portal-sql.md).
+- Вы уже умеете подготавливать виртуальную машину SQL Server из коллекции виртуальных машин через графический интерфейс пользователя. Дополнительные сведения см. в статье [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 - Вы уже хорошо понимаете принцип работы групп доступности AlwaysOn. Дополнительные сведения см. в статье [Группы доступности AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -260,4 +260,4 @@
 
 Теперь вы подключены к серверу SQL Server по RDP. Откройте SQL Server Management Studio, подключитесь к экземпляру SQL Server по умолчанию и проверьте параметры группы доступности AlwaysOn.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

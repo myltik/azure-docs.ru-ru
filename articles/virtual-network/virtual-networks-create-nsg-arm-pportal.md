@@ -36,11 +36,11 @@
 1. В браузере откройте страницу http://portal.azure.com и при необходимости войдите в свою учетную запись Azure.
 2. Щелкните **Обзор** > **Сетевые группы безопасности**.
 
-	![Портал Azure — группы безопасности сети](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Портал Azure — группы безопасности сети](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
 3. В колонке **Сетевые группы безопасности** щелкните **Добавить**.
-
-	![Портал Azure — группы безопасности сети](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
+  
+    ![Портал Azure — группы безопасности сети](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
 4. В колонке **Создать группу безопасности сети** создайте группу безопасности *NSG-FrontEnd* в группе ресурсов *RG-NSG*, а затем щелкните **Создать**.
 
@@ -103,4 +103,4 @@
 - Узнайте, как [управлять существующими группами безопасности сети](virtual-network-manage-nsg-arm-portal.md).
 - [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -156,6 +156,6 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения о создании виртуальных машин см. в статьях [Создание виртуальной машины под управлением Linux](virtual-machines-linux-cli-create.md) и [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](virtual-machines-windows-tutorial.md).
+Дополнительные сведения о создании виртуальных машин см. в статьях [Создание виртуальной машины под управлением Linux](../articles/virtual-machines/virtual-machines-linux-cli-create.md) и [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../articles/virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

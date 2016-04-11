@@ -62,7 +62,12 @@
         "effect" : "deny | audit"
       }
     }
+    
+## Вычисление политики
 
+Политика вычисляется при создании ресурса или развертывании шаблона с помощью HTTP-запроса PUT. В случае развертывания шаблона политика вычисляется во время создания каждого ресурса в шаблоне.
+
+Примечание. Типы ресурсов, которые не поддерживают теги, тип и расположение, например Microsoft.Resources/deployments, не оцениваются политикой. Их поддержка будет добавлена в будущем. Чтобы избежать проблем с обратной совместимостью, рекомендуется явно указывать тип при создании политик. Например, политика тегов, в которой не указаны типы, будет применяться ко всем типам, поэтому, если имеется вложенный ресурс, который не поддерживает теги, развертывание шаблона может завершиться сбоем при добавлении типа ресурса в вычисление в будущем.
 
 ## Логические операторы
 
@@ -94,7 +99,7 @@
 
 Поддерживаются следующие поля и источники.
 
-Поля:**name**, **kind**, **type**, **location**, **tags**, **tags.*** и **property alias**.
+Поля: **name**, **kind**, **type**, **location**, **tags**, **tags.*** и **property alias**.
 
 Источники: **action**.
 
@@ -120,7 +125,7 @@
 
 | Имя псевдонима | Описание |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Поддерживаемые типы ресурса: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles. |
+| {resourceType}/sku.name | Поддерживаемые типы ресурса: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | Поддерживаемый тип ресурса — Microsoft.Cache/Redis. |
 | {resourceType}/sku.capacity | Поддерживаемый тип ресурса — Microsoft.Cache/Redis. |
 | Microsoft.Cache/Redis/enableNonSslPort | |
@@ -176,19 +181,19 @@
         "not" : {
           "anyOf" : [
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Resources/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Compute/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Storage/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Network/*"
             }
           ]
@@ -207,14 +212,14 @@
       "if": {
         "allOf": [
           {
-            "source": "action",
-            "like": "Microsoft.Storage/storageAccounts/*"
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
           },
           {
             "not": {
               "allof": [
                 {
-                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "field": "Microsoft.Storage/storageAccounts/sku.name",
                   "in": ["Standard_LRS", "Standard_GRS"]
                 }
               ]
@@ -302,8 +307,6 @@
           }
         }
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
-      "type":"Microsoft.Authorization/policyDefinitions",
       "name":"testdefinition"
     }
 
@@ -350,8 +353,6 @@
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyAssignments/VMPolicyAssignment",
-      "type":"Microsoft.Authorization/policyAssignments",
       "name":"VMPolicyAssignment"
     }
 
@@ -386,4 +387,4 @@
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

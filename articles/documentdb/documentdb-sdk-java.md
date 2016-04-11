@@ -13,22 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 # Пакет SDK для DocumentDB
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [Пакет SDK для .NET](documentdb-sdk-dotnet.md)
+- [Пакет SDK для Node.js](documentdb-sdk-node.md)
+- [Пакет SDK для Java](documentdb-sdk-java.md)
+- [Пакет SDK для Python](documentdb-sdk-python.md)
 
 ##Пакет SDK Java для DocumentDB
 
-<table> <tr><td>**Загрузить**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr> <tr><td>**Добавить**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr> <tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для Java](http://azure.github.io/azure-documentdb-java/)</td></tr> <tr><td>**Приступая к работе**</td><td>[Приступая к работе с пакетом SDK для Java](documentdb-java-application.md)</td></tr> <tr><td>**Текущая поддерживаемая среда выполнения **</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr> </table></br>
+<table>
+<tr><td>**Скачивание**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**Участие**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Приступая к работе**</td><td>[Начало работы с пакетом SDK для Java](documentdb-java-application.md)</td></tr>
+<tr><td>**Текущая поддерживаемая среда выполнения**</td><td>[JDK&#160;7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+</table></br>
 
 ## Заметки о выпуске
+
+### <a name="1.6.0"/>[1\.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
+- Реализованы [секционированные коллекции](documentdb-partition-data.md) и [определяемые пользователем уровни производительности](documentdb-performance-levels.md). 
 
 ### <a name="1.5.1"/>[1\.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
 - Исправлена ошибка в HashPartitionResolver, чтобы значения создавались с прямым порядком байтов для согласования с другими пакетами SDK.
@@ -61,26 +70,14 @@
 
 Любые запросы в DocumentDB с помощью выведенного из эксплуатации SDK будут отклоняться службой.
 
-> [AZURE.WARNING]Поддержка всех версий пакета SDK для Azure DocumentDB для Java версии ниже **1.0.0** будет отменена **29 февраля 2016 года**.
+> [AZURE.WARNING]
+Поддержка всех версий пакета SDK для Azure DocumentDB для Java версии ниже **1.0.0** будет отменена **29 февраля 2016 года**.
 
 <br/>
 
 | Version (версия) | Дата выпуска | Дата вывода 
 | ---	  | ---	         | ---
-| [1\.5.1](#1.5.1) | 31 декабря 2015 г. |--- 
-| [1\.5.0](#1.5.0) | 04 декабря 2015 г. |--- 
-| [1\.4.0](#1.4.0) | 05 октября 2015 г. |--- 
-| [1\.3.0](#1.3.0) | 05 октября 2015 г. |--- 
-| [1\.2.0](#1.2.0) | 05 августа 2015 г. |--- 
-| [1\.1.0](#1.1.0) | 09 июля 2015 г. |--- 
-| [1\.0.1](#1.0.1) | 12 мая 2015 г. |---
-| [1\.0.0](#1.0.0) | 07 апреля 2015 г. |--- 
-| Предварительный выпуск 0.9.5 | 09 марта 2015 г. | 29 февраля 2016 г. 
-| Предварительный выпуск 0.9.4 | 17 февраля 2015 г. | 29 февраля 2016 г. 
-| Предварительный выпуск 0.9.3 | 13 января 2015 г. | 29 февраля 2016 г. 
-| Предварительный выпуск 0.9.2 | 19 декабря 2014 г. | 29 февраля 2016 г. 
-| Предварительный выпуск 0.9.1 | 19 декабря 2014 г. | 29 февраля 2016 г. 
-| Предварительный выпуск 0.9.0 | 10 декабря 2014 г. | 29 февраля 2016 г.
+| [1\.6.0](#1.6.0) | 29 марта 2016 г. |--- | [1\.5.1](#1.5.1) | 31 декабря 2015 г. |--- | [1\.5.0](#1.5.0) | 04 декабря 2015 г. |--- | [1\.4.0](#1.4.0) | 05 октября 2015 г. |--- | [1\.3.0](#1.3.0) | 05 октября 2015 г. |--- | [1\.2.0](#1.2.0) | 05 августа 2015 г. |--- | [1\.1.0](#1.1.0) | 09 июля 2015 г. |--- | [1\.0.1](#1.0.1) | 12 мая 2015 г. |--- | [1\.0.0](#1.0.0) | 07 апреля 2015 г. |--- | предв. выпуск 0.9.5 | 09 марта 2015 г. | 29 февраля 2016 г. | предв. выпуск 0.9.4 | 17 февраля 2015 г. | 29 февраля 2016 г. | предв. выпуск 0.9.3 | 13 января 2015 г. | 29 февраля 2016 г. | предв. выпуск 0.9.2 | 19 декабря 2014 г. | 29 февраля 2016 г. | предв. выпуск 0.9.1 | 19 декабря 2014 г. | 29 февраля 2016 г. | предв. выпуск 0.9.0 | 10 декабря 2014 г. | 29 февраля 2016 г.
 
 ## Часто задаваемые вопросы
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -89,4 +86,4 @@
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

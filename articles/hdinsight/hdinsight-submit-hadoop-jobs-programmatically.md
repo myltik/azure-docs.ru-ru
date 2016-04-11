@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/23/2016"
 	ms.author="jgao"/>
 
 # Отправка заданий Hadoop в HDInsight
@@ -52,6 +52,8 @@
 
 ##Отправка заданий Hive, Pig или Sqoop с использованием пакета SDK для HDInsight .NET
 Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET.
+
+В следующем примере используется интерактивная аутентификация пользователя. Сведения об использовании неинтерактивной аутентификации см. в статье [Создание приложений .NET HDInsight с неинтерактивной аутентификацией](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 
 **Отправка заданий**
 
@@ -98,7 +100,7 @@
 		
 		        static void Main(string[] args)
 		        {
-		            System.Console.WriteLine("Running");
+                    System.Console.WriteLine("The application is running ...");
 		
 		            var tokenCreds = GetTokenCloudCredentials();
 		            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
@@ -114,6 +116,10 @@
 		            SubmitHiveJob();
 		            SubmitPigJob();
 		            SubmitSqoopJob();
+
+                    System.Console.WriteLine("Press ENTER to continue ...");
+                    System.Console.ReadLine();
+                    
 		        }
 		
 		        public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
@@ -139,7 +145,50 @@
 		            return new TokenCloudCredentials(subId.ToString(), creds.Token);
 		        }
 		
-		        private static void SubmitPigJob()
+		        private static void SubmitHiveJob()
+		        {
+		            Dictionary<string, string> defines = new Dictionary<string, string> { { "hive.execution.engine", "ravi" }, { "hive.exec.reducers.max", "1" } };
+		            List<string> args = new List<string> { { "argA" }, { "argB" } };
+		            var parameters = new HiveJobSubmissionParameters
+		            {
+		                Query = "SHOW TABLES",
+		                Defines = defines,
+		                Arguments = args
+		            };
+		
+                    Console.WriteLine("Submitting the Hive job to the cluster...");
+                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
+                    var jobId = jobResponse.JobSubmissionJsonResponse.Id;
+                    Console.WriteLine("Response status code is " + jobResponse.StatusCode);
+                    Console.WriteLine("JobId is " + jobId);
+
+                    Console.WriteLine("Waiting for the job completion ...");
+		
+		            // Wait for job completion
+		            var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
+		            while (!jobDetail.Status.JobComplete)
+		            {
+		                Thread.Sleep(1000);
+		                jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
+		            }
+		
+		            // Get job output
+		            var storageAccess = new AzureStorageAccess(DefaultStorageAccountName, DefaultStorageAccountKey,
+		                DefaultStorageContainerName);
+		            var output = (jobDetail.ExitValue == 0)
+		                ? _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, storageAccess) // fetch stdout output in case of success
+		                : _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); // fetch stderr output in case of failure
+                        
+                    Console.WriteLine("Job output is: ");
+                    
+                    using (var reader = new StreamReader(output, Encoding.UTF8))
+                    {
+                        string value = reader.ReadToEnd();
+                        Console.WriteLine(value);
+                    }
+		        }
+                
+   		        private static void SubmitPigJob()
 		        {
 		            var parameters = new PigJobSubmissionParameters
 		            {
@@ -158,43 +207,6 @@
 		            System.Console.WriteLine("Response status code is " + response.StatusCode);
 		            System.Console.WriteLine("Validating the response object...");
 		            System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
-		        }
-		
-		        private static void SubmitHiveJob()
-		        {
-		            Dictionary<string, string> defines = new Dictionary<string, string> { { "hive.execution.engine", "ravi" }, { "hive.exec.reducers.max", "1" } };
-		            List<string> args = new List<string> { { "argA" }, { "argB" } };
-		            var parameters = new HiveJobSubmissionParameters
-		            {
-		                Query = "SHOW TABLES",
-		                Defines = defines,
-		                Arguments = args
-		            };
-		
-		            Console.WriteLine("Submitting the Hive job to the cluster...");
-		            var jobResponse = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
-		            var jobId = jobResponse.JobSubmissionJsonResponse.Id;
-		            Console.WriteLine("Validating that the response is as expected...");
-		            Console.WriteLine("Response status code is " + jobResponse.StatusCode);
-		            Console.WriteLine("Validating the response object...");
-		            Console.WriteLine("JobId is " + jobId);
-		
-		            Console.WriteLine("Waiting for the job completion ...");
-		
-		            // Wait for job completion
-		            var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
-		            while (!jobDetail.Status.JobComplete)
-		            {
-		                Thread.Sleep(1000);
-		                jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
-		            }
-		
-		            // Get job output
-		            var storageAccess = new AzureStorageAccess(DefaultStorageAccountName, DefaultStorageAccountKey,
-		                DefaultStorageContainerName);
-		            var output = (jobDetail.ExitValue == 0)
-		                ? _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, storageAccess) // fetch stdout output in case of success
-		                : _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); // fetch stderr output in case of failure
 		        }
 		
 		        private static void SubmitSqoopJob()
@@ -270,4 +282,4 @@
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

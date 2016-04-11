@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,7 +65,7 @@
 4. В нижней части страницы нажмите кнопку **Добавить**.<br><br> ![Приложения][3]<br>
 5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.<br><br> ![Приложения][4]<br>
 6. В поле поиска введите **Pluralsight**.<br><br> ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_01.png)<br>
-7. В области результатов выберите **Pluralsight** и нажмите кнопку **Завершить**, чтобы добавить приложение. <br><br>
+7. В области результатов выберите **Pluralsight** и нажмите кнопку **Завершить**, чтобы добавить приложение. <br><br> ![Создание тестового пользователя Azure AD](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_06.png)<br>
 
 ##  Настройка и проверка единого входа в Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Pluralsight с использованием тестового пользователя Britta Simon.
@@ -97,12 +97,12 @@
 3. На диалоговой странице **Настройка параметров приложения** выполните следующие действия. <br><br>![Настройка единого входа](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_04.png) <br>
 
 
-    а. В текстовом поле "URL-адрес входа" введите URL-адрес, применяемый пользователями для входа в приложение Pluralsight, используя следующий шаблон: **https://<имя\_экземпляра>.pluralsight.com/sso/<название\_организации>**.
+    а. В текстовом поле "URL-адрес входа" введите URL-адрес, применяемый пользователями для входа в приложение Pluralsight, используя следующий шаблон: **"https://<имя\_экземпляра>.pluralsight.com/sso/<название\_организации>"**.
 
     b. Нажмите кнопку **Далее**.
 
 
-4. На странице **Настройка единого входа в Pluralsight** выполните следующие действия: <br><br>![Настройка единого входа](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_05.png) <br>
+4. На странице **Настройка единого входа в Pluralsight** выполните указанные ниже действия: <br><br>![Настройка единого входа](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_05.png) <br>
 
     а. Нажмите **Загрузить метаданные** и сохраните файл на свой компьютер.
 
@@ -216,4 +216,4 @@
 [204]: ./media/active-directory-saas-pluralsight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-pluralsight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

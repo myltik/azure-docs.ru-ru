@@ -19,7 +19,7 @@
 
 # Команды Azure CLI в режиме управления службами Azure (ASM)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines/azure-cli-arm-commands.md).
 
 В этой статье приводится синтаксис и параметры команд Azure CLI, которые обычно используется для создания ресурсов Azure и управления ими в классической модели развертывания. Для доступа к этим командам следует запустить CLI в режиме управления службами Azure (ASM). Это не полный справочник, и ваша версия CLI может отображать немного иные команды или параметры.
 
@@ -1446,7 +1446,7 @@ info:   vm shutdown command OK
 
 ### <a name="Mobile_Scripts"></a>Команды для управления сценариями
 
-Описанные в этом разделе команды используются для управления серверными сценариями, которые относятся к мобильной службе. Дополнительную информацию см. в разделе [Работа с серверными сценариями в мобильных службах](../mobile-services/mobile-services-how-to-use-server-scripts.md).
+Описанные в этом разделе команды используются для управления серверными сценариями, которые относятся к мобильной службе. Дополнительную информацию см. в разделе [Работа с серверными сценариями в мобильных службах](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [параметры] [имя\_службы]**
 
@@ -2348,4 +2348,4 @@ info:   vm shutdown command OK
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

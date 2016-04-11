@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
+	ms.date="03/24/2016"
 	ms.author="jroth"/>
 
 # Общие сведения об SQL Server на виртуальных машинах Azure
@@ -25,6 +25,8 @@
 >[AZURE.NOTE] Выполнение SQL Server на виртуальной машине Azure — один из вариантов хранения реляционных данных в Azure. Можно также использовать службу базы данных SQL Azure. Дополнительную информацию см. в разделе [Общее представление о базе данных SQL Azure и SQL Server в виртуальных машинах Azure](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
 Для создания виртуальной машины SQL Server в Azure сначала необходимо получить подписку на платформу Azure. Приобрести подписку Azure можно в разделе [Варианты приобретения](https://azure.microsoft.com/pricing/purchase-options/). Чтобы попробовать ее бесплатно, зайдите на страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+Отличный обзор приведен в видеоролике [Виртуальная машина Azure — лучшая платформа для SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
 ### Развертывание экземпляра SQL Server на одной виртуальной машине
 
@@ -147,4 +149,4 @@
 - [Шаблоны приложений и стратегии разработки для SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 - [Виртуальные машины Azure](virtual-machines-linux-about.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->
