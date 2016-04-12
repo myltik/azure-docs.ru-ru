@@ -83,9 +83,10 @@ ms.service="virtual-machines-windows"
 
 ## Дальнейшие действия
 
-* Если вам требуется автоматическое увеличение или уменьшение вычислительных ресурсов Azure в соответствии с текущей рабочей нагрузкой заданий и задач в кластере, см. статью [Automatically scale Azure compute resources up and down in an HPC Pack cluster according to the cluster workload](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+* Если вам требуется автоматическое увеличение или уменьшение вычислительных ресурсов Azure в соответствии с текущей рабочей нагрузкой заданий и задач в кластере, см. статью [Автоматическое увеличение и сжатие вычислительных ресурсов Azure в кластере пакета HPC](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
 <!----HONumber=AcomDC_0323_2016-->
+
