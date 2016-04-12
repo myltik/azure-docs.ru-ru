@@ -13,7 +13,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="02/09/2016"
 	ms.author="robmcm"/>
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.js](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP — Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP — FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -280,7 +280,9 @@
     
 3. Щелкните **ОК**, чтобы принять условия использования. Щелкните **ОК** еще раз, чтобы добавить расширение.
 
-    В колонке **Установленные расширения** появится расширение Composer. ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    В колонке **Установленные расширения** появится расширение Composer. 
+    
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
     
 4. Теперь выполните операции `git add`, `git commit` и `git push`, как в предыдущем разделе. Вы увидите, что расширение Composer устанавливает зависимости, определенные в файле composer.json.
 
@@ -325,4 +327,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

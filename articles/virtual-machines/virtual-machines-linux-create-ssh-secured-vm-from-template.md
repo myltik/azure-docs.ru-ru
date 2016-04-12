@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="03/08/2016"
 	ms.author="vlivech"/>
 
@@ -72,4 +72,4 @@ info:    group create command OK
 
 После создания виртуальных машин Linux с помощью шаблонов вы можете узнать, какие другие платформы приложений доступны для использования с шаблонами. В [коллекции шаблонов](https://azure.microsoft.com/documentation/templates/) вы сможете найти платформы приложений для дальнейшего развертывания.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

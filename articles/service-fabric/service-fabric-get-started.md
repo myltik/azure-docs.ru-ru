@@ -28,19 +28,13 @@
 - Windows Server 2012 R2
 - Windows 10
 
-### Visual Studio 2015
-
-Для набора инструментов Service Fabric нужна как минимум платформа Visual Studio 2015. Visual Studio2015 можно загрузить [на веб-сайте Visual Studio][2].
-
-> [AZURE.NOTE] Если у вас не установлена ни одна из поддерживаемых операционных систем или вы не хотите устанавливать на компьютер Visual Studio, настройте виртуальную машину Azure c предустановленным программным обеспечением Windows Server 2012 R2 и Visual Studio. Это можно сделать с помощью образа из коллекции виртуальных машин Azure.
-
 ## Установка среды выполнения, пакета SDK и инструментов
 
-Установите компоненты Service Fabric с помощью установщика веб-платформы, Существует три варианта установки:
+Установщик веб-платформы предлагает три конфигурации для разработки в Service Fabric:
 
-- [Установка среды выполнения Service Fabric, пакета SDK и средств для Visual Studio 2015](full-bundle-vs2015)
-- [Установка среды выполнения Service Fabric, пакета SDK и средств для предварительной версии Visual Studio 2015](full-bundle-dev15)
-- [Установка только среды выполнения Service Fabric и пакета SDK (без средств для Visual Studio)](core-sdk)
+- [Установка среды выполнения Service Fabric, пакета SDK и средств для Visual Studio 2015][full-bundle-vs2015]
+- [Установка среды выполнения Service Fabric, пакета SDK и средств для предварительной версии Visual Studio 2015][full-bundle-dev15]
+- [Установка только среды выполнения Service Fabric и пакета SDK (без средств для Visual Studio)][core-sdk]
 
 
 ## Включение сценариев PowerShell
@@ -67,4 +61,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Ссылка Dev15 WebPI"
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Ссылка Core SDK WebPI"
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

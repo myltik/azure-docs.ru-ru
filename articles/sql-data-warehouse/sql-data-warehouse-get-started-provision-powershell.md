@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="03/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Создание хранилища данных SQL с помощью Powershell
@@ -78,7 +78,7 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 Сведения о параметрах см. в статье [Создание базы данных (хранилище данных SQL Azure)](https://msdn.microsoft.com/library/mt204021.aspx).
 
 ## Дальнейшие действия
-После завершения подготовки хранилища данных SQL вы можете [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] и [переноса][].
+После завершения подготовки хранилища данных SQL вы можете [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] или [переноса][].
 
 Если вы хотите подробнее узнать о том, как программно управлять хранилищем данных SQL, обратитесь к нашей документации по [Powershell][] или [REST API][].
 
@@ -88,7 +88,8 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 
 <!--Article references-->
 [переноса]: ./sql-data-warehouse-overview-migrate.md
-[разработки]: ./sql-data-warehouse-overview-develop/.md
+[разработки]: ./sql-data-warehouse-overview-develop.md
+[загрузки]: ./sql-data-warehouse-load-with-bcp.md
 [загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Powershell]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [REST API]: https://msdn.microsoft.com/library/azure/dn505719.aspx
@@ -96,4 +97,4 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Установка и настройка Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

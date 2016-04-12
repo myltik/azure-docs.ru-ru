@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Обзор набора Microsoft Azure IoT Suite | Microsoft Azure"
-	description="Содержит обзор набора Azure IoT Suite, включая упаковку и предварительно настроенные решения."
+	description="Общие сведения о том, как Azure IoT Suite предоставляет готовые решения IoT для сбора, анализа и хранения данных, а также средства визуализации и интеграции с другими системами."
 	services=""
     suite="iot-suite"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Общие сведения о наборе Azure IoT Suite
 
-Службы Azure IoT предоставляют широкий спектр возможностей. Это службы корпоративного уровня, которые обеспечивают:
+Службы Интернета вещей (IoT) в Azure предоставляют широкий спектр возможностей. Это службы корпоративного уровня, которые обеспечивают:
 
 - сбор данных с устройств;
 - анализ движения потоков данных;
@@ -74,4 +74,4 @@
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

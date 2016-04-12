@@ -23,7 +23,7 @@
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 - [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) позволяет удаленно выполнять операции в кластерах HDInsight на основе Linux с помощью интерфейса командной строки. В этом документе содержатся сведения об использовании SSH с HDInsight из клиентов OS X, Linux и Unix.
+[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) позволяет удаленно выполнять операции в кластерах HDInsight под управлением Linux с помощью интерфейса командной строки. В этом документе содержатся сведения об использовании SSH с HDInsight из клиентов OS X, Linux и Unix.
 
 > [AZURE.NOTE] При описаний действий в данной статье предполагается, что вы используете клиент OS X, Linux или Unix. Хотя то же самое можно сделать и на клиентах Windows после установки пакета, который предоставляет `ssh` и `ssh-keygen` (например, Git для Windows), на таких клиентах рекомендуется выполнить действия, описанные в статье [Использование SSH с кластерами HDInsight (Hadoop) под управлением Linux в Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -243,4 +243,4 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

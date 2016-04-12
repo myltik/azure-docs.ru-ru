@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Как регистрировать источники данных"
+   pageTitle="Как регистрировать источники данных | Microsoft Azure"
    description="В этой статье рассказывается, как зарегистрировать источник данных в каталоге данных Azure. В частности, в ней рассказывается о полях метаданных, которые извлекаются во время регистрации."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -79,4 +79,4 @@
 ## См. также
 - Пошаговые инструкции по регистрации источников данных см. в руководстве [Начало работы с каталогом данных Azure](data-catalog-get-started.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Что входит в образы шаблонов Azure RemoteApp | Microsoft Azure"
+    pageTitle="Что входит в образы шаблонов Azure RemoteApp | Microsoft Azure"
     description="Узнайте об образах шаблона, которые поставляются с Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="01/07/2016"
+    ms.date="04/05/2016"
     ms.author="elizapo" />
 
 # Что входит в образы шаблонов Azure RemoteApp?
@@ -80,9 +80,9 @@
 - PowerMap
 
 
-Полный набор функций приложений Office 365 профессиональный плюс доступен только пользователям плана Office 365 профессиональный плюс. Дополнительные сведения о планах подписки на Office 365 см. в статье [Параметры планов Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). У вас еще остались вопросы? Ознакомьтесь со сведениями об [Office 365 + RemoteApp](remoteapp-o365.md). Ознакомьтесь также с новой статьей [Использование подписки на Office 365 с Azure RemoteApp](remoteapp-officesubscription.md).
+Полный набор функций приложений Office 365 профессиональный плюс доступен только пользователям плана Office 365 профессиональный плюс. Дополнительные сведения о планах подписки на Office 365 см. в статье [Параметры планов Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). У вас еще остались вопросы? Ознакомьтесь со сведениями об [Office 365 + RemoteApp](remoteapp-o365.md). Ознакомьтесь также с новой статьей [Использование подписки на Office 365 с Azure RemoteApp](remoteapp-officesubscription.md).
 
-Обратите внимание, что для каждого продукта (Office 365 профессиональный плюс, Visio Pro и Project Pro) требуются отдельные лицензии.
+Обратите внимание, что для каждого продукта (Office 365 профессиональный плюс, Visio Pro и Project Pro) требуются отдельные лицензии.
 
 ## Microsoft Office 2013 профессиональный плюс (только пробная версия)
 Во время пробного периода вы можете тестировать службу с помощью образа Office 2013.
@@ -104,4 +104,4 @@
 
 > [AZURE.IMPORTANT]**Юридическая информация.** Этот образ не включает в себя лицензию Microsoft Office и *не может использоваться в производственных целях*. Образ Office 2013 профессиональный плюс предназначен исключительно для пробного использования. Если вам нужно использовать приложения Office в Azure RemoteApp в рабочей среде, используйте образ Office 365 профессиональный плюс. Дополнительные сведения о лицензировании Office см. в разделе [Использование Office 365 с Azure RemoteApp](remoteapp-o365.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0406_2016-->
