@@ -192,4 +192,4 @@
 - Сведения о [лимитах, квотах и ограничениях подписки и службы Azure](../articles/azure-subscription-service-limits.md).
 - Сведения об [экземплярах A8, A9, A10 и A11 для ресурсоемких вычислений](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) для таких рабочих нагрузок, как HPC (высокопроизводительные вычислительные системы).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->
