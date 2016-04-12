@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 
@@ -84,8 +84,8 @@ Apache Oozie — это система рабочих процессов и ко
 	<tr><td>Пароль для входа базы данных SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Пароль для входа базы данных SQL</td></tr>
 	<tr><td>Имя базы данных SQL</td><td>$sqlDatabaseName</td><td></td><td>База данных Azure SQL, куда Sqoop экспортирует данные. </td></tr>
 	</table>
-	
-	> [AZURE.NOTE] По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, в частности из службы Azure HDInsight. Если этот параметр брандмауэра отключен, нужно включить его на портале Azure. Инструкции по созданию базы данных SQL и настройке правил брандмауэра см. в разделе [Создание и настройка базы данных SQL]\[sqldatabase-create-configure].
+
+	> [AZURE.NOTE] По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, в частности из службы Azure HDInsight. Если этот параметр брандмауэра отключен, нужно включить его на портале Azure. Инструкции по созданию базы данных SQL и настройке правил брандмауэра см. в разделе [Создание и настройка базы данных SQL][sqldatabase-create-configure].
 
 
 > [AZURE.NOTE] Введите значения в таблицы. Это будет полезно при прохождении данного учебника.
@@ -99,7 +99,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 1. **Инструкция DROP TABLE** удаляет таблицу log4j Hive, если она существует.
 2. **Инструкция CREATE TABLE** создает внешнюю таблицу log4j Hive, указывающую на местоположение файла журнала log4j.
-3.  **Расположение файла журнала log4j.** Разделителем поля является ",". Разделителем строки по умолчанию является "\n". Внешняя таблица Hive используется для предотвращения удаления файла данных из исходного расположения данных в случае, когда требуется запустить рабочий процесс Oozie несколько раз.
+3.  **Расположение файла журнала log4j.** Разделителем поля является ",". Разделителем строки по умолчанию является "\\n". Внешняя таблица Hive используется для предотвращения удаления файла данных из исходного расположения данных в случае, когда требуется запустить рабочий процесс Oozie несколько раз.
 3. **Инструкция INSERT OVERWRITE** подсчитывает экземпляры каждого типа уровня журнала в таблице log4j Hive и сохраняет выходные данные в расположение хранилища BLOB-объектов Azure.
 
 **Примечание.** Существует известная проблема с путем к Hive. Эта проблема возникает при отправке задания Oozie. Инструкции по устранению этой проблемы можно найти на вики-сайте TechNet [Ошибка Hive HDInsight: не удается переименовать][technetwiki-hive-error].
@@ -120,7 +120,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 	Файл определения рабочего процесса (workflow.xml в этом учебнике) передает эти значения в данный сценарий HiveQL во время выполнения.
 
-2. Сохраните файл как **C:\Tutorials\UseOozie\useooziewf.hql** в кодировке ANSI (ASCII). (Используйте Блокнот, если ваш текстовый редактор не предоставляет такую возможность.) Позже в этом учебнике этот файл сценария будет развернут в кластере HDInsight.
+2. Сохраните файл как **C:\\Tutorials\\UseOozie\\useooziewf.hql** в кодировке ANSI (ASCII). (Используйте Блокнот, если ваш текстовый редактор не предоставляет такую возможность.) Позже в этом учебнике этот файл сценария будет развернут в кластере HDInsight.
 
 
 
@@ -193,21 +193,26 @@ Apache Oozie — это система рабочих процессов и ко
 	<tr><td>${nameNode}</td><td>Укажите URL-адрес узла имен заданий Hadoop. Используйте стандартный адрес wasb:// для файловой системы, например <i>wasb://&lt;имя_контейнера>@&lt;имя_учетной_записи_хранилища>.blob.core.windows.net</i>.</td></tr>
 	<tr><td>${queueName}</td><td>Указывает имя очереди, в которую будет отправлено задание. Используйте <strong>значение по умолчанию</strong>.</td></tr>
 	</table>
+
+
 	<table border = "1">
 	<tr><th>Переменная действия Hive</th><th>Описание</th></tr>
 	<tr><td>${hiveDataFolder}</td><td>Исходный каталог для команды создания таблицы Hive.</td></tr>
 	<tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции INSERT OVERWRITE.</td></tr>
 	<tr><td>${hiveTableName}</td><td>Имя таблицы Hive, ссылающейся на файлы данных log4j.</td></tr>
 	</table>
+
+
 	<table border = "1">
 	<tr><th>Переменная действия Sqoop</th><th>Описание</th></tr>
 	<tr><td>${sqlDatabaseConnectionString}</td><td>Строка подключения для базы данных SQL.</td></tr>
 	<tr><td>${sqlDatabaseTableName}</td><td>Таблица базы данных  Azure SQL, в которую будут экспортированы данные.</td></tr>
 	<tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции Hive INSERT OVERWRITE. Это та же папка, что и каталог для экспорта Sqoop (export-dir).</td></tr>
 	</table>
+
 	Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в [документации на Apache Oozie 4.0][apache-oozie-400] (для кластера HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] (для кластера HDInsight версии 2.1).
 
-2. Сохраните файл как **C:\Tutorials\UseOozie\workflow.xml** в кодировке ANSI (ASCII). (Используйте Блокнот, если ваш текстовый редактор не предоставляет такую возможность.)
+2. Сохраните файл как **C:\\Tutorials\\UseOozie\\workflow.xml** в кодировке ANSI (ASCII). (Используйте Блокнот, если ваш текстовый редактор не предоставляет такую возможность.)
 
 **Определение координатора**
 
@@ -231,7 +236,7 @@ Apache Oozie — это система рабочих процессов и ко
     | ${coordTimezone} | Oozie обрабатывает задания координатора в фиксированном часовом поясе без перехода на летнее время (обычно представляется в виде времени в формате UTC). Этот часовой пояс называется часовым поясом обработки Oozie. |
 	| ${wfPath} | Путь для workflow.xml. Если имя файла рабочего процесса не является именем файла по умолчанию (workflow.xml), необходимо его указать. |
 
-2. Сохраните файл как **C:\Tutorials\UseOozie\coordinator.xml** в кодировке ANSI (ASCII). (Используйте Блокнот, если ваш текстовый редактор не предоставляет такую возможность.)
+2. Сохраните файл как **C:\\Tutorials\\UseOozie\\coordinator.xml** в кодировке ANSI (ASCII). (Используйте Блокнот, если ваш текстовый редактор не предоставляет такую возможность.)
 
 ##<a id="deploy"></a>Развертывание проекта Oozie и подготовка учебника
 
@@ -251,7 +256,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE] Кластер HDInsight версии 3.0 поддерживает только синтаксис *wasb://*. Прежний синтаксис *asv://* поддерживается в кластерах HDInsight 2.1 и 1.6, однако не поддерживается в кластерах HDInsight 3.0.
+> [AZURE.NOTE] Кластер HDInsight версии 3.0 поддерживает только синтаксис **wasb://*. Прежний синтаксис **asv://* поддерживается в кластерах HDInsight 2.1 и 1.6, однако не поддерживается в кластерах HDInsight 3.0.
 
 > [AZURE.NOTE] Путь wasb:// является виртуальным. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
 
@@ -279,7 +284,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 **Подготовка учебника**
 
-1. Откройте интегрированную среду сценариев Windows PowerShell (на начальном экране Windows 8 введите **PowerShell_ISE** и затем щелкните **Интегрированная среда сценариев Windows PowerShell**. См. раздел [Запуск Windows PowerShell в Windows 8 и Windows][powershell-start] для получения более подробной информации).
+1. Откройте интегрированную среду сценариев Windows PowerShell (на начальном экране Windows 8 введите **PowerShell\_ISE** и затем щелкните **Интегрированная среда сценариев Windows PowerShell**. См. раздел [Запуск Windows PowerShell в Windows 8 и Windows][powershell-start] для получения более подробной информации).
 2. В нижней области выполните следующую команду для подключения к подписке Azure:
 
 		Add-AzureAccount
@@ -376,7 +381,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 **Отправка задания Oozie**
 
-1. Откройте интегрированную среду сценариев Windows PowerShell (на начальном экране Windows 8 введите **PowerShell_ISE** и затем щелкните **Интегрированная среда сценариев Windows PowerShell**. См. раздел [Запуск Windows PowerShell в Windows 8 и Windows][powershell-start] для получения более подробной информации).
+1. Откройте интегрированную среду сценариев Windows PowerShell (на начальном экране Windows 8 введите **PowerShell\_ISE** и затем щелкните **Интегрированная среда сценариев Windows PowerShell**. См. раздел [Запуск Windows PowerShell в Windows 8 и Windows][powershell-start] для получения более подробной информации).
 
 3. Скопируйте следующий сценарий в область сценариев и задайте первые четырнадцать переменных (пропустите **$storageUri**).
 
@@ -640,7 +645,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 **Проверка журнала ошибок задания**
 
-Для устранения неполадок рабочего процесса можно использовать файл журнала Oozie C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\\logs\\Oozie.log на головном узле кластера. Сведения о RDP см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-admin-portal].
+Для устранения неполадок рабочего процесса можно использовать файл журнала Oozie C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log на головном узле кластера. Дополнительные сведения о RDP см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-admin-portal].
 
 **Повторное выполнение учебника**
 
@@ -689,7 +694,6 @@ HDInsight использует хранилище BLOB-объектов Azure д
 - [Использование Sqoop с HDInsight][hdinsight-use-sqoop]
 - [Использование Hive с HDInsight][hdinsight-use-hive]
 - [Использование Pig с HDInsight][hdinsight-use-pig]
-- [Разработка заданий потоковой передачи Hadoop на C# для HDInsight][hdinsight-develop-streaming-jobs]
 - [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-java-mapreduce]
 
 
@@ -711,7 +715,6 @@ HDInsight использует хранилище BLOB-объектов Azure д
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 
@@ -739,4 +742,4 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

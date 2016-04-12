@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="tomfitz"/>
 
 # Создание кэша Redis с помощью шаблона
@@ -26,7 +26,7 @@
 
 Полный шаблон см. в разделе [Шаблон кэша Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
->[AZURE.NOTE]Доступны шаблоны ARM для нового [уровня Premium](cache-premium-tier-intro.md).
+>[AZURE.NOTE] Доступны шаблоны ARM для нового [уровня Premium](cache-premium-tier-intro.md).
 >
 >-    [Создание кэша Premium Redis с кластеризацией](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
 >-    [Создание кэша Premium Redis с сохранением данных](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
@@ -137,4 +137,4 @@
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

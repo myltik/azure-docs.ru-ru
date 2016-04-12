@@ -2,7 +2,7 @@
 
 В этом разделе мы напишем приложение на языке C для отправки событий в концентратор событий. Мы воспользуемся библиотекой Proton AMQP из [проекта Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке C, как показано [здесь](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Дополнительную информацию см. в [документации по Qpid Proton](http://qpid.apache.org/proton/index.html).
 
-1. На [странице Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) щелкните ссылку **Установка Qpid Proton** и следуйте инструкциям в зависимости от среды. Предполагается, что используется среда Linux, например [виртуальная машина Linux в Azure](../virtual-machines/virtual-machines-linux-tutorial.md) с Ubuntu 14.04.
+1. На [странице Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) щелкните ссылку **Установка Qpid Proton** и следуйте инструкциям в зависимости от среды. Предполагается, что используется среда Linux, например [виртуальная машина Linux в Azure](../articles/virtual-machines/virtual-machines-linux-cli-create.md) с Ubuntu 14.04.
 
 2. Для компиляции библиотеки Proton установите следующие пакеты.
 
@@ -117,4 +117,4 @@
 
 > [AZURE.NOTE] В приведенном выше коде окно отправки, равное 1, используется для скорейшей принудительной отправки сообщений. Обычно приложение предпримет попытку сгруппировать сообщения для увеличения пропускной способности. Дополнительную информацию о том, как использовать библиотеку Qpid Proton в этой и других средах, а также из платформ, для которых предоставляются привязки (в настоящее время Perl, PHP, Python и Ruby), см. на странице [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -9,7 +9,7 @@
 
 Следующие сценарии Transact-SQL содержат примеры для каждого из этих вариантов.
 
->[AZURE.NOTE]Каждый пример основан на двух вещах: асимметричном ключе из хранилища ключей **CONTOSO\_KEY** и учетных данных, созданных интеграцией AKV, с именем **Azure\_EKM\_TDE\_cred**.
+>[AZURE.NOTE] Каждый пример основан на двух вещах: асимметричном ключе из хранилища ключей **CONTOSO\_KEY** и учетных данных, созданных интеграцией AKV, с именем **Azure\_EKM\_TDE\_cred**.
 
 ### Прозрачное шифрование данных (TDE)
 1. Создайте имя входа SQL Server для использования компонентом Database Engine для прозрачного шифрования данных, а затем добавьте учетные данные.
@@ -93,6 +93,6 @@
 ## Дополнительные ресурсы
 Дополнительные сведения об использовании этих возможностей шифрования см. в разделе [Использование расширенного управления ключами с функциями шифрования SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Обратите внимание, что действия, описанные в этой статье, предполагают, что у вас уже есть SQL Server на виртуальной машине Azure. Если нет, см. раздел [Подготовка виртуальной машины с SQL Server в Azure](../articles/virtual-machines/virtual-machines-provision-sql-server.md). Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [Общие сведения об SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
+Обратите внимание, что действия, описанные в этой статье, предполагают, что у вас уже есть SQL Server на виртуальной машине Azure. Если нет, см. раздел [Подготовка виртуальной машины с SQL Server в Azure](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md). Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [Общие сведения об SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

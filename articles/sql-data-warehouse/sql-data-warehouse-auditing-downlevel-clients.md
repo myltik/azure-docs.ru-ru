@@ -1,22 +1,22 @@
-<properties 
-   pageTitle="Поддержка клиентов прежних версий хранилища данных SQL для аудита данных | Microsoft Azure" 
-   description="Сведения о поддержке клиентов прежних версий хранилища данных SQL для аудита данных" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="Поддержка клиентов прежних версий хранилища данных SQL для аудита данных | Microsoft Azure"
+   description="Сведения о поддержке клиентов прежних версий хранилища данных SQL для аудита данных"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-database" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-database"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
-# Хранилище данных SQL — поддержка клиентов прежних версий для аудита и динамического маскирования данных 
+
+# Хранилище данных SQL — поддержка клиентов прежних версий для аудита и динамического маскирования данных
 
 
 Функции [аудита](sql-data-warehouse-auditing-get-started.md) работают в клиентах SQL, которые поддерживают перенаправление TDS.
@@ -38,6 +38,4 @@
 
 **Примечание.** Описанное выше изменение полного доменного имени сервера можно использовать также для применения политики аудита уровня SQL Server без необходимости настройки в каждой базе данных (временное устранение рисков).
 
- 
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

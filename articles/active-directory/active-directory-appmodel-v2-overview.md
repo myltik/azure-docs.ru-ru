@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="03/18/2016"
 	ms.author="dastrock"/>
 
 # Вход для пользователей учетных записей Майкрософт и Azure AD в одном приложении
@@ -22,22 +22,19 @@
 
 Приложения, использующие конечную точку версии 2.0, также могут использовать API REST из [Microsoft Graph](https://graph.microsoft.io) и [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) с помощью любого типа учетной записи.
 
-> [AZURE.NOTE]
-	Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
-
-
 ## Приступая к работе
-Выберите платформу ниже, чтобы создать приложение с помощью наших библиотек и платформ с открытым исходным кодом. Вы также можете воспользоваться документацией по нашему протоколу OAuth 2.0 и OpenID Connect для отправки и получения сообщений протокола напрямую без использования библиотеки проверки подлинности. <!-- TODO: Finalize this table  -->
+Выберите платформу ниже, чтобы создать приложение с помощью наших библиотек и платформ с открытым исходным кодом. Вы также можете воспользоваться документацией по протоколу OAuth 2.0 и OpenID Connect для отправки и получения сообщений протокола напрямую, без использования библиотеки аутентификации.
+<!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-## Новые возможности	
+## Новые возможности
 Основные сведения, приведенные здесь, будут полезны в понимании того, что возможно и что нет в конечной версии 2.0.
 
-- При создании приложения в предварительной версии конечной точки 2.0 2015 года обязательно ознакомьтесь [с существенными изменениями протокола](active-directory-v2-preview-oidc-changes.md), которые мы недавно сделали.
+- В случае создания приложения на этапе предварительной версии конечной точки 2.0 в 2015 году обязательно ознакомьтесь [с существенными изменениями протокола](active-directory-v2-preview-oidc-changes.md), которые мы недавно внесли.
 - Узнайте о [типах приложений, которые можно создавать с помощью конечной точки версии 2.0](active-directory-v2-flows.md).
-- [Изменения в наших протоколах и отличия конечной точки версии 2.0](active-directory-v2-compare.md) для разработчиков, знакомых с Azure Active Directory.
-- Сведения об [ограничения и пределах](active-directory-v2-limitations.md) конечной точки версии 2.0.
+- Изучите [изменения в наших протоколах и отличия конечной точки версии 2.0](active-directory-v2-compare.md) для разработчиков, знакомых с Azure Active Directory.
+- Ознакомьтесь с [ограничениями](active-directory-v2-limitations.md) конечной точки версии 2.0.
 
 ## Справочные материалы
 Следующие ссылки позволят глубже изучить платформу:
@@ -49,13 +46,15 @@
 - [Портал регистрации приложений Майкрософт](https://apps.dev.microsoft.com)
 - [Справочник по API REST Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Microsoft Graph](https://graph.microsoft.io)
-- Ниже приведены клиентские библиотеки с открытым исходным кодом и примеры, которые были протестированы с конечной точкой версии 2.0. Обратите внимание, что такие возможности, как [динамическая регистрация клиента с OpenID Connect](https://openid.net/specs/openid-connect-registration-1_0.html) и конечные точки проверки маркеров, еще не поддерживаются и для работы с конечной точкой версии 2.0 может потребоваться отключить эти возможности в библиотеке:  
+- Ниже приведены клиентские библиотеки с открытым кодом и примеры, которые были протестированы с конечной точкой версии 2.0.
 
   - [Сервер удостоверений WSO2 Java](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
-  - [Федерация Gluu Java](https://github.com/GluuFederation/oxAuth)
+  - [Федерация Java Gluu](https://github.com/GluuFederation/oxAuth)
   - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
-  - [Базовый клиент PHP для OpenID Connect](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [Пример на Android для OpenID Connect](https://github.com/learning-layers/android-openid-connect)
+  - [Базовый клиент OpenID Connect для PHP](https://github.com/jumbojett/OpenID-Connect-PHP)
+  - [Клиент OAuth2 для iOS](https://github.com/nxtbgthng/OAuth2Client)
+  - [Клиент OAuth2 для Android](https://github.com/wuman/android-oauth-client)
+  - [Клиент OpenID Connect для Android](https://github.com/kalemontes/OIDCAndroidLib)
 
 <!-- TODO: These articles
 - [ADAL Library Reference]()
@@ -63,4 +62,4 @@
 - Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
 -->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

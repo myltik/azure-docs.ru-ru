@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Устранение неполадок
@@ -38,7 +38,7 @@
 ## Производительность запросов
 Хранилище данных SQL использует распространенные конструкции SQL Server для выполнения запросов, включая статистику. [Статистика](sql-data-warehouse-develop-statistics.md) — это объекты, содержащие информацию о диапазоне и частоте значений в одном столбце базы данных. Обработчик запросов использует эту статистику для оптимизации выполнения запросов и повышения их производительности. Можно использовать следующий запрос, чтобы определить время последнего обновления статистики.
 
-```
+```sql
 SELECT
 	sm.[name]								    AS [schema_name],
 	tb.[name]								    AS [table_name],
@@ -56,7 +56,7 @@ FROM
 	JOIN sys.tables          AS tb	ON	co.[object_id]		= tb.[object_id]
 	JOIN sys.schemas         AS sm	ON	tb.[schema_id]		= sm.[schema_id]
 WHERE
-	1=1 
+	1=1
 	AND st.[user_created] = 1;
 ```
 
@@ -90,4 +90,4 @@ WHERE
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -88,9 +88,9 @@
 
 1.  Откройте файл `config.xml` в обозревателе решений.
 2.  Щелкните **Подключаемые модули** > **Настраиваемые**, выберите **Git** как источник установки, затем в качестве источника введите `https://github.com/phonegap/phonegap-plugin-push`.
-	
+
 	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
-	
+
 4.  Щелкните стрелку рядом с источником установки, а затем щелкните **Добавить**.
 
 Теперь подключаемый модуль push-уведомлений установлен.
@@ -115,23 +115,23 @@
 
 1. Добавьте вызов метода **registerForPushNotifications** в обратный вызов при входе в систему или в конец метода **onDeviceReady**:
 
- 
+
 		// Login to the service.
 		client.login('google')
 		    .then(function () {
 		        // Create a table reference
 		        todoItemTable = client.getTable('todoitem');
-		
+
 		        // Refresh the todoItems
 		        refreshDisplay();
-		
+
 		        // Wire up the UI Event Handler for the Add Item
 		        $('#add-item').submit(addItemHandler);
 		        $('#refresh').on('click', refreshDisplay);
-		
+
 				// Added to register for push notifications.
 		        registerForPushNotifications();
-		
+
 		    }, handleError);
 
 	В этом примере показан вызов **registerForPushNotifications** после успешного прохождения аутентификации, что рекомендуется при использовании в приложении push-уведомлений и аутентификации.
@@ -152,18 +152,18 @@
 	                sound: 'true'
 	            },
 	            wns: {
-	
+
 	            }
 	        });
-	
+
 	        pushRegistration.on('registration', function (data) {
 	            client.push.register('gcm', data.registrationId);
 	        });
-	
+
 	        pushRegistration.on('notification', function (data, d2) {
 	            alert('Push Received: ' + data.message);
 	        });
-	
+
 	        pushRegistration.on('error', handleError);
 	    }
 
@@ -182,6 +182,12 @@
 * Прочитайте о [центрах уведомлений], чтобы получить дополнительные сведения о push-уведомлениях.
 * Продолжите работу с учебником [Добавление проверки подлинности в приложение Apache Cordova], если вы этого еще не сделали.
 
+Подробнее об использовании пакетов SDK.
+
+* [Пакет SDK для Apache Cordova]
+* [Серверный пакет SDK для ASP.NET]
+* [Серверный пакет SDK для Node.js]
+
 <!-- URLs -->
 [Добавление проверки подлинности в приложение Apache Cordova]: app-service-mobile-cordova-get-started-users.md
 [ознакомительного проекта Apache Cordova]: app-service-mobile-cordova-get-started.md
@@ -195,5 +201,8 @@
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Средства Visual Studio для Apache Cordova]: https://www.visualstudio.com/ru-RU/features/cordova-vs.aspx
 [центрах уведомлений]: ../notification-hubs/notification-hubs-overview.md
+[Пакет SDK для Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
+[Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

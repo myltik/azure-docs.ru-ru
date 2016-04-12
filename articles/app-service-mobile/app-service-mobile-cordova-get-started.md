@@ -32,7 +32,7 @@
 
 Для работы с этим учебником требуется:
 
-* Компьютер с [Visual Studio Community 2015] или более поздней версии.
+* Компьютер с [Visual Studio Community 2015] или более поздней версии.
 * [Средства Visual Studio для Apache Cordova].
 * [Активная учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -64,6 +64,7 @@
 
 Подробнее об использовании пакетов SDK.
 
+* [Пакет SDK для Apache Cordova]
 * [Серверный пакет SDK для ASP.NET]
 * [Серверный пакет SDK для Node.js]
 
@@ -71,13 +72,14 @@
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2015]: http://www.visualstudio.com/
 [Средства Visual Studio для Apache Cordova]: https://www.visualstudio.com/ru-RU/features/cordova-vs.aspx
 [Добавление проверки подлинности]: app-service-mobile-cordova-get-started-users.md
 [Добавление push-уведомлений]: app-service-mobile-cordova-get-started-push.md
 [Аутентификация]: app-service-mobile-auth.md
 [Push-уведомления]: ../notification-hubs/notification-hubs-overview.md
+[Пакет SDK для Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

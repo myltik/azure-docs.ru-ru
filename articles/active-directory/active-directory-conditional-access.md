@@ -2,7 +2,7 @@
 	pageTitle="Защита доступа к Office 365 и другим приложениям, подключенным к Azure Active Directory | Microsoft Azure"  
     description="С условным контролем доступа при проверке подлинности пользователя и перед предоставлением ему доступа к приложению Azure Active Directory проверяет определенные условия, которые вы можете выбрать. Если эти условия выполняются, пользователь проходит проверку подлинности, и ему дается доступ к приложению."  
     services="active-directory" 
-	keywords="доступ к приложениям, безопасный доступ к ресурсам организации, политики условного доступа" 
+	keywords="условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа" 
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/10/2016"
+	ms.date="03/23/2016"
 	ms.author="femila"/>
 
 
@@ -53,4 +53,4 @@
 | Защита корпоративных данных на потерянных или украденных устройствах |[Служба регистрации устройств](active-directory-conditional-access-device-registration-overview.md)<br><br> [Регистрация устройств, присоединенных к домену](active-directory-azureadjoin-setup.md)<br><br> [Использование устройств, зарегистрированных в Azure AD, для локального условного доступа](active-directory-conditional-access-on-premises-setup.md) <br><br>[Настройка автоматической регистрации для устройств, присоединенных к домену Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) <br><br>[Настройка автоматической регистрации для устройств, присоединенных к домену Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md) <br><br>[Политики условного доступа устройств к службам Office 365](active-directory-conditional-access-device-policies.md)|
 | Дополнительная информация |[Часто задаваемые вопросы по условному доступу](active-directory-conditional-faqs.md)|
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

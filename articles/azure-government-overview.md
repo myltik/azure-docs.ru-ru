@@ -18,7 +18,7 @@
 
 # Обзор платформы Microsoft Azure Government 
 
-<p> Microsoft Azure Government  — это физически изолированный от сети экземпляр Microsoft Azure. В этом обзоре содержатся общие сведения о среде и службах, а также приводятся ссылки на ресурсы с дополнительной информацией.
+<p> Microsoft Azure Government  — это физически изолированный от сети экземпляр Microsoft Azure. В этом обзоре содержатся общие сведения о среде и службах, а также приводятся ссылки на ресурсы с дополнительной информацией.
 
 
 ## <a name="Overview"></a>Обзор
@@ -113,8 +113,8 @@ Azure Goverment в настоящее время имеет следующие �
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-tutorial.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

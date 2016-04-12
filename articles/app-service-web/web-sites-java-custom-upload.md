@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 # Отправка пользовательского веб-приложения Java в Azure
@@ -72,7 +72,7 @@
                                     
 **stdoutLogFile** (значение по умолчанию — "d:\\home\\LogFiles\\httpPlatformStdout.log"). Абсолютный путь к файлу, для которого будут регистрироваться **stdout** и **stderr** из процесса, указанного в **processPath**.
                                     
-> [AZURE.NOTE]`%HTTP_PLATFORM_PORT%` — специальный заполнитель, который должен быть указан как часть **arguments** или как часть списка **httpPlatform** **environmentVariables**. **HttpPlatformHandler** заменит это значение на сформированный системой порт, чтобы указанный в **processPath** процесс мог прослушивать этот порт.
+> [AZURE.NOTE] `%HTTP_PLATFORM_PORT%` — специальный заполнитель, который должен быть указан как часть **arguments** или как часть списка **httpPlatform** **environmentVariables**. **HttpPlatformHandler** заменит это значение на сформированный системой порт, чтобы указанный в **processPath** процесс мог прослушивать этот порт.
 
 ## Развертывание
 
@@ -257,4 +257,4 @@ Liferay поддерживается в веб-приложениях служб
 <!-- External Links -->
 [службы приложений Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

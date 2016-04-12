@@ -3,7 +3,7 @@
    description="В этой статье объясняется, как с помощью записей контроля доступа (ACR) определять, какие узлы могут подключаться к тому в виртуальном массиве StorSimple."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Управление записями контроля доступа для виртуального массива StorSimple (предварительная версия) с помощью службы диспетчера StorSimple
+# Управление записями контроля доступа для виртуального массива StorSimple с помощью службы диспетчера StorSimple 
 
 ## Обзор
 
@@ -114,4 +114,4 @@
 
 - Изучите дополнительную информацию о [добавлении томов и настройке записей ACR](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

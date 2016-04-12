@@ -12,20 +12,22 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/25/2016"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 
 # Руководство по Hadoop: приступая к работе с Hadoop в HDInsight на платформе Windows
 
 > [AZURE.SELECTOR]
-- [Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
-- [Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
+- [На основе Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
+- [На основе Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
 
 Чтобы вы смогли понять, что такое Hadoop в Windows, и начать работу с HDInsight, в этом учебнике показано, как выполнять запрос Hive на неструктурированных данных в кластере Hadoop, а затем анализировать результаты в Microsoft Excel.
+
+>[AZURE.NOTE] Информация, приведенная в этом документе, относится только к кластерам HDInsight под управлением Windows. Сведения о кластерах под управлением Linux см. в статье [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 Предположим, у вас есть большой набор неструктурированных данных, и необходимо выполнить запрос Hive для извлечения из них значимой информации. Именно этим мы и собираемся заняться в этом руководстве. Вот как это можно осуществить:
 
@@ -38,6 +40,8 @@
 **[Просмотр учебника по Hadoop для HDInsight на YouTube](https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS)**
 
 Наряду с выпуском общедоступной версии Azure HDInsight корпорация Майкрософт выпустила также эмулятор HDInsight для Azure, ранее известный как *Microsoft HDInsight Developer Preview*. Этот продукт предназначен для сценариев разработки и поэтому поддерживает только развертывания на одном узле. Дополнительную информацию об использовании эмулятора HDInsight см. в статье [Приступая к работе с эмулятором HDInsight][hdinsight-emulator].
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ### Предварительные требования
 
@@ -177,7 +181,9 @@
 [Анализ журнала веб-сайта][hdinsight-weblogs-sample] | С помощью этого примера можно узнать об использовании HDInsight для анализа файлов журнала веб-сайта, позволяющего получить представление о дневной частоте посещений веб-сайта с внешних сайтов, а также сводку об ошибках веб-сайта, с которыми столкнулись пользователи.
 [Анализ тенденций Twitter](hdinsight-analyze-twitter-data.md) | С помощью этого примера можно узнать об использовании HDInsight для анализа тенденций в Twitter.
 
+##Удаление кластера
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##Дальнейшие действия
 Из этого руководства по Hadoop вы узнали, как создать кластер Hadoop в Windows с помощью HDInsight, выполнить запрос Hive с данными и импортировать результаты в Excel для дальнейшей обработки и графического отображения с использованием инструментов бизнес-аналитики. Дополнительную информацию см. в следующих учебниках:
@@ -191,7 +197,6 @@
 - [Использование Hive с HDInsight][hdinsight-use-hive]
 - [Использование Pig с HDInsight][hdinsight-use-pig]
 - [Использование Oozie с HDInsight][hdinsight-use-oozie]
-- [Разработка программ потоковой передачи Hadoop на C# для HDInsight][hdinsight-develop-streaming]
 - [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -209,7 +214,6 @@
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-emulator]: hdinsight-hadoop-emulator-get-started.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
@@ -251,4 +255,4 @@
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

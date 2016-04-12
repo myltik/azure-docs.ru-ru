@@ -3,7 +3,7 @@
 	description="Узнайте, как настроить установку PHP по умолчанию или добавить пользовательскую установку PHP для веб-приложений в службе приложений Azure."
 	services="app-service"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="02/26/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Настройка PHP в веб-приложениях службы приложений Azure
 
@@ -188,4 +188,4 @@
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

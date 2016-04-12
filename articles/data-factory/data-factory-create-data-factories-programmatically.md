@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета SDK фабрики данных" 
+	pageTitle="Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета SDK фабрики данных | Microsoft Azure" 
 	description="Узнайте, как программным способом создавать, отслеживать и контролировать фабрики данных Azure с помощью пакета SDK фабрики данных." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -394,4 +394,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

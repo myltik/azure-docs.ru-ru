@@ -12,15 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="02/29/2016"
    ms.author="alkohli" />
 
 # Развертывание локального устройства StorSimple (с обновлением 2)
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
-- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
-- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
+- [Обновление 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Обновление 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [Выпуск общедоступной версии](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Обзор
 
@@ -206,7 +206,8 @@
 
 ## Проверка наличия обновлений и их применение
 
-Обновление устройства может занять несколько часов. Выполните действия ниже, чтобы проверить наличие обновлений и применить их на своем устройстве. <!--can take 1-4 hours-->
+Обновление устройства может занять несколько часов. Выполните следующие действия, чтобы проверить наличие обновлений и применить их на своем устройстве.
+<!--can take 1-4 hours--> 
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -244,4 +245,4 @@
 - Для управления устройством StorSimple используется [служба Диспетчера StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
    description="Описывается страница ";Задания"; службы диспетчера StorSimple и способы ее использования для отслеживания недавних и текущих заданий для виртуального массива StorSimple."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor=""/>
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/22/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Использование службы диспетчера StorSimple для просмотра заданий виртуального массива StorSimple (предварительная версия)
+# Использование службы диспетчера StorSimple для просмотра заданий виртуального массива StorSimple
 
 ## Обзор
 
@@ -72,4 +72,4 @@
 
 [Узнайте, как с помощью локального веб-интерфейса администрировать виртуальный массив StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="02/17/2016"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Начало работы с планировщиком Azure на портале Azure
@@ -31,7 +31,7 @@
 
     1.  **Имя:** `getmicrosoft`  
 
-    2.  **Подписка**: ваша подписка Azure.
+    2.  **Подписка**: ваша подписка Azure.
 
     3.  **Коллекция заданий**: выберите существующую коллекцию заданий или щелкните **Создать** и введите имя.
 
@@ -117,7 +117,7 @@
 
 3.  Количество повторных попыток.
 
-4.  Периодичность: 1, 2, 3 и т. д.
+4.  Периодичность: 1, 2, 3 и т. д.
 
 5.  Время начала выполнения.
 
@@ -182,4 +182,4 @@
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

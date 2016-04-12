@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Создание хранилища данных SQL с помощью TSQL
@@ -32,13 +32,18 @@
 
 В данной статье не рассматривается правильная настройка базы данных и подключение к ней с помощью Visual Studio. Полное описание этих процедур см. в документации по [подключению и созданию запросов][]. Сначала откройте обозреватель объектов SQL Server в Visual Studio и подключитесь к серверу, который будет использоваться для создания хранилища данных SQL. Теперь вы можете создать хранилище данных SQL. Для этого запустите следующую команду для основной базы данных:
 
-        CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
+```sql
+CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
+```
 
 Вы также можете создать хранилище данных SQL, открыв командную строку и выполнив следующую команду:
 
-        sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
+```
+sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
+```
 
-Во время выполнения инструкций TSQL запишите параметры MAXSIZE и SERVICE\_OBJECTIVE. Они определяют размер исходного хранилища и вычисляют экземпляр, предназначенный для вашего хранилища данных. Параметр MAXSIZE принимает следующие значения (рекомендуется выбрать большой размер, чтобы оставить место для роста базы данных):
+
+При выполнении указанных выше инструкций TSQL обратите внимание на параметры `MAXSIZE` и `SERVICE_OBJECTIVE`. Они начальный размер хранилища и вычислительные ресурсы, выделяемые для вашего экземпляра хранилища данных. Ниже приведены значения, которые принимает параметр `MAXSIZE`. Мы рекомендуем выбирать большой размер, что даст возможность при необходимости увеличить масштаб.
 
 + 250 ГБ
 + 500 ГБ
@@ -51,7 +56,7 @@
 + 40 960 ГБ
 + 51 200 ГБ
 
-Значение SERVICE\_OBJECTIVE определяет количество DWU, с которым начнет работать экземпляр, и принимает следующие значения:
+Параметр `SERVICE_OBJECTIVE` определяет количество DWU, которое изначально будет у экземпляра. Этот параметр может принимать такие значения:
 
 + DW100
 + DW200
@@ -76,4 +81,4 @@
 [загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [странице цен]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

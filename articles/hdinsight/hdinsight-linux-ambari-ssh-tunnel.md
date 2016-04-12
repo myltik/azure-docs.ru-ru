@@ -10,10 +10,10 @@ editor="cgronlun"/>
 <tags
 ms.service="hdinsight"
 ms.devlang="na"
-ms.topic="get-started-article"
+ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/12/2016"
+ms.date="03/18/2016"
 ms.author="larryfr"/>
 
 #Использование туннелирования SSH для доступа к веб-интерфейсу Ambari, ResourceManager, JobHistory, NameNode, Oozie и другим веб-интерфейсам
@@ -196,4 +196,4 @@ ms.author="larryfr"/>
 
 * [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

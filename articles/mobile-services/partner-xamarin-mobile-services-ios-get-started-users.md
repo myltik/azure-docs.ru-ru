@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с аутентификацией (Xamarin.iOS) — мобильные службы"
+	pageTitle="Приступая к работе с аутентификацией (Xamarin.iOS) — мобильные службы"
 	description="Узнайте, как использовать аутентификацию в приложении мобильных служб Azure для Xamarin.iOS."
 	documentationCenter="xamarin"
 	services="mobile-services"
@@ -19,12 +19,12 @@
 
 # Добавление проверки подлинности к приложению мобильных служб
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Добавление проверки подлинности в приложение Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
 
 В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах Azure в приложении. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.
 
@@ -155,4 +155,4 @@
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

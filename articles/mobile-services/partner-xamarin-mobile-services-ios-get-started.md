@@ -13,19 +13,14 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/10/2016"
+	ms.date="03/16/2016"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Создание приложения Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started.md).
 
 В этом учебнике показано, как с помощью мобильных служб Azure добавить облачную серверную службу в приложение Xamarin.iOS. В этом учебнике вы создадите новую мобильную службу и простое приложение *To do list*, хранящее данные приложения в новой мобильной службе.
 
@@ -63,7 +58,7 @@
 
   	![][7]
 
-3. Если вы еще этого не сделали, скачайте и установите Xcode (рекомендуем использовать самую новую версию – Xcode 6.0 или более позднюю) и [Xamarin Studio].
+3. Если вы еще этого не сделали, скачайте и установите Xcode (рекомендуем использовать самую новую версию – Xcode 6.0 или более позднюю) и [Xamarin Studio].
 
 4. Чтобы создать таблицу для хранения данных приложения, нажмите кнопку **Создание таблицы TodoItems**.
 
@@ -141,4 +136,4 @@
 
 [классическом портале Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

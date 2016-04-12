@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="03/30/2016"
 	ms.author="genli"/>
 
 # Не удается выполнить вход для управления подпиской Azure
@@ -24,13 +24,9 @@
 
 ## К какому порталу вы пытаетесь получить доступ?
 
-Владелец учетной записи может получить доступ к [центру учетных записей](https://account.windowsazure.com/) только тогда, когда администраторы служб (SA) и соадминистраторы (CA) имеют доступ к [порталу Azure](https://manage.windowsazure.com/).
+Администратор учетной записи имеет доступ только к [центру учетных записей](https://account.windowsazure.com/), в то время как администраторы служб и соадминистраторы имеют доступ только к [порталу Azure](https://portal.azure.com) и [классическому порталу Azure](https://manage.windowsazure.com/).
 
-Откройте приведенные ниже ссылки для получения инструкций по обновлению ролей администратора:
-
-- [Порядок обновления администратора служб в учетной записи](./billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription)
-
-- [Порядок добавления нового соадминистратора на портале управления](./billing-add-change-azure-subscription-administrator.md#add-a-co-administrator-for-a-subscription)
+Дополнительные сведения о ролях администраторов Azure см. в разделе [Добавление или изменение ролей администратора Azure](billing-add-change-azure-subscription-administrator.md).
 
 ## Связана ли ваша подписка с учетной записью Майкрософт или учетной записью организации?
 
@@ -56,4 +52,4 @@
 
 Если в любой момент при изучении этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](https://azure.microsoft.com/support/forums/). Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт службы поддержки Azure](https://azure.microsoft.com/support/options/) и щелкните "Поддержка". Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

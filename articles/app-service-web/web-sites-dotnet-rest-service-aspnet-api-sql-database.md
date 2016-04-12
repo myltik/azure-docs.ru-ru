@@ -50,8 +50,6 @@
 
 1. В диалоговом окне **Новый проект ASP.NET** выберите шаблон **MVC**, установите флажок **Веб-интерфейс API**, а затем щелкните **Изменить аутентификацию**.
 
-	![Диалоговое окно "Новый проект ASP.NET"](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
-
 1. В диалоговом окне **Изменить аутентификацию** щелкните **Без аутентификации** и нажмите кнопку **ОК**.
 
 	![Без аутентификации](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/GS13noauth.png)
@@ -60,7 +58,6 @@
 
 1. В диалоговом окне **Новый проект ASP.NET** убедитесь, что флажок **Host in the Cloud** (Разместить в облаке) установлен, и нажмите кнопку **ОК**.
 
-	![Диалоговое окно "Новый проект ASP.NET"](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
 Если вы еще не вошли в Azure, появится запрос на ввод учетных данных.
 
@@ -209,7 +206,6 @@ Visual Studio начнет процесс копирования файлов в
 
 6. Укажите имя контроллера **HomeController**. Выберите класс модели **Contact**. Нажмите кнопку **Новый контекст данных** и оставьте значение "ContactManager.Models.ContactManagerContext", предлагаемое по умолчанию в разделе **Новый тип контекста данных**. Щелкните **Добавить**.
 
-	![Диалоговое окно "Добавление контроллера"](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
 
 	В диалоговом окне появится сообщение "Файл с именем HomeController уже существует. Вы хотите заменить его?». Щелкните **Да**. Контроллер Home, созданный для нового проекта, будет перезаписан В списке контактов будет использоваться новый контроллер Home.
 
@@ -814,4 +810,4 @@ Visual Studio начнет процесс копирования файлов в
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=AcomDC_0302_2016--->
+<!-----HONumber=AcomDC_0323_2016-->

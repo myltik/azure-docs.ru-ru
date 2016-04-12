@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # Настройка API для подключения к серверным ресурсам в домене Azure Active Directory
@@ -41,20 +41,20 @@
 5. В поле **единого входа** добавьте ``https://<your App Service Environment name>.azure-apim.net:456/redirect`` в качестве **URL-адреса ответа**.
 6. В разделе **Разрешения для других приложений**:  
 
-	а) Выберите **Добавить приложение**. Во всплывающем окне выберите приложение AAD, которое защищает существующую серверную часть: ![][17]
+	1. Выберите **Добавить приложение**. Во всплывающем окне выберите приложение AAD, которое защищает существующую серверную часть: ![][17]  
 
-	(б) Добавьте разрешения в раскрывающемся списке: ![][18]
+	2. Добавьте разрешения из раскрывающегося списка. ![][18]
 
 7. Щелкните **Сохранить** внизу.
 8. Скопируйте **код клиента** и **ключ** и сохраните их. После закрытия портала Azure ключ больше не отображается. 
 
-Дополнительные сведения о приложениях AAD см. в статье [Интеграция приложений с Azure Active Directory](../active-directory-integrating-applications.md).
+Дополнительные сведения о приложениях AAD см. в статье [Интеграция приложений с Azure Active Directory](../active-directory/active-directory-integrating-applications.md).
 
 ## Шаг 2. Настройка API с помощью Azure PowerShell
 
 На этом этапе портал Azure не предоставляет поддержку для инициализации конфигурации, необходимой для API. Чтобы настроить API на портале Azure, используйте следующий сценарий Azure PowerShell:
 
-> [AZURE.TIP]Сведения об установке, настройке и запуске Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][11]. Следующий сценарий работает с предварительной версией Azure PowerShell 1.0 или более поздней.
+> [AZURE.TIP] Сведения об установке, настройке и запуске Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][11]. Следующий сценарий работает с предварительной версией Azure PowerShell 1.0 или более поздней.
 
 ```powershell
 # get the API resource
@@ -134,7 +134,7 @@ New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Propert
 </policies>
 ```
 
-Эта политика позволяет ссылаться на значения в заголовке **x-ms-apim-tokens** в качестве декодированного объекта JObject с помощью переменной **tokens**. После этого можно использовать политику **set-header** для получения фактического маркера AAD и включения его в заголовок **Authorization**. Это та же политика, которая используется в [Azure API Management](https://azure.microsoft.com/services/api-management/). Дополнительные сведения см. в статье [Политики в Azure API Management](../api-management-howto-policies.md).
+Эта политика позволяет ссылаться на значения в заголовке **x-ms-apim-tokens** в качестве декодированного объекта JObject с помощью переменной **tokens**. После этого можно использовать политику **set-header** для получения фактического маркера AAD и включения его в заголовок **Authorization**. Это та же политика, которая используется в [Azure API Management](https://azure.microsoft.com/services/api-management/). Дополнительные сведения см. в статье [Политики в Azure API Management](../api-management/api-management-howto-policies.md).
 
 **Обратите внимание,** что имя свойства **token** совпадает с именем параметра подключения, используемого при настройке параметров.
 
@@ -157,4 +157,4 @@ New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Propert
 [20]: https://tools.ietf.org/html/rfc4648
 [21]: ./media/powerapps-configure-apis-aad/api-settings-aad.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

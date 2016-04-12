@@ -4,7 +4,7 @@
 
 Чтобы создать виртуальную сеть с помощью файла NETCGF, используя PowerShell, выполните описанные ниже действия.
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md) до момента входа Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../articles/powershell-install-configure.md) до момента входа Azure и выбора подписки.
 2. В консоли Azure PowerShell воспользуйтесь командлетом **Get-AzureVnetConfig** для загрузки файла конфигурации сети, выполнив указанную ниже команду. 
 
 		Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
@@ -15,7 +15,7 @@
 		----------------                                                                                                     
 		<?xml version="1.0" encoding="utf-8"?>...  
 
-3. Откройте файл, сохраненный при выполнении описанного выше шага 2, в любом XML- или текстовом редакторе и найдите элемент **<VirtualNetworkSites>**. Если вы уже создавали какие-то сети, для каждой сети будет указан ее собственный элемент **<VirtualNetworkSite>**.
+3. Откройте файл, сохраненный при выполнении описанного выше шага 2, в любом XML- или текстовом редакторе и найдите элемент **<VirtualNetworkSites>**. Если вы уже создавали какие-то сети, для каждой сети будет указан ее собственный элемент **<VirtualNetworkSite>**.
 4. Для создания виртуальной сети, описанной в этом сценарии, добавьте следующий XML-код сразу после элемента **<VirtualNetworkSites>**:
 
 		<VirtualNetworkSite name="TestVNet" Location="Central US">
@@ -65,4 +65,4 @@
 		OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
 		OperationStatus      : Succeeded
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Перемещение данных в таблицу Azure и из нее | Фабрика данных Azure" 
+	pageTitle="Перемещение данных в таблицу SQL Azure и из нее | Microsoft Azure" 
 	description="Узнайте, как переместить данные в таблицу SQL Azure и из нее с помощью фабрики данных Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -380,7 +380,7 @@
 
 Свойство | Описание | Допустимые значения | Обязательно
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Используйте пользовательский запрос для чтения данных. | <p>Строка запроса таблицы Azure. См. примеры ниже. | Нет
+azureTableSourceQuery | Используйте пользовательский запрос для чтения данных. | Строка запроса таблицы Azure. См. примеры ниже. | Нет
 azureTableSourceIgnoreTableNotFound | Указывает, игнорируются ли исключения таблицы. | TRUE<br/>FALSE | Нет |
 
 ### Примеры azureTableSourceQuery
@@ -526,4 +526,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

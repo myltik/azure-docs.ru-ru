@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Обновление базы данных SQL Azure до версии 12 с помощью PowerShell | Microsoft Azure" 
-	description="Объясняется, как выполнить обновление базы данных SQL Azure до версии 12, включая способы обновления баз данных Web и Business, а также как выполнить обновление сервера версии 11 путем переноса баз данных непосредственно в пул эластичных баз данных с помощью PowerShell." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Обновление базы данных SQL Azure до версии 12 с помощью PowerShell | Microsoft Azure"
+	description="Объясняется, как выполнить обновление базы данных SQL Azure до версии 12, включая способы обновления баз данных Web и Business, а также как выполнить обновление сервера версии 11 путем переноса баз данных непосредственно в пул эластичных баз данных с помощью PowerShell."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/23/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/18/2016"
 	ms.author="sstein"/>
 
 # Обновление базы данных SQL Azure до версии 12 с помощью PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-upgrade-server-portal.md)
+- [Портал Azure](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -42,7 +42,7 @@
 
 Обновление базы данных SQL до версии 12 не может быть отменено. После обновления сервер нельзя вернуть к версии 11.
 
-После обновления до версии 12 [рекомендации уровня служб](sql-database-service-tier-advisor.md) и [рекомендации пула эластичных баз данных](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier) не будут доступны, пока служба не выполнит оценку рабочих нагрузок на новом сервере. Журнал рекомендаций сервера версии 11 не применяется к серверам версии 12, поэтому он не сохраняется.
+После обновления до версии 12 [рекомендации уровня служб](sql-database-service-tier-advisor.md) и [рекомендации пула эластичных баз данных](sql-database-elastic-pool-create-portal.md) не будут доступны, пока служба не выполнит оценку рабочих нагрузок на новом сервере. Журнал рекомендаций сервера версии 11 не применяется к серверам версии 12, поэтому он не сохраняется.
 
 ## Подготовка к обновлению
 
@@ -51,7 +51,7 @@
 - **Откройте следующие порты, если у вас есть клиенты на виртуальной машине Azure**: если клиентская программа подключается к базе данных SQL версии 12, а клиент работает на виртуальной машине Azure, необходимо открыть на ней диапазоны портов 11 000–11 999 и 14 000–14 999. Дополнительные сведения см. в разделе [Порты для базы данных SQL версии 12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-## Предварительные требования 
+## Предварительные требования
 
 Для обновления сервера до версии 12 с помощью PowerShell необходимо иметь установленный и запущенный Azure PowerShell и перевести его в режим диспетчера ресурсов, чтобы получить доступ к командлетам PowerShell диспетчера ресурсов Azure.
 
@@ -78,9 +78,9 @@
 
 Для получения рекомендаций по обновлению сервера выполните следующий командлет:
 
-    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
+    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1”
 
-Дополнительные сведения см. в статьях [Рекомендации по выбору пула эластичных баз данных SQL](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) и [Рекомендации по выбору ценовой категории для базы данных SQL](sql-database-service-tier-advisor.md).
+Дополнительные сведения см. в статьях [Создание пула эластичных баз данных](sql-database-elastic-pool-create-portal.md) и [Рекомендации по выбору ценовой категории для базы данных SQL Azure](sql-database-service-tier-advisor.md).
 
 
 
@@ -100,22 +100,22 @@
     # Adding the account
     #
     Add-AzureRmAccount
-    
+
     # Setting the variables
     #
-    $SubscriptionName = 'YOUR_SUBSCRIPTION' 
-    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' 
-    $ServerName = 'YOUR_SERVER' 
-    
-    # Selecting the right subscription 
-    # 
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName 
-    
-    # Getting the upgrade recommendations 
+    $SubscriptionName = 'YOUR_SUBSCRIPTION'
+    $ResourceGroupName = 'YOUR_RESOURCE_GROUP'
+    $ServerName = 'YOUR_SERVER'
+
+    # Selecting the right subscription
     #
-    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
-    
-    # Starting the upgrade process 
+    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+
+    # Getting the upgrade recommendations
+    #
+    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName
+
+    # Starting the upgrade process
     #
     Start-AzureRmSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
@@ -125,42 +125,42 @@
 Если эти рекомендации не подходят для вашего сервера и организации, вы можете выбрать способ обновления ваших баз данных и сопоставить их с отдельными или эластичными базами данных.
 
 Параметры ElasticPoolCollection и DatabaseCollection являются необязательными:
-    
+
     # Creating elastic pool mapping
     #
-    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties 
-    $elasticPool.DatabaseDtuMax = 100 
-    $elasticPool.DatabaseDtuMin = 0 
-    $elasticPool.Dtu = 800 
-    $elasticPool.Edition = "Standard" 
-    $elasticPool.DatabaseCollection = ("DB1", “DB2”, “DB3”, “DB4”) 
-    $elasticPool.Name = "elasticpool_1" 
-    $elasticPool.StorageMb = 800 
-     
+    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties
+    $elasticPool.DatabaseDtuMax = 100
+    $elasticPool.DatabaseDtuMin = 0
+    $elasticPool.Dtu = 800
+    $elasticPool.Edition = "Standard"
+    $elasticPool.DatabaseCollection = ("DB1", “DB2”, “DB3”, “DB4”)
+    $elasticPool.Name = "elasticpool_1"
+    $elasticPool.StorageMb = 800
+
     # Creating single database mapping for 2 databases. DBMain1 mapped to S0 and DBMain2 mapped to S2
     #
-    $databaseMap1 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties 
-    $databaseMap1.Name = "DBMain1" 
-    $databaseMap1.TargetEdition = "Standard" 
+    $databaseMap1 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties
+    $databaseMap1.Name = "DBMain1"
+    $databaseMap1.TargetEdition = "Standard"
     $databaseMap1.TargetServiceLevelObjective = "S0"
-    
-    $databaseMap2 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties 
-    $databaseMap2.Name = "DBMain2" 
-    $databaseMap2.TargetEdition = "Standard" 
+
+    $databaseMap2 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties
+    $databaseMap2.Name = "DBMain2"
+    $databaseMap2.TargetEdition = "Standard"
     $databaseMap2.TargetServiceLevelObjective = "S2"
-     
+
     # Starting the upgrade
     #
-    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool) 
+    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool)
 
-    
+
 
 ## Мониторинг баз данных после обновления базы данных SQL до версии 12
 
 
 После обновления рекомендуется регулярно отслеживать состояние базы данных, чтобы обеспечить надлежащую производительность и оптимизировать использование.
 
-В дополнение к наблюдению за отдельными базами данных можно отслеживать пулы эластичных баз данных с помощью [портала](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) или [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
+В дополнение к наблюдению за отдельными базами данных можно отслеживать пулы эластичных баз данных с помощью [портала](sql-database-elastic-pool-manage-portal.md) или [PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
 
 **Данные о потреблении ресурсов:** для баз данных категорий "Базовый", "Стандартный" и "Премиум" более точные данные о потреблении ресурсов доступны в новом динамическом административном представлении [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) в базе данных пользователя. Это динамическое административное представление предоставляет данные о потреблении практически в реальном времени с 15-секундной детализацией за предыдущий час работы. Процентное потребление DTU за интервал вычисляется как максимальное относительное потребление показателей ЦП, операций ввода-вывода и журнала. Ниже приведен запрос, который вычисляет среднее относительное потребление DTU за последний час:
@@ -190,7 +190,7 @@
 
 ## Дальнейшие действия
 
-- [Создайте пул эластичных баз данных](sql-database-elastic-pool-portal.md) и добавьте в него некоторые или все свои базы данных.
+- [Создайте пул эластичных баз данных](sql-database-elastic-pool-create-portal.md) и добавьте в него некоторые или все свои базы данных.
 - [Измените уровень служб и уровень производительности вашей базы данных](sql-database-scale-up.md).
 
 
@@ -201,4 +201,4 @@
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

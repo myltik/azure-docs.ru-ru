@@ -33,7 +33,7 @@ Azure предоставляет разные модели размещения 
 [Создание приложения облачной службы в .NET](cloud-services-dotnet-get-started.md)<br/> [Создание приложения облачной службы на Node.js](cloud-services-nodejs-develop-deploy-app.md)<br/> [Создание приложения облачной службы на PHP](../cloud-services-php-create-web-role.md)<br/> [Создание приложения облачной службы на Python](../cloud-services-python-ptvs.md)<br/>
 
 [Служба приложений]: ../app-service-web/app-service-web-overview.md
-[Виртуальные машины]: ../virtual-machines/virtual-machines-about.md
+[Виртуальные машины]: ../virtual-machines/virtual-machines-linux-about.md
 [Облачные службы]: #tellmecs
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

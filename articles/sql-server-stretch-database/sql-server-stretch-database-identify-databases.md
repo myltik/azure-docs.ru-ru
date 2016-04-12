@@ -3,9 +3,9 @@
 	description="Узнайте, как определить базы данных и таблицы, которые подходят для растяжения баз данных."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -61,6 +61,11 @@
 -   Чтобы включить растяжение базы данных для другой **таблицы**, если оно уже включено для базы данных, обратитесь к разделу [Включение растяжения базы данных для таблицы](sql-server-stretch-database-enable-table.md).
 
 ## См. также
-[Ограничения для областей и критические препятствия для растяжения баз данных](sql-server-stretch-database-limitations.md) [Включение растяжения базы данных для базы данных](sql-server-stretch-database-enable-database.md) [Включение растяжения базы данных для таблицы](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+[Ограничения контактной зоны и критические препятствия для использования базы данных Stretch](sql-server-stretch-database-limitations.md)
+
+[Включение растяжения базы данных для базы данных](sql-server-stretch-database-enable-database.md)
+
+[Включение растяжения базы данных для таблицы](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0316_2016-->

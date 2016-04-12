@@ -27,7 +27,7 @@
 
 - [Изменение уровня обслуживания и уровня производительности (ценовой категории) базы данных SQL](sql-database-scale-up.md)
 - [Обновление сервера SQL Azure до версии 12](sql-database-upgrade-server-portal.md)
-- Перейдите к серверу версии 12 — если ваши базы данных позволяют использовать [преимущества пула эластичных баз данных](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), в колонке сервера будет отображаться сообщение о рекомендуемом пуле. Щелкните сообщение, чтобы создать рекомендуемый пул.
+- Перейдите на сервер версии 12. См. раздел [Рекомендации по выбору ценовой категории для базы данных SQL](sql-database-service-tier-advisor.md).
 - [Создание пула эластичных баз данных](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
@@ -96,4 +96,4 @@
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

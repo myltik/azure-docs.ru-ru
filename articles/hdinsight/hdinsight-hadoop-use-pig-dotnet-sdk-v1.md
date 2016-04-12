@@ -58,30 +58,30 @@
 
 ##<a id="create"></a>Создание приложения
 
-1. Откройте Visual Studio 2012, 2013 или 2015.
+1. Откройте Visual Studio 2012, 2013 или 2015.
 
-2. В меню **Файл** выберите **Создать**, а затем — **Проект**.
+2. В меню **Файл** выберите **Создать**, а затем — **Проект**.
 
 3. Для нового проекта введите или выберите следующие значения.
 
 	<table>
-<tr>
-<th>Свойство</th>
-<th>Значение</th>
-</tr>
-<tr>
-<th>Категория</th>
-<th>Templates/Visual C#/Windows</th>
-</tr>
-<tr>
-<th>Шаблон</th>
-<th>Консольное приложение</th>
-</tr>
-<tr>
-<th>Имя</th>
-<th>SubmitPigJob</th>
-</tr>
-</table>
+	<tr>
+	<th>Свойство</th>
+	<th>Значение</th>
+	</tr>
+	<tr>
+	<th>Категория</th>
+	<th>Templates/Visual C#/Windows</th>
+	</tr>
+	<tr>
+	<th>Шаблон</th>
+	<th>Консольное приложение</th>
+	</tr>
+	<tr>
+	<th>Имя</th>
+	<th>SubmitPigJob</th>
+	</tr>
+	</table>
 
 4. Нажмите кнопку **ОК**, чтобы создать проект.
 
@@ -126,7 +126,6 @@
 		            // Define the Pig job
 		            var parameters = new PigJobSubmissionParameters()
 		            {
-		                UserName = ExistingClusterUsername,
 		                Query = queryString,
 		            };
 		
@@ -161,4 +160,4 @@
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

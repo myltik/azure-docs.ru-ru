@@ -21,7 +21,7 @@
 На этой странице указателя содержится список статей, посвященных использованию HDInsight на [классическом портале Azure](https://manage.windowsazure.com/). Azure HDInsight является облачной реализацией Hadoop и платформы Hortonworks Data с открытым исходным кодом.
 
 
-> [AZURE.IMPORTANT]Эта страница указателя документации предназначена для клиентов, у которых уже есть развернутые решения на текущем классическом портале Azure.
+> [AZURE.IMPORTANT]  Эта страница указателя документации предназначена для клиентов, у которых уже есть развернутые решения на текущем классическом портале Azure.
 >
 > Для новых кластеров HDInsight корпорация Майкрософт рекомендует использовать **портал Azure**:
 >
@@ -58,10 +58,9 @@
 * [Сериализация данных в Hadoop с помощью библиотеки Microsoft Avro](hdinsight-dotnet-avro-serialization.md)
 * [Обработка и анализ документов JSON с использованием Hive](hdinsight-using-json-in-hive.md)
 * [Использование Python с Hive и Pig](hdinsight-python.md)
-* [Оптимизация запросов Hive для Hadoop](hdinsight-hadoop-optimize-hive-query–v1.md)
+* [Оптимизация запросов Hive для Hadoop](hdinsight-hadoop-optimize-hive-query.md)
 * [Выполнение заданий Pig с помощью пакета SDK для .NET для Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 * [Использование определяемых пользователем функций C# при потоковой передаче Hive и Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [Разработка программ потоковой передачи Hadoop на C# для HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 ## HBase: база данных NoSQL
 
@@ -71,7 +70,7 @@
 
 ## Apache Storm: потоковый запрос
 
-* [Начало работы с примерами Storm Starter](hdinsight-apache-storm-tutorial-get-started-v1.md)
+* [Начало работы с примерами Storm Starter](hdinsight-apache-storm-tutorial-get-started.md)
 * [Развертывание топологий Apache Storm и управление ими](hdinsight-storm-deploy-monitor-topology.md)
 * [Разработка топологий для Apache Storm на C# с помощью средств Hadoop для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [Разработка топологий на основе Java для базовых приложений подсчета слов с помощью Apache Storm и Maven ](hdinsight-storm-develop-java-topology.md)
@@ -100,9 +99,8 @@
 ## Машинное обучение в HDInsight
 
 * [Создание списка рекомендуемых к просмотру фильмов с использованием Apache Mahout с Hadoop](hdinsight-mahout.md)
-* [Схема обучения: разработка расширенных аналитических решений](machine-learning-data-science-how-to-create-machine-learning-service.md)
-* [Схема обучения: расширенная обработка данных](machine-learning-data-science-advanced-data-processing.md)
-* [Прогнозирование суммы чаевых в такси с помощью HDInsight и машинного обучения](machine-learning-data-science-process-hive-walkthrough.md)
+* [Схема обучения: разработка расширенных аналитических решений](../machine-learning/machine-learning-walkthrough-develop-predictive-solution.md)
+* [Прогнозирование суммы чаевых в такси с помощью HDInsight и машинного обучения](../machine-learning/machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Расширяемость
 
@@ -133,4 +131,4 @@
 * [Значение сообщений об ошибках](hdinsight-debug-jobs.md)
 * [Получить помощь на форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

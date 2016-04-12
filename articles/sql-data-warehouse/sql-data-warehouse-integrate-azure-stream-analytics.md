@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;mausher;barbkess;sonyama"/>
 
 # Работа со службой Azure Stream Analytics и хранилищем данных SQL
@@ -39,7 +39,7 @@ Azure Stream Analytics является полностью управляемо�
 
 В задании Stream Analytics щелкните **ВЫХОДНЫЕ ДАННЫЕ** в верхней части страницы, а затем выберите пункт **ДОБАВИТЬ ВЫХОДНЫЕ ДАННЫЕ**.
 
-### Шаг 2
+### Шаг 2
 
 Выберите базу данных SQL и нажмите кнопку «Далее».
 
@@ -96,4 +96,4 @@ Azure Stream Analytics является полностью управляемо�
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

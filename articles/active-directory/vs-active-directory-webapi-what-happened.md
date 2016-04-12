@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [Приступая к работе](vs-active-directory-webapi-getting-started.md)
+> - [Что произошло?](vs-active-directory-webapi-what-happened.md)
 
 ##Добавлены ссылки
 
@@ -59,7 +59,8 @@
 
 ###Один из файлов app.config или web.config имеет новое значение конфигурации.
 
-Были добавлены следующие записи конфигурации. ```
+Были добавлены следующие записи конфигурации.
+```
 	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
@@ -116,4 +117,4 @@
 
 [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -36,12 +36,12 @@
 - Здесь не приводятся общие сведения о службе фабрики данных Azure. Подробный обзор службы см. в статье [Введение в службу фабрики данных Azure](data-factory-introduction.md). 
 - Сведения о создании шаблонов диспетчера ресурсов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md). 
 
+> [AZURE.IMPORTANT]
+Для пошагового прохождения этого руководства необходимо выполнить предварительные требования, описанные в статье [Начало работы с фабрикой данных Azure](data-factory-build-your-first-pipeline.md).
 
-## Шаг 1. Создание шаблона диспетчера ресурсов Azure
+## Создание шаблона ARM
 
 Создайте в папке **C:\\ADFGetStarted** файл JSON с именем **ADFTutorialARM.json** со следующим содержимым:
-
-> [AZURE.IMPORTANT] Измените значения переменных **storageAccountName** и **storageAccountKey**. Измените значение переменной **dataFactoryName**, так как имя должно быть уникальным.
 
 Этот шаблон позволяет создавать следующие сущности фабрики данных:
 
@@ -51,6 +51,9 @@
 
 Щелкните вкладку **С помощью редактора фабрики данных**, чтобы перейти к статье с подробными сведениями о свойствах JSON, используемых в этом шаблоне.
 
+> [AZURE.IMPORTANT] Измените значения переменных **storageAccountName** и **storageAccountKey**. Измените значение переменной **dataFactoryName**, так как имя должно быть уникальным.
+
+
 	{
 	    "contentVersion": "1.0.0.0",
 	    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -58,10 +61,10 @@
 	    },
 	    "variables": {
 	        "dataFactoryName":  "TutorialDataFactoryARM",
-	        "storageAccountName":  "<stroage account name>" ,
-	        "storageAccountKey":  "<storage account key>",
+	        "storageAccountName":  "<AZURE STORAGE ACCOUNT NAME>" ,
+	        "storageAccountKey":  "<AZURE STORAGE ACCOUNT KEY>",
 	        "apiVersion": "2015-10-01",
-	        "storageLinkedServiceName": "StorageLinkedService",
+	        "storageLinkedServiceName": "AzureStorageLinkedService",
 	        "hdInsightOnDemandLinkedServiceName": "HDInsightOnDemandLinkedService",
 	        "blobInputDataset": "AzureBlobInput",
 	        "blobOutputDataset": "AzureBlobOutput",
@@ -96,12 +99,13 @@
 	                    "apiVersion": "[variables('apiVersion')]",
 	                    "properties": {
 	                        "type": "HDInsightOnDemand",
-	                        "typeProperties": {
-	                            "version": "3.2",
-	                            "clusterSize": 1,
-	                            "timeToLive": "00:30:00",
-	                            "linkedServiceName": "StorageLinkedService"
-	                        }
+        					"typeProperties": {
+                                "clusterSize": 4,
+                                "version":  "3.2",
+            					"timeToLive": "00:05:00",
+                                "osType": "windows",
+            					"linkedServiceName": "[variables('storageLinkedServiceName')]",
+    						}
 	                    }
 	                },
 	                {
@@ -114,7 +118,7 @@
 	                    "apiVersion": "[variables('apiVersion')]",
 						    "properties": {
 						        "type": "AzureBlob",
-						        "linkedServiceName": "StoraegLinkedService",
+						        "linkedServiceName": "[variables('storageLinkedServiceName')]",
 						        "typeProperties": {
 						            "fileName": "input.log",
 						            "folderPath": "adfgetstarted/inputdata",
@@ -142,7 +146,7 @@
 						    "properties": {
 						        "published": false,
 						        "type": "AzureBlob",
-						        "linkedServiceName": "StorageLinkedService",
+						        "linkedServiceName": "[variables('storageLinkedServiceName')]",
 						        "typeProperties": {
 						            "folderPath": "adfgetstarted/partitioneddata",
 						            "format": {
@@ -174,7 +178,7 @@
 						                "type": "HDInsightHive",
 						                "typeProperties": {
 						                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-						                    "scriptLinkedService": "StorageLinkedService",
+						                    "scriptLinkedService": "[variables('storageLinkedServiceName')]",
 						                    "defines": {
 		                        				"inputtable": "[concat('wasb://adfgetstarted@', variables('storageAccountName'), '.blob.core.windows.net/inputdata')]",
 		                        				"partitionedtable": "[concat('wasb://adfgetstarted@', variables('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
@@ -212,30 +216,30 @@
 	    ]
 	}
 
+Чтобы перейти к статье с подробными сведениями о свойствах JSON, используемых в этом шаблоне, щелкните вкладку **Редактор фабрики данных**.
 
-Обратите внимание на следующее.
+Обратите внимание на следующее:
 
-- С помощью вышеупомянутого файла JSON фабрика данных создает кластер HDInsight **под управлением Windows**. Также можно создать кластер HDInsight **под управлением Linux**. Дополнительные сведения см. в статье [Связанная служба HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
-- Вместо доступного по запросу кластера HDInsight можно использовать **собственный кластер HDInsight**. Дополнительные сведения см. в статье [Связанная служба Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
-- Кластер HDInsight создает **контейнер по умолчанию** в хранилище BLOB-объектов, указанном в коде JSON (**linkedServiceName**). При удалении кластера HDInsight этот контейнер не удаляется. Это сделано специально. В случае связанной службы HDInsight по запросу кластер HDInsight создается для обработки каждого среза данных (если не используется динамический кластер **timeToLive**) и удаляется по ее завершении.
+- С помощью вышеупомянутого файла JSON фабрика данных создает кластер HDInsight **под управлением Windows**. Также можно создать кластер HDInsight **под управлением Linux**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+- Вместо используемого по запросу кластера HDInsight можно использовать **собственный кластер HDInsight**. См. сведения о [связанной службе Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+- Кластер HDInsight создает **контейнер по умолчанию** в хранилище BLOB-объектов, указанном в коде JSON (**linkedServiceName**). При удалении кластера HDInsight этот контейнер не удаляется. Это сделано специально. Если используется связанная служба HDInsight по запросу, кластер HDInsight создается всякий раз, когда нужно обработать срез данных (если не используется динамический кластер **timeToLive**), после чего кластер удаляется.
 
-	По мере обработки новых срезов количество контейнеров в хранилище BLOB-объектов будет увеличиваться. Если эти контейнеры не используются для устранения неполадок с заданиями, удалите их — это позволит сократить расходы на хранение. Подобные контейнеры имеют имена вида "adf**имя\_вашей\_фабрики\_данных**-**имя\_связанной\_службы**-метка\_даты\_и\_времени". Для удаления контейнеров из хранилища BLOB-объектов Azure пользуйтесь такими средствами, как [обозреватель хранилищ Майкрософт](http://storageexplorer.com/).
+	По мере обработки новых срезов количество контейнеров в хранилище BLOB-объектов будет увеличиваться. Если эти контейнеры не используются для устранения неполадок с заданиями, удалите их — это позволит сократить расходы на хранение. Подобные контейнеры имеют имена вида adf**имя\_вашей\_фабрики\_данных**-**имя\_связанной\_службы**-метка\_даты\_и\_времени. Для удаления контейнеров из хранилища BLOB-объектов Azure используются такие средства, как [обозреватель хранилищ Майкрософт](http://storageexplorer.com/).
 
-Дополнительные сведения см. в статье [Связанная служба HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
-> [AZURE.NOTE] Еще один пример шаблона ARM для создания фабрики данных Azure можно найти на [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).
+> [AZURE.NOTE] Еще один пример шаблона ARM для создания фабрики данных Azure можно найти на сайте [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).
 
-## Шаг 2: Развертывание сущностей фабрики данных с помощью шаблона диспетчера ресурсов Azure
+## Создание фабрики данных
 
-1. Откройте Azure PowerShell и выполните следующие команды. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
+1. Откройте **Azure PowerShell** и выполните следующие команды. 
 	- Выполните командлет **Login-AzureRmAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.  
-	- Выполните командлет **Get-AzureSubscription**, чтобы просмотреть все подписки для этой учетной записи.
-	- Выполните командлет **Select-AzureSubscription SubscriptionName**, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна совпадать с той, которая используется на портале Azure.
+	- Чтобы выбрать подписку, в которой требуется создать фабрику данных, выполните команду Get-AzureRmSubscription -имя\_подписки <SUBSCRIPTION NAME> | Set-AzureRmContext.
 1. Выполните следующую команду, чтобы развернуть сущности фабрики данных с помощью шаблона, созданного на шаге 1. 
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
-## Мониторинг конвейера
+## Отслеживание конвейера
  
 1.	Войдя на [портал Azure](https://portal.azure.com/), щелкните **Обзор** и выберите **Фабрики данных**. ![Просмотреть все -> Фабрики данных](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	В колонке **Фабрики данных** выберите созданную фабрику данных (**TutorialFactoryARM**).	
@@ -252,4 +256,4 @@
 10. Когда срез перейдет в состояние **Готово**, проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов.  
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

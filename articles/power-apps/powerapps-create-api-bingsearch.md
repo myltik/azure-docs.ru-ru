@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="LinhTran"
-	manager="gautamt"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
-# Создание нового API Поиска Bing в среде службы приложений организации
+# Создание API Поиска Bing в PowerApps Enterprise
+
+> [AZURE.SELECTOR]
+- [Приложения логики](../articles/connectors/connectors-create-api-bingsearch.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
+
+Добавьте API Поиска Bing в среду службы приложений (клиента) организации.
 
 ## Создание API на портале Azure
 
@@ -35,15 +41,17 @@
 
 4. В поле **Источник** укажите **Доступные API**, чтобы выбрать встроенные API, а затем выберите **Поиск Bing**.
 
-	а) Выберите **Настройки > Настроить обязательные параметры**.
-	
-	б) Введите *ключ учетной записи*. Если у вас нет ключа Поиска Bing, создайте бесплатное [предложение для Поиска Bing][1], чтобы получить ключ.
-
-	в) Нажмите кнопку **ОК**.
+	1. Выберите **Настройки — Настроить обязательные параметры**.
+	2. Введите *ключ учетной записи*. Если у вас нет ключа Поиска Bing, создайте бесплатное [предложение для Поиска Bing][1], чтобы получить ключ.
+	3. Нажмите кнопку **ОК**. 
 
 5. Нажмите кнопку **ОК**, чтобы завершить эти действия.
 
 После их выполнения в среду службы приложений организации будет добавлен новый API Поиска Bing.
+
+## См. раздел "Интерфейсы REST API".
+
+Справочник по [REST API Поиска Bing](../connectors/connectors-create-api-bingsearch.md).
 
 
 ## Сводка и дальнейшие действия
@@ -58,4 +66,4 @@
 [4]: ./media/powerapps-create-api-dropbox/browseall.png
 [5]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

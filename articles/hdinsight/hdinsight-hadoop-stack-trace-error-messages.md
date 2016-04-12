@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="big-data"
-	ms.date="12/09/2015"
+	ms.date="03/21/2016"
 	ms.author="rashimg;cgronlun"/>
 
 # Ошибки трассировки стека Hadoop в HDInsight: указатель статей об устранении неполадок
@@ -34,4 +34,4 @@
 * [Сбор дампов кучи в хранилище больших двоичных объектов для отладки и анализа служб Hadoop](hdinsight-hadoop-collect-debug-heap-dumps.md)
 * [Заметки о выпуске для компонентов Hadoop в Azure HDInsight](hdinsight-release-notes.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -11,4 +11,4 @@
 
 [портал Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

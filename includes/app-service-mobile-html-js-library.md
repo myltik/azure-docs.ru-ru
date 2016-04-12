@@ -1,23 +1,32 @@
-##<a name="create-client"></a>How to: Create Client
+##<a name="create-client"></a>Создание подключения клиента
 
-Create a client connection by creating a `WindowsAzure.MobileServicesClient` object.  Replace `appUrl` with the URL to your Mobile App.
+Создайте подключение клиента, создав объект `WindowsAzure.MobileServiceClient`. Замените `appUrl` URL-адресом в своем мобильном приложении.
 
 ```
-var client = WindowsAzure.MobileServicesClient(appUrl);
+var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-##<a name="table-reference"></a>How to: Create Table Reference
+##<a name="table-reference"></a>Работа с таблицами
 
-To access or update data, create a reference to the backend table. Replace `tableName` with the name of your table
+Для доступа к данным или их обновления создайте ссылку на таблицу серверной части. Замените `tableName` именем таблицы.
 
 ```
 var table = client.getTable(tableName);
 ```
 
-##<a name="querying"></a>How to: Query a Table Reference
+Имея ссылку на таблицу, можно работать с этой таблицей:
 
-Once you have a table reference, you can use it to query for data on the server.  Queries are made in a "LINQ-like" language.
-To return all data from the table, use the following:
+* [Запрос к таблице](#querying)
+  * [Фильтрация данных](#table-filter)
+  * [Разбиение данных по страницам](#table-paging)
+  * [Сортировка данных](#sorting-data)
+* [Вставка данных](#inserting)
+* [Изменение данных](#modifying)
+* [Удаление данных](#deleting)
+
+###<a name="querying"></a>Практическое руководство. Запрос с ссылкой на таблицу
+
+Ссылку на таблицу можно использовать для запроса данных на сервере. Запросы осуществляются на языке типа LINQ. Чтобы вернуть все данные из таблицы, используйте следующий код:
 
 ```
 /**
@@ -45,15 +54,13 @@ table
     .then(success, failure);
 ```
 
-The success function is called with the results.   Do not use `for (var i in results)` in
-the success function as that will iterate over information that is included in the results
-when other query functions (such as `.includeTotalCount()`) are used.
+Выполненная функция вызывается с результатами. Не используйте в этой функции свойство `for (var i in results)` — оно вызывает перебор данных, включаемых в результаты применения других функций запросов (таких как `.includeTotalCount()`).
 
-For more information on the Query syntax, refer to the [Query object documentation].
+Дополнительные сведения о синтаксисе запроса см. в [документации по объектам запросов].
 
-### Filtering Data on the server
+####<a name="table-filter"></a>Фильтрация данных на сервере
 
-You can use a `where` clause on the table reference:
+Используйте предложение `where` с ссылкой на таблицу.
 
 ```
 table
@@ -62,8 +69,7 @@ table
     .then(success, failure);
 ```
 
-You can also use a function that filters the object.  In this case the `this` variable is assigned to the
-current object being filtered.  The following is functionally equivalent to the prior example:
+Также можно использовать функцию фильтрации объектов. В этом случае переменной `this` присваивается текущий объект фильтрации. Представленный ниже код функционально эквивалентен предыдущему примеру:
 
 ```
 function filterByUserId(currentUserId) {
@@ -76,9 +82,9 @@ table
     .then(success, failure);
 ```
 
-### Paging through data
+####<a name="table-paging"></a>Разбиение данных по страницам
 
-Utilize the take() and skip() methods.  For example, if you wish to split the table into 100-row records:
+Используйте методы take() и skip(). Например, если вы хотите разбить на строки таблицу, содержащую 100 записей:
 
 ```
 var totalCount = 0, pages = 0;
@@ -101,18 +107,14 @@ function loadPage(pageNum) {
 }
 ```
 
-The `.includeTotalCount()` method is used to add a totalCount field to the results object.  The
-totalCount field is filled with the total number of records that would be returned if no paging
-is used.
+Метод `.includeTotalCount()` добавляет в объект результатов поле totalCount. В этом поле указывается общее количество записей, которое будет возвращено, если данные не разбиты на страницы.
 
-You can then use the pages variable and some UI buttons to provide a page list; use loadPage() to
-load the new records for each page.  You should implement some sort of caching to speed access to
-records that have already been loaded.
+После этого можно настроить список страниц, используя переменную pages и определенные кнопки пользовательского интерфейса, и загрузить новые данные на каждой странице с помощью метода loadPage(). Чтобы ускорить доступ к уже загруженным записям, следует добавить кэширование.
 
 
-###<a name="sorting-data"></a>How to: Return data sorted
+####<a name="sorting-data"></a>Практическое руководство. Возврат отсортированных данных
 
-Use the .orderBy() or .orderByDescending() query methods:
+Используйте методы запросов .orderBy() или .orderByDescending():
 
 ```
 table
@@ -121,11 +123,11 @@ table
     .then(success, failure);
 ```
 
-For more information on the Query object, refer to the [Query object documentation].
+Дополнительные сведения об объекте запроса см. в [документации по объектам запросов].
 
-##<a name="inserting"></a>How to: Insert Data
+###<a name="inserting"></a>Практическое руководство. Вставка данных
 
-Create a JavaScript object with the appropriate date and call table.insert() asynchronously:
+Создайте объект JavaScript с соответствующей датой и асинхронно вызовите метод table.insert():
 
 ```
 var newItem = {
@@ -140,19 +142,13 @@ table
     }, failure);
 ```
 
-On successful insertion, the inserted item is returned with the additional fields that are required
-for sync operations.  You should update your own cache with this information for later updates.
+Вставленный элемент возвращается с дополнительными полями, необходимыми для операций синхронизации. Обновите свой кэш, используя эти данные для последующих обновлений.
 
-Note that the Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.
-In the case of dynamic schema, the schema of the table is updated on the fly, allowing you to add
-columns to the table just by specifying them in an insert or update operation.  We recommend that
-you turn off dynamic schema before moving your application to production.
+Обратите внимание на то, что серверный пакет SDK мобильных приложений Azure для Node.js поддерживает динамическую схему для целей разработки. При использовании динамической схемы схема таблицы обновляется на ходу, что позволяет добавлять в нее столбцы, просто указав их в операции вставки или обновления данных. Перед переносом приложения в рабочую среду динамическую схему рекомендуется отключить.
 
-##<a name="modifying"></a>How to: Modify Data
+###<a name="modifying"></a>Практическое руководство. Изменение данных
 
-Similar to the .insert() method, you should create an Update object and then call .update().  The update
-object must contain the ID of the record to be updated - this is obtained when reading the record or
-when calling .insert().
+Как и при использовании метода .insert(), в данном случае следует создать объект обновления и вызвать метод .update(). Объект обновления должен содержать идентификатор обновляемой записи обновления, получаемый при чтении записи или при вызове метода .insert().
 
 ```
 var updateItem = {
@@ -167,9 +163,9 @@ table
     }, failure);
 ```
 
-##<a name="deleting"></a>How to: Delete Data
+###<a name="deleting"></a>Практическое руководство. Удаление данных
 
-Call the .del() method to delete a record.  Pass the ID in an object reference:
+Для удаления записи вызовите метод .del(). В ссылке на объект укажите идентификатор:
 
 ```
 table
@@ -178,3 +174,5 @@ table
         // Record is now deleted - update your cache
     }, failure);
 ```
+
+<!---HONumber=AcomDC_0323_2016-->

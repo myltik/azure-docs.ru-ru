@@ -1,21 +1,20 @@
-<BR> 
-## FAQ 
-### How much do reverse DNS records cost?
-They’re free!  There is no additional cost for reverse DNS records or queries.
-### Will my reverse DNS records resolve from the internet?
-Yes. Once you set the reverse DNS property for your Cloud Service, Azure manages all the DNS delegations and DNS zones required to ensure that reverse DNS record resolves for all internet users.
-### Will a default reverse DNS record be created for my Cloud Services?
-No. Reverse DNS will be an opt-in feature. No default reverse DNS record will be created if you choose not to configure one.
-What is the format for the fully-qualified domain name (FQDN)?
-FQDNs are specified in forward order, and must be terminated by a dot (e.g., “app1.contoso.com.”).
-### What happens if the validation checks for the reverse DNS I’ve specified fail?
-Where the validation for reverse DNS checks fail, the service management operation will fail. Please correct the reverse DNS value as required, and retry.
-### Can I manage reverse DNS for my Azure Website?
-Reverse DNS is not supported for Azure Websites. Reverse DNS is supported for Azure PaaS roles and IaaS virtual machines.
-### Can I configure multiple reverse DNS records for my Cloud Service?
-No. Azure supports a single reverse DNS record for each Azure Cloud Service. Each Azure Cloud Service however can have their own reverse DNS record.
-### Can I host the ARPA zones for my Azure-assigned IPs on Azure DNS within my own subscription, or on my own authoritative DNS servers?
-No. Azure does not support the onward delegation of ARPA zones. Azure hosts the ARPA zones for all available IPs, and enables customers to create reverse DNS records within these ARPA zones.
-### Can I host ARPA zones for my ISP-assigned IP blocks on Azure DNS?
-No. Azure DNS does not currently support reverse DNS records in customers DNS zones.
+<BR>
+## Часто задаваемые вопросы 
+### Каковы затраты на обратные записи DNS?
+Они бесплатны! Никакие дополнительные затраты на обратные записи или запросы DNS не требуются.
+### Будут ли мои обратные записи DNS разрешаться из Интернета?
+Да. После того, как вы задали свойство обратного DNS для облачной службы, Azure управляет всеми операциями делегирования DNS и зонами DNS, необходимыми для разрешения этой обратной записи DNS для всех пользователей Интернета.
+### Будет ли создана обратная запись DNS по умолчанию для моих облачных служб?
+Нет. Обратный DNS будет включаемой функцией. Если вы не захотите настроить обратную запись DNS, она не будет создана по умолчанию. Каков формат полного доменного имени (FQDN)? Полные доменные имена указываются в прямом порядке и должны завершаться точкой (например, app1.contoso.com.).
+### Что происходит при ошибке проверки указанной мной обратного DNS?
+Если обратный DNS не пройдет проверку, операция службы управления завершится ошибкой. В этом случае исправьте значение обратного DNS, как указано, и повторите попытку.
+### Можно ли управлять обратным DNS для веб-сайта Azure?
+Для веб-сайтов Azure обратный DNS не поддерживается. Обратный DNS поддерживается для ролей PaaS и виртуальных машин IaaS Azure.
+### Можно ли настроить несколько обратных записей DNS для моей облачной службы?
+Нет. Azure поддерживает одну обратную запись DNS для каждой облачной службы Azure. Тем не менее, у каждой облачной службы Azure может быть собственная обратная запись DNS.
+### Можно ли разместить зоны ARPA для назначенных Azure IP-адресов в DNS Azure в моей подписке или на моих полномочных DNS-серверах?
+Нет. Azure не поддерживает дальнейшее делегирование зон ARPA. Azure размещает зоны ARPA для всех доступных IP-адресов и позволяет клиентам создавать обратные записи DNS в этих зонах ARPA.
+### Можно ли разместить зоны ARPA для блоков IP-адресов, назначенных поставщиком услуг Интернета, в DNS Azure?
+Нет. В настоящее время Azure DNS не поддерживает обратные записи DNS в зонах DNS клиентов.
 
+<!---HONumber=AcomDC_0309_2016-->

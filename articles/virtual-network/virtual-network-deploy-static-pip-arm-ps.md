@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Развертывание виртуальной машины со статическим общедоступным IP-адресом с помощью PowerShell
@@ -29,7 +29,7 @@
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## Шаг 1. Запуск сценария
+## Шаг 1. Запуск сценария
 
 Полный сценарий PowerShell можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Чтобы изменить сценарий для работы в вашей среде, сделайте следующее:
 
@@ -62,7 +62,7 @@
 		$pipName               = "PIPWEB1"
 		$dnsName               = "iaasstoryws1"
 
-## Шаг 2. Создание необходимых ресурсов для виртуальных машин
+## Шаг 2. Создание необходимых ресурсов для виртуальных машин
 
 Перед созданием виртуальной машины необходимо создать группу ресурсов, виртуальную сеть, общедоступный IP-адрес и сетевой адаптер для использования с виртуальной машиной.
 
@@ -135,7 +135,7 @@
 
 7. Сохраните файл скрипта.
 
-## Шаг 4. Запуск сценария
+## Шаг 4. Запуск сценария
 
 После внесения необходимых изменений и изучения указанного выше скрипта запустите сценарий.
 
@@ -216,4 +216,4 @@
 
    
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

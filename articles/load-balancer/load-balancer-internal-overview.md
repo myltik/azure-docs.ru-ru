@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 
@@ -82,9 +82,9 @@
 
 ## Дальнейшие действия
 
-[Приступая к настройке подсистемы балансировки нагрузки, доступной в Интернете](load-balancer-internet-getstarted.md)
+[Приступая к настройке подсистемы балансировки нагрузки, доступной в Интернете](load-balancer-get-started-internet-arm-ps.md)
 
-[Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-internal-getstarted.md)
+[Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
 
 [Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
 
@@ -92,4 +92,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

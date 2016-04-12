@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Руководство по базам данных SQL: создание базы данных SQL с помощью C# | Microsoft Azure" 
-	description="Используйте базы данных SQL для разработки приложений на основе SQL и C#. Создайте базу данных Azure SQL с помощью C# и библиотеки баз данных SQL для .NET." 
+<properties
+	pageTitle="Руководство по базам данных SQL: создание базы данных SQL с помощью C# | Microsoft Azure"
+	description="Используйте базы данных SQL для разработки приложений на основе SQL и C#. Создайте базу данных Azure SQL с помощью C# и библиотеки баз данных SQL для .NET."
 	keywords="учебник sql, sql и c#"   
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="hero-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="01/22/2016"
+   ms.tgt_pltfrm="csharp"
+   ms.workload="data-management"
+   ms.date="03/24/2016"
    ms.author="sstein"/>
 
-# Руководство по базам данных SQL: создание базы данных SQL с помощью C# и библиотеки базы данных SQL для .NET 
+# Руководство по базам данных SQL: создание базы данных SQL с помощью C# и библиотеки базы данных SQL для .NET
 
 **Отдельная база данных**
 
@@ -26,13 +26,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-
-
-Узнайте, как использовать команды C# для создания базы данных SQL Azure с помощью [библиотеки баз данных SQL Azure для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-
-Вы познакомитесь с базами данных SQL на примере создания отдельной базы данных с помощью SQL и C#. Создание пула эластичных баз данных описано в статье [Создание пула эластичных баз данных](sql-database-elastic-pool-portal.md).
-
-Код разбит на отдельные фрагменты для ясности, и пример консольного приложения объединяет все команды в нижней части этой статьи.
+Узнайте, как использовать команды C# для создания базы данных SQL Azure с помощью [библиотеки баз данных SQL Azure для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Вы познакомитесь с базами данных SQL на примере создания отдельной базы данных с помощью SQL и C#. Создание пулов эластичных баз данных описано в статье [Создание пула эластичных баз данных](sql-database-elastic-pool-create-portal.md). Код разбит на отдельные фрагменты для ясности, и пример консольного приложения объединяет все команды в нижней части этой статьи.
 
 Библиотека базы данных SQL Azure для .NET предоставляет API на основе [диспетчера ресурсов Azure](../resource-group-overview.md), который создает оболочку для [API REST базы данных SQL на основе диспетчера ресурсов](https://msdn.microsoft.com/library/azure/mt163571.aspx). Эта клиентская библиотека следует общему шаблону для клиентских библиотек на основе диспетчера ресурсов. Диспетчеру ресурсов необходимы группы ресурсов и проверка подлинности с помощью [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
@@ -45,7 +39,7 @@
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
 - Подписка Azure. Если вам требуется подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
-- приведенному. Бесплатный экземпляр Visual Studio можно получить на странице [Загрузки Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+- приведенному. Бесплатный экземпляр Visual Studio см. на странице [Загрузки Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 
 ## Установка необходимых библиотек
@@ -120,7 +114,7 @@
 Подробнее об использовании Azure Active Directory для аутентификации см. в [этой записи блога](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
-### Получение маркера доступа для текущего пользователя 
+### Получение маркера доступа для текущего пользователя
 
 Клиентское приложение должно получить маркер доступа приложения для текущего пользователя. Первый раз, когда код выполняется пользователем, ему будет предложено ввести свои учетные данные пользователя, и результирующий маркер будет кэширован локально. При последующих вызовах маркер будет извлечен из кэша, и пользователю будет предложено войти, только если истек срок действия маркера.
 
@@ -154,7 +148,7 @@
         {
             creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
 
             // Resource group parameters
@@ -169,7 +163,7 @@
         }
 
 
-## Создание сервера 
+## Создание сервера
 
 Базы данных SQL содержатся на серверах. Это имя сервера должно быть глобально уникальным для серверов SQL Azure, и если оно уже занято, появится сообщение об ошибке. Кроме того, выполнение этой команды может занять несколько минут.
 
@@ -223,7 +217,7 @@
 
         static void CreateFirewallRule()
         {
-            // Create a firewall rule on the server 
+            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -284,7 +278,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    
+
     namespace SqlDbConsoleApp
     {
     class Program
@@ -295,13 +289,13 @@
         static string redirectUri = "<Azure App redirectURI>";
         static string domainName = "<domain>";
 
-        // You create these values 
+        // You create these values
         static string resourceGroupName = "<your resource group name>";
         static string location = "<Azure data center location>";
 
         static string serverName = "<your server name>";
         static string administratorLogin = "<your server admin>";
-        
+
         // store your password securely!
         static string administratorPassword = "<your server admin password>";
         static string serverVersion = "12.0";
@@ -340,7 +334,7 @@
             Console.WriteLine("Creating database...");
 
             DatabaseCreateOrUpdateResponse dbResponse = CreateDatabase();
-            Console.WriteLine("Status: " + dbResponse.Status.ToString() 
+            Console.WriteLine("Status: " + dbResponse.Status.ToString()
                 + " Code: " + dbResponse.StatusCode.ToString());
 
             Console.WriteLine("Press enter to exit...");
@@ -351,7 +345,7 @@
         {
             creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
 
             // Resource group parameters
@@ -386,7 +380,7 @@
 
         static void CreateFirewallRule()
         {
-            // Create a firewall rule on the server 
+            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -463,4 +457,4 @@
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

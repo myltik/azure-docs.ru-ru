@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Защита конфиденциальных данных в базе данных SQL с помощью шифрования базы данных | Microsoft Azure"
+	pageTitle="Постоянное шифрование: защита конфиденциальных данных в базе данных SQL с помощью шифрования базы данных"
 	description="Сведения о настройке защиты конфиденциальных данных в базе данных SQL всего за несколько минут."
-	keywords="база данных SQL, шифрование SQL, шифрование базы данных, ключ шифрования, конфиденциальные данные, постоянное шифрование"	
+	keywords="шифрование данных, ключ шифрования, шифрование в облаке"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -15,19 +15,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# Защита конфиденциальных данных в базе данных SQL с помощью шифрования базы данных и хранение ключей шифрования в хранилище ключей Azure
+# Постоянное шифрование: защита конфиденциальных данных в базе данных SQL с помощью шифрования данных и хранение ключей шифрования в хранилище ключей Azure
 
 > [AZURE.SELECTOR]
 - [Хранилище ключей Azure](sql-database-always-encrypted-azure-key-vault.md)
 - [Хранилище сертификатов Windows](sql-database-always-encrypted.md)
 
 
-В этой статье показано, как защитить конфиденциальные данные в базе данных SQL с помощью шифрования базы данных с помощью [мастера настройки постоянного шифрования](https://msdn.microsoft.com/library/mt459280.aspx) в [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) и сохранить ключи шифрования в хранилище ключей Azure.
+В этой статье показано, как защитить конфиденциальные данные в базе данных SQL, используя шифрование данных с помощью [мастера настройки постоянного шифрования](https://msdn.microsoft.com/library/mt459280.aspx) в [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx), и сохранить ключи шифрования в хранилище ключей Azure.
 
-Постоянное шифрование — это новая технология шифрования, применяемая в базе данных SQL Azure и SQL Server. Она защищает конфиденциальные данные, которые хранятся на сервере в неактивном состоянии, перемещаются между клиентом и сервером и просто используются, предотвращая их доступность в виде открытого текста внутри системы базы данных. К зашифрованным данным можно получить доступ только через клиентские приложения и серверы приложений, у которых есть доступ к ключам. Дополнительные сведения см. в статье [Постоянное шифрование (ядро СУБД)](https://msdn.microsoft.com/library/mt163865.aspx).
+Постоянное шифрование — это новая технология шифрования данных, применяемая в базе данных SQL Azure и SQL Server. Она защищает конфиденциальные данные, которые хранятся на сервере в неактивном состоянии, перемещаются между клиентом и сервером и просто используются, предотвращая их доступность в виде открытого текста внутри системы базы данных. После настройки шифрования данных получить доступ к незашифрованным данным могут только клиентские приложения и серверы приложений, у которых есть доступ к ключам. Дополнительные сведения см. в статье [Постоянное шифрование (ядро СУБД)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 
 После настройки этой функции мы создадим клиентское приложение на языке C# для работы с зашифрованными данными, используя Visual Studio.
@@ -264,6 +264,26 @@
     // Enable Always Encrypted.
     connStringBuilder.ColumnEncryptionSetting = 
        SqlConnectionColumnEncryptionSetting.Enabled;
+
+## Регистрация поставщика хранилища ключей Azure
+
+Следующий код показывает, как зарегистрировать поставщик хранилища ключей Azure с помощью драйвера ADO.NET.
+
+    private static ClientCredential _clientCredential;
+
+    static void InitializeAzureKeyVaultProvider()
+    {
+       _clientCredential = new ClientCredential(clientId, clientSecret);
+
+       SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
+          new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
+
+       Dictionary<string, SqlColumnEncryptionKeyStoreProvider> providers =
+          new Dictionary<string, SqlColumnEncryptionKeyStoreProvider>();
+
+       providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
+       SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
+    }
 
 
 
@@ -635,9 +655,9 @@
    ![новое консольное приложение](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
 
-Чтобы получить доступ к данным в незашифрованном виде, нужно указать в строке подключения **Column Encryption Setting=enabled**.
+Чтобы получить доступ к незашифрованным данным, нужно указать в строке подключения **Column Encryption Setting=enabled**.
 
-1. В **обозревателе объектов** SQL Server Management Studio щелкните сервер правой кнопкой мыши и выберите пункт **Отключить**.
+1. В **обозревателе объектов** SSMS щелкните сервер правой кнопкой мыши и выберите пункт **Отключить**.
 2. Щелкните **Подключиться** > **Компонент Database Engine**, чтобы открыть окно **Подключение к серверу**, и нажмите кнопку **Параметры**.
 3. Щелкните **Дополнительные параметры подключения** и введите **Column Encryption Setting=enabled**.
 
@@ -669,4 +689,4 @@
 - [Always Encrypted Wizard (Мастер настройки постоянного шифрования)](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Блог по функции постоянного шифрования](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

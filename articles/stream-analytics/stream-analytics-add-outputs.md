@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 # Настройка выходов данных для заданий Stream Analytics
@@ -25,11 +25,11 @@
 
 Чтобы добавить выход данных в задание службы Stream Analytics, выполните следующие действия.
 
-1. На портале Azure нажмите **Выходные данные**, а затем **Добавить выходные данные** в задании Stream Analytics.
+1. На классическом портале Azure щелкните **Выходные данные**, после чего щелкните **Добавить выходные данные** в вашем задании Stream Analytics.
 
     ![Добавление выходных данных](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)
 
-    На портале предварительной версии Azure нажмите плитку **Выходные данные** в задании Stream Analytics.
+    На портале Azure нажмите плитку **Выходные данные** в вашем задании Stream Analytics.
 
     ![Добавление выходных данных на портале Azure](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
 
@@ -37,7 +37,7 @@
 
     ![Выбор типа перемещения данных](./media/stream-analytics-add-outputs/2-stream-analytics-add-outputs.png)
 
-    ![Выбор типа перемещения данных на портале предварительной версии Azure](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
+    ![Выбор типа перемещения данных на портале Azure](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
 
 3. В поле **Псевдоним выходных данных** введите понятное имя для этого выхода данных. Впоследствии это имя можно будет использовать в запросе вашего задания для ссылки на выходные данные.
     
@@ -51,7 +51,7 @@
 
     ![Добавление вывода данных в концентратор событий](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)
 
-    ![Вывод данных в концентратор событий на портале предварительной версии Azure](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)
+    ![Вывод данных в концентратор событий на портале Azure](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)
 
 > [Azure.Note] Любой элемент вывода, добавляемый в задание, должен существовать до момента запуска задания и запуска потока событий. Например, при выводе данных в хранилище BLOB-объектов задание не создаст учетную запись хранения автоматически. Пользователь должен создать эту запись перед тем, как запустить задание ASA.
 
@@ -66,4 +66,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

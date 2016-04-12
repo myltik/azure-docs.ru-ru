@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Динамический SQL в хранилище данных SQL
@@ -21,7 +21,7 @@
 
 Вот простой пример:
 
-```
+```sql
 DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 ,       @sql_fragment2 VARCHAR(8000)=' FROM sys.system_views '
 ,       @sql_fragment3 VARCHAR(8000)=' WHERE name like ''%table%''';
@@ -31,7 +31,7 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 Если строка короткая, [sp\_executesql][] можно использовать как обычно.
 
-> [AZURE.NOTE]К инструкциям, выполняемым как динамический код SQL, по-прежнему будут применяться все правила проверки TSQL.
+> [AZURE.NOTE] К инструкциям, выполняемым как динамический код SQL, по-прежнему будут применяться все правила проверки TSQL.
 
 ## Дальнейшие действия
 Дополнительные советы по разработке см. в статье [Общие сведения о разработке][].
@@ -46,4 +46,4 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

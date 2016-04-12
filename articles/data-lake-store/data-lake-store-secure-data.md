@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="nitinme"/>
 
 # Защита данных, хранимых в хранилище озера данных Azure
 
 Для защиты данных, хранимых в хранилище озера данных Azure, необходимо выполнить три шага.
 
-1. Начните с создания групп безопасности в Azure Active Directory (AAD). Эти группы безопасности используются для реализации контроля доступа на основе ролей (RBAC) на портале Azure. Дополнительные сведения см. в разделе [Контроль доступа на основе ролей на портале предварительной версии Microsoft Azure](role-based-access-control-configure.md).
+1. Начните с создания групп безопасности в Azure Active Directory (AAD). Эти группы безопасности используются для реализации контроля доступа на основе ролей (RBAC) на портале Azure. Дополнительные сведения см. в разделе [Контроль доступа на основе ролей на портале предварительной версии Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 2. Назначьте группы безопасности AAD учетной записи хранения озера данных Azure. Это позволит контролировать доступ к учетной записи хранения озера данных с портала и операции управления с портала или через API-интерфейсы.
 
@@ -37,7 +37,7 @@
 
 ## Создание групп безопасности в Azure Active Directory
 
-Инструкции по созданию групп безопасности AAD и добавлению пользователей в группу см. в разделе [Управление группами безопасности в Azure Active Directory](active-directory-accessmanagement-manage-groups.md).
+Инструкции по созданию групп безопасности AAD и добавлению пользователей в группу см. в разделе [Управление группами безопасности в Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
 ## Назначение пользователей или групп безопасности учетным записям хранения озера данных Azure
 
@@ -160,9 +160,9 @@
 
 - [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 - [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
-- [Использование аналитики озера данных Azure с хранилищем озера данных](data-lake-analytics-get-started-portal.md)
+- [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Начало работы с хранилищем озера данных с помощью PowerShell](data-lake-store-get-started-powershell.md)
 - [Начало работы с хранилищем озера данных с помощью пакета SDK .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/18/2016"
 	ms.author="meetb"/>
 
 
@@ -26,20 +26,21 @@
 
 В этом разделе объясняется, как подключиться к базе данных SQL Azure из клиентского приложения PHP, которое запущено в ОС Windows.
 
+## Шаг 1. Настройка среды разработки
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
-### База данных SQL
+## Шаг 2. Создание базы данных SQL
 
 Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
 
 
-## Шаг 1. Получение сведений о подключении
+## Шаг 3. Получение сведений о подключении
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Шаг 2. Подключение
+## Шаг 4. Подключение
 
 
 Эта функция **OpenConnection** вызывается перед выполнением всех последующих функций.
@@ -63,7 +64,7 @@
 	}
 
 
-## Шаг 3. Выполнение запроса
+## Шаг 5. Выполнение запроса
 
 Функция [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) может использоваться для извлечения результирующего набора из запроса к базе данных SQL. Эта функция фактически принимает любой запрос и объект соединения и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -93,9 +94,9 @@
 	}
 
 
-## Шаг 4. Вставка строки
+## Шаг 6. Вставка строки
 
-В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от [внедрения кода SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
+В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от внедрения кода SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	function InsertData()
@@ -123,7 +124,7 @@
 		}
 	}
 
-## Шаг 5. Откат транзакции
+## Шаг 7. Откат транзакции
 
 
 Этот пример кода демонстрирует использование транзакций, в которых можно:
@@ -180,4 +181,4 @@
 
 Дополнительные сведения об установке и использовании PHP см. в статье [Доступ к базам данных SQL Server с помощью PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

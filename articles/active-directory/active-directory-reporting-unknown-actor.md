@@ -3,7 +3,7 @@
    description="Описание события ";Неизвестный субъект"; в отчетах Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="SSalahAhmed"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/04/2016"
+   ms.author="saah"/>
 
 # Azure Active Directory сообщает о событии "Неизвестный субъект"
 
@@ -28,7 +28,7 @@
 
 ![](./media/active-directory-reporting-unknown-actor/spd-actor.png)
 
-Это известная ошибка, и мы тщательно работаем над ее устранением.
+Это известная ошибка, и мы работаем над ее устранением.
 
 ## Пользователь был удален из каталога перед обработкой события
 
@@ -36,8 +36,8 @@
 
 ![](./media/active-directory-reporting-unknown-actor/unknown-actor.png)
 
-Это известная ошибка, и мы тщательно работаем над ее устранением.
+Это известная ошибка, и мы работаем над ее устранением.
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

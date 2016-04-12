@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="02/03/2016" 
+    ms.date="03/30/2016" 
     ms.author="arramac"/>
     
 # Работа с геопространственными данными в Azure DocumentDB
@@ -102,7 +102,7 @@ DocumentDB поддерживает индексацию и запросы к г
        }
     };
 
-    client.createDocument(collectionLink, userProfileDocument, function (err, created) {
+    client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfileDocument, (err, created) => {
         // additional code within the callback
     });
 
@@ -124,7 +124,7 @@ DocumentDB поддерживает индексацию и запросы к г
     }
     
     await client.CreateDocumentAsync(
-        collection.SelfLink, 
+        UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
         new UserProfile 
         { 
             Name = "documentdb", 
@@ -237,7 +237,7 @@ DocumentDB поддерживает следующие встроенные фу
 
 **Запросы LINQ для определения расстояния**
 
-    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(collection.SelfLink)
+    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
         .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
@@ -259,7 +259,7 @@ DocumentDB поддерживает следующие встроенные фу
             })
         });
 
-    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(collection.SelfLink)
+    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
         .Where(a => a.Location.Within(rectangularArea)))
     {
         Console.WriteLine("\t" + user);
@@ -288,9 +288,9 @@ DocumentDB поддерживает следующие встроенные фу
              "path":"/*",
              "indexes":[
                 {
-                   "kind":"Hash",
+                   "kind":"Range",
                    "dataType":"String",
-                   "precision":3
+                   "precision":-1
                 },
                 {
                    "kind":"Range",
@@ -312,40 +312,31 @@ DocumentDB поддерживает следующие встроенные фу
 
 **Создание коллекции с пространственным индексированием**
 
-    IndexingPolicy spatialIndexingPolicy = new IndexingPolicy();
-    spatialIndexingPolicy.IncludedPaths.Add(new IncludedPath
-    {
-        Path = "/*",
-        Indexes = new System.Collections.ObjectModel.Collection<Index>()
-            {
-                new RangeIndex(DataType.Number) { Precision = -1 },
-                new RangeIndex(DataType.String) { Precision = -1 },
-                new SpatialIndex(DataType.Point)
-            }
-    });
-
-    Console.WriteLine("Creating new collection...");
-    collection = await client.CreateDocumentCollectionAsync(dbLink, collectionDefinition);
+    DocumentCollection spatialData = new DocumentCollection()
+    spatialData.IndexingPolicy = new IndexingPolicy(new SpatialIndex(DataType.Point)); //override to turn spatial on by default
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), spatialData);
 
 А вот как можно изменить существующую коллекцию, чтобы воспользоваться преимуществами пространственного индексирования всех точек, которые хранятся в документах.
 
 **Изменение коллекции с пространственным индексированием**
 
     Console.WriteLine("Updating collection with spatial indexing enabled in indexing policy...");
-    collection.IndexingPolicy = spatialIndexingPolicy; 
+    collection.IndexingPolicy = new IndexingPolicy(new SpatialIndex(DataType.Point));
     await client.ReplaceDocumentCollectionAsync(collection);
 
     Console.WriteLine("Waiting for indexing to complete...");
     long indexTransformationProgress = 0;
     while (indexTransformationProgress < 100)
     {
-        ResourceResponse<DocumentCollection> response = await client.ReadDocumentCollectionAsync(collection.SelfLink);
+        ResourceResponse<DocumentCollection> response = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"));
         indexTransformationProgress = response.IndexTransformationProgress;
 
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
 > [AZURE.NOTE] Если значение расположения GeoJSON в документе сформировано неверно или является недействительным, оно не будет индексироваться для пространственных запросов. Проверить значение расположения можно с помощью ST\_ISVALID и ST\_ISVALIDDETAILED.
+>
+> Если определение коллекции включает ключ секции, информация о ходе выполнения преобразования индекса не предоставляется.
 
 ## Дальнейшие действия
 Теперь, когда вы ознакомились с предварительными сведениями о поддержке геопространственных данных в DocumentDB, вы можете сделать следующее.
@@ -355,4 +346,4 @@ DocumentDB поддерживает следующие встроенные фу
 - Узнайте подробнее о [Запросах в DocumentDB](documentdb-sql-query.md).
 - Узнайте подробнее о [Политиках индексирования DocumentDB](documentdb-indexing-policies.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

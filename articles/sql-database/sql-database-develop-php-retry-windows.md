@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/18/2016"
 	ms.author="meetb"/>
 
 
@@ -26,23 +26,27 @@
 
 В этом разделе объясняется, как подключиться к базе данных SQL Azure из клиентского приложения PHP, которое запущено в ОС Windows.
 
+## Шаг 1. Настройка среды разработки
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
-### База данных SQL
+## Шаг 2. Создание базы данных SQL
 
 Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
 
 
-## Шаг 1. Получение сведений о подключении
+## Шаг 3. Получение сведений о подключении
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Шаг 2. Подключение и запрос
+## Шаг 4. Подключение и запрос
 
 Демонстрационная программа разработана так, чтобы временная ошибка во время попытки подключения вызывала повторную попытку. Тем не менее, в случае временной ошибки во время выполнения команды запроса программа отменяет текущее подключение и создает новое, прежде чем повторять попытку запроса. Мы не выступаем на за, ни против использования этого метода. Демонстрационная программа иллюстрирует некоторые возможности разработки, доступные пользователю.
 
-<br>Длина этого примера кода в основном связана с логикой перехвата исключений. Сокращенная версия файла Program.cs доступна [здесь](sql-database-develop-php-simple-windows.md). <br>Метод Main находится в файле Program.cs. Стек вызовов выполняется следующим образом: * Метод Main вызывает ConnectAndQuery. * ConnectAndQuery вызывает EstablishConnection. * EstablishConnection вызывает IssueQueryCommand.
+<br>Длина этого примера кода в основном связана с логикой перехвата исключений. Сокращенная версия файла Program.cs доступна [здесь](sql-database-develop-php-simple-windows.md). <br>Метод Main находится в файле Program.cs. Стек вызовов работает следующим образом.
+* Метод Main вызывает ConnectAndQuery.
+* ConnectAndQuery вызывает EstablishConnection.
+* EstablishConnection вызывает IssueQueryCommand.
 
 Функция [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) может использоваться для извлечения результирующего набора из запроса к базе данных SQL. Эта функция фактически принимает любой запрос и объект соединения и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -136,4 +140,4 @@
 
 Дополнительные сведения об установке и использовании PHP см. в статье [Доступ к базам данных SQL Server с помощью PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

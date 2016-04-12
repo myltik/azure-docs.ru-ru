@@ -3,9 +3,9 @@
 	description="В этом учебнике показано, как создать веб-приложение на PHP, которое хранит данные в базе данных SQL, и как использовать развертывание Git в службе приложений Azure." 
 	services="app-service\web, sql-database" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP" 
 	ms.topic="article" 
 	ms.date="02/09/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 # Создание веб-приложения PHP-SQL и развертывание в службе приложений App с помощью Git
 
@@ -298,4 +298,4 @@
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

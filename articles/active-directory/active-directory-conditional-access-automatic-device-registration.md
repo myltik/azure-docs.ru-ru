@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows
@@ -63,7 +63,7 @@
 - Разрешить использование сценариев: **включите**.
 - Автоматический вход только в зону интрасети: **установите флажок**.
 
-Это параметры по умолчанию для зоны безопасности локальной интрасети Internet Explorer. Эти параметры можно просматривать, а также управлять ими в Internet Explorer. Для этого выберите **Свойства обозревателя** > **Безопасность** > "Локальная интрасеть" > "Другой". Вы также можете настроить эти параметры с помощью групповой политики Active Directory.
+Это параметры по умолчанию для зоны безопасности локальной интрасети Internet Explorer. Эти параметры можно просматривать, а также управлять ими в Internet Explorer. Для этого выберите **Свойства обозревателя** > **Безопасность** > «Локальная интрасеть» > «Другой». Вы также можете настроить эти параметры с помощью групповой политики Active Directory.
 
 Сетевое подключение
 -------------------------------------------------------------
@@ -87,6 +87,8 @@
 
 * [Настройка автоматической регистрации присоединенных к домену устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
+* [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+
 Дополнительные замечания
 --------------------------------------------------------------------
 
@@ -101,5 +103,6 @@
 - [Общие сведения о регистрации устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 - [Настройка автоматической регистрации присоединенных к домену устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 - [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

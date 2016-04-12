@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="03/24/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Обзор установки заданий обработки эластичных баз данных
@@ -24,7 +24,7 @@
 
 ## Предварительные требования
 * Подписка Azure. Бесплатную пробную версию см. [здесь](https://azure.microsoft.com/pricing/free-trial/).
-* Версия Azure PowerShell не ниже 0.8.16. Установите последнюю версию (0.9.5) с помощью [установщика веб-платформы](http://go.microsoft.com/fwlink/p/?linkid=320376). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell. Установите последнюю версию с помощью [установщика веб-платформы](http://go.microsoft.com/fwlink/p/?linkid=320376). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 * [Служебная программа командной строки NuGet](https://nuget.org/nuget.exe) используется для установки пакета заданий обработки эластичных баз данных. Дополнительные сведения см. на веб-сайте http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## Загрузка и импорт пакета PowerShell службы заданий обработки эластичных баз данных
@@ -42,7 +42,7 @@
 
 4.	Запустите сценарий .\\InstallElasticDatabaseJobsCmdlets.ps1, чтобы скопировать каталог ElasticDatabaseJobs в папку $home\\Documents\\WindowsPowerShell\\Modules. При этом также будет автоматически импортирован используемый модуль, например:
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1 
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## Установка компонентов заданий обработки эластичных баз данных с помощью PowerShell
@@ -52,7 +52,7 @@
 
 2.	Запустите сценарий .\\InstallElasticDatabaseJobs.ps1 PowerShell и укажите значения необходимых переменных. Этот сценарий создаст компоненты, описанные в статье [Компоненты службы заданий обработки эластичных баз данных и цены](sql-database-elastic-jobs-overview/#components-and-pricing), и настроит облачную службу Azure для надлежащего использования зависящих компонентов.
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1 
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
 
 При выполнении этой команды появится окно, запрашивающее **Имя пользователя** и **Пароль**. Это не учетные данные Azure; введите имя пользователя и пароль, которые станут учетными данными администратора нового сервера.
@@ -151,13 +151,13 @@
 
 ## Установка компонентов заданий обработки эластичных баз данных с помощью портала
 
-[Создав пул](sql-database-elastic-pool-portal.md), вы можете установить компоненты **заданий обработки эластичных баз данных**, которые позволят выполнять административные задачи для каждой базы данных в пуле. В отличие от API-интерфейсов PowerShell **заданий обработки эластичных баз данных**, интерфейс портала в данный момент позволяет выполнять задания только для существующего пула.
+[Создав пул](sql-database-elastic-pool-create-portal.md), вы можете установить компоненты **заданий обработки эластичных баз данных**, которые позволят выполнять административные задачи для каждой базы данных в пуле. В отличие от API-интерфейсов PowerShell **заданий обработки эластичных баз данных**, интерфейс портала в данный момент позволяет выполнять задания только для существующего пула.
 
 
-**Предполагаемое время выполнения:** 10 минут.
+**Предполагаемое время выполнения:** 10 минут.
 
 1. В представлении панели мониторинга пула эластичных баз данных на [портале Azure](https://ms.portal.azure.com/#) нажмите **Создать задание**.
-2. Если вы создаете задание впервые, вам необходимо установить **службу заданий обработки эластичных баз данных**, выбрав **УСЛОВИЯ ИСПОЛЬЗОВАНИЯ ПРЕДВАРИТЕЛЬНОЙ ВЕРСИИ**. 
+2. Если вы создаете задание впервые, вам необходимо установить **службу заданий обработки эластичных баз данных**, выбрав **УСЛОВИЯ ИСПОЛЬЗОВАНИЯ ПРЕДВАРИТЕЛЬНОЙ ВЕРСИИ**.
 3. Примите условия, установив соответствующий флажок.
 4. В представлении «Установка служб» щелкните **УЧЕТНЫЕ ДАННЫЕ ДЛЯ ЗАДАНИЯ**.
 
@@ -186,6 +186,5 @@
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

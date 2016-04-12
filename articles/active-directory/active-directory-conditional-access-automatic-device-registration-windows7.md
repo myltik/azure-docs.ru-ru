@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Настройка автоматической регистрации присоединенных к домену устройств Windows 7
@@ -48,7 +48,8 @@
     
     %ProgramFiles%\Microsoft Workplace Join\AutoWorkplace.exe /leave
 
->[AZURE.NOTE]Эта команда должна выполняться в контексте каждого пользователя домена, вошедшего в установленную на компьютере систему. Просмотр событий и ошибок, связанных с присоединенными к домену устройствами Windows 7
+>[AZURE.NOTE]
+Эта команда должна выполняться в контексте каждого пользователя домена, вошедшего в установленную на компьютере систему. Просмотр событий и ошибок, связанных с присоединенными к домену устройствами Windows 7
 
 На компьютере под управлением Windows 7 сообщения, связанные с присоединением к рабочей области, отображаются в журнале событий Windows. Здесь вы можете просмотреть все события присоединения к рабочей области, как успешные, так и завершившиеся сбоем. Журнал событий можно найти в разделе «Просмотр событий» в меню «Журналы приложений и служб» > «Microsoft — присоединение к рабочей области».
 
@@ -57,7 +58,8 @@
 - [Общие сведения о регистрации устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 - [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)
 - [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

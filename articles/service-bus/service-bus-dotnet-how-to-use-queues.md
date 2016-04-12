@@ -28,7 +28,7 @@
 
 ## Получение пакета NuGet для служебной шины
 
-Пакет [**NuGet** для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus) — это самый простой способ получить интерфейс API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины. Расширение NuGet для Visual Studio упрощает установку и обновление библиотек и инструментов в Visual Studio и Visual Studio Express. Пакет NuGet для служебной шины является самым простым способом получить интерфейс API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины.
+Пакет [**NuGet** для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus) — это самый простой способ получить интерфейс API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины. Расширение NuGet для Visual Studio упрощает установку и обновление библиотек и инструментов в Visual Studio и Visual Studio Express. Пакет NuGet для служебной шины является самым простым способом получить интерфейс API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины.
 
 Для установки пакета NuGet в приложении выполните следующие действия:
 
@@ -121,7 +121,7 @@ if (!namespaceManager.QueueExists("TestQueue"))
 }
 ```
 
-Существуют перегруженные версии метода [CreateQueue](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx), позволяющие настраивать свойства очереди, например задавать стандартное значение для срока жизни (TimeToLive) сообщений, отправленных в очередь. Эти параметры применяются с помощью класса [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). В следующем примере показано, как создать очередь `TestQueue` с максимальным размером 5 ГБ и стандартным сроком жизни сообщения, равным 1 минуте.
+Существуют перегруженные версии метода [CreateQueue](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx), позволяющие настраивать свойства очереди, например задавать стандартное значение для срока жизни (TimeToLive) сообщений, отправленных в очередь. Эти параметры применяются с помощью класса [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). В следующем примере показано, как создать очередь `TestQueue` с максимальным размером 5 ГБ и стандартным сроком жизни сообщения, равным 1 минуте.
 
 ```
 // Configure queue settings.
@@ -179,7 +179,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Очереди служебной шины поддерживают [максимальный размер сообщения 256 КБ](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ). Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ. Если включено разделение, максимальный размер больше. Дополнительные сведения см. в статье [Секционированные сущности обмена сообщениями](service-bus-partitioning.md).
+Очереди служебной шины поддерживают [максимальный размер сообщения 256 КБ](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ). Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ. Если включено разделение, максимальный размер больше. Дополнительные сведения см. в статье [Секционированные сущности обмена сообщениями](service-bus-partitioning.md).
 
 ## Как получать сообщения из очереди
 
@@ -224,7 +224,7 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-В этом примере обратный вызов [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) настраивается с помощью объекта [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). Для [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) устанавливается значение **False**. Это позволяет вручную определять время вызова метода [Complete][] для полученного сообщения. Для [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) устанавливается значение 1 минута. Клиент ожидает сообщение в течение одной минуты, после чего срок действия вызова истекает и клиент создает новый вызов для проверки сообщений. Значение этого свойства сокращает количество создаваемых клиентом оплачиваемых вызовов, не приводящих к получению сообщений.
+В этом примере обратный вызов [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) настраивается с помощью объекта [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). Для [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) устанавливается значение **False**. Это позволяет вручную определять время вызова метода [Complete][] для полученного сообщения. Для [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) устанавливается значение 1 минута. Клиент ожидает сообщение в течение одной минуты, после чего срок действия вызова истекает и клиент создает новый вызов для проверки сообщений. Значение этого свойства сокращает количество создаваемых клиентом оплачиваемых вызовов, не приводящих к получению сообщений.
 
 ## Как обрабатывать сбои приложения и нечитаемые сообщения
 
@@ -232,7 +232,7 @@ Client.OnMessage((message) =>
 
 Кроме того, с сообщением, блокированным в очереди, связано время ожидания. Если приложение не сможет обработать сообщение в течение времени ожидания (например, при сбое приложения), служебная шина автоматически разблокирует сообщение и снова сделает его доступным для получения.
 
-Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса [Complete][], такое сообщение будет повторно доставлено в приложение после его перезапуска. Часто этот подход называют **Обработать хотя бы один раз**, т. е. каждое сообщение будет обрабатываться минимум один раз, но в некоторых случаях это же сообщение может быть доставлено повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) сообщения, которое остается постоянным в ходе разных попыток доставки.
+Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса [Complete][], такое сообщение будет повторно доставлено в приложение после его перезапуска. Часто этот подход называют **Обработать хотя бы один раз**, т. е. каждое сообщение будет обрабатываться минимум один раз, но в некоторых случаях это же сообщение может быть доставлено повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) сообщения, которое остается постоянным в ходе разных попыток доставки.
 
 ## Дальнейшие действия
 
@@ -255,4 +255,4 @@ Client.OnMessage((message) =>
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

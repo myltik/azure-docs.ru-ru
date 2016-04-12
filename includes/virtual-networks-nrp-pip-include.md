@@ -36,8 +36,8 @@
 
 ### Дополнительные ресурсы
 
-- См. дополнительные сведения об [общедоступных IP-адресах](virtual-networks-reserved-public-ip.md).
-- Узнайте об [общедоступных IP-адресах уровня экземпляра](virtual-networks-instance-level-public-ip.md).
+- См. дополнительные сведения об [общедоступных IP-адресах](../articles/virtual-network/virtual-networks-reserved-public-ip.md).
+- Узнайте об [общедоступных IP-адресах уровня экземпляра](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 - Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163638.aspx) для общедоступных IP-адресов.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

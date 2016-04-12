@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="02/29/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Проверка подлинности субъекта-службы в диспетчере ресурсов Azure
@@ -120,7 +120,7 @@
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. Получите приложение Active Directory. При входе в систему нужно будет указать идентификатор приложения.
+2. Получите приложение Active Directory. При входе нужно будет указать идентификатор приложения.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
@@ -231,7 +231,7 @@
 <a id="provide-certificate-through-automated-powershell-script" />
 ### Предоставление сертификата с помощью автоматизированного сценария PowerShell
 
-1. Получите приложение Active Directory. При входе в систему нужно будет указать идентификатор приложения.
+1. Получите приложение Active Directory. При входе нужно будет указать идентификатор приложения.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -279,8 +279,11 @@
     }        
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
-    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred);
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
         
 
@@ -337,13 +340,13 @@
 
 Если вы хотите выполнить вход как субъект-служба вручную, воспользуйтесь командой **azure login**. При этом нужно указать идентификатор клиента, идентификатор приложения и пароль. Включать пароль непосредственно в сценарий небезопасно, поскольку в этом случае он сохраняется в файл. Более удачный вариант выполнения автоматизированного сценария см. в следующем разделе.
 
-1. Определите значение **TenantId** для подписки, в которую входит субъект-служба. Прежде чем передавать его как параметр, удалите открывающие и закрывающие кавычки из полученных выходных данных JSON.
+1. Определите значение **TenantId** для подписки, в которую входит субъект-служба. Чтобы получить идентификатор клиента для текущей аутентифицированной подписки, не нужно указывать идентификатор подписки в качестве параметра. Параметр **-r** позволяет получить значение без кавычек.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 2. В качестве имени пользователя используйте значение **AppId**, которое применялось при создании субъекта-службы. Чтобы получить идентификатор приложения, используйте указанную ниже команду. Укажите имя приложения Active Directory в параметре **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 3. Выполните вход как субъект-служба.
 
@@ -365,17 +368,17 @@
 
 Эти действия предполагают, что вы настроили хранилище ключей и секрет, в котором хранится пароль. Инструкции по развертыванию хранилища ключей и секрета с использованием шаблона см. в статье [Формат шаблона хранилища ключей](). Сведения о хранилище ключей см. в разделе [Приступая к работе с хранилищем ключей Azure](./key-vault/key-vault-get-started.md).
 
-1. Извлеките пароль (в приведенном ниже примере он хранится в виде секрета с именем **appPassword**) из хранилища ключей. Прежде чем передавать его как параметр password, удалите открывающие и закрывающие кавычки из полученных выходных данных JSON.
+1. Извлеките пароль (в приведенном ниже примере он хранится в виде секрета с именем **appPassword**) из хранилища ключей. Добавьте параметр **-r**, чтобы удалить открывающие и закрывающие двойные кавычки из полученных выходных данных JSON.
 
-        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq '.value' | sed -e 's/^"//' -e 's/"$//')
+        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq -r '.value')
     
-2. Определите значение **TenantId** для подписки, в которую входит субъект-служба.
+2. Определите значение **TenantId** для подписки, в которую входит субъект-служба. Чтобы получить идентификатор клиента для текущей аутентифицированной подписки, не нужно указывать идентификатор подписки в качестве параметра.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. В качестве имени пользователя используйте значение **AppId**, которое применялось при создании субъекта-службы. Чтобы получить идентификатор приложения, используйте указанную ниже команду. Укажите имя приложения Active Directory в параметре **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. Войдите в систему как субъект-служба, указав идентификатор приложения, пароль из хранилища ключей и идентификатор клиента.
 
@@ -460,13 +463,13 @@
 
         30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
-2. Определите значение **TenantId** для подписки, в которую входит субъект-служба.
+2. Определите значение **TenantId** для подписки, в которую входит субъект-служба. Чтобы получить идентификатор клиента для текущей аутентифицированной подписки, не нужно указывать идентификатор подписки в качестве параметра. Параметр **-r** позволяет получить значение без кавычек.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. В качестве имени пользователя используйте значение **AppId**, которое применялось при создании субъекта-службы. Чтобы получить идентификатор приложения, используйте указанную ниже команду. Укажите имя приложения Active Directory в параметре **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. Для проверки подлинности в интерфейсе командной строки Azure укажите отпечаток сертификата, файл сертификата, идентификатор приложения и идентификатор клиента.
 
@@ -503,10 +506,13 @@
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
     var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
        
-Дополнительные сведения об использовании сертификатов и интерфейса командной строки Azure см. в статье [Проверка подлинности для субъектов-служб Azure на основе сертификатов из командной строки Linux](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx).
+Дополнительные сведения об использовании сертификатов и интерфейса командной строки Azure см. в статье [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx).
 
 ## Дальнейшие действия
   
@@ -517,4 +523,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

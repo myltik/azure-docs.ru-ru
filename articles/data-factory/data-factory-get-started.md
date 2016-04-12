@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/01/2016"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 # Учебник. Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL Azure
@@ -22,6 +22,7 @@
 - [Редактор фабрики данных](data-factory-get-started-using-editor.md)
 - [с использованием PowerShell.](data-factory-monitor-manage-using-powershell.md)
 - [Visual Studio](data-factory-get-started-using-vs.md)
+- [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
 
 В этом учебнике будет создана фабрика данных Azure и конвейер с действием копирования, который будет выполнять копирование данных из хранилища BLOB-объектов Azure в базу данных SQL Azure.
 
@@ -115,4 +116,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

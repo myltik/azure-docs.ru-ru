@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Приступая к работе с соединителем Salesforce: добавление в приложение логики
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview, щелкните [API Salesforce](../connectors/create-api-salesforce.md).
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview, щелкните [API Salesforce](../connectors/connectors-create-api-salesforce.md).
 
 Подключитесь к Salesforce для создания и изменения сущностей, таких как учетные записи, интересы и пр. Ниже приведены типичные сценарии интеграции, включающие Salesforce.
 
@@ -108,4 +108,4 @@
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

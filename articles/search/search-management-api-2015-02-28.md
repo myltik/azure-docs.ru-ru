@@ -481,6 +481,8 @@ API REST управления службой поиска Azure предоста
 
     PUT https://management.azure.com/subscriptions/[subscriptionId]/resourcegroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28
 
+> [AZURE.NOTE] При использовании PUT для обновления службы необходимо использовать текст запроса, использованный запросе [Создать службу](#CreateService).
+
 ###Параметры URI запроса###
 
 `subscriptionId`: обязательный параметр. `subscriptionID` пользователя Azure. Это значение можно получить от API-интерфейса диспетчера ресурсов Azure или портала.
@@ -826,4 +828,4 @@ API-ключи, особенно ключи администраторов, не
 
 Нет.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

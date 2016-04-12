@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 
@@ -627,7 +627,6 @@ RunHiveScript имеет несколько переменных. Вы пере�
 - [Использование Sqoop с Hadoop в HDInsight][hdinsight-use-sqoop]
 - [Использование Hive с Hadoop в HDInsight][hdinsight-use-hive]
 - [Использование Pig с Hadoop в HDInsight][hdinsight-use-pig]
-- [Разработка заданий потоковой передачи Hadoop на C# для HDInsight][hdinsight-develop-streaming-jobs]
 - [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -653,7 +652,6 @@ RunHiveScript имеет несколько переменных. Вы пере�
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
 
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
@@ -680,4 +678,4 @@ RunHiveScript имеет несколько переменных. Вы пере�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

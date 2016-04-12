@@ -13,14 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # Справочные темы по хранилищу данных SQL
 
 Приведенные ниже статьи содержат справочные сведения о хранилище данных SQL.
 
-[Элементы языка Transact-SQL][] [Инструкции Transact-SQL][] [Системные представления Transact-SQL][] [Командлеты PowerShell][]
+- [Элементы языка Transact-SQL][]
+- [Инструкции Transact-SQL][]
+- [Системные представления Transact-SQL][]
+- [Командлеты PowerShell][]
 
 
 
@@ -39,4 +42,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0316_2016-->
