@@ -39,6 +39,6 @@
 5.	[Развертывание веб-службы](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Доступ к веб-службе](machine-learning-walkthrough-6-access-web-service.md)
 
-В этом пошаговом руководстве используется упрощенная версия примера эксперимента [Двоичная классификация: прогнозирование кредитных рисков](http://go.microsoft.com/fwlink/?LinkID=525270) из [коллекции Cortana Analytics](http://gallery.cortanaanalytics.com/).
+В этом пошаговом руководстве используется упрощенная версия примера эксперимента [Двоичная классификация: прогнозирование кредитных рисков](http://go.microsoft.com/fwlink/?LinkID=525270) из [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

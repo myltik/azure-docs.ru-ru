@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Быстрое создание виртуальной машины Linux в Azure с помощью интерфейса командной строки | Microsoft Azure"
-   description="Быстрое создание виртуальной машины Linux в Azure с помощью интерфейса командной строки."
+   pageTitle="Создание виртуальной машины Linux в Azure с помощью интерфейса командной строки | Microsoft Azure"
+   description="Создание виртуальной машины Linux в Azure с помощью интерфейса командной строки."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="vlivech"
@@ -10,32 +10,29 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="03/28/2016"
+   ms.date="04/04/2016"
    ms.author="v-livech"/>
 
 
-# Быстрое создание виртуальной машины Linux в Azure с помощью интерфейса командной строки
+# Создание виртуальной машины Linux в Azure с помощью интерфейса командной строки
 
-В этой статье показано, как быстро создать виртуальную машину Linux с помощью команды `azure vm quick-create` [интерфейса командной строки Azure](../xplat-cli-install.md).
-
-[AZURE.NOTE] В этом разделе показано, как быстро создать виртуальную машину Linux в базовой среде Azure для предоставления пробной версии, тестирования и других сценариев кратковременного использования. Для применения виртуальных машин Linux в рабочей среде или других сценариях долговременного использования следует создавать более безопасные среды Azure.
-
-Необходимые компоненты: [учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/), [открытый и закрытый ключи SSH](virtual-machines-linux-mac-create-ssh-keys.md), группа ресурсов Azure (будет создана далее) и интерфейс командной строки Azure, установленный и переведенный в режим ARM с помощью `azure config mode arm`.
+Из этой статьи вы узнаете, как быстро создать виртуальную машину Linux в Azure с помощью команды `azure vm quick-create` (команда Azure CLI). Эта команда создает виртуальную машину с базовой инфраструктурой, которую можно использовать для создания прототипов и тестирования концепций. Для работы с этой статьей вам потребуется учетная запись Azure ([бесплатная пробная версия](https://azure.microsoft.com/pricing/free-trial/)) и [Azure CLI](../xplat-cli-install.md) в режиме Resource Manager (`azure config mode arm`).
 
 ## Краткая сводка по командам
 
-Выполняется только одна команда:
-
-1. `azure vm quick-create`
+```
+# One command to quickly the VM that prompts for arguments
+chrisL@fedora$ azure vm quick-create
+```
 
 ## Подробные пошаговые инструкции
 
 ### Создание виртуальной машины Linux
 
-В следующей команде можно использовать любой образ, однако в этом примере применяется `canonical:ubuntuserver:14.04.2-LTS:latest` для быстрого создания виртуальной машины. (Чтобы найти образ в магазине, [выполните поиск образа](virtual-machines-linux-cli-ps-findimage.md). Также можно [отправить собственный образ](virtual-machines-linux-create-upload-generic.md).) Должны отобразиться примерно следующие данные.
+В следующей команде можно использовать любой образ. Для быстрого создания виртуальной машины мы будем использовать `canonical:ubuntuserver:14.04.2-LTS:latest`. (Чтобы найти образ в магазине Marketplace, [воспользуйтесь поиском](virtual-machines-linux-cli-ps-findimage.md). Также можно [отправлять собственные образы](virtual-machines-linux-create-upload-generic.md).) Должны отобразиться примерно следующие данные.
 
 В примерах команд ниже замените значения между &lt; и &gt; значениями, соответствующими вашей среде.
 
@@ -47,7 +44,7 @@ Resource group name: exampleResourceGroup
 Virtual machine name: exampleVMname
 Location name: westus
 Operating system Type [Windows, Linux]: linux
-ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: canonical:ubuntuserver:14.04.2-LTS:latest
+ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: Canonical:UbuntuServer:14.04.4-LTS:latest
 User name: ops
 Password: *********
 Confirm password: *********
@@ -127,7 +124,7 @@ info:    vm quick-create command OK
 
 Теперь можно подключиться по SSH к виртуальной машине через порт SSH 22 по умолчанию.
 
-Команда `azure vm quick-create` быстро создает виртуальную машину, чтобы можно было войти в систему и приступить к работе. В этой машине нет сложной среды, однако если вам нужно задать свои параметры, можно [воспользоваться шаблоном Azure Resource Manager для быстрого создания конкретного развертывания](virtual-machines-linux-cli-deploy-templates.md) либо [создать собственную пользовательскую среду для виртуальной машины Linux непосредственно с помощью команд интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates.md).
+Команда `azure vm quick-create` быстро создает виртуальную машину, после чего вы можете войти на нее и начинать с ней работать. Среда этой машины простая, но если вам нужно настроить собственную среду, это можно сделать с помощью [шаблона Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md). Кроме того, вы можете [создать собственную пользовательскую среду для виртуальной машины Linux с помощью команд Azure CLI](virtual-machines-linux-cli-deploy-templates.md).
 
 В приведенном выше примере создается:
 
@@ -149,4 +146,4 @@ info:    vm quick-create command OK
 
 Для этого также имеется множество закрытых и открытых средств развертывания инфраструктуры, настройки и взаимодействия.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

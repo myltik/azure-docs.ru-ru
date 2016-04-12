@@ -194,6 +194,89 @@ C помощью монитора состояний Visual Studio Application I
 
 Поддерживаются такие версии IIS: 7, 7.5, 8, 8.5 (IIS – обязательный компонент).
 
+## Автоматизация с помощью PowerShell
+
+Мониторинг можно запускать и останавливать с помощью PowerShell.
+
+`Get-ApplicationInsightsMonitoringStatus [-Name appName]`
+
+* `-Name` (необязательный параметр) — имя веб-приложения.
+* Отображает состояние мониторинга Application Insights для каждого веб-приложения (или именованного приложения) на этом сервере IIS.
+
+* Возвращает `ApplicationInsightsApplication` для каждого приложения:
+ * `SdkState==EnabledAfterDeployment`: приложение отслеживается. Оно инструментировано во время выполнения с помощью монитора состояния или командлета `Start-ApplicationInsightsMonitoring`.
+ * `SdkState==Disabled`: приложение не инструментировано для Application Insights. Оно либо никогда не было инструментировано, либо мониторинг был отключен во время выполнения с помощью монитора состояния или командлета `Stop-ApplicationInsightsMonitoring`.
+ * `SdkState==EnabledByCodeInstrumentation`: приложение было инструментировано путем добавления пакета SDK в исходный код. Этот пакет SDK нельзя обновить или остановить.
+ * `SdkVersion` отображает версию, которая используется для мониторинга этого приложения.
+ * `LatestAvailableSdkVersion` отображает версию, доступную в настоящее время в коллекции NuGet. Чтобы обновить приложение до этой версии, используйте командлет `Update-ApplicationInsightsMonitoring`.
+
+`Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
+
+* `-Name` — имя приложения в IIS.
+* `-InstrumentationKey` — ключ инструментирования ресурса Application Insights, в котором должны отображаться результаты.
+
+* Этот командлет влияет только на приложения, которые еще не инструментированы, то есть SdkState==NotInstrumented.
+
+    Командлет не влияет на приложение, которое уже было инструментировано путем добавления пакета SDK в код во время сборки или с использованием этого же командлета ранее во время выполнения.
+
+    Версия пакета SDK для инструментирования приложения — это последняя версия, загруженная на этот сервер.
+
+    Чтобы загрузить последнюю версию, используйте командлет Update-ApplicationInsightsVersion.
+
+* В случае успешного выполнения возвращает `ApplicationInsightsApplication`. В случае сбоя трассировка записывается в stderr.
+
+    
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.1
+          LatestAvailableSdkVersion : 1.2.3
+
+`Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
+
+* `-Name` — имя приложения в IIS.
+* `-All` останавливает мониторинг всех приложений на этом сервере IIS, для которого `SdkState==EnabledAfterDeployment`.
+
+* Останавливает мониторинг для указанных приложений и удаляет инструментирование. Это применимо только для приложений, инструментированных во время выполнения с помощью монитора состояния или командлета Start-ApplicationInsightsApplication. (`SdkState==EnabledAfterDeployment`)
+
+* Возвращает ApplicationInsightsApplication.
+
+`Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
+
+* `-Name` — имя веб-приложения в IIS.
+* `-InstrumentationKey` (необязательный параметр) используется для изменения ресурса, в который отправляются данные телеметрии приложения.
+* Этот командлет:
+ * Обновляет именованное приложение до последней версии пакета SDK, загруженной на этот компьютер (работает только в том случае, если `SdkState==EnabledAfterDeployment`).
+ * Если указан ключ инструментирования, именованное приложение повторно настраивается для отправки данных телеметрии в ресурс с этим ключом (работает, если `SdkState != Disabled`).
+
+`Update-ApplicationInsightsVersion`
+
+* Загружает последний пакет SDK для Application Insights на сервер.
+
+## Шаблон Azure
+
+Если веб-приложение работает в Azure и вы создаете ресурсы с помощью шаблона Azure Resource Manager, можно настроить Application Insights, добавив следующий код в узел ресурсов:
+
+    {
+      resources: [
+        /* Create Application Insights resource */
+        {
+          "apiVersion": "2015-05-01",
+          "type": "microsoft.insights/components",
+          "name": "nameOfAIAppResource",
+          "location": "centralus",
+          "kind": "web",
+          "properties": { "ApplicationId": "nameOfAIAppResource" },
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', myWebAppName)]"
+          ]
+        }
+       ]
+     } 
+
+* `nameOfAIAppResource` — имя ресурса Application Insights.
+* `myWebAppName` — идентификатор веб-приложения.
 
 ## <a name="next"></a>Дальнейшие действия
 
@@ -219,4 +302,4 @@ C помощью монитора состояний Visual Studio Application I
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

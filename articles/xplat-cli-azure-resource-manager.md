@@ -165,7 +165,7 @@
 
 Также можно использовать шаблон непосредственно с сайта [GitHub](https://github.com/Azure/azure-quickstart-templates), не загружая его на компьютер. Для этого укажите URL-адрес файла azuredeploy.json для шаблона в команде с помощью параметра **--template-url**. Чтобы получить URL-адрес, откройте файл azuredeploy.json на GitHub в режиме _raw_ и скопируйте URL-адрес из адресной строки браузера. С помощью этого URL-адреса можно напрямую создать развертывание с помощью команды, аналогичной следующей.
 
-	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
+	azure group deployment create "testRG" testDeploy --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 Вам будет предложено ввести параметры шаблона.
 
 > [AZURE.NOTE] Важно открыть шаблон JSON в режиме _raw_. URL-адрес в адресной строке браузера отличается от адреса, который отображается в обычном режиме. Чтобы открыть файл в режиме _raw_, при просмотре на сайте GitHub нажмите кнопку **Raw** (Без обработки) в правом верхнем углу экрана.
@@ -215,4 +215,4 @@
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

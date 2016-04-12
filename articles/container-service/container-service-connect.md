@@ -104,10 +104,39 @@ export DOCKER_HOST=:2375
 
 После настройки туннеля для Docker Swarm доступ к кластеру Swarm можно получать через интерфейс командной строки Docker. Сначала необходимо настроить переменную среды Windows с именем `DOCKER_HOST` и значением ` :2375`.
 
+## Устранение неполадок
+
+### После создания туннеля и перехода по ссылке на Mesos или Marathon появляется ошибка 502 "Недопустимый шлюз"
+Самый простой способ решить эту проблему — удалить кластер и развернуть его повторно. Кроме того, можно принудительно заставить Zookeeper выполнить автоматическое восстановление. Для этого сделайте следующее:
+
+Войдите на каждый главный сервер и выполните следующие команды:
+
+```
+sudo service nginx stop
+sudo service marathon stop
+sudo service chronos stop
+sudo service mesos-dns stop
+sudo service mesos-master stop 
+sudo service zookeeper stop
+```
+
+Затем, когда на всех главных серверах все службы будут остановлены, выполните следующие команды:
+```
+sudo mkdir /var/lib/zookeeperbackup
+sudo mv /var/lib/zookeeper/* /var/lib/zookeeperbackup
+sudo service zookeeper start
+sudo service mesos-master start
+sudo service mesos-dns start
+sudo service chronos start
+sudo service marathon start
+sudo service nginx start
+```
+Когда все службы перезапустятся, вы сможете работать с кластером, как описано в документации.
+
 ## Дальнейшие действия
 
 Развертывание контейнеров и управление ими с помощью Mesos или Swarm.
 
 - [Работа со службой контейнеров Azure и Mesos](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

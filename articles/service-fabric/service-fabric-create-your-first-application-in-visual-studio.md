@@ -127,7 +127,11 @@
 
 ## Дальнейшие действия
 
-- [Узнайте, как предоставить доступ к службам из Интернета с помощью внешнего интерфейса веб-службы.](service-fabric-add-a-web-frontend.md)
+<!--
+Temporarily removing this link because we have removed the ASP.NET template.
+
+ - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
+-->
 - [Узнайте, как создавать кластер в Azure.](service-fabric-cluster-creation-via-portal.md)
 - [Узнайте больше о Reliable Services.](service-fabric-reliable-services-quick-start.md)
 - [Попробуйте создать службу с помощью модели программирования Reliable Actors.](service-fabric-reliable-actors-get-started.md)
@@ -146,4 +150,4 @@
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
