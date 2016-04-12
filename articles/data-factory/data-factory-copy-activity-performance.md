@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Руководство по настройке производительности действия копирования"
+	pageTitle="Руководство по настройке производительности действия копирования | Microsoft Azure"
 	description="Узнайте о ключевых факторах, которые влияют на производительность перемещения данных в фабрике данных Azure с использованием действия копирования."
 	services="data-factory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 
@@ -224,4 +224,4 @@
 - Локальный SQL Server: [Мониторинг и настройка производительности](https://msdn.microsoft.com/library/ms189081.aspx).
 - Локальный файловый сервер: [Настройка производительности для файловых серверов](https://msdn.microsoft.com/library/dn567661.aspx).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

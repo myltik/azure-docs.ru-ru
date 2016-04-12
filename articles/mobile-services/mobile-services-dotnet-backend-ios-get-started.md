@@ -13,19 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
-
->[AZURE.TIP] Если вы не знакомы с разработкой приложений для мобильных устройств с помощью Microsoft Azure, [начните работу с мобильными приложениями](../app-service-mobile/app-service-mobile-dotnet-backend-ios-get-started-preview.md), а не с мобильными службами Azure. Мобильные приложения предоставляют [дополнительные преимущества](../app-service-mobile/app-service-mobile-value-prop-migration-from-mobile-services.md).
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Создание приложения iOS в мобильных приложениях Azure](../app-service-mobile/app-service-mobile-ios-get-started.md).
 
 В этом учебнике показано, как добавить облачную серверную службу в приложение iOS с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение _To do list_, хранящее данные приложения в новой мобильной службе. Мобильная служба использует .NET и Visual Studio для серверной бизнес-логики. Сведения о создании мобильной службы с серверной бизнес-логикой на JavaScript см. в разделе [Серверная версия JavaScript] этой статьи.
 
@@ -103,4 +101,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Серверная версия JavaScript]: mobile-services-ios-get-started.md
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

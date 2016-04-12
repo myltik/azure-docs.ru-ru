@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/09/2016"
+   ms.date="03/08/2016"
    ms.author="brjohnst"/>
 
 # Использование службы поиска Azure в приложении .NET
@@ -644,6 +644,4 @@ Hotel.cs:
         }
     }
 
-Полный образец исходного кода также можно найти [на GitHub](http://aka.ms/search-dotnet-howto).
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

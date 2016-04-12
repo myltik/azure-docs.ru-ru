@@ -1,4 +1,5 @@
 
+
 <properties
 	pageTitle="Поток кода авторизации OAuth 2.0 в Azure AD | Microsoft Azure"
 	description="Построение веб-приложений с помощью реализации протокола проверки подлинности OAuth 2.0 в Azure AD."
@@ -13,7 +14,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
@@ -48,24 +49,20 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
 ```
 
-> [AZURE.TIP] Попробуйте вставить запрос, показанный ниже, в браузер.
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345
-```
+> [AZURE.TIP] Чтобы выполнить этот запрос, щелкните ссылку ниже! После входа в браузере будет выполнено перенаправление на адрес `https://localhost/myapp/` с `code` в адресной строке. <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Параметр | | Описание |
 | ----------------------- | ------------------------------- | --------------- |
-| tenant | обязательно | Значение `{tenant}` в пути запроса можно использовать для контроля над тем, кто может выполнять вход в приложение. Допустимые значения: `common`, `organizations`, `consumers`, а также идентификаторы клиента. Дополнительные сведения см. в разделе [основных сведений о протоколе](active-directory-v2-protocols.md#endpoints). |
+| tenant | обязательно | Значение `{tenant}` в пути запроса можно использовать для контроля над тем, кто может выполнять вход в приложение. Допустимые значения: `common`, `organizations`, `consumers`, а также идентификаторы клиента. Дополнительную информацию см. в разделе с [основными сведениями о протоколе](active-directory-v2-protocols.md#endpoints). |
 | client\_id | обязательно | Идентификатор приложения, назначенный приложению порталом регистрации ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)). |
 | response\_type | обязательно | Должен содержать `code` для потока кода авторизации. |
 | redirect\_uri | рекомендуется | URI перенаправления приложения, на который можно отправлять ответы проверки подлинности для их получения приложением. Он должен в точности соответствовать одному из URI перенаправления, зарегистрированных на портале, но иметь форму закодированного URL-адреса. Для собственных и мобильных приложений следует использовать значение `urn:ietf:wg:oauth:2.0:oob` по умолчанию. |
 | scope | обязательно | Разделенный пробелами список [областей](active-directory-v2-scopes.md), для которого необходимо согласие пользователя. |
 | response\_mode | рекомендуется | Указывает метод, с помощью которого результирующий маркер будет отправлен приложению. Может иметь значение `query` или `form_post`. |
-| state | рекомендуется | Значение, включенное в запрос, которое также возвращается в ответе маркера. Это может быть строка любого контента. Как правило, для [предотвращения подделки межсайтовых запросов](http://tools.ietf.org/html/rfc6749#section-10.12) используется генерируемое случайным образом уникальное значение. Параметр "state" также используется для кодирования информации о состоянии пользователя в приложении перед созданием запроса на проверку подлинности, например информации об открытой на тот момент странице или представлении. |
+| state | рекомендуется | Значение, включенное в запрос, которое также возвращается в ответе маркера. Это может быть строка любого контента. Как правило, для [предотвращения подделки межсайтовых запросов](http://tools.ietf.org/html/rfc6749#section-10.12) применяется генерируемое случайным образом уникальное значение. Параметр "state" также используется для кодирования информации о состоянии пользователя в приложении перед созданием запроса на проверку подлинности, например информации об открытой на тот момент странице или представлении. |
 | prompt | необязательный | Указывает требуемый тип взаимодействия с пользователем. На текущий момент единственные допустимые значения — "login", "none" и "consent". При значении `prompt=login` пользователю придется вводить учетные данные по запросу. Единый вход не сработает. Значение `prompt=none` является противоположным — оно гарантирует, что интерактивные запросы не будут выводиться ни при каких обстоятельствах. Если запрос не удастся завершить автоматически через единый вход, конечная точка версии 2.0 вернет ошибку. После входа пользователя `prompt=consent` откроет диалоговое окно согласия OAuth с запросом на предоставление разрешений приложению. |
 | login\_hint | необязательный | Можно применять для предварительного заполнения поля имени пользователя или электронного адреса на странице входа пользователя (если имя пользователя известно заранее). Зачастую этот параметр используется в приложениях при повторной аутентификации. При этом имя пользователя извлекается во время предыдущего входа с помощью утверждения `preferred_username`. |
-| domain\_hint | необязательный | Может использоваться значение `consumers` или `organizations`. Если используется этот параметр, процесс обнаружения на основе электронной почты, который проходит пользователь на странице входа в приложение версии 2.0, пропускается, что существенно оптимизирует работу. Обычно этот параметр используется в приложениях при повторной аутентификации. Для этого значение утверждения `tid` извлекается из предыдущего сеанса входа. Если значение утверждения `tid` — `9188040d-6c67-4c5b-b112-36a304b66dad`, следует использовать `domain_hint=consumers`. Или используйте `domain_hint=organizations`. |
+| domain\_hint | необязательный | Может использоваться значение `consumers` или `organizations`. Если используется этот параметр, процесс обнаружения на основе электронной почты, который проходит пользователь на странице входа в приложение версии 2.0, пропускается, что существенно оптимизирует работу. Обычно этот параметр применяется в приложениях при повторной аутентификации. Для этого значение утверждения `tid` извлекается из предыдущего сеанса входа. Если значение утверждения `tid` — `9188040d-6c67-4c5b-b112-36a304b66dad`, следует использовать `domain_hint=consumers`. Или используйте `domain_hint=organizations`. |
 
 На текущем этапе пользователю придется ввести учетные данные и завершить проверку подлинности. Конечная точка версии 2.0 также обеспечит согласие пользователя на предоставление разрешений, указанных в параметре запроса `scope`. Если пользователь не предоставил какие-либо из этих разрешений, конечная точка запросит их у пользователя. Подробные сведения о [разрешениях, согласии на предоставление и мультитенантных приложениях можно найти здесь](active-directory-v2-scopes.md).
 
@@ -117,16 +114,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-> [AZURE.TIP] Попробуйте импортировать приведенную ниже команду curl в приложение Postman (для успешного выполнения вам потребуется заменить значение `code` собственным значением).
-
-```
-curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=6731de76-14a6-49ae-97bc-6eba6914391e&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXrFgnryzZvcDbKTvyz36ono600tLhxSdnoOe50zSgxiIQhD36sIPLln7lNOMrUi1ralV_hOfZItjuwqeTOTFgXRG_rhkIzBfKmudQHD1KUodPD84a308LAfJ5ciLak9nlNVyVOL7gViWADpdZv_KrBXgaJXkxKZ4qxeYT_wf6yajHP2Gt4LPijuhqJIsqId7Xo8FkNIsmlvZkdArZDLgpZdunDmnis_623fu4vMeuWyVhrAoesilIqbwP_bKWNhGO_fcQ1Spsa-TDgfqUyrXnk3UYc-B3m6Npvkx3bYv3NrUSNxqdMONxR-3HowU3Uke-jM3Z8GR25HE4YAdfTqVxHtd6DEP9aamMIRH0LwuM4uxUrgeALqpbPenabekOZkkZ5-KKY4AyJKMOWxvMmqJRz9gYHnGUxqKcl2-F7250rHNGZTbJPurie_3WzNrRKFOQAF84mbsGoeYvSXlbI5uiH3Bw9kpOw302r26K4j-IKoMpw2BXU0mNxoGEL_wC0oTkVqRNg_sTTcsAPU1giW0hj-LONWc0ZgcKNI00fXaC5l6V8i2ERWyBy4Ys8gKIc7mynZnCpf2tgrxMBH5sloZ1Lf6P63CiAA&client_secret=JqQX2PNo9bpM0uEihUPzyrh&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&grant_type=authorization_code' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
-```
-
+> [AZURE.TIP] Попытайтесь выполнить этот запрос в Postman. (Не забудьте заменить `code`.) [![Выполнить в Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
 | Параметр | | Описание |
 | ----------------------- | ------------------------------- | --------------------- |
-| tenant | обязательно | Значение `{tenant}` в пути запроса можно использовать для контроля над тем, кто может выполнять вход в приложение. Допустимые значения: `common`, `organizations`, `consumers`, а также идентификаторы клиента. Дополнительные сведения см. в разделе [основных сведений о протоколе](active-directory-v2-protocols.md#endpoints). |
+| tenant | обязательно | Значение `{tenant}` в пути запроса можно использовать для контроля над тем, кто может выполнять вход в приложение. Допустимые значения: `common`, `organizations`, `consumers`, а также идентификаторы клиента. Дополнительную информацию см. в разделе с [основными сведениями о протоколе](active-directory-v2-protocols.md#endpoints). |
 | client\_id | обязательно | Идентификатор приложения, назначенный приложению порталом регистрации ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)). |
 | grant\_type | обязательно | Должен быть `authorization_code` для потока кода авторизации. |
 | scope | обязательно | Список областей с разделителями-пробелами. Области, запрашиваемые на этом участке, должны быть эквивалентны областям, запрашиваемым на первом участке, или являться их подмножеством. Если области, указанные в этом запросе, охватывают несколько серверов ресурсов, конечная точка версии 2.0 вернет маркер для ресурса, указанного в первой области. Более подробное описание областей можно найти в разделе, посвященном [разрешениям, согласию на их предоставление и областям](active-directory-v2-scopes.md). |
@@ -154,7 +146,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 | expires\_in | Срок действия маркера доступа (в секундах). |
 | scope | Области, для которых действителен маркер доступа. |
 | refresh\_token | Маркер обновления OAuth 2.0. Приложение может использовать этот маркер для получения дополнительных маркеров доступа после истечения срока действия текущего маркера доступа. Маркеры обновления действуют в течение долгого времени. Их можно использовать для длительного сохранения доступа к ресурсам. Дополнительные сведения можно найти в [справочном материале по маркерам версии 2.0](active-directory-v2-tokens.md). |
-| id\_token | Неподписанный веб-маркер JSON (JWT). Приложение может base64Url декодировать сегменты этого маркера, чтобы запрашивать сведения о пользователе, выполнившем вход. Приложение может кэшировать и отображать значения, но оно не должно полагаться на них при авторизации или в целях безопасности. Дополнительные сведения о маркерах id\_token можно найти в [справочнике по маркерам конечной точки версии 2.0](active-directory-v2-tokens.md). |
+| id\_token | Неподписанный веб-маркер JSON (JWT). Приложение может base64Url декодировать сегменты этого маркера, чтобы запрашивать сведения о пользователе, выполнившем вход. Приложение может кэшировать и отображать значения, но оно не должно полагаться на них при авторизации или в целях безопасности. Дополнительные сведения о токенах id\_token см. в [справочнике по токенам конечной точки версии 2.0](active-directory-v2-tokens.md). |
 
 #### Сообщение об ошибке
 Сообщения об ошибках выглядят следующим образом:
@@ -184,16 +176,12 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 ## Использование маркера доступа
 Успешно получив `access_token`, вы можете использовать маркер в запросах в веб-API путем включения его в заголовок `Authorization`:
 
+> [AZURE.TIP] Выполните этот запрос в Postman. (Сначала замените заголовок `Authorization`.) [![Выполнить в Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+
 ```
 GET /v1.0/me/messages
 Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
-```
-
-> [AZURE.TIP] Попробуйте использовать следующую команду (заменив маркер собственным значением).
-
-```
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
 ## Обновление маркера доступа
@@ -214,15 +202,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh	  // NOTE: Only required for web apps
 ```
 
-> [AZURE.TIP] Попробуйте импортировать приведенную ниже команду curl в приложение Postman (для успешного выполнения вам потребуется заменить маркер refresh\_token собственным значением).
-
-```
-curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=6731de76-14a6-49ae-97bc-6eba6914391e&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXrFgnryzZvcDbKTvyz36ono600tLhxSdnoOe50zSgxiIQhD36sIPLln7lNOMrUi1ralV_hOfZItjuwqeTOTFgXRG_rhkIzBfKmudQHD1KUodPD84a308LAfJ5ciLak9nlNVyVOL7gViWADpdZv_KrBXgaJXkxKZ4qxeYT_wf6yajHP2Gt4LPijuhqJIsqId7Xo8FkNIsmlvZkdArZDLgpZdunDmnis_623fu4vMeuWyVhrAoesilIqbwP_bKWNhGO_fcQ1Spsa-TDgfqUyrXnk3UYc-B3m6Npvkx3bYv3NrUSNxqdMONxR-3HowU3Uke-jM3Z8GR25HE4YAdfTqVxHtd6DEP9aamMIRH0LwuM4uxUrgeALqpbPenabekOZkkZ5-KKY4AyJKMOWxvMmqJRz9gYHnGUxqKcl2-F7250rHNGZTbJPurie_3WzNrRKFOQAF84mbsGoeYvSXlbI5uiH3Bw9kpOw302r26K4j-IKoMpw2BXU0mNxoGEL_wC0oTkVqRNg_sTTcsAPU1giW0hj-LONWc0ZgcKNI00fXaC5l6V8i2ERWyBy4Ys8gKIc7mynZnCpf2tgrxMBH5sloZ1Lf6P63CiAA&client_secret=JqQX2PNo9bpM0uEihUPzyrh&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&grant_type=refresh_token' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
-```
+> [AZURE.TIP] Попытайтесь выполнить этот запрос в Postman. (Не забудьте заменить `refresh_token`.) [![Выполнить в Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 
 | Параметр | | Описание |
 | ----------------------- | ------------------------------- | -------- |
-| tenant | обязательно | Значение `{tenant}` в пути запроса можно использовать для контроля над тем, кто может выполнять вход в приложение. Допустимые значения: `common`, `organizations`, `consumers`, а также идентификаторы клиента. Дополнительные сведения см. в разделе [основных сведений о протоколе](active-directory-v2-protocols.md#endpoints). |
+| tenant | обязательно | Значение `{tenant}` в пути запроса можно использовать для контроля над тем, кто может выполнять вход в приложение. Допустимые значения: `common`, `organizations`, `consumers`, а также идентификаторы клиента. Дополнительную информацию см. в разделе с [основными сведениями о протоколе](active-directory-v2-protocols.md#endpoints). |
 | client\_id | обязательно | Идентификатор приложения, назначенный приложению порталом регистрации ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)). |
 | grant\_type | обязательно | Должен быть `refresh_token` для этого участка потока кода авторизации. |
 | scope | обязательно | Список областей с разделителями-пробелами. Области, запрашиваемые на этом участке, должны быть эквивалентны областям, запрашиваемым на исходном участке запроса кода авторизации, или являться их подмножеством. Если области, указанные в этом запросе, охватывают несколько серверов ресурсов, конечная точка версии 2.0 вернет маркер для ресурса, указанного в первой области. Более подробное описание областей можно найти в разделе, посвященном [разрешениям, согласию на их предоставление и областям](active-directory-v2-scopes.md). |
@@ -250,7 +234,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 | expires\_in | Срок действия маркера доступа (в секундах). |
 | scope | Области, для которых действителен маркер доступа. |
 | refresh\_token | Новый маркер обновления OAuth 2.0. Вам следует заменить старый маркер обновления вновь полученным, чтобы обеспечить максимальный срок действия маркеров обновления. |
-| id\_token | Неподписанный веб-маркер JSON (JWT). Приложение может base64Url декодировать сегменты этого маркера, чтобы запрашивать сведения о пользователе, выполнившем вход. Приложение может кэшировать и отображать значения, но оно не должно полагаться на них при авторизации или в целях безопасности. Дополнительные сведения о маркерах id\_token можно найти в [справочнике по маркерам конечной точки версии 2.0](active-directory-v2-tokens.md). |
+| id\_token | Неподписанный веб-маркер JSON (JWT). Приложение может base64Url декодировать сегменты этого маркера, чтобы запрашивать сведения о пользователе, выполнившем вход. Приложение может кэшировать и отображать значения, но оно не должно полагаться на них при авторизации или в целях безопасности. Дополнительные сведения о токенах id\_token см. в [справочнике по токенам конечной точки версии 2.0](active-directory-v2-tokens.md). |
 
 #### Сообщение об ошибке
 ```
@@ -275,4 +259,4 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 | trace\_id | Уникальный идентификатор для запроса, который может помочь при диагностике. |
 | correlation\_id | Уникальный идентификатор для запроса, который может помочь при диагностике нескольких компонентов. |
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

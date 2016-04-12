@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="03/08/2016"
    ms.author="jgao"/>
 
 # Создание кластеров Hadoop под управлением Windows в HDInsight с помощью интерфейса командной строки Azure
@@ -23,7 +23,10 @@
 
 Научитесь создавать кластеры HDInsight с использованием интерфейса командной строки Azure Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-provision-clusters.md#cluster-creation-methods).
 
-###Предварительные требования:
+##Предварительные требования:
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 Прежде чем следовать указаниям в этой статье, необходимо подготовить следующее:
 
@@ -134,4 +137,4 @@
 - [Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure](hdinsight-administer-use-command-line.md)
 - [Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows](../virtual-machines/virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

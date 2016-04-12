@@ -3,9 +3,9 @@
 	description="Узнайте о критических препятствиях, которые необходимо устранить перед включением базы данных Stretch."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -65,6 +65,8 @@
 
 -   Ограничения внешнего ключа, ссылающегося на таблицу
 
+    Для таблицы, на которую ссылается ограничение внешнего ключа, невозможно включить использование базы данных Stretch. В иерархическом отношении (например, Orders и Order Details) это родительская таблица (Orders).
+
 **Индексы**
 -   Полнотекстовые индексы
 
@@ -81,7 +83,9 @@
 
 -   В таблице, совместимой со Stretch, нельзя выполнять операции UPDATE и DELETE.
 
--   Невозможно выполнить операцию INSERT с удаленной таблицей базы данных SQL Azure.
+-   Нельзя удаленно выполнить операцию INSERT с таблицей, совместимой со Stretch, на связанном сервере.
+
+-   Нельзя использовать репликацию таблицы, совместимой со Stretch.
 
 -   Нельзя создать индекс для представления, включающего в себя таблицу, совместимую со Stretch.
 
@@ -90,6 +94,11 @@
 -   Фильтры индексов не распространяются на удаленную таблицу.
 
 ## См. также
-[Определение баз данных и таблиц для базы данных Stretch с помощью помощника по базе данных Stretch](sql-server-stretch-database-identify-databases.md) [Включение базы данных Stretch для базы данных](sql-server-stretch-database-enable-database.md) [Включение базы данных Stretch для таблицы](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+[Определение баз данных и таблиц для растяжения с помощью Помощника по растяжению баз данных](sql-server-stretch-database-identify-databases.md)
+
+[Включение растяжения базы данных для базы данных](sql-server-stretch-database-enable-database.md)
+
+[Включение растяжения базы данных для таблицы](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0323_2016-->

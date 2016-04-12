@@ -1,4 +1,7 @@
->[AZURE.NOTE]Для выполнения этой процедуры необходима учетная запись Google с проверенным электронным адресом. Чтобы создать новую учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+
+###Создание проекта Google Cloud Messaging с ключом API
+
+>[AZURE.NOTE] Для выполнения этой процедуры необходима учетная запись Google с проверенным электронным адресом. Чтобы создать новую учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 1. Перейдите на веб-сайт [Google Cloud Console](https://console.developers.google.com/project) и войдите с помощью учетной записи Google. Щелкните элемент **Create Project** (Создать проект).
 
@@ -31,4 +34,4 @@
 
 7. Запишите значение **API KEY** (Ключ API). Это значение ключа API будет использовано позже для настройки в разделе «Системное push-уведомление».
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0330_2016-->

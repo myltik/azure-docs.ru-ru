@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Загрузка данных с помощью фабрики данных Azure
@@ -75,18 +75,18 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 
 2. Чтобы зарегистрировать хранилище данных SQL, перейдите в раздел "Создать и развернуть" и последовательно щелкните "Новое хранилище данных" и "Хранилище данных SQL Azure". Скопируйте этот шаблон и добавьте в него свои данные.
 
-    ````
-    {
-        "name": "<Linked Service Name>",
-	    "properties": {
-	        "description": "",
-		    "type": "AzureSqlDW",
-		    "typeProperties": {
-		         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
-	         }
-        }
+```JSON
+{
+    "name": "<Linked Service Name>",
+    "properties": {
+        "description": "",
+	    "type": "AzureSqlDW",
+	    "typeProperties": {
+	         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
+         }
     }
-    ````
+}
+```
 
 ### Шаг 2.2. Определение набора данных
 
@@ -96,56 +96,56 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 
 2. Чтобы привязать хранилище к фабрике данных, щелкните элемент "Создать набор данных", а затем — "Хранилище BLOB-объектов Azure". Для определения данных в хранилище BLOB-объектов Azure вы можете использовать приведенный ниже сценарий.
 
-    ````
-	{
-	    "name": "<Dataset Name>",
-		"properties": {
-		    "type": "AzureBlob",
-			"linkedServiceName": "<linked storage name>",
-			"typeProperties": {
-			    "folderPath": "<containter name>",
-				"fileName": "FactInternetSales.csv",
-				"format": {
-				"type": "TextFormat",
-				"columnDelimiter": ",",
-				"rowDelimiter": "\n"
-                }
-            },
-		    "external": true,
-		    "availability": {
-			    "frequency": "Hour",
-			    "interval": 1
-		    },
-		    "policy": {
-		        "externalData": {
-			        "retryInterval": "00:01:00",
-			        "retryTimeout": "00:10:00",
-			        "maximumRetry": 3
-		        }
+```JSON
+{
+    "name": "<Dataset Name>",
+	"properties": {
+	    "type": "AzureBlob",
+		"linkedServiceName": "<linked storage name>",
+		"typeProperties": {
+		    "folderPath": "<containter name>",
+			"fileName": "FactInternetSales.csv",
+			"format": {
+			"type": "TextFormat",
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n"
             }
-		}
+        },
+	    "external": true,
+	    "availability": {
+		    "frequency": "Hour",
+		    "interval": 1
+	    },
+	    "policy": {
+	        "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+	        }
+        }
 	}
-    ````
+}
+```
 
 
 3. Теперь мы настроим также набор данных, предназначенный для хранилища данных SQL. Начнем так же, то есть щелкнем элемент "Создать набор данных", а затем — "Хранилище данных SQL Azure".
 
-    ````
-    {
-	    "name": "DWDataset",
-		"properties": {
-		    "type": "AzureSqlDWTable",
-		    "linkedServiceName": "AzureSqlDWLinkedService",
-		    "typeProperties": {
-			    "tableName": "FactInternetSales"
-			},
-		    "availability": {
-		        "frequency": "Hour",
-			    "interval": 1
-	        }
+```JSON
+{
+    "name": "DWDataset",
+	"properties": {
+	    "type": "AzureSqlDWTable",
+	    "linkedServiceName": "AzureSqlDWLinkedService",
+	    "typeProperties": {
+		    "tableName": "FactInternetSales"
+		},
+	    "availability": {
+	        "frequency": "Hour",
+		    "interval": 1
         }
     }
-    ````
+}
+```
 
 ## Шаг 3. Создание и запуск конвейера
 
@@ -153,7 +153,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 
 Теперь в разделе "Разработка и развертывание" щелкните элемент "Дополнительные команды", а затем — "Создать конвейер". Создав конвейер, вы сможете передавать данные в хранилище данных с помощью приведенного ниже кода.
 
-````
+```JSON
 {
     "name": "<Pipeline Name>",
     "properties": {
@@ -199,7 +199,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 	    "isPaused": false
     }
 }
-````
+```
 
 ## Дальнейшие действия
 
@@ -212,7 +212,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 В приведенных ниже статьях содержатся подробные сведения о фабрике данных Azure. В них речь идет о базах данных SQL Azure и HDinsight, но эти сведения также относятся к хранилищу данных SQL Azure.
 
 - [Начало работы с фабрикой данных Azure](../data-factory/data-factory-build-your-first-pipeline.md). Это основное руководство по обработке данных с помощью фабрики данных Azure. Из него вы узнаете, как построить конвейер, в котором веб-журналы ежемесячно преобразовываются и анализируются с помощью HDInsight. Обратите внимание, что в этом руководстве копирование не используется.
-- [Учебник. Копирование данных из хранилища BLOB-объектов Azure в Azure SQL](../data-factory/data-factory-get-started.md). В этом руководстве вы создадите конвейер в фабрике данных Azure для копирования данных из BLOB-объекта хранилища Azure в базу данных SQL Azure.
+- [Учебник. Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL Azure](../data-factory/data-factory-get-started.md). В этом руководстве вы создадите конвейер в фабрике данных Azure для копирования данных из BLOB-объекта хранилища Azure в базу данных SQL Azure.
 - [Учебник. Оценка эффективности маркетинговой кампании](../data-factory/data-factory-tutorial.md). Это подробное руководство по использованию фабрики данных Azure.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

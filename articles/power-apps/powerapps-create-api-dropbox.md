@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="linhtranms"
-	manager="dwerde"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
-# Создание нового API Dropbox в среде службы приложений организации
+# Создание API Dropbox в PowerApps Enterprise
+
+> [AZURE.SELECTOR]
+- [Приложения логики](../articles/connectors/connectors-create-api-dropbox.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
+
+Добавьте API Dropbox в среду службы приложений (клиента) организации.
 
 ## Создание API на портале Azure
 
@@ -67,17 +73,24 @@
 
 4. В окне **Создание нового приложения на платформе Dropbox**:
 
-	а) в разделе **Выбор API** установите переключатель **API Dropbox**; б) в разделе **Выбор типа доступа** выберите **Полный доступ к Dropbox...**; в) введите имя для вашего приложения.
+	1. В поле **Choose API** (Выбор API) выберите пункт **Dropbox API**.  
+	2. В поле **Choose the type of access you need** (Выберите необходимый тип доступа) выберите пункт **Full Dropbox…** (Весь Dropbox…).  
+	3. Введите имя своего приложения.  
 
 	![создание приложения Dropbox, страница 1][10]
 
 5. На странице настройки приложения:
 
-	а) в разделе **OAuth 2** в качестве **URL-адреса перенаправления** укажите URL-адрес перенаправления, полученный при добавлении нового API Dropbox на портале Azure (в этой статье). Щелкните **Добавить**; б) щелкните ссылку **Показать**, чтобы показать **Секрет приложения**:
+	1. В разделе **OAuth 2** в качестве **URL-адреса перенаправления** укажите URL-адрес перенаправления, полученный при добавлении нового API Dropbox на портале Azure (в этой статье). Выберите **Добавить**.  
+	2. Щелкните ссылку **Show** (Показать), чтобы показать **секрет приложения**.  
 
 	![создание приложения Dropbox, страница 2][11]
 
 Будет создано новое приложение Dropbox. Вы можете использовать это приложение при настройке API Dropbox на портале Azure.
+
+## См. раздел "Интерфейсы REST API".
+
+Справочник по [REST API Dropbox](../connectors/connectors-create-api-dropbox.md).
 
 
 ## Сводка и дальнейшие действия
@@ -102,4 +115,4 @@
 [12]: ./media/powerapps-create-api-dropbox/browseall.png
 [13]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_0330_2016-->

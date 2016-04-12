@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Добавление push-уведомлений в универсальное приложение для Windows 8.1 | Microsoft Azure" 
-	description="Узнайте, как отправлять push-уведомления в универсальное приложение для Windows 8.1 из мобильной службы с серверной частью JavaScript с помощью центров уведомлений Azure." 
+	pageTitle="Добавление push-уведомлений в универсальное приложение для Windows 8.1 | Microsoft Azure" 
+	description="Узнайте, как отправлять push-уведомления в универсальное приложение для Windows 8.1 из мобильной службы с серверной частью JavaScript с помощью центров уведомлений Azure." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
 
@@ -21,9 +21,14 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Добавление push-уведомлений в приложение Windows](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+ 
 В этом разделе показано, как использовать мобильные службы Azure с серверной версией JavaScript для отправки push-уведомлений в универсальное приложение Windows. В этом учебнике вам предстоит использовать push-уведомления с помощью центров уведомлений Azure в проекте универсального приложения Windows. В результате ваша мобильная служба будет отправлять push-уведомление из серверной части JavaScript во все зарегистрированные приложения Магазина Windows и Магазина Windows Phone каждый раз при вставке записи в таблицу TodoList. Создаваемый вами концентратор уведомлений является бесплатным для вашей мобильной службы, может управляться независимо от мобильной службы и может использоваться другими приложениями и службами.
 
->[AZURE.NOTE]В этом разделе показано, как использовать средства Visual Studio 2013 с обновлением 3 для отправки push-уведомлений из мобильных служб в универсальное приложение Windows. Эти же инструкции можно использовать для добавления push-уведомлений из мобильных служб в приложение Магазина Windows или Магазина Windows Phone 8.1. Сведения о том, как добавить push-уведомления в приложение Windows Phone 8 или Windows Phone Silverlight 8.1, см. в этой версии раздела [Приступая к работе с push-уведомлениями в мобильных службах](mobile-services-javascript-backend-windows-phone-get-started-push.md).
+>[AZURE.NOTE]В этом разделе показано, как использовать средства Visual Studio 2013 с обновлением 3 для отправки push-уведомлений из мобильных служб в универсальное приложение Windows. Эти же инструкции можно использовать для добавления push-уведомлений из мобильных служб в приложение Магазина Windows или Магазина Windows Phone 8.1. Сведения о том, как добавить push-уведомления в приложение Windows Phone 8 или Windows Phone Silverlight 8.1, см. в этой версии раздела [Приступая к работе с push-уведомлениями в мобильных службах](mobile-services-javascript-backend-windows-phone-get-started-push.md).
 
 В этом учебнике рассматриваются следующие основные шаги для включения push-уведомлений:
 
@@ -34,7 +39,7 @@
 Для работы с этим учебником требуется:
 
 * активная [учетная запись Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045);
-* [Visual Studio Express 2013 для Windows](http://go.microsoft.com/fwlink/?LinkId=257546) с обновлением 3 или более поздней версии.
+* [Visual Studio Express 2013 для Windows](http://go.microsoft.com/fwlink/?LinkId=257546) с обновлением 3 или более поздней версии.
 
 ##<a id="register"></a>Регистрация приложения для получения push-уведомлений
 
@@ -67,13 +72,13 @@
 
 + [Отправка push-уведомлений пользователям, прошедшим проверку подлинности](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) <br/>Узнайте, как использовать теги для отправки push-уведомлений из мобильной службы только пользователям, которые прошли проверку подлинности.
 
-+ [Рассылка широковещательных уведомлений подписчикам](../notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>Узнайте, как пользователи могут регистрироваться и получать push-уведомления с учетом категорий, которые им интересны.
++ [Рассылка широковещательных уведомлений подписчикам](../notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>Узнайте, как пользователи могут регистрироваться и получать push-уведомления с учетом категорий, которые им интересны.
 
-+ [Отправка подписчикам уведомлений, независимых от платформы ](../notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Узнайте, как использовать шаблоны для отправки push-уведомлений из мобильной службы без создания полезных данных для конкретных платформ на стороне сервера.
++ [Отправка подписчикам уведомлений, независимых от платформы ](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Узнайте, как использовать шаблоны для отправки push-уведомлений из мобильной службы без создания полезных данных для конкретных платформ на стороне сервера.
 
 Дополнительные сведения о мобильных службах и центрах уведомлений см. в следующих разделах.
 
-* [Концентраторы уведомлений Azure — рекомендации по диагностике](../notification-hubs-diagnosing.md) <br/>Узнайте, как устранять неполадки, связанные с push-уведомлениями.
+* [Концентраторы уведомлений Azure — рекомендации по диагностике](../notification-hubs/notification-hubs-diagnosing.md) <br/>Узнайте, как устранять неполадки, связанные с push-уведомлениями.
 
 * [Приступая к работе с проверкой подлинности] <br/>Узнайте, как проверять подлинность пользователей приложения с разными типами учетных записей, используя мобильные службы.
 
@@ -100,4 +105,4 @@
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0309_2016-->

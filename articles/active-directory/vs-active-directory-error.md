@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="03/28/2016" 
 	ms.author="tarcher"/>
 
 # Ошибка при обнаружении проверки подлинности
@@ -94,6 +94,6 @@
 
 Чтобы изменить тип проверки подлинности, удалите несовместимый тип и повторно запустите мастер.
 
-Дополнительные сведения см. в разделе [Сценарии проверки подлинности для Azure AD](active-directory-authentication-scenarios.md).
+Дополнительные сведения см. в разделе [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

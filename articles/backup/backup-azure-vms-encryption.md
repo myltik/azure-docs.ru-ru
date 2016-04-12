@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="11/27/2015"
+   ms.date="03/14/2016"
    ms.author="markgal; jimpark"/>
 
 # Работа с зашифрованными дисками в ходе процесса резервного копирования виртуальных машин
@@ -62,4 +62,4 @@
 - [Руководство по развертыванию (PDF)](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Развертывание и использование SecureVM (видеоролик)](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma"/>
 
 # Создание записи DNS для веб-приложения в пользовательском домене
 
 Службу Azure DNS можно использовать для размещения пользовательского домена для ваших веб-приложений. Например, представьте, что вы создаете веб-приложение Azure и хотите, чтобы пользователи получали к нему доступ, вводя полное доменное имя contoso.com или www.contoso.com. В этом случае вам необходимо создать две записи: корневую запись A, указывающую на contoso.com, и запись CNAME для www-имени, указывающую на запись A.
 
-> [AZURE.NOTE]Помните, что если создать запись A для веб-приложения в Azure, ее необходимо обновить вручную, если основной IP-адрес веб-приложения изменится.
+> [AZURE.NOTE] Помните, что если создать запись A для веб-приложения в Azure, ее необходимо обновить вручную, если основной IP-адрес веб-приложения изменится.
 
 Перед созданием записей для вашего домена требуется создать зону DNS в службе Azure DNS и делегировать зону службе Azure DNS у регистратора. Чтобы создать зону DNS, выполните действия, описанные в статье [Приступая к работе с Azure DNS](../dns-getstarted-create-dnszone/#Create-a-DNS-zone). Для делегирования DNS службе Azure DNS выполните действия, описанные в статье [Делегирование домена Azure DNS](../dns-domain-delegation).
  
@@ -38,7 +38,7 @@
 
 Добавьте значение IPv4 в ранее созданный набор записей @ с помощью назначенной переменной $rs. Присвоенное значение IPv4 будет IP-адресом вашего веб-приложения.
 
-> [AZURE.NOTE]Чтобы найти IP-адрес для веб-приложения, выполните действия, описанные в статье [Настройка пользовательского имени домена в службе приложений Azure](../web-sites-custom-domain-name/#Find-the-virtual-IP-address).
+> [AZURE.NOTE] Чтобы найти IP-адрес для веб-приложения, выполните действия, описанные в статье [Настройка пользовательского имени домена в службе приложений Azure](../web-sites-custom-domain-name/#Find-the-virtual-IP-address).
 
 	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
 
@@ -86,7 +86,7 @@
 	Records           : {contoso.azurewebsites.net}
 	Tags              : {}
 
-### Шаг 3.
+### Шаг 3.
 
 Примените изменения, используя командлет Set-AzureRMDnsRecordSet:
 
@@ -144,7 +144,7 @@
 	Records           : {awverify.contoso.azurewebsites.net}
 	Tags              : {}
 
-### Шаг 3.
+### Шаг 3.
 
 Примените изменения с помощью командлета Set-AzureRMDnsRecordSet, как показано ниже:
 
@@ -165,4 +165,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

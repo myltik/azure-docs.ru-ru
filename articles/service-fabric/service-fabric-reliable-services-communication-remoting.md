@@ -23,7 +23,7 @@
 Процесс настройки удаленного доступа для службы состоит из двух простых этапов.
 
 1. Создание интерфейса для реализации в службе. Этот интерфейс определяет методы, которые будут доступны для удаленного вызова процедур в службе. Эти методы должны быть асинхронными методами, возвращающими задачи. Интерфейс должен реализовать `Microsoft.ServiceFabric.Services.Remoting.IService`, чтобы показать, что служба имеет интерфейс удаленного взаимодействия.
-2. Использование `Microsoft.ServiceFabric.Services.Remoting.Runtime.ServiceRemotingListener` в службе. Это реализация `ICommunicationListener`, которая предоставляет возможности удаленного взаимодействия.
+2. Использование `FabricTransportServiceRemotingListener` в службе. Это реализация `ICommunicationListener`, которая предоставляет возможности удаленного взаимодействия.
 
 Например, эта служба Hello World предоставляет один метод для получения "Hello World" посредством удаленного вызова процедур:
 
@@ -37,7 +37,9 @@ internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
-        return new[] { new ServiceReplicaListener(parameters => new ServiceRemotingListener<HelloWorldStateful>(parameters, this)) };
+        return new[]{
+                new ServiceReplicaListener(
+                    (context) => new FabricTransportServiceRemotingListener(context,this))};
     }
 
     public Task<string> GetHelloWorld()
@@ -47,7 +49,7 @@ internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
 }
 
 ```
-> [AZURE.NOTE]Аргументы и возвращаемые типы в интерфейсе службы могут иметь простые, сложные или настраиваемые типы, однако они должны быть сериализуемыми с помощью объекта .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
+> [AZURE.NOTE] Аргументы и возвращаемые типы в интерфейсе службы могут иметь простые, сложные или настраиваемые типы, однако они должны быть сериализуемыми с помощью объекта .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
 
 
 ## Вызов удаленных методов службы
@@ -70,4 +72,6 @@ string message = await helloWorldClient.GetHelloWorld();
 
 * [Взаимодействие WCF с Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+* [Защита обмена данными для Reliable Services](service-fabric-reliable-services-secure-communication.md)
+
+<!---HONumber=AcomDC_0330_2016-->

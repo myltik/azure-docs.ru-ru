@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API
@@ -30,7 +30,7 @@
 
 В этом руководстве показано, как администраторы экземпляра службы управления API могут добавлять новые группы и связывать их с продуктами и разработчиками.
 
->[AZURE.NOTE]Помимо создания групп и управления ими на портале издателя, это можно делать с помощью сущности [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) REST API интерфейса API управления.
+>[AZURE.NOTE] Помимо создания групп и управления ими на портале издателя, это можно делать с помощью сущности [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) REST API интерфейса API управления.
 
 ## <a name="create-group"></a>Создание группы
 
@@ -64,7 +64,7 @@
 
 ![Настройка видимости][api-management-add-group-to-product-visibility]
 
->[AZURE.NOTE]Дополнительную информацию о добавлении групп Azure Active Directory см. в статье [Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure](api-management-howto-aad.md).
+>[AZURE.NOTE] Дополнительную информацию о добавлении групп Azure Active Directory см. в статье [Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure](api-management-howto-aad.md).
 >
 >Для настройки групп на вкладке **Видимость** для продукта щелкните **Управление группами**.
 
@@ -111,4 +111,4 @@
 [Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
 [использовать внешние группы в связанных с ними клиентах Azure Active Directory]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

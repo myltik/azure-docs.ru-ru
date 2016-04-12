@@ -75,13 +75,13 @@
 
 
 	<table border="1">
-<tr><th>Свойство кластера</th><th>Описание</th></tr>
-<tr><td>Имя кластера HBase</td><td>Имя вашего кластера HBase в HDInsight. Пример: https://myhbase.azurehdinsight.net/</td></tr>
-<tr><td>Имя пользователя кластера</td><td>Имя учетной записи пользователя Hadoop. Имя пользователя Hadoop по умолчанию&#160;— <strong>admin</strong>.</td></tr>
-<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
-</table>
+	<tr><th>Свойство кластера</th><th>Описание</th></tr>
+	<tr><td>Имя кластера HBase</td><td>Имя вашего кластера HBase в HDInsight. Пример: https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>Имя пользователя кластера</td><td>Имя учетной записи пользователя Hadoop. Имя пользователя Hadoop по умолчанию&#160;— <strong>admin</strong>.</td></tr>
+	<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
+	</table>
 
-- **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
+- **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 
 
@@ -463,14 +463,14 @@
 	- Категория шаблона: **Visual C# или веб-сайт**
 	- Шаблон: **веб-приложение ASP.NET**
 	- Имя: **TweetSentimentWeb**
-	- Расположение: **C:\Tutorials** 
+	- Расположение: **C:\\Tutorials** 
 4. Нажмите кнопку **ОК**.
 5. В разделе **Выбор шаблона** щелкните **MVC**. 
-6. В **Microsoft Azure** щелкните **Управление подписками**.
+6. В **Microsoft Azure** щелкните **Manage Subscriptions** (Управление подписками).
 7. В окне **Управление подписками Microsoft Azure** щелкните **Вход**.
 8. Введите учетные данные Azure. Сведения о вашей подписке Azure появятся на вкладке **Учетные записи**.
 9. Нажмите кнопку **Закрыть**, чтобы закрыть окно **Управление подписками Microsoft Azure**.
-10. В окне **Новый проект ASP.NET — TweetSentimentWeb** нажмите кнопку **ОК**.
+10. В окне **Новый проект ASP.NET — TweetSentimentWeb** нажмите кнопку **ОК**.
 11. В окне **Настройка параметров сайта Microsoft Azure** выберите ближайший к вам **регион**. Указывать сервер базы данных не нужно. 
 12. Нажмите кнопку **ОК**.
 
@@ -598,11 +598,11 @@
 4. В классе **HBaseReader** измените значения констант следующим образом:
 
 	- **CLUSTERNAME**: имя кластера HBase, например, *https://<HBaseClusterName>.azurehdinsight.net/*. 
-    - **HADOOPUSERNAME**: имя пользователя Hadoop в кластере HBase. Имя по умолчанию — *admin*.
+    - **HADOOPUSERNAME**: имя пользователя Hadoop в кластере HBase. Имя по умолчанию — *admin*.
     - **HADOOPUSERPASSWORD**: пароль пользователя Hadoop в кластере HBase.
-    - **HBASETABLENAME** = "tweets_by_words".
+    - **HBASETABLENAME** = "tweets\_by\_words".
 
-	Имя таблицы HBase — **"tweets_by_words";**. Значения должны совпадать со значениями, отправленными в службу потоковой передачи, чтобы веб-приложение считывало данные из той же таблицы HBase.
+	Имя таблицы HBase — **"tweets\_by\_words";**. Значения должны совпадать со значениями, отправленными в службу потоковой передачи, чтобы веб-приложение считывало данные из той же таблицы HBase.
 
 
 
@@ -611,7 +611,7 @@
 
 1. В **обозревателе решений** разверните элемент **TweetSentimentWeb**.
 2. Щелкните правой кнопкой мыши элемент **Контроллеры**, выберите пункт **Добавить**, а затем щелкните **Контроллер**.
-3. Щелкните элемент **Web API 2 Controller - Empty** (Контроллер веб-интерфейса API 2 — пустой) и нажмите кнопку **Добавить**.
+3. Щелкните элемент **Web API 2 Controller - Empty** (Контроллер веб-интерфейса API 2 — пустой) и нажмите кнопку **Добавить**.
 4. В поле **Имя контроллера** введите **TweetsController** и нажмите кнопку **Добавить**.
 5. В **обозревателе решений** дважды щелкните файл TweetsController.cs, чтобы открыть его.
 5. Измените файл так, чтобы он выглядел следующим образом:
@@ -1099,7 +1099,7 @@
 
 **Изменение файла layout.cshtml**
 
-1. В **обозревателе решений** последовательно разверните узлы **TweetSentimentWeb**, **Представления**, **Общий ресурс**, а затем дважды щелкните элемент _**Layout.cshtml**.
+1. В **обозревателе решений** последовательно разверните узлы **TweetSentimentWeb**, **Представления**, **Общий ресурс**, а затем дважды щелкните элемент \__**Layout.cshtml**.
 2. Замените содержимое на приведенное ниже:
 
 		<!DOCTYPE html>
@@ -1205,7 +1205,7 @@
 
 		using System.Web.Http;
 
-2. Добавьте в функцию **Application_Start()** следующие строки:
+2. Добавьте в функцию **Application\_Start()** следующие строки:
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -1233,7 +1233,6 @@
 - [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Анализ данных Twitter с помощью Hadoop в HDInsight][hdinsight-analyze-twitter-data]
 - [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-delay-data]
-- [Разработка программ потоковой передачи Hadoop на C# для HDInsight][hdinsight-develop-streaming]
 - [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -1249,7 +1248,6 @@
 
 
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
@@ -1279,4 +1277,4 @@
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

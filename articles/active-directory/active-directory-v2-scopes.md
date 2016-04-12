@@ -120,4 +120,4 @@ Content-Type: application/json
 
 Дополнительные сведения о том, как получать и использовать маркеры обновления, можно найти в [справочнике по протоколу версии 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

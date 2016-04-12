@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
+     ms.date="02/03/2016"
      ms.author="elioda"/>
 
 # Учебник: как передать файлы из устройств в облако с помощью центра IoT
@@ -39,7 +39,7 @@
 
 + Microsoft Visual Studio 2015;
 
-+ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Подробные сведения см. на странице [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
++ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную учетную запись всего за несколько минут. Подробные сведения см. на странице [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
 
 
 [AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
@@ -82,8 +82,8 @@
 
 [портала Azure]: https://portal.azure.com/
 
-[Фабрика данных Azure]: https://azure.microsoft.com/ru-RU/documentation/services/data-factory/
-[Hadoop]: https://azure.microsoft.com/ru-RU/documentation/services/hdinsight/
+[Фабрика данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
+[Hadoop]: https://azure.microsoft.com/documentation/services/hdinsight/
 
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Как отправлять сообщения из облака на устройства с помощью центра IoT]: iot-hub-csharp-csharp-c2d.md
@@ -101,4 +101,4 @@
 [Центр разработчика IoT Azure]: http://www.azure.com/develop/iot
 [Центре разработчика IoT в Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

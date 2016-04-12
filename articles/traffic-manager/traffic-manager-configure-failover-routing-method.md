@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Настройте метод маршрутизации с отработкой отказа
@@ -38,11 +38,11 @@
 
 [Направление интернет-домена компании на домен диспетчера трафика](traffic-manager-point-internet-domain.md)
 
-[Методы маршрутизации диспетчера трафика](traffic-manager-load-balancing-methods.md)
+[Методы маршрутизации диспетчера трафика](traffic-manager-routing-methods.md)
 
 [Настройка метода маршрутизации с применением циклического перебора](traffic-manager-configure-round-robin-routing-method.md)
 
-[Настройка метода маршрутизации трафика для повышения производительности](traffic-manager-configure-performance-routing-method.md)
+[Настройка маршрутизации производительности](traffic-manager-configure-performance-routing-method.md)
 
 [Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
 
@@ -52,4 +52,4 @@
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

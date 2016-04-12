@@ -39,8 +39,8 @@
 
 Кроме того, можно перейти к колонке напрямую, открыв адрес [https://portal.azure.com/{клиент}.onmicrosoft.com/?#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/](https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/), где **{клиент}** нужно заменить именем, использованным во время создания клиента (например contosob2c). Можно создать закладку для этой ссылки для дальнейшего использования.
 
-    > [AZURE.IMPORTANT]
-    You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.
+> [AZURE.IMPORTANT]
+Вам необходимо быть глобальным администратором данного клиента B2C, чтобы получить доступ к колонке функций B2C. Доступ к ней невозможен для глобальных администраторов или пользователей из других клиентов.
 
 ### 2\. Доступ через классический портал Azure
 

@@ -23,7 +23,7 @@
 Научитесь устанавливать Spark на кластер HDInsight под управлением Windows с помощью действия сценария и выполнять запросы Spark на кластерах HDInsight.
 
 
-**Связанные статьи**: [Установка Spark в кластерах HDInsight под управлением Linux](hdinsight-hadoop-spark-install-linux.md).
+**Связанные статьи**
 
 - [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md). Общие сведения о создании кластеров HDInsight.
 
@@ -63,16 +63,18 @@ Spark также может использоваться для выполнен
 	![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "Использование действия сценария для настройки кластера")
 
 	<table border='1'>
-	<tr><th>Свойство</th><th>Значение</th></tr>
-	<tr><td>Имя</td>
-		<td>Укажите имя для действия сценария. Например, <b>Установить Spark</b>.</td></tr>
-	<tr><td>URI-адрес сценария</td>
-		<td>Укажите универсальный идентификатор ресурса (URI) для сценария, который вызывается для настройки кластера. Например, <i>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1</i>.</td></tr>
-	<tr><td>Тип узла</td>
-		<td>Укажите узлы, на которых выполняется сценарий настройки. Можно выбрать одно из трех значений: <b>Все узлы</b>, <b>Только головные узлы</b> или <b>Только рабочие узлы</b>.
-	<tr><td>Параметры</td>
-		<td>Укажите параметры, если они требуются для сценария. Скрипт для установки Spark не требует никаких параметров, поэтому можно оставить это поле пустым.</td></tr>
-</table>Можно добавить несколько действий сценария для установки нескольких компонентов в кластере. После добавления скриптов щелкните флажок, чтобы начать создание кластера.
+		<tr><th>Свойство</th><th>Значение</th></tr>
+		<tr><td>Имя</td>
+			<td>Укажите имя для действия сценария. Например, <b>Установить Spark</b>.</td></tr>
+		<tr><td>URI-адрес сценария</td>
+			<td>Укажите универсальный идентификатор ресурса (URI) для сценария, который вызывается для настройки кластера. Например, <i>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1</i>.</td></tr>
+		<tr><td>Тип узла</td>
+			<td>Укажите узлы, на которых выполняется сценарий настройки. Можно выбрать одно из трех значений: <b>Все узлы</b>, <b>Только головные узлы</b> или <b>Только рабочие узлы</b>.
+		<tr><td>Параметры</td>
+			<td>Укажите параметры, если они требуются для сценария. Скрипт для установки Spark не требует никаких параметров, поэтому можно оставить это поле пустым.</td></tr>
+	</table>
+
+	Можно добавить несколько действий сценария для установки нескольких компонентов в кластере. После добавления скриптов щелкните флажок, чтобы начать создание кластера.
 
 Сценарий можно также использовать для установки Spark в HDInsight с помощью Azure PowerShell или пакета SDK для HDInsight .NET. Инструкции по выполнению этих процедур приведены ниже в этом разделе.
 
@@ -188,7 +190,7 @@ Spark SQL позволяет использовать Spark для выполн�
 В этом разделе мы используем <a href="http://www.scala-sbt.org/0.13/docs/index.html" target="_blank">Simple Build Tool</a> (SBT) для создания программы Scala. Для работы SBT требуется Java 1.6 или более поздней версии, поэтому перед тем как продолжить, убедитесь, что у вас установлена соответствующая версия Java.
 
 1. Установите SBT из http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Windows.html.
-2. Создайте папку **SimpleScalaApp**, а в этой папке — файл с именем **simple.sbt**. Это файл конфигурации, содержащий информацию о версии Scala, зависимостях библиотеки и т. д. Вставьте следующий код в файл simple.sbt и сохраните его:
+2. Создайте папку **SimpleScalaApp**, а в этой папке — файл с именем **simple.sbt**. Это файл конфигурации, содержащий информацию о версии Scala, зависимостях библиотеки и т. д. Вставьте следующий код в файл simple.sbt и сохраните его:
 
 
 		name := "SimpleApp"
@@ -264,26 +266,26 @@ Spark SQL позволяет использовать Spark для выполн�
 	Командлет **Add-AzureHDInsightScriptAction** принимает следующие параметры:
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Параметр</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">Определение</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Настройка</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Объект конфигурации, к которому добавляются сведения о действии скрипта.</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Имя</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Имя действия скрипта</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Указывает узлы, на которых выполняется скрипт настройки. Допустимые значения: HeadNode (для установки на головном узле) или DataNode (для установки на всех узлах данных). Можно использовать как одно, так и оба значения.</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">URI</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Задает универсальный код ресурса для выполняемого сценария.</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Параметры</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Параметры, необходимые для скрипта. В приведенном образце скрипта не требуется задавать параметры, поэтому этот параметр не указан в приведенном выше фрагменте кода.
-</td></tr>
-</table>
+	<tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Параметр</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">Определение</th></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Настройка</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Объект конфигурации, к которому добавляются сведения о действии скрипта.</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Имя</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Имя действия скрипта</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Указывает узлы, на которых выполняется скрипт настройки. Допустимые значения: HeadNode (для установки на головном узле) или DataNode (для установки на всех узлах данных). Можно использовать как одно, так и оба значения.</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">URI</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Задает универсальный код ресурса для выполняемого сценария.</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Параметры</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Параметры, необходимые для скрипта. В приведенном образце скрипта не требуется задавать параметры, поэтому этот параметр не указан в приведенном выше фрагменте кода.
+	</td></tr>
+	</table>
 
 4. Наконец, приступите к созданию настроенного кластера с установленным Spark.
 
@@ -303,7 +305,6 @@ Spark SQL позволяет использовать Spark для выполн�
 
 ## См. также
 
-- [Установка Spark в кластерах HDInsight под управлением Linux](hdinsight-hadoop-spark-install-linux.md). Установка Spark в кластерах HDInsight под управлением Linux.
 - [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md). Создание кластеров HDInsight.
 - [Приступая к работе с Apache Spark в HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md). Начало работы с Spark в HDInsight.
 - [Настройка кластера HDInsight с помощью действия сценария][hdinsight-cluster-customize]. Настройка кластеров HDInsight с помощью действия сценария.
@@ -317,4 +318,4 @@ Spark SQL позволяет использовать Spark для выполн�
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

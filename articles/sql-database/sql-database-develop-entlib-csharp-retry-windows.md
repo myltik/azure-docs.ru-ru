@@ -3,8 +3,8 @@
 	description="Библиотека Enterprise Library упрощает решение ряда задач для клиентских программ облачных служб, включая интеграцию логики повторов при временных сбоях."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
-# Образец кода: логика повторных попыток из библиотеки Enterprise Library 6 в C&#x23; для подключения к Базе данных SQL
+# Образец кода: логика повторных попыток из библиотеки Enterprise Library 6 в C&#x23; для подключения к Базе данных SQL
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
@@ -308,7 +308,7 @@ SELECT TOP 3
 ## Связанные ссылки
 
 
-- [Enterprise Library 6 — апрель 2013 г.](http://msdn.microsoft.com/library/dn169621.aspx) — многочисленные ссылки на дополнительную информацию.
+- [Enterprise Library 6 — апрель 2013 г.](http://msdn.microsoft.com/library/dn169621.aspx) — многочисленные ссылки на дополнительную информацию.
  - Если вы хотите увидеть исходный код, нажмите кнопку, предлагающую [загрузить исходный код EntLib60](http://go.microsoft.com/fwlink/p/?LinkID=290898), вверху раздела.
 
 
@@ -326,4 +326,4 @@ SELECT TOP 3
 
 - [Простые примеры кода клиентских приложений для работы с базой данных SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

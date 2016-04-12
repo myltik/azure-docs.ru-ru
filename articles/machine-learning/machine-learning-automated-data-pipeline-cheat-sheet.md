@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/02/2016"
 	ms.author="mithal;garye" />
 
 # Памятка по работе с автоматическим конвейером данных для создания прогнозов машинного обучения Azure
@@ -24,7 +24,7 @@
 
 ## Загрузить памятку по работе с автоматическим конвейером данных машинного обучения
 
-Загрузив памятку, распечатайте ее в формате А3 (27,94 x 43,18 см).
+Загрузив памятку, распечатайте ее в формате А3 (27,94 x 43,18 см).
 
 **Скачайте памятку здесь: [Памятка по работе с автоматическим конвейером данных машинного обучения Microsoft Azure](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**.
 
@@ -41,4 +41,4 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

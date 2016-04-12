@@ -57,7 +57,7 @@
 
 - [Настройка Azure PowerShell](marketplace-publishing-powershell-setup.md)
 - [Локальное создание образа виртуальной машины](marketplace-publishing-vm-image-creation-on-premise.md)
-- [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../virtual-machines-windows-tutorial/)
+- [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../virtual-machines-windows-hero-tutorial/)
 
 **Службы данных**
 
@@ -82,4 +82,4 @@
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

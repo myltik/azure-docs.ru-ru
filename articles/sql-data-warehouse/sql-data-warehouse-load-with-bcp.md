@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -59,12 +59,12 @@
 
 С помощью командной строки подключитесь к своему экземпляру, для этого замените в следующей команде значения соответствующим образом.
 
-```
+```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 ```
 После подключения скопируйте следующий скрипт таблицы в командную строку sqlcmd и нажмите клавишу "ВВОД".
 
-```
+```sql
 CREATE TABLE DimDate2
 (
     DateId INT NOT NULL,
@@ -106,13 +106,13 @@ GO
 ### Шаг 3. Подключение и импорт данных
 С помощью программы bcp подключитесь и импортируйте данные, для чего замените в следующей команде значения соответствующим образом.
 
-```
+```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 Вы можете проверить, что данные загружены, для этого подключитесь с помощью утилиты sqlcmd, как и раньше, и выполните следующую команду TSQL:
 
-```
+```sql
 SELECT * FROM DimDate2 ORDER BY 1;
 GO
 ```
@@ -140,7 +140,7 @@ DateId |CalendarQuarter |FiscalQuarter
 
 Выполните следующие операторы CREATE STATISTICS из командной строки sqlcmd:
 
-```
+```sql
 create statistics [DateId] on [DimDate2] ([DateId]);
 create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
@@ -154,7 +154,7 @@ GO
 
 С помощью программы bcp подключитесь и экспортируйте данные, для чего замените в следующей команде значения соответствующим образом.
 
-```
+```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 Убедитесь, что данные экспортированы, открыв новый файл. Данные в файле должны совпадать с приведенным далее текстом:
@@ -196,4 +196,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Центре загрузки Майкрософт]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

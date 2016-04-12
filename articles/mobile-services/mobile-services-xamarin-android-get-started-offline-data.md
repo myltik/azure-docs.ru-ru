@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="donnam"/>
 
 # Использование автономной синхронизации данных в мобильных службах
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Включение автономной синхронизации для мобильного приложения Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started-offline-data.md).
 
 В этом разделе рассматривается возможности автономной синхронизации мобильных служб Azure в приложении быстрого запуска для списка дел. Автономная синхронизация позволяет легко создавать приложения, которые можно использовать даже в случае отсутствия у пользователя доступа к сети.
 
@@ -177,4 +177,4 @@
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [классический портал Azure]: https://manage.windowsazure.com
 
-<!------HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

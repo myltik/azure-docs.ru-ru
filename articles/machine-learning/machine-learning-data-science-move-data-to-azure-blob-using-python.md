@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 # Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью Python
@@ -51,7 +51,7 @@ API на языке Python, предоставляемый с пакетом SDK
 
 Добавьте следующий фрагмент кода в начало любого кода Python, из которого планируется получать доступ к службе хранилища Azure программным способом:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 Объект **BlobService** позволяет работать с контейнерами и BLOB-объектами. Следующий код создает объект BlobService, используя имя и ключ учетной записи хранения. Замените имя учетной записи и ее ключ фактическими значениями.
 	
@@ -70,7 +70,7 @@ API на языке Python, предоставляемый с пакетом SDK
 
 Следующий пример кода отправляет все файлы (за исключением каталогов) в локальном каталоге в хранилище больших двоичных объектов:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os import listdir
 	from os.path import isfile, join
 	
@@ -95,9 +95,13 @@ API на языке Python, предоставляемый с пакетом SDK
 
 ## Скачивание данных из большого двоичного объекта
 
-Чтобы загрузить данные из большого двоичного объекта, используйте следующие методы: 1. get\_blob\_to\_path; 2. get\_blob\_to\_file; 3. get\_blob\_to\_bytes; 4. get\_blob\_to\_text.
+Чтобы скачать данные из большого двоичного объекта, используйте следующие методы:
+1. get\_blob\_to\_path
+2. get\_blob\_to\_file
+3. get\_blob\_to\_bytes
+4. get\_blob\_to\_text 
 
-Это методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
+Это методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
 
 Следующий пример кода скачивает содержимое большого двоичного объекта в контейнере в локальный файл:
 
@@ -105,7 +109,7 @@ API на языке Python, предоставляемый с пакетом SDK
 
 Следующий пример кода скачивает все большие двоичные объекты в контейнере. Он использует метод list\_blobs для получения списка больших двоичных объектов, доступных в контейнере, и скачивает их в локальный каталог.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os.path import join
 	
 	# Set parameters here
@@ -125,4 +129,4 @@ API на языке Python, предоставляемый с пакетом SDK
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

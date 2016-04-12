@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/21/2016" 
 	ms.author="riande"/>
 
 # Создание приложения ASP.NET MVC с проверкой подлинности и базой данных SQL и развертывание службы приложений Azure
@@ -53,9 +53,7 @@
 
 	!["Новый проект" в меню "Файл"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/gs13newproj.png)
 
-1. В диалоговом окне **Новый проект** разверните **C#** и выберите **Интернет** в **Установленные шаблоны**, а затем выберите **Веб-приложение ASP.NET**.
-
-1. Присвойте приложению имя **ContactManager** и нажмите кнопку **ОК**.
+1. В диалоговом окне **Новый проект** разверните **C#** и выберите **Интернет** в **Установленные шаблоны**, а затем выберите **Веб-приложение ASP.NET**. Присвойте приложению имя **ContactManager** и нажмите кнопку **ОК**.
 
 	![Диалоговое окно "Новый проект"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/GS13newprojdb.png)
  
@@ -67,29 +65,35 @@
 
 1. Нажмите кнопку **ОК**.
 
-3. Когда появится диалоговое окно **Настройка параметров веб-приложения Microsoft Azure**, убедитесь, что вы вошли в Azure. Войдите, если вы еще не сделали этого, или введите учетные данные, если срок действия сеанса истек.
+1. Появится диалоговое окно **Настройка параметров веб-приложения Microsoft Azure**. Может потребоваться выполнить вход, если вы еще не сделали это, или повторный ввод учетных данных, если истек срок действия входа.
 
-	![Введите учетные данные еще раз](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/reentercredentials.png)
-
-2. Если нужно указать имя для веб-приложения, измените значение в поле **Имя веб-приложения**.
+1. Необязательно: измените значение в поле **Имя веб-приложения** (см. рисунок ниже).
 
 	URL-адрес веб-приложения будет иметь вид {имя}.azurewebsites.net, поэтому имя должно быть уникальным в домене azurewebsites.net. Мастер настройки предлагает уникальное имя, добавляя номер к имени проекта ContactManager. Этого достаточно для целей данного учебника.
 
-5. В раскрывающемся списке **План служб приложений** выберите пункт **Создать новый план служб приложений** и введите имя, например StandardWeb, как показано на рисунке.
-
-	При желании можно выбрать существующий план службы приложений. Дополнительные сведения о планах службы приложений см. в разделе [Подробный обзор планов службы приложений Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-
-5. В раскрывающемся списке **Группа ресурсов** выберите пункт **Создать новую группу ресурсов** и введите имя, например ExampleMVC, как показано на рисунке.
+5. В раскрывающемся списке **Группа ресурсов** выберите существующую группу или пункт **Создать новую группу ресурсов** (см. рисунок ниже).
 
 	При желании можно выбрать существующую группу ресурсов. Однако если создать новую группу ресурсов и использовать ее только для этого учебника, вы сможете легко удалить все ресурсы Azure, созданные для учебника, после завершения работы с ними. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md).
 
-7. Выберите ближайшую область.
+5. В раскрывающемся списке **План служб приложений** выберите существующий план или пункт **Создать план служб приложений** (см. рисунок ниже).
 
-	Пока не нажимайте кнопку **ОК**. На следующем шаге вы настроите ресурсы базы данных. Диалоговое окно теперь выглядит как на следующем рисунке.
+	При желании можно выбрать существующий план службы приложений. Дополнительные сведения о планах службы приложений см. в разделе [Подробный обзор планов службы приложений Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-	![Новый план и группа ресурсов](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newplanandgroup.png)
- 
-2. Выберите пункт **Создать сервер**, а затем введите имя сервера, имя пользователя и пароль.
+1. Коснитесь элемента **Исследовать дополнительные службы Azure**, чтобы добавить базу данных SQL.
+
+	![Добавление новых служб](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/n2.png)
+
+1. Коснитесь значка **+**, чтобы добавить базу данных SQL.
+
+	![Новая база данных SQL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/nsql.png)
+
+1. Коснитесь кнопки **Создать** в диалоговом окне **Настройка базы данных SQL**:
+
+	![Имя и пароль администратора SQL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/nc.png)
+
+1. Введите имя для администратора и надежный пароль.
+
+	![Новая база данных SQL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/np.png)
 
 	Имя сервера должно быть уникальным. Оно может содержать строчные буквы, цифры и дефисы. В конце имени дефис недопустим. Имя пользователя и пароль — это новые учетные данные, которые создаются для нового сервера.
 
@@ -99,7 +103,7 @@
 
 	![Использование новой базы данных](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newdb.png)
 
-4. Нажмите кнопку **ОК**.
+4. Нажмите кнопку **Создать**.
 
 	Visual Studio создает веб-проект ContactManager, указанные вами группу ресурсов и план службы приложений, а также веб-приложение в службе приложений Azure с указанным именем.
 
@@ -109,54 +113,13 @@
 
 	![\_Layout.cshtml в обозревателе решений][newapp004]
 
-1. Замените содержимое файла *Layout.cshtml* кодом, приведенным ниже.
+1. Замените ActionLink в файле *Layout.cshtml* на следующий код.
 
-		<!DOCTYPE html>
-		<html>
-		<head>
-		    <meta charset="utf-8" />
-		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		    <title>@ViewBag.Title - Contact Manager</title>
-		    @Styles.Render("~/Content/css")
-		    @Scripts.Render("~/bundles/modernizr")
-		
-		</head>
-		<body>
-		    <div class="navbar navbar-inverse navbar-fixed-top">
-		        <div class="container">
-		            <div class="navbar-header">
-		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                </button>
-		                @Html.ActionLink("CM Demo", "Index", "Cm", new { area = "" }, new { @class = "navbar-brand" })
-		            </div>
-		            <div class="navbar-collapse collapse">
-		                <ul class="nav navbar-nav">
-		                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-		                    <li>@Html.ActionLink("About", "About", "Home")</li>
-		                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-		                </ul>
-		                @Html.Partial("_LoginPartial")
-		            </div>
-		        </div>
-		    </div>
-		    <div class="container body-content">
-		        @RenderBody()
-		        <hr />
-		        <footer>
-		            <p>&copy; @DateTime.Now.Year - Contact Manager</p>
-		        </footer>
-		    </div>
-		
-		    @Scripts.Render("~/bundles/jquery")
-		    @Scripts.Render("~/bundles/bootstrap")
-		    @RenderSection("scripts", required: false)
-		</body>
-		</html>
 
-	Этот код изменяет имя приложения в верхнем и нижнем колонтитуле с «Мое приложение ASP.NET» и «Имя приложения» на «Contact Manager» и «CM Demo» соответственно.
+	@Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+		           
+
+	Убедитесь, что изменили третий параметр с "Home" на "Contacts". Приведенная выше разметка создаст ссылку "Contacts" на каждой странице в метод Index контроллера контактов. Измените имя приложения в верхнем и нижнем колонтитуле с "My ASP.NET Application" и "Application name" на "Contact Manager" и "CM Demo" соответственно.
  
 ### Локальный запуск приложения
 
@@ -282,7 +245,6 @@
 
 1. В поле **Класс контекста модели** выберите **ApplicationDbContext (ContactManager.Models)**. **ApplicationDbContext** будет использоваться и для базы данных членства, и для наших контактных данных.
 
-1. В текстовом поле **Имя контроллера** введите имя контроллера «CmController».
 
 	![Диалоговое окно "Новый контекст данных"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss5.PNG)
 
@@ -313,7 +275,7 @@
 
 	В классе **Initial** метод **Up** создает таблицу Contacts, а метод **Down** (используется при возвращении к предыдущему состоянию) удаляет эту таблицу.
 
-3. Откройте файл *Migrations\Configuration.cs*.
+3. Откройте файл *Migrations\\Configuration.cs*.
 
 4. Добавьте следующий оператор `using`.
 
@@ -372,7 +334,7 @@
                 );
         }
 
-	Этот код инициализирует базу данных с контактной информацией. Дополнительные сведения об инициализации базы данных см. в разделе [Инициализация и отладка баз данных Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
+	Этот код инициализирует базу данных с контактной информацией. Дополнительные сведения об инициализации базы данных см. в разделе [Инициализация и отладка баз данных Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx). Выполните сборку проекта и убедитесь в отсутствии ошибок компиляции.
 
 6. В окне **Консоль диспетчера пакетов** введите команду:
 
@@ -406,7 +368,7 @@
 
 В этом разделе в базу данных членства будут добавлены локальный пользователь и роль *canEdit*. Только пользователи, входящие в роль *canEdit*, смогут изменять данные. Рекомендуется именовать роли по выполняемым ими действиям, например имя *canEdit* предпочтительнее имени *admin*. По мере развития приложения можно добавлять новые роли, например роль *canDeleteMembers*, имя которой предпочтительнее, чем менее описательное имя *superAdmin*.
 
-1. Откройте файл *migrations\configuration.cs* и добавьте следующие инструкции `using`:
+1. Откройте файл *migrations\\configuration.cs* и добавьте следующие инструкции `using`:
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
@@ -445,7 +407,7 @@
 
 	![изображение кода](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	Этот код создает новую роль с именем *canEdit*, нового локального пользователя *user1@contoso.com* и добавляет *user1@contoso.com* к роли *canEdit*. Дополнительные сведения см. в [руководствах по удостоверениям ASP.NET](http://www.asp.net/identity/overview/features-api) на сайте ASP.NET.
+	Этот код создает новую роль с именем *canEdit*, нового локального пользователя **user1@contoso.com* и добавляет **user1@contoso.com* к роли *canEdit*. Дополнительные сведения см. в [руководствах по удостоверениям ASP.NET](http://www.asp.net/identity/overview/features-api) на сайте ASP.NET.
 
 ## Использование временного кода для добавления новых пользователей социальных сетей к роли canEdit  ##
 
@@ -501,7 +463,7 @@
 
 		Update-Database
 
-Команда **Update-Database** запускает метод **Seed**, который запускает добавленный ранее метод **AddUserAndRole**. Метод **AddUserAndRole** создает пользователя *user1@contoso.com* и назначает ему роль *canEdit*.
+Команда **Update-Database** запускает метод **Seed**, который запускает добавленный ранее метод **AddUserAndRole**. Метод **AddUserAndRole** создает пользователя **user1@contoso.com* и назначает ему роль *canEdit*.
 
 ## Защита приложения с помощью SSL и атрибута Authorize ##
 
@@ -509,8 +471,7 @@
 
 1. Откройте файл *App\_Start\\FilterConfig.cs* и замените метод *RegisterGlobalFilters* следующим кодом (который добавляет два фильтра):
 
-		public static void
-		RegisterGlobalFilters(GlobalFilterCollection filters)
+		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 		    filters.Add(new HandleErrorAttribute());
 		    filters.Add(new System.Web.Mvc.AuthorizeAttribute());
@@ -581,7 +542,7 @@
 
 1. Щелкните ссылку **О программе** или **Связь**. Вы перейдете на страницу входа, так как анонимные пользователи не могут просматривать эти страницы.
 
-1. Щелкните ссылку **Зарегистрироваться в качестве нового пользователя** и добавьте локального пользователя с электронным адресом *joe@contoso.com*. Проверьте, может ли *Joe* просматривать главную страницу, страницу сведений о программе и страницу связи.
+1. Щелкните ссылку **Зарегистрироваться в качестве нового пользователя** и добавьте локального пользователя с электронным адресом **joe@contoso.com*. Проверьте, может ли *Joe* просматривать главную страницу, страницу сведений о программе и страницу связи.
 
 	![вход](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -589,9 +550,10 @@
 
 1. Щелкнув ссылку «Изменить» на странице, вы перейдете на страницу входа (так как новому локальному пользователю нельзя назначить роль *canEdit*).
 
-1. Войдите как *user1@contoso.com* с паролем P\_assw0rd1 (0 в слове word — это нуль). Вы перейдете на ранее выбранную страницу редактирования.
+1. Войдите как **user1@contoso.com* с паролем P\_assw0rd1 (0 в слове word — это нуль). Вы перейдете на ранее выбранную страницу редактирования.
+2. 
 
-	Если не получается войти в систему с этой учетной записью и этим паролем, попробуйте скопировать пароль из исходного кода и вставить его. Если войти все равно не удается, убедитесь, что пользователь *user1@contoso.com* есть в столбце **UserName** таблицы **AspNetUsers**.
+	Если не получается войти в систему с этой учетной записью и этим паролем, попробуйте скопировать пароль из исходного кода и вставить его. Если войти все равно не удается, убедитесь, что пользователь **user1@contoso.com* есть в столбце **UserName** таблицы **AspNetUsers**.
 
 1. Убедитесь, что можете изменять данные.
 
@@ -605,17 +567,16 @@
 
 1. Откройте вкладку **Параметры** в левой части диалогового окна **Публикация веб-сайта**.
 
-2. Щелкните значок **v**, чтобы выбрать параметр **Строка удаленного подключения** для **ApplicationDbContext**, а затем выберите базу данных, созданную при создании проекта.
+2. В разделе **ApplicationDbContext** выберите базу данных, созданную при создании проекта.
    
-	![Параметры](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
 
 1. В разделе **ContactManagerContext** выберите **Выполнить Code First Migrations**.
 
-	![Параметры](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
+	![Параметры](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
 
 1. Щелкните **Опубликовать**.
 
-1. Войдите в систему как *user1@contoso.com* (с паролем P\_assw0rd1) и убедитесь, что можете изменять данные.
+1. Войдите в систему как **user1@contoso.com* (с паролем P\_assw0rd1) и убедитесь, что можете изменять данные.
 
 1. Выйдите из системы.
 
@@ -699,7 +660,7 @@
 
 	![Страница CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Запишите идентификатор учетной записи Google, с которой вы зарегистрировались для назначения роли **canEdit**, а также идентификатор пользователя *user1@contoso.com*. Только эти пользователи должны входить в роль **canEdit**. (Вы проверите это на следующем шаге.)
+1. Запишите идентификатор учетной записи Google, с которой вы зарегистрировались для назначения роли **canEdit**, а также идентификатор пользователя **user1@contoso.com*. Только эти пользователи должны входить в роль **canEdit**. (Вы проверите это на следующем шаге.)
 
 	![Страница CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -707,7 +668,7 @@
 
 	![Страница CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-3. Убедитесь, что идентификатор **UserId** принадлежит пользователю *user1@contoso.com* и зарегистрированной вами учетной записи Google.
+3. Убедитесь, что идентификатор **UserId** принадлежит пользователю **user1@contoso.com* и зарегистрированной вами учетной записи Google.
 
 ## Устранение неполадок
 
@@ -798,4 +759,4 @@
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!------HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0330_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
@@ -81,8 +81,6 @@
 ![Службы экосистемы Hadoop перечислены в окне эмулятора.][image-hdi-emulator-services]
 
 Службы, связанные с эмулятором HDInsight, не запускаются по умолчанию. Для запуска служб запустите из командной строки Hadoop командлет **start\_local\_hdp\_services.cmd** из папки C:\\hdp (расположение по умолчанию). Для автоматического запуска служб после перезагрузки компьютера запустите командлет **set-onebox-autostart.cmd**.
-
-Известные проблемы установки и запуска эмулятора HDInsight см. в статье [Заметки к версии эмулятора HDInsight](hdinsight-emulator-release-notes.md). Журнал установки находится по пути: **C:\\HadoopFeaturePackSetup\\HadoopFeaturePackSetupTools\\gettingStarted.winpkg.install.log**.
 
 ##<a name="vstools"></a>Использование эмулятора с инструментами HDInsight для Visual Studio
 
@@ -509,7 +507,6 @@ The samples currently contain all the required binaries, so building is not requ
 - [Приступая к работе с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Разработка программ MapReduce на Java для HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
 - [Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
-- [Заметки к версии эмулятора HDInsight](hdinsight-emulator-release-notes.md)
 - [Форум MSDN с обсуждением HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
 
@@ -522,7 +519,6 @@ The samples currently contain all the required binaries, so building is not requ
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [hdinsight-emulator-install]: http://www.microsoft.com/web/gallery/install.aspx?appid=HDINSIGHT
-[hdinsight-emulator-release-notes]: hdinsight-emulator-release-notes.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
@@ -538,4 +534,4 @@ The samples currently contain all the required binaries, so building is not requ
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

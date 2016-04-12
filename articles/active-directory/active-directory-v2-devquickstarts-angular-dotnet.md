@@ -51,7 +51,8 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet.git
 Запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
 
 ## Установка adal.js
-Для запуска перейдите в загруженный проект и установите библиотеку adal.js. Если у вас установлен [bower](http://bower.io/), можно просто выполнить эту команду. Для любого несоответствия версий зависимостей просто выберите обновленную версию. ```
+Для запуска перейдите в загруженный проект и установите библиотеку adal.js. Если у вас установлен [bower](http://bower.io/), можно просто выполнить эту команду. В случае несоответствия версий каких-либо зависимостей просто выберите наиболее актуальную версию.
+```
 bower install adal-angular#experimental
 ```
 
@@ -228,4 +229,4 @@ return $http.get('/api/tasks');
 - [Azure AD при переполнении стека >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Документация по Azure AD [на сайте Azure.com](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

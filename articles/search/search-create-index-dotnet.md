@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="brjohnst"/>
 
 # Создание индекса службы поиска Azure с помощью пакета SDK для .NET
@@ -77,8 +77,8 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 var definition = new Index()
 {
     Name = "hotels",
-    Fields = new[] 
-    { 
+    Fields = new[]
+    {
         new Field("hotelId", DataType.String)                       { IsKey = true, IsFilterable = true },
         new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true, IsFacetable = true },
         new Field("description", DataType.String)                   { IsSearchable = true },
@@ -121,6 +121,6 @@ serviceClient.Indexes.Delete("hotels");
 > [AZURE.NOTE] Для простоты пример кода в этой статье использует синхронные методы пакета SDK для Поиска Azure в .NET. Рекомендуем использовать в ваших приложениях асинхронные методы, чтобы сохранить масштабируемость и скорость отклика. Например, в приведенных выше примерах можно использовать `CreateAsync` и `DeleteAsync` вместо `Create` и `Delete`.
 
 ## Далее
-Создав индекс поиска Azure, вы можете передать содержимое в индекс, чтобы начать поиск данных. Дополнительные сведения см. в статье [Импорт данных в службе поиска Azure с помощью пакета SDK для .NET](search-import-data-dotnet.md).
+Создав индекс службы поиска Azure, вы сможете [передать в него содержимое](search-what-is-data-import.md) и искать нужные вам данные.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

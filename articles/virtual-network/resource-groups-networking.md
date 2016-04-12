@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Общие сведения о поставщике сетевых ресурсов | Microsoft Azure"
+   pageTitle="Общие сведения о поставщике сетевых ресурсов | Microsoft Azure"
    description="Узнайте о новом поставщике сетевых ресурсов в диспетчере ресурсов Azure"
    services="virtual-network"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Поставщик сетевых ресурсов
@@ -254,26 +254,14 @@ API Rest соответствует спецификации протокола 
 ![Пример развертывания шаблона](./media/resource-groups-networking/Figure6.png)
 
 
-## См. также
-
-[Справочник по сетевому API Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-[Справочник по Azure PowerShell для работы в сети](https://msdn.microsoft.com/library/azure/mt163510.aspx)
+## Дальнейшие действия
 
 [Язык шаблонов в диспетчере ресурсов Azure](../resource-group-authoring-templates.md)
 
 [Сеть Azure: часто используемые шаблоны](https://github.com/Azure/azure-quickstart-templates)
 
-[Поставщик вычислительных ресурсов](../virtual-machines-azurerm-versus-azuresm)
+[Поставщик вычислительных ресурсов](../virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-[Общие сведения о диспетчере ресурсов Azure](../resource-group-overview)
+[Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md)
 
-[Управление доступом на основе ролей в диспетчере ресурсов Azure](https://msdn.microsoft.com/library/azure/dn906885.aspx)
-
-[Использование тегов в диспетчере ресурсов Azure](https://msdn.microsoft.com/library/azure/dn848368.aspx)
-
-[Развертывания шаблонов](https://msdn.microsoft.com/library/azure/dn790549.aspx)
-
-Современные
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

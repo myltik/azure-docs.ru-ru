@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Создание копии Базы данных SQL Azure с помощью Transact-SQL" 
+    pageTitle="Копирование базы данных SQL Azure с помощью Transact-SQL | Microsoft Azure" 
     description="Создание копии Базы данных SQL Azure с помощью Transact-SQL" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,21 +10,21 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Создание копии Базы данных SQL Azure с помощью Transact-SQL
+# Копирование базы данных SQL Azure с помощью Transact-SQL
 
 **Отдельная база данных**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Портал Azure](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 
 
@@ -103,4 +103,4 @@
 - [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
 - [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

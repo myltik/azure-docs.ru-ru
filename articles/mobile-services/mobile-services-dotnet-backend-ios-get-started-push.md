@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 
 # Добавление push-уведомлений в приложение iOS и серверную часть .NET
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Добавление push-уведомлений в приложение iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
 В этом разделе показано, как добавить push-уведомления в [проект быстрого запуска](mobile-services-dotnet-backend-ios-get-started.md), чтобы ваша мобильная служба отправляла push-уведомление при каждой вставке записи. Сначала необходимо выполнить действия, описанные в статье [Приступая к работе с мобильными службами].
 
@@ -132,4 +132,4 @@
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0316_2016-->

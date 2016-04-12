@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Управление привилегированными пользователями Azure: активация роли"
+   pageTitle="Как активировать или деактивировать роль | Microsoft Azure"
    description="Узнайте, как активировать роли для привилегированных пользователей с помощью расширения для управления привилегированными пользователями Azure."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/11/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Управление привилегированными пользователями Azure: активация и деактивация роли
+# Управление привилегированными пользователями Azure AD: активация и деактивация роли
 
 ## Активация и деактивация роли
 
@@ -37,4 +37,4 @@
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

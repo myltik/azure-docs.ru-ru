@@ -28,7 +28,7 @@
 
 ## Загрузка памятки по алгоритмам машинного обучения
 
-Загрузите памятку по алгоритмам машинного обучения, которая поможет выбрать алгоритм машинного обучения для вашего решения. Чтобы держать памятку под рукой, напечатайте ее в формате 11 x 17 дюймов (27,94 x 43,18 см).
+Загрузите памятку по алгоритмам машинного обучения, которая поможет выбрать алгоритм машинного обучения для вашего решения. Чтобы держать памятку под рукой, напечатайте ее в формате 11 x 17 дюймов (27,94 x 43,18 см).
 
 **Скачайте памятку здесь: [Памятка по алгоритмам Машинного обучения Microsoft Azure](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**.
 
@@ -79,7 +79,7 @@
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
---> \\
+--> 
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
@@ -87,4 +87,4 @@
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags
@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell](cache-howto-manage-redis-cache-powershell.md)
-- [Azure CLI](cache-manage-cli.md)
+- [Интерфейс командной строки Azure](cache-manage-cli.md)
 
 В этом разделе демонстрируется выполнение таких обычных задач, как создание, обновление и масштабирование экземпляров кэша Redis для Azure, повторное создание ключей доступа и просмотр сведений о кэшах. Полный список командлетов PowerShell для работы с кэшем Redis для Azure см. в разделе [Командлеты кэша Redis для Azure](https://msdn.microsoft.com/library/azure/mt634513.aspx).
 
@@ -81,7 +81,7 @@
 -	Правительство штата Вирджиния
 -	Правительство штата Айова
 
-Дополнительные сведения об облаке Azure Government см. в статье [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) и в [Руководстве для разработчиков Microsoft Azure Government](azure-government-developer-guide.md).
+Дополнительные сведения об облаке Azure Government см. на странице [Microsoft Azure для государственных организаций](https://azure.microsoft.com/features/gov/) и в разделе [Руководстве для разработчиков Microsoft Azure Government](../azure-government-developer-guide.md).
 
 ### Подключение к облаку Azure China
 
@@ -98,7 +98,7 @@
 -	Восток Китая
 -	Север Китая
 
-Дополнительные сведения об облаке Azure China см. в статье [AzureChinaCloud для Azure под управлением 21Vianet в Китае](http://www.windowsazure.cn/).
+Дополнительные сведения об облаке Azure в Китае см. на странице [AzureChinaCloud для Azure под управлением 21Vianet в Китае](http://www.windowsazure.cn/).
 
 ## Свойства, используемые в командлетах PowerShell кэша Redis для Azure
 
@@ -109,7 +109,7 @@
 | Имя | Имя кэша | |
 | Расположение | Расположение кэша | |
 | ResourceGroupName | Имя группы ресурсов, в которой необходимо создать кэш | |
-| Размер | Размер кэша. Допустимые значения: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 МБ, 1 ГБ, 2,5 ГБ, 6 ГБ, 13 ГБ, 26 ГБ, 53 ГБ | 1 ГБ |
+| Размер | Размер кэша. Допустимые значения: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 МБ, 1 ГБ, 2,5 ГБ, 6 ГБ, 13 ГБ, 26 ГБ, 53 ГБ | 1 ГБ |
 | ShardCount | Число сегментов, которые будут созданы при создании кэша уровня Premium с включенной кластеризацией. Допустимые значения: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU | Определяет SKU кэша. Допустимые значения: Basic, Standard, Premium | Standard |
 | RedisConfiguration | Определяет параметры конфигурации Redis для ключей maxmemory-delta, maxmemory-policy и notify-keyspace-events. Обратите внимание на то, что ключи maxmemory-delta и notify-keyspace-events доступны только для кэшей уровня Standard и Premium. | |
@@ -206,13 +206,13 @@
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
 
-`ResourceGroupName`, `Name` и `Location` — обязательные параметры; остальные указываются по желанию и имеют значения по умолчанию. При выполнении предыдущей команды создается экземпляр кэша Redis для Azure SKU Standard с заданным именем, расположением и группой ресурсов; размер экземпляра — 1 ГБ, порт без SSL отключен.
+`ResourceGroupName`, `Name` и `Location` — обязательные параметры; остальные указываются по желанию и имеют значения по умолчанию. При выполнении предыдущей команды создается экземпляр кэша Redis для Azure SKU Standard с заданным именем, расположением и группой ресурсов; размер экземпляра — 1 ГБ, порт без SSL отключен.
 
-Для создания кэша уровня Premium укажите размер P1 (6-60 ГБ), P2 (13-130 ГБ), (26-260 ГБ), P3 и P4 (53-530 ГБ). Чтобы включить кластеризацию, укажите количество сегментов с помощью параметра `ShardCount`. В следующем примере создается кэш P1 уровня Premium с 3 сегментами. Размер кэша P1 уровня Premium — 6 ГБ, и, поскольку мы указали три сегмента, общий размер составляет 18 ГБ (3 x 6 ГБ).
+Для создания кэша уровня Premium укажите размер P1 (6-60 ГБ), P2 (13-130 ГБ), (26-260 ГБ), P3 и P4 (53-530 ГБ). Чтобы включить кластеризацию, укажите количество сегментов с помощью параметра `ShardCount`. В следующем примере создается кэш P1 уровня Premium с 3 сегментами. Размер кэша P1 уровня Premium — 6 ГБ, и, поскольку мы указали три сегмента, общий размер составляет 18 ГБ (3 x 6 ГБ).
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-Чтобы указать значения для параметра `RedisConfiuration`, включите их в фигурные скобки (`{}`) как пары "ключ-значение" типа `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. В следующем примере создается кэш уровня Standard размером 1 ГБ с политикой максимальной памяти `allkeys-random` и уведомлениями пространства ключей, настроенными с помощью `KEA`. Дополнительные сведения см. в разделах [Уведомления пространства ключей (дополнительные параметры)](cache-configure.md#keyspace-notifications-advanced-settings) и [Политика максимальной памяти и зарезервированная максимальная память](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
+Чтобы указать значения для параметра `RedisConfiuration`, включите их в фигурные скобки (`{}`) как пары "ключ-значение" типа `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. В следующем примере создается кэш уровня Standard размером 1 ГБ с политикой максимальной памяти `allkeys-random` и уведомлениями пространства ключей, настроенными с помощью `KEA`. Дополнительные сведения см. в разделах [Уведомления пространства ключей (дополнительные параметры)](cache-configure.md#keyspace-notifications-advanced-settings) и [Политика максимальной памяти и зарезервированная максимальная память](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 
@@ -292,11 +292,11 @@
 >-	Вы не можете выполнить масштабирование кэша до уровня **Премиум** или с уровня "Премиум" до другого уровня.
 >-	Вы не можете выполнить масштабирование кэша с уровня **Стандартный** до уровня **Базовый**.
 >-	Вы можете выполнить масштабирование кэша с уровня **Basic** до уровня **Standard**, но вам не удастся одновременно с этим изменить размер кэша. Если требуется изменить размер, можно выполнить последующую операцию масштабирования до нужного размера.
->-	Вам не удастся выполнить масштабирование с большего размера до размера **C0 (250 МБ)**.
+>-	Вам не удастся выполнить масштабирование с большего размера до размера **C0 (250 МБ)**.
 >
 >Дополнительные сведения см. в статье [Масштабирование кэша Redis для Azure](cache-how-to-scale.md).
 
-В следующем примере демонстрируется масштабирование кэша с именем `myCache` в кэш размером 2,5 ГБ. Обратите внимание на, что команда будет работать в кэше уровня Basic или Standard.
+В следующем примере демонстрируется масштабирование кэша с именем `myCache` в кэш размером 2,5 ГБ. Обратите внимание на, что команда будет работать в кэше уровня Basic или Standard.
 
 	Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -609,4 +609,4 @@
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 # Приступая к работе с соединителем SharePoint: добавление в приложение логики
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview для API SharePoint Online, щелкните [API SharePoint](../connectors/connectors-create-api-sharepointonline.md).
 
 Подключитесь к SharePoint Server или SharePoint Online, чтобы управлять документами и перечислять элементы. Вы можете выполнять различные действия, такие как создание, обновление, получение и удаление документов и элементов списка. При использовании локального сервера SharePoint вы можете предоставить строку подключения к служебной шине как часть конфигурации соединителя и установить агент локального прослушивателя для подключения к серверу.
 
@@ -36,7 +36,7 @@
 
 	Имя | Обязательно | Описание
 --- | --- | ---
-URL-адрес сайта | Да | Введите полный URL-адрес веб-сайта SharePoint. Например, введите **https://microsoft.sharepoint.com/teams/wabstest*.
+URL-адрес сайта | Да | Введите полный URL-адрес веб-сайта SharePoint. Например, введите *https://microsoft.sharepoint.com/teams/wabstest* .
 Относительные URL-адреса библиотек или списков документов | Да | Введите URL-адреса библиотек или списков документов, связанных с URL-адресом сайта SharePoint, которые могут изменяться соединителем. Например, введите *Lists/Task, Shared Documents*.
 
 5. После завершения параметры пакета будут выглядеть примерно так:
@@ -483,4 +483,4 @@ ItemID | Да | Идентификатор элемента списка.
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

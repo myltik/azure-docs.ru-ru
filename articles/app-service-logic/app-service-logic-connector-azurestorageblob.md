@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
    
 # Приступая к работе с соединителем больших двоичных объектов службы хранилища Azure: добавление в приложение логики 
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview, щелкните [API хранилища BLOB-объектов Azure](../connectors/create-api-azureblobstorage.md).
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview, щелкните [API хранилища BLOB-объектов Azure](../connectors/connectors-create-api-azureblobstorage.md).
 
 Подключение к большому двоичному объекту хранилища Azure позволяет отправлять, загружать и удалять большие двоичные объекты из контейнера больших двоичных объектов. Соединители используются в приложениях логики в рамках «рабочего процесса».
 
@@ -107,4 +107,4 @@ URI контейнера/SAS | Да | Введите URI контейнера б
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

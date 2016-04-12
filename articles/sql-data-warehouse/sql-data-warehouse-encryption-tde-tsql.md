@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Начало работы с прозрачным шифрованием данных (TDE) хранилища данных SQL TSQL | Microsoft Azure" 
-   description="Начало работы с прозрачным шифрованием данных (TDE) хранилища данных SQL TSQL | Microsoft Azure" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="Начало работы с прозрачным шифрованием данных (TDE) хранилища данных SQL TSQL | Microsoft Azure"
+   description="Начало работы с прозрачным шифрованием данных (TDE) хранилища данных SQL TSQL | Microsoft Azure"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
- 
+
 # Начало работы с прозрачным шифрованием данных (TDE)
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](sql-data-warehouse-encryption-tde.md)
+- [Классический портал Azure](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
 
 Прозрачное шифрование данных (TDE) хранилища данных SQL Azure помогает защититься от угрозы вредоносных атак за счет шифрования и расшифровки базы данных, связанных резервных копий и файлов журналов транзакций при хранении в реальном времени, не внося изменения в само приложение.
@@ -32,7 +32,7 @@
 1. Подключитесь к *главной* базе данных на сервере, где находится база данных, указав логин администратора или члена роли **dbmanager** в главной базе данных.
 2. Выполните следующий оператор для шифрования базы данных:
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -43,7 +43,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 1. Подключитесь к *главной* базе данных, указав логин администратора или члена роли **dbmanager** в главной базе данных.
 2. Выполните следующий оператор для шифрования базы данных:
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
@@ -54,7 +54,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 1. Подключитесь к *главной* базе данных или к экземпляру базы данных, указав логин администратора или члена роли **dbmanager** в главной базе данных.
 2. Выполните следующий оператор для шифрования базы данных:
 
-```
+```sql
 SELECT
 	[name],
 	[is_encrypted]
@@ -64,7 +64,7 @@ FROM
 
 Результат ```1``` означает зашифрованную, а ```0``` — незашифрованную базу данных.
 
- 
+
 <!--Anchors-->
 [Прозрачное шифрование данных (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

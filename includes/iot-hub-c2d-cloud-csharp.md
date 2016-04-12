@@ -88,13 +88,13 @@
 
     ![][22]
 
-> [AZURE.NOTE]Для упрощения в этом руководстве не реализуются какие-либо политики повтора. В рабочем коде рекомендуется реализовать политики повтора (например, экспоненциальную задержку), как это указано в статье MSDN [Обработка временного сбоя].
+> [AZURE.NOTE] Для упрощения в этом руководстве не реализуются какие-либо политики повтора. В рабочем коде рекомендуется реализовать политики повтора (например, экспоненциальную задержку), как это указано в статье MSDN [Обработка временного сбоя].
 
 <!-- Links -->
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [пакет NuGet пакета SDK служб в Azure IoT]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[Обработка временного сбоя]: https://msdn.microsoft.com/ru-RU/library/hh680901(v=pandp.50).aspx
+[Обработка временного сбоя]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Приступая к работе с центром IoT]: iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
@@ -102,4 +102,4 @@
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python"
-	ms.topic="hero-article" 
+	ms.topic="get-started-article" 
 	ms.date="02/25/2016"
 	ms.author="huvalo"/>
 
@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.js](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP — Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP — FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -34,12 +34,12 @@
 
 ## Предварительные требования
 
- - Visual Studio 2013 или 2015.
+ - Visual Studio 2013 или 2015
  - [Инструменты Python 2.2 для Visual Studio].
  - [Образцы VSIX средств Python 2.2 для Visual Studio].
  - [Пакет SDK для Azure для VS 2013] или [пакет SDK для Azure для VS 2015].
  - [Python 2.7 (32-разрядная версия)].
- - Django 1.6 или более старая версия.
+ - Django 1.6 или более ранняя версия.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -217,4 +217,4 @@
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

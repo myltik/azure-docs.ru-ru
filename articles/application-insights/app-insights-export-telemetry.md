@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/10/2016" 
 	ms.author="awills"/>
  
 # Экспорт данных телеметрии из Application Insights
@@ -31,7 +31,7 @@
 Если у вас еще нет "классической" учетной записи хранения, создайте ее.
 
 
-1. Создайте «классическую» учетную запись хранения в подписке на [портале Azure](https://portal.azure.com).
+1. Создайте учетную запись хранения в подписке на [портале Azure](https://portal.azure.com).
 
     ![На портале Azure выберите "Создать", "Данные", "Хранилище".](./media/app-insights-export-telemetry/030.png)
 
@@ -91,6 +91,17 @@
 ![Проверьте хранилище больших двоичных объектов с помощью подходящего средства.](./media/app-insights-export-telemetry/04-data.png)
 
 Дата и время имеют формат UTC и соответствуют моменту, когда элемент телеметрии был внесен в хранилище (не моменту его создания). Поэтому при написании кода для загрузки данных можно линейно перемещаться по данным.
+
+Путь имеет следующий вид.
+
+
+    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+  
+Where
+
+-	`blobCreationTimeUtc` — время создания большого двоичного объекта во внутреннем промежуточном хранилище.
+-	`blobDeliveryTimeUtc` — время, когда большой двоичный объект был скопирован в целевое хранилище экспорта.
+
 
 
 ## <a name="format"></a>Формат данных
@@ -212,4 +223,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

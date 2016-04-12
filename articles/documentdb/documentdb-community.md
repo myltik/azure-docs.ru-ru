@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="02/24/2016"
+  ms.date="03/18/2016"
   ms.author="andrl"/>
 
 # Портал сообщества
@@ -89,6 +89,12 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 **Записи участников сообщества:**
 
+* [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/). *Матиас Куарантаас (Matias Quarantaas)*
+
+* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/). *Эрик Лангленд (Eric Langland)*
+
+* [**Notifications for new or changed DocumentDB resources using Logic Apps**](documentdb-change-notification.md). *Говард Эдидин (Howard Edidin)*
+
 * [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/). *Йоичи Кавасаки (Yoichi Kawasaki)*
 
 * [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/). *Питер Маннехалт (Peter Mannerhult)*
@@ -140,9 +146,10 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 ### Недавно прошедшие и предстоящие мероприятия
 
 | Название мероприятия | Докладчик | Расположение | Дата | Хэш-тег |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
-| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Эндрю Лю (Andrew Liu) | Бельвью, штат Вашингтон | 3 марта 2016 г. | Недоступно
-| SQLBits XV | Подлежит уточнению | Ливерпуль, Великобритания | 4–7 мая 2016 г. | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
+| [Build 2016](https://build.microsoft.com/) | Джон Макинтайр (John Macintyre), Дхарма Шукла (Dharma Shukla) | Сан-Франциско, Калифорния | С 30 марта по 1 апреля 2016 г. | [#MicrosoftBuild](https://twitter.com/hashtag/MicrosoftBuild)
+| [SQLBits XV](https://sqlbits.com/) | Эндрю Лю (Andrew Liu), Аравинд Рамачандран (Aravind Ramachandran) | Ливерпуль, Великобритания | 4–7 мая 2016 г. | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Эндрю Лю (Andrew Liu) | Лондон, Великобритания | 12 мая 2016 г. | Недоступно |
 
 *Вы являетесь докладчиком или организуете мероприятие? [Мы можем помочь!](mailto:askdocdb@microsoft.com) Узнайте как.*
 
@@ -150,6 +157,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 | Название мероприятия | Докладчик | Расположение | Дата | Записи |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Кират Пандья (Kirat Pandya) | Бельвью, штат Вашингтон | 3 марта 2016 г. | Недоступно |
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Мерван Чинта (Merwan Chinta) | Остин, Техас | 28 января 2016 г. | Недоступно |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Венсан-Филипп Лозон (Vincent-Philippe Lauzon) | Монреаль, Квебек, Канада | 1 декабря 2015 г. | Недоступно |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | Дэвид Мекоген (David Makogon) | Сиэтл, Вайоминг | 12 ноября 2015 г. | Недоступно |
@@ -181,8 +189,10 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 ### Видео и подкасты
 
 | Показать | Докладчик | Дата | Серия |
-| ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| ------------------------------------------- | --------------------------- | ------------------ | ------- |
+| Wired2WinWebinar | Саи Санкар Куннатукужийил (Sai Sankar Kunnathukuzhiyil) | 9 марта 2016 г. | [Developing Solutions with Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs)
 | Integration User Group | Хан Вонг (Han Wong) | 17 февраля 2016 г. | [Analyze and visualize non-relational data with DocumentDB + Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| Подкаст Azure | Кейл Титер (Cale Teeter) | 14 января 2016 г. | [Episode 110: Using DocumentDB & Search](http://azpodcast.azurewebsites.net/post/Episode-110-Using-DocumentDB-Search) |
 | Channel 9: современные приложения | Тара Шанкар Джана (Tara Shankar Jana) | 13 декабря 2016 г. | [Take a modern approach to data in your apps](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Мигель Куинтеро (Miguel Quintero) | 10 декабря 2015 г. | [DocumentDB — общий взгляд](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Integration User Group | Ховард Эдидин (Howard Edidin) | 9 ноября 2015 г. | [Использование Azure DocumentDB для интеграции в здравоохранении: часть 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
@@ -284,4 +294,4 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 Хотите стать мастером DocumentDB? Несмотря на то, что критериев для отбора мастеров DocumentDB не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, как, например, StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

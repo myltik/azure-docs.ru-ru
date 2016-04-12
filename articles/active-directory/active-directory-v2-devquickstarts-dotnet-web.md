@@ -70,10 +70,12 @@ namespace TodoList_WebApp
 	}
 }```
 
--	Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
+-	Откройте файл `App_Start\Startup.Auth.cs` и реализуйте метод `ConfigureAuth(...)`. Параметры, указанные в `OpenIdConnectAuthenticationOptions`, будут служить координатами приложения для взаимодействия с Azure AD. Также будет необходимо настроить проверку подлинности для файлов Cookie — промежуточный слой OpenID Connect использует файлы cookie под обложками.
 
 ```C#
-public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+public void ConfigureAuth(IAppBuilder app)
+			 {
+					 app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
 					 app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
@@ -103,12 +105,16 @@ public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticatio
 ```
 
 ## Отправка запросов проверки подлинности
-Теперь приложение правильно настроено для взаимодействия с конечной точки версии 2.0 с использованием протокола проверки подлинности OpenID Connect.  OWIN полностью возьмет на себя выполнение процессов создания сообщений проверки подлинности, проверки маркеров из Azure AD и поддержки сеанса пользователя.  Остается лишь предоставить пользователям возможность выполнять вход и выход.
+Теперь приложение правильно настроено для взаимодействия с конечной точки версии 2.0 с использованием протокола проверки подлинности OpenID Connect. OWIN полностью возьмет на себя выполнение процессов создания сообщений проверки подлинности, проверки маркеров из Azure AD и поддержки сеанса пользователя. Остается лишь предоставить пользователям возможность выполнять вход и выход.
 
-- Вы можете использовать теги авторизации в своих контроллерах, чтобы обязать пользователя выполнять вход перед доступом к конкретной странице.  Откройте `Controllers\HomeController.cs` и добавьте тег  `[Authorize]` в контроллер «О программе».
+- Вы можете использовать теги авторизации в своих контроллерах, чтобы обязать пользователя выполнять вход перед доступом к конкретной странице. Откройте `Controllers\HomeController.cs` и добавьте тег `[Authorize]` в контроллер «О программе».
 
 ```C#
-[Authorize] public ActionResult About() { ... ```
+[Authorize]
+public ActionResult About()
+{
+  ...
+```
 
 -	Вы также можете использовать OWIN для выдачи запросов проверки подлинности прямо из своего кода. Откройте `Controllers\AccountController.cs`. В действиях SignIn() и SignOut() выдавайте соответственно запросы входа и выхода из OpenID Connect.
 
@@ -197,6 +203,8 @@ public ActionResult About()
 
 [Защита веб-API с помощью конечной точки версии 2.0](active-directory-devquickstarts-webapi-dotnet.md)
 
-Дополнительные ресурсы: - [Руководство разработчика для версии 2.0](active-directory-appmodel-v2-overview.md) - [StackOverflow: тег azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Дополнительные ресурсы:
+- [Руководство разработчика версии 2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Тег StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

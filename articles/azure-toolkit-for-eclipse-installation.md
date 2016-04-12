@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016" 
+    ms.date="03/28/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
-# Установка набора средств Azure для Eclipse #
+# Установка набора средств Azure для Eclipse
 
 В набор средств Azure для Eclipse входят шаблоны и функциональные возможности для простого создания, разработки, тестирования и развертывания приложений Azure с помощью среды разработки Eclipse. Это проект с открытым кодом, исходный код которого доступен по лицензии Apache License 2.0 на сайте проекта в GitHub по следующему URL-адресу:
 
-<https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>.
+<https://github.com/microsoft/azure-tools-for-java>
 
 Ниже приведен процесс установки набора средств Azure для Eclipse.
 
 [AZURE.INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
-## Установка набора средств Azure для Eclipse ##
+## Установка набора средств Azure для Eclipse
 
 1. Запустите Eclipse.
 2. В меню Eclipse выберите <strong>Help</strong> (Справка), а затем <strong>Install New Software</strong> (Установка нового программного обеспечения), как показано на следующей схеме.
@@ -49,15 +49,15 @@
 8. В диалоговом окне **Review Licenses** (Просмотр лицензий) ознакомьтесь с условиями лицензионного соглашения. Если вы принимаете условия лицензионных соглашений, нажмите кнопку **I accept the terms of the license agreements** (Я принимаю условия лицензионных соглашений), а затем нажмите кнопку **Готово**. (В следующих действиях предполагается, что вы принимаете условия лицензионных соглашений. Если вы не принимаете эти условия, завершите процесс установки.)
 9. Если отображается запрос на перезапуск Eclipse для завершения установки, нажмите кнопку **Перезагрузить сейчас**.
 
-## См. также ##
+## См. также
 
-[Набор средств Azure для Eclipse][]
+[Набор средств Azure для Eclipse]
 
-[Создание приложения Hello World для Azure в Eclipse][]
+[Создание приложения Hello World для Azure в Eclipse]
 
-[Новые возможности набора средств Azure для Eclipse][]
+[Новые возможности набора средств Azure для Eclipse]
 
-Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][].
+Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure].
 
 <!-- URL List -->
 
@@ -74,4 +74,4 @@
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

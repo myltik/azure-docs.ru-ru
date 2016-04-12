@@ -19,7 +19,7 @@
 
 #  Руководство для разработчиков Microsoft Azure Government 
 
-<p> Microsoft Azure Government  — это физически изолированный от сети экземпляр Microsoft Azure. В данном руководстве для разработчиков представлены подробные сведения о различиях, с которыми столкнутся разработчики приложений и администраторы при работе с этими отдельными регионами Azure.
+<p> Microsoft Azure Government  — это физически изолированный от сети экземпляр Microsoft Azure. В данном руководстве для разработчиков представлены подробные сведения о различиях, с которыми столкнутся разработчики приложений и администраторы при работе с этими отдельными регионами Azure.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
@@ -92,7 +92,8 @@ Azure Goverment в настоящее время имеет следующие �
 Общие сведения|*.windows.net|*.usgovcloudapi.net
 Core|*.core.windows.net|*.core.usgovcloudapi.net
 Среда выполнения приложений|*.cloudapp.net|*.usgovcloudapp.net
-Хранилище BLOB-объектов|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Хранилище BLOB-объектов|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net
+Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Хранилище таблиц|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Service Management|management.core.windows.net|management.core.usgovcloudapi.net
 База данных SQL|*.database.windows.net|*.database.usgovcloudapi.net
@@ -124,8 +125,8 @@ Service Management|management.core.windows.net|management.core.usgovcloudapi.net
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

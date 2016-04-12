@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Обнаружение источников данных"
+   pageTitle="Обнаружение источников данных | Microsoft Azure"
    description="В статье описывается обнаружение зарегистрированных ресурсов данных с помощью каталога данных Azure, в том числе возможности поиска, фильтрации и выделения совпадений, предоставляемые порталом каталога данных Azure."
    services="data-catalog"
    documentationCenter=""
@@ -13,9 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
-
 
 # Обнаружение источников данных
 
@@ -63,4 +62,4 @@
 ## См. также
 - Пошаговые инструкции по обнаружению источников данных см. в руководстве [Начало работы с каталогом данных Azure](data-catalog-get-started.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

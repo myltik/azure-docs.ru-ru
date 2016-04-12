@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/05/2016"
+   	ms.date="03/08/2016"
    	ms.author="jgao"/>
 
 #Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET
@@ -27,7 +27,9 @@
 >
 > Дополнительные сведения о размерах узлов и их стоимости см. в статье [Сведения о ценах на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-###Предварительные требования
+##Предварительные требования
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -168,7 +170,7 @@
 
 Дополнительную информацию см. в статье [Настройка кластеров HDInsight с помощью начальной загрузки](hdinsight-hadoop-customize-cluster-bootstrap).
 
-Измените пример в разделе [Создание кластеров](#create-clusters) для настройки параметра Hive:
+Измените пример в разделе [Создание кластеров](#create-clusters) для настройки параметра Hive.
 
     static void Main(string[] args)
     {
@@ -293,7 +295,7 @@
 
 Дополнительную информацию см. в статье [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
 
-Измените пример в разделе [Создание кластеров](#create-clusters) для вызова действия сценария для установки R:
+Измените пример в разделе [Создание кластеров](#create-clusters) для вызова действия сценария для установки R.
 
     static void Main(string[] args)
     {
@@ -363,4 +365,4 @@
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

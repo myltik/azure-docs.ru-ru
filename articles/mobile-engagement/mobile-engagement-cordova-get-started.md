@@ -12,25 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
-	ms.topic="article" 
-	ms.date="02/29/2016"
+	ms.topic="hero-article" 
+	ms.date="04/04/2016"
 	ms.author="piyushjo" />
 
 # Начало работы с Azure Mobile Engagement для Cordova (Phonegap)
 
-> [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS | Obj C](mobile-engagement-ios-get-started.md)
-- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
-- [Cordova](mobile-engagement-cordova-get-started.md)
+[AZURE.INCLUDE [Выбор других руководств](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 В этом разделе показано, как использовать Azure Mobile Engagement для анализа использования приложений и отправки push-уведомлений определенным группам пользователей мобильного приложения, разработанного на платформе Cordova.
 
 В этом учебнике вы создадим пустое приложение Cordova на компьютере Mac и интегрируем пакет Mobile Engagement SDK. Приложение будет собирать базовые данные аналитики и получать push-уведомления с помощью системы push-уведомлений Apple (APNS) для iOS и Google Cloud Messaging (GCM) для Android. Для тестирования мы развернем его на устройствах под управлением iOS или Android.
 
-> [AZURE.IMPORTANT] Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>;
+> [AZURE.NOTE] Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
 
 Для работы с данным учебником требуется следующее:
 
@@ -78,13 +72,14 @@
 1. Установите подключаемый модуль Cordova для Azure Mobile Engagement и укажите значения переменных для настройки подключаемого модуля:
 
 		cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
-			 --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
+     		--variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
 	        --variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
 	        --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
 			--variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
 	        --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
-	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
-	        --variable AZME_ENABLE_LOG=true|false
+	        --variable AZME_ACTION_URL =... (URL scheme which triggers the app for deep linking)
+	        --variable AZME_ENABLE_NATIVE_LOG=true|false
+			--variable AZME_ENABLE_PLUGIN_LOG=true|false
 
 *Значок Android Reach* — это должно быть имя ресурса без расширения или префикса (например, mynotificationicon), а значок файла необходимо скопировать в приложение Android (platforms/android/res/drawable).
 
@@ -95,8 +90,7 @@
 1. В проекте Cordova добавьте в файл **www/js/index.js** вызов Mobile Engagement, чтобы объявить новое действие после получения события *deviceReady*.
 
 		 onDeviceReady: function() {
-		        app.receivedEvent('deviceready');
-		        AzureEngagement.startActivity("myPage",{});
+		        Engagement.startActivity("myPage",{});
 		    }
 
 2. Запустите приложение:
@@ -161,10 +155,12 @@ Mobile Engagement позволяет взаимодействовать с по�
 Добавьте в файл **www/js/index.js** вызов Mobile Engagement для запроса push-уведомлений и объявления обработчика.
 
 	 onDeviceReady: function() {
-	        app.receivedEvent('deviceready');
-	        AzureEngagement.registerForPushNotification();
-	        AzureEngagement.onOpenURL(function(_url) { alert(_url); });
-	        AzureEngagement.startActivity("myPage",{});
+           Engagement.initializeReach(  
+	 			// on OpenUrl  
+	 			function(_url) {   
+	 			alert(_url);   
+	 			});  
+			Engagement.startActivity("myPage",{});  
 	    }
 
 ###Запуск приложения
@@ -197,7 +193,7 @@ Mobile Engagement позволяет взаимодействовать с по�
 	
 	- Задайте **имя** кампании. 
 	- Для параметра **Тип доставки** выберите значение *Системное уведомление* *Простое*.
-	- Для параметра времени доставки выберите значение *Любое время*.
+	- Для параметра *Время доставки* выберите значение **Любое время**.
 	- Укажите **название** уведомления, которое будет отображаться в первой строке push-уведомления.
 	- Укажите **сообщение** для уведомления, которое будет использоваться в качестве текста сообщения. 
 
@@ -206,7 +202,7 @@ Mobile Engagement позволяет взаимодействовать с по�
 4. Введите данные для новой кампании **[iOS]**
 
 	- Задайте **имя** кампании. 
-	- Для параметра времени доставки выберите значение *Только вне приложения*.
+	- Для параметра *Время доставки* выберите значение **Только вне приложения**.
 	- Укажите **название** уведомления, которое будет отображаться в первой строке push-уведомления.
 	- Укажите **сообщение** для уведомления, которое будет использоваться в качестве текста сообщения. 
  
@@ -216,7 +212,7 @@ Mobile Engagement позволяет взаимодействовать с по�
 
 	![][8]
 
-6. [Необязательно] Можно также указать URL-адрес действия. Убедитесь, что используется та же схема URL-адресов, что и для переменной **URL-АДРЕС ПЕРЕНАПРАВЛЕНИЯ AZME** подключаемого модуля, например **myapp://test*.
+6. [Необязательно] Можно также указать URL-адрес действия. Убедитесь, что используется та же схема URL-адресов, что и для переменной **AZME\_REDIRECT\_URL** подключаемого модуля, например **myapp://test*.
 
 7. Вы настроили простейшую базовую кампанию. Еще раз прокрутите окно вниз и нажмите кнопку **Создать**, чтобы сохранить кампанию.
 
@@ -229,9 +225,6 @@ Mobile Engagement позволяет взаимодействовать с по�
 ##<a id="next-steps"></a>Дальнейшие действия
 [Обзор методов, доступных в пакете Cordova SDK для Mobile Engagement](https://github.com/Azure/azure-mobile-engagement-cordova)
 
-<!-- URLs. -->
-[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
-
 <!-- Images. -->
 
 [1]: ./media/mobile-engagement-cordova-get-started/engage-button.png
@@ -241,8 +234,7 @@ Mobile Engagement позволяет взаимодействовать с по�
 [6]: ./media/mobile-engagement-cordova-get-started/new-announcement.png
 [8]: ./media/mobile-engagement-cordova-get-started/campaign-content.png
 [10]: ./media/mobile-engagement-cordova-get-started/campaign-activate.png
-
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

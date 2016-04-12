@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1
@@ -54,7 +54,7 @@
 
 ## Дополнительные разделы
 - [Общие сведения о регистрации устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
-- [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)
+- [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows 10](active-directory-conditional-access-automatic-device-registration.md)
 - [Настройка автоматической регистрации присоединенных к домену устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

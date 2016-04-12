@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/05/2016"
+     ms.date="02/03/2016"
      ms.author="dobett"/>
 
 # Учебник: как обрабатывать сообщения, отправляемые с устройства в облако, с помощью центра IoT
@@ -24,7 +24,7 @@
 
 Этот учебник основан на коде, показанном в учебнике [Приступая к работе с центром IoT]. В нем демонстрируется два масштабируемых шаблона, которые можно использовать для обработки сообщений, отправляемых с устройства в облако:
 
-- Надежное хранилище сообщений, отправляемых с устройства в облако, в [хранилище больших двоичных объектов Azure]. Это очень распространенный сценарий, подразумевающий реализацию "*холодного*" анализа, где данные хранятся в больших двоичных объектах для использования в качестве входных данных процессов аналитики, управляемых такими средствами, как [фабрика данных Azure] или стек [HDInsight (Hadoop)].
+- Надежное хранилище сообщений, отправляемых с устройства в облако, в [хранилище BLOB-объектов Azure]. Очень распространенный сценарий, подразумевающий реализацию "*холодного*" анализа, где данные хранятся в больших двоичных объектах для использования в качестве входных данных процессов аналитики, управляемых такими инструментами, как [фабрика данных Azure] или стек [HDInsight (Hadoop)].
 
 - Надежная обработка *интерактивных* сообщений, отправляемых с устройства в облако. Сообщения, отправляемые с устройства в облако, являются интерактивными, если они немедленно инициируют набор действий в серверной части приложения, в отличие от сообщений *точек данных*, которые поступают в модуль аналитики. Например, аварийный сигнал, поступающий от устройства, который должен активировать вставку билета в системе CRM, является интерактивным сообщением, отправляемым с устройства в облако, тогда как сообщение телеметрии, такое как результаты измерения температуры, является отправляемым с устройства в облако сообщением точки данных.
 
@@ -49,9 +49,9 @@
 
 + Microsoft Visual Studio 2015.
 
-+ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Подробные сведения см. на странице [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
++ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную учетную запись всего за несколько минут. Подробные сведения см. на странице [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
 
-Кроме того, у вас должны быть некоторые знания о [хранилище Azure] и [служебной шине Azure].
+Кроме того, у вас должны быть некоторые знания о [службе хранилища Azure] и [служебной шине Azure].
 
 
 [AZURE.INCLUDE [iot-hub-process-d2c-device-csharp](../../includes/iot-hub-process-d2c-device-csharp.md)]
@@ -91,18 +91,18 @@
 
 <!-- Links -->
 
-[хранилище больших двоичных объектов Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-dotnet-how-to-use-blobs/
-[фабрика данных Azure]: https://azure.microsoft.com/ru-RU/documentation/services/data-factory/
+[хранилище BLOB-объектов Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
+[фабрика данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[очередь служебной шины]: https://azure.microsoft.com/ru-RU/documentation/articles/service-bus-dotnet-how-to-use-queues/
+[очередь служебной шины]: ../service-bus/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
 
-[руководстве для разработчиков центра IoT Azure, посвященному передаче сообщений с устройства в облако]: https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#d2c
+[руководстве для разработчиков центра IoT Azure, посвященному передаче сообщений с устройства в облако]: iot-hub-devguide.md#d2c
 
-[хранилище Azure]: https://azure.microsoft.com/ru-RU/documentation/services/storage/
-[служебной шине Azure]: https://azure.microsoft.com/ru-RU/documentation/services/service-bus/
+[службе хранилища Azure]: https://azure.microsoft.com/documentation/services/storage/
+[служебной шине Azure]: https://azure.microsoft.com/documentation/services/service-bus/
 
 
 
@@ -117,4 +117,4 @@
 [Центр разработчика IoT Azure]: https://azure.microsoft.com/develop/iot
 [Центре разработчиков центра IoT Azure]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

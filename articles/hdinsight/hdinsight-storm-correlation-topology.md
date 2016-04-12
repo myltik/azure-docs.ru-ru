@@ -195,9 +195,13 @@
 
 Когда вы будете готовы остановить топологию, вернитесь в проект **CorrelationTopology** в Visual Studio. В **представлении топологии Storm** выберите топологию и нажмите кнопку **Удалить** в верхней части представления топологии.
 
+##Удаление кластера
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Дальнейшие действия
 
 Другие примеры топологий для Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

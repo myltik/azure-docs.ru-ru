@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Загрузка образца данных в хранилище данных SQL
@@ -28,10 +28,12 @@
 
 3. Измените извлеченный файл aw\_create.bat и задайте следующие переменные в верхней его части: Не забудьте, что между знаком = и параметром не должно быть пробелов. Ниже приведены примеры того, как могут выглядеть такие изменения.
 
-    	server=mylogicalserver.database.windows.net
-    	user=mydwuser
-    	password=Mydwpassw0rd
-    	database=mydwdatabase
+    ```
+    server=mylogicalserver.database.windows.net
+    user=mydwuser
+    password=Mydwpassw0rd
+    database=mydwdatabase
+    ```
 
 4. Запустите измененный файл aw\_create.bat из командной строки Windows. Убедитесь, что вы находитесь в том каталоге, куда была сохранена измененная версия aw\_create.bat. Вот что делает этот сценарий:
 	* удаляет все представления и таблицы Adventure Works, которые уже существуют в базе данных;
@@ -47,22 +49,28 @@
 
 Пример простого оператора select для получения всех сведений о сотрудниках:
 
-	SELECT * FROM DimEmployee;
+```sql
+SELECT * FROM DimEmployee;
+```
 
 Пример более сложного запроса с использованием таких конструкций, как GROUP BY, для просмотра общей суммы всех продаж за каждый день:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey;
+```
 
 Пример оператора SELECT с выражением WHERE для фильтрации заказов, размещенных до определенной даты:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	WHERE OrderDateKey > '20020801'
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+WHERE OrderDateKey > '20020801'
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey;
+```
 
 Хранилище данных SQL поддерживает почти все конструкции T-SQL, которые поддерживаются SQL Server. Все различия описаны в нашей документации по [переносу кода][].
 
@@ -84,4 +92,4 @@
 <!--Other Web references-->
 [примеры сценариев Adventure Works для хранилища данных SQL]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

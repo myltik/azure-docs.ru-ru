@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Установка стека LAMP на виртуальную машину Linux | Microsoft Azure"
 	description="Узнайте, как установить стек LAMP на виртуальную машину Linux в Azure."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -105,9 +105,9 @@
 
 		- CentOS и Oracle: `sudo service httpd restart`
 
-	- Apache по умолчанию прослушивает порт 80. Возможно, для удаленного доступа к серверу Apache вам необходимо будет открыть конечную точку. Подробные инструкции см. в документации по [настройке конечных точек](virtual-machines-set-up-endpoints.md).
+	- Apache по умолчанию прослушивает порт 80. Возможно, для удаленного доступа к серверу Apache вам необходимо будет открыть конечную точку. Подробные инструкции см. в документации по [настройке конечных точек](virtual-machines-windows-classic-setup-endpoints.md).
 
-	- Вы можете сделать проверку, чтобы убедиться, что Apache запущен и обрабатывает содержимое. Введите в браузере `http://[MYSERVICE].cloudapp.net`, где **MYSERVICE** — это имя облачной службы, в которой находится ваша виртуальная машина. На некоторых дистрибутивах может открыться веб-страница по умолчанию с простым сообщением «It works!». На других вы можете увидеть более полную веб-страницу со ссылками на дополнительную документацию и содержимое для настройки сервера Apache.
+	- Вы можете сделать проверку, чтобы убедиться, что Apache запущен и обрабатывает содержимое. Введите в браузере `http://[MYSERVICE].cloudapp.net`, где **MYSERVICE** — это имя облачной службы, в которой находится ваша виртуальная машина. На некоторых дистрибутивах может открыться веб-страница по умолчанию с простым сообщением «It works!». На других вы можете увидеть более полную веб-страницу со ссылками на дополнительную документацию и содержимое для настройки сервера Apache.
 
 2. Настройка **MySQL**
 
@@ -122,11 +122,11 @@
 
 ##Дополнительные материалы
 
-Предположим, что вы хотите автоматизировать эти операции для развертывания приложений на удаленных виртуальных машинах Linux. Это можно сделать с помощью расширения CustomScript для Linux. См. статью [Развертывание приложения LAMP с помощью расширения Azure CustomScript для Linux](virtual-machines-linux-script-lamp.md).
+Предположим, что вы хотите автоматизировать эти операции для развертывания приложений на удаленных виртуальных машинах Linux. Это можно сделать с помощью расширения CustomScript для Linux. См. статью [Развертывание приложения LAMP с помощью расширения Azure CustomScript для Linux](virtual-machines-linux-classic-lamp-script.md).
 
 Существует множество других ресурсов, описывающих установку стека LAMP на Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

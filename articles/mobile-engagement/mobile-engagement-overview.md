@@ -4,7 +4,7 @@
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article" 
 	ms.date="01/04/2016"
 	ms.author="piyushjo;matt-gibbs" />
 
@@ -45,7 +45,7 @@ Azure Mobile Engagement помогает издателям приложений
 
 ###Дальнейшие действия
 
-[Создание приложения Azure Mobile Engagement](mobile-engagement-create-account.md)
+[Создание приложения Azure Mobile Engagement](mobile-engagement-create.md)
 
 [Рекомендации и ход работы по созданию Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
@@ -53,4 +53,4 @@ Azure Mobile Engagement помогает издателям приложений
 
 [Учебник по началу работы (для разработчиков)](/documentation/services/mobile-engagement/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

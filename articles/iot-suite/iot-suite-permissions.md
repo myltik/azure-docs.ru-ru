@@ -1,5 +1,5 @@
 <properties
-  pageTitle="Azure IoT Suite и Azure Active Directory | Microsoft Azure"
+  pageTitle="Azure IoT Suite и Azure Active Directory | Microsoft Azure"
   description="В этой статье описывается, как набор Azure IoT Suite использует Azure Active Directory для управления разрешениями."
   services=""
   suite="iot-suite"
@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="11/17/2015"
+  ms.date="03/02/2016"
   ms.author="araguila"/>
   
 # Разрешения на сайте azureiotsuite.com
@@ -66,7 +66,9 @@
 
 -   **Только чтение (неявно).** То же самое, что «Только чтение», но эта роль присваивается всем пользователям клиента AAD. Это было сделано для удобства во время разработки. Эту роль можно удалить, изменив исходный файл [RolePermissions.cs][lnk-resource-cs].
 
-### Изменение ролей приложений
+### Изменение ролей приложений для пользователя
+
+Чтобы сделать пользователя в Active Directory администратором предварительно настроенного решения, можно выполнить описанную ниже процедуру.
 
 Изменять роли пользователей может только глобальный администратор AAD.
 
@@ -74,19 +76,17 @@
 
 2. Выберите **Active Directory**.
 
-3. Щелкните имя клиента AAD.
+3. Щелкните имя своего клиента Azure Active Directory (это каталог, который вы выбрали на сайте azureiotsuite.com при подготовке решения).
 
 4. Щелкните **Приложения**.
 
-5. Если приложение отсутствует в списке, выберите для списка **Показать** параметр **Приложения, которыми владеет моя компания** и установите флажок.
-
-6. Щелкните имя приложения, совпадающее с именем предварительно настроенного решения.
+5. Щелкните имя приложения, совпадающее с именем предварительно настроенного решения. Если приложение отсутствует в списке, выберите для списка **Показать** параметр **Приложения, которыми владеет моя компания** и установите флажок.
 
 7. Щелкните **Пользователи**.
 
 8. Выберите пользователя, для которого нужно изменить роли.
 
-9. Нажмите кнопку «Назначить» и выберите роль, которую вы хотите назначить, а затем установите флажок.
+9. Щелкните **Назначить** и выберите роль (например **Администратор**), которую нужно назначить пользователю, установив соответствующий флажок.
 
 ## Часто задаваемые вопросы
 
@@ -112,7 +112,7 @@
 
 1. Создайте новый каталог AAD на [портале управления Azure][lnk-classic-portal].
 
-2. Перейдите на сайт <https://github.com/Azure/azure-iot-remote-monitoring>. Дополнительные сведения о развернутых облачных службах см. в статье [Развернутая облачная служба][lnk-wiki-clouddeployment].
+2. Перейдите на сайт <https://github.com/Azure/azure-iot-remote-monitoring>.
 
 3. Выполните команду `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` (например, `build.cmd cloud debug myRMSolution`).
 
@@ -140,10 +140,9 @@
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
-[lnk-assign-app-roles]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Manually-setting-up-roles-and-assigning-permissions-in-Azure-Active-Directory-(AAD)#assigning-users-to-the-roles
+[lnk-assign-app-roles]: https://azure.microsoft.com/documentation/articles/active-directory-application-manifest/
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
-[lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

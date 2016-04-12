@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/18/2015" 
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты WebApi)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [Приступая к работе](vs-active-directory-webapi-getting-started.md)
+> - [Что произошло?](vs-active-directory-webapi-what-happened.md)
 
 ##Требование проверки подлинности для доступа к контроллерам
  
@@ -29,4 +29,4 @@
 [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

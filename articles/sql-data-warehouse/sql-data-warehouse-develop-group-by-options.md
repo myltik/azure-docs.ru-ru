@@ -13,21 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Группировка по параметрам в хранилище данных SQL
 
-Предложение [GROUP BY] используется для объединения данных в сводную выборку строк. Оно имеет также несколько дополнительных параметров, позволяющих выполнять функции, которые не поддерживаются хранилищем данных SQL Azure напрямую.
+Предложение [GROUP BY][] используется для объединения данных в сводную выборку строк. Оно имеет также несколько дополнительных параметров, позволяющих выполнять функции, которые не поддерживаются хранилищем данных SQL Azure напрямую.
 
-Вот эти параметры: GROUP BY с параметром ROLLUP, GROUPING SETS и GROUP BY с параметром CUBE.
+Доступны следующие параметры:
+- GROUP BY с ROLLUP;
+- GROUPING SETS;
+- GROUP BY с CUBE.
 
 ## Параметры Rollup и Grouping Sets
 Самый простой вариант — это выполнить свертку с помощью оператора `UNION ALL`, не используя отдельный синтаксис. Результат будет точно таким же.
 
 Ниже приведен пример применения оператора Group By с параметром `ROLLUP`:
 
-```
+```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 ,      SUM(SalesAmount)             AS TotalSalesAmount
@@ -40,17 +43,20 @@ GROUP BY ROLLUP (
 ;
 ```
 
-С помощью параметра ROLLUP мы запросили группы данных по стране и региону, по стране и общий итог.
+С помощью параметра ROLLUP мы запросили следующие агрегаты.
+- Страна и регион
+- Страна
+- Общий итог
 
 Вместо этого можно использовать оператор `UNION ALL`, указав, какие группы данных необходимо получить. Результат будет точно такой же.
 
-```
+```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 ,      SUM(SalesAmount) AS TotalSalesAmount
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey
-GROUP BY 
+GROUP BY
        [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 UNION ALL
@@ -59,7 +65,7 @@ SELECT [SalesTerritoryCountry]
 ,      SUM(SalesAmount) AS TotalSalesAmount
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey
-GROUP BY 
+GROUP BY
        [SalesTerritoryCountry]
 UNION ALL
 SELECT NULL
@@ -78,9 +84,9 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 
 Для начала нужно задать «куб», определяющий все уровни группирования данных, которые нам нужно создать. При этом следует отметить применение оператора CROSS JOIN для двух производных таблиц. Он формирует все необходимые уровни. Остальная часть кода нужна только для форматирования.
 
-```
+```sql
 CREATE TABLE #Cube
-WITH 
+WITH
 (   DISTRIBUTION = ROUND_ROBIN
 ,   LOCATION = USER_DB
 )
@@ -99,9 +105,9 @@ CROSS JOIN ( SELECT 'SalesTerritoryRegion' as Region
            ) r
 )
 SELECT Cols
-,      CASE WHEN SUBSTRING(GroupBy,LEN(GroupBy),1) = ',' 
-            THEN SUBSTRING(GroupBy,1,LEN(GroupBy)-1) 
-            ELSE GroupBy 
+,      CASE WHEN SUBSTRING(GroupBy,LEN(GroupBy),1) = ','
+            THEN SUBSTRING(GroupBy,1,LEN(GroupBy)-1)
+            ELSE GroupBy
        END AS GroupBy  --Remove Trailing Comma
 ,Seq
 FROM GrpCube;
@@ -113,8 +119,8 @@ FROM GrpCube;
 
 Второй шаг — указать целевую таблицу для сохранения промежуточных результатов:
 
-```
-DECLARE 
+```sql
+DECLARE
  @SQL NVARCHAR(4000)
 ,@Columns NVARCHAR(4000)
 ,@GroupBy NVARCHAR(4000)
@@ -136,7 +142,7 @@ WITH
 
 Третий шаг — запустить цикл для куба столбцов, участвующих в группировании данных. Запрос будет выполнен по одному разу для каждой строки временной таблицы #Cube, а результаты сохранятся во временной таблице #Results.
 
-```
+```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
 
 WHILE @i<=@nbr
@@ -150,7 +156,7 @@ BEGIN
               FROM  dbo.factInternetSales s
               JOIN  dbo.DimSalesTerritory t  
               ON s.SalesTerritoryKey = t.SalesTerritoryKey
-              '+CASE WHEN @GroupBy <>'' 
+              '+CASE WHEN @GroupBy <>''
                      THEN 'GROUP BY '+@GroupBy ELSE '' END
 
     EXEC sp_executesql @SQL;
@@ -160,8 +166,8 @@ END
 
 В конечном итоге результаты можно извлечь, прочитав данные из временной таблицы #Results.
 
-```
-SELECT * 
+```sql
+SELECT *
 FROM #Results
 ORDER BY 1,2,3
 ;
@@ -185,4 +191,4 @@ ORDER BY 1,2,3
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

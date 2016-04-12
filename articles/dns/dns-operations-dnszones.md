@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma"/>
 
 # Как управлять зонами DNS с помощью PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-operations-dnszones-cli.md)
+- [Интерфейс командной строки Azure](dns-operations-dnszones-cli.md)
 - [PowerShell](dns-operations-dnszones.md)
 
 
@@ -113,4 +113,4 @@
 
 [Автоматизация операций с помощью пакета SDK для .NET](dns-sdk.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0323_2016-->

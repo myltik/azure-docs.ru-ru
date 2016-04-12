@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/25/2016"
+	ms.date="04/01/2016"
 	ms.author="tamram"/>
 
 
@@ -45,28 +45,26 @@
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-configure-connection-string-include](../../includes/storage-configure-connection-string-include.md)]
+[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-## Программный доступ к хранилищу BLOB-объектов
+### Добавление объявлений пространств имен
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+Добавьте в начало файла `program.cs` следующие инструкции `using`:
 
-### Объявления пространств имен
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+    using Microsoft.WindowsAzure.Storage.Auth; // Namespace for authentication types
+    using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
-Добавьте следующие объявления пространств имен кода в начало любого файла C#, с помощью которого вы собираетесь получать доступ к службе хранилища Azure программным способом:
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-    using Microsoft.WindowsAzure;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
+### Создание клиента службы BLOB-объектов
 
-Обязательно используйте ссылку на сборку `Microsoft.WindowsAzure.Storage.dll`.
-
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
-
-Тип **CloudBlobClient** позволяет извлекать объекты, представляющие контейнеры и большие двоичные объекты, которые хранятся в службе хранилища больших двоичных объектов. Следующий код создает объект **CloudBlobClient** с помощью объекта учетной записи хранения, полученной выше:
+Класс **CloudBlobClient** позволяет извлекать объекты, представляющие контейнеры и BLOB-объекты, которые хранятся в хранилище BLOB-объектов. Добавьте в метод Main() следующий код:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+Теперь вы можете написать код, который считывает и записывает данные в хранилище BLOB-объектов.
 
 ## Создание контейнера
 
@@ -90,8 +88,7 @@
 По умолчанию новый контейнер закрытый, и вам необходимо указать ключ доступа к хранилищу, чтобы загрузить BLOB-объекты из этого контейнера. Чтобы сделать файлы в этом контейнере доступными для всех пользователей, сделайте контейнер открытым, используя следующий код:
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess =
- 	    BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
 Любой пользователь в Интернете может видеть большие двоичные объекты в открытом контейнере, но изменить или удалить их можно только при наличии ключа доступа.
 
@@ -380,4 +377,4 @@
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

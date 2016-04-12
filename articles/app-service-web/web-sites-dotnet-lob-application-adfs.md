@@ -40,7 +40,7 @@
 
 Чтобы выполнить инструкции этого учебника, необходимо следующее:
 
-- локальное развертывание AD FS (полное пошаговое руководство по лаборатории тестирования, которую я использую, см. в статье [Лаборатория тестирования: автономная STS c AD FS в виртуальной машине Azure (только для тестирования)](TODO));
+- локальное развертывание AD FS (полное пошаговое руководство по лаборатории тестирования, которую я использую, см. в статье [Лаборатория тестирования: автономная STS c AD FS в виртуальной машине Azure (только для тестирования)](https://blogs.msdn.microsoft.com/cephalin/2014/12/21/test-lab-standalone-sts-with-ad-fs-in-azure-vm-for-test-only/));
 - разрешения для создания отношений доверия с проверяющей стороной в оснастке управления AD FS
 - Visual Studio 2013
 - [Пакет SDK для Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) или более поздней версии.
@@ -86,7 +86,7 @@
 	<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
 	<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
 	<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
-	
+
 	<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
 	</pre>
 
@@ -102,7 +102,7 @@
 	  <mark><del>&lt;add key="ida:Tenant" value="[Введите имя клиента, например contoso.onmicrosoft.com]" /></del></mark>
 	  <mark>&lt;add key="ida:RPIdentifier" value="[Введите идентификатор проверяющей стороны, настроенной в AD FS, например https://localhost:44320/]" /></mark>
 	  <mark>&lt;add key="ida:ADFS" value="[Введите полное доменное имя службы AD FS, например adfs.contoso.com]" /></mark>
-	
+
 	&lt;/appSettings>
 	</pre>
 
@@ -135,9 +135,9 @@
 
 11. В Visual Studio откройте в своем проекте файл **Web.Release.config**. Вставьте следующий XML-код в тег `<configuration>` и замените значение ключа URL-адресом публикуемого веб-приложения.
 	<pre class="prettyprint">
-	&lt;appSettings>
-	   &lt;add key="ida:RPIdentifier" value="<mark>[например, https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-	&lt;/appSettings></pre>
+&lt;appSettings>
+   &lt;add key="ida:RPIdentifier" value="<mark>[например, https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+&lt;/appSettings></pre>
 
 После завершения операции вы получите два идентификатора RP, настроенных в проекте: один для среды отладки в Visual Studio, а второй для опубликованного веб-приложения в Azure. Доверие с проверяющей стороной (RP) будет необходимо настроить для каждой из двух сред в AD FS. Во время отладки параметры приложения в файле Web.config используются для того, чтобы конфигурация **Отладка** работала с AD FS. После его публикации (по умолчанию публикуется конфигурация **Выпуск**) отправляется измененный файл Web.config, в котором содержатся изменения параметров приложения в файле Web.Release.config.
 
@@ -177,7 +177,7 @@
 
 7.	На странице **Настройка идентификаторов** убедитесь, что URL-адрес SSL проекта уже есть в списке, и щелкните **Далее**. Щелкайте **Далее** на всех страницах мастера до конца, выбирая значения по умолчанию.
 
-	> [AZURE.NOTE] В файле App_Start\Startup.Auth.cs проекта Visual Studio этот идентификатор сопоставляется со значением <code>WsFederationAuthenticationOptions.Wtrealm</code> во время федеративной аутентификации. По умолчанию URL-адрес приложения из предыдущего шага добавляется как идентификатор RP.
+	> [AZURE.NOTE]В файле App_Start\Startup.Auth.cs проекта Visual Studio этот идентификатор сопоставляется со значением <code>WsFederationAuthenticationOptions.Wtrealm</code> во время федеративной аутентификации. По умолчанию URL-адрес приложения из предыдущего шага добавляется как идентификатор RP.
 
 8.	Настройка приложения RP для проекта в AD FS завершена. Далее необходимо настроить это приложение, чтобы оно отправляло утверждения, необходимые вашему приложению. При окончании работы мастера по умолчанию открывается диалоговое окно **Изменение правил для утверждений** и можно сразу приступить к настройке. Как минимум, настроим следующие утверждения (со схемами в круглых скобках):
 
@@ -199,17 +199,17 @@
 10.	Выберите **Отправить утверждения с использованием настраиваемого правила** и щелкните **Далее**.
 11.	Вставьте следующий язык правила в поле **Настраиваемое правило**, присвойте правилу имя **В соответствии с идентификатором сеанса** и нажмите кнопку **Готово**.  
 	<pre class="prettyprint">
-	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-		=> add(
-			store = "_OpaqueIdStore",
-			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
-			query = "{0};{1};{2};{3};{4}",
-			param = "useEntropy",
-			param = c1.Value,
-			param = c1.OriginalIssuer,
-			param = "",
-			param = c2.Value);
+c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+	=> add(
+		store = "_OpaqueIdStore",
+		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+		query = "{0};{1};{2};{3};{4}",
+		param = "useEntropy",
+		param = c1.Value,
+		param = c1.OriginalIssuer,
+		param = "",
+		param = c2.Value);
 	</pre>
 
 	Настраиваемое правило должно выглядеть следующим образом:
@@ -356,4 +356,4 @@
  
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

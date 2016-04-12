@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="11/30/2015"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Авторизация пользователей на стороне службы в мобильных службах
+> [AZURE.SELECTOR]
+- [Сервер .NET.](mobile-services-dotnet-backend-service-side-authorization.md)
+- [Серверная служба JavaScript](mobile-services-javascript-backend-service-side-authorization.md)
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в этом [примере кода](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/personal-table/tables/TodoItem.js#L38).
 
 В этом разделе показано, как использовать сценарии на стороне сервера для авторизации пользователей. В этом учебнике описывается регистрация сценариев в службах мультимедиа Azure, фильтрация запросов на основе идентификаторов пользователей и предоставление пользователям доступа только к их данным. Фильтрация результатов запроса по идентификатору пользователя — это самая простая форма авторизации. В зависимости от конкретного сценария вам также может потребоваться создать таблицы пользователей или ролей для отслеживания более подробных сведений авторизации пользователей, например конечных точек, к которым данному пользователю разрешен доступ.
 
@@ -39,7 +43,7 @@
 
 	Этот сценарий добавляет идентификатор прошедшего аутентификацию пользователя в элемент перед его вставкой.
 
-    >[AZURE.NOTE]Убедитесь, что [динамическая схема](https://msdn.microsoft.com/library/azure/jj193175.aspx) включена. В противном случае столбец *userId* не добавляется автоматически. Для новых мобильных служб этот параметр включен по умолчанию.
+    >[AZURE.NOTE] Убедитесь, что [динамическая схема](https://msdn.microsoft.com/library/azure/jj193175.aspx) включена. В противном случае столбец *userId* не добавляется автоматически. Для новых мобильных служб этот параметр включен по умолчанию.
 
 3. Аналогично, замените имеющуюся операцию **Read** на следующую функцию. Этот сценарий фильтрует возвращаемые объекты TodoItem так, чтобы пользователь получал только элементы, которые вставил он сам.
 
@@ -68,6 +72,5 @@
 [Добавление проверки подлинности в существующее приложение мобильных служб]: /develop/mobile/tutorials/get-started-with-users-ios
 
 [классический портал Azure]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

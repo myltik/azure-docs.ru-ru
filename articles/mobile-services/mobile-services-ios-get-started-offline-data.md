@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать мобильные службы Azure для кэширования и синхронизации автономных данных в приложении iOS"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh;donnam"/>
 
 # Приступая к работе с синхронизацией автономных данных в мобильных службах
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Аналогичные сведения для мобильных приложений см. в статье [Включение автономной синхронизации для мобильного приложения iOS](../app-service-mobile/app-service-mobile-ios-get-started-offline-data.md).
 
 Автономная синхронизация позволяет вам взаимодействовать с мобильным приложением даже при отсутствии подключения к сети. В этом учебнике описано, как приложение может автоматически сохранять изменения в локальной базе данных, работающей в автономном режиме, и синхронизировать изменения всякий раз, когда она возвращается в режим подключения к сети.
 
@@ -165,7 +165,9 @@
     | идентификатор (обязательно) | Строковый | первичный ключ в удаленном хранилище (обязательно) |
     | complete | Логический | поле элемента todo |
     | text | Строка | поле элемента todo |
-    | ms\_createdAt | Дата | (необязательно) сопоставляется с системным свойством \_\_createdAt | | ms\_updatedAt | Дата | (необязательно) сопоставляется с системным свойством \_\_updatedAt | | ms\_version | Строка | (необязательно) используется для обнаружения конфликтов, сопоставляется с \_\_version |
+    | ms\_createdAt | Дата | (необязательно) сопоставляется с системным свойством \_\_createdAt | 
+	| ms\_updatedAt | Дата | (необязательно) сопоставляется с системным свойством \_\_updatedAt | 
+	| ms\_version | Строка | (необязательно) используется для обнаружения конфликтов, сопоставляется с \_\_version |
 
 
 
@@ -276,4 +278,4 @@
 
 [учебника по быстрому запуску мобильных служб]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0316_2016-->

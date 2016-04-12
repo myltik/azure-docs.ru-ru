@@ -19,8 +19,7 @@
 # Начало работы с настраиваемой проверкой подлинности
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
+> Аналогичные сведения для мобильных приложений см. в разделе [Практическое руководство. Использование пользовательской проверки подлинности для приложения](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
 
 
 ## Обзор
@@ -424,4 +423,4 @@
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

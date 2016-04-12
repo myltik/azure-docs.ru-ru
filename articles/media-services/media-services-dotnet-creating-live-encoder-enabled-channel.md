@@ -12,22 +12,19 @@
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/03/2016"
+	ms.topic="get-started-article"
+	ms.date="03/08/2016"
 	ms.author="juliako"/>
 
 
 #Создание каналов, выполняющих кодирование односкоростного потока в мультискоростной в реальном времени, с помощью пакета SDK для .NET
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Портал](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- [ИНТЕРФЕЙС REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
-
-
-
-> [AZURE.NOTE]
+>[AZURE.NOTE]
 > Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 
 ##Обзор
@@ -96,8 +93,8 @@
 	
 	Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Вы получаете кредиты, которые можно использовать, чтобы попробовать платные службы Azure. Даже после того как кредиты использованы, учетная запись остается за вами и вы можете использовать бесплатные службы и функции Azure, например компонент веб-приложений в службы приложений Azure.
 - Учетная запись служб мультимедиа. Инструкции по созданию учетной записи служб мультимедиа см. в разделе [Создание учетной записи](media-services-create-account.md).
-- Visual Studio 2010 SP1 (Professional, Premium, Ultimate или Express) или более поздней версии.
-- Вам нужно использовать пакет SDK служб мультимедиа для .NET 3.2.0.0 или более поздней версии.
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate или Express) или более поздней версии.
+- Вам нужно использовать пакет SDK служб мультимедиа для .NET 3.2.0.0 или более поздней версии.
 - Веб-камера и кодировщик, который передает динамический односкоростной поток данных.
 
 ##Рекомендации
@@ -533,4 +530,4 @@
 
 Если содержание этого раздела не соответствует вашим ожиданиям или не содержит ответов на ваши вопросы, оставьте отзыв в обсуждении Disqus ниже.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

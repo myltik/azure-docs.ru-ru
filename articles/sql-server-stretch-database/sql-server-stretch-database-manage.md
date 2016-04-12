@@ -3,9 +3,9 @@
 	description="Узнайте, как управлять растяжением баз данных и устранять неполадки."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -51,6 +51,9 @@
 -   Возможно ухудшение характеристик работы сети. Обратитесь к администратору сети для получения сведений о последних неполадках или простоях.
 
 ## См. также
-[Мониторинг растяжения баз данных](sql-server-stretch-database-monitor.md) [Резервное копирование и восстановление баз данных, для которых включено растяжение](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+[Мониторинг базы данных Stretch](sql-server-stretch-database-monitor.md)
+
+[Выполняйте резервное копирование и восстановление баз данных, для которых включено растяжение](sql-server-stretch-database-backup.md)
+
+<!---HONumber=AcomDC_0316_2016-->

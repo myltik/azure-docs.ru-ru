@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Подключение классических виртуальных сетей к новым виртуальным сетям
@@ -23,7 +23,7 @@
 
 ![](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure01.png)
 
->[AZURE.NOTE]В этом документе пошагово описывается комплексное решение, предназначенное для тестирования. Если вы уже настраивали виртуальные сети и знакомы с VPN-шлюзами и подключением типа «сайт-сайт» в Azure, см. статью [Настройка VPN-подключения S2S между виртуальной сетью ARM и классической виртуальной сетью](../virtual-networks-arm-asm-s2s-howto.md).
+>[AZURE.NOTE] В этом документе пошагово описывается комплексное решение, предназначенное для тестирования. Если вы уже настраивали виртуальные сети и знакомы с VPN-шлюзами и подключением типа «сайт-сайт» в Azure, см. статью [Настройка VPN-подключения S2S между виртуальной сетью ARM и классической виртуальной сетью](virtual-networks-arm-asm-s2s-howto.md).
 
 Вот что вам предстоит выполнить, чтобы протестировать этот сценарий:
 
@@ -33,7 +33,7 @@
 
 Чтобы выполнить указанные выше действия, сначала вы воспользуетесь инструментами управления Azure, включая классический портал, файлами конфигурации сети и командлетами PowerShell Azure Service Manager. Затем вы перейдете к новым инструментам управления, включая новый портал Azure, шаблоны ARM и командлеты PowerShell для ARM.
 
->[AZURE.IMPORTANT]У подключаемых между собой виртуальных сетей не должно быть конфликта блоков CIDR. Убедитесь, что каждая виртуальная сеть имеет уникальный блок CIDR!
+>[AZURE.IMPORTANT] У подключаемых между собой виртуальных сетей не должно быть конфликта блоков CIDR. Убедитесь, что каждая виртуальная сеть имеет уникальный блок CIDR!
 
 ## Создание классической среды виртуальной сети
 
@@ -43,15 +43,9 @@
 
 Чтобы создать новую виртуальную сеть, как на рисунке 1 выше, следуйте приведенным ниже указаниям.
 
-1. С помощью консоли PowerShell добавьте учетную запись Azure, выполнив следующую команду.
+1. С помощью консоли PowerShell войдите в свою учетную запись Azure, выполнив следующую команду.
 
-		Add-AzureAccount
-
-2. Выполните указания в диалоговом окне входа, чтобы войти в систему с помощью учетной записи Azure.
-
-3. Убедитесь, что вы используете командлеты PowerShell для управления службами Azure, выполнив следующую команду.
-
-		Switch-AzureMode AzureServiceManagement
+		Login-AzureRmAccount
 
 4. Скачайте файл конфигурации сети Azure, выполнив следующую команду.
 
@@ -153,7 +147,7 @@
 
 	![Панель мониторинга виртуальной сети](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure04.png)
 
-	>[AZURE.NOTE]Эта операция может занять несколько минут.
+	>[AZURE.NOTE] Эта операция может занять несколько минут.
 
 9. Запишите общедоступный IP-адрес шлюза, как показано ниже, когда он будет создан. Позже этот адрес потребуется, чтобы создать локальную сеть для виртуальной сети ARM.
 
@@ -193,14 +187,15 @@
 	- **connectionName**: имя создаваемого объекта подключения.
 	- **sharedKey**: это общий ключ IPSec для подключения. В данном случае это **abc123**.
 
-5. Чтобы создать виртуальную сеть ARM и связанные с ней объекты в новой группе ресурсов **RG1**, выполните следующую команду PowerShell. Обязательно измените путь к файлу шаблона и файлу параметров.
+5. Чтобы создать виртуальную сеть ARM и связанные с ней объекты в новой группе ресурсов **RG1**, выполните следующие команды PowerShell. Обязательно измените путь к файлу шаблона и файлу параметров.
 
-		Switch-AzureMode AzureResourceManager
-		New-AzureResourceGroup -Name RG1 -Location "Central US" `
+		New-AzureRmResourceGroup -Name RG1 -Location centralus
+
+		New-AzureRmResourceGroupDeployment -Name deployment01 `
 		    -TemplateFile C:\Azure\azuredeploy.json `
 		    -TemplateParameterFile C:\Azure\azuredeploy-parameters.json		
 
-	>[AZURE.NOTE]Эта операция может занять несколько минут.
+	>[AZURE.NOTE] Эта операция может занять несколько минут.
 
 7. В браузере перейдите по ссылке https://portal.azure.com/ и при необходимости введите учетные данные.
 8. На портале Azure щелкните плитку группы ресурсов **RG1**, как показано ниже.
@@ -232,7 +227,7 @@
 
 	![Панель мониторинга виртуальной сети](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure10.png)
 
-	>[AZURE.NOTE]Эта операция может занять несколько минут. Можно перейти к следующей части этого документа.
+	>[AZURE.NOTE] Эта операция может занять несколько минут. Можно перейти к следующей части этого документа.
 
 ## Подключение двух виртуальных сетей
 
@@ -261,10 +256,6 @@
 		                           etGatewayConfig"
 		                           }
 		DnsSettings              : null
-
-2. Убедитесь, что вы используете API управления службами Azure для команд PowerShell, выполнив следующую команду.
-
-		Switch-AzureMode AzureServiceManagement
 
 3. Скачайте файл конфигурации сети Azure, выполнив следующую команду.
 
@@ -298,16 +289,12 @@
 
 Теперь, когда вы настроили шлюз классической виртуальной сети, настало время подключения. Для этого выполните приведенные ниже указания.
 
-1. С помощью консоли PowerShell выполните следующую команду, чтобы переключиться в режим ARM. 
-
-		Switch-AzureMode AzureResourceManager
-
 2. Создайте подключение между шлюзами, выполнив следующие команды.
 
-		$vnet01gateway = Get-AzureLocalNetworkGateway -Name vnet01 -ResourceGroupName RG1
-		$vnet02gateway = Get-AzureVirtualNetworkGateway -Name ArmAsmGateway -ResourceGroupName RG1
+		$vnet01gateway = Get-AzureRmLocalNetworkGateway -Name vnet01 -ResourceGroupName RG1
+		$vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name ArmAsmGateway -ResourceGroupName RG1
 		
-		New-AzureVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
+		New-AzureRmVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
 			-ResourceGroupName RG1 -Location "Central US" -VirtualNetworkGateway1 $vnet02gateway `
 			-LocalNetworkGateway2 $vnet01gateway -ConnectionType IPsec `
 			-RoutingWeight 10 -SharedKey 'abc123'
@@ -360,7 +347,7 @@
 
 ## Дальнейшие действия
 
-- Узнайте больше о [поставщике сетевых ресурсов (NRP) для ARM](../resource-groups-networking.md).
-- Просмотрите общие рекомендации по [созданию VPN-подключения S2S между классической виртуальной сетью и виртуальной сетью ARM](../virtual-networks-arm-asm-s2s-howto.md).
+- Узнайте больше о [поставщике сетевых ресурсов (NRP) для ARM](resource-groups-networking.md).
+- Просмотрите общие рекомендации по [созданию VPN-подключения S2S между классической виртуальной сетью и виртуальной сетью ARM](virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

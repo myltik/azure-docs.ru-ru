@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Использование пакета iOS SDK для мобильных приложений Azure"
-	description="Использование пакета iOS SDK для мобильных приложений Azure"
+	pageTitle="Использование пакета iOS SDK для мобильных приложений Azure"
+	description="Использование пакета iOS SDK для мобильных приложений Azure"
 	services="app-service\mobile"
 	documentationCenter="ios"
 	authors="krisragh"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Использование клиентской библиотеки iOS для мобильных приложений Azure
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-В данном руководстве показано, как реализовать типичные сценарии с использованием последней версии [пакета iOS SDK для мобильных приложений Azure](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Если вы не знакомы с мобильными приложениями Azure, изучите статью [Быстрый запуск мобильного приложения Azure], чтобы создать серверную часть и таблицу, а также скачать предварительно собранный проект Xcode для iOS. В данном руководстве мы сосредоточимся на клиентской части пакета iOS SDK. Дополнительные сведения о серверном пакете SDK для .NET см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+В данном руководстве показано, как реализовать типичные сценарии с использованием последней версии [пакета iOS SDK для мобильных приложений Azure](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Если вы не знакомы с мобильными приложениями Azure, изучите статью [Быстрый запуск мобильного приложения Azure], чтобы создать серверную часть и таблицу, а также скачать предварительно собранный проект Xcode для iOS. В данном руководстве мы сосредоточимся на клиентской части пакета iOS SDK. Дополнительные сведения о серверном пакете SDK для .NET см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## Справочная документация
 
@@ -154,7 +154,13 @@ let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
-`MSQuery` позволяет контролировать некоторые настройки запросов, включая следующие. Выполните запрос `MSQuery` путем вызова в нем `readWithCompletion`, как показано в следующем примере. * Задание порядка результатов. * Ограничение возвращаемых полей. * Ограничение количества возвращаемых записей. * Указание общего количества в ответе. * Задание строковых параметров настраиваемого запроса. * Применение дополнительных функций.
+`MSQuery` позволяет контролировать некоторые настройки запросов, включая следующие. Выполнение запроса `MSQuery` путем вызова в нем метода `readWithCompletion`, как показано в следующем примере.
+* Задание порядка результатов
+* Ограничение возвращаемых полей
+* Ограничение количества возвращаемых записей
+* Указание общего количества в ответе
+* Указание в запросе настраиваемых параметров строки запроса
+* Применение дополнительных функций
 
 
 ## <a name="sorting"></a>Практическое руководство. Сортировка данных с помощью MSQuery
@@ -378,6 +384,48 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 При удалении необходимо по крайней мере задать атрибут `id`.
 
+##<a name="customapi"></a>Практическое руководство. Вызов настраиваемого интерфейса API
+
+С помощью настраиваемого API можно включить любые функциональные возможности серверной части. Они не должны совпадать с операциями с таблицами. Вы не только расширяете контроль над процессом обмена сообщениями, но также получаете возможность читать и задавать заголовки и изменять формат текста ответа. Сведения о создании настраиваемого API в серверной части см. в разделе [Настраиваемые интерфейсы API](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
+
+Чтобы вызвать настраиваемый интерфейс API, вызовите `MSClient.invokeAPI`, как показано ниже. Содержимое запроса и ответа содержимого рассматривается как JSON. Чтобы использовать другие типы носителей, [воспользуйтесь другой перегрузкой `invokeAPI`](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:).
+
+Чтобы вместо запроса `POST` выполнить запрос `GET`, задайте параметру `HTTPMethod` значение `"GET"`, а параметру `body` — значение `nil` (поскольку запросы GET не имеют текста сообщений). Если настраиваемый API поддерживает другие команды HTTP, измените `HTTPMethod` соответствующим образом.
+
+**Objective-C**:
+```
+    [self.client invokeAPI:@"sendEmail"
+                      body:@{ @"contents": @"Hello world!" }
+                HTTPMethod:@"POST"
+                parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+                   headers:nil
+                completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
+                    if(error) {
+                        NSLog(@"ERROR %@", error);
+                    } else {
+                        // Do something with result
+                    }
+                }];
+```
+
+**Swift**:
+
+```
+client.invokeAPI("sendEmail",
+            body: [ "contents": "Hello World" ],
+            HTTPMethod: "POST",
+            parameters: [ "to": "bill@contoso.com", "subject" : "Hi!" ],
+            headers: nil)
+            {
+                (result, response, error) -> Void in
+                if let err = error {
+                    print("ERROR ", err)
+                } else if let res = result {
+                          // Do something with result
+                }
+        }
+```
+
 ##<a name="templates"></a>Использование шаблонов для отправки кроссплатформенных push- уведомлений
 
 Для регистрации шаблонов просто передайте их в клиентское приложение с помощью метода **client.push registerDeviceToken**.
@@ -456,7 +504,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 Библиотеку проверки подлинности Active Directory (ADAL) можно использовать для входа пользователей в приложение с помощью Azure Active Directory. Этот подход является более предпочтительным, чем использование методов `loginAsync()`, так как он обеспечивает более удобный интерфейс входа для пользователя и позволяет выполнять дополнительную настройку.
 
-1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя указаниям в руководстве [Настройка приложения службы приложений для использования службы входа Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Обязательно выполните дополнительный этап регистрации собственного клиентского приложения. Для iOS рекомендуется следующий формат URI перенаправления: `<app-scheme>://<bundle-id>` (хотя это не обязательно). Дополнительные сведения см. в статье [Интеграция Azure AD в приложение для iOS](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
+1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя указаниям в руководстве [Настройка приложения службы приложений для использования службы входа Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Обязательно выполните дополнительный этап регистрации собственного клиентского приложения. Для iOS рекомендуется (хотя это не обязательно) следующий формат URI перенаправления: `<app-scheme>://<bundle-id>`. Дополнительные сведения см. в статье [Быстрый запуск ADAL iOS](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
 
 2. Установите ADAL с помощью Cocoapods. Измените файл Podfile: добавьте в него следующий код, заменив **YOUR-PROJECT** именем проекта Xcode:
 
@@ -592,4 +640,4 @@ if (error.code == MSErrorPreconditionFailed) {
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

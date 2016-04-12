@@ -4,7 +4,7 @@
 	services="cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Как использовать управляемую службу кэша Azure
@@ -485,4 +485,4 @@
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

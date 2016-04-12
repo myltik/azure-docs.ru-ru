@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/18/2016" 
+	ms.date="03/15/2016" 
 	ms.author="heidist"/>
 
 #Как реализовать фасетную навигацию в службе поиска Azure
@@ -291,7 +291,7 @@
 
 - Функция **geo.intersects** возвращает значение true, если заданная точка находится в пределах указанного многоугольника, где точка представляет из себя поле, а многоугольник указывается кв качестве списка констант координат, которые передаются как часть фильтра.
 
-Примеры фильтров приведены в статье [Синтаксис выражений OData для поиска Azure](http://msdn.microsoft.com/library/azure/dn798921.aspx). Дополнительные сведения о геопространственном поиске см. в [статье, в которой описывается создание приложения геопространственного поиска в службе поиска Azure](search-create-geospatial.md).
+Примеры фильтров приведены в статье [Синтаксис выражений OData для поиска Azure](http://msdn.microsoft.com/library/azure/dn798921.aspx).
 
 <a name="tryitout"></a>
 ##Попробуйте сейчас
@@ -362,7 +362,6 @@
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
-[Create a geospatial search application in Azure Search]: search-create-geospatial.md
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
@@ -370,4 +369,4 @@
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -43,9 +43,25 @@
 
 Если устройство не может использовать клиентские пакеты SDK, оно может подключаться к общедоступным конечным точкам устройства по протоколу MQTT. В пакете **CONNECT** устройство должно использовать следующие значения.
 
-- **deviceId** в качестве **ClientId**
-- `{iothubhostname}/{device_id}` в поле **Имя пользователя**, где {iothubhostname} — это полная запись CName центра IoT (например contoso.azure-devices.net).
-- Маркер SAS в поле **Пароль**. [Формат маркера SAS][lnk-iothub-security] аналогичен описанному для протоколов HTTP и AMQP: <br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
+- В поле **Идентификатор клиента** укажите **идентификатор устройства**. 
+- В поле **Имя пользователя** укажите `{iothubhostname}/{device_id}`, где {iothubhostname} — это полная запись CName центра IoT.
+
+    Например, если имя центра IoT — **contoso.azure-devices.net** и имя устройства — **MyDevice01**, то полное поле **Имя пользователя** должно содержать `contoso.azure-devices.net/MyDevice01`.
+
+- В поле **Пароль** укажите маркер SAS. [Формат маркера SAS][lnk-iothub-security] аналогичен описанному для протоколов HTTP и AMQP: <br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
+
+    Дополнительные сведения о способах создания маркеров SAS см. в разделе [Использование маркеров безопасности центра IoT][lnk-sas-tokens].
+    
+    При тестировании также можно использовать [Обозреватель устройства][lnk-device-explorer] для быстрого создания маркера SAS, который можно скопировать и вставить в собственный код:
+    
+    1. Перейдите на вкладку **Управление** в обозревателе устройства.
+    2. Щелкните **Маркер SAS** (вверху справа).
+    3. В разделе **Форма маркера SAS** выберите свое устройство в раскрывающемся списке **Идентификатор устройства**. Установите свой **Срок жизни**.
+    4. Щелкните **Создать** для создания маркера.
+    
+    Созданный маркер SAS выглядит следующим образом: `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
+
+    Его часть используется в поле **Пароль** для подключения с использованием MQTT: `SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802g%3d&se=1456481802`.
 
 Для пакетов подключения и отключения MQTT центр IoT создает событие в канале **Мониторинг операций**.
 
@@ -56,14 +72,14 @@
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
 ```
- 
+
 > [AZURE.NOTE] Эта же кодировка используется для строк запросов в протоколе HTTP.
 
 Клиентское приложение устройства может использовать `devices/{did}/messages/events/{property_bag}` в качестве значения параметра **Будущее имя раздела** для определения *будущих сообщений*, которые будут пересылаться как сообщения телеметрии.
 
 ### Получение сообщений
 
-Для получения сообщений из центра IoT устройство должно оформить подписку с использованием `devices/{did}/messages/devicebound/#”` в качестве значения параметра **Фильтр разделов**. Центр IoT доставляет сообщения с **именем раздела** `devices/{did}/messages/devicebound/` или `devices/{did}/messages/devicebound/{property_bag}`, если существуют какие-либо свойства сообщения. `{property_bag}` содержит закодированные в формате URL-адреса пары "ключ-значение" свойств сообщения. В набор свойств входят только свойства приложений и задаваемые пользователем системные свойства (такие как **messageId** или **correlationId**). Имена системных свойств имеют префикс **$**, свойства приложений используют исходное имя свойства без префикса.
+Для получения сообщений из центра IoT устройство должно оформить подписку с использованием `devices/{did}/messages/devicebound/#”` в качестве значения параметра **Фильтр разделов**. Центр IoT доставляет сообщения с **именем раздела** `devices/{did}/messages/devicebound/` или `devices/{did}/messages/devicebound/{property_bag}`, если существуют какие-либо свойства сообщения. `{property_bag}` содержит закодированные в формате URL-адреса пары "ключ-значение" свойств сообщения. В набор свойств входят только свойства приложений и задаваемые пользователем системные свойства (такие как **идентификатор сообщения** или **идентификатор корреляции**). Имена системных свойств имеют префикс **$**, свойства приложений используют исходное имя свойства без префикса.
 
 ## Дальнейшие действия
 
@@ -80,5 +96,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
+[lnk-sas-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

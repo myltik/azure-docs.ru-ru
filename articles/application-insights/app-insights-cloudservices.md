@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="11/15/2015"
+   ms.date="03/02/2016"
    ms.author="sdash"/>
 
 # Application Insights для облачных служб Azure
@@ -171,13 +171,17 @@
 
 Пакет SDK Application Insights может сообщить о вызовах, которые ваше приложение отправляет к внешним зависимостям, например к API-интерфейсам REST и серверам SQL Server. Это позволяет увидеть, является ли определенная зависимость причиной медленных ответов или сбоев.
 
-Для отслеживания зависимостей нужно настроить веб-роль и рабочую роль с помощью [агента Application Insights](app-insights-monitor-performance-live-website-now.md), который называется также «Монитор состояния».
+Если приложение использует платформу .NET Framework 4.6 или более поздней версии, больше ничего делать не нужно.
+
+В противном случае нужно настроить веб-роль или рабочую роль с помощью [агента Application Insights](app-insights-monitor-performance-live-website-now.md), который называется также "Монитор состояния".
 
 Вот что нужно сделать, чтобы использовать агент Application Insights с помощью веб-ролей или рабочих ролей.
 
 * Добавьте папку [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) и два находящихся в ней файла в свои проекты веб- и рабочих ролей. Обязательно настройте их средства построения, чтобы эти проекты всегда копировались в выходной каталог. Эти файлы устанавливают агент.
 * Добавьте задачу запуска в CSDEF-файл, как показано [ниже](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18).
 * Примечание. Для *рабочих ролей* требуются три переменные среды, как показано [здесь](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L44). Для веб-ролей этого не требуется.
+
+### Отчеты о зависимостях
 
 Ниже приведен пример того, что отображается на портале Application Insights.
 
@@ -277,10 +281,9 @@
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

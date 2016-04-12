@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # Настройка VPN-подключения между двумя виртуальными сетями Azure  
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [Настройка подключения VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [Настройка DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [Настройка репликации HBase](hdinsight-hbase-geo-replication.md) 
 
 При подключении между сайтами в виртуальной сети Azure используется VPN-шлюз для предоставления защищенного туннеля с использованием IPsec/IKE. Подключаемые виртуальные сети могут иметь разные подписки в разных регионах. Можно даже комбинировать подключение виртуальных сетей с многосайтовыми конфигурациями. Существует несколько причин для подключения одной виртуальной сети к другой.
 
@@ -29,7 +29,7 @@
 - Региональные многоуровневые приложения с четкой границей изоляции 
 - Обмен данными между подписками и организациями в Azure
 
-Дополнительные сведения см. в разделе [Настройка подключения между двумя виртуальными сетями](../virtual-network/virtual-networks-configure-vnet-to-vnet-connection.md).
+Дополнительные сведения см. в разделе [Настройка подключения между двумя виртуальными сетями](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 Для просмотра его на видео:
 
@@ -62,7 +62,7 @@
 		Select-AzureSubscription <AzureSubscriptionName>
 
 
->[AZURE.NOTE] Имена служб Azure и имена виртуальных машин должны быть уникальными. В этом учебнике используется имя Contoso-[имя службы или виртуальной машины Azure]-[EU/US]. Например, Contoso-VNet-EU — это виртуальная сеть Azure в центре обработки данных, расположенном в Северной Европе; Contoso-DNS-US — виртуальная машина DNS-сервера в центре обработки данных, расположенном на востоке США. Вам необходимо создать собственные имена.
+>[AZURE.NOTE] Имена служб Azure и имена виртуальных машин должны быть уникальными. В этом учебнике используется имя Contoso-[имя службы или виртуальной машины Azure]-[EU/US]. Например, Contoso-VNet-EU — это виртуальная сеть Azure в центре обработки данных, расположенном в Северной Европе; Contoso-DNS-US — виртуальная машина DNS-сервера в центре обработки данных, расположенном на востоке США. Вам необходимо создать собственные имена.
  
 
 ##Создание двух виртуальных сетей Azure
@@ -139,7 +139,7 @@
 
 При создании конфигурации между двумя виртуальными сетями необходимо настроить каждую из сетей так, чтобы они идентифицировали друг друга в качестве сайта локальной сети. В этом разделе вы настроите каждую виртуальную сеть в качестве локальной. Локальные сети используют общие пространства IP-адресов с соответствующей виртуальной сетью.
 
-![Настройка конфигурации VPN Azure «сайт-сайт» — локальные сети Azure][img-vnet-lnet-diagram]
+![Настройка конфигурации VPN Azure «сайт-сайт» — локальные сети Azure][img-vnet-lnet-diagram]
 
 
 **Создание локальной сети с именем Contoso-LNet-EU, соответствующей адресному пространству сети Contoso-VNet-EU**
@@ -197,7 +197,7 @@
 
 **Создание VPN-шлюза для Contoso-VNet-EU**
 
-- Повторите последние две процедуры для настройки подключения типа «сайт — сайт» между Contoso-VNet-US и Contoso-LNet-EU и последующего создания VPN-шлюза для Contoso-Vnet-US. После завершения вы получите IP-адрес VPN-шлюза для Contoso-VNet-US.
+- Повторите последние две процедуры для настройки подключения типа «сайт — сайт» между Contoso-VNet-US и Contoso-LNet-EU и последующего создания VPN-шлюза для Contoso-Vnet-US. После завершения вы получите IP-адрес VPN-шлюза для Contoso-VNet-US.
 
 
 ### Установка IP-адресов VPN-устройств для локальных сетей
@@ -270,4 +270,4 @@
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

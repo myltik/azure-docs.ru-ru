@@ -15,11 +15,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
 
-# Создание нового API SQL Server в среде службы приложений организации
+# Создание API SQL Server в PowerApps Enterprise
+
+Добавьте API SQL Server в среду службы приложений (клиента) организации.
 
 ## Создание API на портале Azure
 
@@ -38,14 +40,14 @@
 
 Вы можете подключаться к серверу SQL Server в локальной среде. Чтобы организовать это гибридное подключение, вы можете использовать существующие гибридные сетевые решения в Azure, например:
 
-- [ExpressRoute](../expressroute-introduction.md)
-- [VPN "сайт — сайт"](../vpn-gateway-create-site-to-site-rm-powershell.md)
-- [Подключение "точка — сайт"](../vpn-gateway-point-to-site-create.md)  
+- [ExpressRoute](../expressroute/expressroute-introduction.md)
+- [VPN "сайт — сайт"](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Подключение "точка — сайт"](../vpn-gateway/vpn-gateway-point-to-site-create.md)  
 
-	> [AZURE.NOTE]У каждой среды службы приложений есть связанная с ней виртуальная сеть. Вы можете организовать сетевое подключение к этой виртуальной сети.  
-- [Гибридные подключения](../web-sites-hybrid-connection-get-started.md)  
+	> [AZURE.NOTE]  У каждой среды службы приложений есть связанная с ней виртуальная сеть. Вы можете организовать сетевое подключение к этой виртуальной сети.  
+- [Гибридные подключения](../app-service-web/web-sites-hybrid-connection-get-started.md)  
 
-	> [AZURE.NOTE]Каждый зарегистрированный API в среде службы приложений имеет соответствующее веб-приложение. Из этого веб-приложения вы можете устанавливать гибридные подключения, как и из любого другого веб-приложения.
+	> [AZURE.NOTE]  Каждый зарегистрированный API в среде службы приложений имеет соответствующее веб-приложение. Из этого веб-приложения вы можете устанавливать гибридные подключения, как и из любого другого веб-приложения.
 	
 В следующем примере показано, как создать гибридное подключение:
 
@@ -53,7 +55,7 @@
 
 2.  Выберите элемент **Ресурсы**, а затем выберите веб-приложение с тем же именем, что и у API SQL Server. В этом примере выберите *sqlconnectordemo*: ![Веб-приложение SQL](./media/powerapps-create-api-sqlserver/sqlwebapp.png)
 
-3.  В колонке **Параметры** выберите пункт **Сеть**. Выберите **Настроить конечные точки гибридного подключения**, а затем следуйте [этим инструкциям](../web-sites-hybrid-connection-get-started.md) для создания гибридного подключения: ![Сеть](./media/powerapps-create-api-sqlserver/network.png)
+3.  В колонке **Параметры** выберите пункт **Сеть**. Выберите **Настроить конечные точки гибридного подключения**, а затем следуйте [этим инструкциям](../app-service-web/web-sites-hybrid-connection-get-started.md) для создания гибридного подключения: ![Сеть](./media/powerapps-create-api-sqlserver/network.png)
 
 После создания и установки гибридного подключения создается соединение с локальным сервером. Затем создайте подключение к данным и предоставьте доступ пользователям: ![Гибридное подключение](./media/powerapps-create-api-sqlserver/hybridconn.png)
 
@@ -78,4 +80,4 @@
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

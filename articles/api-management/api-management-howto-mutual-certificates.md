@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management
@@ -24,7 +24,7 @@
 
 ## <a name="prerequisites"> </a>Предварительные требования
 
-В этом руководстве описано, как настроить для экземпляра службы API Management проверку подлинности с помощью сертификата клиента при доступе из API к фоновой службе. Перед выполнением инструкций, приведенных в этом разделе, в фоновой службе необходимо настроить проверку подлинности с помощью сертификата клиента. Кроме того, нужно иметь доступ к сертификату, который следует отправить на портал издателя API Management, и его паролю.
+В этом руководстве описано, как настроить для экземпляра службы API Management проверку подлинности с помощью сертификата клиента при доступе из API к фоновой службе. Перед выполнением инструкций, приведенных в этом разделе, в фоновой службе необходимо настроить проверку подлинности на основе сертификата клиента ([чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью][]). Кроме того, нужно иметь доступ к сертификату, который следует отправить на портал издателя управления API, и его паролю.
 
 ## <a name="step1"> </a>Отправка сертификата клиента
 
@@ -129,6 +129,7 @@
 
 [Объект сертификата REST API службы управления API Azure ]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
+[чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -138,7 +139,6 @@
 [Next steps]: #next-steps
 
 
-
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

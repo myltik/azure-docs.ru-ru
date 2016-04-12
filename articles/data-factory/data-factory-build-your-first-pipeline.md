@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Начало работы с фабрикой данных Azure"
-	description="В этом учебнике показано, как создать конвейер, преобразующий данные с помощью Azure HDInsight."
+	pageTitle="Создание первой фабрики данных | Microsoft Azure"
+	description="В этом учебнике показано, как создать фабрику данных с конвейером, преобразующим данные с помощью Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="12/18/2015"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
 # Начало работы с фабрикой данных Azure
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [Обзор учебника](data-factory-build-your-first-pipeline.md)
+- [Редактор фабрики данных](data-factory-build-your-first-pipeline-using-editor.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Шаблон диспетчера ресурсов](data-factory-build-your-first-pipeline-using-arm.md)
 
 Эта статья поможет вам создать свою первую фабрику данных Azure.
 
@@ -45,7 +45,7 @@
 
 1.	Создание **фабрики данных**. Фабрика данных может содержать один или несколько конвейеров данных для перемещения и обработки данных. 
 2.	Создание **связанных служб**. С помощью связанной службы можно связать хранилище данных или службу вычислений с фабрикой данных. Хранилище данных, например хранилище Azure, содержит входные и выходные данные действий в конвейере. Служба вычислений, такая как Azure HDInsight, обрабатывает и преобразует данные.    
-3.	Создание входных и выходных **наборов данных**. Входной набор данных представляет входные данные для действия в конвейере, а выходной набор данных — выходные данные для действия.
+3.	Создание входных и выходных **наборов данных**. Входной набор данных представляет входные данные для действия в конвейере, а выходной набор данных — выходные данные для действия.
 3.	Создание **конвейера**. Конвейер может иметь одно или несколько действий, например действие копирования для копирования данных из исходного расположения в конечное или действие Hive HDInsight для преобразования входных данных с помощью скрипта Hive и получения выходных данных. В этом примере используется действие HDInsight Hive, которое запускает скрипт Hive. Этот скрипт сначала создает внешнюю таблицу, которая ссылается на необработанные данные веб-журнала в хранилище BLOB-объектов Azure, а затем разбивает необработанные данные по годам и месяцам.
 
 Конвейер **MyFirstPipeline** использует действие Hive для преобразования и анализа веб-журнала, который можно будет загрузить в папку **inputdata** в контейнере **adfgetstarted** (adfgetstarted/inputdata) хранилища BLOB-объектов Azure.
@@ -53,7 +53,7 @@
 ![Представление схемы](./media/data-factory-build-your-first-pipeline/diagram-view.png)
 
 
-В этом руководстве adfgetstarted (контейнер) = > inputdata (папка) содержит один файл с именем input.log. Этот файл журнала содержит записи за три месяца: январь, февраль и март 2014 г. Вот пример строк за каждый месяц во входном файле.
+В этом руководстве adfgetstarted (контейнер) = > inputdata (папка) содержит один файл с именем input.log. Этот файл журнала содержит записи за три месяца: январь, февраль и март 2014 г. Вот пример строк за каждый месяц во входном файле.
 
 	2014-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871 
 	2014-02-01,02:01:10,SAMPLEWEBSITE,GET,/blogposts/mvc4/step7.png,X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,30184,871
@@ -65,7 +65,7 @@
 	adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 	adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 
-В примерах строк выше первая из них (содержащая дату 2014-01-01) будет записана в файл 000000\_0 в папке month=1. Аналогичным образом вторая строка будет записана в файл в папке month=2, а третья — в файл в папке month=3.
+В примерах строк выше первая из них (содержащая дату 2014-01-01) будет записана в файл 000000\_0 в папке month=1. Аналогичным образом вторая строка будет записана в файл в папке month=2, а третья — в файл в папке month=3.
 
 ## Отправка файлов в хранилище Azure для использования с этим руководством
 Прежде чем приступить к работе с учебником, необходимо подготовить хранилище Azure и необходимые файлы.
@@ -159,7 +159,7 @@
 		FROM WebLogsRaw
 
 ### Создание примера входного файла
-С помощью приложения "Блокнот" создайте файл с именем **input.log** в папке **c:\\adfgetstarted** со следующим содержимым:
+С помощью приложения «Блокнот» создайте файл с именем **input.log** в папке **c:\\adfgetstarted** со следующим содержимым:
 
 	#Software: Microsoft Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
@@ -185,7 +185,7 @@
 
 ### Отправка входного файла и HQL-файла в хранилище BLOB-объектов Azure
 
-Для выполнения этой задачи можно использовать любое средство на свой выбор (например, [обозреватель хранилищ Microsoft Azure](http://storageexplorer.com/) или CloudXPlorer от ClumsyLeaf Software). В этом разделе приводятся инструкции по использованию средства AzCopy.
+Для выполнения этой задачи можно использовать любой инструмент на свой выбор (например, [обозреватель хранилищ Microsoft Azure](http://storageexplorer.com/) или CloudXPlorer от ClumsyLeaf Software). В этом разделе приводятся инструкции по использованию средства AzCopy.
 	 
 2. Чтобы подготовить хранилище Azure для использования с учебником:
 	1. Скачайте [последнюю версию средства **AzCopy**](http://aka.ms/downloadazcopy) или [последнюю предварительную версию](http://aka.ms/downloadazcopypr). Инструкции по использованию этой служебной программы см. в статье [Использование AzCopy](../storage/storage-use-azcopy.md).
@@ -209,7 +209,7 @@
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Выполните следующую команду, чтобы отправить файл **partitionweblogs.hql** в папку **script** в контейнере **adfgetstarted**. Вот нужная команда: 
+	1. Выполните следующую команду, чтобы передать файл **partitionweblogs.hql** в папку **script** в контейнере **adfgetstarted**. Вот нужная команда: 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@
 - Visual Studio
 - Шаблоны диспетчера ресурсов Azure 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

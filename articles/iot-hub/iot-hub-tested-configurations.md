@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/28/2016"
+     ms.date="03/29/2016"
      ms.author="hegate"/>
 
 # Совместимость платформ ОС и оборудования с пакетами SDK для устройств
@@ -36,7 +36,7 @@
 
 |Платформы ОС Windows | Version (версия)|
 |:---------------|:------------:|
-|Классические приложения Windows| 7, 8, 10 |
+|Классические приложения Windows| 10 |
 |Windows IoT Core| 10 |
 |Windows Server| 2012 R2|
 
@@ -53,12 +53,12 @@
 
 |Платформа ОС| Версия|Протоколы|
 |:---------|:----------:|:----------:|
-|Debian Linux| 7\.5 | HTTPS, AMQP, MQTT |
-|Fedora Linux| 20 | HTTPS, AMQP, MQTT |
+|Debian Linux| 7\.5 | HTTPS, AMQP, MQTT, AMQP через WebSockets |
+|Fedora Linux| 20 | HTTPS, AMQP, MQTT, AMQP через WebSockets |
 |mbed OS| 2,0 | HTTPS, AMQP |
 |TI-RTOS| 2\.x | HTTPS |
-|Ubuntu Linux| 14\.04 | HTTPS, AMQP, MQTT |
-|Классические приложения Windows| 7, 8, 10 | HTTPS, AMQP, MQTT |
+|Ubuntu Linux| 14\.04 | HTTPS, AMQP, MQTT, AMQP через WebSockets |
+|Классические приложения Windows| 10 | HTTPS, AMQP, MQTT, AMQP через WebSockets |
 |Yocto Linux|2,1 | HTTPS, AMQP|
 
 
@@ -70,7 +70,7 @@
 
 |Среда выполнения| Версия|Протоколы|
 |:---------|:----------:|:----:|
-|Node.js| 4\.1.0 | HTTPS|
+|Node.js| 4\.1.0 | HTTPS, AMQP, MQTT, AMQP через WebSockets |
 
 
 
@@ -80,14 +80,14 @@
 
 |Среда выполнения| Версия|Протоколы|
 |:---------|:----------:|----|
-|Java SE (Windows)| 1\.7 | HTTPS, AMQP |
-|Java SE (Linux)| 1\.8 | HTTPS, AMQP|
+|Java SE (Windows)| 1\.8 | HTTPS, AMQP, MQTT |
+|Java SE (Linux)| 1\.8 | HTTPS, AMQP, MQTT|
 
 Пакеты SDK для службы IoT Microsoft Azure для Java были протестированы для следующих конфигураций:
 
 |Среда выполнения| Версия|Протоколы|
 |:---------|:----------:|:-----|
-|Java SE| 1\.8 | HTTPS, AMQP |
+|Java SE| 1\.8 | HTTPS, AMQP, MQTT |
 
 
 ## C#
@@ -96,8 +96,8 @@
 
 |Платформа ОС| Version (версия)|Протоколы|
 |:---------|:----------:|:----------:|
-|Классические приложения Windows| 7, 8, 10 | HTTPS, AMQP|
-|Windows IoT Core|10 | HTTPS|
+|Классические приложения Windows| 10 | HTTPS, AMQP, MQTT, AMQP через WebSockets |
+|Windows IoT Core|10 | HTTPS |
 
 Для кода управляемого агента требуется Microsoft .NET Framework версии 4.5.
 
@@ -127,6 +127,7 @@
 |[ADLINK MXE-200](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1505&seq=&id=&sid=&category=Fanless-Embedded-Computer_Integrated-Embedded-Computer&utm_source=) |Windows 10 | C#|
 |[ADLINK MXE-202i](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1589) |Wind River | JavaScript|
 |[ADLINK MXE-5400](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1318) |Windows 10 | C#|
+|[ADLINK NuPRO-E43](http://www.adlinktech.com/index.php) |Windows 10 | C#|
 |[Advantech Co., ARK-2121L](http://www.advantech.com/products/ark-2000_series_embedded_box_pcs/ark-2121l/mod_dd092808-0832-44bc-b38a-945eb7e016bd) |Windows 10 | C#|
 |[Advantech Co., ARK-1123C](http://www.advantech.com/products/92d96fda-cdd3-409d-aae5-2e516c0f1b01/ark-1123c/mod_0b91165c-aa8c-485d-8d25-fde6f88f4873) |Windows 10 | C#|
 |[Advantech Co., LTD UNO-1372G](http://www.advantech.com/products/gf-bvl2/uno-1372g/mod_8e63b3c9-b606-4725-a1af-94fccb98bb1a) |Windows 10 | C#|
@@ -186,4 +187,4 @@
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -3,7 +3,7 @@
   description="Сведения о подключении веб-ролей и рабочих ролей к личному домену AD с помощью Powershell и расширения домена AD"
   services="cloud-services"
   documentationCenter=""
-  authors="VMak"
+  authors="Thraka"
   manager="timlt"
   editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/05/2015"
+    ms.date="03/25/2016"
     ms.author="adegeo"/>
 
 # Подключение ролей облачных служб Azure к контроллеру личного домена AD, размещенному в Azure
@@ -70,11 +70,11 @@ Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath;
 
 $vnetname = '<your-vnet-name>'
 $subnetname = '<your-subnet-name>'
-$vmsvc1 = ‘<your-hosted-service>’
-$vm1 = ‘<your-vm-name>’
-$username = ‘<your-username>’
-$password = ‘<your-password>’
-$ affgrp = ‘<your- affgrp>’
+$vmsvc1 = '<your-hosted-service>'
+$vm1 = '<your-vm-name>'
+$username = '<your-username>'
+$password = '<your-password>'
+$affgrp = '<your- affgrp>'
 
 # Create a VM and add it to the Virtual Network
 
@@ -134,26 +134,26 @@ Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-
 ```powershell
 # Initialize domain variables
 
-$domain = ‘<your-domain-name>’;
-$dmuser = ‘$domain<your-username>’;
-$dmpswd = '<your-domain-password>';
-$dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force;
-$dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd);
+$domain = '<your-domain-name>'
+$dmuser = '$domain<your-username>'
+$dmpswd = '<your-domain-password>'
+$dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force
+$dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd)
 
 # Add AD Domain Extension to the cloud service roles
 
-Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-name> -Role <your-role-name> -Slot <staging-or-production> -DomainName $domain -Credential $dmcred -JoinOption 35;
+Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-name> -Role <your-role-name> -Slot <staging-or-production> -DomainName $domain -Credential $dmcred -JoinOption 35
 ```
 
-Вот и все.
+И это все.
 
 Облачные службы должны быть присоединены к контроллеру личного домена. Дополнительные сведения о различных параметрах настройки расширения домена AD см. в справке PowerShell, как показано ниже.
 
 ```powershell
-help Set-AzureServiceADDomainExtension;
-help New-AzureServiceADDomainExtensionConfig;
+help Set-AzureServiceADDomainExtension
+help New-AzureServiceADDomainExtensionConfig
 ```
 
 Так же хотелось бы получить от вас отзыв по поводу того, будет ли полезным расширение, которое повышает уровень виртуальной машины до контроллера домена. Если думаете, что будет, дайте нам знать в разделе комментариев.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

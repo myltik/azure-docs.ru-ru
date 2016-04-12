@@ -3,8 +3,8 @@
    description="События, подлежащие аудиту, которые доступны для просмотра и загрузки в Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # События отчета аудита Azure Active Directory
 
@@ -122,4 +122,4 @@ TelephoneNumber | Номер телефона пользователя.
 
 Записи аудита — это обязательный элемент управления для многих требований соответствия нормативам. Для клиентов, использующих отчет аудита Azure Active Directory в соответствии с нормативными требованиями, рекомендуется отправить копию этого раздела справки и копию экспортированного отчета аудита, чтобы упростить объяснение информации, содержащейся в отчетах. Если аудитору потребуется понять нормативные требования, которым в настоящее время соответствует Azure, направьте аудитора на [страницу нормативных требований](https://azure.microsoft.com/support/trust-center/compliance/) в Центре управления безопасностью Microsoft Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

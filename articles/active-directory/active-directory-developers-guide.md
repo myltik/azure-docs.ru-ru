@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/25/2016"
+   ms.date="03/18/2016"
    ms.author="mbaldwin"/>
 
 
@@ -71,6 +71,7 @@ Azure Active Directory является платформой для управл
 - [Основные сведения о манифесте приложения Azure Active Directory](active-directory-application-manifest.md)
 - [Создание приложения с помощью API Office 365](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Отправка веб-приложений для Office 365 на панель мониторинга продавца](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- Узнайте, как включить единый вход для нескольких приложений с помощью ADAL на устройствах [Android](active-directory-sso-android.md) и [iOS](active-directory-sso-ios.md).
 - [Предварительная версия. Как создавать приложения для входа пользователей с личными, рабочими и учебными учетными записями](active-directory-appmodel-v2-overview.md)
 - [Предварительная версия. Как создавать приложения, которые выполняют регистрацию и вход пользователей](../active-directory-b2c/active-directory-b2c-overview.md)
 
@@ -88,16 +89,13 @@ Azure Active Directory является платформой для управл
 
 - [Примеры кода Azure Active Directory ](https://github.com/azure-samples?query=active-directory). Самый простой способ навигации по списку примеров — это [индекс примеров кода](active-directory-code-samples.md).
 
+- [ADAL для .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx). Документация для библиотеки проверки подлинности .NET.
 
 ### API Graph
 
 - [Справочник по API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx). Справочник по REST для API Graph для Azure Active Directory. [Просмотрите интерактивный справочник по API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Области разрешений API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes). Области разрешений OAuth 2.0, которые необходимы для управления доступом приложения к данным каталога в клиенте.
-
-### Библиотеки проверки подлинности
-
-- [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): документация для библиотеки проверки подлинности .NET.
+- [Области разрешений API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes). Области разрешений OAuth 2.0, которые используются для управления доступом приложения к данным каталога в клиенте.
 
 ### Протоколы проверки подлинности
 
@@ -141,4 +139,4 @@ Azure Active Directory является платформой для управл
 
 - [Azure Active Directory в Твиттере](https://twitter.com/azuread). Объявления Azure Active Directory длиной не более 140 знаков.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="03/09/2016" 
 	ms.author="sethm"/>
 
 # Как использовать API службы сообщений Java (JMS) со служебной шиной и AMQP 1.0
@@ -30,7 +30,7 @@ AMQP 1.0 — это эффективный и надежный протокол 
 
 ### Загрузка клиентской библиотеки AMQP 1.0 JMS
 
-Информацию о том, где скачать последнюю версию клиентской библиотеки Apache Qpid JMS AMQP 1.0, см. на странице [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
+Информацию о том, где скачать последнюю версию клиентской библиотеки Apache Qpid JMS AMQP 1.0, см. на странице [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
 При построении и запуске приложений JMS с использованием служебной шины необходимо добавить следующие 4 JAR-файла из архива распространения Apache Qpid JMS AMQP 1.0 в Java CLASSPATH:
 
@@ -83,7 +83,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 - **[username]**: имя издателя служебной шины.
 - **[password]**: ключ издателя служебной шины, закодированный в URL-адресе.
 
-> [AZURE.NOTE]Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа URL-кодирования доступна по адресу [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE] Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа URL-кодирования доступна по адресу [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 #### Настройка назначений
 
@@ -103,7 +103,7 @@ topic.[jndi_name] = [physical_name]
 - **[jndi\_name]**: логическое имя назначения. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().
 - **[physical\_name]**: имя сущности служебной шины, которой приложение отправляет сообщения или от которого оно получает сообщения.
 
-> [AZURE.NOTE]При получении данных из подписки раздела Service Bus физическое имя, указанное в JNDI, должно быть именем раздела. Имя подписки предоставляется при создании устойчивой подписки в коде приложения JMS. В [руководстве разработчика AMQP 1.0 для служебной шины](service-bus-amqp-dotnet.md) содержатся дополнительные сведения о работе с подписками разделов служебной шины в JMS.
+> [AZURE.NOTE] При получении данных из подписки раздела Service Bus физическое имя, указанное в JNDI, должно быть именем раздела. Имя подписки предоставляется при создании устойчивой подписки в коде приложения JMS. В [руководстве разработчика AMQP 1.0 для служебной шины](service-bus-amqp-dotnet.md) содержатся дополнительные сведения о работе с подписками разделов служебной шины в JMS.
 
 ### Написание приложения JMS
 
@@ -332,4 +332,4 @@ exit
 * [Как использовать очереди служебной шины](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

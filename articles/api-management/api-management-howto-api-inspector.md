@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Как с помощью инспектора API отслеживать вызовы в управлении Azure API
@@ -24,7 +24,7 @@
 
 Это руководство содержит пошаговые инструкции по использованию инспектора API.
 
->[AZURE.NOTE]Трассировка инспектором API доступна только для запросов, содержащих ключи подписки, принадлежащие учетной записи [администратора](api-management-howto-create-groups.md).
+>[AZURE.NOTE] Трассировка инспектором API доступна только для запросов, содержащих ключи подписки, принадлежащие учетной записи [администратора](api-management-howto-create-groups.md).
 
 ## <a name="trace-call"> </a> Использование инспектора API для трассировки вызова
 
@@ -261,4 +261,4 @@
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

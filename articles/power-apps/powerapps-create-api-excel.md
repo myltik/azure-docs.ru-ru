@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="rajeshramabathiran"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,14 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# Создание нового API Excel в среде службы приложений организации
+# Создание API Excel в PowerApps Enterprise
+
+Добавьте API Excel в среду службы приложений (клиента) организации.
 
 ## Создание API на портале Azure
 
-1. Войдите на [Портал Azure](https://portal.azure.com/) с помощью рабочей учетной записи. Например, это может быть адрес *ИмяПользователя*@*ВашаКомпания*.com. При этом выполняется автоматический вход в подписку вашей компании.
+1. Войдите на [портал Azure](https://portal.azure.com/) с помощью рабочей учетной записи. Например, это может быть адрес *ИмяПользователя*@*ВашаКомпания*.com. При этом выполняется автоматический вход в подписку вашей компании.
  
 2. На панели задач выберите **Обзор**: ![][4]
 
@@ -53,4 +55,4 @@
 [4]: ./media/powerapps-create-api-excel/browseall.png
 [5]: ./media/powerapps-create-api-excel/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

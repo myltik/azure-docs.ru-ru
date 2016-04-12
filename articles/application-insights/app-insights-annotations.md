@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/03/2016"
     ms.author="awills"/>
 
 # Заметки к выпуску в Application Insights
 
-Заметки к выпуску на диаграммах [обозревателя метрик](app-insights-metrics-explorer.md) показывают, где развернута новая сборка. С их помощью легко увидеть, повлияли ли ваши изменения на производительность приложения. Заметки к выпуску могут быть созданы автоматически [системой сборки Visual Studio Team Services](https://www.visualstudio.com/ru-RU/get-started/build/build-your-app-vs).
+Заметки к выпуску на диаграммах [обозревателя метрик](app-insights-metrics-explorer.md) показывают, где развернута новая сборка. С их помощью легко увидеть, повлияли ли ваши изменения на производительность приложения. Они могут быть созданы автоматически [системой сборки Visual Studio Team Services](https://www.visualstudio.com/ru-RU/get-started/build/build-your-app-vs). Кроме того, [их можно создать в PowerShell](#create-annotations-from-powershell).
 
 ![Пример заметок с видимой корреляцией с временем ответа сервера](./media/app-insights-annotations/00.png)
 
@@ -39,8 +39,8 @@
 Необходимо сделать это для каждого шаблона выпуска, в котором должны создаваться заметки к выпуску.
 
 
-1. Выполните вход в [портал Microsoft Azure](https://portal.azure.com) и откройте ресурс Application Insights, который используется для мониторинга вашего приложения. (Или [создайте новый](app-insights-overview.md), если вы этого еще не сделали.)
-2. Откройте **Параметры**, **Доступ к API** и сделайте копию значения **ИД Application Insights**.
+1. Выполните вход на [портал Microsoft Azure](https://portal.azure.com) и откройте ресурс Application Insights, который используется для мониторинга вашего приложения. (Или [создайте новый](app-insights-overview.md), если вы этого еще не сделали.)
+2. Откройте **Параметры**, **Доступ к API** и скопируйте **идентификатор Application Insights**.
 
     ![На сайте portal.azure.com откройте ресурс Application Insights и выберите "Параметры". Откройте "Доступ к API". Скопируйте идентификатор приложения.](./media/app-insights-annotations/20.png)
 
@@ -69,6 +69,24 @@
 
 5. Наконец, **сохраните** определение выпуска.
 
+## Создание аннотаций в PowerShell
+
+Вы можете создать аннотации из любого процесса на свой выбор (без использования Visual Studio Team System).
+
+Получите [сценарий Powershell из GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+
+Используйте его следующим образом.
+
+    .\CreateReleaseAnnotation.ps1 `
+      -applicationId "<applicationId>" `
+      -apiKey "<apiKey>" `
+      -releaseName "<myReleaseName>" `
+      -releaseProperties @{
+          "ReleaseDescription"="a description";
+          "TriggerBy"="My Name" }
+
+Получите `applicationId` и `apiKey` из ресурса Application Insights: щелкните "Параметры" > "Доступ к API" и скопируйте идентификатор приложения. Затем щелкните "Создать ключ API" и скопируйте ключ.
+
 ## Примечания к выпуску
 
 Теперь при каждом развертывании нового выпуска с помощью шаблона выпуска заметки будут отправляться в Application Insights. Заметки будут отображаться на диаграммах в обозревателе метрик.
@@ -78,4 +96,4 @@
 
 ![Щелкните любой маркер заметки о выпуске.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

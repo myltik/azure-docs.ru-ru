@@ -24,21 +24,20 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-В этой статье представлен пример кода Java, который можно использовать для подключения к Базе данных SQL Azure. Для использования примера кода Java требуется пакет средств разработки Java Development Kit (JDK) версии 1.8. Подключение к Базе данных SQL Azure осуществляется с помощью драйвера JDBC.
+В этой статье представлен пример кода Java, который можно использовать для подключения к Базе данных SQL Azure. Для использования примера кода Java требуется пакет средств разработки Java Development Kit (JDK) версии 1.8. Подключение к Базе данных SQL Azure осуществляется с помощью драйвера JDBC.
 
+## Шаг 1. Настройка среды разработки
 
-## Предварительные требования
+Установка драйверов и библиотек:
 
-### Драйверы и библиотеки
+- [Драйвер Microsoft JDBC для SQL Server — SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
+- Любая операционная система с поддержкой [пакета JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
-- [Драйвер Microsoft JDBC для SQL Server — SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
-- Любая операционная система с поддержкой [пакета JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-
-### База данных SQL
+## Шаг 2. Создание базы данных SQL
 
 Чтобы узнать, как создать базу данных, перейдите на страницу [Начало работы](sql-database-get-started.md).
 
-### Таблица SQL
+## Шаг 3. Создание таблицы SQL
 
 В приведенном примере кода Java предполагается, что в вашей базе данных SQL Azure уже есть следующая тестовая таблица.
 
@@ -56,14 +55,14 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## Шаг 1. Получение строки подключения
+## Шаг 4. Получение строки подключения
 
 [AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
 
-> [AZURE.NOTE]При использовании драйвера JTDS JDBC необходимо будет добавить ssl=require в URL-адрес строки подключения и задать для виртуальной машины Java параметр -Djsse.enableCBCProtection=false. Этот параметр виртуальной машины Java отключает исправление для уязвимости системы безопасности, поэтому убедитесь, что понимаете все связанные с ним риски, прежде чем задавать этот параметр.
+> [AZURE.NOTE] При использовании драйвера JTDS JDBC необходимо будет добавить ssl=require в URL-адрес строки подключения и задать для виртуальной машины Java параметр -Djsse.enableCBCProtection=false. Этот параметр виртуальной машины Java отключает исправление для уязвимости системы безопасности, поэтому убедитесь, что понимаете все связанные с ним риски, прежде чем задавать этот параметр.
 
 
-## Шаг 2. Компиляция образца кода Java
+## Шаг 5. Компиляция образца кода Java
 
 
 В этом разделе приведена основная часть кода Java. Она содержит комментарии, указывающие, куда следует вставлять сегменты кода Java из последующих разделов. Код из этого раздела можно скомпилировать и запустить даже без вставки дополнительных сегментов. При этом после подключения выполнение кода прекратится. Примеры комментариев:
@@ -136,7 +135,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 - your\_password
 
 
-## Шаг 3. Вставка строк
+## Шаг 6. Вставка строк
 
 
 Этот сегмент кода Java выполняет инструкцию INSERT Transact-SQL для вставки двух строк в таблицу Person. Общая последовательность выглядит так:
@@ -169,7 +168,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	}
 
 
-## Шаг 4. Выполнение транзакции
+## Шаг 7. Фиксация транзакции
 
 Следующий сегмент кода Java выполняет инструкцию UPDATE Transact-SQL для увеличения значения `age` в каждой строке таблицы Person. Общая последовательность выглядит так:
 
@@ -199,7 +198,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	connection.setAutoCommit(true);
 
 
-## Шаг 4. Выполнение запроса
+## Шаг 8. Выполнение запроса
 
 
 Этот сегмент кода Java выполняет инструкцию SELECT Transact-SQL для вывода всех обновленных строк таблицы Person. Общая последовательность выглядит так:
@@ -228,4 +227,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 Дополнительную информацию см. в [Центре разработчика Java](/develop/java/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

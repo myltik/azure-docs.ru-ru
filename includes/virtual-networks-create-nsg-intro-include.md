@@ -2,4 +2,4 @@
 
 Дополнительные сведения о группах безопасности сети см. в разделе [Что такое группа безопасности сети](../articles/virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

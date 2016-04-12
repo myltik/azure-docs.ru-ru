@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Использование соединителя Yammer в приложении логики #
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview, щелкните [API Yammer](../connectors/create-api-yammer.md).
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview. Чтобы узнать версию схемы 2015-08-01-preview, щелкните [API Yammer](../connectors/connectors-create-api-yammer.md).
 
 Подключайтесь к Yammer, чтобы выполнять действие публикации сообщения и использовать триггер для получения новых сообщений.
 
@@ -94,4 +94,4 @@
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

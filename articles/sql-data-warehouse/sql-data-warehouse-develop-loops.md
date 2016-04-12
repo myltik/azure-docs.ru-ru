@@ -3,7 +3,7 @@
    description="Рекомендации по применению циклов Transact-SQL и замене курсоров в хранилище данных SQL Azure для разработки решений."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="jrowlandjones"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Циклы в хранилище данных SQL
@@ -25,10 +25,10 @@
 Курсоры быстрой перемотки, доступные только для чтения, легко заменяются циклической конструкцией. Ниже приведен простой пример. Приведенный в примере код обновляет статистику для каждой таблицы в базе данных. Перебор таблиц в цикле позволяет выполнить каждую команду в последовательности.
 
 Для начала создайте временную таблицу с уникальным номером строки, обозначающим отдельные операторы:
-  
+
 ```
-CREATE TABLE #tbl 
-WITH 
+CREATE TABLE #tbl
+WITH
 ( DISTRIBUTION = ROUND_ROBIN
 )
 AS
@@ -81,4 +81,4 @@ DROP TABLE #tbl;
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

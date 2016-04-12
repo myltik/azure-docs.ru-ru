@@ -3,8 +3,8 @@
    description="Спецификация источников данных, поддерживаемых на данный момент."
    services="data-catalog"
    documentationCenter=""
-   authors="trhabe"
-   manager="jstrauss"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/15/2016"
-   ms.author="trhabe"/>
+   ms.date="03/30/2016"
+   ms.author="maroche"/>
 
 # Источники данных, поддерживаемые каталогом данных Azure
 
@@ -436,18 +436,7 @@
       </td>
     </tr>
 
-    <tr>
-      <td>Cosmos</td>
-      <td>Контейнер</td>
-      <td>Виртуальный кластер</td>
-      <td>Недоступно</td>
-      <td>
-        <font size=2> протокол: cosmos
-            <br>Проверка подлинности: {basic, windows}
-            <br>адрес:
-            <br>&#160;&#160;&#160;&#160;&#160; URL </font>
-      </td>
-    </tr>
+
 
     <tr>
       <td>Службы отчетов SQL Server</td>
@@ -523,46 +512,7 @@
             <br>&#160;&#160;&#160;&#160;&#160; database
             <br>&#160;&#160;&#160;&#160;&#160; модель
             <br>
-            <br>*basic/anonymous; доступ только по HTTPS </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Таблица</td>
-      <td>Поток</td>
-      <td>Виртуальный кластер</td>
-      <td>
-        <font size=2> протокол: cosmos
-            <br>Проверка подлинности: {basic, windows}
-            <br>адрес:
-            <br>&#160;&#160;&#160;&#160;&#160; URL </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Таблица</td>
-      <td>Набор потоков</td>
-      <td>Виртуальный кластер</td>
-      <td>
-        <font size=2> протокол: cosmos
-            <br>Проверка подлинности: {basic, windows}
-            <br>адрес:
-            <br>&#160;&#160;&#160;&#160;&#160; URL </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Таблица</td>
-      <td>Просмотр</td>
-      <td>Виртуальный кластер</td>
-      <td>
-        <font size=2> протокол: cosmos
-            <br>Проверка подлинности: {basic, windows}
-            <br>адрес:
-            <br>&#160;&#160;&#160;&#160;&#160; URL </font>
+            <br>*basic/anonymous; доступ только по HTTPS* </font>
       </td>
     </tr>
 
@@ -664,7 +614,7 @@
             <br>&#160;&#160;&#160;&#160;&#160; database
             <br>&#160;&#160;&#160;&#160;&#160; модель
             <br>
-            <br>*basic/anonymous; доступ только по HTTPS </font>
+            <br>*basic/anonymous; доступ только по HTTPS* </font>
       </td>
     </tr>
 
@@ -1173,7 +1123,7 @@
             <br>&#160;&#160;&#160;&#160;&#160; object
             <br>&#160;&#160;&#160;&#160;&#160; objectType: {Kpi}
             <br>
-            <br>*basic/anonymous; доступ только по HTTPS </font>
+            <br>*basic/anonymous; доступ только по HTTPS* </font>
       </td>
     </tr>
 
@@ -1239,7 +1189,7 @@
             <br>&#160;&#160;&#160;&#160;&#160; object
             <br>&#160;&#160;&#160;&#160;&#160; objectType: {Table}
             <br>
-            <br>*basic/anonymous; доступ только по HTTPS </font>
+            <br>*basic/anonymous; доступ только по HTTPS* </font>
       </td>
     </tr>
 
@@ -1334,4 +1284,4 @@
 
 </table>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

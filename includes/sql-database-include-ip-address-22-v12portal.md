@@ -2,7 +2,7 @@
 <!--
 includes/sql-database-include-ip-address-22-v12portal.md
 
-Latest Freshness check:  2015-09-04 , GeneMi.
+Latest Freshness check:  2016-03-21 , daleche.
 
 As of circa 2015-09-04, the following topics might include this include:
 articles/sql-database/sql-database-configure-firewall-settings.md
@@ -11,7 +11,7 @@ articles/sql-database/sql-database-connect-query.md
 
 ## Server-level firewall rules
 
-### Manage server-level firewall rules through the new Azure portal
+### Add a server-level firewall rule through the new Azure portal
 -->
 
 
@@ -38,7 +38,7 @@ articles/sql-database/sql-database-connect-query.md
 9. Щелкните **Добавить IP-адрес клиента**. В первом текстовом поле введите имя для нового правила.
 
 10. Введите нижнее и верхнее значения IP-адресов для требуемого диапазона.
- - Удобными могут оказаться нижнее значение, оканчивающееся на **.0**, и верхнее — на **.255**. 
+	- Удобными могут оказаться нижнее значение, оканчивающееся на **.0**, и верхнее — на **.255**.
 
 	![Добавьте допустимый диапазон IP-адресов][b41-AddRange]
 
@@ -63,4 +63,4 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

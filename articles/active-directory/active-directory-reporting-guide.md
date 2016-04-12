@@ -3,7 +3,7 @@
    description="Руководство, содержащее все статьи об отчетах Azure Active Directory."
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # Руководство по отчетам Azure Active Directory
@@ -30,4 +30,4 @@
  - [Отчет Azure Active Directory "Все действия пользователей при входе"](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->
