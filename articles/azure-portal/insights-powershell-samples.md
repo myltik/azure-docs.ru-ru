@@ -148,7 +148,13 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 |Расположение этого правила генерации оповещений|	Восток США|
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|MetricName созданного оповещения|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Чтобы узнать, как извлекать точные имена метрик, см. описание командлета `Get-MetricDefinitions` ниже.| |Оператор| GreaterThan| |Пороговое значение (значений в секунду для этой метрики)| 1| |WindowSize (в формате чч:мм:сс)| 00:05:00| |Статистическое выражение (статистика метрики, в которой в данном случае используется среднее значение)| Average| |Настраиваемые электронные адреса (массив строк)|'foo@example.com','bar@example.com'| |Отправка сообщений владельцам, участникам и читателям| -SendToServiceOwners|
+|MetricName созданного оповещения|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Чтобы узнать, как извлекать точные имена метрик, см. описание командлета `Get-MetricDefinitions` ниже.|
+|Оператор| GreaterThan|
+|Пороговое значение (значений в секунду для этой метрики)| 1|
+|WindowSize (в формате чч:мм:сс)| 00:05:00|
+|Статистическое выражение (статистика метрики, в которой в данном случае используется среднее значение)| Average|
+|Настраиваемые электронные адреса (массив строк)|'foo@example.com','bar@example.com'|
+|Отправка сообщений владельцам, участникам и читателям| -SendToServiceOwners|
 
 Создание действия электронного сообщения
 
