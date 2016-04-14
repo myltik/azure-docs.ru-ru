@@ -666,7 +666,7 @@ Traces
 
 **Аргументы**
 
-*  *Table1*, *Table2*…
+*  *Table1*, *Table2* …
  *  Имя таблицы, например `events`.
  *  Выражение запроса, например `(events | where id==42)`.
  *  Набор таблиц, указанных с помощью подстановочного знака. Например, `E*` объединит в базе данных все таблицы, имена которых начинаются с `E`.
@@ -2149,4 +2149,5 @@ range(1, 8, 3)
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 <!-----HONumber=AcomDC_0330_2016-->
+
 
