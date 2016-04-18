@@ -1,6 +1,6 @@
 <properties
    pageTitle="REST API Power BI Embedded"
-   description=""
+   description="REST API Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

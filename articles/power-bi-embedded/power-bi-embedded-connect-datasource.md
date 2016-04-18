@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Power BI Embedded — подключение к источнику данных"
-   description=""
+   description="Microsoft Power BI Embedded — подключение к источнику данных"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

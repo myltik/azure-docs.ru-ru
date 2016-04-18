@@ -1,6 +1,6 @@
 <properties
    pageTitle="Сведения о потоке маркеров приложений в Power BI Embedded"
-   description=""
+   description="Сведения о потоке маркеров приложений в Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

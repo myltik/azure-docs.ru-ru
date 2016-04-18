@@ -1,6 +1,6 @@
 <properties
    pageTitle="Что такое Microsoft Power BI Embedded"
-   description=""
+   description="Что такое Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

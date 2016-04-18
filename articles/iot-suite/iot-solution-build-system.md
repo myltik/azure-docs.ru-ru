@@ -222,7 +222,8 @@ HockeyApp управляет распространением приложени
 - Используйте значение параметра [App Id](http://support.hockeyapp.net/kb/app-management-2/how-to-find-the-app-id) (Идентификатор приложения) на панели мониторинга, чтобы получать данные о сбоях и отзывы о вашем приложении. В MyDriving обновите идентификаторы в файле src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs. 
 -   [**Пригласите тестовых пользователей**](http://support.hockeyapp.net/kb/app-management-2/how-to-invite-beta-testers). Для этого им нужно отправить URL-адрес. Они смогут зарегистрироваться в рабочей группе, скачать приложение и отправить отзыв.
 
--   Если вы хотите предоставить общий доступ к вашей бета-версии, задайте соответствующий параметр (щелкните **Manage App (Управление приложением) > Distribution (Распространение) > Download (Скачать) > Public (Общедоступное))**. Теперь все пользователи могут скачать приложение и отправить отзыв о нем. Если вы опубликуете новую версию, они увидят соответствующее уведомление. Кроме того, они также могут отправить вам отчеты о сбоях. ![](./media/iot-solution-build-system/image3.png)
+-   Если вы хотите предоставить общий доступ к вашей бета-версии, задайте соответствующий параметр (щелкните **Manage App (Управление приложением) > Distribution (Распространение) > Download (Скачать) > Public (Общедоступное))**. Теперь все пользователи могут скачать приложение и отправить отзыв о нем. Если вы опубликуете новую версию, они увидят соответствующее уведомление. Кроме того, они также могут отправить вам отчеты о сбоях.
+![](./media/iot-solution-build-system/image3.png)
 
 -   [**Свяжите отчеты о сбоях с Visual Studio Team Services**](http://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs). Щелкните **Manage App (Управление приложением) > Visual Studio Team Services**. Служба HockeyApp может автоматически создавать рабочие элементы в Team Services при получении отчетов о сбоях или отзывов.
 
@@ -389,7 +390,8 @@ Microsoft Azure предоставляет множество различных
 
 ![](./media/iot-solution-build-system/image8.png)
 
-Для мобильных приложений необходимо задать развертывание в HockeyApp: ![](./media/iot-solution-build-system/image9.png)
+Для мобильных приложений необходимо задать развертывание в HockeyApp:
+![](./media/iot-solution-build-system/image9.png)
 
 ## Application Insights
 
@@ -475,4 +477,4 @@ Application Insights отправляет оповещения при обнар
 
 Мы будем рады узнать о ваших впечатлениях!
 
-<!---HONumber=AcomDC_0406_2016-->
+<!-----HONumber=AcomDC_0406_2016-->
