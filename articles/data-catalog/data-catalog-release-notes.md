@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Заметки о выпуске каталога данных Azure"
+   pageTitle="Заметки о выпуске каталога данных Azure | Microsoft Azure"
    description="Заметки о выпуске каталога данных Azure."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Заметки о выпуске каталога данных Azure
@@ -88,4 +88,4 @@
 
 Чтобы найти файл RegistrationTool.exe.config, запустите средство регистрации и откройте программу диспетчера задач Windows. На вкладке "Сведения" в диспетчере задач щелкните правой кнопкой мыши RegistrationTool.exe и выберите во всплывающем меню "Открыть расположение файла".
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

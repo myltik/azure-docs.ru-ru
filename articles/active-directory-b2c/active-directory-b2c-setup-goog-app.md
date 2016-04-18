@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="04/04/2016"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory (AD) B2C: организация регистрации и входа для потребителей с учетными записями Google+
@@ -29,7 +29,7 @@
 
     ![Google+: приступая к работе](./media/active-directory-b2c-setup-goog-app/google-get-started.png)
 
-    ![Google+: создание проекта](./media/active-directory-b2c-setup-goog-app/google-new-project.png)
+    ![Google+: создание проекта](./media/active-directory-b2c-setup-goog-app/google-new-project.png)
 
 3. В левой области навигации щелкните **API Manager** (Менеджер API), а затем **Credentials** (Учетные данные).
 4. Щелкните вкладку **OAuth consent screen** (Экран согласия OAuth) вверху.
@@ -50,7 +50,7 @@
 
 8. В поле **Name** (Имя) введите имя приложения, затем введите `https://login.microsoftonline.com` в поле **Authorized JavaScript origins** (Авторизованные источники JavaScript) и `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` — в поле **Authorized redirect URIs** (Авторизованные URI перенаправления). Замените **{tenant}** именем своего клиента (например, contosob2c.onmicrosoft.com). В значении **{клиент}** необходимо учитывать регистр. Щелкните **Создать**.
 
-    ![Google+: создание идентификатора клиента](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
+    ![Google+: создание идентификатора клиента](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 
 9. Скопируйте значения **Client ID** (Идентификатор клиента) и **Client secret** (Секрет клиента). Оба значения необходимы для настройки Google+ в качестве поставщика удостоверений в вашем клиенте. **Секрет клиента** — это важные учетные данные безопасности.
 
@@ -66,4 +66,4 @@
 6. Щелкните **Настроить этот поставщик удостоверений** и введите идентификатор клиента и секрет клиента ранее созданного приложения Google+.
 7. Нажмите кнопку **ОК**, а затем — **Создать**, чтобы сохранить конфигурацию Google+.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

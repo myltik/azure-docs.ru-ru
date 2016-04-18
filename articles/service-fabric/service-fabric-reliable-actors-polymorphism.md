@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="seanmck"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="03/25/2016"
    ms.author="seanmck"/>
 
 # Полиморфизм на платформе надежных субъектов
 
-Платформа надежных субъектов упрощает программирование распределенных систем. Она позволяет спроектировать службу с использованием многих приемов, используемых в объектно-ориентированном проектировании. Одним из них является полиморфизм, благодаря которому типы и интерфейсы могут наследоваться от более обобщенных родительских элементов. Наследование на платформе надежных субъектов обычно соответствует модели .NET с несколькими дополнительными ограничениями.
+Платформа Reliable Actors позволяет создавать субъекты с использованием многих приемов, применяемых в объектно-ориентированном проектировании. Одним из них является полиморфизм, благодаря которому типы и интерфейсы могут наследоваться от более обобщенных родительских элементов. Наследование на платформе надежных субъектов обычно соответствует модели .NET с несколькими дополнительными ограничениями.
 
 ## Интерфейсы
 
@@ -29,53 +29,58 @@
 
 ## Типы
 
-Также можно создать иерархию типов субъектов, производных от базового класса Actor, предоставляемого платформой. Для субъектов с отслеживанием состояния подобным образом можно создать иерархию типов состояния. В случае использования фигур у вас может быть базовый тип `Shape` с типом состояния `ShapeState`.
+Также можно создать иерархию типов субъектов, производных от базового класса Actor, предоставляемого платформой. В случае использования фигур у вас может быть базовый тип `Shape`.
 
-    public abstract class Shape : Actor<ShapeState>, IShape
+```csharp
+public abstract class Shape : Actor, IShape
+{
+    public abstract Task<int> GetVerticeCount();
+    
+    public abstract Task<double> GetAreaAsync();
+}
+```
+
+Подтипы `Shape` могут переопределять методы из базового типа.
+
+```csharp
+[ActorService(Name = "Circle")]
+[StatePersistence(StatePersistence.Persisted)]
+public class Circle : Shape, ICircle
+{
+    public override Task<int> GetVerticeCount()
     {
-        ...
+        return Task.FromResult(0);
     }
 
-Подтипы `Shape` могут применять подтипы `ShapeType` для хранения более конкретных свойств.
-
-    [ActorService(Name = "Circle")]
-    public class Circle : Shape, ICircle
+    public override async Task<double> GetAreaAsync()
     {
-        private CircleState CircleState => this.State as CircleState;
+        CircleState state = await this.StateManager.GetStateAsync<CircleState>("circle");
 
-        public override ShapeState InitializeState()
-        {
-            return new CircleState();
-        }
-
-        [Readonly]
-        public override Task<int> GetVerticeCount()
-        {
-            return Task.FromResult(0);
-        }
-
-       [Readonly]
-       public override Task<double> GetArea()
-       {
-           return Task.FromResult(
-               Math.PI*
-               this.CircleState.Radius*
-               this.CircleState.Radius);
-       }
-
-       ...
+        return Math.PI *
+            state.Radius *
+            state.Radius;
     }
+}
+```
 
-Обратите внимание на атрибут `ActorService` в типе субъекта. Этот атрибут сообщает пакету SDK Azure Service Fabric, что необходимо автоматически создать службу для размещения субъектов этого типа. В некоторых случаях может потребоваться создать базовый тип, который предназначен исключительно для использования функциональных возможностей совместно с подтипами и никогда не будет использоваться для создания конкретных субъектов. Здесь следует применять ключевое слово `abstract`, указывающее, что вы никогда не будете создавать субъект на основе этого типа.
+Обратите внимание на атрибут `ActorService` в типе субъекта. Этот атрибут сообщает платформе Reliable Actors, что ей необходимо автоматически создать службу для размещения субъектов этого типа. В некоторых случаях может потребоваться создать базовый тип, который предназначен исключительно для использования функциональных возможностей совместно с подтипами и никогда не будет использоваться для создания конкретных субъектов. Здесь следует применять ключевое слово `abstract`, указывающее, что вы никогда не будете создавать субъект на основе этого типа.
 
 
 ## Дальнейшие действия
 
-- Узнайте, [каким образом платформа надежных субъектов использует платформу Service Fabric](service-fabric-reliable-actors-platform.md) для обеспечения надежности, масштабируемости и согласованного состояния.
+- Узнайте, [каким образом платформа Reliable Actors использует платформу Service Fabric](service-fabric-reliable-actors-platform.md) для обеспечения надежности, масштабируемости и согласованности состояния.
 - Узнайте о [жизненном цикле субъекта](service-fabric-reliable-actors-lifecycle.md).
 
 <!-- Image references -->
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
 
-<!---HONumber=AcomDC_0309_2016-->
+## Дальнейшие действия
+ - [Управление состоянием субъекта](service-fabric-reliable-actors-state-management.md)
+ - [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md)
+ - [Таймеры и напоминания субъекта](service-fabric-reliable-actors-timers-reminders.md)
+ - [События субъекта](service-fabric-reliable-actors-events.md)
+ - [Повторный вход субъекта](service-fabric-reliable-actors-reentrancy.md)
+ - [Диагностика и мониторинг производительности в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+
+<!---HONumber=AcomDC_0406_2016-->

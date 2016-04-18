@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Связи ресурсов — схема шаблона
@@ -42,20 +42,18 @@
 
 В следующих таблицах описаны значения, которые следует указать в этой схеме.
 
-| Имя | Тип | Обязательно | Допустимые значения | Описание |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Да | **{namespace}/{type}/providers/links** | Тип создаваемого ресурса. Значения {namespace} и {type} ссылаются на пространство имен поставщика и тип ресурса исходного ресурса. |
-| версия\_API | enum | Да | **2015-01-01** | Версия API, которая будет использована для создания ресурса. |  
-| name | строка | Да | **{resouce}/Microsoft.Resources/{linkname}**<br /><br />до 64 символов<br />Не может содержать <, > %, &, ? или любые управляющие символы. | Значение, определяющее имя исходного ресурса и имя для связи. |
-| Свойство dependsOn | array | Нет | Разделенный запятыми список имен ресурсов или уникальных идентификаторов ресурсов. | Коллекция ресурсов, от которых зависит эта связь. Если связываемые ресурсы развертываются в том же шаблоне, включают имена этих ресурсов в этом элементе, чтобы убедиться, что они развертываются сначала. | 
-| properties | object | Да | (показано ниже) | Объект, который определяет ресурс, с которым выполняется связь, и заметки о связи. |  
+| Имя | Значение |
+| ---- | ---- |
+| type | Перечисление.<br />Обязательное значение.<br />**{пространство\_имен}/{тип}/providers/links**<br /><br />Тип создаваемого ресурса. Значения {namespace} и {type} ссылаются на пространство имен поставщика и тип ресурса исходного ресурса. |
+| версия\_API | Перечисление.<br />Обязательное значение.<br />**2015-01-01**<br /><br />Версия API, которая будет использована для создания ресурса. |  
+| name | Строка.<br />Обязательное значение.<br />**{ресурс}/Microsoft.Resources/{имя\_связи}****<br />До 64 знаков. Запрещается использовать <, >, %, &, ? и любые управляющие символы. <br /><br />Значение, указывающее одновременно имя ресурса и имя связи. | | dependsOn | Массив<br />Необязательное значение.<br />Разделенный запятыми список имен или уникальных идентификаторов ресурсов.<br /><br />Коллекция ресурсов, от которых зависит эта связь. Если связываемые ресурсы развернуты в одном и том же шаблоне, включите имена этих ресурсов в данный элемент, чтобы гарантировать, что они будут развернуты первыми. | | properties | Объект.<br />Обязательное значение.<br />[Объект свойств.](#properties)<br /><br />Объект, идентифицирующий связываемый ресурс, и примечания о связи. | 
 
+<a id="properties" />
 ### объект properties
 
-| Имя | Тип | Обязательно | Допустимые значения | Описание |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| targetId | строка | Да | | Идентификатор целевого ресурса, с которым нужно установить связь. |
-| HDInsight | строка | Нет | 512 символов | Описание блокировки. |
+| Имя | Значение |
+| ------- | ---- |
+| targetId | Строка.<br />Обязательное значение.<br />**{идентификатор ресурса}****<br /><br />Идентификатор целевого ресурса для связывания. || notes | Строка.<br />Необязательное значение.<br />До 512 знаков.<br /><br />Описание блокировки. |
 
 
 ## Использование ресурса связи
@@ -68,7 +66,7 @@
 
 Чтобы просмотреть все связи в подписке, используйте следующую команду Azure PowerShell. Можно указать другие параметры, чтобы ограничить результаты.
 
-    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -OutputObjectFormat New
+    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -ResourceGroupName <YourResourceGroupName>
 
 ## Примеры
 
@@ -128,16 +126,16 @@
 
 Следующие шаблоны быстрого запуска служат для развертывания ресурсов с помощью связей.
 
-- [Оповещение для очереди с помощью приложения логики](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
-- [Оповещение для Slack с помощью приложения логики](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-- [Подготовка приложения API с помощью существующего шлюза](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
-- [Подготовка приложения API с помощью нового шлюза](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
-- [Создание приложения логики и приложения API с помощью шаблона](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
-- [Приложение логики, которое отправляет текстовое сообщение при возникновении предупреждения](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+- [Оповещение для очереди с помощью приложения логики](https://azure.microsoft.com/documentation/templates/201-alert-to-queue-with-logic-app)
+- [Оповещение для Slack с помощью приложения логики](https://azure.microsoft.com/documentation/templates/201-alert-to-slack-with-logic-app)
+- [Подготовка приложения API с помощью существующего шлюза](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-existing)
+- [Подготовка приложения API с помощью нового шлюза](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-new)
+- [Создание приложения логики и приложения API с помощью шаблона](https://azure.microsoft.com/documentation/templates/201-logic-app-api-app-create)
+- [Приложение логики, которое отправляет текстовое сообщение при возникновении предупреждения](https://azure.microsoft.com/documentation/templates/201-alert-to-text-message-with-logic-app)
 
 
 ## Дальнейшие действия
 
 - Сведения о структуре шаблона см. в разделе [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

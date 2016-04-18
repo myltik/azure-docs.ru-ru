@@ -13,14 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/29/2016"
+   ms.date="04/01/2016"
    ms.author="SilviaDoomra"/>
 
 # Преобразование существующих баз данных для использования средств эластичной базы данных
 
-При наличии горизонтально масштабируемого сегментированного решения можно воспользоваться преимуществами средств эластичной базы данных, руководствуясь изложенными в этой статье методами. После преобразования вы сможете воспользоваться [клиентской библиотекой эластичной базы данных](sql-database-elastic-database-client-library.md) и [средством разбиения и слияния](sql-database-elastic-scale-overview-split-and-merge.md).
+При наличии развернутого сегментированного решения можно воспользоваться преимуществами инструментов эластичной базы данных, например [клиентской библиотекой эластичной базы данных](sql-database-elastic-database-client-library.md) и [инструментом разбиения и объединения](sql-database-elastic-scale-overview-split-and-merge.md), руководствуясь изложенными в этой статье методами.
 
 Эти методы можно реализовать с помощью [клиентской библиотеки .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) или скриптов PowerShell, которые можно найти на странице [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db) (База данных SQL Azure — сценарии для средств эластичной базы данных). В приведенных здесь примерах используются скрипты PowerShell.
+
+Обратите внимание, что перед выполнением командлетов Add-Shard и New-ShardMapManager необходимо создать базы данных. Эти командлеты не создают базы данных.
 
 Этот процесс состоит из четырех этапов.
 
@@ -29,10 +31,10 @@
 3. Подготовка отдельных сегментов.  
 2. Добавление сопоставлений на карту сегментов.
 
-Дополнительные сведения об объекте ShardMapManager см. в статье [Управление размещением сегментов](sql-database-elastic-scale-shard-map-management.md). Общие сведения о средствах эластичных баз данных см. в статье [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md).
+Дополнительные сведения о ShardMapManager см. в статье [Управление размещением сегментов](sql-database-elastic-scale-shard-map-management.md). Общие сведения об инструментах эластичных баз данных см. в статье [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md).
 
 ## Подготовка базы данных диспетчера сопоставления сегментов
-В качестве диспетчера сопоставления сегментов можно использовать новую или существующую базу данных. Выполнить данную операцию достаточно всего один раз.
+В качестве диспетчера сопоставления сегментов можно использовать новую или существующую базу данных.
 
 ## Шаг 1. Создание диспетчера сопоставления сегментов
 Обратите внимание, что базы данных для диспетчера сопоставления сегментов и сегмента должны отличаться.
@@ -165,11 +167,11 @@
 ## Дальнейшие действия
 
 
-Скачайте скрипты PowerShell на странице [Azure SQL DB-Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db) (База данных SQL Azure — сценарии для средств эластичной базы данных).
+Скачайте сценарии PowerShell со страницы [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-Средства можно также найти на сайте GitHub по адресу [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+Инструменты можно также найти на сайте GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
-Используйте средство разбиения и слияния для перемещения данных из модели с несколькими клиентами в модель с одним клиентом и наоборот. См. статью о [средстве разбиения и слияния](sql-database-elastic-scale-get-started.md).
+Используйте средство разбиения и слияния для перемещения данных из модели с несколькими клиентами в модель с одним клиентом и наоборот. См. статью об [инструменте разбиения и объединения](sql-database-elastic-scale-get-started.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -179,4 +181,4 @@
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

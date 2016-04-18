@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="04/05/2016"
 	ms.author="jgao"/>
 
 # Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure
@@ -47,7 +47,7 @@
 	
 ##Создание кластеров
 
-См. раздел [Создание кластеров Hadoop под управлением Windows в HDInsight с помощью интерфейса командной строки Azure](hdinsight-hadoop-create-windows-clusters-cli.md).
+См. раздел [Создание кластеров под управлением Linux в HDInsight с помощью Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ##Отображение сведений о кластере
 Используйте следующие команды для отображения сведений о кластере:
@@ -106,4 +106,4 @@
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Отображение кластеров"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

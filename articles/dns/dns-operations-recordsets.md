@@ -19,9 +19,12 @@
 # Как управлять записями DNS с помощью PowerShell
 
 
+
 > [AZURE.SELECTOR]
+- [Портал Azure](dns-operations-recordsets-portal.md)
 - [Интерфейс командной строки Azure](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
+
 
 
 В этом руководстве показано, как управлять наборами записей и записями для зоны DNS с помощью Azure PowerShell.
@@ -75,7 +78,7 @@ Azure DNS поддерживает [записи с подстановочным
 ## Перечисление наборов записей
 Если опустить параметр -Name или -RecordType, командлет Get-AzureRmDnsRecordSet также может использоваться для перечисления наборов записей.
 
-### Вариант 1 
+### Вариант 1 
 
 Вывод списка всех наборов записей. Возвращает все наборы записей, независимо от имени и типа записи:
 
@@ -294,4 +297,4 @@ Azure DNS поддерживает [записи с подстановочным
 [Приступая к созданию наборов записей и записей](dns-getstarted-create-recordset.md)<BR> [Управление зонами DNS](dns-operations-dnszones.md)<BR> [Автоматизации операций с помощью пакета SDK для .NET](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

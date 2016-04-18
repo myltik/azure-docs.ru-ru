@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Сборник тренировочных заданий по решению для аналитики телеметрии автомобиля. Подробный обзор решения | Microsoft Azure" 
-	description="Используйте возможности Cortana Analytics, чтобы в реальном времени получать не только информацию о состоянии автомобиля и манере вождения, но также и прогнозные данные." 
+	description="Используйте возможности Cortana Intelligence, чтобы получить прогнозы и актуальную информацию об исправности и манере вождения автомобиля в режиме реального времени." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -155,9 +155,9 @@ XUF99EW9OIQOMV7Q7 | Семейный седан
 
 ### Ссылки
 
-[Пакет SDK концентратора событий Azure для приема потока](event-hubs-csharp-ephcs-getstarted.md)
+[Пакет SDK концентратора событий Azure для приема потока](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Возможности перемещения данных фабрики данных Azure](data-factory-data-movement-activities.md) [Действие DotNet фабрики данных Azure](data-factory-use-custom-activities.md)
+[Возможности перемещения данных фабрики данных Azure](../data-factory/data-factory-data-movement-activities.md) [Действие DotNet фабрики данных Azure](../data-factory/data-factory-use-custom-activities.md)
 
 [Решение Visual Studio "Действие DotNet фабрики данных Azure" для подготовки примера данных](http://go.microsoft.com/fwlink/?LinkId=717077)
 
@@ -706,4 +706,4 @@ Power BI предоставляет для этого решения расши
 
 Этот документ содержит подробные сведения о решении для аналитики телеметрии автомобилей. Здесь показан шаблон лямбда-архитектуры для анализа в режиме реального времени и пакетного анализа с прогнозами и действиями. Этот шаблон подходит для самых разнообразных сценариев использования, в которых требуется использование «горячего» (в режиме реального времени) и «холодного» (пакетного) анализа.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

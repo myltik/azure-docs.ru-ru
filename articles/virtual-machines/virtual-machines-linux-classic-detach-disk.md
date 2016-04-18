@@ -3,7 +3,7 @@
 	description="Узнайте, как отключить диск данных от виртуальной машины Azure, созданной с использованием классической модели развертывания."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
-	ms.author="dkshir"/>
+	ms.date="04/04/2016"
+	ms.author="iainfou"/>
 
 # Отсоединение диска от виртуальной машины Linux
 
@@ -28,6 +28,6 @@
 
 [Подключение диска данных к виртуальной машине Linux](virtual-machines-linux-classic-attach-disk.md)
 
-[Управление службами Azure с помощью интерфейса командной строки Azure](virtual-machines-command-line-tools.md)
+[Управление службами Azure с помощью интерфейса командной строки Azure](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

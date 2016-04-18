@@ -20,11 +20,11 @@
 # Создание и настройка виртуальной машины Windows с помощью диспетчера ресурсов и Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Портал — Windows](virtual-machines-windows-hero-tutorial.md)
+- [Портал — Windows](virtual-machines-windows-hero-tutorial.md)
 - [PowerShell](virtual-machines-windows-create-powershell.md)
-- [PowerShell — шаблон](virtual-machines-windows-ps-template.md)
-- [Портал — Linux](virtual-machines-linux-portal-create.md)
-- [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-machines-linux-cli-create.md)
+- [PowerShell — шаблон](virtual-machines-windows-ps-template.md)
+- [Портал — Linux](virtual-machines-linux-portal-create.md)
+- [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-machines-linux-quick-create-cli.md)
 
 <br>
 
@@ -40,7 +40,7 @@
 
 Существует два основных способа установки — с помощью [коллекции PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) или [установщика веб-платформы](http://aka.ms/webpi-azps). Обновления для установщика веб-платформы будут выпускаться ежемесячно. Обновления для коллекции PowerShell будут выпускаться на постоянной основе.
 
-Дополнительные сведения см. в статье [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+Дополнительные сведения см. в статье [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
 
 ## Шаг 2. Настройка подписки
 
@@ -158,7 +158,7 @@
 	$vnetName="<virtual network name>"
 	Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName | Select Subnets
 
-Индекс подсети — это порядковый номер подсети в параметрах команды; подсети нумеруются последовательно слева направо начиная с 0.
+Индекс подсети — это порядковый номер подсети в параметрах команды; подсети нумеруются последовательно слева направо начиная с 0.
 
 В нашем примере:
 
@@ -168,7 +168,7 @@
 	-------
 	{frontendSubnet, backendSubnet}
 
-Индекс подсети frontendSubnet —0, а подсети backendSubnet — 1.
+Индекс подсети frontendSubnet —0, а подсети backendSubnet — 1.
 
 Скопируйте эти строки в набор команд и укажите имя существующей виртуальной сети и индекс подсети для виртуальной машины.
 
@@ -329,8 +329,8 @@
 - находиться в существующей группе ресурсов LOBServers;
 - использовать образ Windows Server 2012 R2 Datacenter;
 - иметь имя LOB07 и входить в существующую группу доступности WEB\_AS;
-- иметь сетевой адаптер с общедоступным IP-адресом в подсети FrontEnd (индекс подсети — 0) существующей виртуальной сети AZDatacenter;
-- иметь дополнительный диск данных объемом 200 ГБ.
+- иметь сетевой адаптер с общедоступным IP-адресом в подсети FrontEnd (индекс подсети — 0) существующей виртуальной сети AZDatacenter;
+- иметь дополнительный диск данных объемом 200 ГБ.
 
 Вот набор команд Azure PowerShell для создания такой виртуальной машины:
 
@@ -393,4 +393,4 @@
 
 [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

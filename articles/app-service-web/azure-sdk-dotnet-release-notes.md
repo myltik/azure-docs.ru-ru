@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="03/30/2016" 
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,11 @@
 Этот раздел содержит ссылки на заметки о выпусках пакетов Azure SDK для .NET.
 
 
-##Заметки о выпуске пакета SDK для Azure для .NET 2.8
+##Заметки о выпуске пакета SDK для Azure для .NET 2.9
+
+[Заметки о выпуске пакета SDK для Azure для .NET 2.9](azure-sdk-dotnet-release-notes-2_9.md)
+
+##Заметки о выпуске пакета SDK Azure для .NET 2.8
 
 [Заметки о выпуске пакета SDK для Azure для .NET 2.8](azure-sdk-dotnet-release-notes-2_8.md)
 
@@ -70,4 +74,4 @@
 [Заметки о выпуске пакета Azure SDK на сайте MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

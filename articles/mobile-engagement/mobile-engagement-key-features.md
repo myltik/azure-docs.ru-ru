@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/01/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement — основные функции
@@ -26,7 +26,7 @@
 
 - **Отдельный портал SaaS** Позволяет легко получить доступ к маркетинговой команде без необходимости обращаться к порталу управления Azure.
 
-- **Доступность открытых интерфейсов API REST** Для интеграции и автоматизации с CRM, CMS и ИТ-системами с помощью интерфейсов API открытой платформы мы предоставляем открытые интерфейсы API REST и пакет SDK для .NET. Они позволяют вам воспользоваться этими API-интерфейсами для удобной интеграции и автоматизации Mobile Engagement. Подробности см. [в этой статье](mobile-engagement-api-authentication.md)
+- **Доступность открытых интерфейсов API REST** Для интеграции и автоматизации с CRM, CMS и ИТ-системами с помощью интерфейсов API открытой платформы мы предоставляем открытые интерфейсы API REST и пакет SDK для .NET. Они позволяют вам воспользоваться этими API-интерфейсами для удобной интеграции и автоматизации Mobile Engagement. Подробнее об этом см. [здесь](mobile-engagement-api-authentication.md).
 
 - **Доступность соединителя Power BI** Вы также можете размещать основные аналитические диаграммы на панели мониторинга Power BI. См. [это руководство](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-content-pack-azure-mobile/).
 
@@ -164,4 +164,4 @@
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

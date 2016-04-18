@@ -32,14 +32,14 @@
 
 ## Дальнейшие действия
 
-Опробуйте простую виртуальную машину, быстро создав ее. Инструкции см. в статье [Создание виртуальной машины Linux](virtual-machines-linux-cli-create.md).
+Опробуйте простую виртуальную машину, быстро создав ее. Инструкции см. в статье [Создание виртуальной машины Linux](virtual-machines-linux-quick-create-cli.md).
 
 Так как это руководство помогает быстро создать виртуальную машину, оно описывает только один из способов создания вместо описания различных инструментов, с помощью которых можно создавать виртуальные машины. Краткий обзор этих инструментов и ссылки на инструкции см. в статье [Различные способы создания виртуальной машины Linux](virtual-machines-linux-creation-choices.md).
 
 
 <!--links-->
-[Служба приложений]: app-service-choose-me.md
-[Виртуальные машины]: #tellmevm
-[Облачные службы]: cloud-services-choose-me.md
+[App Service]: app-service-choose-me.md
+[Virtual Machines]: #tellmevm
+[Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

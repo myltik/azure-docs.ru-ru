@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016" 
+	ms.date="02/08/2016"
 	ms.author="mohabib;fashah;bradsev"/>
 
 
@@ -74,13 +74,15 @@
 
 Чтобы настроить среду научной обработки данных в Azure, выполните следующие действия.
 
-1. [создать учетную запись хранения;](../storage-create-storage-account.md)
+1. [создать учетную запись хранения;](../storage/storage-create-storage-account.md)
 
 2. [создать рабочую область Машинного обучения Azure.](machine-learning-create-workspace.md)
 
 3. [Подготовьте виртуальную машину для обработки данных](machine-learning-data-science-setup-sql-server-virtual-machine.md), которая будет служить сервером SQL Server, равно как и сервером IPython Notebook.
 
-	> [AZURE.NOTE] Примеры сценариев и файлов IPython Notebook будут загружены в вашу виртуальную машину для обработки данных в процессе установки. Когда послеустановочный сценарий для виртуальной машины завершен, в библиотеке документов виртуальной машины будут размещаться примеры: — примеры сценариев: `C:\Users<user_name>\Documents\Data Science Scripts` — примеры IPython Notebook: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples`, где `<user_name>` находится имя входа виртуальной машины Windows. Эти папки с примерами в дальнейшем будут именоваться **Примеры сценариев** и **Примеры файлов IPython Notebook**.
+	> [AZURE.NOTE] Примеры сценариев и файлов IPython Notebook будут загружены в вашу виртуальную машину для обработки данных в процессе установки. После завершения сценария, выполняемого после установки ВМ, примеры будут располагаться в библиотеке документов вашей виртуальной машины.
+	> - Примеры сценариев: `C:\Users<user_name>\Documents\Data Science Scripts`  
+	> - Примеры IPython Notebook: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` где `<user_name>` является именем для входа Windows виртуальной машины. Эти папки с примерами в дальнейшем будут именоваться **Примеры сценариев** и **Примеры файлов IPython Notebook**.
 
 
 По размеру набора данных, расположению источника данных и выбранной целевой среде Azure этот сценарий похож на [Сценарий № 5. Большой набор данных в локальных файлах, загружаемый на сервер SQL Server в виртуальной машине Azure](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
@@ -714,4 +716,4 @@
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

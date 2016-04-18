@@ -18,10 +18,10 @@
 
 # Приступая к работе с Azure DNS с помощью Powershell
 
-
 > [AZURE.SELECTOR]
-- [Интерфейс командной строки Azure](dns-getstarted-create-dnszone-cli.md)
+- [Портал Azure](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
+- [Интерфейс командной строки Azure](dns-getstarted-create-dnszone-cli.md)
 
 Домен contoso.com может содержать несколько записей DNS, например mail.contoso.com (для почтового сервера) и www.contoso.com (для веб-сайта). Зона DNS используется для размещения DNS-записей определенного домена.
 
@@ -33,26 +33,26 @@
 
 Azure DNS использует диспетчер ресурсов Azure (ARM). Данные инструкции относятся к Azure PowerShell версии 1.0.0 и выше. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
-### Шаг 1
+### Шаг 1
 Войдите в свою учетную запись Azure (вам будет предложено пройти проверку подлинности с вашими учетными данными).
 
 	PS C:\> Login-AzureRmAccount
 
-### Шаг 2
+### Шаг 2
 Выберите, какие подписки Azure будут использоваться.
 
 	PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 Можно составить список доступных подписок, используя командлет Get-AzureRmSubscription.
 
-### Шаг 3.
+### Шаг 3.
 Создайте группу ресурсов (пропустите этот шаг, если вы используете существующую группу).
 
 	PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 Диспетчер ресурсов Azure требует, чтобы все группы ресурсов указывали расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Но так как все ресурсы DNS глобальные, а не региональные, выбор расположения группы ресурсов не влияет на работу Azure DNS.
 
-### Шаг 4.
+### Шаг 4.
 Служба Azure DNS управляется поставщиком ресурсов Microsoft.Network. Вашу подписку Azure необходимо зарегистрировать, чтобы использовать этот поставщик ресурсов, прежде чем работать с Azure DNS. Это однократная операция для каждой подписки.
 
 	PS c:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
@@ -147,4 +147,4 @@ Azure DNS использует диспетчер ресурсов Azure (ARM). 
 [Приступая к созданию наборов записей и записей](dns-getstarted-create-recordset.md)<BR> [Управление зонами DNS](dns-operations-dnszones.md)<BR> [Управление DNS-записями](dns-operations-recordsets.md)<BR> [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)<BR> [Справочник по API REST для службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->
