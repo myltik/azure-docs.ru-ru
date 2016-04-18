@@ -19,12 +19,6 @@
 
 # Создание и предварительная настройка виртуальной машины под управлением Linux с помощью Azure PowerShell
 
-> [AZURE.SELECTOR]
-- [Интерфейс командной строки Azure](virtual-machines-linux-cli-create.md)
-- [PowerShell](virtual-machines-linux-classic-createpowershell.md)
-
-
-<br>
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
  
@@ -36,7 +30,7 @@
 
 ## Установка Azure PowerShell
 
-Если это еще не сделано, [установите и настройте Azure PowerShell](powershell-install-configure.md). После этого откройте командную строку Azure PowerShell.
+Если это еще не сделано, [установите и настройте Azure PowerShell](../powershell-install-configure.md). После этого откройте командную строку Azure PowerShell.
 
 ## Указание подписки и учетной записи хранения
 
@@ -275,10 +269,10 @@
 
 [Общие сведения о виртуальных машинах Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Установка и настройка Azure PowerShell](powershell-install-configure.md)
+[Установка и настройка Azure PowerShell](../powershell-install-configure.md)
 
 [Вход в виртуальную машину под управлением ОС Linux](virtual-machines-linux-classic-log-on.md)
 
 [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-windows-classic-create-powershell.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

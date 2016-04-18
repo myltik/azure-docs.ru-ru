@@ -35,7 +35,7 @@
 
 Обозначения пути и алгоритма на схеме следует читать как "для*& lt;пути& gt;* используйте *& lt;алгоритм& gt;*". Например, "для *скорости* используйте *двухклассную логистическую регрессию*". Иногда может использоваться более одной ветви алгоритма. Иногда ни одна из ветвей алгоритма не подходит идеально. Эти рекомендации приближенные, поэтому не нужно беспокоиться о том, что они не являются точными. Некоторые специалисты по данным, с которыми я общался, говорили, что единственный надежный способ определить наилучший алгоритм — попробовать их все.
 
-Ниже приведен пример эксперимента из [Коллекции аналитических данных Azure](http://gallery.azureml.net/), в котором используются несколько алгоритмов для одних и тех же данных, а затем сравниваются результаты: [Сравнение многоклассовых классификаторов: распознавание букв](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+Ниже приведен пример эксперимента из [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com/), в котором используется несколько алгоритмов для одних и тех же данных, а затем сравниваются результаты: [Сравнение многоклассовых классификаторов: распознавание букв](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 >[AZURE.TIP] Чтобы скачать и распечатать схему, на которой представлены общие возможности Студии машинного обучения, см. раздел [Обзорная схема возможностей Студии машинного обучения Azure](machine-learning-studio-overview-diagram.md).
 
@@ -119,15 +119,15 @@
 |[джунгли решений](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Низкий объем памяти|
 |[нейронная сеть](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[Возможна дополнительная настройка](http://go.microsoft.com/fwlink/?LinkId=402867)|
 |[один-все](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|См. свойства выбранного двухклассового метода|
-|**регрессия**| | | | | | 
-|[линейный ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| | 
-|[байесовский линейный](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | 
-|[лес решений](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | 
-|[увеличивающееся дерево решений](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Большой объем памяти| 
-|[квантильная регрессия быстрого леса](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Распределения вместо прогнозирования точек| 
-|[нейронная сеть](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[Возможна дополнительная настройка](http://go.microsoft.com/fwlink/?LinkId=402867)| 
+|**регрессия**| | | | | |
+|[линейный ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
+|[байесовский линейный](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
+|[лес решений](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
+|[увеличивающееся дерево решений](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Большой объем памяти|
+|[квантильная регрессия быстрого леса](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Распределения вместо прогнозирования точек|
+|[нейронная сеть](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[Возможна дополнительная настройка](http://go.microsoft.com/fwlink/?LinkId=402867)|
 |[пуассоновский ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|С технической точки зрения логарифмически линеен. Для прогнозирования подсчетов|
-|[порядковый](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0| Для прогнозирования упорядочения ранга|
+|[порядковый](https://msdn.microsoft.com/library/azure/dn906029.aspx)||| |0| Для прогнозирования упорядочения ранга|
 |**обнаружение аномалий**| | | | | |
 |[метод опорных векторов](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2| Особенно хорошо подходит для больших наборов функций|
 |[обнаружение аномалий на основе анализа главных компонентов](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
@@ -237,4 +237,4 @@
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!-------HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="04/06/2016" 
 	ms.author="stefsch"/>
 
 # Безопасное подключение к серверным ресурсам из среды службы приложений #
 
 ## Обзор ##
-Так как среда службы приложений всегда создается в подсети региональной [виртуальной сети][virtualnetwork] v1, исходящие соединения из среды службы приложений к другим серверным ресурсам могут передаваться исключительно по виртуальной сети.
+Так как среда службы приложений всегда создается в подсети региональной [виртуальной сети][virtualnetwork] v1, исходящие соединения из среды службы приложений к другим серверным ресурсам могут передаваться исключительно по виртуальной сети. Обратите внимание, что сейчас поддерживаются только виртуальные сети с адресным пространством RFC1918 (т. е. частными адресами).
 
 **Примечание.** Среду службы приложений невозможно создать в виртуальной сети v2 под управлением ARM.
 
@@ -116,4 +116,4 @@
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/30/2016"
 	ms.author="larryfr"/>
 
 #Создание списка рекомендуемых фильмов с помощью Apache Mahout и Hadoop в HDInsight на платформе Linux
@@ -51,48 +51,26 @@ Mahout — это библиотека [машинного обучения][ml]
 
 * __Рекомендации на основе подобия:__ так как Джо понравились первые три фильма, Mahout будет отбирать фильмы, которые нравились другим пользователям со схожими предпочтениями, но которые Джо еще не смотрел (по положительным отзывам и рейтингу). В этом случае Mahout рекомендует посмотреть _Призрачную угрозу_, _Атаку клонов_ и _Месть ситхов_.
 
-##Загрузка данных
+###Основные сведения о данных
 
-Очень кстати, что компания [GroupLens Research][movielens] предоставляет данные о рейтинге фильмов в формате, совместимом с Mahout. Выполните следующие действия для скачивания данных, а затем загрузите их в хранилище по умолчанию для кластера:
+Очень кстати, что компания [GroupLens Research][movielens] предоставляет данные о рейтинге фильмов в формате, совместимом с Mahout. Эти данные можно найти в хранилище по умолчанию вашего кластера по адресу `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-1. Используйте SSH для подключения к кластеру HDInsight под управлением Linux. Адрес, используемый при подключении: `CLUSTERNAME-ssh.azurehdinsight.net`, порт: `22`.
+Там есть два файла, `moviedb.txt` (сведения о фильмах) и `user-ratings.txt`. Файл user-ratings.txt используется во время анализа, а moviedb.txt используется для отображения понятного текста в результатах анализа.
 
-	Дополнительные сведения об использовании SSH для подключения к HDInsight см. в следующих документах:
-
-    * **Клиенты Linux, Unix или OS X**: в разделе [Подключение к кластеру HDInsight под управлением Linux из Linux, OS X или Unix](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
-
-    * **Клиенты Windows**: в разделе [Подключение к кластеру HDInsight под управлением Linux из Windows](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)
-
-2. Скачайте архив MovieLens 100k, который включает 100 000 рейтинговых оценок от 1000 пользователей по 1700 фильмам.
-
-        curl -O http://files.grouplens.org/datasets/movielens/ml-100k.zip
-
-3. Извлеките архив с помощью следующей команды:
-
-        unzip ml-100k.zip
-
-    Эта команда извлечет содержимое в новую папку с именем **ml-100k**.
-
-4. Используйте следующие команды для копирования данных в хранилище HDInsight:
-
-        cd ml-100k
-        hdfs dfs -put u.data /example/data
+Данные, содержащиеся файле user-ratings.txt, имеют структуру `userID`, `movieID`, `userRating` и `timestamp`, благодаря чему мы видим, насколько высоко каждый пользователь оценил фильм. Вот пример данных:
 
 
-    Данные, содержащиеся в этом файле, имеют структуру `userID`, `movieID`, `userRating` и `timestamp`, благодаря чему мы видим, насколько высоко каждый пользователь оценил фильм. Вот пример данных:
+    196	242	3	881250949
+    186	302	3	891717742
+    22	377	1	878887116
+    244	51	2	880606923
+    166	346	1	886397596
 
-
-		196	242	3	881250949
-		186	302	3	891717742
-		22	377	1	878887116
-		244	51	2	880606923
-		166	346	1	886397596
-
-##Выполнение задания
+##Выполнение анализа
 
 Чтобы запустить задание рекомендации, выполните следующую команду:
 
-	mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /example/data/u.data -o /example/data/mahoutout --tempDir /temp/mahouttemp
+    mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 
 > [AZURE.NOTE] Выполнение задания может занять несколько минут; может выполняться несколько заданий MapReduce.
 
@@ -111,11 +89,12 @@ Mahout — это библиотека [машинного обучения][ml]
 
 	Первый столбец — `userID`. Значения, хранящиеся в '[' and ']' — это `movieId`:`recommendationScore`.
 
-2. Для удобства чтения могут быть использованы некоторые данные, содержащиеся в каталоге **ml-100k**. Сначала скачайте данные с помощью следующей команды:
+2. Выходные данные, а также moviedb.txt, можно использовать для отображения для пользователей более понятных сведений. Во-первых, необходимо скопировать файлы локально с помощью следующих команд.
 
 		hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
+        hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
 
-	При этом выходные данные будут скопированы в файл с именем **recommendations.txt** в текущем каталоге.
+	Выходные данные будут скопированы в файл **recommendations.txt** в текущем каталоге. В него же будут скопированы файлы данных фильмов.
 
 3. Чтобы создать новый скрипт Python, который будет искать названия фильмов для данных в полученных рекомендациях, используйте следующую команду:
 
@@ -124,15 +103,15 @@ Mahout — это библиотека [машинного обучения][ml]
 	Когда откроется редактор, используйте следующее в качестве содержимого файла:
 
         #!/usr/bin/env python
-        
+
         import sys
-        
+
         if len(sys.argv) != 5:
                 print "Arguments: userId userDataFilename movieFilename recommendationFilename"
                 sys.exit(1)
-        
+
         userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
-        
+
         print "Reading Movies Descriptions"
         movieFile = open(movieFilename)
         movieById = {}
@@ -140,7 +119,7 @@ Mahout — это библиотека [машинного обучения][ml]
                 tokens = line.split("|")
                 movieById[tokens[0]] = tokens[1:]
         movieFile.close()
-        
+
         print "Reading Rated Movies"
         userDataFile = open(userDataFilename)
         ratedMovieIds = []
@@ -149,7 +128,7 @@ Mahout — это библиотека [машинного обучения][ml]
                 if tokens[0] == userId:
                         ratedMovieIds.append((tokens[1],tokens[2]))
         userDataFile.close()
-        
+
         print "Reading Recommendations"
         recommendationFile = open(recommendationFilename)
         recommendations = []
@@ -160,13 +139,13 @@ Mahout — это библиотека [машинного обучения][ml]
                         recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
                         break
         recommendationFile.close()
-        
+
         print "Rated Movies"
         print "------------------------"
         for movieId, rating in ratedMovieIds:
                 print "%s, rating=%s" % (movieById[movieId][0], rating)
         print "------------------------"
-        
+
         print "Recommended Movies"
         print "------------------------"
         for movieId, score in recommendations:
@@ -179,14 +158,14 @@ Mahout — это библиотека [машинного обучения][ml]
 
 		chmod +x show_recommendations.py
 
-4. Запустите скрипт Python. В следующем примере предполагается, что открыт каталог ml-100 КБ, где находятся файлы `u.data` и `u.item`:
+4. Запустите скрипт Python. Далее предполагается, что вы находитесь в каталоге, куда были скачаны все файлы.
 
-		./show_recommendations.py 4 u.data u.item recommendations.txt
+		./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
 
 	Он рассмотрит рекомендации, созданные для пользователя ID 4.
 
-	* Файл **u.data** используется для получения фильмов, которые оценил пользователь
-	* Файл **u.item** используется для извлечения названий фильмов
+	* Файл **user-ratings.txt** используется для получения фильмов, которые оценил пользователь.
+	* Файл **moviedb.txt** используется для извлечения названий фильмов.
 	* Файл **recommendations.txt** используется для получения рекомендованных фильмов для этого пользователя
 
 	Результат этой команды будет аналогичен следующему:
@@ -245,7 +224,7 @@ Mahout — это библиотека [машинного обучения][ml]
 >
 > ```hdfs dfs -rm -f -r /example/data/mahoutout```
 
-##Дальнейшие действия
+## Дальнейшие действия
 
 Теперь, когда вы узнали, как использовать Mahout, откройте для себя другие способы работы с данными в HDInsight:
 
@@ -267,4 +246,4 @@ Mahout — это библиотека [машинного обучения][ml]
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

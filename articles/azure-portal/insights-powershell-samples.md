@@ -229,7 +229,6 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Полный список доступных параметров для `Get-AzureRmMetricDefinition` представлен в разделе [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
-Чтобы просмотреть список доступных метрик и их единиц измерения для различных служб Azure, см. раздел [ЗАГОЛОВОК ВЕБ-СТРАНИЦЫ](http://link).
 
 ## Создание параметров автомасштабирования и управление ими
 Для ресурса, например веб-приложения, виртуальной машины, облачной службы или набора масштабирования виртуальных машин, можно настроить только один параметр автомасштабирования. Однако у каждого параметра автомасштабирования может быть несколько профилей. Например, один профиль для масштабирования на основе производительности, а второй — на основе расписания. Для каждого профиля можно настроить несколько правил. Дополнительные сведения об автомасштабирования см. в разделе [Автомасштабирование приложения](../cloud-services/cloud-services-how-to-scale.md).
@@ -385,4 +384,4 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

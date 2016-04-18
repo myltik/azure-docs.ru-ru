@@ -17,11 +17,15 @@
 	ms.date="02/03/2016"
 	ms.author="cephalin"/>
 
-
 #Включение протокола HTTPS для приложения в службе приложений Azure
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+> [AZURE.SELECTOR]
+- [Включение SSL для личного домена](web-sites-configure-ssl-certificate.md)
+- [Приобретение сертификата SSL для веб-приложений](web-sites-purchase-ssl-web-site.md)
+
+
 
 [AZURE.INCLUDE [configure-ssl-web-site](../../includes/configure-ssl-web-site.md)]
 
-<!----HONumber=AcomDC_0211_2016-->
+<!-----HONumber=AcomDC_0406_2016-->

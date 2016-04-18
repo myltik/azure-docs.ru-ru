@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Список учебников по интеграции приложений SaaS с Azure AD | Microsoft Azure"
+    pageTitle="Список учебников по интеграции приложений SaaS с Azure AD | Microsoft Azure"
     description="Учебники по настройке единого входа Azure Active Directory для различных сторонних приложений SaaS."
     services="active-directory"
     documentationCenter=""
@@ -20,7 +20,7 @@
 
 Чтобы помочь вам интегрировать все облачные (SaaS) приложения с Azure Active Directory, мы разработали коллекцию учебников. В этих руководствах описаны все необходимые этапы настройки.
 
-Полный список предварительно интегрированных в Azure AD приложений SaaS см. в разделе [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+Полный список предварительно интегрированных в Azure AD приложений SaaS см. в разделе [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 ##Список учебников
 
@@ -94,6 +94,7 @@
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Gigya.jpg)| [Gigya](https://go.microsoft.com/fwLink/?LinkID=403245&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_GoogleApps.jpg)| [Google Apps](https://go.microsoft.com/fwLink/?LinkID=309577&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Greenhouse.jpg)| [Greenhouse](https://go.microsoft.com/fwLink/?LinkID=403252&clcid=0x409)|
+| ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_HackerOne.png)| [HackerOne](https://go.microsoft.com/fwLink/?LinkID=785097&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Halogen_Software.jpg)| [Halogen Software](https://go.microsoft.com/fwLink/?LinkID=530241&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_HPESaaS.jpg)| [HPE SaaS](https://go.microsoft.com/fwLink/?LinkID=708663&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_HR2day.jpg)| [HR2day by Merces](https://go.microsoft.com/fwLink/?LinkID=708684&clcid=0x409)|
@@ -223,4 +224,4 @@
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 - [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
