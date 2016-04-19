@@ -13,27 +13,46 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="03/25/2015"
    ms.author="vturecek"/>
 
 # Примечания о сериализации типов надежных субъектов Service Fabric
 
-При определении интерфейсов и состояний субъектов учитывайте следующее. Типы должны поддерживать сериализацию контрактов данных. Дополнительные сведения о контрактах данных см. на веб-сайте [MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
 
-## Типы интерфейса субъекта
+Аргументы всех методов, типы результатов задач, возвращаемых каждым методом в интерфейсе субъекта, и объекты, хранящиеся в диспетчере состояния субъекта, должны быть [сериализуемыми в контракт данных](https://msdn.microsoft.com/library/ms731923.aspx). Это также относится к аргументам методов, определенных в [интерфейсах событий субъекта](service-fabric-reliable-actors-events.md#actor-events). (Методы интерфейсов для событий субъектов всегда возвращают значение void.)
 
-Аргументы всех методов и типы результатов задач, которые возвращаются каждым методом, определенным в [интерфейсе субъекта](service-fabric-reliable-actors-introduction.md#actors), должны поддерживать сериализацию контрактов данных. Это также относится к аргументам методов, определенных в [интерфейсах событий субъектов](service-fabric-reliable-actors-events.md#actor-events). (Методы интерфейсов для событий субъектов всегда возвращают значение void.) Например, интерфейс `IVoiceMail` определяет метод так:
+## Пользовательские типы данных
+
+В этом примере приведенный ниже интерфейс субъекта определяет метод, возвращающий пользовательский тип данных `VoicemailBox`.
 
 ```csharp
+public interface IVoiceMailBoxActor : IActor
+{
+    Task<VoicemailBox> GetMailBoxAsync();
+}
+```
 
-Task<List<Voicemail>> GetMessagesAsync();
+Этот интерфейс реализован субъектом, который использует диспетчер состояния для хранения объекта `VoicemailBox`.
+
+```csharp
+[StatePersistence(StatePersistence.Persisted)]
+public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
+{
+    public Task<VoicemailBox> GetMailboxAsync()
+    {
+        return this.StateManager.GetStateAsync<VoicemailBox>("Mailbox");
+    }
+}
 
 ```
 
-В этом случае `List<T>` относится к стандартному типу .NET, который уже является сериализуемым контрактом данных. Тип `Voicemail` также должен быть сериализуемым контрактом данных.
+В этом примере объект `VoicemailBox` сериализуется в следующих случаях.
+ - Объект передается между экземпляром субъекта и вызывающим объектом.
+ - Объект сохраняется в диспетчере состояния, где он сохраняется на диск и реплицируются на другие узлы.
+ 
+Платформа Reliable Actors использует сериализацию DataContract. Таким образом, пользовательские объекты данных и их члены должны быть аннотированы атрибутами **DataContract** и **DataMember**, соответственно.
 
 ```csharp
-
 [DataContract]
 public class Voicemail
 {
@@ -46,25 +65,9 @@ public class Voicemail
     [DataMember]
     public DateTime ReceivedAt { get; set; }
 }
-
 ```
 
-## Класс состояния субъекта
-
-Состояние субъекта должно быть сериализуемым контрактом данных. Например, определение класса субъекта может выглядеть так:
-
 ```csharp
-
-public class VoiceMailActor : StatefulActor<VoicemailBox>, IVoiceMail
-{
-...
-
-```
-
-В этом случае класс состояния будет определен с помощью класса и его членов, аннотированных атрибутами **DataContract** и **DataMember** соответственно.
-
-```csharp
-
 [DataContract]
 public class VoicemailBox
 {
@@ -79,7 +82,14 @@ public class VoicemailBox
     [DataMember]
     public string Greeting { get; set; }
 }
-
 ```
 
-<!---HONumber=AcomDC_0121_2016-->
+## Дальнейшие действия
+ - [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md)
+ - [Таймеры и напоминания субъекта](service-fabric-reliable-actors-timers-reminders.md)
+ - [События субъекта](service-fabric-reliable-actors-events.md)
+ - [Повторный вход субъекта](service-fabric-reliable-actors-reentrancy.md)
+ - [Полиморфизм субъекта и объектно-ориентированные шаблоны проектирования](service-fabric-reliable-actors-polymorphism.md)
+ - [Диагностика и мониторинг производительности в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+
+<!---HONumber=AcomDC_0406_2016-->

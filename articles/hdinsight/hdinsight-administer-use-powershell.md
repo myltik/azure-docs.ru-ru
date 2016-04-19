@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="04/05/2016"
 	ms.author="jgao"/>
 
 # Управление кластерами Hadoop в HDInsight с помощью Azure PowerShell
@@ -31,7 +31,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-##См. статью "Установка Azure PowerShell 1.0 и более поздних версий".
+##См. статью "Установка Azure PowerShell 1.0 и более поздних версий".
 
 Сначала необходимо удалить версии 0.9x.
 
@@ -66,84 +66,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 ##Создание кластеров
 
-Кластеру HDInsight требуется группа ресурсов Azure и контейнер больших двоичных объектов в учетной записи хранения Azure:
-
-- Группа ресурсов Azure — это логический контейнер для ресурсов Azure. Группа ресурсов Azure и кластер HDInsight не обязательно должны находиться в одном расположении. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
-- HDInsight использует контейнер хранилища больших двоичных объектов хранилища Azure в качестве файловой системы по умолчанию. Для создания кластера HDInsight требуются учетная запись хранения Azure и контейнер хранилища. Учетная запись хранения, используемая по умолчанию, должна находиться в том же расположении, что и кластер HDInsight.
-
-[AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
-
-**Подключение к Azure**
-
-	Login-AzureRmAccount
-	Get-AzureRmSubscription  # list your subscriptions and get your subscription ID
-	Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
-
-**Select-AzureRMSubscription** вызывается, если у вас есть несколько подписок Azure.
-	
-**Создание новой группы ресурсов**
-
-	New-AzureRmResourceGroup -name <New Azure Resource Group Name> -Location "<Azure Location>"  # For example, "EAST US 2"
-
-**Создание учетной записи хранения Azure**
-
-	New-AzureRmStorageAccount -ResourceGroupName <Azure Resource Group Name> -Name <Azure Storage Account Name> -Location "<Azure Location>" -Type <AccountType> # account type example: Standard_LRS for zero redundancy storage
-	
-Не используйте учетную запись **Standard\_ZRS**, так как она не поддерживает таблицу Azure. HDInsight использует таблицу Azure для ведения журнала. Полный список типов учетных записей хранения см. в разделе [https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx).
-
-[AZURE.INCLUDE [список центров обработки данных](../../includes/hdinsight-pricing-data-centers-clusters.md)]
-
-
-Сведения о создании новой учетной записи хранения Azure с помощью портала Azure см. в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
-
-Если у вас уже есть учетная запись хранения, но вы не знаете имени и ключа учетной записи, можно использовать следующие команды для получения нужных сведений:
-
-	# List Storage accounts for the current subscription
-	Get-AzureRmStorageAccount
-	# List the keys for a Storage account
-	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
-
-Дополнительные сведения о получении данных с помощью портала см. в разделе "Просмотр, копирование и повторное создание ключей доступа к хранилищу" статьи [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
-
-**Создание контейнера хранилища Azure**
-
-Azure PowerShell не может создать контейнер больших двоичных объектов в процессе создания HDInsight. Его можно создать с помощью следующего скрипта:
-
-	$resourceGroupName = "<AzureResoureGroupName>"
-	$storageAccountName = "<Azure Storage Account Name>"
-	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
-	$containerName="<AzureBlobContainerName>"
-
-	# Create a storage context object
-	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-
-	# Create a Blob storage container
-	New-AzureStorageContainer -Name $containerName -Context $destContext
-
-**Создание кластера**
-
-После создания учетной записи хранения и подготовки контейнера больших двоичных объектов все готово к созданию кластера.
-
-	$resourceGroupName = "<AzureResoureGroupName>"
-
-	$storageAccountName = "<Azure Storage Account Name>"
-	$containerName = "<AzureBlobContainerName>"
-
-	$clusterName = "<HDInsightClusterName>"
-	$location = "<AzureDataCenter>"
-	$clusterNodes = <ClusterSizeInNodes>
-
-	# Get the Storage account key
-	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
-
-	# Create a new HDInsight cluster
-	New-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName `
-		-ClusterName $clusterName `
-		-Location $location `
-		-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
-		-DefaultStorageAccountKey $storageAccountKey `
-		-DefaultStorageContainer $containerName  `
-		-ClusterSizeInNodes $clusterNodes
+См. раздел [Создание кластеров под управлением Linux в HDInsight с помощью Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
 ##Получение списка кластеров
 Чтобы получить список всех кластеров в текущей подписке, используйте следующую команду:
@@ -332,4 +255,4 @@ Azure PowerShell не может создать контейнер больши�
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

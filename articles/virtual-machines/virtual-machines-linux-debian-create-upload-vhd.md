@@ -36,7 +36,7 @@
 
 ## Создание виртуальных жестких дисков Debian с помощью Azure-Manage
 
-Существуют средства для создания виртуальных жестких дисков Debian для Azure, такие как скрипты [azure-manage](https://gitlab.credativ.com/de/azure-manage) от компании [credativ](http://www.credativ.com/). Рекомендуется использовать их, а не создавать образ с нуля. Например, чтобы создать виртуальный жесткий диск Debian 8, выполните следующие команды для скачивания azure-manage (и зависимостей) и выполнения скрипта azure\_build\_image:
+Существуют средства для создания виртуальных жестких дисков Debian для Azure, такие как скрипты [azure-manage](https://gitlab.credativ.com/de/azure-manage) от компании [credativ](http://www.credativ.com/). Рекомендуется использовать их, а не создавать образ с нуля. Например, чтобы создать виртуальный жесткий диск Debian 8, выполните следующие команды для скачивания azure-manage (и зависимостей) и выполнения скрипта azure\_build\_image:
 
 	# sudo apt-get update
 	# sudo apt-get install git qemu-utils mbr kpartx debootstrap
@@ -66,9 +66,9 @@
 
         # sudo update-grub
 
-6. Добавьте репозитории Azure Debian в файл /etc/apt/sources.list для Debian 6 или 7:
+6. Добавьте репозитории Azure Debian в файл /etc/apt/sources.list для Debian 7 или 8.
 
-	**Debian 6.x "Wheezy"**
+	**Debian 7.x "Wheezy"**
 
 		deb http://debian-archive.trafficmanager.net/debian wheezy-backports main
 		deb-src http://debian-archive.trafficmanager.net/debian wheezy-backports main
@@ -76,7 +76,7 @@
 		deb-src http://debian-archive.trafficmanager.net/debian-azure wheezy main
 
 
-	**Debian 7.x "Jessie"**
+	**Debian 8.x "Jessie"**
 
 		deb http://debian-archive.trafficmanager.net/debian jessie-backports main
 		deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
@@ -89,7 +89,7 @@
 		# sudo apt-get update
 		# sudo apt-get install waagent
 
-8. Для Debian 7 необходимо запустить ядро на основе версии 3.16 из репозитория wheezy-backports. Сначала создайте файл с именем /etc/apt/preferences.d/linux.pref со следующим содержимым:
+8. Для Debian 7 необходимо запустить ядро на основе версии 3.16 из репозитория wheezy-backports. Сначала создайте файл с именем /etc/apt/preferences.d/linux.pref со следующим содержимым:
 
 		Package: linux-image-amd64 initramfs-tools
 		Pin: release n=wheezy-backports
@@ -108,6 +108,6 @@
 
 ## Дальнейшие действия
 
-Теперь виртуальный жесткий диск Debian можно использовать для создания новых виртуальных машин Azure. Если вы впервые отправляете VHD-файл в Azure, обратитесь к шагам 2 и 3 в статье [Создание и отправка виртуального жесткого диска с ОС Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+Теперь виртуальный жесткий диск Debian можно использовать для создания новых виртуальных машин Azure. Если вы впервые отправляете VHD-файл в Azure, обратитесь к шагам 2 и 3 в статье [Создание и отправка виртуального жесткого диска с ОС Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

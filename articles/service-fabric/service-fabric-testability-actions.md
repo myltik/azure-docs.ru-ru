@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Действия, доступные благодаря Testability | Microsoft Azure"
+   pageTitle="Действия, доступные благодаря Testability | Microsoft Azure"
    description="В этой статье рассматриваются действия по тестированию, доступные в Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="heeldin"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/14/2016"
+   ms.date="03/25/2016"
    ms.author="heeldin;motanv"/>
 
 # Действия, доступные благодаря Testability
@@ -95,7 +95,7 @@ Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 
 Выполнение действия, доступного благодаря Testability, в кластере Azure с помощью PowerShell аналогично выполнению этого действия в локальном кластере. Единственная разница в том, что перед выполнением действия необходимо подключиться не к локальному кластеру, а к кластеру Azure.
 
-## Выполнение действия, доступного благодаря Testability, с помощью C#
+## Проверка возможности тестирования
 
 Чтобы выполнить такое действие с использованием языка C#, сначала необходимо подключиться к кластеру с помощью FabricClient. Затем следует получить параметры, необходимые для выполнения действия. Для выполнения одного действия можно использовать различные параметры. Один из способов выполнить действие RestartServiceFabricNode — используя сведения об узле (имя узла и идентификатор экземпляра узла) в кластере.
 
@@ -236,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Моделирование ошибок во время рабочих нагрузок службы](service-fabric-testability-workload-tests.md)
    - [Ошибки обмена данными между службами](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

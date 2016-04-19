@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/31/2016"
+   ms.date="04/06/2016"
    ms.author="cherylmc" />
 
 # Партнеры и одноранговые расположения ExpressRoute
@@ -55,7 +55,7 @@ ExpressRoute поддерживается во всех регионах и ра
 
 ### Рабочая среда Azure
 
-| **Поставщик услуг** |**Microsoft Azure** | **Office 365 и CRM Online** | **Расположения** |
+| **Поставщик услуг** |**Microsoft Azure** | **Office 365 и CRM Online** | **Расположения** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | Поддерживаются | Поддерживаются | Амстердам, Кремниевая долина, Сингапур, Токио, Вашингтон (округ Колумбия) |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Поддерживаются | Поддерживаются | Амстердам, Чикаго, Даллас, Лондон, Кремниевая долина, Сингапур, Сидней, Вашингтон (округ Колумбия) |
@@ -72,7 +72,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[InterCloud](https://www.intercloud.com/)** | Поддерживаются | Поддерживаются | Амстердам, Лондон, Сингапур, Вашингтон (округ Колумбия) |
 | **Internet Solutions - Cloud Connect** | Поддерживаются | Поддерживаются | Амстердам, Лондон |
 | **Interxion** | Поддерживаются | Поддерживаются | Амстердам, Лондон |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Поддерживаются | Поддерживаются | Амстердам, Чикаго, Даллас, Лас-Вегас+, Лондон, Сиэтл, Кремниевая долина, Вашингтон (округ Колумбия) |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Поддерживаются | Поддерживаются | Амстердам, Чикаго, Даллас, Лас-Вегас+, Лондон, Сиэтл, Кремниевая долина, Вашингтон (округ Колумбия) |
 | **Megaport** | Поддерживаются | Поддерживаются | Даллас, Лас-Вегас+, Лос-Анджелес, Мельбурн, Нью-Йорк, Сиэтл, Сингапур, Сидней, Вашингтон (округ Колумбия) |
 | **MTN** | Поддерживаются | Поддерживаются | Лондон |
 | **NEXTDC** | Поддерживаются | Поддерживаются | Мельбурн, Сидней |
@@ -145,7 +145,8 @@ ExpressRoute поддерживается во всех регионах и ра
 
 |**Системный интегратор**|**Континент**|
 |---|---|
-|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Европа|
+|**[Avanade Inc.](http://www.avanade.com/)**| Азия, Европа, США |
+|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Европа |
 |**[Nimbo](http://www.nimbo.com/)**|США||
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Азия |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | США |
@@ -156,4 +157,4 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

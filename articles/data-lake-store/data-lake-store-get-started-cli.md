@@ -13,19 +13,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="04/07/2016"
    ms.author="nitinme"/>
 
 # Приступая к работе с хранилищем озера данных Azure с помощью командной строки Azure
 
 > [AZURE.SELECTOR]
-- [Использование портала](data-lake-store-get-started-portal.md)
-- [с использованием PowerShell.](data-lake-store-get-started-powershell.md)
-- [Использование пакета .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Использование Azure CLI](data-lake-store-get-started-cli.md)
-- [Использование Node.js](data-lake-store-manage-use-nodejs.md)
+- [Портал](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [Пакет SDK для .NET](data-lake-store-get-started-net-sdk.md)
+- [Пакет SDK для Java](data-lake-store-get-started-java-sdk.md)
+- [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
+- [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
+- [Node.js](data-lake-store-manage-use-nodejs.md)
 
-Узнайте, как с помощью интерфейса командной строки Azure создать учетную запись хранилища озера данных Azure и выполнять базовые операции, такие как создание папок, передача и скачивание файлов данных, удаление учетной записи и т. д. Дополнительные сведения о хранилище озера данных см. в статье [Обзор хранилища озера данных](data-lake-store-overview.md).
+Узнайте, как с помощью интерфейса командной строки Azure создать учетную запись хранилища озера данных Azure и выполнять базовые операции, такие как создание папок, передача и скачивание файлов данных, удаление учетной записи и т. д. Дополнительные сведения о хранилище озера данных см. в статье [Обзор хранилища озера данных](data-lake-store-overview.md).
 
 Интерфейс командной строки (CLI) Azure реализован в Node.js. Его можно использовать на любой платформе, которая поддерживает Node.js, включая Windows, Mac и Linux. Azure CLI имеет открытый исходный код. Исходный код управляется с помощью GitHub по адресу <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. В этой статье описывается только использование Azure CLI с хранилищем озера данных. Общее руководство по использованию CLI Azure см. в статье [Использование CLI Azure][azure-command-line-tools].
 
@@ -177,12 +179,6 @@
 
 При появлении запроса введите **Y**, чтобы удалить учетную запись.
 
-## Другие способы создания учетной записи хранения озера данных
-
-- [Начало работы с хранилищем озера данных с помощью портала](data-lake-store-get-started-portal.md)
-- [Начало работы с хранилищем озера данных с помощью пакета SDK .NET](data-lake-store-get-started-net-sdk.md)
-- [Начало работы с хранилищем озера данных с помощью PowerShell](data-lake-store-get-started-powershell.md)
-
 
 ## Дальнейшие действия
 
@@ -193,4 +189,4 @@
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

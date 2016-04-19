@@ -1,6 +1,6 @@
 <properties
    pageTitle="Начало работы с Microsoft Power BI Embedded (предварительная версия)"
-   description=""
+   description="Начало работы с Microsoft Power BI Embedded (предварительная версия)"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -74,13 +74,11 @@
 
 ## Создание наборов данных и отчетов Power BI для внедрения в приложение
 
-Теперь, когда вы создали экземпляр Power BI для приложения и получили **ключи доступа**, можно приступать к созданию наборов данных и отчетов Power BI для внедрения. Наборы данных и отчеты можно создавать с помощью **Power BI Desktop**. [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/) можно скачать бесплатно. Или же, чтобы быстро приступить к работе, можно скачать [файл PBIX с примером анализа данных о продажах](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix). Дополнительные сведения об использовании **Power BI Desktop** см. в статье [Начало работы с Power BI Desktop](https://powerbi.microsoft.com/ru-RU/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
-
-> [AZURE.NOTE] Подробные сведения о том, как был создан файл PBIX с анализом данных о продажах, см. в [руководстве по анализу данных о продажах из Excel и веб-канала OData](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-desktop-tutorial-analyzing-sales-data-from-excel-and-an-odata-feed).
+Теперь, когда вы создали экземпляр Power BI для приложения и получили **ключи доступа**, можно приступать к созданию наборов данных и отчетов Power BI для внедрения. Наборы данных и отчеты можно создавать с помощью **Power BI Desktop**. [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/) можно скачать бесплатно. Или же, чтобы быстро приступить к работе, можно скачать [файл PBIX с примером анализа данных о продажах](http://go.microsoft.com/fwlink/?LinkID=780547). Дополнительные сведения об использовании **Power BI Desktop** см. в статье [Начало работы с Power BI Desktop](https://powerbi.microsoft.com/ru-RU/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 С помощью **Power BI Desktop** вы можете подключиться к источнику данных. Для этого импортируйте копию данных в **Power BI Desktop** или подключитесь непосредственно к источнику данных с помощью **DirectQuery**.
 
-Ниже описана разница между использованием **импорта** и **DirectQuery**.
+Ниже описаны различия между **импортом** и **DirectQuery**.
 
 |Импорт | DirectQuery
 |---|---
@@ -90,13 +88,13 @@
 
 Когда вы сохраните документ в **Power BI Desktop**, будет создан файл PBIX. Этот файл содержит ваш отчет. Кроме того, при импорте данных файл PBIX будет содержать полный набор данных, а при использовании **DirectQuery** — только схему набора данных. В рабочей области файл PBIX развертывается программным способом с помощью [API импорта Power BI](https://msdn.microsoft.com/library/mt711504.aspx).
 
-> [AZURE.NOTE] **Power BI Embedded** предусматривает дополнительные API-интерфейсы. Они служат для изменения сервера и базы данных, на которые указывает ваш набор данных, а также для указания данных учетной записи службы, с помощью которых набор данных будет подключаться к базе данных. Дополнительные сведения см. в статьях [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) (Публикация SetAllConnections) и [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx) (Исправление источника данных шлюза).
+> [AZURE.NOTE] **Power BI Embedded** предусматривает дополнительные API. Они служат для изменения сервера и базы данных, на которые указывает ваш набор данных, а также для указания данных учетной записи службы, с помощью которых набор данных будет подключаться к базе данных. Дополнительные сведения см. в статьях [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) (Публикация SetAllConnections) и [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx) (Исправление источника данных шлюза).
 
 ## Дальнейшие действия
 С помощью приведенных выше инструкций вы создали коллекцию рабочей области, отчет и набор данных. Теперь пора переходить к написанию кода для **Power BI Embedded**. Чтобы помочь вам, мы создали пример веб-приложения — см. статью [Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md). Из статьи вы узнаете:
 
-  -	как подготовить содержимое;
-      - как создать рабочую область;
+  -	подготовить содержимое;
+      - создать рабочую область;
       - как импортировать файл PBIX;
       - как обновить строки подключения и указать учетные данные для наборов данных;
 
@@ -106,7 +104,7 @@
 - [Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md)
 - [Что такое Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Начало работы с Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
-- [Power BI Desktop;](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
+- [Power BI Desktop;](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Цены на Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

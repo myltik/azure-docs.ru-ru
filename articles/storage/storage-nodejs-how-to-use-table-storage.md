@@ -65,7 +65,7 @@
 
 Добавьте следующий код в начало файла **server.js** в приложении:
 
-    var azure = require('azure-storage');
+	var azure = require('azure-storage');
 
 ## Настройка подключения к службе хранилища Azure
 
@@ -77,27 +77,27 @@
 
 Следующий код создает объект **TableService** и использует его для создания новой таблицы. Добавьте в начало **server.js**следующий код.
 
-    var tableSvc = azure.createTableService();
+	var tableSvc = azure.createTableService();
 
 Вызов **createTableIfNotExists** создает новую таблицу с определенным именем, если она уже не существует. В следующем примере создается новая таблица с именем "mytable", если она еще не создана:
 
-    tableSvc.createTableIfNotExists('mytable', function(error, result, response){
-		if(!error){
-			// Table exists or created
-		}
+	tableSvc.createTableIfNotExists('mytable', function(error, result, response){
+	  if(!error){
+	    // Table exists or created
+	  }
 	});
 
-`result` будет иметь значение `true`, если была создана новая таблица, и `false`, если таблица уже существует. `response` будет содержать информацию о запросе.
+`result.created` будет иметь значение `true`, если была создана новая таблица, и `false`, если таблица уже существует. `response` будет содержать информацию о запросе.
 
 ### Фильтры
 
 Дополнительные операции фильтрации можно применить к выполняемым операциям, используя **TableService**. К операциям фильтрации могут относиться ведение журнала, автоматический повтор и т. д. Фильтры являются объектами, реализующими метод со следующей сигнатурой:
 
-		function handle (requestOptions, next)
+	function handle (requestOptions, next)
 
 Выполнив предварительную обработку параметров запроса, метод должен вызвать next, передавая функцию обратного вызова со следующей сигнатурой:
 
-		function (returnObject, finalCallback, next)
+	function (returnObject, finalCallback, next)
 
 В этом примере, а также после обработки returnObject (ответа на запрос к серверу) функция обратного вызова должна вызвать функцию next (если она существует), чтобы продолжить обработку других фильтров. В противном случае она просто вызывает finalCallback, чтобы завершить вызов службы.
 
@@ -130,19 +130,19 @@
 Чтобы создать сущность, можно также использовать **entityGenerator**. В следующем примере код создает сущность для той же задачи с использованием **entityGenerator**.
 
 	var entGen = azure.TableUtilities.entityGenerator;
-    var task = {
+	var task = {
 	  PartitionKey: entGen.String('hometasks'),
-      RowKey: entGen.String('1'),
-      description: entGen.String('take out the trash'),
-      dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
-    };
+	  RowKey: entGen.String('1'),
+	  description: entGen.String('take out the trash'),
+	  dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
+	};
 
 Чтобы добавить сущность в таблицу, передайте объект сущности в метод **insertEntity**.
 
 	tableSvc.insertEntity('mytable',task, function (error, result, response) {
-		if(!error){
-			// Entity inserted
-		}
+	  if(!error){
+	    // Entity inserted
+	  }
 	});
 
 Если операция успешна, `result` будет содержать [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) вставленной записи, а `response` — информацию об операции.
@@ -159,7 +159,7 @@
 
 Для обновления имеющейся сущности доступно несколько методов:
 
-* **updateEntity** — обновляет имеющуюся сущность с ее заменой.
+* **replaceEntity** — обновляет имеющуюся сущность с ее заменой.
 
 * **mergeEntity** — обновляет сущность посредством объединения новых значений свойств с имеющейся сущностью.
 
@@ -167,13 +167,13 @@
 
 * **insertOrMergeEntity** — обновляет сущность посредством объединения новых значений свойств с имеющейся сущностью. Если сущность не существует, будет вставлена новая сущность.
 
-В следующем примере показано обновление сущности с помощью метода **updateEntity**:
+В следующем примере показано обновление сущности с помощью **replaceEntity**.
 
-	tableSvc.updateEntity('mytable', updatedTask, function(error, result, response){
-      if(!error) {
-        // Entity updated
-      }
-    });
+	tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
+	  if(!error) {
+	    // Entity updated
+	  }
+	});
 
 > [AZURE.NOTE] По умолчанию обновление сущности не проверяет, были ли обновляемые данные ранее изменены другим процессом. Поддержка одновременных обновлений:
 >
@@ -182,10 +182,10 @@
 > 2. При выполнении операции обновления с сущностью предварительно добавьте информацию ETag, извлеченную для новой сущности. Например:
 >
 >     `entity2['.metadata'].etag = currentEtag;`
->    
+>
 > 3. Выполните операцию обновления. Если сущность была изменена с момента получения значения ETag, например, другим экземпляром вашего приложения, будет возвращена ошибка `error`, указывающая, что определенное в запросе условие обновления не выполнено.
 
-Если обновляемая сущность не существует, при использовании **updateEntity** и **mergeEntity** операция обновления завершается ошибкой. Поэтому, если нужно сохранить сущность независимо от того, существует ли она, следует использовать **insertOrReplaceEntity** или **insertOrMergeEntity**.
+Если при использовании **replaceEntity** и **mergeEntity** обновляемая сущность не существует, операция обновления завершается ошибкой. Поэтому, если нужно сохранить сущность независимо от того, существует ли она, следует использовать **insertOrReplaceEntity** или **insertOrMergeEntity**.
 
 `result` должен содержать значение **Etag** обновленной сущности в случае успешного выполнения операций.
 
@@ -195,7 +195,7 @@
 
  В следующем примере показана отправка двух сущностей в пакете:
 
-    var task1 = {
+	var task1 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'Take out the trash'},
@@ -239,11 +239,11 @@
 
 Чтобы возвратить определенную сущность на основе значений **PartitionKey** и **RowKey**, используйте метод **retrieveEntity**.
 
-    tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
+	tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
 	  if(!error){
 	    // result contains the entity
 	  }
-    });
+	});
 
 После завершения этой операции `result` будет содержать сущность.
 
@@ -296,9 +296,9 @@
 	  RowKey: {'_': '1'}
 	};
 
-    tableSvc.deleteEntity('mytable', task, function(error, response){
+	tableSvc.deleteEntity('mytable', task, function(error, response){
 	  if(!error) {
-		// Entity deleted
+	    // Entity deleted
 	  }
 	});
 
@@ -308,7 +308,7 @@
 
 Следующий код удаляет таблицу из учетной записи хранения.
 
-    tableSvc.deleteTable('mytable', function(error, response){
+	tableSvc.deleteTable('mytable', function(error, response){
 		if(!error){
 			// Table deleted
 		}
@@ -379,7 +379,7 @@ dc.table.queryEntities(tableName,
 
 	sharedTableService.queryEntities(query, null, function(error, result, response) {
 	  if(!error) {
-		// result contains the entities
+	    // result contains the entities
 	  }
 	});
 
@@ -391,36 +391,30 @@ dc.table.queryEntities(tableName,
 
 ACL реализуется с помощью массива политик доступа, каждая из которых связана со своим идентификатором. В следующем примере определяются две политики, по одной для пользователей user1 и user2:
 
-	var sharedAccessPolicy = [
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user1'
+	var sharedAccessPolicy = {
+	  user1: {
+	    Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  },
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user2'
+	  user2: {
+	    Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  }
-	];
+	};
 
 В этом примере код получает текущее значение ACL для таблицы **hometasks**, а затем добавляет новые политики с помощью **setTableAcl**. Такой подход допускает выполнение:
 
+	var extend = require('extend');
 	tableSvc.getTableAcl('hometasks', function(error, result, response) {
-      if(!error){
-		//push the new policy into signedIdentifiers
-		result.signedIdentifiers.push(sharedAccessPolicy);
-		tableSvc.setTableAcl('hometasks', result, function(error, result, response){
-	  	  if(!error){
-	    	// ACL set
-	  	  }
-		});
+    if(!error){
+	    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
+	    tableSvc.setTableAcl('hometasks', newSignedIdentifiers, function(error, result, response){
+	      if(!error){
+	        // ACL set
+	      }
+	    });
 	  }
 	});
 
@@ -448,4 +442,4 @@ ACL реализуется с помощью массива политик до�
   [Веб-приложение Node.js, использующее службу таблиц Azure]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

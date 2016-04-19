@@ -19,7 +19,7 @@
 # Начало работы с динамическим маскированием данных в базе данных SQL (классический портал Azure)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
+- [Динамическое маскирование данных: портал Azure](sql-database-dynamic-data-masking-get-started.md)
 
 ## Обзор
 
@@ -88,6 +88,10 @@
 9. Щелкните **СОХРАНИТЬ**, чтобы сохранить новое или обновленное правило маскирования.
 
 
+## Настройка динамического маскирования данных для базы данных с помощью инструкций Transact-SQL
+
+См. раздел [Dynamic Data Masking](https://msdn.microsoft.com/library/mt130841.aspx).
+
 ## Настройка динамического маскирования данных для базы данных с помощью командлетов Powershell
 
 См. статью [Командлеты Базы данных SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx).
@@ -96,4 +100,4 @@
 
 См. статью [Операции для Баз данных SQL Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -34,8 +34,8 @@
 
 + [XCode 6.0][Install Xcode];
 + устройство под управлением iOS 7.0 (или более поздней версии);
-+ участие в программе для разработчиков на платформе iOS;
-+ [Xamarin.iOS].
++ Участие в программе для разработчиков на платформе iOS
++ [Xamarin Studio]
 
    > [AZURE.NOTE] Из-за требований к конфигурации push-уведомлений для устройств iOS развертывание и тестирование примера приложения необходимо выполнять на физическом устройстве iOS (iPhone или iPad), а не в симуляторе.
 
@@ -311,7 +311,6 @@ Push-уведомления обычно отправляются через с�
 
 [Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started-xamarin-ios
 [классический портал Azure]: https://manage.windowsazure.com/
-[классическом портале Azure]: https://manage.windowsazure.com/
 [Общие сведения о центрах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Инструкции по использованию центров уведомлений для iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
@@ -325,8 +324,8 @@ Push-уведомления обычно отправляются через с�
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [портале Azure]: https://portal.azure.com
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

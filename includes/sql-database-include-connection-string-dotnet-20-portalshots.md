@@ -10,7 +10,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### Получение строки подключения на портале Azure
 
 
-Для получения строки подключения, необходимой для взаимодействия клиентской программы с Базой данных SQL Azure, используйте [портал предварительной версии Azure](https://portal.azure.com/):
+Для получения строки подключения, необходимой для взаимодействия клиентской программы с Базой данных SQL Azure, используйте [портал Azure](https://portal.azure.com/).
 
 
 1. Последовательно выберите **ПРОСМОТРЕТЬ** > **Базы данных SQL**.
@@ -55,4 +55,4 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

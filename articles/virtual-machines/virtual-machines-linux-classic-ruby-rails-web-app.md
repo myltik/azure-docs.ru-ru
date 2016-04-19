@@ -25,7 +25,7 @@
 
 В этом учебнике описано, как разместить веб-сайт Ruby on Rails в Azure с помощью виртуальной машины Linux.
 
-Данный учебник был проверен с использованием Ubuntu Server 14.04 LTS. Если вы используете другой дистрибутив Linux, могут потребоваться другие действия для установления Rails.
+Данный учебник был проверен с использованием Ubuntu Server 14.04 LTS. Если вы используете другой дистрибутив Linux, могут потребоваться другие действия для установления Rails.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
@@ -155,7 +155,7 @@
 
 [tables]: /develop/ruby/how-to-guides/table-service/
 
-[vm-instructions]: virtual-machines-linux-cli-create.md
+[vm-instructions]: virtual-machines-linux-classic-createportal.md
 
 
 <!-- External Links -->
@@ -175,4 +175,4 @@
 
 [new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,20 +1,20 @@
-Virtual Machine Scale Sets allow you to manage multiple VMs as a set. At a high level, scale sets have the following pros and cons:
+Масштабируемые наборы виртуальных машин позволяют управлять несколькими виртуальными машинами как единым набором. Если не вдаваться в подробности, масштабируемые наборы имеют следующие преимущества и недостатки:
 
-Pros:
+Преимущества:
 
-1. High availability. Each scale set puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [VM availability](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)).
-2. Easy integration with Azure Load Balancer and App Gateway.
-3. Easy integration with Azure Autoscale.
-4. Simplified deployment, management, and clean up of VMs.
-5. Support common Windows and Linux flavors, as well as custom images.
+1. обеспечение высокой доступности; Каждый масштабируемый набор помещает свои виртуальные машины в группу доступности с 5 доменами сбоя (FD) и 5 доменами обновления (UD) для обеспечения доступности (дополнительные сведения о доменах сбоя и обновления см. в статье [Доступность виртуальных машин](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)).
+2. Простая интеграция с балансировщиком нагрузки Azure и шлюзом приложений.
+3. Простая интеграция с функцией автоматического масштабирования Azure.
+4. Упрощение развертывания, удаления виртуальных машин и управления ими.
+5. Поддержка распространенных выпусков Windows и Linux, а также пользовательских образов.
 
-Cons:
+Недостатки:
 
-1. Cannot attach data disks to VM instances in a scale set. Instead, must use Blob Storage, Azure Files, Azure Tables, or other storage solution.
+1. Невозможность подключения дисков данных к экземплярам виртуальных машин в масштабируемом наборе. Вместо этого следует использовать хранилище BLOB-объектов, службу файлов Azure, таблицы Azure или другое решение для хранения.
 
-## Quick-Create Using Azure CLI
+## Быстрое создание с помощью Azure CLI
 
-If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a VM scale set:
+Если это еще не сделано, можно подключить [бесплатную пробную подписку Azure](https://azure.microsoft.com/pricing/free-trial/) и [Azure CLI](../articles/xplat-cli-install.md) [к вашей учетной записи Azure](../articles/xplat-cli-connect.md). После этого можно выполнить следующие команды, чтобы быстро создать набор масштабирования виртуальных машин:
 
 ```bash
 # make sure we are in resource manager mode 
@@ -29,9 +29,9 @@ azure config mode arm
 azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4$$w0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
-If you want to customize the location or image-urn, please look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+Если вы хотите настроить расположение или URN образа, воспользуйтесь командами `azure location list` и `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
-Once this command has returned, the scale set will have been created. This scale set will have a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we will be able to SSH into our VMs:
+После возвращения данных этой командой создается масштабируемый набор. Этот масштабируемый набор будет иметь балансировщик нагрузки с правилами NAT, сопоставляющими порт 50 000+i балансировщика нагрузки с портом 22 на виртуальной машине с индексом i. Таким образом, после выяснения полного доменного имени балансировщика нагрузки мы сможем получить доступ к виртуальным машинам по протоколу SSH:
 
 ```bash
 # list load balancers in the resource group we created
@@ -70,10 +70,12 @@ FQDN=${split_line[3]}
 ssh -p 50000 $FQDN
 ```
 
-## Next Steps
+## Дальнейшие действия
 
-For general information, check out the [main landing page for VM scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Общие сведения см. на [основной целевой странице для масштабируемых наборов виртуальных машин](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-For documentation, check out the [main documentation page for VM scale sets](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/).
+Документацию см. на [основной странице документации для масштабируемых наборов виртуальных машин](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/).
 
-For example Azure resource manager templates using VM scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
+Чтобы найти примеры шаблонов Azure Resource Manager с использованием масштабируемых наборов, выполните поиск строки "vmss" в [репозитории github с шаблонами быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates).
+
+<!---HONumber=AcomDC_0406_2016-->

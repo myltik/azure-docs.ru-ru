@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="masnider"
    manager="timlt"
-   editor="jessebenson; mani-ramaswamy"/>
+   editor="vturecek; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/13/2016"
-   ms.author="masnider;jesseb"/>
+   ms.date="03/25/2016"
+   ms.author="masnider;vturecek"/>
 
 # Обзор надежных служб
 Платформа Azure Service Fabric упрощает написание надежных служб с отслеживанием и без отслеживания состояния и управление такими службами. В этом документе:
@@ -131,7 +131,7 @@ Service Fabric управляет временем существования с
 
 - Вам нужно разработать свои настраиваемые поставщики состояний или использовать сторонние.*
 
-> [AZURE.NOTE]* Функции доступны при условии общей доступности пакета SDK.
+> [AZURE.NOTE] * Функции доступны при условии общей доступности пакета SDK.
 
 
 ## Дальнейшие действия
@@ -139,4 +139,4 @@ Service Fabric управляет временем существования с
 + [Продвинутое использование надежных служб](service-fabric-reliable-services-advanced-usage.md)
 + [Модель программирования надежных субъектов](service-fabric-reliable-actors-introduction.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="01/06/2016"
+   ms.date="03/31/2016"
    ms.author="lakasa"/>
 
 # Шифрование и расшифровка BLOB-объектов в хранилище Microsoft Azure с помощью хранилища ключей Azure
@@ -235,4 +235,4 @@
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Что такое самостоятельная регистрация для Azure? | Microsoft Azure"
-	description="Общие сведения о самостоятельной регистрации для Azure, управление процессом регистрации и руководства по настройке."
+	description="Общие сведения о самостоятельной регистрации для Azure, а также описание управления процессом регистрации и смены доменного имени DNS."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/05/2016"
-	ms.author="stevenpo"/>
+	ms.date="04/04/2016"
+	ms.author="curtand"/>
 
 
 # Что такое самостоятельная регистрация для Azure?
@@ -232,4 +232,4 @@
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

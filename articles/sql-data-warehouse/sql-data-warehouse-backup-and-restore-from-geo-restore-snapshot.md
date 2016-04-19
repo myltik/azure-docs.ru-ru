@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/28/2016"
    ms.author="sahajs;barbkess"/>
 
 # Восстановление базы данных после сбоя в хранилище данных SQL
 
-Геовосстановление позволяет восстанавливать базу данных из геоизбыточной резервной копии для создания новой базы данных. Базу данных можно создать на любом сервере в любом регионе Azure. Так как она в качестве источника использует геоизбыточную резервную копию, ее можно применять для восстановления базы данных, даже если база данных недоступна из-за сбоя. Помимо восстановления после сбоя геовосстановление можно использовать в других случаях, таких как перемещение или копирование базы данных в другой сервер или регион.
+Геовосстановление позволяет восстанавливать базу данных из геоизбыточной резервной копии для создания новой базы данных. Базу данных можно создать на любом сервере в любом регионе Azure. Так как в качестве источника геовосстановление использует геоизбыточную резервную копию, его можно применять для восстановления базы данных, даже если она недоступна из-за сбоя. Помимо восстановления после сбоя геовосстановление можно использовать в других случаях, таких как перемещение или копирование базы данных в другой сервер или регион.
 
 
 ## Время начала восстановления
@@ -41,16 +41,16 @@
 
 
 ### PowerShell
-Используйте Azure PowerShell для программного восстановления базы данных. Чтобы загрузить модуль Azure PowerShell, запустите [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Чтобы узнать версию, выполните командлет Get-Module -ListAvailable -Name Azure. В этой статье используются командлеты, выполняемые в Azure PowerShell версии 1.0.4.
+Используйте Azure PowerShell для программного восстановления базы данных. Чтобы загрузить модуль Azure PowerShell, запустите [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Чтобы узнать версию, выполните командлет Get-Module -ListAvailable -Name Azure. В этой статье используются командлеты, выполняемые в Azure PowerShell версии 1.0.4.
 
-Для восстановления базы данных используйте командлет [Start-AzureSqlDatabaseRecovery][].
+Для восстановления базы данных используйте командлет [Restore-AzureRmSqlDatabase][].
 
 1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
 3. Выберите подписку, содержащую базу данных, которую надо восстановить.
 4. Получите базу данных, которую требуется восстановить.
 5. Создайте запрос на восстановление базы данных.
-6. Отслеживайте ход восстановления.
+6. Проверьте состояние геовосстановленной базы данных.
 
 ```Powershell
 
@@ -59,17 +59,17 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
 # Get the database you want to recover
-$Database = Get-AzureRmSqlRecoverableDatabase -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>"
+$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$RecoveryRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourSourceServerName>" -SourceDatabase $Database -TargetDatabaseName "<NewDatabaseName>" -TargetServerName "<YourTargetServerName>"
+$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
 
-# Monitor progress of recovery operation
-Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationGuid $RecoveryRequest.RequestID
+# Verify that the geo-restored database is online
+$GeoRestoredDatabase.status
 
 ```
 
-Обратите внимание, что если вашим сервером является foo.database.windows.net, в приведенных выше командлетах PowerShell в качестве -ServerName используйте значение foo.
+>[AZURE.NOTE] Если вашим сервером является foo.database.windows.net, в приведенных выше командлетах PowerShell в качестве -ServerName используйте значение "foo".
 
 ### Интерфейс REST API
 Используйте REST для программного восстановления базы данных.
@@ -84,16 +84,16 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationG
 ## Настройка базы данных после восстановления
 Далее приведен контрольный список задач, который можно использовать для подготовки восстановленной базы данных к использованию в рабочей среде.
 
-1. **Обновление строк подключения**. Убедитесь, что строки подключения ваших клиентских средств указывают на только что восстановленную базу данных.
-2. **Изменение правил брандмауэра**. Проверьте правила брандмауэра на целевом сервере и убедитесь в том, что в них разрешены подключения от клиентских компьютеров или Azure к серверу и только что восстановленной базе данных.
-3. **Проверка имен для входа на сервер и пользователей базы данных**. Проверьте существование всех имен для входа, используемых вашим приложением, на сервере, на котором находится восстановленная база данных. Повторно создайте отсутствующие имена для входа и предоставьте им соответствующие разрешения на работу с восстановленной базой данных. 
-4. **Включение аудита**. Если для доступа к базе данных требуется аудит, то после восстановления базы данных необходимо включить аудит.
+1. **Обновление строк подключения**. Убедитесь, что строки подключения ваших клиентских инструментов указывают на только что восстановленную базу данных.
+2. **Изменение правил брандмауэра**. Проверьте правила брандмауэра на целевом сервере и убедитесь в том, что в них разрешены подключения клиентских компьютеров или Azure к серверу и только что восстановленной базе данных.
+3. **Проверка имен для входа на сервер и пользователей базы данных**. Проверьте существование всех имен для входа, используемых вашим приложением, на сервере, на котором размещена восстановленная база данных. Повторно создайте отсутствующие имена для входа и предоставьте им соответствующие разрешения на работу с восстановленной базой данных. 
+4. **Включение аудита**. Если для доступа к базе данных требуется аудит, то после восстановления базы данных его необходимо включить.
 
 Восстановленная база данных будет поддерживать прозрачное шифрование данных, если исходная база данных поддерживает прозрачное шифрование данных.
 
 
 ## Дальнейшие действия
-Дополнительные сведения о функциях обеспечения непрерывности бизнес-процессов в других выпусках базы данных Azure SQL см. в статье [Обзор непрерывности бизнес-процессов базы данных Azure SQL][].
+Чтобы узнать о функциях обеспечения непрерывности бизнес-процессов в выпусках базы данных Azure SQL, см. статью [Обзор непрерывности бизнес-процессов базы данных Azure SQL][].
 
 
 <!--Image references-->
@@ -103,7 +103,7 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationG
 [Finalize a recovered database]: sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
-[Start-AzureSqlDatabaseRecovery]: https://msdn.microsoft.com/library/azure/dn720224.aspx
+[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 [List Recoverable Databases]: http://msdn.microsoft.com/library/azure/dn800984.aspx
 [Get Recoverable Database]: http://msdn.microsoft.com/library/azure/dn800985.aspx
 [Create Database Recovery Request]: http://msdn.microsoft.com/library/azure/dn800986.aspx
@@ -113,4 +113,4 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationG
 [портал Azure]: https://portal.azure.com/
 [обратиться в службу поддержки]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

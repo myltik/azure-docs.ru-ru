@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="vturecek"
    manager="timlt"
-   editor="jessebenson"/>
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/15/2015"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
 # Начало работы со службами Reliable Services в Service Fabric
 
-Приложение Azure Service Fabric содержит одну или несколько служб, которые выполняют код. В этом руководстве показано, как создавать приложения Service Fabric с отслеживанием состояния и без отслеживания состояния с помощью [Reliable Services](service-fabric-reliable-services-introduction.md).
+Приложение Azure Service Fabric содержит одну или несколько служб, которые выполняют код. В этом руководстве показано, как создавать приложения Service Fabric с отслеживанием состояния и без его учета с помощью служб [Reliable Services](service-fabric-reliable-services-introduction.md).
 
 ## Создание службы без отслеживания состояния
 
@@ -42,9 +42,9 @@
 
 Откройте файл **HelloWorldStateless.cs** в проекте службы. В Service Fabric служба может выполнять любую бизнес-логику. API службы предоставляет две точки входа для кода.
 
- - Метод *RunAsync* с открытой точкой входа, в котором можно начать выполнение любой рабочей нагрузки, например долго выполняющихся вычислений.
+ - Вызывается метод *RunAsync* с открытой точкой входа, в котором можно начать выполнение любой рабочей нагрузки, например длительных вычислений.
 
-```C#
+```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
     ...
@@ -53,7 +53,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
  - Точка входа для обмена данными, в которой можно подключить любой стек связи, например веб-API ASP .NET. С ее помощью вы можете получать запросы от пользователей и других служб.
 
-```C#
+```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
@@ -62,26 +62,26 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 В этом учебнике рассматривается метод точки входа `RunAsync()`. Используя его, вы можете сразу же начать выполнение кода. Шаблон проекта включает пример реализации `RunAsync()`, который увеличивает показания счетчика.
 
-> [AZURE.NOTE]Дополнительные сведения о работе со стеком связи см. в статье [Начало работы со службами веб-API Microsoft Azure Service Fabric с саморазмещением OWIN](service-fabric-reliable-services-communication-webapi.md).
+> [AZURE.NOTE] Дополнительные сведения о работе со стеком связи см. в статье [Начало работы со службами веб-API Microsoft Azure Service Fabric с саморазмещением OWIN](service-fabric-reliable-services-communication-webapi.md).
 
 
 ### Метод RunAsync
 
-```C#
-protected override async Task RunAsync(CancellationToken cancelServiceInstance)
+```csharp
+protected override async Task RunAsync(CancellationToken cancellationToken)
 {
-    // TODO: Replace the following sample code with your own logic.
+    // TODO: Replace the following sample code with your own logic 
+    //       or remove this RunAsync override if it's not needed in your service.
 
-    int iterations = 0;
-    // This service instance continues processing until the instance is terminated.
-    while (!cancelServiceInstance.IsCancellationRequested)
+    long iterations = 0;
+
+    while (true)
     {
+        cancellationToken.ThrowIfCancellationRequested();
 
-        // Log what the service is doing
-        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", iterations++);
+        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", ++iterations);
 
-        // Pause for 1 second before continue processing.
-        await Task.Delay(TimeSpan.FromSeconds(1), cancelServiceInstance);
+        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
 }
 ```
@@ -105,7 +105,7 @@ Service Fabric представляет новый вид службы с отс
 
 Чтобы преобразовать значение счетчика без учета состояния в высокодоступное и постоянное (даже при перемещении или перезапуске службы), нужно использовать службу с отслеживанием состояния.
 
-В том же приложении *HelloWorld* можно добавить новую службу, щелкнув правой кнопкой мыши проект приложения и выбрав пункт **Добавить службу Service Fabric**.
+В том же приложении *HelloWorld* можно добавить новую службу, щелкнув правой кнопкой мыши ссылки на службы в проекте приложения и выбрав пункт **Добавить -> Новая служба Service Fabric**.
 
 ![Добавление службы в приложение Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
@@ -113,70 +113,63 @@ Service Fabric представляет новый вид службы с отс
 
 ![Создание службы с отслеживанием состояния в Service Fabric с помощью диалогового окна "Создание проекта"](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-Теперь в вашем приложении должно быть две службы: служба *HelloWorld* без отслеживания состояния и служба *HelloWorldStateful*с отслеживанием состояния.
+Теперь в вашем приложении должно быть две службы: служба *HelloWorldStateless* без отслеживания состояния и служба *HelloWorldStateful*с отслеживанием состояния.
+
+Служба с отслеживанием состояния имеет такие же точки входа, как и служба без отслеживания состояния. Основное различие заключается в доступности *поставщика состояний*, который надежно хранит состояние. Платформа Service Fabric поставляется с реализацией поставщика состояний [Надежные коллекции Reliable Collections](service-fabric-reliable-services-reliable-collections.md), которая позволяет создавать реплицированные структуры данных с помощью диспетчера надежных состояний. Служба Reliable Service с отслеживанием состояния использует этот поставщик состояний по умолчанию.
 
 Откройте **HelloWorldStateful.cs** в службе *HelloWorldStateful*, содержащей следующий метод RunAsync.
 
-```C#
-protected override async Task RunAsync(CancellationToken cancelServicePartitionReplica)
+```csharp
+protected override async Task RunAsync(CancellationToken cancellationToken)
 {
-    // TODO: Replace the following sample code with your own logic.
+    // TODO: Replace the following sample code with your own logic 
+    //       or remove this RunAsync override if it's not needed in your service.
 
-    // Gets (or creates) a replicated dictionary called "myDictionary" in this partition.
     var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 
-    // This partition's replica continues processing until the replica is terminated.
-    while (!cancelServicePartitionReplica.IsCancellationRequested)
+    while (true)
     {
+        cancellationToken.ThrowIfCancellationRequested();
 
-        // Create a transaction to perform operations on data within this partition's replica.
         using (var tx = this.StateManager.CreateTransaction())
         {
+            var result = await myDictionary.TryGetValueAsync(tx, "Counter");
 
-            // Try to read a value from the dictionary whose key is "Counter-1".
-            var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
-
-            // Log whether the value existed or not.
             ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
-            // If the "Counter-1" key doesn't exist, set its value to 0
-            // else add 1 to its current value.
-            await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
+            await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
 
-            // Committing the transaction serializes the changes and writes them to this partition's secondary replicas.
-            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are
-            // discarded, and nothing is sent to this partition's secondary replicas.
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // discarded, and nothing is saved to the secondary replicas.
             await tx.CommitAsync();
         }
 
-        // Pause for one second before continuing processing.
-        await Task.Delay(TimeSpan.FromSeconds(1), cancelServicePartitionReplica);
+        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
-}
 ```
 
 ### Метод RunAsync
 
-Служба с отслеживанием состояния имеет такие же точки входа, как и служба без отслеживания состояния. Основное различие заключается в доступности Reliable Collections и диспетчера состояний, так как метод `RunAsync()` работает одинаково в службах с отслеживанием состояния и без него. Однако в службе с отслеживанием состояния платформа выполняет дополнительные действия от вашего имени перед выполнением `RunAsync()`. Эти действия могут включать подготовку диспетчера состояний и коллекций Reliable Collections к использованию.
+`RunAsync()` работает одинаково в службах с отслеживанием и без отслеживания состояния. Однако в службе с отслеживанием состояния платформа выполняет дополнительные действия от вашего имени перед выполнением `RunAsync()`. Эти действия могут включать подготовку диспетчера надежных состояний и коллекций Reliable Collections к использованию.
 
-### Reliable Collections и диспетчер состояний
+### Reliable Collections и диспетчер надежных состояний
 
-```C#
+```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-*IReliableDictionary* — это реализация словаря, которая позволяет надежно хранить состояние службы. Она входит в состав встроенных коллекций [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) в Service Fabric. В Service Fabric с помощью Reliable Collections можно хранить данные непосредственно в службе без использования внешнего постоянного хранилища. Таким образом можно обеспечить высокую доступность данных. Service Fabric выполняет эту задачу путем автоматического создания нескольких *реплик* службы и управления ими. Кроме того, платформа предоставляет API-интерфейс, который упрощает управление этими репликами и переходы между их состояниями.
+*IReliableDictionary* — это реализация словаря, которая позволяет надежно хранить состояние службы. В Service Fabric с помощью Reliable Collections можно хранить данные непосредственно в службе без использования внешнего постоянного хранилища. Надежные коллекции Reliable Collections делают данные высокодоступными. Service Fabric выполняет эту задачу путем автоматического создания нескольких *реплик* службы и управления ими. Кроме того, платформа предоставляет API-интерфейс, который упрощает управление этими репликами и переходы между их состояниями.
 
 В Reliable Collections можно хранить любые типы объектов .NET, включая пользовательские типы. Необходимо только учитывать следующее.
 
- - Service Fabric делает состояние высокодоступным, *реплицируя* его между узлами и сохраняя на локальном диске. Это означает, что все объекты, хранящиеся в Reliable Collections, должны поддерживать *сериализацию*. По умолчанию в Reliable Collections для сериализации используется [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx). Поэтому при использовании сериализатора по умолчанию убедитесь, что ваши типы [поддерживаются сериализатором контрактов данных](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx).
+ - Service Fabric делает состояние высокодоступным, *реплицируя* его между узлами и сохраняя на локальном диске, а Reliable Collections сохраняют ваши данные на локальном диске каждой реплики. Это означает, что все объекты, хранящиеся в Reliable Collections, должны поддерживать *сериализацию*. По умолчанию в Reliable Collections для сериализации используется [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx). Поэтому при использовании сериализатора по умолчанию убедитесь, что ваши типы [поддерживаются сериализатором контрактов данных](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx).
 
  - Когда вы зафиксируете транзакции в Reliable Collections, объекты реплицируются и становятся высокодоступными. Объекты, сохраненные в Reliable Collections, хранятся в локальной памяти вашей службы. Это означает, что у вас есть локальная ссылка на объект.
 
-    Очень важно не изменять локальные экземпляры этих объектов без обновления коллекции в транзакции, так как эти изменения не реплицируются автоматически.
+    Очень важно не изменять локальные экземпляры этих объектов без обновления коллекции в транзакции, так как эти изменения не реплицируются автоматически. Необходимо повторно вставить объект в словарь или использовать один из методов *update* в словаре.
 
-Диспетчер состояний автоматически управляет коллекциями Reliable Collections. Просто запросите у диспетчера состояний имя коллекции в любое время и в любом расположении службы, и вы гарантированно получите ссылку. Мы не рекомендуем сохранять ссылки на экземпляры коллекции в переменные или свойства членов класса. Необходимо внимательно следить, чтобы ссылка указывала на экземпляр на протяжении всего жизненного цикла службы. Диспетчер состояний выполняет за вас эту работу. Кроме того, он оптимизирован для повторных визитов.
+Диспетчер надежных состояний автоматически управляет коллекциями Reliable Collections. Просто запросите у диспетчера надежных состояний имя коллекции в любое время и в любом расположении службы, и вы гарантированно получите ссылку. Мы не рекомендуем сохранять ссылки на экземпляры коллекции в переменные или свойства членов класса. Необходимо внимательно следить, чтобы ссылка указывала на экземпляр на протяжении всего жизненного цикла службы. Диспетчер надежных состояний выполняет за вас эту работу. Кроме того, он оптимизирован для повторных визитов.
 
 ### Транзакционные и асинхронные операции
 
@@ -191,9 +184,9 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-В коллекциях Reliable Collections повторяются многие операции, которые есть в их аналогах, `System.Collections.Generic` и `System.Collections.Concurrent`, включая LINQ. Однако операции в надежных коллекциях являются асинхронными. Это происходит потому, что операции записи в Reliable Collections *реплицируются*. Эти операции отправляются другим репликам службы на разных узлах для обеспечения высокого уровня доступности.
+В коллекциях Reliable Collections повторяются многие операции, которые есть в их аналогах, `System.Collections.Generic` и `System.Collections.Concurrent`, исключая LINQ. Операции в надежных коллекциях являются асинхронными. Это вызвано тем, что операции записи с Reliable Collections выполняют операции ввода-вывода для репликации и сохранения данных на диске.
 
-Они также поддерживают *транзакционные* операции, которые позволяют сохранять согласованное состояние для нескольких коллекций Reliable Collections. Например, вы можете вывести рабочий элемент из надежной очереди, выполнить с ним какую-либо операцию и сохранить результат в надежном словаре — и это все в рамках одной транзакции. Такая операция называется атомарной. Предусматривается, что либо вся операция завершится успешно, либо она не завершится вообще. Если ошибка возникнет после выведения элемента из очереди, но до сохранения результата, будет выполнен откат всей транзакции, а элемент останется в очереди для обработки.
+Операции Reliable Collections являются *транзакционными*, так что вы можете сохранять согласованное состояние между несколькими Reliable Collections и операциями. Например, вы можете исключить рабочий элемент из надежной очереди, выполнить над ним какую-либо операцию и сохранить результат в надежном словаре, и это все в пределах одной транзакции. Такая операция называется атомарной. Предусматривается, что либо вся операция завершится успешно, либо она будет полностью отменена. Если ошибка возникнет после выведения элемента из очереди, но до сохранения результата, будет выполнен откат всей транзакции, а элемент останется в очереди для обработки.
 
 ## Выполнение приложения
 
@@ -201,7 +194,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 Запустив службы, вы можете просмотреть созданные события трассировки событий Windows в окне **События диагностики**. Обратите внимание, что в приложении отображаются события как из службы без отслеживания состояния, так и из службы с отслеживанием состояния. Поток можно приостановить, нажав кнопку **Приостановить**. Затем можно просмотреть подробные сведения о сообщении, развернув его.
 
->[AZURE.NOTE]Перед запуском приложения убедитесь, что кластер локальной разработки запущен. Сведения о настройке локальной среды см. в [руководстве по началу работы](service-fabric-get-started.md).
+>[AZURE.NOTE] Перед запуском приложения убедитесь, что кластер локальной разработки запущен. Сведения о настройке локальной среды см. в [руководстве по началу работы](service-fabric-get-started.md).
 
 ![Просмотр событий диагностики в Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
@@ -220,4 +213,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [Справочник разработчика по надежным службам](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

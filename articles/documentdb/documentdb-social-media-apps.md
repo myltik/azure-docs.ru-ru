@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/28/2016" 
-	ms.author="ealsur@hotmail.com"/>
+	ms.author="mimig"/>
 
 # Использование социальных сетей с помощью DocumentDB
 
@@ -182,7 +182,7 @@ Azure DocumentDB обеспечивает индексирование всех 
 
 Теперь, когда я заинтересовал вас, скорее всего вы думаете, что нужна кандидатская степень по математике, чтобы извлечь эти шаблоны и информацию из простых баз данных и файлов, но это не так.
 
-[Машинное обучение Azure](https://azure.microsoft.com/services/machine-learning/), являющееся частью [Cortana Analytics Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), — это полностью управляемая облачная служба, которая позволяет создавать рабочие процессы с помощью алгоритмов, используя простой интерфейс с перетаскиванием, а также позволяет программировать собственные алгоритмы на [R] (https://en.wikipedia.org/wiki/R_(programming_language)) или использовать некоторые встроенные и готовые к использованию API, например [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) или [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Машинное обучение Azure](https://azure.microsoft.com/services/machine-learning/), являющееся частью [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), — это полностью управляемая облачная служба, которая позволяет создавать рабочие процессы с помощью алгоритмов, используя простой интерфейс с перетаскиванием, а также позволяет программировать собственные алгоритмы на [R] (https://en.wikipedia.org/wiki/R_(programming_language)) или использовать некоторые встроенные и готовые к использованию API, например [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) или [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 ## Заключение
 
@@ -198,4 +198,4 @@ Azure DocumentDB обеспечивает индексирование всех 
 
 Или узнайте больше о DocumentDB, следуя [схеме обучения DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

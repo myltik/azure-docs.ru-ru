@@ -1,11 +1,11 @@
 <properties
    pageTitle="Reliable Actors в Service Fabric | Microsoft Azure"
-   description="Описывает, как субъекты Reliable Actors используют компоненты платформы Service Fabric, охватывая основные понятия с точки зрения разработчиков субъектов."
+   description="В этой статье описывается структура субъектов Reliable Actors в службах Reliable Services и работа с функциями платформы Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
    manager="timlt"
-   editor="vturecek"/>
+   editor="amanbha"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,233 +13,239 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/15/2016"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
 # Использование платформы Service Fabric надежными субъектами
 
-Субъекты используют модель приложений Azure Service Fabric для управления жизненным циклом приложения. Каждый тип субъекта сопоставляется с [типом службы](service-fabric-application-model.md#describe-a-service) Service Fabric. Код субъекта [упаковывается](service-fabric-application-model.md#package-an-application) в виде приложения Service Fabric и [развертывается](service-fabric-deploy-remove-applications.md#deploy-an-application) в кластере.
+В этой статье объясняется, как работают субъекты Reliable Actors на платформе Service Fabric. Субъекты Reliable Actors выполняются в среде, размещенной в реализации службы Reliable Services с отслеживанием состояния под названием *служба субъектов*. Служба субъектов содержит все компоненты, необходимые для управления жизненным циклом и диспетчеризации относящихся к субъектам сообщений:
 
-## Пример концепции модели приложений для субъектов
+ - Среда выполнения субъектов управляет жизненным циклом и сбором мусора, а также обеспечивает однопоточный доступ.
+ - Прослушиватель удаленных взаимодействий субъекта службы принимает вызовы удаленного доступа к субъектам и отправляет их диспетчеру для маршрутизации в соответствующий экземпляр субъекта.
+ - Поставщик состояний субъекта служит оболочкой для поставщиков состояний (например для поставщика состояний надежных коллекций) и предоставляет адаптер для управления состоянием субъекта.
 
-Рассмотрим пример проекта субъекта, [созданный с помощью Visual Studio](service-fabric-reliable-actors-get-started.md), чтобы проиллюстрировать некоторые описанные выше понятия.
+Вместе эти компоненты образуют платформу Reliable Actors.
 
-Манифест приложения, манифест службы и файл конфигурации Settings.xml включаются в проект службы субъекта при создании решения в Visual Studio. Это показано на приведенном ниже снимке экрана.
+## Структура служб
 
-![Проект, созданный с помощью Visual Studio][1]
+Поскольку служба субъектов сама по себе является службой Reliable Services, понятия [модели приложений](service-fabric-application-model.md), жизненного цикла, [упаковки](service-fabric-application-model.md#package-an-application), [развертывания]((service-fabric-deploy-remove-applications.md#deploy-an-application), обновления и масштабирования, связанные с Reliable Services, также относятся и к службам субъектов.
 
-Тип приложения и версию приложения, в которое упакован субъект, можно найти, просмотрев манифест приложения, включенный в проект для службы субъекта. Примером этого является следующий фрагмент манифеста приложения.
+![Структура службы субъектов][1]
 
-~~~
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                     ApplicationTypeName="VoiceMailBoxApplication"
-                     ApplicationTypeVersion="1.0.0.0"
-                     xmlns="http://schemas.microsoft.com/2011/01/fabric">
-~~~
+На представленной выше схеме показана связь между платформами приложений Service Fabric и кодом пользователя. Синие элементы обозначают платформу приложений служб Reliable Services, оранжевые — платформу Reliable Actor, а зеленые — код пользователя.
 
-Тип службы, с которым сопоставляется тип субъекта, можно найти, просмотрев манифест службы, включенный в проект для службы субъекта. Примером этого является следующий фрагмент манифеста службы.
 
-~~~
-<StatefulServiceType ServiceTypeName="VoiceMailBoxActorServiceType" HasPersistedState="true">
-~~~
+В службах Reliable Services служба наследует класс `StatefulService`, производный от `StatefulServiceBase` (`StatelessService` для служб без отслеживания состояния). В субъектах Reliable Actors вы используете службу субъектов с другой реализацией класса `StatefulServiceBase` — она реализует шаблон субъекта, где выполняются ваши объекты. Поскольку служба субъектов — всего лишь реализация класса `StatefulServiceBase`, вы можете написать свою собственную службу, производную от класса `ActorService`, и реализовать в ней функции уровня службы таким же образом, как при наследовании класса `StatefulService`, например:
 
-Когда пакет приложения создается с помощью Visual Studio, в журналах в окне выходных данных построения можно найти информацию о расположении пакета приложения. Например:
+ - резервное копирование и восстановление службы;
+ - общие функции для всех субъектов, например автоматическое выключение;
+ - вызовы удаленных взаимодействий для самой службы субъектов, а также для любого отдельного субъекта. 
 
-    -------- Package started: Project: VoiceMailBoxApplication, Configuration: Debug x64 ------
-    VoiceMailBoxApplication -> C:\samples\Samples\Actors\VS2015\VoiceMailBox\VoiceMailBoxApplication\pkg\Debug
+### Работа со службой субъектов
 
-Ниже приведен частичный листинг указанного выше расположения (полный листинг опущен для краткости).
+Экземпляры субъектов имеют доступ к службе субъектов, в которой они выполняются. Через службу субъектов они могут программным образом получить контекст службы, включая идентификатор секции, имя службы, имя приложения и другие данные конкретной платформы Service Fabric:
 
-    C:\samples\Samples\Actors\VS2015\VoiceMailBox\VoiceMailBoxApplication\pkg\Debug>tree /f
-    Folder PATH listing
-    Volume serial number is 303F-6F91
-    C:.
-    │   ApplicationManifest.xml
-    │
-    ├───VoiceMailBoxActorServicePkg
-    │   │   ServiceManifest.xml
-    │   │
-    │   ├───Code
-    │   │   │   Microsoft.ServiceFabric.Actors.dll
-    │   │   │       :
-    │   │   │   Microsoft.ServiceFabric.Services.dll
-    │   │   │   ServiceFabricServiceModel.dll
-    │   │   │   System.Fabric.Common.Internal.dll
-    │   │   │   System.Fabric.Common.Internal.Strings.dll
-    │   │   │   VoiceMailBox.exe
-    │   │   │   VoiceMailBox.exe.config
-    │   │   │   VoiceMailBox.Interfaces.dll
-    │   │   │
-    │   │   └───ru-RU
-    │   │           System.Fabric.Common.Internal.Strings.resources.dll
-    │   │
-    │   └───Config
-    │           Settings.xml
-    │
-    └───VoicemailBoxWebServicePkg
-        │   ServiceManifest.xml
-        │
-        └───Code
-            │   Microsoft.Owin.dll
-            │       :
-            │   Microsoft.ServiceFabric.Services.dll
-            │       :
-            │   System.Fabric.Common.Internal.dll
-            │   System.Fabric.Common.Internal.Strings.dll
-            │       :
-            │   VoiceMailBox.Interfaces.dll
-            │   VoicemailBoxWebService.exe
-            │   VoicemailBoxWebService.exe.config
-            │
-            └───ru-RU
-                    System.Fabric.Common.Internal.Strings.resources.dll
+```csharp
+Task MyActorMethod()
+{
+    Guid partitionId = this.ActorService.Context.PartitionId;
+    string serviceTypeName = this.ActorService.Context.ServiceTypeName;
+    Uri serviceInstanceName = this.ActorService.Context.ServiceName;
+    string applicationInstanceName = this.ActorService.Context.CodePackageActivationContext.ApplicationName;
+}
+```
 
-В листинге выше отображаются сборки, которые реализуют субъект VoicemailBox, включаемый в пакет кода внутри пакета службы, который находится внутри пакета приложения.
+Как и все службы Reliable Services, служба субъектов должна быть зарегистрирована в среде выполнения Service Fabric с указанием типа службы. Для того чтобы служба субъектов выполняла экземпляры вашей службы, тип вашего субъекта также нужно зарегистрировать в службе субъектов. Метод регистрации `ActorRuntime` выполняет это действие для субъектов. В самом простом случае можно просто зарегистрировать тип субъекта, и служба субъектов будет использоваться по умолчанию с предустановленными параметрами:
 
-Последующее управление приложением (т. е. обновления и окончательное удаление) выполняется также с помощью механизмов управления приложениями Service Fabric. Дополнительные сведения см. в разделах о [модели приложений](service-fabric-application-model.md), [развертывании и удалении приложений](service-fabric-deploy-remove-applications.md) и [обновлении приложений](service-fabric-application-upgrade.md).
+```csharp
+static class Program
+{
+    private static void Main()
+    {
+        ActorRuntime.RegisterActorAsync<MyActor>().GetAwaiter().GetResult();
 
-## Масштабируемость для служб субъектов
-Администраторы кластера могут создать одну или несколько служб субъектов для каждого типа службы в кластере. Каждая из этих служб субъектов может иметь одну или несколько секций (аналогично любой другой службе Service Fabric). Возможность создания нескольких служб одного типа (который сопоставляется с типом субъекта) и возможность создания нескольких секций для службы позволяют масштабировать приложение субъекта. Для получения дополнительных сведений см. статью о [масштабируемости](service-fabric-concepts-scalability.md).
+        Thread.Sleep(Timeout.Infinite);
+    }
+}
+```  
 
-> [AZURE.NOTE] Количество [экземпляров](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) служб субъекта без отслеживания состояния должно быть равным 1. Наличие более одного экземпляра службы субъекта без отслеживания состояний в секции не поддерживается. Таким образом службы субъекта без отслеживания состояний не имеют возможности увеличения количества экземпляров для достижения масштабируемости. Они должны использовать параметры масштабирования, описанные в [статье о масштабируемости](service-fabric-concepts-scalability.md).
+Также можно сформировать саму службу субъектов, воспользовавшись лямбда-выражением, предоставляемым методом регистрации. Это позволяет настраивать службу субъектов, а также явно формировать экземпляры субъектов, в которые можно закладывать зависимости для субъекта через конструктор:
+
+```csharp
+static class Program
+{
+    private static void Main()
+    {
+        ActorRuntime.RegisterActorAsync<MyActor>(
+            (context, actorType) => new ActorService(context, actorType, () => new MyActor()))
+            .GetAwaiter().GetResult();
+
+        Thread.Sleep(Timeout.Infinite);
+    }
+}
+```
+
+### Методы службы субъектов
+
+Служба субъектов реализует метод `IActorService`, который в свою очередь реализует метод `IService`. Это интерфейс используется удаленными взаимодействиями служб Reliable Services, что позволяет вызывать удаленные процедуры в методах службы. Он содержит методы уровня службы, которые можно вызывать удаленно с помощью удаленных взаимодействий служб.
+
+
+#### Перечисление субъектов
+
+Служба субъектов позволяет клиенту перечислять метаданные о размещенных службой субъектах. Поскольку служба субъектов — это секционированная служба с отслеживанием состояния, перечисление выполняется по каждому разделу. Так как каждая секция может содержать большое количество субъектов, перечисление возвращается как набор постраничных результатов. Страницы зацикливаются до тех пор, пока все они не будут прочитаны. В следующем примере показано, как создать список всех активных субъектов в одной секции службы субъектов:
+
+```csharp
+IActorService actorServiceProxy = ActorServiceProxy.Create(
+    new Uri("fabric:/MyApp/MyService"), partitionKey);
+
+ContinuationToken continuationToken = null;
+List<ActorInformation> activeActors = new List<ActorInformation>();
+
+do
+{
+    PagedResult<ActorInformation> page = await actorServiceProxy.GetActorsAsync(continuationToken, cancellationToken);
+                
+    activeActors.AddRange(page.Items.Where(x => x.IsActive));
+
+    continuationToken = page.ContinuationToken;
+}
+while (continuationToken != null);
+```
+
+#### Удаление субъектов
+
+В службе субъектов имеется также функция удаления субъектов:
+
+```csharp
+ActorId actorToDelete = new ActorId(id);
+
+IActorService myActorServiceProxy = ActorServiceProxy.Create(
+    new Uri("fabric:/MyApp/MyService"), actorToDelete);
+            
+await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
+```
+
+Дополнительные сведения об удалении субъектов и их состояний см. в [документации по жизненному циклу субъектов](service-fabric-reliable-actors-lifecycle.md).
+
+### Пользовательская служба субъектов
+
+С помощью лямбда-выражения для регистрации субъектов можно также зарегистрировать собственную пользовательскую службу субъектов, производную от `ActorService`, и реализовать в ней собственные функции уровня службы. Для этого нужно написать класс службы, наследующий класс `ActorService`. Пользовательская служба субъектов наследует все функции среды выполнения субъектов от класса `ActorService` и может использовать ваши собственные методы.
+
+```csharp
+class MyActorService : ActorService
+{
+    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
+        : base(context, typeInfo, newActor)
+    { }
+}
+```
+
+```csharp
+static class Program
+{
+    private static void Main()
+    {
+        ActorRuntime.RegisterActorAsync<MyActor>(
+            (context, actorType) => new MyActorService(context, actorType, () => new MyActor()))
+            .GetAwaiter().GetResult();
+
+        Thread.Sleep(Timeout.Infinite);
+    }
+}
+```
+
+
+#### Реализация резервного копирования и восстановления субъектов
+
+ В следующем примере пользовательская служба субъектов предоставляет метод для резервного копирования данных субъектов с использованием прослушивателя удаленных взаимодействий, уже присутствующего в `ActorService`:
+
+```csharp
+public interface IMyActorService : IService
+{
+    Task BackupActorsAsync();
+}
+
+class MyActorService : ActorService, IMyActorService
+{
+    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
+        : base(context, typeInfo, newActor)
+    { }
+
+    public Task BackupActorsAsync()
+    {
+        return this.BackupAsync(new BackupDescription(...));
+    }
+}
+```
+
+В этом примере `IMyActorService` — это контракт удаленного взаимодействия, который реализует класс `IService`, а затем реализуется классом `MyActorService`. При добавлении удаленного контракта методы в классе `IMyActorService` становятся доступными для клиента за счет создания удаленного прокси с помощью метода `ActorServiceProxy`:
+
+```csharp
+IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
+    new Uri("fabric:/MyApp/MyService"), ActorId.CreateRandom());
+
+await myActorServiceProxy.BackupActorsAsync();
+```
+
+
+## Модель приложения
+
+Службы субъектов — это службы Reliable Services, поэтому используют точно такую же модель приложений. В то же время средства сборки платформы субъектов создают для вас множество файлов модели приложений.
+
+### Манифест службы
+ 
+Содержимое файла ServiceManifest.xml для службы субъектов создается средствами сборки платформы субъектов автоматически. А именно:
+
+ - Тип службы субъектов. Имя типа создается с учетом имени проекта субъекта. В зависимости от атрибута сохраняемости у субъекта устанавливается флаг HasPersistedState.
+ - Пакет кода.
+ - Пакет конфигурации.
+ - Ресурсы и конечные точки
+
+### Манифест приложения
+
+Средства сборки платформы субъектов автоматически создают для вашей службы субъектов определение по умолчанию. Свойства службы по умолчанию заполняются средствами сборки:
+
+ - Счетчик наборов реплик определяется атрибутом сохраняемости у субъекта. Каждый раз, когда атрибут сохраняемости у субъекта изменяется, счетчик наборов реплик в определении службы по умолчанию сбрасывается.
+ - Устанавливается схема секционирования и диапазон Uniform Int64 с полным диапазоном ключей Int64.
 
 ## Основные понятия о секции Service Fabric для субъектов
-Идентификатор субъекта сопоставляется с секцией службы субъекта. Субъект создается в пределах секции, с которой сопоставлен его идентификатор. При создании субъекта среда выполнения субъектов записывает [событие EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) указывающее, в какой секции создается субъект. Ниже приведен пример этого события, который указывает, что субъект с идентификатором `-5349766044453424161` создан в разделе `b6afef61-be9a-4492-8358-8f473e5d2487` службы `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService` (приложение `fabric:/VoicemailBoxAdvancedApplication`).
 
-    {
-      "Timestamp": "2015-04-26T10:12:20.2485941-07:00",
-      "ProviderName": "Microsoft-ServiceFabric-Actors",
-      "Id": 5,
-      "Message": "Actor activated. Actor type: Microsoft.Azure.Service.Fabric.Samples.VoicemailBox.VoiceMailBoxActor, actor ID: -5349766044453424161, stateful: True, replica/instance ID: 130,745,418,574,851,853, partition ID: 0583c745-1bed-43b2-9545-29d7e3448156.",
-      "EventName": "ActorActivated",
-      "Payload": {
-        "actorType": "Microsoft.Azure.Service.Fabric.Samples.VoicemailBox.VoiceMailBoxActor",
-        "actorId": "-5349766044453424161",
-        "isStateful": "True",
-        "replicaOrInstanceId": "130906628008120392",
-        "partitionId": "b6afef61-be9a-4492-8358-8f473e5d2487",
-        "serviceName": "fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService",
-        "applicationName": "fabric:/VoicemailBoxAdvancedApplication",
-      }
-    }
+Службы субъектов — это секционированные службы с отслеживанием состояния. Каждая секция службы субъектов содержит набор субъектов. Секции службы автоматически распределяются между несколькими узлами Service Fabric. В результате распространяются экземпляры субъектов.
 
-Другой субъект с идентификатором `-4952641569324299627` создан в другой секции `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a` той же службы, о чем свидетельствует событие ниже.
+![Секционирование и распределение субъектов][5]
 
-    {
-      "Timestamp": "2015-04-26T15:06:56.93882-07:00",
-      "ProviderName": "Microsoft-ServiceFabric-Actors",
-      "Id": 5,
-      "Message": "Actor activated. Actor type: Microsoft.Azure.Service.Fabric.Samples.VoicemailBox.VoiceMailBoxActor, actor ID: -4952641569324299627, stateful: True, replica/instance ID: 130,745,418,574,851,853, partition ID: c146fe53-16d7-4d96-bac6-ef54613808ff.",
-      "EventName": "ActorActivated",
-      "Payload": {
-        "actorType": "Microsoft.Azure.Service.Fabric.Samples.VoicemailBox.VoiceMailBoxActor",
-        "actorId": "-4952641569324299627",
-        "isStateful": "True",
-        "replicaOrInstanceId": "130745418574851853",
-        "partitionId": "5405d449-2da6-4d9a-ad75-0ec7d65d1a2a",
-        "serviceName": "fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService",
-        "applicationName": "fabric:/VoicemailBoxAdvancedApplication",
-      }
-    }
+Службы Reliable Services создаются с использованием различных схем и диапазонов ключей секционирования. Служба субъектов использует схему секционирования Int64 с полным диапазоном ключей Int64 для сопоставления субъектов и секций.
 
-> [AZURE.NOTE] Для краткости некоторые поля указанных выше событий опущены.
+### Идентификатор субъекта
 
-Идентификатор секции может использоваться для получения других сведений о секции. Например, с помощью средства [Обозреватель Service Fabric](service-fabric-visualizing-your-cluster.md) можно просмотреть сведения о секции, а также о службе и приложении, к которым она принадлежит. На следующем снимке экрана показаны сведения о секции `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`, которая содержала субъект с идентификатором `-4952641569324299627` в приведенном выше примере.
-
-![Сведения о секции в обозревателе Service Fabric][3]
-
-Субъекты могут программным образом получить идентификатор секции, имя службы, имя приложения и другие сведения для конкретной платформы Service Fabric через `Host.ActivationContext` и членов `Host.StatelessServiceInitialization` или `Host.StatefulServiceInitializationParameters` базового класса, от которого тип субъекта является производным. В приведенном ниже фрагменте кода показан пример.
+Каждый созданный в службе субъект имеет уникальный идентификатор, представляемый классом `ActorId`. `ActorId` — это непрозрачное значение идентификатора, которое можно использовать для равномерного распределения субъектов между секциями служб за счет генерации идентификаторов случайным образом:
 
 ```csharp
-public void ActorMessage(StatefulActorBase actor, string message, params object[] args)
-{
-    if (this.IsEnabled())
-    {
-        string finalMessage = string.Format(message, args);
-        ActorMessage(
-            actor.GetType().ToString(),
-            actor.Id.ToString(),
-            actor.ActorService.ServiceInitializationParameters.CodePackageActivationContext.ApplicationTypeName,
-            actor.ActorService.ServiceInitializationParameters.CodePackageActivationContext.ApplicationName,
-            actor.ActorService.ServiceInitializationParameters.ServiceTypeName,
-            actor.ActorService.ServiceInitializationParameters.ServiceName.ToString(),
-            actor.ActorService.ServiceInitializationParameters.PartitionId,
-            actor.ActorService.ServiceInitializationParameters.ReplicaId,
-            FabricRuntime.GetNodeContext().NodeName,
-            finalMessage);
-    }
-}
+ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
 ```
 
-### Основные понятия о секциях Service Fabric для субъектов без отслеживания состояний
-Субъекты без отслеживания состояний создаются внутри раздела службы Service Fabric без отслеживания состояний. Идентификатор субъекта определяет, под каким разделом создается субъект. Количество [экземпляров](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) служб субъекта без отслеживания состояния должно быть равным 1. Изменение количества экземпляров на любое другое значение не поддерживается. Таким образом, субъект создается внутри одного экземпляра службы в секции.
-
-> [AZURE.TIP] Среда выполнения субъектов Fabric генерирует некоторые [события, связанные с экземплярами субъектов без отслеживания состояния](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateless-actor-instances). Они полезны при диагностике и мониторинге производительности.
-
-При создании субъекта без отслеживания состояния среда выполнения субъектов записывает [событие EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events), указывающее, в какой секции и в каком экземпляре создается субъект. Ниже приведен пример такого события. Он указывает, что субъект с идентификатором `abc` создан в экземпляре `130745709600495974` секции `8c828833-ccf1-4e21-b99d-03b14d4face3` службы `fabric:/HelloWorldApplication/HelloWorldActorService` (приложение `fabric:/HelloWorldApplication`).
-
-    {
-      "Timestamp": "2015-04-26T18:17:46.1453113-07:00",
-      "ProviderName": "Microsoft-ServiceFabric-Actors",
-      "Id": 5,
-      "Message": "Actor activated. Actor type: HelloWorld.HelloWorld, actor ID: abc, stateful: False, replica/instance ID: 130,745,709,600,495,974, partition ID: 8c828833-ccf1-4e21-b99d-03b14d4face3.",
-      "EventName": "ActorActivated",
-      "Payload": {
-        "actorType": "HelloWorld.HelloWorld",
-        "actorId": "abc",
-        "isStateful": "False",
-        "replicaOrInstanceId": "130745709600495974",
-        "partitionId": "8c828833-ccf1-4e21-b99d-03b14d4face3",
-        "serviceName": "fabric:/HelloWorldApplication/HelloWorldActorService",
-        "applicationName": "fabric:/HelloWorldApplication",
-      }
-    }
-
-> [AZURE.NOTE] Для краткости некоторые поля указанного выше события опущены.
-
-### Основные понятия о секциях Service Fabric для субъектов с отслеживанием состояний
-Субъекты с отслеживанием состояний создаются внутри раздела службы Service Fabric с отслеживанием состояний. Идентификатор субъекта определяет, под каким разделом создается субъект. Каждая секция службы может иметь одну или несколько [реплик](service-fabric-availability-services.md#availability-of-service-fabric-stateful-services), которые размещаются на разных узлах кластера. Наличие нескольких реплик повышает надежность состояния субъекта. Диспетчер ресурсов Azure оптимизирует размещение в зависимости от имеющегося сбоя и доменов обновления в кластере. Две реплики одной секции никогда не размещаются на одном узле. Субъекты всегда создаются в первичной реплике секции, с которой сопоставляется их идентификатор.
-
-> [AZURE.TIP] Среда выполнения субъектов Fabric генерирует некоторые [события, связанные с репликами субъекта с отслеживанием состояния](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas). Они полезны при диагностике и мониторинге производительности.
-
-Помните, что в [ранее представленном примере VoiceMailBoxActor](#service-fabric-partition-concepts-for-actors) субъект с идентификатором `-4952641569324299627` был создан в секции `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`. Событие EventSource из этого примера указало также то, что субъект создан в реплике `130745418574851853` этой секции. Она была первичной репликой этой секции во время создания субъекта. На следующем снимке экрана Service Fabric Explorer это подтверждается.
-
-![Первичная реплика в обозревателе Service Fabric][4]
-
-## Выбор поставщиков состояний субъекта
-Некоторые поставщики состояний субъектов по умолчанию являются частью среды выполнения субъектов. Чтобы выбрать соответствующего поставщика состояний для службы субъекта, необходимо понимать, как поставщики состояний используют базовые возможности платформы Service Fabric для обеспечения высокой доступности состояния субъекта.
-
-По умолчанию субъект с отслеживанием состояния использует поставщика состояний субъекта из хранилища ключей и значений. Этот поставщик состояний построен на основе распределенного хранилища ключей и значений, предоставляемого платформой Service Fabric. Состояние надежно сохраняется на локальном диске узла, где размещена первичная [реплика](service-fabric-availability-services.md#availability-of-service-fabric-stateful-services). Это состояние также реплицируется и надежно сохраняется на локальных дисках узлов, где размещены вторичные реплики. Сохранение состояния завершается только в том случае, если кворум реплик зафиксировал состояние на своих локальных дисках. Хранилище ключей и значений обладает расширенными возможностями для обнаружения и автоматического исправления несоответствий, таких как ложный ход выполнения.
-
-В среду выполнения субъектов входит также `VolatileActorStateProvider`. Этот поставщик состояний реплицирует состояние по репликам (копиям состояния), но оно остается в памяти каждой реплики. Если одна реплика отключится, а затем возобновит работу, ее состояние будет перестроено на основе другой реплики. Однако если все реплики выйдут из строя одновременно, данные о состоянии будут потеряны. Таким образом, этот поставщик состояний подходит для приложений, где данные могут выдержать сбой нескольких реплик, а также плановую отработку их отказа, например при обновлениях. Если все реплики будут потеряны, данные необходимо будет создать заново с помощью механизмов, которые по отношению к Service Fabric являются внешними. Субъект с отслеживанием состояния можно настроить на использование неустойчивого поставщика состояний субъекта, добавив атрибут `VolatileActorStateProvider` в класс субъекта или атрибут уровня сборки.
-
-В следующем фрагменте кода показано, как изменить все субъекты в сборке, у которой нет явного атрибута поставщика состояний для использования `VolatileActorStateProvider`.
+Каждый `ActorId` хэшируется в значение типа Int64, поэтому в службе субъектов необходимо использовать схему секционирования Int64 с полным диапазоном ключей Int64. Тем не менее, для `ActorID` можно использовать пользовательские значения идентификаторов, включая строковые значения, а также GUID и значения типа Int64.
 
 ```csharp
-[assembly:Microsoft.ServiceFabric.Actors.VolatileActorStateProvider]
+ActorProxy.Create<IMyActor>(new ActorId(Guid.NewGuid()));
+ActorProxy.Create<IMyActor>(new ActorId("myActorId"));
+ActorProxy.Create<IMyActor>(new ActorId(1234));
 ```
 
-В следующем фрагменте кода показано, как изменить поставщика состояний для определенного типа субъекта, в данном случае `VoicemailBox`, на `VolatileActorStateProvider`.
+При использовании строк и GUID значения хэшируются в значения типа Int64. Однако, если значение типа Int64 предоставляется в `ActorId` напрямую, Int64 сопоставляется с секцией напрямую без дополнительного хэширования. Его можно использовать для управления тем, в каких секциях будут размещаться субъекты.
 
-```csharp
-[VolatileActorStateProvider]
-public class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
-{
-    public Task<List<Voicemail>> GetMessagesAsync()
-    {
-        return Task.FromResult(State.MessageList);
-    }
-    ...
-}
-```
+## Дальнейшие действия
+ - [Управление состоянием субъекта](service-fabric-reliable-actors-state-management.md)
+ - [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md)
+ - [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Пример кода](https://github.com/Azure/servicefabric-samples)
 
-Обратите внимание, что для изменения поставщика состояний требуется заново создать службу субъекта. Поставщиков состояний нельзя изменять в рамках обновления приложения.
-
+ 
 <!--Image references-->
-[1]: ./media/service-fabric-reliable-actors-platform/manifests-in-vs-solution.png
+[1]: ./media/service-fabric-reliable-actors-platform/actor-service.png
 [2]: ./media/service-fabric-reliable-actors-platform/app-deployment-scripts.png
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
+[5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->
