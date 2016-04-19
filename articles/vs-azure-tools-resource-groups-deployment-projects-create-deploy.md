@@ -196,4 +196,4 @@
 - Сведения об управлении ресурсами на портале см. в статье [Управление ресурсами Azure с помощью портала Azure](./azure-portal/resource-group-portal.md).
 - Дополнительные сведения о шаблонах см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

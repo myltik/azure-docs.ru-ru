@@ -20,7 +20,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+- [Интерфейс командной строки Azure](dns-getstarted-create-dnszone-cli.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
 
 
@@ -40,7 +40,7 @@
 
 
 >[AZURE.IMPORTANT] Для выполнения команд DNS требуется интерфейс Azure CLI версии 0.9.8 или более поздней. Введите команду `azure -v`, чтобы узнать, какая версия Azure CLI установлена на этом компьютере.
- 
+
 ### Шаг 2
 
 Azure DNS использует диспетчер ресурсов Azure. Обязательно переключите интерфейс командной строки (CLI) в режим использования команд arm и DNS.
@@ -78,7 +78,7 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 ## Теги
 
-Теги отличаются от Etag. Теги — это собой список пар "имя-значение", которые используются диспетчером ресурсов Azure для отметки ресурсов в целях выставления счетов или группировки. Дополнительные сведения о тегах см. в статье [Использование тегов для организации ресурсов Azure](resource-group-using-tags.md). Интерфейс командной строки для Azure DNS поддерживает теги для зон и наборов записей. Эти теги задаются с помощью параметра -Tag. В следующем примере демонстрируется создание зоны DNS с двумя тегами, "project = demo" и "env = test":
+Теги отличаются от Etag. Теги — это собой список пар "имя-значение", которые используются диспетчером ресурсов Azure для отметки ресурсов в целях выставления счетов или группировки. Дополнительные сведения о тегах см. в статье [Использование тегов для организации ресурсов Azure](../resource-group-using-tags.md). Интерфейс командной строки для Azure DNS поддерживает теги для зон и наборов записей. Эти теги задаются с помощью параметра -Tag. В следующем примере демонстрируется создание зоны DNS с двумя тегами, "project = demo" и "env = test":
 
 	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
@@ -103,7 +103,7 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 
 В следующем примере при выполнении команды с группой ресурсов myresourcegroup, именем набора записей "@" (для корневой записи) и типом SOA будут получены следующие выходные данные.
- 
+
 
 	azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
 	info:    Executing command network dns-record-set show
@@ -169,6 +169,6 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 ## Дальнейшие действия
 
-После создания зоны DNS необходимо создать [наборы записей и записи](dns-getstarted-create-recordset-cli.md), чтобы начать разрешение имен для интернет-домена.<BR> Также можно узнать, [как управлять зонами DNS](dns-operations-dnszones-cli.md) и операциями в зонах DNS.<BR> Узнайте, [как управлять записями DNS](dns-operations-recordsets-cli.md) и [автоматизировать операции Azure с помощью пакета SDK для .NET](dns-sdk.md).<BR> [Справочник по REST API службы Azure DNS.](https://msdn.microsoft.com/library/azure/mt163862.aspx)
+Когда зона DNS будет готова, вам нужно создать [наборы записей и записи](dns-getstarted-create-recordset-cli.md), чтобы начать разрешение имен для интернет-домена.<BR> Вы также можете узнать, [как управлять зонами DNS](dns-operations-dnszones-cli.md) и операциями в зонах DNS.<BR> Узнайте, [как управлять записями DNS](dns-operations-recordsets-cli.md) и [автоматизировать операции Azure с помощью пакета SDK для .NET](dns-sdk.md).<BR> [Справочник по REST API службы Azure DNS.](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

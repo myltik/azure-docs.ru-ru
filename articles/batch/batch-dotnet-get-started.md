@@ -13,12 +13,12 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="01/08/2016"
+	ms.date="04/11/2016"
 	ms.author="marsma"/>
 
-# Начало работы с библиотекой пакетной службы Azure для .NET  
+# Начало работы с библиотекой пакетной службы Azure для .NET
 
-Ознакомьтесь с основными сведениями о библиотеке [пакетной службы Azure][azure_batch] и [пакетной службы .NET][net_api], изучив пошаговую инструкцию по созданию примера приложения C#. Мы рассмотрим, как пример приложения использует пакетную службу для обработки параллельной рабочей нагрузки в облаке и взаимодействует со [службой хранилища Azure](./../storage/storage-introduction.md) при промежуточном хранении и извлечении файлов. Вы изучите распространенные методы рабочих процессов, используемые в приложении пакетной службы. Кроме того, вы получите базовые знания о главных компонентах пакетной службы, таких как задания, задачи, пулы и вычислительные узлы.
+Ознакомьтесь с основными сведениями о библиотеке [пакетной службы Azure][azure_batch] и [пакетной службы .NET][net_api], изучив пошаговую инструкцию по созданию примера приложения C#. Мы рассмотрим, как пример приложения использует пакетную службу для обработки параллельной рабочей нагрузки в облаке и взаимодействует со [службой хранилища Azure](../storage/storage-introduction.md) при промежуточном хранении и извлечении файлов. Вы изучите распространенные методы рабочих процессов, используемые в приложении пакетной службы. Кроме того, вы получите базовые знания о главных компонентах пакетной службы, таких как задания, задачи, пулы и вычислительные узлы.
 
 ![Рабочий процесс решения пакетной службы (основной)][11]<br/>
 
@@ -26,61 +26,52 @@
 
 В этой статье предполагается, что вы уже работали с C# и Visual Studio. Также предполагается, что вы можете выполнить требования к созданию учетной записи для службы хранилища и пакетной службы Azure. Эти требования перечислены ниже.
 
-### Учетные записи
+### учетные записи;
 
 - **Учетная запись Azure**. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure][azure_free_account].
-- **Учетная запись пакетной службы**. Если у вас есть подписка Azure, [создайте учетную запись пакетной службы Azure и начните управлять ею](batch-account-create-portal.md).
-- **Учетная запись хранения**. См. раздел "Создание учетной записи хранения" в статье [Об учетных записях хранения Azure](./../storage/storage-create-storage-account.md).
+- **Учетная запись пакетной службы**. Если у вас есть подписка Azure, [создайте учетную запись пакетной службы Azure](batch-account-create-portal.md).
+- **Учетная запись хранения**. См. раздел [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account) в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
-Для создания примера проекта вам понадобится программа **Visual Studio 2013** или **Visual Studio 2015**. Бесплатные и пробные версии Visual Studio можно найти на странице [обзора продуктов Visual Studio 2015][visual_studio].
+Чтобы создать пример проекта, вам понадобится программа **Visual Studio 2013** или **Visual Studio 2015**. Бесплатные и пробные версии Visual Studio можно найти на странице [обзора продуктов Visual Studio 2015][visual_studio].
 
 ### Пример кода *DotNetTutorial*
 
-Пример [DotNetTutorial][github_dotnettutorial] — это один многих примеров кода в репозитории [azure-batch-samples][github_samples] на GitHub. Чтобы скачать пример, нажмите кнопку **Download ZIP** (Скачать ZIP-файл) на главной странице репозитория или щелкните ссылку [azure-batch-samples-master.zip][github_samples_zip] для прямой загрузки. После извлечения содержимого ZIP-файла решение будет сохранено в эту папку:
+Пример [DotNetTutorial][github_dotnettutorial] — это один из многих примеров кода в репозитории [azure-batch-samples][github_samples] на сайте GitHub. Чтобы скачать пример, нажмите кнопку **Download ZIP** (Скачать ZIP-файл) на домашней странице репозитория или щелкните ссылку [azure-batch-samples-master.zip][github_samples_zip], чтобы скачать его напрямую. После извлечения содержимого ZIP-файла решение будет сохранено в эту папку:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
 ### Обозреватель пакетной службы Azure (необязательно)
 
-[Обозреватель пакетной службы Azure][github_batchexplorer] — это бесплатная служебная программа, которая входит в репозиторий [azure-batch-samples][github_samples] на GitHub. Хотя обозреватель пакетной службы не требуется для работы с этим руководством, его настоятельно рекомендуется использовать для отладки и администрирования сущностей в учетной записи пакетной службы. Сведения о предыдущей версии обозревателя пакетной службы можно найти в записи блога [Azure Batch Explorer Sample Walkthrough][batch_explorer_blog] (Пример пошагового руководства по обозревателю пакетной службы Azure).
+[Обозреватель пакетной службы Azure][github_batchexplorer] — это бесплатная служебная программа, которая содержится в репозитории [azure-batch-samples][github_samples] на сайте GitHub. Хотя обозреватель пакетной службы не требуется для работы с этим руководством, его настоятельно рекомендуется использовать для отладки и администрирования сущностей в учетной записи пакетной службы. Сведения о предыдущей версии обозревателя пакетной службы см. в записи блога [Azure Batch Explorer Sample Walkthrough][batch_explorer_blog] (Пошаговое руководство по использованию обозревателя пакетной службы Azure).
 
 ## Общие сведения о примере проекта DotNetTutorial
 
-Пример кода *DotNetTutorial* представляет собой решение Visual Studio 2013, состоящее из двух проектов: **DotNetTutorial** и **TaskApplication**.
+Пример кода *DotNetTutorial* представляет собой решение Visual Studio 2013, состоящее из двух проектов — **DotNetTutorial** и **TaskApplication**.
 
-- **DotNetTutorial** — это клиентское приложение, которое взаимодействует с пакетной службой и службой хранилища для выполнения параллельной рабочей нагрузки на вычислительных узлах (виртуальных машинах). DotNetTutorial работает на локальной рабочей станции.
+- **DotNetTutorial** — это клиентское приложение, которое взаимодействует с пакетной службой и службой хранилища, чтобы выполнять параллельную рабочую нагрузку на вычислительных узлах (виртуальных машинах). DotNetTutorial работает на локальной рабочей станции.
 
-- **TaskApplication** — это программа, которая запускается на вычислительных узлах в Azure, чтобы выполнить фактическую работу. В примере файл `TaskApplication.exe` анализирует текст в файле, загруженном из службы хранилища Azure (входной файл). Затем он создает текстовый файл (выходной файл), который содержит список из трех наиболее часто употребляемых слов во входном файле. После создания выходного файла программа TaskApplication отправляет файл в службу хранилища Azure. Теперь его может загрузить клиентское приложение. TaskApplication выполняется параллельно на нескольких вычислительных узлах в пакетной службе.
+- **TaskApplication** — это программа, которая запускается на вычислительных узлах в Azure, чтобы выполнить фактическую работу. В этом примере файл `TaskApplication.exe` анализирует текст во входном файле, скачанном из службы хранилища Azure. Затем он создает текстовый файл (выходной файл), который содержит список из трех наиболее часто употребляемых слов во входном файле. После создания выходного файла программа TaskApplication отправляет файл в службу хранилища Azure. Теперь его может загрузить клиентское приложение. TaskApplication выполняется параллельно на нескольких вычислительных узлах в пакетной службе.
 
-На следующей схеме показаны основные операции, выполняемые клиентским приложением *DotNetTutorial*, а также приложением *TaskApplication*, которое выполняется с помощью задач. Этот основной рабочий процесс является типичным для многих вычислительных решений, созданных с помощью пакетной службы. Хотя он не демонстрирует все возможности, доступные в пакетной службе, почти все сценарии пакетной службы будут включать похожие процессы.
+На следующей схеме показаны основные операции, которые выполняет клиентское приложение *DotNetTutorial*, а также приложение *TaskApplication*, выполняемое с помощью задач. Этот основной рабочий процесс является типичным для многих вычислительных решений, созданных с помощью пакетной службы. Хотя он не демонстрирует все возможности, доступные в пакетной службе, почти все сценарии пакетной службы будут включать похожие процессы.
 
 ![Пример рабочего процесса пакетной службы][8]<br/>
 
-**Шаг 1.** Создайте **контейнеры** в хранилище BLOB-объектов Azure.<br/> 
-**Шаг 2.** Отправьте файлы приложения задач и входные файлы в контейнеры.<br/> 
-**Шаг 3.** Создайте **пул** пакетной службы.<br/> 
-	&nbsp;&nbsp;&nbsp;&nbsp;**3а.** Пул **StartTask** загружает двоичные файлы задачи (TaskApplication) на узлы во время их присоединения к пулу.<br/> 
-**Шаг 4.** Создайте **задание** пакетной службы.<br/> 
-**Шаг 5.** Добавьте **задачи** в задание.<br/> 
- &nbsp;&nbsp;&nbsp;&nbsp;**5а.** Задачи планируются для выполнения на узлах<br/> 
-	&nbsp;&nbsp;&nbsp;&nbsp;**5б.** Каждая задача загружает свои входные данные из службы хранилища Azure, а затем начинает выполнение.<br/> 
-**Шаг 6.** Начните мониторинг задач.<br/> 
- &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Выполненные задачи отправляют свои выходные данные в службу хранилища Azure.<br/> 
-**Шаг 7.** Скачайте выходные данные задачи из службы хранилища.
+[**Шаг 1.**](#step-1-create-storage-containers) Создайте **контейнеры** в хранилище BLOB-объектов Azure.<br/> [**Шаг 2.**](#step-2-upload-task-application-and-data-files) Отправьте файлы приложения задач и входные файлы в контейнеры.<br/> [**Шаг 3.**](#step-3-create-batch-pool) Создайте **пул** пакетной службы.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**3.1.** Пул **StartTask** скачивает двоичные файлы задач (TaskApplication) на узлы во время их присоединения к пулу.<br/> [**Шаг 4.**](#step-4-create-batch-job) Создайте **задание** пакетной службы.<br/> [**Шаг 5.**](#step-5-add-tasks-to-job) Добавьте **задачи** в задание.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5.1.** Планирование задач выполняется на узлах.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5.2.** Каждая задача скачивает свои входные данные из службы хранилища Azure, а затем начинает выполнение.<br/> [**Шаг 6.**](#step-6-monitor-tasks) Выполните мониторинг задач.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**6.1.** После выполнения задач их выходные данные отправляются в службу хранилища Azure.<br/> [**Шаг 7.**](#step-7-download-task-output) Скачайте выходные данные задачи из службы хранилища.
 
 Как уже упоминалось, не каждое решение пакетной службы будет выполнять именно эти действия. Некоторые решения могут выполнять больше действий, но пример приложения *DotNetTutorial* демонстрирует общие процессы в решении пакетной службы.
 
 ## Сборка примера проекта *DotNetTutorial*
 
-Чтобы успешно запустить пример, укажите учетные данные учетных записей хранения и пакетной службы в файле `Program.cs` проекта *DotNetTutorial*. Если вы еще не сделали этого, откройте решение в Visual Studio, дважды щелкнув файл решения `DotNetTutorial.sln`. Или откройте его в среде Visual Studio, используя меню **Файл > Открыть > Решение или проект**.
+Чтобы успешно запустить пример, необходимо указать учетные данные учетной записи хранения и пакетной службы в файле `Program.cs` проекта *DotNetTutorial*. Если вы еще не сделали этого, откройте решение в Visual Studio, дважды щелкнув файл решения `DotNetTutorial.sln`. Этот файл можно также открыть в среде Visual Studio, последовательно выбрав **Файл > Открыть > Решение или проект**.
 
 Откройте `Program.cs` в проекте *DotNetTutorial*. Затем добавьте учетные данные в начало файла:
 
 ```
-// Update the Batch and Storage account credential strings below with the values unique to your accounts.
-// These are used when constructing connection strings for the Batch and Storage client objects.
+// Update the Batch and Storage account credential strings below with the values
+// unique to your accounts. These are used when constructing connection strings
+// for the Batch and Storage client objects.
 
 // Batch account credentials
 private const string BatchAccountName = "";
@@ -92,36 +83,36 @@ private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
 
-Учетные данные учетных записей хранения и пакетной службы находятся в колонке учетных записей каждой службы на [портале Azure][azure_portal]\:
+Учетные данные учетных записей хранения и пакетной службы можно найти в колонке учетных записей каждой службы на [портале Azure][azure_portal]\:
 
-![Учетные данные пакетной службы на портале][9] 
-![Учетные данные службы хранилища на портале][10]<br/>
+![Учетные данные пакетной службы на портале][9] ![Учетные данные службы хранилища на портале][10]<br/>
 
-Теперь, когда вы обновили проект с помощью учетных данных, в обозревателе решений щелкните решение правой кнопкой мыши и выберите команду **Собрать решение**. Подтвердите восстановление пакетов NuGet, если появится соответствующий запрос.
+Теперь, когда вы обновили проект, используя учетные данные, в обозревателе решений щелкните решение правой кнопкой мыши и выберите команду **Собрать решение**. Подтвердите восстановление пакетов NuGet, если появится соответствующий запрос.
 
-> [AZURE.TIP] Если пакеты NuGet не восстанавливаются автоматически или возникают ошибки, связанные со сбоем во время их восстановления, убедитесь, что вы установили [диспетчер пакетов NuGet][nuget_packagemgr]. Затем включите загрузку недостающих пакетов. Инструкции по включению загрузки пакетов см. в разделе [Enabling Package Restore During Build][nuget_restore] (Включение восстановления пакетов во время сборки).
+> [AZURE.TIP] Если пакеты NuGet не восстановились автоматически или возникли ошибки, связанные со сбоем их восстановления, убедитесь, что вы установили [диспетчер пакетов NuGet][nuget_packagemgr]. Затем включите загрузку недостающих пакетов. Сведения о том, как включить скачивание пакетов см. в разделе [Enabling Package Restore During Build][nuget_restore] (Включение восстановления пакетов во время сборки).
 
 В следующих разделах мы разобьем пример приложения на действия, выполняемые для обработки рабочей нагрузки в пакетной службе, а затем подробно их рассмотрим. Во время работы с оставшейся частью статьи рекомендуем сверяться с открытым решением в Visual Studio, так как в примере рассматриваются не все строки кода.
 
-Перейдите к началу метода `MainAsync` в файле `Program.cs` проекта *DotNetTutorial*, чтобы начать с шага 1. Каждый следующий шаг в целом соответствует последовательности вызовов метода в `MainAsync`.
+Перейдите к началу метода `MainAsync` в файле `Program.cs` проекта *DotNetTutorial*, чтобы начать с шага 1. Каждый из шагов ниже в целом соответствует последовательности вызовов метода в `MainAsync`.
 
 ## Шаг 1. Создание контейнеров службы хранилища
 
-![Создание контейнеров в службе хранилища Azure][1] 
-<br/>
+![Создание контейнеров в службе хранилища Azure][1] <br/>
 
-Пакетная служба включает встроенную поддержку для взаимодействия со службой хранилища Azure. Контейнеры в учетной записи хранения предоставляют задачи, которые выполняются в вашей учетной записи пакетной службы, с файлами, которые необходимы для выполнения задач. Контейнеры также предоставляют место для хранения выходных данных, создаваемых задачами. Сначала клиентское приложение *DotNetTutorial* создает три контейнера в [хранилище BLOB-объектов Azure](./../storage/storage-introduction.md):
+Пакетная служба включает встроенную поддержку для взаимодействия со службой хранилища Azure. Контейнеры в учетной записи хранения предоставляют файлы, которые нужны для выполнения задач, запускаемых в вашей учетной записи пакетной службы. Контейнеры также предоставляют место для хранения выходных данных, создаваемых задачами. Сначала клиентское приложение *DotNetTutorial* создает три контейнера в [хранилище BLOB-объектов Azure](../storage/storage-introduction.md):
 
-- **application** — в этом контейнере будет размещаться приложение, выполняемое задачами, включая все его зависимости, например библиотеки DLL.
-- **input** — задачи будут загружать файлы данных для обработки из контейнера *input*.
-- **output** — после завершения обработки входных файлов задачи будут отправлять результаты обработки в контейнер *output*.
+- **application** — в этом контейнере будет храниться приложение, которое выполняют задачи, а также все его зависимости, например библиотеки DLL.
+- **input** — задачи будут скачивать файлы данных, которые они должны обрабатывать, из контейнера *input*.
+- **output** — после завершения обработки входных файлов задачи будут отправлять результаты обработки в контейнер *output*.
 
-Чтобы клиентское приложение могло взаимодействовать с учетной записью хранения и создавать контейнеры, используется [клиентская библиотека для .NET службы хранилища Azure][net_api_storage]. С помощью этой библиотеки создается ссылка на учетную запись с [CloudStorageAccount][net_cloudstorageaccount], а затем из этой учетной записи создается клиент большого двоичного объекта [CloudBlobClient][net_cloudblobclient]\:
+Чтобы клиентское приложение могло взаимодействовать с учетной записью хранения и создавать контейнеры, мы используем [клиентскую библиотеку службы хранилища Azure для .NET][net_api_storage]. Мы создадим ссылку на учетную запись, используя [CloudStorageAccount][net_cloudstorageaccount], а затем из этой учетной записи создадим клиент [CloudBlobClient][net_cloudblobclient]\:
 
 ```
 // Construct the Storage account connection string
-string storageConnectionString = String.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-                                                StorageAccountName, StorageAccountKey);
+string storageConnectionString = String.Format(
+    "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
+    StorageAccountName,
+    StorageAccountKey);
 
 // Retrieve the storage account
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -130,10 +121,11 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-Мы используем ссылку `blobClient` везде в приложении и передаем ее в качестве параметра нескольким методам. Пример этого можно увидеть в блоке кода, который следует сразу за указанным выше блоком, в котором мы вызываем `CreateContainerIfNotExistAsync` для создания контейнеров.
+Мы используем ссылку `blobClient` везде в приложении и передаем ее в качестве параметра нескольким методам. Пример этого можно увидеть в блоке кода, который находится сразу за методом blobClient. С помощью него мы вызываем `CreateContainerIfNotExistAsync`, чтобы фактически создать контейнеры.
 
 ```
-// Use the blob client to create the containers in Azure Storage if they don't yet exist
+// Use the blob client to create the containers in Azure Storage if they don't
+// yet exist
 const string appContainerName    = "application";
 const string inputContainerName  = "input";
 const string outputContainerName = "output";
@@ -143,7 +135,9 @@ await CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
 ```
-private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobClient, string containerName)
+private static async Task CreateContainerIfNotExistAsync(
+    CloudBlobClient blobClient,
+    string containerName)
 {
 		CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
@@ -153,19 +147,19 @@ private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobCli
 		}
 		else
 		{
-				Console.WriteLine("Container [{0}] exists, skipping creation.", containerName);
+				Console.WriteLine("Container [{0}] exists, skipping creation.",
+                    containerName);
 		}
 }
 ```
 
 Когда контейнеры будут созданы, приложение сможет отправлять файлы, которые будут использоваться задачами.
 
-> [AZURE.TIP] [How to use Blob Storage from .NET](./../storage/storage-dotnet-how-to-use-blobs.md)Статья "Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET" содержит хороший обзор работы с контейнерами службы хранилища Azure и большими двоичными объектами. Вы должны ознакомиться с этой статьей, прежде чем приступать к работе с пакетной службой.
+> [AZURE.TIP] [How to use Blob Storage from .NET]Статья "Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET" содержит хороший обзор работы с контейнерами службы хранилища Azure и большими двоичными объектами. Вы должны ознакомиться с этой статьей, прежде чем приступать к работе с пакетной службой.
 
 ## Шаг 2. Отправка приложения задач и файлов данных
 
-![Отправка файлов приложения и входных данных в контейнеры][2] 
-<br/>
+![Отправка файлов приложения и входных данных в контейнеры][2] <br/>
 
 Во время отправки файлов приложение *DotNetTutorial* сначала определяет коллекции путей к файлам **приложения** и **входным данным** на локальном компьютере. Затем оно отправляет эти файлы в контейнеры, созданные в рамках предыдущего шага.
 
@@ -173,8 +167,8 @@ private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobCli
 // Paths to the executable and its dependencies that will be executed by the tasks
 List<string> applicationFilePaths = new List<string>
 {
-    // The DotNetTutorial project includes a project reference to TaskApplication, allowing us to
-    // determine the path of the task application binary dynamically
+    // The DotNetTutorial project includes a project reference to TaskApplication,
+    // allowing us to determine the path of the task application binary dynamically
     typeof(TaskApplication.Program).Assembly.Location,
     "Microsoft.WindowsAzure.Storage.dll"
 };
@@ -187,24 +181,35 @@ List<string> inputFilePaths = new List<string>
     @"..\..\taskdata3.txt"
 };
 
-// Upload the application and its dependencies to Azure Storage. This is the application that will
-// process the data files, and will be executed by each of the tasks on the compute nodes.
-List<ResourceFile> applicationFiles = await UploadFilesToContainerAsync(blobClient, appContainerName, applicationFilePaths);
+// Upload the application and its dependencies to Azure Storage. This is the
+// application that will process the data files, and will be executed by each
+// of the tasks on the compute nodes.
+List<ResourceFile> applicationFiles = await UploadFilesToContainerAsync(
+    blobClient,
+    appContainerName,
+    applicationFilePaths);
 
-// Upload the data files. This is the data that will be processed by each of the tasks that are
-// executed on the compute nodes within the pool.
-List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(blobClient, inputContainerName, inputFilePaths);
+// Upload the data files. This is the data that will be processed by each of
+// the tasks that are executed on the compute nodes within the pool.
+List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
+    blobClient,
+    inputContainerName,
+    inputFilePaths);
 ```
 
-В процессе отправки участвуют два метода из файла `Program.cs`.
+При отправке используется два метода из файла `Program.cs`.
 
-- `UploadFilesToContainerAsync` — этот метод возвращает коллекцию объектов [ResourceFile][net_resourcefile] (рассматривается далее) и внутренне вызывает метод `UploadFileToContainerAsync`, чтобы отправить каждый файл, переданный в параметре *filePaths*.
-- `UploadFileToContainerAsync` — этот метод фактически отправляет файл и создает объекты [ResourceFile][net_resourcefile]. После отправки файла метод получает подписанный URL-адрес (SAS) для файла и возвращает объект ResourceFile, который его представляет. Подписанные URL-адреса также рассматриваются ниже.
+- `UploadFilesToContainerAsync` — этот метод возвращает коллекцию объектов [ResourceFile][net_resourcefile] (рассматривается далее) и выполняет внутренний вызов метода `UploadFileToContainerAsync`, чтобы отправить каждый файл, переданный в параметре *filePaths*.
+- `UploadFileToContainerAsync` — этот метод фактически отправляет файл и создает объекты [ResourceFile][net_resourcefile]. После отправки файла метод получает подписанный URL-адрес (SAS) для файла и возвращает объект ResourceFile, который его представляет. Подписанные URL-адреса также рассматриваются ниже.
 
 ```
-private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClient blobClient, string containerName, string filePath)
+private static async Task<ResourceFile> UploadFileToContainerAsync(
+    CloudBlobClient blobClient,
+    string containerName,
+    string filePath)
 {
-		Console.WriteLine("Uploading file {0} to container [{1}]...", filePath, containerName);
+		Console.WriteLine(
+            "Uploading file {0} to container [{1}]...", filePath, containerName);
 
 		string blobName = Path.GetFileName(filePath);
 
@@ -212,8 +217,9 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClie
 		CloudBlockBlob blobData = container.GetBlockBlobReference(blobName);
 		await blobData.UploadFromFileAsync(filePath, FileMode.Open);
 
-		// Set the expiry time and permissions for the blob shared access signature. In this case, no start time is specified,
-		// so the shared access signature becomes valid immediately
+		// Set the expiry time and permissions for the blob shared access signature.
+        // In this case, no start time is specified, so the shared access signature
+        // becomes valid immediately
 		SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 		{
 				SharedAccessExpiryTime = DateTime.UtcNow.AddHours(2),
@@ -230,67 +236,76 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClie
 
 ### ResourceFiles
 
-Объект [ResourceFile][net_resourcefile] передает задачи в пакетную службу с URL-адресом файла в службе хранилища Azure, который будет загружен на вычислительный узел перед выполнением этой задачи. Свойство [ResourceFile.BlobSource][net_resourcefile_blobsource] указывает полный URL-адрес файла, по которому его можно найти в службе хранилища Azure. URL-адрес может также включать подписанный URL-адрес (SAS), который обеспечивает безопасный доступ к файлу. Большинство типов задач в пакетной службе .NET включают свойство *ResourceFiles*; они перечислены ниже.
+Объект [ResourceFile][net_resourcefile] передает задачи в пакетную службу с URL-адресом файла в службе хранилища Azure, который будет скачан на вычислительный узел перед выполнением этой задачи. Свойство [ResourceFile.BlobSource][net_resourcefile_blobsource] указывает полный URL-адрес файла, по которому его можно найти в службе хранилища Azure. URL-адрес может также включать подписанный URL-адрес (SAS), который обеспечивает безопасный доступ к файлу. Большинство типов задач в пакетной службе .NET, в том числе следующие, включают в себя свойство *ResourceFiles*:
 
 - [CloudTask][net_task]
 - [StartTask][net_pool_starttask]
 - [JobPreparationTask][net_jobpreptask]
 - [JobReleaseTask][net_jobreltask]
 
-Пример приложения DotNetTutorial не использует типы задач JobPreparationTask или JobReleaseTask, но вы можете больше узнать о них из статьи [Выполнение задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure](batch-job-prep-release.md).
+Пример приложения DotNetTutorial не использует типы задач JobPreparationTask или JobReleaseTask, но вы можете узнать о них больше из статьи [Выполнение задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure](batch-job-prep-release.md).
 
 ### Подписанный URL-адрес (SAS)
 
 Подписанные URL-адреса — это строки, которые могут быть включены как часть URL-адреса. Они предоставляют безопасный доступ к контейнерам и большим двоичным объектам в службе хранилища Azure. Приложение DotNetTutorial использует подписанные URL-адреса как контейнеров, так и больших двоичных объектов. Оно демонстрирует, как получить эти строки подписанных URL-адресов из службы хранилища.
 
-- **Подписанные URL-адреса больших двоичных объектов** — задача StartTask пула в DotNetTutorial использует подписанные URL-адреса больших двоичных объектов во время загрузки двоичных файлов приложения и файлов входных данных из хранилища (см. шаг 3 ниже). Метод `UploadFileToContainerAsync` в файле `Program.cs` приложения DotNetTutorial содержит код, который получает подписанный URL-адрес каждого большого двоичного объекта. Это делается путем вызова [CloudBlob.GetSharedAccessSignature][net_sas_blob].
+- **Подписанные URL-адреса больших двоичных объектов** — задача StartTask пула в DotNetTutorial использует подписанные URL-адреса больших двоичных объектов во время скачивания двоичных файлов приложения и файлов входных данных из хранилища (см. шаг 3 ниже). Метод `UploadFileToContainerAsync` в файле `Program.cs` приложения DotNetTutorial содержит код, который получает подписанный URL-адрес каждого большого двоичного объекта. Для этого выполняется вызов [CloudBlob.GetSharedAccessSignature][net_sas_blob].
 
-- **Подписанные URL-адреса контейнеров** — когда каждая задача завершает работу на вычислительном узле, она отправляет свой выходной файл в контейнер *output* в службе хранилища Azure. Для этого приложение TaskApplication использует подписанный URL-адрес контейнера, который предоставляет доступ на запись в контейнер как часть пути во время загрузки файла. Получение подписанного URL-адреса контейнера происходит таким же образом, как и получение подписанного URL-адреса большого двоичного объекта. В приложении DotNetTutorial вы увидите, что вспомогательный метод `GetContainerSasUrl` вызывает для этой цели [CloudBlobContainer.GetSharedAccessSignature][net_sas_container]. Дополнительную информацию о том, как приложение TaskApplication использует подписанный URL-адрес контейнера, см. на шаге 6 "Мониторинг задач".
+- **Подписанные URL-адреса контейнеров** — когда каждая задача завершает работу на вычислительном узле, она отправляет свой выходной файл в контейнер *output* в службе хранилища Azure. Для этого приложение TaskApplication использует подписанный URL-адрес контейнера, который предоставляет доступ на запись в контейнер как часть пути во время загрузки файла. Получение подписанного URL-адреса контейнера происходит таким же образом, как и получение подписанного URL-адреса большого двоичного объекта. В приложении DotNetTutorial вы увидите, что вспомогательный метод `GetContainerSasUrl` вызывает для этого [CloudBlobContainer.GetSharedAccessSignature][net_sas_container]. Дополнительную информацию о том, как приложение TaskApplication использует подписанный URL-адрес контейнера, см. на шаге 6 "Мониторинг задач".
 
-> [AZURE.TIP] Прочтите две статьи из серии о подписанных URL-адресах: [Подписи общего доступа. Часть 1: общие сведения о модели SAS](./../storage/storage-dotnet-shared-access-signature-part-1.md) и [Подписи общего доступа, часть 2: создание и использование подписи общего доступа с помощью службы BLOB-объектов](./../storage/storage-dotnet-shared-access-signature-part-2.md), чтобы узнать больше о предоставлении безопасного доступа к данным в своей учетной записи хранения.
+> [AZURE.TIP] Дополнительные сведения о предоставлении безопасного доступа к данным в своей учетной записи хранения см. в серии из двух статей о подписанных URL-адресах: [Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) и [Подписанные URL-адреса. Часть 2: создание и использование подписанного URL-адреса в службе BLOB-объектов](../storage/storage-dotnet-shared-access-signature-part-2.md).
 
 ## Шаг 3. Создание пула пакетной службы
 
-![Создание пула пакетной службы][3] 
-<br/>
+![Создание пула пакетной службы][3] <br/>
 
-После отправки файлов приложения и файлов данных в учетную запись хранения приложение *DotNetTutorial* запускает их взаимодействие с пакетной службой, используя библиотеку .NET пакетной службы. Для этого сначала создается [BatchClient][net_batchclient]\:
+После отправки файлов приложения и файлов данных в учетную запись хранения приложение *DotNetTutorial* начинает их взаимодействие с пакетной службой, используя библиотеку .NET пакетной службы. Для этого сначала создается [BatchClient][net_batchclient]\:
 
 ```
-BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
+BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
+    BatchAccountUrl,
+    BatchAccountName,
+    BatchAccountKey);
+
 using (BatchClient batchClient = BatchClient.Open(cred))
 {
 	...
 ```
 
-Затем в учетной записи пакетной службы создается пул вычислительных узлов с помощью вызова `CreatePoolAsync`. `CreatePoolAsync` использует метод [BatchClient.PoolOperations.CreatePool][net_pool_create] для создания пула в пакетной службе.
+Затем в учетной записи пакетной службы создается пул вычислительных узлов с помощью вызова `CreatePoolAsync`. `CreatePoolAsync` использует метод [BatchClient.PoolOperations.CreatePool][net_pool_create], чтобы создать пул в пакетной службе.
 
 ```
-private static async Task CreatePoolAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
+private static async Task CreatePoolAsync(
+    BatchClient batchClient,
+    string poolId,
+    IList<ResourceFile> resourceFiles)
 {
     Console.WriteLine("Creating pool [{0}]...", poolId);
 
-    // Create the unbound pool. Until we call CloudPool.Commit() or CommitAsync(), no pool is actually created in the
-    // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
+    // Create the unbound pool. Until we call CloudPool.Commit() or CommitAsync(),
+    // no pool is actually created in the Batch service. This CloudPool instance is
+    // therefore considered "unbound," and we can modify its properties.
     CloudPool pool = batchClient.PoolOperations.CreatePool(
-				poolId: poolId,
-				targetDedicated: 3,           // 3 compute nodes
-				virtualMachineSize: "small",  // single-core, 1.75 GB memory, 225 GB disk
-				osFamily: "4");               // Windows Server 2012 R2
+			poolId: poolId,
+			targetDedicated: 3,           // 3 compute nodes
+			virtualMachineSize: "small",  // single-core, 1.75 GB memory, 224 GB disk
+			cloudServiceConfiguration:
+			    new CloudServiceConfiguration(osFamily: "4")); // Win Server 2012 R2
 
-    // Create and assign the StartTask that will be executed when compute nodes join the pool.
-    // In this case, we copy the StartTask's resource files (that will be automatically downloaded
-    // to the node by the StartTask) into the shared directory that all tasks will have access to.
+    // Create and assign the StartTask that will be executed when compute nodes join
+    // the pool. In this case, we copy the StartTask's resource files (that will be
+    // automatically downloaded to the node by the StartTask) into the shared
+    // directory that all tasks will have access to.
     pool.StartTask = new StartTask
     {
-        // Specify a command line for the StartTask that copies the task application files to the
-        // node's shared directory. Every compute node in a Batch pool is configured with several
-        // pre-defined environment variables that you can reference by using commands or applications
-        // run by tasks.
+        // Specify a command line for the StartTask that copies the task application
+        // files to the node's shared directory. Every compute node in a Batch pool
+        // is configured with several pre-defined environment variables that you can
+        // reference by using commands or applications run by tasks.
 
-        // Since a successful execution of robocopy can return a non-zero exit code (e.g. 1 when one or
-        // more files were successfully copied) we need to manually exit with a 0 for Batch to recognize
-        // StartTask execution success.
+        // Since a successful execution of robocopy can return a non-zero exit code
+        // (e.g. 1 when one or more files were successfully copied) we need to
+        // manually exit with a 0 for Batch to recognize StartTask execution success.
         CommandLine = "cmd /c (robocopy %AZ_BATCH_TASK_WORKING_DIR% %AZ_BATCH_NODE_SHARED_DIR%) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
         ResourceFiles = resourceFiles,
         WaitForSuccess = true
@@ -300,15 +315,17 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 }
 ```
 
-Во время создания пула с помощью метода [CreatePool][net_pool_create] вы указываете несколько параметров, например количество вычислительных узлов, [размер узлов](./../cloud-services/cloud-services-sizes-specs.md) и [операционную систему](./../cloud-services/cloud-services-guestos-update-matrix.md) узлов.
+Во время создания пула с использованием метода [CreatePool][net_pool_create] вам необходимо указать несколько параметров, таких как количество вычислительных узлов, [размер узлов](../cloud-services/cloud-services-sizes-specs.md) и их операционная система. В *DotNetTutorial* мы используем [CloudServiceConfiguration][net_cloudserviceconfiguration], чтобы указать Windows Server 2012 R2 из [облачных служб](../cloud-services/cloud-services-guestos-update-matrix.md). Тем не менее если вместо этого указать [VirtualMachineConfiguration][net_virtualmachineconfiguration], можно создать пулы узлов, созданных на основе образов Marketplace, в том числе образов Windows и Linux. Дополнительные сведения см. в записи блога [Introducing Linux support on Azure Batch][blog_linux] (Введение в поддержку Linux в пакетной службе Azure).
 
-> [AZURE.IMPORTANT] В пакетной службе за использование вычислительных ресурсов взимается плата. Чтобы свести к минимуму затраты, перед запуском примера вы можете снизить значение параметра `targetDedicated` до 1.
+> [AZURE.IMPORTANT] В пакетной службе за использование вычислительных ресурсов взимается плата. Чтобы свести к минимуму затраты, перед запуском примера уменьшите значение параметра `targetDedicated` до 1.
 
-Вместе с этими физическими свойствами узла вы также можете указать задачу [StartTask][net_pool_starttask] для пула. Задача StartTask будет выполняться на каждом узле по мере его присоединения к пулу, а также при каждом перезапуске узла. Задача StartTask успешно используется для установки приложений на вычислительных узлах до выполнения задачи. Например, если задачи обрабатывают данные с помощью сценариев Python, вы может использовать StartTask для установки Python на вычислительных узлах.
+Вместе с этими физическими свойствами узла вы также можете указать для пула задачу [StartTask][net_pool_starttask]. Задача StartTask будет выполняться на каждом узле по мере его присоединения к пулу, а также при каждом перезапуске узла. Задача StartTask успешно используется для установки приложений на вычислительных узлах до выполнения задачи. Например, если задачи обрабатывают данные с помощью сценариев Python, вы может использовать StartTask для установки Python на вычислительных узлах.
 
-В этом примере приложения задача StartTask копирует файлы, которые она загружает из рабочего каталога StartTask службы хранилища (эти файлы указаны в свойстве *ResourceFiles* задачи StartTask) в общий каталог, к которому имеют доступ *все* задачи, выполняемые на узле.
+В этом примере приложения задача StartTask копирует файлы, которые она скачивает из рабочего каталога StartTask службы хранилища (эти файлы указаны в свойстве [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles]) в общий каталог, к которому есть доступ у *всех* задач, выполняемых на узле. По сути, это обеспечивает копирование `TaskApplication.exe` и его зависимостей в общий каталог на каждом узле, когда узел присоединяется к пулу, чтобы к нему был доступ у всех задач, запускаемых на узле.
 
-Также обратите внимание на то, что в приведенном выше фрагменте кода в свойстве *CommandLine* задачи StartTask используются две переменные среды: `%AZ_BATCH_TASK_WORKING_DIR%` и `%AZ_BATCH_NODE_SHARED_DIR%`. Каждый вычислительный узел в пуле пакетной службы автоматически содержит несколько переменных среды, характерных для пакетной службы. Любой процесс, выполняемый задачей, имеет доступ к этим переменным среды.
+> [AZURE.TIP] Функция использования **пакетов приложений** пакетной службы Azure обеспечивает альтернативный способ доступа к приложению на вычислительных узлах в пуле. Дополнительные сведения см. в статье [Развертывание приложения с помощью пакетов приложений пакетной службы Azure](batch-application-packages.md).
+
+Обратите также внимание на то, что в фрагменте кода выше в свойстве *CommandLine* задачи StartTask используются две переменные среды: `%AZ_BATCH_TASK_WORKING_DIR%` и `%AZ_BATCH_NODE_SHARED_DIR%`. Каждый вычислительный узел в пуле пакетной службы автоматически содержит несколько переменных среды, характерных для пакетной службы. Любой процесс, выполняемый задачей, имеет доступ к этим переменным среды.
 
 > [AZURE.TIP] Дополнительные сведения о переменных среды, доступных на вычислительных узлах в пуле пакетной службы, а также сведения о рабочих каталогах задач см. в разделах "Параметры среды для задач" и "Файлы и каталоги" статьи [Обзор функций пакетной службы Azure](batch-api-basics.md).
 
@@ -318,10 +335,13 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 
 Задание пакетной службы — это коллекция задач, связанных с пулом вычислительных узлов. Вы можете использовать его не только для упорядочивания и отслеживания задач в соответствующих рабочих нагрузках, но и для установления определенных ограничений, включая максимальное время выполнения задания (а следовательно, и его задач). При этом назначается приоритет задания относительно других заданий в учетной записи пакетной службы. Но в этом примере задание связано только с пулом, который был создан на шаге 3. Дополнительные свойства не настроены.
 
-Все задания пакетной службы связаны с конкретным пулом. Эта связь указывает, в каких узлах будут выполняться задачи задания. Вы указываете это с помощью свойства [CloudJob.PoolInformation][net_job_poolinfo], как показано в следующем фрагменте кода.
+Все задания пакетной службы связаны с конкретным пулом. Эта связь указывает, в каких узлах будут выполняться задачи задания. Вам необходимо указать ее с помощью свойства [CloudJob.PoolInformation][net_job_poolinfo], как показано в следующем фрагменте кода.
 
 ```
-private static async Task CreateJobAsync(BatchClient batchClient, string jobId, string poolId)
+private static async Task CreateJobAsync(
+    BatchClient batchClient,
+    string jobId,
+    string poolId)
 {
     Console.WriteLine("Creating job [{0}]...", jobId);
 
@@ -337,13 +357,16 @@ private static async Task CreateJobAsync(BatchClient batchClient, string jobId, 
 
 ## Шаг 5. Добавление задач в задание
 
-![Добавление задач в задание][5]<br/> 
-*(1) Задачи добавляются в задание, (2) задачи планируются для запуска на узлах, (3) задачи загружают файлы данных для обработки*.
+![Добавление задач в задание][5]<br/> *(1) Задачи добавляются в задание, (2) планируется запуск задач на узлах, (3) задачи скачивают файлы данных для обработки*
 
-Для фактического выполнения работы необходимо добавить задачи в задание. Каждая задача [CloudTask][net_task] настраивается с помощью свойства командной строки и объекта [ResourceFiles][net_task_resourcefiles] (как и задача StartTask пула), который задача загружает на узел до автоматического выполнения ее командной строки. В примере проекта *DotNetTutorial* каждая задача обрабатывает только один файл. Поэтому его коллекция ResourceFiles содержит один элемент.
+Для фактического выполнения работы необходимо добавить задачи в задание. Каждая задача [CloudTask][net_task] настраивается с помощью свойства командной строки и объекта [ResourceFiles][net_task_resourcefiles] (как и задача StartTask пула), который задача скачивает на узел до автоматического выполнения ее командной строки. В примере проекта *DotNetTutorial* каждая задача обрабатывает только один файл. Поэтому его коллекция ResourceFiles содержит один элемент.
 
 ```
-private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient, string jobId, List<ResourceFile> inputFiles, string outputContainerSasUrl)
+private static async Task<List<CloudTask>> AddTasksAsync(
+    BatchClient batchClient,
+    string jobId,
+    List<ResourceFile> inputFiles,
+    string outputContainerSasUrl)
 {
     Console.WriteLine("Adding {0} tasks to job [{1}]...", inputFiles.Count, jobId);
 
@@ -356,30 +379,34 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
-        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 "{1}"", inputFile.FilePath, outputContainerSasUrl);
+        string taskCommandLine = String.Format(
+            "cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 "{1}"",
+            inputFile.FilePath,
+            outputContainerSasUrl);
 
         CloudTask task = new CloudTask(taskId, taskCommandLine);
         task.ResourceFiles = new List<ResourceFile> { inputFile };
         tasks.Add(task);
     }
 
-    // Add the tasks as a collection, as opposed to adding a separate AddTask call for each. Bulk task submission
-    // helps to ensure efficient underlying API calls to the Batch service.
+    // Add the tasks as a collection, as opposed to issuing a separate AddTask call
+    // for each. Bulk task submission helps to ensure efficient underlying API calls
+    // to the Batch service.
     await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
 
     return tasks;
 }
 ```
 
-> [AZURE.IMPORTANT] При получении доступа к переменным среды, например `%AZ_BATCH_NODE_SHARED_DIR%`, или выполнении приложения, которое не находится в `PATH` узла, командные строки задачи должны начинаться с префикса `cmd /c`. Благодаря этому интерпретатор команд будет выполнен явно и получит инструкцию завершить работу после выполнения команды. Это требование является необязательным, если ваши задачи выполняют приложение в `PATH` узла (например, *robocopy.exe* или *powershell.exe*) и не используют переменные среды.
+> [AZURE.IMPORTANT] При получении доступа к переменным среды, таким как `%AZ_BATCH_NODE_SHARED_DIR%`, или выполнении приложения, которое не находится в `PATH` узла, командные строки задачи должны начинаться с префикса `cmd /c`. Благодаря этому интерпретатор команд будет выполнен явно и получит инструкцию завершить работу после выполнения команды. Это требование необязательно, если ваши задачи выполняют приложение в `PATH` узла (например, *robocopy.exe* или *powershell.exe*) и не используют переменные среды.
 
-В пределах цикла `foreach` в приведенном выше фрагменте кода видно, что командная строка задачи построена таким образом, чтобы передавать три аргумента командной строки для *TaskApplication.exe*.
+В пределах цикла `foreach` в приведенном выше фрагменте кода видно, что командная строка задачи построена таким образом, чтобы передавать три аргумента командной строки для *TaskApplication.exe*:
 
-1. **Первый аргумент** — это путь к файлу для обработки. Это локальный путь к файлу, так как он существует на узле. Когда объект ResourceFile впервые создавался в `UploadFileToContainerAsync`, для этого свойства использовалось имя файла (в качестве параметра конструктора ResourceFile). Это означает, что файл находится в том же каталоге, что и приложение *TaskApplication.exe*.
+1. **Первый аргумент** — это путь к файлу, который нужно обработать. Это локальный путь к файлу, так как он существует на узле. Когда объект ResourceFile впервые создавался в `UploadFileToContainerAsync`, для этого свойства использовалось имя файла (в качестве параметра конструктора ResourceFile). Это значит, что файл находится в том же каталоге, что и приложение *TaskApplication.exe*.
 
 2. **Второй аргумент** указывает *N* наиболее часто используемых слов, которые должны быть записаны в выходной файл. В данном примере жестко задано, чтобы в выходной файл было записано три наиболее часто используемых слова.
 
-3. **Третий аргумент** — это подписанный URL-адрес (SAS), который предоставляет доступ на запись в контейнер **output** в службе хранилища Azure. Приложение *TaskApplication.exe* использует этот подписанный URL-адрес, когда отправляет выходной файл в службу хранилища Azure. Вы можете найти соответствующий код в методе `UploadFileToContainer` файла `Program.cs` проекта TaskApplication:
+3. **Третий аргумент** — это подписанный URL-адрес, который предоставляет доступ на запись в контейнер **output** в службе хранилища Azure. Приложение *TaskApplication.exe* использует этот подписанный URL-адрес, когда отправляет выходной файл в службу хранилища Azure. Вы можете найти соответствующий код в методе `UploadFileToContainer` файла `Program.cs` проекта TaskApplication:
 
 ```
 // NOTE: From project TaskApplication Program.cs
@@ -407,9 +434,10 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 				Console.WriteLine("Additional error information: " + e.Message);
 				Console.WriteLine();
 
-				// Indicate that a failure has occurred so that when the Batch service sets the
-				// CloudTask.ExecutionInformation.ExitCode for the task that executed this application,
-				// it properly indicates that there was a problem with the task.
+				// Indicate that a failure has occurred so that when the Batch service
+                // sets the CloudTask.ExecutionInformation.ExitCode for the task that
+                // executed this application, it properly indicates that there was a
+                // problem with the task.
 				Environment.ExitCode = -1;
 		}
 }
@@ -417,40 +445,47 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 
 ## Шаг 6. Мониторинг задач
 
-![Мониторинг задач][6]<br/>
- *Клиентское приложение (1) отслеживает выполнение задач и состояние их выполнения, а задачи (2) отправляют данные результатов в службу хранилища Azure*.
+![Мониторинг задач][6]<br/> *Клиентское приложение (1) отслеживает выполнение задач и состояние их выполнения, а задачи (2) отправляют данные результатов в службу хранилища Azure*
 
 Добавленные в задание задачи автоматически выстраиваются в очередь и планируются для выполнения на вычислительных узлах пула, связанного с заданием. Пакетная служба обрабатывает постановку задач в очередь, их планирование извлечение и другие задачи администрирования с учетом указанных вами параметров. Есть несколько подходов к отслеживанию выполнения задач. Приложение DotNetTutorial — это простой пример, который сообщает только о трех состояниях: завершение, сбой задачи и успешное завершение.
 
-В методе `MonitorTasks` файла `Program.cs` приложения DotNetTutorial есть три основных понятия пакетной службы .NET, которые следует обсудить. Они перечислены ниже в порядке появления.
+В методе `MonitorTasks` файла `Program.cs` приложения DotNetTutorial есть три основных понятия пакетной службы .NET, на которые следует обратить внимание. Они перечислены ниже в порядке появления.
 
-1. **ODATADetailLevel**. Чтобы обеспечить выполнение приложения пакетной службы, необходимо указать класс [ODATADetailLevel][net_odatadetaillevel] в операциях получения списков (таких как получение списка задач задания). Ознакомьтесь со статьей [Эффективные запросы к пакетной службе Azure](batch-efficient-list-queries.md), если вы планируете заниматься отслеживанием состояния в приложениях пакетной службы.
+1. **ODATADetailLevel**. Чтобы обеспечить выполнение приложения пакетной службы, необходимо указать класс [ODATADetailLevel][net_odatadetaillevel] в операциях получения списков (таких как получение списка задач задания). Ознакомьтесь со статьей [Эффективные запросы к пакетной службе Azure](batch-efficient-list-queries.md), если вы планируете отслеживать состояние в приложениях пакетной службы.
 
-2. **TaskStateMonitor**. Класс [TaskStateMonitor][net_taskstatemonitor] предоставляет приложениям .NET пакетной службы вспомогательные служебные программы для мониторинга состояний задачи. В методе `MonitorTasks` приложение *DotNetTutorial* ожидает, пока все задачи не достигнут состояния [TaskState.Completed][net_taskstate] за отведенное время. Затем приложение завершает задание.
+2. **TaskStateMonitor**. Класс [TaskStateMonitor][net_taskstatemonitor] предоставляет приложениям .NET пакетной службы вспомогательные служебные программы для мониторинга состояния задач. В методе `MonitorTasks` приложение *DotNetTutorial* ожидает, пока для всех задач не установится состояние [TaskState.Completed][net_taskstate] за отведенное время. Затем приложение завершает задание.
 
-3. **TerminateJobAsync**. Если завершить задание с помощью метода [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (или блокирующего метода JobOperations.TerminateJob), задание будет отмечено как завершенное. Это очень важно сделать, если решение пакетной службы использует [JobReleaseTask][net_jobreltask]. Это особый тип задачи, который описан в статье [Выполнение задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure](batch-job-prep-release.md).
+3. **TerminateJobAsync**. Если завершить задание с помощью метода [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (или блокирующего метода JobOperations.TerminateJob), задание будет отмечено как завершенное. Это очень важно сделать, если решение пакетной службы использует [JobReleaseTask][net_jobreltask]. Это особый тип задачи, который описан в статье [Выполнение задач подготовки и завершения заданий](batch-job-prep-release.md).
 
 Метод `MonitorTasks` из файла `Program.cs` приложения *DotNetTutorial* показан ниже:
 
 ```
-private static async Task<bool> MonitorTasks(BatchClient batchClient, string jobId, TimeSpan timeout)
+private static async Task<bool> MonitorTasks(
+    BatchClient batchClient,
+    string jobId,
+    TimeSpan timeout)
 {
     bool allTasksSuccessful = true;
     const string successMessage = "All tasks reached state Completed.";
     const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
 
-    // Obtain the collection of tasks currently managed by the job. Note that we use a detail level to
-    // specify that only the "id" property of each task should be populated. Using a detail level for
-    // all list operations helps to lower response time from the Batch service.
+    // Obtain the collection of tasks currently managed by the job. Note that we use
+    // a detail level to specify that only the "id" property of each task should be
+    // populated. Using a detail level for all list operations helps to lower
+    // response time from the Batch service.
     ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
-    List<CloudTask> tasks = await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
+    List<CloudTask> tasks =
+        await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
 
     Console.WriteLine("Awaiting task completion, timeout in {0}...", timeout.ToString());
 
-    // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we will wait for all tasks to
-    // reach the Completed state.
+    // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we
+    // will wait for all tasks to reach the Completed state.
     TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
-    bool timedOut = await taskStateMonitor.WaitAllAsync(tasks, TaskState.Completed, timeout);
+    bool timedOut = await taskStateMonitor.WaitAllAsync(
+        tasks,
+        TaskState.Completed,
+        timeout);
 
     if (timedOut)
     {
@@ -464,12 +499,14 @@ private static async Task<bool> MonitorTasks(BatchClient batchClient, string job
     {
         await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
 
-        // All tasks have reached the "Completed" state. However, this does not guarantee that all tasks were completed successfully.
-        // Here we further check each task's ExecutionInfo property to ensure that it did not encounter a scheduling error
-        // or return a non-zero exit code.
+        // All tasks have reached the "Completed" state. However, this does not
+        // guarantee that all tasks were completed successfully. Here we further
+        // check each task's ExecutionInfo property to ensure that it did not
+        // encounter a scheduling error or return a non-zero exit code.
 
-        // Update the detail level to populate only the task id and executionInfo properties.
-        // We refresh the tasks below, and need only this information for each task.
+        // Update the detail level to populate only the task id and executionInfo
+        // properties. We refresh the tasks below, and need only this information
+        // for each task.
         detail.SelectClause = "id, executionInfo";
 
         foreach (CloudTask task in tasks)
@@ -479,17 +516,23 @@ private static async Task<bool> MonitorTasks(BatchClient batchClient, string job
 
             if (task.ExecutionInformation.SchedulingError != null)
             {
-                // A scheduling error indicates a problem starting the task on the node. It is important to note that
-                // the task's state can be "Completed," yet the task still might have encountered a scheduling error.
+                // A scheduling error indicates a problem starting the task on the
+                // node. It is important to note that the task's state can be
+                // "Completed," yet the task still might have encountered a
+                // scheduling error.
 
                 allTasksSuccessful = false;
 
-                Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}", task.Id, task.ExecutionInformation.SchedulingError.Message);
+                Console.WriteLine(
+                    "WARNING: Task [{0}] encountered a scheduling error: {1}",
+                    task.Id,
+                    task.ExecutionInformation.SchedulingError.Message);
             }
             else if (task.ExecutionInformation.ExitCode != 0)
             {
-                // A non-zero exit code may indicate that the application executed by the task encountered an error
-                // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
+                // A non-zero exit code may indicate that the application executed by
+                // the task encountered an error during execution. As not every
+                // application returns non-zero on failure by default (e.g. robocopy),
                 // your implementation of error checking may differ from this example.
 
                 allTasksSuccessful = false;
@@ -515,7 +558,10 @@ private static async Task<bool> MonitorTasks(BatchClient batchClient, string job
 Теперь, когда задание выполнено, можно загрузить выходные данные задач из службы хранилища Azure. Для этого нужно вызвать метод `DownloadBlobsFromContainerAsync` в файле `Program.cs` приложения *DotNetTutorial*:
 
 ```
-private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobClient, string containerName, string directoryPath)
+private static async Task DownloadBlobsFromContainerAsync(
+    CloudBlobClient blobClient,
+    string containerName,
+    string directoryPath)
 {
 		Console.WriteLine("Downloading all files from container [{0}]...", containerName);
 
@@ -523,7 +569,9 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 		CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
 		// Get a flat listing of all the block blobs in the specified container
-		foreach (IListBlobItem item in container.ListBlobs(prefix: null, useFlatBlobListing: true))
+		foreach (IListBlobItem item in container.ListBlobs(
+                    prefix: null,
+                    useFlatBlobListing: true))
 		{
 				// Retrieve reference to the current blob
 				CloudBlob blob = (CloudBlob)item;
@@ -537,7 +585,7 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 }
 ```
 
-> [AZURE.NOTE] Вызов `DownloadBlobsFromContainerAsync` в приложении *DotNetTutorial* указывает, что файлы должны быть загружены в папку `%TEMP%`. Вы можете изменить это расположение выходных данных.
+> [AZURE.NOTE] При вызове `DownloadBlobsFromContainerAsync` в приложении *DotNetTutorial* указывается, что файлы необходимо скачать в папку `%TEMP%`. Вы можете изменить это расположение выходных данных.
 
 ## Шаг 8. Удаление контейнеров
 
@@ -553,7 +601,9 @@ await DeleteContainerAsync(blobClient, outputContainerName);
 Сам метод просто получает ссылку на контейнер, а затем вызывает [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete]\:
 
 ```
-private static async Task DeleteContainerAsync(CloudBlobClient blobClient, string containerName)
+private static async Task DeleteContainerAsync(
+    CloudBlobClient blobClient,
+    string containerName)
 {
     CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
@@ -563,7 +613,8 @@ private static async Task DeleteContainerAsync(CloudBlobClient blobClient, strin
     }
     else
     {
-        Console.WriteLine("Container [{0}] does not exist, skipping deletion.", containerName);
+        Console.WriteLine("Container [{0}] does not exist, skipping deletion.",
+            containerName);
     }
 }
 ```
@@ -594,11 +645,11 @@ if (response != "n" && response != "no")
 
 > [AZURE.IMPORTANT] Помните, что вы платите за использование вычислительных ресурсов, поэтому удаление неиспользуемых пулов позволит сократить затраты. Также не забывайте, что при удалении пула удаляются все вычислительные узлы этого пула, после чего все данные на узлах уже нельзя будет восстановить.
 
-## Запуск примера приложения *DotNetTutorial*
+## Запуск примера *DotNetTutorial*
 
-Когда вы запустите пример приложения, консоль будет выглядеть так. Во время выполнения может возникнуть пауза на этапе `Awaiting task completion, timeout in 00:30:00...`, когда будут запускаться вычислительные узлы пула. Используйте [обозреватель пакетной службы][github_batchexplorer] для мониторинга пула, вычислительных узлов, заданий и задач во время и после выполнения. Используйте [портал Azure][azure_portal] или один из [доступных обозревателей службы хранилища Azure][storage_explorers] для просмотра ресурсов службы хранилища (контейнеры и большие двоичные объекты), созданных приложением.
+Когда вы запустите пример приложения, консоль будет выглядеть так. Во время выполнения может возникнуть пауза на этапе `Awaiting task completion, timeout in 00:30:00...`, когда будут запускаться вычислительные узлы пула. Используйте [обозреватель пакетной службы][github_batchexplorer] для мониторинга пула, вычислительных узлов, заданий и задач во время и после выполнения. Используйте [портал Azure][azure_portal] или один из [доступных обозревателей службы хранилища Azure][storage_explorers], чтобы просматривать ресурсы службы хранилища (контейнеры и большие двоичные объекты), созданные приложением.
 
-Обычное время выполнения — **примерно 5 минут** при выполнении приложения в конфигурации по умолчанию.
+Обычное время выполнения — **примерно 5 минут**, если для приложения задана конфигурация по умолчанию.
 
 ```
 Sample start: 1/8/2016 09:42:58 AM
@@ -633,19 +684,20 @@ Sample complete, hit ENTER to exit...
 
 ## Дальнейшие действия
 
-Вы можете внести изменения в приложения *DotNetTutorial* и *TaskApplication*, чтобы поэкспериментировать с разными сценариями вычислений. Для примера попробуйте добавить задержку выполнения в приложение *TaskApplication*, например [Thread.Sleep][net_thread_sleep], чтобы имитировать длительно выполняемые задачи и отслеживать их с помощью функции *Тепловая карта* обозревателя пакетной службы. Попробуйте добавить дополнительные задачи или изменить количество вычислительных узлов. Добавьте логику для проверки и разрешите использовать существующий пул для сокращения времени выполнения (*подсказка*: см. файл `ArticleHelpers.cs` проекта [Microsoft.Azure.Batch.Samples.Common][github_samples_common] в репозитории [azure-batch-samples][github_samples]).
+Вы можете внести изменения в приложения *DotNetTutorial* и *TaskApplication*, чтобы поэкспериментировать с разными сценариями вычислений. Например, попробуйте добавить задержку выполнения в приложение *TaskApplication*, к примеру [Thread.Sleep][net_thread_sleep], чтобы имитировать длительно выполняемые задачи и отслеживать их с помощью функции *Тепловая карта* обозревателя пакетной службы. Попробуйте добавить дополнительные задачи или изменить количество вычислительных узлов. Добавьте логику для проверки и разрешите использовать существующий пул, чтобы ускорить выполнение. (*Подсказка*. См. файл `ArticleHelpers.cs` проекта [Microsoft.Azure.Batch.Samples.Common][github_samples_common] в репозитории [azure-batch-samples][github_samples].)
 
 Теперь, когда вы знакомы с основным рабочим процессом решения пакетной службы, пришло время подробно изучить дополнительные возможности пакетной службы.
 
 - Если вы недавно используете пакетную службу, рекомендуем прочитать статью [Обзор функций пакетной службы Azure](batch-api-basics.md).
-- Ознакомьтесь с другими статьями на тему разработки в пакетной службе. См. раздел **Подробные сведения о разработке** в каталоге статей [Пакетная служба][batch_learning_path]
-- Ознакомьтесь с другими способами обработки рабочей нагрузки "N часто употребляемых слов" с помощью пакетной службы. См. пример приложения [TopNWords][github_topnwords].
+- Ознакомьтесь с другими статьями на тему разработки в пакетной службе. См. раздел **Подробные сведения о разработке** в каталоге статей [Пакетная служба][batch_learning_path].
+- Ознакомьтесь с другими способами обработки рабочей нагрузки "N часто употребляемых слов" с использованием пакетной службы в примере приложения [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
+[blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
@@ -655,6 +707,11 @@ Sample complete, hit ENTER to exit...
 [net_api]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_api_storage]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
+[net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
+[net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
+[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
+[net_cloudserviceconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudserviceconfiguration.aspx
+[net_container_delete]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
 [net_job]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_poolinfo]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.protocol.models.cloudjob.poolinformation.aspx
 [net_joboperations]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.joboperations
@@ -671,15 +728,14 @@ Sample complete, hit ENTER to exit...
 [net_resourcefile_blobsource]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.blobsource.aspx
 [net_sas_blob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblob.getsharedaccesssignature.aspx
 [net_sas_container]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblobcontainer.getsharedaccesssignature.aspx
+[net_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.aspx
+[net_starttask_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.resourcefiles.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 [net_task_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.resourcefiles.aspx
 [net_taskstate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.taskstate.aspx
 [net_taskstatemonitor]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskstatemonitor.aspx
 [net_thread_sleep]: https://msdn.microsoft.com/library/274eh01d(v=vs.110).aspx
-[net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
-[net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
-[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
-[net_container_delete]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
+[net_virtualmachineconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.virtualmachineconfiguration.aspx
 [nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx
@@ -697,4 +753,4 @@ Sample complete, hit ENTER to exit...
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Учетные данные службы хранилища на портале"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Рабочий процесс решения пакетной службы (сокращенная схема)"
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

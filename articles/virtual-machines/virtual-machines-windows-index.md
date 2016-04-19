@@ -112,9 +112,9 @@
 	
 [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](virtual-machines-windows-cli-deploy-templates.md)
 		
-[Автоматическая архивация SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-ps-sql-backup.md)
+[Автоматическая архивация SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
-[Автоматическая установка исправлений для SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-ps-sql-patch.md)
+[Автоматическая установка исправлений для SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-automated-patching.md)
 
 [Автоматическое масштабирование машин в масштабируемом наборе виртуальных машин](virtual-machines-windows-ps-vmss-create.md)
 
@@ -161,7 +161,7 @@
 
 [Пакет HPC](virtual-machines-windows-hpcpack-cluster-options.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-windows-lob.md)
 
@@ -256,7 +256,7 @@
 
 [Создание настраиваемой виртуальной машины под управлением Windows](virtual-machines-windows-classic-createportal.md)
 
-[Capture an image of an Azure Windows virtual machine created with the classic deployment model](virtual-machines-windows-classic-capture-image.md) (Запись образа виртуальной машины Microsoft Azure, созданной с помощью классической модели развертывания)
+[Capture an image of an Azure Windows virtual machine created with the classic deployment model](virtual-machines-windows-classic-capture-image.md) (Запись образа виртуальной машины Windows Azure, созданной с помощью классической модели развертывания)
 
 [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md) (Создание и передача виртуального жесткого диска Windows Server в Azure)
 
@@ -281,9 +281,9 @@
 
 [Custom Script extension for Windows virtual machines](virtual-machines-windows-classic-extensions-customscript.md) (Расширение Custom Script для виртуальных машин Windows)
 
-[Автоматическая архивация SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-ps-sql-backup.md)
+[Автоматическая архивация SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
-[Автоматическая установка исправлений для SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-ps-sql-patch.md)
+[Автоматическая установка исправлений для SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-automated-patching.md)
 
 
 
@@ -351,7 +351,7 @@
 
 [Oracle](virtual-machines-windows-classic-oracle.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [SharePoint](virtual-machines-windows-sharepoint-farm.md)
 
@@ -375,4 +375,4 @@
 
 [Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин в Azure](virtual-machines-windows-allocation-failure.md)
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -5,8 +5,8 @@
 	keywords="подключение excel к sql, импорт данных в excel"
 	documentationCenter=""
 	authors="joseidz"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	manager="jhubbard"
+	editor=""/>
 
 
 <tags
@@ -30,7 +30,7 @@
 
 Чтобы начать работу, вам понадобится база данных SQL в Azure. Если у вас нет базы данных, см. статью [Создание первой базы данных SQL](sql-database-get-started.md), чтобы настроить базу данных с демонстрационными данными и запустить ее в течение нескольких минут. Следуя инструкциям из этой статьи, вы импортируете демонстрационные данные в Excel, но те же действия можно выполнять и с собственными данными.
 
-Вам также понадобится копия Excel. В этой статье используется [Microsoft Excel 2016](https://products.office.com/ru-RU/).
+Вам также понадобится копия Excel. В этой статье используется [Microsoft Excel 2016](https://products.office.com/ru-RU/).
 
 ## Подключение Excel к базе данных SQL и создание ODC-файла
 
@@ -83,4 +83,4 @@
 - Узнайте о преимуществах использования [пулов эластичных БД](sql-database-elastic-pool.md).
 - Узнайте, как [создавать веб-приложения, которые подключаются к базе данных SQL в серверной части](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -4,8 +4,8 @@
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/17/2016" 
+	ms.date="04/11/2016" 
 	ms.author="tomfitz"/>
 
 # Использование Azure PowerShell с диспетчером ресурсов Azure
@@ -24,23 +24,7 @@
 
 Диспетчер ресурсов Azure предлагает кардинально новый способ представления ресурсов Azure. Вместо того чтобы создавать отдельные ресурсы и управлять ими, вы для начала представляете себе полное решение, такое как блог, коллекция фотографий, портал SharePoint или вики-страница. Вы используете шаблон (декларативное представление решения), чтобы создать группу ресурсов, содержащую все ресурсы, необходимые для поддержки решения. Затем вы развертываете группу ресурсов и управляете нею как логической единицей.
 
-В этом учебнике вы узнаете, как использовать Azure PowerShell с диспетчером ресурсов Azure. Здесь рассматривается процесс создания и развертывания группы ресурсов для размещенного в Azure веб-приложения с базой данных SQL и всеми ресурсами, которые необходимы для его поддержки.
-
-## Предварительные требования
-
-Для работы с этим учебником необходимы указанные ниже компоненты.
-
-- Учетная запись Azure.
-  + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/?WT.mc_id=A261C142F) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после использования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты. С вашей кредитной карты не будет взиматься плата, если вы явно не измените параметры и не попросите снимать плату.
-  
-  + Вы можете [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.
-- Azure PowerShell 1.0. Информацию об этом выпуске и его установке см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
-
-Этот учебник предназначен для начинающих пользователей PowerShell, но предполагается, что вы знакомы с основными понятиями, такими как модули, командлеты и сеансы.
-
-## Что именно развертывается
-
-В этом учебнике будет использоваться Azure PowerShell для развертывания веб-приложения и базы данных SQL. Тем не менее это решение базы данных SQL и веб-приложения состоит из различных ресурсов, которые работают совместно. Фактически вы развернете следующие ресурсы:
+В этом учебнике вы узнаете, как использовать Azure PowerShell с диспетчером ресурсов Azure. Здесь рассматривается процесс развертывания и использования решения. Мы будем использовать Azure PowerShell и шаблон Resource Manager, чтобы развернуть:
 
 - сервер SQL для размещения базы данных;
 - база данных SQL для хранения данных;
@@ -48,20 +32,34 @@
 - План службы приложений для определения возможностей и стоимости веб-приложения;
 - веб-сайт для запуска веб-приложения;
 - Файл web.config для хранения строки подключения к базе данных. 
+- правила создания оповещений для мониторинга производительности и отслеживания ошибок;
+- App Insights для настройки автоматического масштабирования.
+
+## Предварительные требования
+
+Для работы с этим учебником необходимы указанные ниже компоненты.
+
+- Учетная запись Azure.
+  + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/?WT.mc_id=A261C142F) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после использования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты. С вашей кредитной карты не будет взиматься плата, если вы явно не измените параметры и не попросите снимать плату.
+  
+  + Вы можете [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.
+- Azure PowerShell 1.0. Сведения об этом выпуске и его установке см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
+
+Этот учебник предназначен для начинающих пользователей PowerShell, но предполагается, что вы знакомы с основными понятиями, такими как модули, командлеты и сеансы.
 
 ## Справка по командлетам
 
 Чтобы получить подробную справку для любого командлета, встречающегося в этом учебнике, используйте командлет Get-Help.
 
-	Get-Help <cmdlet-name> -Detailed
+    Get-Help <cmdlet-name> -Detailed
 
 Например, чтобы получить справку для командлета Get-AzureRmResource, введите:
 
-	Get-Help Get-AzureRmResource -Detailed
+    Get-Help Get-AzureRmResource -Detailed
 
 Чтобы получить список командлетов в модуле ресурсов вместе с краткой справочной информацией, введите:
 
-    PS C:\> Get-Command -Module AzureRM.Resources | Get-Help | Format-Table Name, Synopsis
+    Get-Command -Module AzureRM.Resources | Get-Help | Format-Table Name, Synopsis
 
 Выходные данные будут выглядеть примерно следующим образом:
 
@@ -75,281 +73,59 @@
 
 Чтобы получить полную справку для командлета, введите команду в формате:
 
-	Get-Help <cmdlet-name> -Full
+    Get-Help <cmdlet-name> -Full
   
 ## Вход в учетную запись Azure.
 
 Прежде чем начать работу над решением, необходимо войти в учетную запись.
 
-Чтобы войти в учетную запись Azure, используйте командлет **Login-AzureRmAccount**.
+Чтобы войти в учетную запись Azure, используйте командлет **Add-AzureRmAccount**.
 
-    PS C:\> Login-AzureRmAccount
+    Add-AzureRmAccount
 
 Командлет запрашивает учетные данные входа для вашей учетной записи Azure. После выполнения входа он загружает параметры учетной записи, чтобы они были доступны в Azure PowerShell.
 
-Срок действия параметров учетной записи истекает, поэтому необходимо их периодически обновлять. Чтобы обновить параметры учетной записи, еще раз выполните командлет **Login-AzureRmAccount**.
+Срок действия параметров учетной записи истекает, поэтому необходимо их периодически обновлять. Чтобы обновить параметры учетной записи, еще раз выполните командлет **Add-AzureRmAccoun**.
 
->[AZURE.NOTE] Для модулей диспетчера ресурсов требуется командлет Login-AzureRmAccount. Файла параметров публикации недостаточно.
+>[AZURE.NOTE] Для модулей Resource Manager требуется командлет Add-AzureRmAccount. Файла параметров публикации недостаточно.
 
-## Получение расположений типов ресурсов
+Если у вас несколько подписок, укажите идентификатор той из них, которую хотите использовать для развертывания, с помощью командлета **Set-AzureRmContext**.
 
-Во время развертывания ресурсов укажите, где следует разместить ресурс. Не каждый регион поддерживает все типы ресурсов. Прежде чем развертывать веб-приложение и базу данных SQL, выясните, какие регионы поддерживают эти типы ресурсов. Группа ресурсов может содержать ресурсы, которые находятся в разных регионах. Однако, если это возможно, создавайте ресурсы в том же расположении, чтобы оптимизировать производительность. В частности, необходимо убедиться в том, что база данных находится в том же расположении, что и обращающееся к ней приложение.
-
-Чтобы получить расположения, поддерживающие каждый тип ресурса, используйте командлет **Get-AzureRmResourceProvider**. Посмотрим, какой результат возвращает эта команда:
-
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
-
-    ProviderNamespace               RegistrationState ResourceTypes
-    -----------------               ----------------- -------------
-    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
-    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
-    Microsoft.Batch                 Registered        {batchAccounts}
-    ...
-
-ProviderNamespace представляет коллекцию связанных типов ресурсов. Эти пространства имен обычно соответствуют службам, которые нужно создать в Azure. Если вы хотите использовать поставщик ресурсов, указанный как **незарегистрированный**, зарегистрируйте этот поставщик ресурсов. Для этого выполните командлет **Register-AzureRmResourceProvider** и укажите пространство имен поставщика для регистрации. Скорее всего поставщик ресурсов, который вы будете использовать в этом учебнике, уже зарегистрирован для вашей подписки.
-
-Чтобы получить дополнительные сведения о поставщике, укажите пространство имен:
-
-    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql
-
-    ProviderNamespace RegistrationState ResourceTypes                                 Locations
-    ----------------- ----------------- -------------                                 ---------
-    Microsoft.Sql     Registered        {operations}                                  {East US 2, South Central US, Cent...
-    Microsoft.Sql     Registered        {locations}                                   {East US 2, South Central US, Cent...
-    Microsoft.Sql     Registered        {locations/capabilities}                      {East US 2, South Central US, Cent...
-    ...
-
-Чтобы ограничить вывод в поддерживаемые расположения для определенного типа ресурсов, например веб-сайтов, используйте следующую команду:
-
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
-    
-Результат должен быть аналогичен приведенному ниже:
-
-    Brazil South
-    East Asia
-    East US
-    Japan East
-    Japan West
-    North Central US
-    North Europe
-    South Central US
-    West Europe
-    West US
-    Southeast Asia
-    Central US
-    East US 2
-
-Расположения, которые вы видите, могут немного отличаться от предыдущих результатов. Результаты могут отличаться, так как администратор организации создал политику, которая ограничивает регионы, доступные для использования в вашей подписке. Или ограничения связаны с налоговой политикой вашей страны.
-
-Выполним ту же команду для базы данных:
-
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql).ResourceTypes | Where-Object ResourceTypeName -eq servers).Locations
-    East US 2
-    South Central US
-    Central US
-    North Central US
-    West US
-    East US
-    East Asia
-    Southeast Asia
-    Japan West
-    Japan East
-    North Europe
-    West Europe
-    Brazil South
-
-Похоже, эти ресурсы доступны во многих регионах. В этом разделе мы будем использовать **Запад США**, но вы можете указать любой поддерживаемый регион.
+    Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ## Создание группы ресурсов
 
-В этом разделе учебника рассматривается процесс создания группы ресурсов. Группа ресурсов будет служить контейнером для всех ресурсов в решении, имеющих одинаковый жизненный цикл. Позже, следуя инструкциям этого учебника, вы развернете в эту группу ресурсов веб-приложение и базу данных SQL.
+Прежде чем развертывать ресурсы в подписке, необходимо создать группу ресурсов, которая будет их содержать.
 
 Чтобы создать группу ресурсов, используйте командлет **New-AzureRmResourceGroup**.
 
 В команде используются параметр **Name** для указания имени группы ресурсов и параметр **Location** для указания ее расположения. С учетом информации из предыдущего раздела мы будем использовать в качестве расположения "Запад США".
 
-    PS C:\> New-AzureRmResourceGroup -Name TestRG1 -Location "West US"
+    New-AzureRmResourceGroup -Name TestRG1 -Location "West US"
     
+Результат должен быть аналогичен приведенному ниже:
+
     ResourceGroupName : TestRG1
     Location          : westus
     ProvisioningState : Succeeded
     Tags              :
-    Permissions       :
-                    Actions  NotActions
-                    =======  ==========
-                    *
-
     ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1
 
 Группа ресурсов успешно создана.
 
+## Развертывание решения
 
-## Получение доступных версий API для ресурсов
+В этом разделе не объясняется, как создать шаблон, и не рассматривается структура шаблона. Эту информацию см. в статьях [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md) и [Пошаговое руководство по созданию шаблона Resource Manager](resource-manager-template-walkthrough.md). Вы развернете предварительно определенный шаблон [веб-приложения, подготовленного с базой данных SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/), который приведен на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/).
 
-При развертывании шаблона нужно указать версию API, используемую для создания ресурса. Доступная версия API соответствует версии операций API REST, выполняемых поставщиком ресурсов. Поставщики ресурсов активируют новые функции, они выпускают новые версии API-интерфейса REST. Следовательно, версия API, которую вы указываете в шаблоне, влияет на свойства, доступные после создания шаблона. Как правило, во время создания шаблонов следует выбирать последнюю версию API. Для существующих шаблонов можно продолжить использовать версию API, которая не изменит развертывание, или обновить шаблон до последней версии, чтобы воспользоваться новыми возможностями.
+У вас есть группа ресурсов и шаблон, поэтому вы можете развернуть инфраструктуру, определенную в шаблоне, в группу ресурсов. Разверните ресурсы, используя командлет **New-AzureRmResourceGroupDeployment**. Шаблон указывает множество значений по умолчанию, которые мы и будем использовать. Таким образом, вам не придется задавать значения для этих параметров. Базовый синтаксис выглядит вот так:
 
-Этот шаг может показаться противоречивым, но вам не будет сложно найти версии API, доступные для вашего ресурса. Для этого используйте еще раз командлет **Get-AzureRmResourceProvider**.
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -administratorLogin exampleadmin -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
-    2015-08-01
-    2015-07-01
-    2015-06-01
-    2015-05-01
-    2015-04-01
-    2015-02-01
-    2014-11-01
-    2014-06-01
-    2014-04-01-preview
-    2014-04-01
-
-Как вы видите, этот API часто обновляется. Как правило, те же номера версии API доступны для всех ресурсов в поставщике ресурсов. Исключение будет сделано, если ресурс добавлен или удален в определенный момент. Мы предполагаем, что те же версии API доступны для ресурса serverFarms. Но вы можете перепроверить версии для ресурса, который, по вашему мнению, может иметь другой список доступных версий API.
-
-Для базы данных вы увидите такие версии:
-
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql).ResourceTypes | Where-Object ResourceTypeName -eq servers/databases).ApiVersions
-    2014-04-01-preview
-    2014-04-01 
-
-## Создание шаблона
-
-В этом разделе не объясняется, как создать шаблон, и не рассматривается структура шаблона. Эту информацию см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md). Ниже приведен шаблон, который будет развернут. Обратите внимание, что шаблон использует версии API, полученные в предыдущем разделе. Чтобы все ресурсы находились в одном регионе, мы применим выражение шаблона **resourceGroup().location**, чтобы использовать расположение группы ресурсов.
-
-Также обратите внимание на раздел параметров. Этот раздел определяет значения, которые можно задать во время развертывания ресурсов. Эти значения понадобятся вам позже.
-
-Вы можете скопировать шаблон и сохранить его как JSON-файл. В этом учебнике предполагается, что он был сохранен по адресу c:\\Azure\\Templates\\azuredeploy.json, но вы можете сохранить в любом удобном для вас месте и под любым именем.
-
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "hostingPlanName": {
-                "type": "string"
-            },
-            "serverName": {
-                "type": "string"
-            },
-            "databaseName": {
-                "type": "string"
-            },
-            "administratorLogin": {
-                "type": "string"
-            },
-            "administratorLoginPassword": {
-                "type": "securestring"
-            }
-        },
-        "variables": {
-            "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
-        },
-        "resources": [
-            {
-                "name": "[parameters('serverName')]",
-                "type": "Microsoft.Sql/servers",
-                "location": "[resourceGroup().location]",
-                "apiVersion": "2014-04-01",
-                "properties": {
-                    "administratorLogin": "[parameters('administratorLogin')]",
-                    "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-                    "version": "12.0"
-                },
-                "resources": [
-                    {
-                        "name": "[parameters('databaseName')]",
-                        "type": "databases",
-                        "location": "[resourceGroup().location]",
-                        "apiVersion": "2014-04-01",
-                        "dependsOn": [
-                            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-                        ],
-                        "properties": {
-                            "edition": "Basic",
-                            "collation": "SQL_Latin1_General_CP1_CI_AS",
-                            "maxSizeBytes": "1073741824",
-                            "requestedServiceObjectiveName": "Basic"
-                        }
-                    },
-                    {
-                        "name": "AllowAllWindowsAzureIps",
-                        "type": "firewallrules",
-                        "location": "[resourceGroup().location]",
-                        "apiVersion": "2014-04-01",
-                        "dependsOn": [
-                            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-                        ],
-                        "properties": {
-                            "endIpAddress": "0.0.0.0",
-                            "startIpAddress": "0.0.0.0"
-                        }
-                    }
-                ]
-            },
-            {
-                "apiVersion": "2015-08-01",
-                "type": "Microsoft.Web/serverfarms",
-                "name": "[parameters('hostingPlanName')]",
-                "location": "[resourceGroup().location]",
-                "sku": {
-                    "tier": "Free",
-                    "name": "f1",
-                    "capacity": 0
-                },
-                "properties": {
-                    "numberOfWorkers": 1
-                }
-            },
-            {
-                "apiVersion": "2015-08-01",
-                "name": "[variables('siteName')]",
-                "type": "Microsoft.Web/sites",
-                "location": "[resourceGroup().location]",
-                "tags": {
-                    "team": "webdev"
-                },
-                "dependsOn": [
-                    "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
-                ],
-                "properties": {
-                    "serverFarmId": "[parameters('hostingPlanName')]"
-                },
-                "resources": [
-                    {
-                        "name": "web",
-                        "type": "config",
-                        "apiVersion": "2015-08-01",
-                        "dependsOn": [
-                            "[concat('Microsoft.Web/Sites/', variables('siteName'))]"
-                        ],
-                        "properties": {
-                            "connectionStrings": [
-                                {
-                                    "ConnectionString": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-                                    "Name": "DefaultConnection",
-                                    "Type": 2
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        ]
-    }
-
-
-## Развертывание шаблона
-
-У вас есть группа ресурсов и шаблон, поэтому вы можете развернуть инфраструктуру, определенную в шаблоне, в группу ресурсов. Разверните ресурсы, используя командлет **New-AzureRmResourceGroupDeployment**. Базовый синтаксис выглядит вот так:
-
-    PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json
-
-Укажите группу ресурсов и расположение шаблона. Если шаблон не является локальным, можно использовать параметр **-TemplateUri** и указать универсальный код ресурса (URI) для шаблона. Для параметра **-Mode** можно задать значение **Добавочный** или **Полный**. По умолчанию диспетчер ресурсов выполняет добавочное обновление во время развертывания. Таким образом, не обязательно задавать параметр **-Mode**, когда требуется **Добавочный**. Сведения об отличиях этих режимов развертывания см. в статье [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
+Укажите группу ресурсов и расположение шаблона. Если шаблон представляет собой локальный файл, используйте параметр **-TemplateFile** и укажите путь к шаблону. Для параметра **-Mode** можно задать значение **Добавочный** или **Полный**. По умолчанию диспетчер ресурсов выполняет добавочное обновление во время развертывания. Таким образом, не обязательно задавать параметр **-Mode**, когда требуется **Добавочный**. Сведения об отличиях этих режимов развертывания см. в статье [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
 ###Динамические параметры шаблона
 
-Если вы знакомы с PowerShell, вы знаете,что вы можете проходить по кругу все доступные параметры для командлета. Для этого введите знак минус (-) и нажмите клавишу TAB. Точно так же это работает с параметрами, которые вы определили в шаблоне. Сразу после ввода имени шаблона командлет выбирает шаблон, анализирует его и динамически добавляет параметры шаблона в команду. Таким образом можно легко указать значения параметров шаблона. Если вы забыли значение обязательного параметра, PowerShell подскажет его вам.
-
-Ниже показана полная команда с включенными параметрами. Вы можете указать собственные значения для имен ресурсов.
-
-    PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json -hostingPlanName freeplanwest -serverName exampleserver -databaseName exampledata -administratorLogin exampleadmin
+Если вы знакомы с PowerShell, вы знаете,что вы можете проходить по кругу все доступные параметры для командлета. Для этого введите знак минус (-) и нажмите клавишу TAB. Точно так же это работает с параметрами, которые вы определили в шаблоне. Сразу после ввода имени шаблона командлет выбирает шаблон, анализирует его и динамически добавляет параметры шаблона в команду. Таким образом можно легко указать значения параметров шаблона.
 
 При вводе команды запрашивается отсутствующий обязательный параметр **administratorLoginPassword**. А после ввода пароля значение защищенной строки скрывается. Эта стратегия исключает риск, сопряженный с вводом пароля в виде обычного текста.
 
@@ -358,36 +134,59 @@ ProviderNamespace представляет коллекцию связанных
     (Type !? for Help.)
     administratorLoginPassword: ********
 
-Если шаблон включает параметр с именем, которое совпадает с одним из параметров в команде для развертывания шаблона (например включение в шаблон параметра с именем **ResourceGroupName**, которое совпадает с именем параметра **ResourceGroupName** в командлете [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), вам будет предложено указать название для параметра с постфиксом **FromTemplate** (например **ResourceGroupNameFromTemplate**). В целом следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
+Если шаблон содержит параметр с именем, которое совпадает с одним из параметров в команде для развертывания шаблона (например, в шаблоне есть параметр с именем **ResourceGroupName**, которое совпадает с именем параметра **ResourceGroupName** в командлете [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), вам будет предложено указать название для параметра с постфиксом **FromTemplate** (например, **ResourceGroupNameFromTemplate**). В целом следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
 
 Команда выполняется и возвращает сообщения по мере создания ресурсов. Наконец, вы можете увидеть результат развертывания.
 
     DeploymentName    : azuredeploy
     ResourceGroupName : TestRG1
     ProvisioningState : Succeeded
-    Timestamp         : 10/16/2015 12:55:50 AM
+    Timestamp         : 4/11/2016 7:26:11 PM
     Mode              : Incremental
     TemplateLink      :
+                Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
+                ContentVersion : 1.0.0.0
     Parameters        :
-                    Name             Type                       Value
-                    ===============  =========================  ==========
-                    hostingPlanName  String                     freeplanwest
-                    serverName       String                     exampleserver
-                    databaseName     String                     exampledata
-                    administratorLogin  String                  exampleadmin
-                    administratorLoginPassword  SecureString
+                Name             Type                       Value
+                ===============  =========================  ==========
+                skuName          String                     F1
+                skuCapacity      Int                        1
+                administratorLogin  String                  exampleadmin
+                administratorLoginPassword  SecureString
+                databaseName     String                     sampledb
+                collation        String                     SQL_Latin1_General_CP1_CI_AS
+                edition          String                     Basic
+                maxSizeBytes     String                     1073741824
+                requestedServiceObjectiveName  String       Basic
 
     Outputs           :
+                Name             Type                       Value
+                ===============  =========================  ==========
+                siteUri          String                     websites5wdai7p2k2g4.azurewebsites.net
+                sqlSvrFqdn       String                     sqlservers5wdai7p2k2g4.database.windows.net
+                    
+    DeploymentDebugLogLevel :
 
 Всего за несколько шагов мы создали и развернули ресурсы, необходимые для сложного веб-сайта.
+
+### Ведение журнала отладочной информации
+
+При развертывании шаблона можно вести журнал дополнительных сведений о запросах и ответах. Для этого во время выполнения команды **New-AzureRmResourceGroupDeployment** необходимо указать параметр **-DeploymentDebugLogLevel**. Эта информация может помочь устранить ошибки развертывания. По умолчанию задано значение **None**, при котором содержимое запросов и ответов не регистрируется. Можно задать ведение журнала содержимого запроса, ответа или и того, и другого. Дополнительные сведения об устранении неполадок развертывания и ведении журнала отладочной информации см. в статье [Устранение неполадок развертываний групп ресурсов с помощью Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). В следующем примере для развертывания задан параметр ведения журнала содержимого запроса и ответа.
+
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -DeploymentDebugLogLevel All -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
+
+> [AZURE.NOTE] При указании параметра DeploymentDebugLogLevel внимательно рассмотрите тип данных, передаваемых в ходе развертывания. При ведении журнала с информацией о запросе или ответе возможно раскрытие конфиденциальных данных, извлекаемых с помощью операций развертывания.
+
 
 ## Получение сведений о ваших группах ресурсов
 
 После создания группы ресурсов, вы можете использовать командлеты в модуле диспетчера ресурсов для управления ими.
 
-- Чтобы получить все группы ресурсов, входящие в вашу подписку, используйте командлет **Get-AzureRmResourceGroup**:
+- Чтобы получить группу ресурсов вашей подписки, используйте командлет **Get-AzureRmResourceGroup**:
 
-		PS C:\> Get-AzureRmResourceGroup
+		Get-AzureRmResourceGroup -ResourceGroupName TestRG1
+	
+	Он возвратит следующую информацию:
 
 		ResourceGroupName : TestRG1
 		Location          : westus
@@ -397,32 +196,32 @@ ProviderNamespace представляет коллекцию связанных
 		
 		...
 
-      Если необходимо получить конкретную группу ресурсов, укажите параметр **Name**.
-      
-          PS C:\> Get-AzureRmResourceGroup -Name TestRG1
+	Если не указать имя группы ресурсов, командлет возвратит все группы ресурсов в подписке.
 
 - Чтобы получить ресурсы, входящие в группу ресурсов, используйте командлет **Find-AzureRmResource** с параметром **ResourceGroupNameContains**. Без параметров командлет Find-AzureRmResource возвращает все ресурсы в подписке Azure.
 
-        PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
+        Find-AzureRmResource -ResourceGroupNameContains TestRG1
+	
+     Он возвращает список ресурсов в следующем виде:
 		
-        Name              : exampleserver
-        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
-        ResourceName      : exampleserver
+        Name              : sqlservers5wdai7p2k2g4
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/sqlservers5wdai7p2k2g4
+        ResourceName      : sqlservers5wdai7p2k2g4
         ResourceType      : Microsoft.Sql/servers
-        Kind              : v12.0
+        Kind              : v2.0
         ResourceGroupName : TestRG1
         Location          : westus
         SubscriptionId    : {guid}
-                
+        Tags              : {System.Collections.Hashtable}
         ...
 	        
-- Приведенный выше шаблон содержит тег для одного ресурса. Теги можно использовать для логической организации всех ресурсов в вашей подписке. Воспользуйтесь командами **Find-AzureRmResource** и **Find-AzureRmResourceGroup** для запрашивания ресурсов по тегам.
+- Вы можете логически упорядочить ресурсы в подписке с использованием тегов и извлечь ресурсы с помощью командлетов **Find-AzureRmResource** и **Find-AzureRmResourceGroup**.
 
-        PS C:\> Find-AzureRmResource -TagName team
+        Find-AzureRmResource -TagName displayName -TagValue Website
 
-        Name              : ExampleSiteuxq53xiz5etmq
-        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/ExampleSiteuxq53xiz5etmq
-        ResourceName      : ExampleSiteuxq53xiz5etmq
+        Name              : webSites5wdai7p2k2g4
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/webSites5wdai7p2k2g4
+        ResourceName      : webSites5wdai7p2k2g4
         ResourceType      : Microsoft.Web/sites
         ResourceGroupName : TestRG1
         Location          : westus
@@ -438,7 +237,35 @@ ProviderNamespace представляет коллекцию связанных
 
 Существующие ресурсы можно переместить в новую группу ресурсов. Примеры см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](resource-group-move-resources.md).
 
-## Удаление группы ресурсов
+## Экспорт шаблона
+
+Для существующей группы ресурсов (развернутой с помощью PowerShell или других средств, например через портал) можно просмотреть шаблон Resource Manager. Экспорт шаблона обеспечивает два преимущества:
+
+1. Вы можете с легкостью автоматизировать будущие развертывания решения, так как в шаблоне определены все компоненты инфраструктуры.
+
+2. Вы можете ознакомиться с синтаксисом шаблона, просмотрев представление JSON решения.
+
+С помощью PowerShell можно создать шаблон, который представляет текущее состояние вашей группы ресурсов, или извлечь шаблон, который использовался для конкретного развертывания.
+
+Экспортировать шаблон для группы ресурсов целесообразно, если в нее внесены изменения и вам нужно получить представление JSON текущего состояния. Однако созданный шаблон содержит только минимальное число параметров, и в нем не указаны какие-либо переменные. Большая часть значений в шаблоне заданы жестко. Прежде чем развертывать созданный шаблон, можно преобразовать дополнительные значения в параметры, чтобы настроить развертывание для разных сред.
+
+Экспортировать шаблон для конкретного развертывания целесообразно, если необходимо просмотреть фактический шаблон, который использовался для развертывания ресурсов. Этот шаблон будет содержать все параметры и переменные, определенные для исходного развертывания. Тем не менее если кто-то в организации внес изменения в группу ресурсов, в частности в параметры вне шаблона, этот шаблон не будет представлять текущее состояние группы ресурсов.
+
+> [AZURE.NOTE] Сейчас доступна только предварительная версия функции экспорта шаблона, которая поддерживается не для всех типов ресурсов. При попытке экспорта шаблона может появиться сообщение о том, что некоторые ресурсы не экспортированы. При необходимости эти ресурсы можно определить вручную после скачивания шаблона.
+
+###Экспорт шаблона из группы ресурсов
+
+Чтобы просмотреть шаблон из группы ресурсов, выполните командлет **Export-AzureRmResourceGroup**.
+
+    Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\TestRG1.json
+    
+###Скачивание шаблона из развертывания
+
+Чтобы скачать шаблон, используемый для конкретного развертывания, выполните командлет **Save-AzureRmResourceGroupDeploymentTemplate**.
+
+    Save-AzureRmResourceGroupDeploymentTemplate -DeploymentName azuredeploy -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\azuredeploy.json
+
+## Удаление ресурсов или группы ресурсов
 
 - Чтобы удалить ресурс из группы ресурсов, используйте командлет **Remove-AzureRmResource**. Этот командлет удаляет ресурс, но не удаляет группу ресурсов.
 
@@ -448,13 +275,103 @@ ProviderNamespace представляет коллекцию связанных
 
 - Чтобы удалить группу ресурсов, используйте командлет **Remove-AzureRmResourceGroup**. Этот командлет удаляет группу ресурсов и входящие в нее ресурсы.
 
-		PS C:\> Remove-AzureRmResourceGroup -Name TestRG1
+		Remove-AzureRmResourceGroup -Name TestRG1
+		
+	Вам будет предложено подтвердить удаление.
 		
 		Confirm
 		Are you sure you want to remove resource group 'TestRG1'
 		[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
+## Скрипт развертывания
 
+В предыдущих примерах развертывания в этой статье приведены только отдельные командлеты, необходимые для развертывания ресурсов в Azure. В следующем примере показан скрипт развертывания, который создает группу ресурсов, а затем развертывает ресурсы.
+
+    <#
+      .SYNOPSIS
+      Deploys a template to Azure
+      
+      .DESCRIPTION
+      Deploys an Azure Resource Manager template
+
+      .PARAMETER subscriptionId
+      The subscription id where the template will be deployed.
+
+      .PARAMETER resourceGroupName
+      The resource group where the template will be deployed. Can be the name of an existing or a new resource group.
+
+      .PARAMETER resourceGroupLocation
+      Optional, a resource group location. If specified, will try to create a new resource group in this location. If not specified, assumes resource group is existing.
+
+      .PARAMETER deploymentName
+      The deployment name.
+
+      .PARAMETER templateFilePath
+      Optional, path to the template file. Defaults to template.json.
+
+      .PARAMETER parametersFilePath
+      Optional, path to the parameters file. Defaults to parameters.json. If file is not found, will prompt for parameter values based on template.
+    #>
+
+    param(
+      [Parameter(Mandatory=$True)]
+      [string]
+      $subscriptionId,
+
+      [Parameter(Mandatory=$True)]
+      [string]
+      $resourceGroupName,
+
+      [string]
+      $resourceGroupLocation,
+
+      [Parameter(Mandatory=$True)]
+      [string]
+      $deploymentName,
+
+      [string]
+      $templateFilePath = "template.json",
+
+      [string]
+      $parametersFilePath = "parameters.json"
+    )
+
+    #******************************************************************************
+    # Script body
+    # Execution begins here 
+    #******************************************************************************
+    $ErrorActionPreference = "Stop"
+
+    # sign in
+    Write-Host "Logging in...";
+    Add-AzureRmAccount;
+
+    # select subscription
+    Write-Host "Selecting subscription '$subscriptionId'";
+    Set-AzureRmContext -SubscriptionID $subscriptionId;
+
+    #Create or check for existing resource group
+    $resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
+    if(!$resourceGroup)
+    {
+      Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
+      if(!$resourceGroupLocation) {
+        $resourceGroupLocation = Read-Host "resourceGroupLocation";
+      }
+      Write-Host "Creating resource group '$resourceGroupName' in location '$resourceGroupLocation'";
+      New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
+    }
+    else{
+      Write-Host "Using existing resource group '$resourceGroupName'";
+    }
+
+    # Start the deployment
+    Write-Host "Starting deployment...";
+    if(Test-Path $parametersFilePath) {
+      New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
+    } else {
+      New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
+    }
 
 ## Дальнейшие действия
 
@@ -463,4 +380,4 @@ ProviderNamespace представляет коллекцию связанных
 - Подробный пример развертывания проекта см. в статье [Предсказуемое развертывание микрослужб в Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Сведения об устранении неполадок развертывания, которое завершилось сбоем, см. в статье [Устранение неполадок развертывания группы ресурсов в Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->
