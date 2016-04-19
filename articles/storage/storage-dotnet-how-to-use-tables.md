@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с хранилищем таблиц Azure с помощью .NET | Microsoft Azure"
+	pageTitle="Приступая к работе с хранилищем таблиц Azure с помощью .NET | Microsoft Azure"
 	description="Хранение структурированных данных в облаке в хранилище таблиц Azure, хранилище данных NoSQL (Майкрософт). Приступая к работе с простыми операциями хранилища таблиц, включая создание и удаление таблиц, а также вставку, обновление, удаление данных и создание запросов к ним."
 	services="storage"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/27/2016"
+	ms.date="04/07/2016"
 	ms.author="tamram"/>
 
 
@@ -23,11 +23,22 @@
 
 ## Обзор
 
-Хранилище таблиц Azure — это служба в облаке, в которой хранятся структурированные данные NoSQL. Хранилище таблиц — это хранилище ключей и атрибутов, реализованное в виде бессхемной конструкции. Такая конструкция хранилища таблиц позволяет легко адаптировать данные по мере расширения приложения. Быстрый и экономичный доступ к данным предоставляется приложениям всех видов. Табличное хранилище обычно значительно дешевле, чем традиционная база данных SQL для тех же объемов данных.
+Хранилище таблиц Azure — это служба в облаке, в которой хранятся структурированные данные NoSQL. Хранилище таблиц — это хранилище ключей и атрибутов, реализованное в виде бессхемной конструкции. Такая конструкция хранилища таблиц позволяет легко адаптировать данные по мере расширения приложения. Быстрый и экономичный доступ к данным предоставляется приложениям всех видов. Табличное хранилище обычно значительно дешевле, чем традиционная база данных SQL для тех же объемов данных.
 
 Табличное хранилище можно использовать для хранения гибких наборов данных, например пользовательских данных для веб-приложений, адресных книг, сведений об устройстве, а также метаданных любого другого типа, которые требуются вашей службе. В таблице можно хранить любое количество сущностей, а учетная запись хранения может содержать любое количество таблиц в пределах емкости учетной записи.
 
+### О данном учебнике
+
 В этом руководстве показано, как написать код .NET для некоторых распространенных сценариев использования хранилища таблиц Azure, включая создание и удаление таблиц, а также вставку, обновление, удаление и создание запросов к данным таблиц.
+
+**Предполагаемое время выполнения:** 45 минут.
+
+**Предварительные требования**
+
+- [Microsoft Visual Studio](https://www.visualstudio.com/ru-RU/visual-studio-homepage-vs.aspx)
+- [Клиентская библиотека хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+- [Диспетчер конфигураций Azure для .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+- [Учетная запись хранения Azure](storage-create-storage-account.md#create-a-storage-account)
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -35,41 +46,47 @@
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-configure-connection-string-include](../../includes/storage-configure-connection-string-include.md)]
+[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-## Программный доступ к табличному хранилищу
+### Добавление объявлений пространств имен
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+Добавьте в начало файла `program.cs` следующие инструкции `using`:
 
-### Объявления пространств имен
-Добавьте следующие объявления пространств имен кода в начало любого файла C#,в котором вы собираетесь получать доступ к хранилищу Azure программным способом.
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+    using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
-    using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Table;
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-Обязательно используйте ссылку на сборку `Microsoft.WindowsAzure.Storage.dll`.
+### Создание клиента службы таблиц
 
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
+Класс **CloudTableClient** позволяет получать таблицы и сущности, хранящиеся в хранилище таблиц. Добавьте в метод **Main()** следующий код:
+
+	// Create the table client.
+	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+Теперь вы можете написать код, который считывает и записывает данные в хранилище таблиц.
 
 ## Создание таблицы
 
-Объект **CloudTableClient** позволяет ссылаться на объекты таблиц и сущностей. Следующий код создает объект **CloudTableClient** и использует его для создания новой таблицы. Во всем коде в этой статье предполагается, что приложение создается как проект облачной службы Azure и использует строку подключения к хранилищу, хранящуюся в конфигурации службы приложения Azure.
+В этом примере показано, как создать таблицу, если она не существует:
 
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	// Retrieve the storage account from the connection string.
+	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	
+	// Create the table client.
+	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-    // Create the table if it doesn't exist.
+	// Retrieve a reference to the table.
     CloudTable table = tableClient.GetTableReference("people");
+		
+    // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
 ## Добавление сущности в таблицу
 
-Сущности сопоставляются с объектами C# с помощью настраиваемого класса, производного от **TableEntity**. Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей, который использует имя клиента как ключ строки, а фамилию клиента — как ключ раздела. Вместе ключ раздела и ключ строки сущности уникальным образом идентифицируют сущность в таблице. Сущности с одинаковым ключом раздела можно запрашивать быстрее, чем с разными ключами раздела, но использование различных ключей разделов обеспечивает более высокую масштабируемость параллельных операций. Любое свойство, которое будет храниться в службе таблиц, должно быть открытым свойством поддерживаемого типа, предоставляющим методы `get` и `set`. Кроме того, тип сущности *должен* предоставлять конструктор без параметров.
+Сущности сопоставляются с объектами C# с помощью настраиваемого класса, производного от **TableEntity**. Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей, который использует имя клиента как ключ строки, а фамилию клиента — как ключ раздела. Вместе ключ раздела и ключ строки сущности уникальным образом идентифицируют сущность в таблице. Сущности с одинаковым ключом раздела можно запрашивать быстрее, чем с разными ключами раздела, но использование различных ключей разделов обеспечивает более высокую масштабируемость параллельных операций. Любое свойство, которое будет храниться в службе таблиц, должно быть открытым свойством поддерживаемого типа, предоставляющим методы `get` и `set`. Кроме того, тип сущности *должен* предоставлять конструктор без параметров.
 
     public class CustomerEntity : TableEntity
     {
@@ -444,4 +461,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

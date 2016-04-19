@@ -373,15 +373,15 @@ Push-облако Baidu — это китайская облачная служ
 		    @Override
 		    public void onNotificationClicked(Context context, String title,
 		            String description, String customContentString) {
-		        String notifyString = "title=\"" + title + "\" description=\""
-		                + description + "\" customContent=" + customContentString;
+		        String notifyString = "title="" + title + "" description=""
+		                + description + "" customContent=" + customContentString;
 		        Log.d(TAG, notifyString);
 		    }
 
 		    @Override
 		    public void onMessage(Context context, String message,
 		            String customContentString) {
-		        String messageString = "message=\"" + message + "\" customContentString=" + customContentString;
+		        String messageString = "message="" + message + "" customContentString=" + customContentString;
 		        Log.d(TAG, messageString);
 		    }
 		}
@@ -413,7 +413,7 @@ Push-уведомления обычно отправляются в серве�
 
 * **Node.js**. [Использование Центров уведомлений из Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
 
-* **Мобильные службы Azure**. Примеры отправки уведомлений из интерфейса мобильных служб Azure, интегрированного с концентраторами уведомлений, см. в статье «Добавление push-уведомлений к приложению мобильных служб» ([серверная часть .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [серверная часть JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
+* **Мобильные службы Azure**. Пример отправки уведомлений с сервера мобильных служб Azure, интегрированного с центрами уведомлений, см. в статье [Добавление push-уведомлений к приложению мобильных служб](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md).
 
 * **Java или PHP**. Примеры отправки уведомлений с использованием REST API см. в статье «Использование концентраторов уведомлений из Java/PHP» ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
@@ -442,7 +442,7 @@ Push-уведомления обычно отправляются в серве�
 		private static async void SendNotificationAsync()
 		{
 			NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("DefaultFullSharedAccessSignatureSASConnectionString", "NotificationHubName");
-			string message = "{\"title\":\"((Notification title))\",\"description\":\"Hello from Azure\"}";
+			string message = "{"title":"((Notification title))","description":"Hello from Azure"}";
 			var result = await hub.SendBaiduNativeNotificationAsync(message);
 		}
 
@@ -504,4 +504,4 @@ Push-уведомления обычно отправляются в серве�
 [классический портал Azure]: https://manage.windowsazure.com/
 [портал Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

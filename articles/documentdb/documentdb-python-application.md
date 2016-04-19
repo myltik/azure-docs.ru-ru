@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="01/05/2016"
+    ms.date="04/08/2016"
     ms.author="ryancraw"/>
 
 # Разработка веб-приложений Python Flask с использованием DocumentDB
@@ -49,7 +49,7 @@
 - Пакет Azure SDK Python для Visual Studio версии 2.4 или выше с сайта [azure.com](https://azure.microsoft.com/downloads/). Мы использовали пакет Microsoft Azure SDK для Python 2.7.
 - Python 2.7 с сайта [python.org][2]. Мы использовали версию Python 2.7.11. 
 
-> [AZURE.IMPORTANT]Если вы устанавливаете Python 2.7 впервые, убедитесь, что на экране Customize Python 2.7.11 (Настройка Python 2.7.11) вы выбрали **Add python.exe to Path** (Добавить файл python.exe к пути).
+> [AZURE.IMPORTANT] Если вы устанавливаете Python 2.7 впервые, убедитесь, что на экране Customize Python 2.7.11 (Настройка Python 2.7.11) вы выбрали **Add python.exe to Path** (Добавить файл python.exe к пути).
 > 
 >    ![Снимок экрана: окно «Настройка Python 2.7.11», где необходимо добавить файл python.exe к пути](./media/documentdb-python-application/image2.png)
 
@@ -61,8 +61,7 @@
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/>
-Теперь мы рассмотрим создание веб-приложения Python Flask с нуля.
+<br/> Теперь мы рассмотрим создание веб-приложения Python Flask с нуля.
 
 ## Шаг 2. Создание нового веб-приложения Python Flask
 
@@ -86,7 +85,7 @@
 
 	![Снимок экрана: учебник — окно средств Python для Visual Studio](./media/documentdb-python-application/image10_A.png)
 
-    Когда среда будет успешно установлена, в окне вывода отобразится сообщение `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.3 itsdangerous-0.24 'requirements.txt' was installed successfully.`
+    Когда среда будет успешно установлена, в окне вывода отобразится сообщение `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`
 
 ## Шаг 3. Изменение веб-приложения Python Flask
 
@@ -94,7 +93,7 @@
 
 После настройки параметров проекта нужно добавить к нему ряд необходимых пакетов Flask, включая pydocumentdb — пакет Python для DocumentDB.
 
-1. В обозревателе решений откройте файл **requirements.txt** и замените его содержимое приведенным ниже кодом, а затем сохраните файл.
+1. В обозревателе решений откройте файл **requirements.txt** и замените его содержимое приведенным ниже кодом.
 
     	flask==0.9
     	flask-mail==0.7.6
@@ -108,15 +107,16 @@
     	flup
     	pydocumentdb>=1.0.0
 
-2. В обозревателе решений щелкните элемент **env** правой кнопкой мыши и выберите пункт **Установить из файла requirements.txt**.
+2. Сохраните файл **requirements.txt**.
+3. В обозревателе решений щелкните элемент **env** правой кнопкой мыши и выберите пункт **Установить из файла requirements.txt**.
 
 	![Снимок экрана: отображение env (Python 2.7) с выбранной командой "Установить из requirements.txt", выделенной в списке](./media/documentdb-python-application/image11.png)
 
     После успешной установки в окне вывода отобразятся следующие сведения:
 
-        Successfully installed Babel-2.1.1 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.0 blinker-1.4 decorator-4.0.6 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.4.2 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
+        Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
 
-    > [AZURE.NOTE]В редких случаях в окне вывода появляется ошибка. В этом случае проверьте, связана ли ошибка с очисткой. Иногда происходит сбой очистки, но установка все равно завершается успешно (прокрутите окно вывода вверх, чтобы убедиться в этом). Чтобы определить успешность установки, воспользуйтесь [проверкой виртуальной среды](#verify-the-virtual-environment). Если установка завершилась ошибкой, но проверка прошла успешно, можно продолжать работу.
+    > [AZURE.NOTE] В редких случаях в окне вывода появляется ошибка. В этом случае проверьте, связана ли ошибка с очисткой. Иногда происходит сбой очистки, но установка все равно завершается успешно (прокрутите окно вывода вверх, чтобы убедиться в этом). Чтобы определить успешность установки, воспользуйтесь [проверкой виртуальной среды](#verify-the-virtual-environment). Если установка завершилась ошибкой, но проверка прошла успешно, можно продолжать работу.
 
 ### Проверка виртуальной среды
 
@@ -127,7 +127,7 @@
 
 	![Пустой проект веб-приложения Python Flask отображается в браузере](./media/documentdb-python-application/image12.png)
 
-3. Остановите отладку веб-сайта, нажав клавиши **SHIFT**+**F5**.
+3. Остановите отладку веб-сайта в Visual Studio. Для этого нажмите клавиши **SHIFT**+**F5**.
 
 ### Создание определений базы данных, коллекции и документа
 
@@ -199,7 +199,7 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-> [AZURE.TIP]Метод **CreateCollection** имеет третий необязательный параметр **RequestOptions**. Его можно использовать для указания типа предложения коллекции. Если значение типа предложения не указано, будет создана коллекция с использованием типа предложения по умолчанию. Дополнительные сведения о типах предложений DocumentDB см. в статье [Уровни производительности в DocumentDB](documentdb-performance-levels.md).
+> [AZURE.TIP] Метод **CreateCollection** имеет третий необязательный параметр **RequestOptions**. Его можно использовать для указания типа предложения коллекции. Если значение типа предложения не указано, будет создана коллекция с использованием типа предложения по умолчанию. Дополнительные сведения о типах предложений DocumentDB см. в статье [Уровни производительности в DocumentDB](documentdb-performance-levels.md).
 
 
 ### Чтение базы данных, коллекции и документа и отправка формы
@@ -259,7 +259,7 @@ def vote():
 1. В обозревателе решений в папке **tutorial** щелкните правой кнопкой мыши папку **templates**, выберите пункт **Добавить**, а затем **Новый элемент**. 
 2. Выберите **HTML-страница**, а затем в поле «Имя» введите **create.html**. 
 3. Повторите шаги 1 и 2, чтобы создать два дополнительных HTML-файла: results.html и vote.html.
-4. Добавьте следующий код в файл **create.html** в элементе <body>. В нем будет отображаться сообщение о создании новой базы данных, коллекции и документа.
+4. Добавьте следующий код в файл **create.html** в элементе `<body>`. В нем будет отображаться сообщение о создании новой базы данных, коллекции и документа.
 
 	```html
 	{% extends "layout.html" %}
@@ -270,7 +270,7 @@ def vote():
 	{% endblock %}
 	```
 
-5. Добавьте следующий код в файл **results.html** в элементе <body>. В нем будут отображаться результаты опроса.
+5. Добавьте следующий код в элемент `<body`>. файла **results.html**. В нем будут отображаться результаты опроса.
 
 	```html
 	{% extends "layout.html" %}
@@ -296,7 +296,7 @@ def vote():
 	{% endblock %}
 	```
 
-6. Добавьте следующий код в файл **vote.html** в элементе <body>. В нем будет отображаться опрос и приниматься голоса. При регистрации голосов управление передается файлу views.py, в котором голоса будут учитываться и, соответственно, добавляться в документ.
+6. Добавьте следующий код в элемент `<body`> файла **vote.html**. В нем будет отображаться опрос и приниматься голоса. При регистрации голосов управление передается файлу views.py, в котором голоса будут учитываться и, соответственно, добавляться в документ.
 
 	```html
 	{% extends "layout.html" %}
@@ -340,7 +340,7 @@ def vote():
 	DOCUMENTDB_DOCUMENT = 'voting document'
 	```
 
-3. На [портале Azure](https://portal.azure.com/) перейдите в колонку **Ключи**: щелкните **Обзор**, **Учетные записи DocumentDB**, дважды щелкните имя учетной записи и нажмите кнопку **Ключи**. В колонке **Ключи** скопируйте значение **URI** и вставьте его в файл **config.py** как значение для свойства **DOCUMENTDB\_HOST**.
+3. На [портале Azure](https://portal.azure.com/) перейдите в колонку **Ключи**, щелкните **Обзор**, **Учетные записи DocumentDB**, дважды щелкните имя учетной записи и нажмите кнопку **Ключи** в области **Основные компоненты**. В колонке **Ключи** скопируйте значение **URI** и вставьте его в файл **config.py** как значение для свойства **DOCUMENTDB\_HOST**.
 4. Вернитесь на портал Azure, перейдите в колонку **Ключи**, скопируйте значение **первичного** или **вторичного ключа** и вставьте его в файл **config.py** как значение для свойства **DOCUMENTDB\_KEY**.
 5. В файл **\_\_init\_\_.py** добавьте следующую строку: 
 
@@ -389,15 +389,15 @@ def vote():
 
  	![Снимок экрана: проект tutorial, выбранный в обозревателе решений и с выделенным параметром "Опубликовать"](./media/documentdb-python-application/image20.png)
 
-2. В окне **Публикация веб-сайта** выберите **Веб-сайты Microsoft Azure**.
+2. В окне **Публикация веб-сайта** выберите **Веб-сайты Microsoft Azure** и нажмите кнопку **Далее**.
 
-	![Снимок экрана: окно "Публикация веб-сайта"](./media/documentdb-python-application/image21.png)
+	![Снимок экрана окна "Публикация веб-сайта" с выделенными веб-приложениями Microsoft Azure](./media/documentdb-python-application/image21.png)
 
-3. В окне **Выбор существующего веб-сайта** нажмите кнопку **Создать**.
+3. В окне **Веб-приложения Microsoft Azure** нажмите кнопку **Создать**.
 
-	![Снимок экрана: окно «Выбор существующего веб-сайта»](./media/documentdb-python-application/select-existing-website.png)
+	![Снимок экрана окна "Веб-приложения Microsoft Azure"](./media/documentdb-python-application/select-existing-website.png)
 
-4. В окне **Создание сайта в Microsoft Azure** введите **имя сайта**, выберите **регион** и нажмите кнопку **Создать**.
+4. В окне **Создание сайта в Microsoft Azure** введите **Имя веб-приложения**, **План обслуживания приложения**, **Группу ресурсов** и **Регион**, затем нажмите кнопку **Создать**.
 
 	![Снимок экрана: окно «Создание сайта в Microsoft Azure»](./media/documentdb-python-application/create-site-on-microsoft-azure.png)
 
@@ -433,4 +433,4 @@ def vote():
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0413_2016-->
