@@ -69,7 +69,8 @@
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
-| Виртуальные машины Azure IaaS (Windows)| — | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) | | Виртуальные машины Azure IaaS (Linux) | — | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+| Виртуальные машины Azure IaaS (Windows)| — | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+| Виртуальные машины Azure IaaS (Linux) | — | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
 
 ## Поддержка ARM и Linux
 

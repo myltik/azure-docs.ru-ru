@@ -1,6 +1,6 @@
 <properties
    pageTitle="Начало работы с Microsoft Power BI Embedded (предварительная версия)"
-   description=""
+   description="Начало работы с Microsoft Power BI Embedded (предварительная версия)"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
