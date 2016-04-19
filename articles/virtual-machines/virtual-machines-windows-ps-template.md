@@ -20,11 +20,11 @@
 # Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов
 
 > [AZURE.SELECTOR]
-- [Портал — Windows](virtual-machines-windows-hero-tutorial.md)
+- [Портал — Windows](virtual-machines-windows-hero-tutorial.md)
 - [PowerShell](virtual-machines-windows-create-powershell.md)
-- [PowerShell — шаблон](virtual-machines-windows-ps-template.md)
-- [Портал — Linux](virtual-machines-linux-portal-create.md)
-- [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-machines-linux-cli-create.md)
+- [PowerShell — шаблон](virtual-machines-windows-ps-template.md)
+- [Портал — Linux](virtual-machines-linux-portal-create.md)
+- [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-machines-linux-quick-create-cli.md)
 
 <br>
 
@@ -289,4 +289,4 @@
 
 Узнайте, как управлять созданной виртуальной машиной, ознакомившись со статьей [Управление виртуальными машинами с помощью диспетчера ресурсов Azure и PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

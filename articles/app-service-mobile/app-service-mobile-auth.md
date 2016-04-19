@@ -91,8 +91,6 @@
 
 Если вы хотите использовать систему удостоверений, отличную от указанных здесь, можно также использовать [предварительную версию поддержки настраиваемой проверки подлинности в серверном пакете SDK .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
 
-Дополнительные сведения о приведенных выше процессах см. в статье [Обзор проверки подлинности службы приложений](app-service-authentication-overview.md). Она также содержит информацию о шлюзе службы приложений, который больше не используется в мобильных приложениях, однако концептуальное содержимое по-прежнему имеет силу.
-
 [Добавление проверки подлинности в приложение iOS]: app-service-mobile-ios-get-started-users.md
 [Добавление проверки подлинности в приложение Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started-users.md
 [Добавление проверки подлинности в приложение Xamarin.Android]: app-service-mobile-xamarin-android-get-started-users.md
@@ -104,4 +102,4 @@
 [Настройка приложения для использования входа по учетной записи Майкрософт]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Настройка приложения для использования имени входа Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,5 +1,5 @@
 <properties
-   	pageTitle="Создание кластеров Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight с помощью Azure CLI | Microsoft Azure"
+   	pageTitle="Создание кластеров Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight с помощью Azure CLI | Microsoft Azure"
    	description="Узнайте, как создавать кластеры Hadoop, HBase, Storm или Spark на платформе Linux для HDInsight с помощью Azure CLI."
    	services="hdinsight"
    	documentationCenter=""
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/09/2016"
+   	ms.date="04/05/2016"
    	ms.author="nitinme"/>
 
 #Создание кластеров под управлением Linux в HDInsight с помощью Azure PowerShell
@@ -57,7 +57,7 @@ Azure PowerShell — это полнофункциональная среда с
     ###########################################
 
     # Sign in
-    Add-AzureRmAccount
+    Login-AzureRmAccount
 
     # Select the subscription to use
     $subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
@@ -75,8 +75,8 @@ Azure PowerShell — это полнофункциональная среда с
     # Create an Azure Blob Storage container
     $containerName = "<ContainerName>"              # Provide a container name
     $storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
-    $destContext = New-AzureRmStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-    New-AzureRmStorageContainer -Name $containerName -Context $destContext
+    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+    New-AzureStorageContainer -Name $containerName -Context $destContext
 
     ###########################################
     # Create an HDInsight Cluster
@@ -91,8 +91,8 @@ Azure PowerShell — это полнофункциональная среда с
     # Set these variables
     $clusterName = $containerName           		# As a best practice, have the same name for the cluster and container
     $clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
-    $credentials = Get-Credential
-    $sshCredentials = Get-Credential
+    $credentials = Get-Credential -Message "Enter Cluster user credentials" -UserName "admin"
+    $sshCredentials = Get-Credential -Message "Enter SSH user credentials"
 
     # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
     $location = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
@@ -102,7 +102,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 Значения, указываемые для параметра **$clusterCredentials**, используются для создания учетной записи Hadoop в кластере. Эта учетная запись будет использоваться для подключения к кластеру. Значения, указываемые для параметра **$sshCredentials**, используются для создания пользователя SSH в кластере. Используйте эту учетную запись для запуска удаленного сеанса SSH в кластере и выполнения заданий.
 
-> [AZURE.IMPORTANT] В этом скрипте необходимо указать количество узлов рабочей роли, которые будут находиться в кластере. Если вы планируете использовать более 32 узлов рабочей роли (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
+> [AZURE.IMPORTANT] В этом скрипте необходимо указать количество узлов рабочей роли, которые будут находиться в кластере. Если вы планируете использовать более 32 узлов рабочей роли (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
 >
 > Дополнительные сведения о размерах узлов и их стоимости см. в статье [Сведения о ценах на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -146,4 +146,4 @@ Azure PowerShell — это полнофункциональная среда с
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

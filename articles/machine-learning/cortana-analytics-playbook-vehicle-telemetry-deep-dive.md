@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Сборник тренировочных заданий по решению для аналитики телеметрии автомобиля. Подробный обзор решения | Microsoft Azure" 
-	description="Используйте возможности Cortana Analytics, чтобы в реальном времени получать не только информацию о состоянии автомобиля и манере вождения, но также и прогнозные данные." 
+	description="Используйте возможности Cortana Intelligence, чтобы получить прогнозы и актуальную информацию об исправности и манере вождения автомобиля в режиме реального времени." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -99,9 +99,11 @@ XUF99EW9OIQOMV7Q7 | Семейный седан
 
 
 ### Создание имитированных данных
-1.	Щелкните стрелку в правом верхнем углу узла «Симулятор телематики автомобиля», чтобы скачать пакет для симуляции данных. Сохраните файлы на локальном компьютере и извлеките их. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Рис. 3. Проект внедрения решения для аналитики телеметрии автомобиля*
+1.	Щелкните стрелку в правом верхнем углу узла «Симулятор телематики автомобиля», чтобы скачать пакет для симуляции данных. Сохраните файлы на локальном компьютере и извлеките их.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Рис. 3. Проект внедрения решения для аналитики телеметрии автомобиля*
 
-2.	На локальном компьютере перейдите в папку с извлеченным пакетом симулятора телематики автомобиля. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png)*Рис. 4. Папка симулятора телематики автомобиля*
+2.	На локальном компьютере перейдите в папку с извлеченным пакетом симулятора телематики автомобиля.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png)*Рис. 4. Папка симулятора телематики автомобиля*
 
 3.	Запустите приложение **CarEventGenerator.exe**.
 
@@ -155,9 +157,9 @@ XUF99EW9OIQOMV7Q7 | Семейный седан
 
 ### Ссылки
 
-[Пакет SDK концентратора событий Azure для приема потока](event-hubs-csharp-ephcs-getstarted.md)
+[Пакет SDK концентратора событий Azure для приема потока](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Возможности перемещения данных фабрики данных Azure](data-factory-data-movement-activities.md) [Действие DotNet фабрики данных Azure](data-factory-use-custom-activities.md)
+[Возможности перемещения данных фабрики данных Azure](../data-factory/data-factory-data-movement-activities.md) [Действие DotNet фабрики данных Azure](../data-factory/data-factory-use-custom-activities.md)
 
 [Решение Visual Studio "Действие DotNet фабрики данных Azure" для подготовки примера данных](http://go.microsoft.com/fwlink/?LinkId=717077)
 
@@ -376,7 +378,8 @@ XUF99EW9OIQOMV7Q7 | Семейный седан
 
 Для ввода в эксплуатацию модели машинного обучения в режиме реального времени в решение включено отдельное приложение. Оно называется RealTimeDashboardApp. Это приложение создано и настроено как часть развертывания решения. RealTimeDashboardApp выполняет такие задачи.
 
-1.	Прослушивает экземпляр концентратора событий, где Stream Analytics постоянно публикует события. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Рис. 16. Запрос Stream Analytics для публикации данных в выходном экземпляре концентратора событий* 
+1.	Прослушивает экземпляр концентратора событий, где Stream Analytics постоянно публикует события.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Рис. 16. Запрос Stream Analytics для публикации данных в выходном экземпляре концентратора событий* 
 
 2.	Для каждого события, которое получает это приложение:
 
@@ -387,10 +390,12 @@ XUF99EW9OIQOMV7Q7 | Семейный седан
 
 Щелкните [здесь](http://go.microsoft.com/fwlink/?LinkId=717078), чтобы скачать решение Visual Studio RealtimeDashboardApp для настройки.
 
-****Чтобы запустить приложение панели мониторинга в реальном времени:**
+**Чтобы запустить приложение панели мониторинга в реальном времени:**
 
-1.	Щелкните узел PowerBI в представлении схемы и выберите ссылку «Скачать приложение панели мониторинга в реальном времени» на панели свойств. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Рис. 17. Указания по настройке панели мониторинга Power BI*
-2.	Извлеките его и сохраните локально. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Рис. 18. Папка RealtimeDashboardApp*
+1.	Щелкните узел PowerBI в представлении схемы и выберите ссылку «Скачать приложение панели мониторинга в реальном времени» на панели свойств.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Рис. 17. Указания по настройке панели мониторинга Power BI*
+2.	Извлеките его и сохраните локально.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Рис. 18. Папка RealtimeDashboardApp*
 3.	Запустите приложение RealtimeDashboardApp.exe.
 4.	Укажите действительные учетные данные Power BI, войдите и нажмите кнопку «Принять».![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
@@ -706,4 +711,4 @@ Power BI предоставляет для этого решения расши
 
 Этот документ содержит подробные сведения о решении для аналитики телеметрии автомобилей. Здесь показан шаблон лямбда-архитектуры для анализа в режиме реального времени и пакетного анализа с прогнозами и действиями. Этот шаблон подходит для самых разнообразных сценариев использования, в которых требуется использование «горячего» (в режиме реального времени) и «холодного» (пакетного) анализа.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0406_2016-->

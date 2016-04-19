@@ -32,10 +32,10 @@
 
 * Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных приложений, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* [Visual Studio Community 2013] или более поздняя версия. В случае установки Visual Studio Community 2013 устанавливайте [Xamarin] отдельно. При установке Visual Studio 2015 можно установить инструменты Xamarin.
+* Visual Studio с Xamarin. Инструкции см. в статье об [установке и настройке Visual Studio и Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
-* Компьютер Mac установленным ПО [Xcode] 7.0 или более поздней версии и [Xamarin Studio]. Если вы планируете создать приложение на компьютере Windows с помощью Visual Studio, для этого все равно нужен компьютер Mac с доступом к сети.
-
+* Компьютер Mac с установленным ПО Xcode версии 7.0 или выше и Xamarin Studio Community. См. статьи об [установке и настройке Visual Studio и Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) и [установке, настройке и проверке для пользователей Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+ 
 >[AZURE.NOTE] Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи, перейдите на страницу [Пробное использование службы приложений](https://tryappservice.azure.com/?appServiceName=mobile), где вы можете быстро создать краткосрочное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
 
 ## Создание серверной части мобильного приложения Azure
@@ -63,13 +63,9 @@
 
 ##Скачивание и запуск решения Xamarin.Forms
 
-У вас несколько вариантов на выбор. Можно скачать решение на компьютер Mac и открыть его в Xamarin Studio или скачать его на компьютер Windows и открыть в Visual Studio. Можно также использовать обе эти среды и переключаться между ними. Рассмотрим эти варианты:
+У вас несколько вариантов на выбор. Вы можете скачать решение на компьютер Mac и открыть его в Xamarin Studio или скачать его на компьютер Windows и открыть в Visual Studio с помощью подключенного к сети компьютера Mac для создания приложения iOS. Инструкции см. в статье об [установке и настройке Visual Studio и Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
-* Проще всего запустить проект iOS вашего решения на компьютере Mac. Можно использовать и Visual Studio на компьютере Windows, если хотите, но это немного сложнее, так как необходимо подключиться к компьютеру Mac с доступом к сети. Если вам это интересно, см. статью [Установка Xamarin.iOS в Windows].
-* Проект Android можно запустить на компьютере Windows или Mac.
-* Проекты Windows можно запускать только с помощью Visual Studio на компьютере Windows.
-
-Помня все это, продолжим.
+Давайте продолжим:
 
  1. На компьютере Mac или Windows откройте [портал Azure] в окне браузера.
  2. В колонке параметров мобильного приложения щелкните **Приступая к работе** (в разделе для мобильных устройств) > **Xamarin.iOS**. На этапе 3 нажмите кнопку **Создать приложение** (если вы еще не сделали этого). Затем нажмите кнопку **Загрузить**.
@@ -172,11 +168,4 @@
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [портал Azure]: https://portal.azure.com/
 
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-[Установка Xamarin.iOS в Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

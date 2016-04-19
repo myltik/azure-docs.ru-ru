@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="03/05/2016"
+	ms.date="04/08/2016"
 	ms.author="ricksal"/>
 
 # Начало работы с мобильными службами для Android (серверная часть JavaScript)
@@ -35,7 +35,7 @@
 
 ## Предварительные требования
 
-Для работы с этим руководством требуются [средства разработчика Android](https://developer.android.com/sdk/index.html), которые включают в себя интегрированную среду разработки Android Studio и новейшую платформу Android. Требуется Android 4.2 или более поздняя версия.
+Для прохождения этого учебника требуются [Средства разработчика Android](https://developer.android.com/sdk/index.html), которые включают в себя интегрированную среду разработки Android Studio и новейшую платформу Android. Требуется Android 4.2 или более поздняя версия.
 
 Загруженный проект быстрого запуска содержит пакет SDK мобильных служб Azure для платформы Android.
 
@@ -94,4 +94,4 @@
 [Приступая к работе с push-уведомлениями]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

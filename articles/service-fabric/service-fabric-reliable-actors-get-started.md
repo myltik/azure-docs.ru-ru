@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Приступая к работе с Reliable Actors | Microsoft Azure"
-   description="Это пошаговое руководство проведет вас по этапам создания, отладки и развертывания примера службы HelloWorld с использованием надежных субъектов Service Fabric."
+   pageTitle="Приступая к работе с Service Fabric Reliable Actors | Microsoft Azure"
+   description="В этом учебнике последовательно описаны этапы создания, отладки и развертывания простой службы на основе субъекта с использованием Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
-# Надежные субъекты: пошаговое руководство по началу работы на примере HelloWorld
-В этой статье объясняются основы субъектов Reliable Actors (модель Azure Service Fabric). Также описывается процесс создания, отладки и развертывания простого приложения HelloWorld в Visual Studio.
+# Приступая к работе с Reliable Actors
+В этой статье объясняются основы Reliable Actors в Azure Service Fabric. Также описывается процесс создания, отладки и развертывания простого приложения Reliable Actors в Visual Studio.
 
 ## Установка и настройка
 Приступая к работе, убедитесь, что на вашем компьютере установлена и настроена среда разработки Service Fabric. Подробные инструкции по настройке среды разработки см. [здесь](service-fabric-get-started.md).
@@ -25,12 +25,17 @@
 ## Основные понятия
 Перед началом работы с субъектами Reliable Actors необходимо ознакомиться с четырьмя основными понятиями.
 
-* **Служба субъекта**. Субъекты Reliable Actors упаковываются в службы, которые могут быть развернуты в инфраструктуре Service Fabric. Служба может содержать как один, так и несколько субъектов. Далее мы подробно рассмотрим особенности использования одного и нескольких субъектов в службе. А пока предположим, что нам нужно реализовать только один субъект.
-* **Интерфейс субъекта**. Интерфейс субъекта — это механизм общего доступа к субъекту. В терминах модели Reliable Actors интерфейс субъекта определяет типы сообщений, которые субъект может понять и обработать. Интерфейс субъекта используется другими субъектами или клиентскими приложениями для отправки (асинхронной) сообщений субъекту. Субъекты Reliable Actors могут реализовывать несколько интерфейсов. Далее мы увидим, что субъект HelloWorld может реализовывать интерфейс IHelloWorld, а также интерфейс ILogging, определяющий другие сообщения и функциональные возможности.
+* **Служба субъекта**. Субъекты Reliable Actors упаковываются в службы Reliable Services, которые могут быть развернуты в инфраструктуре Service Fabric. Служба может содержать как один, так и несколько субъектов. Далее мы подробно рассмотрим особенности использования одного и нескольких субъектов в службе. А пока предположим, что нам нужно реализовать только один субъект.
+* **Интерфейс субъекта**. Интерфейс субъекта используется для определения строго типизированного общедоступного интерфейса субъекта. В терминах модели Reliable Actors интерфейс субъекта определяет типы сообщений, которые субъект может понять и обработать. Интерфейс субъекта используется другими субъектами или клиентскими приложениями для отправки (асинхронной) сообщений субъекту. Субъекты Reliable Actors могут реализовывать несколько интерфейсов. Далее мы увидим, что субъект HelloWorld может реализовывать интерфейс IHelloWorld, а также интерфейс ILogging, определяющий другие сообщения и функциональные возможности.
 * **Регистрация субъекта**. Тип субъекта должен быть зарегистрирован в службе Reliable Actors. Таким образом, вы сообщите платформе Service Fabric о новом типе, который можно использовать для создания новых субъектов.
-* **Класс ActorProxy**. Класс ActorProxy используется для привязки к субъекту и вызова методов, доступных через его интерфейсы. Класс ActorProxy предоставляет две важные функциональные возможности:
+* **Класс ActorProxy**. Класс ActorProxy используется клиентскими приложениями для вызова методов, доступных через его интерфейсы. Класс ActorProxy предоставляет две важные функциональные возможности:
 	* Разрешение имен. Класс позволяет найти субъект в кластере (определить, на каком узле кластера размещается субъект).
 	* Обработка сбоев. Класс может повторно вызывать методы и повторно определять расположение субъекта, например после сбоя, в результате которого субъект перемещается на другой узел в кластере.
+
+Следует упомянуть правила, которые относятся к методам интерфейса субъекта:
+
+- методы интерфейса субъекта не могут быть перегружены;
+- методы интерфейса субъекта не должны иметь выходных, ссылочных или необязательных параметров.
 
 ## Создание проекта в Visual Studio
 Установив инструменты Visual Studio для работы с Service Fabric, можно приступать к созданию новых типов проекта. Для этого в диалоговом окне **Новый проект** разверните категорию **Облако**.
@@ -52,76 +57,48 @@
 
 Как правило, решение на основе модели Reliable Actors состоит из трех проектов.
 
-* **Проект приложения (HelloWorldApplication)**. Он упаковывает все службы в пакет для последующего развертывания. Проект содержит файл **ApplicationManifest.xml** и сценарии PowerShell для управления приложением.
+* **Проект приложения (MyActorApplication)**. Он упаковывает все службы в пакет для последующего развертывания. Проект содержит файл *ApplicationManifest.xml* и сценарии PowerShell для управления приложением.
 
-* **Проект интерфейса (HelloWorld.Interfaces)**. Он содержит определение интерфейса для субъекта. В этом проекте можно определить интерфейсы, которые будут использоваться субъектами в решении.
+* **Проект интерфейса (MyActor.Interfaces)**. Он содержит определение интерфейса для субъекта. В проекте MyActor.Interfaces можно определить интерфейсы, которые будут использоваться субъектами в решении. Интерфейсы субъекта можно определить в любом проекте с любым именем, однако интерфейс определяет контракт субъекта, который совместно используется реализацией субъекта и клиентами, вызывающими субъект. Поэтому обычно имеет смысл определить его в сборке, которая отличается от реализации субъекта и может совместно использоваться несколькими проектами.
 
 ```csharp
-
-namespace MyActor.Interfaces
+public interface IMyActor : IActor
 {
-    using System.Threading.Tasks;
-    using Microsoft.ServiceFabric.Actors;
-
-    public interface IMyActor : IActor
-    {
-        Task<string> HelloWorld();
-    }
+    Task<string> HelloWorld();
 }
-
 ```
 
-* **Проект службы (HelloWorld)**. Он используется для определения службы Service Fabric, которая будет хост-службой субъекта. Этот проект содержит реализацию субъекта и стандартный код, который в большинстве случаев изменять не требуется (ServiceHost.cs). Реализация субъекта включает реализацию класса, производного от базового типа (субъекта). Он также реализует интерфейсы, определенные в проекте HelloWorld.Interfaces.
+* **Проект службы субъекта (MyActor)**. Он используется для определения службы Service Fabric, которая будет хост-службой субъекта. Этот проект содержит реализацию субъекта. Реализация субъекта — это класс, производный от базового типа `Actor` и реализующий интерфейсы, определенные в проекте MyActor.Interfaces.
 
 ```csharp
-
-namespace MyActor
+[StatePersistence(StatePersistence.Persisted)]
+internal class MyActor : Actor, IMyActor
 {
-    using System;
-    using System.Threading.Tasks;
-    using Interfaces;
-    using Microsoft.ServiceFabric.Actors;
-
-    internal class MyActor : StatelessActor, IMyActor
+    public Task<string> HelloWorld()
     {
-        public Task<string> HelloWorld()
+        return Task.FromResult("Hello world!");
+    }
+}
+```
+
+Служба субъекта должна быть зарегистрирована в среде выполнения Service Fabric с указанием типа службы. Чтобы служба субъекта выполняла экземпляры вашего субъекта, его тип также нужно зарегистрировать в службе субъекта. Метод регистрации `ActorRuntime` выполняет это действие для субъектов.
+
+```csharp
+internal static class Program
+{
+    private static void Main()
+    {
+        try
         {
-            throw new NotImplementedException();
+            ActorRuntime.RegisterActorAsync<MyActor>(
+                (context, actorType) => new ActorService(context, actorType, () => new MyActor())).GetAwaiter().GetResult();
+
+            Thread.Sleep(Timeout.Infinite);
         }
-    }
-}
-
-```
-
-Проект службы Reliable Actors содержит код для создания службы Service Fabric. В определении службы регистрируются типы субъектов (один или несколько), после чего они могут использоваться для создания экземпляров новых субъектов.
-
-```csharp
-
-namespace MyActor
-{
-    using System;
-    using System.Fabric;
-    using System.Threading;
-    using Microsoft.ServiceFabric.Actors;
-
-    internal static class Program
-    {
-        private static void Main()
+        catch (Exception e)
         {
-            try
-            {
-                using (FabricRuntime fabricRuntime = FabricRuntime.Create())
-                {
-                    fabricRuntime.RegisterActor<MyActor>();
-
-                    Thread.Sleep(Timeout.Infinite);  // Prevents this host process from terminating so services keeps running.
-                }
-            }
-            catch (Exception e)
-            {
-                ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
-                throw;
-            }
+            ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
+            throw;
         }
     }
 }
@@ -131,15 +108,16 @@ namespace MyActor
 Если вы создаете новый проект Visual Studio и у вас есть только одно определение субъекта, его регистрация по умолчанию включается в код, который создается программой Visual Studio. Если вы определяете другие субъекты в службе, зарегистрируйте их, используя следующую строку:
 
 ```csharp
-
-fabricRuntime.RegisterActor<MyActor>();
-
+ ActorRuntime.RegisterActorAsync<MyOtherActor>();
 
 ```
 
+> [AZURE.TIP] В среде выполнения субъектов Service Fabric предусмотрены некоторые [события и счетчики производительности, связанные с методами субъекта](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Они полезны при диагностике и мониторинге производительности.
+
+
 ## Отладка
 
-Инструменты Visual Studio для работы с Service Fabric поддерживают отладку на локальном компьютере. Чтобы запустить сеанс отладки, нажмите клавишу F5. Visual Studio скомпилирует (при необходимости) пакеты. Кроме того, программа развернет приложение в локальном кластере Service Fabric, а затем присоединит отладчик. Процесс в целом аналогичен отладке приложений ASP.NET.
+Инструменты Visual Studio для работы с Service Fabric поддерживают отладку на локальном компьютере. Чтобы запустить сеанс отладки, нажмите клавишу F5. Visual Studio скомпилирует (при необходимости) пакеты. Кроме того, программа развернет приложение в локальном кластере Service Fabric, а затем присоединит отладчик.
 
 Вы можете следить за ходом развертывания в окне **Вывод**.
 
@@ -147,10 +125,11 @@ fabricRuntime.RegisterActor<MyActor>();
 
 
 ## Дальнейшие действия
-
-- [Общие сведения о надежных субъектах Service Fabric](service-fabric-reliable-actors-introduction.md)
-- [Class Library (Библиотека классов)](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-- [Пример кода](https://github.com/Azure/servicefabric-samples)
+ - [Использование платформы Service Fabric надежными субъектами](service-fabric-reliable-actors-platform.md)
+ - [Управление состоянием субъекта](service-fabric-reliable-actors-state-management.md)
+ - [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md)
+ - [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Пример кода](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -160,4 +139,4 @@ fabricRuntime.RegisterActor<MyActor>();
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="anmolah"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/03/2016"
+   ms.date="03/25/2016"
    ms.author="anmola"/>
 
 # Сценарии Testability
 Крупные распределенные системы, такие как облачные инфраструктуры, ненадежные по своей сути. Azure Service Fabric предоставляет разработчикам возможность создавать службы, которые работают в ненадежных инфраструктурах. Чтобы создать высококачественные службы, разработчики должны иметь возможность проверить стабильность работы своих служб в таких ненадежных инфраструктурах.
 
-Платформа Service Fabric позволяет разработчикам вызывать сбои для тестирования служб на наличие ошибок. Однако на этом преимущества целевого моделирования ошибок заканчиваются. Для дальнейшего развития тестирования вы можете использовать сценарии тестирования в Service Fabric: хаотический тест и тест отработки отказа. Они моделируют на кластере непрерывные ошибки с чередованием, как нормальные, так и ненормальные, на протяжении долгого периода времени. После настройки коэффициента и типа ошибок сценарии выполняются как клиентские средства через интерфейсы API C# или PowerShell, создавая ошибки на кластере и в службе.
+Служба анализа сбоев позволяет разработчикам вызывать действия, порождающие сбой, для тестирования работы служб в условиях сбоя. Однако на этом преимущества целевого моделирования ошибок заканчиваются. Для дальнейшего развития тестирования вы можете использовать сценарии тестирования в Service Fabric: хаотический тест и тест отработки отказа. Они моделируют на кластере непрерывные ошибки с чередованием, как нормальные, так и ненормальные, на протяжении долгого периода времени. Настроив частоту и тип ошибок для теста, его можно запустить через интерфейсы API C# или PowerShell, создавая сбои в кластере и службе.
 
 ## Хаотический тест
 Сценарий хаотического тестирования создает ошибки в масштабах всего кластера Service Fabric. Этот сценарий позволяет всего за несколько часов проработать ошибки, которые обычно наблюдаются в течение многих месяцев или лет. Сочетание ошибок с чередованием с высокой частотой возникновения сбоев позволяет находить проблемы, которые в противном случае были бы упущены. Это обеспечивает значительное улучшение качества кода службы.
@@ -49,8 +49,6 @@
 Пример на языке C#
 
 ```csharp
-// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
-
 using System;
 using System.Fabric;
 using System.Fabric.Testability.Scenario;
@@ -159,11 +157,10 @@ Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterSta
  - **WaitTimeBetweenFaults** — время ожидания между каждым циклом сбоя и проверки.
 
 ### Выполнение теста отработки отказа
-Пример на языке C#
+
+**C#**
 
 ```csharp
-// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
-
 using System;
 using System.Fabric;
 using System.Fabric.Testability.Scenario;
@@ -236,7 +233,7 @@ class Test
 ```
 
 
-PowerShell
+**PowerShell**
 
 ```powershell
 $connection = "localhost:19000"
@@ -250,4 +247,4 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

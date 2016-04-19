@@ -72,7 +72,7 @@
 
 ## Изменение уровня обслуживания и уровня производительности базы данных SQL
 
-Выполните командлет **Set-AzureRMSqlDatabase** и задайте в параметре **- RequestedServiceObjectiveName** уровень производительности требуемой ценовой категории, например *S0*, *S1*, *S2*, *S3*, *P1*, *P2*…
+Выполните командлет **Set-AzureRMSqlDatabase** и задайте в параметре **- RequestedServiceObjectiveName** уровень производительности требуемой ценовой категории, например *S0*, *S1*, *S2*, *S3*, *P1*, *P2* …
 
     $ResourceGroupName = "resourceGroupName"
     
@@ -128,4 +128,4 @@
 - [База данных SQL — документация](http://azure.microsoft.com/documentation/services/sql-database/)
 - [Командлеты Базы данных SQL Azure](http://msdn.microsoft.com/library/mt574084.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->

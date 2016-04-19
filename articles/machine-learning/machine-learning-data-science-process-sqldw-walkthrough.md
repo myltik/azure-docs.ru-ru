@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016" 
+	ms.date="02/05/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
@@ -48,11 +48,11 @@
 
 **Уникальный ключ** для соединения trip\_data и trip\_fare состоит из следующих трех полей:
 
-- medallion, 
-- hack\_license и 
+- medallion,
+- hack\_license и
 - pickup\_datetime.
 
-## <a name="mltasks"></a>Определение трех типов задач прогнозирования 
+## <a name="mltasks"></a>Определение трех типов задач прогнозирования
 
 На основе *tip\_amount* мы сформулировали три проблемы прогнозирования, чтобы проиллюстрировать три типа задач моделирования.
 
@@ -75,23 +75,23 @@
 
 **Создайте собственную учетную запись хранилища BLOB-объектов Azure**
 
-- Во время подготовки своего хранилища BLOB-объектов Azure выберите географическое расположение как можно ближе к **юго-центральной части США**, где будут храниться данные о такси Нью-Йорка. С помощью AzCopy данные будут скопированы из контейнера общедоступного хранилища BLOB-объектов в контейнер в вашей учетной записи хранения. Чем ближе хранилище BLOB-объектов Azure к юго-центральной части США, тем быстрее будет выполнена эта задача (шаг 4). 
-- Чтобы создать учетную запись хранения Azure, выполните шаги, описанные в статье [Об учетных записях хранения Azure](storage-create-storage-account.md). Убедитесь, что вы записали значения данных учетной записи хранения, так как они потребуются позже в этом пошаговом руководстве. 
+- Во время подготовки своего хранилища BLOB-объектов Azure выберите географическое расположение как можно ближе к **юго-центральной части США**, где будут храниться данные о такси Нью-Йорка. С помощью AzCopy данные будут скопированы из контейнера общедоступного хранилища BLOB-объектов в контейнер в вашей учетной записи хранения. Чем ближе хранилище BLOB-объектов Azure к юго-центральной части США, тем быстрее будет выполнена эта задача (шаг 4).
+- Чтобы создать учетную запись хранения Azure, выполните шаги, описанные в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md). Убедитесь, что вы записали значения данных учетной записи хранения, так как они потребуются позже в этом пошаговом руководстве.
 
   - **Имя учетной записи хранения**
   - **Ключ учетной записи хранения**
   - **Имя контейнера** (контейнер в хранилище BLOB-объектов Azure, где будут храниться данные)
 
-**Подготовьте экземпляр хранилища данных SQL Azure.** Во время его подготовки следуйте инструкциям в статье [Создание хранилища данных SQL](sql-data-warehouse-get-started-provision.md). Убедитесь, что записали учетные данные хранилища данных SQL, так как они потребуются на следующих шагах:
- 
+**Подготовьте экземпляр хранилища данных SQL Azure.** Во время его подготовки следуйте инструкциям в статье [Создание хранилища данных SQL](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Убедитесь, что записали учетные данные хранилища данных SQL, так как они потребуются на следующих шагах:
+
   - **Имя сервера**: <server Name>.database.windows.net
-  - **имя (базы данных) хранилища данных SQL;** 
+  - **имя (базы данных) хранилища данных SQL;**
   - **Имя пользователя**
   - **Пароль**
 
-**Установите Visual Studio 2015 и SQL Server Data Tools.** Инструкции см. в статье [Установка Visual Studio 2015 и (или) SSDT (SQL Server Data Tools) для хранилища данных SQL](sql-data-warehouse-install-visual-studio.md).
+**Установите Visual Studio 2015 и SQL Server Data Tools.** Инструкции можно найти в статье [Установка Visual Studio 2015 и (или) SSDT для хранилища данных SQL](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Установите подключение к своему хранилищу данных SQL Azure с помощью Visual Studio.** Инструкции см. в шагах 1 и 2 статьи [Подключение к хранилищу данных SQL с помощью Visual Studio](sql-data-warehouse-get-started-connect.md).
+**Установите подключение к своему хранилищу данных SQL Azure с помощью Visual Studio.** Инструкции приведены в шагах 1 и 2 статьи [Подключение к хранилищу данных SQL с помощью Visual Studio](../sql-data-warehouse/sql-data-warehouse-get-started-connect.md).
 
 >[AZURE.NOTE] Выполните следующий SQL-запрос в базе данных, созданной в хранилище данных SQL (вместо запроса, указанного на шаге 3 раздела о подключении), чтобы **создать главный ключ**.
 
@@ -114,7 +114,7 @@
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
 	$wc = New-Object System.Net.WebClient
-	$wc.DownloadFile($source, $ps1_dest) 
+	$wc.DownloadFile($source, $ps1_dest)
 	.\Download_Scripts_SQLDW_Walkthrough.ps1 –DestDir 'C:\tempSQLDW'
 
 После выполнения сценария текущий рабочий каталог будет изменен на *-DestDir*. Должен отобразиться экран, аналогичный показанному ниже:
@@ -149,13 +149,13 @@
 				if ($env_path -notlike '*' +$AzCopy_path_i+'*'){
 					Write-Host $AzCopy_path_i 'not in system path, add it...'
 					[Environment]::SetEnvironmentVariable("Path", "$AzCopy_path_i;$env_path", "Machine")
-					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") 
+					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
 					$env_path = $env:Path
-				}	
+				}
 
 - **Копирует данные вашей учетной записи закрытого хранилища BLOB-объектов** из открытого BLOB-объекта с помощью AzCopy.
 
-		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"	
+		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
 		$start_time = Get-Date
 		AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
 		$end_time = Get-Date
@@ -166,20 +166,20 @@
 
 
 - **Загружает данные в Azure SQL DW** из вашей учетной записи закрытого хранилища BLOB-объектов, используя Polybase (исполняя файл LoadDataToSQLDW.sql) и выполняя следующие команды:
-	
+
 	- Создание схемы
 
 			EXEC (''CREATE SCHEMA {schemaname};'');
 
 	- Создание учетных данных для определенной базы данных
-			
-			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias} 
-			WITH IDENTITY = ''asbkey'' , 
+
+			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
+			WITH IDENTITY = ''asbkey'' ,
 			Secret = ''{StorageAccountKey}''
 
 	- Создание внешнего источника данных для BLOB-объекта хранилища Azure
 
-			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage} 
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
 			WITH
 			(
     			TYPE = HADOOP,
@@ -188,7 +188,7 @@
 			)
 			;
 
-			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage} 
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage}
 			WITH
 			(
     			TYPE = HADOOP,
@@ -199,10 +199,10 @@
 
 	- Создание формата внешнего файла для CSV-файла. Данные не сжимаются, а поля разделяются символом вертикальной черты.
 
-			CREATE EXTERNAL FILE FORMAT {csv_file_format} 
-			WITH 
+			CREATE EXTERNAL FILE FORMAT {csv_file_format}
+			WITH
 			(   
-    			FORMAT_TYPE = DELIMITEDTEXT, 
+    			FORMAT_TYPE = DELIMITEDTEXT,
     			FORMAT_OPTIONS  
     			(
         			FIELD_TERMINATOR ='','',
@@ -210,7 +210,7 @@
     			)
 			)
 			;
-		
+
 	- Создание внешних таблиц (trip и fare) для хранения набора данных такси Нью-Йорка в хранилище BLOB-объектов Azure.
 
 			CREATE EXTERNAL TABLE {external_nyctaxi_fare}
@@ -244,7 +244,7 @@
        			rate_code char(3),
        			store_and_fwd_flag char(3),
        			pickup_datetime datetime  not null,
-       			dropoff_datetime datetime, 
+       			dropoff_datetime datetime,
        			passenger_count int,
        			trip_time_in_secs bigint,
        			trip_distance float,
@@ -264,40 +264,40 @@
 	- Загрузка данных из внешних таблиц хранилища BLOB-объектов Azure в хранилище данных SQL.
 
 			CREATE TABLE {schemaname}.{nyctaxi_fare}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
-			SELECT * 
+			AS
+			SELECT *
 			FROM   {external_nyctaxi_fare}
 			;
 
 			CREATE TABLE {schemaname}.{nyctaxi_trip}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
-			SELECT * 
+			AS
+			SELECT *
 			FROM   {external_nyctaxi_trip}
 			;
 
 	- Создание примера таблицы данных (NYCTaxi\_Sample) и вставка данных из него. Предполагает выбор SQL-запросов на таблицы trip и fare. (Этот пример таблицы необходимо будет использовать при выполнении некоторых шагов этого руководства.)
 
 			CREATE TABLE {schemaname}.{nyctaxi_sample}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
+			AS
 			(
 	    		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount,
 				tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
-				tip_class = CASE 
+				tip_class = CASE
 						WHEN (tip_amount = 0) THEN 0
                         WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
                         WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
@@ -321,7 +321,7 @@
 ![График № 21][21]
 
 >[AZURE.TIP] **Использование собственных данных.** Если данные находятся на локальном компьютере в действующем приложении, AzCopy позволит отправить локальные данные в ваше закрытое хранилище BLOB-объектов Azure. Для этого в команде AzCopy в файле сценария PowerShell необходимо указать в качестве источника данных (параметр **Source**), `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, локальный каталог, где содержатся ваши данные.
-	
+
 >[AZURE.TIP] Если данные уже размещены в частном хранилище BLOB-объектов Azure в работающем приложении, шаг AzCopy в сценарии PowerShell можно пропустить и напрямую загрузить данные в хранилище данных SQL Azure. В сценарий потребуется внести дополнительные изменения, чтобы настроить его согласно формату данных.
 
 
@@ -453,7 +453,7 @@
 
 	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
-	
+
 	RETURNS float
 	AS
 	BEGIN
@@ -474,7 +474,7 @@
 	END
 	GO
 
-	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, 
+	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
 	dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
 	FROM <schemaname>.<nyctaxi_trip>
 	WHERE datepart("mi",pickup_datetime)=1
@@ -500,7 +500,7 @@
 
 	-- User-defined function calculate the direct distance between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
-	
+
 	RETURNS float
 	AS
 	BEGIN
@@ -519,12 +519,12 @@
   		END
   		RETURN @distance
 	END
-	GO 
+	GO
 
 Вот пример вызова этой функции в SQL-запросе для создания признаков:
 
 	-- Sample query to call the function to create features
-	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, 
+	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
 	dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
 	FROM <schemaname>.<nyctaxi_trip>
 	WHERE datepart("mi",pickup_datetime)=1
@@ -534,7 +534,7 @@
 
 **Выходные данные.** По результатам запроса формируется таблица (из 2 803 538 строк) с координатами посадки и высадки пассажиров и дальностью поездок в милях. Вот результаты для первых трех строк:
 
-|pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
+||pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
 |---| --------- | -------|-------| --------- | -------|
 |1 | 40,731804 | –74,001083 | 40,736622 | –73,988953 | 0,7169601222 |
 |2 | 40,715794 | –74,010635 | 40,725338 | –74,00399 | 0,7448343721 |
@@ -564,7 +564,7 @@
 Когда вы будете готовы перейти к машинному обучению Azure, вы можете:
 
 1. Сохранить финальный запрос SQL для извлечения и выборки данных, скопировать и вставить этот запрос непосредственно в модуль [Reader][reader] в машинном обучении Azure или
-2. Сохранить данные по итогам выборки и проектирования, которые планируется использовать для создания модели в новой таблице хранилища данных SQL, и использовать новую таблицу в модуле [чтения][reader] в службе машинного обучения Azure. Это уже сделано на одном из предыдущих шагов сценария PowerShell. Данные можно считать прямо из этой таблицы в модуле чтения. 
+2. Сохранить данные по итогам выборки и проектирования, которые планируется использовать для создания модели в новой таблице хранилища данных SQL, и использовать новую таблицу в модуле [чтения][reader] в службе машинного обучения Azure. Это уже сделано на одном из предыдущих шагов сценария PowerShell. Данные можно считать прямо из этой таблицы в модуле чтения.
 
 
 ## <a name="ipnb"></a>Просмотр данных и проектирование характеристик в IPython Notebook
@@ -575,7 +575,7 @@
 
 Если ранее вы уже настроили рабочую область Машинного обучения Azure, пример IPython Notebook можно напрямую загрузить в службу IPython Notebook Машинного обучения Azure и там же запустить. Ниже приведены шаги по передаче в службу IPython Notebook Машинного обучения Azure.
 
-1. Войдите в рабочую область Машинного обучения Azure, щелкните "Студия" в верхней части, а затем — NOTEBOOKS в левой части веб-страницы. 
+1. Войдите в рабочую область Машинного обучения Azure, щелкните "Студия" в верхней части, а затем — NOTEBOOKS в левой части веб-страницы.
 
 	![График № 22][22]
 
@@ -964,4 +964,4 @@
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

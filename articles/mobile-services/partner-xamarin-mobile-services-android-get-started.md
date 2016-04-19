@@ -36,7 +36,7 @@
 
 ![][0]
 
-Для изучения этого учебника требуется компонент [Xamarin.Android], который устанавливает Xamarin Studio и подключаемый модуль Visual Studio (в Windows), а также последнюю версию платформы Android. Требуется пакет SDK Android 4.2 или более поздней версии.
+Для работы с этим руководством необходимы XCode и Xamarin Studio для OS X или Visual Studio для Windows с подключенным компьютером Mac. Инструкции см. в [ руководстве по установке и настройке Visual Studio и Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 Скачанный проект быстрого запуска содержит компонент мобильных служб Azure для Xamarin.Android. Хотя этот проект предназначен для Android 4.2 или более поздней версии, для пакета SDK мобильных служб требуется только Android 2.2 или более поздней версии.
 
@@ -137,9 +137,8 @@
 [Приступая к работе с синхронизацией автономных данных]: mobile-services-xamarin-android-get-started-offline-data.md
 [Добавление проверки подлинности к приложению мобильных служб]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
 [Добавление push-уведомлений к приложению мобильных служб]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
-[Xamarin.Android]: http://xamarin.com/download
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Azure]: http://azure.microsoft.com/
 [классическом портале Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -9,7 +9,7 @@
 	    "repositories": [
 	        {
 	            "type": "pear",
-	            "url": "http://pear.php.net"
+	            "url": "https://pear.php.net"
 	        }
 	    ],
 	    "require": {
@@ -33,7 +33,7 @@
 
 Чтобы вручную скачать и установить клиентские библиотеки PHP для Azure, выполните следующие действия:
 
-> [AZURE.NOTE]Клиентские библиотеки PHP Azure имеют зависимость от пакетов PEAR [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) и [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). Чтобы устранить эти зависимости рекомендуется установить эти пакеты с помощью [диспетчера пакетов PEAR](http://pear.php.net/manual/en/installation.php).
+> [AZURE.NOTE] Клиентские библиотеки PHP Azure имеют зависимость от пакетов PEAR [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) и [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). Чтобы устранить эти зависимости рекомендуется установить эти пакеты с помощью [диспетчера пакетов PEAR](http://pear.php.net/manual/en/installation.php).
  
 1. Загрузите содержащий библиотеки архив .zip из [GitHub][php-sdk-github]. Или же скопируйте репозиторий и клонируйте его на свой локальный компьютер. Для последнего варианта требуется учетная запись GitHub и наличие установленного локально Git.
 	
@@ -46,4 +46,4 @@
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0406_2016-->

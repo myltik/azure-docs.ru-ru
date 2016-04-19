@@ -3,7 +3,7 @@
 	description="В этой статье описывается установка и настройка защиты Trend Micro на виртуальной машине, созданной с помощью классической модели развертывания в Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -87,4 +87,4 @@
 [Как войти в виртуальную машину под управлением Windows Server]: virtual-machines-windows-classic-connect-logon.md
 [Расширения и компоненты виртуальных машин Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

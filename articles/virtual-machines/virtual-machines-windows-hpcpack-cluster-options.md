@@ -18,9 +18,11 @@ ms.service="virtual-machines-windows"
 
 # Возможности создания кластера высокопроизводительных вычислительных систем (HPC) на основе Windows и управления им в Azure с помощью пакета Microsoft HPC
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
+
+Если требуется выполнять рабочие нагрузки высокопроизводительных вычислительных систем Linux с помощью пакета HPC, см. раздел [Возможности создания кластера высокопроизводительных вычислительных систем (HPC) на основе Linux и управления им в Azure с помощью пакета Microsoft HPC](virtual-machines-linux-hpcpack-cluster-options.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Запуск кластера пакета HPC на виртуальных машинах Azure
 
@@ -36,11 +38,11 @@ ms.service="virtual-machines-windows"
 
 ### Образы виртуальных машин Azure
 
-* [Пакет HPC на Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
+* [Пакет HPC на Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
 
-* [Вычислительный узел пакета HPC на Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
+* [Вычислительный узел пакета HPC на Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
 
-* [Вычислительный узел пакета HPC с Excel на Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
+* [Вычислительный узел пакета HPC с Excel на Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
 
 
 
@@ -87,4 +89,4 @@ ms.service="virtual-machines-windows"
 
 * [Настройка кластера RDMA в Windows с помощью пакета HPC для запуска приложений MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -3,7 +3,7 @@
    description="Сводка возможностей общедоступной предварительной версии и наших целей для общедоступной версии хранилища данных SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="happynicolle"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="04/12/2016"
+   ms.author="mausher;barbkess;sonyama;nicw"/>
 
 # Ожидаемые возможности предварительной версии хранилища данных SQL
 
@@ -72,4 +72,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

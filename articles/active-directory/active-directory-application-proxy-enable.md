@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.topic="get-started-article"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Включение прокси приложения Azure AD
@@ -96,4 +96,4 @@
 - [Удостоверение Azure](fundamentals-identity.md)
 - [Публикация приложений с помощью прокси-сервера приложений](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

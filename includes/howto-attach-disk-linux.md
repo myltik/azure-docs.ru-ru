@@ -1,21 +1,18 @@
 
-Дополнительную информацию о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-linux-about-disks-vhds.md).
+Дополнительную информацию о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## Практическое руководство. Присоединение пустого диска
 Подключение пустого диска — это более простой способ добавления диска данных, так как Azure автоматически создает VHD-файл и сохраняет его в учетной записи хранения.
 
-1.  Откройте Azure CLI для Windows, Linux и Mac и подключитесь к подписке Azure. Дополнительные сведения см. в разделе [Подключение к Azure из Azure CLI](../xplat-cli-connect.md).
+1.  Откройте Azure CLI и [подключитесь к подписке Azure](../articles/xplat-cli-connect.md). Убедитесь, что вы находитесь в режиме управления службами Azure (`azure config mode asm`).
 
-2.  Убедитесь, что используется режим управления службами Azure (режим по умолчанию), введя команду `azure config
- 	mode asm`.
-
-3.  Создайте и подключите новый диск с помощью команды `azure vm disk attach-new`, как показано ниже. Обратите внимание, что имя _ubuntuVMasm_ будет заменено именем виртуальной машины Linux, созданной в подписке. В этом примере число 30 — это размер диска в ГБ.
+2.  Введите `azure vm disk attach-new`, чтобы создать и подключить новый диск, как показано ниже. Замените _ubuntuVMasm_ именем своей виртуальной машины Linux. Затем укажите размер диска в ГБ. В данном примере это 30 ГБ.
 
         azure vm disk attach-new ubuntuVMasm 30
 
-4.	После создания и присоединения диска с данными он отображается в результатах команды `azure vm disk list
-    <virtual-machine-name>`:
+3.	После создания и подключения диск данных отображается в выходных данных команды `azure vm disk list
+    <virtual-machine-name>`.
 
         $ azure vm disk list ubuntuVMasm
         info:    Executing command vm disk list
@@ -33,11 +30,9 @@
 
 Для подключения существующего диска требуется VHD-файл в учетной записи хранения.
 
-1. 	Откройте Azure CLI для Windows, Linux и Mac и подключитесь к подписке Azure. Дополнительные сведения см. в разделе [Подключение к Azure из Azure CLI](../xplat-cli-connect.md).
+1. 	Откройте Azure CLI и [подключитесь к подписке Azure](../articles/xplat-cli-connect.md). Убедитесь, что вы находитесь в режиме управления службами Azure (`azure config mode asm`).
 
-2.  Убедитесь, что используется режим управления службами Azure (режим по умолчанию). Если вы перешли в режим управления ресурсами, вернитесь, введя команду `azure config mode asm`.
-
-3.	Узнайте, не добавлен ли уже нужный виртуальный жесткий диск в подписку Azure, выполнив следующую команду:
+2.	Проверьте, не добавлен ли уже виртуальный жесткий диск, который вы хотите подключить, в подписку Azure.
 
         $azure vm disk list
     	info:    Executing command vm disk list
@@ -49,7 +44,7 @@
     	data:    ubuntuVMasm-ubuntuVMasm-0-201508060040530369
     	info:    vm disk list command OK
 
-4.  Если вам не удается найти нужный диск, вы можете добавить его в подписку с помощью команды `azure vm disk create` или `azure vm disk upload`. Например:
+3.  Если вам не удается найти нужный диск, вы можете добавить его в подписку с помощью команды `azure vm disk create` или `azure vm disk upload`. Пример `disk create`.
 
         $azure vm disk create myTestVhd2 .\TempDisk\test.VHD -l "East US" -o Linux
 		info:    Executing command vm disk create
@@ -62,9 +57,9 @@
 		uploaded successfully
 		info:    vm disk create command OK
 
-	С помощью команды `azure vm disk upload` вы также можете добавить виртуальный жесткий диск в конкретную учетную запись хранения. Дополнительные сведения о командах для управления дисками с данными виртуальных машин Azure см. [здесь](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
+	С помощью команды `azure vm disk upload` вы также можете передать виртуальный жесткий диск в конкретную учетную запись хранения. Дополнительные сведения о командах для управления дисками с данными виртуальных машин Azure см. [здесь](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
 
-5.  Введите следующую команду, чтобы присоединить нужный добавленный виртуальный жесткий диск к виртуальной машине:
+4.  Теперь нам нужно подключить нужный виртуальный жесткий диск к виртуальной машине.
 
 		$azure vm disk attach ubuntuVMasm myTestVhd
 		info:    Executing command vm disk attach
@@ -74,8 +69,8 @@
 
 	Обязательно замените _ubuntuVMasm_ именем своей виртуальной машины, а _myTestVhd_ — именем своего виртуального жесткого диска.
 
-6.	Проверить, присоединен ли диск к виртуальной машине, можно с помощью команды `azure vm disk list
- 	<virtual-machine-name>`, например:
+5.	Проверить, подключен ли диск к виртуальной машине, можно с помощью команды `azure vm disk list
+ 	<virtual-machine-name>`.
 
 		$azure vm disk list ubuntuVMasm
 		info:    Executing command vm disk list
@@ -93,4 +88,4 @@
 > [AZURE.NOTE]
 После добавления диска данных необходимо войти в систему на виртуальной машине и инициализировать диск, чтобы виртуальная машина могла использовать его для хранения данных.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

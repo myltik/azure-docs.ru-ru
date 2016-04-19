@@ -7,11 +7,14 @@
 
 	 В поле **Project name** (Имя проекта) введите новое имя проекта и щелкните **Create project** (Создать проект).
 
-3. Запишите номер проекта в разделе **Projects** (Проекты). В клиенте это значение нужно будет указать как переменную *PROJECT\_ID*.
+3. Щелкните **Utilities and More** (Служебные программы и другое) и **Project Information** (Сведения о проекте). Запишите **номер проекта**. В клиенте это значение нужно будет указать как переменную `SenderId`.
 
-4. На панели мониторинга проекта щелкните **Use Google APIs** (Использовать API Google) > **Cloud Messaging for Android** (Обмен сообщениями в облаке для Android) и на следующей странице щелкните **Enable API** (Включить API).
+   	![](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
 
-5. В диспетчере API щелкните **Credentials** (Учетные данные) > **Add Credential** (Добавить учетные данные) > **API Key** (Ключ API).
+
+4. На панели мониторинга проекта в разделе **Mobile APIs** (API мобильных служб) выберите **Google Cloud Messaging** (Обмен сообщениями в облаке для Google) и на следующей странице щелкните **Enable** (Включить).
+
+5. На панели мониторинга проекта щелкните **Credentials** > **Create Credential** > **API Key** (Учетные данные > Создать учетные данные > Ключ API).
 
    	![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-create-server-key.png)
 
@@ -21,4 +24,4 @@
 
 	Этот ключ API службы Azure будут использовать для аутентификации в службе GCM и отправки push-уведомлений от имени вашего приложения.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->
