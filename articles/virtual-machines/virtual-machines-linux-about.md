@@ -42,4 +42,4 @@
 [Виртуальные машины]: #tellmevm
 [Облачные службы]: cloud-services-choose-me.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!-----HONumber=AcomDC_0406_2016-->
