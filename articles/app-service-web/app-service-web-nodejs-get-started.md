@@ -3,7 +3,7 @@
 	description="Сведения о развертывании приложения Node.js в веб-приложение в службе приложений Azure."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="rmcmurray"
+	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
@@ -22,21 +22,19 @@
 - [.Net](web-sites-dotnet-get-started.md)
 - [Node.js](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
-- [PHP — Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP — FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [PHP — Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP — FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
 В этом руководстве описывается, как создать простое приложение [Node.js](http://nodejs.org), а затем развернуть его в [веб-приложении](app-service-web-overview.md) в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md) с помощью командной строки (cmd.exe или bash). Инструкции, приведенные в этом учебнике, применимы к любой операционной системе, на которой может работать Node.js.
-
-[Веб-приложения службы приложений Azure](/services/app-service/web/)
 
 <a name="prereq"/>
 ## Предварительные требования
 
 - Node.js. Двоичные файлы установки доступны [здесь](https://nodejs.org/).
-- Yeoman. Инструкции по установке см. [здесь](http://yeoman.io/).
+- Yeoman. Инструкции по установке доступны [здесь](http://yeoman.io/).
 - Git. Двоичные файлы установки доступны [здесь](http://www.git-scm.com/downloads).
-- Azure CLI. Инструкции по установке см. [здесь](../xplat-cli-install.md).
+- Azure CLI. Инструкции по установке доступны [здесь](../xplat-cli-install.md).
 - Учетная запись Microsoft Azure. Если у вас нет учетной записи, можно [подписаться на бесплатную пробную версию](/pricing/free-trial/?WT.mc_id=A261C142F) или [активировать преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## Создание и развертывание простого веб-приложения Node.js
@@ -207,8 +205,8 @@
 - [Указание версии Node.js в приложении Azure](../nodejs-specify-node-version-azure-apps.md)
 - [Отладка веб-приложения Node.js в службе приложений Azure](web-sites-nodejs-debug.md)
 - [Использование модулей Node.js с приложениями Azure](../nodejs-use-node-modules-azure-apps.md)
-- [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) (Веб-приложения службы приложений Azure: Node.js)
+- [Azure App Service Web Apps: Node.js (Веб-приложения службы приложений Azure: Node.js)](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
 - [Центр разработчиков Node.js.](/develop/nodejs/)
 - [Начало работы с веб-приложениями в службе приложений Azure](app-service-web-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

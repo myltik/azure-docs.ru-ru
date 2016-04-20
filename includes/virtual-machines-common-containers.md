@@ -1,11 +1,11 @@
 
- 
+
 
 Azure предлагает отличные облачные решения на основе виртуальных машин (эмуляции оборудовании физического компьютера), чтобы обеспечить гибкое перемещение развертывания программного обеспечения и получить значительно более высокую эффективность консолидации ресурсов, чем в случае использования физического оборудования. В последние несколько лет во многом благодаря подходу [Docker](https://www.docker.com) к контейнерам и экосистеме docker технология контейнеров Linux значительно расширила ряд доступных способов разработки распределенного программного обеспечения и управления им. Код приложения в контейнере изолирован от основной виртуальной машины Azure, так же как и другие контейнеры в той же виртуальной машине, что обеспечивает большую гибкость разработки и развертывания на уровне приложения, помимо гибкости, которую обеспечивают сами виртуальные машины Azure.
 
 **Но это уже устаревшие новости.** А вот *свежие* новости — Azure предоставляет еще больше удобств Docker:
 
-- [много](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md) [разных](virtual-machines-linux-classic-portal-use-docker.md) [способов](virtual-machines-linux-classic-docker-quickstart.md) [создания узлов Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) для контейнеров в соответствии с конкретной ситуацией;
+- [много](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md) [разных](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md) [способов](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md) [создания узлов Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) для контейнеров в соответствии с конкретной ситуацией;
 - [диспетчер ресурсов Azure](../articles/resource-group-overview.md) и [шаблоны групп ресурсов](../articles/resource-group-authoring-templates.md) упрощают развертывание и обновление сложных распределенных приложений;
 - интеграцию с большим массивом частных инструментов управления конфигурациями и инструментов управления конфигурациями с открытым исходным кодом.
 
@@ -56,7 +56,7 @@ Azure предлагает отличные облачные решения на
 Разработчики переходят на контейнеры Docker быстрее, так как в первую очередь он упрощает использование контейнеров Linux.
 
 - Они могут использовать простые, составные команды для создания основного образа, который можно легко развернуть, и автоматизировать создание таких образов с помощью dockerfile.
-- Они могут совместно использовать эти образы с помощью простых команд запроса и передачи в стиле [git](https://git-scm.com/) для [открытых](https://registry.hub.docker.com/) или [закрытых реестров Docker](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md). 
+- Они могут совместно использовать эти образы с помощью простых команд запроса и передачи в стиле [git](https://git-scm.com/) для [открытых](https://registry.hub.docker.com/) или [закрытых реестров Docker](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
 - Они могут использовать изолированные компоненты приложений вместо компьютеров.
 - Они могут использовать большое количество инструментов, которые понимают контейнеры Docker и различные основные образы.
 
@@ -90,7 +90,7 @@ Azure предлагает отличные облачные решения на
 | Поддержка безопасности «по умолчанию» | В большей степени | Немного в меньшей степени |
 | Требуется память на диске | Полная версия ОС и приложения | Только требования приложений |
 | Время для запуска | Значительно дольше: загрузка ОС и приложений | Значительно быстрее: необходим только запуск приложений, так как ядро уже работает |
-| Переносимость | Переносимость при правильной подготовке | Переносимость в формате образа, обычно ниже | 
+| Переносимость | Переносимость при правильной подготовке | Переносимость в формате образа, обычно ниже |
 | Автоматизация образов | Зависит от ОС и приложений | [Реестр Docker](https://registry.hub.docker.com/) и другие
 
 ## Создание групп виртуальных машин и контейнеров и управление ими
@@ -122,7 +122,7 @@ Azure предлагает отличные облачные решения на
 
 [Deis](http://deis.io/overview/) является проектом с открытым исходным кодом класса "Платформа как услуга" (PaaS), который упрощает развертывание приложений и управление ими на собственных серверах. Deis собран на основе Docker и CoreOS для предоставления упрощенной PaaS и рабочего процесса в стиле Heroku. Вы можете легко [создать 3-узловую группу виртуальных машин Azure и установить Deis](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md) в Azure, а затем [установить приложение Hello World Go](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
-[CoreOS](./articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md) — это оптимизированный по размеру дистрибутив Linux с поддержкой Docker, собственной системой контейнеров [rkt](https://github.com/coreos/rkt) и инструментом управления группами контейнеров под названием [fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md).
+[CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md) — это оптимизированный по размеру дистрибутив Linux с поддержкой Docker, собственной системой контейнеров [rkt](https://github.com/coreos/rkt) и инструментом управления группами контейнеров под названием [fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md).
 
 Ubuntu — другой популярный дистрибутив Linux, который очень хорошо поддерживает Docker и при этом также поддерживает [кластеры Linux (LXC)](https://help.ubuntu.com/lts/serverguide/lxc.html).
 
@@ -170,7 +170,7 @@ Docker в Microsoft Azure:
 - [Начало работы с решениями Docker и Compose в Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
 - [Использование шаблона группы ресурсов Azure для быстрого создания узла Docker в Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 - [Встроенная поддержка `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) для приложений в контейнерах
-- [Реализация закрытого реестра Docker в Azure](virtual-machines-linux-docker-registry-in-blob-storage.md)
+- [Реализация закрытого реестра Docker в Azure](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)
 
 Дистрибутивы Linux и примеры для Azure:
 
@@ -182,27 +182,27 @@ Docker в Microsoft Azure:
 
 -	Deis
 	- [Создание 3-узловой виртуальной машины Azure, установка Deis и запуск приложения Hello World Go](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md)
-	
+
 -	Kubernetes
 	- [Полное руководство по автоматизированному развертыванию кластера Kubernetes с помощью CoreOS и Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
 	- [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
-	
+
 -	[Mesos](http://mesos.apache.org/)
 	-	[Mesosphere Data Center Operating System (DCOS)](http://beta-docs.mesosphere.com/install/azurecluster/)
-	
+
 -	[Jenkins](https://jenkins-ci.org/) и [Hudson](http://hudson-ci.org/)
 	- [Блог. Подключаемый модуль ведомого режима Jenkins для Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
 	- [Репозиторий GitHub. Подключаемый модуль хранилища Jenkins для Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
 	- [Сторонние решения. Подключаемый модуль ведомого режима Hudson для Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
 	- [Сторонние решения. Подключаемый модуль хранилища Hudson для Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
-	
+
 -	[Chef](https://docs.chef.io/index.html)
 	- [Chef и виртуальные машины](../articles/virtual-machines/virtual-machines-windows-install-chef-client.md)
 	- [Видео. Что такое Chef и как это работает?](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
 -	[Служба автоматизации Azure](https://azure.microsoft.com/services/automation/)
 	- [Видео. Использование службы автоматизации Azure для виртуальных машин Linux](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
-	
+
 -	Powershell DSC для Linux
     - [Блог. Как сделать Powershell DSC для Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
     - [Github. DSC клиента Docker](https://github.com/anweiss/DockerClientDSC)
@@ -216,4 +216,4 @@ Docker в Microsoft Azure:
 [микрослужбы]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -2,7 +2,7 @@
 
 В этом разделе вам предстоит написать консольное приложение Windows, которое создает новое удостоверение устройства в реестре удостоверений в центре IoT. Устройство может подключиться к центру IoT, только если в реестре удостоверений устройств есть соответствующая запись. Более подробную информацию см. в разделе **Реестр удостоверений устройств** [руководства разработчика по центру IoT][lnk-devguide-identity]. При запуске этого консольного приложения создается уникальный идентификатор устройства и ключ, с помощью которого выполняется идентификация устройства во время отправки сообщений с устройства в облако для центра IoT.
 
-1. В Visual Studio добавьте классический настольный проект Windows на языке Visual C# с помощью шаблона проекта **Консольное приложение**. Присвойте проекту имя **CreateDeviceIdentity**.
+1. В Visual Studio добавьте классический настольный проект Windows на языке Visual C# с помощью шаблона проекта **Консольное приложение**. Убедитесь, что указана версия платформы .NET 4.5.1 или выше. Присвойте проекту имя **CreateDeviceIdentity**.
 
 	![][10]
 
@@ -12,7 +12,7 @@
 
 	![][11]
 
-4. После этого пакет NuGet [пакета SDK для службы IoT Microsoft Azure][lnk-nuget-service-sdk] будет загружен, установлен, и затем будет добавлена ссылка на него.
+4. После этого пакет NuGet [пакета SDK для службы IoT Microsoft Azure][lnk-nuget-service-sdk] будет загружен и установлен, а затем будет добавлена ссылка на него и его зависимости.
 
 4. Добавьте следующие инструкции `using` в начало файла **Program.cs**:
 
@@ -26,7 +26,7 @@
 
 6. Добавьте следующий метод в класс **Program**.
 
-		private async static Task AddDeviceAsync()
+		private static async Task AddDeviceAsync()
         {
             string deviceId = "myFirstDevice";
             Device device;
@@ -57,9 +57,11 @@
 
 ## Получение сообщений с устройства в облако
 
-В этом разделе вы создадите консольное приложение Windows, которое считывает сообщения, передаваемые с устройства в облако из центра IoT. Центр IoT предоставляет совместимую с [концентраторами событий][lnk-event-hubs-overview] конечную точку для считывания сообщений, передаваемых с устройства в облако. Для простоты в этом руководстве создается базовый модуль чтения, который не подходит для развертывания с высокой пропускной способностью. В руководстве [Как обрабатывать сообщения, отправляемые с устройства в облако][lnk-processd2c-tutorial] показано, как обрабатывать сообщения, отправляемые с устройства в облако, с применением масштабирования. В руководстве [Приступая к работе с концентраторами событий][lnk-eventhubs-tutorial] приводятся дополнительные сведения о том, как обрабатываются сообщения из концентраторов событий. Это руководство применяется к конечным точкам центра IoT, совместимым с концентраторами событий.
+В этом разделе вы создадите консольное приложение Windows, которое считывает сообщения, передаваемые с устройства в облако из центра IoT. Центр IoT предоставляет совместимую с [концентраторами событий][lnk-event-hubs-overview] конечную точку для считывания сообщений, передаваемых с устройства в облако. Для простоты в этом руководстве создается базовый модуль чтения, который не подходит для развертывания с высокой пропускной способностью. В руководстве [Как обрабатывать сообщения, отправляемые с устройства в облако][lnk-processd2c-tutorial] показано, как обрабатывать такие сообщения с применением масштабирования. В руководстве [Приступая к работе с концентраторами событий][lnk-eventhubs-tutorial] приводятся дополнительные сведения о том, как обрабатываются сообщения из концентраторов событий. Это руководство применяется к конечным точкам центра IoT, совместимым с концентраторами событий.
 
-1. В Visual Studio добавьте классический настольный проект Windows на языке Visual C# с помощью шаблона проекта **Консольное приложение**. Присвойте проекту имя **ReadDeviceToCloudMessages**.
+> [AZURE.NOTE] Совместимая с концентраторами событий конечная точка для чтения сообщений, отправляемых с устройства в облако, всегда использует протокол AMQPS.
+
+1. В Visual Studio добавьте классический настольный проект Windows на языке Visual C# с помощью шаблона проекта **Консольное приложение**. Убедитесь, что указана версия платформы .NET 4.5.1 или выше. Присвойте проекту имя **ReadDeviceToCloudMessages**.
 
     ![][10]
 
@@ -67,11 +69,12 @@
 
 3. В окне **Диспетчер пакетов NuGet** найдите пакет **WindowsAzure.ServiceBus**, щелкните **Установить** и примите условия использования.
 
-    После этого будут выполнены скачивание, установка и добавление ссылки на [служебную шину Azure][lnk-servicebus-nuget] со всеми ее зависимостями.
+    После этого будут выполнены скачивание, установка и добавление ссылки на [служебную шину Azure][lnk-servicebus-nuget] со всеми ее зависимостями. С помощью этого пакета приложение может подключаться к конечной точке, совместимой с концентратором событий, в центре IoT.
 
-4. Добавьте следующий оператор `using` в начало файла **Program.cs**.
+4. Добавьте следующие инструкции `using` в начало файла **Program.cs**:
 
         using Microsoft.ServiceBus.Messaging;
+        using System.Threading;
 
 5. Добавьте следующие поля в класс **Program**, заменяя значения заполнителей строкой подключения для центра IoT, созданного в разделе *Создание центра IoT*.
 
@@ -81,16 +84,17 @@
 
 6. Добавьте следующий метод в класс **Program**.
 
-        private async static Task ReceiveMessagesFromDeviceAsync(string partition)
+        private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
         {
             var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow);
             while (true)
             {
+                if (ct.IsCancellationRequested) break;
                 EventData eventData = await eventHubReceiver.ReceiveAsync();
                 if (eventData == null) continue;
 
                 string data = Encoding.UTF8.GetString(eventData.GetBytes());
-                Console.WriteLine(string.Format("Message received. Partition: {0} Data: '{1}'", partition, data));
+                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
             }
         }
 
@@ -98,31 +102,41 @@
 
 7. Наконец, добавьте следующие строки в метод **Main**:
 
-        Console.WriteLine("Receive messages\n");
+        Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
         eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, iotHubD2cEndpoint);
 
         var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds;
 
+        CancellationTokenSource cts = new CancellationTokenSource();
+
+        System.Console.CancelKeyPress += (s, e) =>
+        {
+          e.Cancel = true;
+          cts.Cancel();
+          Console.WriteLine("Exiting...");
+        };
+
+        var tasks = new List<Task>();
         foreach (string partition in d2cPartitions)
         {
-           ReceiveMessagesFromDeviceAsync(partition);
+           tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
         }  
-        Console.ReadLine();
+        Task.WaitAll(tasks.ToArray());
 
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-eventhubs-tutorial]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
+[lnk-event-hubs-overview]: ../articles/event-hubs/event-hubs-overview.md
 
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-processd2c-tutorial]: ../articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md
 
 <!-- Images -->
 [10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->
