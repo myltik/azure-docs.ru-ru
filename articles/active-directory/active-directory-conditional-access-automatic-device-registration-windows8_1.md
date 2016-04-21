@@ -61,4 +61,4 @@
 - [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows 10](active-directory-conditional-access-automatic-device-registration.md)
 - [Настройка автоматической регистрации присоединенных к домену устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->
