@@ -127,4 +127,4 @@
 - [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](web-sites-hybrid-connection-get-started.md)
 - [Принцип работы службы приложений](../app-service/app-service-how-works-readme.md) 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0323_2016--->
