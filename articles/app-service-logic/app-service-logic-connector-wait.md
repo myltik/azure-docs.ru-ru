@@ -48,11 +48,11 @@
 
 Справку по API REST Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. раздел [Управление приложениями API и соединителем, а также их отслеживание](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 [1]: ./media/app-service-logic-wait/ListOfActions.PNG
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

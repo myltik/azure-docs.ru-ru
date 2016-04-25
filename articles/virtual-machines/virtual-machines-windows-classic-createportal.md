@@ -26,4 +26,8 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+## Дальнейшие действия
+
+Вы также можете [создать настраиваемую виртуальную машину под управлением Linux](virtual-machines-linux-classic-createportal.md) с помощью классического портала.
+
+<!---HONumber=AcomDC_0413_2016-->

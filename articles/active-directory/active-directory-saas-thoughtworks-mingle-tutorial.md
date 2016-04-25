@@ -2,16 +2,17 @@
     pageTitle="Учебник. Интеграция Azure Active Directory с Thoughtworks Mingle | Microsoft Azure" 
     description="Узнайте, как использовать Thoughtworks Mingle вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
-    documentationCenter="na" manager="stevenpo"/>
+    authors="jeevansd"  
+    documentationCenter="na" 
+     manager="stevenpo"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с Thoughtworks Mingle
   
@@ -67,7 +68,7 @@
 
 ###Чтобы настроить единый вход, выполните следующие действия:
 
-1.  На странице интеграции с приложением **Thoughtworks Mingle** портала Azure AD нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  На странице интеграции с приложением \*\*Thoughtworks Mingle\*\* портала Azure AD нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно \*\*Настройка единого входа\*\*.
 
     ![Настройка единого входа](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Настройка единого входа")
 
@@ -75,7 +76,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Настройка единого входа")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес клиента Thoughtworks Mingle** введите свой URL-адрес, используя следующий шаблон "**http://company.mingle.thoughtworks.com*", а затем нажмите кнопку **Далее**.
+3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес клиента Thoughtworks Mingle** введите свой URL-адрес, используя следующий шаблон "\**http://company.mingle.thoughtworks.com*", а затем нажмите кнопку **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785155.png "Настройка URL-адреса приложения")
 
@@ -128,7 +129,7 @@
     2.  В поле **Тип пользователя** выберите значение **С полным доступом**.
     3.  Щелкните **Создать этот профиль**.
 
->[AZURE.NOTE]Вы можете использовать любые другие инструменты создания учетных записей пользователя Thoughtworks Mingle или API-интерфейсы, предоставляемые Thoughtworks Mingle для подготовки учетных записей пользователей AAD.
+>[AZURE.NOTE] Вы можете использовать любые другие инструменты создания учетных записей пользователя Thoughtworks Mingle или API-интерфейсы, предоставляемые Thoughtworks Mingle для подготовки учетных записей пользователей AAD.
 
 ##Назначение пользователей
   
@@ -148,4 +149,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

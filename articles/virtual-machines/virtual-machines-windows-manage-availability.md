@@ -17,7 +17,7 @@
 	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
-# Manage the availability of Windows virtual machines
+# Управление доступностью виртуальных машин
 
 Изучите способы настройки нескольких виртуальных машин и управления ими для обеспечения высокой доступности приложения Windows в Azure. Вы также можете [управлять доступностью виртуальных машин Linux](virtual-machines-linux-manage-availability.md).
 
@@ -25,4 +25,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

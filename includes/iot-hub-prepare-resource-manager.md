@@ -1,6 +1,6 @@
 ## Подготовка к проверке подлинности запросов диспетчера ресурсов
 
-Необходимо проверять подлинность всех операций, выполняемых с ресурсами с помощью [Диспетчера ресурсов Azure][lnk-authenticate-arm], используя Azure Active Directory (AD). Для такой настройки проще всего использовать PowerShell или интерфейс командной строки Azure.
+Необходимо проверять подлинность всех операций, выполняемых с ресурсами с помощью [Диспетчера ресурсов Azure][lnk-authenticate-arm], используя Azure Active Directory \(AD\). Для такой настройки проще всего использовать PowerShell или интерфейс командной строки Azure.
 
 Чтобы продолжить, установите [Azure PowerShell 1.0][lnk-powershell-install] или более поздней версии.
 
@@ -17,9 +17,9 @@
 3. Воспользуйтесь следующей командой для создания нового приложения Azure Active Directory, заменив в ней заполнители:
 
     - **{Display name}:** отображаемое имя вашего приложения, например **MySampleApp**.
-    - **{Home page URL}:** URL-адрес домашней страницы вашего приложения, например **http://mysampleapp/home**. Этот URL-адрес необязательно должен указывать на реальное приложение.
-    - **{Application identifier}:** уникальный идентификатор, например **http://mysampleapp**. Этот URL-адрес необязательно должен указывать на реальное приложение.
-    - **{Password}:** пароль, который будет использоваться для проверки подлинности в вашем приложении.
+    - **{Home page URL}:** URL-адрес домашней страницы вашего приложения, например \*\***http://mysampleapp/home**. Этот URL-адрес необязательно должен указывать на реальное приложение.
+- **{Application identifier}:** уникальный идентификатор, например \*\***http://mysampleapp**. Этот URL-адрес необязательно должен указывать на реальное приложение.
+- **{Password}:** пароль, который будет использоваться для проверки подлинности в вашем приложении.
 
     ```
     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
@@ -39,7 +39,7 @@
     New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
     
-Вы завершили создание приложения Azure AD, которое позволит вам осуществлять проверку подлинности из своего пользовательского приложения C#. Позднее в рамках изучения данного руководства вам потребуются следующие значения:
+Вы завершили создание приложения Azure AD, которое позволит вам осуществлять проверку подлинности из своего пользовательского приложения C\#. Позднее в рамках изучения данного руководства вам потребуются следующие значения:
 
 - TenantId
 - SubscriptionId
@@ -47,6 +47,6 @@
 - Пароль
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: ../articles/powershell-install-configure.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Развертывание виртуальных машин с несколькими сетевыми адаптерами с помощью интерфейса командной строки Azure в диспетчере ресурсов | Microsoft Azure"
    description="Дополнительные сведения о развертывании виртуальных машин с несколькими сетевыми адаптерами с помощью интерфейса командной строки Azure в диспетчере ресурсов"
    services="virtual-network"
@@ -23,11 +23,11 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-deploy-multinic-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model]\(virtual-network-deploy-multinic-classic-cli.md\).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Так как на данный момент невозможно иметь несколько виртуальных машин с одной сетевой картой и несколько виртуальных машин с несколькими сетевыми картами в одной группе ресурсов, внутренние серверы необходимо реализовать в другой группе ресурсов по сравнению с остальными компонентами. В приведенных ниже действиях используются следующие группы ресурсов: *IaaSStory* в качестве основной группы ресурсов и *IaaSStory-BackEnd* для внутренних серверов.
+В настоящее время в одной группе ресурсов нельзя одновременно использовать виртуальные машины с одной сетевой картой и виртуальные машины с несколькими сетевыми картами. Поэтому необходимо реализовать внутренние серверы в группе ресурсов, отдельной от всех прочих компонентов в сценарии. В приведенных ниже действиях используются следующие группы ресурсов: *IaaSStory* в качестве основной группы ресурсов и *IaaSStory серверная* для внутренних серверов.
 
 ## Предварительные требования
 
@@ -45,9 +45,9 @@
 
 Внутренние виртуальные машины зависят от создания ресурсов, перечисленных ниже.
 
-- **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя (SSD), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
+- **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя \(SSD\), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
 - **Сетевые карты**. У каждой виртуальной машины будет две сетевые карты: одна для доступа к базе данных, другая — для управления.
-- **Группа доступности**. Все серверы баз данных будут добавлены в одну группу доступности, чтобы гарантировать, что как минимум одна из виртуальных машин будет запущена и доступна во время обслуживания. 
+- **Группа доступности**. Все серверы баз данных будут добавлены в одну группу доступности, чтобы гарантировать, что как минимум одна из виртуальных машин будет запущена и доступна во время обслуживания.
 
 ### Шаг 1. Запуск сценария
 
@@ -60,7 +60,7 @@
 		vnetName="WTestVNet"
 		backendSubnetName="BackEnd"
 		remoteAccessNSGName="NSG-RemoteAccess"
-		
+
 2. Измените значения следующих переменных на основе значений, которые вы хотите использовать для внутреннего развертывания.
 
 		backendRGName="IaaSStory-Backend"
@@ -88,7 +88,7 @@
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.TIP] Первая команда выше использует [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) и [манипуляции со строками](http://tldp.org/LDP/abs/html/string-manipulation.html) (в частности, удаление подстроки).
+>[AZURE.TIP] Первая команда выше использует [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) и [манипуляции со строками](http://tldp.org/LDP/abs/html/string-manipulation.html) \(в частности, удаление подстроки\).
 
 4. Получить идентификатор для группы безопасности сети `NSG-RemoteAccess`. Это необходимо сделать, поскольку сетевые адаптеры, которые будут связаны с этой группой безопасности сети, находятся в различных группах ресурсов.
 
@@ -107,7 +107,7 @@
 		azure storage account create $prmStorageAccountName \
 		    --resource-group $backendRGName \
 		    --location $location \
-			--type PLRS 
+			--type PLRS
 
 3. Создайте группу доступности для виртуальных машин.
 
@@ -171,7 +171,7 @@
 		        --vhd-name $dataDiskName$suffixNumber-1.vhd \
 		        --size-in-gb $diskSize \
 		        --lun 0
-		
+
 		    azure vm disk attach-new --resource-group $backendRGName \
 		        --vm-name $vmNamePrefix$suffixNumber \        
 		        --storage-account-name $prmStorageAccountName \
@@ -330,4 +330,4 @@
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

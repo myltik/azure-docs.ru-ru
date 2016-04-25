@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью Python | Microsoft Azure" 
-	description="Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью Python" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью Python | Microsoft Azure"
+	description="Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью Python"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/04/2016" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/04/2016"
 	ms.author="bradsev" />
 
 # Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью Python
@@ -29,7 +29,7 @@ API на языке Python, предоставляемый с пакетом SDK
 - Перечисление BLOB-объектов в контейнере
 - Удаление большого двоичного объекта
 
-Дополнительные сведения об использовании Python API см. в разделе [Использование хранилища больших двоичных объектов Azure из Python](../storage-python-how-to-use-blob-storage.md).
+Дополнительные сведения об использовании Python API см. в разделе [Использование хранилища больших двоичных объектов Azure из Python](../storage/storage-python-how-to-use-blob-storage.md).
 
 Сведения о технологиях, которые используются для перемещения данных в хранилище больших двоичных объектов Azure и из него, см. по следующим ссылкам:
 
@@ -38,14 +38,14 @@ API на языке Python, предоставляемый с пакетом SDK
 
 > [AZURE.NOTE] Если используется виртуальная машина, созданная с помощью скриптов, предоставленных [виртуальными машинами для обработки и анализа данных в Azure](machine-learning-data-science-virtual-machines.md), то программа AzCopy уже установлена на виртуальной машине.
 
-> [AZURE.NOTE] Полное описание базовых принципов использования хранилища больших двоичных объектов Azure см. в статьях [Основы использования больших двоичных объектов Azure](../storage-dotnet-how-to-use-blobs.md) и [Основные понятия службы BLOB-объектов](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> [AZURE.NOTE] Полное описание базовых принципов использования хранилища больших двоичных объектов Azure см. в статьях [Основы использования больших двоичных объектов Azure](../storage/storage-dotnet-how-to-use-blobs.md) и [Основные понятия службы BLOB-объектов](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ## Предварительные требования
 
 Для выполнения указаний в этом документе у вас должна быть подписка Azure, учетная запись хранения и соответствующий ключ к хранилищу данных для этой учетной записи. Чтобы отправлять и скачивать данные, необходимо знать имя учетной записи хранения Azure и ее ключ.
 
 - Сведения о настройке подписки Azure см. на странице [Бесплатная пробная версия на один месяц](https://azure.microsoft.com/pricing/free-trial/).
-- Указания по созданию учетной записи хранения и получению учетной записи и сведений о ключах см. в разделе [Об учетных записях хранения Azure](../storage-create-storage-account.md).
+- Указания по созданию учетной записи хранения и получению учетной записи и сведений о ключах см. в разделе [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 
 ## Отправка данных в большой двоичный объект
 
@@ -54,36 +54,36 @@ API на языке Python, предоставляемый с пакетом SDK
 	from azure.storage.blob import BlobService
 
 Объект **BlobService** позволяет работать с контейнерами и BLOB-объектами. Следующий код создает объект BlobService, используя имя и ключ учетной записи хранения. Замените имя учетной записи и ее ключ фактическими значениями.
-	
+
 	blob_service = BlobService(account_name="<your_account_name>", account_key="<your_account_key>")
 
 Используйте следующие методы для отправки данных в большой двоичный объект:
- 
-1. put\_block\_blob\_from\_path (отправка содержимого файла из указанного пути);
-2. put\_block\_blob\_from\_file (отправка содержимого открытого файла или потока);
-3. put\_block\_blob\_from\_bytes (отправка массива байтов);
-4. put\_block\_blob\_from\_text (отправка указанного текстового значения с использованием указанной кодировки).
- 
+
+1. put\_block\_blob\_from\_path \(отправка содержимого файла из указанного пути\);
+2. put\_block\_blob\_from\_file \(отправка содержимого открытого файла или потока\);
+3. put\_block\_blob\_from\_bytes \(отправка массива байтов\);
+4. put\_block\_blob\_from\_text \(отправка указанного текстового значения с использованием указанной кодировки\).
+
 Следующий пример кода отправляет локальный файл в контейнер:
-	
+
 	blob_service.put_block_blob_from_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
-Следующий пример кода отправляет все файлы (за исключением каталогов) в локальном каталоге в хранилище больших двоичных объектов:
+Следующий пример кода отправляет все файлы \(за исключением каталогов\) в локальном каталоге в хранилище больших двоичных объектов:
 
 	from azure.storage.blob import BlobService
 	from os import listdir
 	from os.path import isfile, join
-	
+
 	# Set parameters here
 	ACCOUNT_NAME = "<your_account_name>"
 	ACCOUNT_KEY = "<your_account_key>"
 	CONTAINER_NAME = "<your_container_name>"
 	LOCAL_DIRECT = "<your_local_directory>"		
-	
+
 	blob_service = BlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
 	# find all files in the LOCAL_DIRECT (excluding directory)
 	local_file_list = [f for f in listdir(LOCAL_DIRECT) if isfile(join(LOCAL_DIRECT, f))]
-	
+
 	file_num = len(local_file_list)
 	for i in range(file_num):
 	    local_file = join(LOCAL_DIRECT, local_file_list[i])
@@ -99,9 +99,9 @@ API на языке Python, предоставляемый с пакетом SDK
 1. get\_blob\_to\_path
 2. get\_blob\_to\_file
 3. get\_blob\_to\_bytes
-4. get\_blob\_to\_text 
+4. get\_blob\_to\_text
 
-Это методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
+Это методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
 
 Следующий пример кода скачивает содержимое большого двоичного объекта в контейнере в локальный файл:
 
@@ -111,15 +111,15 @@ API на языке Python, предоставляемый с пакетом SDK
 
 	from azure.storage.blob import BlobService
 	from os.path import join
-	
+
 	# Set parameters here
 	ACCOUNT_NAME = "<your_account_name>"
 	ACCOUNT_KEY = "<your_account_key>"
 	CONTAINER_NAME = "<your_container_name>"
 	LOCAL_DIRECT = "<your_local_directory>"		
-	
+
 	blob_service = BlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
-	
+
 	# List all blobs and download them one by one
 	blobs = blob_service.list_blobs(CONTAINER_NAME)
 	for blob in blobs:
@@ -129,4 +129,4 @@ API на языке Python, предоставляемый с пакетом SDK
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

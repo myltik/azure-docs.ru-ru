@@ -41,7 +41,7 @@
 
 **Создание консольного приложения Visual Studio**
 
-1. Создайте в Visual Studio новое консольное приложение C#.
+1. Создайте в Visual Studio новое консольное приложение C\#.
 2. Выполните следующую команду Nuget в окне консоли диспетчера пакетов NuGet.
 
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
@@ -145,10 +145,12 @@
 ##Дальнейшие действия
 В этой статье вы ознакомились с несколькими способами создания кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-* [Приступая к работе с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) — узнайте, как начать работу с кластером HDInsight.
-* [Отправка заданий Hadoop программными средствами](hdinsight-submit-hadoop-jobs-programmatically.md) — узнайте, как программными средствами отправлять задания в HDInsight.
-* [Документация по пакету SDK для Azure для HDInsight][hdinsight-sdk-documentation] — узнайте больше о пакете SDK для HDInsight.
-
+- [Приступая к работе с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) — узнайте, как начать работу с кластером HDInsight.
+- [Выполнение заданий Hive в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+- [Выполнение заданий Pig в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+- [Выполнение заданий Sqoop в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+- [Запуск заданий Oozie в HDInsight](hdinsight-use-oozie.md)
+- [Документация по пакету SDK для Azure для HDInsight][hdinsight-sdk-documentation] — узнайте больше о пакете SDK для HDInsight.
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
@@ -227,4 +229,4 @@
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

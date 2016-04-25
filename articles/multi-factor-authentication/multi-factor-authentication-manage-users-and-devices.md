@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2016" 
+	ms.date="04/11/2016" 
 	ms.author="billmath"/>
 
 # Управление параметрами пользователей в облаке с помощью Azure Multi-Factor Authentication
@@ -22,7 +22,7 @@
 
 - [Требовать у выбранных пользователей сообщать о способах связи еще раз](#require-selected-users-to-provide-contact-methods-again)
 - [Удалять существующие пароли приложений пользователей](#delete-users-existing-app-passwords)
-- [ Восстановить Multi-Factor Authentication на всех приостановленных устройствах для пользователя (общедоступная предварительная версия)](#restore-mfa-on-all-suspended-devices-for-a-user)
+- [Восстановить Multi-Factor Authentication на всех приостановленных устройствах для пользователя](#restore-mfa-on-all-suspended-devices-for-a-user)
 
 
 
@@ -67,7 +67,7 @@
 7. Справа отобразится ссылка **Управление параметрами пользователя**. Нажмите ее. 
 8. Установите флажок **Удалить все существующие пароли приложений, созданные выбранными пользователями**. ![Удаление паролей приложений](./media/multi-factor-authentication-manage-users-and-devices/deleteapppasswords.png)
 10. Щелкните "Сохранить".
-10. Нажмите кнопку Close (Закрыть).
+10. Нажмите кнопку Close \(Закрыть\).
 
 ## Восстановление MFA на всех запомненных устройствах пользователя
 
@@ -84,6 +84,6 @@
 7. Справа отобразится ссылка **Управление параметрами пользователя**. Нажмите ее.
 8. Установите флажок **Восстановить многофакторную проверку подлинности на всех запомненных устройствах**. ![Удаление паролей приложений](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png)
 9. Щелкните "Сохранить".
-10. Нажмите кнопку Close (Закрыть).
+10. Нажмите кнопку Close \(Закрыть\).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

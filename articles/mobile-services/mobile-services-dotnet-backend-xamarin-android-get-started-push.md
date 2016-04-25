@@ -27,14 +27,14 @@
 
 ##Обзор
 
-В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Xamarin.Android. В этом учебнике вам предстоит добавить push-уведомления в проект [Приступая к работе с мобильными службами] с помощью службы Google Cloud Messaging (GCM). По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
+В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Xamarin.Android. В этом учебнике вам предстоит добавить push-уведомления в проект [Приступая к работе с мобильными службами] с помощью службы Google Cloud Messaging \(GCM\). По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
 
 Для работы с данным учебником требуется следующее:
 
 + Активная учетная запись Google.
 + [Компонент клиента Google Cloud Messaging]. Этот компонент будет добавлен при прохождении учебника.
 
-У вас в проекте уже должны быть установлены компоненты [Xamarin.Android] и [мобильные службы Azure][Azure Mobile Services Component] после завершения учебника [Приступая к работе с мобильными службами].
+У вас в проекте уже должны быть установлены компоненты Xamarin.Android и [мобильные службы Azure][Azure Mobile Services Component] после завершения учебника [Приступая к работе с мобильными службами].
 
 ##<a id="register"></a>Включение Google Cloud Messaging
 
@@ -68,10 +68,7 @@
 
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-xamarin-android-get-started.md
-
-
 [Компонент клиента Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Подключение к базе данных SQL с помощью SQL Server Management Studio в Azure RemoteApp | Microsoft Azure" 
+<properties
+	pageTitle="Подключение к базе данных SQL с помощью SQL Server Management Studio в Azure RemoteApp | Microsoft Azure"
 	description="С помощью данного учебника вы узнаете, как использовать SQL Server Management Studio в Azure RemoteApp для обеспечения безопасности и улучшения производительности при подключении к базе данных SQL"
-	services="sql-database" 
+	services="sql-database"
 	documentationCenter=""
-	authors="adhurwit" 
+	authors="adhurwit"
 	manager=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="01/20/2016" 
+	ms.topic="article"
+	ms.date="04/12/2016"
 	ms.author="adhurwit"/>
 
 # Подключение к базе данных SQL с помощью SQL Server Management Studio в Azure RemoteApp
 
 ## Введение  
-В этом руководстве показано, как использовать SQL Server Management Studio (SSMS) в Azure RemoteApp для подключения к базе данных SQL. Здесь приведены пошаговые инструкции по настройке SQL Server Management Studio в Azure RemoteApp, описаны преимущества и показаны функции безопасности, которые можно использовать в Azure Active Directory.
+В этом руководстве показано, как использовать SQL Server Management Studio \(SSMS\) в Azure RemoteApp для подключения к базе данных SQL. Здесь приведены пошаговые инструкции по настройке SQL Server Management Studio в Azure RemoteApp, описаны преимущества и показаны функции безопасности, которые можно использовать в Azure Active Directory.
 
-**Предполагаемое время выполнения:** 45 минут.
+**Предполагаемое время выполнения:** 45 минут.
 
 ## SSMS в Azure RemoteApp
 
-Azure RemoteApp — это служба удаленных рабочих столов в Azure, предоставляющая приложения. Узнать о ней больше можно здесь: [Что такое Azure RemoteApp?](../remoteapp-whatis.md)
+Azure RemoteApp — это служба удаленных рабочих столов в Azure, предоставляющая приложения. Узнать о ней больше можно здесь: [Что такое Azure RemoteApp?](../remoteapp/remoteapp-whatis.md)
 
 При запуске в Azure RemoteApp SSMS обеспечивает те же возможности, что и при локальном запуске.
 
@@ -36,13 +36,13 @@ Azure RemoteApp — это служба удаленных рабочих сто
 
 Использование SSMS в Azure RemoteApp дает ряд преимуществ, в том числе перечисленные далее.
 
-- Порту 1433 на сервере Azure SQL Server не нужно предоставлять внешний доступ (за пределами Azure).
-- Нет необходимости добавлять и удалять IP-адреса в брандмауэре сервера Azure SQL Server, как раньше. 
+- Порту 1433 на сервере Azure SQL Server не нужно предоставлять внешний доступ \(за пределами Azure\).
+- Нет необходимости добавлять и удалять IP-адреса в брандмауэре сервера Azure SQL Server, как раньше.
 - Все подключения к Azure RemoteApp выполняются по протоколу HTTPS к порту 443 с помощью зашифрованного протокола удаленного рабочего стола.
 - Предусмотрена возможность масштабирования и поддержка многопользовательского режима.
 - При использовании SSMS в одном регионе с базой данных SQL повышается производительность.
 - Можно проводить аудит использования Azure RemoteApp с помощью выпуска Azure Active Directory Premium Edition, который поддерживает функцию отчетности о действиях пользователя.
-- Можно включить многофакторную проверку подлинности (MFA).
+- Можно включить многофакторную проверку подлинности \(MFA\).
 - Доступ к SSMS можно получить в любом месте с помощью одного из поддерживаемых клиентов Azure RemoteApp, включая iOS, Android, Mac, Windows Phone и ПК под управлением Windows.
 
 
@@ -52,23 +52,23 @@ Azure RemoteApp — это служба удаленных рабочих сто
 
 
 ### 1\. Создание новой виртуальной машины Windows из образа
-Чтобы создать новую виртуальную машину, используйте образ Windows Server Remote Desktop Session Host Windows Server 2012 R2 из коллекции.
+Чтобы создать новую виртуальную машину, используйте образ Windows Server Remote Desktop Session Host Windows Server 2012 R2 из коллекции.
 
 
 ### 2\. Установка SSMS из SQL Express
 
-Перейдите на новую виртуальную машину, а затем на эту страницу скачивания: [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/ru-RU/download/details.aspx?id=42299).
+Перейдите на новую виртуальную машину, а затем на эту страницу скачивания: [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/en-us/download/details.aspx?id=42299).
 
 Здесь можно скачать только SSMS. После загрузки перейдите в каталог установки и запустите программу установки SSMS.
 
-Также необходимо установить SQL Server 2014 с пакетом обновления 1. Файл для скачивания доступен здесь: [Microsoft SQL Server 2014 с пакетом обновления 1 (SP1)](https://www.microsoft.com/ru-RU/download/details.aspx?id=46694).
+Также необходимо установить SQL Server 2014 с пакетом обновления 1. Файл для скачивания доступен здесь: [Microsoft SQL Server 2014 с пакетом обновления 1 \(SP1\)](https://www.microsoft.com/en-us/download/details.aspx?id=46694).
 
-SQL Server 2014 с пакетом обновления 1 включает основные функциональные возможности для работы с базой данных SQL Azure.
+SQL Server 2014 с пакетом обновления 1 включает основные функциональные возможности для работы с базой данных SQL Azure.
 
 
 ### 3\. Запуск сценария проверки и средства SysPrep
 
-На рабочем столе виртуальной машины вы найдете сценарий PowerShell с именем Validate (проверка). Запустите его двойным щелчком мыши. Сценарий проверит, готова ли виртуальная машина для удаленного размещения приложений. После завершения проверки вам будет предложено запустить средство SysPrep. Запустите его.
+На рабочем столе виртуальной машины вы найдете сценарий PowerShell с именем Validate \(проверка\). Запустите его двойным щелчком мыши. Сценарий проверит, готова ли виртуальная машина для удаленного размещения приложений. После завершения проверки вам будет предложено запустить средство SysPrep. Запустите его.
 
 Завершив работу, средство SysPrep также завершит работу виртуальной машины.
 
@@ -79,7 +79,7 @@ SQL Server 2014 с пакетом обновления 1 включает осн
 
 Если виртуальная машина остановлена, найдите ее на текущем портале и запишите ее образ.
 
-Дополнительные сведения о записи образа см. в статье [Запись образа виртуальной машины Azure Windows, созданной с использованием классической модели развертывания](../virtual-machines/virtual-machines-windows-classic-capture-image.md).
+Дополнительные сведения о записи образа см. в статье [Capture an image of an Azure Windows virtual machine created with the classic deployment model](../virtual-machines/virtual-machines-windows-classic-capture-image.md).
 
 
 ### 5\. Добавление образа к образам шаблонов Azure RemoteApp
@@ -110,7 +110,7 @@ SQL Server 2014 с пакетом обновления 1 включает осн
 
 ### 9\. Установка клиентского приложения Azure RemoteApp
 
-Клиент Azure RemoteApp можно скачать и установить отсюда: [Скачивание | Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/clients.aspx).
+Клиент Azure RemoteApp можно скачать и установить отсюда: [Скачивание \| Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/clients.aspx).
 
 
 
@@ -123,7 +123,7 @@ SQL Server 2014 с пакетом обновления 1 включает осн
 
 
 
-## Многофакторная проверка подлинности (MFA)
+## Многофакторная проверка подлинности \(MFA\)
 
 Многофакторную проверку подлинности можно включить специально для этого приложения. Перейдите на вкладку «Приложения» в Azure Active Directory. Здесь вы найдете запись для Microsoft Azure RemoteApp. Если вы выберете приложение, а затем начнете его настраивать, откроется показанная ниже страница, на которой можно включить многофакторную проверку подлинности для этого приложения.
 
@@ -133,7 +133,7 @@ SQL Server 2014 с пакетом обновления 1 включает осн
 
 ## Аудит действий пользователей с помощью Azure Active Directory Premium
 
-Если у вас нет выпуска Azure AD Premium, необходимо включить его в разделе «Лицензии» каталога. Если выпуск Premium включен, вы сможете назначить пользователям уровень «Премиум».
+Если у вас нет выпуска Azure AD Premium, необходимо включить его в разделе «Лицензии» каталога. Если выпуск Premium включен, вы сможете назначить пользователям уровень «Премиум».
 
 При переходе к пользователю в Azure Active Directory можно перейти на вкладку «Действия», чтобы просмотреть сведения о входе в Azure RemoteApp.
 
@@ -158,5 +158,4 @@ SQL Server 2014 с пакетом обновления 1 включает осн
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0323_2016-->
-
+<!---HONumber=AcomDC_0413_2016-->

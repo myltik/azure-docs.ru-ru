@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Расширение виртуальных машин Docker для Linux в Azure"
-	description="Описано расширение Docker и контейнеры, расширения виртуальных машин Azure, а также приводятся ссылки на дополнительные ресурсы по созданию контейнеров Docker из CLI Azure и на портале."
+	description="Описывается расширение Docker и контейнеры, расширения виртуальной машины Azure, а также приводятся ссылки на дополнительные ресурсы по созданию контейнеров Docker в Azure CLI и на портале Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="squillace"
@@ -22,4 +22,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-dockerextension](../../includes/virtual-machines-common-dockerextension.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

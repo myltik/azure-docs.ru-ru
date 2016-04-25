@@ -1,18 +1,18 @@
-<properties 
+<properties
    pageTitle="Копирование данных из больших двоичных объектов хранилища Azure в хранилище озера данных | Microsoft Azure"
-   description="Использование средства AdlCopy для копирования данных из больших двоичных объектов хранилища Azure в хранилище озера данных" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   description="Использование средства AdlCopy для копирования данных из больших двоичных объектов хранилища Azure в хранилище озера данных"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/05/2016"
    ms.author="nitinme"/>
 
@@ -30,9 +30,9 @@
 Перед началом работы с этой статьей необходимо иметь следующее:
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup). 
+- **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
 - Контейнер **больших двоичных объектов хранилища Azure** с некоторыми данными.
-- **Учетная запись аналитики озера данных Azure (необязательно)** — инструкции по созданию учетной записи хранилища озера данных см. в разделе [Приступая к работе с аналитикой озера данных Azure](data-lake-analytics/data-lake-analytics-get-started-portal.md) .
+- **Учетная запись аналитики озера данных Azure \(необязательно\)** — инструкции по созданию учетной записи хранилища озера данных см. в разделе [Приступая к работе с аналитикой озера данных Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md) .
 - **Средство AdlCopy**. Установите средство AdlCopy по ссылке [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
 
 ## Синтаксис средства AdlCopy
@@ -48,7 +48,7 @@
 | Источник | Указывает расположение исходных данных в хранилище больших двоичных объектов Azure. Источником может быть контейнер больших двоичных объектов или большой двоичный объект. |
 | Dest | Указывает целевое хранилище озера данных для копирования. |
 | SourceKey | Указывает ключ доступа к хранилищу для источника — хранилища больших двоичных объектов Azure. |
-| Учетная запись | **Необязательно**. Используйте этот вариант, если хотите, чтобы для запуска задания копирования использовалась учетная запись аналитики озера данных Azure. Если при запуске средства указан параметр /Account, но не указана учетная запись аналитики озера данных Azure, то для запуска задания AdlCopy использует учетную запись по умолчанию. Кроме того, при использовании этого параметра необходимо добавить источник (хранилище больших двоичных Azure) и место назначения (хранилище озера данных Azure) в качестве источников данных для вашей учетной записи аналитики озера данных. |
+| Учетная запись | **Необязательно**. Используйте этот вариант, если хотите, чтобы для запуска задания копирования использовалась учетная запись аналитики озера данных Azure. Если при запуске средства указан параметр /Account, но не указана учетная запись аналитики озера данных Azure, то для запуска задания AdlCopy использует учетную запись по умолчанию. Кроме того, при использовании этого параметра необходимо добавить источник \(хранилище больших двоичных Azure\) и место назначения \(хранилище озера данных Azure\) в качестве источников данных для вашей учетной записи аналитики озера данных. |
 | Units | Указывает количество единиц аналитики озера данных, которые будут использоваться для задания копирования. Этот параметр является обязательным, если вы указываете учетную запись аналитики озера данных с помощью параметра **/Account**.                                                                                                                                                                                                                                                                                                                                               
 
 
@@ -63,7 +63,7 @@
 
 	Например:
 
-		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== 
+		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
 	Вам будет предложено ввести учетные данные для подписки Azure, в которой расположена учетная запись хранилища озера данных. Вы увидите результат, аналогичный приведенному ниже:
 
@@ -84,15 +84,15 @@
 
 	Например:
 
-		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== 
+		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-	
+
 
 ## Использование AdlCopy с учетной записью аналитики озера данных
 
 Вы также можете воспользоваться своей учетной записью аналитики озера данных для запуска задания AdlCopy для копирования данных из хранилища больших двоичных объектов Azure в хранилище озера данных. Этот вариант обычно используется, если объем перемещаемых данных измеряется гигабайтами или терабайтами и вам необходима лучшая и прогнозируемая производительность.
 
-Для использования учетной записи аналитики озера данных с AdlCopy необходимо добавить источник (хранилище больших двоичных Azure) и место назначения (хранилище озера данных Azure) в качестве источников данных для вашей учетной записи аналитики озера данных. Инструкции по добавлению дополнительных источников данных в учетную записи аналитики озера данных см. в разделе [Управление источниками данных аналитики озера данных](data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
+Для использования учетной записи аналитики озера данных с AdlCopy необходимо добавить источник \(хранилище больших двоичных Azure\) и место назначения \(хранилище озера данных Azure\) в качестве источников данных для вашей учетной записи аналитики озера данных. Инструкции по добавлению дополнительных источников данных в учетную записи аналитики озера данных см. в разделе [Управление источниками данных аналитики озера данных](..//data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
 Выполните следующую команду:
 
@@ -100,7 +100,7 @@
 
 Например:
 
-	AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeaccount /Units 2 
+	AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeaccount /Units 2
 
 ## Выставление счетов
 
@@ -115,7 +115,7 @@
 ## Дальнейшие действия
 
 - [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
-- [Использование аналитики озера данных Azure с хранилищем озера данных](data-lake-analytics-get-started-portal.md)
+- [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0413_2016-->

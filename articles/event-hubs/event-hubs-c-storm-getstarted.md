@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
@@ -30,7 +30,7 @@
 
 Для работы с этим учебником необходимо следующее.
 
-+ Среда разработки C. В этом учебнике предполагается, что применяется стек gcc на [виртуальной машине Azure Linux](../virtual-machines/virtual-machines-linux-cli-create.md) с Ubuntu 14.04. Инструкции для других сред будут предоставлены как внешние ссылки.
++ Среда разработки C. В этом учебнике предполагается, что применяется стек gcc на [виртуальной машине Azure Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md) с Ubuntu 14.04. Инструкции для других сред будут предоставлены как внешние ссылки.
 
 + Среда разработки Java, настроенная для запуска [Maven](http://maven.apache.org/). Для этого учебника предполагается использование среды [Eclipse](https://www.eclipse.org/).
 
@@ -48,7 +48,7 @@
 
 	![][2]
 
-4. Щелкните ранее созданное пространство имен (обычно это ***имя концентратора событий*-ns**).
+4. Щелкните ранее созданное пространство имен \(обычно это ***имя концентратора событий*-ns**\).
 
 	![][3]
 
@@ -87,7 +87,7 @@
 Для разработки приложений с интеграцией концентраторов событий и Storm доступны следующие ресурсы.
 
 - [Анализ данных датчиков в Storm и HDInsight][] — это полный учебник, в котором концентраторы событий, Storm и HBase используются для приема данных датчиков в кластере Hadoop.
-- [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight][] — это учебник по написанию конвейеров Storm на C#.
+- [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C\# на основе Storm и HDInsight][] — это учебник по написанию конвейеров Storm на C\#.
 
 <!-- Images. -->
 [1]: ./media/event-hubs-c-storm-getstarted/create-event-hub1.png
@@ -108,7 +108,6 @@
 [Apache Storm]: https://storm.incubator.apache.org
 [Обзор HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md/
 [Анализ данных датчиков в Storm и HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
-[Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
- 
+[Разработка приложений для обработки потоковых данных с помощью SCP.NET и C\# на основе Storm и HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

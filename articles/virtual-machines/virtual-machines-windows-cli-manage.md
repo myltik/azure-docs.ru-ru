@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Эквивалентные команды интерфейса командной строки Azure для задач виртуальных машин| Microsoft Azure"
-	description="Эквивалентные команды интерфейса командной строки Azure для создания виртуальных машин Azure и управления ими в режимах диспетчера ресурсов Azure и управления службами Azure"
+	description="Описываются эквивалентные команды Azure CLI для создания виртуальных машин Azure и управления ими в режиме Resource Manager и режиме управления службами."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dlepow"
@@ -24,4 +24,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-cli-manage](../../includes/virtual-machines-common-cli-manage.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Как создавать сетевые группы безопасности в режиме ARM с помощью шаблона | Microsoft Azure"
    description="Узнайте, как создавать и развертывать сетевые группы безопасности в режиме ARM с помощью шаблона"
    services="virtual-network"
@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-resource-manager"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -90,7 +90,7 @@
 
 ## Развертывание шаблона ARM с помощью кнопки развертывания
 
-Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), нажмите **Deploy to Azure** (Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
+Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), нажмите **Deploy to Azure** \(Развернуть в Azure\), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
 
 ## Развертывание шаблона ARM с помощью PowerShell
 
@@ -98,26 +98,26 @@
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
 
 3. Запустите командлет **`New-AzureRmResourceGroup`** для создания группы ресурсов с помощью шаблона.
 
 		New-AzureRmResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'	
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 
 	Ожидаемые выходные данные:
 
 		ResourceGroupName : TestRG
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
-		Permissions       : 
+		Tags              :
+		Permissions       :
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *                  
-		                    
-		Resources         : 
+
+		Resources         :
 		                    Name                Type                                     Location
 		                    ==================  =======================================  ========
 		                    sqlAvSet            Microsoft.Compute/availabilitySets       westus  
@@ -139,14 +139,14 @@
 		                    TestVNet            Microsoft.Network/virtualNetworks        westus  
 		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
 		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
-		                    
+
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Развертывание шаблона ARM с помощью интерфейса командной строки Azure
 
 Чтобы развернуть шаблон ARM с помощью интерфейса командной строки Azure, выполните следующие действия.
 
-1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Выполните команду **`azure config mode`**, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
 		azure config mode arm
@@ -176,9 +176,9 @@
 		data:    
 		info:    group create command OK
 
-	- **-n (или --name)**. Имя создаваемой группы ресурсов.
-	- **-l (или --location)**. Регион Azure, в котором будет создана группа ресурсов.
-	- **-f (или --template-file)**. Путь к файлу шаблона ARM.
-	- **-e (или --parameters-file)**. Путь к файлу параметров ARM.
+	- **-n \(или --name\)**. Имя создаваемой группы ресурсов.
+	- **-l \(или --location\)**. Регион Azure, в котором будет создана группа ресурсов.
+	- **-f \(или --template-file\)**. Путь к файлу шаблона ARM.
+	- **-e \(или --parameters-file\)**. Путь к файлу параметров ARM.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

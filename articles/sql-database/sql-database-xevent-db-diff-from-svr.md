@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Расширенные события в Базе данных SQL | Microsoft Azure" 
-	description="В статье описываются расширенные события (XEvents) в Базе данных SQL Azure и отличия соответствующих сеансов событий от сеансов событий в Microsoft SQL Server." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
-	editor="" 
+<properties
+	pageTitle="Расширенные события в Базе данных SQL | Microsoft Azure"
+	description="В статье описываются расширенные события (XEvents) в Базе данных SQL Azure и отличия соответствующих сеансов событий от сеансов событий в Microsoft SQL Server."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
+	editor=""
 	tags=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/05/2016"
 	ms.author="genemi"/>
 
 
@@ -27,14 +27,14 @@
 
 - В Базе данных SQL версии 12 функция расширенных событий появилась во второй половине 2015 года.
 - SQL Server включает расширенные события с 2008 года.
-- Набор функций расширенных событий в Базе данных SQL представляет собой устойчивое подмножество функций SQL Server. 
+- Набор функций расширенных событий в Базе данных SQL представляет собой устойчивое подмножество функций SQL Server.
 
 
 *XEvents* — это неофициальное обозначение расширенных событий, которое встречается в блоках и других неофициальных источниках.
 
 
 > [AZURE.NOTE] На октябрь 2015 года функция сеанса расширенных событий активирована в Базе данных SQL на уровне предварительной версии. Дата выхода общедоступной версии пока не установлена.
-> 
+>
 > Сообщения о выходе общедоступных версий публикуются на странице [Обновления служб](https://azure.microsoft.com/updates/?service=sql-database) Azure.
 
 
@@ -58,7 +58,7 @@
 
 
 - PowerShell
- - [Использование Azure PowerShell с хранилищем Azure](storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
+ - [Использование Azure PowerShell с хранилищем Azure](../storage/storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
 
 
 ## Примеры кода
@@ -108,10 +108,10 @@
 В Microsoft SQL Server, аналогичные представления каталогов имеют имена, содержащие *.server\_* вместо *.database\_*. Шаблон имени выглядит как **sys.server\_event\_%**.
 
 
-## Новые динамические административные представления [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx)
+## Новые динамические административные представления [\(DMV\)](http://msdn.microsoft.com/library/ms188754.aspx)
 
 
-База данных SQL Azure включает [динамические административные представления (DMV)](http://msdn.microsoft.com/library/bb677293.aspx), которые поддерживают расширенные события. DMV сообщают об *активных* сеансах событий.
+База данных SQL Azure включает [динамические административные представления \(DMV\)](http://msdn.microsoft.com/library/bb677293.aspx), которые поддерживают расширенные события. DMV сообщают об *активных* сеансах событий.
 
 
 | Имя DMV | Описание |
@@ -126,7 +126,7 @@
 В Microsoft SQL Server имена аналогичных представлений каталога не содержат указание *\_database* и выглядят следующим образом:
 
 
-- **sys.dm\_xe\_sessions** вместо имени <br/>**sys.dm\_xe\_database\_sessions**.
+- **sys.dm\_xe\_sessions** вместо имени <br/>\*\*sys.dm\_xe\_database\_sessions\*\*.
 
 
 ### Общие DMV
@@ -187,7 +187,7 @@ SELECT
 - [Целевой объект "Файл событий"](http://msdn.microsoft.com/library/ff878115.aspx) — записывает все буферы в контейнер хранилища Azure.
 
 
-API [трассировки событий для Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) недоступен для расширенных событий в Базе данных SQL.
+API [трассировки событий для Windows \(ETW\)](http://msdn.microsoft.com/library/ms751538.aspx) недоступен для расширенных событий в Базе данных SQL.
 
 
 ## Ограничения
@@ -204,7 +204,7 @@ API [трассировки событий для Windows (ETW)](http://msdn.mic
 ## Модель разрешений
 
 
-Для вызова оператора **CREATE EVENT SESSION** требуется разрешение на **управление**. Владелец базы данных (dbo) имеет разрешение на **управление**.
+Для вызова оператора **CREATE EVENT SESSION** требуется разрешение на **управление**. Владелец базы данных \(dbo\) имеет разрешение на **управление**.
 
 
 ### Авторизации контейнера хранилища
@@ -244,19 +244,19 @@ API [трассировки событий для Windows (ETW)](http://msdn.mic
 ## Связанные ссылки
 
 
-- [Использование Azure PowerShell со службой хранилища Azure](storage-powershell-guide-full.md)
+- [Использование Azure PowerShell со службой хранилища Azure](../storage/storage-powershell-guide-full.md)
 - [Командлеты службы хранилища Azure](http://msdn.microsoft.com/library/dn806401.aspx)
 
 
-- [Использование Azure PowerShell с хранилищем Azure](storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
-- [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md)
+- [Использование Azure PowerShell с хранилищем Azure](../storage/storage-powershell-guide-full.md) — статья содержит полную информацию о PowerShell и службе хранилища Azure.
+- [Использование хранилища BLOB-объектов из .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 
 
-- [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL \(Transact-SQL\)](http://msdn.microsoft.com/library/ms189522.aspx)
+- [CREATE EVENT SESSION \(Transact-SQL\)](http://msdn.microsoft.com/library/bb677289.aspx)
 
 
-- [Публикации в блоге Джонтана Кехайаса (Jonathan Kehayias) о расширенных событий в Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [Публикации в блоге Джонтана Кехайаса \(Jonathan Kehayias\) о расширенных событий в Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
 Другие статьи с примерами кода для работы с расширенными событиями доступны по приведенным ниже ссылкам. Обязательно проверяйте, предназначен ли пример для Microsoft SQL Server или для базы данных SQL Azure. После этого вы сможете решить, какие поправки нужно внести в пример кода.
@@ -269,4 +269,4 @@ API [трассировки событий для Windows (ETW)](http://msdn.mic
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

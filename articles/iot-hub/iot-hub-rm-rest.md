@@ -16,13 +16,13 @@
      ms.date="02/12/2016"
      ms.author="dobett"/>
 
-# Учебник. Создание центра IoT с помощью программы C# и API REST
+# Учебник. Создание центра IoT с помощью программы C\# и API REST
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Введение
 
-Вы можете использовать [API REST поставщика ресурсов центра IoT][lnk-rest-api]для создания и управления центрами Azure IoT программными методами. В этом учебнике показано, как использовать API REST диспетчера ресурсов для создания центра IoT из программы на C#.
+Вы можете использовать [API REST поставщика ресурсов центра IoT][lnk-rest-api]для создания и управления центрами Azure IoT программными методами. В этом учебнике показано, как использовать API REST диспетчера ресурсов для создания центра IoT из программы на C\#.
 
 > [AZURE.NOTE] В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../resource-manager-deployment-model.md). В этой статье описывается использование модели развертывания на основе диспетчера ресурсов.
 
@@ -36,7 +36,7 @@
 
 ## Подготовка проекта Visual Studio
 
-1. Создайте в Visual Studio новый проект Visual C# Windows с помощью шаблона проекта **Консольное приложение**. Дайте проекту имя **CreateIoTHubREST**.
+1. Создайте в Visual Studio новый проект Visual C\# Windows с помощью шаблона проекта **Консольное приложение**. Дайте проекту имя **CreateIoTHubREST**.
 
 2. В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите **Управление пакетами NuGet**.
 
@@ -61,7 +61,7 @@
     using Newtonsoft.Json;
     ```
     
-7. В Program.cs добавьте следующие статические переменные, заменив значения заполнителей. Вы записали **ApplicationId**, **SubscriptionId**, **TenantId** и **Password** ранее в этом учебнике. **Resource group name** — это имя группы ресурсов, используемых при создании центра IoT. Это может быть существующая группа ресурсов или новая. **IoT Hub name** — это имя создаваемого центра IoT, например **MyIoTHub**. **Deployment name** — это имя развертывания, например **Deployment\_01**.
+7. В Program.cs добавьте следующие статические переменные, заменив значения заполнителей. Вы записали **ApplicationId**, **SubscriptionId**, **TenantId** и **Password** ранее в этом учебнике. **Resource group name** — это имя группы ресурсов, используемых при создании центра IoT. Это может быть существующая группа ресурсов или новая. **IoT Hub name** — это имя создаваемого центра IoT, например **MyIoTHub** \(обратите внимание, что это должно быть глобально уникальное имя\). **Deployment name** — это имя развертывания, например **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -138,7 +138,7 @@
       Thread.Sleep(10000);
       HttpResponseMessage deploymentstatus = client.GetAsync(asyncStatusUri).Result;
       body = deploymentstatus.Content.ReadAsStringAsync().Result;
-    } while (body == "{"Status":"Running"}");
+    } while (body == "{\"Status\":\"Running\"}");
     ```
 
 6. Добавьте следующий код в конец метода **CreateIoTHub** для получения созданных ключей центра IoT и их вывода на консоль:
@@ -183,4 +183,4 @@
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

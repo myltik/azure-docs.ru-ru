@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="04/04/2016" 
 	ms.author="tomfitz"/>
 
 # Создание приложения логики с помощью шаблона
 
 Применение шаблона диспетчера ресурсов Azure для создания пустого приложения логики, которое можно использовать для определения рабочих процессов. Вы определите развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
-Дополнительную информацию о свойствах приложения логики см. в статье [API управления рабочим процессом с помощью приложения логики](https://msdn.microsoft.com/library/azure/dn948513.aspx).
+Дополнительную информацию о свойствах приложения логики см. в статье [API управления рабочим процессом с помощью приложения логики](https://msdn.microsoft.com/library/azure/mt643788.aspx).
 
 Примеры собственно определения см. в статье [Создание определений приложений логики](app-service-logic-author-definitions.md).
 
@@ -34,7 +34,7 @@
 
 Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
 
-[![Развертывание в Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Развертывание в Azure](media/app-service-logic-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 ## Параметры
 
@@ -44,7 +44,7 @@
 
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
       }
     
 ## Развертываемые ресурсы
@@ -142,4 +142,4 @@
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0413_2016-->

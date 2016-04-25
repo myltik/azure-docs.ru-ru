@@ -1,4 +1,4 @@
-В этой статье показаны эквивалентные команды интерфейса командной строки Microsoft Azure (Azure CLI) для создания виртуальных машин Azure и управления ими в режиме управления службами Azure и режиме диспетчера ресурсов Azure. Используйте ее в качестве удобного руководства по переноса сценариев из одной режима команд в другой.
+В этой статье показаны эквивалентные команды интерфейса командной строки Microsoft Azure \(Azure CLI\) для создания виртуальных машин Azure и управления ими в режиме управления службами Azure и режиме диспетчера ресурсов Azure. Используйте ее в качестве удобного руководства по переноса сценариев из одной режима команд в другой.
 
 * Если вы не установили Azure CLI и не подключили его к своей подписке, см. статьи [Установка Azure CLI](../articles/xplat-cli-install.md) и [Подключение к подписке Azure из Azure CLI](../articles/xplat-cli-connect.md). Если вам нужно использовать команды режима диспетчера ресурсов, выполните подключение с помощью метода входа.
 
@@ -13,7 +13,7 @@
 
 Задача | Service Management | Диспетчер ресурсов
 -------------- | ----------- | -------------------------
-Создание самой простой виртуальной машины | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Получите `image-urn` из команды `azure vm image list`. Примеры см. в [этой статье](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md).)
+Создание самой простой виртуальной машины | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>\(Получите `image-urn` из команды `azure vm image list`. Примеры см. в [этой статье](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md).\)
 Создание виртуальной машины Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Создание виртуальной машины Windows | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 Вывод списка виртуальных машин | `azure  vm list [options]` | `azure  vm list [options]`
@@ -42,6 +42,6 @@
 
 ## Дальнейшие действия
 
-* Дополнительные примеры команд для командной строки см. в разделах [Использование интерфейса командной строки Azure с управлением службами Azure](../articles/virtual-machines-command-line-tools.md) и [Использование интерфейса командной строки Azure с диспетчером ресурсов Azure](../articles/azure-cli-arm-commands.md).
+* Дополнительные примеры команд для командной строки см. в разделах [Использование интерфейса командной строки Azure с управлением службами Azure](../articles/virtual-machines-command-line-tools.md) и [Использование интерфейса командной строки Azure с диспетчером ресурсов Azure](../articles/virtual-machines/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

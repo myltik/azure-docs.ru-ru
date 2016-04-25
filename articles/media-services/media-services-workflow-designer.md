@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/08/2016"  
 	ms.author="juliako"/>
 
 
@@ -48,7 +48,7 @@
 Темы видеоматериала первого дня
 
 - Общие сведения о конструкторе
-- Простые рабочие процессы — "Привет, мир!"
+- Простые рабочие процессы — "Hello World"
 - Создание нескольких выходных MP4-файлов для использования в потоковой передаче мультимедиа Azure
 
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-1]
@@ -90,4 +90,4 @@
 
 [Учебные видеоматериалы по расширенному рабочему процессу кодировщика служб мультимедиа Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

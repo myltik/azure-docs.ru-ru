@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Как создать группы безопасности сети в классическом режиме с помощью PowerShell | Microsoft Azure"
    description="Узнайте, как создать и развернуть группы безопасности сети в классическом режиме, используя PowerShell."
    services="virtual-network"
@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-service-management"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -17,7 +17,7 @@
    ms.date="02/02/2016"
    ms.author="telmos" />
 
-# Как создать группы безопасности сети (классические) в PowerShell
+# Как создать группы безопасности сети \(классические\) в PowerShell
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
@@ -32,7 +32,7 @@
 ## Как создать группу безопасности сети для подсети переднего плана
 Чтобы создать группу безопасности сети **NSG-FrontEnd** по описанному выше сценарию, выполните указанные ниже действия:
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
 
 3. Создайте группу безопасности сети с именем **NSG-FrontEnd**.
 
@@ -52,17 +52,17 @@
 		| Set-AzureNetworkSecurityRule -Name rdp-rule `
 		    -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
 		    -SourceAddressPrefix Internet  -SourcePortRange '*' `
-		    -DestinationAddressPrefix '*' -DestinationPortRange '3389' 
+		    -DestinationAddressPrefix '*' -DestinationPortRange '3389'
 
 	Ожидаемые выходные данные:
 
 		Name     : NSG-FrontEnd
 		Location : Central US
 		Label    : Front end subnet NSG
-		Rules    : 
-		           
+		Rules    :
+
 		              Type: Inbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -71,10 +71,10 @@
 		           ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
 		           BALANCER INBOUND                        CER                                                                   
 		           DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-		           
-		           
+
+
 		              Type: Outbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -89,18 +89,18 @@
 		| Set-AzureNetworkSecurityRule -Name web-rule `
 		    -Action Allow -Protocol TCP -Type Inbound -Priority 200 `
 		    -SourceAddressPrefix Internet  -SourcePortRange '*' `
-		    -DestinationAddressPrefix '*' -DestinationPortRange '80' 
+		    -DestinationAddressPrefix '*' -DestinationPortRange '80'
 
 	Ожидаемые выходные данные:
-		
+
 
 		Name     : NSG-FrontEnd
 		Location : Central US
 		Label    : Front end subnet NSG
-		Rules    : 
-		           
+		Rules    :
+
 		              Type: Inbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -110,10 +110,10 @@
 		           ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
 		           BALANCER INBOUND                        CER                                                                   
 		           DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-		           
-		           
+
+
 		              Type: Outbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -135,23 +135,23 @@
 		NSG-BackEnd West US    Back end subnet NSG
 
 
-4. Создайте правило безопасности, которое разрешает доступ из подсети переднего плана к порту 1433 (используемому по умолчанию в SQL Server).
+4. Создайте правило безопасности, которое разрешает доступ из подсети переднего плана к порту 1433 \(используемому по умолчанию в SQL Server\).
 
 		Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
 		| Set-AzureNetworkSecurityRule -Name rdp-rule `
 		    -Action Allow -Protocol TCP -Type Inbound -Priority 100 `
 		    -SourceAddressPrefix 192.168.1.0/24  -SourcePortRange '*' `
-		    -DestinationAddressPrefix '*' -DestinationPortRange '1433' 
+		    -DestinationAddressPrefix '*' -DestinationPortRange '1433'
 
 	Ожидаемые выходные данные:
 
 		Name     : NSG-BackEnd
 		Location : Central US
 		Label    : Back end subnet NSG
-		Rules    : 
-		           
+		Rules    :
+
 		              Type: Inbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -160,10 +160,10 @@
 		           ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
 		           BALANCER INBOUND                        CER                                                                   
 		           DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-		           
-		           
+
+
 		              Type: Outbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -178,17 +178,17 @@
 		| Set-AzureNetworkSecurityRule -Name block-internet `
 		    -Action Deny -Protocol '*' -Type Outbound -Priority 200 `
 		    -SourceAddressPrefix '*'  -SourcePortRange '*' `
-		    -DestinationAddressPrefix Internet -DestinationPortRange '*' 
+		    -DestinationAddressPrefix Internet -DestinationPortRange '*'
 
 	Ожидаемые выходные данные:
 
 		Name     : NSG-BackEnd
 		Location : Central US
 		Label    : Back end subnet NSG
-		Rules    : 
-		           
+		Rules    :
+
 		              Type: Inbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -197,10 +197,10 @@
 		           ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
 		           BALANCER INBOUND                        CER                                                                   
 		           DENY ALL INBOUND     65500     Deny     *               *             *                *              *       
-		           
-		           
+
+
 		              Type: Outbound
-		           
+
 		           Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
 		                                                   Prefix          Range         Address Prefix   Port Range             
 		           ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
@@ -210,4 +210,4 @@
 		           OUTBOUND                                                                                                      
 		           DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

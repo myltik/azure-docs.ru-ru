@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Развертывание виртуальных машин по классической модели развертывания с несколькими сетевыми картами с использованием PowerShell | Microsoft Azure"
    description="Сведения о развертывании виртуальных машин по классической модели развертывания с несколькими сетевыми картами с использованием PowerShell"
    services="virtual-network"
@@ -17,17 +17,17 @@
    ms.date="02/02/2016"
    ms.author="telmos" />
 
-#Развертывание виртуальных машин с несколькими сетевыми картами с использованием PowerShell (классическая модель)
+#Развертывание виртуальных машин с несколькими сетевыми картами с использованием PowerShell \(классическая модель\)
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-deploy-multinic-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model]\(virtual-network-deploy-multinic-arm-ps.md\).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Так как на данный момент невозможно иметь несколько виртуальных машин с одной сетевой картой и несколько виртуальных машин с несколькими сетевыми картами в одной облачной службе, внутренние серверы необходимо реализовать в другой облачной службе по сравнению с остальными компонентами сценария. В приведенных ниже действиях используются следующие облачные службы: *IaaSStory* в качестве основной группы ресурсов и *IaaSStory-BackEnd* для внутренних серверов.
+В настоящее время в одной облачной службе нельзя одновременно использовать виртуальные машины с одной сетевой картой и виртуальные машины с несколькими сетевыми картами. Поэтому необходимо реализовать внутренние серверы в другой облачной службе, отдельной от всех прочих компонентов в сценарии. В приведенных ниже действиях используются следующие облачные службы: *IaaSStory* в качестве основной группы ресурсов и *IaaSStory-BackEnd* для внутренних серверов.
 
 ## Предварительные требования
 
@@ -40,8 +40,8 @@
 Внутренние виртуальные машины зависят от создания ресурсов, перечисленных ниже.
 
 - **Внутренняя подсеть**. Чтобы разделить трафик, серверы базы данных будут входить в отдельную подсеть. Приведенный ниже сценарий предполагает наличие этой подсети в виртуальной сети с именем *WTestVnet*.
-- **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя (SSD), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
-- **Группа доступности**. Все серверы баз данных будут добавлены в одну группу доступности, чтобы гарантировать, что как минимум одна из виртуальных машин будет запущена и доступна во время обслуживания. 
+- **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя \(SSD\), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
+- **Группа доступности**. Все серверы баз данных будут добавлены в одну группу доступности, чтобы гарантировать, что как минимум одна из виртуальных машин будет запущена и доступна во время обслуживания.
 
 ### Шаг 1. Запуск сценария
 
@@ -129,7 +129,7 @@
 		    Add-AzureNetworkInterfaceConfig -Name ("RemoteAccessNIC"+$suffixNumber) `
 		        -SubnetName $backendSubnetName `
 		        -StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
-		        -VM $vmConfig 
+		        -VM $vmConfig
 
 6. Создайте по два диска данных для каждой виртуальной машины.
 
@@ -138,7 +138,7 @@
 		        -DiskSizeInGB $diskSize `
 		        -DiskLabel $dataDisk1Name `
 		        -LUN 0       
-		
+
 		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"   
 		    Add-AzureDataDisk -CreateNew -VM $vmConfig `
 		        -DiskSizeInGB $diskSize `
@@ -163,12 +163,12 @@
 		--------------------    -----------                          ---------------
 		New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
 		New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
-		                                                                            
+
 		WARNING: No deployment found in service: 'IaaSStory-Backend'.
 
 2. Укажите учетные данные и нажмите кнопку **ОК**. Отобразится вывод, как показано ниже.
 
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
+		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

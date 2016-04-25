@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Удаленная отправка заданий Spark с помощью Livy | Microsoft Azure" 
-	description="Узнайте, как использовать Livy с кластерами HDInsight для удаленной отправки заданий Spark." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="Удаленная отправка заданий Spark с помощью Livy | Microsoft Azure"
+	description="Узнайте, как использовать Livy с кластерами HDInsight для удаленной отправки заданий Spark."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 
-# Удаленная отправка заданий Spark с помощью Livy в кластерах Spark в HDInsight (Linux)
+# Удаленная отправка заданий Spark с помощью Livy в кластерах Spark в HDInsight \(Linux\)
 
 Кластер Apache Spark в Azure HDInsight включает Livy — интерфейс REST для удаленной отправки заданий в кластер Spark из любого места. Подробную документацию см. в разделе [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
@@ -33,18 +33,18 @@
 
 ## Отправка пакетного задания в кластер
 
-Перед отправкой пакетного задания необходимо загрузить JAR-файл приложения в хранилище кластеров, связанное с соответствующим кластером. Вы можете использовать для этого служебную программу командной строки [**AzCopy**](storage/storage-use-azcopy.md). Кроме того, для отправки данных вы можете использовать множество других клиентов. Дополнительные сведения о них см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
+Перед отправкой пакетного задания необходимо загрузить JAR-файл приложения в хранилище кластеров, связанное с соответствующим кластером. Вы можете использовать для этого служебную программу командной строки [**AzCopy**](../storage/storage-use-azcopy.md). Кроме того, для отправки данных вы можете использовать множество других клиентов. Дополнительные сведения о них см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
 
 	curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
 
 **Примеры**:
 
-* Если JAR-файл находится в хранилище кластеров (WASB)
+* Если JAR-файл находится в хранилище кластеров \(WASB\)
 
 		curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-* Если имя JAR-файла и имя класса необходимо передать в составе входного файла (в данном примере input.txt)
-		
+* Если имя JAR-файла и имя класса необходимо передать в составе входного файла \(в данном примере input.txt\)
+
 		curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
 ## Получение сведений о пакетах, выполняемых в кластере
@@ -72,7 +72,7 @@
 
 ## Показать пример
 
-В этом разделе мы рассмотрим примеры использования Livy для отправки приложений Spark, проследим за ходом выполнения приложения, а затем удалим задание. В примере используется приложение, разработанное в статье [Создание автономного приложения Scala для работы в кластере HDInsight Spark (Linux)](hdinsight-apache-spark-create-standalone-application.md). В описанных ниже действиях предполагается следующее.
+В этом разделе мы рассмотрим примеры использования Livy для отправки приложений Spark, проследим за ходом выполнения приложения, а затем удалим задание. В примере используется приложение, разработанное в статье [Создание автономного приложения Scala для работы в кластере HDInsight Spark \(Linux\)](hdinsight-apache-spark-create-standalone-application.md). В описанных ниже действиях предполагается следующее.
 
 * Вы уже скопировали JAR-файл приложения в учетную запись хранения, связанную с кластером.
 * На компьютере, где выполняются эти действия, установлен CuRL.
@@ -97,7 +97,7 @@
 
 	Обратите внимание на то, что последняя строка выходных данных содержит значение **total:0**, означающее, что никакие пакеты не выполняются.
 
-2. Теперь отправим пакетное задание. В приведенном ниже фрагменте кода для передачи имени JAR-файла и имени класса в качестве параметров используется входной файл (input.txt). Используйте этот вариант, если данные действия выполняются на компьютере Windows.
+2. Теперь отправим пакетное задание. В приведенном ниже фрагменте кода для передачи имени JAR-файла и имени класса в качестве параметров используется входной файл \(input.txt\). Используйте этот вариант, если данные действия выполняются на компьютере Windows.
 
 		curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
@@ -154,7 +154,7 @@
 		<
 		{"msg":"deleted"}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
 
-	Последняя строка выходных данных показывает, что пакет удален. Если задание удаляется в процессе выполнения, оно фактически аннулируется. Если задание удаляется после завершения (независимо от успешности выполнения), удаляются все данные об этом задании.
+	Последняя строка выходных данных показывает, что пакет удален. Если задание удаляется в процессе выполнения, оно фактически аннулируется. Если задание удаляется после завершения \(независимо от успешности выполнения\), удаляются все данные об этом задании.
 
 ## <a name="seealso"></a>См. также:
 
@@ -189,4 +189,4 @@
 
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

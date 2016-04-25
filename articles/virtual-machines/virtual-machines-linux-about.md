@@ -28,6 +28,8 @@
 
 Эта таблица поможет сравнить варианты, предлагаемые Azure.
 
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## Дальнейшие действия
@@ -36,10 +38,4 @@
 
 Так как это руководство помогает быстро создать виртуальную машину, оно описывает только один из способов создания вместо описания различных инструментов, с помощью которых можно создавать виртуальные машины. Краткий обзор этих инструментов и ссылки на инструкции см. в статье [Различные способы создания виртуальной машины Linux](virtual-machines-linux-creation-choices.md).
 
-
-<!--links-->
-[Служба приложений]: app-service-choose-me.md
-[Виртуальные машины]: #tellmevm
-[Облачные службы]: cloud-services-choose-me.md
-
-<!-----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

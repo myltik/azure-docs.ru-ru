@@ -3,15 +3,15 @@
 
 Существует несколько способов шифрования, преимуществами которых вы можете воспользоваться.
 
-- [Прозрачное шифрование данных (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
+- [Прозрачное шифрование данных \(TDE\)](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Зашифрованные резервные копии](https://msdn.microsoft.com/library/dn449489.aspx)
-- [Шифрование на уровне столбцов (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
+- [Шифрование на уровне столбцов \(CLE\)](https://msdn.microsoft.com/library/ms173744.aspx)
 
 Следующие сценарии Transact-SQL содержат примеры для каждого из этих вариантов.
 
 >[AZURE.NOTE] Каждый пример основан на двух вещах: асимметричном ключе из хранилища ключей **CONTOSO\_KEY** и учетных данных, созданных интеграцией AKV, с именем **Azure\_EKM\_TDE\_cred**.
 
-### Прозрачное шифрование данных (TDE)
+### Прозрачное шифрование данных \(TDE\)
 1. Создайте имя входа SQL Server для использования компонентом Database Engine для прозрачного шифрования данных, а затем добавьте учетные данные.
 	
 		USE master;
@@ -68,7 +68,7 @@
 		ENCRYPTION(ALGORITHM = AES_256, SERVER ASYMMETRIC KEY = [CONTOSO_KEY]);
 		GO
 
-### Шифрование на уровне столбцов (CLE)
+### Шифрование на уровне столбцов \(CLE\)
 Этот скрипт создает симметричный ключ, защищенный асимметричным ключом в хранилище ключей, и затем использует симметричный ключ для шифрования данных в базе данных.
 
 	CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
@@ -93,6 +93,6 @@
 ## Дополнительные ресурсы
 Дополнительные сведения об использовании этих возможностей шифрования см. в разделе [Использование расширенного управления ключами с функциями шифрования SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Обратите внимание, что действия, описанные в этой статье, предполагают, что у вас уже есть SQL Server на виртуальной машине Azure. Если нет, см. раздел [Подготовка виртуальной машины с SQL Server в Azure](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md). Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [Общие сведения об SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+Обратите внимание, что действия, описанные в этой статье, предполагают, что у вас уже есть SQL Server на виртуальной машине Azure. Если нет, см. раздел [Подготовка виртуальной машины с SQL Server в Azure](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md). Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [Общие сведения об SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

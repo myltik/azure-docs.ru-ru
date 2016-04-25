@@ -1,8 +1,8 @@
 <properties 
     pageTitle="Руководство. Интеграция Azure Active Directory с xMatters OnDemand | Microsoft Azure"
-    description="Узнайте, как использовать xMatters OnDemand вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    description="Узнайте, как использовать xMatters OnDemand с Azure Active Directory для реализации единого входа, автоматической подготовки и многого другого." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с xMatters OnDemand
   
@@ -21,7 +21,7 @@
 -   Действующая подписка на Azure
 -   Клиент xMatters OnDemand
   
-По завершении работы с этим руководством пользователи Azure AD, назначенные в xMatters OnDemand, смогут выполнять единый вход в приложение на веб-сайте xMatters OnDemand компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+По завершении работы с этим руководством пользователи Azure AD, назначенные в xMatters OnDemand, смогут выполнять единый вход в приложение на веб-сайте xMatters OnDemand компании \(вход, инициированный поставщиком услуг\) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
@@ -70,7 +70,7 @@
 
 ###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На странице интеграции с приложением **xMatters OnDemand** портала Azure AD нажмите кнопку **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа*.
+1.  На странице интеграции с приложением **xMatters OnDemand** портала Azure AD нажмите кнопку **Настроить единый вход**, чтобы открыть диалоговое окно \*\*Настройка единого входа\*.
 
     ![Настройка единого входа](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.png "Настройка единого входа")
 
@@ -78,7 +78,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776792.png "Настройка единого входа")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в xMatters OnDemand** введите свой URL-адрес, используя следующий шаблон *https://\<имя-клиента>.XMattersOnDemandapp.com*, а затем нажмите кнопку **Далее**.
+3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в xMatters OnDemand** введите свой URL-адрес, используя следующий шаблон *https://\\<имя-клиента\>.XMattersOnDemandapp.com*, а затем нажмите кнопку **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776793.png "Настройка URL-адреса приложения")
 
@@ -141,7 +141,7 @@
 
 1.  На портале Azure AD создайте тестовую учетную запись.
 
-2.  На странице интеграции с приложением **xMatters OnDemand** нажмите кнопку **Назначить пользователей**.
+2.  На странице интеграции с приложением \*\*xMatters OnDemand\*\* нажмите кнопку **Назначить пользователей**.
 
     ![Назначить пользователей](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.png "Назначить пользователей")
 
@@ -151,4 +151,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

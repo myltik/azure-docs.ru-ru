@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Добавление модулей Runbook службы автоматизации Azure в планы восстановления | Microsoft Azure" 
-   description="В этой статье описывается, как Azure Site Recovery позволяет расширить планы восстановления с помощью службы автоматизации Azure для выполнения сложных задач во время восстановления в Azure." 
-   services="site-recovery" 
-   documentationCenter="" 
-   authors="ruturaj" 
-   manager="mkjain" 
+<properties
+   pageTitle="Добавление модулей Runbook службы автоматизации Azure в планы восстановления | Microsoft Azure"
+   description="В этой статье описывается, как Azure Site Recovery позволяет расширить планы восстановления с помощью службы автоматизации Azure для выполнения сложных задач во время восстановления в Azure."
+   services="site-recovery"
+   documentationCenter=""
+   authors="ruturaj"
+   manager="mkjain"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="powershell"
    ms.tgt_pltfrm="na"
    ms.topic="article"
-   ms.workload="required" 
+   ms.workload="required"
    ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
@@ -34,7 +34,7 @@
 
 2.  Убедитесь, что виртуальные машины завершили начальную репликацию и выполняют репликацию.
 
-3.  Дождитесь завершения начальной репликации (в столбце "Состояние репликации" должно быть указано "Защищено").
+3.  Дождитесь завершения начальной репликации \(в столбце "Состояние репликации" должно быть указано "Защищено"\).
 
 ![](media/site-recovery-runbook-automation/01.png)
 ---------------------
@@ -103,7 +103,7 @@
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-Дополнительные сведения о подключении к подписке через PowerShell см. [здесь](../install-configure-powershell.md).
+Дополнительные сведения о подключении к подписке через PowerShell см. [здесь](../powershell-install-configure.md).
 
 Затем создадим в службе автоматизации Azure модуль Runbook, который может добавить конечную точку для интерфейсной виртуальной машины после отработки отказа.
 
@@ -137,11 +137,11 @@ ASR передает в модуль Runbook переменную контекс
 **Имя переменной** | **Описание**
 ---|---
 RecoveryPlanName | Имя выполняемого плана. Позволяет предпринять действия на основе имени, используя тот же скрипт
-FailoverType | Указывает, является ли выполнение тестовым, запланированным или незапланированным. 
+FailoverType | Указывает, является ли выполнение тестовым, запланированным или незапланированным.
 FailoverDirection | Указывает, производится ли восстановление в первичное или вторичное расположение
 GroupID | Определяет номер группы в плане восстановления при выполнении плана
 VmMap | Это массив всех виртуальных машин в группе.
-Ключ VMMap | Уникальный ключ (GUID) для каждой виртуальной машины. Это то же самое, что и VMM ID виртуальной машины, там, где это применимо. 
+Ключ VMMap | Уникальный ключ \(GUID\) для каждой виртуальной машины. Это то же самое, что и VMM ID виртуальной машины, там, где это применимо.
 RoleName | Имя виртуальной машины Azure, для которой выполняется восстановление
 CloudServiceName | Имя облачной службы Azure, под которой создана виртуальная машина.
 
@@ -161,7 +161,7 @@ CloudServiceName | Имя облачной службы Azure, под котор
 2.  Перейдите в представление создания модуля Runbook и войдите в режиме черновика.
 
 3.  Сначала укажите переменную, которая будет использоваться в качестве контекста плана восстановления.
-  
+
 	```
 		param (
 			[Object]$RecoveryPlanContext
@@ -173,7 +173,7 @@ CloudServiceName | Имя облачной службы Azure, под котор
 
 	```
 		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-	
+
 		# Connect to Azure
 		$AzureAccount = Add-AzureAccount -Credential $Cred
 		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
@@ -229,7 +229,7 @@ CloudServiceName | Имя облачной службы Azure, под котор
 	)
 
 	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-	
+
 	# Connect to Azure
 	$AzureAccount = Add-AzureAccount -Credential $Cred
 	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
@@ -241,7 +241,7 @@ CloudServiceName | Имя облачной службы Azure, под котор
 	$AEPublicPort = 80
 	$AEName = "Port 80 for HTTP"
 	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-	
+
 	#Read the VM GUID from the context
 	$VM = $RecoveryPlanContext.VmMap.$VMGUID
 
@@ -308,6 +308,4 @@ CloudServiceName | Имя облачной службы Azure, под котор
 
 [Примеры сценариев службы автоматизации Azure](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Примеры сценариев службы автоматизации Azure")
 
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

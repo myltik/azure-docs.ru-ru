@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Перемещение данных в хранилище BLOB-объектов Azure и из него с помощью соединителей SSIS | Microsoft Azure" 
-	description="Перемещение данных в хранилище BLOB-объектов Azure и из него с помощью соединителей SSIS." 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="Перемещение данных в хранилище BLOB-объектов Azure и из него с помощью соединителей SSIS | Microsoft Azure"
+	description="Перемещение данных в хранилище BLOB-объектов Azure и из него с помощью соединителей SSIS."
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/08/2016" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
 	ms.author="bradsev" />
 
 # Перемещение данных в хранилище BLOB-объектов Azure и из него с помощью соединителей служб SSIS
@@ -32,29 +32,29 @@
 
 В Интернете доступна информация о канонических сценариях, в рамках которых службы SSIS используются для выполнения бизнес-задач, часто встречающихся в сценариях интеграции гибридных данных. Найти ее можно в блоге [Повышенная эффективность при использовании пакета дополнительных компонентов SQL Server Integration Services для Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx).
 
-> [AZURE.NOTE] Полное описание базовых принципов использования хранилища больших двоичных объектов Azure см. в статьях [Основы использования больших двоичных объектов Azure](../storage-dotnet-how-to-use-blobs.md) и [Основные понятия службы BLOB-объектов](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> [AZURE.NOTE] Полное описание базовых принципов использования хранилища больших двоичных объектов Azure см. в статьях [Основы использования больших двоичных объектов Azure](../storage/storage-dotnet-how-to-use-blobs.md) и [Основные понятия службы BLOB-объектов](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ## Предварительные требования
 
 Для выполнения описанных в этой статье задач необходимо иметь подписку Azure и учетную запись хранения Azure. Чтобы отправлять и загружать данные, необходимо знать имя учетной записи хранения Azure и ее ключ.
 
 - Сведения о настройке **подписки Azure** см. на странице [Бесплатная пробная версия на один месяц](https://azure.microsoft.com/pricing/free-trial/).
-- Указания по созданию **учетной записи хранения** и получению сведений об учетной записи и ключах см. в статье [Об учетных записях хранения Azure](../storage-create-storage-account.md).
+- Указания по созданию **учетной записи хранения** и получению сведений об учетной записи и ключах см. в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 
 
 Чтобы использовать **Соединители SSIS**, необходимо загрузить следующие компоненты.
 
-- **SQL Server 2014 или 2016 Standard (или более поздняя версия)**: установка включает в себя SQL Server Integration Services.
+- **SQL Server 2014 или 2016 Standard \(или более поздняя версия\)**: установка включает в себя SQL Server Integration Services.
 - **Пакет дополнительных компонентов Microsoft SQL Server 2014 или 2016 Integration Services для Azure**: пакет можно скачать на странице [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) или [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) соответственно.
 
-> [AZURE.NOTE] Службы SSIS устанавливаются вместе с SQL Server, но в версию Express они не включены. Сведения о приложениях, которые включены в различные выпуски SQL Server, см. в статье [Выпуски SQL Server](http://www.microsoft.com/ru-RU/server-cloud/products/sql-server-editions/).
+> [AZURE.NOTE] Службы SSIS устанавливаются вместе с SQL Server, но в версию Express они не включены. Сведения о приложениях, которые включены в различные выпуски SQL Server, см. в статье [Выпуски SQL Server](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/).
 
 Обучающие материалы о службах SSIS см. в статье [Предварительное обучение по службам SSIS](http://www.microsoft.com/download/details.aspx?id=20766).
 
-Дополнительные сведения о том, как с помощью SISS получить рабочую среду для создания простых пакетов извлечения, преобразования и загрузки (ETL), см. в статье [Руководство по службам SSIS: создание простого пакета извлечения, преобразования и загрузки](https://msdn.microsoft.com/library/ms169917.aspx).
+Дополнительные сведения о том, как с помощью SISS получить рабочую среду для создания простых пакетов извлечения, преобразования и загрузки \(ETL\), см. в статье [Руководство по службам SSIS: создание простого пакета извлечения, преобразования и загрузки](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## Загрузка набора данных для такси Нью-Йорка  
-В приведенном здесь примере используется общедоступный набор данных [Поездки в такси по Нью-Йорку](http://www.andresmh.com/nyctaxitrips/). Набор данных состоит из информации об около 173 миллионах поездок в такси в Нью-Йорке в 2013 году. В нем используется два типа данных: сведения о поездках и тарифах. Так как для каждого месяца заведен отдельный файл, всего у нас есть 24 файла, каждый из которых занимает объем примерно 2 ГБ (в несжатом виде).
+В приведенном здесь примере используется общедоступный набор данных [Поездки в такси по Нью-Йорку](http://www.andresmh.com/nyctaxitrips/). Набор данных состоит из информации об около 173 миллионах поездок в такси в Нью-Йорке в 2013 году. В нем используется два типа данных: сведения о поездках и тарифах. Так как для каждого месяца заведен отдельный файл, всего у нас есть 24 файла, каждый из которых занимает объем примерно 2 ГБ \(в несжатом виде\).
 
 
 ## Отправка данных в хранилище больших двоичных объектов Azure
@@ -72,12 +72,12 @@
 **BlobContainer**|Задает имя контейнера BLOB-объектов, который будет содержать отправленные файлы в виде BLOB-объектов.|
 **BlobDirectory**|Задает каталог BLOB-объектов, в котором будет храниться отправленный файл в виде блочного BLOB-объекта. Каталог BLOB-объектов имеет виртуальную иерархическую структуру. Если BLOB-объект уже существует, он будет заменен.|
 **LocalDirectory**|Задает локальный каталог с файлами для отправки.|
-**FileName**|Указывает имя фильтра для выбора файлов с указанным шаблоном имени. Например, MySheet*.xls * включает в себя файлы MySheet001.xls и MySheetABC.xlsx.|
+**FileName**|Указывает имя фильтра для выбора файлов с указанным шаблоном имени. Например, MySheet\*.xls \* включает в себя файлы MySheet001.xls и MySheetABC.xlsx.|
 **TimeRangeFrom/TimeRangeTo**|Задает фильтр диапазона времени. Сюда будут включены файлы, входящие в диапазон, крайними значениями которого являются *TimeRangeFrom* и *TimeRangeTo*.|
 
 
 > [AZURE.NOTE] Учетные данные **AzureStorageConnection** должны быть правильными. **BlobContainer** должен быть создан до попытки передачи.
- 
+
 ## Загрузка данных из хранилища BLOB-объектов Azure
 
 Для загрузки данных из хранилища BLOB-объектов Azure в локальное хранилище служб SSIS используйте экземпляр [задачи отправки BLOB-объектов Azure](https://msdn.microsoft.com/library/mt146779.aspx).
@@ -88,4 +88,4 @@
 - Чтобы запустить сценарий Hive в кластере Azure HDInsight с помощью служб SSIS, используйте [задачу Hive Azure HDInsight](https://msdn.microsoft.com/library/mt146771.aspx).
 - Чтобы запустить сценарий Pig в кластере Azure HDInsight с помощью служб SSIS, используйте [задачу Pig Azure HDInsight](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

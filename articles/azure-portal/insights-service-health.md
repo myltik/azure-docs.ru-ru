@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Получение информации о работоспособности службы" 
-	description="Информация о снижении производительности Azure или нарушении работы службы." 
-	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
-	editor="" 
-	services="azure-portal" 
+<properties
+	pageTitle="Получение информации о работоспособности службы"
+	description="Информация о снижении производительности Azure или нарушении работы службы."
+	authors="stepsic-microsoft-com"
+	manager="kamrani"
+	editor=""
+	services="azure-portal"
 	documentationCenter="na"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Получение информации о работоспособности службы
@@ -45,12 +45,11 @@ Azure сообщает каждый раз, когда происходит пр
 7. Теперь вы увидите все события работоспособности службы, которые касаются вашей подписки: ![Группы ресурсов](./media/insights-service-health/Insights_HealthEvent.png)
 
 8. Отсюда можно перейти к колонке сведения для просмотра описания события.
-   
+
 ## Дальнейшие действия
 
 * [Получайте уведомления](insights-receive-alert-notifications.md) каждый раз, когда происходит событие.
 * [Отслеживайте метрики службы](insights-how-to-customize-monitoring.md), чтобы убедиться, что служба доступна и отвечает на запросы.
-* [Отслеживайте доступность и скорость реагирования любой веб-страницы](../app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
- 
+* [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->
