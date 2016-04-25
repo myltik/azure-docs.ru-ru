@@ -1,4 +1,12 @@
-\<properties pageTitle="Запуск Cassandra под управлением Linux в Azure \| Microsoft Azure" description="Как запустить кластер Cassandra под управлением Linux в Виртуальных машинах Azure из приложения Node.js." services="virtual-machines-linux" documentationCenter="nodejs" authors="hanuk" manager="wpickett" editor="" azure-service-management"/\>
+<properties
+	pageTitle="Запуск Cassandra под управлением Linux в Azure | Microsoft Azure"
+	description="Как запустить кластер Cassandra под управлением Linux в Виртуальных машинах Azure из приложения Node.js."
+	services="virtual-machines-linux"
+	documentationCenter="nodejs"
+	authors="hanuk"
+	manager="wpickett"
+	editor=""
+	azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 

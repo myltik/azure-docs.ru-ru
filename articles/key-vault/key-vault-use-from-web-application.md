@@ -1,4 +1,11 @@
-\<properties pageTitle="Use Azure Key Vault from a Web Application \| Microsoft Azure" description="Use this tutorial to help you learn how to use Azure Key Vault from a web application." services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//\>
+<properties
+	pageTitle="Use Azure Key Vault from a Web Application | Microsoft Azure"
+	description="Use this tutorial to help you learn how to use Azure Key Vault from a web application."
+	services="key-vault"
+	documentationCenter=""
+	authors="adamhurwitz"
+	manager=""
+	tags="azure-resource-manager"//>
 
 <tags
 	ms.service="key-vault"
