@@ -76,8 +76,10 @@
 
 1. 	Войдите на портал Azure, используя свою учетную запись.
 1.	На портале Azure щелкните **+Создать**. Откроется колонка "Создать".
-1.	В поле поиска этой колонки введите **AlwaysOn**. ![Поиск шаблона AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
-1.	В результатах поиска найдите **Кластер SQL Server AlwaysOn**. ![Шаблон AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
+1.	В поле поиска этой колонки введите **AlwaysOn**.
+![Поиск шаблона AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
+1.	В результатах поиска найдите **Кластер SQL Server AlwaysOn**.
+![Шаблон AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 1.	В разделе **Выбор модели развертывания** щелкните **Диспетчер ресурсов**.
 
 ### Основы
@@ -243,7 +245,8 @@
 
 1.	В колонке **Ресурсы** щелкните **ad-primary-dc** — это имя виртуальной машины для основного контроллера домена.
 
-1.	В колонке **ad-primary-dc** щелкните **Подключить**. В браузере отобразится сообщение с предложением открыть или сохранить объект удаленного подключения. Щелкните **Открыть**. ![Подключение к контроллеру домена](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
+1.	В колонке **ad-primary-dc** щелкните **Подключить**. В браузере отобразится сообщение с предложением открыть или сохранить объект удаленного подключения. Щелкните **Открыть**.
+![Подключение к контроллеру домена](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
 1.	В ходе **подключения к удаленному рабочему столу** может появиться предупреждение о том, что издателя этого удаленного подключения невозможно определить. Щелкните **Подключить**.
 
 1.	Служба безопасности Windows предложит вам ввести учетные данные для подключения к IP-адресу основного контроллера домена. Щелкните **Использовать другую учетную запись**. В поле **Имя пользователя** введите **contoso\\DomainAdmin**. Это учетная запись, которую вы указали для имени администратора. Используйте сложный пароль, введенный во время настройки шаблона.

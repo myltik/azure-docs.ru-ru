@@ -30,9 +30,11 @@
 ##Включение ведения журналов
 Ведение журналов аудита автоматически включено постоянно для каждого ресурса диспетчера ресурсов. Чтобы начать сбор соответствующих данных, необходимо включить ведение журналов доступа и производительности. Чтобы включить ведение журнала, выполните следующие действия.
 
-1. Запишите или запомните идентификатор ресурса своей учетной записи хранения, в которой будут храниться данные журналов. Он будет иметь вид: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Можно использовать любую учетную запись хранения в подписке. Для получения этих сведений можно использовать портал предварительной версии. ![Портал предварительной версии — диагностика шлюза приложений](./media/application-gateway-diagnostics/diagnostics1.png)
+1. Запишите или запомните идентификатор ресурса своей учетной записи хранения, в которой будут храниться данные журналов. Он будет иметь вид: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Можно использовать любую учетную запись хранения в подписке. Для получения этих сведений можно использовать портал предварительной версии.
+![Портал предварительной версии — диагностика шлюза приложений](./media/application-gateway-diagnostics/diagnostics1.png)
  
-2. Запишите или запомните идентификатор ресурса шлюза приложений, для которого включено ведение журнала. Он будет иметь вид: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. Для получения этих сведений можно использовать портал предварительной версии. ![Портал предварительной версии — диагностика шлюза приложений](./media/application-gateway-diagnostics/diagnostics2.png)
+2. Запишите или запомните идентификатор ресурса шлюза приложений, для которого включено ведение журнала. Он будет иметь вид: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. Для получения этих сведений можно использовать портал предварительной версии.
+![Портал предварительной версии — диагностика шлюза приложений](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Включите ведение журнала диагностики с помощью следующего командлета PowerShell.
 

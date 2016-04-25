@@ -81,7 +81,7 @@
 
 	SELECT * FROM StudentsOneLine
 
-Необработанный файл JSON находится в \*\***wasb://processjson@hditutorialdata.blob.core.windows.net/**. Таблица Hive *StudentsRaw* указывает на необработанный документ JSON.
+Необработанный файл JSON находится в **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Таблица Hive *StudentsRaw* указывает на необработанный документ JSON.
 
 Таблица Hive *StudentsOneLine* сохранит данные в файловой системе по умолчанию HDInsight в каталоге */json/students/*.
 

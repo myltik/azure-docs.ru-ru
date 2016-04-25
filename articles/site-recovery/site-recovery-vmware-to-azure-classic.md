@@ -204,7 +204,8 @@
 3. Выберите **Создать** \> **Быстрое создание**.
 4. В поле **Имя** введите понятное имя для идентификации хранилища.
 5. В поле **Область** выберите географический регион для хранилища архивации. Чтобы проверить поддерживаемые регионы, см. географическую доступность в разделе [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/) \(Информация о ценах на Azure Site Recovery\).
-6. Щелкните **Создать хранилище**. ![Новое хранилище](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
+6. Щелкните **Создать хранилище**.
+![Новое хранилище](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
 
 Проверьте строку состояния, чтобы убедиться, что хранилище успешно создано. Хранилище будет указано как **Активное** на главной странице **Службы восстановления**.
 
@@ -302,9 +303,13 @@
 13.  Просмотрите информацию на странице **Сводка**.
 
 	![Сводка](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
->[AZURE.WARNING] Необходимо настроить прокси агента служб восстановления Microsoft Azure. После завершения установки запустите приложение с именем "Оболочка служб восстановления Microsoft Azure" из меню "Пуск" Windows. В открывшемся командном окне выполните следующий набор команд, чтобы настроить параметры прокси-сервера.
+>[AZURE.WARNING] Необходимо настроить прокси агента служб восстановления Microsoft Azure. 
+>После завершения установки запустите приложение с именем "Оболочка служб восстановления Microsoft Azure" из меню "Пуск" Windows. В открывшемся командном окне выполните следующий набор команд, чтобы настроить параметры прокси-сервера.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine net start obengine
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword 
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd 
+	net stop obengine 
+	net start obengine
 
 
 
@@ -459,7 +464,8 @@
 Исходная операционная система | Файл установки службы Mobility Service
 --- | ---
 Windows Server \(только 64-разрядная версия\) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 \(только 64-разрядная версия\) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_\*release.tar.gz SUSE Linux Enterprise Server 11 SP3 \(только 64-разрядная версия\) \| Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_\*release.tar.gz
+CentOS 6.4, 6.5, 6.6 \(только 64-разрядная версия\) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_\*release.tar.gz 
+SUSE Linux Enterprise Server 11 SP3 \(только 64-разрядная версия\) \| Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_\*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 \(только 64-разрядная версия\) | Microsoft-ASR\_UA\_9.\*.0.0\_OL6-64\_\*release.tar.gz
 
 

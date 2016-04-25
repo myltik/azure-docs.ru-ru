@@ -148,7 +148,8 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image15.png)
 
-1.  Отобразится окно **Create New Virtual Machine** \(Создание виртуальной машины\). На странице **Configuration** \(Конфигурация\) выберите параметр **Custom** \(Настраиваемая\). Нажмите кнопку **Next** \(Далее\). ![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
+1.  Отобразится окно **Create New Virtual Machine** \(Создание виртуальной машины\). На странице **Configuration** \(Конфигурация\) выберите параметр **Custom** \(Настраиваемая\). Нажмите кнопку **Next** \(Далее\).
+![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
 
 2.  На странице **Name and Location** \(Имя и расположение\) укажите имя виртуальной машины. Имя должно соответствовать имени папки \(рекомендуется\), указанному ранее на шаге 8.
 
