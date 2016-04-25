@@ -1,25 +1,27 @@
-You must create a VNet and a gateway subnet first, before working on the following tasks. See the article [Configure a Virtual Network using the classic portal](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) for more information.   
+Прежде чем приступить к работе над следующими задачами, необходимо создать виртуальную сеть и подсеть шлюза. Дополнительные сведения см. в статье [Настройка виртуальной сети с помощью классического портала](../articles/expressroute/expressroute-howto-vnet-portal-classic.md).
 
-## Add a gateway
+## Добавление шлюза
 
-Use the command below to create a gateway. Be sure to substitute any values for your own.
+Используйте следующую команду, чтобы создать шлюз. Не забудьте подставить собственные значения.
 
 	New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
 
-## Verify the gateway was created
+## Проверка создания шлюза
 
-Use the command below to verify that the gateway has been created. This command also retrieves the gateway ID, which you need for other operations.
+Используйте следующую команду, чтобы проверить, был ли создан шлюз. Эта команда также получает идентификатор шлюза, который нужен для других операций.
 
 	Get-AzureVirtualNetworkGateway
 
-## Resize a gateway
+## Изменение размера шлюза
 
-There are three [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). You can use the following command to change the Gateway SKU at any time.
+Существует три [SKU шлюза](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Чтобы изменить SKU шлюза в любое время, можно использовать следующую команду.
 
 	Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 
-## Remove a gateway
+## Удаление шлюза
 
-Use the command below to remove a gateway
+Используйте следующую команду, чтобы удалить шлюз.
 
 	Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+
+<!---HONumber=AcomDC_0413_2016-->

@@ -17,11 +17,13 @@
 	ms.date="01/05/2016"
 	ms.author="drewm"/>
 
-# Плановое обслуживание виртуальных машин Windows в Azure
+# Плановое обслуживание виртуальных машин в Azure
+
+
+Сведения о том, что такое плановое обслуживание Azure и как оно влияет на доступность виртуальных машин Windows. Также доступна версия этой статьи для [виртуальных машин Linux](virtual-machines-linux-planned-maintenance.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Сведения о том, что такое плановое обслуживание Azure и как оно влияет на доступность виртуальных машин Windows. Вы также можете узнать о [плановом обслуживании виртуальных машин Linux](virtual-machines-linux-planned-maintenance.md).
 
 ## Причины выполнения Azure планового обслуживания
 
@@ -33,4 +35,4 @@ Microsoft Azure периодически выполняет обновления
 
 [AZURE.INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

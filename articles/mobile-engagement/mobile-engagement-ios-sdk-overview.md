@@ -16,7 +16,7 @@
 	ms.date="02/29/2016"
 	ms.author="MehrdadMzfr" />
 
-#Пакет SDK для Azure Mobile Engagement (iOS)
+#Пакет SDK для Azure Mobile Engagement \(iOS\)
 
 Начните с этой статьи, чтобы получить подробную информацию об интеграции Azure Mobile Engagement в приложение iOS. Если вы хотите потренироваться, обязательно пройдите наш [15-минутный учебник](mobile-engagement-ios-get-started.md).
 
@@ -25,16 +25,16 @@
 ##Процедуры по интеграции
 1. Начните с этого раздела: [Как интегрировать Mobile Engagement в приложение iOS](mobile-engagement-ios-integrate-engagement.md)
 
-2. Сведения об уведомлениях: [Как интегрировать Reach (Notifications) в приложение iOS](mobile-engagement-ios-integrate-engagement-reach.md)
+2. Сведения об уведомлениях: [Как интегрировать Reach \(Notifications\) в приложение iOS](mobile-engagement-ios-integrate-engagement-reach.md)
 
 3. Реализация плана добавления тегов: [Как использовать API для расширенного добавления тегов Mobile Engagement в приложении iOS](mobile-engagement-ios-use-engagement-api.md)
 
 
 ##Заметки о выпуске
 
-###3\.2.1 (11.12.2015)
+###3\.2.2 \(07.04.2016\)
 
--   Фиксированная задержка при активации нового экземпляра приложения уведомлением с прямыми ссылками. 
+-   Исправлена ошибка при отмене HTTP-запроса, которая иногда приводила к сбою. 
 
 Информацию о предыдущих версиях см. в [полных заметках о выпуске](mobile-engagement-ios-release-notes.md).
 
@@ -44,7 +44,7 @@
 
 Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить ряд процедур. См. полную версию статьи [Процедуры обновления](mobile-engagement-ios-upgrade-procedure.md).
 
-Для каждой новой версии пакета SDK необходимо сначала заменить (удалить и повторно импортировать в проект Хcode) папки EngagementSDK и EngagementReach.
+Для каждой новой версии пакета SDK необходимо сначала заменить \(удалить и повторно импортировать в проект Хcode\) папки EngagementSDK и EngagementReach.
 
 ###Из версии 2.0.0 в 3.0.0
 Прекращена поддержка iOS 4.X. Начиная с этой версии, целевое устройство для развертывания приложения должно быть с версией не ниже iOS 6.
@@ -53,10 +53,10 @@
 
 Метод `application:didReceiveRemoteNotification:` необходимо заменить на `application:didReceiveRemoteNotification:fetchCompletionHandler:` в делегате приложения.
 
-"AEPushDelegate.h" — нерекомендуемый интерфейс, поэтому все ссылки на него необходимо удалить. Это, в частности, подразумевает удаление `[[EngagementAgent shared] setPushDelegate:self]` и методов делегата в делегате приложения:
+"AEPushDelegate.h" — нерекомендуемый интерфейс, поэтому все ссылки на него необходимо удалить. Это, в частности, подразумевает удаление `[[EngagementAgent shared] setPushDelegate:self]` и методов делегата в делегате приложения:
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

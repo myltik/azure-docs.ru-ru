@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Поставщик подключения SharePoint предоставляет API-интерфейс для работы со списками в SharePoint.
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview. Чтобы получить версию схемы 2014-12-01-preview, щелкните [SharePoint](../app-service-logic/app-service-logic-connector-SharePoint.md).
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
 С помощью SharePoint вы можете:
 
@@ -66,21 +66,25 @@ API SharePoint предоставляет следующие триггеры и
 
 
 ## Создание подключения к SharePoint
-Чтобы использовать API SharePoint, сначала нужно создать **подключение**, а затем указать сведения для приведенных ниже свойств.
+Чтобы использовать API SharePoint, сначала нужно создать **подключение**, а затем указать данные для приведенных ниже свойств.
 
 |Свойство| Обязательно|Описание|
 | ---|---|---|
 |токен|Да|Указание учетных данных SharePoint|
 
-Для подключения к **SharePoint Online** необходимо предоставить свое удостоверение (имя пользователя и пароль, учетные данные смарт-карты и т. п.). После прохождения аутентификации вы сможете использовать API SharePoint Online в приложении логики.
+Для подключения к **SharePoint Online** необходимо предоставить свое удостоверение \(имя пользователя и пароль, учетные данные смарт-карты и т. п.\). После прохождения аутентификации вы сможете использовать API SharePoint Online в приложении логики.
 
-В конструкторе приложения логики выполните следующие действия, чтобы войти в SharePoint для создания подключения **connection**, которое будет использоваться в приложении логики.
+В конструкторе приложения логики выполните следующие действия, чтобы войти в SharePoint для создания **подключения**, которое будет использоваться в приложении логики.
 
-1. В поле поиска введите "SharePoint" и дождитесь возвращения всех записей с "SharePoint" в имени. ![Настройка SharePoint][1]  
-2. Выберите **SharePoint Online — при создании файла**.   
-3. Выберите **Вход в SharePoint Online**. ![Настройка SharePoint][2]    
-4. Укажите учетные данные SharePoint, чтобы войти и пройти аутентификацию в SharePoint. ![Настройка SharePoint][3]     
-5. После успешной аутентификации вы перейдете к своему приложению логики, чтобы завершить его, настроив параметры в диалоговом окне **При создании файла** SharePoint. ![Настройка SharePoint][4]  
+1. В поле поиска введите "SharePoint" и дождитесь возвращения всех записей с текстом "SharePoint" в имени.
+![Настройка SharePoint][1]  
+2. Выберите **SharePoint Online — When a file is created** \(SharePoint Online — при создании файла\).   
+3. Выберите **Вход в SharePoint Online**.
+![Настройка SharePoint][2]    
+4. Укажите учетные данные SharePoint, чтобы войти и пройти аутентификацию в SharePoint.
+![Настройка SharePoint][3]     
+5. После успешной аутентификации вы перейдете к своему приложению логики, чтобы завершить его, настроив параметры в диалоговом окне **When a file is created** \(При создании файла\) SharePoint.
+![Настройка SharePoint][4]  
 6. Затем можно будет добавить другие триггеры и действия, необходимые для завершения приложения логики.   
 7. Сохраните результаты работы, выбрав **Сохранить** в строке меню вверху.  
 
@@ -97,7 +101,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например: http://contoso.sharepoint.com/sites/mysite|.
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
 |id|строка|Да|path|Нет|Уникальный идентификатор файла|
 
 
@@ -118,7 +122,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например: http://contoso.sharepoint.com/sites/mysite|.
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
 |id|строка|Да|path|Нет|Уникальный идентификатор файла|
 |текст| |Да|текст|Нет|Содержимое файла|
 
@@ -140,7 +144,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например: http://contoso.sharepoint.com/sites/mysite|.
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
 |id|строка|Да|path|Нет|Уникальный идентификатор файла|
 
 
@@ -161,7 +165,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например: http://contoso.sharepoint.com/sites/mysite|.
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
 |path|строка|Да|запрос|Нет|Путь к файлу|
 
 
@@ -182,7 +186,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например: http://contoso.sharepoint.com/sites/mysite|.
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
 |path|строка|Да|запрос|Нет|Путь к файлу|
 
 
@@ -203,7 +207,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например: http://contoso.sharepoint.com/sites/mysite|.
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
 |id|строка|Да|path|Нет|Уникальный идентификатор файла|
 
 
@@ -224,7 +228,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например: http://contoso.sharepoint.com/sites/mysite|.
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
 |folderPath|строка|Да|запрос|Нет|Путь к папке|
 |name|строка|Да|запрос|Нет|Имя файла|
 |текст| |Да|текст|Нет|Содержимое файла|
@@ -247,7 +251,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например: http://contoso.sharepoint.com/sites/mysite|.
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
 |источник|string|Да|запрос|Нет|Путь к исходному файлу|
 |ресурс destination|строка|Да|запрос|Нет|Путь к конечному файлу|
 |overwrite|Логическое|Нет|запрос|нет|Следует ли перезаписывать существующий файл|
@@ -312,7 +316,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например: http://contoso.sharepoint.com/sites/mysite|.
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
 |источник|string|Да|запрос|Нет|Путь к исходному файлу|
 |ресурс destination|строка|Да|запрос|Нет|Путь к конечной папке|
 |перезаписать|Логическое|Нет|запрос|нет|Следует ли перезаписывать существующий файл|
@@ -335,10 +339,10 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|).
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint \(например, http://contoso.sharepoint.com/sites/mysite)|\).
 |таблица|строка|Да|path|Нет|Имя списка SharePoint|
-|$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей (значение по умолчанию — 0)|
-|$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
+|$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей \(значение по умолчанию — 0\)|
+|$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей \(значение по умолчанию — 256\)|
 |$filter|string|Нет|запрос|Нет|Запрос фильтра ODATA для ограничения количества записей|
 |$orderby|строка|Нет|запрос|Нет|Запрос orderBy ODATA для указания порядка записей|
 
@@ -360,10 +364,10 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|).
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint \(например, http://contoso.sharepoint.com/sites/mysite)|\).
 |таблица|строка|Да|path|Нет|Имя списка SharePoint|
-|$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей (значение по умолчанию — 0)|
-|$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
+|$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей \(значение по умолчанию — 0\)|
+|$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей \(значение по умолчанию — 256\)|
 |$filter|string|Нет|запрос|Нет|Запрос фильтра ODATA для ограничения количества записей|
 |$orderby|строка|Нет|запрос|Нет|Запрос orderBy ODATA для указания порядка записей|
 
@@ -385,7 +389,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|).
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint \(например, http://contoso.sharepoint.com/sites/mysite)|\).
 |таблица|строка|Да|path|Нет|Имя списка SharePoint|
 |item| |Да|текст|Нет|Создаваемый элемент|
 
@@ -407,7 +411,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|).
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint \(например, http://contoso.sharepoint.com/sites/mysite)|\).
 |таблица|строка|Да|path|Нет|Имя списка SharePoint|
 |id|целое число|Да|path|Нет|Уникальный идентификатор извлекаемого элемента|
 
@@ -429,7 +433,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|).
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint \(например, http://contoso.sharepoint.com/sites/mysite)|\).
 |таблица|строка|Да|path|Нет|Имя списка SharePoint|
 |id|целое число|Да|path|Нет|Уникальный идентификатор удаляемого элемента|
 
@@ -451,7 +455,7 @@ API SharePoint предоставляет следующие триггеры и
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|).
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint \(например, http://contoso.sharepoint.com/sites/mysite)|\).
 |таблица|строка|Да|path|Нет|Имя списка SharePoint|
 |id|целое число|Да|path|Нет|Уникальный идентификатор обновляемого элемента|
 |item| |Да|текст|Нет|Элемент с измененными свойствами|
@@ -693,7 +697,7 @@ API SharePoint предоставляет следующие триггеры и
 
 
 ## Дальнейшие действия
-[Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md) [Создание приложения PowerApps](../power-apps/powerapps-get-started-azure-portal.md)
+[Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md). [Создание приложения PowerApps](../power-apps/powerapps-get-started-azure-portal.md).
 
 [1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
 [2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png
@@ -701,4 +705,4 @@ API SharePoint предоставляет следующие триггеры и
 [4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

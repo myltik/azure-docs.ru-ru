@@ -40,8 +40,6 @@
 
 Теперь, после знакомства с основами службы автоматизации Azure и способами ее использования для управления управлением API Azure, вы можете пройти по следующим ссылкам, чтобы узнать больше.
 
-* Изучите [руководство по началу работы](../automation-create-runbook-from-samples.md) со службой автоматизации Azure.
-* Прочтите запись [Модуль PowerShell для REST API управления API #Azure](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/) в блоге сообщества.
- 
+* Прочтите запись [Модуль PowerShell для REST API управления API \#Azure](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/) в блоге сообщества.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

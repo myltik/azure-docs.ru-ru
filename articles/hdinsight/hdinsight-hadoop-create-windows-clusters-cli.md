@@ -40,7 +40,7 @@
 	azure login
 
 Дополнительную информацию об аутентификации с помощью рабочей или учебной учетной записи см. в разделе [Подключение к подписке Azure через интерфейс командной строки Azure](../xplat-cli-connect.md).
-	
+
 Выполните следующую команду, чтобы переключиться в режим ARM:
 
 	azure config mode arm
@@ -48,19 +48,19 @@
 Чтобы получить справку, используйте параметр **-h**. Например:
 
 	azure hdinsight cluster create -h
-	
+
 ##Создание кластеров
 
-Для создания кластера HDInsight необходимо иметь службу управления ресурсами Azure (ARM) и учетную запись хранилища больших двоичных объектов Azure. Чтобы создать кластер HDInsight, необходимо указать следующее:
+Для создания кластера HDInsight необходимо иметь службу управления ресурсами Azure \(ARM\) и учетную запись хранилища больших двоичных объектов Azure. Чтобы создать кластер HDInsight, необходимо указать следующее:
 
-- **Группа ресурсов Azure**: необходимо создать учетную запись аналитики озера данных в группе "Ресурс Azure". Диспетчер ресурсов Azure позволяет вам работать с ресурсами в приложении в виде группы. Вы можете развертывать, обновлять или удалять все ресурсы для приложения в рамках одной скоординированной операции. 
+- **Группа ресурсов Azure**: необходимо создать учетную запись аналитики озера данных в группе "Ресурс Azure". Диспетчер ресурсов Azure позволяет вам работать с ресурсами в приложении в виде группы. Вы можете развертывать, обновлять или удалять все ресурсы для приложения в рамках одной скоординированной операции.
 
 	Для перечисления групп ресурсов в своей подписке выполните следующие действия.
-	
-		azure group list 
-	
+
+		azure group list
+
 	Чтобы создать новую группу ресурсов:
-	
+
 		azure group create -n "<Resource Group Name>" -l "<Azure Location>"
 
 - **Имя кластера HDInsight.**
@@ -70,15 +70,15 @@
 - **Учетная запись хранения по умолчанию**. Кластер HDInsight использует контейнер хранилища больших двоичных объектов Azure в качестве файловой системы по умолчанию. Для создания кластера HDInsight требуется учетная запись хранения Azure.
 
 	Создание новой учетной записи хранения Azure
-	
+
 		azure storage account create "<Azure Storage Account Name>" -g "<Resource Group Name>" -l "<Azure Location>" --type LRS
 
 	> [AZURE.NOTE] Учетная запись хранения должна находиться вместе с HDInsight в том же центре обработки данных. Тип учетной записи хранилища не может быть ZRS, так как ZRS не поддерживает таблицы.
 
-	Сведения о создании новой учетной записи хранения Azure с помощью портала Azure см. в статье [Создание, управление и удаление учетной записи хранения][azure-create-storageaccount].
-	
+	Сведения о создании новой учетной записи хранения Azure с помощью портала Azure см. в статье \[Создание, управление и удаление учетной записи хранения\]\[azure-create-storageaccount\].
+
 	Если у вас уже есть учетная запись хранения, но вы не знаете имени и ключа учетной записи, можно использовать следующие команды для получения нужных сведений:
-	
+
 		-- Lists Storage accounts
 		azure storage account list
 		-- Shows a Storage account
@@ -86,15 +86,15 @@
 		-- Lists the keys for a Storage account
 		azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
 
-	Дополнительные сведения о получении данных с помощью портала Azure см. в разделе "Просмотр, копирование и повторное создание ключей доступа к хранилищу" статьи [Создание, управление и удаление учетной записи хранения][azure-create-storageaccount].
+	Дополнительные сведения о получении информации с помощью портала Azure см. в разделе "Управление учетной записью хранения" статьи [Об учетных записях хранения Azure](../storage/storage-create-storage-account#manage-your-storage-account).
 
-- **(Необязательно) Контейнер больших двоичных объектов по умолчанию**. Команда **azure hdinsight cluster create** создает контейнер, если таковой еще не существует. Если контейнер создан заранее, можно использовать следующую команду:
+- **\(Необязательно\) Контейнер больших двоичных объектов по умолчанию**. Команда **azure hdinsight cluster create** создает контейнер, если таковой еще не существует. Если контейнер создан заранее, можно использовать следующую команду:
 
-	azure storage container create --account-name "<Storage Account Name>" --account-key <Storage Account Key> [ContainerName]
+	azure storage container create --account-name "<Storage Account Name>" --account-key <Storage Account Key> \[ContainerName\]
 
 После создания учетной записи хранения все готово к созданию кластера.
 
-    
+
     azure hdinsight cluster create -g <Resource Group Name> -c <HDInsight Cluster Name> -l <Location> --osType <Windows | Linux> --version <Cluster Version> --clusterType <Hadoop | HBase | Spark | Storm> --workerNodeCount 2 --headNodeSize Large --workerNodeSize Large --defaultStorageAccountName <Azure Storage Account Name>.blob.core.windows.net --defaultStorageAccountKey "<Default Storage Account Key>" --defaultStorageContainer <Default Blob Storage Container> --userName admin --password "<HTTP User Password>" --rdpUserName <RDP Username> --rdpPassword "<RDP User Password" --rdpAccessExpiry "03/01/2016"
 
 
@@ -121,9 +121,9 @@
 Создание кластера с помощью действия сценария
 
 	azure hdinsight cluster create -g myarmgroup01 -l westus -y Windows --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
-	
-	
-Общую информацию о действиях сценария см. в статье [Настройка кластеров HDInsight с помощью действия скрипта (Linux)](hdinsight-hadoop-customize-cluster.md).
+
+
+Общую информацию о действиях сценария см. в статье [Настройка кластеров HDInsight с помощью действия скрипта \(Linux\)](hdinsight-hadoop-customize-cluster.md).
 
 
 ## Создание кластеров с помощью шаблонов ARM
@@ -134,7 +134,7 @@
 
 - [Приступая к работе с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) — узнайте, как начать работу с кластером HDInsight.
 - [Отправка заданий Hadoop программными средствами](hdinsight-submit-hadoop-jobs-programmatically.md) — узнайте, как программными средствами отправлять задания в HDInsight.
-- [Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure](hdinsight-administer-use-command-line.md)
-- [Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows](../virtual-machines/virtual-machines-command-line-tools.md)
+- [Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки \(CLI\) Azure](hdinsight-administer-use-command-line.md)
+- [Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

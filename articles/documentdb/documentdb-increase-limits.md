@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="04/07/2016"
 	ms.author="anhoh"/>
 
 # Запрос увеличения ограничения учетной записи DocumentDB
@@ -25,9 +25,9 @@
 -	Какие квоты DocumentDB могут быть изменены при обращении в службу поддержки Azure?
 -	Как запросить изменение квоты учетной записи DocumentDB?
 
-##<a id="AdjustableQuotas"></a> Изменяемые квоты учетной записи DocumentDB
+##<a id="Quotas"></a> Квоты учетной записи DocumentDB
 
-В следующей таблице описаны квоты DocumentDB, которые могут быть изменены при обращении в службу поддержки Azure:
+В следующей таблице описаны квоты DocumentDB. Квоты со звездочкой \(\*\) могут быть изменены при обращении в службу поддержки Azure.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
@@ -63,4 +63,4 @@
 ##<a name="NextSteps"></a>Дальнейшие действия
 - Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

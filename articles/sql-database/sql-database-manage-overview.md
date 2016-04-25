@@ -3,9 +3,9 @@
 	description="Сравнение средств и параметров для управления Базой данных SQL Azure"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="jeffreyg"/>
+	ms.date="04/04/2016"
+	ms.author="sstein"/>
 
 # Обзор: средства управления для Базы данных SQL
 
@@ -28,7 +28,7 @@
 
 ## SQL Server Management Studio и SQL Server Data Tools в Visual Studio
 
-SQL Server Management Studio (SSMS) и SQL Server Data Tools (SSDT) в Visual Studio представляют собой клиентские средства, которые выполняются на компьютере и позволяют подключаться к базам данных в облаке, разрабатывать их, а также управлять ими. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), [предлагаем обратить внимание на SSDT в составе Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Многие администраторы баз данных знакомы с решением SSMS, которое можно использовать с базами данных SQL Azure. [Загрузите последнюю версию SSMS](https://msdn.microsoft.com/library/mt238290) и всегда используйте последнюю версию решения при работе с базой данных SQL Azure. Дополнительные сведения об управлении базами данных SQL Azure с помощью SSMS и SSDT см. в статье [Управление базами данных SQL с помощью SSMS](sql-database-manage-azure-ssms.md).
+SQL Server Management Studio \(SSMS\) и SQL Server Data Tools \(SSDT\) в Visual Studio представляют собой клиентские средства, которые выполняются на компьютере и позволяют подключаться к базам данных в облаке, разрабатывать их, а также управлять ими. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки \(IDE\), [предлагаем обратить внимание на SSDT в составе Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Многие администраторы баз данных знакомы с решением SSMS, которое можно использовать с базами данных SQL Azure. [Загрузите последнюю версию SSMS](https://msdn.microsoft.com/library/mt238290) и всегда используйте последнюю версию решения при работе с базой данных SQL Azure. Дополнительные сведения об управлении базами данных SQL Azure с помощью SSMS и SSDT см. в статье [Управление базами данных SQL с помощью SSMS](sql-database-manage-azure-ssms.md).
 
 ## Программы командной строки
 
@@ -36,4 +36,12 @@ SQL Server Management Studio (SSMS) и SQL Server Data Tools (SSDT) в Visual St
 
 Дополнительные сведения об управлении базами данных SQL Azure с помощью средств командной строки см. в статье [Управление базой данных SQL с помощью PowerShell](sql-database-command-line-tools.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+## Инструменты эластичных баз данных
+Используйте инструменты эластичных баз данных для выполнения следующих действий.
+
+* Выполнение сценария T-SQL для набора баз данных с помощью [задания обработки эластичных БД](sql-database-elastic-jobs-overview.md).
+* Перемещение баз данных из мультитенантной модели в модель с одним клиентом с помощью [инструмента разбиения и объединения](sql-database-elastic-scale-overview-split-and-merge.md).
+* Управление базами данных в модели с одним клиентом или мультитенантной модели с помощью [клиентской библиотеки эластичного масштабирования](sql-database-elastic-database-client-library.md).
+ 
+
+<!---HONumber=AcomDC_0413_2016-->

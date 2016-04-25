@@ -1,6 +1,6 @@
 <properties
    pageTitle="Расширение Custom Script на виртуальной машине под управлением Windows | Microsoft Azure"
-   description="Автоматизируйте процесс настройки виртуальных машин Azure с помощью расширения Custom Script для выполнения сценариев PowerShell на удаленной виртуальной машине под управлением Windows"
+   description="Автоматизируйте процесс настройки виртуальных машин Azure с помощью расширения Custom Script для выполнения сценариев PowerShell на удаленной виртуальной машине под управлением Windows"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="kundanap"
@@ -23,8 +23,7 @@
 
 Расширения виртуальной машины разработаны корпорацией Майкрософт и доверенными сторонними компаниями для расширения функциональных возможностей виртуальной машины. Общие сведения о расширениях виртуальных машин см. в статье [Расширения и компоненты виртуальных машин Azure](virtual-machines-windows-extensions-features.md).
 
-Ссылка:
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript.md).
+Ссылка:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model]\(virtual-machines-windows-classic-extensions-customscript.md\).
 
 
 ## Общие сведения о расширении Custom Script
@@ -34,7 +33,7 @@
 ### Предварительные требования для запуска расширения Custom Script
 
 1. Установите командлеты Azure PowerShell версии 0.8.0 или более поздней <a href="http://azure.microsoft.com/downloads" target="_blank">здесь</a>.
-2. Если сценарии будут запускаться на существующей виртуальной машине, убедитесь, что на ней включен агент виртуальной машины. Если агент не включен, установите его, следуя указаниям в этой <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">статье</a>. (При подготовке виртуальной машины из коллекции Azure агенты виртуальных машин включаются по умолчанию, включать их вручную не нужно.)
+2. Если сценарии будут запускаться на существующей виртуальной машине, убедитесь, что на ней включен агент виртуальной машины. Если агент не включен, установите его, следуя указаниям в этой <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">статье</a>. \(При подготовке виртуальной машины из коллекции Azure агенты виртуальных машин включаются по умолчанию, включать их вручную не нужно.\)
 3. Передайте сценарии, которые требуется запускать на виртуальной машине, в службу хранилища Azure. Сценарии могут поступать как из одного, так и из нескольких контейнеров хранилища.
 4. Сценарий должен быть создан таким образом, чтобы запущенный с помощью расширения первый сценарий запускал в свою очередь другие сценарии.
 
@@ -67,7 +66,7 @@
 
 ### Передача сценариев в несколько контейнеров в разных учетных записях хранения
 
-  Если файлы сценариев хранятся в разных контейнерах, то для их запуска необходимо указать полный подписанный URL-адрес (SAS) этих файлов.
+  Если файлы сценариев хранятся в разных контейнерах, то для их запуска необходимо указать полный подписанный URL-адрес \(SAS\) этих файлов.
 
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
@@ -87,9 +86,9 @@
 
 ### Использование расширения Custom Script с шаблонами
 
-Чтобы узнать об использовании расширения Custom Script с шаблонами диспетчера ресурсов Azure, обратитесь к документации [здесь](virtual-machines-extensions-customscript.md).
+Чтобы узнать об использовании расширения Custom Script с шаблонами диспетчера ресурсов Azure, обратитесь к документации [здесь](virtual-machines-windows-classic-extensions-customscript.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

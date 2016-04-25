@@ -2,6 +2,6 @@
 
 >[AZURE.NOTE] Советы по устранению неполадок прослушивателей Azure см. в записи [Устранение неполадок прослушивателя групп доступности в Azure](http://blogs.msdn.com/b/alwaysonpro/archive/2016/02/01/troubleshooting-availability-group-listener-in-azure.aspx) [блога](http://blogs.msdn.com/b/alwaysonpro/) группы поддержки AlwaysOn.
 
-Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

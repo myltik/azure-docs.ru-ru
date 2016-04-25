@@ -49,18 +49,12 @@ Azure PowerShell — это полнофункциональная среда с
 		Install-Module AzureRM
 		Install-AzureRM
 		
-		# Install the Azure Service Management module from PowerShell Gallery
-		Install-Module Azure
-		
 		# Import AzureRM modules for the given version manifest in the AzureRM module
 		Import-AzureRM
-		
-		# Import Azure Service Management module
-		Import-Module Azure
 
 	Дополнительные сведения см. в статье [Коллекция PowerShell](https://www.powershellgallery.com/).
 
-- [Установщик веб-платформы Майкрософт (WebPI)](http://aka.ms/webpi-azps). Если вы установили Azure PowerShell 0.9.x, появится запрос для удаления версии 0.9.x. Если вы установили модули Azure PowerShell из коллекции PowerShell, установщик требует удалить эти модули перед установкой, чтобы обеспечить целостность среды PowerShell Azure. Инструкции см. в разделе [Установка Azure PowerShell 1.0 с помощью установщика веб-платформы](https://azure.microsoft.com/blog/azps-1-0/).
+- [Установщик веб-платформы Майкрософт \(WebPI\)](http://aka.ms/webpi-azps). Если вы установили Azure PowerShell 0.9.x, появится запрос для удаления версии 0.9.x. Если вы установили модули Azure PowerShell из коллекции PowerShell, установщик требует удалить эти модули перед установкой, чтобы обеспечить целостность среды PowerShell Azure. Инструкции см. в разделе [Установка Azure PowerShell 1.0 с помощью установщика веб-платформы](https://azure.microsoft.com/blog/azps-1-0/).
 
 Обновления для установщика веб-платформы будут выпускаться ежемесячно. Обновления для коллекции PowerShell будут выпускаться на постоянной основе. Если вы решите установить коллекцию PowerShell, она станет основным источником всего нового и лучшего в Azure PowerShell.
 
@@ -136,7 +130,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 ##Предоставление и отмена доступа
 
-В кластерах HDInsight имеются следующие веб-службы HTTP (все эти службы имеют конечные точки RESTful):
+В кластерах HDInsight имеются следующие веб-службы HTTP \(все эти службы имеют конечные точки RESTful\):
 
 - ODBC
 - JDBC
@@ -255,4 +249,4 @@ Azure PowerShell — это полнофункциональная среда с
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

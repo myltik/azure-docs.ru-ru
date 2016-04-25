@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Управление учетными записями пользователей в службе управления API Azure" 
+	pageTitle="Управление учетными записями пользователей в службе управления API Azure | Microsoft Azure" 
 	description="Создание или приглашение пользователей в службе управления API Azure" 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/12/2016" 
 	ms.author="sdanie"/>
 
 # Управление учетными записями пользователей в службе управления API Azure
 
-В службе управления API разработчики – это пользователи интерфейсов API, которые вы предоставляете с помощью службы управления API. В этом руководстве показано, как создавать и приглашать разработчиков использовать интерфейсы API и продукты, которые вы делаете доступными для них с помощью своего экземпляра API Management.
+В службе управления API разработчики – это пользователи интерфейсов API, которые вы предоставляете с помощью службы управления API. В этом руководстве показано, как создавать и приглашать разработчиков использовать интерфейсы API и продукты, которые вы делаете доступными для них с помощью своего экземпляра API Management. Сведения о программном управлении учетными записями пользователей см. в документации по [сущностям пользователя](https://msdn.microsoft.com/library/azure/dn776330.aspx) в справочнике по [REST API управления](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 
 ## <a name="create-developer"> </a>Создание нового разработчика
 
@@ -60,9 +60,25 @@
 
 ## <a name="block-developer"> </a> Деактивация или повторная активация учетной записи разработчика
 
-По умолчанию недавно созданные или приглашенные учетные записи разработчика являются **активными**. Для деактивации учетной записи разработчика щелкните **Блокировать**. Для повторной активации блокированной учетной записи разработчика щелкните **Активировать**. Блокированная учетная запись разработчика не может получать доступ к порталу разработчика или вызвать любые интерфейсы API.
+По умолчанию недавно созданные или приглашенные учетные записи разработчика являются **активными**. Для деактивации учетной записи разработчика щелкните **Блокировать**. Для повторной активации блокированной учетной записи разработчика щелкните **Активировать**. Блокированная учетная запись разработчика не может получать доступ к порталу разработчика или вызвать любые интерфейсы API. Чтобы удалить учетную запись пользователя, щелкните **Удалить**.
 
 ![Блокировка разработчика][api-management-new-developer]
+
+## Сброс пароля пользователя
+
+Чтобы сбросить пароль для учетной записи пользователя, щелкните имя учетной записи.
+
+![Сброс пароля][api-management-view-developer]
+
+Щелкните **Сбросить пароль**, чтобы отправить пользователю ссылку для сброса пароля.
+
+![Сброс пароля][api-management-reset-password]
+
+Сведения о программной работе с учетными записями пользователей см. в документации по [сущностям пользователя](https://msdn.microsoft.com/library/azure/dn776330.aspx) в справочнике по [REST API управления](https://msdn.microsoft.com/library/azure/dn776326.aspx). Чтобы сбросить пароль учетной записи пользователя до определенного значения, можно использовать операцию [обновления пользователя](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) и указать нужный пароль.
+
+## Ожидание проверки
+
+![Ожидание проверки][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
@@ -76,7 +92,10 @@
 [api-management-new-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-new-developer.png
 [api-management-invite-developer-window]: ./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-window.png
 [api-management-invite-developer-confirmation]: ./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-confirmation.png
-[api-management-]: ./media/api-management-howto-create-or-invite-developers/api-management-.png
+[api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
+[api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
+[api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
+: ./media/api-management-howto-create-or-invite-developers/.png
 
 
 
@@ -91,4 +110,4 @@
 [Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
 [Настройка почтовых шаблонов]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

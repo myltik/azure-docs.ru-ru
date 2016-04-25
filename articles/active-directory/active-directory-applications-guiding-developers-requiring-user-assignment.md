@@ -28,9 +28,9 @@
 7. Задайте для параметра **Для доступа к приложению требуется назначение пользователей** значение «Да».
 8. Нажмите кнопку **Сохранить**, расположенную в нижней части экрана.
 
-Теперь будет необходимо назначить пользователей и (или) группы для приложения. См. разделы [Назначение пользователей приложения](active-directory-guiding-developers-assigning-users.md) и [Назначение групп для приложения](active-directory-guiding-developers-assigning-groups.md).
+Теперь будет необходимо назначить пользователей и \(или\) группы для приложения. См. разделы [Назначение пользователей приложения](active-directory-applications-guiding-developers-assigning-users.md) и [Назначение групп для приложения](active-directory-applications-guiding-developers-assigning-groups.md).
 
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

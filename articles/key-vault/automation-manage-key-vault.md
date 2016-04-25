@@ -42,7 +42,7 @@
 
 Теперь, когда вы познакомились с основами службы автоматизации Azure и способами ее использования для управления хранилищем ключей Azure, пройдите по ссылкам, чтобы получить дополнительные сведения о службе автоматизации Azure.
 
-* Изучите [руководство по началу работы](../automation-create-runbook-from-samples.md) со службой автоматизации Azure.
+* Изучите [руководство по началу работы](../automation/automation-first-runbook-graphical.md) со службой автоматизации Azure.
 * Изучите раздел [Скрипты PowerShell хранилища ключей Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/02/2016"
 	ms.author="dastrock"/>
 
 # Вход для пользователей учетных записей Майкрософт и Azure AD в одном приложении
@@ -39,14 +39,15 @@
 ## Справочные материалы
 Следующие ссылки позволят глубже изучить платформу:
 
+- Build 2016: [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/).
 - Получите справку по переполнению стека, используя теги [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) или [adal](http://stackoverflow.com/questions/tagged/adal).
 - [Справочник по протоколу версии 2.0](active-directory-v2-protocols.md)
-- [Справочник по маркерам версии 2.0](active-directory-v2-tokens.md)
+- [Справочник по маркерам версии 2.0](active-directory-v2-tokens.md)
 - [Области и разрешения в конечной точке версии 2.0](active-directory-v2-scopes.md)
 - [Портал регистрации приложений Майкрософт](https://apps.dev.microsoft.com)
 - [Справочник по API REST Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Microsoft Graph](https://graph.microsoft.io)
-- Ниже приведены клиентские библиотеки с открытым кодом и примеры, которые были протестированы с конечной точкой версии 2.0.
+- Ниже приведены клиентские библиотеки с открытым кодом и примеры, которые были протестированы с конечной точкой версии 2.0.
 
   - [Сервер удостоверений WSO2 Java](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Федерация Java Gluu](https://github.com/GluuFederation/oxAuth)
@@ -56,10 +57,4 @@
   - [Клиент OAuth2 для Android](https://github.com/wuman/android-oauth-client)
   - [Клиент OpenID Connect для Android](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!-- TODO: These articles
-- [ADAL Library Reference]()
-- [v2 Endpoint FAQs](active-directory-v2-faq.md)
-- Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
--->
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

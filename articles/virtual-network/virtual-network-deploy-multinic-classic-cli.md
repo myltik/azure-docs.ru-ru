@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Развертывание виртуальных машин по классической модели развертывания с несколькими сетевыми картами с использованием интерфейса командной строки Azure | Microsoft Azure"
    description="Сведения о развертывании виртуальных машин по классической модели развертывания с несколькими сетевыми картами с использованием интерфейса командной строки Azure"
    services="virtual-network"
@@ -17,17 +17,17 @@
    ms.date="02/02/2016"
    ms.author="telmos" />
 
-#Развертывание виртуальных машин с несколькими сетевыми картами с использованием интерфейса командной строки Azure (классическая модель)
+#Развертывание виртуальных машин с несколькими сетевыми картами с использованием интерфейса командной строки Azure \(классическая модель\)
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-deploy-multinic-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model]\(virtual-network-deploy-multinic-arm-cli.md\).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Так как на данный момент невозможно иметь несколько виртуальных машин с одной сетевой картой и несколько виртуальных машин с несколькими сетевыми картами в одной облачной службе, внутренние серверы необходимо реализовать в другой облачной службе по сравнению с остальными компонентами сценария. В приведенных ниже действиях используются следующие облачные службы: *IaaSStory* в качестве основной группы ресурсов и *IaaSStory-BackEnd* для внутренних серверов.
+В настоящее время в одной облачной службе нельзя одновременно использовать виртуальные машины с одной сетевой картой и виртуальные машины с несколькими сетевыми картами. Поэтому необходимо реализовать внутренние серверы в другой облачной службе, отдельной от всех прочих компонентов в сценарии. В приведенных ниже действиях используются следующие облачные службы: *IaaSStory* в качестве основной группы ресурсов и *IaaSStory-BackEnd* для внутренних серверов.
 
 ## Предварительные требования
 
@@ -39,9 +39,9 @@
 
 Внутренние виртуальные машины зависят от создания ресурсов, перечисленных ниже.
 
-- **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя (SSD), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
+- **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя \(SSD\), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
 - **Сетевые карты**. У каждой виртуальной машины будет две сетевые карты: одна для доступа к базе данных, другая — для управления.
-- **Группа доступности**. Все серверы баз данных будут добавлены в одну группу доступности, чтобы гарантировать, что как минимум одна из виртуальных машин будет запущена и доступна во время обслуживания. 
+- **Группа доступности**. Все серверы баз данных будут добавлены в одну группу доступности, чтобы гарантировать, что как минимум одна из виртуальных машин будет запущена и доступна во время обслуживания.
 
 ### Шаг 1. Запуск сценария
 
@@ -81,7 +81,7 @@
 
 		azure storage account create $prmStorageAccountName \
 		    --location $location \
-		    --type PLRS 
+		    --type PLRS
 
 ### Шаг 3. Создание виртуальных машин с несколькими сетевыми картами
 
@@ -95,7 +95,7 @@
 		    nic1Name=$vmNamePrefix$suffixNumber-DA
 		    x=$((suffixNumber+3))
 		    ipAddress1=$ipAddressPrefix$x
-		
+
 		    nic2Name=$vmNamePrefix$suffixNumber-RA
 		    x=$((suffixNumber+53))
 		    ipAddress2=$ipAddressPrefix$x
@@ -117,7 +117,7 @@
 		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
 		        $diskSize \
 		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
-		
+
 		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
 		        $diskSize \
 		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
@@ -174,4 +174,4 @@
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

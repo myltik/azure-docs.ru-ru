@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Вопросы и ответы по виртуальным машинам | Microsoft Azure"
-	description="В этой статье содержатся ответы на некоторые распространенные вопросы о виртуальных машинах Azure, созданных с помощью классической модели развертывания."
+	description="Приведены ответы на некоторые распространенные вопросы о виртуальных машинах Azure, созданных с помощью классической модели развертывания."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->
