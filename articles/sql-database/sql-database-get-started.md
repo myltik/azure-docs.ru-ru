@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/12/2016"
+	ms.date="04/14/2016"
 	ms.author="carlrab"/>
 
 # Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure
@@ -59,4 +59,4 @@
 
 [Обзор Базы данных SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

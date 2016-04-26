@@ -24,7 +24,7 @@
 
 ## Обзор
 
-Это руководство описывает, как создавать многоуровневое приложение .NET с внешним ASP.NET MVC и как развернуть его в [облачной службе Azure](fundamentals-application-models.md#CloudServices). Приложение использует [базу данных Azure SQL](http://msdn.microsoft.com/library/azure/ee336279), [службу BLOB-объектов Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) и [службу очередей Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Можно [загрузить проект Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) из галереи кода MSDN.
+Это руководство описывает, как создавать многоуровневое приложение .NET с внешним ASP.NET MVC и как развернуть его в [облачной службе Azure](cloud-services-choose-me.md). Приложение использует [базу данных Azure SQL](http://msdn.microsoft.com/library/azure/ee336279), [службу BLOB-объектов Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) и [службу очередей Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Можно [загрузить проект Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) из галереи кода MSDN.
 
 В руководстве показано, как строить и запускать приложение локально, как разворачивать его в Azure и запускать в облаке и, наконец, как создавать его с нуля. Можно начать с построения с нуля и затем выполнить шаги по тестированию и развертыванию по желанию.
 
@@ -51,14 +51,14 @@
 
 ## Предварительные требования
 
-В руководстве предполагается, что вы понимаете [базовые концепции облачной службы Azure](fundamentals-application-models.md#CloudServices), такие как термины *веб-роль* и *рабочая роль*. Также предполагается, что вы знаете, как работать с проектами [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) или [веб-форм](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) в Visual Studio. Пример приложения использует MVC, но многое в руководство также применимо к веб-формам.
+В руководстве предполагается, что вы понимаете [базовые концепции облачной службы Azure](cloud-services-choose-me.md), такие как термины *веб-роль* и *рабочая роль*. Также предполагается, что вы знаете, как работать с проектами [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) или [веб-форм](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) в Visual Studio. Пример приложения использует MVC, но многое в руководство также применимо к веб-формам.
 
 Можно запускать приложение локально без подписки Azure, но она понадобится для развертывания приложения в облаке. Если у вас нет учетной записи, можно [активировать преимущества для подписчиков MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) или [подписаться на бесплатную пробную версию](/pricing/free-trial/?WT.mc_id=A55E3C668).
 
 Инструкции руководства применимы со следующими продуктами:
 
 * Visual Studio 2013
-* Visual Studio 2015
+* Visual Studio 2015
 
 Если у вас нет ни одного из этих продуктов, Visual Studio 2015 будет установлен автоматически при установке пакета SDK для Azure.
 
@@ -135,7 +135,7 @@
 
 1. В браузере откройте [классический портал Azure](http://manage.windowsazure.com).
 
-2. Последовательно выберите пункты **Создать > Вычисления > Облачная служба > Быстрое создание**.
+2. Последовательно выберите пункты **Создать > Вычисления > Облачная служба > Быстрое создание**.
 
 4. В поле ввода URL-адреса введите префикс URL-адреса.
 
@@ -155,7 +155,7 @@
 
 Когда приложение запускается в облаке, оно использует расположенную в облаке базу данных.
 
-1. На [классическом портале Azure](http://manage.windowsazure.com) последовательно выберите пункты **Создать > Службы данных > Базы данных SQL > Быстрое создание**.
+1. На [классическом портале Azure](http://manage.windowsazure.com) последовательно выберите пункты **Создать > Службы данных > Базы данных SQL > Быстрое создание**.
 
 1. В поле **Имя базы данных** введите *contosoads*.
 
@@ -191,7 +191,7 @@
 
 В реальном приложении обычно создают отдельные учетные записи для данных приложения и данных журналов, а также отдельные учетные записи для тестовых данных и рабочих данных. В этом учебнике будет использоваться одна запись.
 
-1. На [классическом портале Azure](http://manage.windowsazure.com) последовательно выберите пункты **Создать > Службы данных > Хранилище > Быстрое создание**.
+1. На [классическом портале Azure](http://manage.windowsazure.com) последовательно выберите пункты **Создать > Службы данных > Хранилище > Быстрое создание**.
 
 4. В поле ввода **URL-адреса** введите префикс URL-адреса.
 
@@ -205,7 +205,7 @@
 
 6. В раскрывающемся списке **Репликация ** установите значение **Локально избыточное**.
 
-	При включении георепликации для учетной записи хранения хранящиеся данные реплицируются в дополнительный центр обработки данных для обеспечения возможности отработки отказа в это расположение в случае крупной аварии в основном расположении. Георепликация может потребовать дополнительных затрат. Для учетных записей тестирования и разработки оплачивать георепликацию обычно не требуется. Дополнительные сведения см. в разделе [Создание, удаление учетной записи хранения или управление ей](../storage-create-storage-account/#replication-options).
+	При включении георепликации для учетной записи хранения хранящиеся данные реплицируются в дополнительный центр обработки данных для обеспечения возможности отработки отказа в это расположение в случае крупной аварии в основном расположении. Георепликация может потребовать дополнительных затрат. Для учетных записей тестирования и разработки оплачивать георепликацию обычно не требуется. Дополнительные сведения см. в разделе [Создание, удаление учетной записи хранения или управление ей](../storage/storage-create-storage-account.md#replication-options).
 
 5. Щелкните **Создать учетную запись хранения**.
 
@@ -869,4 +869,4 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 * [Управление облачными службами](cloud-services-how-to-manage.md)
 * [Хранилище Azure](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

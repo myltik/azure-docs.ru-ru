@@ -1,6 +1,6 @@
 <properties
    pageTitle="Начало работы с Microsoft Power BI Embedded (предварительная версия)"
-   description="Начало работы с Microsoft Power BI Embedded (предварительная версия)"
+   description="Power BI Embedded, добавление интерактивных отчетов Power BI в приложение бизнес-аналитики"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="04/18/2016"
    ms.author="derrickv"/>
 
 # Начало работы с Microsoft Power BI Embedded (предварительная версия)
@@ -58,7 +58,7 @@
 <a name="view-access-keys"/>
 ## Просмотр ключей доступа для вызова API Power BI
 
-Сведения, необходимые для вызова REST API Power BI, помимо прочего включают **ключи доступа**. Они используются для создания **маркеров приложения** для проверки подлинности запросов к API. Чтобы просмотреть **ключи доступа**, в **колонке параметров** щелкните **Ключи доступа**. Дополнительные сведения о **маркерах приложения** см. в статье о [потоке маркеров приложений](power-bi-embedded-get-started-sample.md#key-flow).
+Сведения, необходимые для вызова REST API Power BI, помимо прочего включают **ключи доступа**. Они используются для создания **маркеров приложения** для проверки подлинности запросов к API. Чтобы просмотреть **ключи доступа**, в **колонке параметров** щелкните **Ключи доступа**. Дополнительные сведения о **маркерах приложения** см. в статье о [потоке маркеров приложений](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -107,4 +107,4 @@
 - [Power BI Desktop;](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Цены на Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

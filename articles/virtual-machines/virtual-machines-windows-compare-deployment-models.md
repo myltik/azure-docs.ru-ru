@@ -1,6 +1,6 @@
 <properties
    pageTitle="Поставщики вычислительных и сетевых ресурсов, а также ресурсов службы хранилища | Microsoft Azure"
-   description="Концептуальный обзор поставщиков вычислительных и сетевых ресурсов, а также ресурсов хранения (CRP, NRP и SRP) для приложений Windows в Azure Resource Manager"
+   description="Концептуальный обзор поставщиков вычислительных и сетевых ресурсов, а также ресурсов хранения (CRP, NRP и SRP) для приложений Windows в модели развертывания Azure Resource Manager"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="mahthi"
@@ -17,10 +17,10 @@
    ms.date="04/29/2015"
    ms.author="mahthi"/>
 
-# Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения для приложений Windows в Azure Resource Manager
+# Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения для приложений Windows в рамках модели развертывания Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
+Включение возможностей для работы с вычислительными и сетевыми ресурсами, а также ресурсами хранения в модели развертывания Azure Resource Manager значительно упростит развертывание сложных приложений, выполняемых в среде IaaS, а также управление ими. Многим приложениям требуется несколько ресурсов, включая виртуальную сеть, учетную запись хранения, виртуальную машину и сетевой интерфейс. Модель развертывания Azure Resource Manager обеспечивает позволяет создавать шаблон JSON для развертывания всех ресурсов, а также управления ими как единым приложением.
 
 [AZURE.INCLUDE [virtual-machines-common-compare-deployment-models](../../includes/virtual-machines-common-compare-deployment-models.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

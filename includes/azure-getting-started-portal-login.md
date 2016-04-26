@@ -23,13 +23,13 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
 Используя [существующую подписку](https://account.windowsazure.com/Home/Index), выполните следующие действия, чтобы подключиться к порталу Azure.
 
-1. Откройте любой браузер и подключитесь к [порталу Azure](https://portal.azure.com/) по адресу http://portal.azure.com/.
+1. Откройте любой браузер и подключитесь к [порталу Azure](https://portal.azure.com/).
 
-1. Войдите на [портал Azure](https://portal.azure.com/) по адресу http://portal.azure.com/.
+1. Войдите на [портал Azure](https://portal.azure.com/).
 
 1. Когда появится страница входа, введите учетные данные своей подписки.
 
    ![войти](./media/azure-getting-started-portal-login/login.png)
    
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

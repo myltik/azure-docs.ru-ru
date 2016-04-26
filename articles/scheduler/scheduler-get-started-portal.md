@@ -1,6 +1,6 @@
 <properties
  pageTitle="Приступая к работе с планировщиком Azure на портале Azure | Microsoft Azure"
- description=""
+ description="Начало работы с планировщиком Azure на портале Azure"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -31,7 +31,7 @@
 
     1.  **Имя:** `getmicrosoft`  
 
-    2.  **Подписка**: ваша подписка Azure.
+    2.  **Подписка**: ваша подписка Azure.
 
     3.  **Коллекция заданий**: выберите существующую коллекцию заданий или щелкните **Создать** и введите имя.
 
@@ -117,7 +117,7 @@
 
 3.  Количество повторных попыток.
 
-4.  Периодичность: 1, 2, 3 и т. д.
+4.  Периодичность: 1, 2, 3 и т. д.
 
 5.  Время начала выполнения.
 
@@ -182,4 +182,4 @@
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 # Создание лаборатории для разработки и тестирования Azure
@@ -61,4 +61,4 @@
 
 - [Добавление виртуальной машины с артефактами в лабораторию для разработки и тестирования Azure](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

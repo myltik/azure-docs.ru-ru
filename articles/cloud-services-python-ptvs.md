@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Веб-роли и рабочие роли Python с помощью средств Python 2.2 для Visual Studio | Microsoft Azure"
 	description="Обзор использования Python Tools в Visual Studio для создания облачных служб Azure, включая веб-роли и рабочие роли."
-	services=""
+	services="cloud-services"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="thraka"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="hero-article"
 	ms.date="08/30/2015"
-	ms.author="huvalo"/>
+	ms.author="adegeo"/>
 
 
 
@@ -38,7 +38,7 @@ Azure предоставляет три вычислительных модел�
 
 Дополнительные сведения см. в разделе [Что такое облачная служба?].
 
-> [AZURE.NOTE]*Требуется собрать простой веб-сайт?* Если вам необходимо создать сайт с простым интерфейсом, воспользуйтесь легкими веб-приложениями в службе приложений Azure. По мере роста веб-сайта и изменения требований можно легко выполнить обновление к облачной службе. В <a href="/develop/python/">Центре разработчиков Python</a> можно найти статьи, посвященные разработке веб-приложений в службе приложений Azure. <br />
+> [AZURE.NOTE] *Требуется собрать простой веб-сайт?* Если вам необходимо создать сайт с простым интерфейсом, воспользуйтесь легкими веб-приложениями в службе приложений Azure. По мере роста веб-сайта и изменения требований можно легко выполнить обновление к облачной службе. В <a href="/develop/python/">Центре разработчиков Python</a> можно найти статьи, посвященные разработке веб-приложений в службе приложений Azure. <br />
 
 
 ## Создание проекта
@@ -114,17 +114,17 @@ Azure предоставляет три вычислительных модел�
 
 <!--Link references-->
 
-[Что такое облачная служба?]: /manage/services/cloud-services/what-is-a-cloud-service/
-[execution model-web sites]: fundamentals-application-models.md#WebSites
-[execution model-vms]: fundamentals-application-models.md#VMachine
-[execution model-cloud services]: fundamentals-application-models.md#CloudServices
+[Что такое облачная служба?]: ./cloud-services/cloud-services-choose-me.md
+[execution model-web sites]: ./app-service-web/app-service-web-overview.md
+[execution model-vms]: ./virtual-machines/virtual-machines-windows-about.md
+[execution model-cloud services]: ./cloud-services/cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Служба больших двоичных объектов]: storage-python-how-to-use-blob-storage.md
-[Служба очередей]: storage-python-how-to-use-queue-storage.md
-[Служба таблиц]: storage-python-how-to-use-table-storage.md
-[Очереди служебной шины]: service-bus-python-how-to-use-queues.md
-[Разделы служебной шины]: service-bus-python-how-to-use-topics-subscriptions.md
+[Служба больших двоичных объектов]: ./storage/storage-python-how-to-use-blob-storage.md
+[Служба очередей]: ./storage/storage-python-how-to-use-queue-storage.md
+[Служба таблиц]: ./storage/storage-python-how-to-use-table-storage.md
+[Очереди служебной шины]: ./service-bus/service-bus-python-how-to-use-queues.md
+[Разделы служебной шины]: ./service-bus/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
@@ -138,4 +138,4 @@ Azure предоставляет три вычислительных модел�
 [Python 2.7 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0420_2016-->

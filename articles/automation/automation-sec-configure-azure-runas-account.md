@@ -62,12 +62,17 @@
 
 1. Скачан и установлен [модуль Azure Active Directory для Windows PowerShell (64-разрядная версия)](http://go.microsoft.com/fwlink/p/?linkid=236297).
 2. Создана учетная запись службы автоматизации. Эта учетная запись будет указана как значение для параметров -AutomationAccountName и -ApplicationDisplayName в приведенном ниже сценарии.
+3. Вы установили [набор средств для разработки службы автоматизации Azure](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.2).
+
+```
+Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
+```
 
 Сценарий PowerShell настроит следующую конфигурацию:
 
 * Приложение Azure AD, которое может использовать для проверки подлинности самозаверяющий сертификат, и учетную запись субъекта-службы для этого приложения в Azure AD. Кроме того, роль участника (вместо нее может использоваться роль владельца или любая другая роль) будет назначена этой учетной записи в вашей текущей подписке. Дополнительные сведения см. в статье [Управление доступом на основе ролей в службе автоматизации Azure](../automation/automation-role-based-access-control.md).  
-* Ресурс-контейнер сертификата службы автоматизации в указанной учетной записи службы автоматизации с именем **AzureRunAsCertificate**, содержащий сертификат, используемый в субъекте-службе.
-* Ресурс-контейнер подключения к службе автоматизации в указанной учетной записи службы автоматизации с именем **AzureRunAsConnection**, содержащий идентификатор приложения, идентификатор клиента, идентификатор подписки и отпечаток сертификата.  
+* Ресурс сертификата службы автоматизации в указанной учетной записи службы автоматизации с именем **AzureRunAsCertificate**, содержащий сертификат, используемый в субъекте-службе.
+* Ресурс подключения к службе автоматизации в указанной учетной записи службы автоматизации с именем **AzureRunAsConnection**, содержащий идентификатор приложения, идентификатор клиента, идентификатор подписки и отпечаток сертификата.  
 
 
 ### Запуск сценария PowerShell
@@ -82,20 +87,20 @@
 
     [Parameter(Mandatory=$true)]
     [String] $AutomationAccountName,
-   
+
     [Parameter(Mandatory=$true)]
     [String] $ApplicationDisplayName,
-   
+
     [Parameter(Mandatory=$true)]
     [String] $CertPlainPassword,
-   
+
     [Parameter(Mandatory=$false)]
     [int] $NoOfMonthsUntilExpired = 12
     )
-   
+
     Login-AzureRmAccount
     Import-Module AzureRM.Resources
-		
+
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
     $KeyId = (New-Guid).Guid
@@ -150,21 +155,21 @@
     New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
     ```
 <br>
-2. На компьютере запустите с повышенными правами пользователя **Windows PowerShell** с **начального** экрана.
-3. Из оболочки командной строки PowerShell с повышенными правами перейдите к папке, которая содержит сценарий, созданный на этапе 1, и выполните сценарий, изменив значения параметров *-ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName* и *-CertPlainPassword*.<br> 
+2. На компьютере запустите с повышенными правами **Windows PowerShell** с **начального** экрана.
+3. Из оболочки командной строки PowerShell с повышенными правами перейдите к папке, которая содержит сценарий, созданный на этапе 1, и выполните сценарий. Для этого измените значения параметров *-ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName* и *-CertPlainPassword*.<br>
 
     ```
-    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
-     -AutomationAccountName <NameofAutomationAccount> 
-     -ApplicationDisplayName <DisplayNameofAutomationAccount> 
+    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
+     -AutomationAccountName <NameofAutomationAccount> `
+     -ApplicationDisplayName <DisplayNameofAutomationAccount> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>
 
-    >[AZURE.NOTE] После выполнения сценария появится запрос на проверку подлинности в Azure. Вам *необходимо* войти с помощью учетной записи администратора службы в подписке. <br> 
+    >[AZURE.NOTE] После выполнения сценария появится запрос на проверку подлинности в Azure. Вам *нужно* войти с помощью учетной записи администратора службы в подписке. <br>
 4. Когда сценарий успешно завершится, перейдите к следующему разделу для тестирования и проверки новой конфигурации учетных данных.
 
-### Тестирование проверки подлинности 
+### Тестирование проверки подлинности
 Далее мы выполним небольшой тест, чтобы убедиться, что вы сможете успешно пройти проверку подлинности с помощью нового субъекта-службы. Если вам не удалось пройти проверку подлинности, вернитесь к шагу 1 и снова проверьте каждое из выполненных ранее действий.
 
 1. На портале Azure откройте учетную запись службы автоматизации, созданную ранее.  
@@ -172,10 +177,10 @@
 3. Создайте новый модуль Runbook, нажав кнопку **Добавить Runbook**, а затем в колонке **Добавление модуля Runbook** щелкните **Создать новый Runbook**.
 4. Присвойте модулю Runbook имя *Test-SecPrin-Runbook* и в качестве **типа модуля Runbook** выберите PowerShell. Щелкните **Создать**, чтобы создать модуль Runbook.
 5. В колонке **Изменение модуля Runbook PowerShell** добавьте на холст следующий код:<br>
-  
+
     ```
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID 
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
      -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```  
 <br>
@@ -183,8 +188,8 @@
 7. Щелкните **область тестирования**, чтобы открыть колонку **Тест**.
 8. Щелкните **Пуск**, чтобы начать тестирование.
 9. При этом создается объект [Задание Runbook](automation-runbook-execution.md), а его состояние отображается на панели.  
-10. Сначала задание получает состояние *В очереди* (указывает на то, что задание ожидает, пока рабочая роль Runbook в облаке станет доступной). Как только исполнитель затребует задание, оно получит состояние *Запущено*, а с началом фактического выполнения модуля Runbook — состояние *Выполняется*.  
-11. Когда задание модуля Runbook будет выполнено, на экране появится результат. В нашем случае должно отобразиться состояние **Завершено**.<br> ![Тестирование модуля Runbook субъекта безопасности](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br> 
+10. Сначала задание получает состояние *В очереди* (указывает на то, что задание ожидает, пока рабочая роль Runbook в облаке станет доступной). Как только исполнитель затребует задание, оно получит состояние *Запущено*, а с началом фактического выполнения модуля Runbook — состояние *Выполняется*.  
+11. Когда задание модуля Runbook будет выполнено, на экране появится результат. В нашем случае должно отобразиться состояние **Завершено**.<br> ![Тестирование модуля Runbook субъекта безопасности](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
 12. Закройте колонку **Тест**, чтобы вернуться на холст.
 13. Закройте колонку **Изменение модуля Runbook PowerShell**.
 14. Закройте колонку **Test-SecPrin-Runbook**.
@@ -192,7 +197,7 @@
 Приведенный выше код, с помощью которого можно проверить, правильно ли настроена новая учетная запись, используется в модулях Runbook PowerShell для проверки подлинности в службе автоматизации Azure. Такая проверка подлинности необходима для управления ресурсами ARM. Конечно, вы можете и дальше использовать для проверки подлинности учетную запись службы автоматизации, которую использовали до сих пор.
 
 ## Дальнейшие действия
-- Дополнительные сведения о субъектах-службах см. в статье [Объекты приложений и объекты участников-служб](../active-directory/active-directory-application-objects.md).
+- Дополнительные сведения о субъектах-службах см. в статье [Объекты приложений и объекты субъектов-служб](../active-directory/active-directory-application-objects.md).
 - Дополнительные сведения об управлении доступом на основе ролей см. в статье [Управление доступом на основе ролей в службе автоматизации Azure](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->
