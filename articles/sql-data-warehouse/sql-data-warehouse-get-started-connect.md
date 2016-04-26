@@ -3,7 +3,7 @@
    description="Начало работы. Подключение к хранилищу данных SQL и выполнение запросов."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="04/20/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Подключение к хранилищу данных SQL с помощью Visual Studio
 
@@ -44,7 +44,7 @@
 ## Этап 2. Подключение к базе данных SQL
 Для получения наилучших результатов используйте Visual Studio 2015 с [последним обновлением SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
 
-1. Откройте Visual Studio 2013 или 2015.
+1. Откройте Visual Studio 2013 или 2015.
 2. Откройте обозреватель объектов SQL Server. Чтобы сделать это, последовательно выберите элементы **Представление** > **Обозреватель объектов SQL Server**.
 
     ![Обозреватель объектов SQL Server][2]
@@ -88,7 +88,7 @@
 
     ![Выполнение запроса][7]
 
-1. Просмотрите результаты запроса. В этом примере таблица FactInternetSales содержит 60 398 строк.
+1. Просмотрите результаты запроса. В этом примере таблица FactInternetSales содержит 60 398 строк.
 
     ![Результаты запроса][8]
 
@@ -110,4 +110,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

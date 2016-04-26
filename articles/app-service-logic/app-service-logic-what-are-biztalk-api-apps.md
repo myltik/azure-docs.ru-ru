@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="04/20/2016" 
 	ms.author="mandia"/>
 
 # Что такое соединители и приложения API BizTalk
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 Службы приложений Azure строятся на принципе расширяемости и общего подключения через приложения API. *Соединитель* — это тип приложения API, предназначенного для подключения. Соединители, как и любые другие приложения API, используются из веб-приложений, мобильных приложений и приложений логики. Соединители облегчают подключение к существующим службам и помогают управлять проверкой подлинности, предоставляя мониторинг, аналитику и многое другое.
 
@@ -36,7 +38,7 @@
 Гибридные соединители расширяют сферу применения служб приложений до корпоративного уровня с возможностью подключения к системам [SAP](app-service-logic-connector-sap.md), [Oracle](app-service-logic-connector-oracle.md), [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) и WebSphere MQ.
 
 ## Службы EAI и EDI
-Для создания важных коммерческих приложений требуется не только подключение. Основываясь на фундаменте ведущей отраслевой платформы интеграции от корпорации Майкрософт — BizTalk Server — приложения API BizTalk предоставляют расширенные возможности интеграции, которые могут с легкостью использоваться в ваших веб-приложениях, мобильных приложениях и приложениях логики. Вот некоторые из этих возможностей интеграции: [проверка](app-service-logic-xml-validator.md), [извлечение](app-service-logic-xpath-extract.md), [преобразование](app-service-logic-transform-xml-documents.md), [кодировщики](app-service-logic-connector-jsonencoder.md), [управление торговыми партнерами](app-service-logic-connector-tpm.md) и поддержка форматов EDI, таких как [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) и [AS2](app-service-logic-connector-as2.md).
+Для создания важных коммерческих приложений требуется не только подключение. Основываясь на фундаменте ведущей отраслевой платформы интеграции от корпорации Майкрософт — BizTalk Server — приложения API BizTalk предоставляют расширенные возможности интеграции, которые могут с легкостью использоваться в ваших веб-приложениях, мобильных приложениях и приложениях логики. Вот некоторые из этих возможностей интеграции: [проверка](app-service-logic-xml-validator.md), [извлечение](app-service-logic-xpath-extract.md), [преобразование](app-service-logic-transform-xml-documents.md), [кодировщики](app-service-logic-connector-jsonencoder.md), [управление торговыми партнерами](app-service-logic-connector-tpm.md) и поддержка форматов EDI, например [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) и [AS2](app-service-logic-connector-as2.md).
 
 Дополнительные ресурсы: [Соединители "бизнес–бизнес" и приложения API в службе приложений Microsoft Azure](app-service-logic-b2b-connectors.md); [Создание процесса B2B](app-service-logic-create-a-b2b-process.md); [Создание соглашения между торговыми партнерами](app-service-logic-create-a-trading-partner-agreement.md); [Отслеживание сообщений B2B](app-service-logic-track-b2b-messages.md).
 
@@ -48,4 +50,4 @@
 В разделе [Список соединителей и приложений API](app-service-logic-connectors-list.md) можно найти полный список соединителей и приложений API, содержащихся в каждой категории, включая стандартные соединители, BizTalk EAI, соединители Premium и так далее.
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

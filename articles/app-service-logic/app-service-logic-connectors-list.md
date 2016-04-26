@@ -31,15 +31,12 @@
 
 Имя | Описание
 --- | ---
-[Azure HDInsight](app-service-logic-connector-hdinsight.md) | Используйте этот соединитель, чтобы создавать кластеры Hadoop в Azure, отправлять разные задания Hadoop и выполнять другие задачи.
 [Служебная шина Azure](app-service-logic-connector-azureservicebus.md) | Может отправлять сообщения из очередей и разделов служебной шины, а также получать сообщения из очередей и подписок служебной шины.
 [Переводчик Bing](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Перевод текста на другой язык с помощью службы Bing.
-[Chatter](app-service-logic-connector-chatter.md) | Подключается к Chatter для публикации сообщений, поиска и даже получения новых сообщений.
 [HTTP](app-service-logic-connector-http.md) | Прослушиватель HTTP открывает конечную точку, которая действует как HTTP-сервер и прослушивает входящий HTTP-трафик или HTTP-запросы. Для действия HTTP не требуется приложение API, и его поддержка встроена в приложения логики.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Соединитель Office 365 может отправлять и получать сообщения электронной почты, управлять календарем, а также управлять контактами с помощью учетной записи Office 365.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Вы можете выполнять разные задачи, включая создание, обновление и отправку запросов на разные сущности из Intuit QuickBooks, включая клиенты, элементы, счета и пр.
 [Slack](app-service-logic-connector-slack.md) | Подключение к Slack резерв и публикация сообщений в каналы Slack.
-[SugarCRM](app-service-logic-connector-sugarcrm.md) | Подключается к SugarCRM Online для создания, обновления, чтения и удаления разных типов модулей, включая учетные записи, контакты, продукты и т. д.
 [Ожидание](app-service-logic-connector-wait.md) | Используйте этот соединитель для задержки выполнения приложения. Выполнение приложения можно отложить на заданный период времени или определенное время.
 
 
@@ -83,4 +80,4 @@
 ## Дополнительные сведения о соединителях и приложениях API
 [Что такое соединители и приложения API BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Подключение к локальным соединителям, размещенным в службе приложений Azure, с помощью диспетчера гибридных подключений](app-service-logic-hybrid-connection-manager.md) [Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

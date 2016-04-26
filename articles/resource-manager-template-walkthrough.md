@@ -89,7 +89,7 @@
 
 Значение, указываемое для свойства **type**, определяет поставщика ресурсов и их тип. Для групп доступности поставщик ресурсов — это **Microsoft.Compute**, а тип ресурсов — **availabilitySets**. Чтобы получить список доступных поставщиков ресурсов, выполните следующую команду PowerShell:
 
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    Get-AzureRmResourceProvider -ListAvailable
 
 Если вы используете Azure CLI, выполните следующую команду:
 
@@ -103,7 +103,7 @@
 
 Чтобы просмотреть типы ресурсов для конкретного поставщика, выполните следующую команду PowerShell:
 
-    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 
 Если вы используете Azure CLI, приведенная ниже команда возвращает доступные типы в формате JSON и сохраняет результаты в файл.
 
@@ -133,7 +133,7 @@
 
 Теперь рассмотрим, как определить свойство **apiVersion**. Указываемое значение должно совпадать с версией REST API, которую вы хотите использовать при создании ресурса. Найти нужный тип ресурса можно в документации по REST API. Кроме того, для определенного типа можно выполнить следующую команду PowerShell:
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
 
 Она возвратит следующие значения:
 
@@ -503,4 +503,4 @@
 - Дополнительную информацию о структуре шаблона см. в статье о [создании шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 - Инструкции по развертыванию шаблонов см. в статье о [развертывании группы ресурсов с помощью Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

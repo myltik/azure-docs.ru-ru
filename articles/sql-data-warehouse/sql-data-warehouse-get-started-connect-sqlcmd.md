@@ -3,7 +3,7 @@
    description="Начало работы. Подключение к хранилищу данных SQL и выполнение запросов."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="04/20/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Подключение и создание запросов с помощью SQLCMD
@@ -30,7 +30,7 @@
 
 ## Предварительные требования
 
-+ [sqlcmd.exe](https://msdn.microsoft.com/library/azure/ms162773.aspx). Чтобы загрузить sqlcmd.exe, перейдите на страницу загрузки [Microsoft Command Line Utilities 11 для SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501).
++ [sqlcmd.exe](https://msdn.microsoft.com/library/azure/ms162773.aspx). Чтобы загрузить sqlcmd.exe, перейдите на страницу загрузки [Microsoft Command Line Utilities 11 для SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501).
 
 ## Получение полного имени сервера Azure SQL
 
@@ -49,9 +49,9 @@
 
 + **Server (-S):** сервер в виде `<`имя сервера`>`.database.windows.net
 + **Database (-D):** имя базы данных.
-+ **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
-+ **Password (-P)** — пароль, связанный с пользователем.
-+ **Enable Quoted Identifiers (-I)** — для подключения к экземпляру хранилища данных SQL необходимо включить заключенные в кавычки идентификаторы.
++ **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
++ **Password (-P)** — пароль, связанный с пользователем.
++ **Enable Quoted Identifiers (-I)** — для подключения к экземпляру хранилища данных SQL необходимо включить заключенные в кавычки идентификаторы.
 
 Таким образом, для подключения к экземпляру хранилища данных SQL нужно ввести следующее:
 
@@ -83,4 +83,4 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,0 +1,3 @@
+> [AZURE.IMPORTANT] Действия, описанные в этом документе, протестированы с последней версией Azure PowerShell и Azure CLI. Если вы используете более старую версию, команды могут не работать или возвращать ошибки. Чтобы установить последнюю версию, выполните действия, описанные в статье [Установка Azure CLI](../articles/xplat-cli-install.md) или [Установка и настройка Azure PowerShell](../articles/powershell-install-configure.md).
+
+<!---HONumber=AcomDC_0420_2016-->

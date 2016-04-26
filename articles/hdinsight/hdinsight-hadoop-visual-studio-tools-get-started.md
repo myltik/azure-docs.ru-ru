@@ -45,10 +45,10 @@
 
 Средства HDInsight для Visual Studio и драйвер ODBC для Microsoft Hive входят в пакет Microsoft Azure SDK для .NET 2.5.1 и более поздней версии. Вы можете установить эти средства с помощью [установщика веб-платформы](http://go.microsoft.com/fwlink/?LinkId=255386). Необходимо выбрать установщик, который соответствует вашей версии Visual Studio. Если на вашем компьютере не установлена программа Visual Studio, вы можете установить последние версии Visual Studio Community и пакета Azure SDK с помощью [установщика веб-платформы](http://go.microsoft.com/fwlink/?LinkId=255386) или приведенных ниже ссылок.
 
-- [Visual Studio Community 2015 с пакетом Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids) 
-- [Visual Studio Community 2013 с пакетом Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids) 
-- [Microsoft Azure SDK для .NET (Visual Studio 2015)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids) 
-- [Microsoft Azure SDK для .NET (Visual Studio 2013)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2013AzurePack.appids) 
+- [Visual Studio Community 2015 с пакетом Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids)
+- [Visual Studio Community 2013 с пакетом Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids)
+- [Microsoft Azure SDK для .NET (Visual Studio 2015)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids)
+- [Microsoft Azure SDK для .NET (Visual Studio 2013)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2013AzurePack.appids)
 
 ![Инструменты Hadoop: установщик веб-платформы инструментов HDInsight для Visual Studio.][1]
 
@@ -182,14 +182,14 @@
 
 >[AZURE.NOTE] Эта функция работает только с кластером HDInsight 3.2 и более поздних версий.
 
-Средства HDInsight используются для отправки заданий Hive через интерфейс WebHCat (также известный как Templeton). Возврат сведений о задании и сведений об ошибках занимает много времени. Чтобы решить эту проблему производительности, средства HDInsight выполняют задания Hive непосредственно в кластере через HiveServer2, что позволяет обходить RDP/SSH. Помимо повышения производительности пользователи также могут просматривать диаграммы выполнения задач Hive в Tez, а также сведения о задаче.
+Средства HDInsight используются для отправки заданий Hive через интерфейс [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (также известен как Templeton). Возврат сведений о задании и сведений об ошибках занимает много времени. Чтобы решить эту проблему производительности, средства HDInsight выполняют задания Hive непосредственно в кластере через HiveServer2, что позволяет обходить RDP/SSH. Помимо повышения производительности пользователи также могут просматривать диаграммы выполнения задач Hive в Tez, а также сведения о задаче.
 
 При использовании кластера HDInsight 3.2 или более поздней версии будет отображена кнопка **Выполнить через HiveServer2**:
 
 ![hdinsight, средства visual studio, выполнение через hiveserver2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
 
 Кроме того, вы можете просматривать журналы, отображаемые в режиме реального времени, а также диаграммы задания при выполнении запроса Hive в Tez.
- 
+
 ![hdinsight, средства visual studio, быстрый путь выполнения hive](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
 
 **Разница между выполнением запросов через HiveServer2 и отправкой запросов через WebHCat**
@@ -208,7 +208,7 @@
 
 Средства Visual Studio HDInsight поддерживают отображение диаграмм производительности для заданий Hive, выполняемых механизмом выполнения Tez. Сведения о том, как включить Tez, см. в статье об [использовании Hive в HDInsight][hdinsight.hive]. После отправки в Visual Studio задания Hive Visual Studio отобразит диаграмму по завершении задания. Возможно, вам потребуется нажать кнопку **Обновить**, чтобы получить последние сведения о состоянии задания.
 
-> [AZURE.NOTE] Эта функция доступна только для кластера HDInsight версии выше 3.2.4.593 и может работать только для выполненных заданий. Она работает для кластеров на основе Windows и на основе Linux.
+> [AZURE.NOTE] Эта функция доступна для кластеров HDInsight начиная с версии 3.2.4.593. Она работает только для выполненных заданий (если задание отправлено через WebHCat). Показанная ниже диаграмма будет отображаться, если запрос выполняется через HiveServer2. Она работает для кластеров на основе Windows и на основе Linux.
 
 ![Диаграмма производительности Tez для Hadoop Hive](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
@@ -223,6 +223,14 @@
 ## Запуск сценариев Pig
 
 Средства HDInsight для Visual Studio поддерживают создание и отправку сценариев Pig в кластеры HDInsight. Пользователи могут создать проект Pig из шаблона и затем отправить сценарий в кластеры HDInsight.
+
+## Отзывы и известные проблемы
+
+- Сейчас результаты HiveServer2 отображаются как обычный текст, что не совсем удобно. Мы работаем над решением этой проблемы.
+
+- Если результаты начинаются со значения NULL, они не отображаются. Мы исправили эту ошибку. Если наличие такой проблемы блокирует вашу работу, свяжитесь с нами по электронной почте или обратитесь в службу поддержки.
+
+С любыми отзывами и предложениями (а также в случае возникновения проблем при работе с этим средством) обращайтесь по адресу электронной почты hdivstool@microsoft.com.
 
 ## Дальнейшие действия
 Из этого раздела вы узнали, как подключаться к кластерам HDInsight из Visual Studio, использовать пакет инструментов Hadoop и выполнять запросы Hive. Дополнительные сведения см. в следующих статьях:
@@ -267,4 +275,4 @@
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

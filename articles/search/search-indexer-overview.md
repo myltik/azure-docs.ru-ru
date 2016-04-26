@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Индексаторы в службе поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
-	description="Обход содержимого базы данных для извлечения доступных для поиска данных и заполнения индекса службы поиска Azure."
+	pageTitle="Индексаторы в службе поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
+	description="Обход содержимого базы данных Azure SQL, DocumentDB или службы хранилища Azure для извлечения доступных для поиска данных и заполнения индекса службы поиска Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,16 +14,17 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/09/2016"
+	ms.date="04/14/2016"
 	ms.author="heidist"/>
 
 # Индексаторы в службе поиска Azure
 > [AZURE.SELECTOR]
 - [Обзор](search-indexer-overview.md)
 - [Портал](search-import-data-portal.md)
-- [Хранилище BLOB-объектов (предварительная версия)](search-howto-indexing-azure-blob-storage.md)
 - [Azure SQL;](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 - [DocumentDB](../documentdb/documentdb-search-indexer.md)
+- [Хранилище BLOB-объектов (предварительная версия)](search-howto-indexing-azure-blob-storage.md)
+- [Хранилище таблиц (предварительная версия)](search-howto-indexing-azure-tables.md)
 
 **Индексатор** в службе поиска Azure — это программа-обходчик, которая извлекает доступные для поиска данные и метаданные из внешнего источника данных, а затем заполняет индекс, сопоставляя поля в индексе и источнике данных. Этот подход иногда называют моделью извлечения, так как запрос данных службой не предполагает написание кода, который передает данные в индекс.
 
@@ -36,11 +37,12 @@
 - [база данных Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) (или SQL Server в виртуальных машинах Azure);
 - [DocumentDB](../documentdb/documentdb-search-indexer.md)
 - [хранилище BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md) (сейчас доступно в режиме предварительной версии; извлекает текст из файлов PDF, документов Office, HTML, XML).
+- [хранилище таблиц Azure](search-howto-indexing-azure-tables.md) (сейчас доступно в режиме предварительной версии).
 
 Источники данных настраиваются и управляются независимо от индексаторов, которые их используют. Это означает, что источник данных может использоваться несколькими индексаторами для одновременной загрузки нескольких индексов.
 
-[Пакет SDK для .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx) и [API-интерфейсы REST службы](https://msdn.microsoft.com/library/azure/dn946891.aspx) поддерживают управление индексаторами и источниками данных.
+Поддержка управления индексаторами и источниками данных реализована как в [пакете SDK для .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx), так и в [REST API службы](https://msdn.microsoft.com/library/azure/dn946891.aspx).
 
-Кроме того, вы также можете настроить индексатор на портале, используя мастер **Импорт данных**. В разделе [Начало работы с поиском Azure на портале](search-get-started-portal) приведено краткое руководство, в котором с помощью демонстрационных данных, индексатора DocumentDB и мастера создается и загружается индекс.
+Кроме того, вы также можете настроить индексатор на портале, используя мастер **импорта данных**. В статье [Начало работы со службой поиска Azure на портале](search-get-started-portal) вкратце описано, как создать и загрузить индекс с помощью демонстрационных данных, индексатора DocumentDB и мастера.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

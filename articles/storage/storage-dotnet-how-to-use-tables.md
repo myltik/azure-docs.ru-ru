@@ -56,11 +56,13 @@
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
+### Анализ строки подключения
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Создание клиента службы таблиц
 
-Класс **CloudTableClient** позволяет получать таблицы и сущности, хранящиеся в хранилище таблиц. Добавьте в метод **Main()** следующий код:
+Класс **CloudTableClient** позволяет получать таблицы и сущности, хранящиеся в хранилище таблиц. Вот один из способов создать клиента службы.
 
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -461,4 +463,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

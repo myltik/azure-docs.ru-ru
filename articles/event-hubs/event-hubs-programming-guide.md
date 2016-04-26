@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Руководство по программированию для концентраторов событий Azure | Microsoft Azure"
-   description="Сведения о программировании с использованием концентраторов событий Azure с помощью пакета SDK Azure .NET."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Руководство по программированию для концентраторов событий Azure | Microsoft Azure"
+    description="Сведения о программировании с использованием концентраторов событий Azure с помощью пакета SDK Azure .NET."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="tbd"
+    ms.date="04/15/2016"
+    ms.author="sethm" />
 
 # Руководство по программированию концентраторов событий
 
@@ -21,9 +21,9 @@
 
 ## Издатели событий
 
-Отправка событий в концентратор событий осуществляется с использованием HTTP POST или через подключение AMQP 1.0. Выбор способа зависит от определенного сценария, к которому выполняется обращение. Подключения AMQP 1.0 измеряются как подключения через посредника по служебной шине. Они больше всего подходят для сценариев с большими объемами сообщений и менее строгими требованиями к задержке, поскольку такие подключения обеспечивают постоянный канал обмена сообщениями.
+Отправка событий в концентратор событий осуществляется с использованием HTTP POST или через подключение AMQP 1.0. Выбор способа зависит от определенного сценария, к которому выполняется обращение. Подключения AMQP 1.0 измеряются как подключения через посредника по служебной шине. Они больше всего подходят для сценариев с большими объемами сообщений и менее строгими требованиями к задержке, так как такие подключения обеспечивают постоянный канал обмена сообщениями.
 
-Концентраторы событий создаются и обрабатываются с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). При использовании управляемых API .NET основными конструктивными элементами для публикации данных в концентраторах событий являются классы [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) и [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). Класс [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) предоставляет коммуникационный канал AMQP, по которому события отправляются в концентратор событий. Класс [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) представляет собой событие и используется для публикации сообщений в концентратор событий. Этот класс содержит текст, некоторые метаданные и данные заголовка о событии. По мере передачи объекта [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) объекта в концентратор событий к этому объекту добавляются другие свойства.
+Концентраторы событий создаются и обрабатываются с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). При использовании управляемых API .NET основными конструктивными элементами для публикации данных в концентраторах событий являются классы [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) и [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). Класс [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) обеспечивает канал связи AMQP, по которому события отправляются в концентратор событий. Класс [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) представляет собой событие и используется для публикации сообщений в концентратор событий. Этот класс содержит текст, некоторые метаданные и данные заголовка о событии. По мере прохода объекта [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) через концентратор событий к объекту добавляются другие свойства.
 
 ## Приступая к работе
 
@@ -50,7 +50,7 @@ var description = manager.CreateEventHubIfNotExists("MyEventHub");
 
 Для выполнения всех операций по созданию концентратора событий, включая [CreateEventHubIfNotExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createeventhubifnotexists.aspx), требуется разрешение на **управление** необходимым пространством имен. Если вы хотите ограничить разрешения приложения издателя или потребителя, эти вызовы операций создания можно исключить из рабочего кода при использовании учетных данных с ограниченными разрешениями.
 
-Класс [EventHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubdescription.aspx) содержит сведения о концентраторе событий, включая правила авторизации, интервал удержания сообщений, идентификаторы секций, состояние и путь. Этот класс можно использовать для обновления метаданных в концентраторе событий.
+Класс [EventHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubdescription.aspx) содержит сведения о концентраторе событий, включая правила авторизации, интервал хранения сообщений, идентификаторы секций, состояние и путь. Этот класс можно использовать для обновления метаданных в концентраторе событий.
 
 ## Создание клиента концентратора событий
 
@@ -111,7 +111,7 @@ public void SendBatch(IEnumerable<EventData> eventDataList);
 
 ## Создание отправителя секции
 
-Несмотря на то, что наиболее распространена отправка событий в концентратор событий с ключом секции, в некоторых случаях может потребоваться отправить события напрямую в указанную секцию. Например:
+Несмотря на то что наиболее распространена отправка событий в концентратор событий с ключом секции, в некоторых случаях может потребоваться отправить события напрямую в указанную секцию. Например:
 
 ```
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
@@ -172,7 +172,7 @@ while(receive)
 
 ## Отзыв издателя
 
-Наряду с дополнительными возможностями среды выполнения [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), концентраторы событий позволяют отзывать издателя для блокировки возможности отправлять события в концентратор событий. Эти функции особенно полезны, если маркер издателя был взломан или после обновления программного обеспечения эти функции перестали работать должным образом. В этих случаях для идентификатора издателя, который является частью маркера SAS, можно заблокировать возможность публикации событий.
+Наряду с дополнительными возможностями среды выполнения [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), концентраторы событий позволяют отзывать издателя для блокировки для некоторых из них возможности отправлять события в концентратор событий. Эти функции особенно полезны, если маркер издателя был взломан или после обновления программного обеспечения эти функции перестали работать должным образом. В этих случаях для идентификатора издателя, который является частью маркера SAS, можно заблокировать возможность публикации событий.
 
 Дополнительные сведения об отзыве издателя и отправке в концентраторы событий в качестве издателя см. в примере [Крупномасштабная безопасная публикация концентраторов событий служебной шины](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
@@ -185,4 +185,4 @@ while(receive)
 - [Примеры кода концентраторов событий](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->
