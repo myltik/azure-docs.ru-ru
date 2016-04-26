@@ -16,7 +16,7 @@
 
 #Настройка Oracle Data Guard для Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Модель диспетчера ресурсов.
 
 
 В этом учебнике показано, как настроить и реализовать Oracle Data Guard в среде виртуальных машин Azure, чтобы обеспечить высокий уровень доступности и аварийное восстановление. Учебник посвящен односторонней репликации для баз данных Oracle, не являющихся кластерами реальных приложений \(RAC\).
@@ -631,4 +631,4 @@ Oracle Data Guard поддерживает защиту данных и авар
 ##Дополнительные ресурсы
 [Образы виртуальных машин Oracle для Azure](virtual-machines-windows-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!----HONumber=AcomDC_0413_2016-->

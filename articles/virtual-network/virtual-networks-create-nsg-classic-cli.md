@@ -104,7 +104,7 @@
 	- **-n \(или --name\)**. Имя нового правила. В данном сценарии это *rdp-rule*.
 	- **-c \(или --action\)**. Уровень доступа для правила \(Deny или Allow\).
 	- **-p \(или --protocol\)**. Протокол \(Tcp, Udp или \*\) для правила.
-- **-r \(или --type\)**. Направление подключения \(Inbound или Outbound\).
+	- **-r \(или --type\)**. Направление подключения \(Inbound или Outbound\).
 	- **-y \(или --priority\)**. Приоритет правила.
 	- **-f \(или --source-address-prefix\)**. Префикс адреса источника в CIDR или использование тегов по умолчанию.
 	- **-o \(или --source-port-range\)**. Исходный порт или диапазон портов.
@@ -239,4 +239,4 @@
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!----HONumber=AcomDC_0413_2016-->
