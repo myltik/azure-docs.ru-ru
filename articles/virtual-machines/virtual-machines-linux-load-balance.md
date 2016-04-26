@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Балансировка нагрузки для служб инфраструктуры | Microsoft Azure"
-	description="В этой статье описываются два разных типа балансировки нагрузки, которые поддерживаются в Azure: подсистема балансировки нагрузки для облачных служб и диспетчер трафика для трафика клиентов."
+	description="В этой статье описываются два типа балансировки нагрузки, которые поддерживаются в Azure: балансировщик нагрузки для облачных служб и диспетчер трафика Azure для трафика клиентов."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="joaoma"
@@ -22,4 +22,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-load-balance](../../includes/virtual-machines-common-load-balance.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

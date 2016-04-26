@@ -1,21 +1,19 @@
-## Общие сведения о настройке
-
 Для выполнения этой задачи используйте виртуальную сеть со значениями, приведенными ниже. В этом списке также приведены дополнительные параметры и имена. Мы не используем этот список непосредственно ни на каком из шагов, несмотря на то, что добавляем переменные согласно значениям в этом списке. Вы можете скопировать список для справки, заменив значения собственными.
 
 Справочный список для настройки.
 	
 - Имя виртуальной сети: TestVNet.
 - Адресное пространство виртуальной сети: 192.168.0.0/16.
-- Группа ресурсов — TestRG.
+- Группа ресурсов — TestRG.
 - Имя подсети Subnet1: FrontEnd. 
 - Адресное пространство Subnet1: 192.168.0.0/16.
 - Имя подсети шлюза: GatewaySubnet; подсеть шлюза всегда необходимо называть *GatewaySubnet*.
 - Адресное пространство шлюза подсети: 192.168.200.0/26.
-- Расположение — East US.
+- Расположение — East US.
 - Имя шлюза: GW.
 - IP-имя шлюза: GWIP.
 - Имя конфигурации IP-адресов шлюза: gwipconf.
-- Тип VPN: ExpressRoute; для настройки ExpressRoute требуется этот тип VPN.
+-  Type = "ExpressRoute". Для настройки ExpressRoute требуется этот тип.
 - Общедоступное IP-имя шлюза: gwpip.
 
 
@@ -40,7 +38,7 @@
 
 		$vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 
-4. Создайте подсеть шлюза своей виртуальной сети. Подсеть шлюза должна иметь имя GatewaySubnet. Потребуется создать шлюз со значением /27 или больше (26, 25 и т. д.).
+4. Создайте подсеть шлюза своей виртуальной сети. Подсеть шлюза должна иметь имя GatewaySubnet. Потребуется создать шлюз со значением /27 или больше \(26, 25 и т. д.\).
 			
 		Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
 
@@ -52,7 +50,7 @@
 
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 
-7. Запросите общедоступный IP-адрес. IP-адрес запрашивается перед создание шлюза. Указать необходимый IP-адрес нельзя, он выделяется динамически. Этот IP-адрес будет использоваться на следующем этапе конфигурации. Параметр AllocationMethod должен иметь значение Dynamic.
+7. Запросите общедоступный IP-адрес. IP-адрес запрашивается перед созданием шлюза. Указать необходимый IP-адрес нельзя, он выделяется динамически. Этот IP-адрес будет использоваться на следующем этапе конфигурации. Параметр AllocationMethod должен иметь значение Dynamic.
 
 		$pip = New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
@@ -63,6 +61,25 @@
 
 9. Создайте шлюз. На этом шаге особенно важен параметр **-GatewayType**. Необходимо использовать значение **ExpressRoute**. Обратите внимание, что после выполнения этих командлетов на создание шлюза может потребоваться 20 минут или больше.
 
-		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute
+		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
 
-<!---HONumber=AcomDC_0309_2016-->
+## Проверка создания шлюза
+
+Используйте следующую команду, чтобы проверить, был ли создан шлюз.
+
+	Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
+
+## Изменение размера шлюза
+
+Существует три [SKU шлюза](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Чтобы изменить SKU шлюза в любое время, можно использовать следующую команду.
+
+	$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+
+## Удаление шлюза
+
+Используйте следующую команду, чтобы удалить шлюз.
+
+	Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
+
+<!---HONumber=AcomDC_0413_2016-->

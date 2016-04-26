@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure (классическое развертывание)"
-	description="Узнайте, как автоматизировать настройку шифрования SQL Server для использования с хранилищем ключей Azure. В этом разделе описываются способы использования интеграции хранилища ключей Azure с виртуальными машинами SQL Server, созданными в классической модели развертывания." 
-	services="virtual-machines-windows" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg"
+<properties
+	pageTitle="Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure (классическая модель)"
+	description="Узнайте, как автоматизировать настройку шифрования SQL Server для использования с хранилищем ключей Azure. В этом разделе описываются способы использования интеграции хранилища ключей Azure с виртуальными машинами SQL Server, созданными в классической модели развертывания."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="rothja"
+	manager="jhubbard"
 	editor=""
 	tags="azure-service-management"/>
 
@@ -13,18 +13,18 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="12/17/2015"
+	ms.workload="infrastructure-services"
+	ms.date="04/08/2016"
 	ms.author="jroth"/>
 
-# Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure (классическое развертывание)
+# Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure \(классическая модель\)
 
 > [AZURE.SELECTOR]
 - [Диспетчер ресурсов](virtual-machines-windows-ps-sql-keyvault.md)
 - [Классический](virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 ## Обзор
-Существует несколько функций шифрования SQL Server, например [прозрачное шифрование данных (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [шифрование на уровне столбцов (CLE)](https://msdn.microsoft.com/library/ms173744.aspx) и [шифрование резервной копии](https://msdn.microsoft.com/library/dn449489.aspx). Эти формы шифрования требуют хранить используемые для шифрования ключи и управлять ими. Хранилище ключей Azure (AKV) предназначено для повышения безопасности и управления этими ключами в расположении высокой надежности и безопасности. [Соединитель SQL Server](http://www.microsoft.com/download/details.aspx?id=45344) позволяет SQL Server использовать эти ключи из хранилища ключей Azure.
+Существует несколько функций шифрования SQL Server, например [прозрачное шифрование данных \(TDE\)](https://msdn.microsoft.com/library/bb934049.aspx), [шифрование на уровне столбцов \(CLE\)](https://msdn.microsoft.com/library/ms173744.aspx) и [шифрование резервной копии](https://msdn.microsoft.com/library/dn449489.aspx). Эти формы шифрования требуют хранить используемые для шифрования ключи и управлять ими. Хранилище ключей Azure \(AKV\) предназначено для повышения безопасности и управления этими ключами в расположении высокой надежности и безопасности. [Соединитель SQL Server](http://www.microsoft.com/download/details.aspx?id=45344) позволяет SQL Server использовать эти ключи из хранилища ключей Azure.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
@@ -53,7 +53,7 @@
 Командлет **New-AzureVMSqlServerKeyVaultCredentialConfig** создает объект конфигурации для интеграции хранилища ключей Azure. **Set-AzureVMSqlServerExtension** настраивает эту интеграцию с помощью параметра **KeyVaultCredentialSettings**. Ниже показано, как использовать эти команды.
 
 1. В Azure PowerShell сначала настройте входные параметры, указав конкретные значения, как описано в предыдущих подразделах этого раздела. Следующий сценарий является примером.
-	
+
 		$akvURL = "https://contosokeyvault.vault.azure.net/"
 		$spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
 		$spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
@@ -61,7 +61,7 @@
 		$vmName = "myvmname"
 		$serviceName = "mycloudservicename"
 2.	Выполните следующий сценарий для настройки и включения интеграции AKV.
-	
+
 		$secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
 		$akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
 		Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
@@ -70,4 +70,4 @@
 
 [AZURE.INCLUDE [Интеграция AKV: дальнейшие действия](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

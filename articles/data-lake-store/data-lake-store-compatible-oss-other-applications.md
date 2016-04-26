@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Приложения больших данных, совместимые с хранилищем озера данных | Azure" 
-   description="Список приложений с открытым исходным кодом, совместимых с хранилищем озера данных Azure" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Приложения больших данных, совместимые с хранилищем озера данных | Azure"
+   description="Список приложений с открытым исходным кодом, совместимых с хранилищем озера данных Azure"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="02/03/2016"
    ms.author="nitinme"/>
 
 # Приложения больших данных с открытым исходным кодом, которые работают с хранилищем озера данных Azure
 
-В этой статье приводится список приложений больших данных с открытым исходным кодом, которые работают с хранилищем озера данных Azure. Для приложений, перечисленных в таблице, поддерживаются только указанные версии. Подробнее о версиях приложений, доступных для работы с HDInsight, см. в разделе [Сведения о версиях компонентов HDInsight](/hdinsight/hdinsight-component-versioning.md).
+В этой статье приводится список приложений больших данных с открытым исходным кодом, которые работают с хранилищем озера данных Azure. Для приложений, перечисленных в таблице, поддерживаются только указанные версии. Подробнее о версиях приложений, доступных для работы с HDInsight, см. в разделе [Сведения о версиях компонентов HDInsight](../hdinsight/hdinsight-component-versioning.md).
 
 
 | Программное обеспечение с открытым исходным кодом | Дистрибутив |
@@ -39,6 +39,5 @@
 ## См. также
 
 - [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

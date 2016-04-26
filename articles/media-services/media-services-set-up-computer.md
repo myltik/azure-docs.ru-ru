@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,16 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 # Настройка среды
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
+- [Портал](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
-<a id="create_account"></a>
+- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx) <a id="create_account"></a>
 
 В этой статье описаны действия, которые необходимо выполнить, чтобы получить возможность разрабатывать решения с использованием служб мультимедиа Azure.
 
@@ -53,4 +52,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

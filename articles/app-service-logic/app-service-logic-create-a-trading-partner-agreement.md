@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Создание соглашения между торговыми партнерами   
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Торговые партнеры — это сущности, участвующие во взаимодействиях между компаниями. Когда два партнера устанавливают связь, это называется *соглашение*. Определенное соглашение строится на основе взаимодействия, которого желают достичь эти два партнера, и зависит от конкретного протокола или транспорта. В число различных протоколов и транспортов B2B, поддерживаемых службой приложений Azure, входят следующие:
 
@@ -79,4 +79,4 @@
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

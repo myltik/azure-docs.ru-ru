@@ -54,11 +54,13 @@
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
+### Анализ строки подключения
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Создание клиента службы очередей
 
-Класс **CloudQueueClient** позволяет получить очереди, хранящиеся в хранилище очередей. Добавьте в метод **Main()** следующий код:
+Класс **CloudQueueClient** позволяет получать очереди, хранящиеся в хранилище очередей. Вот один из способов создать клиента службы.
 
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
@@ -273,4 +275,4 @@
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

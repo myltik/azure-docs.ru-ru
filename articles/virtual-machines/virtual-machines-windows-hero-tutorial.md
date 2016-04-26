@@ -48,7 +48,7 @@
 
 2. В меню концентратора щелкните элементы **Создать** > **Вычисления** > **Windows Server 2012 R2 Datacenter**.
 
-	![Снимок экрана с образами виртуальной машины Azure, доступными на портале предварительной версии](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
+	![Снимок экрана с доступными на портале образами виртуальных машин Azure](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
 
 	>[AZURE.TIP] Чтобы найти дополнительные образы, щелкните **Marketplace**, а затем выполните поиск среди доступных элементов или отфильтруйте их.
 
@@ -117,4 +117,4 @@
 * Автоматизация развертывания виртуальных машин и рабочих нагрузок, а также управления ими с помощью [шаблонов Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 * Вы также можете быстро [создать виртуальную машину Linux](virtual-machines-linux-quick-create-cli.md) с помощью интерфейса командной строки Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

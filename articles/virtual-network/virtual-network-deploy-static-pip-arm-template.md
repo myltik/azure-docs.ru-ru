@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Развертывание виртуальных машин с общедоступным статическим IP-адресом с помощью шаблона в диспетчере ресурсов | Microsoft Azure"
    description="Узнайте, как развернуть виртуальную машину со статическим общедоступным IP-адресом с помощью шаблона в диспетчере ресурсов"
    services="virtual-network"
@@ -46,7 +46,7 @@
         }
       },
 
-Обратите внимание на свойство **publicIPAllocationMethod**, которому присвоено значение *Static*. Это свойство может иметь значение либо *Dynamic* (значение по умолчанию), либо *Static*. Установка значения Static гарантирует, что этот общедоступный IP-адрес никогда не изменится.
+Обратите внимание на свойство **publicIPAllocationMethod**, которому присвоено значение *Static*. Это свойство может иметь значение либо *Dynamic* \(значение по умолчанию\), либо *Static*. Установка значения Static гарантирует, что этот общедоступный IP-адрес никогда не изменится.
 
 В разделе ниже показана связь указанного выше общедоступного IP-адреса с сетевым адаптером.
 
@@ -81,7 +81,7 @@
         }
       },
 
-Обратите внимание на свойство **publicIPAddress**, указывающее **идентификатор** ресурса с именем **variables('webVMSetting').pipName**. Это имя общедоступного IP-ресурса, показанного выше.
+Обратите внимание на свойство **publicIPAddress**, указывающее **идентификатор** ресурса с именем **variables\('webVMSetting'\).pipName**. Это имя общедоступного IP-ресурса, показанного выше.
 
 Наконец, приведенный выше сетевой адаптер указан в свойстве **networkProfile** создаваемой виртуальной машины.
 
@@ -95,13 +95,13 @@
 
 ## Развертывание шаблона с помощью кнопки развертывания
 
-Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP), нажмите **Deploy to Azure** (Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
+Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP), нажмите **Deploy to Azure** \(Развернуть в Azure\), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
 
 ## Развертывание шаблона с помощью PowerShell
 
 Чтобы развернуть шаблон, загруженный с помощью PowerShell, выполните описанные ниже действия.
 
-1. Если вы ранее не использовали Azure PowerShell, см. статью [Установка и настройка Azure PowerShell](powershell-install-configure.md) и следуйте инструкциям в шагах с 1 по 3.
+1. Если вы ранее не использовали Azure PowerShell, см. статью [Установка и настройка Azure PowerShell](../powershell-install-configure.md) и следуйте инструкциям в шагах с 1 по 3.
 
 2. При необходимости выполните командлет **New-AzureRMResourceGroup** в консоли PowerShell, чтобы создать новую группу ресурсов. Если вы уже создали группу ресурсов, перейдите к шагу 3.
 
@@ -112,7 +112,7 @@
 		ResourceGroupName : StaticPublicIP
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
+		Tags              :
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/StaticPublicIP
 
 3. В консоли PowerShell, запустите командлет **New-AzureRmResourceGroupDeployment** для развертывания шаблона.
@@ -128,31 +128,31 @@
 		ProvisioningState : Succeeded
 		Timestamp         : 1/8/2016 7:04:44 PM
 		Mode              : Incremental
-		TemplateLink      : 
+		TemplateLink      :
 		                    Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
 		                    ter/IaaS-Story/03-Static-public-IP/azuredeploy.json
 		                    ContentVersion : 1.0.0.0
-		                    
-		Parameters        : 
+
+		Parameters        :
 		                    Name                      Type                       Value     
 		                    ========================  =========================  ==========
-		                    vnetName                  String                     WTestVNet 
+		                    vnetName                  String                     WTestVNet
 		                    vnetPrefix                String                     192.168.0.0/16
 		                    frontEndSubnetName        String                     FrontEnd  
 		                    frontEndSubnetPrefix      String                     192.168.1.0/24
 		                    storageAccountNamePrefix  String                     iaasestd  
 		                    stdStorageType            String                     Standard_LRS
 		                    osType                    String                     Windows   
-		                    adminUsername             String                     adminUser 
+		                    adminUsername             String                     adminUser
 		                    adminPassword             SecureString                         
-		                    
-		Outputs           : 
+
+		Outputs           :
 
 ## Развертывание шаблона с помощью интерфейса командной строки Azure
 
 Чтобы развернуть шаблон с помощью интерфейса командной строки Azure, выполните следующие действия.
 
-1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](xplat-cli.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Выполните команду **azure config mode**, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
 		azure config mode arm
@@ -184,4 +184,4 @@
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

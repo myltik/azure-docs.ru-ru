@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/26/2016"
+   ms.date="04/18/2016"
    ms.author="seanmck"/>
 
 # Подготовка среды разработки
@@ -24,9 +24,11 @@
 Для разработки поддерживаются следующие операционные системы:
 
 - Windows 7
-- Windows 8 и Windows 8.1;
+- Windows 8 и Windows 8.1;
 - Windows Server 2012 R2
 - Windows 10
+
+>[AZURE.NOTE] Windows 7 по умолчанию поставляется с Windows PowerShell версии 2.0. Для работы с командлетами PowerShell для Service Fabric вам необходимо установить PowerShell 3.0 или более позднюю версию. В центре загрузки Майкрософт можно [скачать Windows PowerShell 5.0][powershell5-download].
 
 ## Установка среды выполнения, пакета SDK и инструментов
 
@@ -60,5 +62,6 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Ссылка VS 2015 WebPI"
 [full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Ссылка Dev15 WebPI"
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Ссылка Core SDK WebPI"
+[powershell5-download]: https://www.microsoft.com/ru-RU/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

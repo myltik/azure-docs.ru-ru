@@ -55,11 +55,13 @@
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
+### Анализ строки подключения
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Создание клиента службы BLOB-объектов
 
-Класс **CloudBlobClient** позволяет извлекать контейнеры и большие двоичные объекты, которые хранятся в хранилище BLOB-объектов. Добавьте в метод **Main()** следующий код:
+Класс **CloudBlobClient** позволяет извлекать контейнеры и большие двоичные объекты, которые хранятся в хранилище BLOB-объектов. Вот один из способов создать клиента службы.
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
@@ -363,7 +365,6 @@
 - [Приступая к работе с хранилищем файлов для .NET](storage-dotnet-how-to-use-files.md)
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 - [Использование хранилища больших двоичных объектов Azure с пакетом SDK веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-- [Использование базы данных SQL из .NET (C#)](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -376,4 +377,4 @@
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,14 +1,16 @@
 
-   * Sign in to the Azure account by entering your credentials.
+   * Выполните вход в учетную запись Azure, введя свои учетные данные.
 
-     This method is quicker and easier, but if you use this method you won't be able to see Azure SQL Database or Mobile Services in the **Server Explorer** window.
+     Этот способ самый быстрый и простой, но при его использовании вы не сможете увидеть базу данных SQL Azure или мобильные службы в окне **Обозреватель сервера**.
 
-     In **Server Explorer**, click the **Connect to Azure** button. An alternative is to right-click the **Azure** node, and then click **Connect to Azure** in the context menu.
+     В окне **Обозреватель серверов** нажмите кнопку **Подключение к Azure**. Другой способ: щелкните правой кнопкой мыши узел **Azure**, а затем выберите пункт **Подключение к Azure** в контекстном меню.
 
-   * Install a management certificate that enables access to your account.
+   * Установите сертификат управления, обеспечивающий доступ к вашей учетной записи.
 
-     In **Server Explorer**, right-click the **Azure** node, and then click **Manage Subscriptions** in the context menu. In the **Manage Azure Subscriptions** dialog box, click the **Certificates** tab, and then click **Import**. Follow the directions to download and then import a subscription file (also called a *.publishsettings* file) for your Azure account.
+     В **обозревателе серверов** щелкните правой кнопкой мыши узел **Azure**, а затем выберите пункт **Управление подписками** в контекстном меню. В диалоговом окне **Управление подписками Azure** откройте вкладку **Сертификаты**, а затем щелкните **Импорт**. Следуя указаниям, загрузите и импортируйте файл подписки \(файл *.publishsettings*\) для вашей учетной записи Azure.
 
-     > [AZURE.NOTE] Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Azure services.
+     > [AZURE.NOTE] Загрузите файл подписки в папку, не входящую в структуру каталогов с исходными кодами \(например, в папку "Загрузки"\), а затем удалите его сразу после завершения импорта. Злоумышленник, получивший доступ к файлу подписки, сможет изменять, создавать и удалять ваши службы Azure.
 
-	For more information, see [How to Connect to Azure from Visual Studio](http://go.microsoft.com/fwlink/?LinkId=324796).
+	Дополнительные сведения см. в разделе [Подключение к Azure из Visual Studio](http://go.microsoft.com/fwlink/?LinkId=324796).
+
+<!---HONumber=AcomDC_0413_2016-->

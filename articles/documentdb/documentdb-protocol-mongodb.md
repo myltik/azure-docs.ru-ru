@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Поддержка протокола DocumentDB для MongoDB | Microsoft Azure" 
 	description="Сведения о поддержке протокола DocumentDB для MongoDB, которая теперь доступна в предварительной версии." 
-	keywords="протокол mongodb, mongodb"
+	keywords="протокол mongodb, mongodb, база данных mongo"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -13,7 +13,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="03/31/2016" 
 	ms.author="stbaro"/>
 
@@ -36,11 +36,11 @@
 1. Войдите на [портал Azure](https://portal.azure.com).
 2. Последовательно щелкните **Создать**, **Данные+хранилище**, **Просмотреть все**, **Дополнительно**, затем выберите **DocumentDB — поддержка протокола для MongoDB**.
 
-	![Снимок экрана: Marketplace и колонка "Данные+хранилище" с выделенным элементом "DocumentDB — поддержка протокола для MongoDB"](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
+	![Снимок экрана: колонки "Marketplace" и "Данные+хранилище" с выделенным элементом "DocumentDB — поддержка протокола для MongoDB" \(база данных Mongo\)](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
 
 3. Или выполните поиск по запросу "Протокол DocumentDB" в категории **Данные+хранилище**.
 
-	![Снимок экрана: Marketplace и поиск в колонке "Данные+хранилище" с выделенным элементом "DocumentDB — поддержка протокола для MongoDB"](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
+	![Снимок экрана: колонки поиска "Marketplace" и "Данные+хранилище" с выделенным элементом "DocumentDB — поддержка протокола для MongoDB" \(база данных Mongo\)](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
 
 4. Щелкните **Создать**, чтобы начать регистрацию в предварительной версии.
 
@@ -56,4 +56,4 @@
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

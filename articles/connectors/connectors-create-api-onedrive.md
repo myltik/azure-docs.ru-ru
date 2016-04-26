@@ -30,7 +30,7 @@ ms.author="mandia"/>
 
 &nbsp;
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview. Чтобы узнать версию схемы 2014-12-01-preview, щелкните [API OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
 С помощью OneDrive вы можете:
 
@@ -312,4 +312,4 @@ API OneDrive предоставляет следующие триггеры и �
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

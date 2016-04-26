@@ -2,7 +2,7 @@
 
 В этом разделе мы напишем приложение на языке C для отправки событий в концентратор событий. Мы воспользуемся библиотекой Proton AMQP из [проекта Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке C, как показано [здесь](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Дополнительную информацию см. в [документации по Qpid Proton](http://qpid.apache.org/proton/index.html).
 
-1. На [странице Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) щелкните ссылку **Установка Qpid Proton** и следуйте инструкциям в зависимости от среды. Предполагается, что используется среда Linux, например [виртуальная машина Linux в Azure](../articles/virtual-machines/virtual-machines-linux-cli-create.md) с Ubuntu 14.04.
+1. На [странице Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) щелкните ссылку **Установка Qpid Proton** и следуйте инструкциям в зависимости от среды. Предполагается, что используется среда Linux, например [виртуальная машина Linux в Azure](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) с Ubuntu 14.04.
 
 2. Для компиляции библиотеки Proton установите следующие пакеты.
 
@@ -27,12 +27,12 @@
 	sudo make install
 	```
 
-5. В рабочем каталоге создайте новый файл с именем **sender.c** со следующим содержимым. Не забудьте заменить значение для имени концентратора событий и пространства имен (последнее обычно представляется как `{event hub name}-ns`). Также необходимо заменить версию ключа **SendRule**, закодированную как URL-адрес, созданную ранее. Выполнить кодировку как URL-адрес можно [здесь](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. В рабочем каталоге создайте новый файл с именем **sender.c** со следующим содержимым. Не забудьте заменить значение для имени концентратора событий и пространства имен \(последнее обычно представляется как `{event hub name}-ns`\). Также необходимо заменить версию ключа **SendRule**, закодированную как URL-адрес, созданную ранее. Выполнить кодировку как URL-адрес можно [здесь](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 	```
 	#include "proton/message.h"
 	#include "proton/messenger.h"
-	
+
 	#include <getopt.h>
 	#include <proton/util.h>
 	#include <sys/time.h>
@@ -41,7 +41,7 @@
 	#include <string.h>
 	#include <unistd.h>
 	#include <stdlib.h>
-	
+
 	#define check(messenger)                                                     \
 	  {                                                                          \
 	    if(pn_messenger_errno(messenger))                                        \
@@ -50,61 +50,61 @@
 	      die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); \
 	    }                                                                        \
 	  }  
-	
+
 	pn_timestamp_t time_now(void)
 	{
 	  struct timeval now;
 	  if (gettimeofday(&now, NULL)) pn_fatal("gettimeofday failed\n");
 	  return ((pn_timestamp_t)now.tv_sec) * 1000 + (now.tv_usec / 1000);
 	}  
-	
+
 	void die(const char *file, int line, const char *message)
 	{
 	  printf("Dead\n");
 	  fprintf(stderr, "%s:%i: %s\n", file, line, message);
 	  exit(1);
 	}
-	
+
 	int sendMessage(pn_messenger_t * messenger) {
 		char * address = (char *) "amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.windows.net/{event hub name}";
 		char * msgtext = (char *) "Hello from C!";
-	
+
 		pn_message_t * message;
 		pn_data_t * body;
 		message = pn_message();
-	
+
 		pn_message_set_address(message, address);
 		pn_message_set_content_type(message, (char*) "application/octect-stream");
 		pn_message_set_inferred(message, true);
-	
+
 		body = pn_message_body(message);
 		pn_data_put_binary(body, pn_bytes(strlen(msgtext), msgtext));
-	
+
 		pn_messenger_put(messenger, message);
 		check(messenger);
 		pn_messenger_send(messenger, 1);
 		check(messenger);
-	
+
 		pn_message_free(message);
 	}
-	
+
 	int main(int argc, char** argv) {
 		printf("Press Ctrl-C to stop the sender process\n");
-	
+
 		pn_messenger_t *messenger = pn_messenger(NULL);
 		pn_messenger_set_outgoing_window(messenger, 1);
 		pn_messenger_start(messenger);
-	
+
 		while(true) {
 			sendMessage(messenger);
 			printf("Sent message\n");
 			sleep(1);
 		}
-	
+
 		// release messenger resources
 		pn_messenger_stop(messenger);
 		pn_messenger_free(messenger);
-	
+
 		return 0;
 	}
 	```
@@ -115,6 +115,6 @@
 	gcc sender.c -o sender -lqpid-proton
 	```
 
-> [AZURE.NOTE] В приведенном выше коде окно отправки, равное 1, используется для скорейшей принудительной отправки сообщений. Обычно приложение предпримет попытку сгруппировать сообщения для увеличения пропускной способности. Дополнительную информацию о том, как использовать библиотеку Qpid Proton в этой и других средах, а также из платформ, для которых предоставляются привязки (в настоящее время Perl, PHP, Python и Ruby), см. на странице [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html).
+> [AZURE.NOTE] В приведенном выше коде окно отправки, равное 1, используется для скорейшей принудительной отправки сообщений. Обычно приложение предпримет попытку сгруппировать сообщения для увеличения пропускной способности. Дополнительную информацию о том, как использовать библиотеку Qpid Proton в этой и других средах, а также из платформ, для которых предоставляются привязки \(в настоящее время Perl, PHP, Python и Ruby\), см. на странице [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

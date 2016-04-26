@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/08/2016"
+   ms.date="04/06/2016"
    ms.author="seanmck"/>
 
 # Устранение неполадок в работе кластера локальной разработки
@@ -45,11 +45,13 @@
 
 #### Проблема
 
-Попытка запустить командлеты Service Fabric PowerShell, например `Connect-ServiceFabricCluster` в окне Azure PowerShell, не удается, с сообщением о том, что командлет не распознан. Причина в том, что Azure PowerShell использует 32-разрядную версию Windows PowerShell (даже на 64-разрядной версии ОС), а командлеты Service Fabric работают только в 64-разрядной среде.
+Попытка запустить командлеты Service Fabric PowerShell, например `Connect-ServiceFabricCluster` в окне Azure PowerShell, не удается, с сообщением о том, что командлет не распознан. Причина в том, что Azure PowerShell использует 32-разрядную версию Windows PowerShell \(даже на 64-разрядной версии ОС\), а командлеты Service Fabric работают только в 64-разрядной среде.
 
 #### Решение
 
 Всегда запускайте командлеты Service Fabric непосредственно из Windows PowerShell.
+
+>[AZURE.NOTE] Последняя версия Azure PowerShell не создает специальный ярлык, поэтому так больше не должно происходить.
 
 ### Исключение типа инициализации
 
@@ -96,4 +98,4 @@
 - [Обзор и диагностика кластера с помощью системных отчетов о работоспособности](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

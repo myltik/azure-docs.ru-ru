@@ -2,7 +2,7 @@
     pageTitle="Учебник. Интеграция Azure Active Directory с SuccessFactors | Microsoft Azure"
     description="Узнайте, как использовать SuccessFactors с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с SuccessFactors
   
@@ -22,7 +22,7 @@
 -   Действующая подписка на Azure
 -   Подписка SuccessFactors с поддержкой единого входа в режиме инициирования поставщиком услуг.
   
-После завершения этого руководства пользователи Azure AD, назначенные SuccessFactors, будут иметь возможность единого входа в приложение на сайте компании SuccessFactors (вход, инициированный поставщиком услуг) или с помощью указаний из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+После завершения этого руководства пользователи Azure AD, назначенные SuccessFactors, будут иметь возможность единого входа в приложение на сайте компании SuccessFactors \(вход, инициированный поставщиком услуг\) или с помощью указаний из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
@@ -73,7 +73,7 @@
 
 ###Чтобы настроить единый вход, выполните следующие действия:
 
-1.  На странице интеграции с приложением **SuccessFactors** портала Azure AD щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  На странице интеграции с приложением **SuccessFactors** портала Azure AD щелкните **Настройка единого входа**, чтобы открыть диалоговое окно \*\*Настройка единого входа\*\*.
 
     ![Настройка единого входа](./media/active-directory-saas-successfactors-tutorial/IC791138.png "Настройка единого входа")
 
@@ -85,8 +85,8 @@
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Настройка URL-адреса приложения")
 
-    1.  В текстовом поле **URL-адрес для входа в SuccessFactors** введите URL-адрес, используемый пользователями для входа в приложение SuccessFactors (например, *https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
-    2.  В текстовом поле **URL-адрес ответа SuccessFactors** введите **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+    1.  В текстовом поле **URL-адрес для входа в SuccessFactors** введите URL-адрес, используемый пользователями для входа в приложение SuccessFactors \(например, \**https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*")\).
+2.  В текстовом поле **URL-адрес ответа SuccessFactors** введите \*\***https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
         >[AZURE.NOTE]Это только временный заполнитель.  
         >Фактическое значение можно получить у группы поддержки SuccessFactors.  
@@ -103,7 +103,7 @@
     2.  URL-адрес удаленного входа;
     3.  URL-адрес удаленного выхода.
 
-    >[AZURE.IMPORTANT]Попросите группу поддержки SuccessFactors задать для формата NameId значение *Не указан*.
+    >[AZURE.IMPORTANT] Попросите группу поддержки SuccessFactors задать для формата NameId значение *Не указан*.
 
     Группа поддержки Successfactors отправит правильный **URL-адрес ответа Successfactors**, необходимый для диалогового окна **Настройка URL-адреса приложения**.
 
@@ -126,7 +126,7 @@
 
 1.  На портале Azure AD создайте тестовую учетную запись.
 
-2.  На странице интеграции с приложением **SuccessFactors** нажмите кнопку **Назначить пользователей**.
+2.  На странице интеграции с приложением \*\*SuccessFactors\*\* нажмите кнопку **Назначить пользователей**.
 
     ![Назначить пользователей](./media/active-directory-saas-successfactors-tutorial/IC791143.png "Назначить пользователей")
 
@@ -136,4 +136,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!-----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

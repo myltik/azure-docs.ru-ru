@@ -35,7 +35,9 @@
 
 ИЛИ
 
-* [Интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli-install.md).
+* [Azure CLI](../xplat-cli-install.md).
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##Что такое SSH?
 
@@ -116,15 +118,15 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 В сеансе терминала воспользуйтесь командой SSH для подключения к головному узлу кластера, указав имя пользователя и адрес.
 
-* **Адрес SSH** — к кластеру можно подключиться, используя два адреса SSH.
+* **Адрес SSH**. К кластеру можно подключиться, используя один из двух адресов SSH.
 
-    * **Подключение к головному узлу** — это имя кластера с добавленным в конце суффиксом **-ssh.azurehdinsight.net**. Например, **mycluster-ssh.azurehdinsight.net**.
+    * **Подключение к головному узлу**. Это имя кластера с добавленным в конце суффиксом **-ssh.azurehdinsight.net**. Например, **mycluster-ssh.azurehdinsight.net**.
     
     * **Подключение к граничному узлу**. Если используется кластер сервера R в HDInsight, кластер также будет содержать граничный узел, доступ к которому можно получить с помощью адреса **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, где __CLUSTERNAME__ — имя кластера.
 
 * **Имя пользователя** — имя пользователя SSH, указанное при создании кластера.
 
-В следующем примере выполняется подключение к головному кластеру 0 **mycluster** с именем пользователя **me**:
+В следующем примере выполняется подключение к головному узлу 0 кластера **mycluster** с именем пользователя **me**.
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -243,4 +245,4 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

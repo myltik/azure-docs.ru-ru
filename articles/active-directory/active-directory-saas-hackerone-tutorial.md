@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Руководство по интеграции Azure Active Directory с Novatus | Microsoft Azure"
+	pageTitle="Руководство. Интеграция Azure Active Directory с HackerOne | Microsoft Azure"
 	description="Узнайте, как настроить единый вход Azure Active Directory в HackerOne."
 	services="active-directory"
 	documentationCenter=""
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
 # Учебник. Интеграция Azure Active Directory с HackerOn
 
-В этом учебнике описано, как интегрировать HackerOn с Azure Active Directory (Azure AD).
+В этом учебнике описано, как интегрировать HackerOn с Azure Active Directory \(Azure AD\).
 
 Интеграция HackerOn с Azure AD дает приведенные далее преимущества:
 
 - С помощью Azure AD вы можете контролировать доступ к HackerOn.
-- Вы можете включить автоматический вход пользователей в HackerOn (единый вход) под учетной записью Azure AD.
+- Вы можете включить автоматический вход пользователей в HackerOn \(единый вход\) под учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
@@ -33,7 +33,7 @@
 
 Чтобы настроить интеграцию Azure AD с HackerOn, вам потребуется:
 
-- подписка Azure AD;
+- Подписка Azure
 - подписка с поддержкой единого входа HackerOn.
 
 
@@ -86,6 +86,8 @@
 
 В данном разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении HackerOne.
 
+В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+
 **Чтобы настроить единый вход Azure AD в HackerOne, выполните следующие действия:**
 
 1. На странице интеграции с приложением **HackerOne** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**. <br><br> ![Настройка единого входа][6] <br>
@@ -95,29 +97,49 @@
 3. На странице **Настройка параметров приложения** выполните следующие действия, а затем нажмите кнопку **Далее**. <br><br>![Настройка единого входа](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_04.png) <br>
 
 
-    а. В текстовое поле "URL-адрес входа" введите URL-адрес, используемый для входа в приложение HackerOne, в формате **"https://hackerone.com/companyname/authentication"**. Значение **companyname** в ссылке необходимо заменить фактическим именем.<br>
+    а. В текстовое поле **URL-адрес входа** введите URL-адрес, используемый для входа в приложение HackerOne, по следующей схеме: **https://hackerone.com/\<имя\_компании\>/authentication**.
 
-	b. В текстовом поле "Идентификатор" введите URL-адрес клиента. Чтобы получить URL-адрес клиента, обратитесь в службу поддержки HackerOne через support@hackerone.com.
+    b. Обратитесь к группе поддержки HackerOne по адресу [support@hackerone.com](mailto:support@hackerone.com), чтобы получить URL-адрес клиента, если он вам неизвестен.
 
-	c. Нажмите кнопку **Далее**.
+	c. В текстовом поле **Идентификатор** введите URL-адрес клиента.
+
+	г\) Нажмите кнопку **Далее**.
 
 
-4. На странице **Настройка единого входа в HackerOne** выполните следующие действия и нажмите кнопку **Готово**. <br><br>![Настройка единого входа](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_05.png) <br>
+4. На странице **Настройка единого входа в HackerOne** выполните следующие действия и нажмите кнопку **Далее**. <br><br>![Настройка единого входа](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_05.png) <br>
 
     а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
 
     b. Нажмите кнопку **Далее**.
 
 
-5. Для получения единого входа, настроенного для вашего приложения, необходимо войти в клиент HackerOne в качестве администратора.
+1. Войдите в клиент HackerOne как администратор.
+
+1. В верхнем меню щелкните **Settings** \(Параметры\).<br><br>![Настройка единого входа](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+
+1. Перейдите к разделу **Authentication** \(Аутентификация\) и щелкните **Add SAML settings** \(Добавить параметры SAML\).<br><br>![Настройка единого входа](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+
+
+1. В диалоговом окне **SAML SSO Settings** \(Параметры единого входа SAML\) выполните следующие действия. <br><br>![Настройка единого входа](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br>
+
+    а. Введите имя зарегистрированного домена в поле **Email Domain** \(Домен электронной почты\).
+
+	b. На классическом портале Azure скопируйте **URL-адрес службы единого входа** и вставьте его в текстовое поле "Single Sign On URL" \(URL-адрес единого входа\).
+
+    c. Создайте файл в кодировке **Base-64** из загруженного сертификата.
+
+       >[AZURE.TIP] Подробности см. в видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
 	
-	а. Перейдите к панели мониторинга и нажмите кнопку **Параметры** в верхнем правом углу страницы.<br><br>![Настройка единого входа](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+    г\) Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте в текстовое поле **X509 Certificate** \(Сертификат X509\).
 
-	b. Затем перейдите к разделу **Проверка подлинности** и нажмите кнопку **Добавить параметры SAML**.<br><br>![Настройка единого входа](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+    д. Щелкните **Save** \(Сохранить\).
 
-	c. Заполните форму **Параметры SAML**.<br><br>![Настройка единого входа](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br> c1. Введите имя зарегистрированного домена в поле **Домен электронной почты**. По вопросу регистрации домена в HackerOne обратитесь в support@hackerone.com.<br><br> c2. Скопируйте URL-адрес службы единого входа из Azure AD в поле **URL-адрес единого входа** в HackerOne.<br><br>![Настройка единого входа](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_006.png) <br> c3. Преобразуйте скачанный сертификат в файл base64, откройте его в блокноте, скопируйте и вставьте в поле **Сертификат X509** в HackerOne.<br>
 
-	г) Нажмите кнопку **Сохранить**.<br><br> e. Нажмите кнопку **Выполнить тест** и убедитесь, что тест выполняется. Запросите проверку параметров SAML в службе поддержки HackerOne через support@hackerone.com, после чего параметры будут утверждены.<br><br>![Настройка единого входа](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+1. В диалоговом окне "Authentication Settings" \(Параметры аутентификации\) сделайте следующее. <br><br>![Настройка единого входа](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+
+    а. Щелкните **Run test** \(Выполнить проверку\).
+
+    b. Если поле **Status** \(Состояние\) имеет значение **Last test status: created** \(Состояние при последней проверке: создан\), обратитесь к группе поддержки HackerOne по адресу [support@hackerone.com](mailto:support@hackerone.com), чтобы запросить проверку своей конфигурации.
 
 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**. <br><br>![Единый вход в Azure AD][10]<br>
@@ -156,7 +178,7 @@
 
     c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
 
-    г) В списке **Роль** выберите **Пользователь**.
+    г\) В списке **Роль** выберите **Пользователь**.
 
     д. Нажмите кнопку **Далее**.
 
@@ -182,7 +204,7 @@
 
 ### Назначение тестового пользователя Azure AD
 
-В этом разделе описано, как позволить пользователю Britta Simon применить единый вход Azure, предоставив ей доступ к HackerOne. <br><br>![Назначение пользователя][200] <br>
+В этом разделе описано, как позволить пользователю Britta Simon применять единый вход Azure, предоставив ему доступ к HackerOne. <br><br>![Назначение пользователя][200] <br>
 
 **Чтобы назначить пользователя Britta Simon в HackerOne, выполните следующие действия:**
 
@@ -227,4 +249,4 @@
 [204]: ./media/active-directory-saas-hackerone-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hackerone-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Развертывание виртуальных машин с несколькими сетевыми адаптерами с помощью шаблона в диспетчере ресурсов | Microsoft Azure"
    description="Дополнительные сведения о развертывании виртуальных машин с несколькими сетевыми адаптерами с помощью шаблона в диспетчере ресурсов"
    services="virtual-network"
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-deploy-multinic-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model]\(virtual-network-deploy-multinic-classic-ps.md\).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -83,7 +83,7 @@
 	      },
 
 6. Обратите внимание, что **vmSize** содержит значение *Standard\_DS3*. С несколькими сетевыми адаптерами разрешается использовать только определенные размеры виртуальных машин. Доступные для нескольких сетевых адаптеров размеры виртуальных машин можно найти в разделе [Обзор нескольких сетевых адаптеров](virtual-networks-multiple-nics.md).
-7. Прокрутите вниз до **ресурсов** и обратите внимание на первый элемент. Он описывает учетную запись хранения. Эта учетная запись хранения будет использоваться для дисков данных, используемых в каждой виртуальной машине баз данных. В этом сценарии у каждой виртуальной машины баз данных есть диск ОС, который размещен в обычном хранилище, и два диска данных, размещенных в хранилище SSD (хранилище класса Premium).
+7. Прокрутите вниз до **ресурсов** и обратите внимание на первый элемент. Он описывает учетную запись хранения. Эта учетная запись хранения будет использоваться для дисков данных, используемых в каждой виртуальной машине баз данных. В этом сценарии у каждой виртуальной машины баз данных есть диск ОС, который размещен в обычном хранилище, и два диска данных, размещенных в хранилище SSD \(хранилище класса Premium\).
 
 	    {
 	      "apiVersion": "2015-05-01-preview",
@@ -213,7 +213,7 @@
 
 > [AZURE.IMPORTANT] Перед выполнением следующих действий убедитесь, что вы выполнили [предварительные требования](#Pre-requisites).
 
-Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [этой ссылке](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC), щелкните **Развернуть в Azure** справа от **Группы внутренних ресурсов (см. документацию)**, при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
+Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [этой ссылке](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC), щелкните **Развернуть в Azure** справа от **Группы внутренних ресурсов \(см. документацию\)**, при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
 
 На следующем рисунке показано содержимое новой группы ресурсов после развертывания.
 
@@ -229,20 +229,20 @@
 
 		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'	
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'
 
 	Ожидаемые выходные данные:
 
 		ResourceGroupName : IaaSStory-Backend
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
-		Permissions       : 
+		Tags              :
+		Permissions       :
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *                  
-		                    
-		Resources         : 
+
+		Resources         :
 		                    Name                 Type                                 Location
 		                    ===================  ===================================  ========
 		                    ASDB                 Microsoft.Compute/availabilitySets   westus  
@@ -253,14 +253,14 @@
 		                    NICDB-RA-1           Microsoft.Network/networkInterfaces  westus  
 		                    NICDB-RA-2           Microsoft.Network/networkInterfaces  westus  
 		                    wtestvnetstorageprm  Microsoft.Storage/storageAccounts    westus  
-		                    
+
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
 
 ## Развертывание шаблона с помощью интерфейса командной строки Azure
 
 Чтобы развернуть шаблон с помощью интерфейса командной строки Azure, выполните следующие действия.
 
-1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](xplat-cli.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Выполните команду **`azure config mode`**, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
 		azure config mode arm
@@ -292,4 +292,4 @@
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

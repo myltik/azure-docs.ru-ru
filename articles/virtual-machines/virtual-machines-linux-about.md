@@ -28,6 +28,8 @@
 
 Эта таблица поможет сравнить варианты, предлагаемые Azure.
 
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## Дальнейшие действия
@@ -42,4 +44,4 @@
 [Виртуальные машины]: #tellmevm
 [Облачные службы]: cloud-services-choose-me.md
 
-<!-----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

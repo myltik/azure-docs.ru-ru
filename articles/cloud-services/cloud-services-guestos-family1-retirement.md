@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Уведомление о прекращении использования семейства версий 1 гостевой операционной системы | Microsoft Azure" 
-   description="Содержит сведения о времени прекращения использования семейства версий 1 гостевой операционной системы и о том, как определить, повлияло ли это на вас" 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="yuemlu" 
-   manager="timlt" 
+<properties
+   pageTitle="Уведомление о прекращении использования семейства версий 1 гостевой операционной системы | Microsoft Azure"
+   description="Содержит сведения о времени прекращения использования семейства версий 1 гостевой операционной системы и о том, как определить, повлияло ли это на вас"
+   services="cloud-services"
+   documentationCenter="na"
+   authors="yuemlu"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
+   ms.workload="tbd"
    ms.date="12/07/2015"
    ms.author="yuemlu"/>
 
@@ -35,17 +35,17 @@
 
 Это влияет на ваши облачные службы в одном из следующих случаев:
 
-1. Если явным образом указано значение "osFamily = "1" в файле ServiceConfiguration.cscfg облачной службы. 
+1. Если явным образом указано значение "osFamily = "1" в файле ServiceConfiguration.cscfg облачной службы.
 2. Если не указано явным образом значение для osFamily в файле ServiceConfiguration.cscfg облачной службы. В настоящий момент в такой ситуации системой используется значение по умолчанию, равное "1".
 3. На классическом портале Azure в качестве семейства версий вашей операционной системы на виртуальной машине указано "Windows Server 2008".
 
-Чтобы узнать, какие облачные службы работают под управлением какого семейства версий ОС, можно запустить указанный ниже сценарий в Azure PowerShell, однако сначала необходимо [настроить Azure PowerShell](../install-configure-powershell.md). Дополнительную информацию о сценарии см. в разделе [Окончание срока жизни семейства версий 1 гостевой ОС Azure, июнь 2014 г.](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)
+Чтобы узнать, какие облачные службы работают под управлением какого семейства версий ОС, можно запустить указанный ниже сценарий в Azure PowerShell, однако сначала необходимо [настроить Azure PowerShell](../powershell-install-configure.md). Дополнительную информацию о сценарии см. в разделе [Окончание срока жизни семейства версий 1 гостевой ОС Azure, июнь 2014 г.](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
-    Select-AzureSubscription -SubscriptionName $subscription.SubscriptionName 
-    
-    $deployments=get-azureService | get-azureDeployment -ErrorAction Ignore | where {$_.SdkVersion -NE ""} 
+    Select-AzureSubscription -SubscriptionName $subscription.SubscriptionName
+
+    $deployments=get-azureService | get-azureDeployment -ErrorAction Ignore | where {$_.SdkVersion -NE ""}
 
     $deployments | ft @{Name="SubscriptionName";Expression={$subscription.SubscriptionName}}, ServiceName, SdkVersion, Slot, @{Name="osFamily";Expression={(select-xml -content $_.configuration -xpath "/ns:ServiceConfiguration/@osFamily" -namespace $namespace).node.value }}, osVersion, Status, URL
 }
@@ -57,7 +57,7 @@ foreach($subscription in Get-AzureSubscription) {
 
 Рекомендуется перенести роли облачных служб в одно из поддерживаемых семейств версий гостевой ОС:
 
-**Семейство версий 4.x гостевой ОС** — Windows Server 2012 R2 *(рекомендуется)*
+**Семейство версий 4.x гостевой ОС** — Windows Server 2012 R2 *\(рекомендуется\)*
 
 1. Убедитесь, что приложение использует пакет SDK 2.1 или более поздней версии с платформой .NET Framework 4.0, 4.5 или 4.5.1.
 2. Задайте для атрибута "osFamily" значение "4" в файле ServiceConfiguration.cscfg и повторно разверните облачную службу.
@@ -65,13 +65,13 @@ foreach($subscription in Get-AzureSubscription) {
 
 **Семейство версий 3.x гостевой ОС** — Windows Server 2012
 
-1. Убедитесь, что приложение использует пакет SDK 1.8 или более поздней версии с платформой .NET Framework 4.0 или 4.5. 
+1. Убедитесь, что приложение использует пакет SDK 1.8 или более поздней версии с платформой .NET Framework 4.0 или 4.5.
 2. Задайте для атрибута osFamily значение «3» в файле ServiceConfiguration.cscfg и повторно разверните облачную службу.
 
 
 **Семейство версий 2.x гостевой ОС** — Windows Server 2008 R2
 
-1. Убедитесь, что приложение использует пакет SDK 1.3 или более поздней версии с платформой .NET Framework 3.5 или 4.0. 
+1. Убедитесь, что приложение использует пакет SDK 1.3 или более поздней версии с платформой .NET Framework 3.5 или 4.0.
 2. Задайте для атрибута "osFamily" значение "2" в файле ServiceConfiguration.cscfg и повторно разверните облачную службу.
 
 
@@ -81,4 +81,4 @@ foreach($subscription in Get-AzureSubscription) {
 ## Дальнейшие действия
 Просмотрите последние [выпуски гостевой ОС](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

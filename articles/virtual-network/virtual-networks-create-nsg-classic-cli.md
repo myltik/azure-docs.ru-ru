@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Как создавать сетевые группы безопасности в классическом режиме с помощью интерфейса командной строки Azure | Microsoft Azure"
    description="Узнайте, как создавать и развертывать сетевые группы безопасности в классическом режиме, используя интерфейс командной строки Azure"
    services="virtual-network"
@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-service-management"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -17,7 +17,7 @@
    ms.date="02/02/2016"
    ms.author="telmos" />
 
-# Как создавать сетевые группы безопасности (в классическом режиме) в интерфейсе командной строки Azure
+# Как создавать сетевые группы безопасности \(в классическом режиме\) в интерфейсе командной строки Azure
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
@@ -32,7 +32,7 @@
 ## Как создавать сетевую группу безопасности для подсети переднего плана
 Чтобы создать сетевую группу безопасности под названием **NSG-FrontEnd** по описанному выше сценарию, выполните указанные ниже действия.
 
-1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 
 2. Запустите команду **`azure config mode`**, чтобы перейти в классический режим, как показано ниже.
 
@@ -74,10 +74,10 @@
 
 	Параметры
 
-	- **-l (или --location)**. Регион Azure, в котором будет создана сетевая группа безопасности. В нашем случае это *westus*.
-	- **-n (или --name)**. Имя для новой сетевой группы безопасности. В данном сценарии это *NSG-FrontEnd*.
+	- **-l \(или --location\)**. Регион Azure, в котором будет создана сетевая группа безопасности. В нашем случае это *westus*.
+	- **-n \(или --name\)**. Имя для новой сетевой группы безопасности. В данном сценарии это *NSG-FrontEnd*.
 
-4. Выполните команду **`azure network nsg rule create`**, чтобы создать правило, которое разрешает доступ к точке 3389 (RDP) из Интернета.
+4. Выполните команду **`azure network nsg rule create`**, чтобы создать правило, которое разрешает доступ к точке 3389 \(RDP\) из Интернета.
 
 		azure network nsg rule create -a NSG-FrontEnd -n rdp-rule -c Allow -p Tcp -r Inbound -y 100 -f Internet -o * -e * -u 3389
 
@@ -100,18 +100,18 @@
 
 	Параметры
 
-	- **-a (или --nsg-name)**. Имя сетевой группы безопасности, в которой будет создано правило. В данном сценарии это *NSG-FrontEnd*.
-	- **-n (или --name)**. Имя нового правила. В данном сценарии это *rdp-rule*.
-	- **-c (или --action)**. Уровень доступа для правила (Deny или Allow).
-	- **-p (или --protocol)**. Протокол (Tcp, Udp или *) для правила.
-	- **-r (или --type)**. Направление подключения (Inbound или Outbound).
-	- **-y (или --priority)**. Приоритет правила.
-	- **-f (или --source-address-prefix)**. Префикс адреса источника в CIDR или использование тегов по умолчанию.
-	- **-o (или --source-port-range)**. Исходный порт или диапазон портов.
-	- **-e (или --destination-address-prefix)**. Префикс адреса назначения в CIDR или использование тегов по умолчанию.
-	- **-u (или --destination-port-range)**. Конечный порт или диапазон портов.	
+	- **-a \(или --nsg-name\)**. Имя сетевой группы безопасности, в которой будет создано правило. В данном сценарии это *NSG-FrontEnd*.
+	- **-n \(или --name\)**. Имя нового правила. В данном сценарии это *rdp-rule*.
+	- **-c \(или --action\)**. Уровень доступа для правила \(Deny или Allow\).
+	- **-p \(или --protocol\)**. Протокол \(Tcp, Udp или \*\) для правила.
+	- **-r \(или --type\)**. Направление подключения \(Inbound или Outbound\).
+	- **-y \(или --priority\)**. Приоритет правила.
+	- **-f \(или --source-address-prefix\)**. Префикс адреса источника в CIDR или использование тегов по умолчанию.
+	- **-o \(или --source-port-range\)**. Исходный порт или диапазон портов.
+	- **-e \(или --destination-address-prefix\)**. Префикс адреса назначения в CIDR или использование тегов по умолчанию.
+	- **-u \(или --destination-port-range\)**. Конечный порт или диапазон портов.
 
-5. Выполните команду **`azure network nsg rule create`**, чтобы создать правило, которое разрешает доступ к порту 80 (HTTP) из Интернета.
+5. Выполните команду **`azure network nsg rule create`**, чтобы создать правило, которое разрешает доступ к порту 80 \(HTTP\) из Интернета.
 
 		azure network nsg rule create -a NSG-FrontEnd -n web-rule -c Allow -p Tcp -r Inbound -y 200 -f Internet -o * -e * -u 80
 
@@ -134,7 +134,7 @@
 
 6. Выполните команду **`azure network nsg subnet add`**, чтобы связать сетевую группу безопасности с подсетью переднего плана.
 
-		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd 
+		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd
 
 	Ожидаемые выходные данные:
 
@@ -180,10 +180,10 @@
 
 	Параметры
 
-	- **-l (или --location)**. Регион Azure, в котором будет создана сетевая группа безопасности. В нашем случае это *westus*.
-	- **-n (или --name)**. Имя для новой сетевой группы безопасности. В данном сценарии это *NSG-FrontEnd*.
+	- **-l \(или --location\)**. Регион Azure, в котором будет создана сетевая группа безопасности. В нашем случае это *westus*.
+	- **-n \(или --name\)**. Имя для новой сетевой группы безопасности. В данном сценарии это *NSG-FrontEnd*.
 
-4. Выполните команду **`azure network nsg rule create`**, чтобы создать правило, которое разрешает доступ к порту 1433 (SQL) из подсети переднего плана.
+4. Выполните команду **`azure network nsg rule create`**, чтобы создать правило, которое разрешает доступ к порту 1433 \(SQL\) из подсети переднего плана.
 
 		azure network nsg rule create -a NSG-BackEnd -n sql-rule -c Allow -p Tcp -r Inbound -y 100 -f 192.168.1.0/24 -o * -e * -u 1433
 
@@ -228,7 +228,7 @@
 
 6. Выполните команду **`azure network nsg subnet add`**, чтобы связать сетевую группу безопасности с внутренней подсетью.
 
-		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd 
+		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd
 
 	Ожидаемые выходные данные:
 
@@ -239,4 +239,4 @@
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="04/07/2016"
      ms.author="dobett"/>
 
 # Создание центра IoT с помощью PowerShell
@@ -22,7 +22,7 @@
 
 ## Введение
 
-Диспетчер ресурсов Azure (ARM) можно использовать для создания центров Azure IoT и управления ими программным способом. В этом учебнике показано, как использовать шаблон Resource Manager для создания центра IoT с помощью PowerShell.
+Диспетчер ресурсов Azure \(ARM\) можно использовать для создания центров Azure IoT и управления ими программным способом. В этом учебнике показано, как использовать шаблон Resource Manager для создания центра IoT с помощью PowerShell.
 
 > [AZURE.NOTE] В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../resource-manager-deployment-model.md). В этой статье описывается использование модели развертывания на основе диспетчера ресурсов.
 
@@ -58,7 +58,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 Используйте шаблон JSON для создания нового центра IoT в группе ресурсов. Можно также использовать шаблон для изменения существующего центра IoT.
 
-1. Используйте текстовый редактор для создания шаблона ARM с именем **template.json** с помощью следующего определения ресурса для создания стандартного центра IoT. В этом примере центр IoT добавляется в регион **Восточная часть США** и используется API версии **2016-02-03**. При использовании этого шаблона нужно передать имя центра IoT в качестве параметра с именем **hubName**.
+1. Используйте текстовый редактор для создания шаблона ARM с именем **template.json** с помощью следующего определения ресурса для создания стандартного центра IoT. В этом примере в регион **Восток США** добавляется центр IoT, создаются две группы потребителей \(**cg1** и **cg2**\) для конечной точки, совместимой с концентраторами событий, и используется версия API **2016-02-03**. При использовании этого шаблона нужно передать имя центра IoT в качестве параметра с именем **hubName**.
 
     ```
     {
@@ -83,6 +83,22 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
         "properties": {
           "location": "East US"
         }
+      },
+      {
+        "apiVersion": "2016-02-03",
+        "type": "Microsoft.Devices/IotHubs/eventhubEndpoints/ConsumerGroups",
+        "name": "[concat(parameters('hubName'), '/events/cg1')]",
+        "dependsOn": [
+          "[concat('Microsoft.Devices/Iothubs/', parameters('hubName'))]"
+        ]
+      },
+      {
+        "apiVersion": "2016-02-03",
+        "type": "Microsoft.Devices/IotHubs/eventhubEndpoints/ConsumerGroups",
+        "name": "[concat(parameters('hubName'), '/events/cg2')]",
+        "dependsOn": [
+          "[concat('Microsoft.Devices/Iothubs/', parameters('hubName'))]"
+        ]
       }
       ],
       "outputs": {
@@ -96,7 +112,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 2. Сохраните файл шаблона на локальном компьютере. В этом примере предполагается, что файл сохраняется в папке **c:\\templates**.
 
-3. Выполните следующую команду, чтобы развернуть новый центр IoT, передав в качестве параметра имя центра IoT. В этом примере центру IoT задано имя **myiothub**.
+3. Выполните следующую команду, чтобы развернуть новый центр IoT, передав в качестве параметра имя центра IoT. В данном примере имя центра IoT — **myiothub** \(обратите внимание, что это должно быть глобально уникальное имя\).
 
     ```
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName myiothub
@@ -123,4 +139,4 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

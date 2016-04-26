@@ -35,7 +35,9 @@
 
 ИЛИ
 
-* [Интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli-install.md).
+* [Azure CLI](../xplat-cli-install.md).
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##Что такое SSH?
 
@@ -123,9 +125,9 @@ SSH — это служебная программа для входа в сис
 
 3. В поле **Категория** выберите **Сеанс**. На экране **Основные параметры вашего сеанса PuTTY** в поле **Имя узла (или IP-адрес)** введите адрес SSH своего сервера HDInsight. К кластеру можно подключиться с помощью двух адресов SSH.
 
-    * __Адрес головного узла__ — чтобы подключиться к головному узлу кластера, используйте имя кластера с суффиксом **-ssh.azurehdinsight.net**. Например, **mycluster-ssh.azurehdinsight.net**.
+    * __Адрес головного узла__. Чтобы подключиться к головному узлу кластера, укажите имя кластера с суффиксом **-ssh.azurehdinsight.net**. Например, **mycluster-ssh.azurehdinsight.net**.
     
-    * __Адрес граничного узла__ — если вы подключаетесь к серверу R в кластере HDInsight, вы можете подключиться к граничному узлу сервера R с помощью адреса __RServer.CLUSTERNAME.ssh.azurehdinsight.net__, где CLUSTERNAME — имя кластера. Например, __RServer.mycluster.ssh.azurehdinsight.net__.
+    * __Адрес граничного узла__. Если вы подключаетесь к серверу R в кластере HDInsight, вы можете подключиться к граничному узлу сервера R с помощью адреса __RServer.CLUSTERNAME.ssh.azurehdinsight.net__, где CLUSTERNAME — имя кластера. Например, __RServer.mycluster.ssh.azurehdinsight.net__.
 
 	![интерфейс PuTTY с введенным адресом SSH](./media/hdinsight-hadoop-linux-use-ssh-windows/puttyaddress.png)
 
@@ -233,4 +235,4 @@ SSH — это служебная программа для входа в сис
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

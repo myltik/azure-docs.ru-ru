@@ -1,23 +1,122 @@
 <properties
-   pageTitle=""
-   description=""
+   pageTitle="Управление контейнерами службы контейнеров Azure с помощью Docker Swarm | Microsoft Azure"
+   description="Развертывание контейнеров в Docker Swarm в службе контейнеров Azure"
    services="container-service"
    documentationCenter=""
-   authors="rgardler"
+   authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
    keywords="Docker, контейнеры, микрослужбы, Mesos, Azure"/>
-   
+
 <tags
    ms.service="container-service"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/15/2016"
-   ms.author="rogardle"/>
-   
-   # TODO Добавление содержимого в Docker Swarm
+   ms.date="04/13/2016"
+   ms.author="nepeters"/>
 
-<!---HONumber=AcomDC_0218_2016-->
+# Управление контейнерами с помощью Docker Swarm
+
+Docker Swarm — это среда для развертывания контейнерной рабочей нагрузки в наборе узлов, объединенных в пул Docker. В Docker Swarm используется собственный API-интерфейс Docker, поэтому рабочие процессы при управлении контейнерами Docker Swarm и отдельного узла контейнера почти не отличаются. Этот документ содержит простые примеры развертывания контейнерной рабочей нагрузки в экземпляре Docker Swarm, который развернут в службе контейнеров Azure. Дополнительные сведения о Docker Swarm см. в [документации по Docker Swarm на сайте Docker.com](https://docs.docker.com/swarm/).
+
+Предварительные требования для выполнения упражнений из этого руководства.
+
+[Создайте кластер Swarm в службе контейнеров Azure.](./container-service-deployment.md)
+
+[Подключитесь к кластеру Swarm в службе контейнеров Azure.](./container-service-connect.md)
+
+## Развертывание нового контейнера
+
+Чтобы создать новый контейнер в Docker Swarm, используйте команду `docker run`. В этом примере контейнер создается из образа `yeasy/simple-web`.
+
+
+```bash
+user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
+
+4298d397b9ab6f37e2d1978ef3c8c1537c938e98a8bf096ff00def2eab04bf72
+```
+
+После создания контейнера выполните команду `docker ps`, чтобы получить сведения о контейнере. Обратите внимание, что здесь указан агент Swarm, в котором размещен контейнер.
+
+
+```bash
+user@ubuntu:~$ docker ps
+
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                 NAMES
+4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   31 seconds ago      Up 9 seconds        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
+```  
+
+К приложениям, которые работают в этом контейнере, теперь можно обращаться, используя общедоступное DNS-имя балансировщика нагрузки агента Swarm. Эти сведения можно найти на портале Azure.
+
+
+![](media/real-visit.jpg)
+
+## Развертывание нескольких контейнеров
+
+Когда в кластере Docker Swarm запущено несколько контейнеров, команда `docker ps` позволяет увидеть, на каком узле работает каждый из контейнеров. В этом примере мы видим три контейнера, которые распределены между тремя агентами Swarm.
+
+
+```bash
+user@ubuntu:~$ docker ps
+
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                 NAMES
+11be062ff602        yeasy/simple-web    "/bin/sh -c 'python i"   11 seconds ago      Up 10 seconds       10.0.0.6:83->80/tcp   swarm-agent-34A73819-2/clever_banach
+1ff421554c50        yeasy/simple-web    "/bin/sh -c 'python i"   49 seconds ago      Up 48 seconds       10.0.0.4:82->80/tcp   swarm-agent-34A73819-0/stupefied_ride
+4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   2 minutes ago       Up 2 minutes        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
+```  
+
+## Развертывание контейнеров с помощью Docker Compose
+
+Docker Compose позволяет автоматизировать развертывание и настройку нескольких контейнеров. Для этого нужно создать туннель SSH и присвоить значение переменной DOCKER\_HOST.
+
+Создайте на локальной системе файл docker-compose.yml. [Здесь](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml) вы найдете пример такого файла.
+
+```bash
+web:
+  image: adtd/web:0.1
+  ports:
+    - "80:80"
+  links:
+    - rest:rest-demo-azure.marathon.mesos
+rest:
+  image: adtd/rest:0.1
+  ports:
+    - "8080:8080"
+
+```
+
+С помощью команды `docker-compose up -d` запустите развертывания контейнеров.
+
+
+```bash
+user@ubuntu:~/compose$ docker-compose up -d
+Pulling rest (adtd/rest:0.1)...
+swarm-agent-3B7093B8-0: Pulling adtd/rest:0.1... : downloaded
+swarm-agent-3B7093B8-2: Pulling adtd/rest:0.1... : downloaded
+swarm-agent-3B7093B8-3: Pulling adtd/rest:0.1... : downloaded
+Creating compose_rest_1
+Pulling web (adtd/web:0.1)...
+swarm-agent-3B7093B8-3: Pulling adtd/web:0.1... : downloaded
+swarm-agent-3B7093B8-0: Pulling adtd/web:0.1... : downloaded
+swarm-agent-3B7093B8-2: Pulling adtd/web:0.1... : downloaded
+Creating compose_web_1
+```
+
+Затем посмотрите список запущенных контейнеров. В нем будет указано, какие из них развернуты с помощью Docker Compose.
+
+
+```bash
+user@ubuntu:~/compose$ docker ps
+CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS                     NAMES
+caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago       Up About a minute   10.0.0.4:80->80/tcp       swarm-agent-3B7093B8-0/compose_web_1
+040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
+```
+
+## Дальнейшие действия:
+
+[Дополнительные сведения о Docker Swarm](https://docs.docker.com/swarm/).
+
+<!---HONumber=AcomDC_0420_2016-->

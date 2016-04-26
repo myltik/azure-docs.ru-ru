@@ -28,7 +28,7 @@
 
 2.	Щелкните **Marketplace**, выберите **Среда выполнения приложений**, а затем введите **Oracle** в поле поиска.
 
-3.	Выберите образ **Oracle Database 12c и WebLogic Server 12c Standard Edition на Windows Server 2012** или **Oracle Database 12c и WebLogic Server 12c Enterprise Edition на Windows Server 2012**. Просмотрите информацию о выбранном образе (например, минимальный рекомендуемый размер) и нажмите кнопку **Далее**.
+3.	Выберите образ **Oracle Database 12c и WebLogic Server 12c Standard Edition на Windows Server 2012** или **Oracle Database 12c и WebLogic Server 12c Enterprise Edition на Windows Server 2012**. Просмотрите информацию о выбранном образе \(например, минимальный рекомендуемый размер\) и нажмите кнопку **Далее**.
 
 4.	Укажите **Имя узла** виртуальной машины.
 
@@ -46,7 +46,7 @@
 
 	c. Пока не добавляйте конечные точки.
 
-9.	Выберите или создайте группу ресурсов. Дополнительные сведения см. в статье [Управление ресурсами Azure с помощью портала Azure](../resource-group-portal.md).
+9.	Выберите или создайте группу ресурсов. Дополнительные сведения см. в статье [Управление ресурсами Azure с помощью портала Azure](../azure-portal/resource-group-portal.md).
 
 10. Выберите **подписку**.
 
@@ -71,4 +71,4 @@
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

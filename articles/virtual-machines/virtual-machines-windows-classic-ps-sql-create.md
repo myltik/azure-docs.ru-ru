@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание виртуальной машины SQL Server в PowerShell | Microsoft Azure"
-	description="Содержит описание действий и сценарии PowerShell для создания виртуальной машины Azure на основе образа из коллекции образов виртуальных машин SQL Server."
+	pageTitle="Создание виртуальной машины SQL Server в Azure PowerShell (классическая модель) | Microsoft Azure"
+	description="Содержит описание действий и сценарии PowerShell для создания виртуальной машины Azure на основе образа из коллекции образов виртуальных машин SQL Server. В этом разделе используется классическая модель развертывания."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/22/2016"
+	ms.date="04/08/2016"
 	ms.author="jroth" />
 
-# Создание виртуальной машины SQL Server в Azure (PowerShell)
+# Создание виртуальной машины SQL Server в Azure PowerShell \(классическая модель\)
 
 ## Обзор
 
@@ -24,14 +24,17 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
-
 ## Установка и настройка PowerShell
 
 1. Если у вас нет учетной записи Azure, используйте [бесплатную пробную версию Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-2. [Установите последнюю версию командлетов Azure PowerShell](../powershell-install-configure.md/#how-to-install-azure-powershell).
+2. [Установите последнюю версию командлетов Azure PowerShell](../powershell-install-configure.md).
 
-3. [Подключитесь к PowerShell с помощью своей подписки Azure](../powershell-install-configure.md/#how-to-connect-to-your-subscription).
+3. После установки запустите Windows PowerShell.
+
+4. Затем подключите PowerShell к своей подписке Azure с помощью команды Add-AzureAccount.
+
+		Add-AzureAccount
 
 ## Определение целевого региона Azure
 
@@ -74,7 +77,7 @@
 
 		Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
 
-1. В найденном семействе образов может быть несколько опубликованных образов. Используйте следующий сценарий, чтобы найти имя последнего опубликованного образа виртуальной машины для выбранного семейства образов (например, **SQL Server 2014 Enterprise с пакетом обновления 1 на Windows Server 2012 R2**):
+1. В найденном семействе образов может быть несколько опубликованных образов. Используйте следующий сценарий, чтобы найти имя последнего опубликованного образа виртуальной машины для выбранного семейства образов \(например, **SQL Server 2014 Enterprise с пакетом обновления 1 на Windows Server 2012 R2**\):
 
 		$family="<ImageFamily value>"
 		$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -110,7 +113,7 @@
 
 ## Пример сценария PowerShell
 
-В следующем примере приведен полный сценарий, создающий виртуальную машину **SQL Server 2014 Enterprise с пакетом обновления 1 (SP1) на Windows Server 2012 R2**. При использовании этого сценария необходимо настроить исходные переменные на основе предыдущих шагов, описанных в этом разделе.
+В следующем примере приведен полный сценарий, создающий виртуальную машину **SQL Server 2014 Enterprise с пакетом обновления 1 \(SP1\) на Windows Server 2012 R2**. При использовании этого сценария необходимо настроить исходные переменные на основе предыдущих шагов, описанных в этом разделе.
 
 	# Customize these variables based on your settings and requirements:
 	$dcLocation = "East US"
@@ -151,7 +154,7 @@
 		$documentspath = [environment]::getfolderpath("mydocuments")
 		Get-AzureRemoteDesktopFile -ServiceName $svcname -Name $vmname -LocalPath "$documentspath\vm1.rdp"
 
-1. Запустите файл .RDP из каталога документов. Войдите в систему с именем пользователя и паролем администратора, которые были указаны ранее (например, если имя пользователя — VMAdmin, укажите "\\VMAdmin" в качестве пользователя и введите пароль).
+1. Запустите файл .RDP из каталога документов. Войдите в систему с именем пользователя и паролем администратора, которые были указаны ранее \(например, если имя пользователя — VMAdmin, укажите "\\VMAdmin" в качестве пользователя и введите пароль\).
 
 		.\vm1.rdp
 
@@ -163,10 +166,10 @@
 
 Дополнительные инструкции по подготовке виртуальных машин с помощью PowerShell можно найти в [документации по виртуальным машинам](virtual-machines-windows-classic-create-powershell.md). Дополнительные сценарии для SQL Server и хранилища Premium см. в статье [Использование хранилища Azure Premium Storage с SQL Server на виртуальных машинах](virtual-machines-windows-classic-sql-server-premium-storage.md).
 
-Во многих случаях следующим этапом является миграция баз данных на новую виртуальную машину SQL. Руководство по миграции баз данных см. в статье [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-windows-classic-migrate-sql.md).
+Во многих случаях следующим этапом является миграция баз данных на новую виртуальную машину SQL. Руководство по миграции баз данных см. в статье [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-windows-migrate-sql.md).
 
 Если вам также интересно создание виртуальных машин SQL на портале Azure, см. статью [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-portal-sql-server-provision.md). Обратите внимание на то, что в пошаговом руководстве по работе с порталом виртуальные машины создаются с помощью рекомендованной модели, предусматривающей использование диспетчера ресурсов, а не классической модели, применяемой в разделе, посвященном PowerShell.
 
-В дополнение к этим ресурсам рекомендуем ознакомиться с [другими статьями, связанными с запуском SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-overview.md).
+В дополнение к этим ресурсам рекомендуем ознакомиться с [другими статьями, связанными с запуском SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

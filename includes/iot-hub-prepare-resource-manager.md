@@ -39,7 +39,7 @@
     New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
     
-Вы завершили создание приложения Azure AD, которое позволит вам осуществлять проверку подлинности из своего пользовательского приложения C#. Позднее в рамках изучения данного руководства вам потребуются следующие значения:
+Вы завершили создание приложения Azure AD, которое позволит вам осуществлять проверку подлинности из своего пользовательского приложения C\#. Позднее в рамках изучения данного руководства вам потребуются следующие значения:
 
 - TenantId
 - SubscriptionId
@@ -47,6 +47,6 @@
 - Пароль
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: ../articles/powershell-install-configure.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

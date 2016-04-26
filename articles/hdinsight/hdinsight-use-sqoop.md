@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="04/06/2016"
 	ms.author="jgao"/>
 
-#Использование Sqoop с Hadoop в HDInsight (Windows)
+#Использование Sqoop с Hadoop в HDInsight \(Windows\)
 
 [AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
@@ -25,11 +25,11 @@
 
 > [AZURE.NOTE] Действия, описанные в этой статье можно использовать для кластера HDInsight под управлением Windows или Linux. Но эти действия могут быть запущены только из клиента Windows.
 >
-> В случае использования клиента Linux, OS X или Unix и сервера HDInsight под управлением Linux см. [Использование Sqoop с Hadoop в HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md)
+> В случае использования клиента Linux, OS X или Unix и сервера HDInsight под управлением Linux см. [Использование Sqoop с Hadoop в HDInsight \(SSH\)](hdinsight-use-sqoop-mac-linux.md)
 
 Хотя Hadoop оптимально подходит для обработки частично структурированных и неструктурированных данных, таких как журналы и файлы, может существовать необходимость обработки структурированных данных, хранящихся в реляционных базах данных.
 
-[Sqoop][sqoop-user-guide-1.4.4] — это средство, предназначенное для передачи данных между кластерами Hadoop и реляционными базами данных. С его помощью можно импортировать данные из системы управления реляционной базой данных (реляционной СУБД), например SQL Server, MySQL или Oracle, в распределенную файловую систему Hadoop (HDFS), преобразовать данные в системе Hadoop с использованием MapReduce или Hive, а затем экспортировать данные обратно в реляционную СУБД. В этом учебнике в качестве реляционной базы данных используется база данных SQL.
+[Sqoop][sqoop-user-guide-1.4.4] — это средство, предназначенное для передачи данных между кластерами Hadoop и реляционными базами данных. С его помощью можно импортировать данные из системы управления реляционной базой данных \(реляционной СУБД\), например SQL Server, MySQL или Oracle, в распределенную файловую систему Hadoop \(HDFS\), преобразовать данные в системе Hadoop с использованием MapReduce или Hive, а затем экспортировать данные обратно в реляционную СУБД. В этом учебнике в качестве реляционной базы данных используется база данных SQL.
 
 Сведения о версиях Sqoop, поддерживаемых в кластерах HDInsight, см. в разделе [Новые возможности версий кластеров, образованных с помощью HDInsight][hdinsight-versions].
 
@@ -37,7 +37,7 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Рабочая станция с Azure PowerShell**. См. раздел [Установка Azure PowerShell 1.0 и более поздних версий](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Рабочая станция с Azure PowerShell**. См. раздел [Установка Azure PowerShell 1.0 и более поздних версий](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 ##Ознакомление со сценарием
 
@@ -52,28 +52,44 @@
 
 - Таблица Hive с именем *hivesampletable*, которая ссылается на файл данных, расположенный в */hive/warehouse/hivesampletable*. Эта таблица содержит некоторые данные о мобильных устройствах.
 
+    | Поле | Тип данных |
+    | ----- | --------- |
+    | clientid | string |
+    | querytime | string |
+    | market | string |
+    | deviceplatform | string |
+    | devicemake | string |
+    | devicemodel | string |
+    | state | string |
+    | country | string |
+    | querydwelltime | double |
+    | sessionid | bigint |
+    | sessionpagevieworder | bigint |
+
 Сначала вы экспортируете *sample.log* и *hivesampletable* в базу данных SQL Azur или на SQL Server, а затем импортируете таблицу с данными о мобильных устройствах обратно в HDInsight, используя следующий путь:
 
 	/tutorials/usesqoop/importeddata
 
 ## Создание кластера и базы данных SQL
 
+В этом разделе показано, как создать кластер и схемы базы данных SQL для выполнения заданий учебника с помощью портала Azure и шаблона ARM. Если вы предпочитаете использовать Azure PowerShell, см. [Приложение A](#appendix-a---a-powershell-sample).
+
 1. Щелкните следующие изображение, чтобы открыть шаблон ARM на портале Azure.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Шаблон ARM расположен в общедоступном контейнере BLOB-объектов по адресу: **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    Шаблон ARM хранится в общедоступном контейнере больших двоичных объектов: \**https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
-    Шаблон ARM вызывает пакет BACPAC для развертывания схем таблиц в базе данных SQL. Пакет BACPAC также находится в общедоступном контейнере BLOB-объектов по адресу: https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Чтобы использовать закрытый контейнер для BACPAC-файлов, используйте следующие значения в шаблоне:
+    Шаблон ARM вызывает пакет BACPAC для развертывания схем таблиц в базе данных SQL. Пакет BACPAC также находится в общедоступном контейнере больших двоичных объектов: https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Чтобы использовать закрытый контейнер для BACPAC-файлов, используйте следующие значения в шаблоне:
     
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
     
 2. В колонке "Параметры" заполните следующие поля:
 
-    - **Имя кластера**: введите имя создаваемого кластера Hadoop.
-    - **Имя для входа и пароль кластера**: имя для входа по умолчанию — admin.
-    - **Имя пользователя и пароль SSHН**.
+    - **Имя кластера**. Введите имя создаваемого кластера Hadoop.
+    - **Имя для входа и пароль кластера**. По умолчанию для входа используется имя admin.
+    - **Имя пользователя SSH и пароль**.
     - **Имя для входа на сервер базы данных SQL Azure и пароль**.
 
     В разделе переменных жестко заданы указанные далее значения.
@@ -87,11 +103,11 @@
     
 3\. Нажмите кнопку **ОК**, чтобы сохранить параметры.
 
-4\. В колонке **Настраиваемое развертывание** щелкните раскрывающийся список **Группа ресурсов** и нажмите кнопку **Создать**, чтобы создать группу ресурсов. Группа ресурсов — это контейнер, в который входит кластер, зависимая учетная запись хранения и другие связанные ресурсы.
+4\. В колонке **Настраиваемое развертывание** щелкните раскрывающийся список **Группа ресурсов** и выберите пункт **Создать**, чтобы создать новую группу ресурсов. Группа ресурсов — это контейнер, в который входит кластер, зависимая учетная запись хранения и другие связанные ресурсы.
 
-5\. Щелкните **Условия использования**, а затем нажмите кнопку **Создать**.
+5\. Щелкните **Условия**, а затем нажмите кнопку **Создать**.
 
-6\. Нажмите кнопку **Создать**. Вы увидите новый элемент под названием "Идет отправка развертывания для развертывания шаблона". Процесс создания кластера и базы данных SQL занимает около 20 минут.
+6\. Нажмите кнопку **Создать**. Вы увидите новый элемент под названием "Идет отправка развертывания для развертывания шаблона". Процесс создания кластера и базы данных SQL занимает около 20 минут.
 
 Если вы решили использовать существующую базу данных SQL Azure или Microsoft SQL Server
 
@@ -111,202 +127,27 @@
 
         * При использовании SQL Server на виртуальной машине Azure можно использовать любую конфигурацию виртуальной сети, если виртуальная машина с SQL Server находится в той же виртуальной сети, что и HDInsight.
 
-    * Сведения о создании кластера HDInsight в виртуальной сети см. в статье [Создание кластеров Hadoop в HDInsight с использованием настраиваемых параметров](hdinsight-provision-clusters.md).
+    * Сведения о создании кластера HDInsight в виртуальной сети см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-provision-clusters.md).
 
     > [AZURE.NOTE] Кроме того, SQL Server должен разрешать проверку подлинности. Для выполнения шагов, описанных в этой статье, вам понадобится использовать данные для входа на SQL Server.
-	
-
-## Запуск Sqoop с помощью PowerShell
-
-Следующий сценарий PowerShell выполняет предварительную обработку исходного файла и экспортирует его в базу данных Azure SQL:
-
-    $resourceGroupName = "<AzureResourceGroupName>"
-    $hdinsightClusterName = "<HDInsightClusterName>"
-
-    $httpUserName = "admin"
-    $httpPassword = "<Password>"
-
-    $defaultStorageAccountName = $hdinsightClusterName + "store"
-    $defaultBlobContainerName = $hdinsightClusterName
 
 
-    $sqlDatabaseServerName = $hdinsightClusterName + "dbserver"
-    $sqlDatabaseName = $hdinsightClusterName + "db"
-    $sqlDatabaseLogin = "sqluser"
-    $sqlDatabasePassword = "<Password>"
+## Выполнение заданий Sqoop
 
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
-    #endregion
-        
-    #region - pre-process the source file
-        
-    Write-Host "`nPreprocessing the source file ..." -ForegroundColor Green
-        
-    # This procedure creates a new file with $destBlobName
-    $sourceBlobName = "example/data/sample.log"
-    $destBlobName = "tutorials/usesqoop/data/sample.log"
-        
-    # Define the connection string
-    $defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
-                                    -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
-    $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
-        
-    # Create block blob objects referencing the source and destination blob.
-    $storageAccount = [Microsoft.WindowsAzure.Storage.CloudStorageAccount]::Parse($storageConnectionString)
-    $storageClient = $storageAccount.CreateCloudBlobClient();
-    $storageContainer = $storageClient.GetContainerReference($defaultBlobContainerName)
-    $sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
-    $destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
-        
-    # Define a MemoryStream and a StreamReader for reading from the source file
-    $stream = New-Object System.IO.MemoryStream
-    $stream = $sourceBlob.OpenRead()
-    $sReader = New-Object System.IO.StreamReader($stream)
-        
-    # Define a MemoryStream and a StreamWriter for writing into the destination file
-    $memStream = New-Object System.IO.MemoryStream
-    $writeStream = New-Object System.IO.StreamWriter $memStream
-        
-    # Pre-process the source blob
-    $exString = "java.lang.Exception:"
-    while(-Not $sReader.EndOfStream){
-        $line = $sReader.ReadLine()
-        $split = $line.Split(" ")
-        
-        # remove the "java.lang.Exception" from the first element of the array
-        # for example: java.lang.Exception: 2012-02-03 19:11:02 SampleClass8 [WARN] problem finding id 153454612
-        if ($split[0] -eq $exString){
-            #create a new ArrayList to remove $split[0]
-            $newArray = [System.Collections.ArrayList] $split
-            $newArray.Remove($exString)
-        
-            # update $split and $line
-            $split = $newArray
-            $line = $newArray -join(" ")
-        }
-        
-        # remove the lines that has less than 7 elements
-        if ($split.count -ge 7){
-            write-host $line
-            $writeStream.WriteLine($line)
-        }
-    }
-        
-    # Write to the destination blob
-    $writeStream.Flush()
-    $memStream.Seek(0, "Begin")
-    $destBlob.UploadFromStream($memStream)
-        
-    #endregion
-        
-    #region - export the log file from the cluster to the SQL database
-        
-    Write-Host "Exporting the log file ..." -ForegroundColor Green
+HDInsight может выполнять задания Sqoop с помощью различных методов. Используйте следующую таблицу, чтобы решить, какой метод подходит вам, а затем перейдите по ссылке, чтобы открыть пошаговое руководство.
 
-    $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
-    $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
-        
-    # Connection string for Azure SQL Database.
-    # Comment if using SQL Server
-    $connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$sqlDatabaseName"
-    # Connection string for SQL Server.
-    # Uncomment if using SQL Server.
-    #$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$sqlDatabaseName"
-        
-    $tableName_log4j = "log4jlogs"
-    $exportDir_log4j = "/tutorials/usesqoop/data"
-    $sqljdbcdriver = "/user/oozie/share/lib/sqoop/sqljdbc41.jar"
-        
-    # Submit a Sqoop job
-    $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
-        -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1" `
-        -Files $sqljdbcdriver
-
-    $sqoopJob = Start-AzureRmHDInsightJob `
-                    -ClusterName $hdinsightClusterName `
-                    -HttpCredential $httpCredential `
-                    -JobDefinition $sqoopDef #-Debug -Verbose
-
-    Wait-AzureRmHDInsightJob `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId
-        
-    Write-Host "Standard Error" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardError
-    Write-Host "Standard Output" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardOutput
-    #endregion
-
-## Запуск Sqoop с использованием пакета SDK
-
-В этом разделе вы создадите и настроите консольное приложение C# для экспорта hivesampletable в созданную ранее таблицу базы данных SQL.
-
-**Отправка задания Sqoop**
-
-1. В Консоли диспетчера пакетов Visual Studio выполните следующую команду Nuget, чтобы импортировать пакет:
-
-		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
-2. Используйте следующие инструкции using в файле Program.cs:
-
-		using System;
-		using Microsoft.Azure.Management.HDInsight.Job;
-		using Microsoft.Azure.Management.HDInsight.Job.Models;
-		using Hyak.Common;
-3. Добавьте следующий код в функцию Main(): Общие сведения об использовании пакета SDK HDInsight .NET см. в статье [Отправка заданий Hadoop программными средствами][hdinsight-submit-jobs].
-
-		var ExistingClusterName = "<HDInsightClusterName>";
-		var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
-		var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
-		var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
-		
-		var sqlDatabaseServerName = "<AzureSQLDatabaseServerName>";
-		var sqlDatabaseLogin = "<AzureSQLDatabaseLogin>";
-		var sqlDatabaseLoginPassword = "<AzureSQLDatabaseLoginPassword>";
-		var sqlDatabaseDatabaseName = "<AzureSQLDatabaseDatabaseName>";
-		
-		var sqlDatabaseTableName = "log4jlogs";
-		var exportDir = "/hive/warehouse/hivesampletable";
-
-		var cmdExport = @"export";
-		// Connection string for using Azure SQL Database.
-		// Comment if using SQL Server
-		cmdExport = cmdExport + @" --connect 'jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + "@" + sqlDatabaseServerName + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName +"'"; 
-		// Connection string for using SQL Server.
-		// Uncomment if using SQL Server
-		//cmdExport = cmdExport + @" --connect jdbc:sqlserver://" + sqlDatabaseServerName + ";user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
-		cmdExport = cmdExport + @" --table " + sqlDatabaseTableName;
-		cmdExport = cmdExport + @" --export-dir " + exportDir;
-		cmdExport = cmdExport + @" --input-fields-terminated-by \0x20 -m 1";
-		
-		HDInsightJobManagementClient _hdiJobManagementClient;
-		var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
-		_hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
-
-		var parameters = new SqoopJobSubmissionParameters
-		{
-		    Command = cmdExport
-		};
-		
-		System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
-		var response = _hdiJobManagementClient.JobManagement.SubmitSqoopJob(parameters);
-		System.Console.WriteLine("Validating that the response is as expected...");
-		System.Console.WriteLine("Response status code is " + response.StatusCode);
-		System.Console.WriteLine("Validating the response object...");
-		System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
-		Console.WriteLine("Press ENTER to continue ...");
-		Console.ReadLine();
-4. Нажмите клавишу **F5** для запуска программы. 
+| **Используйте**, если требуется... | ...**интерактивная** оболочка | ...**пакетная** обработка | ... с **кластерной операционной системой** | ...из этого **кластера операционной системы** |
+|:--------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
+| [SSH](hdinsight-use-sqoop-mac-linux.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X или Windows |
+| [.NET SDK для Hadoop](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) | &nbsp; | ✔ | Linux или Windows | Windows \(сейчас\) |
+| [Azure PowerShell](hdinsight-hadoop-use-sqoop-powershell.md) | &nbsp; | ✔ | Linux или Windows | Windows |
 
 ##Дальнейшие действия
 
 Теперь вы узнали, как использовать Sqoop. Дополнительные сведения см. на следующих ресурсах:
 
+- [Использование Hive с HDInsight](hdinsight-use-hive.md)
+- [Использование Pig с HDInsight](hdinsight-use-pig.md)
 - [Использование Oozie с HDInsight][hdinsight-use-oozie]\: используйте действие Sqoop в рабочем процессе Oozie.
 - [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-data]\: используйте Hive для анализа данных о задержке рейсов, а затем используйте Sqoop для экспорта данных в базу данных SQL Azure.
 - [Передача данных в HDInsight][hdinsight-upload-data]\: узнайте о других способах отправки данных в HDInsight и хранилище больших двоичных объектов Azure.
@@ -352,7 +193,7 @@
 
 5. Выполнение предварительной обработки исходного файла данных.
 
-	В этом учебнике вы экспортируете файл журнала log4j (файл с разделителями) и таблицу Hive в базу данных SQL Azure. Файл с разделителями — */example/data/sample.log*. Ранее в учебнике вы видели несколько примеров журналов log4j. В файле журнала есть несколько пустых строк и несколько строк, похожих на следующие:
+	В этом учебнике вы экспортируете файл журнала log4j \(файл с разделителями\) и таблицу Hive в базу данных SQL Azure. Файл с разделителями — */example/data/sample.log*. Ранее в учебнике вы видели несколько примеров журналов log4j. В файле журнала есть несколько пустых строк и несколько строк, похожих на следующие:
 	
 		java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
 			at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
@@ -368,7 +209,7 @@
 	> [AZURE.NOTE] Кроме информации в строке соединения, описанные в этом разделе шаги должны подходить как для базы данных SQL Azure, так и для SQL Server. Эти шаги были протестированы для следующей конфигурации:
 	>
 	> * **Конфигурация виртуальной сети Azure типа "точка-сеть"**: кластер HDInsight, подключенный через виртуальную сеть к SQL Server в частном центре обработки данных. Дополнительную информацию см. в разделе [Настройка VPN "точка-сеть" на портале управления](../vpn-gateway/vpn-gateway-point-to-site-create.md) .
-	> * **Azure HDInsight 3.1**: см. статью [Создание кластеров Hadoop в HDInsight с использованием настраиваемых параметров](hdinsight-provision-clusters.md) для получения более подробной информации о создании кластера в виртуальной сети.
+	> * **Azure HDInsight 3.1**: см. статью [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-provision-clusters.md), чтобы получить более подробную информацию о создании кластера в виртуальной сети.
 	> * **SQL Server 2014**: настроенный для разрешения проверки подлинности и использующий пакет настройки VPN-клиента для надежного подключения к виртуальной сети.
 
 7. Экспортирование таблицы Hive в базу данных SQL Azure.
@@ -792,4 +633,4 @@
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

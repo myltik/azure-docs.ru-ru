@@ -3,7 +3,7 @@
    description="Узнайте, как управлять учетными записями и файловой системой хранилища озера данных." 
    services="data-lake-store" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="nitinme" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
-   ms.author="jgao"/>
+   ms.date="04/07/2016"
+   ms.author="nitinme"/>
 
 # Управление хранилищем озера данных Azure с помощью пакета SDK Azure для Node.js
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
-
+- [Портал](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [Пакет SDK для .NET](data-lake-store-get-started-net-sdk.md)
+- [Пакет SDK для Java](data-lake-store-get-started-java-sdk.md)
+- [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
+- [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
+- [Node.js](data-lake-store-manage-use-nodejs.md)
 
 Используя пакет SDK Azure для Node.js, можно управлять учетными записями и файловой системой хранилища озера данных Azure.
 
@@ -37,7 +38,7 @@
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Учетная запись хранилища озера данных Azure**. См. учебник [Начало работы с хранилищем озера данных Azure с помощью портала Azure](data-lake-store-get-started-portal.md), чтобы создать учетную запись.
-- **Субъект-служба с разрешениями для доступа к учетной записи аналитики озера данных**. См. раздел [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](resource-group-authenticate-service-principal.md).
+- **Субъект-служба с разрешениями для доступа к учетной записи аналитики озера данных**. См. раздел [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](../resource-group-authenticate-service-principal.md).
 
 ## Установка пакета SDK
 
@@ -110,6 +111,6 @@
 ##См. также 
 
 - [Пакет Azure SDK для Node.js](http://azure.github.io/azure-sdk-for-node/)
-- [Управление аналитикой озера данных Azure с помощью Node.js](data-lake-analytics-use-nodejs.md)
+- [Управление аналитикой озера данных Azure с помощью Node.js](../data-lake-analytics/data-lake-analytics-manage-use-nodejs.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0413_2016-->
