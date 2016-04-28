@@ -126,7 +126,7 @@
 В Microsoft SQL Server имена аналогичных представлений каталога не содержат указание *\_database* и выглядят следующим образом:
 
 
-- **sys.dm\_xe\_sessions** вместо имени <br/>\*\*sys.dm\_xe\_database\_sessions\*\*.
+- **sys.dm\_xe\_sessions** вместо имени <br/>**sys.dm\_xe\_database\_sessions**.
 
 
 ### Общие DMV
