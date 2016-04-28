@@ -58,7 +58,7 @@
 
 Вы должны получить примерно следующий ответ:
 
-\````
+````
 Checking import state... Publishing
 Checking import state... Succeeded
 ```
