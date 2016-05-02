@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="11/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Использование расширения пользовательских сценариев для виртуальных машин Linux с шаблонами Azure Resource Manager
@@ -47,7 +47,7 @@
       }
     }
     }
-    
+
 В приведенном выше примере замените URL-адрес и имя файла собственными значениями.
 
 После разработки шаблон можно развернуть с помощью Azure CLI.
@@ -56,4 +56,4 @@
 
 * [Расширение пользовательских сценариев на виртуальной машине Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

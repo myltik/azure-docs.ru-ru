@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="04/08/2016" 
 	ms.author="awills"/>
  
 # Анализ использования для веб-приложений с помощью Application Insights
@@ -317,12 +317,13 @@ Application Insights старается автоматически опреде�
 
 ```C#
 
+
     // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (TelemetryContext context)
+        public void Initialize (ITelemetry telemetry)
         {
-            context.Properties["AppVersion"] = "v2.1";
+            telemetry.Properties["AppVersion"] = "v2.1";
         }
     }
 ```
@@ -334,7 +335,7 @@ Application Insights старается автоматически опреде�
     protected void Application_Start()
     {
         // ...
-        TelemetryConfiguration.Active.ContextInitializers
+        TelemetryConfiguration.Active.TelemetryInitializers
         .Add(new MyTelemetryInitializer());
     }
 ```
@@ -375,4 +376,4 @@ Application Insights старается автоматически опреде�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0420_2016-->

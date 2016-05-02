@@ -10,7 +10,7 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="02/01/2016"
@@ -60,4 +60,4 @@ Microsoft Azure поддерживает различные дистрибути
 
 Получите бесплатную пробную учетную запись, следуя указаниям **[здесь](https://azure.microsoft.com/pricing/free-trial/)**. Если она у вас уже есть, **[установите интерфейс командной строки Azure](../xplat-cli-install.md)**, чтобы опробовать ее. Затем создайте [виртуальную машину Linux](virtual-machines-linux-quick-create-cli.md), если у вас еще ее нет.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

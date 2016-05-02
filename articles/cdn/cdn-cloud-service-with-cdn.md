@@ -626,7 +626,7 @@
 
 ## Дополнительные сведения ##
 - [Общие сведения о сети доставки контента (CDN) Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Использование CDN для Azure](cdn-how-to-use-cdn.md)
+- [Использование Azure CDN](cdn-create-new-endpoint.md)
 - [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
 
@@ -637,4 +637,4 @@
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

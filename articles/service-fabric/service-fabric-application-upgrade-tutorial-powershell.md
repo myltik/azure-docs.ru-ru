@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="04/14/2016"
    ms.author="subramar"/>
 
 
@@ -51,17 +51,17 @@ Service Fabric выполняет отслеживаемое последова�
 После внесения изменений манифест должен выглядеть следующим образом (измененные части выделены полужирным шрифтом):
 
 ```xml
-<ServiceManifestName="VisualObjects.ActorService"Version="2.0"xmlns="http://schemas.microsoft.com/2011/01/fabric"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-<CodePackageName="Code"Version="2.0">
+<CodePackageName="Code" Version="2.0">
 ```
 
 Теперь нужно обновить файл *ApplicationManifest.xml* (находится в проекте **VisualObjects** в решении **VisualObjects**) так, чтобы в нем использовалась версия 2.0 проекта **VisualObjects.ActorService**. Также нужно обновить приложение с версии 1.0.0.0 до версии 2.0.0.0. Теперь соответствующие строки в файле *ApplicationManifest.xml* должны выглядеть следующим образом:
 
 ```xml
-<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"ApplicationTypeName="VisualObjects"ApplicationTypeVersion="2.0.0.0"xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
- <ServiceManifestRefServiceManifestName="VisualObjects.ActorService"ServiceManifestVersion="2.0" />
+ <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
 
 
@@ -136,4 +136,4 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 Сведения об устранении распространенных проблем при обновлении приложений см. в разделе [Устранение неполадок при обновлениях приложений](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

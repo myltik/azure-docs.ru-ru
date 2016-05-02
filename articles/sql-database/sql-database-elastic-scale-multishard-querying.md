@@ -3,7 +3,7 @@
 	description="Выполнение запросов по сегментам с использованием клиентской библиотеки эластичной базы данных." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="torsteng" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
-	ms.author="torsteng;sidneyh"/>
+	ms.date="04/12/2016" 
+	ms.author="torsteng"/>
 
 # Многосегментное формирование запросов
 
@@ -24,16 +24,12 @@
 
 ## Обзор
 
-Вы можете управлять сегментами с использованием [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md). Эта библиотека включает в себя новое пространство имен с именем **Microsoft.Azure.SqlDatabase.ElasticScale.Query**, предоставляющее возможность выполнять запрос к нескольким сегментам, используя один запрос и один результат. Это позволяет абстрагировать обработку запросов по набору сегментов. Также предоставляются альтернативные политики выполнения, в особенности частичные результаты для обработки сбоев при выполнении запросов по нескольким сегментам.
-
-Главной точкой входа в процесс формирования многосегментного запроса является класс **MultiShardConnection**. Так же как и при маршрутизации на основе данных, API использует привычные возможности классов и методов ****[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)**. С помощью библиотеки **SqlClient** выполните первый шаг — создание подключения **SqlConnection**, затем создайте команду подключения **SqlCommand**, а затем выполните ее, используя один из методов **Execute**. Наконец, **SqlDataReader** выполняет итерацию по всем наборам результатов, возвращенных в результате выполнения команды. При взаимодействии с многосегментным запросом API-интерфейсы выполняют следующие шаги.
-
-1. Создать соединение **MultiShardConnection**.
-2. Создать команду **MultiShardCommand** для соединения **MultiShardConnection**.
-3. Выполнить команду.
-4. Воспользоваться результатами с помощью **MultiShardDataReader**. 
-
-Основное различие состоит в построении многосегментных подключений. Если **SqlConnection** действует для отдельной базы данных, то **MultiShardConnection** принимает в качестве входных данных ***коллекцию сегментов***. Коллекцию сегментов можно составить по карте сегментов. Затем выполняется запрос для коллекции сегментов с использованием семантики **UNION ALL** для формирования общего результата. При необходимости к выходным данным можно добавить имя сегмента, из которого поступает строка, используя свойство **ExecutionOptions** команды.
+1. Получение [**RangeShardMap**](https://msdn.microsoft.com/library/azure/dn807318.aspx) или [**ListShardMap**](https://msdn.microsoft.com/library/azure/dn807370.aspx) с помощью методов [**TryGetRangeShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [**TryGetListShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx) или [**GetShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx). См. статьи [**Создание объекта ShardMapManager**](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) и [**Получение RangeShardMap или ListShardMap**](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
+2. Создание объекта **[MultiShardConnection](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)**.
+2. Создание **[MultiShardCommand](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)**. 
+3. Задание для **[свойства CommandText](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)** команды T-SQL.
+3. Выполнение команды путем вызова **[метода ExecuteReader](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)**.
+4. Просмотр результатов с помощью **[класса MultiShardDataReader](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)**. 
 
 ## Пример
 
@@ -62,7 +58,9 @@
              	} 
            } 
     } 
+
  
+Основное различие состоит в построении многосегментных подключений. Если **SqlConnection** действует для отдельной базы данных, то **MultiShardConnection** принимает в качестве входных данных ***коллекцию сегментов***. Коллекция сегментов заполняется из карты сегментов. Затем выполняется запрос для коллекции сегментов с использованием семантики **UNION ALL** для формирования общего результата. При необходимости к выходным данным можно добавить имя сегмента, из которого поступает строка, используя свойство **ExecutionOptions** команды.
 
 Обратите внимание на вызов **myShardMap.GetShards()**. С помощью этого метода все сегменты извлекаются из карты сегментов, и обеспечивается простой способ выполнения запроса по всем соответствующим базам данных. Коллекцию сегментов для многосегментного запроса можно дополнительно ограничить, выполнив запрос LINQ к коллекции, полученной в результате вызова **myShardMap.GetShards()**. Эта возможность в многосегментном формировании запросов, в сочетании с политикой частичных результатов, разработана для применения к сегментам в количестве от десятков до сотен.
 
@@ -73,6 +71,13 @@
 При многосегментных запросах не выполняется проверка на участие шардлетов из запрашиваемой базы данных в операциях разбиения или слияния. (См. статью [Масштабирование с применением средства разбиения и слияния эластичной базы данных](sql-database-elastic-scale-overview-split-and-merge.md).) Это может привести к несогласованности, когда строки одного шардлета отображаются для нескольких баз данных в одном многосегментном запросе. Следует учитывать эти ограничения, фильтрование текущих операций разбиения или слияния, а также изменения сопоставления сегментов при выполнении многосегментных запросов.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+
+## См. также
+Классы и методы **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)**.
+
+
+Управление сегментами с использованием [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md). Она включает в себя новое пространство имен с именем [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx), предоставляющее возможность выполнять запрос к нескольким сегментам, используя один запрос и один результат. Это позволяет абстрагировать обработку запросов по набору сегментов. Также предоставляются альтернативные политики выполнения, в особенности частичные результаты для обработки сбоев при выполнении запросов по нескольким сегментам.
+
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

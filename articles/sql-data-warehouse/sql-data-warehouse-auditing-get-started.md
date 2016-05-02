@@ -3,7 +3,7 @@
    description="Приступая к работе с аудитом базы данных хранилища данных SQL"
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="twounder"
+   authors="ronortloff"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="03/03/2016" 
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # Приступая к работе с аудитом базы данных хранилища данных SQL
 Аудит хранилища данных SQL Azure отслеживает события базы данных и записывает их в журнал аудита, расположенный в учетной записи хранения Azure.
@@ -141,4 +141,4 @@
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

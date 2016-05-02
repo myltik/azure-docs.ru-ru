@@ -41,10 +41,6 @@ Solr можно установить в кластере любого типа (
 
 ## Установка Solr с помощью портала
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Установка Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-v1.md)
-
 1. Начните создание кластера с помощью параметра **НАСТРАИВАЕМОЕ СОЗДАНИЕ**, как описано в разделе [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md#portal).
 2. На странице **Действия сценариев** мастера щелкните **Добавить действие сценария** для предоставления информации о данном действии сценария, как показано ниже:
 
@@ -200,4 +196,4 @@ Solr можно установить в кластере любого типа (
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

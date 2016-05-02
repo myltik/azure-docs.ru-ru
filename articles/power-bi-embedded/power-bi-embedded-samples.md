@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started with Microsoft Power BI Embedded sample"
-   description="Get started with Microsoft Power BI Embedded sample"
+   pageTitle="Примеры Power BI Embedded"
+   description="Примеры Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -34,4 +34,4 @@
 - [Что такое Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Приступая к работе с предварительной версией Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

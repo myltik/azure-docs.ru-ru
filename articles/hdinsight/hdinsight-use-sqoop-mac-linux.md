@@ -17,7 +17,7 @@
 	ms.date="03/09/2016"
 	ms.author="larryfr"/>
 
-#Использование Sqoop с Hadoop в HDInsight \(SSH\)
+#Использование Sqoop с Hadoop в HDInsight (SSH)
 
 [AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
@@ -33,6 +33,8 @@
 - **Кластер Hadoop в HDInsight**. См. раздел [Создание кластера и базы данных SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 - **Рабочая станция**: компьютер с клиентом SSH.
 - **Azure CLI**: дополнительные сведения см. в разделе [Установка и настройка Azure CLI](../xplat-cli-install.md).
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Экспорт Sqoop
 
@@ -50,7 +52,7 @@
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Она дает Sqoop указание на подключение к базе данных SQL, базе данных **sqooptest** и экспорт данных из **wasb:///hive/warehouse/hivesampletable** \(физические файлы для *hivesampletable*\) в таблицу **mobiledata**.
+    Она дает Sqoop указание на подключение к базе данных SQL, базе данных **sqooptest** и экспорт данных из ****wasb:///hive/warehouse/hivesampletable** (физические файлы для *hivesampletable*) в таблицу **mobiledata**.
 
 5. После выполнения команды используйте следующую команду для подключения к базе данных с помощью TSQL:
 
@@ -65,7 +67,7 @@
 
 ##Импорт Sqoop
 
-1. Для импорта данных из таблицы **mobiledata** базы данных SQL в каталог **wasb:///tutorials/usesqoop/importeddata** в HDInsight используйте следующую команду:
+1. Для импорта данных из таблицы **mobiledata** базы данных SQL в каталог ****wasb:///tutorials/usesqoop/importeddata** в HDInsight используйте следующую команду:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -110,7 +112,7 @@ Sqoop можно также использовать для импорта и э
         [sessionid] [bigint],
         [sessionpagevieworder] [bigint])
 
-* При подключении к SQL Server из HDInsight может потребоваться IP-адрес сервера SQL Server, если не настроена служба доменных имен \(DNS\) для разрешения имен в виртуальной сети Azure. Например:
+* При подключении к SQL Server из HDInsight может потребоваться IP-адрес сервера SQL Server, если не настроена служба доменных имен (DNS) для разрешения имен в виртуальной сети Azure. Например:
 
         sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -142,4 +144,4 @@ Sqoop можно также использовать для импорта и э
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

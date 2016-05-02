@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Создание виртуальной машины с MySQL | Microsoft Azure"
-	description="Создайте виртуальную машину под управлением Windows Server 2012 R2, созданную с помощью классической модели развертывания, а затем установите и настройте на ней базу данных MySQL."
+	description="Создайте виртуальную машину Azure под управлением Windows Server 2012 R2 и базу данных MySQL, используя классическую модель развертывания."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,29 +14,19 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="04/15/2016"
 	ms.author="cynthn"/>
 
 
 # Установка MySQL на виртуальной машине под управлением Windows Server 2012 R2, созданной с помощью классической модели развертывания.
 
+[MySQL](http://www.mysql.com) является популярной базой данных SQL с открытым исходным кодом. В этом учебнике демонстрируются установка и запуск версии сообщества MySQL 5.6.23 в качестве сервера MySQL на виртуальной машине под управлением Windows Server 2012 R2. Инструкции по установке MySQL в Linux см. в разделе [Как установить MySQL в Azure](virtual-machines-linux-mysql-install.md).
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
+## Создание виртуальной машины под управлением Windows Server 2012 R2
 
-[MySQL](http://www.mysql.com) является популярной базой данных SQL с открытым исходным кодом. С помощью [классического портала Azure](http://manage.windowsazure.com) можно создать виртуальную машину под управлением Windows Server 2012 R2 из коллекции образов. Затем можно установить и настроить ее в качестве сервера MySQL.
-
-Инструкции по установке MySQL в Linux см. в разделе [Как установить MySQL в Azure](virtual-machines-linux-mysql-install.md).
-
-В этом учебнике описаны следующие процедуры.
-
-- Создание виртуальной машины под управлением Windows Server 2012 R2 с помощью классического портала Azure.
-
-- Установите и запустите версию сообщества MySQL 5.6.23 как сервер MySQL на виртуальной машине.
-
-
-## Создание виртуальной машины под управлением Windows Server
-
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
+Если у вас еще нет виртуальной машины под управлением Windows Server 2012 R2, создайте виртуальную машину, ориентируясь на этот [учебник](virtual-machines-windows-classic-tutorial.md).
 
 ## Присоединение диска данных
 
@@ -46,9 +36,7 @@
 
 ## Вход на виртуальную машину
 
-Далее вам необходимо войти в виртуальной машину, чтобы установить MySQL.
-
-[AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
+Далее вам необходимо [войти в систему виртуальной машины](virtual-machines-windows-classic-connect-logon.md), чтобы установить MySQL.
 
 ##Установка и запуск MySQL Community Server на виртуальной машине
 
@@ -134,8 +122,8 @@
 		mysql -u dbadmin3 -p -h testmysql.cloudapp.net
 
 
-## Дополнительные ресурсы
+## Дальнейшие действия
 
-Дополнительную информацию о MySQL см. в [документации по MySQL](http://dev.mysql.com/doc/).
+Дополнительные сведения о запуске MySQL см. в [документации по MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

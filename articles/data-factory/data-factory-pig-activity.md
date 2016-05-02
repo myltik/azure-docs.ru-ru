@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Действие Pig
@@ -69,7 +69,7 @@ outputs | Выходные данные, используемые действи
 linkedServiceName (имя связанной службы) | Ссылка на кластер HDInsight, зарегистрированный в качестве связанной службы в фабрике данных. | Да
 script | Указывается встроенный сценарий Pig. | Нет
 script path | Путь к файлу сценария Pig в хранилище BLOB-объектов Azure. Можно использовать либо свойство script, либо свойство scriptPath, но не оба сразу. Обратите внимание, что в имени файла учитывается регистр знаков. | Нет
-defines | Параметры в виде пары "ключ — значение", ссылки на которые указываются в сценарии Pig. | Нет
+defines | Параметры в виде пары "ключ — значение", ссылки на которые указываются в сценарии Pig. | Нет
 
 ## Пример
 
@@ -97,7 +97,7 @@ defines | Параметры в виде пары "ключ — значение
 
 1. Создайте связанную службу для регистрации [собственного вычислительного кластера HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) или настройте [вычислительный кластер HDInsight по требованию](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Назовем эту связанную службу HDInsightLinkedService.
 2.	Создайте [связанную службу](data-factory-azure-blob-connector.md) для настройки подключения к хранилищу BLOB-объектов Azure, в котором хранятся данные. Назовем эту службу StorageLinkedService.
-3.	Создайте [наборы данных](data-factory-create-datasets.md), указывающие на входные и выходные данные. Назовем входной набор данных PigSampleIn, а выходной — PigSampleOut.
+3.	Создайте [наборы данных](data-factory-create-datasets.md), указывающие на входные и выходные данные. Назовем входной набор данных PigSampleIn, а выходной — PigSampleOut.
 4.	Скопируйте запрос Pig в файл и сохраните его в хранилище BLOB-объектов Azure, заданном на втором шаге. Если связанная служба, размещающая данные, отличается от службы, размещающей файл запроса, создайте отдельную службу хранилища Azure и добавьте ссылку на нее в настройку действия. Используйте свойство**scriptPath**, чтобы указать путь к файлу сценария Pig, и **scriptLinkedService**, чтобы задать хранилище Azure, в котором размещен файл сценария.
 	
 	> [AZURE.NOTE] Вы можете добавить сценарий Pig непосредственно в определение действия, используя свойство **script**. Однако мы не рекомендуем это делать, так как в этом случае потребуется экранировать все специальные символы в сценарии в документе JSON, что может вызвать проблемы при отладке. Мы рекомендуем следовать инструкциям, описанным в шаге 4.
@@ -186,4 +186,12 @@ defines | Параметры в виде пары "ключ — значение
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-<!---HONumber=AcomDC_0302_2016-->
+
+## См. также
+- [Действие Hive](data-factory-hive-activity.md)
+- [Действие MapReduce](data-factory-map-reduce.md)
+- [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md)
+- [Вызов программ Spark](data-factory-spark.md)
+- [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+
+<!---HONumber=AcomDC_0420_2016-->

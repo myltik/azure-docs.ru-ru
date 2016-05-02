@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/18/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Устранение ошибок Docker
@@ -100,4 +100,4 @@
 
 Другой вариант — загрузить OpenSSL для Windows и создать необходимые сертификаты и ключи и затем загрузить ЦС, серверные сертификаты и ключи на компьютер Linux. Дополнительные сведения о настройке защищенного подключения к Docker см. в статье [Защита сокета управляющей программы Docker с помощью HTTPS](https://docs.docker.com/articles/https/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

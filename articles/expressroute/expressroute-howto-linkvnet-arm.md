@@ -1,30 +1,31 @@
 <properties 
-   pageTitle="Связывание виртуальных сетей с каналами ExpressRoute | Microsoft Azure"
-   description="В этой статье кратко описывается процедура связывания виртуальных сетей с каналами ExpressRoute."
+   pageTitle="Связывание виртуальной сети с каналом ExpressRoute с помощью PowerShell | Microsoft Azure"
+   description="В этом документе содержатся общие сведения о связывании виртуальных сетей с каналами ExpressRoute с помощью модели развертывания диспетчера ресурсов и PowerShell."
    services="expressroute"
    documentationCenter="na"
    authors="ganesr"
-   manager="carolz"
+   manager="carmonm"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-resource-manager"/>
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/14/2016"
    ms.author="ganesr" />
 
-# Связывание виртуальных сетей с каналами ExpressRoute
+# Связывание виртуальной сети с каналом ExpressRoute
 
 > [AZURE.SELECTOR]
-- [PowerShell — классическая модель](expressroute-howto-linkvnet-classic.md)
+- [Портал Azure — Resource Manager](expressroute-howto-linkvnet-portal-resource-manager.md)
 - [PowerShell — Resource Manager](expressroute-howto-linkvnet-arm.md)
-- [Шаблон — Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
+- [PowerShell — классическая модель](expressroute-howto-linkvnet-classic.md)
 
-В этой статье приводится краткое описание связывания виртуальных сетей с каналами ExpressRoute. Виртуальные сети могут быть в той же или другой подписке. Процедуры в этой статье относятся к виртуальным сетям, развернутым с помощью модели развертывания диспетчера ресурсов. Если вам нужно привязать виртуальную сеть, развернутую по классической модели развертывания, обратитесь к статье [Привязка виртуальной сети к каналу ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
+
+В этой статье содержатся сведения о связывании виртуальных сетей с каналами ExpressRoute с помощью модели развертывания диспетчера ресурсов и PowerShell. Виртуальные сети могут входить в одну и ту же подписку или в разные подписки.
 
 **О моделях развертывания Azure**
 
@@ -32,17 +33,17 @@
 
 ## Предварительные требования для настройки
 
-- Вам потребуются последние модули Azure PowerShell версии 1.0 или более поздней. Дополнительную информацию об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md). 
+- Вам потребуются последние модули Azure PowerShell версии 1.0 или более поздней. Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md). 
 - Не забудьте изучить [предварительные требования](expressroute-prerequisites.md), [требования к маршрутизации](expressroute-routing.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступать к настройке.
 - Вам потребуется активный канал ExpressRoute. 
 	- Следуйте инструкциям, чтобы [создать канал ExpressRoute](expressroute-howto-circuit-arm.md) и включить его на стороне поставщика услуг подключения. 
 	- Убедитесь, что для вашего канала настроен частный пиринг Azure. Инструкции по маршрутизации см. в статье [Настройка маршрутизации](expressroute-howto-routing-arm.md). 
 	- Для создания сквозного подключения вам потребуется настроить частный пиринг Azure, а также пиринг BGP между вашей сетью и сетью Майкрософт.
-	- Вам необходимо иметь созданные и полностью подготовленные виртуальную сеть и шлюз виртуальной сети. Следуйте инструкциям по созданию [VPN-шлюза](../articles/vpn-gateway-create-site-to-site-rm-powershell.md), но обязательно используйте `-GatewayType ExpressRoute`.
+	- Вам необходимо иметь созданные и полностью подготовленные виртуальную сеть и шлюз виртуальной сети. Следуйте инструкциям по созданию [VPN-шлюза](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), но обязательно используйте `-GatewayType ExpressRoute`.
 
 С каналом ExpressRoute можно связать до 10 виртуальных сетей. Все каналы ExpressRoute должны находиться в одном геополитическом регионе. При использовании надстройки Premium вы сможете связать больше виртуальных сетей с каналом ExpressRoute. Подробная информация о надстройке Premium приведена в статье [Вопросы и ответы](expressroute-faqs.md).
 
-## Связывание виртуальной сети и канала ExpressRoute из одной и той же подписки Azure
+## Подключение виртуальной сети в той же подписке к каналу
 
 Вы можете связать шлюз виртуальной сети с каналом ExpressRoute, используя следующий командлет. Убедитесь в наличии шлюза виртуальной сети и его готовности к связыванию, прежде чем запускать командлет.
 
@@ -50,9 +51,11 @@
 	$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 
-## Связывание виртуальной сети и канала ExpressRoute из разных подписок Azure
+## Подключение виртуальной сети в другой подписке к каналу
 
-Один канал ExpressRoute может одновременно использоваться несколькими подписками. На рисунке ниже схематично показан способ совместного использования каналов ExpressRoute несколькими подписками. Каждое маленькое облако внутри большого облака представляет подписки, принадлежащие различным подразделениям одной организации. Любое подразделение в организации может использовать свою собственную подписку для развертывания служб. Кроме того, оно может совместно использовать один выделенный канал ExpressRoute для подключения к корпоративной сети. Владельцем канала ExpressRoute может выступать одно подразделение (в данном примере — ИТ-подразделение). Другие подписки в организации могут использовать канал ExpressRoute.
+Один канал ExpressRoute может одновременно использоваться несколькими подписками. На рисунке ниже схематично показан способ совместного использования каналов ExpressRoute несколькими подписками.
+
+Каждое маленькое облако внутри большого облака представляет подписки, принадлежащие различным подразделениям одной организации. Любое подразделение в организации может использовать свою собственную подписку для развертывания служб. Кроме того, оно может совместно использовать один выделенный канал ExpressRoute для подключения к корпоративной сети. Владельцем канала ExpressRoute может выступать одно подразделение (в данном примере — ИТ-подразделение). Другие подписки в организации могут использовать канал ExpressRoute.
 
 >[AZURE.NOTE] Плата за подключение выделенного канала ExpressRoute и использование полосы пропускания будет взиматься с владельца выделенного канала. Полоса пропускания распределяется между всеми виртуальными сетями.
 
@@ -72,21 +75,21 @@
 
 В следующем фрагменте показано создание разрешение с помощью командлета.
 
-		Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
-		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
-		$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
-		$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
 		
 
 Ответ будет содержать ключ и состояние разрешения.
 
-		Name                   : MyAuthorization1
-		Id                     : /subscriptions/&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/CrossSubTest/authorizations/MyAuthorization1
-		Etag                   : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
-		AuthorizationKey       : ####################################
-		AuthorizationUseStatus : Available
-		ProvisioningState      : Succeeded
+	Name                   : MyAuthorization1
+	Id                     : /subscriptions/&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/CrossSubTest/authorizations/MyAuthorization1
+	Etag                   : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
+	AuthorizationKey       : ####################################
+	AuthorizationUseStatus : Available
+	ProvisioningState      : Succeeded
 
 		
 
@@ -139,4 +142,4 @@
 
 Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,22 +1,37 @@
-<properties pageTitle="Configure Forced Tunneling for VPN Gateways using Resource Manager | Microsoft Azure" description="If you have a virtual network with a cross-premises VPN Gateway, you can redirect or "force" all Internet-bound traffic back to your on-premises location. This article applies to the Resource Manager deployment model. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-resource-manager"/>
-<tags  
+<properties 
+   pageTitle="Настройка принудительного туннелирования для VPN-шлюзов с помощью диспетчера ресурсов | Microsoft Azure"
+   description="При наличии виртуальной сети с межорганизационным VPN-шлюзом можно перенаправлять или ";принудительно направлять"; весь интернет-трафик обратно в локальное расположение. Эта статья посвящена модели развертывания Resource Manager."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carmonm"
+   editor=""
+   tags="azure-resource-manager"/>
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/17/2015"
+   ms.date="04/12/2016"
    ms.author="cherylmc" />
 
 # Настройка принудительного туннелирования с помощью PowerShell и диспетчера ресурсов Azure
 
 > [AZURE.SELECTOR]
-- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
-- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+- [PowerShell — управление службами](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell — Resource Manager](vpn-gateway-forced-tunneling-rm.md)
 
-Сведения в этой статье применимы к виртуальным сетям и VPN-шлюзам, созданным с использованием модели развертывания диспетчера ресурсов. Сведения о настройке принудительного туннелирования виртуальных машин, созданных с использованием управления службами (которое также называется классической моделью развертывания) см. в статье [Настройка принудительного туннелирования](vpn-gateway-about-forced-tunneling.md).
+Сведения в этой статье применимы к виртуальным сетям и VPN-шлюзам, созданным с использованием модели развертывания диспетчера ресурсов.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+**О моделях развертывания Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+**Модели развертывания и средства для принудительного туннелирования**
+
+[AZURE.INCLUDE [vpn-gateway-table-forced-tunneling](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
+
 
 ## Сведения о принудительном туннелировании
 
@@ -52,16 +67,17 @@
 
 Следующая процедура поможет создать группу ресурсов и виртуальную сеть. Затем вы создадите VPN-шлюз и настроите принудительное туннелирование.
 
-В данном примере у виртуальной сети MultiTier-VNet имеются 3 подсети (*Frontend*, *Midtier* и *Backend*) с 4 межорганизационными подключениями *DefaultSiteHQ* и 3 *филиалами*. Выполнив указанные ниже действия, можно настроить подключение *DefaultSiteHQ* в качестве подключения к сайту по умолчанию для принудительного туннелирования и настроить принудительное туннелирование для подсетей *Midtier* и *Backend*.
+В этом примере у виртуальной сети MultiTier-VNet имеются три подсети (*Frontend*, *Midtier* и *Backend*) с четырьмя межорганизационными подключениями *DefaultSiteHQ* и тремя *филиалами*. Выполнив указанные ниже действия, можно настроить подключение *DefaultSiteHQ* в качестве подключения к сайту по умолчанию для принудительного туннелирования и настроить принудительное туннелирование для подсетей *Midtier* и *Backend*.
 
 	
 ### Подготовка
 
 Перед началом настройки убедитесь, что у вас есть следующие компоненты.
 
-- Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
+- Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
 
-- Командлеты Azure PowerShell (версии 1.0 или более поздней) Командлеты, необходимые для этой конфигурации, отсутствуют в версиях, предшествующих версии 1.0. Вы можете скачать эту версию в разделе Windows PowerShell на [странице скачивания](https://azure.microsoft.com/downloads/), а затем установить. Дополнительные сведения об установке и настройке PowerShell см. в статье [Как установить и настроить Microsoft Azure PowerShell](../powershell-install-configure.md).
+- Вам потребуется установить последнюю версию командлетов PowerShell Azure Resource Manager (1.0 или более позднюю версию). Дополнительную информацию об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+
 
 ### Этапы настройки
 
@@ -75,7 +91,7 @@
 
 2. Укажите подписку, которую нужно использовать.
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 		
 3. Создайте группу ресурсов.
 
@@ -134,4 +150,4 @@
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

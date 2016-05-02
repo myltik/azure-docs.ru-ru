@@ -3,7 +3,7 @@
    description="Ознакомьтесь с основными командлетами PowerShell для хранилища данных SQL Azure, а также узнайте, как приостанавливать и возобновлять работу базы данных."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="04/02/2016"
-   ms.author="barbkess;mausher;sonyama"/>
+   ms.author="sonyama;barbkess;mausher"/>
 
 # Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL
 
@@ -120,4 +120,4 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

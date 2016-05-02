@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="04/15/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: автоматическое обновление
@@ -43,7 +43,44 @@
 
 Если на сервере запущен пользовательский интерфейс **диспетчера службы синхронизации**, обновление будет отложено до тех пор, пока он не будет закрыт.
 
+## Устранение неполадок
+Если установка Connect не обновляется автоматически, выполните следующие действия, чтобы узнать, в чем может быть проблема.
+
+Во-первых, не следует ожидать попыток автоматического обновления в первый день выпуска новой версии. Попытки обновления выполняются в случайном порядке намеренно, поэтому не стоит беспокоиться, если обновление установки не начинается немедленно.
+
+Если вы считаете, что возникла проблема, сначала запустите `Get-ADSyncAutoUpgrade`, чтобы убедиться, что автоматическое обновление включено.
+
+Запустите журнал событий и найдите журнал **Приложение**. Добавьте фильтр журнала событий для источника **Azure AD Connect Upgrade** и диапазона идентификаторов событий **300–399**. ![Фильтр журнала событий для автоматического обновления](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)
+
+Будет выведен список журналов событий, связанных с состоянием автоматического обновления. ![Фильтр журнала событий для автоматического обновления](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogresult.png)
+
+В первой половине результатов будет представлен обзор состояния.
+
+| Префикс результата | Описание |
+| --- | --- |
+| Успешно | Установка успешно обновлена. |
+| UpgradeAborted | Временное состояние привело к остановке обновления. Будет выполнена повторная попытка установки, и ожидается, что она будет успешной. |
+| UpgradeNotSupported | Конфигурация системы блокирует автоматическое обновление. Будет выполнена повторная попытка для проверки изменения состояния, однако ожидается, что систему потребуется обновить вручную. |
+
+Ниже приведен список наиболее распространенных сообщений. В списке приведены не все сообщения, однако сообщение о результате должно явно указывать на проблему.
+
+| Сообщение о результате | Описание |
+| --- | --- |
+| **UpgradeAborted** | |
+| UpgradeAbortedSyncExeInUse | [Пользовательский интерфейс Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) открыт на сервере.
+| UpgradeAbortedInsufficientDiskSpace | Недостаточно дискового пространства для поддержки обновления. |
+| UpgradeAbortedSyncCycleDisabled | Параметр SyncCycle в [планировщике](active-directory-aadconnectsync-feature-scheduler.md) был отключен. |
+| UpgradeAbortedSyncOrConfigurationInProgress | Выполняется мастер установки, или синхронизация была запланирована вне планировщика. |
+| **UpgradeNotSupported** | |
+| UpgradeNotSupportedCustomizedSyncRules | Пользователь добавил собственные правила в конфигурацию. |
+| UpgradeNotSupportedDeviceWritebackEnabled | Включена функция [обратной записи устройства](active-directory-aadconnect-feature-device-writeback.md). |
+| UpgradeNotSupportedGroupWritebackEnabled | Включена функция [обратной записи групп](active-directory-aadconnect-feature-preview.md#group-writeback). |
+| UpgradeNotSupportedMetaverseSizeExceeeded | В метавселенной больше 100 000 объектов. |
+| UpgradeNotSupportedMultiForestSetup | Выполняется подключение к нескольким лесам. Экспресс-установка подключится только к одному лесу. |
+| UpgradeNotSupportedNonMsolAccount | [Учетная запись соединителя AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) больше не является учетной записью MSOL\_ по умолчанию.
+| UpgradeNotSupportedStagingModeEnabled | Сервер настроен для работы в [промежуточном режиме](active-directory-aadconnectsync-operations.md#staging-mode). |
+
 ## Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

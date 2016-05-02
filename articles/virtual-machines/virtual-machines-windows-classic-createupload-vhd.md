@@ -14,17 +14,15 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="04/15/2016"
 	ms.author="cynthn"/>
 
 # Создание и передача виртуального жесткого диска Windows Server в Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
-
-
 В этой статье показано, как передать виртуальный жесткий диск с операционной системой, чтобы использовать его в качестве образа для создания виртуальных машин. Дополнительные сведения о дисках и виртуальных жестких дисках в Microsoft Azure см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-linux-about-disks-vhds.md).
 
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов. Вы также можете [записать](virtual-machines-windows-capture-image.md) и [отправить](virtual-machines-windows-upload-image.md) виртуальную машину, используя модель диспетчера ресурсов.
 
 ## Предварительные требования
 
@@ -151,10 +149,10 @@
 	`Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>`
 
 	Описание
-	- **BlobStorageURL** — это URL-адрес для учетной записи хранения.
-	- **YourImagesFolder** — это контейнер внутри хранилища BLOB-объектов, где будут храниться образы.
-	- **VHDName** — это имя, которое должно отображаться на классическом портале Azure для идентификации виртуального жесткого диска.
-	- **PathToVHDFile** — это полный путь и имя VHD-файла.
+	- **BlobStorageURL** — URL-адрес для учетной записи хранения.
+	- **YourImagesFolder** — контейнер внутри хранилища BLOB-объектов, где будут храниться образы.
+	- **VHDName** — имя, которое должно отображаться на классическом портале Azure для идентификации виртуального жесткого диска.
+	- **PathToVHDFile** — полный путь и имя VHD-файла.
 
 	![PowerShell Add-AzureVHD](./media/virtual-machines-windows-classic-createupload-vhd/powershell_upload_vhd.png)
 
@@ -196,7 +194,7 @@
 
 	![создание виртуальной машины на основе пользовательского образа](./media/virtual-machines-windows-classic-createupload-vhd/create_vm_custom_image.png)
 
-	> [AZURE.TIP] Если при попытке создать виртуальную машину возникнет сообщение об ошибке "Виртуальный жесткий диск https://XXXXX.. имеет неподдерживаемый виртуальный размер YYYY Б. Размер должен измеряться целым числом (в МБ)», это означает, что размер виртуальной памяти вашего VHD не составляет целое число в мегабайтах, и поэтому его размер нефиксированный. Попытайтесь добавить образ, используя командлет **Add-AzureVMImage** PowerShell вместо классического портала Azure (см. шаг 5 выше). Командлеты Azure обеспечивают соответствие VHD требованиям Azure.
+	> [AZURE.TIP] Если при попытке создать виртуальную машину возникнет сообщение об ошибке "Виртуальный жесткий диск https://XXXXX.. имеет неподдерживаемый виртуальный размер YYYY Б. Размер должен измеряться целым числом (в МБ)», это означает, что размер виртуальной памяти вашего VHD не составляет целое число в мегабайтах, и поэтому его размер нефиксированный. Попытайтесь добавить образ, используя командлет **Add-AzureVMImage** PowerShell вместо классического портала Azure (см. шаг 5 выше). Командлеты Azure обеспечивают соответствие VHD требованиям Azure.
 
 
 
@@ -205,4 +203,4 @@
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

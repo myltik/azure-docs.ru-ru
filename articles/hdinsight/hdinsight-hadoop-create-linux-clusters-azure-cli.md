@@ -1,5 +1,5 @@
 <properties
-   	pageTitle="Создание кластеров Hadoop, HBase и Storm на базе Linux в HDInsight с помощью кроссплатформенного Azure CLI | Microsoft Azure"
+   	pageTitle="Создание кластеров Hadoop, HBase и Storm на базе Linux в HDInsight с помощью кроссплатформенного Azure CLI | Microsoft Azure"
    	description="Узнайте, как создать кластеры HDInsight под управлением Linux с помощью кроссплатформенного Azure CLI, шаблонов диспетчера ресурсов Azure и Azure REST API. Вы можете указать тип кластера (Hadoop, HBase или Storm) либо использовать сценарии для установки настраиваемых компонентов."
    	services="hdinsight"
    	documentationCenter=""
@@ -27,7 +27,7 @@ Azure CLI представляет собой кроссплатформенну
 
 В этом документе описан поэтапный процесс создания нового кластера HDInsight с использованием шаблона и Azure CLI.
 
-> [AZURE.IMPORTANT] При выполнении действий, описанных в этом документе, используется стандартное количество рабочих узлов (4) для кластера HDInsight. Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
+> [AZURE.IMPORTANT] При выполнении действий, описанных в этом документе, используется стандартное количество рабочих узлов (4) для кластера HDInsight. Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
 >
 > Дополнительные сведения о размерах узлов и их стоимости см. в статье [Сведения о ценах на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -36,7 +36,9 @@ Azure CLI представляет собой кроссплатформенну
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- __Интерфейс командной строки Azure__. Сведения об установке интерфейса командной строки Azure см. в разделе [Установка интерфейса командной строки Azure](../xplat-cli-install.md).
+- __Интерфейс командной строки Azure__.
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Вход в подписку Azure
 
@@ -122,4 +124,4 @@ Azure CLI представляет собой кроссплатформенну
 * [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Развертывание и мониторинг топологий со Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

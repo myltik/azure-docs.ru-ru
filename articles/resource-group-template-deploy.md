@@ -71,7 +71,7 @@
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-4. Проверьте развернутую службу перед ее выполнением, выполнив командлет **Test-AzureRmResourceGroupDeployment**. При тестировании развернутой службы укажите точно такие же параметры, как и при ее выполнении \(как показано на следующем шаге\).
+4. Проверьте развернутую службу перед ее выполнением, выполнив командлет **Test-AzureRmResourceGroupDeployment**. При тестировании развернутой службы укажите точно такие же параметры, как и при ее выполнении (как показано на следующем шаге).
 
         Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
@@ -112,9 +112,9 @@
         included in the template will be deleted.
         [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
-     Если шаблон включает параметр с именем, которое совпадает с одним из параметров в команде для развертывания шаблона \(например: включить в шаблон параметр с именем **ResourceGroupName**, которое совпадает с именем параметра **ResourceGroupName** в командлете [New AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)\), вам будет предложено указать название для параметра с суффиксом **FromTemplate** \(например **ResourceGroupNameFromTemplate**\). В общем случае следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
+     Если шаблон включает параметр с именем, которое совпадает с одним из параметров в команде для развертывания шаблона (например: включить в шаблон параметр с именем **ResourceGroupName**, которое совпадает с именем параметра **ResourceGroupName** в командлете [New AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), вам будет предложено указать название для параметра с суффиксом **FromTemplate** (например **ResourceGroupNameFromTemplate**). В общем случае следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
 
-6. Если вы хотите добавлять в журнал дополнительные сведения о развертывании, которые могут помочь в устранении ошибок развертывания, используйте параметр **DeploymentDebugLogLevel**. Можно задать регистрацию в журнале содержимого запроса или содержимого ответа \(или и того, и другого\) при операции развертывания.
+6. Если вы хотите добавлять в журнал дополнительные сведения о развертывании, которые могут помочь в устранении ошибок развертывания, используйте параметр **DeploymentDebugLogLevel**. Можно задать регистрацию в журнале содержимого запроса или содержимого ответа (или и того, и другого) при операции развертывания.
 
         New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
         
@@ -165,9 +165,9 @@
         data:
         info:    group create command OK
 
-5. Проверьте развернутую служб перед ее выполнением, выполнив команду **azure group template validate**. При тестировании развернутой службы укажите точно такие же параметры, как и при ее выполнении \(как показано на следующем шаге\).
+5. Проверьте развернутую служб перед ее выполнением, выполнив команду **azure group template validate**. При тестировании развернутой службы укажите точно такие же параметры, как и при ее выполнении (как показано на следующем шаге).
 
-        azure group template vaildate -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup
+        azure group template validate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
 
 5. Чтобы создать новое развертывание для группы ресурсов, выполните следующую команду и укажите необходимые параметры. Параметры будут включать в себя имя развертывания, имя группы ресурсов, путь или URL-адрес созданного шаблона и другие параметры, необходимые для вашего сценария.
    
@@ -175,11 +175,11 @@
 
      1. Использование встроенных параметров и локального шаблона. Каждый параметр имеет следующий формат: `"ParameterName": { "value": "ParameterValue" }`. В приведенном ниже примере показаны параметры с escape-символами.
 
-            azure group deployment create -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
+            azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      2. Использование встроенных параметров и ссылки на шаблон.
 
-            azure group deployment create --template-uri <LinkToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
+            azure group deployment create --template-uri <LinkToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      3. Использование файла параметров. Дополнительную информацию о файле шаблона см. в разделе [Файл параметров](./#parameter-file).
     
@@ -197,7 +197,7 @@
 
         azure group deployment create --mode Complete -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-6. Если вы хотите добавлять в журнал дополнительные сведения о развертывании, которые могут помочь в устранении ошибок развертывания, используйте параметр **debug-setting**. Можно задать регистрацию в журнале содержимого запроса или содержимого ответа \(или и того, и другого\) при операции развертывания.
+6. Если вы хотите добавлять в журнал дополнительные сведения о развертывании, которые могут помочь в устранении ошибок развертывания, используйте параметр **debug-setting**. Можно задать регистрацию в журнале содержимого запроса или содержимого ответа (или и того, и другого) при операции развертывания.
 
         azure group deployment create --debug-setting All -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
@@ -214,7 +214,7 @@
             }
           }
    
-3. Проверьте развернутую служб перед ее выполнением, выполнив операцию [проверки развертывания шаблонов](https://msdn.microsoft.com/library/azure/dn790547.aspx). При тестировании развернутой службы укажите точно такие же параметры, как и при ее выполнении \(как показано на следующем шаге\).
+3. Проверьте развернутую служб перед ее выполнением, выполнив операцию [проверки развертывания шаблонов](https://msdn.microsoft.com/library/azure/dn790547.aspx). При тестировании развернутой службы укажите точно такие же параметры, как и при ее выполнении (как показано на следующем шаге).
 
 3. Создайте развертывание новой группы ресурсов. Укажите идентификатор подписки, имя группы ресурсов для развертывания, имя развертывания и расположение шаблона. Дополнительную информацию о файле шаблона см. в разделе [Файл параметров](./#parameter-file). Дополнительную информацию о REST API для создания группы ресурсов см. в разделе [Создание шаблона-развертывания](https://msdn.microsoft.com/library/azure/dn790564.aspx). Обратите внимание, что для параметра **Режим** выбрано значение **Добавочный**. Чтобы выполнить полное развертывание, установите для параметра **Режим** значение **Полный**.
     
@@ -234,7 +234,7 @@
             }
           }
    
-      Если вы хотите регистрировать в журнале содержимое запроса или содержимое ответа \(или и то, и другое\), добавьте в запрос параметр **debugSetting**.
+      Если вы хотите регистрировать в журнале содержимое запроса или содержимое ответа (или и то, и другое), добавьте в запрос параметр **debugSetting**.
 
         "debugSetting": {
           "detailLevel": "requestContent, responseContent"
@@ -302,4 +302,4 @@
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

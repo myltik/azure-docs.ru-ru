@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Use Azure Key Vault from a Web Application | Microsoft Azure"
-	description="Use this tutorial to help you learn how to use Azure Key Vault from a web application."
+	pageTitle="Использование хранилища ключей Azure из веб-приложения | Microsoft Azure"
+	description="В этом учебнике показано, как использовать хранилище ключей Azure из веб-приложения."
 	services="key-vault"
 	documentationCenter=""
-	authors="adamhurwitz"
+	authors="adhurwit"
 	manager=""
-	tags="azure-resource-manager"//>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="04/13/2016"
 	ms.author="adhurwit"/>
 
 # Использование хранилища ключей Azure из веб-приложения #
@@ -118,7 +118,7 @@
 
 
 
-## <a id="portalsettings"></a>Добавление параметров приложения на портале Azure \(необязательно\) ##
+## <a id="portalsettings"></a>Добавление параметров приложения на портале Azure (необязательно) ##
 Если у вас есть веб-приложение Azure, теперь вы можете добавить фактические значения параметров приложений на портале Azure. При этом фактические значения не будут размещены в файле web.config, а будут защищены с помощью портала, где предоставляются отдельные возможности управления доступом. Эти значения будут заменены на значения, введенные в файле web.config. Убедитесь, что имена совпадают.
 
 ![Параметры приложения на портале Azure][1]
@@ -138,7 +138,7 @@
 	makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2015 -e 07/31/2016 -r
 	pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
-Запишите дату окончания и пароль для PFX-файла \(в этом примере: 07/31/2016 и test123\). Они вам потребуются позднее.
+Запишите дату окончания и пароль для PFX-файла (в этом примере: 07/31/2016 и test123). Они вам потребуются позднее.
 
 Дополнительные сведения о создании тестового сертификата см. в разделе [Практическое руководство по созданию собственного тестового сертификата](https://msdn.microsoft.com/library/ff699202.aspx).
 
@@ -156,11 +156,11 @@
 	# this is where the end date from the cert above is used
 	PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31")
 
-	PS C:\> $adapp = New-AzureADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
+	PS C:\> $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
 
-	PS C:\> $sp = New-AzureADServicePrincipal -ApplicationId $adapp.ApplicationId
+	PS C:\> $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
-	PS C:\> Set-AzureKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToKeys all -ResourceGroupName 'contosorg'
+	PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToKeys all -ResourceGroupName 'contosorg'
 
 	# get the thumbprint to use in your app settings
 	PS C:\>$x509.Thumbprint
@@ -222,7 +222,7 @@
 
 Я поместил весь этот код в класс Utils проекта веб-приложения для удобства использования.
 
-Последнее изменение кода находится в методе Application\_Start. Сначала необходимо вызвать метод GetCert\(\) для загрузки ClientAssertionCertificate. А затем мы изменяем метод обратного вызова, который использовался при создании нового KeyVaultClient. Обратите внимание, что этот параметр заменяет имевшийся ранее код.
+Последнее изменение кода находится в методе Application\_Start. Сначала необходимо вызвать метод GetCert() для загрузки ClientAssertionCertificate. А затем мы изменяем метод обратного вызова, который использовался при создании нового KeyVaultClient. Обратите внимание, что этот параметр заменяет имевшийся ранее код.
 
     Utils.GetCert();
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
@@ -233,7 +233,7 @@
 ![Добавление сертификата в веб-приложение на портале Azure][2]
 
 
-Последнее, что требуется выполнить, — добавить в веб-приложение параметр с именем WEBSITE\_LOAD\_CERTIFICATES и значением \*. Это позволит гарантировать загрузку всех сертификатов. Если требуется загрузить только переданные сертификаты, можно ввести разделенный запятыми список их отпечатков.
+Последнее, что требуется выполнить, — добавить в веб-приложение параметр с именем WEBSITE\_LOAD\_CERTIFICATES и значением *. Это позволит гарантировать загрузку всех сертификатов. Если требуется загрузить только переданные сертификаты, можно ввести разделенный запятыми список их отпечатков.
 
 Дополнительные сведения о добавлении сертификата в веб-приложение см. в разделе [Использование сертификатов в приложениях веб-сайтов Azure](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
 
@@ -242,11 +242,11 @@
 ## <a id="next"></a>Дальнейшие действия ##
 
 
-Справочные материалы по программированию см. в [справочнике по API клиента C\# для хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Справочные материалы по программированию см. в [справочнике по API клиента C# для хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

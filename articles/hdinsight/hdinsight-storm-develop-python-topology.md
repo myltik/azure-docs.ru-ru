@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/01/2016"
+   ms.date="04/19/2016"
    ms.author="larryfr"/>
 
 #Разработка топологий Apache Storm с помощью Python в HDInsight
@@ -347,4 +347,4 @@ __Чтобы построить uberjar и развернуть в HDInsight__, 
 * [Использование Python для потоковой передачи заданий MapReduce.](hdinsight-hadoop-streaming-python.md)
 * [Использование определяемых пользователем функций Python (UDF) в Pig и Hive.](hdinsight-python.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

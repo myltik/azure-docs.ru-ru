@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Сервер заданий Spark в кластерах Azure HDInsight (Windows)
+# Сервер заданий Spark для кластеров Azure HDInsight на платформе Windows (предварительная версия)
 
 > [AZURE.NOTE] Теперь HDInsight предоставляет кластеры Spark в Linux; для удаленной отправки заданий в кластер Spark используется Livy. Сведения о том, как использовать Livy с кластерами HDInsight Spark в Linux, см. в разделе [Удаленная отправка заданий Spark с помощью Livy в кластерах Spark в HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
 
@@ -84,4 +84,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -54,21 +54,18 @@
 
 ## Интеграция
 
-В Engagement предусмотрено два способа реализации уведомлений и объявлений о рекламной кампании: интеграция наложения и интеграция веб-представления.
+Engagement предоставляет два способа добавления баннеров в приложении Reach и внутренние представления для объявлений и опросов в приложении: интеграция наложения и интеграция веб-представлений вручную. На одной странице следует использовать только один способ.
 
-Интеграция наложения не требует добавления в приложение большого объема кода. Необходимо просто пометить страницы (XAML- и CS-файлы) тегом EngagementPageOverlay. Кроме того, если вы измените стандартное представление Engagement, ваши настройки будут использоваться для всех помеченных страниц, так что их достаточно определить один раз. Но если страницы должны наследовать свойства от объекта, отличного от EngagementPageOverlay, этот вариант не подойдет и придется использовать интеграцию веб-представления.
+Чтобы выбрать нужный вариант интеграции, обратите внимание на приведенные далее рекомендации.
 
-Интеграция веб-представления сложнее, но если страницы приложения должны наследовать свойства от объекта, отличного от Page, необходимо интегрировать веб-представление и его поведение.
-
-> [AZURE.TIP] Советуем заключить все содержимое страницы в элемент корневого уровня `<Grid></Grid>`. Чтобы интегрировать веб-представление, добавьте его в качестве дочернего элемента в эту сетку. Если необходимо задать компонент Engagement в другом месте, помните, что вам придется самостоятельно управлять размером экрана.
+-   Выберите интеграцию наложения, если ваши страницы уже наследуют от агента `EngagementPage`— вам придется лишь заменить `EngagementPage` на `EngagementPageOverlay` и `xmlns:engagement="using:Microsoft.Azure.Engagement"` на `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` на страницах.
+-   Выберите интеграцию веб-представлений вручную, чтобы добиться точного размещения пользовательского интерфейса Reach на страницах, или если вы не хотите добавлять на страницы еще один уровень наследования. 
 
 ### Интеграции наложения
 
-Engagement обеспечивает наложение при отображении уведомлений и объявлений.
+Наложение Engagement динамически добавляет элементы пользовательского интерфейса, используемые для отображения рекламных кампаний на странице. Если наложение не подходит для макета, рекомендуется использовать интеграцию веб-представлений вручную.
 
-Если вы хотите использовать этот тип, не используйте интеграцию веб-представления.
-
-В XAML-файле измените ссылку EngagementPage на EngagementPageOverlay.
+В XAML-файле измените ссылку `EngagementPage` на `EngagementPageOverlay`.
 
 -   Добавьте в объявления пространств имен:
 
@@ -81,7 +78,7 @@ Engagement обеспечивает наложение при отображен
 		<engagement:EngagementPage 
 		    xmlns:engagement="using:Microsoft.Azure.Engagement">
 		
-		    <!-- layout -->
+		    <!-- Your layout -->
 		</engagement:EngagementPage>
 
 **EngagementPageOverlay:**
@@ -89,19 +86,10 @@ Engagement обеспечивает наложение при отображен
 		<engagement:EngagementPageOverlay 
 		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
 		
-		    <!-- layout -->
+		    <!-- Your layout -->
 		</engagement:EngagementPageOverlay>
 
-> **EngagementPageOverlay для 8.1 и выше:**
-
-		<engagement:EngagementPageOverlay 
-		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
-		    <Grid>
-		      <!-- layout -->
-		    </Grid>
-		</engagement:EngagementPageOverlay>
-
-Затем в CS-файле пометьте страницу тегом EngagementPageOverlay, а не EngagementPage и импортируйте Microsoft.Azure.Engagement.Overlay.
+Затем в CS-файле пометьте страницу тегом `EngagementPageOverlay`, а не `EngagementPage`, и импортируйте `Microsoft.Azure.Engagement.Overlay`.
 
 			using Microsoft.Azure.Engagement.Overlay;
 
@@ -131,156 +119,33 @@ Engagement обеспечивает наложение при отображен
 			  }
 			}
 
-Теперь эта страница использует механизм наложения Engagement и вам не нужно вставлять веб-представление.
 
-Механизм наложения Engagement использует первый элемент Grid, найденный в XAML-файле, для добавления двух веб-представлений на страницу. Если вы хотите указать, куда нужно вставить веб-представления, можно определить сетку с именем EngagementGrid:
+Наложение Engagement добавляет элемент `Grid` поверх страницы и два элемента `WebView` — одни для баннера и другой для внутреннего представления.
 
-			<Grid x:Name="EngagementGrid"></Grid>
+Элементы наложения можно настроить непосредственно в файле `EngagementPageOverlay.cs`.
 
-Уведомление и объявление с наложением можно настроить непосредственно в их XAML- и CS-файлах:
+### Интеграция веб-представлений вручную
 
--   `EngagementAnnouncement.html`: HTML-код веб-представления `Announcement`.
--   `EngagementOverlayAnnouncement.xaml` : XAML-код `Announcement`.
--   `EngagementOverlayAnnouncement.xaml.cs`: код, связанный с `EngagementOverlayAnnouncement.xaml`.
--   `EngagementNotification.html`: HTML-код веб-представления `Notification`.
--   `EngagementOverlayNotification.xaml` : XAML-код `Notification`.
--   `EngagementOverlayNotification.xaml.cs`: код, связанный с `EngagementOverlayNotification.xaml`.
--   `EngagementPageOverlay.cs`: код для отображения объявлений и уведомлений `Overlay`.
+Reach будет искать на страницах два элемента `WebView`, ответственных за отображение баннера и внутреннего представления. Единственное, что нужно сделать — добавить эти два элемента `WebView` на страницы. Ниже приведен пример.
 
-### Интеграция веб-представления
+    <Grid x:Name="engagementGrid">
 
-Если вы хотите использовать этот тип, не используйте интеграцию наложения.
+      <!-- Your layout -->
 
-Для отображения содержимого Engagement необходимо интегрировать два веб-представления XAML в каждую страницу, на которой необходимо отобразить уведомление и объявление. Поэтому добавьте следующий код в XAML-файл.
+      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
+    </Grid>
 
-			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
-> **Для интеграции с 8.1 и выше:**
+В этом примере элементы `WebView` растягиваются в соответствии с размером их контейнера, который автоматически меняет их размер в случае изменения размера экрана или поворота окна.
 
-			<engagement:EngagementPage
-			    xmlns:engagement="using:Microsoft.Azure.Engagement">
-			    <Grid>
-			      <!-- Your layout -->
-			      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Right" VerticalAlignment="Top"/> 
-			    </Grid>
-			</engagement:EngagementPage>
-
-Связанный CS-файл должен выглядеть следующим образом:
-
-    using Microsoft.Azure.Engagement;
-    using System;
-    using Windows.ApplicationModel.Core;
-    using Windows.UI.ViewManagement;
-    using Windows.UI.Xaml;
-    using Windows.UI.Xaml.Navigation;
-
-    namespace My.Namespace.Example
-    {
-			/// <summary>
-			/// An empty page that can be used on its own or navigated to within a Frame.
-			/// </summary>
-			public sealed partial class ExampleEngagementReachPage : EngagementPage
-			{
-			  public ExampleEngagementReachPage()
-			  {
-			    this.InitializeComponent();
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-			
-			  #region to implement
-              /* Attach events when page is navigated. */
-              protected override void OnNavigatedTo(NavigationEventArgs e)
-              {
-                /* Update the webview when the app window is resized. */
-                Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
-
-                /* Update the webview when the app/status bar is resized. */
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP
-                ApplicationView.GetForCurrentView().VisibleBoundsChanged += DisplayProperties_VisibleBoundsChanged; 
-    #endif
-                base.OnNavigatedTo(e);
-              }
-
-			  /* When page is left ensure to detach SizeChanged handler. */
-			  protected override void OnNavigatedFrom(NavigationEventArgs e)
-			  {
-			    Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP
-                ApplicationView.GetForCurrentView().VisibleBoundsChanged -= DisplayProperties_VisibleBoundsChanged;
-    #endif
-			    base.OnNavigatedFrom(e);
-			  }
-			  
-			  /* "width" and "height" are the current size of your application display. */
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP
-			  double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
-			  double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
-    #else
-			  double width =  Window.Current.Bounds.Width;
-			  double height =  Window.Current.Bounds.Height;
-    #endif
-			
-			  /// <summary>
-			  /// Set your webview elements to the correct size.
-			  /// </summary>
-			  /// <param name="width">The width of your current display.</param>
-			  /// <param name="height">The height of your current display.</param>
-			  private void SetWebView(double width, double height)
-			  {
-			    #pragma warning disable 4014
-			    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-			            () =>
-			            {
-			              this.engagement_notification_content.Width = width;
-			              this.engagement_announcement_content.Width = width;
-			              this.engagement_announcement_content.Height = height;
-			            });
-			  }
-			
-			  /// <summary>
-			  /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
-			  /// </summary>
-			  /// <param name="sender">Original event trigger.</param>
-			  /// <param name="e">Window Size Changed Event arguments.</param>
-			  private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
-			  {
-			    double width = e.Size.Width;
-			    double height = e.Size.Height;
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP			  
-			  /// <summary>
-			  /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
-			  /// </summary>
-			  /// <param name="sender">The related application view.</param>
-			  /// <param name="e">Related event arguments.</param>
-			  private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
-			  {
-			    double width = sender.VisibleBounds.Width;
-			    double height = sender.VisibleBounds.Height;
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-    #endif
-			  #endregion
-			}
-    }
-
-> Эта реализация с внедренным веб-представлением меняет свой размер при повороте экрана устройства.
+> [AZURE.WARNING] Важно сохранить те же имена — `engagement_notification_content` и `engagement_announcement_content` — для элементов `WebView`. Reach определяет элементы по имени.
 
 ## Обработка отправленных данных (необязательно)
 
 Если вы хотите, чтобы приложения могли получать отправленные данные рекламных кампаний, необходимо реализовать два события класса EngagementReach:
 
-В файле App.xaml.cs в Public App(){} добавьте следующее:
+В App.xaml.cs в конструкторе App() добавьте:
 
 			EngagementReach.Instance.DataPushStringReceived += (body) =>
 			{
@@ -469,4 +334,4 @@ NotfificationHTML — `ms-appx-web:///Resources/EngagementNotification.html`. П
 			  #endregion
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Средство проверки XML BizTalk
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Используйте соединитель средства проверки XML BizTalk в приложении для проверки данных XML на соответствие предопределенным схемам XML. Пользователи могут применить существующие схемы или создавать схемы на основе экземпляра неструктурированного файла, экземпляра JSON или существующих соединителей.
 
@@ -64,4 +64,4 @@
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Что такое Microsoft Power BI Embedded"
-   description="Что такое Microsoft Power BI Embedded"
+   description="Power BI Embedded позволяет интегрировать отчеты Power BI в веб-приложения или мобильные приложения, позволяя обойтись без создания собственных решений визуализации данных для пользователей."
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -99,4 +99,4 @@
 - [Интерфейсы API REST Power BI](http://docs.powerbi.apiary.io/reference)
 - [Регионы Azure](https://azure.microsoft.com/regions/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

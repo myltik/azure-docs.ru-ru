@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="04/08/2016" 
 	ms.author="awills"/>
  
 # Журналы, исключения и пользовательские средства диагностики для ASP.NET в Application Insights
@@ -241,11 +241,11 @@ VB
 Вместо того, чтобы добавлять свойство в каждый вызов исключения отдельно, можно задать информацию в контексте по умолчанию.
 
     // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (TelemetryContext context)
+        public void Initialize (ITelemetry telemetry)
         {
-            context.Properties["AppVersion"] = "v2.1";
+            telemetry.Properties["AppVersion"] = "v2.1";
         }
     }
 
@@ -254,7 +254,7 @@ VB
     protected void Application_Start()
     {
         // ...
-        TelemetryConfiguration.Active.ContextInitializers
+        TelemetryConfiguration.Active.TelemetryInitializers
         .Add(new MyTelemetryInitializer());
     }
 
@@ -305,4 +305,4 @@ VB
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

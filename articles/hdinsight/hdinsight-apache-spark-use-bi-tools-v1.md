@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Использование средств бизнес-аналитики с Apache Spark в Azure HDInsight (Windows)
+# Использование средств бизнес-аналитики с Apache Spark в HDInsight Windows (предварительная версия)
 
 > [AZURE.NOTE] Теперь HDInsight предоставляет кластеры Spark в Linux. Сведения о том, как использовать кластеры Spark в HDInsight на платформе Linux, см. в разделе [Использование средств бизнес-аналитики с Apache Spark в Azure HDInsight (Linux)](hdinsight-apache-spark-use-bi-tools.md).
 
@@ -50,7 +50,7 @@
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Создайте новую записную книжку. Щелкните **Создать**, а затем выберите **Python 2**.
+2. Создайте новую записную книжку. Щелкните **Создать**, а затем выберите **Python 2**.
 
 	![Создание новой записной книжки Jupyter](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.note.jupyter.createnotebook.png "Создание новой записной книжки Jupyter")
 
@@ -112,7 +112,7 @@
 
 ##<a name="powerbi"></a>Использование Power BI для анализа данных в таблице Hive
 
-После сохранения данных в виде таблицы Hive можно воспользоваться Power BI для подключения к данным и визуализировать их для создания отчетов, панелей мониторинга и т. д.
+После сохранения данных в виде таблицы Hive можно воспользоваться Power BI для подключения к данным и визуализировать их для создания отчетов, панелей мониторинга и т. д.
 
 1. Войдите в [Power BI](http://www.powerbi.com/).
 
@@ -214,4 +214,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

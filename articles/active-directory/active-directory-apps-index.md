@@ -197,7 +197,7 @@ Cloud App Discovery — это функция [Azure AD Premium](https://azure
 
 | Путеводитель по статьям | |
 | :---: | --- |
-| Сравнение различных параметров развертывания приложений с поддержкой единого входа для пользователей | [Deploying Azure AD Integrated Applications to Users (Развертывание интегрированных приложений Azure AD для пользователей)](active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) |
+| Сравнение различных параметров развертывания приложений с поддержкой единого входа для пользователей | [Deploying Azure AD Integrated Applications to Users (Развертывание интегрированных приложений Azure AD для пользователей)](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | Обзор панели доступа и эквивалентной мобильной версии MyApps | [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md)<br />— [Для iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Для Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Получение доступа к приложениям Azure AD на веб-сайте Office 365 | [Средство запуска приложений Office 365](https://support.office.com/ru-RU/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Получение доступа к приложениям Azure AD с мобильного приложения Intune Managed Browser | [Управление доступом в Интернет с помощью политик управляемого браузера в Microsoft Intune](https://technet.microsoft.com/ru-RU/library/dn878029.aspx)<br />— [Для iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Для Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
@@ -228,4 +228,4 @@ Cloud App Discovery — это функция [Azure AD Premium](https://azure
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

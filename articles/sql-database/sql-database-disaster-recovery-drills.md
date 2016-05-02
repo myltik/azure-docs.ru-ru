@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="mihaelablendea" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/16/2015"
+   ms.date="04/18/2016"
    ms.author="mihaelab"/>
 
 #Отработка аварийного восстановления
@@ -63,4 +63,4 @@
 
 - Выполните отработку, проверив целостность приложения после восстановления (строки подключения, учетные данные, тестирование основных функций или другие проверки стандартной процедуры утверждения приложений).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0420_2016-->

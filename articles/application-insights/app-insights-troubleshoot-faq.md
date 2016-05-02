@@ -15,13 +15,13 @@
 	ms.date="02/26/2016" 
 	ms.author="awills"/>
  
-# Вопросы — Application Insights для ASP.NET
+# Вопросы — Application Insights для ASP.NET
 
 ## Проблемы с конфигурацией
 
 *У меня не получается настроить компоненты, о которых идет речь в таких статьях:*
 
-* [Troubleshooting no data - Application Insights for .NET](app-insights-asp-net-troubleshoot-no-data.md) (Устранение неполадок, связанных с отсутствием данных, — Application Insights для .NET);
+* [Troubleshooting no data - Application Insights for .NET](app-insights-asp-net-troubleshoot-no-data.md) (Устранение неполадок, связанных с отсутствием данных, — Application Insights для .NET);
 * [раздел "Устранение неполадок"](app-insights-monitor-performance-live-website-now.md#troubleshooting);
 * [Настройка системы диагностики Azure для входа в Application Insights](app-insights-azure-diagnostics.md);
 * [Устранение неполадок, а также вопросы и ответы по Application Insights для Java](app-insights-java-troubleshoot.md);
@@ -94,19 +94,13 @@
 В обозревателе решений щелкните правой кнопкой мыши `ApplicationInsights.config` и выберите **Обновить Application Insights**. Данные можно отправлять на существующий или новый ресурс в Azure. Мастер обновления изменяет ключ инструментирования в файле ApplicationInsights.config, который определяет, куда сервер SDK должен отправлять ваши данные. Если отменить выбор параметра "Обновить все", это также приведет к изменению ключа, отображаемого на ваших веб-страницах.
 
 
-## <a name="q06"></a>Отображается ли состояние моего приложения на карте на начальном экране предварительной версии Microsoft Azure?
-
-Нет! Здесь отображается состояние службы Azure. Чтобы увидеть результаты веб-теста, выберите Обзор > Application Insights > (ваше приложение).
-
-
-
 #### <a name="data"></a>Как долго данные хранятся на портале? Защищены ли они?
 
 См. раздел [Хранение данных и конфиденциальность][data].
 
 ## Ведение журналов
 
-#### <a name="post"></a>Как просмотреть данные POST в колонке "Поиск по журналу диагностики"?
+#### <a name="post"></a>Как просмотреть данные POST в колонке «Поиск по журналу диагностики»?
 
 Данные POST не регистрируются автоматически, но можно использовать вызов TrackTrace. Для этого добавьте данные в параметр сообщения. В нем можно добавить больше символов, чем в свойствах строк, но по нему невозможно выполнить фильтрацию.
 
@@ -136,7 +130,7 @@
 
 ## Автоматизация
 
-Вы можете [написать сценарий PowerShell](app-insights-powershell.md) для создания ресурса Application Insights.
+Вы можете [написать сценарии PowerShell](app-insights-powershell.md) для создания и обновления ресурсов Application Insights.
 
 ## Другие ответы
 
@@ -153,4 +147,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

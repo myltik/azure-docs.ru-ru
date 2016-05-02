@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/05/2016" 
 	ms.author="spelluru"/>
 
 # Выполняйте преобразование и анализ с фабрикой данных Azure
@@ -24,15 +24,14 @@
 
 Действие преобразования | Вычислительная среда 
 :----------------------- | :--------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] 
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] 
-[Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop]
-[Действия машинного обучения: пакетное выполнение и ресурс обновления](data-factory-azure-ml-batch-execution-activity.md) | Azure 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] [Действия машинного обучения: пакетное выполнение и ресурс обновления](data-factory-azure-ml-batch-execution-activity.md) | Azure 
 [Хранимая процедура](data-factory-stored-proc-activity.md) | Azure SQL, хранилище данных Azure SQL или SQL Server |
 [Аналитика озера данных U-SQL](data-factory-usql-activity.md) | Аналитика озера данных Azure 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] или пакетная служба Azure
    
+> [AZURE.NOTE] 
+Действие MapReduce можно использовать для запуска программ Spark в кластере HDInsight Spark. Дополнительные сведения см.в статье [Invoke Spark programs from Azure Data Factory (Вызов программ Spark из фабрики данных Azure)](data-factory-spark.md). Можно создать настраиваемое действие для выполнения сценариев R в кластере HDInsight, где установлена среда R. См. статью [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) (Запуск сценария R с помощью фабрики данных Azure).
+ 
 
 Вам следует создать связанную службу для среды вычислений, а затем использовать связанную службу при определении действия преобразования. Фабрика данных поддерживает вычислительные среды двух типов.
 
@@ -41,4 +40,4 @@
 
 Прочитайте статью [связанные службы вычислений](data-factory-compute-linked-services.md), чтобы узнать о том, какие связанные службы вычислений поддерживает фабрика данных.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0420_2016-->

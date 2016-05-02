@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="04/15/2016"
 	ms.author="cynthn"/>
 
-# Вопросы и ответы по виртуальным машинам Azure, созданным при помощи классической модели развертывания
+# Вопросы и ответы по виртуальным машинам Azure, созданным с помощью классической модели развертывания
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
 [AZURE.INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

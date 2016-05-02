@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Приступая к работе с BizTalk Trading Partner Management: добавление в приложение логики
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 Служба TPM позволяет определять и сохранять отношения между компаниями, такие как партнеры и соглашения, вместе с различными объектами, такими как схемы и сертификаты. Эти отношения затем можно использовать с помощью связанных служб API, таких как AS2, Edifact и X12.
 
@@ -41,4 +43,4 @@
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

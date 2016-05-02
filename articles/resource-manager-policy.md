@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Политики диспетчера ресурсов Azure | Microsoft Azure"
+	pageTitle="Политики диспетчера ресурсов Azure | Microsoft Azure"
 	description="В этом разделе описывается, как предотвращать нарушения в различных областях, таких как подписки, ресурсы и группы ресурсов, с помощью политик диспетчера ресурсов Azure."
 	services="azure-resource-manager"
 	documentationCenter="na"
 	authors="ravbhatnagar"
 	manager="ryjones"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/26/2016"
+	ms.date="04/18/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Применение политик для управления ресурсами и контроля доступа
@@ -23,8 +23,6 @@
 Можно создать определения политик, которые описывают действия или ресурсы, выполнение которых или доступ к которым запрещен. Эти определения политик назначаются для нужной области, такой как подписка, группа ресурсов или отдельный ресурс.
 
 В этой статье мы продемонстрируем базовую структуру языка, который используется для создания политик. Затем мы рассмотрим применение этих политик в различных областях и, наконец, приведем несколько примеров решения этой задачи с помощью REST API.
-
-Политика в настоящее время доступна в предварительной версии.
 
 ## Чем это отличается от управления доступом на основе ролей?
 
@@ -56,10 +54,10 @@
 
     {
       "if" : {
-        <condition> | <logical operator>
+          <condition> | <logical operator>
       },
       "then" : {
-        "effect" : "deny | audit"
+          "effect" : "deny | audit | append"
       }
     }
     
@@ -67,7 +65,7 @@
 
 Политика вычисляется при создании ресурса или развертывании шаблона с помощью HTTP-запроса PUT. В случае развертывания шаблона политика вычисляется во время создания каждого ресурса в шаблоне.
 
-Примечание. Типы ресурсов, которые не поддерживают теги, тип и расположение, например Microsoft.Resources/deployments, не оцениваются политикой. Их поддержка будет добавлена в будущем. Чтобы избежать проблем с обратной совместимостью, рекомендуется явно указывать тип при создании политик. Например, политика тегов, в которой не указаны типы, будет применяться ко всем типам, поэтому, если имеется вложенный ресурс, который не поддерживает теги, развертывание шаблона может завершиться сбоем при добавлении типа ресурса в вычисление в будущем.
+> [AZURE.NOTE] Сейчас политика не вычисляет типы ресурсов, которые не поддерживают теги, вид и расположение, например тип ресурса Microsoft.Resources/deployments. Их поддержка будет добавлена в будущем. Чтобы избежать проблем с обратной совместимостью, необходимо явно указывать тип при создании политик. Например, политика тегов, которая не указывает типы, будет применяться для всех типов. В этом случае может произойти ошибка развертывания шаблона в будущем, если существует вложенный ресурс, который не поддерживает тег, и в вычисление политики был добавлен тип ресурса развертывания.
 
 ## Логические операторы
 
@@ -93,7 +91,7 @@
 | В | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;keyName&gt;" |
 
-## Поля и источники
+### Поля и источники
 
 Условия формируются с помощью полей и источников. Поле представляет свойства в полезных данных запроса ресурса, используемые для описания состояния ресурса. Источник представляет характеристики самого запроса.
 
@@ -103,37 +101,70 @@
 
 Источники: **action**.
 
+### Псевдонимы свойств 
 Псевдоним свойства — имя, которое можно использовать в определении политики для доступа к определенным свойствам типа ресурса, например параметрам и SKU. Он действует во всех версиях API, в которых существует это свойство. Псевдонимы можно получить с помощью приведенного ниже REST API (поддержка PowerShell будет добавлена в будущем).
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 	
-Определение псевдонима выглядит примерно так. Как видите, псевдоним определяет пути в различных версиях API, даже если имя свойства изменено.
+Ниже приведено определение псевдонима. Как видите, псевдоним определяет пути в различных версиях API, даже если имя свойства изменено.
 
-    "aliases": [
-      {
-        "name": "Microsoft.Storage/storageAccounts/sku.name",
-        "paths": [
-          {
-            "path": "Properties.AccountType",
-            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
-          }
-        ]
-      }
-    ]
+	"aliases": [
+	    {
+	      "name": "Microsoft.Storage/storageAccounts/sku.name",
+	      "paths": [
+	        {
+	          "path": "properties.accountType",
+	          "apiVersions": [
+	            "2015-06-15",
+	            "2015-05-01-preview"
+	          ]
+	        },
+	        {
+	          "path": "sku.name",
+	          "apiVersions": [
+	            "2016-01-01"
+	          ]
+	        }
+	      ]
+	    }
+	]
 
 Сейчас поддерживается следующие псевдонимы.
 
 | Имя псевдонима | Описание |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Поддерживаемые типы ресурса: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Поддерживаемые типы ресурса: Microsoft.Compute/virtualMachines, <br /> Microsoft.Storage/storageAccounts, <br /> Microsoft.Scheduler/jobcollections, <br /> Microsoft.DocumentDB/databaseAccounts, <br /> Microsoft.Cache/Redis, <br /> Microsoft..CDN/profiles |
 | {resourceType}/sku.family | Поддерживаемый тип ресурса — Microsoft.Cache/Redis. |
 | {resourceType}/sku.capacity | Поддерживаемый тип ресурса — Microsoft.Cache/Redis. |
+| Microsoft.Compute/virtualMachines/imagePublisher | |
+| Microsoft.Compute/virtualMachines/imageOffer | |
+| Microsoft.Compute/virtualMachines/imageSku | |
+| Microsoft.Compute/virtualMachines/imageVersion | |
 | Microsoft.Cache/Redis/enableNonSslPort | |
 | Microsoft.Cache/Redis/shardCount | |
 
 
 Дополнительные сведения о действиях см. в статье [RBAC. Встроенные роли](active-directory/role-based-access-built-in-roles.md). В настоящее время политика работает только для запросов PUT.
 
+## Результат
+Политика поддерживает три типа результата — **deny**, **audit** и **append**.
+
+- "deny" — создание события в журнале аудита и сбой запроса.
+- "audit" — создание события в журнале аудита и выполнение запроса.
+- "append" — добавление определенного набора полей в запрос. 
+
+Для типа **append** необходимо предоставить сведения, как показано ниже.
+
+    ....
+    "effect": "append",
+    "details": [
+      {
+        "field": "field name",
+        "value": "value of the field"
+      }
+    ]
+
+Значением может быть строка или объект формата JSON.
 
 ## Примеры определения политик
 
@@ -154,6 +185,51 @@
         "effect" : "deny"
       }
     }
+
+Приведенная ниже политика добавляет тег costCenter с предустановленным значением, если теги отсутствуют.
+
+	{
+	  "if": {
+	    "field": "tags",
+	    "exists": "false"
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags",
+	        "value": {"costCenter":"myDepartment" }
+	      }
+	    ]
+	  }
+	}
+	
+Приведенная ниже политика добавляет тег costCenter с предустановленным значением, если имеются другие теги.
+
+	{
+	  "if": {
+	    "allOf": [
+	      {
+	        "field": "tags",
+	        "exists": "true"
+	      },
+	      {
+	        "field": "tags.costCenter",
+	        "exists": "false"
+	      }
+	    ]
+	
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags.costCenter",
+	        "value": "myDepartment"
+	      }
+	    ]
+	  }
+	}
 
 
 ### Соблюдение географических границ: контроль расположения ресурсов
@@ -311,24 +387,25 @@
     }
 
 
-Определение политики может быть задано как в показанном выше примере. В качестве версии API (api-version) используйте значение *2015-10-01-preview*. Примеры и дополнительные сведения см. в разделе [API REST для определения политик](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+Определение политики может быть задано как в показанном выше примере. В качестве версии API (api-version) используйте значение *2016-04-01*. Примеры и дополнительные сведения см. в разделе [API REST для определения политик](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Создание определения политики с помощью PowerShell
 
 Можно создать новое определение политики с помощью командлета New-AzureRmPolicyDefinition, как показано ниже. Приведенные ниже примеры создают политику, разрешающую использовать только ресурсы в Северной и Западной Европе.
 
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
-    	    			    "not" : {
-    	      			    	"field" : "location",
-    	      			    		"in" : ["northeurope" , "westeurope"]
-    	    			    	}
-    	    		          },
-    	      		    		"then" : {
-    	    			    		"effect" : "deny"
-    	      			    		}
-    	    		    	}'    		
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    		
 
-Результат выполнения сохраняется в объекте $policy, так как его можно использовать позже, при назначении политики. Вместо встроенного указания политики для параметра политики также можно указать путь к JSON-файлу, содержащему политику, как показано ниже.
+Результат выполнения сохраняется в объекте $policy и может использоваться позднее во время назначения политики. Вместо встроенного указания политики для параметра политики также можно указать путь к JSON-файлу, содержащему политику, как показано ниже.
 
     New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
@@ -343,7 +420,7 @@
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} — это имя назначения политики. В качестве версии API укажите *2015-10-01-preview*.
+{policy-assignment} — это имя назначения политики. В качестве версии API (api-version) используйте значение *2016-04-01*.
 
 Тело запроса будет похоже на следующее:
 
@@ -380,11 +457,11 @@
 
 Чтобы просмотреть все события, связанные с эффектом запрета, вы можете использовать следующую команду.
 
-    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 Чтобы просмотреть все события, связанные с эффектом аудита, вы можете использовать следующую команду.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

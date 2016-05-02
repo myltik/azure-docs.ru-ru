@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Использование записной книжки Zeppelin с кластером Spark в HDInsight (Linux)
+# Использование записной книжки Zeppelin с кластером Spark в HDInsight Linux (предварительная версия)
 
 Узнайте, как устанавливать записные книжки Zeppelin в кластеры Spark и использовать эти записные книжки.
 
@@ -39,13 +39,13 @@
 
 ## Установка записной книжки Zeppelin в процессе создания кластера
 
-Записную книжку Zeppelin в кластере Spark можно установить с помощью действия сценария. Действие сценария использует пользовательские скрипты для установки компонентов в кластере, которые по умолчанию недоступны. Пользовательский скрипт для установки Zeppelin на кластере Spark доступен на **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+Записную книжку Zeppelin в кластере Spark можно установить с помощью действия сценария. Действие сценария использует пользовательские скрипты для установки компонентов в кластере, которые по умолчанию недоступны. Пользовательский скрипт для установки Zeppelin на кластере Spark доступен на ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 ### Использование портала Azure
 
 Инструкции по использованию пакета HDInsight .NET SDK для выполнения действия сценария по установке записной книжки Zeppelin см. в разделе [Настройка кластеров HDInsight с помощью действий сценариев](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). В инструкции, приведенные в этой статье, необходимо внести несколько изменений.
 
-* Используйте сценарий для установки записной книжки Zeppelin. Необходимый сценарий: **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* Используйте сценарий для установки записной книжки Zeppelin. Необходимый сценарий: ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 * Сценарий необходимо выполнять только на головном узле.
 
@@ -55,7 +55,7 @@
 
 Инструкции по использованию пакета HDInsight .NET SDK для выполнения действия сценария по установке записной книжки Zeppelin см. в разделе [Настройка кластеров HDInsight с помощью действий сценариев](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk). В инструкции, приведенные в этой статье, необходимо внести несколько изменений.
 
-* Используйте сценарий для установки записной книжки Zeppelin. Необходимый сценарий: **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* Используйте сценарий для установки записной книжки Zeppelin. Необходимый сценарий: ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 * Сценарий не требует никаких параметров.
 
@@ -191,7 +191,7 @@
 
 	* **Имя шаблона** — **zeppelinnotebook**. Это просто понятное имя для шаблона.
 
-	* **Шаблон URL-адреса** — **\*hn0\*** . Определяет шаблон, который соответствует внутреннему полному доменному имени конечной точки размещения записных книжек Zeppelin. Поскольку записные книжки Zeppelin доступны только в узле headnode0 кластера, а конечной точкой обычно является `http://hn0-<string>.internal.cloudapp.net`, использование шаблона **hn0** обеспечит переадресацию запроса в конечную точку Zeppelin.
+	* **Шаблон URL-адреса** — ***hn0***. Определяет шаблон, который соответствует внутреннему полному доменному имени конечной точки размещения записных книжек Zeppelin. Поскольку записные книжки Zeppelin доступны только в узле headnode0 кластера, а конечной точкой обычно является `http://hn0-<string>.internal.cloudapp.net`, использование шаблона **hn0** обеспечит переадресацию запроса в конечную точку Zeppelin.
 
 		![шаблон FoxyProxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -332,4 +332,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!------HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

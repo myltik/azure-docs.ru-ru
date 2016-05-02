@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Приступая к работе с кодировщиком JSON BizTalk: добавление в приложение логики 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 Соединитель для кодирования и декодирования позволяет вашему приложению взаимодействовать с данными JSON и XML. Он может преобразовать экземпляр JSON в XML, и наоборот.
 
@@ -33,7 +35,7 @@
 - На правой панели щелкните кодировщик JSON BizTalk.
 
 	![Настройки действия][3]
-- Щелкните -\>
+- Щелкните ->
 
 	![Список действий][4]
 - Кодировщик JSON BizTalk поддерживает два действия. Выберите *Xml в JSON*
@@ -70,4 +72,4 @@
 <!--Links -->
 [Создание приложения логики]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->
