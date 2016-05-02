@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	writer="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
 #<a id="managemediaservicesorigins"></a>Управление конечными точками потоковой передачи в учетной записи служб мультимедиа
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-manage-origins.md)
+- [Портал](media-services-manage-origins.md)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
 
@@ -68,10 +68,9 @@
 	Выделение новых единиц потоковой передачи занимает около 20 минут.
 
 	 
->[AZURE.NOTE] Сейчас переход от любого положительного значения единиц потоковой передачи к нулевому может привести к отключению потоковой передачи по требованию на период до одного часа.
-</br>
+	>[AZURE.NOTE] Сейчас переход от любого положительного значения единиц потоковой передачи к нулевому может привести к отключению потоковой передачи по требованию на период до одного часа.
 
->[AZURE.NOTE] Для расчета затрат используется наибольшее число единиц, указанных для 24-часового периода. Дополнительные сведения о ценах см. в разделе [Сведения о ценах для служб мультимедиа](http://go.microsoft.com/fwlink/?LinkId=275107).
+	>[AZURE.NOTE] Для расчета затрат используется наибольшее число единиц, указанных для 24-часового периода. Дополнительные сведения о ценах см. в разделе [Сведения о ценах для служб мультимедиа](http://go.microsoft.com/fwlink/?LinkId=275107).
 	
 ##<a id="configure_streaming_endpoints"></a>Настройка конечной точки потоковой передачи
 
@@ -151,4 +150,4 @@
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

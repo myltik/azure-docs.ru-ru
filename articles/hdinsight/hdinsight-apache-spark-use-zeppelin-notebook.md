@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Использование записной книжки Zeppelin с кластером Spark в HDInsight (Linux)
+# Использование записной книжки Zeppelin с кластером Spark в HDInsight Linux (предварительная версия)
 
 Узнайте, как устанавливать записные книжки Zeppelin в кластеры Spark и использовать эти записные книжки.
 
@@ -332,4 +332,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!------HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

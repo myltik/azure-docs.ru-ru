@@ -1,12 +1,12 @@
 <properties 
-	pageTitle="Веб-приложение Python на Django в Linux | Microsoft Azure" 
+	pageTitle="Веб-приложение Python на Django в Linux | Microsoft Azure" 
 	description="Узнайте, как разместить веб-приложение на основе Django в Azure с помощью виртуальной машины Linux." 
 	services="virtual-machines-linux" 
 	documentationCenter="python" 
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""
-	tags=“azure-resource-manager"/>
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 
@@ -129,4 +129,4 @@
 
 После завершения этого учебного курса завершите работу созданной вами виртуальной машины Azure и/или удалите ее, чтобы освободить ресурсы для других учебных курсов и избежать платы за использование Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

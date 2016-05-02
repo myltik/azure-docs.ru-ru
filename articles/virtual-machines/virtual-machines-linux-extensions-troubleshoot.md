@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Устранение неполадок расширения виртуальной машины Linux | Microsoft Azure"
+   pageTitle="Устранение неполадок расширения виртуальной машины Linux | Microsoft Azure"
    description="Узнайте об устранении неполадок в расширении виртуальной машины Linux в Azure."
    services="virtual-machines-linux"
    documentationCenter=""
@@ -11,10 +11,10 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Устранение неполадок расширения виртуальной машины Linux
@@ -72,4 +72,4 @@ Azure CLI:
 
 После удаления расширения шаблон можно выполнить повторно, чтобы запустить скрипты на виртуальной машине.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

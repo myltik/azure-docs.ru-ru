@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/07/2016"
 	ms.author="larryfr"/>
 
 
@@ -35,6 +35,8 @@ Apache Oozie — это система рабочих процессов и ко
 - **Подписку на Azure**: См. [Получение бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 - **Консоль Azure**: См. [Установка и настройка консоли Azure](../xplat-cli-install.md)
+	
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 - **Кластер HDInsight**: См. [Приступая к работе с HDInsight в Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -62,7 +64,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 ##Создайте рабочий каталог
 
-Ресурсы, необходимые для выполнения задания, должны находиться в том же каталоге. В этом примере используются ****wasb:///tutorials/useoozie**. Для создания этого каталога и каталога данных, в котором будет размещаться новая таблица Hive, созданная этим рабочим процессом, воспользуйтесь следующей командой:
+Ресурсы, необходимые для выполнения задания, должны находиться в том же каталоге. В этом примере используются **wasb:///tutorials/useoozie**. Для создания этого каталога и каталога данных, в котором будет размещаться новая таблица Hive, созданная этим рабочим процессом, воспользуйтесь следующей командой:
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
@@ -112,7 +114,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 2. Нажмите Ctrl-X, чтобы закрыть редактор. При появлении запроса нажмите **Y** для сохранения файла, затем нажмите **Enter** для использования имени файла **useooziewf.hql**.
 
-3. Для копирования **useooziewf.hql** в ****wasb:///tutorials/useoozie/useooziewf.hql** выполните следующие команды:
+3. Для копирования **useooziewf.hql** в **wasb:///tutorials/useoozie/useooziewf.hql** выполните следующие команды:
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -193,7 +195,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 2. Нажмите Ctrl-X, затем **Y** и **Enter** для сохранения файла.
 
-3. Скопируйте файл **workflow.xml** в ****wasb:///tutorials/useoozie/workflow.xml** с помощью следующей команды:
+3. Скопируйте файл **workflow.xml** в **wasb:///tutorials/useoozie/workflow.xml** с помощью следующей команды:
 
 		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
 
@@ -284,7 +286,7 @@ Apache Oozie — это система рабочих процессов и ко
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Сохраните значение ****wasb://mycontainer@mystorageaccount.blob.core.windows.net**, так как оно будет использоваться в последующих шагах.
+	Сохраните значение **wasb://mycontainer@mystorageaccount.blob.core.windows.net**, так как оно будет использоваться в последующих шагах.
 
 2. Воспользуйтесь следующей командой для получения полного имени домена головного узла кластера: Оно будет использовано для адреса кластера в JobTracker. Позже он будет использован в файле конфигурации.
 
@@ -361,7 +363,7 @@ Apache Oozie — это система рабочих процессов и ко
 		  </property>
 		</configuration>
 
-	* Замените все вхождения ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
+	* Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
 
 	> [AZURE.WARNING] В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasb:///) приведет к сбою при запуске задания RunHiveScript.
 
@@ -392,7 +394,7 @@ Apache Oozie — это система рабочих процессов и ко
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	Часть ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** — это URL-адрес, который используется в команде Oozie.
+	Часть **http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** — это URL-адрес, который используется в команде Oozie.
 
 2. Используйте следующую команду для создания переменной среды для URL-адреса, чтобы не вводить его в каждой команде:
 
@@ -479,7 +481,7 @@ Oozie REST API позволяет создавать собственные ут
 
 1. Создайте туннель SSH для кластера HDInsight. Дополнительные сведения о том, как это сделать, можно узнать в статье [Использование туннелирования SSH для доступа к веб-интерфейсу Ambari, ResourceManager, JobHistory, NameNode, Oozie и другим веб-интерфейсам](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. После создания туннеля откройте веб-интерфейс Ambari в браузере. Универсальный код ресурса (URI) веб-сайта Ambari: ****https://CLUSTERNAME.azurehdinsight.net**. Замените **CLUSTERNAME** именем своего кластера HDInsight под управлением Linux.
+2. После создания туннеля откройте веб-интерфейс Ambari в браузере. Универсальный код ресурса (URI) веб-сайта Ambari: **https://CLUSTERNAME.azurehdinsight.net**. Замените **CLUSTERNAME** именем своего кластера HDInsight под управлением Linux.
 
 3. В левой части страницы выберите **Oozie**, затем **Quick Links** и, наконец, **Oozie Web UI**.
 
@@ -720,4 +722,4 @@ Oozie REST API позволяет создавать собственные ут
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

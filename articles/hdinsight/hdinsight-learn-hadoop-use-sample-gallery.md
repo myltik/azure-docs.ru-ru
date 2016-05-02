@@ -30,10 +30,6 @@
 	- Анализ журнала веб-сайта
 	- Рекомендации по фильмам с использованием Mahout
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Изучение Hadoop с помощью коллекции для начала работы с HDInsight](hdinsight-learn-hadoop-use-sample-gallery-v1.md)
-
 ![Решения из коллекции для начала работы с HDInsight Hadoop, Storm и HBase, включая примеры данных.][hdinsight.sample.gallery]
 
 В следующем видео показано, как запустить пример анализа тенденций Twitter:
@@ -68,4 +64,4 @@ HDInsight можно также изучить другими способами
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

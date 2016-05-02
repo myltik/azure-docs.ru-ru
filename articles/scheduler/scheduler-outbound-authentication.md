@@ -1,6 +1,6 @@
 <properties
  pageTitle="Исходящая проверка подлинности планировщика"
- description=""
+ description="Исходящая проверка подлинности планировщика"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -120,4 +120,4 @@
 
  [Ограничения, значения по умолчанию и коды ошибок планировщика Azure](scheduler-limits-defaults-errors.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

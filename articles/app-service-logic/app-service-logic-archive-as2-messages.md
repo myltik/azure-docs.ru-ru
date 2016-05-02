@@ -13,13 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 
 # Обзор архивации сообщений соединителя AS2
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 [Соединитель AS2](app-service-logic-connector-as2.md) предоставляет возможность архивации сообщений. Архивация сохраняет сообщения в **контейнере больших двоичных объектов Azure**, который является частью настроек пакета.
 
@@ -41,4 +42,4 @@
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

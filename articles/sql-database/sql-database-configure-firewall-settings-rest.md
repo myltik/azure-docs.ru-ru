@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Практическое руководство. Настройка параметров брандмауэра | Microsoft Azure"
+	pageTitle="Практическое руководство. Настройка брандмауэра базы данных SQL Azure | Microsoft Azure"
 	description="Сведения о настройке брандмауэра для IP-адресов, через которые осуществляется доступ к базам данных SQL Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -18,14 +18,14 @@
 	ms.author="rickbyh"/>
 
 
-# Практическое руководство. Настройка параметров брандмауэра для Базы данных SQL с помощью REST API
+# Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью REST API
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-configure-firewall-settings.md)
+- [Портал Azure](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-- [REST API](sql-database-configure-firewall-settings-rest.md)
+- [ИНТЕРФЕЙС REST API](sql-database-configure-firewall-settings-rest.md)
 
 
 Для подключения к серверам и базам данных в Базе данных SQL Microsoft Azure используются правила брандмауэра. На сервере Базы данных SQL Azure для главной или пользовательской базы данных можно определить значения параметров брандмауэра на уровне сервера и базы данных, которые будут выборочно разрешать доступ к базе данных.
@@ -71,4 +71,6 @@
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0211_2016-->
+ 
+
+<!---HONumber=AcomDC_0420_2016-->

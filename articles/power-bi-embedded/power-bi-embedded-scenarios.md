@@ -33,4 +33,4 @@
 - [Пример для начала работы](power-bi-embedded-get-started.md)
 - [Создание пользовательского визуального элемента с помощью средств разработчика (предварительная версия)](https://powerbi.microsoft.com/custom-visuals/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Приступая к работе с примером"
-   description="Приступая к работе с примером"
+   description="Power BI Embedded, использование пакета SDK для добавления интерактивных отчетов Power BI в приложение бизнес-аналитики"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -21,7 +21,7 @@
 **Предварительная версия Microsoft Power BI Embedded** позволяет интегрировать отчеты Power BI в веб-приложения или мобильные приложения, позволяя обойтись без создания собственных решений визуализации данных для пользователей. Чтобы приступить к интеграции отчетов Power BI в свое приложение, воспользуйтесь следующими ресурсами.
 
  -	[Пример панели мониторинга веб-приложения](http://go.microsoft.com/fwlink/?LinkId=761493)
- -	[Справочник по API Power BI Embedded](https://msdn.microsoft.com/library/mt712303.aspx)
+ -	[Справочник по API Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
  -	[Пакет SDK Power BI Embedded для .NET \(доступен в NuGet\)](http://go.microsoft.com/fwlink/?LinkId=746472)
 
 В этой статье приведены общие сведения о примере для начала работы с **Power BI Embedded**. Давайте приступим к настройке примера приложения, чтобы вы могли запустить пример веб-приложения.
@@ -242,4 +242,4 @@ $filter={tableName/fieldName} eq '{fieldValue}'
 - [Приступая к работе с предварительной версией Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Сведения о потоке маркеров приложений в Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

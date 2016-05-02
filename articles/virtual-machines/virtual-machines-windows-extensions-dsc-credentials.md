@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="04/18/2016"
    ms.author="zachal"/>
 
 # Передача учетных данных в обработчик расширения DSC Azure #
@@ -89,4 +89,4 @@ $vm | Update-AzureVM
 
 Чтобы найти дополнительные функциональные возможности, управляемые с помощью PowerShell DSC, [просмотрите в галереях PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) дополнительные ресурсы DSC.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Сведения о потоке маркеров приложений в Power BI Embedded"
-   description="Сведения о потоке маркеров приложений в Power BI Embedded"
+   description="Power BI Embedded, сведения о маркерах приложений для проверки подлинности и авторизации"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -56,4 +56,4 @@
 - [Типичные сценарии использования Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Приступая к работе с предварительной версией Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

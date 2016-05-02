@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Обзор API концентраторов событий Azure | Microsoft Azure"
-   description="Сводные сведения о некоторых ключевых клиентских API .NET концентраторов событий."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Обзор API концентраторов событий Azure | Microsoft Azure"
+    description="Сводные сведения о некоторых ключевых клиентских API .NET концентраторов событий."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/15/2016"
+    ms.author="sethm" />
 
 # Общие сведения об API концентраторов событий
 
@@ -189,4 +189,4 @@ public class SimpleEventProcessor : IEventProcessor
 - [Справочник по служебной шине и API .NET концентраторов событий](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

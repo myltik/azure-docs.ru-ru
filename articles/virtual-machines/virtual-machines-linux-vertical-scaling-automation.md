@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Вертикальное масштабирование виртуальной машины Azure c помощью службы автоматизации Azure | Microsoft Azure"
-	description="Сведения о вертикальном масштабировании виртуальной машины в ответ на оповещения c помощью службы автоматизации Azure"
-	services="virtual-machines"
+	description="Как вертикально масштабировать виртуальную машину Linux в ответ на предупреждения мониторинга c помощью службы автоматизации Azure"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="singhkay"
 	manager="drewm"
@@ -9,9 +9,9 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/29/2016"
@@ -53,27 +53,9 @@
 
 ## Настройка службы автоматизации Azure для доступа к виртуальным машинам
 
-В этом разделе мы выполним следующие задачи:
+Сначала необходимо создать учетную запись службы автоматизации Azure, в которой будут размещаться модули Runbook, используемые для масштабирования набора виртуальных машин. Недавно в службе автоматизации появилась функция "Запуск от имени...", которая упрощает настройку субъекта-службы для автоматического запуска модулей Runbook от имени пользователя. Дополнительные сведения об этом см. в следующей статье:
 
-* создадим пользователя в Active Directory;
-* создадим действие AutomationPSCredential с использованием данных для входа пользователя;
-* настроим параметры доступа пользователя к ресурсам в подписке.
-
-Прежде чем начать выполнение модулей Runbook службы автоматизации Azure, необходимо предоставить ей доступ к подписке. Для этого следует создать другого пользователя в Active Directory. Затем необходимо создать действие AutomationPSCredential, которое позволяет пользователю пройти проверку подлинности в Azure, и выполнить команды PowerShell для изменения размера виртуальной машины.
-
-Пошаговое руководство по созданию пользователя и действия AutomationPSCredential см. в статье
-
-* [Настройка службы автоматизации Azure](../automation/automation-configuring.md)
-
-После создания пользователя необходимо сделать его соадминистратором классических ресурсов и назначить ему роль "Владелец" для ресурсов Azure Resource Manager.
-
-Чтобы пользователь имел доступ к классическим ресурсам, его необходимо добавить в качестве соадминистратора на классическом портале Azure.
-
-![Соадминистратор старого портала](./media/virtual-machines-vertical-scaling-automation/old-portal-automation-user.png)
-
-Необходимо использовать портал Azure, чтобы предоставить пользователю доступ к виртуальным машинам Azure Resource Manager.
-
-![Администратор нового портала](./media/virtual-machines-vertical-scaling-automation/new-portal-automation-user.png)
+* [Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## Импорт модулей Runbook службы автоматизации Azure для вертикального масштабирования в подписку
 
@@ -108,4 +90,4 @@
 
 ![Добавить правило оповещения для виртуальной машины 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

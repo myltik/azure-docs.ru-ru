@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
  
 # Диагностика проблем с зависимостями в Application Insights
@@ -50,15 +50,15 @@
 
 платформа | Установить
 ---|---
-Сервер IIS | Либо [установите монитор состояний на сервере](app-insights-monitor-performance-live-website-now.md), либо [обновите свое приложение, установив платформу .NET Framework 4.6 или более поздней версии](http://go.microsoft.com/fwlink/?LinkId=528259). 
+Сервер IIS | [Установите монитор состояний на сервере](app-insights-monitor-performance-live-website-now.md) или [обновите свое приложение до .NET Framework 4.6 или более поздней версии](http://go.microsoft.com/fwlink/?LinkId=528259) и установите в нем пакет [SDK Application Insights](app-insights-asp-net.md).
 Веб-приложение Azure | [Расширение для Application Insights](../azure-portal/insights-perf-analytics.md)
 Веб-сервер Java | [Веб-приложения Java](app-insights-java-agent.md)
 Веб-страницы | [Монитор JavaScript](app-insights-javascript.md) (без дополнительной настройки, кроме мониторинга веб-страниц).
-Облачная служба | [Используйте задачу при запуске](app-insights-cloudservices.md#dependencies) или [установите платформу .NET Framework 4.6 или более поздней версии](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
+Облачная служба Azure | [Используйте задачу при запуске](app-insights-cloudservices.md#dependencies) или [установите платформу .NET Framework 4.6 или более поздней версии](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
 В случае с монитором состояния для серверов IIS вам не нужно заново компилировать проект с исходным кодом, используя пакет SDK для Application Insights.
 
-## <a name="diagnosis"></a> Диагностика проблем с производительностью зависимостей на веб-сервере
+## <a name="diagnosis"></a> Диагностика проблем производительности зависимостей на веб-сервере
 
 Чтобы оценить производительность запросов сервера:
 
@@ -140,4 +140,4 @@
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,8 +3,8 @@
 	description="Начальный раздел, в котором содержатся ссылки и рекомендации для клиентских программ, которые подключаются к базе данных Azure SQL из разных технологий, например ADO.NET и PHP." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	authors="annemill" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/07/2016" 
-	ms.author="genemi"/>
+	ms.author="annemill"/>
 
 
 # Подключение к базе данных SQL: рекомендации и советы по разработке
@@ -177,4 +177,4 @@
 
 - [Библиотеки подключений для базы данных SQL и SQL Server](sql-database-libraries.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0420_2016-->

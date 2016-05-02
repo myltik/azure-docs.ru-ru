@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Создание процесса B2B
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 ## Бизнес-сценарий 
 Компании Contoso и Northwind являются деловыми партнерами. Компания Contoso (розничный магазин) отправляет заказы на покупку компании Northwind (поставщику) посредством транспортировки уровня транспорта, например AS2. Northwind сохраняет все входящие заказы в своем облачном хранилище. Заказы на покупку представляют собой XML-сообщения между этими двумя партнерами. После того как сообщение сохраняется в облачном хранилище Northwind, заказ обрабатывают внутренние процессы Northwind.
@@ -69,4 +70,4 @@
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

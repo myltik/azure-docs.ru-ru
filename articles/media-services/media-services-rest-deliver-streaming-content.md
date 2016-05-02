@@ -2,7 +2,7 @@
 	pageTitle="Доставка содержимого потоковой передачи из служб мультимедиа" 
 	description="Узнайте, как создать указатель для создания URL-адреса потоковой передачи. Код использует REST API." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
 - [REST](media-services-rest-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [Портал](media-services-manage-content.md#publish)
 
 ##Обзор
 
@@ -191,4 +191,4 @@ URL: **Путь** + имя MP4-файла ресурса
 
 [Настройка политики доставки для ресурса-контейнера](media-services-rest-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -50,15 +50,14 @@
 
 	Login-AzureRmAccount
 
-Получите имя своей подписки, выполнив указанную ниже команду.
+Получите доступные подписки с помощью следующей команды.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Настройте свою подписку Azure. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
+Задайте подписку Azure для текущего сеанса. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
 
 	$subscr="<subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 ## Шаг 3. Создание ресурсов
 
@@ -393,4 +392,4 @@
 
 [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

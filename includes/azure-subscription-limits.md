@@ -1,9 +1,9 @@
 Ресурс|Ограничение по умолчанию|Максимальное ограничение
 ---|---|---
-Ядер на [подписку](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup>|20|10 000
+Ядер на [подписку](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup>|20|10 000
 [Дополнительные администраторы](../articles/billing-add-change-azure-subscription-administrator.md) на подписку|200|200
 [Учетные записи хранения](../articles/storage/storage-create-storage-account.md) на подписку<sup>2</sup>|100|100
-[Облачные службы](../articles/cloud-services/fundamentals-application-models.md#tellmecs) на подписку|20|200
+[Облачные службы](../articles/cloud-services/cloud-services-choose-me.md) на подписку|20|200
 [Локальные сети](http://msdn.microsoft.com/library/jj157100.aspx) на подписку|10|500
 Серверов баз данных SQL на подписку|6|150
 Серверы DNS на подписку|9|100
@@ -16,6 +16,6 @@
 
 <sup>1</sup>Сверхмалые экземпляры считаются как одно ядро в отношении ограничения ядер, несмотря на частичную загрузку ядра.
 
-<sup>2</sup>Если требуется более 100 учетных записей хранения, обратитесь с запросом в [службу поддержки Azure](https://azure.microsoft.com/support/faq/). Группа разработчиков для службы хранилища Azure рассмотрит вашу бизнес-модель. В случае утверждения вам позволят иметь до 250 учетных записей хранения.
+<sup>2</sup>Если требуется более 100 учетных записей хранения, обратитесь с запросом в [службу поддержки Azure](https://azure.microsoft.com/support/faq/). Группа разработчиков для службы хранилища Azure рассмотрит вашу бизнес-модель. В случае утверждения вам позволят иметь до 250 учетных записей хранения.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

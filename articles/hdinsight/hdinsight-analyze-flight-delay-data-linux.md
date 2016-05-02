@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="04/19/2016" 
 	ms.author="larryfr"/>
 
 #Анализ данных о задержке рейсов с помощью Hive в HDInsight
@@ -34,6 +34,8 @@
 - __База данных SQL Azure__. Вы будете использовать базу данных SQL Azure в качестве конечного хранилища данных. Если у вас еще нет базы данных SQL, см. раздел [Руководство по базам данных SQL: создание базы данных SQL за несколько минут](../sql-database/sql-database-get-started.md).
 
 - __Azure CLI__. Если вы еще не установили Azure CLI, см. раздел [Установка и настройка CLI Azure](../xplat-cli-install.md).
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 
 ##Скачивание данных о рейсах
@@ -304,4 +306,4 @@
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

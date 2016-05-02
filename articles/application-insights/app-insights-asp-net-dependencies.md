@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 
@@ -47,7 +47,7 @@
 
 ### Если приложение выполняется на сервере IIS
 
-Если веб-приложение использует .NET 4.6 или более позднюю версию, то вы автоматически получите отслеживание зависимостей, если в приложении [установлен пакет SDK для Application Insights](app-insights-asp-net.md). Больше делать ничего не нужно.
+Если веб-приложение работает на платформе .NET 4.6 или более поздней версии, вы можете [установить пакет SDK Application Insights](app-insights-asp-net.md) в приложении или установить монитор состояния Application Insights. Нужно установить только один из этих компонентов.
 
 В противном случае установите монитор состояний Application Insights на сервер.
 
@@ -95,7 +95,7 @@
 
 ### Если это проект облачной службы Azure
 
-[Добавьте сценарии в веб-роли и рабочие роли](app-insights-cloudservices.md#dependencies). Или [установите платформу .NET Framework 4.6 или более позднюю версию](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+[Добавьте сценарии в веб-роли и рабочие роли](app-insights-cloudservices.md#dependencies). Или [установите платформу .NET Framework 4.6 или более позднюю версию](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## <a name="diagnosis"></a> Диагностика проблем с производительностью зависимостей
 
@@ -170,11 +170,17 @@
 
 Чтобы отключить стандартный модуль отслеживания зависимостей, удалите ссылку на DependencyTrackingTelemetryModule в файле [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
+## Устранение неполадок
+
+*Флаг успешной зависимости всегда показывает значение true или false.*
+
+* Обновите пакет SDK до последней версии. Если версия платформы .NET ниже 4.6, установите [монитор состояния](app-insights-monitor-performance-live-website-now.md).
+
 ## Дальнейшие действия
 
-- [Исключения](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
-- [Данные пользователей и страниц](../article/application-insights/app-insights-asp-net-client.md#selector1)
-- [Доступность](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+- [Исключения](app-insights-asp-net-exception-mvc.md#selector1)
+- [Данные пользователей и страниц](app-insights-asp-net-client.md#selector1)
+- [Доступность](app-insights-monitor-web-app-availability.md#selector1)
 
 
 
@@ -196,4 +202,4 @@
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

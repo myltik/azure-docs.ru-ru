@@ -3,8 +3,8 @@
 	description="В этом разделе приведен обзор кодеков и форматов стандартного кодировщика мультимедиа." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"  
-	ms.author="juliako"/>
+	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 #Форматы и кодеки стандартного кодировщика служб мультимедиа
 
@@ -121,4 +121,4 @@ MPEG2-TS |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC
 
 [Кодирование с помощью стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

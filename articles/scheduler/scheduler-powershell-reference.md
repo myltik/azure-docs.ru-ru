@@ -1,6 +1,6 @@
 <properties
  pageTitle="Справочник по командлетам PowerShell планировщика"
- description=""
+ description="Справочник по командлетам PowerShell планировщика"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -54,4 +54,4 @@
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

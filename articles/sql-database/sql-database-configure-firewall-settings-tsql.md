@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Практическое руководство. Настройка параметров брандмауэра | Microsoft Azure"
+	pageTitle="Практическое руководство. Настройка брандмауэра базы данных SQL | Microsoft Azure"
 	description="Сведения о настройке брандмауэра для IP-адресов, через которые осуществляется доступ к базам данных SQL Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -18,14 +18,14 @@
 	ms.author="rickbyh"/>
 
 
-# Практическое руководство. Настройка параметров брандмауэра для Базы данных SQL с помощью TSQL
+# Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью TSQL
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-configure-firewall-settings.md)
+- [Портал Azure](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-- [REST API](sql-database-configure-firewall-settings-rest.md)
+- [ИНТЕРФЕЙС REST API](sql-database-configure-firewall-settings-rest.md)
 
 
 Для подключения к серверам и базам данных в Базе данных SQL Microsoft Azure используются правила брандмауэра. На сервере Базы данных SQL Azure для главной или пользовательской базы данных можно определить значения параметров брандмауэра на уровне сервера и базы данных, которые будут выборочно разрешать доступ к базе данных.
@@ -70,4 +70,4 @@
 
 Учебник по созданию базы данных см. в разделе [Создание первой базы данных SQL Azure](sql-database-get-started.md). Дополнительные сведения о подключении к Базе данных SQL Azure из приложений с открытым исходным кодом или приложений сторонних производителей см. в разделе [Рекомендации по подключению к Базе данных SQL Azure программными средствами](https://msdn.microsoft.com/library/azure/ee336282.aspx). Общие сведения о переходе к базам данных см. в разделе [Управление базами данных и именами для входа в Базу данных SQL Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,13 +1,21 @@
-<properties" pageTitle="title="Вывод списка образов виртуальных машин Oracle | Microsoft Azure" description="Получите список образов Oracle из коллекции Azure и узнайте, как создать виртуальную машину Oracle." services="virtual-machines-windows" documentationCenter="" authors="bbenz" manager="" editor="" tags="azure-service-management, azure-resource-manager"/>
+<properties
+  pageTitle="Список образов виртуальных машин Oracle | Microsoft Azure"
+  description="Получение списка образов Oracle в коллекции Azure и сведения о создании виртуальной машины Oracle."
+  services="virtual-machines-windows"
+  documentationCenter=""
+  authors="bbenz"
+  manager=""
+  editor=""
+  tags="azure-service-management, azure-resource-manager"/>
 
 <tags
-ms.service="virtual-machines-windows"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="vm-windows"
-ms.workload="infrastructure-services"
-ms.date="06/22/2015"
-ms.author="bbenz" />
+  ms.service="virtual-machines-windows"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.tgt_pltfrm="vm-windows"
+  ms.workload="infrastructure-services"
+  ms.date="06/22/2015"
+  ms.author="bbenz" />
 
 #Список образов виртуальных машин Oracle
 
@@ -15,4 +23,4 @@ ms.author="bbenz" />
 
 [AZURE.INCLUDE [virtual-machines-common-classic-oracle-images](../../includes/virtual-machines-common-classic-oracle-images.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

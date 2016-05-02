@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="03/04/2016"
+ ms.date="04/20/2016"
  ms.author="larryfr"/>
 
 #Подключение к Hive в Azure HDInsight с помощью драйвера Hive JDBC
@@ -151,6 +151,28 @@ SQuirreL SQL — клиент JDBC, который можно использов
 
 Пример использования клиента Java для запроса Hive в HDInsight доступен на странице [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Следуйте инструкциям в репозитории, чтобы построить и запустить образец.
 
+##Устранение неполадок
+
+### Непредвиденная ошибка при попытке открыть подключение к SQL.
+
+__Симптомы__. При подключении к кластеру HDInsight версии 3.3 или 3.4 может появиться сообщение о возникновении непредвиденной ошибки. Трассировка стека для этой ошибки начнется со следующих строк:
+
+    java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
+    at java.util.concurrent.FutureTas...(FutureTask.java:122)
+    at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+
+__Причина__. Эта ошибка возникает при несоответствии версии файла common-codec.jar, используемого SQuirreL, и файла, требуемого для компонентов Hive JDBC, загруженных из кластера HDInsight.
+
+__Решение__. Чтобы устранить эту ошибку, выполните приведенные далее действия.
+
+1. Загрузите файл common-codec.jar из кластера HDInsight.
+
+        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/common-codec*.jar ./common-codec.jar
+
+2. Закройте SQuirreL, а затем перейдите в каталог, где установлен SQuirreL. В каталоге SquirreL в каталоге `lib` замените существующий файл common-codec.ja файлом, загруженным из кластера HDInsight.
+
+3. Перезапустите SQuirreL. При последующих подключениях к Hive в HDInsight ошибка больше не должна возникать.
+
 ##Дальнейшие действия
 
 Теперь, когда вы узнали, как использовать JDBC для работы с Hive, воспользуйтесь следующими ссылками, чтобы изучить другие способы работы с Azure HDInsight.
@@ -160,4 +182,4 @@ SQuirreL SQL — клиент JDBC, который можно использов
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

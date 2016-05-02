@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Пример конфигурации для расширений виртуальной машины Linux | Microsoft Azure"
+   pageTitle="Пример конфигурации для расширений виртуальной машины Linux | Microsoft Azure"
    description="Пример конфигурации для разработки шаблонов с расширениями для виртуальных машин Linux."
    services="virtual-machines-linux"
    documentationCenter=""
@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Примеры конфигурации расширений виртуальной машины Linux
 
 > [AZURE.SELECTOR]
-- [PowerShell — шаблон](virtual-machines-windows-extensions-configuration-samples.md)
+- [PowerShell — шаблон](virtual-machines-windows-extensions-configuration-samples.md)
 - [CLI — шаблон](virtual-machines-linux-extensions-configuration-samples.md)
 
 <br>
@@ -51,11 +51,34 @@
       "publisher": "Publisher Namespace",
       "type": "extension Name",
       "typeHandlerVersion": "extension version",
+      "autoUpgradeMinorVersion":true,
       "settings": {
       // Extension specific configuration goes in here.
       }
       }
       }
+
+## Пример фрагмента шаблона для расширений виртуальной машины с наборами масштабирования виртуальных машин.
+
+          {
+           "type":"Microsoft.Compute/virtualMachineScaleSets",
+          ....
+                 "extensionProfile":{
+                 "extensions":[
+                   {
+                     "name":"extension Name",
+                     "properties":{
+                       "publisher":"Publisher Namespace",
+                       "type":"extension Name",
+                       "typeHandlerVersion":"extension version",
+                       "autoUpgradeMinorVersion":true,
+                       "settings":{
+                       // Extension specific configuration goes in here.
+                       }
+                     }
+                    }
+                  }
+                }
 
 Перед развертыванием расширения проверьте последнюю версию расширения и замените "typeHandlerVersion" текущей актуальной версией.
 
@@ -197,4 +220,4 @@
 
 [Расширение Custom Script на виртуальной машине Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->
