@@ -200,7 +200,7 @@
 
 2. Создайте конфигурацию виртуальной машины для сценариев с использованием балансировщика нагрузки, нескольких сетевых адаптеров или зарезервированных IP-адресов с помощью командлетов PowerShell. Затем создайте с помощью этой конфигурации виртуальную машину с нужными параметрами.
 	- Создайте виртуальную машину в облачной службе с [внутренним балансировщиком нагрузки](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
-	- Создайте виртуальную машину для подключения к [внутреннему балансировщику нагрузки для Интернета](https://azure.microsoft.com/ru-RU/documentation/articles/load-balancer-internet-getstarted/).
+	- Создайте виртуальную машину для подключения к [внутреннему балансировщику нагрузки для Интернета](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 	- Создайте виртуальную машину с [несколькими сетевыми адаптерами](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
 	- Создайте виртуальную машину с [несколькими зарезервированными IP-адресами](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
 

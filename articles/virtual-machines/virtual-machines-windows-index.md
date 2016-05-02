@@ -251,7 +251,7 @@
 
 [Создание настраиваемой виртуальной машины под управлением Windows](virtual-machines-windows-classic-createportal.md)
 
-[Capture an image of an Azure Windows virtual machine created with the classic deployment model (Запись образа виртуальной машины Windows Azure, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-capture-image.md)
+[Capture an image of an Azure Windows virtual machine created with the classic deployment model (Запись образа виртуальной машины Microsoft Azure, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-capture-image.md)
 
 [Create and upload a Windows Server VHD to Azure (Создание и передача виртуального жесткого диска Windows Server в Azure)](virtual-machines-windows-classic-createupload-vhd.md)
 

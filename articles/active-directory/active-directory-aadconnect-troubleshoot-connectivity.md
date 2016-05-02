@@ -24,7 +24,8 @@ Azure AD Connect использует для аутентификации сов
 
 В этой статье мы покажем, как Fabrikam подключается к Azure AD через прокси-сервер. Прокси-сервер имеет имя fabrikamproxy и использует порт 8080.
 
-Во-первых, проверим правильность настройки файла [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity). ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
+Во-первых, проверим правильность настройки файла [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity).  
+![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
 > [AZURE.NOTE] В некоторых сторонних блогах говорится, что вместо него изменения необходимо вносить в файл miiserver.exe.config. Однако при каждом обновлении этот файл перезаписывается, так что даже если при первичной установке все работает, то с первым же обновлением система работать перестанет. По этой причине рекомендуем обновлять файл machine.config.
 
@@ -37,7 +38,11 @@ Azure AD Connect использует для аутентификации сов
 | URL-адрес | Порт | Описание |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Используется для загрузки списков CRL. |
-| **.verisign.com | HTTP/80 | Используется для загрузки списков CLR. | | *.trust.com | HTTP/80 | Используется для загрузки списков CRL для многофакторной проверки подлинности. | | *.windows.net | HTTPS/443 | Используется для входа в Azure AD. | | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Используется для многофакторной проверки подлинности. | | *.microsoftonline.com | HTTPS/443 | Используется для настройки каталога Azure AD и импорта и экспорта данных. |
+| *.verisign.com | HTTP/80 | Используется для загрузки списков CLR. | 
+| *.trust.com | HTTP/80 | Используется для загрузки списков CRL для многофакторной проверки подлинности. | 
+| *.windows.net | HTTPS/443 | Используется для входа в Azure AD. |
+| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Используется для многофакторной проверки подлинности. |
+| *.microsoftonline.com | HTTPS/443 | Используется для настройки каталога Azure AD и импорта и экспорта данных. |
 
 ## Ошибки в мастере
 Мастер установки использует два различных контекста безопасности. На странице **Подключение к Azure AD** он использует имя пользователя, выполнившего вход. На странице **Настройка** он переключается на [учетную запись, под которой работает служба модуля синхронизации](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Настраиваемые нами конфигурации прокси-сервера применяются к компьютеру в целом, поэтому возникающие проблемы обычно проявляются уже на странице мастера **Подключение к Azure AD**.
@@ -45,18 +50,21 @@ Azure AD Connect использует для аутентификации сов
 Вот наиболее распространенные ошибки, которые встречаются в мастере установки.
 
 ### Неправильно настроен мастер установки
-Эта ошибка появляется в случае, если мастер не может связаться с прокси-сервером. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
+Эта ошибка появляется в случае, если мастер не может связаться с прокси-сервером.
+![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
 
 - Если она возникает, проверьте конфигурацию в файле [machine.config](active-directory-aadconnect-prerequisites.md#connectivity).
 - Если конфигурация выглядит нормально, выполните действия, описанные в разделе [Проверка подключения прокси-сервера](#verify-proxy-connectivity) и убедитесь в том, что проблема возникает не только в мастере.
 
 ### Не удается связаться с конечной точкой многофакторной проверки подлинности
-Эта ошибка отобразится в том случае, если не удается связаться с конечной точкой ****https://secure.aadcdn.microsoftonline-p.com** и глобальный администратор включил многофакторную проверку подлинности. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
+Эта ошибка отобразится в том случае, если не удается связаться с конечной точкой **https://secure.aadcdn.microsoftonline-p.com** и глобальный администратор включил многофакторную проверку подлинности. 
+![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 - Если вы видите это сообщение, убедитесь, что конечная точка secure.aadcdn.microsoftonline-p.com добавлена на прокси-сервер.
 
 ### Невозможно проверить пароль
-Если мастер установки успешно подключается к Azure AD, но проверить пароль невозможно, отображается следующее: ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
+Если мастер установки успешно подключается к Azure AD, но проверить пароль невозможно, отображается следующее:
+![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
 - Проверьте, не используется ли временный пароль, который необходимо сменить. Проверьте, правильно ли указан пароль. Попробуйте войти в систему по адресу https://login.microsoftonline.com (на другом компьютере, отличном от сервера Azure AD Connect) и убедитесь, что учетная запись доступна.
 
@@ -65,11 +73,15 @@ Azure AD Connect использует для аутентификации сов
 
 Для связи с прокси-сервером PowerShell будет использовать конфигурацию в файле machine.config. Параметры в winhttp/netsh не должны влиять на эти командлеты.
 
-Если прокси-сервер настроен правильно, вы должны получить успешное состояние: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
+Если прокси-сервер настроен правильно, вы должны получить успешное состояние:
+![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
 
-Если же вы получили сообщение **Не удается подключиться к удаленному серверу**, это означает, что PowerShell пытается передать прямой вызов, не используя прокси-сервер, или неправильно настроен DNS. Проверьте правильность настройки файла **machine.config**. ![unabletoconnect](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequestunable.png)
+Если же вы получили сообщение **Не удается подключиться к удаленному серверу**, это означает, что PowerShell пытается передать прямой вызов, не используя прокси-сервер, или неправильно настроен DNS. Проверьте правильность настройки файла **machine.config**.
+![unabletoconnect](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequestunable.png)
 
-Если прокси-сервер настроен неправильно, появляется ошибка: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png) ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
+Если прокси-сервер настроен неправильно, появляется ошибка:
+![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
+![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
 | Ошибка | Текст сообщения об ошибке | Комментарий |
 | ---- | ---- | ---- |
@@ -125,12 +137,15 @@ Azure AD Connect использует для аутентификации сов
 ## Действия по устранению неполадок для предыдущих версий.
 Начиная с версии с номером сборки 1.1.105.0 (выпущенной в феврале 2016) помощник по входу более не используется. Этот раздел и конфигурация больше не требуются, но хранятся для ссылки.
 
-Для работы помощника по единому входу необходимо настроить winhttp. Это можно сделать с помощью [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity). ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
+Для работы помощника по единому входу необходимо настроить winhttp. Это можно сделать с помощью [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
+![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
 ### Неправильно настроен помощник по входу
-Эта ошибка появляется, если помощник по входу не может связаться с прокси-сервером или прокси-сервер не пропускает запрос. ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
+Эта ошибка появляется, если помощник по входу не может связаться с прокси-сервером или прокси-сервер не пропускает запрос.
+![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
-- Если она возникает, проверьте конфигурацию прокси-сервера в [netsh](active-directory-aadconnect-prerequisites.md#connectivity) и убедитесь в правильности ее настройки. ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
+- Если она возникает, проверьте конфигурацию прокси-сервера в [netsh](active-directory-aadconnect-prerequisites.md#connectivity) и убедитесь в правильности ее настройки.
+![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 - Если конфигурация выглядит нормально, выполните действия, описанные в разделе [Проверка подключения прокси-сервера](#verify-proxy-connectivity) и убедитесь в том, что проблема возникает не только в мастере.
 
 ## Дальнейшие действия

@@ -255,7 +255,7 @@
 
 Дополнительную информацию см. в документации по [центрам уведомлений].
 
-> [AZURE.TIP] Компоненты управления центрами уведомлений на [портале Azure] находятся на стадии предварительной версии. [Классический портал Azure] остается доступным для управления всеми центрами уведомлений.
+> [AZURE.TIP] Компоненты управления центрами уведомлений на [портале Azure] находятся на стадии предварительной версии. [классический портал Azure] остается доступным для управления всеми центрами уведомлений.
 
 ### <a name="legacy-push"></a> Параметры отправки push-уведомлений устаревшего типа
 
@@ -265,7 +265,7 @@
 
 ### <a name="app-settings"></a>Другие параметры приложения
 
-Из мобильной службы перенесены приведенные ниже дополнительные параметры приложения. Они доступны в разделе *Параметры* > *Параметры приложения*.
+Из мобильной службы перенесены приведенные ниже дополнительные параметры приложения. Они доступны в разделе *Параметры* > *Параметры приложения*.
 
 | Параметр приложения | Описание |
 | :------------------------------- | :-------------------------------------- |
@@ -354,7 +354,7 @@
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Цены службы приложений]: https://azure.microsoft.com/ru-RU/pricing/details/app-service/
+[Цены службы приложений]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Автоматическое масштабирование]: ../app-service-web/web-sites-scale.md
 [службы приложений Azure]: ../app-service/app-service-value-prop-what-is.md
@@ -364,10 +364,10 @@
 [портал Azure]: https://portal.azure.com
 [портала Azure]: https://portal.azure.com
 [портале Azure]: https://portal.azure.com
-[регионе Azure]: https://azure.microsoft.com/ru-RU/regions/
+[регионе Azure]: https://azure.microsoft.com/regions/
 [планы планировщика Azure]: ../scheduler/scheduler-plans-billing.md
 [непрерывно развертывать]: ../app-service-web/web-sites-publish-source-control.md
-[преобразовать смешанные пространства имен]: https://azure.microsoft.com/ru-RU/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[преобразовать смешанные пространства имен]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [пользовательские доменные имена]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler

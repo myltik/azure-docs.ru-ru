@@ -173,11 +173,11 @@
    
     j. Задайте для параметра **Конфигурация безопасности для автоматической подготовки** значение **Конфигурация обычного пользователя**.
    
-    k. В текстовом поле "Атрибут электронной почты" введите значение ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    k. В текстовом поле "Атрибут электронной почты" введите значение **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    l. В текстовом поле **Атрибут имени** введите значение ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    l. В текстовом поле **Атрибут имени** введите значение **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    m. В текстовое поле **Атрибут фамилии** введите значение ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    m. В текстовое поле **Атрибут фамилии** введите значение **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
     n. Щелкните **Сохранить**.
    

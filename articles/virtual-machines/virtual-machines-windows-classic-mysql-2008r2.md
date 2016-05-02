@@ -61,7 +61,7 @@
 
 	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AccountsRoles_Filled.png)
 
-12.	На странице **Windows Service** (Служба Windows) укажите изменения параметров по умолчанию, позволяющие запустить сервер MySQL в качестве службы Windows, и нажмите кнопку **Next ** (Далее).
+12.	На странице **Windows Service** (Служба Windows) укажите изменения параметров по умолчанию, позволяющие запустить сервер MySQL в качестве службы Windows, и нажмите кнопку **Next** (Далее).
 
 	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_WindowsService.png)
 
