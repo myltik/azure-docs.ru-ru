@@ -3,7 +3,7 @@
    description="Узнайте, что такое программа bcp и как ее использовать в различных сценариях работы с хранилищем данных."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/21/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -27,7 +27,7 @@
 
 **[bcp][]** — это программа командной строки для массовой загрузки, которая позволяет копировать данные между SQL Server, файлами данных и хранилищем данных SQL. С помощью программы bcp можно выполнять импорт большого количества строк в таблицы хранилища данных SQL или экспорт данных из таблиц SQL Server в файлы данных. За исключением случаев использования с параметром queryout, для работы с программой bcp не требуется знание языка Transact-SQL.
 
-Программа bcp — это быстрый и простой способ перемещения небольших наборов данных в базу данных хранилища данных SQL и из нее. Точный объем данных, который рекомендуется загружать или извлекать с помощью bcp, зависит от сетевого подключения с центром данных Azure. Обычно таблицы измерений можно загружать и извлекать, а вот на передачу относительно больших таблиц фактов может уходить значительно больше времени.
+Программа bcp — это быстрый и простой способ перемещения небольших наборов данных в базу данных хранилища данных SQL и из нее. Точный объем данных, который рекомендуется загружать или извлекать с помощью bcp, зависит от сетевого подключения с центром данных Azure. Обычно таблицы измерений можно быстро загружать и извлекать с помощью средства bcp, только если речь не идет о больших объемах данных. Polybase — это рекомендуемое средство для загрузки и извлечения больших объемов данных, так как оно более эффективно использует возможности массово-параллельной архитектуры хранилища данных SQL.
 
 С помощью программы bcp можно выполнять следующие действия.
 
@@ -47,7 +47,7 @@
 
 - База данных хранилища данных SQL
 - Установленная служебная программа командной строки bcp
-- Установленная служебная программа командной строки SQLCMD
+- Установленная служебная программа командной строки SQLCMD.
 
 >[AZURE.NOTE] Вы можете загрузить служебные программы bcp и sqlcmd в [Центре загрузки Майкрософт][].
 
@@ -57,32 +57,29 @@
 
 ### Шаг 1. Создание таблицы в хранилище данных SQL Azure
 
-С помощью командной строки подключитесь к своему экземпляру, для этого замените в следующей команде значения соответствующим образом.
+В командной строке выполните следующий запрос, чтобы создать таблицу для экземпляра с помощью sqlcmd:
 
 ```sql
-sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
+    CREATE TABLE DimDate2
+    (
+        DateId INT NOT NULL,
+        CalendarQuarter TINYINT NOT NULL,
+        FiscalQuarter TINYINT NOT NULL
+    )
+    WITH
+    (
+        CLUSTERED COLUMNSTORE INDEX,
+        DISTRIBUTION = ROUND_ROBIN
+    );
+"
 ```
-После подключения скопируйте следующий скрипт таблицы в командную строку sqlcmd и нажмите клавишу "ВВОД".
 
-```sql
-CREATE TABLE DimDate2
-(
-    DateId INT NOT NULL,
-    CalendarQuarter TINYINT NOT NULL,
-    FiscalQuarter TINYINT NOT NULL
-)
-WITH
-(
-    CLUSTERED COLUMNSTORE INDEX,
-    DISTRIBUTION = ROUND_ROBIN
-);
-GO
-```
->[AZURE.NOTE] В разделе [Проектирование таблиц][] из группы разделов по разработке приведены дополнительные сведения о параметрах, доступных для предложения WITH.
+>[AZURE.NOTE] Дополнительные сведения о создании таблицы в хранилище данных SQL и параметрах, доступных в предложении WITH, см. в статьях, посвященных [проектированию таблиц в хранилище данных SQL][] и [синтаксису инструкции CREATE TABLE][].
 
 ### Шаг 2. Создание файла источника данных
 
-Откройте Блокнот и скопируйте следующие строки данных в новый файл.
+Откройте блокнот и скопируйте следующие строки данных в новый текстовый файл, а затем сохраните этот файл в локальный временный каталог (C:\\Temp\\DimDate2.txt).
 
 ```
 20150301,1,3
@@ -99,9 +96,7 @@ GO
 20150101,1,3
 ```
 
-Сохраните файл в локальный временный каталог C:\\Temp\\DimDate2.txt.
-
-> [AZURE.NOTE] Важно помнить, что bcp.exe не поддерживает кодировку UTF-8. Используйте файлы в кодировке ASCII или UTF-16 для файлов при работе с bcp.exe.
+> [AZURE.NOTE] Важно помнить, что bcp.exe не поддерживает кодировку UTF-8. Используйте файлы в кодировке ASCII или UTF-16 для файлов при работе со средством bcp.exe.
 
 ### Шаг 3. Подключение и импорт данных
 С помощью программы bcp подключитесь и импортируйте данные, для чего замените в следующей команде значения соответствующим образом.
@@ -110,11 +105,10 @@ GO
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
-Вы можете проверить, что данные загружены, для этого подключитесь с помощью утилиты sqlcmd, как и раньше, и выполните следующую команду TSQL:
+Вы можете убедиться, что данные загружены, выполнив следующий запрос с помощью sqlcmd:
 
 ```sql
-SELECT * FROM DimDate2 ORDER BY 1;
-GO
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
 Вы получите следующие результаты:
@@ -141,10 +135,11 @@ DateId |CalendarQuarter |FiscalQuarter
 Выполните следующие операторы CREATE STATISTICS из командной строки sqlcmd:
 
 ```sql
-create statistics [DateId] on [DimDate2] ([DateId]);
-create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
-create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
-GO
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
+    create statistics [DateId] on [DimDate2] ([DateId]);
+    create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+    create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+"
 ```
 
 ## Экспорт данных из хранилища данных SQL
@@ -174,7 +169,7 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 20150101,1,3
 ```
 
->[AZURE.NOTE] Из-за особенностей распределенных систем порядок данных, взятых из разных баз данных хранилища данных SQL, может не совпадать. При необходимости параметр queryout может использоваться для указания, какой запрос Transact-SQL следует выполнить.
+>[AZURE.NOTE] Из-за особенностей распределенных систем порядок данных, взятых из разных баз данных хранилища данных SQL, может не совпадать. Другой вариант — вместо того, чтобы экспортировать всю таблицу, вы можете использовать в bcp функцию **queryout**, чтобы создать запрос на извлечение.
 
 ## Дальнейшие действия
 Общие сведения о загрузке см. в разделе [Загрузка данных в хранилище данных SQL][]. Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][].
@@ -183,17 +178,16 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 
 <!--Article references-->
 
-[Загрузка данных в хранилище данных SQL]: ./sql-data-warehouse-overview-load.md
-[Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
-[Проектирование таблиц]: ./sql-data-warehouse-develop-table-design.md
-[Статистика]: ./sql-data-warehouse-develop-statistics.md
-
+[Загрузка данных в хранилище данных SQL]: sql-data-warehouse-overview-load.md
+[Общие сведения о разработке для хранилища данных SQL]: sql-data-warehouse-overview-develop.md
+[проектированию таблиц в хранилище данных SQL]: sql-data-warehouse-develop-table-design.md
+[Статистика]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-
+[синтаксису инструкции CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Центре загрузки Майкрософт]: http://www.microsoft.com/download/details.aspx?id=36433
+[Центре загрузки Майкрософт]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

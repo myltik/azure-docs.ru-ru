@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Начало работы с приложениями ASP.NET в службе приложений Azure | Microsoft Azure"
-	description="Узнайте, как создать веб-проект ASP.NET в Visual Studio и развернуть его в новом веб-приложении в службе приложений Azure."
+	pageTitle="Приступая к работе со службой приложений Azure и ASP.NET | Microsoft Azure"
+	description="Узнайте, как с помощью Visual Studio развернуть веб-проект ASP.NET в новом веб-приложении в службе приложений Azure."
 	services="app-service\web"
 	documentationCenter=".net"
 	authors="tdykstra"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="04/22/2016"
 	ms.author="tdykstra"/>
 
-# Начало работы с веб-приложениями ASP.NET в службе приложений Azure с помощью Visual Studio
+# Начало работы с веб-приложениями в службе приложений Azure с помощью ASP.NET и Visual Studio
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
@@ -293,4 +293,4 @@
 
 	Веб-приложения в Azure можно выполнять в веб-приложениях службы приложений Azure, как показано в этом учебнике, а также в облачных службах и на виртуальных машинах. Дополнительные сведения см. в статье [Сравнение службы приложений, облачных служб, виртуальных машин Azure и Service Fabric](/manage/services/web-sites/choose-web-app-service/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

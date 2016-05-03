@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Предварительная версия доменных служб Azure Active Directory: приступая к работе | Microsoft Azure"
+	pageTitle="Доменные службы Azure AD: включение синхронизации паролей | Microsoft Azure"
 	description="Приступая к работе с доменными службами Azure Active Directory"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,23 +13,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="04/25/2016"
 	ms.author="maheshu"/>
 
-# Доменные службы Azure AD *(Предварительная версия)* — Приступая к работе
+# Доменные службы Azure AD *(предварительная версия)* — включение синхронизации паролей в доменные служб Azure AD
 
-## Шаг 5. Включение синхронизации паролей
-После включения доменных служб Azure AD для вашего клиента Azure AD следующим шагом является включение синхронизации паролей. Это позволяет пользователям входить в домен, используя свои корпоративные учетные данные.
+## Задача 5. Включение синхронизации паролей в доменные службы AAD для исключительно облачного каталога Azure AD
+Когда вы включите доменные службы Azure AD для своего клиента Azure AD, следующая задача — включить синхронизацию учетных данных с доменными службами Azure AD. Это позволит пользователям входить в управляемый домен, используя свои корпоративные учетные данные.
 
-Этапы настройки различаются в зависимости от того, является ли ваша организация только облачным клиентом Azure AD или для нее настроена синхронизация вашего локального каталога с помощью Azure AD Connect.
+Этапы настройки отличаются в зависимости от того, есть ли у вашей организации исключительно облачный каталог Azure AD или для нее настроена синхронизация локального каталога с помощью Azure AD Connect.
 
-### Облачные клиенты. Включение создания хэшей учетных данных NTLM и Kerberos в Azure AD
-Если ваша организация является только облачным клиентом Azure AD, пользователям, которые захотят воспользоваться доменными службами Azure AD, потребуется изменить свои пароли. При этом необходимо сформировать в Azure AD хэши учетных данных, необходимые доменным службам Azure AD для проверки подлинности Kerberos и NTLM. Вы можете либо принудительно сделать так, чтобы срок действия паролей для всех пользователей в клиенте доменных служб Azure AD истек, либо отправить пользователям инструкции по изменению паролей.
+<br>
 
-Пример инструкций по изменению паролей, которые необходимо отправить пользователям.
+> [AZURE.SELECTOR]
+- [Исключительно облачный каталог Azure AD](active-directory-ds-getting-started-password-sync.md)
+- [Синхронизированный каталог Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+
+<br>
+
+### Включение создания хэшей учетных данных NTLM и Kerberos для исключительно облачного каталога Azure AD
+Если в вашей организации есть исключительно облачный каталог Azure AD, пользователям, которые захотят воспользоваться доменными службами Azure AD, потребуется изменить свои пароли. Для этого необходимо сформировать в Azure AD хэши учетных данных, необходимые доменным службам Azure AD для проверки подлинности Kerberos и NTLM. Вы можете либо принудительно сделать так, чтобы срок действия паролей для всех пользователей в клиенте доменных служб Azure AD истек, либо отправить пользователям инструкции по изменению паролей.
+
+Инструкции по изменению паролей, которые необходимо отправить пользователям, таковы.
 
 1. Перейдите на страницу панели доступа Azure AD для вашей организации. Обычно она доступна по адресу [http://myapps.microsoft.com](http://myapps.microsoft.com).
+
 2. Выберите вкладку **Профиль** на этой странице.
+
 3. Щелкните элемент **Изменить пароль** на этой странице, чтобы изменить пароль.
 
     ![Создание виртуальной сети для доменных служб Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password.png)
@@ -41,40 +51,16 @@
 После изменения паролей новые пароли вскоре будут доступны для использования в доменных службах Azure AD. Через несколько минут пользователи смогут входить в систему компьютеров, подключенных к управляемому домену, используя новые измененные пароли.
 
 
-### Синхронизированные клиенты. Включение синхронизации хэшей учетных данных NTLM и Kerberos с Azure AD
-Если клиент Azure AD для вашей организации настроена на синхронизацию с локальным каталогом с помощью Azure AD Connect, понадобится настроить Azure AD Connect для синхронизации хэшей учетных данных, необходимых для проверки подлинности NTLM и Kerberos. По умолчанию эти хэши не синхронизируются с Azure AD, и для включения синхронизации с клиентом Azure AD необходимо выполнить следующие действия.
+<br>
 
-#### Установка или обновление Azure AD Connect
+## Похожий контент
 
-Необходимо установить последнюю рекомендуемую версию службы Azure AD Connect на компьютере, присоединенном к домену. Если Azure AD Connect уже установлена, необходимо обновить ее до общедоступной версии. Убедитесь, что вы используете последнюю версию Azure AD Connect, чтобы избежать возникновения известных проблем и ошибок.
+- [Включение синхронизации паролей в доменные службы AAD для синхронизированного каталога Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
-**[Загрузка Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
+- [Administer an Azure AD Domain Services managed domain (Администрирование управляемого домена доменных служб Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 
-Минимальная рекомендуемая версия: **1.0.9131** (опубликована 3 декабря 2015 г.).
+- [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md) (Присоединение виртуальной машины Windows к управляемому домену доменных служб Azure AD)
 
-  > [AZURE.WARNING] Последняя рекомендуемая версия Azure AD Connect НЕОБХОДИМА для синхронизации устаревших учетных данных (требуются для проверки подлинности NTLM и Kerberos) с вашим клиентом Azure AD. В предыдущих выпусках Azure AD Connect и в устаревшей версии DirSync эта возможность недоступна.
+- [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md) (Присоединение виртуальной машины Red Hat Enterprise Linux к управляемому домену доменных служб Azure AD)
 
-Инструкции по установке Azure AD Connect доступны в следующей статье: [Приступая к работе с Azure AD Connect](../active-directory/active-directory-aadconnect.md)
-
-
-#### Принудительная полная синхронизация паролей в Azure AD
-
-Для включения принудительной полной синхронизации паролей и включения синхронизации хэшей паролей всех локальных пользователей (включая хэши учетных данных, необходимые для проверки подлинности NTLM или Kerberos) выполните следующий сценарий PowerShell в каждом лесу AD.
-
-```
-$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"  
-$azureadConnector = "<CASE SENSITIVE AZURE AD CONNECTOR NAME>"  
-Import-Module adsync  
-$c = Get-ADSyncConnector -Name $adConnector  
-$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
-$p.Value = 1  
-$c.GlobalParameters.Remove($p.Name)  
-$c.GlobalParameters.Add($p)  
-$c = Add-ADSyncConnector -Connector $c  
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $false   
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true  
-```
-
-В зависимости от размера каталога (число пользователей, групп и т. д.) синхронизация учетных данных с Azure AD может занять некоторое время. Пароли можно будет использовать в управляемом домене доменных служб AD Azure вскоре после синхронизации хэшей учетных данных с Azure AD.
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->
