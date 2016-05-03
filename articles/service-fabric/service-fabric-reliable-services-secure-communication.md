@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Безопасный обмен данными для служб Service Fabric | Microsoft Azure"
-   description="Общие сведения о способах защиты обмена данными для служб Reliable Services, запущенных в кластере Service Fabric."
+   pageTitle="Защита взаимодействия служб в Service Fabric | Microsoft Azure"
+   description="Общие сведения о способах защиты взаимодействия служб Reliable Services, выполняющихся в кластере Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="punewa"
@@ -16,13 +16,15 @@
    ms.date="03/22/2016"
    ms.author="punewa"/>
 
-# Безопасный обмен данными для служб Service Fabric
-Безопасность — один из самых важных аспектов взаимодействия. Платформа приложений Reliable Services предоставляет несколько готовых стеков взаимодействия и средств, которыми можно воспользоваться. В этой статье будет описана настройка безопасности при использовании удаленного доступа к службе и стека взаимодействия WCF.
+# Защита взаимодействия служб в Azure Service Fabric
 
-## Защита службы при использовании удаленного доступа
-Настройка безопасного удаленного доступа для службы осуществляется с помощью следующих действий:
+Безопасность — один из самых важных аспектов взаимодействия. Платформа приложений Reliable Services предоставляет несколько готовых стеков взаимодействия и средств, которыми можно воспользоваться для повышения безопасности. В этой статье мы обсудим способы повышения безопасности при использовании удаленного взаимодействия служб и стека взаимодействия Windows Communication Foundation (WCF).
 
-1. Воспользуемся предыдущим [примером](service-fabric-reliable-services-communication-remoting.md), в котором рассказывается о настройке удаленного взаимодействия со службой Reliable Service. Начнем с интерфейса `IHelloWorldStateful`, который определяет методы, доступные для удаленного вызова процедур в службе. Служба также будет использовать `FabricTransportServiceRemotingListener`, которое определяется в пространстве имен `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Это реализация `ICommunicationListener`, которая предоставляет возможности удаленного взаимодействия.
+## Защита службы при использовании удаленного взаимодействия служб
+
+Мы будем использовать существующий [пример](service-fabric-reliable-services-communication-remoting.md), в котором описывается настройка удаленного взаимодействия для Reliable Services. Для защиты службы при использовании удаленного взаимодействия служб выполните следующие действия:
+
+1. Создайте интерфейс `IHelloWorldStateful`, определяющий методы, которые будут доступны для удаленного вызова процедур в службе. Служба также будет использовать прослушиватель `FabricTransportServiceRemotingListener`, который объявляется в пространстве имен `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Это реализация `ICommunicationListener`, которая предоставляет возможности удаленного взаимодействия.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -46,16 +48,16 @@
     }
     ```
 
-2. Добавление параметров прослушивателя и учетных данных безопасности
+2. Добавьте параметры прослушивателя и учетные данные безопасности.
 
-    Сертификат, который вы хотите использовать для защиты взаимодействия со службой, должен быть установлен на всех узлах в кластере. Существует два способа указания параметров прослушивателя и учетных данных безопасности.
+    Убедитесь, что сертификат, который вы хотите использовать для защиты взаимодействия со службой, установлен на всех узлах в кластере. Существует два способа указания параметров прослушивателя и учетных данных безопасности:
 
-    1. Непосредственно в коде службы.
+    1. Предоставьте их непосредственно в коде службы:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
-            FabricTransportListenerSettings listnerSettings = new FabricTransportListenerSettings
+            FabricTransportListenerSettings listenerSettings = new FabricTransportListenerSettings
             {
                 MaxMessageSize = 10000000,
                 SecurityCredentials = GetSecurityCredentials()
@@ -63,7 +65,7 @@
             return new[]
             {
                 new ServiceReplicaListener(
-                    (context) => new FabricTransportServiceRemotingListener(context,this,listnerSettings))
+                    (context) => new FabricTransportServiceRemotingListener(context,this,listenerSettings))
             };
         }
 
@@ -82,13 +84,13 @@
             return x509Credentials;
         }
         ```
-    2. С помощью [пакета конфигурации](service-fabric-application-model.md)
+    2. Предоставьте их с помощью [пакета конфигурации](service-fabric-application-model.md):
 
-        Добавьте раздел `TransportSettings` в файл settings.xml
+        Добавьте раздел `TransportSettings` в файл settings.xml.
 
         ```xml
-        <!--Section name should always end with "TransportSettings"-->
-        <!--Here we are using a prefix "HelloWorldStateful"-->
+        <!--Section name should always end with "TransportSettings".-->
+        <!--Here we are using a prefix "HelloWorldStateful".-->
         <Section Name="HelloWorldStatefulTransportSettings">
             <Parameter Name="MaxMessageSize" Value="10000000" />
             <Parameter Name="SecurityCredentialsType" Value="X509" />
@@ -101,7 +103,7 @@
         </Section>
         ```
 
-        В этом случае метод `CreateServiceReplicaListeners` будет выглядеть следующим образом.
+        В этом случае метод `CreateServiceReplicaListeners` будет выглядеть следующим образом:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -118,12 +120,12 @@
          При добавлении раздела `TransportSettings` в файл settings.xml без префикса `FabricTransportListenerSettings` по умолчанию загрузит все параметры из этого раздела.
 
          ```xml
-         <!--"TransportSettings" section without any prefix-->
+         <!--"TransportSettings" section without any prefix.-->
          <Section Name="TransportSettings">
              ...
          </Section>
          ```
-         В этом случае метод `CreateServiceReplicaListeners` будет выглядеть следующим образом.
+         В этом случае метод `CreateServiceReplicaListeners` будет выглядеть следующим образом:
 
          ```csharp
          protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -137,7 +139,7 @@
          }
          ```
 
-3. При вызове методов защищенной службы с помощью стека удаленного взаимодействия вместо использования класса `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` для создания прокси-службы мы используем `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory` и передаем `FabricTransportSettings`, который содержит `SecurityCredentials`.
+3. При вызове методов для защищенной службы с помощью стека удаленного взаимодействия вместо использования класса `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` для создания прокси-службы используйте `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Передайте параметр `FabricTransportSettings`, который содержит объект `SecurityCredentials`.
 
     ```csharp
 
@@ -166,7 +168,7 @@
 
     ```
 
-    Если клиентский код выполняется как часть службы, можно загрузить `FabricTransportSettings` из файла settings.xml. Создайте раздел TransportSettings по аналогии с кодом службы, как показано выше. Внесите следующие изменения в код клиента.
+    Если клиентский код выполняется как часть службы, можно загрузить `FabricTransportSettings` из файла settings.xml. Создайте раздел TransportSettings по аналогии с кодом службы, как показано выше. Внесите следующие изменения в клиентский код:
 
     ```csharp
 
@@ -180,9 +182,9 @@
 
     ```
 
-    Если клиент не выполняется как часть службы, можно создать файл client\_name.settings.xml в том же каталоге, в котором находится файл client\_name.exe, и создать раздел TransportSettings в этом XML-файле.
+    Если клиент не выполняется как часть службы, можно создать файл client\_name.settings.xml в том же каталоге, в котором находится файл client\_name.exe. Затем создайте раздел TransportSettings в этом файле.
 
-    Как и для службы, если в файле клиента settings.xml/client\_name.settings.xml указать раздел `TransportSettings` без какого-либо *префикса*, то `FabricTransportSettings` по умолчанию загрузит все параметры из этого раздела.
+    Как и для службы, если в файле клиента settings.xml/client\_name.settings.xml указать раздел `TransportSettings` без какого-либо префикса, то `FabricTransportSettings` по умолчанию загрузит все параметры из этого раздела.
 
     В этом случае приведенный выше код еще более упрощается.
 
@@ -197,9 +199,9 @@
 
 ## Защита службы при использовании стека взаимодействия на основе WCF
 
-Мы воспользуемся предыдущим [примером](service-fabric-reliable-services-communication-wcf.md), в котором объясняется, как настроить взаимодействие на основе WCF для служб Reliable Services и повысить его безопасность.
+Мы будем использовать существующий [пример](service-fabric-reliable-services-communication-wcf.md), в котором описывается настройка стека взаимодействия на основе WCF для Reliable Services. Для защиты службы при использовании стека взаимодействия на основе WCF выполните следующие действия:
 
-1. Для службы необходимо создать `WcfCommunicationListener`, который является безопасным. Для этого нам нужно изменить метод `CreateServiceReplicaListeners`.
+1. Для службы необходимо обеспечить защиту создаваемого прослушивателя взаимодействия WCF (`WcfCommunicationListener`). Чтобы сделать это, измените метод `CreateServiceReplicaListeners`.
 
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -213,20 +215,20 @@
 
     private WcfCommunicationListener<ICalculator> CreateWcfCommunicationListener(StatefulServiceContext context)
     {
-       var wcfCommunicationListner = new WcfCommunicationListener<ICalculator>(
+       var wcfCommunicationListener = new WcfCommunicationListener<ICalculator>(
             serviceContext:context,
             wcfServiceObject:this,
-            // For this example we will be using NetTcpBinding
+            // For this example, we will be using NetTcpBinding.
             listenerBinding: GetNetTcpBinding(),
             endpointResourceName:"WcfServiceEndpoint");
 
-        // Add certificate details in the servicehost credentials.
-        wcfCommunicationListner.ServiceHost.Credentials.ServiceCertificate.SetCertificate(
+        // Add certificate details in the ServiceHost credentials.
+        wcfCommunicationListener.ServiceHost.Credentials.ServiceCertificate.SetCertificate(
             StoreLocation.LocalMachine,
             StoreName.My,
             X509FindType.FindByThumbprint,
             "9DC906B169DC4FAFFD1697AC781E806790749D2F");
-        return wcfCommunicationListner;
+        return wcfCommunicationListener;
     }
 
     private static NetTcpBinding GetNetTcpBinding()
@@ -236,8 +238,8 @@
         return b;
     }
     ```
-    
-2. В клиенте класс `WcfCommunicationClient`, созданный в предыдущем [примере](service-fabric-reliable-services-communication-wcf.md), остается неизменным. Но необходимо переопределить метод `CreateClientAsync` объекта `WcfCommunicationClientFactory`.
+
+2. В клиенте класс `WcfCommunicationClient`, созданный в предыдущем [примере](service-fabric-reliable-services-communication-wcf.md), остается неизменным. Однако необходимо переопределить метод `CreateClientAsync` фабрики `WcfCommunicationClientFactory`.
 
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
@@ -272,7 +274,7 @@
                 channelFactory = new ChannelFactory<TServiceContract>(this.clientBinding, endpointAddress);
             }
             // Add certificate details to the ChannelFactory credentials.
-            // These credentials will be used by the clients created by the
+            // These credentials will be used by the clients created by
             // SecureWcfCommunicationClientFactory.  
             channelFactory.Credentials.ClientCertificate.SetCertificate(
                 StoreLocation.LocalMachine,
@@ -287,7 +289,7 @@
     }
     ```
 
-    Используйте `SecureWcfCommunicationClientFactory` для создания `WcfCommunicationClient`. Воспользуйтесь клиентом для вызова методов службы.
+    Используйте `SecureWcfCommunicationClientFactory`, чтобы создать клиент взаимодействия WCF (`WcfCommunicationClient`). Воспользуйтесь клиентом для вызова методов службы.
 
     ```csharp
     IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();
@@ -305,6 +307,6 @@
 
 ## Дальнейшие действия
 
-* [Веб-интерфейс API с OWIN в Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Веб-API с OWIN в модели Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

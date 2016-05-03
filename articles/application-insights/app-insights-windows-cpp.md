@@ -1,4 +1,10 @@
-<properties pageTitle="Analytics for windows store C++ apps" description="Анализ использования и производительности приложения Магазина Windows, написанного на C++." services="application-insights" documentationCenter="cpp" authors="alancameronwills" manager="douge""/>
+<properties 
+    pageTitle="Аналитика для приложений C++ Магазина Windows" 
+    description="Анализ использования и производительности приложения C++ Магазина Windows." 
+    services="application-insights" 
+    documentationCenter="cpp"
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
     ms.service="application-insights" 
@@ -11,9 +17,9 @@
 
 # Аналитика приложений Магазина Windows, написанных на C++
 
-Корпорация Майкрософт предоставляет два решения DevOps для мобильных устройств. Это [HockeyApp](http://hockeyapp.net/) для клиентских устройств, а также [Application Insights](app-insights-overview.md) для веб-страниц на стороне сервера и клиента.
+Корпорация Майкрософт предоставляет два решения DevOps для мобильных устройств. Это [HockeyApp](http://hockeyapp.net/) для клиентских устройств, а также [Application Insights](app-insights-overview.md) для сервера и веб-страниц клиента.
 
-[HockeyApp](http://hockeyapp.net/) — это наше решение DevOps для сборки приложений, используемых на мобильных устройствах под управлением iOS, OS X, Android или Windows, а также для межплатформенных приложений на платформах Xamarin, Cordova и Unity. Это решение позволяет передавать сборки тест-инженерам, собирать данные о сбоях, а также получать отзывы пользователей. Решение интегрируется с Visual Studio Team Services, поддерживая простые развертывания и интеграцию с рабочими элементами.
+[HockeyApp](http://hockeyapp.net/) — это наше решение DevOps для сборки приложений, используемых на мобильных устройствах под управлением iOS, OS X, Android или Windows, а также для межплатформенных приложений на платформах Xamarin, Cordova и Unity. Это решение позволяет передавать сборки тест-инженерам, собирать данные о сбоях, а также получать отзывы пользователей. Решение интегрируется с Visual Studio Team Services, поддерживая простые развертывания и интеграцию с рабочими элементами.
 
 Справочные ресурсы:
 
@@ -30,4 +36,4 @@
 
 [Дополнительные сведения об этом изменении](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

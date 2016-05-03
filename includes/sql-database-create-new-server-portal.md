@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Создание логического сервера базы данных SQL
+## Создание логического сервера базы данных SQL Azure
 
 Следуйте приведенным ниже инструкциям, чтобы создать на портале Azure логический сервер базы данных SQL Azure.
 
@@ -44,4 +44,4 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
        ![новый логический сервер](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

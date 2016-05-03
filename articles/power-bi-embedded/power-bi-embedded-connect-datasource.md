@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Power BI Embedded — подключение к источнику данных"
-   description="Microsoft Power BI Embedded — подключение к источнику данных"
+   description="Power BI Embedded, подключение к источникам данных"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -55,4 +55,4 @@
 - [Power BI Desktop;](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Приступая к работе с Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

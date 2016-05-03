@@ -44,7 +44,7 @@ ms.author="larryfr"/>
 
 ##Инфраструктура CLI Azure
 
-> [AZURE.NOTE] Если вы не выполнили установку и настройку Azure CLI, воспользуйтесь инструкциями в документе [Установка и настройка Azure CLI](../xplat-cli-install.md).
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 Введите следующую команду в командной строке, чтобы удалить кластер.
 
@@ -52,4 +52,4 @@ ms.author="larryfr"/>
     
 Замените __CLUSTERNAME__ именем кластера HDInsight.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

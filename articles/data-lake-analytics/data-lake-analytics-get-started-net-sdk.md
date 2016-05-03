@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/25/2016"
+   ms.date="04/21/2016"
    ms.author="edmaca"/>
 
 # Учебник. Начало работы с аналитикой озера данных Azure с помощью пакета SDK .NET
@@ -25,14 +25,7 @@
 
 В этом учебнике вам предстоит разработать консольное приложение C#, содержащее скрипт U-SQL, который считывает файл с разделителями-табуляциями (TSV) и преобразует его в файл с разделителями-запятыми (CSV). Для навигации по учебнику с помощью других поддерживаемых средств используйте вкладки в верхней части этого раздела.
 
-**Базовый процесс аналитики озера данных:**
-
-![Блок-схема процесса аналитики озера данных Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. Создайте учетную запись аналитики озера данных.
-2. Подготовьте исходные данные. Задания аналитики озера данных могут считывать данные из учетных записей хранения озера данных Azure или учетных записей хранения больших двоичных объектов Azure.   
-3. Разработайте скрипт U-SQL.
-4. Отправьте задание (скрипт U-SQL) в учетную запись аналитики озера данных. Задание считывает значения из исходных данных, обрабатывает данные, как описывается в скрипте U-SQL, и сохраняет выходные данные в учетной записи хранения озера данных или в учетной записи хранения больших двоичных объектов.
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##Предварительные требования
 
@@ -41,9 +34,6 @@
 - **Visual Studio 2015, Visual Studio 2013 с обновлением 4 или Visual Studio 2012 с установленным Visual C++**
 - **Microsoft Azure SDK для .NET (версии 2.5 или выше)**. Вы можете установить его с помощью [установщика веб-платформы](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Средства озера данных для Visual Studio](http://aka.ms/adltoolsvs)**. 
-- **Учетная запись аналитики озера данных**. См. статью [Создание учетной записи аналитики озера данных Azure](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
-
-	Средства озера данных для Visual Studio не позволяют создавать учетные записи в службе аналитики озера данных. Чтобы создать такую учетную запись, используйте портал Azure, Azure PowerShell, пакет Azure SDK для .NET или Azure CLI.
 
 ##Создание консольного приложения
 
@@ -139,7 +129,7 @@
                     
                     // Authenticate the user
                     // For more information about applications and instructions on how to get a client ID, see: 
-                    //   https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-create-service-principal-portal/
+                    //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                     var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
                         "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REDIRECT-URI>")); // TODO: Replace bracketed values.
                     
@@ -192,7 +182,7 @@
                 // Authenticate the user with AAD through an interactive popup.
                 // You need to have an application registered with AAD in order to authenticate.
                 //   For more information and instructions on how to register your application with AAD, see: 
-                //   https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-create-service-principal-portal/
+                //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
                 {
                     var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -206,7 +196,7 @@
                 // Authenticate the application with AAD through the application's secret key.
                 // You need to have an application registered with AAD in order to authenticate.
                 //   For more information and instructions on how to register your application with AAD, see: 
-                //   https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-create-service-principal-portal/
+                //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
                 {
                     var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -224,16 +214,13 @@
                     _adlaClient.SubscriptionId = subscriptionId;
 
                     _adlaJobClient = new DataLakeAnalyticsJobManagementClient(tokenCreds);
-                    _adlaJobClient.SubscriptionId = subscriptionId;
 
                     _adlaCatalogClient = new DataLakeAnalyticsCatalogManagementClient(tokenCreds);
-                    _adlaCatalogClient.SubscriptionId = subscriptionId;
 
                     _adlsClient = new DataLakeStoreAccountManagementClient(tokenCreds);
                     _adlsClient.SubscriptionId = subscriptionId;
 
                     _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(tokenCreds);
-                    _adlsFileSystemClient.SubscriptionId = subscriptionId;
                 }
 
                 // Create accounts
@@ -296,7 +283,7 @@
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties);
 
-                    var jobInfo = _adlaJobClient.Job.Create(jobId, parameters, _adlaAccountName);
+                    var jobInfo = _adlaJobClient.Job.Create(_adlaAccountName, jobId, parameters);
                     
                     return jobId;
                 }
@@ -310,17 +297,17 @@
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1000, degreeOfParallelism: 1);
 
-                    var jobInfo = _adlaJobClient.Job.Create(jobId, parameters, _adlaAccountName);
+                    var jobInfo = _adlaJobClient.Job.Create(_adlaAccountName, jobId, parameters);
 
                     return jobId;
                 }
 
                 public static JobResult WaitForJob(Guid jobId)
                 {
-                    var jobInfo = _adlaJobClient.Job.Get(jobId, _adlaAccountName);
+                    var jobInfo = _adlaJobClient.Job.Get(_adlaAccountName, jobId);
                     while (jobInfo.State != JobState.Ended)
                     {
-                        jobInfo = _adlaJobClient.Job.Get(jobId, _adlaAccountName);
+                        jobInfo = _adlaJobClient.Job.Get(_adlaAccountName, jobId);
                     }
                     return jobInfo.Result.Value;
                 }
@@ -373,4 +360,4 @@
 - Задачи управления описываются в статье [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
 - Общие сведения об аналитике озера данных см. в статье [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

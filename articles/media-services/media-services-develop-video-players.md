@@ -2,7 +2,7 @@
 	pageTitle="Разработка приложений видеопроигрывателя" 
 	description="В разделе приведены ссылки на платформы проигрывателей и подключаемые модули, которые можно использовать для разработки собственных клиентских приложений, способных использовать потоковое мультимедийное содержимое из служб мультимедиа." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -81,4 +81,4 @@
 [Репозиторий dash.js на GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

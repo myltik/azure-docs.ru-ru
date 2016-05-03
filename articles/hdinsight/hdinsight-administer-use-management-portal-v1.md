@@ -31,6 +31,8 @@
 
 - Дополнительные сведения об администрировании HDInsight с помощью CLI Azure см. в разделе [Администрирование HDInsight с помощью CLI Azure](hdinsight-administer-use-command-line.md).
 
+> [AZURE.WARNING] В последних версиях Azure PowerShell или Azure CLI по умолчанию используется Azure Resource Manager. Кластерами HDInsight, созданными с помощью этого режима, нельзя управлять на классическом портале Azure.
+
 ##Предварительные требования
 
 Перед началом работы с этой статьей необходимо иметь следующее:
@@ -198,4 +200,4 @@ HDInsight работает со множеством компонентов Hado
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

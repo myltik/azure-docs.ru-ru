@@ -2,7 +2,7 @@
 	pageTitle="Управление учетными записями служб мультимедиа Azure с помощью PowerShell" 
 	description="Узнайте, как управлять учетными записями служб мультимедиа Azure с помощью командлетов PowerShell." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
 #Управление учетными записями служб мультимедиа Azure с помощью PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
+- [Портал](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
@@ -122,4 +122,4 @@
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

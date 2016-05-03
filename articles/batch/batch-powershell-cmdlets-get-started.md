@@ -13,97 +13,95 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="01/21/2016"
+   ms.date="04/21/2016"
    ms.author="danlep"/>
 
 # Приступая к работе с командлетами Azure PowerShell
-Эта статья содержит краткие сведения о командлетах Azure PowerShell, которые можно использовать для управления учетными записями пакетной службы и работы с ее ресурсами, например с пулами, заданиями и задачами. С помощью командлетов пакетной службы можно выполнять те же задачи, которые выполняются с помощью API пакетной службы и портала Azure. В этой статье приводятся командлеты Azure PowerShell, используемые в версиях 1.0 и новее.
+Эта статья содержит краткие сведения о командлетах Azure PowerShell, которые можно использовать для управления учетными записями пакетной службы и работы с ее ресурсами, например с пулами, заданиями и задачами. С помощью командлетов пакетной службы можно выполнять те же задачи, которые выполняются с помощью API пакетной службы, портала Azure и интерфейса командной строки (CLI). В этой статье приводятся командлеты Azure PowerShell 1.3.2 или более поздней версии.
 
 Полный список командлетов пакетной службы и их синтаксис см. в статье [Azure Batch Cmdlets](https://msdn.microsoft.com/library/azure/mt125957.aspx) (Командлеты пакетной службы Azure).
 
 
 ## Предварительные требования
 
-* **Azure PowerShell**. Инструкции по скачиванию и установке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md). Так как командлеты пакетной службы Azure входят в состав модуля диспетчера ресурсов Azure, вам потребуется выполнить командлет **Login-AzureRmAccount**, чтобы подключиться к своей подписке. Дополнительные сведения см. в блоге [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+* **Azure PowerShell**. Инструкции по скачиванию и установке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md). 
+   
+    * Так как командлеты пакетной службы Azure входят в состав модуля Azure Resource Manager, вам потребуется выполнить командлет **Login-AzureRmAccount**, чтобы подключиться к своей подписке. 
+    
+    * Рекомендуется часто обновлять Azure PowerShell, чтобы пользоваться всеми преимуществами службы.
+    
+* **Регистрация пространства имен поставщика пакетной службы (одноразовая операция)**. Чтобы начать работу с учетными записями пакетной службы, зарегистрируйте пространство имен поставщика пакетной службы. Эту операцию нужно выполнять один раз для каждой подписки. Выполните следующий командлет:
 
+        Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
 
-
-* **Регистрация пространства имен поставщика пакетной службы (одноразовая операция)**. Чтобы начать работу с учетными записями пакетной службы, зарегистрируйте пространство имен поставщика пакетной службы. Эту операцию нужно выполнять один раз для каждой подписки.
-
-    ```
-    Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
-    ```
 
 ## Управление учетными записями пакетной службы и ключами
 
 ### Создание учетной записи Пакетной службы
 
-Командлет **New-AzureRmBatchAccount** создает новую учетную запись пакетной службы в указанной группе ресурсов. Если у вас еще нет группы ресурсов, создайте ее. Для этого выполните командлет [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx), указав один из регионов Azure, например "Центральная часть США", в параметре **Расположение**. Например:
+Командлет **New-AzureRmBatchAccount** создает новую учетную запись пакетной службы в указанной группе ресурсов. Если у вас еще нет группы ресурсов, создайте ее. Для этого выполните командлет [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx), указав один из регионов Azure, например «Центральная часть США», в параметре **Расположение**. Например:
 
-```
-New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
-```
+
+    New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
+
 
 Затем создайте новую учетную запись пакетной службы в группе ресурсов, указав имя учетной записи <*account\_name*> и расположение, где доступна пакетная служба. Создание учен=тной записи может занять несколько минут. Например:
 
-```
-New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
-```
 
-> [AZURE.NOTE] Имя учетной записи Пакетной службы в Azure должно быть уникальным, содержать от 3 до 24 символов и состоять только из строчных букв и цифр.
+    New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
+
+> [AZURE.NOTE] Имя учетной записи пакетной службы должно быть уникальным для региона Azure группы ресурсов, содержать от 3 до 24 символов и состоять только из строчных букв и цифр.
 
 ### Получение ключей доступа к учетной записи
 **Get-AzureRmBatchAccountKeys** выводит клавиши доступа, связанные с учетной записью пакетной службы Azure. Например, выполните следующую команду, чтобы получить первичные и вторичные ключи созданной учетной записи.
 
-```
-$Account = Get-AzureRmBatchAccountKeys –AccountName <accountname>
+    $Account = Get-AzureRmBatchAccountKeys –AccountName <accountname>
 
-$Account.PrimaryAccountKey
+    $Account.PrimaryAccountKey
 
-$Account.SecondaryAccountKey
-```
+    $Account.SecondaryAccountKey
+
 
 ### Создание нового ключа доступа
 **New-AzureRmBatchAccountKey** создает новый первичный или вторичный ключ учетной записи пакетной службы Azure. Например, чтобы создать новый первичный ключ для учетной записи Пакетной службы, введите:
 
-```
-New-AzureRmBatchAccountKey -AccountName <account_name> -KeyType Primary
-```
+
+    New-AzureRmBatchAccountKey -AccountName <account_name> -KeyType Primary
+
 
 > [AZURE.NOTE] Чтобы создать новый вторичный ключ, введите "Вторичный" в параметре **KeyType**. Повторно создавать первичный и вторичный ключи нужно отдельно.
 
 ### Удаление учетной записи Пакетной службы
 **Remove-AzureRmBatchAccount** удаляет учетную запись пакетной службы. Например:
 
-```
-Remove-AzureRmBatchAccount -AccountName <account_name>
-```
+
+    Remove-AzureRmBatchAccount -AccountName <account_name>
 
 При появлении запроса на удаление учетной записи подтвердите удаление. Удаление учетной записи может занять некоторое время.
 
 ## Создание объекта BatchAccountContext
 
-Чтобы создавать пулы, задания, задачи и другие ресурсы в учетной записи пакетной службы, а также управлять ими, вам необходимо сначала создать объект BatchAccountContext для хранения ключей и имени учетной записи.
+Чтобы выполнить проверки подлинности с помощью командлетов PowerShell пакетной службы во время создания пулов, заданий, задач и других ресурсов, а также управления ими, вам необходимо сначала создать объект BatchAccountContext для хранения ключей и имени учетной записи.
 
-```
-$context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
-```
+    $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
 
-Передайте этот контекст в командлеты, которые взаимодействуют с Пакетной службой, через параметр **BatchContext**.
+Передайте объект BatchAccountContext в командлеты, которые используют параметр **BatchContext**.
 
 > [AZURE.NOTE] По умолчанию первичный ключ учетной записи используется для проверки подлинности, но вы можете явно выбрать ключ, который нужно использовать, изменив свойство **KeyInUse** объекта BatchAccountContext: `$context.KeyInUse = "Secondary"`.
 
 
 
 ## Создание и изменение ресурсов пакетной службы
-Чтобы создавать ресурсы в учетной записи пакетной службы, используйте командлеты **New-AzureBatchPool**, **New-AzureBatchJob** и **New-AzureBatchTask**. Чтобы обновлять свойства ресурсов в учетной записи пакетной службы, используйте соответствующие командлеты **Get-** и **Set-**, а чтобы удалять ресурсов — командлет **Remove-**.
+Чтобы создать ресурсы в учетной записи пакетной службы, используйте командлеты **New-AzureBatchPool**, **New-AzureBatchJob** и **New-AzureBatchTask**. Чтобы обновить свойства ресурсов в учетной записи пакетной службы, используйте соответствующие командлеты **Get-** и **Set-**, а чтобы удалить ресурсы — командлет **Remove-**.
 
-Например, приведенный ниже командлет создает в пакетной службе новый пул, в котором будут использоваться небольшие виртуальные машины с образами последней версией операционной системы семейства 3 (Windows Server 2012). При этом максимальное количество вычислительных узлов определяется формулой автоматического масштабирования. В этом случае формула выглядит так: $TargetDedicated=3. Это значит, что количество вычислительных узлов в пуле не будет превышать 3. Параметр **BatchContext** определяет ранее определенную переменную *$context* как объект BatchAccountContext.
+### Создание пула пакетной службы
 
-```
-New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
-```
+Например, приведенный ниже командлет создает в пакетной службе новый пул, в котором будут использоваться небольшие виртуальные машины с образами последней версии операционной системы семейства 3 (Windows Server 2012). При этом максимальное количество вычислительных узлов определяется формулой автоматического масштабирования. В этом случае формула выглядит так: **$TargetDedicated=3**. Это значит, что количество вычислительных узлов в пуле не будет превышать 3. Параметр **BatchContext** определяет ранее определенную переменную *$context* как объект BatchAccountContext.
 
+
+    New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+
+>[AZURE.NOTE]В настоящее время командлеты PowerShell пакетной службы поддерживают только конфигурацию облачных служб для вычислительных узлов. Это позволяет выбрать один из выпусков гостевой ОС Azure операционной системы Windows Server для запуска на вычислительных узлах. Для других параметров конфигурации вычислительных узлов пулов пакетной службы используйте пакеты SDK или интерфейс командной строки Azure.
 
 ## Запрос на получение сведений о пулах, заданиях, задачах и другой информации
 
@@ -114,18 +112,18 @@ New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "
 
 Например, для поиска пулов используйте**Get AzureBatchPools**. По умолчанию этот командлет опрашивает все пулы вашей учетной записи при условии, что вы уже сохранили объект BatchAccountContext в *$context*.
 
-```
-Get-AzureBatchPool -BatchContext $context
-```
+
+    Get-AzureBatchPool -BatchContext $context
+
 ### Использование фильтра OData
 
 Чтобы найти объекты, которые вас интересуют, установите фильтр OData в параметре **Фильтр**. Например, можно найти все пулы с идентификаторами, начинающимися с myPool:
 
-```
-$filter = "startswith(id,'myPool')"
 
-Get-AzureBatchPool -Filter $filter -BatchContext $context
-```
+    $filter = "startswith(id,'myPool')"
+
+    Get-AzureBatchPool -Filter $filter -BatchContext $context
+
 
 Этот способ не такой гибкий, как использование "Where-Object" в локальном конвейере. Но запрос отправляется непосредственно Пакетной службе, чтобы вся фильтрация выполнялась на стороне сервера, сохраняя пропускную способность Интернета.
 
@@ -133,10 +131,10 @@ Get-AzureBatchPool -Filter $filter -BatchContext $context
 
 Альтернативой использования фильтра OData является использование параметра **Id**. Для запроса конкретного пула с идентификатором myPool сделайте следующее.
 
-```
-Get-AzureBatchPool -Id "myPool" -BatchContext $context
 
-```
+    Get-AzureBatchPool -Id "myPool" -BatchContext $context
+
+
 Параметр **Id** поддерживает поиск только полного идентификатора без подстановочных знаков или фильтров в стиле OData.
 
 
@@ -145,10 +143,8 @@ Get-AzureBatchPool -Id "myPool" -BatchContext $context
 
 По умолчанию каждый командлет возвращает максимум 1000 объектов. Если этот предел достигнут, уточните параметры фильтра, чтобы он возвращал меньшее количество объектов, или явно задайте максимальное значение с помощью параметра **MaxCount**. Например:
 
-```
-Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
-```
+    Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
 Чтобы удалить верхнюю границу, задайте **MaxCount** значение "0" или меньше.
 
@@ -156,14 +152,13 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
 Командлеты Пакетной службы могут использовать конвейер PowerShell для передачи данных между командлетами. Это имеет тот же эффект, что и указание параметра, но упрощает вывод нескольких сущностей. Например, этот командлет находит все задачи в вашей учетной записи:
 
-```
-Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
-```
 
-## Связанные разделы
-* [Скачать Azure PowerShell](http://go.microsoft.com/?linkid=9811175)
-* [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
-* [Справка по командлету Пакетной службы Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
-* [Эффективные запросы к пакетной службе](batch-efficient-list-queries.md)
+    Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
 
-<!---HONumber=AcomDC_0204_2016-->
+
+## Дальнейшие действия
+* Сведения о синтаксисе командлетов и их примеры см. в [справке по командлетам пакетной службы Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+
+* Дополнительные сведения об уменьшении количества элементов и типах сведений, возвращаемых в ответ на запросы к пакетной службе см. в статье [Эффективные запросы к пакетной службе Azure](batch-efficient-list-queries.md).
+
+<!---HONumber=AcomDC_0427_2016-->

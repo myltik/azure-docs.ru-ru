@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="willzhan"  
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016"  
+	ms.date="04/18/2016"     
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC с несколькими DRM и управление доступом: справочное проектирование и реализация в Azure и Azure Media Services
@@ -522,4 +522,4 @@ EME в Microsoft Edge и IE 11 в Windows 10 позволяет вызывать
 
 Вильям Цанг (William Zhang), Ян Мингфей (Mingfei Yan), Ролан Ле Франк (Roland Le Franc), Килрой Хьюс (Kilroy Hughes), Юлия Корнич (Julia Kornich)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

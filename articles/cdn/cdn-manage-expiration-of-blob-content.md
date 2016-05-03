@@ -1,6 +1,6 @@
 <properties
  pageTitle="Управление сроком действия содержимого BLOB-объекта в сети доставки содержимого (CDN) Azure"
- description=""
+ description="Сведения о возможностях контроля времени жизни BLOB-объектов в кэшировании Azure CDN."
  services="cdn"
  documentationCenter=".NET"
  authors="camsoper"
@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="02/25/2016" 
+ ms.date="02/25/2016"
  ms.author="casoper"/>
 
 
@@ -96,4 +96,4 @@
 
 [Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN Azure)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

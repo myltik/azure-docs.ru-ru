@@ -6,7 +6,7 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
@@ -15,7 +15,7 @@
 	ms.workload="big-compute"
 	ms.date="01/22/2016"
 	ms.author="marsma" />
-	
+
 # Выполнение задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure
 
 Для заданий пакетной службы Azure часто требуется определенная настройка перед выполнением, а также определенные действия после завершения задач задания. Пакетная служба предоставляет механизмы для такой подготовки и обслуживания в виде необязательных задач *подготовки задания* и *снятия задания*.
@@ -78,7 +78,7 @@
 
 		await myJob.CommitAsync();
 
-Как упоминалось выше, задача снятия выполняется, когда задание прекращается или удаляется. Завершение работы с API .NET пакетной службы выполняется путем вызова [PoolOperations.TerminateJobAsync][net_job_terminate]. Удаление задания выполняется с помощью [PoolOperations.DeleteJobAsync][net_job_delete]. Обычно оба эти действия выполняются после завершения задач задания или по истечении времени ожидания, которое было определено.
+Как упоминалось выше, задача снятия выполняется, когда задание прекращается или удаляется. Завершение задания с помощью API .NET пакетной службы выполняется путем вызова [JobOperations.TerminateJobAsync][net_job_terminate]. Удаление задания выполняется с помощью [JobOperations.DeleteJobAsync][net_job_delete]. Обычно оба эти действия выполняются после завершения задач задания или по истечении времени ожидания, которое было определено.
 
 		// Terminate the job to mark it as Completed; this will initiate the Job Release Task on any node
 		// that executed job tasks. Note that the Job Release Task is also executed when a job is deleted,
@@ -187,4 +187,4 @@ Sample complete, hit ENTER to exit...
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
 [2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

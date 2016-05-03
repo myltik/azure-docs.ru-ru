@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="04/14/2016"
    ms.author="ryanwi"/>
 
 
@@ -57,11 +57,13 @@
 См. раздел [Развертывание приложения](service-fabric-deploy-remove-applications.md), чтобы ознакомиться с примерами.
 
 ## Тест
-1. После развертывания в локальном кластере разработки или в тестовом кластере *разработчик службы* запускает встроенный сценарий проверки переключения на резервный ресурс при помощи классов [**FailoverTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenarioparameters.aspx) и [**FailoverTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenario.aspx) или [командлета **Invoke-ServiceFabricFailoverTestScenario**](https://msdn.microsoft.com/library/azure/mt125935.aspx). Сценарий тестирования отказа пропускает указанную службу через важные преобразования и отказы, чтобы гарантировать, что она остается доступной и продолжает работать.
+1. После развертывания в локальном кластере разработки или в тестовом кластере *разработчик службы* запускает встроенный сценарий проверки переключения на резервный ресурс при помощи классов [**FailoverTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenarioparameters.aspx) и [**FailoverTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenario.aspx) или [командлета **Invoke-ServiceFabricFailoverTestScenario**](https://msdn.microsoft.com/library/azure/mt644783.aspx). Сценарий тестирования отказа пропускает указанную службу через важные преобразования и отказы, чтобы гарантировать, что она остается доступной и продолжает работать.
 
-2. Затем *разработчик службы* запускает встроенный хаотический сценарий тестирования при помощи классов [**ChaosTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenarioparameters.aspx) и [**ChaosTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenario.aspx) или [командлета **Invoke-ServiceFabricChaosTestScenario**](https://msdn.microsoft.com/library/azure/mt126036.aspx). Хаотический сценарий тестирования в случайном порядке вызывает множественные ошибки на уровне узла, пакета кода и реплики в кластере.
+2. Затем *разработчик службы* запускает встроенный хаотический сценарий тестирования при помощи классов [**ChaosTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenarioparameters.aspx) и [**ChaosTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenario.aspx) или [командлета **Invoke-ServiceFabricChaosTestScenario**](https://msdn.microsoft.com/library/azure/mt644774.aspx). Хаотический сценарий тестирования в случайном порядке вызывает множественные ошибки на уровне узла, пакета кода и реплики в кластере.
 
-См. раздел [Сценарии тестирования](service-fabric-testability-scenarios.md), чтобы ознакомиться с примерами.
+3. *Разработчик службы* [тестирует обмен данными между службами](service-fabric-testability-scenarios-service-communication.md), создавая сценарии тестирования для перемещения первичных реплик в кластере.
+
+Дополнительные сведения см. в разделе [Introduction to the Fault Analysis Service (Общие сведения о службе анализа сбоев)](service-fabric-testability-overview.md).
 
 ## Обновление
 1. *Разработчик службы* обновляет составляющие службы экземпляра приложения или устраняет ошибки кода и предоставляет новую версию манифеста служб.
@@ -70,19 +72,19 @@
 
 3. *Администратор приложения* включает новую версию приложения этого же типа в целевое приложение путем обновления соответствующих параметров.
 
-4. *Оператор* загружает обновленный пакет приложения в хранилище образов кластера при помощи [метода **CopyApplicationPackage**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) или [командлета **Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx). Пакет приложения содержит манифест приложения и коллекцию пакетов служб.
+5. *Оператор* загружает обновленный пакет приложения в хранилище образов кластера при помощи [метода **CopyApplicationPackage**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) или [командлета **Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx). Пакет приложения содержит манифест приложения и коллекцию пакетов служб.
 
-5. *Оператор* предоставляет новую версию приложения для целевого кластера при помощи [метода **ProvisionApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [командлета **Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) или [операции REST P**rovision an Application**](https://msdn.microsoft.com/library/azure/dn707672.aspx).
+6. *Оператор* предоставляет новую версию приложения для целевого кластера при помощи [метода **ProvisionApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [командлета **Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) или [операции REST P**rovision an Application**](https://msdn.microsoft.com/library/azure/dn707672.aspx).
 
-6. *Оператор* обновляет целевое приложение до новой версии, используя [метод **UpgradeApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), [командлет **Start-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125975.aspx) или [операцию REST **Upgrade an Application**](https://msdn.microsoft.com/library/azure/dn707633.aspx).
+7. *Оператор* обновляет целевое приложение до новой версии, используя [метод **UpgradeApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), [командлет **Start-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125975.aspx) или [операцию REST **Upgrade an Application**](https://msdn.microsoft.com/library/azure/dn707633.aspx).
 
-7. *Оператор* проверяет ход обновления при помощи [метода **GetApplicationUpgradeProgressAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), [командлета **Get-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125988.aspx) или [операции REST **Get Application Upgrade Progress**](https://msdn.microsoft.com/library/azure/dn707631.aspx).
+8. *Оператор* проверяет ход обновления при помощи [метода **GetApplicationUpgradeProgressAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), [командлета **Get-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125988.aspx) или [операции REST **Get Application Upgrade Progress**](https://msdn.microsoft.com/library/azure/dn707631.aspx).
 
-8. При необходимости *оператор* изменяет и повторно применяет параметры текущего обновления приложения при помощи [метода **UpdateApplicationUpgradeAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), [командлета **Update-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt126030.aspx) или [операции REST **Update Application Upgrade**](https://msdn.microsoft.com/library/azure/mt628489.aspx).
+9. При необходимости *оператор* изменяет и повторно применяет параметры текущего обновления приложения при помощи [метода **UpdateApplicationUpgradeAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), [командлета **Update-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt126030.aspx) или [операции REST **Update Application Upgrade**](https://msdn.microsoft.com/library/azure/mt628489.aspx).
 
-9. При необходимости *оператор* применяет откат текущего обновления приложения при помощи [метода **RollbackApplicationUpgradeAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), [командлета **Start-ServiceFabricApplicationRollback**](https://msdn.microsoft.com/library/azure/mt125833.aspx) или [операции REST** Rollback Application Upgrade**](https://msdn.microsoft.com/library/azure/mt628494.aspx).
+10. При необходимости *оператор* применяет откат текущего обновления приложения при помощи [метода **RollbackApplicationUpgradeAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), [командлета **Start-ServiceFabricApplicationRollback**](https://msdn.microsoft.com/library/azure/mt125833.aspx) или [операции REST** Rollback Application Upgrade**](https://msdn.microsoft.com/library/azure/mt628494.aspx).
 
-10. Структура службы обновляет целевое приложение, запущенное в кластере приложения без потери доступности служб, которые входят в его состав.
+11. Структура службы обновляет целевое приложение, запущенное в кластере приложения без потери доступности служб, которые входят в его состав.
 
 См. [Учебник по обновлению приложений](service-fabric-application-upgrade-tutorial.md), чтобы ознакомиться с примерами.
 
@@ -119,4 +121,4 @@
 - [Обзор Testability](service-fabric-testability-overview.md)
 - [Пример жизненного цикла приложения на основе REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

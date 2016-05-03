@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Разработка шаблонов Azure Resource Manager с расширениями виртуальной машины Linux
@@ -49,4 +49,4 @@
 
 После разработки шаблон можно развернуть с помощью Azure CLI.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -177,7 +177,7 @@
 -	к любому контроллеру или действию;
 -	если в конечной точке CDN включена строка запроса, то к любому URL-адресу со строкой запроса;
 
-Фактически при использовании вышеприведенной конфигурации можно размещать всю облачную службу из **http://*&lt;cdnName>*.vo.msecnd.net/**. Перейдя в ****http://camservice.azureedge.net/**, можно получить результат действия из Home/Index.
+Фактически при использовании вышеприведенной конфигурации можно размещать всю облачную службу из **http://*&lt;cdnName>*.vo.msecnd.net/**. Перейдя в **http://camservice.azureedge.net/**, можно получить результат действия из Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -626,7 +626,7 @@
 
 ## Дополнительные сведения ##
 - [Общие сведения о сети доставки контента (CDN) Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Использование CDN для Azure](cdn-how-to-use-cdn.md)
+- [Использование Azure CDN](cdn-create-new-endpoint.md)
 - [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
 
@@ -637,4 +637,4 @@
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -24,13 +24,13 @@
 
 Эта папка содержит все ресурсы, необходимые для Mobile Engagement. Вы также можете настроить их в соответствии с особенностями своего приложения.
 
-- `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Mobile Engagement (строку подключения Mobile Engagement, сообщение о сбое и т. д.).
+- `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Mobile Engagement (строку подключения Mobile Engagement, сообщение о сбое и т. д.).
 
 ### Папка /html
 
-- `EngagementNotification.html`: HTML-код веб-представления `Notification`.
+- `EngagementNotification.html`: HTML-код веб-представления `Notification` для баннеров в приложении.
 
-- `EngagementAnnouncement.html`: HTML-код веб-представления `Announcement`.
+- `EngagementAnnouncement.html`: HTML-код веб-представления `Announcement` для представлений в приложении.
 
 ### Папка /images
 
@@ -44,17 +44,7 @@
 
 ### Папка /overlay
 
-- `EngagementBaseOverlay.cs`: базовый код, используемый наложениями `Announcement` и `Notification`.
-
-- `EngagementOverlayAnnouncement.xaml` : XAML-код `Announcement`.
-
-- `EngagementOverlayAnnouncement.xaml.cs`: код, связанный с `EngagementOverlayAnnouncement.xaml`.
- 
-- `EngagementOverlayNotification.xaml` : XAML-код `Notification`.
- 
-- `EngagementOverlayNotification.xaml.cs`: код, связанный с `EngagementOverlayNotification.xaml`.
- 
-- `EngagementPageOverlay.cs`: кода для отображения объявлений и уведомлений `Overlay`.
+- `EngagementPageOverlay.cs`: страница наложения, ответственная за добавление пользовательского интерфейса Engagement в приложении в дочерний элемент.
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -17,7 +17,7 @@
      ms.date="03/02/2016"
      ms.author="dobett"/>
 
-# Учебник: начало работы с решениями IoT с предварительно заданными параметрами
+# Учебник: начало работы с предварительно настроенными решениями
 
 ## Введение
 
@@ -33,7 +33,7 @@
 
 1.  Войдите на сайт [azureiotsuite.com][lnk-azureiotsuite] с помощью учетных данных Azure и нажмите кнопку **+**, чтобы создать решение.
 
-    > [AZURE.NOTE] Если возникают проблемы с разрешениями, необходимыми для подготовки решения, см. сведения в статье [Разрешения на сайте azureiotsuite.com][lnk-permissions].
+    > [AZURE.NOTE] Если возникают проблемы с разрешениями, необходимыми для подготовки решения, обратитесь к статье [Разрешения на сайте azureiotsuite.com][lnk-permissions].
 
 2.  На плитке **Удаленный мониторинг** щелкните **Выбрать**.
 
@@ -53,7 +53,7 @@
 
 4. Щелкните элемент, и вы увидите подробные сведения о решении в правой панели.
 
-> [AZURE.NOTE] Если возникают проблемы при развертывании предварительно настроенного решения, см. сведения в статьях [Разрешения на сайте azureiotsuite.com][lnk-permissions] и [Часто задаваемые вопросы об IoT Suite][lnk-faq]. Если проблемы не удается устранить, отправьте запрос в службу поддержки на [портале][lnk-portal].
+> [AZURE.NOTE] Если при развертывании предварительно настроенного решения возникают проблемы, см. сведения в статьях [Разрешения на сайте azureiotsuite.com][lnk-permissions] и [Часто задаваемые вопросы об IoT Suite][lnk-faq]. Если проблемы не удается устранить, отправьте запрос в службу поддержки на [портале][lnk-portal].
 
 Есть ли сведения, которые вы ожидали увидеть и которые не указаны для вашего решения? Сообщите нам о своих предложениях на [форуме](https://feedback.azure.com/forums/321918-azure-iot).
 
@@ -248,10 +248,10 @@
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-connecting-devices]: iot-suite-connecting-devices.md
-[lnk-permissions]: https://azure.microsoft.com/documentation/articles/iot-suite-permissions/
+[lnk-permissions]: iot-suite-permissions.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-faq]: https://azure.microsoft.com/documentation/articles/iot-suite-faq/
+[lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

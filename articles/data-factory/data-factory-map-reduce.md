@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Вызов программы MapReduce из фабрики данных
@@ -208,6 +208,9 @@ linkedServiceName (имя связанной службы) | Указывает 
 	    }
 	}
 
+## Запуск программ Spark
+Действие MapReduce можно использовать для запуска программ Spark в кластере HDInsight Spark. Дополнительные сведения см. в разделе [Invoke Spark programs from Azure Data Factory (Вызов программ Spark из фабрики данных Azure](data-factory-spark.md).
+
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
@@ -217,7 +220,13 @@ linkedServiceName (имя связанной службы) | Указывает 
 [adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[Azure Classic Portal]: http://portal.azure.com
+[Azure Portal]: http://portal.azure.com
  
+## См. также
+- [Действие Hive](data-factory-hive-activity.md)
+- [Действие Pig](data-factory-pig-activity.md)
+- [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md)
+- [Вызов программ Spark](data-factory-spark.md)
+- [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

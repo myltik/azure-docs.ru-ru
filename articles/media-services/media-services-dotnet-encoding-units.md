@@ -3,8 +3,8 @@
 	description="Информация о добавлении единиц кодирования с помощью .NET"  
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,milangada,gtrifonov" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016"
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"
+	ms.author="juliako;milangada;gtrifonov"/>
 
 
 #Масштабирование кодирования с помощью пакета SDK для .NET
 
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-encoding-units.md)
+- [Портал](media-services-portal-encoding-units.md)
 - [.NET](media-services-dotnet-encoding-units.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -81,4 +81,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

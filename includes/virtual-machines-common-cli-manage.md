@@ -1,6 +1,4 @@
-В этой статье показаны эквивалентные команды интерфейса командной строки Microsoft Azure \(Azure CLI\) для создания виртуальных машин Azure и управления ими в режиме управления службами Azure и режиме диспетчера ресурсов Azure. Используйте ее в качестве удобного руководства по переноса сценариев из одной режима команд в другой.
-
-* Если вы не установили Azure CLI и не подключили его к своей подписке, см. статьи [Установка Azure CLI](../articles/xplat-cli-install.md) и [Подключение к подписке Azure из Azure CLI](../articles/xplat-cli-connect.md). Если вам нужно использовать команды режима диспетчера ресурсов, выполните подключение с помощью метода входа.
+* Если вы не установили Azure CLI и не подключили его к своей подписке, см. статьи [Установка Azure CLI](../articles/xplat-cli-install.md) и [Подключение к подписке Azure из Azure CLI](../articles/xplat-cli-connect.md). Если требуется использовать команды режима диспетчера ресурсов, выполните подключение с помощью команды `azure login`.
 
 * Чтобы приступить к работе в режиме диспетчера ресурсов в интерфейсе командной строки Azure, необходимо переключить режимы команды. По умолчанию интерфейс командной строки Azure запускается в режиме управления службами. Чтобы перейти в режим диспетчера ресурсов, выполните команду `azure config mode arm`. Чтобы вернуться в режим управления службами, выполните команду `azure config mode asm`.
 
@@ -11,9 +9,9 @@
 
 > [AZURE.NOTE] Эти примеры не включают операции на основе шаблонов, которые обычно рекомендуются для развертываний виртуальных машин в диспетчере ресурсов. Дополнительные сведения см. в статье [Использование интерфейса командной строки Azure с диспетчером ресурсов Azure](../articles/xplat-cli-azure-resource-manager.md) и [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
-Задача | Service Management | Диспетчер ресурсов
+Задача | Режим управления службами | Модель диспетчера ресурсов.
 -------------- | ----------- | -------------------------
-Создание самой простой виртуальной машины | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>\(Получите `image-urn` из команды `azure vm image list`. Примеры см. в [этой статье](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md).\)
+Создание самой простой виртуальной машины | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Получите `image-urn` из команды `azure vm image list`. Примеры см. в [этой статье](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md).)
 Создание виртуальной машины Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Создание виртуальной машины Windows | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 Вывод списка виртуальных машин | `azure  vm list [options]` | `azure  vm list [options]`
@@ -25,7 +23,7 @@
 Удаление виртуальной машины | `azure vm delete [options] <name>` | `azure vm delete [options] <resource_group> <name>`
 Запись виртуальной машины | `azure vm capture [options] <name>` | `azure vm capture [options] <resource_group> <name>`
 Создание виртуальной машины из образа пользователя | `azure  vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>`
-Создание виртуальной машины из специализированного диска | `azure  vm create [options]-d <custom-data-file> <dns-name> [userName] [password]` | `azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>`
+Создание виртуальной машины из специализированного диска | `azure  vm create [options]-d <custom-data-file> <dns-name> [userName] [password]` | `azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>`
 Добавление диска данных в виртуальную машину | `azure  vm disk attach [options] <vm-name> <disk-image-name>` ИЛИ <br/> `vm disk attach-new [options] <vm-name> <size-in-gb> [blob-url]` | `azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]`
 Удаление диска данных от виртуальной машины | `azure  vm disk detach [options] <vm-name> <lun>` | `azure  vm disk detach [options] <resource-group> <vm-name> <lun>`
 Добавление универсального расширения в виртуальную машину | `azure  vm extension set [options] <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>`
@@ -42,6 +40,6 @@
 
 ## Дальнейшие действия
 
-* Дополнительные примеры команд для командной строки см. в разделах [Использование интерфейса командной строки Azure с управлением службами Azure](../articles/virtual-machines-command-line-tools.md) и [Использование интерфейса командной строки Azure с диспетчером ресурсов Azure](../articles/virtual-machines/azure-cli-arm-commands.md).
+* Дополнительные примеры команд интерфейса командной строки см. в статьях [Команды Azure CLI в режиме управления службами Azure](../articles/virtual-machines-command-line-tools.md) и [Команды Azure CLI в режиме Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/18/2016" 
+	ms.date="04/15/2016" 
 	ms.author="jeffstok"/>
 
 #Заметки о выпуске Stream Analytics
+
+## Заметки о выпуске Stream Analytics 15.04.2016 ##
+
+Этот выпуск содержит следующее обновление.
+
+Название | Описание
+---|---
+Широкая доступность выходных данных Power BI | Сейчас [выходные данные Power BI](stream-analytics-power-bi-dashboard.md) уже являются общедоступными. 90-дневный срок действия авторизации для Power BI был удален. Дополнительные сведения о сценариях, в которых необходимо продлить авторизацию, см. в разделе [Обновление авторизации](stream-analytics-power-bi-dashboard.md#Renew-authorization) статьи о создании панели мониторинга Power BI.
 
 ## Заметки о выпуске Stream Analytics за 03.03.2016 ##
 
@@ -24,7 +32,7 @@
 
 Название | Описание
 ---|---
-Новые элементы языка запросов Stream Analytics | Теперь у SAQL есть [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Страница MSDN о GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Страница MSDN о TRY_CAST") и [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Страница MSDN о REGEXMATC").
+Новые элементы языка запросов Stream Analytics | Теперь в SAQL есть [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Страница MSDN о GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Страница MSDN о TRY_CAST") и [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Страница MSDN о REGEXMATC").
 
 ## Заметки о выпуске Stream Analytics от 10.12.2015 ##
 
@@ -73,7 +81,7 @@ TIMESTAMP BY для разнородных событий | Если один п
 
 Название|Описание
 ---|---
-Поддержка групп PowerBI|Чтобы разрешить совместное использование данных с другими пользователями Power BI, теперь задания Stream Analytics могут выполнять запись в [группы Power BI](stream-analytics-define-outputs.md#power-bi) внутри вашей учетной записи Power BI.
+Поддержка групп PowerBI|Чтобы разрешить совместное использование данных с другими пользователями Power BI, теперь задания Stream Analytics могут выполнять запись в [группы Power BI](stream-analytics-define-outputs.md#power-bi) внутри вашей учетной записи Power BI.
 
 ## Заметки о выпуске Stream Analytics от 20.08.2015 ##
 
@@ -141,4 +149,4 @@ TIMESTAMP BY для разнородных событий | Если один п
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

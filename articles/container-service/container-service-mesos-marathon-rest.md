@@ -47,7 +47,7 @@ curl localhost/marathon/v2/apps
 
 ## Развертывание контейнера формата Docker
 
-Контейнеры формата Docker развертываются с помощью Marathon и файла JSON, описывающего предполагаемое развертывание. Приведенный ниже пример кода развертывает контейнер Nginx и привязывает порт 80 агента DC/OS к порту 80 контейнера.
+Контейнеры формата Docker развертываются с помощью Marathon и файла JSON, описывающего предполагаемое развертывание. Приведенный ниже пример кода развертывает контейнер Nginx и привязывает порт 80 агента DC/OS к порту 80 контейнера. Также обратите внимание, что для свойства acceptedResourceRoles задано значение slave\_public. Это означает, что контейнер будет развернут в агенте в наборе масштабирования общедоступного агента.
 
 ```json
 {
@@ -55,6 +55,9 @@ curl localhost/marathon/v2/apps
   "cpus": 0.1,
   "mem": 16.0,
   "instances": 1,
+    "acceptedResourceRoles": [
+    "slave_public"
+  ],
   "container": {
     "type": "DOCKER",
     "docker": {
@@ -171,4 +174,4 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 [Дополнительные сведения о конечных HTTP-точках Mesos](http://mesos.apache.org/documentation/latest/endpoints/). [Дополнительные сведения о REST API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

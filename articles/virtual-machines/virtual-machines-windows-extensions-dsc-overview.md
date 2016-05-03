@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="04/18/2016"
    ms.author="zachal"/>
 
 # Общие сведения об обработчике расширения Desired State Configuration в Azure #
@@ -144,4 +144,4 @@ C:\\WindowsAzure\\Logs\\Plugins\\Microsoft.Powershell.DSC[номер\_верси
 
 Сведения о передаче конфиденциальных параметров в конфигурации см. в статье [Passing credentials to the Azure DSC extension handler](virtual-machines-windows-extensions-dsc-credentials.md) (Передача учетных данных в обработчик расширений DSC Azure).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

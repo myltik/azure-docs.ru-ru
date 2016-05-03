@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement" 
+<properties
+	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement"
 	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="02/29/2016" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="04/18/2016"
 	ms.author="piyushjo" />
 
 #Интеграция Engagement Reach в Android
@@ -145,7 +145,7 @@
 			    Log.d("tmp", "String data push message received: " + body);
 			    return true;
 			  }
-			
+
 			  @Override
 			  protected Boolean onDataPushBase64Received(Context context, String category, byte[] decodedBody, String encodedBody)
 			  {
@@ -218,15 +218,15 @@
 			  android:orientation="vertical"
 			  android:layout_width="fill_parent"
 			  android:layout_height="fill_parent">
-			
+
 			  <ListView
 			    android:id="@android:id/list"
 			    android:layout_width="fill_parent"
 			    android:layout_height="fill_parent"
 			    android:layout_weight="1" />
-			
+
 			  <include layout="@layout/engagement_notification_area" />
-			
+
 			</LinearLayout>
 
 В этом примере мы добавили родительский контейнер, поскольку исходная разметка использовала представление списка в качестве элемента верхнего уровня. Мы также добавили `android:layout_weight="1"`, чтобы иметь возможность просматривать список, настроенный с помощью `android:layout_height="fill_parent"`.
@@ -292,27 +292,27 @@
 ##### Уведомления в приложении
 
 Если нужно просто использовать дополнительные разметки для определенной категории, можно сделать как в следующем примере:
-			
+
 			public class MyNotifier extends EngagementDefaultNotifier
 			{
 			  public MyNotifier(Context context)
 			  {
 			    super(context);
 			  }
-			
+
 			  @Override
 			  protected int getOverlayLayoutId(String category)
 			  {
 			    return R.layout.my_notification_overlay;
 			  }
-			
-			
+
+
 			  @Override
 			  public Integer getOverlayViewId(String category)
 			  {
 			    return R.id.my_notification_overlay;
 			  }
-			
+
 			  @Override
 			  public Integer getInAppAreaId(String category)
 			  {
@@ -328,9 +328,9 @@
 			  android:id="@+id/my_notification_overlay"
 			  android:layout_width="fill_parent"
 			  android:layout_height="fill_parent">
-			
+
 			  <include layout="@layout/my_notification_area" />
-			
+
 			</RelativeLayout>
 
 Как видите, идентификатор представления наложения отличается от стандартного. Важно, чтобы у каждой разметки использовался уникальный идентификатор для наложений.
@@ -342,25 +342,25 @@
 			  xmlns:android="http://schemas.android.com/apk/res/android"
 			  android:layout_width="fill_parent"
 			  android:layout_height="fill_parent">
-			
+
 			  <RelativeLayout
 			    android:id="@+id/my_notification_area"
 			    android:layout_width="fill_parent"
 			    android:layout_height="64dp"
 			    android:layout_alignParentTop="true"
 			    android:background="#B000">
-			
+
 			    <LinearLayout
 			      android:orientation="horizontal"
 			      android:layout_width="fill_parent"
 			      android:layout_height="fill_parent"
 			      android:gravity="center_vertical">
-			
+
 			      <ImageView
 			        android:id="@+id/engagement_notification_icon"
 			        android:layout_width="48dp"
 			        android:layout_height="48dp" />
-			
+
 			      <LinearLayout
 			        android:id="@+id/engagement_notification_text"
 			        android:orientation="vertical"
@@ -368,7 +368,7 @@
 			        android:layout_height="fill_parent"
 			        android:layout_weight="1"
 			        android:gravity="center_vertical">
-			
+
 			        <TextView
 			          android:id="@+id/engagement_notification_title"
 			          android:layout_width="fill_parent"
@@ -376,7 +376,7 @@
 			          android:singleLine="true"
 			          android:ellipsize="end"
 			          android:textAppearance="@android:style/TextAppearance.Medium" />
-			
+
 			        <TextView
 			          android:id="@+id/engagement_notification_message"
 			          android:layout_width="fill_parent"
@@ -384,15 +384,15 @@
 			          android:maxLines="2"
 			          android:ellipsize="end"
 			          android:textAppearance="@android:style/TextAppearance.Small" />
-			
+
 			      </LinearLayout>
-			
+
 			      <ImageView
 			        android:id="@+id/engagement_notification_image"
 			        android:layout_width="wrap_content"
 			        android:layout_height="fill_parent"
 			        android:adjustViewBounds="true" />
-			
+
 			      <ImageButton
 			        android:id="@+id/engagement_notification_close_area"
 			        android:visibility="invisible"
@@ -400,9 +400,9 @@
 			        android:layout_height="fill_parent"
 			        android:src="@android:drawable/btn_dialog"
 			        android:background="#0F00" />
-			
+
 			    </LinearLayout>
-			
+
 			    <ImageButton
 			      android:id="@+id/engagement_notification_close"
 			      android:layout_width="wrap_content"
@@ -410,9 +410,9 @@
 			      android:layout_alignParentRight="true"
 			      android:src="@android:drawable/btn_dialog"
 			      android:background="#0F00" />
-			
+
 			  </RelativeLayout>
-			
+
 			</merge>
 
 Как видите, идентификатор области уведомлений отличается от стандартного. Важно, чтобы у каждой разметки использовался уникальный идентификатор областей уведомления.
@@ -450,19 +450,19 @@
 			    .setSmallIcon(notification.icon)              // icon is mandatory
 			    .setContentIntent(notification.contentIntent) // keep content intent
 			    .setDeleteIntent(notification.deleteIntent);  // keep delete intent
-			
+
 			  /* Your customization */
 			  // builder.set...
-			
+
 			  /* Dismiss option can be managed only after build */
 			  Notification myNotification = builder.build();
 			  if (!content.isNotificationCloseable())
 			    myNotification.flags |= Notification.FLAG_NO_CLEAR;
-			
+
 			  /* Notify here instead of super class */
 			  NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 			  manager.notify(getNotificationId(content), myNotification); // notice the call to get the right identifier
-			
+
 			  /* Return false, we notify ourselves */
 			  return false;
 			}
@@ -472,7 +472,7 @@
 Можно настроить управление щелчками объявлений об уведомлениях путем переопределения `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared` для изменения `Intent`. Использование этого метода позволяет удобно настраивать флаги.
 
 Например, чтобы добавить флаг `SINGLE_TOP`:
-			
+
 			@Override
 			protected Intent onNotifAnnouncementIntentPrepared(EngagementNotifAnnouncement notifAnnouncement,
 			  Intent intent)
@@ -521,7 +521,7 @@
 
 			<activity android:name="com.your_company.MyCustomTextAnnouncementActivity">
 			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.ANNOUNCEMENT"/>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
 			    <category android:name="my_category" />
 			    <data android:mimeType="text/plain" />
 			  </intent-filter>
@@ -550,7 +550,7 @@
 
 			<activity android:name="com.your_company.MyCustomWebAnnouncementActivity">
 			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.ANNOUNCEMENT"/>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
 			    <category android:name="my_category" />
 			    <data android:mimeType="text/html" />    <!-- only difference with text announcements in the intent is the data mime type -->
 			  </intent-filter>
@@ -560,11 +560,11 @@
 
 			<activity android:name="com.your_company.MyCustomPollActivity">
 			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.POLL"/>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
 			    <category android:name="my_category" />
 			  </intent-filter>
 			</activity>
-			
+
 ##### Реализация с нуля
 
 Вы можете реализовать категории для действий объявлений (и опросов), не расширяя один из классов `Engagement*Activity`, входящих в состав SDK Reach. Это полезно в случае, если вам нужно определить разметку, не использующую такие же представления, как в стандартных разметках.
@@ -578,12 +578,12 @@
 			public class MyCustomTextAnnouncement extends EngagementActivity
 			{
 			  private EngagementAnnouncement mContent;
-			
+
 			  @Override
 			  protected void onCreate(Bundle savedInstanceState)
 			  {
 			    super.onCreate(savedInstanceState);
-			
+
 			    /* Get content */
 			    mContent = EngagementReachAgent.getInstance(this).getContent(getIntent());
 			    if (mContent == null)
@@ -592,16 +592,16 @@
 			      finish();
 			      return;
 			    }
-			
+
 			    setContentView(R.layout.my_text_announcement);
-			
+
 			    /* Configure views by querying fields on mContent */
 			    // ...
 			  }
 			}
 
 Для статистики следует отправлять содержимое, отображаемое в событии `onResume`:
-			
+
 			@Override
 			protected void onResume()
 			{
@@ -612,7 +612,7 @@
 
 Не забудьте вызвать `actionContent(this)` или `exitContent(this)` для объекта содержимого перед переходом действия в фоновый режим.
 
-Если не вызвать `actionContent` или `exitContent`, то статистика не будет отправляться (т. е. кампания будет проводиться без аналитики) и, что важнее, не будут создаваться уведомления о последующих кампаниях до перезапуска процесса приложения.
+Если не вызвать `actionContent` или `exitContent`, то статистика не будет отправляться (т. е. кампания будет проводиться без аналитики) и, что важнее, не будут создаваться уведомления о последующих кампаниях до перезапуска процесса приложения.
 
 При изменении ориентации и других параметров конфигурации становится непросто определить, переключается ли действие в фоновый режим. При стандартной реализации фиксируется выход из содержимого при выходе пользователя из действия (путем нажатия `HOME` или `BACK`), но не при изменении ориентации.
 
@@ -623,7 +623,7 @@
 			{
 			  finish();
 			}
-			
+
 			@Override
 			protected void onPause()
 			{
@@ -643,6 +643,5 @@
 [здесь]: http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
- 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

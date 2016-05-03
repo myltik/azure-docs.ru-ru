@@ -3,8 +3,8 @@
    description="Как создать записи узла для Azure DNS. Настройка наборов записей и записей с помощью интерфейса командной строки."
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
-   manager="Adinah"
+   authors="cherylmc"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="01/20/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 
 # Создание записей DNS с помощью интерфейса командной строки
@@ -56,7 +56,7 @@ Azure DNS поддерживает все общие типы DNS-записей
 В примере, приведенном ниже, мы демонстрируем, как создать записи и набор записей. В примере мы используем тип записи DNS «A». Сведения о других типах записей см. в статье [Управление записями DNS](dns-operations-recordsets-cli.md).
 
 
-### Шаг 1
+### Шаг 1
 
 Создание набора записей
 
@@ -121,4 +121,4 @@ Azure DNS поддерживает все общие типы DNS-записей
 [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

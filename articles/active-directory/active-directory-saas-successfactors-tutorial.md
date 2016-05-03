@@ -73,7 +73,7 @@
 
 ###Чтобы настроить единый вход, выполните следующие действия:
 
-1.  На странице интеграции с приложением **SuccessFactors** портала Azure AD щелкните **Настройка единого входа**, чтобы открыть диалоговое окно \*\*Настройка единого входа\*\*.
+1.  На странице интеграции с приложением **SuccessFactors** портала Azure AD щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-successfactors-tutorial/IC791138.png "Настройка единого входа")
 
@@ -85,8 +85,8 @@
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Настройка URL-адреса приложения")
 
-    1.  В текстовом поле **URL-адрес для входа в SuccessFactors** введите URL-адрес, используемый пользователями для входа в приложение SuccessFactors \(например, \**https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*")\).
-2.  В текстовом поле **URL-адрес ответа SuccessFactors** введите \*\***https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+    1.  В текстовом поле **URL-адрес для входа в SuccessFactors** введите URL-адрес, используемый пользователями для входа в приложение SuccessFactors \(например, *https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*\).
+	2.  В текстовом поле **URL-адрес ответа SuccessFactors** введите **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
         >[AZURE.NOTE]Это только временный заполнитель.  
         >Фактическое значение можно получить у группы поддержки SuccessFactors.  
@@ -126,7 +126,7 @@
 
 1.  На портале Azure AD создайте тестовую учетную запись.
 
-2.  На странице интеграции с приложением \*\*SuccessFactors\*\* нажмите кнопку **Назначить пользователей**.
+2.  На странице интеграции с приложением **SuccessFactors** нажмите кнопку **Назначить пользователей**.
 
     ![Назначить пользователей](./media/active-directory-saas-successfactors-tutorial/IC791143.png "Назначить пользователей")
 

@@ -11,7 +11,7 @@
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
@@ -37,9 +37,6 @@
 [Общие сведения об Azure Resource Manager](../resource-group-overview.md)
 
 [Виртуальные машины и контейнеры в Azure](virtual-machines-windows-containers.md)
-
-[Обзор масштабируемых наборов виртуальных машин](virtual-machines-windows-scale-sets-overview.md)
-
 
 
 ### Настройка среды
@@ -71,7 +68,7 @@
 
 [Сведения об экземплярах A8, A9, A10 и A11 с большим объемом вычислений](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
-[Planned maintenance for Azure virtual machines](virtual-machines-windows-planned-maintenance.md) (Плановое обслуживание виртуальных машин Azure) [Azure infrastructure services implementation guidelines](virtual-machines-windows-infrastructure-service-guidelines.md) (Руководство по реализации служб инфраструктуры Azure)
+[Planned maintenance for Azure virtual machines](virtual-machines-windows-planned-maintenance.md) (Плановое обслуживание виртуальных машин Azure) [Azure infrastructure services implementation guidelines](virtual-machines-windows-infrastructure-service-guidelines.md) (Руководство по внедрению служб инфраструктуры Azure)
 
 [Управление доступностью виртуальных машин](virtual-machines-windows-manage-availability.md)
 
@@ -85,7 +82,7 @@
 
 [Запись образа виртуальной машины Windows в модели развертывания диспетчера ресурсов](virtual-machines-windows-capture-image.md)
 
-[Upload a Windows VM image to Microsoft Azure for Resource Manager deployments](virtual-machines-windows-upload-image.md) (Передача образа виртуальной машины Windows в Microsoft Azure для развертывания с помощью Resource Manager)
+[Upload a Windows VM image to Microsoft Azure for Resource Manager deployments (Передача образа виртуальной машины Windows в Microsoft Azure для развертывания с помощью Resource Manager)](virtual-machines-windows-upload-image.md)
 
 [Автоматизация развертывания виртуальной машины Azure с помощью Chef](virtual-machines-windows-chef-automation.md)
 
@@ -93,7 +90,7 @@
 
 [Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов](virtual-machines-windows-ps-template.md)
 
-[Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](virtual-machines-windows-extensions-diagnostics-template.md) (Создание виртуальной машины Windows с мониторингом и диагностикой при помощи шаблона Azure Resource Manager)
+[Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template (Создание виртуальной машины Windows с мониторингом и диагностикой при помощи шаблона Azure Resource Manager)](virtual-machines-windows-extensions-diagnostics-template.md)
 
 [Развертывание популярных платформ приложений с помощью шаблонов диспетчера ресурсов Azure](virtual-machines-windows-app-frameworks.md)
 
@@ -115,8 +112,6 @@
 [Автоматическая архивация SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Автоматическая установка исправлений для SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-automated-patching.md)
-
-[Автоматическое масштабирование машин в масштабируемом наборе виртуальных машин](virtual-machines-windows-ps-vmss-create.md)
 
 
 
@@ -150,7 +145,7 @@
 [Развертывание ресурсов Azure с помощью библиотек компонентов Compute, Network и Storage для .NET](virtual-machines-windows-csharp.md)
 
 
-[Authoring Azure Resource Manager templates with Windows VM extensions](virtual-machines-windows-extensions-authoring-templates.md) (Создание шаблонов Azure Resource Manager с расширениями виртуальных машин)
+[Authoring Azure Resource Manager templates with Windows VM extensions (Создание шаблонов Azure Resource Manager с расширениями виртуальных машин)](virtual-machines-windows-extensions-authoring-templates.md)
 
 [Создание и развертывание групп ресурсов Azure с помощью Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 		
@@ -193,7 +188,7 @@
 
 [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-[Troubleshooting Azure Windows VM extension failures](virtual-machines-windows-extensions-troubleshoot.md) (Устранение сбоев в расширениях виртуальных машин Azure)
+[Troubleshooting Azure Windows VM extension failures (Устранение сбоев в расширениях виртуальных машин Azure)](virtual-machines-windows-extensions-troubleshoot.md)
 
 [Troubleshooting resource group deployments with Azure Portal (Устранение неполадок в развертываниях групп ресурсов с помощью портала Azure)](../resource-manager-troubleshoot-deployments-portal.md)
 
@@ -208,7 +203,7 @@
 
 ### Обзор
 
-[About Azure virtual machines](virtual-machines-windows-about.md) (Сведения о виртуальных машинах Azure)
+[About Azure virtual machines (Сведения о виртуальных машинах Azure)](virtual-machines-windows-about.md)
 
 [Вопросы и ответы по виртуальным машинам Azure, созданным при помощи классической модели развертывания](virtual-machines-windows-classic-faq.md)
 
@@ -230,16 +225,16 @@
 ### Приступая к работе
 [Схема обучения для виртуальных машин Windows](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
-[Create a virtual machine running Windows in the Azure classic portal](virtual-machines-windows-classic-tutorial.md) (Создание виртуальной машины Windows на классическом портале Azure)
+[Create a virtual machine running Windows in the Azure classic portal (Создание виртуальной машины Windows на классическом портале Azure)](virtual-machines-windows-classic-tutorial.md)
 
-[Log on to a Windows virtual machine using the Azure classic portal](virtual-machines-windows-classic-connect-logon.md) (Вход в виртуальную машину Windows с помощью классического портала Azure)
+[Log on to a Windows virtual machine using the Azure classic portal (Вход в виртуальную машину Windows с помощью классического портала Azure)](virtual-machines-windows-classic-connect-logon.md)
 
 
 
 
 ### План
 
-[About images for virtual machines](virtual-machines-windows-classic-about-images.md) (Образы виртуальных машин)
+[About images for virtual machines (Образы виртуальных машин)](virtual-machines-windows-classic-about-images.md)
 
 [Размеры виртуальных машин](virtual-machines-windows-sizes.md)
 
@@ -249,20 +244,20 @@
 
 [Руководство по реализации служб инфраструктуры Azure](virtual-machines-windows-infrastructure-service-guidelines.md)
 
-[How to configure an availability set for virtual machines in the classic deployment model](virtual-machines-windows-classic-configure-availability.md) (Создание группы доступности для виртуальных машин в классической модели развертывания)
+[How to configure an availability set for virtual machines in the classic deployment model (Создание группы доступности для виртуальных машин в классической модели развертывания)](virtual-machines-windows-classic-configure-availability.md)
 
 
 ### Развертывание
 
 [Создание настраиваемой виртуальной машины под управлением Windows](virtual-machines-windows-classic-createportal.md)
 
-[Capture an image of an Azure Windows virtual machine created with the classic deployment model](virtual-machines-windows-classic-capture-image.md) (Запись образа виртуальной машины Microsoft Azure, созданной с помощью классической модели развертывания)
+[Capture an image of an Azure Windows virtual machine created with the classic deployment model (Запись образа виртуальной машины Microsoft Azure, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-capture-image.md)
 
-[Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md) (Создание и передача виртуального жесткого диска Windows Server в Azure)
+[Create and upload a Windows Server VHD to Azure (Создание и передача виртуального жесткого диска Windows Server в Azure)](virtual-machines-windows-classic-createupload-vhd.md)
 
 [Автоматизация развертывания виртуальной машины Azure с помощью Chef](virtual-machines-windows-chef-automation.md)
 
-[Create Windows virtual machines with Powershell and the classic deployment model](virtual-machines-windows-classic-create-powershell.md) (Создание виртуальных машин Windows с помощью PowerShell и классической модели развертывания)
+[Create Windows virtual machines with Powershell and the classic deployment model (Создание виртуальных машин Windows с помощью PowerShell и классической модели развертывания)](virtual-machines-windows-classic-create-powershell.md)
 
 [Включение пользовательских данных в виртуальную машину Azure](virtual-machines-windows-classic-inject-custom-data.md)
 
@@ -279,7 +274,7 @@
 
 [Управление расширениями виртуальной машины](virtual-machines-windows-classic-manage-extensions.md)
 
-[Custom Script extension for Windows virtual machines](virtual-machines-windows-classic-extensions-customscript.md) (Расширение Custom Script для виртуальных машин Windows)
+[Custom Script extension for Windows virtual machines (Расширение Custom Script для виртуальных машин Windows)](virtual-machines-windows-classic-extensions-customscript.md)
 
 [Автоматическая архивация SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
@@ -305,9 +300,9 @@
 
 [О дисках и виртуальных жестких дисках для виртуальных машин Azure](virtual-machines-windows-about-disks-vhds.md)
 	
-[Attach a data disk to a Windows virtual machine created with the classic deployment model](virtual-machines-windows-classic-attach-disk.md) (Подключение диска данных к виртуальной машине Windows, созданной с помощью классической модели развертывания)
+[Attach a data disk to a Windows virtual machine created with the classic deployment model (Подключение диска данных к виртуальной машине Windows, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-attach-disk.md)
 
-[How to detach a disk from a Windows virtual machine](virtual-machines-windows-classic-detach-disk.md) (Отключение диска от виртуальной машины Windows)
+[How to detach a disk from a Windows virtual machine (Отключение диска от виртуальной машины Windows)](virtual-machines-windows-classic-detach-disk.md)
 
 [Использование диска D в качестве диска данных в виртуальной машине Windows](virtual-machines-windows-classic-change-drive-letter.md)
 
@@ -329,8 +324,6 @@
 
 [Создание виртуальной машины для веб-приложения с помощью Visual Studio](virtual-machines-windows-classic-web-app-visual-studio.md)
 
-[Выполнение ресурсоемкой задачи в .NET на виртуальной машине Azure](virtual-machines-windows-classic-run-compute-intensive-task.md)
-
 [Выполнение ресурсоемкой задачи в Java-коде на виртуальной машине](virtual-machines-windows-classic-java-run-compute-intensive-task.md)
 
 [Веб-приложение Hello World на Django на виртуальной машине Windows Server](virtual-machines-windows-classic-python-django-web-app.md)
@@ -339,11 +332,11 @@
 
 ### Рабочие нагрузки
 
-[Azure Infrastructure Services Workload: High-availability line of business application](virtual-machines-windows-lob.md) (Рабочая нагрузка служб инфраструктуры Azure: высокодоступное бизнес-приложение)
+[Azure Infrastructure Services Workload: High-availability line of business application (Рабочая нагрузка служб инфраструктуры Azure: высокодоступное бизнес-приложение)](virtual-machines-windows-lob.md)
 
 [Пакет HPC](virtual-machines-windows-hpcpack-cluster-options.md)
 
-[Azure hybrid cloud test environments](virtual-machines-windows-classic-hybrid-test-env.md) (Гибридные облачные тестовые среды Azure)
+[Azure hybrid cloud test environments (Гибридные облачные тестовые среды Azure)](virtual-machines-windows-classic-hybrid-test-env.md)
 
 [MongoDB](virtual-machines-windows-classic-install-mongodb.md)
 
@@ -375,4 +368,4 @@
 
 [Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин в Azure](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

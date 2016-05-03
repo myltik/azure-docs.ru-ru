@@ -1,3 +1,3 @@
 ![Уровни обслуживания и уровни производительности](./media/sql-database-service-tiers-table/sql-database-service-tiers-table.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

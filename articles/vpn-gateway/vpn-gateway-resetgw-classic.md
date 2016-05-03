@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="cherylmc"/>
 
 # Сброс настроек VPN-шлюза Azure с помощью PowerShell
@@ -40,14 +40,14 @@
 
 В следующем примере будет сброшен VPN-шлюз Azure для виртуальной сети с именем ContosoVNet.
  
-			D:\PS> Reset-AzureVNetGateway –VnetName “ContosoVNet” 
+		Reset-AzureVNetGateway –VnetName “ContosoVNet” 
 
-	 		Error          :
-	 		HttpStatusCode : OK
-	 		Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
-	 		Status         : Successful
-			RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
-			StatusCode     : OK
+	 	Error          :
+	 	HttpStatusCode : OK
+	 	Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
+	 	Status         : Successful
+		RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
+		StatusCode     : OK
 
 
 Если после первой перезагрузки соединение не восстановится, выполните эту же команду еще раз, чтобы перезагрузить второй экземпляр виртуальной машины (новый активный шлюз). Если необходимо выполнить две последовательные перезагрузки (обоих экземпляров виртуальных машин — активного и резервного), на это понадобится немного больше времени. В таком случае пауза при установке VPN-подключения увеличится до 2–4 минут. Длительность паузы определяется скоростью перезагрузки виртуальных машин.
@@ -58,4 +58,4 @@
 	
 Дополнительные сведения об этом командлете см. в статье [Справочник PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

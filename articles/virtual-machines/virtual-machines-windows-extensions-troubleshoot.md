@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Устранение неполадок расширений для виртуальных машин Windows | Microsoft Azure"
+   pageTitle="Устранение неполадок расширений для виртуальных машин Windows | Microsoft Azure"
    description="Узнайте об устранении неполадок в работе расширений виртуальной машины Windows в Azure."
    services="virtual-machines-windows"
    documentationCenter=""
@@ -11,10 +11,10 @@
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Troubleshooting Azure Windows VM extension failures
@@ -70,4 +70,4 @@ Azure Powershell:
 
 После удаления расширения шаблон можно выполнить повторно, чтобы запустить скрипты на виртуальной машине.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

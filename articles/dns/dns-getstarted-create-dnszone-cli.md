@@ -3,7 +3,7 @@
    description="Поэтапно узнайте, как создать зоны DNS для Azure DNS, чтобы разместить домен DNS, используя интерфейс командной строки (CLI)."
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
+   authors="cherylmc"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Приступая к работе с Azure DNS с помощью интерфейса командной строки
 
@@ -43,11 +43,11 @@
 
 ### Шаг 2
 
-Azure DNS использует диспетчер ресурсов Azure. Обязательно переключите интерфейс командной строки (CLI) в режим использования команд arm и DNS.
+Azure DNS использует диспетчер ресурсов Azure. Обязательно переключите интерфейс командной строки (CLI) в режим использования команд ARM.
 
 	Azure config mode arm
 
-### Шаг 3
+### Шаг 3.
 
 Войдите в учетную запись Azure.
 
@@ -78,15 +78,15 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 ## Теги
 
-Теги отличаются от Etag. Теги — это собой список пар "имя-значение", которые используются диспетчером ресурсов Azure для отметки ресурсов в целях выставления счетов или группировки. Дополнительные сведения о тегах см. в статье [Использование тегов для организации ресурсов Azure](../resource-group-using-tags.md). Интерфейс командной строки для Azure DNS поддерживает теги для зон и наборов записей. Эти теги задаются с помощью параметра -Tag. В следующем примере демонстрируется создание зоны DNS с двумя тегами, "project = demo" и "env = test":
+Теги — это собой список пар "имя-значение", которые используются диспетчером ресурсов Azure для отметки ресурсов в целях выставления счетов или группировки. Дополнительные сведения о тегах см. в статье [Использование тегов для организации ресурсов Azure](../resource-group-using-tags.md). Интерфейс командной строки для Azure DNS поддерживает теги зон DNS, заданные с помощью необязательного параметра -Tag. В следующем примере демонстрируется создание зоны DNS с двумя тегами, "project = demo" и "env = test":
 
-	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## Создание зоны DNS
 
 Зона DNS создается с помощью команды `azure network dns zone create`. В примере ниже вы создадите зону DNS contoso.com в группе ресурсов MyResourceGroup.
 
-    Azure network dns zone create -n contoso.com -g myresourcegroup
+    Azure network dns zone create myresourcegroup contoso.com
 
 
 >[AZURE.NOTE] В Azure DNS имена зон следует указывать без конечной точки ("."), например "contoso.com", а не "contoso.com.".
@@ -121,7 +121,7 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 	data:      Refresh time                  : 900
 	data:      Retry time                    : 300
 	data:                                    :
-<BR> Чтобы просмотреть созданные записи NS, используйте следующую команду:
+<BR> Чтобы просмотреть записи NS, созданные в зоне, используйте следующую команду:
 
 	azure network dns record-set show myresourcegroup "contoso.com" "@" NS
 	info:    Executing command network dns-record-set show
@@ -171,4 +171,4 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 Когда зона DNS будет готова, вам нужно создать [наборы записей и записи](dns-getstarted-create-recordset-cli.md), чтобы начать разрешение имен для интернет-домена.<BR> Вы также можете узнать, [как управлять зонами DNS](dns-operations-dnszones-cli.md) и операциями в зонах DNS.<BR> Узнайте, [как управлять записями DNS](dns-operations-recordsets-cli.md) и [автоматизировать операции Azure с помощью пакета SDK для .NET](dns-sdk.md).<BR> [Справочник по REST API службы Azure DNS.](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

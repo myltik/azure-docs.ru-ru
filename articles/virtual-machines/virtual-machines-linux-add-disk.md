@@ -11,7 +11,7 @@
 
 <tags
 	ms.service="virtual-machines-linux"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -20,7 +20,7 @@
 
 # Добавление диска к виртуальной машине Linux
 
-Из этой статьи вы узнаете, как в виртуальной машине добавить постоянный диск, на котором можно хранить данные. Эти данные будут на месте даже после повторной подготовки виртуальной машины (например, в ходе обслуживания или изменения размера). Для добавления диска вам потребуется [Azure CLI](../xplat-cli-install.md) в режиме Resource Manager (`azure config mode arm`).
+Из этой статьи вы узнаете, как в виртуальной машине добавить постоянный диск, на котором можно хранить данные. Эти данные будут на месте даже после повторной подготовки виртуальной машины (например, в ходе обслуживания или изменения размера). Для добавления диска вам потребуется использовать [интерфейс командной строки Azure](../xplat-cli-install.md) в режиме диспетчера ресурсов (`azure config mode arm`).
 
 ## Быстрые команды
 
@@ -32,7 +32,7 @@ rick@ubuntu$ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size
 
 ## Добавление диска
 
-Присоединение нового диска не займет много времени. Чтобы создать и присоединить новый диск (ГБ) для своей виртуальной машины, просто введите `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>`. Должно отобразиться примерно следующее:
+Присоединение нового диска не займет много времени. Чтобы создать и присоединить новый диск (ГБ) для своей виртуальной машины, просто введите `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>`. Если учетная запись хранения не определяется явным образом, любой создаваемый диск помещается в ту же учетную запись хранения, что и диск операционной системы. Должно отобразиться примерно следующее:
 
 	azure vm disk attach-new myuniquegroupname myuniquevmname 5
 	info:    Executing command vm disk attach-new
@@ -177,4 +177,4 @@ rick@ubuntu$ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size
 - Ознакомьтесь с рекомендациями по [оптимизации производительности виртуальной машины Linux](virtual-machines-linux-optimization.md), чтобы правильно настроить ВМ Linux.
 - Увеличьте емкость хранилища, добавив дополнительные диски, и [настройте массив RAID](virtual-machines-linux-configure-raid.md) для повышения производительности.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

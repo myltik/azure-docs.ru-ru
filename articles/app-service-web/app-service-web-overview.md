@@ -50,7 +50,7 @@
 - **Гибридные подключения** — доступ к локальным данным с помощью [гибридных подключений](../biztalk-services/integration-hybrid-connection-overview.md) и [виртуальной сети](../app-service-web/web-sites-integrate-with-vnet.md).
 
 ## Приступая к работе ##
-Чтобы приступить к работе с веб-приложениями, пройдите учебник [Создание веб-приложения ASP.NET][create].
+Ознакомьтесь с руководством [Начало работы с веб-приложениями в службе приложений Azure][create].
 
 Дополнительные сведения о платформе службы приложений Azure см. в статье [Служба приложений Azure][appservice].
 
@@ -60,10 +60,10 @@
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [appservice]: ../app-service/app-service-value-prop-what-is.md
-[create]: web-sites-dotnet-get-started.md
+[create]: app-service-web-get-started.md
 [Webjobs]: websites-dotnet-webjobs-sdk-get-started.md
 [Slots]: web-sites-staged-publishing.md
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

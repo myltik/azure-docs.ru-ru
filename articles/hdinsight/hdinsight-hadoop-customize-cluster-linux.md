@@ -477,6 +477,8 @@
 
 Прежде чем продолжить, убедитесь, что вы установили и настроили Azure CLI. Дополнительную информацию см. в статье [Установка и настройка CLI Azure](../xplat-cli-install.md).
 
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+
 1. Откройте сеанс работы с оболочкой, терминал или командную строку для системы и используйте указанную далее команду, чтобы переключиться в режим Azure Resource Manager.
 
         azure config mode arm
@@ -678,4 +680,4 @@
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Этапы создания кластера"
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

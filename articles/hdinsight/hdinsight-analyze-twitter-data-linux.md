@@ -37,8 +37,6 @@
 
 - __Python__ и [pip](https://pypi.python.org/pypi/pip)
 
-- __Azure CLI__. Дополнительную информацию см. в разделе [Установка и настройка CLI Azure](../xplat-cli-install.md).
-
 ##Получение веб-канала Twitter
 
 Twitter позволяет получать [данные для каждого твита](https://dev.twitter.com/docs/platform-objects/tweets) в виде документа JavaScript Object Notation (JSON) с помощью интерфейса REST API. Для аутентификации в API требуется [OAuth](http://oauth.net). Необходимо также создать _приложение Twitter_, содержащее параметры, используемые для доступа к API.
@@ -319,4 +317,4 @@ Twitter позволяет получать [данные для каждого 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/18/2016"
    ms.author="cherylmc"/>
 
 # Требования к качеству обслуживания для ExpressRoute
@@ -21,7 +21,7 @@
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
-**Примечание.** Требования к качеству обслуживания применяются только к пирингу Майкрософт.
+>[AZURE.NOTE] Требования к качеству обслуживания применяются только к пирингу Майкрософт.
 
 В таблице ниже перечислены пометки DSCP, используемые в Skype для бизнеса. Дополнительные сведения см. в статье [Управление качеством обслуживания для Skype для бизнеса](https://technet.microsoft.com/library/gg405409.aspx).
 
@@ -50,4 +50,4 @@
 	- [Настройка маршрутизации](expressroute-howto-routing-classic.md)
 	- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0427_2016-->

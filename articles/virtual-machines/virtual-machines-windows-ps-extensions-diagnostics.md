@@ -1,4 +1,11 @@
-<properties pageTitle="Включение системы диагностики Azure на виртуальной машине под управлением Windows с помощью PowerShell | Microsoft Azure" services="virtual-machines-windows" documentationCenter="" description="Узнайте, как включить систему диагностики Azure на виртуальной машине под управлением Windows, используя PowerShell." authors="sbtron" manager="" editor="""/>
+<properties
+	pageTitle="Включение системы диагностики Azure на виртуальной машине под управлением Windows с помощью PowerShell | Microsoft Azure"
+	services="virtual-machines-windows"
+	documentationCenter=""
+	description="Описание процедуры включения системы диагностики Azure на виртуальной машине под управлением Windows с помощью PowerShell."
+	authors="sbtron"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -30,13 +37,13 @@
 	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path
 
 
-*$diagnosticsconfig\_path* — это путь к файлу с конфигурацией диагностики в формате XML, как видно в [примере](#sample-diagnostics-configuration) ниже.
+*$diagnosticsconfig\_path* — это путь к файлу с конфигурацией диагностики в формате XML, как показано в [примере](#sample-diagnostics-configuration) ниже.
 
-Если файл конфигурации диагностики содержит элемент **StorageAccount** с именем учетной записи хранения, сценарий *Set-AzureRMVMDiagnosticsExtension* автоматически настраивает расширение диагностики на отправку диагностических данных в эту учетную запись. Для этого учетная запись хранения должна входить в ту же подписку, что и виртуальная машина.
+Если файл конфигурации диагностики содержит элемент **StorageAccount** с именем учетной записи хранения, сценарий *Set-AzureRMVMDiagnosticsExtension* автоматически настраивает для расширения диагностики отправку диагностических данных в эту учетную запись. Для этого учетная запись хранения должна входить в ту же подписку, что и виртуальная машина.
 
-Если в конфигурации диагностики нет элемента **StorageAccount**, в командлет необходимо передать параметр *StorageAccountName*. Если параметр *StorageAccountName* указан, командлет использует учетную запись хранения, указанную в параметре, а не заданную в файле конфигурации диагностики.
+Если в конфигурации диагностики нет элемента **StorageAccount**, в командлет необходимо передать параметр *StorageAccountName*. Если параметр *StorageAccountName* указан, командлет использует учетную запись хранения, указанную в этом параметре, а не в файле конфигурации диагностики.
 
-Если учетная запись хранения диагностики и виртуальная машина относятся к разным подпискам, в командлет необходимо явным образом передать параметры *StorageAccountName* и *StorageAccountKey*. Параметр *StorageAccountKey* не требуется, если учетная запись хранения диагностических данных входит в ту же подписку, так как при включении расширения диагностики командлет автоматически запрашивает и устанавливает значение ключа. Если же учетная запись хранения диагностических данных входит в другую подписку, командлет не сможет получить ключ автоматически, а значит, его необходимо явно указать с помощью параметра *StorageAccountKey*.
+Если учетная запись хранения диагностики и виртуальная машина относятся к разным подпискам, в командлет необходимо явным образом передать параметры *StorageAccountName* и *StorageAccountKey*. Параметр *StorageAccountKey* не требуется, если учетная запись хранения диагностики входит в ту же подписку, так как при включении расширения диагностики командлет автоматически запрашивает и устанавливает значение ключа. Если же учетная запись хранения диагностики входит в другую подписку, командлет не сможет получить ключ автоматически, а значит, его необходимо явно указать с помощью параметра *StorageAccountKey*.
 
 	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
@@ -62,7 +69,7 @@
 	$VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
 	New-AzureVM -Location $Location -ServiceName $Service_Name -VM $VM
 
-Чтобы включить расширение диагностики на существующей виртуальной машине, созданной с помощью классической модели развертывания, сначала используйте командлет [Get-AzureVM](https://msdn.microsoft.com/library/mt589152.aspx), который позволит получить конфигурацию виртуальной машины. Затем обновите конфигурацию виртуальной машины, чтобы активировать расширение диагностики, с помощью командлета [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx). И наконец, примените обновленную конфигурацию к виртуальной машине с помощью командлета [Update-AzureVM](https://msdn.microsoft.com/library/mt589121.aspx).
+Чтобы включить расширение диагностики на существующей виртуальной машине, созданной с помощью классической модели развертывания, сначала используйте командлет [Get-AzureVM](https://msdn.microsoft.com/library/mt589152.aspx), который позволит получить конфигурацию виртуальной машины. Затем обновите конфигурацию виртуальной машины, чтобы активировать расширение диагностики, с помощью командлета [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx). И, наконец, примените обновленную конфигурацию к виртуальной машине с помощью командлета [Update-AzureVM](https://msdn.microsoft.com/library/mt589121.aspx).
 
 	$VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
 	$VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
@@ -82,7 +89,7 @@
 		<Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
 		```
 
-	- Дополнительные сведения о генерировании метрик на основе счетчиков производительности и конфигурации метрик см. в разделе [WADMetrics tables in storage](virtual-machines-windows-extensions-diagnostics-template.md#wadmetrics-tables-in-storage).
+	- Дополнительные сведения о генерировании метрик на основе счетчиков производительности и конфигурации метрик см. в статье, посвященной [таблице метрик диагностики Azure в хранилище](virtual-machines-windows-extensions-diagnostics-template.md#wadmetrics-tables-in-storage).
 
 - Элемент **StorageAccount** необходимо обновить, указав диагностическое имя учетной записи хранения.
 
@@ -192,6 +199,6 @@
 
 ## Дальнейшие действия
 - Дополнительные рекомендации по использованию системы диагностики Azure и других методов для устранения неполадок см. в статье [Включение системы диагностики Azure в облачных службах Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).
-- Пояснение различных параметров XML-конфигураций для расширения диагностики см. в статье [Схем конфигурации диагностики Azure](https://msdn.microsoft.com/library/azure/mt634524.aspx).
+- Пояснение различных параметров XML-конфигураций для расширения диагностики см. в статье, посвященной [схеме конфигураций диагностики](https://msdn.microsoft.com/library/azure/mt634524.aspx).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
-pageTitle="Настройка локальных ресурсов хранилища в облачных службах Azure"
-description=""
+pageTitle="Настройка локальных ресурсов хранилища в облачных службах Azure | Microsoft"
+description="Дополнительные сведения о настройке локальных ресурсов хранилища в облачных службах Azure"
 services="cloud-services"
 documentationCenter=""
 authors="cristy"
@@ -56,7 +56,7 @@ ms.author="cristyg"/>
 
 Дополнительные сведения о файле определения службы см. в разделе [Схема определения службы Azure (файл .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
 
-> [AZURE.NOTE]Если вы используете средство Azure для Microsoft Visual Studio, то определить локальный ресурс хранилища можно на страницах **Свойства** для роли. Дополнительные сведения см. в разделе [Настройка приложения Azure с помощью Visual Studio](https://msdn.microsoft.com/library/ee405486.aspx).
+> [AZURE.NOTE] Если вы используете средство Azure для Microsoft Visual Studio, то определить локальный ресурс хранилища можно на страницах **Свойства** для роли. Дополнительные сведения см. в разделе [Настройка приложения Azure с помощью Visual Studio](https://msdn.microsoft.com/library/ee405486.aspx).
 
 ## Программный доступ к локальному ресурсу хранилища
 
@@ -104,4 +104,4 @@ ms.author="cristyg"/>
 
 - [Настройка облачной службы для Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0420_2016-->

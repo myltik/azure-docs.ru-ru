@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Пример конфигурации для расширений виртуальной машины Windows | Microsoft Azure"
+   pageTitle="Пример конфигурации для расширений виртуальной машины Windows | Microsoft Azure"
    description="Пример конфигурации для разработки шаблонов с расширениями."
    services="virtual-machines-windows"
    documentationCenter=""
@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Примеры конфигурации расширения виртуальной машины Microsoft Azure.
 
 > [AZURE.SELECTOR]
-- [PowerShell — шаблон](virtual-machines-windows-extensions-configuration-samples.md)
+- [PowerShell — шаблон](virtual-machines-windows-extensions-configuration-samples.md)
 - [CLI — шаблон](virtual-machines-linux-extensions-configuration-samples.md)
 
 <br>
@@ -39,7 +39,7 @@
 
 В данной статье содержатся предполагаемые значения конфигурации для некоторых расширений Windows.
 
-## Фрагмент шаблона образца для расширений виртуальной машины
+## Пример фрагмента примера для расширений виртуальной машины с виртуальными машинами IaaS.
 Фрагмент шаблона для развертывания расширений выглядит следующим образом:
 
       {
@@ -53,11 +53,34 @@
       "publisher": "Publisher Namespace",
       "type": "extension Name",
       "typeHandlerVersion": "extension version",
+      "autoUpgradeMinorVersion":true,
       "settings": {
       // Extension specific configuration goes in here.
       }
       }
       }
+
+## Пример фрагмента шаблона для расширений виртуальной машины с наборами масштабирования виртуальных машин.
+
+    {
+     "type":"Microsoft.Compute/virtualMachineScaleSets",
+    ....
+           "extensionProfile":{
+           "extensions":[
+             {
+               "name":"extension Name",
+               "properties":{
+                 "publisher":"Publisher Namespace",
+                 "type":"extension Name",
+                 "typeHandlerVersion":"extension version",
+                 "autoUpgradeMinorVersion":true,
+                 "settings":{
+                 // Extension specific configuration goes in here.
+                 }
+               }
+              }
+            }
+          }
 
 Перед развертыванием расширения проверьте последнюю версию расширения и замените "typeHandlerVersion" текущей актуальной версией.
 
@@ -65,18 +88,50 @@
 
 Перед развертыванием расширения проверьте последнюю версию расширения и замените "typeHandlerVersion" текущей актуальной версией.
 
-### Расширение CustomScript.
-    {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.4",
-        "settings": {
-            "fileUris": [
-                "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
-            ],
-            "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted-Filestart.ps1"
+### Расширение CustomScript 1.4
+      {
+          "publisher": "Microsoft.Compute",
+          "type": "CustomScriptExtension",
+          "typeHandlerVersion": "1.4",
+          "settings": {
+              "fileUris": [
+                  "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
+              ],
+              "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1"
+          },
+          "protectedSettings": {
+            "storageAccountName": "yourStorageAccountName",
+            "storageAccountKey": "yourStorageAccountKey"
+          }
+      }
+
+#### Описание параметров
+
+- fileUris — список разделенных запятой URL-адресов файлов, которые будут загружаться на виртуальную машину расширением. Загрузка файлов не выполняется, если никакие значения не указаны. Если файлы находятся в хранилище Azure, URL-адреса файлов можно пометить как частные, тогда и соответствующие параметры storageAccountName и storageAccountKey могут передаваться как частные параметры для доступа к этим файлам.
+- commandToExecute [обязательный параметр] — команда, которая будет выполняться расширением.
+- storageAccountName: [необязательный параметр] — имя учетной записи хранения для доступа к URL-адресам файлов, если они помечены как частные.
+- storageAccountKey: [необязательный параметр] — ключ учетной записи хранения для доступа к URL-адресам файлов, если они помечены как частные.
+
+### Расширение CustomScript 1.7
+
+Описание параметров см. в разделе, посвященном CustomScript 1.4. В версии 1.7 представлена поддержка отправки параметров сценария (commandToExecute) как protectedSettings (в этом случае они будут зашифрованы перед отправкой). Параметр commandToExecute можно указать в параметрах или protectedSettings, но не в обоих типах.
+
+        {
+            "publisher": "Microsoft.Compute",
+            "type": "CustomScriptExtension",
+            "typeHandlerVersion": "1.7",
+            "settings": {
+                "fileUris": [
+                    "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
+                ],
+                "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1"
+            },
+            "protectedSettings": {
+              "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1",
+              "storageAccountName": "yourStorageAccountName",
+              "storageAccountKey": "yourStorageAccountKey"
+            }
         }
-    }
 
 ### Расширение VMAccess.
 
@@ -316,4 +371,4 @@
 
 [Расширение Custom Script на виртуальной машине Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->
