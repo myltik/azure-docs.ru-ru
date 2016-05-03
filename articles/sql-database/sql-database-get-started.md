@@ -59,4 +59,4 @@
 
 [Обзор Базы данных SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

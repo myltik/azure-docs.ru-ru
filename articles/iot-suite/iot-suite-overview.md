@@ -17,7 +17,7 @@
      ms.date="02/19/2016"
      ms.author="dobett"/>
 
-# Общие сведения о наборе Azure IoT Suite
+# Что такое Azure IoT Suite?
 
 Службы Интернета вещей (IoT) в Azure предоставляют широкий спектр возможностей. Это службы корпоративного уровня, которые обеспечивают:
 
@@ -74,4 +74,4 @@
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

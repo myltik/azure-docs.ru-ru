@@ -3,7 +3,7 @@
    description="Узнайте, как изменить делегирование домена и использовать серверы имен Azure DNS для размещения домена."
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
+   authors="cherylmc"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 
 # Делегирование домена в Azure DNS
@@ -32,7 +32,7 @@ Azure DNS — это служба размещения для доменов DNS
 
 Зона DNS используется для размещения DNS-записей определенного домена. Например, домен contoso.com может содержать несколько записей DNS, таких как mail.contoso.com (для почтового сервера) и www.contoso.com (для веб-сайта).
 
-Azure DNS позволяет размещать зону DNS и тем самым управлять записями DNS для домена в Azure. Помните, что Azure DNS — это не регистратор доменных имен.
+Azure DNS позволяет размещать зону DNS и тем самым управлять записями DNS для домена в Azure. Помните, что Azure DNS — это не регистратор доменных имен.
 
 Система доменных имен — это иерархия доменов. Иерархия начинается с "корневого" домена, имя которого — просто ".". Ниже находятся домены верхнего уровня, такие как com, net, org, uk и jp. Под ними расположены домены второго уровня, например org.uk и co.jp. И т. д.
 
@@ -71,8 +71,8 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 С помощью Azure PowerShell полномочные записи NS можно получить следующим образом (имя записи "@" используется для указания на записи на вершине зоны).
 
-	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -159,4 +159,4 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 [Справочник по REST API службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

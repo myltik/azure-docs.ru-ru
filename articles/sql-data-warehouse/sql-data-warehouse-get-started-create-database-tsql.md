@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Создание хранилища данных SQL с помощью TSQL | Microsoft Azure"
+   pageTitle="Создание хранилища данных SQL с помощью TSQL | Microsoft Azure"
    description="Сведения о создании хранилища данных SQL Azure с помощью TSQL"
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Создание базы данных хранилища данных SQL с помощью Transact-SQL (TSQL)
@@ -31,62 +31,49 @@
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
 - Подписка Azure. Если вам требуется подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
-- приведенному. Бесплатный экземпляр Visual Studio см. на странице [Загрузки Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
-- Логический сервер SQL версии 12. Для создания хранилища данных SQL вам потребуется SQL Server версии 12. Если у вас нет логического сервера SQL версии 12, вы узнаете, как его создать, из [руководства по порталу Azure][].
+- Логический сервер SQL версии 12. Для создания хранилища данных SQL вам потребуется SQL Server версии 12. Если у вас нет логического сервера SQL версии 12, см. раздел **Настройка и создание сервера** в статье [Создание хранилища данных SQL][].
+- приведенному. Бесплатный экземпляр Visual Studio см. на странице [Загрузки Visual Studio][].
+
+
+> [AZURE.NOTE] Создание хранилища данных SQL может привести к дополнительным расходам. Дополнительные сведения о ценах см. на странице [Цены на хранилище данных SQL][].
 
 ## Создание базы данных с помощью Visual Studio
 
-В данной статье не рассматривается правильная настройка базы данных и подключение к ней с помощью Visual Studio. Полное описание этих процедур см. в документации по [подключению и созданию запросов][]. Сначала откройте обозреватель объектов SQL Server в Visual Studio и подключитесь к серверу, который будет использоваться для создания базы данных хранилища данных SQL. Теперь вы можете создать хранилище данных SQL. Для этого запустите следующую команду для основной базы данных:
+Если вы не знакомы с Visual Studio, см. статью [Подключение к хранилищу данных SQL с помощью Visual Studio][]. Сначала откройте обозреватель объектов SQL Server в Visual Studio и подключитесь к серверу, на котором будет размещена база данных хранилища данных SQL. После подключения можно создать хранилище данных SQL. Для этого выполните следующую команду для базы данных **master**: Эта команда создаст базу данных MySqlDwDb с целевой службой DW400 и позволит ей достичь максимального размера 10 ТБ.
 
 ```sql
-CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
+CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB);
 ```
 
 ## Создание базы данных с помощью служебной программы sqlcmd
 
-Вы также можете создать хранилище данных SQL, открыв командную строку и выполнив следующую команду:
+Также можно запустить ту же команду с помощью sqlcmd, выполнив следующую команду в командной строке.
 
 ```sql
-sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
+sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-При выполнении указанных выше инструкций TSQL обратите внимание на параметры `MAXSIZE` и `SERVICE_OBJECTIVE`. Они начальный размер хранилища и вычислительные ресурсы, выделяемые для вашего экземпляра хранилища данных. Ниже приведены значения, которые принимает параметр `MAXSIZE`. Мы рекомендуем выбирать большой размер, что даст возможность при необходимости увеличить масштаб: 2
+Параметры **MAXSIZE** и **SERVICE\_OBJECTIVE** задают максимальное место на диске, которое может использовать база данных, и вычислительные ресурсы, выделяемые экземпляру хранилища данных. Целевая служба по сути представляет собой выделенные ресурсы ЦП и памяти, которые масштабируются линейно в зависимости от размера DWU.
 
-+ 50 ГБ
-+ 500 ГБ
-+ 750 ГБ
-+ 1024 ГБ
-+ 5120 ГБ
-+ 10 240 ГБ
-+ 20 480 ГБ
-+ 30 720 ГБ
-+ 40 960 ГБ
-+ 51 200 ГБ
-
-Параметр `SERVICE_OBJECTIVE` определяет количество DWU, которое изначально будет у экземпляра. Этот параметр может принимать такие значения:
-
-+ DW100
-+ DW200
-+ DW300
-+ DW400
-+ DW500
-+ DW600
-+ DW1000
-+ DW1200
-+ DW1500
-+ DW2000
-
-Сведения о влиянии этих параметров на стоимость см. на нашей [странице цен][].
+Значение параметра MAXSIZE может составлять от 250 ГБ до 60 ТБ. Значение параметра SERVICE\_OBJECTIVE задается в диапазоне от DW100 до DW2000. Полный список всех допустимых значений параметров MAXSIZE и SERVICE\_OBJECTIVE см. в документации MSDN для инструкции [CREATE DATABASE][]. Параметры MAXSIZE и SERVICE\_OBJECTIVE также можно изменить с помощью команды T-SQL [ALTER DATABASE][]. При изменении параметра SERVICE\_OBJECTIVE следует соблюдать осторожность, так как это приводит к перезапуску служб, при котором отменяются все текущие запросы. При изменении параметра MAXSIZE такая предосторожность не требуется, так как это всего лишь операция с метаданными.
 
 ## Дальнейшие действия
-После завершения подготовки хранилища данных SQL вы можете [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] и [переноса][].
+После завершения подготовки хранилища данных SQL вы можете [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] или [переноса][].
 
-[руководства по порталу Azure]: ./sql-data-warehouse-get-started-provision.md
-[подключению и созданию запросов]: ./sql-data-warehouse-get-started-connect.md
-[переноса]: ./sql-data-warehouse-overview-migrate.md
-[разработки]: ./sql-data-warehouse-overview-develop.md
-[загрузки]: ./sql-data-warehouse-overview-load.md
-[загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[странице цен]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+<!--Article references-->
+[Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
+[Подключение к хранилищу данных SQL с помощью Visual Studio]: sql-data-warehouse-get-started-connect.md
+[переноса]: sql-data-warehouse-overview-migrate.md
+[разработки]: sql-data-warehouse-overview-develop.md
+[загрузки]: sql-data-warehouse-overview-load.md
+[загрузить демонстрационные данные]: sql-data-warehouse-get-started-manually-load-samples.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!--MSDN references--> 
+[CREATE DATABASE]: https://msdn.microsoft.com/library/mt204021.aspx
+[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
+
+<!--Other Web references-->
+[Цены на хранилище данных SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Загрузки Visual Studio]: https://www.visualstudio.com/downloads/download-visual-studio-vs
+
+<!---HONumber=AcomDC_0427_2016-->

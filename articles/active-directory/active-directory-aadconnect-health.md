@@ -44,7 +44,7 @@ Azure AD Connect Health для AD FS поддерживает AD FS 2.0 в Windo
 
 В следующем видео представлен обзор Azure AD Connect Health для AD FS:
 
-[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+>[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
 Azure AD Connect Health для синхронизации отслеживает и предоставляет сведения о синхронизациях, которые выполняются между вашей локальной службой Active Directory и Azure Active Directory. Azure AD Connect Health для синхронизации предоставляет следующие возможности:
@@ -56,7 +56,7 @@ Azure AD Connect Health для синхронизации отслеживает
 
 В следующем видео представлен обзор Azure AD Connect Health для синхронизации:
 
-[Azure Active Directory Connect Health: Monitoring the sync engine](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Health-Monitoring-the-sync-engine) (Azure Active Directory Connect Health: мониторинг модуля синхронизации)
+[Azure Active Directory Connect Health: Monitoring the sync engine (Azure Active Directory Connect Health: мониторинг модуля синхронизации)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Health-Monitoring-the-sync-engine)
 
 
 ## Приступая к работе с Azure AD Connect Health
@@ -72,15 +72,15 @@ Azure AD Connect Health для синхронизации отслеживает
 
 ## Скачивание и установка агента Azure AD Connect Health
 
-- Ознакомьтесь с [требованиями](active-directory-aadconnect-health-agent-install.md#Requirements) к Azure AD Connect Health.
+- Ознакомьтесь с [требованиями](active-directory-aadconnect-health-agent-install.md#Requirements) для Azure AD Connect Health.
 
-- Для начала работы с Azure AD Connect Health для AD FS [скачайте последнюю версию агента для этой службы.](http://go.microsoft.com/fwlink/?LinkID=518973) [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+- Для начала работы с Azure AD Connect Health для AD FS [скачайте последнюю версию агента для этой службы](http://go.microsoft.com/fwlink/?LinkID=518973). [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 
 - Чтобы начать использовать службу Azure AD Connect Health для синхронизации, скачайте и установите [последнюю версию Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). Агент Azure AD Connect Health будет установлен во время установки Azure AD Connect (версии 1.0.9125.0 или более поздней). Azure AD Connect поддерживает локальное обновление с предыдущих версий.
 
 
 ## Портал Azure AD Connect Health
-На портале Azure AD Connect Health можно просматривать оповещения и аналитические данные по использованию, а также отслеживать производительность. Страница https://aka.ms/aadconnecthealth перенаправляет вас в главную колонку Azure AD Connect Health. Ее можно считать окном. В главной колонке отображается элемент быстрого запуска, раздел со службами Azure AD Connect Health и дополнительные параметры конфигурации. На снимке экрана ниже приводится краткое описание каждого из них. После развертывания агентов также будут отображаться идентификаторы служб, отслеживаемых в Azure AD Connect Health.
+На портале Azure AD Connect Health можно просматривать оповещения и аналитические данные по использованию, а также отслеживать производительность. Страница https://aka.ms/aadconnecthealth перенаправит вас в главную колонку Azure AD Connect Health. Ее можно считать окном. В главной колонке отображается элемент быстрого запуска, раздел со службами Azure AD Connect Health и дополнительные параметры конфигурации. На снимке экрана ниже приводится краткое описание каждого из них. После развертывания агентов также будут отображаться идентификаторы служб, отслеживаемых в Azure AD Connect Health.
 
 ![Портал Azure AD Connect Health](./media/active-directory-aadconnect-health/portal2.png)
 
@@ -88,7 +88,7 @@ Azure AD Connect Health для синхронизации отслеживает
 
 - Раздел **Службы федерации Active Directory** представляют все службы AD FS, которые в настоящее время отслеживает служба Azure AD Connect Health. Если выбрать один из экземпляров, откроется колонка сведений об этом экземпляре служб. Сюда входит обзор, свойства, оповещения, мониторинг и аналитика по использованию. Дополнительные сведения о возможностях см. [здесь](active-directory-aadconnect-health-adfs.md).
 
-- В разделе **Azure Active Directory Connect (Sync)** отображаются серверы Azure AD Connect, которые в настоящее время наблюдает Azure AD Connect Health. После выбора записи откроется колонка с информацией о серверах Azure AD Connect. Дополнительные сведения о возможностях см. [здесь](active-directory-aadconnect-health-sync.md).
+- В разделе **Azure Active Directory Connect (Sync)** отображаются серверы Azure AD Connect, которые в настоящее время отслеживаются службой Azure AD Connect Health. После выбора записи откроется колонка с информацией о серверах Azure AD Connect. Дополнительные сведения о возможностях см. [здесь](active-directory-aadconnect-health-sync.md).
 
 - В разделе **Настройка** можно включить или отключить следующие функции:
 
@@ -106,4 +106,4 @@ Azure AD Connect Health для синхронизации отслеживает
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

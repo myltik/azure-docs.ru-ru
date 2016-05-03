@@ -75,4 +75,6 @@
 
 Если вы являетесь действующим клиентом CDN, то сможете управлять своими конечными точками CDN с помощью [портала Microsoft Azure](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0420_2016-->
+Чтобы увидеть CDN в действии, просмотрите [видео с конференции Build 2016](../../videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+
+<!---HONumber=AcomDC_0427_2016-->

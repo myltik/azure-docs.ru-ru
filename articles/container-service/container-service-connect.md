@@ -36,12 +36,9 @@
 
 **PORT** — это порт конечной точки, к которой требуется предоставить доступ. Для Swarm это порт 2375, а Для DC/OS используется порт 80. **USERNAME** — имя пользователя, указанное при развертывании кластера. **DNSPREFIX** — префикс DNS, указанный при развертывании кластера. **REGION** — регион, где расположена ваша группа ресурсов.
 
-> Для SSH-подключения используется порт 2200, а не стандартный 22.
-
 ```bash
 # ssh sample
-
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
+ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
 ### Туннель DC/OS
@@ -93,7 +90,7 @@ export DOCKER_HOST=:2375
 ![Конфигурация PuTTY 2](media/putty2.png)
 
 Выберите `Tunnels` и настройте следующие порты для перенаправления:
-- **исходный порт** — используйте порт 80 для DC/OS и 2375 для Swarm;
+- **исходный порт** — используйте порт 80 для DC/OS или 2375 для Swarm;
 - **конечный порт** — используйте localhost:80 для DC/OS или localhost:2375 для Swarm.
 
 В следующем примере выполняется настройка для DC/OS. Для Docker Swarm эта процедура аналогична.
@@ -112,12 +109,12 @@ export DOCKER_HOST=:2375
 - Marathon — `http://localhost/marathon`;
 - Mesos — `http://localhost/mesos`.
 
-После настройки туннеля для Docker Swarm доступ к кластеру Swarm можно получать через интерфейс командной строки Docker. Сначала вам нужно будет настроить переменную среды Windows с именем `DOCKER_HOST` (задать для нее значение ` :2375`).
+После настройки туннеля для Docker Swarm доступ к кластеру Swarm можно получать через интерфейс командной строки Docker. Сначала вам нужно будет настроить переменную среды Windows с именем `DOCKER_HOST` (задайте для нее значение ` :2375`).
 
 ## Дальнейшие действия
 
 Развертывание контейнеров и управление ими с помощью DC/OS или Swarm.
 
-[Управление контейнерами через REST API](./container-service-mesos-marathon-rest.md) [Работа со службой контейнеров Azure и Docker Swarm](./container-service-docker-swarm.md)
+[Управление службой контейнеров Azure через REST API](./container-service-mesos-marathon-rest.md) [Управление службой контейнеров Azure с помощью Docker Swarm](./container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->
