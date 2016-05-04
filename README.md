@@ -14,7 +14,7 @@
 * [Использование GitHub, Git и этого репозитория](#use-github-git-and-this-repository)
 * [Использование разметки Markdown для форматирования статьи](#how-to-use-markdown-to-format-your-topic)
 * [Дополнительные ресурсы](#more-resources)
-* [Указатель всех статей руководства по редактированию документации](./contributor-guide/contributor-guide-index.md) (открывается новая страница)
+* [Указатель всех статей руководства по редактированию документации](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md) (открывается новая страница)
 
 ## Варианты участия в наполнении документации
 
@@ -48,7 +48,7 @@
 
 Статьи в корневом каталоге публикуются на сайте Azure.Microsoft.com по адресу *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
-* **Имена файлов статей**. См. [руководство по именованию файлов](./contributor-guide/file-names-and-locations.md).
+* **Имена файлов статей**. См. [руководство по именованию файлов](https://github.com/Azure/azure-content/blob/master/contributor-guide/file-names-and-locations.md).
 
 Статьи в служебных папках публикуются на сайте Azure.Microsoft.com по адресу 
 *http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*.
@@ -57,7 +57,7 @@
 
 ### \includes
 
-Вы можете создавать содержимое, которое будет использоваться в нескольких статьях. См. статью [Пользовательские расширения, используемые в наших технических статьях](./contributor-guide/custom-markdown-extensions.md).
+Вы можете создавать содержимое, которое будет использоваться в нескольких статьях. См. статью [Пользовательские расширения, используемые в наших технических статьях](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
 
 ### \markdown templates
 
@@ -69,9 +69,9 @@
 
 ## Использование GitHub, Git и этого репозитория
 
-Сведения о том, как участвовать в редактировании, вносить небольшие изменения с помощью пользовательского интерфейса GitHub, создавать отдельные ветви репозитория или клонировать его для более значительных изменений, см. в статье [Установка и настройка средств для создания документации в GitHub](./contributor-guide/tools-and-setup.md).
+Сведения о том, как участвовать в редактировании, вносить небольшие изменения с помощью пользовательского интерфейса GitHub, создавать отдельные ветви репозитория или клонировать его для более значительных изменений, см. в статье [Установка и настройка средств для создания документации в GitHub](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md).
 
-Если вы установили GitBash и работаете локально, шаги по созданию новой локальной ветви, внесению изменений и их отправке обратно в главную ветвь см. в статье [Команды Git для создания новой или обновления существующей статьи](./contributor-guide/git-commands-for-master.md).
+Если вы установили GitBash и работаете локально, шаги по созданию новой локальной ветви, внесению изменений и их отправке обратно в главную ветвь см. в статье [Команды Git для создания новой или обновления существующей статьи](https://github.com/Azure/azure-content/blob/master/contributor-guide/git-commands-for-master.md).
 
 ### Ветви
 
@@ -87,16 +87,16 @@
 
 - [Основные сведения о разметке Markdown.](https://help.github.com/articles/markdown-basics/)
 
-- [Подсказки по разметке Markdown в печатном формате.](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+- [Подсказки по разметке Markdown в печатном формате.](https://github.com/Azure/azure-content/blob/master/contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-- Наш список редакторов для Markdown см. в статье [Установка и настройка средств для создания документации в GitHub](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
+- Наш список редакторов для Markdown см. в статье [Установка и настройка средств для создания документации в GitHub](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md#install-a-markdown-editor).
 
 ## Метаданные статьи
 
-Метаданные статьи предоставляют на веб-сайте azure.microsoft.com некоторые дополнительные возможности. В частности, вы можете указать ссылки на автора и участника, настроить строку навигации, добавить описание статьи и текст для оптимизации поисковой системы. Метаданные также позволяют Майкрософт оценивать содержимое по различным показателям. Как вы видите, метаданные имеют большое значение. [Здесь представлено руководство по проверке правильности метаданных](./contributor-guide/article-metadata.md).
+Метаданные статьи предоставляют на веб-сайте azure.microsoft.com некоторые дополнительные возможности. В частности, вы можете указать ссылки на автора и участника, настроить строку навигации, добавить описание статьи и текст для оптимизации поисковой системы. Метаданные также позволяют Майкрософт оценивать содержимое по различным показателям. Как вы видите, метаданные имеют большое значение. [Здесь представлено руководство по проверке правильности метаданных](https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md).
 
 ## Дополнительные ресурсы
 
-Список всех статей этого руководства приведен в [указателе](./contributor-guide/contributor-guide-index.md).
+Список всех статей этого руководства приведен в [указателе](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).
 
 <!---HONumber=AcomDC_0307_2016-->
