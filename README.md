@@ -13,7 +13,7 @@
 * [Организация репозитория](#repository-organization)
 * [Использование GitHub, Git и этого репозитория](#use-github-git-and-this-repository)
 * [Использование разметки Markdown для форматирования статьи](#how-to-use-markdown-to-format-your-topic)
-* [Дополнительные ресурсы](#more-resources)
+* [Дополнительные ресурсы](#Дополнительные ресурсы)
 * [Указатель всех статей руководства по редактированию документации](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md) (открывается новая страница)
 
 ## Варианты участия в наполнении документации
