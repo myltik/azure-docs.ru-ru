@@ -35,7 +35,7 @@
 
 ### <a name="create"></a>1. Создать новый ресурс?
 
-Пропустите этот шаг, если вы уже [настроили ресурс Application Insights][start] для этого приложения и хотите, чтобы данные о доступности отображались в этом же месте.
+Пропустите этот шаг, если вы уже [настроили ресурс Application Insights][ресурс] для этого приложения и хотите, чтобы данные о доступности отображались в этом же месте.
 
 Зарегистрируйтесь в [Microsoft Azure](http://azure.com), перейдите на [портал Azure](https://portal.azure.com) и создайте новый ресурс Application Insights.
 
@@ -394,6 +394,6 @@
 [azure-availability]: ../insights-create-web-tests.md
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-overview.md
+[ресурс]: app-insights-overview.md
 
 <!---HONumber=AcomDC_0427_2016-->
