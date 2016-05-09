@@ -26,7 +26,7 @@
 
 В этом руководстве показано, как создать одну виртуальную машину Azure, используя модель развертывания с помощью **Azure Resource Manager** и командлеты Azure PowerShell. Мы создадим одну виртуальную машину, используя один диск из образа в коллекции SQL. Мы также создадим новых поставщиков ресурсов хранения, сетевых и вычислительных ресурсов, которые будут использоваться виртуальной машиной. Вы можете использовать существующие поставщики для любых из этих ресурсов.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания. Если вам нужны сведения об использовании классической модели развертывания, см. статью [Создание виртуальной машины SQL Server в Azure PowerShell (классическая модель)](virtual-machines-windows-classic-ps-sql-create.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания. Если вам нужны сведения об использовании классической модели развертывания, см. статью [Создание виртуальной машины SQL Server в Azure PowerShell классическая модель](virtual-machines-windows-classic-ps-sql-create.md).
 
 ## Предварительные требования
 
