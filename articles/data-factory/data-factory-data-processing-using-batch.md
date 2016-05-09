@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/20/2016"
+    ms.date="04/05/2016"
     ms.author="spelluru"/>
 # Управление данными и высокопроизводительными вычислениями с помощью пакетной службы и фабрики данных Azure
 
@@ -901,13 +901,13 @@
 
 После обработки данных их можно использовать в интерактивных средствах, например в **Microsoft Power BI**. Ниже приведены ссылки на статьи, в которых представлены общие сведения о Power BI и информация о том, как использовать это средство в Azure.
 
--   [Изучение набора данных в Power BI](https://support.powerbi.com/knowledgebase/articles/475159)
+-   [Изучение набора данных в Power BI](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-service-get-data/)
 
--   [Начало работы с Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/471664)
+-   [Начало работы с Power BI Desktop](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-desktop-getting-started/)
 
--   [Обновление данных в Power BI](https://support.powerbi.com/knowledgebase/articles/474669)
+-   [Обновление данных в Power BI](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-refresh-data/)
 
--   [Общая информация об Azure и Power BI](https://support.powerbi.com/knowledgebase/articles/568614)
+-   [Общая информация об Azure и Power BI](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-azure-and-power-bi/)
 
 ## Ссылки
 
@@ -929,4 +929,4 @@
 
     -   [Начало работы с библиотекой Пакетной службы Azure для .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

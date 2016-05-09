@@ -3,7 +3,7 @@
 	description="В этой статье используются ресурсы, созданные с помощью классической модели развертывания, и описываются функции бизнес-аналитики, доступные для SQL Server, запущенного на виртуальных машинах Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="guyinacube"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.author="asaxton" />
 
 # Бизнес-аналитика SQL Server на виртуальных машинах Azure
 
@@ -80,7 +80,7 @@
 |---|---|---|
 |**Собственный режим служб Reporting Services**|Да|Установлен, но требует настройки, включая URL-адрес диспетчера отчетов. См. раздел [Настройка служб Reporting Services](#configure-reporting-services).|
 |**Режим SharePoint служб Reporting Services**|Нет|Образ коллекции виртуальных машин Microsoft Azure не включает в себя SharePoint или файлы установки SharePoint. <sup>1</sup>|
-|**Многомерный и интеллектуальный анализ данных в службах Analysis Services \(OLAP\)**|Да|Установлен и настроен в качестве экземпляра служб Analysis Services по умолчанию.|
+|**Многомерный и интеллектуальный анализ данных в службах Analysis Services (OLAP)**|Да|Установлен и настроен в качестве экземпляра служб Analysis Services по умолчанию.|
 |**Табличный режим служб Analysis Services**|Нет|Поддерживается в образах SQL Server 2012 и 2014, но не устанавливается по умолчанию. Установите другой экземпляр служб Analysis Services. См. подраздел "Установка других служб и компонентов SQL Server" этого раздела.|
 |**Power Pivot служб Analysis Services для SharePoint**|Нет|Образ коллекции виртуальных машин Microsoft Azure не включает в себя SharePoint или файлы установки SharePoint. <sup>1</sup>|
 
@@ -150,7 +150,7 @@
 
 ## Конфигурация собственного режима служб Reporting Services
 
-Коллекция образов виртуальных машин для SQL Server включает в себя установленный собственный режим Reporting Services, однако сервер отчетов при этом не настроен. Действия, описанные в этом разделе, позволяют настроить сервер отчетов служб Reporting Services. Дополнительные сведения о настройке собственного режима служб Reporting Services см. в разделе [Установка сервера отчетов собственного режима служб Reporting Services \(SSRS\)](https://msdn.microsoft.com/library/ms143711.aspx).
+Коллекция образов виртуальных машин для SQL Server включает в себя установленный собственный режим Reporting Services, однако сервер отчетов при этом не настроен. Действия, описанные в этом разделе, позволяют настроить сервер отчетов служб Reporting Services. Дополнительные сведения о настройке собственного режима служб Reporting Services см. в разделе [Установка сервера отчетов собственного режима служб Reporting Services (SSRS)](https://msdn.microsoft.com/library/ms143711.aspx).
 
 >[AZURE.NOTE] Аналогичные материалы, где для настройки сервера отчетов используются сценарии Windows PowerShell, см. в разделе [Использование PowerShell для создания виртуальной машины Azure с помощью сервера отчетов, работающего в собственном режиме](virtual-machines-windows-classic-ps-sql-report.md).
 
@@ -166,7 +166,7 @@
 
 	1. Введите **имя облачной службы** в качестве имени компьютера.
 
-	1. Введите двоеточие \(:\) и номер общего порта, настроенного для конечной точки удаленного рабочего стола TCP.
+	1. Введите двоеточие (:) и номер общего порта, настроенного для конечной точки удаленного рабочего стола TCP.
 
 		Моя\_служба.облачное\_приложение.net:63133
 
@@ -324,7 +324,7 @@
 
 - [Установка служб Analysis Services в табличном режиме](https://msdn.microsoft.com/library/hh231722.aspx)
 
-- [Табличное моделирование \(руководство по Adventure Works\)](https://technet.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
+- [Табличное моделирование (руководство по Adventure Works)](https://technet.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
 
 **Порядок установки табличного режима служб Analysis Services:**
 
@@ -382,15 +382,13 @@
 
 	- Откройте порты в брандмауэре на виртуальной машине.
 
-	- Создайте конечные точки виртуальной машины для указанных портов \(\*\).
+	- Создайте конечные точки виртуальной машины для указанных портов (*).
 
 - Если виртуальная машина присоединена к домену с помощью VPN-туннеля, такого как виртуальная сеть Azure, конечные точки не требуются. Однако следует открыть порты в брандмауэре на виртуальной машине.
 
 	|Порт|Тип|Описание|
 |---|---|---|
-|**80**|TCP|Удаленный доступ к серверу отчетов (*).|
-|**1433**|TCP|SQL Server Management Studio (*).|
-|**1434**|UDP|Обозреватель SQL Server. Это необходимо, если виртуальная машина присоединена к домену.|
+|**80**|TCP|Удаленный доступ к серверу отчетов (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|Обозреватель SQL Server. Это необходимо, если виртуальная машина присоединена к домену.|
 |**2382**|TCP|Обозреватель SQL Server.|
 |**2383**|TCP|Экземпляр SQL Server Analysis Services по умолчанию и кластеризованные именованные экземпляры.|
 |**Определяется пользователем**|TCP|Создайте статический порт именованного экземпляра служб Analysis Services для выбранного номера порта, а затем разблокируйте этот порт в брандмауэре.|
@@ -421,16 +419,16 @@
 
 - [Определение режима работы сервера экземпляра служб Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 
-- [Многомерное моделирование \(руководство по Adventure Works\)](https://technet.microsoft.com/library/ms170208.aspx)
+- [Многомерное моделирование (руководство по Adventure Works)](https://technet.microsoft.com/library/ms170208.aspx)
 
 - [Центр документации Azure](https://azure.microsoft.com/documentation/)
 
 - [Использование Power BI в гибридной среде](https://msdn.microsoft.com/library/dn798994.aspx)
 
->[AZURE.NOTE] [Submit feedback and contact information through Microsoft SQL Server Connect]\(https://connect.microsoft.com/SQLServer/Feedback\)
+>[AZURE.NOTE] [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### Материалы сообщества
 
 - [Управление базой данных SQL Azure с помощью PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

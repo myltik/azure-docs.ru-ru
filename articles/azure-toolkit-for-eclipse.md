@@ -22,7 +22,7 @@
 
 В набор средств Azure для Eclipse входят шаблоны и функциональные возможности для простого создания, разработки, тестирования и развертывания приложений Azure с помощью среды разработки Eclipse. Это проект с открытым кодом, исходный код которого доступен по лицензии Apache License 2.0 на сайте проекта:
 
-* <https://github.com/microsoft/azure-tools-for-java.>
+* <https://github.com/microsoft/azure-tools-for-java>
 
 ## Приступая к работе с набором средств Azure для Eclipse ##
 
@@ -95,4 +95,4 @@
 [Использование библиотеки среды выполнения служб Azure в JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Новые возможности набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -180,7 +180,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 #### Отправка файла project.json с использованием конечной точки SCM (Kudu) приложения функции
 
-1. Перейдите по адресу *https://<function_app_name>.scm.azurewebsites.net*.
+1. Перейдите на страницу `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Щелкните **Консоль отладки > CMD**.
 
@@ -217,9 +217,9 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 ## Повторное использование кода CSX
 
-В файле *run.csx* можно использовать классы и методы, определенные в других файлах *.csx*. Для этого используйте директивы `#load` в файле *run.csx*, как показано в следующем примере.
+В файле *run.csx* можно использовать классы и методы, определенные в других файлах *CSX*. Для этого используйте директивы `#load` в файле *run.csx*, как показано в примере ниже.
 
-Пример *run.csx*:
+Пример файла *run.csx*:
 
 ```csharp
 #load "mylogger.csx"
@@ -231,7 +231,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 ```
 
-Пример *mylogger.csx*:
+Пример файла *mylogger.csx*:
 
 ```csharp
 public static void MyLogger(TraceWriter log, string logtext)
@@ -248,7 +248,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 
 * `#load "..\shared\mylogger.csx"` загружает файл, расположенный в папке на том же уровне, что и папка функции, то есть непосредственно в разделе *wwwroot*.
  
-Директива `#load` работает только с файлами формата *CSX* (скрипты C#), но не с файлами формата *CS*.
+Директива `#load` работает только с файлами формата *CSX* (сценарии C#), но не с файлами формата *CS*.
 
 ## Дальнейшие действия
 
@@ -256,6 +256,6 @@ public static void MyLogger(TraceWriter log, string logtext)
 
 * [Справочник разработчика по функциям Azure](functions-reference.md)
 * [Справочник разработчика NodeJS по функциям Azure](functions-reference-node.md)
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md) (Триггеры и привязки в Функциях Azure)
+* [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

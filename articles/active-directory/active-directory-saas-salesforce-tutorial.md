@@ -3,7 +3,7 @@
     description="Узнайте, как использовать Salesforce вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.author="asmalser-msft"/>
 
 #Учебник. Как интегрировать Salesforce с Azure Active Directory
 
@@ -216,7 +216,7 @@
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] При подготовке для среды **разработчиков** Salesforce количество доступных лицензий для каждого профиля будет крайне ограниченно. Следовательно, лучше подготовить пользователей для профиля **Chatter Free**, который имеет 4999 доступных лицензий.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Чтобы проверить параметры единого входа, откройте панель доступа по адресу [https://myapps.microsoft.com](https://myapps.microsoft.com/), выполните вход с тестовой учетной записью и щелкните **Salesforce**.
 
@@ -256,4 +256,4 @@
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

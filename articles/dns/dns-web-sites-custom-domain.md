@@ -3,7 +3,7 @@
    description="Как создать пользовательские записи DNS для веб-приложения с помощью Azure DNS. Пошаговые инструкции для проверки владельца домена с помощью записи CNAME или A" 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
+   authors="cherylmc" 
    manager="carmonm" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="03/03/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Создание записи DNS для веб-приложения в пользовательском домене
 
@@ -86,7 +86,7 @@
 	Records           : {contoso.azurewebsites.net}
 	Tags              : {}
 
-### Шаг 3.
+### Шаг 3.
 
 Примените изменения, используя командлет Set-AzureRMDnsRecordSet:
 
@@ -144,7 +144,7 @@
 	Records           : {awverify.contoso.azurewebsites.net}
 	Tags              : {}
 
-### Шаг 3.
+### Шаг 3.
 
 Примените изменения с помощью командлета Set-AzureRMDnsRecordSet, как показано ниже:
 
@@ -165,4 +165,4 @@
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016"
+	ms.date="04/26/2016"
 	ms.author="adegeo"/>
 
 
@@ -23,8 +23,8 @@
 # Управление облачными службами
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-manage.md)
-- [Azure portal](cloud-services-how-to-manage-portal.md)
+- [Портал Azure](cloud-services-how-to-manage-portal.md)
+- [Классический портал Azure](cloud-services-how-to-manage.md)
 
 В области **Облачные службы** классического портала Azure можно обновить роль службы или развертывание, перенести промежуточное развертывание в рабочую среду, привязать ресурсы к облачной службе для просмотра их зависимостей и масштабирования, а также удалить облачную службу или развертывание.
 
@@ -164,4 +164,4 @@
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name.md).
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

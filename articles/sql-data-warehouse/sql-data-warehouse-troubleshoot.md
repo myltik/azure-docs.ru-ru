@@ -3,7 +3,7 @@
    description="Устранение неполадок хранилища данных SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/20/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Устранение неполадок
@@ -28,41 +28,106 @@
 ### Правила брандмауэра
 Базы данных SQL Azure брандмауэрами на уровне сервера и базы данных. Это гарантирует, что доступ к базам данных возможен только с известных IP-адресов. Брандмауэры являются безопасными по умолчанию. Это означает, что перед подключением необходимо разрешить доступ для вашего IP-адреса.
 
-Чтобы настроить брандмауэр для предоставления доступа, выполните указания в разделе [Настройка доступа брандмауэра сервера к IP-адресу клиента](sql-data-warehouse-get-started-provision.md/#step-4-configure-server-firewall-access-for-your-client-ip) на странице [Подготовка](sql-data-warehouse-get-started-provision.md).
+Чтобы настроить брандмауэр для предоставления доступа, выполните указания в разделе [Настройка доступа брандмауэра сервера к IP-адресу клиента][] на странице [Подготовка][].
 
 ### Использование неподдерживаемых инструментов и протоколов
-Хранилище данных SQL поддерживает [Visual Studio 2013 и 2015](sql-data-warehouse-get-started-connect.md) как среды разработки и [SQL Server Native Client 10 и 11 (ODBC)](https://msdn.microsoft.com/library/ms131415.aspx) для клиентских подключений.
+Хранилище данных SQL поддерживает [Visual Studio 2013 и 2015][] как среды разработки и [SQL Server Native Client 10 и 11 (ODBC)][] для клиентских подключений.
 
-Чтобы узнать больше, ознакомьтесь с нашими страницами [Подключение](sql-data-warehouse-get-started-connect.md).
+Чтобы узнать больше, ознакомьтесь с нашими страницами [Подключение][].
 
 ## Производительность запросов
-Хранилище данных SQL использует распространенные конструкции SQL Server для выполнения запросов, включая статистику. [Статистика](sql-data-warehouse-develop-statistics.md) — это объекты, содержащие информацию о диапазоне и частоте значений в одном столбце базы данных. Обработчик запросов использует эту статистику для оптимизации выполнения запросов и повышения их производительности. Можно использовать следующий запрос, чтобы определить время последнего обновления статистики.
+
+### Статистика
+
+[Статистика][] — это объекты, содержащие информацию о диапазоне и частоте значений в одном столбце базы данных. Обработчик запросов использует эту статистику для оптимизации выполнения запросов и повышения их производительности. В отличие от SQL Server и Базы данных SQL, хранилище данных SQL не создает и не обновляет статистику автоматически. Статистику по всем таблицам необходимо вести вручную.
+
+Можно использовать следующий запрос, чтобы определить время последнего обновления статистики в каждой таблице.
 
 ```sql
 SELECT
-	sm.[name]								    AS [schema_name],
-	tb.[name]								    AS [table_name],
-	co.[name]									AS [stats_column_name],
-	st.[name]									AS [stats_name],
-	STATS_DATE(st.[object_id],st.[stats_id])	AS [stats_last_updated_date]
+    sm.[name] AS [schema_name],
+    tb.[name] AS [table_name],
+    co.[name] AS [stats_column_name],
+    st.[name] AS [stats_name],
+    STATS_DATE(st.[object_id],st.[stats_id]) AS [stats_last_updated_date]
 FROM
-	sys.objects				AS ob
-	JOIN sys.stats			AS st	ON	ob.[object_id]		= st.[object_id]
-	JOIN sys.stats_columns	AS sc	ON	st.[stats_id]		= sc.[stats_id]
-									AND	st.[object_id]		= sc.[object_id]
-	JOIN sys.columns		AS co	ON	sc.[column_id]		= co.[column_id]
-									AND	sc.[object_id]		= co.[object_id]
-	JOIN sys.types           AS ty	ON	co.[user_type_id]	= ty.[user_type_id]
-	JOIN sys.tables          AS tb	ON	co.[object_id]		= tb.[object_id]
-	JOIN sys.schemas         AS sm	ON	tb.[schema_id]		= sm.[schema_id]
+    sys.objects ob
+    JOIN sys.stats st
+        ON  ob.[object_id] = st.[object_id]
+    JOIN sys.stats_columns sc    
+        ON  st.[stats_id] = sc.[stats_id]
+        AND st.[object_id] = sc.[object_id]
+    JOIN sys.columns co    
+        ON  sc.[column_id] = co.[column_id]
+        AND sc.[object_id] = co.[object_id]
+    JOIN sys.types  ty    
+        ON  co.[user_type_id] = ty.[user_type_id]
+    JOIN sys.tables tb    
+        ON  co.[object_id] = tb.[object_id]
+    JOIN sys.schemas sm    
+        ON  tb.[schema_id] = sm.[schema_id]
 WHERE
-	1=1
-	AND st.[user_created] = 1;
+    st.[user_created] = 1;
 ```
 
-Чтобы узнать больше, ознакомьтесь с нашей страницей [Статистика](sql-data-warehouse-develop-statistics.md).
+### Качество кластеризованного сегмента Columnstore
 
-## Ключевые концепции производительности
+Качество кластеризованного сегмента Columnstore имеет большое значение для эффективности выполнения запросов в кластеризованных таблицах Columnstore. Качество сегмента можно изменить по числу строк в сжатой группе строк. Следующий запрос определяет таблицы с низкой работоспособностью сегментов индекса Columnstore и создает код T-SQL для повторного формирования индекса Columnstore в этих таблицах. Первый столбец результата выполнения этого запроса содержит код T-SQL для повторного формирования каждого индекса. Второй столбец содержит рекомендации о том, какой минимальный класс ресурсов нужно использовать для оптимизации сжатия.
+ 
+**ШАГ 1.** Выполните этот запрос в каждой базе данных хранилища данных SQL, чтобы идентифицировать все неоптимальные индексы кластеров Columnstore. Если вы не получите никакие строки, значит, эта регрессия на вас не влияет и дальнейшие действия не требуются.
+
+```sql
+SELECT 
+     'ALTER INDEX ALL ON ' + s.name + '.' + t.NAME + ' REBUILD;' AS [T-SQL to Rebuild Index]
+    ,CASE WHEN n.nbr_nodes < 3 THEN 'xlargerc' WHEN n.nbr_nodes BETWEEN 4 AND 6 THEN 'largerc' ELSE 'mediumrc' END AS [Resource Class Recommendation]
+    ,s.name AS [Schema Name]
+    ,t.name AS [Table Name]
+    ,AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) AS [Ave Rows in Compressed Row Groups]
+FROM 
+    sys.pdw_nodes_column_store_row_groups rg
+    JOIN sys.pdw_nodes_tables pt 
+        ON rg.object_id = pt.object_id AND rg.pdw_node_id = pt.pdw_node_id AND pt.distribution_id = rg.distribution_id
+    JOIN sys.pdw_table_mappings tm 
+        ON pt.name = tm.physical_name
+    INNER JOIN sys.tables t 
+        ON tm.object_id = t.object_id
+INNER JOIN sys.schemas s
+    ON t.schema_id = s.schema_id
+CROSS JOIN (SELECT COUNT(*) nbr_nodes  FROM sys.dm_pdw_nodes WHERE type = 'compute') n
+GROUP BY 
+    n.nbr_nodes, s.name, t.name
+HAVING 
+    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000
+ORDER BY 
+    s.name, t.name
+```
+ 
+**ШАГ 2.** Повысьте класс ресурсов для пользователя, который имеет разрешение на повторное создание индекса для этой таблицы, до рекомендованного класса ресурсов, указанного во втором столбце приведенного выше запроса.
+
+```sql
+EXEC sp_addrolemember 'xlargerc', 'LoadUser'
+```
+
+> [AZURE.NOTE]  Указанный выше пользователь LoadUser должен быть допустимым пользователем, созданным для выполнения инструкции ALTER INDEX. Класс ресурсов для пользователя db\_owner изменить нельзя. Дополнительные сведения о классах ресурсов и создании нового пользователя см. по приведенным ниже ссылкам.
+
+ 
+**ШАГ 3.** Войдите в систему как пользователь из шага 2 (например LoadUser), которому теперь соответствует более высокий класс ресурсов, и выполните инструкции ALTER INDEX, сформированные запросом в ШАГЕ 1. Убедитесь, что этот пользователь имеет разрешение ALTER в отношении таблиц, идентифицированных запросом в ШАГЕ 1.
+ 
+**ШАГ 4.** Снова выполните запрос из шага 1. Если индексы сформированы эффективно, вы не получите никакие строки после выполнения этого запроса. Если строки не возвращаются, значит, больше ничего не нужно. Если баз данных хранилища данных SQL несколько, повторите эту процедуру для каждой базы данных. Если строки возвращаются, перейдите к шагу 5.
+ 
+**ШАГ 5.** Если при повторном выполнении запроса из шага 1 строки возвращаются, возможно, что у вас есть таблицы с чрезмерно широкими строками, которым для оптимального формирования индексов кластеризованных столбцов требуется большой объем памяти. Если это так, повторите описанную процедуру для этих таблиц, используя класс xlargerc. Чтобы изменить класс ресурсов, повторите шаг 2 с использованием метода xlargerc. Повторите шаг 3 для таблиц, у которых остались неоптимальные индексы. Если вы используете DW100–DW300 и уже использовали xlargerc, вы можете оставить индексы как есть или временно увеличить DWU, чтобы выделить больше памяти для этой операции.
+ 
+**ЗАКЛЮЧИТЕЛЬНЫЕ ДЕЙСТВИЯ.** Назначенный выше класс ресурсов является рекомендуемым минимальным классом ресурсов для построения индексов Columnstore наивысшего качества. Рекомендуем назначать его пользователю, который загружает данные. Если же вы хотите отменить изменения, внесенные в шаге 2, это можно сделать с помощью следующей команды.
+
+```sql
+EXEC sp_droprolemember 'smallrc', 'LoadUser'
+```
+
+
+Для загрузки данных в таблицу CCI действуют следующие рекомендации по минимальному классу ресурсов: xlargerc для DW300–DW100, largerc для DW400–DW600 и mediumrc для DW1000 и выше. Эти рекомендации подходят для большинства рабочих нагрузок. Главное — выделить для каждой операции создания индекса 400 МБ памяти или больше. Универсального решения не существует. Объем памяти, необходимый для оптимизации индекса, зависит от загружаемых данных, на которые, в свою очередь, влияет размер строки. Таблицам с меньшей шириной строк требуется меньше памяти, таблицам с большей шириной — больше. Если вы хотите поэкспериментировать, возьмите запрос из шага 1 и определите, получаете ли вы оптимальные индексы Columnstore при выделении меньшего объема памяти. На группу строк в среднем должно приходиться больше 100 тысяч строк. Еще лучше, если их будет больше 500 тысяч. Максимальное значение — 1 миллион строк на группу. Дополнительные сведения об управлении классами ресурсов и параллелизмом см. по указанной ниже ссылке.
+
+
+### Ключевые концепции производительности
 
 Приведенные ниже статьи помогут вам понять такие дополнительные ключевые концепции производительности и масштабируемости:
 
@@ -70,7 +135,6 @@ WHERE
 - [модель параллелизма;][]
 - [создание таблиц;][]
 - [выбор ключа распределения хэша для таблицы;][]
-- [статистика для повышения производительности.][]
 
 ## Дальнейшие действия
 Чтобы ознакомиться с рекомендациями по созданию собственного решения на основе хранилища данных SQL, обратитесь к статье, содержащей [общие сведения о разработке][].
@@ -78,16 +142,20 @@ WHERE
 <!--Image references-->
 
 <!--Article references-->
-
 [производительность и масштабируемость;]: sql-data-warehouse-performance-scale.md
 [модель параллелизма;]: sql-data-warehouse-develop-concurrency.md
 [создание таблиц;]: sql-data-warehouse-develop-table-design.md
 [выбор ключа распределения хэша для таблицы;]: sql-data-warehouse-develop-hash-distribution-key
-[статистика для повышения производительности.]: sql-data-warehouse-develop-statistics.md
 [общие сведения о разработке]: sql-data-warehouse-overview-develop.md
+[Подготовка]: sql-data-warehouse-get-started-provision.md
+[Настройка доступа брандмауэра сервера к IP-адресу клиента]: sql-data-warehouse-get-started-provision.md/#step-4-configure-server-firewall-access-for-your-client-ip
+[Visual Studio 2013 и 2015]: sql-data-warehouse-get-started-connect.md
+[Подключение]: sql-data-warehouse-get-started-connect.md
+[Статистика]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
+[SQL Server Native Client 10 и 11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -35,7 +35,7 @@
 
  	azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "centralus" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:latest -u <your-user-name> -p <your-password>
 
-Когда подготовленная виртуальная машина запустится, присоедините и подключите диск с данными. Инструкции см. [здесь](virtual-machines-linux-add-disk).
+Когда подготовленная виртуальная машина запустится, присоедините и подключите диск с данными. Инструкции см. [здесь](virtual-machines-linux-add-disk.md).
 
 
 ## Запись образа виртуальной машины
@@ -197,4 +197,4 @@
 
 Сведения об управлении виртуальными машинами с помощью интерфейса командной строки см. в статье [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->
