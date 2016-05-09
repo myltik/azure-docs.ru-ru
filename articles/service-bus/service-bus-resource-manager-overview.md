@@ -251,6 +251,6 @@ Parameters        :
 
 [Общие сведения о диспетчере ресурсов Azure]: ../resource-group-overview.md
 [Развертывание ресурсов с использованием шаблонов Azure Resource Manager]: ../resource-group-template-deploy.md
-[коллекции шаблонов быстрого запуска Azure]: https://azure.microsoft.com/ru-RU/documentation/templates/?term=service+bus
+[коллекции шаблонов быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
 <!---HONumber=AcomDC_0427_2016-->

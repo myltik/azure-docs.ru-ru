@@ -170,7 +170,7 @@ Azure DNS поддерживает импорт и экспорт файлов �
 
 	`azure config mode arm`
 
-4. Чтобы экспортировать существующую зону Azure DNS **contoso.com** (в группе ресурсов ** myresourcegroup**) в файл **contoso.com.txt** (в текущей папке), выполните команду `azure network dns zone export`.
+4. Чтобы экспортировать существующую зону Azure DNS **contoso.com** (в группе ресурсов **myresourcegroup**) в файл **contoso.com.txt** (в текущей папке), выполните команду `azure network dns zone export`.
 
 	`azure network dns zone export myresourcegroup contoso.com contoso.com.txt`
 

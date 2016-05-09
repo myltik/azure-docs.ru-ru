@@ -47,7 +47,7 @@
 
 		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	При этом запустится класс **wordcount**, содержащийся в текущем каталоге в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ ****wasb://example/data/gutenberg/davinci.txt**, а выходные данные сохраняются в ****wasb:///example/data/WordCountOutput**.
+	При этом запустится класс **wordcount**, содержащийся в текущем каталоге в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ **wasb://example/data/gutenberg/davinci.txt**, а выходные данные сохраняются в **wasb:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE] Дополнительные сведения об этом задании MapReduce и данные для примера см. в разделе <a href="hdinsight-use-mapreduce.md">Использование MapReduce в HDInsight в Hadoop</a>.
 
@@ -58,7 +58,7 @@
 		File Output Format Counters
         Bytes Written=337623
 
-3. По завершении задания воспользуйтесь следующей командой, чтобы вывести список выходных файлов, хранящихся в ****wasb://example/data/WordCountOutput**.
+3. По завершении задания воспользуйтесь следующей командой, чтобы вывести список выходных файлов, хранящихся в **wasb://example/data/WordCountOutput**.
 
 		hadoop fs -ls wasb:///example/data/WordCountOutput
 
@@ -70,7 +70,7 @@
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	Отобразится список слов, которые содержатся в файле ****wasb://example/data/gutenberg/davinci.txt**, а также количество вхождений каждого слова. Ниже приведен пример данных, которые будут содержаться в файле.
+	Отобразится список слов, которые содержатся в файле **wasb://example/data/gutenberg/davinci.txt**, а также количество вхождений каждого слова. Ниже приведен пример данных, которые будут содержаться в файле.
 
 		wreathed        3
 		wreathing       1
