@@ -139,4 +139,4 @@
 - [Создание мобильных приложений](/documentation/learning-paths/appservice-mobileapps/)
 - [Создание приложений API](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!-----HONumber=AcomDC_0420_2016-->
