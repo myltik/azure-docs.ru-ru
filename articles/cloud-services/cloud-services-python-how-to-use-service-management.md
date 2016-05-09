@@ -39,11 +39,11 @@ API управления службой обеспечивает програм�
 ### Сертификаты управления в Windows/Mac/Linux (OpenSSL)
 Можно также использовать [OpenSSL](http://www.openssl.org/) для создания сертификата управления. Фактически необходимо создать два сертификата: один для сервера (`.cer`-файл) и один для клиента (`.pem`-файл). Чтобы создать `.pem`-файл, выполните следующие действия.
 
-	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+    openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
 Чтобы создать сертификат `.cer`, выполните следующие действия.
 
-	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
+    openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 Дополнительные сведения о сертификатах Azure см. в разделе [Общие сведения о сертификатах для облачных служб Azure](./cloud-services-certs-create.md). Полное описание параметров OpenSSL см. в документации по адресу [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
@@ -433,6 +433,6 @@ API управления службой обеспечивает програм�
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[облачной службой]: https://azure.microsoft.com/ru-RU/documentation/services/cloud-services/
+[облачной службой]: https://azure.microsoft.com/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

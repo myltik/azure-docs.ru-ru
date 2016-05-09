@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2016"    
+	ms.date="04/24/2016"    
 	ms.author="juliako"/>
 
 
@@ -31,6 +31,7 @@
 - [Вставка звуковой дорожки с тишиной, если входные данные не содержат звука](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 - [Отключение автоматического устранения чересстрочной развертки](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 - [Предустановки только для звука](media-services-custom-mes-presets-with-dotnet.md#audio_only)
+- [Объединение двух или нескольких видеофайлов](media-services-custom-mes-presets-with-dotnet.md#concatenate)
 
 ##<a id="encoding_with_dotnet"></a>Кодирование с помощью пакета SDK служб мультимедиа для .NET
 
@@ -38,10 +39,10 @@
 
 - Создание задания кодирования.
 - Получение ссылки на стандартный кодировщик мультимедиа.
-- Загрузка пользовательских предустановок в формате XML или JSON. Вы можете сохранить XML или JSON (например [XML](media-services-custom-mes-presets-with-dotnet.md#xml) или [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) в файл и использовать приведенный ниже код для загрузки файла.
+- Загрузка пользовательских предустановок в формате XML или JSON. Вы можете сохранить XML или JSON (например, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) или [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) в файл и использовать приведенный ниже код для загрузки файла.
 
-			// Load the XML (or JSON) from the local file.
-		    string configuration = File.ReadAllText(fileName);  
+		// Load the XML (or JSON) from the local file.
+	    string configuration = File.ReadAllText(fileName);  
 - Добавление задачи кодирования в задание. 
 - Указание входного ресурса-контейнера для кодирования.
 - Создание выходного ресурса-контейнера, который будет содержать закодированный ресурс-контейнер.
@@ -439,13 +440,13 @@
 	Кроме того, атрибут Start поддерживает также специальный макрос {Best}, который пытается определить первый "интересный" кадр содержимого NOTE: (если атрибут Start имеет значение {Best}, атрибуты Step и Range игнорируются)
 	
 	- По умолчанию Start:{Best}
-- Для атрибута Image должен быть указан формат выходных данных: Jpg/Png/BmpFormat. MES, если он присутствует, соответствует JpgVideo для JpgFormat и т. д. OutputFormat представляет новый макрос, связанный с кодеком изображений: {Index}, который необходимо указывать для форматов вывода изображений (один и только один раз).
+- Для атрибута Image должен быть указан формат выходных данных: Jpg/Png/BmpFormat. MES, если он присутствует, соответствует JpgVideo для JpgFormat и т. д. OutputFormat представляет новый макрос, связанный с кодеком изображений: {Index}, который необходимо указывать для форматов вывода изображений (один и только один раз).
 
 ##<a id="trim_video"></a>Монтаж видео (обрезка)
 
 В этом разделе рассказывается об изменении предустановок кодировщика для обрезки входного видеоролика, при котором входной видеоролик представляет собой так называемый мезонинный файл или файл по требованию. Кодировщик может также использоваться для обрезки ресурс-контейнера, который записывается или архивируется из потока в реальном времени — подробные сведения об этом доступны в [этом блоге](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Для обрезки видео можно взять любую из предустановок стандартного кодировщика мультимедиа, которые описаны [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и изменить элемент **Sources** (как показано ниже). Значение StartTime должно соответствовать абсолютной метке времени входящего видео. Например, если первый кадр входящего видео имеет отметку времени "12:00:10.000", значение StartTime должно равняться или быть больше 12:00:10.000. В приведенном ниже примере мы предполагаем, что входящее видео имеет отметку времени начала, равную нулю. Обратите внимание, что элемент **Sources** должен размещаться в верхней части схемы.
+Для обрезки видео можно взять любую из предустановок стандартного кодировщика мультимедиа, которые описаны [здесь](https://msdn.microsoft.com/library/mt269960.aspx), и изменить элемент **Sources** (как показано ниже). Значение StartTime должно соответствовать абсолютной метке времени входящего видео. Например, если первый кадр входящего видео имеет отметку времени "12:00:10.000", значение StartTime должно равняться или быть больше 12:00:10.000. В приведенном ниже примере мы предполагаем, что входящее видео имеет отметку времени начала, равную нулю. Обратите внимание, что элемент **Sources** должен размещаться вначале схемы.
  
 ###<a id="json"></a>Предустановка JSON
 	
@@ -692,13 +693,13 @@
 
 Наряду с определением файла предустановки также необходимо сообщить службам мультимедиа, какой файл в ресурсе-контейнере содержит изображение для наложения, а какой — исходное видео, на которое вы хотите наложить изображение. Видеофайл должен быть **первичным** файлом.
 
-В приведенном выше примере .NET определены две функции: **UploadMediaFilesFromFolder** и **EncodeWithOverlay**. Функция UploadMediaFilesFromFolder передает файлы из папки (например, BigBuckBunny.mp4 и Image001.png) и задает MP4-файл в качестве первичного файла в ресурсе-контейнере. Функция **EncodeWithOverlay** использует настраиваемый файл предустановки, который был передан в нее (например, приведенную ниже предустановку), для создания задачи кодирования.
+В приведенном выше примере .NET определены две функции: **UploadMediaFilesFromFolder** и **EncodeWithOverlay**. Функция UploadMediaFilesFromFolder передает файлы из папки (например, BigBuckBunny.mp4 и Image001.png) и задает MP4-файл в качестве первичного файла в ресурсе-контейнере. Функция **EncodeWithOverlay** использует настраиваемый файл предустановки, который был передан в нее (например приведенную ниже предустановку), для создания задачи кодирования.
 
 >[AZURE.NOTE]Текущие ограничения:
 >
 >Настройка прозрачности наложения не поддерживается.
 >
->Исходный видеофайл и файл наложения должны быть в одном ресурсе-контейнере.
+>Исходный видеофайл и файл образа наложения должны находиться в одном ресурсе, причем видеофайл должен быть задан как основной файл в этом ресурсе.
 
 ###Предустановка JSON
 	
@@ -747,7 +748,7 @@
 	      "KeyFrameInterval": "00:00:02",
 	      "H264Layers": [
 	        {
-	          "Profile": "Baseline",
+	          "Profile": "Auto",
 	          "Level": "auto",
 	          "Bitrate": 1045,
 	          "MaxBitrate": 1045,
@@ -756,8 +757,8 @@
 	          "EntropyMode": "Cavlc",
 	          "AdaptiveBFrame": true,
 	          "Type": "H264Layer",
-	          "Width": "400",
-	          "Height": "400",
+	          "Width": "640",
+	          "Height": "360",
 	          "FrameRate": "0/1"
 	        }
 	      ],
@@ -776,6 +777,7 @@
 	    }
 	  ]
 	}
+
 
 ###Предустановка XML
 	
@@ -816,10 +818,10 @@
 	      <H264Layers>
 	        <H264Layer>
 	          <Bitrate>1045</Bitrate>
-	          <Width>400</Width>
-	          <Height>400</Height>
+	          <Width>640</Width>
+	          <Height>360</Height>
 	          <FrameRate>0/1</FrameRate>
-	          <Profile>Baseline</Profile>
+	          <Profile>Auto</Profile>
 	          <Level>auto</Level>
 	          <BFrames>0</BFrames>
 	          <ReferenceFrames>3</ReferenceFrames>
@@ -839,6 +841,7 @@
 	    </Output>
 	  </Outputs>
 	</Preset>
+
 
 ##<a id="silent_audio"></a>Вставка звуковой дорожки с тишиной, если входные данные не содержат звука
 
@@ -947,6 +950,116 @@
 	  ]
 	}
 
+##<a id="concatenate"></a>Объединение двух или нескольких видеофайлов
+
+В следующем примере показано, как создать предустановку для сцепления двух или более видеофайлов. Наиболее распространенный сценарий — это добавление названия или трейлера к основному видео. Используется, когда совместно редактируемые видеофайлы имеют одинаковые свойства (разрешение видео, частоту кадров, количество аудиодорожек и т. д.). Не следует комбинировать видео с разной частотой кадров или разным количеством аудиодорожек.
+
+###Требования и рекомендации
+
+- В исходных видеофайлах должна быть только одна аудиодорожка.
+- У всех исходных видеофайлов должна быть одинаковая частота кадров.
+- Необходимо загрузить видеофайлы в отдельные ресурсы и задать видео как основной файл в каждом ресурсе.
+- Необходимо знать длительность видеофайлов.
+- Приведенные ниже примеры предустановок предполагают, что все исходные видеофайлы начинаются с нулевой отметки. Если видеофайлы начинаются с разных меток времени, необходимо изменить значения StartTime (как при работе с архивами передач прямого эфира).
+- Предустановка JSON включает прямые ссылки на значения AssetID исходных ресурсов.
+- Образец кода предполагает, что предустановка JSON сохранена как локальный файл, например C:\\supportFiles\\preset.json. Кроме того, предполагается, что ресурсы созданы путем загрузки двух видеофайлов и что вам известны соответствующие значения AssetID.
+- Фрагмент кода и предустановка JSON демонстрирует пример сцепления двух видеофайлов. Количество видеофайлов можно увеличить следующим образом.
+
+	1. Вызвать метод task.InputAssets.Add() несколько раз, чтобы добавить несколько видео по порядку.
+	2. Внести соответствующие права в элемент Sources (Источники) файла JSON, добавив новые записи в том же порядке. 
+
+
+###Код .NET
+
+	
+	IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
+	IAsset asset2 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e").FirstOrDefault();
+	
+	// Declare a new job.
+	IJob job = _context.Jobs.Create("Media Encoder Standard Job for Concatenating Videos");
+	// Get a media processor reference, and pass to it the name of the 
+	// processor to use for the specific task.
+	IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+	
+	// Load the XML (or JSON) from the local file.
+	string configuration = File.ReadAllText(@"c:\supportFiles\preset.json");
+	
+	// Create a task
+	ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+	    processor,
+	    configuration,
+	    TaskOptions.None);
+	
+	// Specify the input videos to be concatenated (in order).
+	task.InputAssets.Add(asset1);
+	task.InputAssets.Add(asset2);
+	// Add an output asset to contain the results of the job. 
+	// This output is specified as AssetCreationOptions.None, which 
+	// means the output asset is not encrypted. 
+	task.OutputAssets.AddNew("Output asset",
+	    AssetCreationOptions.None);
+	
+	job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+	job.Submit();
+	job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+###Предустановка JSON
+
+Обновите настроенную вами предустановку, указав идентификаторы ресурсов, которые нужно сцепить, и соответствующий промежуток времени для каждого видеофайла.
+
+	{
+	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "AssetID": "606db602-efd7-4436-97b4-c0b867ba195b",
+	      "StartTime": "00:00:01",
+	      "Duration": "00:00:15"
+	    },
+	    {
+	      "AssetID": "a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e",
+	      "StartTime": "00:00:02",
+	      "Duration": "00:00:05"
+	    }
+	  ],
+	  "Codecs": [
+	    {
+	      "KeyFrameInterval": "00:00:02",
+	      "SceneChangeDetection": true,
+	      "H264Layers": [
+	        {
+	          "Level": "auto",
+	          "Bitrate": 1800,
+	          "MaxBitrate": 1800,
+	          "BufferWindow": "00:00:05",
+	          "BFrames": 3,
+	          "ReferenceFrames": 3,
+	          "AdaptiveBFrame": true,
+	          "Type": "H264Layer",
+	          "Width": "640",
+	          "Height": "360",
+	          "FrameRate": "0/1"
+	        }
+	      ],
+	      "Type": "H264Video"
+	    },
+	    {
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 128,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
+	
+
 ##Схемы обучения работе со службами мультимедиа
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -959,4 +1072,4 @@
 
 [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

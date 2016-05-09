@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Создание виртуальной машины под управлением Windows на классическом портале | Microsoft Azure"
+	pageTitle="Создание виртуальной машины под управлением Windows на классическом портале | Microsoft Azure"
 	description="Информация о создании виртуальной машины под управлением Windows на классическом портале Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # Создание виртуальной машины под управлением Windows на классическом портале Azure
@@ -56,4 +56,4 @@
 
 - Подключите диск для хранения данных. Можно присоединять пустые диски и диски с данными. Инструкции см. в статье [Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания](virtual-machines-windows-classic-attach-disk.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

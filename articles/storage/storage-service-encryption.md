@@ -77,11 +77,11 @@
 
 -   Для регистрации функции можно использовать командлет Register-AzureRmProviderFeature PowerShell.
 
-    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
-        
+    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
+
 -   Чтобы запросить состояние регистрации и узнать, утверждена ли подписка, можно использовать командлет Get-AzureRmProviderFeature PowerShell.
 
-    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
+    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
 
 Если возвращается состояние регистрации "Зарегистрировано", ваша подписка утверждена. Также посетите нашу группу по предварительной версии шифрования для службы хранилища Azure в Yammer.
 
@@ -225,4 +225,4 @@ AzCopy — это служебная программа командной ст
 
 Служба хранилища Azure предоставляет полный набор возможностей обеспечения безопасности, которые в совокупности позволяют разработчикам создавать защищенные приложения. Дополнительные сведения см. в [руководстве по безопасности службы хранилища](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

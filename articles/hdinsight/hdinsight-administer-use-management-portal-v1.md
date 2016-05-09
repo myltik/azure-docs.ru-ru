@@ -27,6 +27,7 @@
 ## Другие средства для администрирования HDInsight
 Помимо классического портала Azure имеются и другие средства для администрирования HDInsight.
 
+
 - Дополнительные сведения об администрировании HDInsight с помощью Azure PowerShell см. в разделе [Администрирование HDInsight с помощью Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 - Дополнительные сведения об администрировании HDInsight с помощью CLI Azure см. в разделе [Администрирование HDInsight с помощью CLI Azure](hdinsight-administer-use-command-line.md).
@@ -200,4 +201,4 @@ HDInsight работает со множеством компонентов Hado
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

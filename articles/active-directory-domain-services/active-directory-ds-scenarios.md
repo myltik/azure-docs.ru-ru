@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/11/2016"
 	ms.author="maheshu"/>
 
 
@@ -62,4 +62,4 @@
 
 Дополнительные сведения об этом сценарии развертывания см. в статье блога о службах удаленного рабочего стола [Перемещение рабочих нагрузок с помощью Azure RemoteApp и доменных служб Azure AD](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

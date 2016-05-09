@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/03/2016"
+   ms.date="04/18/2016"
    ms.author="kdotchko"/>
 
 # Поддержка дополнительных протоколов для центра IoT
@@ -39,4 +39,4 @@
 * [Репозиторий шлюза протокола IoT Azure в GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Руководство разработчика для шлюза протокола IoT Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0427_2016-->

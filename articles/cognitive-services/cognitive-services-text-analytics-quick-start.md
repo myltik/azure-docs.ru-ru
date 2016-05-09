@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
+	ms.service="cognitive-services"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -240,4 +240,4 @@
 
 Поздравляем! Вы использовали текстовую аналитику для своих данных. Теперь вы можете ознакомиться со средством [Power BI](//powerbi.microsoft.com) для визуализации данных, а также с автоматизацией аналитики, чтобы видеть свои текстовые данные в режиме реального времени.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

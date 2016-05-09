@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="12/07/2015"
+   ms.date="04/19/2015"
    ms.author="yuemlu"/>
 
 
@@ -57,7 +57,7 @@ foreach($subscription in Get-AzureSubscription) {
 
 Рекомендуется перенести роли облачных служб в одно из поддерживаемых семейств версий гостевой ОС:
 
-**Семейство версий 4.x гостевой ОС** — Windows Server 2012 R2 *\(рекомендуется\)*
+**Семейство версий 4.x гостевой ОС** — Windows Server 2012 R2 *(рекомендуется)*
 
 1. Убедитесь, что приложение использует пакет SDK 2.1 или более поздней версии с платформой .NET Framework 4.0, 4.5 или 4.5.1.
 2. Задайте для атрибута "osFamily" значение "4" в файле ServiceConfiguration.cscfg и повторно разверните облачную службу.
@@ -81,4 +81,4 @@ foreach($subscription in Get-AzureSubscription) {
 ## Дальнейшие действия
 Просмотрите последние [выпуски гостевой ОС](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

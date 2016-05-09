@@ -3,7 +3,7 @@
    description="Использование пакета SDK .NET для автоматизации всех операций DNS для Azure DNS." 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
+   authors="cherylmc" 
    manager="carmonm" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="03/03/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 # Создание зон DNS и наборов записей с помощью пакета SDK для .NET
 Вы можете автоматизировать операции для создания, удаления или обновления зон DNS, наборов записей и записей с помощью пакета SDK DNS с библиотекой управления DNS .NET. Полный проект Visual Studio доступен [здесь.](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
@@ -104,4 +104,4 @@ Azure DNS поддерживают оптимистичный параллели
 
 [Образец проекта SDK Visual Studio](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->
