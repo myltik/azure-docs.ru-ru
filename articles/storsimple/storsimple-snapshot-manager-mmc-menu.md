@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/25/2016"
    ms.author="v-sharos" />
 
 # Использование действий меню MMC в диспетчере моментальных снимков StorSimple
@@ -27,9 +27,7 @@
 - Экспорт списка 
 - Справка 
 
-Эти действия доступны в консоли управления (MMC), а не только в диспетчере моментальных снимков StorSimple.
-
-В этом учебнике описываются эти действия и объясняется, как использовать каждую из них в диспетчере моментальных снимков StorSimple.
+Эти действия доступны в консоли управления (MMC), а не только в диспетчере моментальных снимков StorSimple. В этом учебнике описываются эти действия и объясняется, как использовать каждую из них в диспетчере моментальных снимков StorSimple.
 
 ## Просмотр
 
@@ -128,4 +126,4 @@
 - Узнайте больше о [пользовательском интерфейсе диспетчера моментальных снимков StorSimple](storsimple-use-snapshot-manager.md).
 - Узнайте больше об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0427_2016-->

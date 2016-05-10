@@ -3,7 +3,7 @@
 	description="Узнайте, как настроить срок действия сертификатов федерации, а также обновлять сертификаты с истекающим сроком действия."
 	services="active-directory"
 	documentationCenter=""
-	authors="liviodlc"
+	authors="asmalser-msft"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/09/2016"
-	ms.author="liviodlc"/>
+	ms.author="asmalser-msft"/>
 
 #Управление сертификатами для федеративного единого входа в Azure Active Directory
 
@@ -82,4 +82,4 @@
 - [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
 - [Устранение неполадок единого входа на основе SAML](active-directory-saml-debugging.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

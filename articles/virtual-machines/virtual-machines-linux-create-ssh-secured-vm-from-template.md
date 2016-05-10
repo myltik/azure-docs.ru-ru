@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/04/2016"
+	ms.date="04/27/2016"
 	ms.author="v-livech"/>
 
 # Создание защищенной виртуальной машины Linux с помощью шаблона Azure
@@ -66,4 +66,4 @@ info:    group create command OK
 
 После создания виртуальных машин Linux с помощью шаблонов вы можете узнать, какие другие платформы приложений доступны для использования с шаблонами. В [коллекции шаблонов](https://azure.microsoft.com/documentation/templates/) вы сможете найти платформы приложений для дальнейшего развертывания.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

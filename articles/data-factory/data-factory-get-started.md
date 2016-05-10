@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="03/07/2016"
+	ms.date="04/01/2016"
 	ms.author="spelluru"/>
 
 # Учебник. Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL Azure
@@ -91,16 +91,16 @@
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Если на вашем компьютере установлен SQL Server 2012/2014**, следуйте инструкциям в статье [Шаг 2. Подключение к базе данных SQL управляющей базы данных SQL Azure при помощи SQL Server Management Studio][sql-management-studio] для подключения к серверу Azure SQL Server и запуска скрипта SQL. Обратите внимание, что в этой статье для настройки брандмауэра сервера Azure SQL Server используется [классический портал Azure](http://manage.windowsazure.com), а не [портал Azure](https://portal.azure.com).
+	**Если на вашем компьютере установлен SQL Server 2012/2014**, следуйте инструкциям в статье [Шаг 2. Подключение к базе данных SQL управляющей базы данных SQL Azure при помощи SQL Server Management Studio][sql-management-studio] для подключения к серверу Azure SQL Server и запуска скрипта SQL. Обратите внимание, что в этой статье для настройки брандмауэра сервера Azure SQL Server используется [портал Azure](http://manage.windowsazure.com), а не [портал Azure](https://portal.azure.com).
 
-	**Если на компьютере установлено программное обеспечение Visual Studio 2013**, на [портале Azure](https://portal.azure.com) щелкните концентратор **ПРОСМОТР** слева, щелкните **Серверы SQL**, выберите свою базу данных и нажмите кнопку **Открыть в Visual Studio** на панели инструментов, чтобы подключиться к серверу Azure SQL Server и запустить скрипт. Если клиенту не разрешен доступ к серверу Azure SQL Server, следует настроить брандмауэр вашего сервера Azure SQL Server, чтобы разрешить доступ с вашей машины (IP-адрес). См. статью выше, чтобы ознакомиться с шагами по настройке брандмауэра для сервера Azure SQL Server.
+	**Если на компьютере установлено программное обеспечение Visual Studio 2013**, на [портале Azure](https://portal.azure.com) щелкните концентратор **ПРОСМОТР** слева, щелкните **Серверы SQL**, выберите свою базу данных и нажмите кнопку **Открыть в Visual Studio** на панели инструментов, чтобы подключиться к серверу Azure SQL Server и запустить скрипт. Если клиенту не разрешен доступ к серверу Azure SQL Server, следует настроить брандмауэр вашего сервера Azure SQL Server, чтобы разрешить доступ с вашей машины (IP-адрес). См. статью выше, чтобы ознакомиться с шагами по настройке брандмауэра для сервера Azure SQL Server.
 
 
-Выполните следующее:
+Выполните следующие действия.
 
-- Щелкните ссылку [Использование редактора фабрики данных](data-factory-get-started-using-editor.md) вверху, чтобы пройти руководство, используя редактор фабрики данных, который является компонентом классического портала Azure.
+- Щелкните ссылку [Использование редактора фабрики данных](data-factory-get-started-using-editor.md) вверху, чтобы пройти учебник, используя редактор фабрики данных, который является компонентом портала Azure.
 - Щелкните ссылку [Использование PowerShell](data-factory-monitor-manage-using-powershell.md) вверху, чтобы пройти учебник с помощью Azure PowerShell.
-- Щелкните ссылку [Использование Visual Studio](data-factory-get-started-using-vs.md), чтобы изучить руководство с применением Visual Studio 2013.
+- Щелкните ссылку [Использование Visual Studio](data-factory-get-started-using-vs.md), чтобы изучить руководство с применением Visual Studio 2013.
 
 ## Действие копирования
 Дополнительные сведения о действии копирования в фабрике данных Azure см. в статье [Действия перемещения данных](data-factory-data-movement-activities.md).
@@ -116,4 +116,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

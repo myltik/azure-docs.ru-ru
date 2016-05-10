@@ -4,7 +4,7 @@
     services="app-service\mobile"
     documentationCenter="javascript"
     authors="adrianhall"
-    manager="ggailey777"
+    manager="erikre"
     editor=""
     tags=""
     keywords="cordova, javascript, мобильный, клиент" />
@@ -15,8 +15,8 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="02/09/2016"
-    ms.author="adrianha"/>
+    ms.date="05/02/2016"
+    ms.author="glenga"/>
 
 #Создание приложения Apache Cordova
 
@@ -32,7 +32,7 @@
 
 Для работы с этим учебником требуется:
 
-* Компьютер с [Visual Studio Community 2015] или более поздней версии.
+* Компьютер с [Visual Studio Community 2015] или более поздней версии.
 * [Средства Visual Studio для Apache Cordova].
 * [Активная учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -72,7 +72,7 @@
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2015]: http://www.visualstudio.com/
 [Средства Visual Studio для Apache Cordova]: https://www.visualstudio.com/ru-RU/features/cordova-vs.aspx
 [Добавление проверки подлинности]: app-service-mobile-cordova-get-started-users.md
 [Добавление push-уведомлений]: app-service-mobile-cordova-get-started-push.md
@@ -82,4 +82,4 @@
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

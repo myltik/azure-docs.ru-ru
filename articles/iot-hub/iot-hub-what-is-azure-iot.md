@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
@@ -24,6 +24,7 @@
 
 - [Что такое центр IoT?][lnk-iot-hub]
 - [Приступая к работе с центром IoT][lnk-getstarted]
+- [Общие сведения об управлении устройствами с помощью центра IoT Azure (предварительная версия)][lnk-device-management]
 
 Вы можете внедрить клиентские приложения на широком спектре аппаратных платформ и операционных систем с помощью пакетов SDK для устройств IoT. Пакеты SDK для устройств IoT включают библиотеки, упрощающие отправку телеметрии в центр IoT и получение команд "из облака на устройство". При использовании этих пакетов SDK для устройств IoT для взаимодействия с центром IoT доступен выбор из нескольких сетевых протоколов. Дополнительные сведения см. в разделе [Сведения о пакетах SDK для устройств][lnk-device-sdks].
 
@@ -34,5 +35,6 @@
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
+[lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

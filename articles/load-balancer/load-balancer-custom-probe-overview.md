@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma" />
 
 
@@ -93,4 +93,4 @@
 
 Для проверки состояния работоспособности проверок и количества проверок можно использовать [службу анализа журналов для балансировщика нагрузки](load-balancer-monitor-log.md). Функция ведения журналов в Power BI или Azure Operational Insights позволяет получать статистические данные о работоспособности балансировщика нагрузки.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="04/26/2016"
    ms.author="edmaca"/>
 
 # Руководство. Начало работы с аналитикой озера данных Azure с помощью Azure PowerShell
@@ -186,7 +186,7 @@
 		
 		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
-	В скрипте файл скрипта U-SQL сохранен в папке С:\\tutorials\\data-lake-analytics\\copyFile.usql. Соответствующим образом обновите путь к файлу.
+	В скрипте файл скрипта U-SQL сохранен в папке С:\tutorials\data-lake-analytics\copyFile.usql. Соответствующим образом обновите путь к файлу.
  
 По окончании задания используйте следующие командлеты, чтобы включить файл в список, а затем загрузите файл.
 	
@@ -209,4 +209,4 @@
 - Задачи управления описываются в статье [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
 - Общие сведения об аналитике озера данных см. в статье [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->
