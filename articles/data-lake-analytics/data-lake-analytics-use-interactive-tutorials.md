@@ -3,7 +3,7 @@
    description="Краткое руководство для изучения аналитики озера данных и U-SQL." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.author="edmaca"/>
 
 
 # Использование интерактивных учебников по аналитике озера данных Azure
@@ -88,4 +88,4 @@
 - [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/19/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
 # Технический обзор ExpressRoute
@@ -134,4 +134,4 @@ ExpressRoute обладает постоянно растущей экосист
 	- [Настройка маршрутизации](expressroute-howto-routing-classic.md)
 	- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

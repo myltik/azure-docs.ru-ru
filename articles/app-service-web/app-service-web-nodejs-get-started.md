@@ -18,13 +18,7 @@
 
 # Начало работы с веб-приложениями Node.js в службе приложений Azure
 
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP — Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP — FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
+[AZURE.INCLUDE [вкладки](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 В этом руководстве описывается, как создать простое приложение [Node.js](http://nodejs.org), а затем развернуть его в [веб-приложении](app-service-web-overview.md) в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md) с помощью командной строки (cmd.exe или bash). Инструкции, приведенные в этом учебнике, применимы к любой операционной системе, на которой может работать Node.js.
 
@@ -32,32 +26,32 @@
 ## Предварительные требования
 
 - Node.js. Двоичные файлы установки доступны [здесь](https://nodejs.org/).
-- Yeoman. Инструкции по установке доступны [здесь](http://yeoman.io/).
+- Yeoman. Инструкции по установке см. [здесь](http://yeoman.io/).
 - Git. Двоичные файлы установки доступны [здесь](http://www.git-scm.com/downloads).
-- Azure CLI. Инструкции по установке доступны [здесь](../xplat-cli-install.md).
-- Учетная запись Microsoft Azure. Если у вас нет учетной записи, можно [подписаться на бесплатную пробную версию](/pricing/free-trial/?WT.mc_id=A261C142F) или [активировать преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- Azure CLI. Инструкции по установке см. [здесь](../xplat-cli-install.md).
+- Учетная запись Microsoft Azure. Если у вас нет учетной записи, [зарегистрируйте бесплатную пробную версию](/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## Создание и развертывание простого веб-приложения Node.js
 
-1. Откройте окно командной строки на свой выбор, чтобы установить [генератор Express для Yeоman](https://github.com/petecoop/generator-express).
+1. Откройте программу командной строки и установите [генератор Express для Yeоman](https://github.com/petecoop/generator-express).
 
         npm install -g generator-express
 
-2. Перейдите с помощью команды `CD` в рабочий каталог и создайте приложение Еxpress:
+2. Перейдите с помощью команды `CD` в рабочий каталог и создайте приложение Еxpress.
 
         yo express
         
     Выберите следующие параметры при появлении запроса:
 
-    `? Would you like to create a new directory for your project?` **Yes** `? Enter directory name` **&lt;appname>** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **None** `? Select a database to use:` **None** `? Select a build tool to use:` **Grunt**
+    `? Would you like to create a new directory for your project?` **Yes** `? Enter directory name` **&lt;имя\_приложения>** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **None** `? Select a database to use:` **None** `? Select a build tool to use:` **Grunt**
 
-3. Перейдите с помощью команды `CD` в корневой каталог нового приложения и запустите его, чтобы проверить его работоспособность в среде разработки:
+3. Перейдите с помощью команды `CD` в корневой каталог нового приложения и запустите его, чтобы проверить его работоспособность в среде разработки.
 
         npm start
 
-    В браузере перейдите по адресу [http://localhost:3000](http://localhost:3000), чтобы проверить отображение домашней страницы Express. Убедившись в работоспособности приложения, остановите его с помощью команды `Ctrl-C`.
+    В браузере перейдите по адресу [http://localhost:3000](http://localhost:3000), чтобы проверить доступность домашней страницы Express. Убедившись в работоспособности приложения, остановите его с помощью команды `Ctrl-C`.
     
-1. Войдите в Azure (для этого вам понадобится [интерфейс командной строки Azure](#prereq)):
+1. Войдите в Azure (для этого вам понадобится [интерфейс командной строки Azure](#prereq)).
 
         azure login
 
@@ -87,7 +81,7 @@
         git commit -m "<your commit message>"
         git push azure master
 
-    Генератор Express включает файл GITIGNORE, поэтому команда `git push` не будет использовать пропускную способность при попытке отправки в каталог node\_modules.
+    В генератор Express входит GITIGNORE-файл, поэтому команда `git push` не будет передавать данные в каталог node\_modules.
 
 5. Наконец, просто запустите живое приложение Azure в браузере:
 
@@ -109,7 +103,7 @@
 - С помощью команды `git push azure master` Kudu автоматизирует следующие задачи развертывания.
 
     - Если файл package.json находится в корневой папке репозитория, выполните команду `npm install --production`.
-    - Создайте файл Web.config для iisnode, который указывает на ваш файл в скрипте запуска в файле package.json (например, server.js или app.js).
+    - Создайте файл Web.config для iisnode, который указывает на ваш сценарий запуска в файле package.json (например, server.js или app.js).
     - Настройте файл Web.config для подготовки приложения к отладке с помощью Node-Inspector.
     
 ## Использование платформы Node.js
@@ -209,4 +203,4 @@
 - [Центр разработчиков Node.js.](/develop/nodejs/)
 - [Начало работы с веб-приложениями в службе приложений Azure](app-service-web-get-started.md)
 
-<!-----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->
