@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma" />
 
 
@@ -129,7 +129,7 @@
 	</InputEndpoint> 
 	</LoadBalancedEndpointList>
 
-LoadBalancerDistribution может иметь значение sourceIP для соответствия по 2 кортежам, sourceIPProtocol для соответствия по 3 кортежам или none (для отсутствия соответствия, т. е. балансировки по 5 кортежам).
+LoadBalancerDistribution может иметь значение sourceIP для соответствия по 2 кортежам, sourceIPProtocol для соответствия по 3 кортежам или none (для отсутствия соответствия, т. е. балансировки по 5 кортежам).
 
 	Response
 
@@ -149,4 +149,4 @@ LoadBalancerDistribution может иметь значение sourceIP для 
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

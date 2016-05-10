@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="04/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Создание и развертывание облачной службы
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Портал Azure](cloud-services-how-to-create-deploy-portal.md)
+- [Классический портал Azure](cloud-services-how-to-create-deploy.md)
 
 Классический портал Azure поддерживает два способа создания и развертывания облачной службы: **быстрое создание** и **настраиваемое создание**.
 
@@ -150,4 +150,4 @@
 * [Управление облачной службой](cloud-services-how-to-manage.md).
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

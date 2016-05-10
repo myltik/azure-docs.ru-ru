@@ -20,7 +20,7 @@
 # Windows Server Active Directory в виртуальных машинах Azure
 
 
-В этом разделе навигации содержатся ссылки на другие разделы о том, как развернуть доменные службы Active Directory \(AD DS\) или службы федерации Active Directory \(AD FS\) Windows Server в виртуальной машине Azure.
+В этом разделе навигации содержатся ссылки на другие разделы о том, как развернуть доменные службы Active Directory (AD DS) или службы федерации Active Directory (AD FS) Windows Server в виртуальной машине Azure.
 
 ## Основные рекомендации
 
@@ -34,7 +34,7 @@
 
 - [Установка нового леса Active Directory в виртуальной сети Azure](active-directory-new-forest-virtual-machine.md)
 - [Установка реплики контроллера домена Active Directory в виртуальных сетях Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md) 
-- [Настройка гибридной облачной среды для тестирования](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
+- [Настройка гибридной облачной среды для тестирования](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)
 
 
 ## Дополнительные ресурсы
@@ -47,4 +47,4 @@
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

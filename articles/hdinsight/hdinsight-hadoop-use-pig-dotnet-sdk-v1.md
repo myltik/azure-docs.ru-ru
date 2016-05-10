@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="larryfr"/>
 
 #Выполнение заданий Pig с помощью пакета SDK для .NET для Hadoop в HDInsight
@@ -58,9 +58,9 @@
 
 ##<a id="create"></a>Создание приложения
 
-1. Откройте Visual Studio 2012, 2013 или 2015.
+1. Откройте Visual Studio 2012, 2013 или 2015.
 
-2. В меню **Файл** выберите **Создать**, а затем — **Проект**.
+2. В меню **Файл** выберите **Создать**, а затем — **Проект**.
 
 3. Для нового проекта введите или выберите следующие значения.
 
@@ -160,4 +160,4 @@
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

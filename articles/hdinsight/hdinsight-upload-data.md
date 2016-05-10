@@ -184,7 +184,7 @@ AzCopy — это программа командной строки, кото�
 
 ###<a id="storageexplorer"></a>Обозреватель хранилищ Azure
 
-*Обозреватель хранилищ Azure* — это полезное средство для проверки и изменения данных в больших двоичных объектах. Это бесплатный инструмент с открытым кодом. Скачать его можно на сайте [http://storageexplorer.com/](http://storageexplorer.com/). Исходный код доступен также по ссылке.
+*Обозреватель хранилищ Azure* — это полезное средство для проверки и изменения данных в больших двоичных объектах. Это бесплатный инструмент с открытым кодом. Скачать его можно на сайте [http://storageexplorer.com/](http://storageexplorer.com/). Исходный код доступен также по ссылке.
 
 Прежде чем использовать средство, необходимо узнать ваше имя учетной записи хранения Azure и ключ учетной записи. Инструкции по получению этой информации см. в статье [Об учетных записях хранения Azure][azure-create-storage-account] в разделе «Просмотр, копирование и повторное создание ключей доступа к хранилищу».
 
@@ -255,13 +255,13 @@ Sqoop — это средство, предназначенное для пер�
 [azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
-[azure-create-storage-account]: ../storage-create-storage-account.md
-[azure-azcopy-download]: ../storage-use-azcopy.md
-[azure-azcopy]: ../storage-use-azcopy.md
+[azure-create-storage-account]: ../storage/storage-create-storage-account.md
+[azure-azcopy-download]: ../storage/storage-use-azcopy.md
+[azure-azcopy]: ../storage/storage-use-azcopy.md
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
@@ -282,4 +282,4 @@ Sqoop — это средство, предназначенное для пер�
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

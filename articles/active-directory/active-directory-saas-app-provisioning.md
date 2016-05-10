@@ -3,7 +3,7 @@
     description="Общие сведения об использовании Azure AD для автоматической подготовки, отзыва и постоянного обновления учетных записей пользователей в нескольких приложениях SaaS сторонних разработчиков."
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.author="asmalser-msft"/>
 
 #Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory
 
@@ -116,4 +116,4 @@ Azure AD готовит пользователей для приложения S
 - [Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md)
 - [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

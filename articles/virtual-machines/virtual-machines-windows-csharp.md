@@ -436,7 +436,7 @@
           Console.WriteLine(vm.ProvisioningState);
         }
 
-	>[AZURE.NOTE] В этом учебнике создается виртуальная машина под управлением одной из версий операционной системы Windows Server. Дополнительные сведения о выборе других образов см. в статье [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](virtual-machines-linux-cli-ps-findimage.md).
+	>[AZURE.NOTE] В этом учебнике создается виртуальная машина под управлением одной из версий операционной системы Windows Server. Дополнительные сведения о выборе других образов см. в статье [Просмотр и выбор образов виртуальных машин Linux в Azure с помощью интерфейса командной строки или оболочки PowerShell](virtual-machines-linux-cli-ps-findimage.md).
 
 2. Для вызова только что добавленного метода добавьте этот код в метод Main:
 

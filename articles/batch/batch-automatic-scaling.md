@@ -188,7 +188,22 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 | Операция | Поддерживаемые операторы | Тип результата |
 | ------------------------------------- | --------------------- | ------------- |
-| double *оператор* double | +, -, *, / | double | | double *оператор* timeinterval | * | timeinterval | | doubleVec *оператор* double | +, -, *, / | doubleVec | | doubleVec *оператор* doubleVec | +, -, *, / | doubleVec | | timeinterval *оператор* double | *, / | timeinterval | | timeinterval *оператор* timeinterval | +, - | timeinterval | | timeinterval *оператор* timestamp | + | timestamp | | timestamp *оператор* timeinterval | + | timestamp | | timestamp *оператор* timestamp | - | timeinterval | | *оператор*double | -, ! | double | | *оператор*timeinterval | - | timeinterval | | double *оператор* double | <, <=, ==, >=, >, != | double | | string *оператор* string | <, <=, ==, >=, >, != | double | | timestamp *оператор* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *оператор* timeinterval | <, <=, ==, >=, >, != | double | | double *оператор* double | &&, || | double |
+| double *operator* double 				| +, -, *, /            | double		    |
+| double *operator* timeinterval 		| *                     | timeinterval	    |
+| doubleVec *operator* double 			| +, -, *, /            | doubleVec		    |
+| doubleVec *operator* doubleVec 		| +, -, *, /            | doubleVec		    |
+| timeinterval *operator* double 		| *, /                  | timeinterval	    |
+| timeinterval *operator* timeinterval 	| +, -                  | timeinterval	    |
+| timeinterval *operator* timestamp 	| +                     | timestamp		    |
+| timestamp *operator* timeinterval 	| +                     | timestamp		    |
+| timestamp *operator* timestamp 		| -                     | timeinterval	    |
+| *operator*double 						| -, !                  | double		    |
+| *operator*timeinterval 				| -                     | timeinterval	    |
+| double *operator* double 				| <, <=, ==, >=, >, !=  | double		    |
+| string *operator* string 				| <, <=, ==, >=, >, !=  | double		    |
+| timestamp *operator* timestamp 		| <, <=, ==, >=, >, !=  | double		    |
+| timeinterval *operator* timeinterval 	| <, <=, ==, >=, >, !=  | double		    |
+| double *operator* double 				| &&, &#124;&#124;      | double		    |
 
 При тестировании double с тернарным оператором (`double ? statement1 : statement2`) ненулевое значение равно **true** а нулевое — **false**.
 

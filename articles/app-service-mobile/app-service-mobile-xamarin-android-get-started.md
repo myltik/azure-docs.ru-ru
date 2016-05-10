@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="05/03/2016"
 	ms.author="glenga" />
 
 #Создание приложения Xamarin.Android
@@ -70,7 +70,9 @@
 
 ##Дальнейшие действия
 
-* [Добавление проверки подлинности в приложение](app-service-mobile-xamarin-android-get-started-users.md) <br/>Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
+* [Добавление проверки подлинности в приложение Xamarin.iOS](app-service-mobile-xamarin-android-get-started-users.md). Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
+* [Добавление push-уведомлений в приложение Xamarin.Forms](app-service-mobile-xamarin-android-get-started-push.md). Узнайте, как добавлять push-уведомления в приложения.
+* [Использование управляемого клиента для мобильных приложений Azure](app-service-mobile-dotnet-how-to-use-client-library.md). Узнайте, как использовать управляемый клиентский пакет SDK в приложении Xamarin. 
 
 
 <!-- Images. -->
@@ -84,4 +86,4 @@
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

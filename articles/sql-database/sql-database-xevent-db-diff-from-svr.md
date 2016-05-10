@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/25/2016"
 	ms.author="genemi"/>
 
 
@@ -108,10 +108,10 @@
 В Microsoft SQL Server, аналогичные представления каталогов имеют имена, содержащие *.server\_* вместо *.database\_*. Шаблон имени выглядит как **sys.server\_event\_%**.
 
 
-## Новые динамические административные представления [\(DMV\)](http://msdn.microsoft.com/library/ms188754.aspx)
+## Новые динамические административные представления [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx)
 
 
-База данных SQL Azure включает [динамические административные представления \(DMV\)](http://msdn.microsoft.com/library/bb677293.aspx), которые поддерживают расширенные события. DMV сообщают об *активных* сеансах событий.
+База данных SQL Azure включает [динамические административные представления (DMV)](http://msdn.microsoft.com/library/bb677293.aspx), которые поддерживают расширенные события. DMV сообщают об *активных* сеансах событий.
 
 
 | Имя DMV | Описание |
@@ -187,7 +187,7 @@ SELECT
 - [Целевой объект "Файл событий"](http://msdn.microsoft.com/library/ff878115.aspx) — записывает все буферы в контейнер хранилища Azure.
 
 
-API [трассировки событий для Windows \(ETW\)](http://msdn.microsoft.com/library/ms751538.aspx) недоступен для расширенных событий в Базе данных SQL.
+API [трассировки событий для Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) недоступен для расширенных событий в Базе данных SQL.
 
 
 ## Ограничения
@@ -204,7 +204,7 @@ API [трассировки событий для Windows \(ETW\)](http://msdn.m
 ## Модель разрешений
 
 
-Для вызова оператора **CREATE EVENT SESSION** требуется разрешение на **управление**. Владелец базы данных \(dbo\) имеет разрешение на **управление**.
+Для вызова оператора **CREATE EVENT SESSION** требуется разрешение на **управление**. Владелец базы данных (dbo) имеет разрешение на **управление**.
 
 
 ### Авторизации контейнера хранилища
@@ -252,11 +252,11 @@ API [трассировки событий для Windows \(ETW\)](http://msdn.m
 - [Использование хранилища BLOB-объектов из .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 
 
-- [CREATE CREDENTIAL \(Transact-SQL\)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION \(Transact-SQL\)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
+- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 
 
-- [Публикации в блоге Джонтана Кехайаса \(Jonathan Kehayias\) о расширенных событий в Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [Публикации в блоге Джонтана Кехайаса (Jonathan Kehayias) о расширенных событий в Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
 Другие статьи с примерами кода для работы с расширенными событиями доступны по приведенным ниже ссылкам. Обязательно проверяйте, предназначен ли пример для Microsoft SQL Server или для базы данных SQL Azure. После этого вы сможете решить, какие поправки нужно внести в пример кода.
@@ -269,4 +269,4 @@ API [трассировки событий для Windows \(ETW\)](http://msdn.m
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

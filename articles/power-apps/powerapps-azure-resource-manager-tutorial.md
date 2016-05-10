@@ -37,7 +37,8 @@
 
 3. Введите понятное имя для приложения, выберите **Веб-приложение и/или веб-API** и нажмите кнопку **Далее**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication.png "Новое приложение")
 
-4. В поле **URL-адрес входа** введите: **http://login.windows.net*. В поле **URI идентификатора приложения** введите любой уникальный URI. Затем выберите **Готово**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication2.png "Второе новое приложение")
+4. В поле **URL-адрес входа** введите: **http://login.windows.net**. В поле **URI идентификатора приложения** введите любой уникальный URI. Затем выберите **Готово**:
+ ![](./media/powerapps-azure-resource-manager-tutorial/newapplication2.png "Второе новое приложение")
 
 5. В созданном приложении AAD перейдите на вкладку **Настройка**. На этой вкладке настройте разрешения для приложения.
 
@@ -87,4 +88,4 @@
 [7]: https://manage.windowsazure.com
 [8]: http://pwrappssamples.blob.core.windows.net/samples/AzureResourceManager.json
 
-<!---HONumber=AcomDC_0420_2016-->
+<!-----HONumber=AcomDC_0420_2016-->

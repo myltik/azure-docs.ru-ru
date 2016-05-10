@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Руководство по HBase. Приступая к работе с кластерами HBase под управлением Linux в Hadoop | Microsoft Azure"
+	pageTitle="Руководство по HBase. Приступая к работе с кластерами HBase под управлением Linux в Hadoop | Microsoft Azure"
 	description="Следуйте инструкциям этого учебника по HBase, чтобы начать работу с Apache HBase на Hadoop в HDInsight. Создание таблиц из оболочки HBase и обращение к ним с помощью Hive."
 	keywords="apache hbase, hbase, оболочка hbase, учебник hbase"
 	services="hdinsight"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/03/2016"
+	ms.date="05/04/2016"
 	ms.author="jgao"/>
 
 
@@ -43,29 +43,29 @@
 
 1. Щелкните следующие изображение, чтобы открыть шаблон ARM на портале Azure. Шаблон ARM расположен в общедоступном контейнере больших двоичных объектов. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. В колонке **Параметры** заполните следующие поля.
 
     - **Имя кластера**: введите имя создаваемого кластера HBase.
-    - **Имя для входа и пароль кластера**: имя для входа по умолчанию — **admin**.
+    - **Имя для входа и пароль кластера**: имя для входа по умолчанию — **admin**.
     - **Имя пользователя SSH и пароль**: по умолчанию используется имя **sshuser**. Это имя можно изменить.
      
     Все остальные параметры являются необязательными.
     
-    У каждого кластера есть зависимость учетной записи хранения для хранилища BLOB-объектов Azure. После удаления кластера данные сохраняются в учетной записи хранения. Имя учетной записи хранения в кластере — это имя кластера, к которому добавлено слово store. Это прописано в разделе переменных в коде шаблона.
+    У каждого кластера есть зависимость учетной записи хранения для хранилища BLOB-объектов Azure. После удаления кластера данные сохраняются в учетной записи хранения. Имя учетной записи хранения в кластере — это имя кластера, к которому добавлено слово store. Это прописано в разделе переменных в коде шаблона.
         
 3. Нажмите кнопку **ОК**, чтобы сохранить параметры.
-4. В колонке **Настраиваемое развертывание** щелкните раскрывающийся список **Группа ресурсов** и выберите пункт **Создать**, чтобы создать группу ресурсов. Группа ресурсов — это контейнер, в который входит кластер, зависимая учетная запись хранения и другие связанные ресурсы.
+4. В колонке **Настраиваемое развертывание** щелкните раскрывающийся список **Группа ресурсов** и выберите пункт **Создать**, чтобы создать группу ресурсов. Группа ресурсов — это контейнер, в который входит кластер, зависимая учетная запись хранения и другие связанные ресурсы.
 5. Щелкните **Условия использования**, а затем нажмите кнопку **Создать**.
-6. Щелкните **Создать**. Процесс создания кластера занимает около 20 минут.
+6. Щелкните **Создать**. Процесс создания кластера занимает около 20 минут.
 
 
 >[AZURE.NOTE] После удаления кластера HBase можно создать другой кластер HBase, использовав тот же контейнер BLOB-объектов по умолчанию. Таблицы HBase, созданные в исходном кластере, получит новый кластер.
 
 ## Создание таблиц и вставка данных
 
-Для подключения к кластерам HBase можно использовать SSH, а для создания таблиц HBase, вставки данных и создания запросов к данным — оболочку HBase. Дополнительную информацию об использовании SSH из Linux, Unix, OS X и Windows см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md) или [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+Для подключения к кластерам HBase можно использовать SSH, а для создания таблиц HBase, вставки данных и создания запросов к данным — оболочку HBase. Дополнительную информацию об использовании SSH из Linux, Unix, OS X и Windows см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md) или [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
  
 
 Для большинства пользователей данные отображаются в табличном формате:
@@ -220,7 +220,7 @@ SSH может также использоваться для туннелиро
 4. На экране "Основные параметры вашего сеанса PuTTY" введите следующие значения:
 
 	- **Имя узла**: адрес SSH вашего сервера HDInsight в поле «Имя узла» (или «IP-адрес»). Адрес SSH — это имя кластера с суффиксом **-ssh.azurehdinsight.net**. Например, *mycluster-ssh.azurehdinsight.net*.
-	- **Порт**: 22. Порт SSH в головном узле 0 — 22.  
+	- **Порт**: 22. Порт SSH в головном узле 0 — 22.  
 5. В разделе **Категория** в левой части диалогового окна последовательно разверните узлы **Подключение** и **SSH**, а затем щелкните **Туннели**.
 6. Введите следующую информацию в форме "Параметры, управляющие перенаправлением портов SSH":
 
@@ -243,7 +243,7 @@ SSH может также использоваться для туннелиро
 1. Откройте Firefox.
 2. Нажмите кнопку **Open Menu** (Открыть меню).
 3. Щелкните по элементу **Параметры**.
-4. Последовательно щелкните **Advanced** (Дополнительно) > **Network** (Сеть) > **Settings** (Параметры).
+4. Последовательно щелкните **Advanced** (Дополнительно) > **Network** (Сеть) > **Settings** (Параметры).
 5. Выберите параметр **Manual proxy configuration** (Настройка прокси-сервера вручную).
 6. Введите следующие значения.
 
@@ -265,7 +265,7 @@ SSH может также использоваться для туннелиро
 
 Дополнительные сведения см. на следующих ресурсах:
 
-- [Обзор HDInsight HBase][hdinsight-hbase-overview]\: HBase — это NoSQL (нереляционная распределенная) база данных с открытым исходным кодом Apache, разработанная в рамках проекта Hadoop, которая обеспечивает произвольный доступ и строгую согласованность больших объемов неструктурированных и полуструктурированных данных.
+- [Обзор HDInsight HBase][hdinsight-hbase-overview]\: HBase — это NoSQL (нереляционная распределенная) база данных с открытым исходным кодом Apache, разработанная в рамках проекта Hadoop, которая обеспечивает произвольный доступ и строгую согласованность больших объемов неструктурированных и полуструктурированных данных.
 
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
@@ -295,4 +295,4 @@ SSH может также использоваться для туннелиро
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

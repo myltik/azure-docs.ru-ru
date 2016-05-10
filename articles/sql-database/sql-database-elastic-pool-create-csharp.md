@@ -3,7 +3,7 @@
     description="Используйте методы разработки баз данных на C# для создания пула масштабируемых эластичных баз данных в Базе данных SQL Azure, чтобы совместно использовать ресурсы нескольких баз данных."
     services="sql-database"
     documentationCenter=""
-    authors="stevestein"
+    authors="sidneyh"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/24/2016"
-    ms.author="sstein"/>
+    ms.date="04/28/2016"
+    ms.author="sidneyh"/>
 
 # Создание пула эластичных баз данных с помощью C&#x23;
 
@@ -28,19 +28,17 @@
 
 Стандартные коды ошибок см. в статье [Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md).
 
-> [AZURE.NOTE] Сейчас пулы эластичных баз данных предоставляются в виде предварительной версии, которая доступна только с серверами Базы данных SQL версии 12. Если у вас есть сервер базы данных SQL версии 11, с помощью PowerShell вы можете в один шаг [обновить его до версии 12 и создать пул](sql-database-upgrade-server-portal.md).
+Сейчас пулы эластичных баз данных предоставляются в виде предварительной версии, которая доступна только с серверами Базы данных SQL версии 12. Если у вас есть сервер базы данных SQL версии 11, с помощью PowerShell вы можете в один шаг [обновить его до версии 12 и создать пул](sql-database-upgrade-server-portal.md).
 
-В примерах используется [библиотека базы данных SQL для .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), поэтому вам нужно ее установить. Для этого в Visual Studio запустите в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**) следующую команду.
+В примерах используется [библиотека базы данных SQL для .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), поэтому вам нужно ее установить. Для этого в Visual Studio выполните следующую команду в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**).
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
-
-
-
 ## Создание пула
 
+Создайте экземпляр [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient), используя значения из [Azure Active Directory](sql-database-client-id-keys.md). Создайте экземпляр [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters) и вызовите метод [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate). Значения eDTU на пул, а также минимальные и максимальные значения DTU ограничены значением уровня службы ("Базовый", "Стандартный" или "Премиум"). См. раздел [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
-    // Create elastic pool: configure create or update parameters and properties explicitly
+
     ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
     {
         Location = "South Central US",
@@ -56,34 +54,9 @@
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Перемещение существующей базы данных в пул
-
-
-    // Retrieve current database properties
-    currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
-
-    // Configure create or update parameters with existing property values, override those to be changed.
-    DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = currentDatabase.Location,
-        Properties = new DatabaseCreateOrUpdateProperties()
-        {
-            Edition = "Standard",
-            RequestedServiceObjectiveName = "ElasticPool",
-            ElasticPoolName = "ElasticPool1",
-            MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
-            Collation = currentDatabase.Properties.Collation,
-        }
-    };
-
-    // Update the database
-    var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
-
-
-
-
 ## Создание базы данных в пуле
 
+Создайте экземпляр [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreateorupdateproperties) и задайте свойства новой базы данных. Затем вызовите метод CreateOrUpdate с группой ресурсов, именем сервера и именем новой базы данных.
 
     // Create a database: configure create or update parameters and properties explicitly
     DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
@@ -101,20 +74,20 @@
 
     var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
 
+Сведения о перемещении существующей базы данных в пул см. в разделе [Перемещение базы данных в пул эластичных БД](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
 
+## Пример. Создание пула с помощью C&#x23
 
+В этом примере создается группа ресурсов Azure, экземпляр Azure SQL Server и эластичный пул.
+ 
 
+Для выполнения этого примера требуются дополнительные библиотеки. Чтобы установить их, в Visual Studio выполните следующие команды в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**).
 
-## Создание примера пула C&#x23;
+    Install-Package Microsoft.Azure.Management.Sql –Pre
+    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-
-Для выполнения этого примера требуются дополнительные библиотеки. Чтобы установить их, в Visual Studio выполните в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**) следующие команды.
-
-    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
-    PM> Install-Package Microsoft.Azure.Management.Resources –Pre
-    PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
-
-Создайте консольное приложение и замените содержимое файла Program.cs приведенным ниже. Сведения о том, как получить идентификатор клиента и другие значения, см. в статье [Получение идентификатора клиента и ключа для доступа к базе данных SQL из кода](sql-database-client-id-keys.md).
+Создайте консольное приложение и замените содержимое файла Program.cs приведенным ниже. Сведения о том, как получить идентификатор клиента и другие значения, см. в статье [Получение идентификатора клиента и ключа для доступа к базе данных SQL из кода](sql-database-client-id-keys.md). Используйте командлет [Get AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx), чтобы получить значение subscriptionId.
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -270,13 +243,12 @@
 ## Дальнейшие действия
 
 - [Управление пулом.](sql-database-elastic-pool-manage-csharp.md)
-- [Создание заданий обработки эластичных БД](sql-database-elastic-jobs-overview.md). Эти задания позволяют выполнять сценарии T-SQL для любого количества эластичных баз данных в пуле.
-
+- [Обзор заданий обработки эластичных баз данных](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение сценариев T-SQL для любого количества эластичных баз данных в пуле.
+- [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md). Использование средств эластичных баз данных для масштабирования.
 
 ## Дополнительные ресурсы
-
 
 - [База данных SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

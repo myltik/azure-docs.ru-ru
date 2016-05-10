@@ -13,27 +13,26 @@
 
 ## Включение пользовательских данных в виртуальную машину Azure
 
-В настоящее время эта функция поддерживается только в [интерфейсе командной строки Azure](https://github.com/Azure/azure-xplat-cli). Хотя для команды `azure vm create` можно использовать любой из вариантов, следующий подход демонстрирует самый простой способ.
+В настоящее время эта функция поддерживается только в [интерфейсе командной строки Azure](https://github.com/Azure/azure-xplat-cli). Создадим файл `custom-data.txt`, содержащий наши данные, и вставим ее в виртуальную машину в процессе подготовки. Хотя для команды `azure vm create` можно использовать любой из вариантов, следующий подход демонстрирует самый простой способ.
 
 ```
-    PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
-    VMNAME=mycustomdataubuntu
-    USERNAME=username
-    VMIMAGE= An image chosen from among those listed by azure vm image list
-    azure vm create $VMNAME $VMIMAGE $USERNAME $PASSWORD --location "West US" --json -d ./custom-data.txt -e 22
+    azure vm create <vmname> <vmimage> <username> <password> \  
+    --location "West US" --ssh 22 \  
+    --custom-data ./custom-data.txt  
 ```
 
 
 ## Использование пользовательских данных в виртуальной машине
 
-+ Если в виртуальной машине Azure используется платформа Windows, то пользовательские данные сохраняются в файл `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Хотя для передачи с локального компьютера на новую виртуальную машину эти данные были зашифрованы с помощью кодировки base64, они автоматически расшифровываются и могут немедленно открываться и использоваться.
++ Если на виртуальной машине Azure используется платформа Windows, то пользовательские данные сохраняются в файл `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Хотя для передачи с локального компьютера на новую виртуальную машину эти данные были зашифрованы с помощью кодировки base64, они автоматически расшифровываются и могут немедленно открываться и использоваться.
 
    > [AZURE.NOTE] Если такой файл существует, он перезаписывается. В каталоге устанавливается защита **System:Full Control** и **Administrators:Full Control**.
 
-+ Если в виртуальной машине Azure используется платформа Linux, файл пользовательских данных расположен в следующих двух местах. Данные будут в кодировке Base64, поэтому их необходимо сначала расшифровать.
++ Если на виртуальной машине Azure используется платформа Linux, файл пользовательских данных размещается в одном из следующих двух мест (в зависимости от вашего дистрибутива): Данные будут в кодировке Base64, поэтому их необходимо сначала расшифровать:
 
-    + В `/var/lib/waagent/ovf-env.xml`
-    + В `/var/lib/waagent/CustomData`
+    - `/var/lib/waagent/ovf-env.xml`
+    - `/var/lib/waagent/CustomData`
+    - `/var/lib/cloud/instance/user-data.txt` 
 
 
 
@@ -59,4 +58,4 @@
 
 [Интерфейс командной строки Azure](https://github.com/Azure/azure-xplat-cli)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

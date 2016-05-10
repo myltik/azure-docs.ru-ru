@@ -181,6 +181,7 @@
         import com.sun.jersey.core.header.FormDataContentDisposition;
         import com.sun.jersey.multipart.FormDataParam;
         import javax.ws.rs.core.Response;
+        import javax.ws.rs.core.SecurityContext;
 
         @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JaxRSServerCodegen", date = "2015-11-24T21:54:11.648Z")
         public class ContactsApiServiceImpl extends ContactsApiService {
@@ -295,4 +296,4 @@
 
 Дополнительную информацию об использовании Java в Azure см. в разделе [Центр разработчиков Java](/develop/java/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->
