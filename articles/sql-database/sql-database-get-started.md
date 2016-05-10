@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Руководство по базам данных SQL: создание базы данных SQL | Microsoft Azure"
 	description="Узнайте, как настроить логический сервер базы данных SQL, правило брандмауэра для сервера, базу данных SQL, пример данных, как устанавливать подключение с помощью клиентских средств, настраивать пользователей и правило брандмауэра базы данных."
-	keywords="руководство по базам данных, создание базы данных sql "
+	keywords="руководство по базам данных SQL, создание базы данных SQL"
 	services="sql-database"
 	documentationCenter=""
 	authors="carlrabeler"
@@ -50,7 +50,7 @@
 
 - Если вы знаете Excel, узнайте, как [подключиться к базе данных SQL с помощью Excel](sql-database-connect-excel.md).
 
-- Если вы готовы писать код, изучите статьи [Подключение и отправка запросов к базе данных SQL с помощью языка C#](sql-database-connect-query.md) и [Использование базы данных SQL из .NET (C#)](sql-database-develop-dotnet-simple.md). Кроме примеров C#, статья [Простые примеры кода клиентских приложений для работы с базой данных SQL](sql-database-develop-quick-start-client-code-samples.md) содержит образцы кода на языках Node.js, Python, Ruby, Java, PHP и C++, а также практические руководства.
+- Если вы готовы написать свой собственный код, выберите язык программирования в [библиотеках подключений для базы данных SQL и SQL Server](sql-database-libraries.md).
 
 - Если вы хотите переместить в Azure локальные базы данных SQL Server, изучите этот процесс в статье [Перенос базы данных SQL Server в базу данных SQL Azure](sql-database-cloud-migrate.md).
 
@@ -59,4 +59,4 @@
 
 [Обзор Базы данных SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

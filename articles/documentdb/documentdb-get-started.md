@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/15/2016"
+	ms.date="04/25/2016"
 	ms.author="anhoh"/>
 
 # Руководство по NoSQL. Создание консольного приложения DocumentDB на языке C#
@@ -64,9 +64,8 @@
 3. В диалоговом окне **Создание проекта** последовательно выберите элементы **Шаблоны** / **Visual C#** / **Консольное приложение**, а затем укажите имя проекта и нажмите кнопку **ОК**. ![Снимок экрана: диалоговое окно «Новый проект»](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. В **обозревателе решений** щелкните правой кнопкой мыши новое консольное приложение (оно находится в решении Visual Studio).
 5. Не выходя из меню, щелкните элемент **Управление пакетами NuGet**. ![Снимок экрана: меню «Проект», вызванное щелчком правой кнопки мыши](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. На левой панели окна **Управление пакетами NuGet** последовательно щелкните элементы **В сети** / **nuget.org**.
-7. В поле **Поиск в Интернете** введите **DocumentDB**.
-8. Найдите **клиентскую библиотеку Microsoft Azure DocumentDB** и нажмите кнопку **Установить**. Идентификатором пакета для клиентской библиотеки DocumentDB является [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) ![Снимок экрана: меню Nuget для поиска пакета SDK клиента DocumentDB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+6. На вкладке **Nuget** щелкните **Обзор** и введите **azure documentdb** в поле поиска.
+7. В результатах найдите **Microsoft.Azure.DocumentDB** и нажмите кнопку **Установить**. Идентификатором пакета для клиентской библиотеки DocumentDB является [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB). ![Снимок экрана: меню Nuget для поиска пакета SDK клиента DocumentDB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
 Отлично! Теперь, когда мы завершили настройку, начнем писать код. Вы можете найти проект готового кода для этого руководства в [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
@@ -74,10 +73,11 @@
 
 Во-первых, добавьте эти ссылки в начало приложения C# в файле Program.cs:
 
-		// ADD THIS PART TO YOUR CODE
-		using System;
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
+
+    // ADD THIS PART TO YOUR CODE
     using System.Net;
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -85,7 +85,7 @@
 
 > [AZURE.IMPORTANT] Для работы с этим руководством по NoSQL добавьте описанные выше зависимости.
 
-Теперь добавьте эти две константы и переменную *client* в общий класс *Program*.
+Теперь добавьте эти две константы и переменную *client* в открытый класс *Program*.
 
 	public class Program
 	{
@@ -98,13 +98,13 @@
 
 На портале Azure перейдите к учетной записи DocumentDB из шага 1.
 
-Щелкните значок **ключей** на панели **Основная информация**. Скопируйте URI и замените им *<your endpoint URI>* в программе. Скопируйте первичный ключ и замените им *<your key>* в программе.
+Щелкните значок с **ключом** на панели **Основные компоненты**. Скопируйте URI и вставьте скопированное значение в приложение *<your endpoint URI>*. Скопируйте первичный ключ и вставьте скопированное значение в приложение *<your key>*.
 
 ![Снимок экрана портала Azure в ходе работы с руководством по NoSQL при создании консольного приложения C#. Отображена учетная запись DocumentDB со следующими выделенными элементами: активный концентратор, кнопка "Ключи" в колонке учетной записи DocumentDB, а также значения универсального кода ресурса, первичный и вторичный ключи в колонке "Ключи".][keys]
 
-Мы запустим ознакомительное приложение, создав новый экземпляр **DocumentClient**.
+Мы запустим ознакомительное приложение, создав экземпляр **DocumentClient**.
 
-В методе **Main** добавьте эту новую асинхронную задачу с именем **GetStartedDemo** и еще один экземпляр **DocumentClient**.
+В методе **Main** добавьте эту новую асинхронную задачу с именем **GetStartedDemo**, которая создает экземпляр **DocumentClient**.
 
 	static void Main(string[] args)
 	{
@@ -116,7 +116,7 @@
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 	}
 
-Добавьте указанный далее код, чтобы запустить асинхронную задачу из метода **Main**. Метод **Main** будет перехватывать исключения и записывать их на консоль.
+Добавьте указанный далее код, чтобы запустить асинхронную задачу из метода **Main**. Метод **Main** будет перехватывать исключения и записывать их в консоли.
 
 	static void Main(string[] args)
 	{
@@ -141,16 +141,15 @@
 					Console.WriteLine("End of demo, press any key to exit.");
 					Console.ReadKey();
 			}
-	}
 
-Нажмите клавишу **F5** для запуска приложения.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Вы подключились к учетной записи DocumentDB. Теперь рассмотрим принципы работы с ресурсами DocumentDB.
 
 ## Этап 4: создание базы данных
 Прежде чем добавлять код для создания базы данных, добавьте вспомогательный метод для записи на консоль.
 
-Скопируйте и вставьте метод **WriteToConsoleAndPromptToContinue** в метод **GetStartedDemo**.
+Скопируйте и вставьте метод **WriteToConsoleAndPromptToContinue** под кодом метода **GetStartedDemo**.
 
 	// ADD THIS PART TO YOUR CODE
 	private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
@@ -162,7 +161,7 @@
 
 [Базу данных](documentdb-resources.md#databases) DocumentDB можно создать с помощью метода [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) класса **DocumentClient**. База данных представляет собой логический контейнер для хранения документов JSON, разделенных между коллекциями.
 
-Скопируйте и вставьте метод **CreateDatabaseIfNotExists** в метод **GetStartedDemo**.
+Скопируйте и вставьте метод **CreateDatabaseIfNotExists** под кодом метода **WriteToConsoleAndPromptToContinue**.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task CreateDatabaseIfNotExists(string databaseName)
@@ -188,7 +187,7 @@
 			}
 	}
 
-Скопируйте и вставьте приведенный далее код в свой метод **GetStartedDemo** в разделе создания клиента. Будет создана база данных с именем *FamilyDB*.
+Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания клиента. Будет создана база данных с именем *FamilyDB*.
 
 	private async Task GetStartedDemo()
 	{
@@ -197,17 +196,17 @@
 		// ADD THIS PART TO YOUR CODE
 		await this.CreateDatabaseIfNotExists("FamilyDB");
 
-Нажмите клавишу **F5** для запуска приложения.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! База данных DocumentDB создана.
 
 ##<a id="CreateColl"></a>Этап 5: создание коллекции  
 
-> [AZURE.WARNING] Элемент **CreateDocumentCollectionAsync** создаст новую коллекцию с зарезервированной пропускной способностью, с которой связаны ценовые требования. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] Элемент **CreateDocumentCollectionAsync** создаст новую коллекцию с зарезервированной пропускной способностью и связанными ценовыми требованиями. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
 
 Вы можете создать [коллекцию](documentdb-resources.md#collections), используя метод [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) класса **DocumentClient**. Коллекция представляет собой контейнер документов JSON и связанную с ними логику в виде приложения JavaScript.
 
-Скопируйте и вставьте метод **CreateDocumentCollectionIfNotExists** в метод **CreateDatabaseIfNotExists**.
+Скопируйте и вставьте метод **CreateDocumentCollectionIfNotExists** под кодом метода **CreateDatabaseIfNotExists**.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task CreateDocumentCollectionIfNotExists(string databaseName, string collectionName)
@@ -243,7 +242,7 @@
 		}
 	}
 
-Скопируйте и вставьте приведенный далее код в свой метод **GetStartedDemo** в разделе создания базы данных. Будет создана коллекция документов с именем *FamilyCollection*.
+Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания базы данных. Будет создана коллекция документов с именем *FamilyCollection*.
 
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
@@ -252,16 +251,16 @@
 		// ADD THIS PART TO YOUR CODE
 		await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
 
-Нажмите клавишу **F5** для запуска приложения.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Коллекция документов DocumentDB создана.
 
 ##<a id="CreateDoc"></a>Шаг 6. Создание документов JSON
 Вы можете создать [документ](documentdb-resources.md#documents) с помощью метода [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx), который относится к классу **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь мы можем добавить один или несколько документов. Если у вас уже есть данные, которые необходимо хранить в базе данных, можно использовать [средство миграции данных](documentdb-import-data.md) в DocumentDB.
 
-Сначала необходимо создать класс **Family**, который будет представлять объекты, хранящиеся в DocumentDB в этом примере. Мы также создадим подклассы **Parent**, **Child**, **Pet** и **Address** используемые в классе **Family**. Обратите внимание, что документы должны иметь свойство **Id**, сериализуемое как **id** в файле JSON. Для этого после метода **GetStartedDemo** необходимо добавить следующие подклассы.
+Сначала необходимо создать класс **Family**, который будет представлять объекты, хранящиеся в DocumentDB в этом примере. Мы также создадим подклассы **Parent**, **Child**, **Pet** и **Address**, используемые в классе **Family**. Обратите внимание: документы должны иметь свойство **Id**, сериализуемое как **id** в файле JSON. Для этого после метода **GetStartedDemo** необходимо добавить следующие подклассы.
 
-Скопируйте и вставьте классы **Family**, **Parent**, **Child**, **Pet** и **Address** в метод **WriteToConsoleAndPromptToContinue**.
+Скопируйте и вставьте классы **Family**, **Parent**, **Child**, **Pet** и **Address** под кодом метода **WriteToConsoleAndPromptToContinue**.
 
 	private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
 	{
@@ -313,7 +312,7 @@
 		public string City { get; set; }
 	}
 
-Скопируйте и вставьте метод **CreateFamilyDocumentIfNotExists** в метод **CreateDocumentCollectionIfNotExists**.
+Скопируйте и вставьте метод **CreateFamilyDocumentIfNotExists** под кодом метода **CreateDocumentCollectionIfNotExists**.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
@@ -339,7 +338,7 @@
 
 Затем вставьте два документа, один для семьи Андерсен и один для семьи Вейкфилд.
 
-Скопируйте и вставьте приведенный далее код в свой метод **GetStartedDemo** в разделе создания коллекции документов.
+Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания коллекции документов.
 
 	await this.CreateDatabaseIfNotExists("FamilyDB");
 
@@ -411,7 +410,7 @@
 
 	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
-Нажмите клавишу **F5** для запуска приложения.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Созданы два документа DocumentDB.
 
@@ -421,7 +420,7 @@
 
 Служба DocumentDB поддерживает функционально богатые [запросы](documentdb-sql-query.md) документов JSON, хранящихся в каждой коллекции. Ниже приведены примеры кода разнообразных запросов с использованием как синтаксиса SQL DocumentDB, так и LINQ, которые можно запускать на добавленных на предыдущем шаге документах.
 
-Скопируйте и вставьте метод **ExecuteSimpleQuery** в метод **CreateFamilyDocumentIfNotExists**.
+Скопируйте и вставьте метод **ExecuteSimpleQuery** под кодом метода **CreateFamilyDocumentIfNotExists**.
 
 	// ADD THIS PART TO YOUR CODE
 	private void ExecuteSimpleQuery(string databaseName, string collectionName)
@@ -457,14 +456,14 @@
 			Console.ReadKey();
 	}
 
-Скопируйте и вставьте приведенный далее код в свой метод **GetStartedDemo** в разделе создания второго документа.
+Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания второго документа.
 
 	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
 	// ADD THIS PART TO YOUR CODE
 	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
-Нажмите клавишу **F5** для запуска приложения.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Вы использовали в запросе коллекцию DocumentDB.
 
@@ -478,7 +477,7 @@
 
 DocumentDB поддерживает замену документов JSON.
 
-Скопируйте и вставьте метод **ReplaceFamilyDocument** в метод **ExecuteSimpleQuery**.
+Скопируйте и вставьте метод **ReplaceFamilyDocument** под кодом метода **ExecuteSimpleQuery**.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
@@ -494,7 +493,7 @@ DocumentDB поддерживает замену документов JSON.
 			}
 	}
 
-Скопируйте и вставьте приведенный далее код в свой метод **GetStartedDemo** в разделе выполнения запроса. После замены документа тот же запрос будет запущен повторно, чтобы вы могли просмотреть измененный документ.
+Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом выполнения запроса. После замены документа тот же запрос будет запущен повторно, чтобы вы могли просмотреть измененный документ.
 
 	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
@@ -508,7 +507,7 @@ DocumentDB поддерживает замену документов JSON.
 
 	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
-Нажмите клавишу **F5** для запуска приложения.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Документ DocumentDB заменен.
 
@@ -516,7 +515,7 @@ DocumentDB поддерживает замену документов JSON.
 
 DocumentDB поддерживает удаление документов JSON.
 
-Скопируйте и вставьте метод **DeleteFamilyDocument** в метод **ReplaceFamilyDocument**.
+Скопируйте и вставьте метод **DeleteFamilyDocument** под кодом метода **ReplaceFamilyDocument**.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
@@ -532,7 +531,7 @@ DocumentDB поддерживает удаление документов JSON.
 			}
 	}
 
-Скопируйте и вставьте приведенный далее код в свой метод **GetStartedDemo** в разделе выполнения второго запроса.
+Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом выполнения второго запроса.
 
 	await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
 
@@ -541,7 +540,7 @@ DocumentDB поддерживает удаление документов JSON.
 	// ADD THIS PART TO CODE
 	await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
 
-Нажмите клавишу **F5** для запуска приложения.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Документ DocumentDB удален.
 
@@ -549,7 +548,7 @@ DocumentDB поддерживает удаление документов JSON.
 
 Удаление созданной базы данных приведет к удалению базы данных и всех дочерних ресурсов (коллекций, документов и т. д.).
 
-Скопируйте и вставьте приведенный далее код в свой метод **GetStartedDemo** в разделе удаления документа, чтобы удалить всю базу данных и все дочерние ресурсы.
+Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом удаления документа, чтобы удалить всю базу данных и все дочерние ресурсы.
 
 	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
@@ -559,11 +558,11 @@ DocumentDB поддерживает удаление документов JSON.
 	// Clean up/delete the database
 	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
 
-Нажмите клавишу **F5** для запуска приложения.
+Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! База данных DocumentDB удалена.
 
-##<a id="Run"></a>Шаг 11. Совместный запуск консольного приложения C#
+##<a id="Run"></a>Шаг 11. Запуск консольного приложения C#
 
 Чтобы создать приложение в режиме отладки, откройте Visual Studio и нажмите клавишу F5.
 
@@ -592,7 +591,7 @@ DocumentDB поддерживает удаление документов JSON.
 
 Поздравляем! Вы завершили работу с руководством по NoSQL и создали работающее консольное приложение C#.
 
-##<a id="GetSolution"></a> Получение полного решения NoSQL, описанного в данном руководстве
+##<a id="GetSolution"></a> Получение полного решения NoSQL для этого руководства
 Чтобы собрать решение GetStarted, которое содержит все примеры из данной статьи, вам понадобится следующее:
 
 -   [учетная запись DocumentDB][documentdb-create-account];
@@ -611,4 +610,4 @@ DocumentDB поддерживает удаление документов JSON.
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

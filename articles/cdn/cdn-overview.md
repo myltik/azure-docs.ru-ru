@@ -48,33 +48,33 @@
 
 Уровень CDN Standard включает перечисленные ниже возможности.
 
-- Простая интеграция со службами Azure, такими как [служба хранилища](cdn-create-a-storage-account-with-cdn.md), [облачные службы](cdn-cloud-service-with-cdn.md), веб-приложения и [службы мультимедиа](../media-services/media-services-manage-origins.md#enable_cdn)
-- Поддержка HTTPS
-- Балансировка нагрузки
-- Защита от DDOS-атак
-- [Кэширование строк запроса](cdn-query-string.md)
-- [Поддержка пользовательских доменных имен](cdn-map-content-to-custom-domain.md)
-- [Фильтрация по странам](cdn-restrict-access-by-country.md)
-- [Базовая аналитика](cdn-analyze-usage-patterns.md)
-- [Быстрая очистка](cdn-purge-endpoint.md)
-- [Предварительная загрузка ресурса](cdn-preload-endpoint.md)
-- [Управление через REST API](https://msdn.microsoft.com/library/mt634456.aspx)
+- Простая интеграция со службами Azure, такими как [служба хранилища](cdn-create-a-storage-account-with-cdn.md), [облачные службы](cdn-cloud-service-with-cdn.md), [веб-приложения](../app-service-web/cdn-websites-with-cdn.md) и [службы мультимедиа](../media-services/media-services-manage-origins.md#enable_cdn).
+- Поддержка HTTPS.
+- Балансировка нагрузки.
+- Защита от DDOS-атак.
+- [Кэширование строк запроса](cdn-query-string.md).
+- [Поддержка пользовательских доменных имен](cdn-map-content-to-custom-domain.md).
+- [Фильтрация по странам](cdn-restrict-access-by-country.md).
+- [Базовая аналитика](cdn-analyze-usage-patterns.md).
+- [Быстрая очистка](cdn-purge-endpoint.md).
+- [Предварительная загрузка ресурса](cdn-preload-endpoint.md).
+- [Управление через REST API](https://msdn.microsoft.com/library/mt634456.aspx).
 
 
 ## Возможности уровня Premium
 
 Уровень CDN Premium включает все возможности уровня Standard, а также перечисленные ниже дополнительные функции.
 
-- [Настраиваемый модуль доставки контента на основе правил](cdn-rules-engine.md)
-- [Расширенные HTTP-отчеты](cdn-advanced-http-reports.md)
-- [Статистика в режиме реального времени](cdn-real-time-stats.md)
+- [Настраиваемый модуль доставки контента на основе правил](cdn-rules-engine.md).
+- [Расширенные HTTP-отчеты](cdn-advanced-http-reports.md).
+- [Статистика в режиме реального времени](cdn-real-time-stats.md).
 
 ## Дальнейшие действия
 
-Начать работу с сетью CDN вам поможет статья [Включение сети доставки содержимого (CDN) для Azure](./cdn-create-new-endpoint.md).
+Начать работу с сетью CDN вам поможет статья [Использование Azure CDN](./cdn-create-new-endpoint.md).
 
 Если вы являетесь действующим клиентом CDN, то сможете управлять своими конечными точками CDN с помощью [портала Microsoft Azure](https://portal.azure.com).
 
-Чтобы увидеть CDN в действии, просмотрите [видео с конференции Build 2016](../../videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+Чтобы увидеть работу CDN в действии, просмотрите [видео с конференции Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

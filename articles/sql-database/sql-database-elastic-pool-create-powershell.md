@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Создание пула эластичных баз данных (PowerShell) | Microsoft Azure"
-    description="Узнайте, как создать пул масштабируемых эластичных баз данных с помощью PowerShell для горизонтального масштабирования ресурсов и управления для нескольких баз данных."
+    pageTitle="Создание пула эластичных баз данных с помощью PowerShell | Microsoft Azure"
+    description="Узнайте, как создать масштабируемый пул эластичных баз данных с помощью PowerShell для горизонтального масштабирования ресурсов и управления несколькими базами данных SQL Azure."
 	services="sql-database"
     documentationCenter=""
-    authors="stevestein"
+    authors="sidneyh"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="03/27/2016"
-    ms.author="sstein"/>
+    ms.date="04/28/2016"
+    ms.author="sidneyh"/>
 
 # Создание пула эластичных баз данных с помощью PowerShell
 
@@ -35,31 +35,24 @@
 
 ## Создание пула
 
-Командлет [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) создает пул.
+Командлет [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) создает новый пул. Значения eDTU на пул, а также минимальные и максимальные значения DTU ограничены значением уровня службы ("Базовый", "Стандартный" или "Премиум"). См. раздел [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
 ## Создание эластичной базы данных в пуле
 
-Чтобы создать базу данных непосредственно в пуле, выполните командлет [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) с заданным параметром **ElasticPoolName**.
-
+Используйте командлет [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) и укажите целевой пул в качестве параметра **ElasticPoolName**. Сведения о перемещении существующей базы данных в пул см. в разделе [Перемещение базы данных в пул эластичных БД](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool).
 
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
+## Создание пула и его заполнение несколькими новыми базами данных 
 
+Создание большого количества баз данных в пуле может занять некоторое время, если эта операция выполняется с помощью портала или командлетов PowerShell, которые создают базы данных поочередно. Сведения об автоматизации создания баз данных в новом пуле см. в документации [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
 
-## Перемещение автономной базы данных в пул
+## Пример. Создание пула с помощью PowerShell 
 
-Чтобы переместить существующую базу данных в пул, выполните командлет [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) с заданным параметром **ElasticPoolName**.
-
-	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
-
-
-
-## Создайте примера пула PowerShell
-
-Этот сценарий создает новый сервер, поэтому когда появится запрос ввести имя пользователя и пароль, введите учетные данные администратора нового сервера (не учетные данные Azure).
+Этот скрипт создает группу ресурсов Azure и сервер. При появлении запроса укажите имя и пароль пользователя-администратора для нового сервера (не свои учетные данные Azure).
 
     $subscriptionId = '<your Azure subscription id>'
     $resourceGroupName = '<resource group name>'
@@ -84,6 +77,7 @@
 ## Дальнейшие действия
 
 - [Управление пулом.](sql-database-elastic-pool-manage-powershell.md)
-- [Создание заданий обработки эластичных БД](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение сценариев T-SQL для любого количества эластичных баз данных в пуле.
+- [Обзор заданий обработки эластичных баз данных](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение сценариев T-SQL для любого количества эластичных баз данных в пуле.
+- [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md). Использование средств эластичных баз данных для масштабирования.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

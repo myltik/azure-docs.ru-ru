@@ -240,9 +240,9 @@
 
 ## Дальнейшие действия
 
-- Настройте [виртуальное устройство](storsimple-virtual-device.md).
+- Настройте [виртуальное устройство](storsimple-virtual-device-u2.md).
 
 - Для управления устройством StorSimple используется [служба Диспетчера StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

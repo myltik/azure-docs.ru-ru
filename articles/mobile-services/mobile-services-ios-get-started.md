@@ -23,7 +23,7 @@
 &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-> Аналогичные сведения для мобильных приложений см. в статье [Создание приложения iOS в мобильных приложениях Azure](../app-service-mobile/app-service-mobile-android-get-started.md).
+> Аналогичные сведения для мобильных приложений см. в статье [Создание приложения iOS в мобильных приложениях Azure](../app-service-mobile/app-service-mobile-ios-get-started.md).
 
 В этом учебнике показано, как добавить облачную серверную службу в приложение iOS с помощью мобильных служб Azure.
 
@@ -92,4 +92,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Серверная версия .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

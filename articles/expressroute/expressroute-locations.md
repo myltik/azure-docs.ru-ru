@@ -77,7 +77,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **MTN** | Поддерживаются | Поддерживаются | Лондон |
 | **NEXTDC** | Поддерживаются | Поддерживаются | Мельбурн, Сидней |
 | **NTT Communications** | Поддерживаются | Поддерживаются | Лондон, Осака, Токио |
-| **[Orange](http://www.orange-business.com/)** | Поддерживаются | Поддерживаются | Амстердам, Гонконг, Лондон, Кремниевая долина, Сингапур, Вашингтон, округ Колумбия |
+| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Поддерживаются | Поддерживаются | Амстердам, Гонконг, Лондон, Кремниевая долина, Сингапур, Вашингтон, округ Колумбия |
 | **PCCW Global Limited** | Поддерживаются | Поддерживаются | Гонконг |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Поддерживаются | Не поддерживается | Сингапур |
 | **Softbank** | Поддерживаются | Поддерживаются | Осака, Токио | 
@@ -157,4 +157,4 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

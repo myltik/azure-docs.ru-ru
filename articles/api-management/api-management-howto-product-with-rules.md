@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/13/2016"
+	ms.date="04/27/2016"
 	ms.author="sdanie"/>
 
 # Защита API путем ограничения скорости с помощью управления API Azure
@@ -46,8 +46,7 @@
 
 В поле **Заголовок** введите **Бесплатная пробная версия**.
 
-В текстовом поле **Описание** введите 
-**Подписчики смогут выполнять до 10 вызовов в минуту и до 200 вызовов в неделю, после чего доступ будет запрещен**.
+В текстовом поле **Описание** введите **Подписчики смогут выполнять до 10 вызовов в минуту и до 200 вызовов в неделю, после чего доступ будет запрещен**.
 
 Продукты в службе управления API могут быть защищенными или открытыми. Доступ к защищенным продуктам предоставляется по подписке. Открытые продукты могут использоваться без подписки. Обязательно установите флажок **Требуется подписка**, чтобы создать защищенный продукт, требующий подписки. Это значение по умолчанию.
 
@@ -291,7 +290,7 @@
 [Call an operation and test the rate limit]: #test-rate-limit
 [Приступая к работе с расширенными параметрами API]: api-management-get-started-advanced.md
 
-[Ограничить скорость вызова]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Задать квоту использования]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

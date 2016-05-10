@@ -3,7 +3,7 @@
    description="Аналитика озера данных — это служба вычислений для больших данных Azure, которая помогает развивать ваш бизнес на основе аналитических результатов по вашим данным в облаке независимо от их местонахождения и объема. Аналитика озера данных реализует это самым простым, масштабируемым и экономичным способом." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Обзор аналитики озера данных Microsoft Azure
 
@@ -77,4 +77,4 @@
     - [Отправить запрос на функцию](http://aka.ms/adlafeedback)
     - [Получить помощь на форумах](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

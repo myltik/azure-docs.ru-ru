@@ -1,6 +1,6 @@
 <properties
    pageTitle="Создание виртуальной сети с VPN-подключением типа ";сеть — сеть"; при помощи Azure Resource Manager и портала Azure | Microsoft Azure"
-   description="В этой статье поэтапно описывается создание виртуальной сети с помощью модели диспетчера ресурсов и ее подключение к локальной сети с помощью подключения типа ";сеть — сеть"; через VPN-шлюз."
+   description="В этой статье поэтапно описывается создание виртуальной сети с помощью модели диспетчера ресурсов и ее подключение к локальной сети с помощью подключения типа ";сеть — сеть"; через VPN-шлюз."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/25/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
-# Создание виртуальной сети Resource Manager с VPN-подключением типа "сеть — сеть" с помощью портала Azure
+# Создание виртуальной сети с VPN-подключением типа "сеть — сеть" с помощью портала Azure и диспетчера Azure Resource Manager
 
 > [AZURE.SELECTOR]
 - [Портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -27,15 +27,17 @@
 
 В этой статье мы покажем вам, как создать виртуальную сеть, соединенную с локальной сетью через VPN-подключение типа "сеть — сеть", с использованием модели развертывания Azure Resource Manager и портала Azure.
 
-**Модели и инструменты развертывания**
+
+**О моделях развертывания Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+**Модели развертывания и средства для подключений типа "сеть — сеть"**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 Если вы хотите объединить виртуальные сети, не создавая соединение с локальным расположением, см. статью [Настройка подключения между виртуальными сетями](vpn-gateway-vnet-vnet-rm-ps.md).
 
-**О моделях развертывания Azure**
-
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Перед началом работы
 
@@ -142,6 +144,8 @@
 
 ## Дальнейшие действия
 
-Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительную информацию см. в [схеме обучения](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) со сведениями о виртуальных машинах.
+- Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительную информацию см. в [схеме обучения](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) со сведениями о виртуальных машинах.
 
-<!---HONumber=AcomDC_0406_2016-->
+- Сведения о BGP см. в статьях [Обзор использования BGP с VPN-шлюзами Azure](vpn-gateway-bgp-overview.md) и [Настройка BGP на VPN-шлюзах Azure с помощью Azure Resource Manager и PowerShell](vpn-gateway-bgp-resource-manager-ps.md).
+
+<!---HONumber=AcomDC_0504_2016-->
