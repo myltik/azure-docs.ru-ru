@@ -186,7 +186,7 @@
 		
 		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
-	В скрипте файл скрипта U-SQL сохранен в папке С:\\tutorials\\data-lake-analytics\\copyFile.usql. Соответствующим образом обновите путь к файлу.
+	В скрипте файл скрипта U-SQL сохранен в папке С:\tutorials\data-lake-analytics\copyFile.usql. Соответствующим образом обновите путь к файлу.
  
 По окончании задания используйте следующие командлеты, чтобы включить файл в список, а затем загрузите файл.
 	

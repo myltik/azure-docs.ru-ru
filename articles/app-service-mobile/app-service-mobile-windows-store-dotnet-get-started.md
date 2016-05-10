@@ -72,9 +72,11 @@
 
 ##Дальнейшие действия
 
-* [Добавление проверки подлинности в приложение](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/>Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
+* [Добавление проверки подлинности в приложение](app-service-mobile-windows-store-dotnet-get-started-users.md)
+<br/>Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
-* [Добавление push-уведомлений в приложение](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>Узнайте, как отправлять в приложение простейшие push-уведомления.
+* [Добавление push-уведомлений в приложение](app-service-mobile-windows-store-dotnet-get-started-push.md) 
+  <br/>Узнайте, как отправлять в приложение простейшие push-уведомления.
 
 <!-- Anchors. -->
 <!-- Images. -->

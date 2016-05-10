@@ -91,7 +91,7 @@
 
 Скрипт выполняет следующее:
 
-1.  Запускает **cmake**, чтобы создать решение Visual Studio 2015 для виртуального устройства. Файл этого проекта — **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Обратите внимание, что исходные файлы находятся в папке ****azure iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Запускает **cmake**, чтобы создать решение Visual Studio 2015 для виртуального устройства. Файл этого проекта — **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Обратите внимание, что исходные файлы находятся в папке **azure iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
 
 2.  Создает проект виртуального устройства **iotdm\_simple\_sample.vcxproj**.
 
@@ -127,9 +127,9 @@
 
 Дополнительные сведения о возможностях управления устройствами центра IoT Azure можно просмотреть в руководствах:
 
-- [How to use the device twin][lnk-tutorial-twin] (Использование "двойника" устройства)
+- [How to use the device twin][lnk-tutorial-twin] \(Использование "двойника" устройства)
 
-- [How to find device twins using queries][lnk-tutorial-queries] (Поиск "двойников" устройств с использованием запросов)
+- [How to find device twins using queries][lnk-tutorial-queries] \(Поиск "двойников" устройств с использованием запросов)
 
 - [Учебник по использованию заданий устройства для обновления встроенного ПО устройства (предварительная версия)][lnk-tutorial-jobs]
 
