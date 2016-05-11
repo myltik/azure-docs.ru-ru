@@ -186,7 +186,7 @@
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-Дополнительные сведения см. в статье «ThreadPool.SetMinThreads — метод (Int32, Int32)» (http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx)).
+Дополнительные сведения см. в статье [ThreadPool.SetMinThreads метод (Int32, Int32)](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx).
 
 ####<a name="subheading11"></a>Воспользуйтесь преимуществами функции сборки мусора .NET 4.5
 Используйте для клиентского приложения .NET 4.5 или более поздней версии, чтобы воспользоваться новыми способами повышения производительности в технологии сборки серверного мусора.
