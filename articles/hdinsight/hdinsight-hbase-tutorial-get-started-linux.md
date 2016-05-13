@@ -1,4 +1,4 @@
-<properties
+properties
 	pageTitle="Руководство по HBase. Приступая к работе с кластерами HBase под управлением Linux в Hadoop | Microsoft Azure"
 	description="Следуйте инструкциям этого учебника по HBase, чтобы начать работу с Apache HBase на Hadoop в HDInsight. Создание таблиц из оболочки HBase и обращение к ним с помощью Hive."
 	keywords="apache hbase, hbase, оболочка hbase, учебник hbase"
@@ -295,4 +295,4 @@ SSH может также использоваться для туннелиро
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
