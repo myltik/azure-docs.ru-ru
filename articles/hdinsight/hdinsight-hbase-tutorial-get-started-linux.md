@@ -1,4 +1,4 @@
-properties
+<properties
 	pageTitle="Руководство по HBase. Приступая к работе с кластерами HBase под управлением Linux в Hadoop | Microsoft Azure"
 	description="Следуйте инструкциям этого учебника по HBase, чтобы начать работу с Apache HBase на Hadoop в HDInsight. Создание таблиц из оболочки HBase и обращение к ним с помощью Hive."
 	keywords="apache hbase, hbase, оболочка hbase, учебник hbase"
