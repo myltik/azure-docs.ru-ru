@@ -30,7 +30,7 @@
 * Щелкните **Свойства**.
 * В левой области диалогового окна **Свойства** щелкните **Javadoc Location** (Расположение Javadoc). Отображается диалоговое окно **Javadoc Location** (Расположение Javadoc).
 * Вы можете указать **Javadoc URL** (URL-адрес Javadoc) или **Javadoc in archive** (Javadoc в архиве).
-    * Если вы решите указать **Javadoc URL** (URL-адрес Javadoc), используйте URL-адрес, такой как ****http://dl.windowsazure.com/javadoc** или ****http://dl.windowsazure.com/storage/javadoc**.
+    * Если вы решите указать **Javadoc URL** (URL-адрес Javadoc), используйте URL-адрес, такой как **http://dl.windowsazure.com/javadoc** или **http://dl.windowsazure.com/storage/javadoc**.
 * Если вы решите использовать **Javadoc in archive** (Javadoc в архиве), можете указать внешний файл или файл рабочей области. Выберите нужный вариант и при необходимости выполните переход или проверку. В следующем примере библиотеки Azure для Java сопоставляются с соответствующим JAR-файлом Javadoc, который был скачан в локальную папку с именем **c:\\MyAzureJARs**. ![][ic553487]
 * *Необязательно*: щелкните **Validate** (Проверить). При этом могут отображаться потенциальные проблемы с JAR-файлом Javadoc.
 * Нажмите кнопку **ОК**.

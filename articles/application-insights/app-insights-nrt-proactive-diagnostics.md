@@ -136,6 +136,6 @@
 
 ## Отправляйте нам свои отзывы
 
-*Нам очень интересно узнать ваше мнение об этом. Отправляйте отзывы по адресу:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
+* *Нам очень интересно узнать ваше мнение об этом. Отправляйте отзывы по адресу:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
 <!---HONumber=AcomDC_0504_2016-->

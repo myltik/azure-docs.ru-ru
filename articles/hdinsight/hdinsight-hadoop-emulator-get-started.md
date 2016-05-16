@@ -494,7 +494,7 @@ The samples currently contain all the required binaries, so building is not requ
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Будет выведен запрос при вызове Get-Credential. Необходимо использовать **hadoop** в качестве имени пользователя. Паролем может быть любая строка. Имя кластера — всегда ****http://localhost:50111**.
+Будет выведен запрос при вызове Get-Credential. Необходимо использовать **hadoop** в качестве имени пользователя. Паролем может быть любая строка. Имя кластера — всегда **http://localhost:50111**.
 
 Дополнительную информацию об отправке заданий Hadoop см. в статье [Отправка заданий Hadoop программным способом](hdinsight-submit-hadoop-jobs-programmatically.md). Дополнительную информацию о командлетах Azure PowerShell для HDInsight см. в разделе [Справочная документация по командлетам PowerShell для HDInsight][hdinsight-powershell-reference].
 

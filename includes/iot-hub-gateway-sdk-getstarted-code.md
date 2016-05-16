@@ -196,9 +196,9 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 Информацию об использовании пакета SDK для шлюза см. по следующим ссылкам:
 
 - [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated] (Пакет SDK для шлюза IoT: отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux)
-- [Azure IoT Gateway SDK][lnk-gateway-sdk] (Пакет SDK для шлюза IoT Azure) на GitHub.
+- [Azure IoT Gateway SDK][lnk-gateway-sdk] \(Пакет SDK для шлюза IoT Azure) на GitHub.
 
-Дополнительные сведения об управлении устройствами с помощью центра IoT см. в статье [Overview of Azure IoT Hub device management][lnk-device-management] (Общие сведения об управлении устройствами с помощью центра IoT Azure).
+Дополнительные сведения об управлении устройствами с помощью центра IoT см. в статье [Overview of Azure IoT Hub device management][lnk-device-management] \(Общие сведения об управлении устройствами с помощью центра IoT Azure).
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c

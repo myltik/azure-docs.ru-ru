@@ -120,7 +120,7 @@
 
     а. В текстовом поле **Идентификатор** введите URL-адрес, используемый пользователями для входа в приложение CA PPM, применяя шаблон **https://ca.ondemand.saml.20.post.\<название организации>**.
 	
-	b. В текстовом поле **URL-адрес ответа** введите ****https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**.
+	b. В текстовом поле **URL-адрес ответа** введите **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**.
 
 	c. Нажмите кнопку **Далее**.
  

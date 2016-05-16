@@ -156,9 +156,9 @@ private static async Task OutputRunningJobs()
 
 - клиентская библиотека управления устройствами центра IoT Azure содержит полноценный пример кода с использованием [устройства Intel Edison][lnk-edison].
 
-- [How to use the device twin][lnk-twin-tutorial] (Использование "двойника" устройства)
+- [How to use the device twin][lnk-twin-tutorial] \(Использование "двойника" устройства)
 
-- [How to find device twins using queries][lnk-tutorial-queries] (Поиск "двойников" устройств с использованием запросов)
+- [How to find device twins using queries][lnk-tutorial-queries] \(Поиск "двойников" устройств с использованием запросов)
 
 <!-- Images and links -->
 

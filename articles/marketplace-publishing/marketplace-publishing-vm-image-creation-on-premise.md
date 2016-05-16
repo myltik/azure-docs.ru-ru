@@ -42,8 +42,8 @@
   ![рисунок](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
 
 ### Загрузка VHD
-Если URL-адрес большого двоичного объекта известен, вы можете загрузить VHD с помощью [портала Azure](http://manage.windowsazure.com/) или PowerShell.
-> [AZURE.NOTE] На момент составления данного руководства новый портал Microsoft Azure еще не содержит функцию загрузки VHD.
+Если URL-адрес большого двоичного объекта известен, вы можете загрузить VHD с помощью [портала Azure](http://manage.windowsazure.com/) или PowerShell.  
+> [AZURE.NOTE] На момент составления данного руководства новый портал Microsoft Azure еще не содержит функцию загрузки VHD.  
 
 **Загрузка VHD ОС через действующий [портал управления Azure](http://manage.windowsazure.com/)**
 

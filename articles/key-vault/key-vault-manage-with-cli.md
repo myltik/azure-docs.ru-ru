@@ -139,13 +139,13 @@
 
     azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
-Теперь для доступа к ключу, созданному или загруженному в хранилище ключей Azure, вы сможете использовать его URI. Чтобы постоянно получать текущую версию, используйте адрес ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**, а для получения данной конкретной версии используйте адрес ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**.
+Теперь для доступа к ключу, созданному или загруженному в хранилище ключей Azure, вы сможете использовать его URI. Чтобы постоянно получать текущую версию, используйте адрес **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**, а для получения данной конкретной версии используйте адрес **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**.
 
 Чтобы добавить секрет в хранилище ключей Azure, который представляет собой пароль с именем SQLPassword и значением Pa$$w0rd, введите следующее:
 
     azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword' --value 'Pa$$w0rd'
 
-Теперь пароль, добавленный в хранилище ключей Azure, можно вызвать, используя его URI. Чтобы постоянно получать текущую версию, используйте адрес ****https://ContosoVault.vault.azure.net/secrets/SQLPassword**, а для получения данной конкретной версии используйте адрес ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
+Теперь пароль, добавленный в хранилище ключей Azure, можно вызвать, используя его URI. Чтобы постоянно получать текущую версию, используйте адрес **https://ContosoVault.vault.azure.net/secrets/SQLPassword**, а для получения данной конкретной версии используйте адрес **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
 
 Давайте просмотрим только что созданный ключ или секрет.
 

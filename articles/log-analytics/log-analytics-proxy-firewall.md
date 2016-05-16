@@ -131,7 +131,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 2. Разверните **оперативную аналитику** и выберите **Подключение к оперативной аналитике**. ![Подключение к OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. В представлении "Подключение к OMS" щелкните **Настройка прокси-сервера**. ![Настройка прокси-сервера для подключения к OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om02.png)
-4. В мастере настройки прокси-сервера оперативной аналитики выберите **Использовать прокси-сервер для доступа к веб-службе оперативной аналитики**, а затем введите URL-адрес с номером порта, например ****http://myproxy:80**. ![Прокси-адрес OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
+4. В мастере настройки прокси-сервера оперативной аналитики выберите **Использовать прокси-сервер для доступа к веб-службе оперативной аналитики**, а затем введите URL-адрес с номером порта, например **http://myproxy:80**. ![Прокси-адрес OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 
 ### Указание учетных данных, если для прокси-сервера требуется аутентификация
