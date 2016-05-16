@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Кэширование поставщика кэша вывода ASP.NET"
-   description="Информация о том, как выходные данные страницы ASP.NET кэшируются с помощью кэша Redis для Azure."
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="erikre"
-   editor="tysonn" />
+	pageTitle="Кэширование поставщика кэша вывода ASP.NET"
+	description="Информация о том, как выходные данные страницы ASP.NET кэшируются с помощью кэша Redis для Azure."
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="erikre"
+	editor="tysonn" />
 <tags
-   ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="01/13/2016"
-   ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="04/27/2016"
+	ms.author="sdanie" />
 
 # Поставщик кэша вывода ASP.NET для кэша Redis для Azure
 
@@ -25,11 +25,11 @@
 
 Для настройки клиентского приложения в Visual Studio используйте пакет NuGet поставщика кэша вывода Redis: щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Управление пакетами NuGet**.
 
-![Управление пакетами NuGet с помощью кэша Redis для Azure](./media/cache-asp.net-output-cache-provider/IC729541.png)
+![Управление пакетами NuGet с помощью кэша Redis для Azure](./media/cache-aspnet-output-cache-provider/redis-cache-manage-nuget-menu.png)
 
-В текстовом поле **Поиск в Интернете** введите **RedisSessionStateProvider**, выберите нужный результат поиска и щелкните **Установить**.
+В текстовом поле поиска введите **RedisSessionStateProvider**, выберите нужный результат поиска и щелкните **Установить**.
 
-![Поставщик кэша вывода для кэша Redis для Azure](./media/cache-asp.net-output-cache-provider/IC751727.jpg)
+![Поставщик кэша вывода для кэша Redis для Azure](./media/cache-aspnet-output-cache-provider/redis-cache-page-output-provider.png)
 
 Пакет NuGet поставщика кэша вывода Redis имеет зависимость от пакета StackExchange.Redis.StrongName. Если в проекте отсутствует пакет StackExchange.Redis.StrongName, он будет установлен. Обратите внимание, что помимо пакета со строгим именем StackExchange.Redis.StrongName существует также версия с нестрогим именем StackExchange.Redis. Если проект использует версию с нестрогим именем StackExchange.Redis, необходимо удалить ее до или после установки пакета NuGet поставщика кэша вывода Redis. В противном случае в проекте возникнет конфликт имен. Дополнительные сведения об этих пакетах см. в разделе [Настройка клиентов кэша .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
@@ -81,4 +81,4 @@
 
 Посетите страницу [Поставщик состояний сеансов ASP.NET для кэша Redis для Azure](cache-aspnet-session-state-provider.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

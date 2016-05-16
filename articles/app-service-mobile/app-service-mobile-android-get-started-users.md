@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Добавление проверки подлинности на Android с помощью мобильных приложений | Служба приложений Azure"
+	pageTitle="Добавление проверки подлинности в Android с помощью мобильных приложений | Служба приложений Azure"
 	description="Узнайте, как использовать мобильные приложения в службе приложений Azure для аутентификации пользователей приложения Android с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
 	services="app-service\mobile"
 	documentationCenter="android"
-	authors="ggailey777"
-	manager="dwrede"
+	authors="RickSaling"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/04/2016"
-	ms.author="glenga"/>
+	ms.date="05/03/2016"
+	ms.author="ricksal"/>
 
 # Добавление проверки подлинности в приложение Android
 
@@ -69,4 +69,4 @@
 [Начало работы с мобильными приложениями]: app-service-mobile-android-get-started.md
 [Начало работы с мобильными службами]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Использование команды Azure PowerShell для создания пустого контейнера облачной службы | Microsoft Azure"
-   description="В этой статье объясняется, как создать контейнер облачной службы и выполнить операции управления, связанные с облачными службами, с помощью сценария PowerShell"
+   pageTitle="Создание контейнера облачной службы с помощью PowerShell | Microsoft Azure"
+   description="В этой статье объясняется, как создать контейнер облачной службы с помощью PowerShell. В контейнере размещаются веб- и рабочие роли."
    services="cloud-services"
    documentationCenter=".net"
    authors="cawaMS"
-   manager="paulyuk"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="cawa"/>
 
 # Использование команды Azure PowerShell для создания пустого контейнера облачной службы
@@ -32,11 +32,13 @@
     New-AzureService [-ServiceName] <String> [-Location] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
 ```
 
-5. Ниже приводится пример вызова командлета: ```
-New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
+5. Ниже приводится пример вызова командлета:
+```
+New-AzureService -ServiceName "mytestcloudservice" -Location "Central US" -Label "mytestcloudservice"
 ```
 
-Чтобы получить дополнительные сведения о создании облачной службы Azure, выполните следующую команду: ```
+Чтобы получить дополнительные сведения о создании облачной службы Azure, выполните следующую команду:
+```
 Get-help New-AzureService
 ```
 
@@ -46,4 +48,4 @@ Get-help New-AzureService
 
  * Чтобы опубликовать проект облачной службы в Azure, используйте образец кода **PublishCloudService.ps1** из статьи [Непрерывная доставка для облачных служб в Azure](cloud-services-dotnet-continuous-delivery.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
+	ms.date="04/28/2016" 
 	ms.author="mimig"/>
 
 # Знакомство с DocumentDB — базой данных NoSQL для Microsoft Azure 
@@ -31,4 +31,4 @@
 **Скачивание PDF-файла:** [Знакомство с DocumentDB — базой данных NoSQL для Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

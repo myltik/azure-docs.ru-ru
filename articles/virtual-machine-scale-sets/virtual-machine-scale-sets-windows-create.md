@@ -14,34 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/26/2016"
 	ms.author="davidmu"/>
 
 # Создание набора масштабирования виртуальных машин Windows с помощью Azure PowerShell
 
-Материал в этих шагах для создания набора масштабирования виртуальных машин Azure представлен таким образом, что достаточно лишь заполнить пробелы. В статье встречаются переменные, значения которых вам необходимо указать. Замените текст в кавычках на значения, соответствующие вашей подписке и приложению.
+Материал в этой процедуре создания набора масштабирования виртуальных машин Azure представлен таким образом, что достаточно лишь заполнить пробелы. Дополнительные сведения о наборах масштабирования см. в статье [Обзор наборов для масштабирования виртуальных машин](virtual-machine-scale-sets-overview.md).
+
+Процедура, описанная в этой статье, занимает около 30 минут.
 
 ## Шаг 1. Установка Azure PowerShell
 
-[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
-
-## Шаг 2. Настройка подписки
-
-1. Запустите командную строку PowerShell.
-
-2. Войдите в свою учетную запись.
-
-        Login-AzureRmAccount
-
-3. Получите свою подписку.
-
-        Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
-
-4. Задайте подписку, которую нужно использовать в качестве текущей.
-
-        $subscr = "subscription name"
-        Select-AzureSubscription -SubscriptionName $subscr –Current
-
+Сведения о том, как установить последнюю версию Azure PowerShell, выбрать нужную подписку и войти в учетную запись Azure, см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 ## Шаг 2. Создание ресурсов
 
@@ -51,7 +35,7 @@
 
 Набор масштабирования виртуальных машин должен содержаться в группе ресурсов.
 
-1.  Чтобы получить список доступных расположений и поддерживаемых служб, выполните следующую команду:
+1.  Получите список доступных расположений и поддерживаемых служб, выполнив следующую команду:
 
         Get-AzureLocation | Sort Name | Select Name, AvailableServices
 
@@ -78,13 +62,16 @@
         West India          {Compute, Storage, PersistentVMRole, HighMemory}
         West US             {Compute, Storage, PersistentVMRole, HighMemory}
 
-    Выберите наиболее подходящее расположение, а затем замените текст в кавычках на название этого расположения.
+2. Выберите подходящее расположение, замените значение **$locName** именем этого расположения, а затем создайте переменную:
 
         $locName = "location name from the list, such as Central US"
 
-4. Замените текст в кавычках на имя, которое вы хотите использовать для новой группы ресурсов, а затем создайте ее в расположении, заданном ранее.
+3. Замените значение **$rgName** именем, которое вы хотите использовать для новой группы ресурсов, а затем создайте переменную:
 
         $rgName = "resource group name"
+        
+4. Создайте группу ресурсов:
+    
         New-AzureRmResourceGroup -Name $rgName -Location $locName
 
     Вы увидите нечто вроде этого:
@@ -99,16 +86,24 @@
 
 Для хранения связанных дисков виртуальным машинам, создаваемым в наборе масштабирования, требуется учетная запись хранения.
 
-1. Замените текст в кавычках на имя, которое нужно использовать для учетной записи хранения, а затем проверьте, является ли оно уникальным.
+1. Замените значение **saName** именем, которое вы хотите использовать для учетной записи хранения, а затем создайте переменную: 
 
         $saName = "storage account name"
+        
+2. Убедитесь, что выбранное имя является уникальным:
+    
         Test-AzureName -Storage $saName
 
     Если команда возвращает значение **False**, предложенное имя является уникальным.
 
-2. Замените текст в кавычках на тип учетной записи хранения, а затем создайте учетную запись с ранее заданными именем и расположением. Возможные значения: Standard\_LRS, Standard\_GRS, Standard\_RAGRS и Premium\_LRS.
+3. Замените значение **$saType** типом учетной записи хранения, а затем создайте переменную:
 
         $saType = "storage account type"
+        
+    Возможные значения: Standard\_LRS, Standard\_GRS, Standard\_RAGRS и Premium\_LRS.
+        
+4. Создайте учетную запись:
+    
         New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
 
     Вы увидите нечто вроде этого:
@@ -136,165 +131,163 @@
 
 Виртуальная сеть обязательна для виртуальных машин в наборе масштабирования.
 
-1. Замените текст в кавычках на имя, которое вы хотите использовать для подсети в виртуальной сети, а затем создайте конфигурацию.
+1. Замените значение **$subName** именем, которое вы хотите использовать для подсети в виртуальной сети, а затем создайте переменную. 
 
         $subName = "subnet name"
+        
+2. Создайте конфигурацию подсети:
+    
         $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subName -AddressPrefix 10.0.0.0/24
+        
+    Префикс адреса может отличаться в вашей виртуальной сети.
 
-2. Замените текст в кавычках на имя, которое вы хотите использовать для виртуальной сети, а затем создайте ее, используя ранее определенные сведения и ресурсы.
+3. Замените значение **$netName** именем, которое вы хотите использовать для виртуальной сети, а затем создайте переменную.
 
-        $netName="virtual network name"
-        $vnet=New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
+        $netName = "virtual network name"
+        
+4. Создайте виртуальную сеть:
+    
+        $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 ### Общедоступный IP-адрес
 
 Перед тем как создавать сетевой интерфейс, необходимо создать общедоступный IP-адрес.
 
-1. Замените текст в кавычках на доменное имя, которое хотите использовать с общедоступным IP-адресом, а затем проверьте, является ли оно уникальным. Доменное имя может содержать только буквы, цифры и дефисы. Последним символом должна быть буква или цифра.
+1. Замените значение **$domName** именем домена, которое хотите использовать с общедоступным IP-адресом, а затем создайте переменную:  
 
         $domName = "domain name label"
+        
+    Доменное имя может содержать только буквы, цифры и дефисы. Последним символом должна быть буква или цифра.
+    
+2. Проверьте, является ли имя уникальным:
+    
         Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
 
-    Если команда возвращает значение **False**, предложенное имя является уникальным.
+    Если команда возвращает значение **True**, предложенное имя является уникальным.
 
-2. Замените текст в кавычках на имя, которое хотите использовать для общедоступного IP-адреса, а затем создайте его.
+3. Замените значение **$pipName** именем, которое вы хотите использовать для общедоступного IP-адреса, а затем создайте переменную.
 
         $pipName = "public ip address name"
+        
+4. Создайте общедоступный IP-адрес:
+    
         $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
 
 ### Сетевой интерфейс
 
 Теперь, когда есть общедоступный IP-адрес, вы можете создать сетевой интерфейс.
 
-1. Замените текст в кавычках на имя, которое вы хотите использовать для сетевого интерфейса, а затем создайте его, используя ранее созданные ресурсы.
+1. Замените значение **$nicName** именем, которое вы хотите использовать для сетевого интерфейса, а затем создайте переменную. 
 
         $nicName = "network interface name"
+        
+2. Создайте сетевой интерфейс:
+    
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
+### Конфигурации набора масштабирования
 
-### Создание набора масштабирования виртуальных машин
+Теперь у нас есть все ресурсы, необходимые для конфигурации набора масштабирования, и мы можем приступить к ее созданию.
 
-Теперь, когда у вас есть все необходимые ресурсы, можно создать набор масштабирования.
-
-1. Замените текст в кавычках на имя, которое хотите использовать для конфигурации IP, а затем создайте ее.
+1. Замените значение **$ipName** именем, которое вы хотите использовать для конфигурации IP, а затем создайте переменную. 
 
         $ipName = "IP configuration name"
+        
+2. Создайте конфигурацию IP:
+
         $ipConfig = New-AzureRmVmssIpConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-2. Замените текст в кавычках на имя, которое хотите использовать для конфигурации набора масштабирования, а затем создайте ее. Этот шаг включает задание размера (SkuName) виртуальных машин в наборе. Чтобы подобрать размер в соответствии со своими потребностями, обратитесь к статье [Размеры виртуальных машин](..\virtual-machines\virtual-machines-windows-sizes.md). В этом примере рекомендуется использовать размер Standard\_A0.
+2. Замените значение **$vmssConfig** именем, которое вы хотите использовать для конфигурации набора масштабирования, а затем создайте переменную.
 
-        $vmssName = "Scale set configuration name"
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0"
-        Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssName -Primary $true -IPConfiguration $ipConfig
+        $vmssConfig = "Scale set configuration name"
+        
+3. Создайте конфигурацию для набора масштабирования:
 
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
+        
+    В этом примере показано создание набора масштабирования с тремя виртуальными машинами. Дополнительные сведения о возможностях наборов масштабирования см. в статье [Обзор наборов для масштабирования виртуальных машин](virtual-machine-scale-sets-overview.md). Этот шаг также включает задание размера (параметр SkuName) виртуальных машин в наборе. Чтобы подобрать размер в соответствии со своими потребностями, обратитесь к статье [Размеры виртуальных машин](..\virtual-machines\virtual-machines-windows-sizes.md).
+    
+4. Добавьте конфигурацию сетевого интерфейса в конфигурацию набора масштабирования:
+        
+        Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
+        
     Вы увидите нечто вроде этого:
 
-        Sku                   : {
-                                  "name": "Standard_A0",
-                                  "tier": null,
-                                  "capacity": 3
-        						}
-        UpgradePolicy         : {
-                                  "mode": "automatic"
-                                }
-        VirtualMachineProfile : {
-                                  "osProfile": null,
-                                  "storageProfile": null,
-                                  "networkProfile": {
-                                    "networkInterfaceConfigurations": [
-                                      {
-                                        "name": "myniccfg1",
-                                        "properties.primary": true,
-                                        "properties.ipConfigurations": [
-                                          {
-                                            "name": "myipconfig1",
-                                            "properties.subnet": {
-                                              "id": "/subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft.Network/virtualNetworks/myvn1/subnets/mysn1"
-                                            },
-                                            "properties.loadBalancerBackendAddressPools": [],
-                                            "properties.loadBalancerInboundNatPools": [],
-                                            "id": null
-                                          }
-                                        ],
-                                        "id": null
-                                      }
-                                    ]
-                                  },
-                                  "extensionProfile": {
-                                    "extensions": null
-                                  }
-                                }
+        Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
+        UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
+        VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
         ProvisioningState     :
+        OverProvision         :
         Id                    :
         Name                  :
         Type                  :
         Location              : Central US
-        Tags.Count            : 0
         Tags                  :
 
-3. Замените текст в кавычках на нужный префикс имени компьютера, имя учетной записи администратора виртуальных машин и пароль к учетной записи, а затем создайте профиль операционной системы.
+#### Профиль операционной системы
+
+1. Замените значение **$computerName** префиксом имени компьютера, а затем создайте переменную: 
 
         $computerName = "computer name prefix"
+        
+2. Замените значение **$adminName** именем учетной записи администратора на виртуальных машинах, а затем создайте переменную:
+
         $adminName = "administrator account name"
+        
+3. Замените значение **$adminPassword** паролем учетной записи, а затем создайте переменную:
+
         $adminPassword = "password for administrator accounts"
+        
+4. Создайте профиль операционной системы:
+
         Set-AzureRmVmssOsProfile -VirtualMachineScaleSet $vmss -ComputerNamePrefix $computerName -AdminUsername $adminName -AdminPassword $adminPassword
 
-    В разделе osProfile вы должны увидеть нечто наподобие этого:
+#### Профиль хранилища
 
-        "osProfile": {
-          "computerNamePrefix": "myvmss1",
-          "adminUsername": "########",
-          "adminPassword": "########",
-          "customData": null,
-          "windowsConfiguration": null,
-          "linuxConfiguration": null,
-          "secrets": null
-        },
-
-4. Замените текст в кавычках на имя, которое хотите использовать для профиля хранилища, сведения об образе и путь к месту в хранилище, где хранятся диски виртуальных машин, а затем создайте профиль. Необходимую информацию см. в статье [Просмотр и выбор образов виртуальных машин в Azure с помощью интерфейса командной строки или оболочки PowerShell](..\virtual-machines\virtual-machines-windows-cli-ps-findimage.md).
+1. Замените значение **$storageProfile** именем, которое вы хотите использовать для профиля хранилища, а затем создайте переменную:  
 
         $storeProfile = "storage profile name"
-        $imagePublisher = "image publisher name, such as MicrosoftWindowsServer"
-        $imageOffer = "offer from publisher, such as WindowsServer"
-        $imageSku = "sku of image, such as 2012-R2-Datacenter"
+        
+2. Создайте переменные, которые определяют используемый образ:
+      
+        $imagePublisher = "MicrosoftWindowsServer"
+        $imageOffer = "WindowsServer"
+        $imageSku = "2012-R2-Datacenter"
+        
+    Сведения о других образах см. в статье [Просмотр и выбор образов виртуальных машин Azure с помощью Windows PowerShell и Azure CLI](..\virtual-machines\virtual-machines-windows-cli-ps-findimage.md).
+        
+3. Замените значение **$vhdContainer** путем к папке, в которой хранятся виртуальные жесткие диски, например https://mystorage.blob.core.windows.net/vhds, а затем создайте переменную:
+       
         $vhdContainer = "URI of storage container"
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainer -OsDiskCreateOption "FromImage" -OsDiskCaching "None"
+        
+4. Создайте профиль хранилища:
 
-    В разделе storageProfile вы увидите нечто вроде этого:
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainer -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
-        "storageProfile": {
-          "imageReference": {
-            "publisher": "MicrosoftWindowsServer",
-            "offer": "WindowsServer",
-            "sku": "2012-R2-Datacenter",
-            "version": "latest"
-          },
-          "osDisk": {
-            "name": "mystore1",
-            "caching": "None",
-            "createOption": "FromImage",
-            "osType": null,
-            "image": null,
-            "vhdContainers": {
-              "http://myst1.blob.core.windows.net/vhds"
-            }
-          }
-        },
+### Набор масштабирования виртуальных машин
 
-5. Замените текст в кавычках на имя набора масштабирования виртуальных машин и создайте его.
+Наконец, мы можем создать набор масштабирования.
+
+1. Замените значение **$vmssName** именем набора масштабирования виртуальных машин, а затем создайте переменную:
 
         $vmssName = "scale set name"
+        
+2. Создайте набор масштабирования:
+
         New-AzureRmVmss -ResourceGroupName $rgName -Name $vmssName -VirtualMachineScaleSet $vmss
 
     Если развертывание прошло успешно, вы увидите нечто вроде этого:
 
-        ProvisioningState     : Succeeded
-        Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft.Compute/virtualMachineScaleSets/myvmss1
+        Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
+        UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
+        VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
+        ProvisioningState     : Updating
+        OverProvision         :
+        Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
+                               ft.Compute/virtualMachineScaleSets/myvmss1
         Name                  : myvmss1
         Type                  : Microsoft.Compute/virtualMachineScaleSets
         Location              : centralus
-        Tags.Count            : 0
         Tags                  :
 
 ## Шаг 3. Изучение ресурсов
@@ -309,8 +302,8 @@
 
 ## Дальнейшие действия
 
-1. Дополнительные сведения см. в статье [Обзор наборов для масштабирования виртуальных машин](virtual-machine-scale-sets-overview.md).
+- Сведения об управлении созданным набором масштабирования можно найти в статье [Управление виртуальными машинами в наборе масштабирования виртуальных машин](virtual-machine-scale-sets-windows-manage.md).
+- Вы можете настроить автоматическое масштабирование набора масштабирования с помощью сведений в статье [Автоматическое масштабирование и наборы масштабирования виртуальных машин](virtual-machine-scale-sets-autoscale-overview.md).
+- Дополнительные сведения о вертикальном масштабировании см. в статье [Вертикальное автомасштабирование масштабируемых наборов виртуальных машин](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-2. Вы можете настроить автоматическое масштабирование набора масштабирования с помощью сведений в статье [Автоматическое масштабирование и наборы масштабирования виртуальных машин](virtual-machine-scale-sets-autoscale-overview.md).
-
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

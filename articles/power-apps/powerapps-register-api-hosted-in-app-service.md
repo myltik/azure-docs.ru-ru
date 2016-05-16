@@ -14,63 +14,77 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="guayan"/>
 
 # Регистрация API, размещенных в среде службы приложений
-PowerApps поддерживает регистрацию существующих API, размещенных на локальном компьютере или в любой части облака, что открывает действительно широкие возможности. В некоторых случаях может потребоваться разработка или создание нескольких новых API. Например, вы можете:
 
-- Реализовать некоторые новые функции для использования вашей организацией.
-- Сделать создание приложений более удобным для пользователей, используя доступные функции или данные.
+> [AZURE.IMPORTANT] Эта тема помещена в архив и скоро будет удалена. Узнать о наших новых планах можно в новом разделе [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Дополнительные сведения о PowerApps и инструкции по началу работы можно найти на сайте [PowerApps](https://powerapps.microsoft.com).  
+> - Дополнительные сведения о доступных подключениях в PowerApps см. в статье [Доступные подключения](https://powerapps.microsoft.com/tutorials/connections-list/).  
+> - Дополнительные сведения о настраиваемых интерфейсах API в PowerApps см. в статье [Что такое пользовательские интерфейсы API](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
 
-Размещая API в [среде службы приложений](../app-service-web/app-service-app-service-environment-intro.md), вы можете использовать все ее функции, а также возможности интеграции.
+<!--Archived
+PowerApps supports registering existing APIs hosted anywhere in the cloud or on-premises, which is really powerful. In some scenarios, you may want to develop or create some new APIs. For example, you may want to:
 
-Чтобы использовать эти API в приложениях, необходимо "зарегистрировать" интерфейсы API на портале Azure, воспользовавшись управляемым API, существующими API в среде службы приложений или создав API с помощью Swagger.
+- Implement some new functionality for your organization to use.
+- Build on top of existing functionality or data to provide a better experience for users building their apps.
+
+When you host your APIs in your app service environment, you leverage all the existing capabilities of the [app service environment](../app-service-web/app-service-app-service-environment-intro.md), and also get a better integration experience.
+
+To use these APIs in your apps, you must "register" the APIs in the Azure portal using a managed API, existing APIs in your app service environment, or creating an API using Swagger. 
 
 > [AZURE.SELECTOR]
-- [Управляемые API](../articles/power-apps/powerapps-register-from-available-apis.md)
-- [Интерфейсы API в ASE](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
-- [Интерфейсы API Swagger](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
+- [Managed APIs](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [APIs in your ASE](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [Swagger APIs](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-В этом разделе мы рассмотрим второй вариант: **регистрацию веб-приложения, приложения API или мобильного приложения, размешенного в вашей среде службы приложений**.
+In this topic, we focus on the second option - **registering a web app, API app, and mobile app hosted in your app service environment**.
 
-#### Предварительные требования для начала работы
+#### Prerequisites to get started
 
-- Регистрация в службе [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
-- Создание [среды службы приложений](powerapps-get-started-azure-portal.md).
+- Sign up for [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
+- Create an [app service environment](powerapps-get-started-azure-portal.md).
 
 
-## Разработка и развертывание API в среде службы приложений
+## Develop and deploy an API in you app service environment
 
-Разработка API в среде службы приложений выполняется очень просто. Выберите язык программирования для создания веб-API, а затем опишите определение API, используя [Swagger 2.0](http://swagger.io). Некоторые примеры:
+Developing an API in the app service environment is straightforward. You choose your favorite programming language to build a web API, and then use [Swagger 2.0](http://swagger.io) to describe the API definition. Some examples include:  
 
-- [Создание и развертывание приложения API .NET в службе приложений Azure](../app-service-api/app-service-api-dotnet-get-started.md)
-- [Сборка и развертывание приложения API Java в службе приложений Azure](../app-service-api/app-service-api-java-api-app.md)
-- [Создание и развертывание приложения API Node.js в службе приложений Azure](../app-service-api/app-service-api-nodejs-api-app.md)
+- [Build and deploy a .NET in Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md)
+- [Build and deploy a Java API app in Azure App Service](../app-service-api/app-service-api-java-api-app.md)
+- [Build and deploy a Node.js API app in Azure App Service](../app-service-api/app-service-api-nodejs-api-app.md)
 
-Кроме того, вы можете развернуть веб-API в среде службы приложений, включая развертывание из Visual Studio, а также непрерывное развертывание с использованием системы управления версиями. [Развертывание веб-приложения в службе приложений Azure](../app-service-web/web-sites-deploy.md) — это отличный ресурс.
+You also have options to deploy your web API into an app service environment, including deploying from Visual Studio, and deploying continuously using a source control system.  [Deploy a web app in Azure App Service](../app-service-web/web-sites-deploy.md) is a good resource. 
 
-## Регистрация пользовательского API в среде службы приложений
+## Register your custom API in the app service environment
 
-Развернув API в среде службы приложений, выполните описанные ниже действия, чтобы зарегистрировать API.
+After the API is deployed to your app service environment, use the following steps to register:
 
-1. На [портале Azure](https://portal.azure.com/) выберите **PowerApps**, а затем **Управление API**: ![][11]
-2. В разделе "Управление API" щелкните **Добавить**: ![][12]  
-3. В разделе **Добавление API** введите свойства API:  
+1. In the [Azure portal](https://portal.azure.com/), select **PowerApps**, and then select **Manage APIs**:  
+![][11]
+2. In Manage APIs, select **Add**:  
+![][12]  
+3. In **Add API**, enter the API properties:  
 
-	- В поле **Имя** введите имя API. Обратите внимание на то, что введенное имя включается в URL-адрес API среды выполнения. Оно должно быть понятным и уникальным в пределах вашей организации.	
-	- В поле **Источник** выберите параметр **Импорт из API, размещенных в среде службы приложений**: ![][13]
-4. В поле **API, размещенные в среде службы приложений** выберите API, который нужно импортировать. Этот список содержит все веб-приложения, приложения API и мобильные приложения в среде службы приложений с правильно настроенным адресом **apiDefinition.url**. Для импорта API используется определение API Swagger 2.0, полученное с помощью этого свойства. При регистрации API убедитесь в том, что данный URL-адрес является общедоступным: ![][14]
-5. Нажмите кнопку **ДОБАВИТЬ**, чтобы завершить эти действия.
+	- In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.	
+	- In **Source**, select **Import from APIs hosted in App Service Environment**:  
+	![][13]
+4. In **API hosted in App Service Environment**, select the API you want to import. This list shows every web app, API app, and mobile app in your app service environment  that has its **apiDefinition.url** property configured. To import the API, it uses the Swagger 2.0 API definition exposed using this property. Make sure this URL is publicly accessible when you register the API:  
+![][14]
+5. Select **ADD** to complete these steps.
 
-> [AZURE.TIP] API регистрируется в среде службы приложений. После этого API сможет использоваться другими приложениями, которые находятся в той же среде службы приложений.
+> [AZURE.TIP] When you register an API, you're registering the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment.
 
-## Сводка и дальнейшие действия
-В этом разделе вы узнали, как зарегистрировать API, размещенный в среде службы приложений. Ниже приведены некоторые связанные разделы и ресурсы для подробного изучения PowerApps.
+## Summary and next steps
+In this topic, you've seen how to register an APIs hosted in your app service environment. Here are some related topics and resources for learning more about PowerApps: 
 
-- [Настройка свойств API](powerapps-configure-apis.md)
-- [Предоставление пользователям доступа к API](powerapps-manage-api-connection-user-access.md)
-- [Создание собственных приложений PowerApps](https://powerapps.microsoft.com/tutorials/)
+- [Configure the API properties](powerapps-configure-apis.md)
+- [Give users access to the APIs](powerapps-manage-api-connection-user-access.md)
+- [Start creating your apps in PowerApps](https://powerapps.microsoft.com/tutorials/)
+-->
+
 
 <!--Reference-->
 [11]: ./media/powerapps-register-api-hosted-in-app-service/registered-apis-part.png
@@ -78,4 +92,4 @@ PowerApps поддерживает регистрацию существующи
 [13]: ./media/powerapps-register-api-hosted-in-app-service/add-api-blade.png
 [14]: ./media/powerapps-register-api-hosted-in-app-service/add-api-select-from-ase.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

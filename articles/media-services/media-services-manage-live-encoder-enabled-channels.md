@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="05/03/2016"
 	ms.author="juliako"/>
 
 #Работа с каналами, выполняющими кодирование в реальном времени с помощью служб мультимедиа Azure
@@ -455,9 +455,9 @@
 Выберите **Портал**, **.NET**, **REST API**, чтобы увидеть, как создавать каналы и программы, а также управлять ими.
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- [Портал](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Пакет SDK для .NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [ИНТЕРФЕЙС REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 
 ##Схемы обучения работе со службами мультимедиа
@@ -480,4 +480,4 @@
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

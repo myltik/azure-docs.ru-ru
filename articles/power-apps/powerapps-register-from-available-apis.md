@@ -14,124 +14,133 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="guayan"/>
 
 # Регистрация API, управляемого корпорацией Майкрософт, или API, управляемого ИТ-службой
-Существуют API, **управляемые корпорацией Майкрософт**, и API, **управляемые ИТ-службой**. При включении PowerApps Enterprise API, управляемые корпорацией Майкрософт, автоматически становятся доступными. Управление памятью, подключениями, доверием и многими другими параметрами осуществляется автоматически. В качестве следующего шага введите пользовательские параметры, такие как учетная запись в Twitter и пароль.
 
-API, управляемые ИТ-службами, позволяют контролировать и отслеживать все параметры, включая память, подключение, доверие и многие другие. Помимо прочего, к API, управляемым ИТ-службами, относятся API, способные подключаться к локальной системе, такой как SQL Server и SharePoint Server.
+> [AZURE.IMPORTANT] Эта тема помещена в архив и скоро будет удалена. Узнать о наших новых планах можно в новом разделе [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Дополнительные сведения о PowerApps и инструкции по началу работы можно найти на сайте [PowerApps](https://powerapps.microsoft.com).  
+> - Дополнительные сведения о доступных подключениях в PowerApps см. в статье [Доступные подключения](https://powerapps.microsoft.com/tutorials/connections-list/).  
+> - Дополнительные сведения о настраиваемых интерфейсах API в PowerApps см. в статье [Что такое пользовательские интерфейсы API](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+
+<!--Archived
+There are **Microsoft managed** and **IT managed** APIs. When you enable PowerApps Enterprise, the Microsoft managed APIs are available to you automatically. The memory, connectivity, trust, and more are also automatically managed for you. Your next step is to enter any specific user settings, like a Twitter account and password. 
+
+Using the IT managed APIs, you control and monitor everything, including memory, connectivity, trust, and more. The IT managed APIs also include the APIs that can connect to an on-premises system, like SQL Server and SharePoint Server. 
 
 > [AZURE.SELECTOR]
-- [Управляемые API](../articles/power-apps/powerapps-register-from-available-apis.md)
-- [Интерфейсы API в ASE](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
-- [Интерфейсы API Swagger](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
+- [Managed APIs](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [APIs in your ASE](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [Swagger APIs](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-В этом разделе мы рассмотрим первый вариант: **регистрацию API, управляемых корпорацией Майкрософт, и API, управляемых ИТ-службой**.
+In this topic, we focus on the first option - **registering the Microsoft managed APIs and the IT managed APIs**. 
 
-#### Предварительные требования для начала работы
+#### Prerequisites to get started
 
-- Регистрация в службе [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
-- Создание [среды службы приложений](powerapps-get-started-azure-portal.md).
-
-
-## Просмотр доступных API, управляемых корпорацией Майкрософт
-API, **управляемые корпорацией Майкрософт**, предоставляются вместе с PowerApps Enterprise и также размещаются корпорацией Майкрософт. Во многих сценариях API, управляемые корпорацией Майкрософт, идеально подходят для ваших приложений. Например, если приложение отправляет твит, загружает файл в OneDrive или отображает данные из файла Excel, API, управляемые корпорацией Майкрософт, станут хорошим выбором.
-
-В число дополнительных преимуществ входят следующие.
-
-- Вы получаете все API, управляемые корпорацией Майкрософт, и можете зарегистрировать собственный экземпляр. 
-- Ресурсы, включая сети, память или конфигурации безопасности, отслеживаются автоматически. Например, если для отображения данных Excel в приложении требуется больше памяти, она будет добавлена автоматически. 
-- Отношение доверия между приложением и API, например между Office и Twitter, создается автоматически. 
+- Sign up for [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
+- Create an [app service environment](powerapps-get-started-azure-portal.md).
 
 
-#### API, управляемые корпорацией Майкрософт
+## View the available Microsoft managed APIs
+The **Microsoft managed** APIs are provided with PowerApps Enterprise and are also hosted by Microsoft. In many scenarios, the Microsoft managed APIs are ideal for your apps. For example, if your app sends a tweet, uploads a file to OneDrive, or displays data from an Excel file, then these Microsoft managed APIs are a good choice. 
 
-API | Описание | Ссылка на инструкции
+Some additional benefits include: 
+
+- You get all the Microsoft managed APIs available for you to register your own instance. 
+- The resources, including network, memory, or security configurations, are monitored automatically. For example, if you need more memory to display Excel data in your app, more memory is automatically added. 
+- A trust between your app and the API, like Office and Twitter, is created automatically. 
+
+
+#### Microsoft managed APIs
+
+API | Description | Steps Link
 --- | --- | ---
-![][31] | **Dropbox**<br/><br/> Получение, обновление, удаление элементов и многое другое. | [**Приступая к работе**](powerapps-create-api-dropbox.md)
-![][32] | **DynamicsCRM Online**<br/><br/> Получение, обновление, удаление элементов и многое другое. | [**Приступая к работе**](powerapps-create-api-crmonline.md)
-![][33] | **Excel**<br/><br/> Получение, обновление, удаление элементов и многое другое. | [**Приступая к работе**](powerapps-create-api-excel.md)
-![][34] | **Google Диск**<br/><br/> Получение, обновление, удаление элементов и многое другое. | [**Приступая к работе**](powerapps-create-api-googledrive.md)
-![][35] | **Microsoft Translator**<br/><br/> Перевод текста, определение языков и многое другое. | [**Приступая к работе**](powerapps-create-api-microsofttranslator.md)
-![][36] | **Office 365 Outlook**<br/><br/> Управление электронной почтой. | [**Приступая к работе**](powerapps-create-api-office365-outlook.md)
-![][37] | **Пользователи Office 365**<br/><br/> Доступ к профилям пользователей, их руководителям, отчетам и многое другое. | [**Приступая к работе**](powerapps-create-api-office365-users.md)
-![][38] | **OneDrive**<br/><br/> Получение, обновление, удаление элементов и многое другое. | [**Приступая к работе**](powerapps-create-api-onedrive.md)
-![][39] | **Salesforce**<br/><br/> Получение, обновление, удаление элементов и многое другое. | [**Приступая к работе**](powerapps-create-api-salesforce.md)
-![][40] | **SharePoint Online**<br/><br/> Получение, обновление, удаление элементов и многое другое. | [**Приступая к работе**](powerapps-create-api-sharepointonline.md)
-![][43] | **Twitter**<br/><br/> Отправка и поиск твитов, просмотр подписчиков и многое другое. | [**Приступая к работе**](powerapps-create-api-twitter.md)
+![][31] | **Dropbox**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-dropbox.md)
+![][32] | **DynamicsCRM Online**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-crmonline.md)
+![][33] | **Excel**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-excel.md)
+![][34] | **Google Drive**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-googledrive.md)
+![][35] | **Microsoft Translator**<br/><br/>Translates text, detects languages, and more. | [**Get Started**](powerapps-create-api-microsofttranslator.md)
+![][36] | **Office 365 Outlook**<br/><br/>Manage your email. | [**Get Started**](powerapps-create-api-office365-outlook.md)
+![][37] | **Office 365 Users**<br/><br/>Access user profiles, their managers, their direct reports, and more. | [**Get Started**](powerapps-create-api-office365-users.md)
+![][38] | **OneDrive**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-onedrive.md)
+![][39] | **Salesforce**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-salesforce.md)
+![][40] | **SharePoint Online**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-sharepointonline.md)
+![][43] | **Twitter**<br/><br/> Send tweets, search tweets, see followers, and more. | [**Get Started**](powerapps-create-api-twitter.md)
 
 
-## Просмотр доступных API, управляемых ИТ-службами
-API, **управляемые ИТ-службами**, находятся под вашим контролем и управлением. Они не выполняются в среде, управляемой корпорацией Майкрософт. В некоторых случаях для нужд приложений подходит использование API в вашей собственной среде, управляемой ИТ-службой. Допустим, ваше приложение использует API Twitter и вместо ключа Майкрософт вам нужно указать ключ вашей организации для доступа к Twitter. В этом случае лучше настроить API Twitter как API, управляемый ИТ-службой. В другом примере приложение использует API SQL Server для подключения к локальной базе данных. В среде, управляемой ИТ-службой, вы можете настроить виртуальную сеть или использовать Express Route для подключения к локальной системе. Выбор за вами.
+## View the available IT managed APIs
+The **IT managed** APIs are controlled by you and managed by you. They do not run in the Microsoft managed environment. In some scenarios, using these APIs in your own IT managed environment may suit the needs of your apps. For example, your app uses the Twitter API and you need to use your organization's Twitter key (instead of the Microsoft Twitter key). In this situation, it's best to configure the Twitter API as an IT managed API. In another example, your app use the SQL Server API to connect to an on-premises database. In an IT managed environment, you can set up a virtual network or use Express Route to connect to on-premises. The choice is yours.
 
-В число дополнительных преимуществ входят следующие.
+Some additional benefits include:
 
-- Ресурсы, включая сеть, память и конфигурации безопасности, отслеживаются вами. Например, если для отображения данных Excel в приложении требуется больше памяти, вы можете указать, сколько памяти нужно добавить в среду. 
-- Вы сами настраиваете отношения доверия между приложениями и API и управляете их безопасностью. Например, вы можете настроить API Office 365 как API, управляемый корпорацией Майкрософт (выбрать автоматическое отношение доверия), или использовать API Office 365 из вашей собственной среды (создать собственное отношение доверия). 
-- Кроме того, **все** API, управляемые корпорацией Майкрософт, могут управляться ИТ-службами. Например, при желании вы можете создать свой собственный экземпляр Office 365 и получить над ним полный контроль. После этого API Office 365, управляемый ИТ-службой, и API Office 365, управляемый корпорацией Майкрософт, можно будет использовать в одной и той же среде. Все зависит от потребностей вашего приложения.
-- При подключении к локальным системам или использовании API поиска Bing безопасностью, проверкой подлинности, лицензированием и т. д. вы управляете сами.
+- The resources, including network, memory, or security configurations, are monitored by you. For example, if you need more memory to display Excel data in your app, you control how much more memory to add in your environment. 
+- You set up the trust and control the security between your apps and the API. For example, you determine if the Office 365 API can be Microsoft managed (an automatic trust) or use the Office 365 API within your own environment (create your own trust). 
+- **All** of the Microsoft managed APIs can also be IT managed. For example, if you want to create your own instance of Office 365 and have full control over this instance, you can. You can then use your Office 365 IT managed API and the Office 365 Microsoft managed API in the same environment. It really depends on the needs of your app.
+- When connecting to on-premises systems or using the Bing Search API, you control security, authentication, licensing, and more.
 
 
-#### API, управляемые ИТ-службами
-> [AZURE.NOTE] Помните, что **все** API, управляемые корпорацией Майкрософт, могут, помимо этого, управляться ИТ-службами. Перечисленные ниже API управляются только ИТ-службами и не могут управляться корпорацией Майкрософт.
+#### IT managed APIs
+> [AZURE.NOTE] Remember, **all** of the Microsoft managed APIs can also be IT managed. The following APIs are only IT managed; they cannot be Microsoft managed.
 
-API | Описание | Ссылка на инструкции
+API | Description | Steps Link
 --- | --- | ---
-![][30] | **Поиск Bing**<br/><br/>Внедрение результатов поиска, добавление функции поиска и многое другое. | [**Приступая к работе**](powerapps-create-api-bingsearch.md)
-![][42] | **SQL Server**<br/><br/>Получение, обновление, удаление элементов и многое другое. | [**Приступая к работе**](powerapps-create-api-sqlserver.md)
-![][41] | **SharePoint Server**<br/><br/>Получение, обновление, удаление элементов и многое другое. | [**Приступая к работе**](powerapps-create-api-sharepointserver.md)
+![][30] | **Bing Search**<br/><br/>Embed search results, add search functionality, and more. | [**Get Started**](powerapps-create-api-bingsearch.md)
+![][42] | **SQL Server**<br/><br/>You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-sqlserver.md)
+![][41] | **SharePoint Server**<br/><br/>You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-sharepointserver.md)
 
 
-#### Зачем регистрировать собственные экземпляры
+#### Why register your own instances
 
-Использовать готовые API, управляемые корпорацией Майкрософт, очень удобно. С другой стороны, регистрация собственных экземпляров как API, управляемых ИТ-службами, обладает множеством преимуществ. На высоком уровне рекомендуем создавать API, управляемые ИТ-службами, если вам нужно следующее.
+Using the out-of-box Microsoft managed APIs is convenient. Having said that, registering your own instances as IT managed APIs has many benefits. At a high level, we recommend you create IT managed APIs when you want to: 
 
-- Полное управление API, включая управление доступом пользователей, безопасность при подключении к другим системам, ограничение на число вызовов API, мониторинг и дополнительные функции, такие как политики, и многое другое.
-- Доступ к локальным данным, поскольку среда службы приложений поддерживает виртуальные сети.
-- Настройка для бизнес-пользователей API, который они не могут использовать напрямую.
+- Have full manageability on the APIs, including user access, security when connecting to other systems, API call limits, monitoring and advanced features like policies, and more.
+- Access on-premises data since App Service Environment supports virtual networks.
+- Set up the APIs for business users, which they may not be able to use by themselves.
 
-В представленной ниже таблице сравниваются возможности API, управляемых корпорацией Майкрософт, и API, управляемых ИТ-службами.
+The following table compares the capabilities of the Microsoft managed and IT managed APIs:
 
-| Функция | Управляется корпорацией Майкрософт | Управляется ИТ-службами |
+| Capability | Microsoft Managed | IT Managed |
 | ---------- | ----------------- | ------------ |
-| Ограничение на число вызова API | Определяется корпорацией Майкрософт | Определяется вами (с помощью политик) |
-| Подключение к SaaS с использованием собственного ключа | Не поддерживается | Поддерживаются |
-| Доступ пользователей к API | Включен для всех | Полное управление на уровне пользователей и групп AAD |
-| Мониторинг API | Не поддерживается | Поддерживаются |
-| Политики API | Не поддерживается | Поддерживаются |
-| Доступ пользователей к подключению | Только просмотр | Полное управление на уровне пользователей и групп AAD |
-| Управление подключениями | Только просмотр | Полноценное управление |
+| API call limits | Defined by Microsoft | Defined by yourself (via policies) |
+| Bring your own key when connecting to SaaS | Not supported | Supported |
+| API user access | Enabled for everyone | Fully manageable at AAD user and group level |
+| API Monitoring | Not supported | Supported |
+| API Policies | Not supported | Supported |
+| Connection user access | View only | Fully manageable at AAD user and group level |
+| Connection management | View only | Fully manageable |
 
 
-## Регистрация API, управляемых корпорацией Майкрософт, или API, управляемых ИТ-службой
+## Register a Microsoft managed or IT managed API
 
-1. Войдите на [портал Azure](https://portal.azure.com/) с помощью рабочей учетной записи (*имя\_пользователя*@*компания*.com). Будет выполнен автоматический вход в подписку вашей компании.
-2. Выберите **Обзор**, **PowerApps**, а затем выберите **Управление API**.  
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account (*yourUserName*@*YourCompany*.com). You are automatically signed in to your company subscription.
+2. Select **Browse**, select **PowerApps**, and then select **Manage APIs**:  
 ![][17]
-3. В разделе "Управление API" щелкните **Добавить**:  
-![][18]
-4. В разделе **Добавление API** введите свойства API:  
+3. In Manage APIs, select **Add**:  
+![][18]  
+4. In **Add API**, enter the API properties:  
 
-	- В поле **Имя** введите имя API. Обратите внимание на то, что введенное имя включается в URL-адрес API среды выполнения. Оно должно быть понятным и уникальным в пределах вашей организации.
-	- В поле **Источник** выберите параметр **Из доступных API**:  
+	- In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.
+	- In **Source**, select **From available APIs**:  
 	![][19]
-5. Выберите **API**, а затем API, который нужно зарегистрировать:  
+5. Select **API** and then choose the API you want to register:  
 ![][20]
-6. Выберите определенный API и добавьте настраиваемые свойства.
-7. Нажмите кнопку **ДОБАВИТЬ**, чтобы завершить эти действия.
+6. Select your specific API and add any configurable properties.
+7. Select **ADD** to complete these steps.
 
-> [AZURE.TIP] API регистрируется в среде службы приложений. После этого API сможет использоваться другими приложениями, которые находятся в той же среде службы приложений.
-
-
-## Сводка и дальнейшие действия
-
-В этом разделе было показано, как зарегистрировать собственный экземпляр доступных API, включенных в PowerApps. Ниже приведены некоторые связанные разделы и ресурсы для подробного изучения PowerApps.
+> [AZURE.TIP] When you register an API, you're registering the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment.
 
 
-- [Настройка свойств API](powerapps-configure-apis.md)
-- [Предоставление пользователям доступа к API](powerapps-manage-api-connection-user-access.md)
-- [Создание собственных приложений PowerApps](https://powerapps.microsoft.com/tutorials/)
+## Summary and next steps
+
+In this topic, you've seen how to register your own instance of the available APIs that PowerApps provides out-of-box. Here are some related topics and resources for learning more about PowerApps:  
+
+
+- [Configure the API properties](powerapps-configure-apis.md)
+- [Give users access to the APIs](powerapps-manage-api-connection-user-access.md)
+- [Start creating your apps in PowerApps](https://powerapps.microsoft.com/tutorials/)
+-->
 
 
 <!--References-->
@@ -155,4 +164,4 @@ API | Описание | Ссылка на инструкции
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

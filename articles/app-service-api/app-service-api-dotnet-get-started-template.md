@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="04/13/2016"
 	ms.author="tdykstra"/>
 
@@ -263,4 +263,4 @@
 
 Из этого руководства вы узнали, как создать простое веб-приложение и развернуть его в приложении API с помощью службы приложений Azure. Общие сведения о возможностях службы приложений, упрощающих процесс разработки и использования веб-API, см. в серии руководств, начиная с [Приступая к работе с приложениями API и ASP.NET в службе приложений Azure](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

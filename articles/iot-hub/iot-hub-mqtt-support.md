@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Поддержка MQTT в центре IoT
@@ -48,15 +48,15 @@
 
     Например, если имя центра IoT — **contoso.azure-devices.net** и имя устройства — **MyDevice01**, то полное поле **Имя пользователя** должно содержать `contoso.azure-devices.net/MyDevice01`.
 
-- В поле **Пароль** укажите маркер SAS. [Формат маркера SAS][lnk-iothub-security] аналогичен описанному для протоколов HTTP и AMQP: <br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
+- В поле **Пароль** укажите маркер SAS. Формат маркера SAS аналогичен описанному для протоколов HTTP и AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
 
-    Дополнительные сведения о способах создания маркеров SAS см. в разделе [Использование маркеров безопасности центра IoT][lnk-sas-tokens].
+    Дополнительные сведения о способах создания маркеров SAS см. в разделе описания устройств статьи [Использование маркеров безопасности центра IoT][lnk-sas-tokens].
     
-    При тестировании также можно использовать [Обозреватель устройства][lnk-device-explorer] для быстрого создания маркера SAS, который можно скопировать и вставить в собственный код:
+    При тестировании также можно использовать [обозреватель устройств][lnk-device-explorer] для быстрого создания маркера SAS, который можно скопировать и вставить в собственный код:
     
-    1. Перейдите на вкладку **Управление** в обозревателе устройства.
+    1. Перейдите на вкладку **Управление** в обозревателе устройств.
     2. Щелкните **Маркер SAS** (вверху справа).
-    3. В разделе **Форма маркера SAS** выберите свое устройство в раскрывающемся списке **Идентификатор устройства**. Установите свой **Срок жизни**.
+    3. В разделе **Форма маркера SAS** выберите свое устройство в раскрывающемся списке **Идентификатор устройства**. Установите нужный **срок жизни**.
     4. Щелкните **Создать** для создания маркера.
     
     Созданный маркер SAS выглядит следующим образом: `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
@@ -93,13 +93,12 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 [lnk-mqtt-org]: http://mqtt.org/
 [lnk-iot-get-stated]: iot-hub-csharp-csharp-getstarted.md
 [lnk-mqtt-docs]: http://mqtt.org/documentation
-[lnk-iothub-security]: iot-hub-devguide.md#security
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
-[lnk-sas-tokens]: iot-hub-sas-tokens.md
+[lnk-sas-tokens]: iot-hub-sas-tokens.md#using-sas-tokens-as-a-device
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

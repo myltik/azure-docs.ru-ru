@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Фильтры и динамические манифесты
@@ -87,7 +87,7 @@ URL-адрес Smooth Streaming с фильтром
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
 
 
-Дополнительные сведения о способах доставки содержимого и построения URL-адресов потоковой передачи см. в статье [Обзор доставки содержимого](media-services-deliver-content-overview/).
+Дополнительные сведения о способах доставки содержимого и построения URL-адресов потоковой передачи см. в статье [Обзор доставки содержимого](media-services-deliver-content-overview.md).
 
 
 >[AZURE.NOTE]Обратите внимание, что динамические манифесты не изменяют актив и его манифест по умолчанию. Клиент может запросить поток с фильтрами или без них.
@@ -236,4 +236,4 @@ URL-адрес Smooth Streaming с фильтром
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

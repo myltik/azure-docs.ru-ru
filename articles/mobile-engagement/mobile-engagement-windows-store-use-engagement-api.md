@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Как использовать API Engagement для универсальных приложений для Windows
 
-Этот документ представляет собой дополнение к документу [Как интегрировать Engagement в универсальные приложения для Windows](../mobile-engagement-windows-store-integrate-engagement/). В нем предоставлена подробная информация о том, как использовать API Engagement для сообщения статистики приложения.
+Этот документ представляет собой дополнение к документу [Как интегрировать Engagement в универсальные приложения для Windows](mobile-engagement-windows-store-integrate-engagement.md). В нем предоставлена подробная информация о том, как использовать API Engagement для сообщения статистики приложения.
 
 Учтите, что если вам требуется, чтобы служба Engagement сообщала только о сеансах, действиях, сбоях и технической информации приложения, проще всего сделать так, чтобы все подклассы `Page` наследовались из класса `EngagementPage`.
 
@@ -30,7 +30,7 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 ##Основные понятия Engagement
 
-В следующих подразделах дано более подробное объяснение [общих понятий Mobile Engagement](../mobile-engagement-concepts/) для универсальной платформы для Windows.
+В следующих подразделах дано более подробное объяснение [общих понятий Mobile Engagement](mobile-engagement-concepts.md) для универсальной платформы для Windows.
 
 ### `Session` и `Activity`
 
@@ -368,4 +368,4 @@ Engagement также предоставляется метод отправки
 			EngagementAgent.Instance.Init();
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="02/06/2016"
+      ms.date="04/29/2016"
       ms.author="hascipio; v-divte" />
 
 # Руководство по созданию шаблона решения для Azure Marketplace
@@ -58,13 +58,13 @@
 
 - Расширения виртуальных машин: [Общие сведения об агенте и расширениях виртуальных машин Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) и [Расширения и компоненты виртуальных машин Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
-- Диспетчер ресурсов Azure: [Создание шаблонов Azure ARM](../resource-group-authoring-templates/) и [Простые примеры шаблонов ARM](https://github.com/rjmax/ArmExamples)
+- Диспетчер ресурсов Azure: [Создание шаблонов Azure ARM](../resource-group-authoring-templates.md) и [Простые примеры шаблонов ARM](https://github.com/rjmax/ArmExamples)
 
 - Регулирование учетной записи хранения: [Отслеживание регулирования учетной записи хранения](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) и [Хранилище класса Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets-whru-RUing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
-[link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
+[link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

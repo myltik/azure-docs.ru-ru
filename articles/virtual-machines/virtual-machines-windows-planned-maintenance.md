@@ -22,6 +22,8 @@
 
 Сведения о том, что такое плановое обслуживание Azure и как оно влияет на доступность виртуальных машин Windows. Также доступна версия этой статьи для [виртуальных машин Linux](virtual-machines-linux-planned-maintenance.md).
 
+В этой статье содержатся общие сведения о процессе планового технического обслуживания Azure. Если вы хотите определить причину перезагрузки виртуальной машины, см. [эту запись блога, посвященную просмотру журналов перезагрузки виртуальной машины](https://azure.microsoft.com/blog/viewing-vm-reboot-logs/).
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
@@ -35,4 +37,4 @@ Microsoft Azure периодически выполняет обновления
 
 [AZURE.INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

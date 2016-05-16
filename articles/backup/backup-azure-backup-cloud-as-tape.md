@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="02/09/2016"
+   ms.date="05/03/2016"
    ms.author="jimpark;"/>
 
 # Использование службы архивации Azure для замены ленточной инфраструктуры
@@ -69,6 +69,6 @@
 Дополнительные сведения о службе архивации Azure см. в статьях:
 
 - [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
-- [Знакомство со службой архивации Azure](backup-try-azure-backup-in-10-mins)
+- [Знакомство со службой архивации Azure](backup-try-azure-backup-in-10-mins.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

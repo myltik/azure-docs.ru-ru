@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Добавление push-уведомлений в приложение Xamarin.Android с помощью службы приложений Azure"
+	pageTitle="Добавление push-уведомлений в приложение Xamarin.Android | Служба приложений Azure"
 	description="Узнайте, как использовать службу приложений и центры уведомлений Azure для отправки push-уведомлений в приложение Xamarin.Android."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="glenga"/>
 
 # Добавление push-уведомлений в приложение Xamarin.Android
@@ -60,11 +60,11 @@
 
 Приложение можно проверить, используя виртуальное устройство в эмуляторе. Для запуска в эмуляторе необходимо выполнить дополнительную настройку.
 
-1. Убедитесь, что для развертывания или отладки используется виртуальное устройство, на котором в качестве назначения заданы интерфейсы Google API, как показано ниже в диспетчере виртуальных устройств Android \(AVD\).
+1. Убедитесь, что для развертывания или отладки используется виртуальное устройство, на котором в качестве назначения заданы интерфейсы Google API, как показано ниже в диспетчере виртуальных устройств Android (AVD).
 
 	![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 
-2. Добавьте учетную запись Google на устройство Android, щелкнув **Приложения** \> **Параметры** \> **Добавить учетную запись**. Следуйте указаниям, чтобы использовать на устройстве существующую учетную запись Google или создать новую.
+2. Добавьте учетную запись Google на устройство Android, щелкнув **Приложения** > **Параметры** > **Добавить учетную запись**. Следуйте указаниям, чтобы использовать на устройстве существующую учетную запись Google или создать новую.
 
 	![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
 
@@ -79,4 +79,4 @@
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

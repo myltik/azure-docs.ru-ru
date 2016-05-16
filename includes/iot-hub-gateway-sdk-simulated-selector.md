@@ -2,60 +2,60 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-simulated-device.md)
 
-This walkthrough of the [Simulated Device Cloud Upload sample] shows how to use the [Microsoft Azure IoT Gateway SDK][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.
+В пошаговом руководстве [Пример отправки в облако виртуальных устройств] показано, как использовать [пакет SDK для шлюза IoT Microsoft Azure][lnk-sdk] для отправки данных телеметрии, передаваемые с устройства в облако, с виртуальных устройств в центр IoT.
 
-This walkthrough covers:
+В этом руководстве рассматриваются следующие темы.
 
-1. **Architecture**: important architectural information about the Simulated Device Cloud Upload sample.
+1. **Архитектура**: важные данные об архитектуре в примере отправки в облако виртуальных устройств.
 
-2. **Build and run**: the steps required to build and run the sample.
+2. **Сборка и запуск**: шаги, необходимые для сборки и запуска примера.
 
-## Architecture
+## Архитектура
 
-The Simulated Device Cloud Upload sample shows how to use the SDK to create a gateway which sends telemetry from simulated devices to an IoT hub. The simulated devices cannot connect directly to IoT Hub because:
+Пример отправки в облако виртуальных устройств показывает, как использовать пакет SDK для создания шлюза, который отправляет данные телеметрии из виртуальных устройств в центр IoT. Виртуальные устройства не могут подключаться к центру IoT напрямую, поскольку:
 
-- The devices do not use a communications protocol understood by IoT Hub.
-- The devices are not smart enough to remember the identity assigned to them by IoT Hub.
+- Устройства не могут использовать протокол связи, понятный для центра IoT.
+- Устройства не имеют достаточно возможностей для того, чтобы запомнить удостоверение, присвоенное ему центром IoT.
 
-The gateway solves these problems for the simulated devices in the following ways:
+Шлюз решает эти проблемы виртуальных устройств следующим образом:
 
-- The gateway understands the protocol used by the simulated devices, receives device-to-cloud telemetry from the devices, and forwards those messages to IoT Hub using a protocol understood by the hub.
-- The gateway stores IoT Hub identities on behalf of the simulated devices and acts as a proxy when the simulated devices send messages to IoT Hub.
+- Шлюз понимает протокол, используемый виртуальными устройствами, получает данные телеметрии, передаваемые с устройства в облако, с устройств и пересылает эти сообщения в центр IoT по протоколу, понятному для центра IoT.
+- Шлюз хранит удостоверения центра IoT от имени виртуальных устройств и выступает в качестве прокси-сервера, когда виртуальные устройства отправляют сообщения в центр IoT.
 
-The following diagram shows the main components of the sample, including the gateway modules:
+На следующем схеме представлены основные компоненты примера, включая модули шлюза:
 
 ![][1]
 
 
-> [AZURE.NOTE] The modules do not pass messages directly to each other. The modules publish messages to an internal message bus that delivers the messages to the other modules using a subscription mechanism as shown in the diagram below. For more information see [Get started with the Gateway SDK][lnk-gw-getstarted].
+> [AZURE.NOTE] Модули не передают сообщения друг другу напрямую. Модули публикуют сообщения во внутреннюю шину передачи сообщений, которая передает их в другие модули с помощью механизма подписки, как показано на представленной ниже схеме. Дополнительные сведения см. в статье [Приступая к работе с пакетом SDK для шлюза][lnk-gw-getstarted].
 
-### Protocol ingestion module
+### Модуль получения протокола
 
-This module is the starting point for getting data from devices, through the gateway, and into the cloud. In the sample, the module performs four tasks:
+Этот модуль является отправной точкой для получения данных с устройств через шлюз и их передачи в облако. В этом примере модуль выполняет четыре задачи:
 
-1.  It creates simulated temperature data.
+1.  Моделирует данные температуры.
     
-    Note: if you were using real devices, the module would read data from those physical devices.
+    Примечание. При использовании реальных устройств модуль считывает данные с физических устройств.
 
-2.  It places the simulated temperature data into the contents of a message.
+2.  Помещает смоделированные данные температуры в содержимое сообщения.
 
-3.  It adds a property with a fake MAC address to the message that contains the simulated temperatue data.
+3.  Добавляет свойство с фиктивным MAC-адресом в сообщение, содержащее смоделированные данные температуры.
 
-4.  It makes the message available to the next module in the chain.
+4.  Делает сообщение доступными для следующего модуля в цепочке.
 
-> [AZURE.NOTE] The module called **Protocol X ingestion** in the diagram above is called **Simulated device** in the source code.
+> [AZURE.NOTE] Модуль с именем **получение протокола X** в представленной выше схеме называется **виртуальным устройством** в исходном коде.
 
-### MAC &lt;-&gt; IoT Hub ID module
+### MAC & lt;-& gt; Модуль идентификатора центра IoT
 
-This module scans for messages that include a property that contains the MAC address, added by the protocol ingestion module, of the simulated device. If the module finds such a property, it adds another property with an IoT Hub device key to the message and then makes the message available to the next module in the chain. This is how the sample associates IoT Hub device identities with simulated devices. The developer sets up the mapping between MAC addresses and IoT Hub identities manually as part of the module configuration. 
+Этот модуль проверяет сообщения, включающие свойство, которое содержит MAC-адрес виртуального устройства, добавленный модулем получения протокола. Если модуль обнаруживает такое свойство, он добавляет в сообщение другое свойство с ключом устройства в центре IoT и делает его доступным для следующего модуля в цепочке. Таким образом пример связывает удостоверения устройства в центре IoT с виртуальными устройствами. Разработчик вручную настраивает сопоставление между MAC-адресами и удостоверениями устройства в центре IoT в процессе настройки модуля.
 
-> [AZURE.NOTE]  This sample uses a MAC address as a unique device identifier and correlates it with an IoT Hub device identity. However, you can write your own module that uses a different unique identifier. For example, you may have devices with unique serial numbers or telemetry data that has a unique device name embedded in it that you could use to determine the IoT Hub device identity.
+> [AZURE.NOTE]  В этом примере MAC-адрес используется как уникальный идентификатор устройства и сопоставляет его с удостоверением устройства в центре IoT. В то же время вы можете написать собственный модуль, где будет использоваться другой уникальный идентификатор. Например, у вас есть устройства с уникальными серийными номерами или данные телеметрии с заложенным в них уникальным именем устройства, которое можно использовать для определения удостоверения устройства в центре IoT.
 
-### IoT Hub communication module
+### Модуль связи центра IoT
 
-This module takes messages with an IoT Hub device identity assigned by the previous module and sends the message content to IoT Hub using HTTPS. HTTPS is one of the three protocols understood by IoT Hub.
+Этот модуль получает сообщения с удостоверением устройства в центре IoT, присвоенным ему предыдущим модулем, и отправляет содержимое сообщений в центр IoT по HTTPS. HTTPS — один из трех протоколов, понятных для центра IoT.
 
-Instead of opening a connection to IoT Hub for each simulated device, this module opens a single HTTP connection from the gateway to the IoT hub and multiplexes connections from all the simulated devices over that connection. This enables a single gateway to connect many more devices, simulated or otherwise, than would be possible if it opened a unique connection for every device.
+Вместо того, чтобы открывать подключение к центру IoT для каждого виртуального устройства, этот модуль отрывает одно HTTP-подключение между шлюзом и центром IoT и использует его для установки мультиплексных подключений со всех виртуальных устройств. Таким образом, один шлюз может подключиться к большему числу устройств (виртуальных или иных), чем в случае, если бы он создавал уникальное подключение для каждого устройства.
 
 ![][2]
 
@@ -65,6 +65,7 @@ Instead of opening a connection to IoT Hub for each simulated device, this modul
 [2]: media/iot-hub-gateway-sdk-simulated-selector/image2.png
 
 <!-- Links -->
-[Simulated Device Cloud Upload sample]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
+[Пример отправки в облако виртуальных устройств]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
+

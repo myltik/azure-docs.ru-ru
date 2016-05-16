@@ -14,118 +14,122 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/29/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # Создание API Office 365 Outlook в PowerApps Enterprise
 
-> [AZURE.SELECTOR]
-- [Приложения логики](../articles/connectors/connectors-create-api-office365-outlook.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+> [AZURE.IMPORTANT] Этот раздел помещен в архив и скоро будет удален. Узнать о наших новых планах можно в новом разделе [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Дополнительные сведения о PowerApps и инструкции по началу работы можно найти на сайте [PowerApps](https://powerapps.microsoft.com).  
+> - Дополнительные сведения о доступных подключениях в PowerApps см. в статье [Доступные подключения](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-Добавьте API Office 365 Outlook в среду службы приложений (клиента) организации.
+<!--Archived
+Add the Office 365 Outlook API to your organization's (tenant) app service environment. 
 
-## Создание API на портале Azure
+## Create the API in the Azure portal
 
-1. Войдите на [портал Azure](https://portal.azure.com/) с помощью рабочей учетной записи. Например, это может быть адрес *ИмяПользователя*@*ВашаКомпания*.com. При этом выполняется автоматический вход в подписку вашей компании.
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. На панели задач выберите **Обзор**:  
+2. Select **Browse** in the task bar:  
 ![][14]
 
-3. Вы можете прокрутить список и найти PowerApps или набрать *powerapps* на клавиатуре:  
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
 ![][15]  
 
-4. В **PowerApps** выберите **Управление интерфейсами API**:    
-![Переход к зарегистрированным API][1]
+4. **PowerApps Services**, select **Manage APIs**:    
+![Browse to registered apis][1]
 
-5. В разделе **Управление интерфейсами API** выберите **Добавить**, чтобы добавить новый API:  
-![Добавление API][2]
+5. In **Manage APIs**, select **Add** to add the new API:  
+![Add API][2]
 
-6. Введите описательное **имя** для API.
+6. Enter a descriptive **name** for your API.  
 	
-7. В поле **Источник** укажите **Доступные API**, чтобы выбрать встроенные API, а затем выберите **Office 365 Outlook**:  
-![выбор API Office 365 Outlook][3]
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Office 365 Outlook**:  
+![select Office 365 Outlook api][3]
 
-8. Выберите **Настройки — Настроить обязательные параметры**:  
-![настройка параметров API Office 365 Outlook][4]
+8. Select **Settings - Configure required settings**:  
+![configure Office 365 Outlook API settings][4]
 
-9. Введите *Ключ приложения* и *Секрет приложения* для приложения Office 365 Azure Active Directory (AAD). Если приложения нет, см. раздел "Регистрации приложения AAD для использования с PowerApps" в этой статье, где описывается создание нужных значений ключа и секрета.
+9. Enter the *App Key* and *App Secret* value of your Office 365 Azure Active Directory (AAD) application. If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the key and secret values you need. 
  
-	> [AZURE.IMPORTANT] Сохраните **URL-адрес перенаправления**. Это значение может понадобиться позже.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
-10. Нажмите кнопку **ОК**, чтобы завершить эти действия.
+10. Select **OK** to complete the steps.
 
-После их выполнения в среду службы приложений вашей организации будет добавлен новый API Office 365 Outlook.
-
-
-## (Необязательно) Регистрации приложения AAD для использования с API Office 365 в PowerApps
-
-Если у вас нет приложения AAD с ключом и секретом, выполните следующие действия, чтобы создать приложение и получить нужные значения. 
-
-1. Откройте [портал Azure][5].
-
-2. Выберите **Обзор**, а затем — **Active Directory**.  
-
-	>[AZURE.NOTE] Откроется раздел Active Directory на классическом портале Azure.  
-
-3. Выберите имя клиента вашей организации:  
-![Запуск Azure Active Directory][6]
-
-4. Перейдите на вкладку **Приложения** и выберите **Добавить**:  
-![Клиентские приложения AAD][7]
-
-5. На экране **Добавление приложения**:  
-
-	1. Введите **имя** для приложения.  
-	3. Оставьте тип приложения **Веб**.  
-	3. Щелкните **Далее**.  
-
-	![Добавление приложения AAD: сведения о приложении][8]
-
-6. На экране **Свойства приложения**:  
-
-	1. Введите **URL-адрес входа** для своего приложения. Так как для PowerApps будет использоваться аутентификация AAD, в качестве URL-адреса входа укажите _https://login.windows.net_.  
-	2. Введите допустимый **универсальный код ресурса (URI) идентификатора приложения** для своего приложения.  
-	3. Нажмите кнопку **ОК**.  
-
-	![Добавление приложения AAD: свойства приложения][9]
-
-7. После завершения вы будете перенаправлены в новое приложение AAD. Перейдите на вкладку **Настройка**:  
-![Приложение AAD Contoso][10]
-
-8. Задайте **URL-адрес ответа** в разделе _OAuth 2_, чтобы перенаправить URL-адрес, полученный при добавлении нового API Office 365 Outlook на портале Azure (в этой статье). Затем нажмите кнопку **Добавить приложение**:  
-![Настройка приложения AAD Contoso][11]
-
-9. В окне **Разрешения для других приложений** выберите **Office 365 Exchange Online** и нажмите **ОК**:  
-![Делегат приложения Contoso][12]
-
-10. Обратите внимание, что на странице настройки _Office 365 Exchange Online_ добавляется в список _Разрешений для других приложений_.
-
-11. Выберите **Делегированные разрешения** для _Office 365 Exchange Online_ и следующие разрешения:  
-
-	- Чтение и запись контактов пользователя
-	- Чтение контактов пользователя
-	- Чтение и запись календарей пользователя
-	- Чтение календарей пользователя
-	- отправка сообщений в качестве пользователя.
-	- Чтение и запись почты пользователя
-	- Чтение почты пользователя
-
-	![Разрешения для делегата приложения Contoso][13]
-
-Будет создано новое приложение Azure Active Directory. Это приложение можно использовать при настройке API Office 365 Outlook на портале Azure. 
-
-Полезные сведения о приложениях AAD см. в статье [Как и почему приложения добавляются в Azure AD](../active-directory/active-directory-how-applications-are-added.md).
-
-## См. раздел "Интерфейсы REST API".
-
-Справочник по [REST API Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md).
+When finished, a new Office 365 Outlook API is added to your app service environment.
 
 
-## Сводка и дальнейшие действия
-В этом разделе вы добавили API Office 365 Outlook в службу PowerApps Enterprise. Теперь необходимо предоставить пользователям доступ к этому API, чтобы они могли добавлять его в свои приложения: 
+## Optional: Register an AAD app for use with PowerApps Office 365 API
 
-[Добавление подключения и предоставление доступа пользователям](powerapps-manage-api-connection-user-access.md)
+If you don't have an existing AAD app with the key and secret values, then use the following steps to create the application, and get the values you need. 
+
+1. Open the [Azure Portal][5].
+
+2. Select **Browse** and then select **Active Directory**.  
+
+	>[AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
+
+3. Select your organization's tenant name:  
+![Launch Azure Active Directory][6]
+
+4. Select the **Applications** tab, and select **Add**:  
+![AAD tenant applications][7]
+
+5. In **Add application**:  
+
+	1. Enter a **Name** for your application.  
+	3. Leave the application type as **Web**.  
+	3. Select **Next**.  
+
+	![Add AAD application - app info][8]
+
+6. In **App Properties**:  
+
+	1. Enter the **SIGN-ON URL** of your application. Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
+	2. Enter a valid **APP ID URI** for your app.  
+	3. Select **OK**.  
+
+	![Add AAD application - app properties][9]
+
+7. On successful completion, you are redirected to the new AAD app. Select **Configure**:  
+![Contoso AAD app][10]
+
+8. Set the **Reply URL** under the _OAuth 2_ section to the redirect URL you received when you added the new Office 365 Outlook API in the Azure Portal (in this topic). Then, select **Add application**:  
+![Configure Contoso AAD app][11]
+
+9. In the **Permissions to other applications** window, select **Office 365 Exchange Online**, and select **OK**:  
+![Contoso app delegate][12]
+
+10. Back in the configure page, note that _Office 365 Exchange Online_ is added to the _Permission to other applications_ list.
+
+11. Select **Delegated Permissions** for _Office 365 Exchange Online_, and select the following permissions:  
+
+	- Read and write user contacts
+	- Read user contacts
+	- Read and write user calendars
+	- Read user calendars
+	- Send mail as a user
+	- Read and write user mail
+	- Read user mail
+
+	![Contoso app delegate permissions][13]
+
+A new Azure Active Directory app is created. You can use this app in your Office 365 Outlook API configuration in the Azure portal. 
+
+Some good info on AAD applications at [How and why applications are added to Azure AD](../active-directory/active-directory-how-applications-are-added.md).
+
+## See the REST APIs
+
+[Office 365 Outlook REST API](../connectors/connectors-create-api-office365-outlook.md) reference.
+
+
+## Summary and next steps
+In this topic, you added the Office 365 Outlook API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
+
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
+
 
 <!--References-->
 [1]: ./media/powerapps-create-api-office365-outlook/browse-to-registered-apis.PNG
@@ -144,4 +148,4 @@
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

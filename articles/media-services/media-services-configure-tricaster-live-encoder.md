@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="03/02/2016"   
+ 	ms.date="05/03/2016" 
 	ms.author="juliako"/>
 
 #Использование кодировщика NewTek TriCaster для отправки односкоростного обновляющегося потока
@@ -26,7 +26,7 @@
 
 В этом разделе показано, как настроить кодировщик [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени. Дополнительные сведения см. в разделе [Работа с каналами, выполняющими кодирование в реальном времени с помощью служб мультимедиа Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-В этом учебнике показано, как управлять службами мультимедиа Azure (AMS) с помощью Обозревателя служб мультимедиа Azure. Это средство запускается только на компьютерах с ОС Windows. Если вы используете Mac или Linux, воспользуйтесь классическим порталом Azure для создания [каналов](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) и [программ](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
+В этом учебнике показано, как управлять службами мультимедиа Azure (AMS) с помощью Обозревателя служб мультимедиа Azure. Это средство запускается только на компьютерах с ОС Windows. Если вы используете Mac или Linux, воспользуйтесь классическим порталом Azure для создания [каналов](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) и [программ](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
 
 >[AZURE.NOTE]При использовании Tricaster для отправки веб-канала доставки в каналы AMS с поддержкой кодирования в реальном времени возможны временные сбои видео или звука интерактивного события, если используются некоторые возможности Tricaster, например быстрый монтаж разных веб-каналов или переключение на баннеры и обратно. Команда AMS работает над устранением этих проблем. На данный момент не рекомендуется использовать эти возможности.
 
@@ -165,4 +165,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->
