@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Как подключить виртуальные сети ARM к классическим виртуальным сетям в Azure — руководство по решению"
    description="Узнайте, как создать VPN-подключение между классическими виртуальными сетями и новыми виртуальными сетями."
-   services="virtual-network"
+   services="vpn-gateway"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="cherylmc"
    manager="carmonm"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-network"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="cherylmc" />
 
 # Подключение классических виртуальных сетей к новым виртуальным сетям
 
@@ -350,4 +350,4 @@
 - Узнайте больше о [поставщике сетевых ресурсов (NRP) для ARM](resource-groups-networking.md).
 - Просмотрите общие рекомендации по [созданию VPN-подключения S2S между классической виртуальной сетью и виртуальной сетью ARM](virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

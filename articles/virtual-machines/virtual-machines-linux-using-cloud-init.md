@@ -15,13 +15,13 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/22/2016"
+    ms.date="04/29/2016"
     ms.author="v-livech"
 />
 
 # Настройка виртуальной машины Linux во время создания с помощь cloud-init
 
-В этой статье мы создадим сценарии cloud-init для задания имени узла, обновления установленных пакетов и управления учетными записями пользователей. Затем мы запустим эти сценарии cloud-init во время создания виртуальной машины Linux с помощью [интерфейса командной строки Azure](../xplat-cli-install.md).
+В этой статье демонстрируется создание сценария cloud-init для задания имени узла, обновления установленных пакетов и управления учетными записями пользователей. Такие сценарии cloud-init затем будут использоваться во время создания виртуальной машины с помощью [интерфейса командной строки Azure](../xplat-cli-install.md).
 
 ## Предварительные требования
 
@@ -45,16 +45,23 @@
 
 ## Быстрые команды
 
+Создание сценария cloud-init создания имени узла
+
 ```bash
-# Create a hostname cloud-init script
 #cloud-config
 hostname: exampleServerName
+```
 
-# Create an update Linux on first boot cloud-init script for Debian Family
+Создание сценария cloud-init обновления Linux при первой загрузке для семейства Debian
+
+```bash
 #cloud-config
 apt_upgrade: true
+```
 
-# Create an add a user cloud-init script
+Создание сценария cloud-init добавления пользователя
+
+```bash
 #cloud-config
 users:
   - name: exampleUser
@@ -62,9 +69,7 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-rsa
-AAAAB3NzaC1yc2EAAAADAQABAAABAQDf0q4PyG0doiBQYV7OlOxbRjle<snip />== exampleuser@slackwarelaptop
-
+      - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
 ## Подробное пошаговое руководство
@@ -76,7 +81,7 @@ AAAAB3NzaC1yc2EAAAADAQABAAABAQDf0q4PyG0doiBQYV7OlOxbRjle<snip />== exampleuser@s
 Примечание. Хотя в этой статье рассматривается использование параметра `--custom-data` для файлов cloud-init, с его помощью можно передавать произвольный код или файлы. Если виртуальная машина Linux уже знает, что делать с такими файлами, они выполняются автоматически.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -101,7 +106,7 @@ hostname: exampleServerName
 Во время первоначального запуска виртуальной машины этот сценарий cloud-init задает имя узла `exampleServerName`.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -115,9 +120,9 @@ bill@slackware$ azure vm create \
 Выполните вход и проверьте имя узла новой виртуальной машины.
 
 ```bash
-bill@slackware$ ssh exampleVM
-bill@ubuntu$ hostname
-bill@ubuntu$ exampleServerName
+ssh exampleVM
+hostname
+exampleServerName
 ```
 
 ### Создание сценария cloud-init для обновления виртуальной машины Linux
@@ -134,7 +139,7 @@ apt_upgrade: true
 После загрузки новой виртуальной машины Linux все установленные пакеты мгновенно обновляются с помощью `apt-get`.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -148,8 +153,8 @@ bill@slackware$ azure vm create \
 Выполните вход и проверьте, обновились ли все пакеты.
 
 ```bash
-bill@slackware$ ssh exampleVM
-bill@ubuntu$ sudo apt-get upgrade
+ssh exampleVM
+sudo apt-get upgrade
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -173,14 +178,13 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-rsa
-AAAAB3NzaC1yc2EAAAADAQABAAABAQDf0q4PyG0doiBQYV7OlOxbRjle<snip />== exampleuser@slackwarelaptop
+      - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
 После загрузки новой виртуальной машины Linux он создаст пользователя и добавит его в группу sudo.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -194,7 +198,12 @@ bill@slackware$ azure vm create \
 Выполните вход и проверьте созданного пользователя.
 
 ```bash
-bill@slackware$ cat /etc/group
+cat /etc/group
+```
+
+Выходные данные
+
+```bash
 root:x:0:
 <snip />
 sudo:x:27:exampleUser
@@ -202,4 +211,4 @@ sudo:x:27:exampleUser
 exampleUser:x:1000:
 ```
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

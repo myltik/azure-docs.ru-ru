@@ -14,12 +14,12 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/04/2016"
+   ms.date="04/27/2016"
    ms.author="jgao"/>
 
 # Изучение Hadoop с помощью коллекции для начала работы с Azure HDInsight
 
-С помощью коллекции для начала работы с HDInsight можно легко и быстро изучить Hadoop, запуская примеры приложений в HDInsight. Некоторые примеры поставляются с примером данных. Для остальных примеров можно указать собственные данные. Сейчас доступно шесть следующих примеров (в будущем их будет больше):
+Коллекция "Приступая к работе" доступна только для кластеров HDInsight под управлением Windows. С ее помощью можно легко и быстро изучить Hadoop, запуская примеры приложений в HDInsight. Некоторые примеры поставляются с примером данных. Для остальных примеров можно указать собственные данные. Сейчас доступно шесть следующих примеров (в будущем их будет больше):
 
 - Решения с данными Azure
 	- Анализ журналов веб-сайта Microsoft Azure
@@ -60,8 +60,8 @@ HDInsight можно также изучить другими способами
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learn.map]: hdinsight-learn-map.md
+[hdinsight.learn.map]: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

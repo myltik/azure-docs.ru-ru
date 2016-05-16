@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать запрос к эластичной базе данных в вертикально секционированных базах данных."
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/26/2016"
 	ms.author="torsteng" />
 
-# Приступая к работе с межбазовыми запросами (вертикальное секционирование) 
+# Приступая к работе с межбазовыми запросами (вертикальное секционирование) (предварительная версия)
 
 Запрос (предварительная версия) к эластичной базе данных для Базы данных Azure SQL позволяет выполнять запросы T-SQL, охватывающие несколько баз данных, с помощью одной точки подключения. Этот раздел относится к [вертикально секционированным базам данных](sql-database-elastic-query-vertical-partitioning.md).
 
@@ -39,7 +39,7 @@
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
-Отправьте в базу данных «Клиенты» указанный ниже запрос, чтобы создать таблицу CustomerInformation (Информация о клиентах) и заполнить ее образцами данных.
+Отправьте в базу данных **Customers** указанный ниже запрос, чтобы создать таблицу сведений о клиентах **CustomerInformation** и заполнить ее примерами данных.
 
 	CREATE TABLE [dbo].[CustomerInformation]( 
 		[CustomerID] [int] NOT NULL, 
@@ -53,9 +53,6 @@
 
 ## Создание объектов базы данных
 ### Главный ключ и учетные данные для конкретной базы данных
-
-
-Они используются для подключения к диспетчеру сопоставления сегментов и сегментам:
 
 1. Откройте SQL Server Management Studio или SQL Server Data Tools в Visual Studio.
 2. Подключитесь к базе данных «Заказы» и выполните следующие команды T-SQL:
@@ -109,4 +106,4 @@
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

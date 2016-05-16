@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/28/2016"
+   ms.date="04/28/2016"
    ms.author="jgao"/>
 
 #Подготовка кластеров Hadoop в HDInsight
 
 Узнайте, как спланировать подготовку кластеров HDInsight.
 
-> [AZURE.WARNING] Для выполнения действий, описанных в этом документе, используется классический портал Azure вместе с более старыми версиями Azure CLI и Azure PowerShell. Корпорация Майкрософт не рекомендует следовать этим действиям. Вместо этого необходимо использовать портал Azure и последние версии Azure CLI и Azure PowerShell. Для версии этого документа, в котором используется портал Azure и последние версии Azure CLI и Azure PowerShell, см. сведения в разделе [Подготовка кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md)
+> [AZURE.IMPORTANT] Действия, описанные в этом документе, выполняются на классическом портале Azure. Для создания служб корпорация Майкрософт не рекомендует использовать классический портал Azure. Объяснение преимуществ портала Azure см. в разделе [Портал Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
 >
-> Объяснение преимуществ портала Azure см. в разделе [Портал Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+> В этом документе также содержатся сведения об использовании командной строки Azure и Azure PowerShell. Представленные фрагменты кода основаны на командах, использующих пакет управления службами Azure (ASM) для работы с HDInsight, и являются __устаревшими__. Эти команды будут удалены с 1 января 2017 г.
+>
+>Версию этого документа, в которой используется портал Azure и фрагменты кода для командной строки Azure и Azure PowerShell, использующие Azure Resource Manager (ARM), см. в статье [Подготовка кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md)
 
 **Предварительные требования:**
 
@@ -48,7 +50,7 @@
 - **Операционная система**
 
 	Кластер HDInsight можно подготовить на одной из двух операционных систем.
-	- **HDInsight на платформе Windows (Windows Server 2012 R2 Datacenter)**:
+	- **HDInsight на платформе Windows (Центр обработки данных Windows Server 2012 R2)**:
 	- **HDInsight на платформе Linux (Ubuntu 12.04 LTS для Linux)**: HDInsight позволяет настраивать кластеры Linux в Azure. Настройте кластер Linux, если вы знакомы с Linux или Unix, выполняете миграцию из существующего решения Hadoop на платформе Linux или хотите с легкостью выполнить интеграцию с компонентами экосистемы Hadoop, созданными для Linux. Дополнительную информацию см. в разделе [Приступая к работе с Hadoop в Linux на платформе HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). 
 
 
@@ -532,7 +534,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 **Чтобы установить интерфейс командной строки Azure с помощью установщика Windows**
 
-1.	Перейдите в **http://azure.microsoft.com/downloads/**.
+1.	Перейдите в ****http://azure.microsoft.com/downloads/**.
 2.	Прокрутите вниз до раздела **Средства командной строки**, щелкните **Интерфейс командной строки Azure** и следуйте инструкциям мастера установщика веб-платформы.
 
 **Скачивание и импорт параметров публикации**
@@ -709,7 +711,6 @@ HDInsight использует контейнер хранилища BLOB-объ
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
 
 		namespace CreateHDICluster
 		{
@@ -723,7 +724,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
 		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
 		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
 		        private const OSType NewClusterOSType = OSType.Windows;
 		        private const string NewClusterVersion = "3.2";
 
@@ -814,4 +815,4 @@ HDInsight использует контейнер хранилища BLOB-объ
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

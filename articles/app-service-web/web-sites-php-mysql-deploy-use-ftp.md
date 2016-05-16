@@ -12,20 +12,12 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
-	ms.topic="get-started-article" 
-	ms.date="01/12/2016" 
+	ms.topic="article" 
+	ms.date="04/08/2016" 
 	ms.author="robmcm"/>
 
 
 #Создание веб-приложения PHP-MySQL в службе приложений Azure и развертывание с помощью FTP
-
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP — Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP — FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
 
 В этом учебнике показано, как создать веб-приложение PHP-MySQL и развернуть его с помощью FTP. В этом учебнике предполагается, что на компьютере установлены [PHP][install-php], [MySQL][install-mysql], веб-сервер и FTP-клиент. Инструкции, приведенные в этом учебнике, применимы к любой операционной системе, включая Windows, Linux и Mac. По завершении работы с этим учебником у вас будет работающее в Azure веб-приложение PHP-MySQL.
  
@@ -303,4 +295,4 @@
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

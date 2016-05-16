@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Ресурсы для рабочих нагрузок пакетной службы HPC в облаке | Microsoft Azure"
+   pageTitle="Ресурсы для рабочих нагрузок пакетной службы HPC в облаке | Microsoft Azure"
    description="В этой статье приведены технические ресурсы, которые помогут вам выполнять крупномасштабные параллельные, пакетные и высокопроизводительные вычисления (HPC) в Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
@@ -10,10 +10,10 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="01/26/2016"
+   ms.date="04/29/2016"
    ms.author="danlep"/>
 
 # Большие вычисления в Azure: технические ресурсы для пакетных и высокопроизводительных вычислений (HPC)
@@ -30,13 +30,15 @@
 
 ## Пакетная служба Azure
 
-[Пакетная служба](https://azure.microsoft.com/services/batch/) — это платформа как услуга, которая позволяет легко переводить приложения в облако и выполнять задания без настройки кластера или планировщика и управления ими. С помощью пакета SDK вы можете интегрировать клиентские приложения в Пакетную службу Azure, используя различные языки, размещать данные в Azure и создавать конвейеры выполнения заданий.
+[Пакетная служба](https://azure.microsoft.com/services/batch/) — это платформа как услуга, которая позволяет легко переводить приложения Linux и Windows в облако и выполнять задания без настройки кластера или планировщика и управления ими. С помощью пакета SDK вы можете интегрировать клиентские приложения в Пакетную службу Azure, используя различные языки, размещать данные в Azure и создавать конвейеры выполнения заданий.
 
 * [Документация](https://azure.microsoft.com/documentation/services/batch/)
 
-* Справочник по [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) и [REST API](https://msdn.microsoft.com/library/azure/dn820158.aspx)
+* Справочник по API [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) и [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
 
-* [Учебник "Приступая к работе с библиотекой Пакетной службы Azure для .NET"](batch-dotnet-get-started.md)
+* Справочник по [библиотеке .NET для управления пакетной службой](https://msdn.microsoft.com/library/mt463120.aspx)
+
+* [Учебник: начало работы с библиотекой пакетной службы Azure для .NET](batch-dotnet-get-started.md)
 
 * [Форум по Пакетной службе](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=azurebatch)
 
@@ -48,14 +50,14 @@
 
 ### Пакет Microsoft HPC
 
-HPC Pack — это бесплатное решение HPC корпорации Майкрософт, созданное на основе технологий Microsoft Azure и Windows Server и поддерживающее рабочие нагрузки HPC как в Windows, так и в Linux.
+HPC Pack — это бесплатное решение HPC корпорации Майкрософт, созданное на основе технологий Microsoft Azure и Windows Server и поддерживающее рабочие нагрузки HPC как в Windows, так и в Linux.
 
-* [Загрузить пакет HPC 2012 R2 с обновлением 3](https://www.microsoft.com/download/details.aspx?id=49922)
+* [Загрузить пакет HPC 2012 R2 с обновлением 3](https://www.microsoft.com/download/details.aspx?id=49922)
 
 * [Документация](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [Параметры создания кластера HPC в Azure с помощью Microsoft HPC Pack и управления им](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
+* Варианты кластера пакета HPC под управлением [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md) и [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md) в Azure
 
 * [Ускорение в рабочие экземпляры Azure с помощью пакета HPC](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -76,7 +78,7 @@ HPC Pack — это бесплатное решение HPC корпорации
 
 ## Microsoft MPI
 
-[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) — это реализация стандарта MPI (Message Passing Interface — интерфейс передачи сообщений) от Майкрософт, предназначенная для разработки и запуска параллельных приложений на платформе Windows.
+[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) — это реализация стандарта MPI (Message Passing Interface — интерфейс передачи сообщений) от Майкрософт, предназначенная для разработки и запуска параллельных приложений на платформе Windows. Последней версией является MS-MPI версии 7.
 
 
 * [Скачать MS-MPI](http://go.microsoft.com/FWLink/p/?LinkID=389556)
@@ -92,15 +94,15 @@ HPC Pack — это бесплатное решение HPC корпорации
 
 * [Настройка кластера Linux RDMA для выполнения приложений MPI](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
 
-* [Настройка кластера RDMA в Windows с помощью Microsoft HPC Pack для выполнения приложений MPI](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
+* [Настройка кластера RDMA в Windows с помощью Microsoft HPC Pack для выполнения приложений MPI](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
-## Проекты архитектуры
 
-* PDF-файл [Оркестрация данных и высокопроизводительных вычислений с помощью пакетной службы Azure и фабрики данных Azure](http://go.microsoft.com/fwlink/?linkid=717686) и [статья](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## Примеры и образцы
 
-* [Примеры кода для Пакетной службы Azure](https://github.com/Azure/azure-batch-samples)
+* [Примеры кода для пакетной службы Azure на C# и Python](https://github.com/Azure/azure-batch-samples)
+
+* [Пробная установка сервера SUSE Linux Enterprise Server для HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 
 ## Связанные службы Azure
 
@@ -112,12 +114,23 @@ HPC Pack — это бесплатное решение HPC корпорации
 
 * [Виртуальные машины](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
+* [Наборы для масштабирования виртуальных машин](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/)
+
 * [Облачные службы](https://azure.microsoft.com/documentation/services/cloud-services/)
 
 * [Службы мультимедиа](https://azure.microsoft.com/documentation/services/media-services/)
 
-## Истории клиентов
+## Проекты архитектуры
 
+* PDF-файл [Оркестрация данных и высокопроизводительных вычислений с помощью пакетной службы Azure и фабрики данных Azure](http://go.microsoft.com/fwlink/?linkid=717686) и [статья](../data-factory/data-factory-data-processing-using-batch.md)
+
+## Отраслевые решения
+
+* [Банки и рынки ценных бумаг](https://finance.azure.com/)
+
+* [Инженерное моделирование](https://simulation.azure.com/)
+
+## Истории клиентов
 
 * [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
 
@@ -135,9 +148,7 @@ HPC Pack — это бесплатное решение HPC корпорации
 
 * [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
 
-
-
-
+* [UberCloud](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
 
@@ -146,4 +157,4 @@ HPC Pack — это бесплатное решение HPC корпорации
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](https://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/27/2016"
    ms.author="tomfitz"/>
 
 # Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов
@@ -38,7 +38,7 @@
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Для вычислительных, сетевых ресурсов и ресурсов хранения можно выбрать модель развертывания с использованием Resource Manager или классическую модель. Выбор **Resource Manager**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -131,29 +131,23 @@
 
 ## Поддерживаемые операции для моделей развертывания
 
-Ресурсы, которые созданы в классической модели развертывания, не поддерживают операции диспетчера ресурсов. В некоторых случаях с помощью команды диспетчера ресурсов можно получить сведения о ресурсе, созданном с помощью классического развертывания, или выполнить административные задачи, такие как перемещение классического ресурса в другую группу ресурсов, но эти случаи не должны создавать впечатление того, что этот тип поддерживает операции диспетчера ресурсов. Например, предположим, что имеется группа ресурсов, содержащих виртуальные машины, которые были созданы с помощью диспетчера ресурсов и классического развертывания. Если выполнить следующую команду PowerShell:
+Ресурсы, которые созданы в классической модели развертывания, не поддерживают операции диспетчера ресурсов. В некоторых случаях с помощью команды диспетчера ресурсов можно получить сведения о ресурсе, созданном с помощью классического развертывания, или выполнить административные задачи, такие как перемещение классического ресурса в другую группу ресурсов, но эти случаи не должны создавать впечатление того, что этот тип поддерживает операции диспетчера ресурсов. Например, предположим, что имеется группа ресурсов, содержащая виртуальную машину, которая была создана с помощью классического развертывания. Если выполнить следующую команду PowerShell:
 
-    Get-AzureRmResourceGroup -Name ExampleGroup
+    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 
-она вернет все виртуальные машины:
+Она вернет виртуальную машину.
+    
+    Name              : ExampleClassicVM
+    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+    ResourceName      : ExampleClassicVM
+    ResourceType      : Microsoft.ClassicCompute/virtualMachines
+    ResourceGroupName : ExampleGroup
+    Location          : westus
+    SubscriptionId    : {guid}
 
-    Resources :
-     Name                 Type                                          Location
-     ================     ============================================  ========
-     ExampleClassicVM     Microsoft.ClassicCompute/domainNames          eastus
-     ExampleClassicVM     Microsoft.ClassicCompute/virtualMachines      eastus
-     ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
-    ...
-
-Однако если выполнить команду **Get-AzureRmVM**:
+Однако командлет **Get-AzureRmVM** возвращает только виртуальные машины, развернутые с помощью Resource Manager. Следующая команда не вернет виртуальную машину, созданную с помощью классического развертывания.
 
     Get-AzureRmVM -ResourceGroupName ExampleGroup
-
-вы получите только те виртуальные машины, которые были созданы с помощью диспетчера ресурсов.
-
-    Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
-    Name     : ExampleResourceVM
-    ...
 
 В общем случае, не следует ожидать, что ресурсы, созданные с помощью классического развертывания, будут работать с командами диспетчера ресурсов.
 
@@ -176,7 +170,7 @@
 ## Дальнейшие действия
 
 - Пошаговые инструкции по созданию шаблона, который определяет виртуальную машину, учетную запись хранения и виртуальную сеть, см. в разделе [Пошаговое руководство по созданию шаблона Resource Manager](resource-manager-template-walkthrough.md).
-- Сведения о структуре шаблонов диспетчера ресурсов см. в разделе [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
+- Сведения о структуре шаблонов Resource Manager см. в разделе [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 - Команды для развертывания шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

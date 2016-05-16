@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 #Создание базы данных MySQL в Azure
@@ -27,4 +27,4 @@
 
 Дополнительные сведения можно найти в [Центре разработчика PHP](/develop/php/).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

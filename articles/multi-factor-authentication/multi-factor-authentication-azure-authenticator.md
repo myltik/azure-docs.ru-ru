@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/02/2016" 
 	ms.author="billmath"/>
 
 
@@ -57,9 +57,7 @@
 
 Добавив все учетные записи в новое приложения, удалите старое приложение с телефона.
 
-Не знаете, как удалить отдельные учетные записи из старого приложения? Коснитесь учетной записи. Отобразится параметр Delete (Удалить).
 
-![Удаление учетной записи](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
 ## Добавление учетной записи с помощью сканера штрихкодов
 
@@ -164,4 +162,10 @@
 
 ![Идентификатор сенсорного экрана](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+## Удаление учетной записи
+
+Для удаления учетной записи из приложения проверки подлинности Azure просто коснитесь этой учетной записи. Отобразится параметр Delete (Удалить).
+
+![Удаление учетной записи](./media/multi-factor-authentication-azure-authenticator/remove.png)
+
+<!---HONumber=AcomDC_0504_2016-->

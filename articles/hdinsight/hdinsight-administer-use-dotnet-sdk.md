@@ -1,0 +1,276 @@
+<properties
+	pageTitle="Управление кластерами Hadoop в HDInsight с помощью пакета SDK для .NET | Microsoft Azure"
+	description="Узнайте, как осуществлять управление кластерами Hadoop в HDInsight с помощью пакета SDK для HDInsight .NET."
+	services="hdinsight"
+	editor="cgronlun"
+	manager="paulettm"
+	tags="azure-portal"
+	authors="mumian"
+	documentationCenter=""/>
+
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/02/2016"
+	ms.author="jgao"/>
+
+# Управление кластерами Hadoop в HDInsight с помощью пакета SDK для .NET
+
+[AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+
+Научитесь управлять кластерами HDInsight с помощью [пакета SDK для HDInsight.NET](https://msdn.microsoft.com/library/mt271028.aspx).
+
+
+**Предварительные требования**
+
+Перед началом работы с этой статьей необходимо иметь следующее:
+
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+
+
+##Подключение к Azure HDInsight
+
+Необходимо установить следующие пакеты Nuget:
+
+	Install-Package Microsoft.Azure.Common.Authentication -Pre
+	Install-Package Microsoft.Azure.Management.HDInsight -Pre
+
+В следующем примере кода показано, как подключиться к Azure, прежде чем администрировать кластеры HDInsight в подписке Azure.
+
+	using System;
+	using System.Security;
+	using Microsoft.Azure;
+	using Microsoft.Azure.Common.Authentication;
+	using Microsoft.Azure.Common.Authentication.Factories;
+	using Microsoft.Azure.Common.Authentication.Models;
+	using Microsoft.Azure.Management.HDInsight;
+	using Microsoft.Azure.Management.HDInsight.Models;
+
+	namespace HDInsightManagement
+	{
+		class Program
+		{
+			private static HDInsightManagementClient _hdiManagementClient;
+			private static Guid SubscriptionId = new Guid("<Your Azure Subscription ID>");
+
+			static void Main(string[] args)
+			{
+				var tokenCreds = GetTokenCloudCredentials();
+				var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+
+				_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+
+				// insert code here
+
+				System.Console.WriteLine("Press ENTER to continue");
+				System.Console.ReadLine();
+			}
+
+			public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+			{
+				var authFactory = new AuthenticationFactory();
+
+				var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+
+				if (username != null && password != null)
+					account.Id = username;
+
+				var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+
+				var accessToken =
+					authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+						.AccessToken;
+
+				return new TokenCloudCredentials(accessToken);
+			}
+
+			public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
+			{
+				return new TokenCloudCredentials(subId.ToString(), creds.Token);
+			}
+		}
+	}
+
+При запуске этой программы появится запрос. Если запрос не появится, обратитесь к статье [Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+
+##Создание кластеров
+
+См. раздел [Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+
+##Получение списка кластеров
+
+В следующем фрагменте кода перечислены кластеры и некоторые свойства:
+
+    var results = _hdiManagementClient.Clusters.List();
+    foreach (var name in results.Clusters) {
+        Console.WriteLine("Cluster Name: " + name.Name);
+        Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
+        Console.WriteLine("\t Cluster location: " + name.Location);
+        Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
+    }
+
+##Удаление кластеров
+
+Для синхронного или асинхронного удаления кластера используйте следующий фрагмент кода:
+
+    _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
+    _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
+            
+##Масштабирование кластеров
+Масштабирование кластера позволяет изменить количество рабочих узлов в кластере, который работает под управлением Azure HDInsight. При этом не требуется повторно создавать кластер.
+
+>[AZURE.NOTE] Поддерживаются только кластеры HDInsight версии 3.1.3 или более поздней. Если вы не знаете версию кластера, см. страницу «Свойства». См. раздел [Отображение кластеров](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+
+Ниже представлены возможности, связанные с изменением количества узлов данных в кластере каждого типа, поддерживаемого в HDInsight.
+
+- Hadoop
+
+	Вы можете легко увеличить количество рабочих узлов в работающем кластере Hadoop. Это не помешает обработке заданий в состоянии ожидания и выполнения. В ходе выполнения операции можно также отправлять новые задания. Сбои операции масштабирования обрабатываются корректно, поэтому кластер всегда пребывает в функциональном состоянии.
+
+	Если уменьшить масштаб кластера Hadoop, сократив количество узлов данных, некоторые службы в нем будут перезапущены. Это приведет к сбою всех выполняющихся и ожидающих заданий при завершении операции масштабирования. Однако после завершения операции вы можете повторно отправить задания.
+
+- HBase
+
+	Вы можете с легкостью добавлять и удалять узлы данных в работающем кластере HBase. Балансировка региональных серверов выполняется автоматически в течение нескольких минут после завершения операции масштабирования. Но их также можно сбалансировать вручную, выполнив вход в головной узел кластера и выполнив следующие команды в окне командной строки:
+
+		>pushd %HBASE_HOME%\bin
+		>hbase shell
+		>balancer
+
+- Storm
+
+	Вы можете с легкостью добавлять и удалять узлы данных в работающем кластере Storm. Но после успешного завершения операции масштабирования потребуется повторная балансировка топологии.
+
+	Повторную балансировку можно выполнить двумя способами:
+
+	* с помощью веб-интерфейса Storm;
+	* с помощью программы командной строки.
+
+	Дополнительную информацию см. в [документации по Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+
+	В кластере HDInsight доступен веб-интерфейс Storm.
+
+	![hdinsight, storm, масштабирование, перераспределение](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+
+	Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
+
+		## Reconfigure the topology "mytopology" to use 5 worker processes,
+		## the spout "blue-spout" to use 3 executors, and
+		## the bolt "yellow-bolt" to use 10 executors
+
+		$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+
+В следующем фрагменте кода показано синхронное или асинхронное изменение размера кластера:
+
+    _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+    _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+	
+
+##Предоставление и отмена доступа
+
+В кластерах HDInsight имеются следующие веб-службы HTTP (все эти службы имеют конечные точки RESTful):
+
+- ODBC
+- JDBC
+- Ambari
+- Oozie
+- Templeton
+
+
+По умолчанию эти службы предоставляются для доступа. Вы можете отменить или предоставить доступ. Для отмены:
+
+	var httpParams = new HttpSettingsParameters
+	{
+		HttpUserEnabled = false,
+		HttpUsername = "admin",
+		HttpPassword = "*******",
+	};
+	_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+
+Для предоставления:
+
+	var httpParams = new HttpSettingsParameters
+	{
+		HttpUserEnabled = enable,
+		HttpUsername = "admin",
+		HttpPassword = "*******",
+	};
+	_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+
+
+>[AZURE.NOTE] Предоставляя или отменяя доступ, вы сбрасываете имя пользователя и пароль кластера.
+
+Это также можно сделать через портал. См. статью [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal].
+
+##Обновление учетных данных пользователя HTTP
+
+Эта процедура аналогична [предоставлению или запрету доступа HTTP](#grant/revoke-access). Если кластеру был предоставлен доступ по протоколу HTTP, необходимо сначала отменить его. После этого предоставьте доступ с новыми учетными данными пользователя HTTP.
+
+
+##Поиск учетной записи хранения по умолчанию
+
+В следующем фрагменте кода показано получение имени учетной записи хранения по умолчанию и ключа учетной записи хранения по умолчанию для кластера.
+
+	var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
+	foreach (var key in results.Configuration.Keys)
+	{
+	    Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
+	}
+
+
+##Отправка заданий
+
+**Отправка заданий MapReduce**
+
+См. статью [Запуск примеров выполнения Hadoop MapReduce в HDInsight](hdinsight-hadoop-run-samples-linux.md).
+
+**Отправка заданий Hive**
+
+См. статью [Выполнение запросов Hive с помощью пакета SDK для .NET](hdinsight-hadoop-use-hive-dotnet-sdk.md).
+
+**Отправка заданий Pig**
+
+См. статью [Выполнение заданий Pig с помощью пакета SDK для .NET](hdinsight-hadoop-use-pig-dotnet-sdk.md).
+
+**Отправка заданий Sqoop**
+
+См. раздел [Использование Sqoop с HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md).
+
+**Отправка заданий Oozie**
+
+См. статью [Использование Oozie с Hadoop для определения и выполнения рабочего процесса в HDInsight](hdinsight-use-oozie-linux-mac.md).
+
+##Отправка данных в хранилище BLOB-объектов Azure
+См. раздел [Отправка данных в HDInsight][hdinsight-upload-data].
+
+
+## См. также
+* [Справочная документация к пакету SDK для HDInsight .NET](https://msdn.microsoft.com/library/mt271028.aspx)
+* [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal]
+* [Администрирование HDInsight с помощью интерфейса командной строки][hdinsight-admin-cli]
+* [Создание кластеров HDInsight][hdinsight-provision]
+* [Отправка данных в HDInsight][hdinsight-upload-data]
+* [Приступая к работе с Azure HDInsight][hdinsight-get-started]
+
+
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision-custom-options]: hdinsight-provision-clusters.md#configuration
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+
+[hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
+[hdinsight-admin-portal]: hdinsight-administer-use-portal-linux.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
+
+<!---HONumber=AcomDC_0504_2016-->

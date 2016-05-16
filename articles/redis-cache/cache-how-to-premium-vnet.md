@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # Настройка поддержки виртуальной сети для кэша Redis для Azure уровня Премиум
@@ -27,7 +27,7 @@
 Развертывание [виртуальной сети Azure](https://azure.microsoft.com/services/virtual-network/) обеспечивает улучшенную безопасность и изоляцию кэша Redis для Azure, а также подсети, политики контроля доступа и другие функции для дальнейшего ограничения доступа к кэшу Redis для Azure.
 
 ## Поддержка виртуальной сети
-Поддержка виртуальной сети настраивается во время создания кэша в колонке **Новый кэш Redis**. Для создания кэша войдите на [портал Azure](https://portal.azure.com), щелкните **Создать** > **Данные+хранилище** > **Кэш Redis**.
+Поддержка виртуальной сети настраивается во время создания кэша в колонке **Новый кэш Redis**. Для создания кэша войдите на [портал Azure](https://portal.azure.com), щелкните **Создать** > **Данные+хранилище** > **Кэш Redis**.
 
 ![Создание кэша Redis][redis-cache-new-cache-menu]
 
@@ -119,4 +119,4 @@
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

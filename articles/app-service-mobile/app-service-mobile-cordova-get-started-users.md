@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="javascript"
 	authors="adrianhall"
-	manager="ggailey777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="adrianha"/>
+	ms.date="05/02/2016"
+	ms.author="glenga"/>
 
 # Добавление проверки подлинности в приложение Apache Cordova
 
@@ -32,9 +32,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-+ В Visual Studio откройте проект, созданный при прохождении учебника [Приступая к работе с мобильными приложениями], запустите свое приложение в **эмуляторе Google Android** и убедитесь в том, что при запуске приложения отображается непредвиденный сбой подключения.
-
-    Это вызвано тем, что приложение пытается получить доступ к серверной части от имени пользователя, не прошедшего проверку подлинности. Серверная служба перенаправляет пользователя на страницу проверки подлинности с помощью OAuth. При этом само приложение не доверяет конечной точке OAuth.
+Теперь можно убедиться, что анонимный доступ к серверной части был отключен. В Visual Studio откройте проект, созданный при прохождении учебника [Приступая к работе с мобильными приложениями], запустите свое приложение в **эмуляторе Google Android** и убедитесь в том, что при запуске приложения отображается непредвиденный сбой подключения.
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из серверной части мобильного приложения.
 
@@ -42,7 +40,7 @@
 
 1. Откройте проект в **Visual Studio**, а затем откройте файл `www/index.html` для редактирования.
 
-2. Найдите мета-тег `Content-Security-Policy` в разделе head. Добавьте узел OAuth в список допустимых источников.
+2. Найдите метатег `Content-Security-Policy` в разделе head. Добавьте узел OAuth в список допустимых источников.
 
     | Поставщик | Имя поставщика SDK | Узел OAuth |
     | :--------------------- | :---------------- | :-------------------------- |
@@ -93,7 +91,7 @@
 
 ##<a name="next-steps"></a>Дальнейшие действия
 
-* Узнайте больше об [аутентификации] с использованием службы приложений Azure.
+* Узнайте больше о [проверке подлинности] с использованием службы приложений Azure.
 * Продолжите работу с учебником, добавив в приложение Apache Cordova [push-уведомления].
 
 Подробнее об использовании пакетов SDK.
@@ -107,9 +105,9 @@
 [Приступая к работе с мобильными приложениями]: app-service-mobile-cordova-get-started.md
 [документации по политике безопасности содержимого]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [push-уведомления]: app-service-mobile-cordova-get-started-push.md
-[аутентификации]: app-service-mobile-auth.md
+[проверке подлинности]: app-service-mobile-auth.md
 [Пакет SDK для Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

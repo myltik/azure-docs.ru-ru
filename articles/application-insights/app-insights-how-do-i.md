@@ -79,12 +79,12 @@
 
 ### Настройте автоматические оповещения
 
-[Создание новых оповещений с помощью PowerShell](app-insights-alerts/#set-alerts-by-using-powershell)
+[Создание новых оповещений с помощью PowerShell](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## Использование PowerShell для управления Application Insights
 
 * [Создание новых ресурсов](app-insights-powershell-script-create-resource.md)
-* [Создание новых оповещений](app-insights-alerts/#set-alerts-by-using-powershell)
+* [Создание новых оповещений](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## Версии приложения и метки
 
@@ -241,4 +241,4 @@
 * Сначала [добавьте новую диаграмму](app-insights-metrics-explorer.md), чтобы посмотреть, находится ли счетчик в базовом наборе предложения.
 * Если его нет, [добавьте счетчик к набору, собранному модулем счетчика производительности](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

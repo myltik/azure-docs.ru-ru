@@ -14,38 +14,49 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # Создание API Excel в PowerApps Enterprise
 
-Добавьте API Excel в среду службы приложений (клиента) организации.
+> [AZURE.IMPORTANT] Эта тема помещена в архив и скоро будет удалена. Узнать о наших новых планах можно в новом разделе [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Дополнительные сведения о PowerApps и инструкции по началу работы можно найти на сайте [PowerApps](https://powerapps.microsoft.com).  
+> - Дополнительные сведения о доступных подключениях в PowerApps см. в статье [Доступные подключения](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-## Создание API на портале Azure
+<!--Archived
+Add the Excel API to your organization's (tenant) app service environment. 
 
-1. Войдите на [портал Azure](https://portal.azure.com/) с помощью рабочей учетной записи. Например, это может быть адрес *ИмяПользователя*@*ВашаКомпания*.com. При этом выполняется автоматический вход в подписку вашей компании.
+## Create the API in the Azure portal
+
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. На панели задач выберите **Обзор**: ![][4]
+2. Select **Browse** in the task bar:  
+![][4]
 
-3. Вы можете прокрутить список и найти PowerApps или набрать *powerapps* на клавиатуре: ![][5]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][5]  
 
-4. В **PowerApps** выберите **Управление интерфейсами API**: ![Переход к зарегистрированным API][1]
+4. In **PowerApps**, select **Manage APIs**:  
+![Browse to registered apis][1]
 
-5. В разделе **Управление интерфейсами API** выберите **Добавить**, чтобы добавить новый API: ![Добавление API][2]
+5. In **Mange APIs**, select **Add** to add the new API:  
+![Add API][2]
 
-6. Введите описательное **имя** API.
+6. Enter a descriptive **name** for your API.  
 	
-7. В качестве **источника** укажите **доступные API**, чтобы выбрать встроенные API, а затем выберите **Excel**: ![выбор API Excel][3]
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and then select **Excel**:  
+![select Excel api][3]
 
-8. Нажмите кнопку **ОК**, чтобы завершить эти действия.
+8. Select **OK** to complete these steps.
 
-После их выполнения в среду службы приложений вашей организации будет добавлен новый API Excel.
+When finished, a new Excel API is added to your app service environment.
 
-## Сводка и дальнейшие действия
-С помощью инструкций в этом разделе вы добавили API Excel в свою среду PowerApps Enterprise. Теперь необходимо предоставить пользователям доступ к этому API, чтобы они могли добавить его в свои приложения:
+## Summary and next steps
+In this topic, you added the Excel API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
-[Добавление подключения и предоставление доступа пользователям](powerapps-manage-api-connection-user-access.md)
-
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
 
 
 <!--References-->
@@ -55,4 +66,4 @@
 [4]: ./media/powerapps-create-api-excel/browseall.png
 [5]: ./media/powerapps-create-api-excel/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

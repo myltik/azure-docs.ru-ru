@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Управление веб-приложением в службе приложений Azure
@@ -90,12 +90,7 @@
 - [С помощью системы управления версиями Team Foundation](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
 - [С помощью Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
-
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
 <!-- Anchors. -->
-
 
 [Before you deploy your site to production]: #before-you-deploy-your-site-to-production
 [While your website is running]: #while-your-website-is-running
@@ -103,4 +98,4 @@
 
   
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

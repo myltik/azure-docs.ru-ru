@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/11/2016"
+	ms.date="05/03/2016"
 	ms.author="piyushjo"/>
 
 # Проверка подлинности с помощью интерфейсов REST API Mobile Engagement — настройка вручную
 
 Это приложение к статье [Проверка подлинности с помощью интерфейсов REST API Mobile Engagement](mobile-engagement-api-authentication.md). Сначала следует ознакомиться с данными в статье. Здесь описывается альтернативный способ выполнения однократной настройки для настройки проверки подлинности с помощью интерфейсов REST API Mobile Engagement на портале Azure.
 
->[AZURE.NOTE] Основой приведенных ниже инструкций является это [руководство по Active Directory](../resource-group-create-service-principal-portal/). Они настроены в соответствии с требованиями к проверке подлинности с помощью API Mobile Engagement. Ознакомьтесь с этим руководством, если хотите получить более подобные сведения о выполняемых действиях.
+>[AZURE.NOTE] Приведенные ниже инструкции основаны на этом [руководстве по Active Directory](../resource-group-create-service-principal-portal.md). Они настроены в соответствии с требованиями к проверке подлинности с помощью API Mobile Engagement. Ознакомьтесь с этим руководством, если хотите получить более подобные сведения о выполняемых действиях.
 
 1. Войдите в свою учетную запись Azure через [классическую версию портала](https://manage.windowsazure.com/).
 
@@ -144,4 +144,4 @@
 [20]: ./media/mobile-engagement-api-authentication-manual/add-user-select.png
 [21]: ./media/mobile-engagement-api-authentication-manual/add-access-final.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -3,7 +3,7 @@
    description="Информация об анализе журналов веб-сайта с помощью аналитики озера данных Azure."
    services="data-lake-analytics"
    documentationCenter=""
-   authors="mumian"
+   authors="edmacauley"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/01/2015"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Руководство: анализ журналов веб-сайта с помощью службы аналитики озера данных Azure
 
@@ -25,7 +25,7 @@
 ## Предварительные требования:
 
 - **Visual Studio 2015, Visual Studio 2013 с обновлением 4 или Visual Studio 2012 с установленным Visual C++**
-- **Microsoft Azure SDK для .NET \(версии 2.5 или выше\)**. Вы можете установить его с помощью [установщика веб-платформы](http://www.microsoft.com/web/downloads/platform.aspx).
+- **Microsoft Azure SDK для .NET (версии 2.5 или выше)**. Вы можете установить его с помощью [установщика веб-платформы](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Средства озера данных для Visual Studio](http://aka.ms/adltoolsvs)**.
 
 	После установки средств озера данных для Visual Studio вы увидите меню **Озеро данных** в Visual Studio:
@@ -202,4 +202,4 @@
 - [Начало работы с языком U-SQL в службе аналитики озера данных Azure.](data-lake-analytics-u-sql-get-started.md)
 - [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных.](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

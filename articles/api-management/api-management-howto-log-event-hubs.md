@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # Как регистрировать события в концентраторах событий Azure в службе управления Azure API
@@ -71,14 +71,12 @@
       "credentials" : {
         "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
-        },
-        "isBuffered": "true | false"
+        }
     }
 
 -	Для параметра `type` нужно задать значение `AzureEventHub`.
 -	`description` предоставляет дополнительное описание средства ведения журнала. При желании эту строку можно оставить пустой.
 -	`credentials` содержит `name` и `connectionString` концентратора событий Azure.
--	`isBuffered` определяет, буферизуются ли записи в средстве ведения журнала перед публикацией. Это свойство является необязательным и имеет значение по умолчанию — `true`. При буферизации записи отправляются в концентратор событий каждые 15 секунд или когда в буфер поступает 256 КБ сообщений.
 
 Если при выполнении запроса средство ведения журнала создано, возвращается код состояния `201 Created`.
 
@@ -135,4 +133,4 @@
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

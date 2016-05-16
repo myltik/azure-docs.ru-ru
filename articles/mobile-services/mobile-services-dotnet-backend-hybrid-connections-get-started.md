@@ -125,7 +125,7 @@
 
 ##См. также##
 
-+ [Веб-сайт гибридных подключений](../../services/biztalk-services/)
++ [Веб-сайт гибридных подключений](https://azure.microsoft.com/services/biztalk-services/)
 + [Обзор гибридных подключений](../biztalk-services/integration-hybrid-connection-overview.md)
 + [Службы BizTalk: вкладки "Панель мониторинга", "Монитор", "Масштаб", "Настройка" и "Гибридные подключения"](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 + [Изменение модели данных в серверной мобильной службе для .NET](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)
@@ -138,4 +138,4 @@
 [классическом портале Azure]: http://manage.windowsazure.com
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

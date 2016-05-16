@@ -27,7 +27,7 @@
 
 ## Получение ключа инструментирования
 
-На [портале Microsoft Azure](https://portal.azure.com) откройте ресурс [Application Insights](start) там, где требуется отображение данных. (Либо [создайте новый ресурс](app-insights-create-new-resource.md).)
+На [портале Microsoft Azure](https://portal.azure.com) откройте ресурс [Application Insights](app-insights-overview.md) там, где требуется отображение данных. (Либо [создайте новый ресурс](app-insights-create-new-resource.md).)
 
 Скопируйте ключ инструментирования, идентифицирующий этот ресурс.
 
@@ -143,4 +143,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->
