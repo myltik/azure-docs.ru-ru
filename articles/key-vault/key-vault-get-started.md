@@ -116,7 +116,7 @@
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Теперь созданный или переданный в хранилище ключей Azure ключ можно вызвать, используя его URI. Чтобы постоянно получать текущую версию, используйте адрес ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**, а для получения данной конкретной версии используйте адрес ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**.
+Теперь созданный или переданный в хранилище ключей Azure ключ можно вызвать, используя его URI. Чтобы постоянно получать текущую версию, используйте адрес **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**, а для получения данной конкретной версии используйте адрес **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**.
 
 Чтобы отобразить URI для этого ключа, введите:
 
@@ -130,7 +130,7 @@
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Теперь пароль, добавленный в хранилище ключей Azure, можно вызвать, используя его URI. Чтобы постоянно получать текущую версию, используйте адрес ****https://ContosoVault.vault.azure.net/secrets/SQLPassword**, а для получения данной конкретной версии используйте адрес ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
+Теперь пароль, добавленный в хранилище ключей Azure, можно вызвать, используя его URI. Чтобы постоянно получать текущую версию, используйте адрес **https://ContosoVault.vault.azure.net/secrets/SQLPassword**, а для получения данной конкретной версии используйте адрес **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
 
 Чтобы отобразить URI для этого секрета, введите:
 
