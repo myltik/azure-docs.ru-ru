@@ -75,7 +75,7 @@ Power Query можно использовать для импорта данны
 
 В этой статье было показано, как использовать Power Query для извлечения данных из HDInsight в Excel. Аналогичным образом можно извлекать данные из HDInsight в SQL Azure. Можно также передавать данные в HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-* [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC][hdinsight-ODBC]
+* [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md)
 * [Отправка данных в HDInsight][hdinsight-upload-data]
 
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
