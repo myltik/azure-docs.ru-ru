@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="04/14/2016"
+	ms.date="05/05/2016"
 	ms.author="wesmc"/>
 
 # Отправка push-уведомлений в приложения Android с помощью центров уведомлений Azure
@@ -93,7 +93,7 @@
 
 1. Чтобы обеспечить поддержку GCM, нужно реализовать службу прослушивания идентификаторов экземпляра в своем коде. Таким образом можно [получать маркеры регистрации](https://developers.google.com/cloud-messaging/android/client#sample-register) с помощью [API идентификаторов экземпляра Google](https://developers.google.com/instance-id/). В этом руководстве мы назовем класс `MyInstanceIDService`. 
  
-	Добавьте определение службы ниже внутри тега `<application>` в файле AndroidManifest.xml. Замените заполнитель `<your package>` фактическим именем своего пакета.
+	Добавьте определение службы ниже внутри тега `<application>` в файле AndroidManifest.xml. Замените заполнитель `<your package>` фактическим именем своего пакета, отображенным в верхней части файла `AndroidManifest.xml`.
 
 		<service android:name="<your package>.MyInstanceIDService" android:exported="false">
 		    <intent-filter>
@@ -104,16 +104,16 @@
 
 2. Получив маркер регистрации в GCM из API идентификаторов экземпляра, мы будем использовать его для [регистрации в Центре уведомлений Azure](notification-hubs-registration-management.md). Мы обеспечим поддержку этой регистрации в фоновом режиме с помощью службы `IntentService` с именем `RegistrationIntentService`. Кроме того, эта служба будет отвечать за [обновление маркера регистрации в GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
  
-	Добавьте определение службы ниже внутри тега `<application>` в файле AndroidManifest.xml.
+	Добавьте определение службы ниже внутри тега `<application>` в файле AndroidManifest.xml. Замените заполнитель `<your package>` фактическим именем своего пакета, отображенным в верхней части файла `AndroidManifest.xml`.
 
         <service
-            android:name="com.example.microsoft.getstarted.RegistrationIntentService"
+            android:name="<your package>.RegistrationIntentService"
             android:exported="false">
         </service>
 
 
 
-3. Теперь мы определим получателя уведомлений. Добавьте следующее определение получателя внутри тега `<application>` в файле AndroidManifest.xml.
+3. Теперь мы определим получателя уведомлений. Добавьте следующее определение получателя внутри тега `<application>` в файле AndroidManifest.xml. Замените заполнитель `<your package>` фактическим именем своего пакета, отображенным в верхней части файла `AndroidManifest.xml`.
 
 		<receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
 		    android:permission="com.google.android.c2dm.permission.SEND">
@@ -147,7 +147,7 @@
 
 	Обновите эти три заполнителя в следующем коде для класса `NotificationSettings`:
 	* **SenderId**: задайте номер проекта, полученный ранее в [консоли Google Cloud](http://cloud.google.com/console).
-	* **HubListenConnectionString**: задайте для вашего центра строку подключения **DefaultListenAccessSignature**. Эту строку подключения можно скопировать, щелкнув **Политики доступа** на **портале Azure** в колонке [Параметры центра].
+	* **HubListenConnectionString**: задайте для вашего центра строку подключения **DefaultListenAccessSignature**. Эту строку подключения можно скопировать, щелкнув **Политики доступа** в колонке **Параметры** для центра на [портале Azure].
 	* **HubName**: используйте имя центра уведомлений, которое отображается на [портале Azure] в колонке центра.
 
 	Код `NotificationSettings`:
@@ -253,7 +253,7 @@
 
 
 		
-4. В класс `MainActivity` над объявлением класса добавьте следующие операторы `import`:
+4. Над объявлением класса `MainActivity` добавьте следующие инструкции `import`:
 
 		import com.google.android.gms.common.ConnectionResult;
 		import com.google.android.gms.common.GoogleApiAvailability;
@@ -360,13 +360,13 @@
 	    }
 
 
-10. Метод `ToastNotify` использует элемент управления `TextView` *"Hello World"*, чтобы постоянно передавать в приложение сведения о состоянии и уведомления. В файле макета activity\_main.xml добавьте код ниже для этого элемента управления.
+10. Метод `ToastNotify` использует элемент управления `TextView` *Hello World*, чтобы постоянно передавать в приложение сведения о состоянии и уведомления. В файле макета activity\_main.xml добавьте код ниже для этого элемента управления.
 
         android:id="@+id/text_hello"
 
 11. Затем мы добавим подкласс для получателя, определенного в файле AndroidManifest.xml. Добавьте еще один новый класс в проект `MyHandler`.
 
-12. Добавьте следующие операторы импорта в начало файла `MyHandler.java`:
+12. Добавьте следующие инструкции импорта в начало файла `MyHandler.java`:
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -423,11 +423,11 @@
 		}
 
 
-14. В Android Studio в строке меню щелкните **Build** (Сборка) > **Rebuild Project** (Перестроить проект), чтобы убедиться в отсутствии ошибок.
+14. В Android Studio в строке меню щелкните **Build** (Сборка) > **Rebuild Project** (Повторить сборку проекта), чтобы убедиться в отсутствии ошибок.
 
 ##Отправка push-уведомлений
 
-Чтобы проверить получение push-уведомлений в приложении, отправьте уведомление с [портала Azure] (найдите раздел **Устранение неполадок** в колонке концентратора, как показано ниже).
+Чтобы проверить получение push-уведомлений в приложении, отправьте уведомление с [портала Azure] (найдите раздел **Устранение неполадок** в колонке центра, как показано ниже).
 
 ![Центры уведомлений Azure — тестовая отправка](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
 
@@ -435,9 +435,9 @@
 
 ## Отправка push-уведомлений непосредственно из приложения (необязательное действие)
 
-Обычно уведомления отправляются с сервера базы данных. Но в некоторых случаях бывает удобно отправлять push-уведомления непосредственно из клиентского приложения. Этот раздел демонстрирует, как отправлять уведомления из клиента с помощью [API REST концентратора уведомлений Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
+Обычно уведомления отправляются с сервера базы данных. Но в некоторых случаях бывает удобно отправлять push-уведомления непосредственно из клиентского приложения. Этот раздел демонстрирует, как отправлять уведомления из клиента с помощью [REST API Центра уведомлений Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
-1. В представлении проекта Android Studio разверните узел **App** > **src** > **main** > **res** > **layout**. Откройте файл макета `activity_main.xml` и щелкните вкладку **Text** (Текст), чтобы обновить текстовое содержимое файла. Поместите в него приведенный ниже код, который добавляет новые элементы управления `Button` и `EditText` для отправки push-уведомлений в концентратор уведомлений. Добавьте этот код в конец, непосредственно перед `</RelativeLayout>`.
+1. В представлении проекта Android Studio разверните узел **App** > **src** > **main** > **res** > **layout**. Откройте файл макета `activity_main.xml` и щелкните вкладку **Text** (Текст), чтобы обновить текстовое содержимое файла. Поместите в него приведенный ниже код, который добавляет новые элементы управления `Button` и `EditText` для отправки push-уведомлений в центр уведомлений. Добавьте этот код в конец, непосредственно перед `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -465,7 +465,7 @@
 
 3. В файле `NotificationSetting.java` добавьте следующую переменную в класс `NotificationSettings`.
 
-	Добавьте в `HubFullAccess` следующую строку подключения к центру: **DefaultFullSharedAccessSignature**. Чтобы скопировать эту строку подключения на [портале Azure], щелкните **Политики доступа** в колонке **Параметры** концентратора уведомлений.
+	Добавьте в `HubFullAccess` следующую строку подключения к центру: **DefaultFullSharedAccessSignature**. Чтобы скопировать эту строку подключения на [портале Azure], щелкните **Политики доступа** в колонке **Параметры** для центра уведомлений.
 
 		public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
@@ -577,7 +577,7 @@
 
 
 
-8. В файле `MainActivity.java` добавьте в класс `MainActivity` приведенный ниже метод, который обрабатывает событие нажатия кнопки **Send Notification** (Отправить уведомление) и отправляет push-уведомление в концентратор с помощью встроенного REST API.
+8. В файле `MainActivity.java` добавьте в класс `MainActivity` приведенный ниже метод, который обрабатывает событие нажатия кнопки **Send Notification** (Отправить уведомление) и отправляет push-уведомление в центр с помощью встроенного REST API.
 
 	    /**
 	     * Send Notification button click handler. This method parses the
@@ -685,9 +685,9 @@
 
 На следующем этапе мы рекомендуем ознакомиться с руководством [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]. В нем описана процедура отправки уведомлений с сервера ASP.NET определенным пользователям с использованием тегов.
 
-Если вы хотите разделить пользователей по группам интересов, изучите руководство по [использованию концентраторов уведомлений для передачи экстренных новостей].
+Если вы хотите разделить пользователей по группам интересов, изучите руководство [Использование концентраторов уведомлений для передачи экстренных новостей].
 
-Дополнительные сведения о концентраторах уведомлений см. в статье [Общие сведения о концентраторах уведомлений].
+Дополнительные сведения о центрах уведомлений см. в статье [Общие сведения о концентраторах уведомлений].
 
 <!-- Images. -->
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
@@ -721,9 +721,8 @@
 [Azure Classic Portal]: https://manage.windowsazure.com/
 [Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-android-notify-users.md
-[использованию концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-breaking-news.md
-[Параметры центра]: https://portal.azure.com
+[Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-breaking-news.md
 [портала Azure]: https://portal.azure.com
 [портале Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

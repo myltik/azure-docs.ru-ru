@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/10/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Подробное пошаговое руководство по использованию предварительной версии службы совместной работы Azure Active Directory (Azure AD) B2B
@@ -28,15 +28,15 @@
 После отправки приглашений пользователям компаний-партнеров можно настроить их в Azure AD и предоставить им доступ к приложениям и членство в группах через портал Azure. Сначала добавим Алису.
 
 ## Добавление Алисы в каталог Contoso
-1. Создайте CSV-файл с указанными ниже заголовками, заполнив для Алисы значения только в столбцах **Email**, **DisplayName** и **InviteContactUsUrl**. **DisplayName** — это имя, которое будет отображаться в приглашении и каталоге Azure AD компании Contoso. **InviteContactUsUrl** — это ссылка, по которой Алиса может связаться с компанией Contoso. В следующем примере для этого используется профиль компании Contoso в LinkedIn. Важно, чтобы метки в первой строке CSV-файла шли в том же порядке и были написаны точно так же, как показано в примере. См. раздел "Формат CSV" ниже. ![Пример CSV-файла для Алисы](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
+1. Создайте CSV-файл с указанными ниже заголовками, заполнив для Алисы значения только в столбцах **Email**, **DisplayName** и **InviteContactUsUrl**. **DisplayName** — это имя, которое будет отображаться в приглашении и каталоге Azure AD компании Contoso. **InviteContactUsUrl** — это ссылка, по которой Алиса может связаться с компанией Contoso. В следующем примере ссылка InviteContactUsUrl указывает профиль LinkedIn компании Contoso. Важно, чтобы названия в первой строке CSV-файла полностью соответствовали названиям, указанным в [справочнике по формату CSV-файлов](active-directory-b2b-references-csv-file-format.md). ![Пример CSV-файла для Алисы](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
 
-2. На портале Azure добавьте пользователя в каталоге Contoso (Active Directory > Contoso > Пользователи > Добавить пользователя). В раскрывающемся списке "Тип пользователя" выберите "Пользователи в компаниях-партнерах". Передайте CSV-файл. Перед передачей убедитесь в том, что CSV-файл закрыт. ![Передача CSV-файла для Алисы](./media/active-directory-b2b-detailed-walkthrough/AliceUpload.png)
+2. На портале Azure добавьте пользователя в каталоге Contoso (Active Directory > Contoso > Пользователи > Добавить пользователя). В раскрывающемся списке "Тип пользователя" выберите "Пользователи в компаниях-партнерах". Передайте CSV-файл. Для этого его нужно закрыть. ![Передача CSV-файла для Алисы](./media/active-directory-b2b-detailed-walkthrough/AliceUpload.png)
 
 3. Теперь Алиса является внешним пользователем в каталоге Azure AD компании Contoso. ![Алиса внесена в каталог Azure AD](./media/active-directory-b2b-detailed-walkthrough/AliceInAD.png)
 
-4. Алиса получит следующее письмо по электронной почте. ![Письмо с приглашением для Алисы](./media/active-directory-b2b-detailed-walkthrough/AliceEmail.png)
+4. Алиса получает следующее письмо: ![Письмо с приглашением для Алисы](./media/active-directory-b2b-detailed-walkthrough/AliceEmail.png)
 
-5. Алиса щелкает ссылку, и ей предложено принять приглашение и войти в систему со своими рабочими учетными данными. Если Алиса отсутствует в каталоге Azure AD, ей будет предложено зарегистрироваться. ![Регистрация после получения приглашения для Алисы](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
+5. Алиса щелкнет ссылку, и ей будет предложено принять приглашение и войти в систему со своими рабочими учетными данными. Если Алиса отсутствует в каталоге Azure AD, ей предлагают зарегистрироваться. ![Регистрация после получения приглашения для Алисы](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
 
 6. Алиса будет перенаправлена в панель доступа к приложениям, которая остается пустой, пока ей не будет предоставлен доступ к приложениям. ![Панель доступа для Алисы](./media/active-directory-b2b-detailed-walkthrough/AliceAccessPanel.png)
 
@@ -45,11 +45,11 @@
 ## Добавление Боба в каталог Contoso и предоставление доступа к приложениям
 1. Чтобы узнать идентификаторы приложений Moodle и Salesforce, воспользуйтесь Windows PowerShell с установленным модулем Azure AD. Получить идентификаторы можно с помощью командлета: `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`. Он выводит список всех доступных приложений в Contoso и их идентификаторы AppPrincialId. ![Получение идентификаторов для Боба](./media/active-directory-b2b-detailed-walkthrough/BobPowerShell.png)
 
-2. Создайте CSV-файл, указав для Боба параметры Email, DisplayName, **InviteAppID**, **InviteAppResources** и InviteContactUsUrl. В столбце **InviteAppResources** через пробелы указываются идентификаторы AppPrincipalId приложений Moodle и Salesforce, полученные в PowerShell. Здесь идентификаторы, соответствующие идентификаторам на снимке экрана PowerShell выше, подчеркнуты зеленой и синей полосой. В столбце **InviteAppId** указывается тот же идентификатор AppPrincipalId для приложения Moodle, который обеспечивает фирменную настройку электронной почты и страниц входа. ![Пример CSV-файла для Боба](./media/active-directory-b2b-detailed-walkthrough/BobCSV.png)
+2. Создайте CSV-файл, указав для Боба параметры Email, DisplayName, **InviteAppID**, **InviteAppResources** и InviteContactUsUrl. В столбце **InviteAppResources** через пробелы укажите идентификаторы AppPrincipalId приложений Moodle и Salesforce, полученные в PowerShell. В столбце **InviteAppId** укажите тот же идентификатор AppPrincipalId для приложения Moodle, чтобы разместить логотип Moodle на страницах почты и входа.![Пример CSV-файла для Боба](./media/active-directory-b2b-detailed-walkthrough/BobCSV.png)
 
-3. Передайте CSV-файл на портал Azure, как и для Алисы. Теперь Боб является внешним пользователем в каталоге Azure AD компании Contoso.
+3. Передайте CSV-файл на портал Azure, как и для Алисы. Теперь Боб — внешний пользователь в каталоге Azure AD компании Contoso.
 
-4. Боб получит следующее письмо по электронной почте. ![Письмо с приглашением для Боба](./media/active-directory-b2b-detailed-walkthrough/BobEmail.png)
+4. Боб получает следующее письмо: ![Письмо с приглашением для Боба](./media/active-directory-b2b-detailed-walkthrough/BobEmail.png)
 
 5. Боб щелкнет ссылку, и ему будет предложено принять приглашение. После входа в систему он направляется к панели доступа, где для него уже доступны приложения Moodle и Salesforce. ![Панель доступа для Боба](./media/active-directory-b2b-detailed-walkthrough/BobAccessPanel.png)
 
@@ -67,9 +67,9 @@
 
 4. Кэрол теперь является пользователем в каталоге Contoso, а также членом групп MyGroup1 и Externals, как видно на портале Azure. ![Кэрол внесена в каталог Azure AD](./media/active-directory-b2b-detailed-walkthrough/CarolGroup.png)
 
-5. Кэрол получит письмо по электронной почте со ссылкой для принятия приглашения. После входа в систему она будет перенаправлена на панель доступа к приложениям, где ей будут доступны Moodle и Salesforce.
+5. Кэрол получает письмо со ссылкой для принятия приглашения. После входа в систему ее перенаправляют на панель доступа к приложениям, где она сможет получить доступ к Moodle и Salesforce.
 
-Так добавляют пользователей из компаний-партнеров в службу совместной работы Azure AD B2B. В этом пошаговом руководстве показано добавление Алисы, Боба и Кэрол в трех отдельных CSV-файлах, однако для простоты их можно добавить вместе в одном CSV-файле. ![Пример CSV-файла для Алисы, Боба и Кэрол](./media/active-directory-b2b-detailed-walkthrough/CombinedCSV.png)
+Так добавляют пользователей из компаний-партнеров в службу совместной работы Azure AD B2B. В этом пошаговом руководстве показано, как добавить пользователей Алису, Боба и Кэрол в каталог Contoso, используя три отдельных CSV-файла. Этот процесс можно упростить, объединив отдельные CSV-файлы в один общий. ![Пример CSV-файла для Алисы, Боба и Кэрол](./media/active-directory-b2b-detailed-walkthrough/CombinedCSV.png)
 
 ## Связанные статьи
 Другие статьи о службе совместной работы Azure AD B2B:
@@ -82,4 +82,4 @@
 - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

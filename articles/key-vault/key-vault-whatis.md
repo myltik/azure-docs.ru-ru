@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/08/2016"
+	ms.date="05/06/2016"
 	ms.author="cabailey"/>
 
 
 
 # Что такое хранилище ключей Azure?
 
-Хранилище ключей Azure доступно в большинстве регионов. Дополнительные сведения см. на странице [Цены на хранилище ключей](../../../../pricing/details/key-vault/).
+Хранилище ключей Azure доступно в большинстве регионов. Дополнительные сведения см. на странице [Цены на хранилище ключей](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Введение
 
@@ -67,4 +67,4 @@
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0511_2016-->

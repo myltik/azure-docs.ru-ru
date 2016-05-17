@@ -34,7 +34,7 @@
 
 ## Получение полного имени сервера Azure SQL
 
-Для подключения к базе данных требуется полное имя сервера (***имя\_сервера**.database.windows.net*), содержащее базу данных, к которой необходимо подключиться.
+Для подключения к базе данных требуется полное имя сервера (**имя\_сервера**.database.windows.net*), содержащее базу данных, к которой необходимо подключиться.
 
 1. Перейдите на [портал Azure](https://portal.azure.com).
 2. Перейдите к базе данных, к которой нужно подключиться.
@@ -83,4 +83,4 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

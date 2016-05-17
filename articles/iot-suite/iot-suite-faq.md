@@ -14,7 +14,7 @@
   ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="04/22/2016"
+  ms.date="05/09/2016"
   ms.author="araguila"/>
    
 # Часто задаваемые вопросы об IoT Suite
@@ -51,6 +51,8 @@
    
   `<setting name="MapApiQueryKey" value="" />`
 
+### Можно ли создать предварительно настроенное решение при наличии Microsoft Azure для DreamSpark?
+Сейчас нельзя создавать предварительно настроенные решения с использованием учетной записи [Microsoft Azure для DreamSpark][lnk-dreamspark]. Но вы можете создать [бесплатную пробную учетную запись Azure][lnk-30daytrial] всего за несколько минут. Это позволит вам создать предварительно настроенное решение.
 
 ### Как удалить клиент AAD?
 
@@ -61,6 +63,8 @@
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99
+[lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

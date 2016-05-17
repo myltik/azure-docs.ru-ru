@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="05/03/2016"
-	ms.author="adrianha"/>
+	ms.author="krisagh"/>
 
 # <a name="getting-started"> </a>Что такое мобильные приложения?
 
@@ -103,4 +103,4 @@
 [Введение в среду службы приложения]: ../app-service-web/app-service-app-service-environment-intro.md
 [карте обучения]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->
