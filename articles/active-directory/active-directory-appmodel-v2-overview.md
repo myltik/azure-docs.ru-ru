@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/02/2016"
+	ms.date="04/26/2016"
 	ms.author="dastrock"/>
 
 # Вход для пользователей учетных записей Майкрософт и Azure AD в одном приложении
@@ -22,10 +22,14 @@
 
 Приложения, использующие конечную точку версии 2.0, также могут использовать API REST из [Microsoft Graph](https://graph.microsoft.io) и [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) с помощью любого типа учетной записи.
 
-## Приступая к работе
-Выберите платформу ниже, чтобы создать приложение с помощью наших библиотек и платформ с открытым исходным кодом. Вы также можете воспользоваться документацией по протоколу OAuth 2.0 и OpenID Connect для отправки и получения сообщений протокола напрямую, без использования библиотеки аутентификации.
-<!-- TODO: Finalize this table  -->
+<!-- For a quick introduction to the v2.0 endpoint, please view the [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/) video. -->
 
+## Приступая к работе
+[AZURE.VIDEO build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps]
+
+Выберите платформу ниже, чтобы создать приложение с помощью наших библиотек и платформ с открытым исходным кодом. Вы также можете воспользоваться документацией по протоколу OAuth 2.0 и OpenID Connect для отправки и получения сообщений протокола напрямую, без использования библиотеки аутентификации.
+
+<!-- TODO: Finalize this table  -->
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
 ## Новые возможности
@@ -33,13 +37,13 @@
 
 - В случае создания приложения на этапе предварительной версии конечной точки 2.0 в 2015 году обязательно ознакомьтесь [с существенными изменениями протокола](active-directory-v2-preview-oidc-changes.md), которые мы недавно внесли.
 - Узнайте о [типах приложений, которые можно создавать с помощью конечной точки версии 2.0](active-directory-v2-flows.md).
-- Изучите [изменения в наших протоколах и отличия конечной точки версии 2.0](active-directory-v2-compare.md) для разработчиков, знакомых с Azure Active Directory.
+- Разработчикам, знакомым с Azure Active Directory, следует изучить [изменения в протоколах и отличия конечной точки версии 2.0](active-directory-v2-compare.md).
 - Ознакомьтесь с [ограничениями](active-directory-v2-limitations.md) конечной точки версии 2.0.
 
 ## Справочные материалы
 Следующие ссылки позволят глубже изучить платформу:
 
-- Build 2016: [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/).
+- Build 2016: [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/) (Приступая к работе с удостоверениями Майкрософт: вход корпоративного класса для ваших приложений).
 - Получите справку по переполнению стека, используя теги [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) или [adal](http://stackoverflow.com/questions/tagged/adal).
 - [Справочник по протоколу версии 2.0](active-directory-v2-protocols.md)
 - [Справочник по маркерам версии 2.0](active-directory-v2-tokens.md)
@@ -50,11 +54,11 @@
 - Ниже приведены клиентские библиотеки с открытым кодом и примеры, которые были протестированы с конечной точкой версии 2.0.
 
   - [Сервер удостоверений WSO2 Java](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
-  - [Федерация Java Gluu](https://github.com/GluuFederation/oxAuth)
+  - [Федерация Gluu Java](https://github.com/GluuFederation/oxAuth)
   - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
   - [Базовый клиент OpenID Connect для PHP](https://github.com/jumbojett/OpenID-Connect-PHP)
   - [Клиент OAuth2 для iOS](https://github.com/nxtbgthng/OAuth2Client)
   - [Клиент OAuth2 для Android](https://github.com/wuman/android-oauth-client)
   - [Клиент OpenID Connect для Android](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

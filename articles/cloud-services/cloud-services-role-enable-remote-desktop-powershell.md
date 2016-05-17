@@ -3,7 +3,7 @@ pageTitle="Включение подключения к удаленному р�
 description="Как настроить приложение облачной службы Azure для подключений к удаленному рабочему столу с помощью PowerShell" 
 services="cloud-services" 
 documentationCenter="" 
-authors="sbtron" 
+authors="thraka" 
 manager="timlt" 
 editor=""/>
 <tags 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm="na"
 ms.devlang="na" 
 ms.topic="article" 
 ms.date="01/19/2016" 
-ms.author="saurabh"/>
+ms.author="adegeo"/>
 
 # Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell
 
 >[AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
+- [Классический портал Azure](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 - [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
@@ -102,4 +102,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [Настройка облачных служб](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -167,9 +167,12 @@
 
 Дополнительную информацию о разработке приложений Java см. на сайте [Центр разработчиков Java](/develop/java/).
 
-<!-- External Links -->
+<!-- URL List -->
+
 [активировать преимущества для подписчиков Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [подписаться на бесплатную пробную версию]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Пробное использование службы приложений]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-- IMG List -->
+
+<!---HONumber=AcomDC_0511_2016-->

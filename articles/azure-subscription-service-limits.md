@@ -284,4 +284,4 @@
 
 [Размеры для облачных служб](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!-----HONumber=AcomDC_0427_2016-->

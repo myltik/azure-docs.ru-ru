@@ -1,7 +1,7 @@
 <properties
 
-	pageTitle="Managing security groups in Azure Active Directory | Microsoft Azure"
-	description="How to create and manage security groups to manage Azure resource access using Azure Active Directory."
+	pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
+	description="How to create and manage groups to manage Azure resource access using Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -22,7 +22,7 @@
 
 Одна из основных возможностей Azure Active Directory (Azure AD) — это возможность управлять доступом к ресурсам. Это могут быть внутренние объекты каталога или ресурсы, являющиеся внешними относительно каталога, например приложения SaaS, службы Azure, сайты SharePoint или локальные ресурсы. Кроме того, владелец ресурса может назначить доступ к ресурсу группе Azure AD и, следовательно, участникам этой группы. Членством в группе управляет ее владелец. Фактически владелец ресурса делегирует владельцу группы разрешение назначать пользователям доступ к ресурсу.
 
-## Как создать группу безопасности
+## Как создать группу?
 
 **Создание группы**
 
@@ -102,4 +102,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

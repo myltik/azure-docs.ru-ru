@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 
@@ -162,4 +162,4 @@
 Сравнение службы очередей Azure, описанной в этой статье, и очередей служебной шины Azure, описанных в статье [Как использовать очереди служебной шины](/develop/ruby/how-to-guides/service-bus-queues/), см. в статье [Очереди Azure и очереди служебной шины: сходства и различия](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

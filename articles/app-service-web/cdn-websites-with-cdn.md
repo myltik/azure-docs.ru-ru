@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Использование Azure CDN в службе приложений Azure" 
 	description="В этом учебнике объясняется, как развернуть в службе приложений Azure веб-приложение, которое обслуживает содержимое из интегрированной конечной точки CDN Azure." 
-	services="app-service\web" 
+	services="app-service\web,cdn" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -566,13 +566,12 @@
 
 ## Дополнительные сведения 
 - [Общие сведения о сети доставки контента (CDN) Azure](../cdn/cdn-overview.md)
-- [Обслуживание содержимого из CDN Azure в вашем веб-приложении](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Использование Azure CDN](../cdn/cdn-create-new-endpoint.md)
 - [Интеграция облачной службы с Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
 - [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Использование Azure CDN](../cdn/cdn-create-new-endpoint.md)
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

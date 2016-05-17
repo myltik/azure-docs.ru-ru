@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/16/2016"
+   ms.date="05/03/2016"
    ms.author="larryfr"/>
 
 #Выполнение запросов Hive с Hadoop в HDInsight с помощью Curl
@@ -192,4 +192,4 @@ Curl используется для демонстрации возможнос
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Общие сведения о пакете SDK для универсальных приложений для Windows для Azure Mobile Engagement
@@ -68,6 +68,6 @@
 
 ### Обновление предыдущих версий
 
-См. статью [Процедуры обновления](mobile-engagement-windows-store-upgrade-procedure/).
+См. статью [Процедуры обновления](mobile-engagement-windows-store-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

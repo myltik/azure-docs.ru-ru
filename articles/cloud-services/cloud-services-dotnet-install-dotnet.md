@@ -3,7 +3,7 @@
    description="В этой статье описывается, как вручную установить платформу .NET Framework для веб-роли и рабочей роли облачной службы."
    services="cloud-services"
    documentationCenter=".net"
-   authors="sbtron"
+   authors="thraka"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/17/2016"
-   ms.author="saurabh"/>
+   ms.author="adegeo"/>
 
 # Установка .NET для роли облачной службы 
 
@@ -183,4 +183,4 @@
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

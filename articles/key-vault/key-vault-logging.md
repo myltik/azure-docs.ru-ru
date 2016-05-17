@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/08/2016"
+	ms.date="05/06/2016"
 	ms.author="cabailey"/>
 
 # Ведение журнала хранилища ключей Azure #
-Хранилище ключей Azure доступно в большинстве регионов. Дополнительные сведения см. на странице [Цены на хранилище ключей](../../../../pricing/details/key-vault/).
+Хранилище ключей Azure доступно в большинстве регионов. Дополнительные сведения см. на странице [Цены на хранилище ключей](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Введение  
 Создав одно или несколько хранилищ ключей вы, вероятно, захотите знать, кто, как и когда осуществлял доступ к этим хранилищам. Это можно сделать с помощью функции ведения журнала хранилища ключей, которая сохраняет информацию в указанной учетной записи хранения Azure. Для указанной учетной записи автоматически создается новый контейнер с именем **insights-logs-auditevent**. Эту же учетную запись можно использовать для сбора журналов нескольких хранилищ ключей.
@@ -30,7 +30,7 @@
 Это руководство поможет вам приступить к работе с журналами хранилища ключей Azure. В нем описывается создание учетной записи хранения, включение функции ведения журналов, а также интерпретация собранных зарегистрированных сведений.
 
 
->[AZURE.NOTE]В этом руководстве нет инструкций по созданию хранилищ ключей, ключей и секретов. Соответствующие сведения см. в статье [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md). Инструкции по кроссплатформенному интерфейсу командной строки см. в [этом учебнике](key-vault-manage-with-cli.md).
+>[AZURE.NOTE]  В этом руководстве нет инструкций по созданию хранилищ ключей, ключей и секретов. Соответствующие сведения см. в статье [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md). Инструкции по кроссплатформенному интерфейсу командной строки см. в [этом учебнике](key-vault-manage-with-cli.md).
 >
 >В настоящее время нельзя настроить хранилище ключей Azure на портале Azure. Вместо этого используйте эти указания по работе с Azure PowerShell.
 
@@ -73,7 +73,7 @@
 	$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'East Asia'
 
 
->[AZURE.NOTE]Если вы планируете использовать существующую учетную запись хранения, для нее должна использоваться та же подписка, что и для хранилища ключей. Кроме того, она должна быть создана с помощью модели развертывания с использованием диспетчера ресурсов, а не классической модели развертывания.
+>[AZURE.NOTE]  Если вы планируете использовать существующую учетную запись хранения, для нее должна использоваться та же подписка, что и для хранилища ключей. Кроме того, она должна быть создана с помощью модели развертывания с использованием диспетчера ресурсов, а не классической модели развертывания.
 
 ## <a id="identify"></a>Определение хранилища ключей для журналов ##
 
@@ -105,8 +105,8 @@
 - все прошедшие проверку подлинности запросы REST API, включая запросы, ставшие неудачными из-за определенных разрешений на доступ, системных ошибок или неправильных запросов;
 - операции с хранилищем ключей, включая создание, удаление и настройку политик доступа к нему, а также обновление таких его атрибутов, как теги;
 - операции с ключами и секретами в хранилище ключей, включая создание, изменение или удаление этих ключей и секретов; операции подписания, проверки, шифрования, расшифровки, упаковки и распаковки ключей; операции получения секретов, списка ключей, а также секретов и их версий.
+- непроверенные запросы, которые приводят к появлению ответа 401 (например, запросы без токена носителя, с недействительным токеном, а также запросы неправильного формата или просроченные запросы).  
 
-Не прошедшие проверку подлинности запросы не регистрируются.
 
 ## <a id="access"></a>Доступ к журналам ##
 
@@ -116,7 +116,7 @@
 
 Вы получите приблизительно такой результат:
 
-****Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 
 **Имя**
@@ -127,7 +127,7 @@
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
-**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
+**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json**
  
 
 Как видно из этих выходных данных, имена BLOB-объектов соответствуют соглашению об именовании: **resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json**.
@@ -148,7 +148,7 @@
 
 	$blobs | Get-AzureStorageBlobContent -Destination 'C:\Users\username\ContosoKeyVaultLogs'
 
-При выполнении второй команды разделитель **/** в именах BLOB-объектов используется для создания полной структуры папки в папке назначения. Эта структура будет использоваться для загрузки и хранения BLOB-объектов в виде файлов.
+При выполнении второй команды разделитель **/** в именах BLOB-объектов используется для создания полной структуры папки в конечной папке. Эта структура будет использоваться для загрузки и хранения BLOB-объектов в виде файлов.
 
 Для выборочной загрузки BLOB-объектов используйте подстановочные знаки. Например:
 
@@ -160,15 +160,15 @@
 
 		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 
-- Если вы хотите загрузить все журналы за январь 2016 г., используйте `-Blob '*/year=2016/m=01/*'`.
+- Если вы хотите загрузить все журналы за январь 2016 г., используйте `-Blob '*/year=2016/m=01/*'`.
 
 		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 
 Теперь можно переходить к анализу содержимого журналов. Но перед этим мы рассмотрим еще два дополнительных параметра для команды Get-AzureRmDiagnosticSetting:
 
-- `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId` — запрос состояния параметров диагностики для ресурса хранилища ключей.
+- Запрос состояния параметров диагностики для ресурса хранилища ключей: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`.
  
-- `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent` — отключение ведение журнала для ресурса хранилища ключей.
+- Отключение ведения журнала для ресурса хранилища ключей: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`.
 
 
 ## <a id="interpret"></a>Интерпретация журналов хранилища ключей ##
@@ -221,43 +221,43 @@
 
 Значения поля **operationName** отображаются в формате ObjectVerb. Например:
 
-- Все операции хранилища ключей отображаются в формате Vault`<action>`, например `VaultGet` и `VaultCreate`. 
+- Все операции с хранилищем ключей отображаются в формате Vault`<action>`, например `VaultGet` и `VaultCreate`. 
 
-- Все операции ключей отображаются в формате Key`<action>`, например `KeySign` и `KeyList`.
+- Все операции с ключами отображаются в формате Key`<action>`, например `KeySign` и `KeyList`.
 
-- Все операции секретов отображаются в формате Secret`<action>`, например `SecretGet` и `SecretListVersions`.
+- Все операции с секретами отображаются в формате Secret`<action>`, например `SecretGet` и `SecretListVersions`.
 
 В следующей таблице перечислены значения operationName и соответствующие команды REST API.
 
 | operationName | Команда API REST |
 | ------------- |-------------|
 | Authentication | Через конечную точку Azure Active Directory|
-| VaultGet | [Get information about a key vault](https://msdn.microsoft.com/ru-RU/library/azure/mt620026.aspx) (Получение сведений о хранилище ключей)|
-| VaultPut | [Create or update a key vault](https://msdn.microsoft.com/ru-RU/library/azure/mt620025.aspx) (Создание или обновление хранилища ключей)|
-| VaultDelete | [Delete a key vault](https://msdn.microsoft.com/ru-RU/library/azure/mt620022.aspx) (Удаление хранилища ключей)|
-| VaultPatch | [Update a key vault](https://msdn.microsoft.com/library/azure/mt620025.aspx) (Создание или обновление хранилища ключей)|
-| VaultList | [List all key vaults in a resource group](https://msdn.microsoft.com/ru-RU/library/azure/mt620027.aspx) (Список всех хранилищ ключей в группе ресурсов)|
-| KeyCreate | [Create a key](https://msdn.microsoft.com/ru-RU/library/azure/dn903634.aspx) (Создание ключа)|
+| VaultGet | [Get information about a key vault (Получение сведений о хранилище ключей)](https://msdn.microsoft.com/ru-RU/library/azure/mt620026.aspx)|
+| VaultPut | [Create or update a key vault (Создание или обновление хранилища ключей)](https://msdn.microsoft.com/ru-RU/library/azure/mt620025.aspx)|
+| VaultDelete | [Delete a key vault (Удаление хранилища ключей)](https://msdn.microsoft.com/ru-RU/library/azure/mt620022.aspx)|
+| VaultPatch | [Update a key vault (Создание или обновление хранилища ключей)](https://msdn.microsoft.com/library/azure/mt620025.aspx)|
+| VaultList | [List all key vaults in a resource group (Список всех хранилищ ключей в группе ресурсов)](https://msdn.microsoft.com/ru-RU/library/azure/mt620027.aspx)|
+| KeyCreate | [Create a key (Создание ключа)](https://msdn.microsoft.com/ru-RU/library/azure/dn903634.aspx)|
 | KeyGet | [Получение сведений о ключе](https://msdn.microsoft.com/ru-RU/library/azure/dn878080.aspx)|
-| KeyImport | [Import a key into a vault](https://msdn.microsoft.com/ru-RU/library/azure/dn903626.aspx) (Импорт ключа в хранилище)|
+| KeyImport | [Import a key into a vault (Импорт ключа в хранилище)](https://msdn.microsoft.com/ru-RU/library/azure/dn903626.aspx)|
 | KeyBackup | [Создание резервной копии ключа](https://msdn.microsoft.com/ru-RU/library/azure/dn878058.aspx)|
-| KeyDelete | [Delete a key](https://msdn.microsoft.com/ru-RU/library/azure/dn903611.aspx) (Удаление ключа)|
+| KeyDelete | [Delete a key (Удаление ключа)](https://msdn.microsoft.com/ru-RU/library/azure/dn903611.aspx)|
 | KeyRestore | [Восстановление ключа](https://msdn.microsoft.com/ru-RU/library/azure/dn878106.aspx)|
-| KeySign | [Sign with a key](https://msdn.microsoft.com/ru-RU/library/azure/dn878096.aspx) (Вход с помощью ключа)|
+| KeySign | [Sign with a key (Вход с помощью ключа)](https://msdn.microsoft.com/ru-RU/library/azure/dn878096.aspx)|
 | KeyVerify | [Проверка с помощью ключа](https://msdn.microsoft.com/ru-RU/library/azure/dn878082.aspx)|
 | KeyWrap | [Перенос ключа](https://msdn.microsoft.com/ru-RU/library/azure/dn878066.aspx)|
 | KeyUnwrap | [Развертывание ключа](https://msdn.microsoft.com/ru-RU/library/azure/dn878079.aspx)|
 | KeyEncrypt | [Шифрование с помощью ключа](https://msdn.microsoft.com/ru-RU/library/azure/dn878060.aspx)|
 | KeyDecrypt | [Расшифровка с ключом](https://msdn.microsoft.com/ru-RU/library/azure/dn878097.aspx)|
-| KeyUpdate | [Update a key](https://msdn.microsoft.com/ru-RU/library/azure/dn903616.aspx) (Обновление ключа)|
+| KeyUpdate | [Update a key (Обновление ключа)](https://msdn.microsoft.com/ru-RU/library/azure/dn903616.aspx)|
 | KeyList | [Перечисление ключей в хранилище](https://msdn.microsoft.com/ru-RU/library/azure/dn903629.aspx)|
-| KeyListVersions | [List the versions of a key](https://msdn.microsoft.com/ru-RU/library/azure/dn986822.aspx) (Перечисление версий ключа)|
-| SecretSet | [Create a secret](https://msdn.microsoft.com/ru-RU/library/azure/dn903618.aspx) (Создание секрета)|
+| KeyListVersions | [List the versions of a key (Перечисление версий ключа)](https://msdn.microsoft.com/ru-RU/library/azure/dn986822.aspx)|
+| SecretSet | [Create a secret (Создание секрета)](https://msdn.microsoft.com/ru-RU/library/azure/dn903618.aspx)|
 | SecretGet | [Получение сведений о секрете](https://msdn.microsoft.com/ru-RU/library/azure/dn903633.aspx)|
-| SecretUpdate | [Update a secret](https://msdn.microsoft.com/ru-RU/library/azure/dn986818.aspx) (Обновление секрета)|
+| SecretUpdate | [Update a secret (Обновление секрета)](https://msdn.microsoft.com/ru-RU/library/azure/dn986818.aspx)|
 | SecretDelete | [Удаление секрета](https://msdn.microsoft.com/ru-RU/library/azure/dn903613.aspx)|
 | SecretList | [Список секретов в хранилище](https://msdn.microsoft.com/ru-RU/library/azure/dn903614.aspx)|
-| SecretListVersions | [List versions of a secret](https://msdn.microsoft.com/ru-RU/library/azure/dn986824.aspx) (Список версий секрета)|
+| SecretListVersions | [List versions of a secret (Список версий секрета)](https://msdn.microsoft.com/ru-RU/library/azure/dn986824.aspx)|
 
 
 
@@ -268,7 +268,7 @@
 
 Справочные материалы по программированию см. в [руководстве разработчика для хранилища ключей Azure](key-vault-developers-guide.md).
 
-Полный список командлетов Azure PowerShell 1.0 для хранилища ключей Azure см. в статье [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Командлеты хранилища ключей Azure).
+Полный список командлетов Azure PowerShell 1.0 для хранилища ключей Azure см. в статье [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Командлеты хранилища ключей Azure).
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0511_2016-->

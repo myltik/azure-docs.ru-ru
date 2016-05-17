@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="04/28/2016"
 	ms.author="jgao"/>
 
 # Разработка скриптов действия сценария для HDInsight
@@ -31,6 +31,8 @@
 ## Примеры сценариев
 
 Для создания кластеров HDInsight в операционной системе Windows действием сценария является сценарий Azure PowerShell. Ниже приведен пример сценария для настройки файлов конфигурации сайта:
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
@@ -351,4 +353,4 @@ HDInsight предоставляет несколько скриптов для 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

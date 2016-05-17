@@ -14,146 +14,164 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 
 # Управление PowerApps и обеспечение их безопасности
-Вы создали среду службы приложений и добавили API и их подключения. Теперь пользователи вашей компании могут приступить к использованию этих API и подключений. Кроме того, вы можете управлять всеми подключениями, созданными в вашей организации. Вот какие параметры доступны:
 
-- Просмотр различных приложений в среде службы приложений, включая PowerApps, веб-приложения, приложения логики, мобильные приложения и многое другое.
-- Просмотр всех API, используемых определенными приложениями.
-- Просмотр и управление доступом пользователей к приложениям в среде службы приложений. 
-- Просмотр доступа пользователей к API и их подключениям и управление этим доступом. 
+> [AZURE.IMPORTANT] Эта тема помещена в архив и скоро будет удалена. Узнать о наших новых планах можно в новом разделе [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Дополнительные сведения о PowerApps и инструкции по началу работы можно найти на сайте [PowerApps](https://powerapps.microsoft.com).  
+> - Дополнительные сведения о доступных подключениях в PowerApps см. в статье [Доступные подключения](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-Помните, что среда службы приложений ваша и вы можете добавлять в нее другие приложения, включая веб-приложения и приложения логики. После этого вы можете открыть PowerApps Enterprise для просмотра этих приложений и управления ими.
+<!--Archived
+You create your app service environment, and add APIs and their connections. Now users in your organization can start consuming these APIs and connections. You can also manage all apps created in your organization. These options include:
 
+- See the different apps within your app service environment, including PowerApps, web apps, logic apps, mobile apps, and more.
+- See all the APIs used by specific apps.
+- View and manage user access to the apps within the app service environment. 
+- View and manage user access to the APIs and their connections. 
 
-## Добавление администраторов PowerApps
-После того как PowerApps Enterprise будет включен и готов к использованию, вы можете добавить администраторов и осуществлять мониторинг других приложений в среде службы приложений.
-
-1. На [портале Azure](https://portal.azure.com/) откройте **PowerApps**.
-2. Выберите элемент **Параметры**.
-3. В колонке **Параметры** выберите пункт **Администратор**: ![][1]  
-4. В разделе **Пользователи** выберите пункт **Добавить**.
-5. Выберите роль **Владелец**: ![][2]  
-
-	> [AZURE.IMPORTANT] Назначая кого-то администратором PowerApps, необходимо выбрать роль **Владелец**. Другие указанные в списке роли не дают пользователям полный доступ к управлению PowerApps.
-
-6. Выберите пользователей или группы.
-7. Нажмите кнопку **ОК**, чтобы завершить эти действия.
-
-Пользователи и группы, добавленные в PowerApps Enterprise в качестве администраторов:
-
-- могут добавлять других пользователей в число администраторов PowerApps;
-- могут управлять всеми приложениями, а также доступом пользователей к этим приложениям;
-- не могут изменять выставляемые счета.
-
-> [AZURE.IMPORTANT] Администраторы PowerApps не могут вносить изменения в среду службы приложений, пока не получат роль владельца в группе ресурсов среды службы приложений. Для этого см. раздел [Начало работы с PowerApps Enterprise](powerapps-get-started-azure-portal.md).
-
-Получив роль владельца в группе ресурсов среды службы приложений, администраторы PowerApps, помимо этого, получают возможность:
-
-- создавать и настраивать API и их подключения;
-- вносить изменения в параметры PowerApps, включая среду службы приложений;
-- добавлять других пользователей и группы и предоставлять им роли и разрешения в отношении API, их подключений и среды службы приложений. 
+Remember, your app service environment is yours to add other apps, including web apps and logic apps. You can then open PowerApps Enterprise to see and manage these apps.
 
 
-## Управление PowerApps и другими типами приложений
-Включив PowerApps и среду службы приложений, вы сможете добавлять в нее другие приложения, такие как веб-приложения и приложения логики. После этого добавленные приложения появятся в разделе *Все приложения* вместе с приложениями, созданными в PowerApps. Для просмотра приложений выберите нужный тип.
+## Add PowerApps administrators
+After PowerApps Enterprise is enabled and ready to be used, you can add administrators, and monitor other apps within your app service environment.
 
-### Просмотр приложений PowerApps и управление ими
+1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
+2. Select **Settings**.
+3. In **Settings**, select **Admin**:  
+![][1]  
+4. In **Users**, select **Add**.
+5. Select the **Owner** role:  
+![][2]  
 
-1. На [портале Azure](https://portal.azure.com/) откройте **PowerApps**.
-2. В элементе **Все приложения** выберите **PowerApps**: ![][3]  
-3. Выберите приложение, чтобы отобразить его данные, включая следующие:  
-	- используемый приложением API;
-	- пользователи и группы, имеющие доступ к приложению; 
-	- аналитика приложения (ожидается в ближайшее время).
+	> [AZURE.IMPORTANT] Make sure that you select **Owner** role if you are assigning someone as a PowerApps Admin. Other roles listed won't give users full access to manage PowerApps. 
 
-#### Добавление приложения
+6. Select your users or groups.
+7. Select **OK** to complete the steps.
 
-Добавлять приложения через портал Azure нельзя. В настоящее время для этого используется [портал PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715583).
+When you add Administrators to PowerApps Enterprise, the users and groups you add as administrators can:
 
-#### Удаление приложений, созданных в PowerApps
-Как администратор PowerApps, вы можете удалить любое приложение, включая приложения, созданные в PowerApps, и другие типы приложений в среде службы приложений. Чтобы удалить приложение, выберите элемент **Все приложения**, приложение, а затем параметр **Удалить**: ![][4]
+- Add other users as PowerApps administrators.
+- Manage all apps as well as their user access.
+- Cannot change the billing.
 
+> [AZURE.IMPORTANT] PowerApps Administrators cannot make changes to the App Service Environment until they are given the Owner role on the app service environment's resource group. To do this, see [Get started with PowerApps Enterprise](powerapps-get-started-azure-portal.md).
 
-#### Предоставление пользователям или группам доступа для использования приложения
-Как администратор PowerApps, вы можете добавлять и удалять пользователей и группы в PowerApps.
+Once given the Owner role on the app service environment's resource group, the PowerApps administrators can also: 
 
-1. На [портале Azure](https://portal.azure.com/) откройте **PowerApps**.
-2. В элементе **Все приложения** выберите **PowerApps**: ![][3]  
-3. Выберите приложение, например **Службу поддержки**. 
-4. В разделе **Параметры** выберите **Доступ пользователей к приложению**: ![][5]  
-5. Нажмите кнопку **Добавить**, чтобы добавить нового пользователя или группу. 
-6. Выберите роль:  
-	- Можно изменять
-	- Можно просматривать
-7. Выберите пользователей или группы.
-8. Нажмите кнопку **ОК**, чтобы завершить эти действия.
-
-### Просмотр приложений логики и управление ими
-
-1. На [портале Azure](https://portal.azure.com/) откройте **PowerApps**.
-2. В элементе **Все приложения** выберите **Приложения логики**: ![][8]  
-3. Выберите приложение логики для просмотра сведений о приложении. Для получения списка приложений логики выберите корректировочную подписку на PowerApps: ![][7]  
-
-	> [AZURE.IMPORTANT] В общедоступной предварительной версии вы можете увидеть некоторое несоответствие в количестве приложений логики в колонке обзора и в основной колонке PowerApps. Это ожидаемое поведение. Портал отображает все приложения логики во всех планах размещения и не позволяет отфильтровывать приложения логики в среде службы приложений, развернутой для PowerApps. Такое поведение будет исправлено в последующих обновлениях.
-
-	**Дополнительные сведения о приложениях логики и управлении ими см. в [этих инструкциях](https://azure.microsoft.com/documentation/services/app-service/logic/).**
-
-### Просмотр веб-приложений и управление ими
-
-1. На [портале Azure](https://portal.azure.com/) откройте **PowerApps**.
-2. В элементе **Все приложения** выберите **Веб-приложения**: ![][9]  
-
-	**Дополнительные сведения о веб-приложениях и управлении ими см. в [этих инструкциях](https://azure.microsoft.com/documentation/services/app-service/web/).**
-
-### Просмотр мобильных приложений и управление ими
-
-1. На [портале Azure](https://portal.azure.com/) откройте **PowerApps**.
-2. В элементе **Все приложения** выберите **Мобильные приложения**: ![][10]  
-
-	**Дополнительные сведения о мобильных приложениях и управлении ими см. в [этих инструкциях](https://azure.microsoft.com/documentation/services/app-service/mobile/).**
+- Create and configure APIs and their connections.
+- Make changes to the PowerApps settings, including the app service environment.
+- Add other users and groups and give them roles and permissions to the APIs,  thier connections, and the app service environment. 
 
 
-## Проверка параметров безопасности
-В зависимости от выполняемых задач используются различные методы защиты. Что нужно знать для начала работы:
+## Manage your PowerApps and other types of apps
+Once you enable PowerApps and your app service environment, you can add other apps, like web apps and logic apps to the same app service environment. After you do this, the apps are listed under *All apps* along with apps created in PowerApps. You can click on each type of app to browse through the apps. 
 
-- **Администратор подписки**: администраторы подписки контролируют выставление счетов и отвечают за регистрацию вашей компании в PowerApps Enterprise. Только администраторы подписки могут запрашивать включение PowerApps в подписке Azure вашей компании. 
+### View and manage your PowerApps
 
-- **Доступ пользователей к среде выполнения**: существует три типа доступа пользователей к среде выполнения.
-	- **Доступ пользователей к приложению**: данное разрешение определяет, может ли пользователь *изменять* или *просматривать* приложение.
-	- **Доступ пользователей к API**: данное разрешение определяет доступ пользователя к среде выполнения. Пользователи, обладающие таким разрешением, могут использовать API в своем приложении. Пользователи либо имеют разрешение на использование API в среде выполнения, либо нет. 
-	- **Доступ пользователей к подключению**: пользователям можно предоставлять разрешения на *изменение* и *просмотр* подключения. Добавляя API (или профиль подключения) и создавая подключение, вы предоставляете пользователям и группам следующие разрешения: ![][6]  
+1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
+2. From the **All apps** tile, select **PowerApps**:  
+![][3]  
+3. Select an app to view details of the app, including:  
+	- The APIs the app uses
+	- Users and groups who have access to the app 
+	- The app's analytics (coming soon)
 
-		Например, группе продаж в компании можно предоставить разрешение на *изменение* подключения к API соединителя SQL. Пользователь, имеющий разрешение на *изменение* подключения, сможет использовать его в своих приложениях, а также изменять конфигурацию этого подключения. Пользователь, имеющий разрешение на *просмотр* подключения, сможет использовать его в своих приложениях, но не сможет изменить конфигурацию этого подключения, например строку подключения.
+#### Add an app
 
-- **Контроль доступа на основе ролей** (RBAC): во многих предложениях Azure для определения доступных пользователям действий используется контроль доступа на основе ролей. В PowerApps RBAC применяется в нескольких местах.
-	- При первом входе на портал PowerApps вы можете добавить пользователей, которые будут являться администраторами PowerApps, и управлять этими пользователями. 
-	- При создании среды службы приложений вы можете добавить пользователей или группы в PowerApps, а также удалить пользователей или группы из PowerApps. Например, в роль *Владельцы* вы можете добавить определенные группы администраторов — это позволит им создавать API и подключения. После этого соответствующие API и подключения будут добавлены в приложения, созданные в PowerApps.
-	- При добавлении пользователей в такие приложения, как веб-приложения, приложения логики, мобильные приложения или приложения логики, вы можете выбрать роли для этих пользователей.  
+You cannot add an app through the Azure portal. Currently, go to the [PowerApps portal](http://go.microsoft.com/fwlink/p/?LinkId=715583).
+
+#### Delete your apps created in PowerApps
+As a PowerApps Admin, you can delete any app, including apps created in PowerApps and other types of apps in your app service environment. To delete your app, select the **All apps** tile, select your app, and then select **Delete**:  
+![][4]
+
+
+#### Give users or groups access to use an app
+As a PowerApps admin, you can add or remove users and groups to PowerApps.
+
+1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
+2. In the **All apps** tile, select **PowerApps**:  
+![][3]  
+3. Select an app, such as **Service Desk**. 
+4. In **Settings**, select **App user access**:  
+![][5]  
+5. Select **Add** to add a new user or group. 
+6. Select a role:  
+	- Can Edit
+	- Can View
+7. Select the users or groups.
+8. Select **OK** to complete the steps.
+
+### View and manage your Logic apps
+
+1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
+2. In the **All apps** tile, select **Logic apps**:  
+![][8]  
+3. Select a logic app to view details of the app. Make sure you select the correction subscription for PowerApps to  list the correct logic apps:  
+![][7]  
+
+	> [AZURE.IMPORTANT] At public preview, you may see some inconsistency in the count of logic apps in the browsing blade vs. the count displayed on the main PowerApps blade. This is expected. The portal is displaying all logic apps across all hosting plans and not filtering the logic apps under the app service environment deployed for PowerApps. This behavior will be fixed in a future updates.
+
+	**To learn more about Logic apps and how to manage them, see [these instructions](https://azure.microsoft.com/documentation/services/app-service/logic/).**
+
+### View and manage your Web Apps
+
+1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
+2. In the **All apps** tile, select **Web apps**:  
+![][9]  
+
+	**To learn more about web apps and how to manage them, see [these instructions](https://azure.microsoft.com/documentation/services/app-service/web/).**
+
+### View and manage your Mobile Apps
+
+1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
+2. In the **All apps** tile, select **Mobile apps**:  
+![][10]  
+
+	**To learn more about mobile apps and how to manage them, see [these instructions](https://azure.microsoft.com/documentation/services/app-service/mobile/).**
+
+
+## Review the security options
+Different security methods are used, depending on what you're doing. Here's what you need to know:
+
+- **Subscription administrator**: These administrators control billing and are responsible for signing up your company for PowerApps Enterprise. Only Subscription Administrators can request to enable PowerApps within your company's Azure subscription. 
+
+- **Runtime user access**: There are three different types of runtime user access: 
+	- **App user access**: This permission controls if the user of the app *Can edit* the app or *Can view* the app.
+	- **API user access**: This permissions controls the runtime access. If users have this permission, he or she can use the API in their app. Users either have permission or don't have permission to use the API at runtime. 
+	- **Connection user access**: *Can view* and *Can edit* are the runtime user permissions available for a connection. When you add an API (or connection profile) and create its connection, you grant users and groups these specific permissions:  
+		![][6]  
+
+		For example, you can give the Sales group within your company *Can edit* permission to a connection of a SQL connector API. User with *Can edit* permission will be able to use the connection in their apps as well as edit the connection configuration. User with *Can view* permission will be able to use the connection in their apps but can't modify the connection configuration such as connection string. 
+
+- **Role-based access control** (RBAC): Many Azure offerings use role-based access control to determine who can do what. In PowerApps, RBAC is used in a couple of places:  
+	- When you first enter the PowerApps portal, you can add and manage users who should be administrators of the PowerApps. 
+	- When you create the app service environment, you add users or groups to PowerApps, and you can remove users or groups from PowerApps. For example, you can add specific Administrator groups within your company to the *Owners* role; which allows them to create APIs and connections. These APIs and connections are then added to apps created in PowerApps.
+	- When you add users to apps like Web apps, Logic apps, Mobile apps or Logic apps. You can choose the role for these users.  
 		
-		Добавление пользователей и назначение ролей аналогично использованию [Контроля доступа на основе ролей](../role-based-access-control-configure.md) в Azure. Существуют следующие роли:
+		Adding users and assigning roles is just like using [Role-based access control](../role-based-access-control-configure.md) within Azure. Some roles include:   
 
-		Роль | Описание
+		Role | Description
 		--- | ---
-		Участник | управляет всем, но не может предоставлять доступ пользователям;
-		читатель. | может все просматривать, но не может вносить изменения;
-		владелец; | может управлять всем и предоставлять доступ пользователям.
+		Contributor | Manages everything except grant access to users.
+		Reader | Can view everything, but can't make any changes.
+		Owner | Can manage everything and grant users access.
 
-Используя эти роли, вы можете предоставить пользователю А разрешение на **просмотр** приложения Twitter, а пользователю В — на **изменение** приложения ShuttleBus. Вы можете предоставить пользователю В доступ ко всем API. Вы можете детализировать права, а каждого пользователя добавить в определенную роль. Все зависит от потребностей вашей организации.
+Using these roles, you can grant userA **Can View** permission to a Twitter daily app and userB **Can Edit** permission to ShuttleBus app. You can grant userB access on all APIs. You can really get granular with these rights or add everyone with a specific role. It really depends on your business needs. 
 
 
-## Сводка и дальнейшие действия
-В этом разделе вы узнаете о различных вариантах управления PowerApps, а также о том, какие методы защиты реализованы в PowerApps.
+## Summary and next steps
+In this topic, you read about the different options to manage your PowerApps and the security methods implemented within PowerApps. 
 
-Теперь, когда интерфейс портала Azure настроен, приступим к созданию приложений. Начать можно со следующего:
+Now that your Azure portal experience is configured, let's start creating your apps. These are good starters:
 
-- [Создание приложения на основе шаблона в PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715536) 
-- [Создание приложения на основе данных в PowerApps](http://go.microsoft.com/fwlink/?LinkId=715539) 
-- [Создание приложения с нуля в PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715538)
-
+- [Create an app from a template in PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715536) 
+- [Create an app from data in PowerApps](http://go.microsoft.com/fwlink/?LinkId=715539) 
+- [Create an app from scratch in PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715538)
+-->
 
 [1]: ./media/powerapps-manage-monitor-usage/addadmin.png
 [2]: ./media/powerapps-manage-monitor-usage/selectrole.png
@@ -166,4 +184,4 @@
 [9]: ./media/powerapps-manage-monitor-usage/webapps.png
 [10]: ./media/powerapps-manage-monitor-usage/mobileapps.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

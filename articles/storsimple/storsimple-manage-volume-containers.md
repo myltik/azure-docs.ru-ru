@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/08/2016"
+   ms.date="05/01/2016"
    ms.author="v-sharos" />
 
 # Использование службы диспетчера StorSimple для управления контейнерами томов StorSimple
@@ -66,4 +66,4 @@
 - Узнайте больше об [управлении томами StorSimple](storsimple-manage-volumes.md). 
 - Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0504_2016-->

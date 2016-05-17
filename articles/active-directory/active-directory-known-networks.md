@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/03/2016" 
 	ms.author="markvi"/>
 
 # Известные сети
@@ -56,4 +56,4 @@
 * [Операции входа с IP-адресов с подозрительными действиями](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

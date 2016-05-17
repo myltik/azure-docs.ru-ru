@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/02/2016"
 	ms.author="garye" />
 
 
@@ -31,12 +31,15 @@
 
 ##Вывод списка всех установленных пакетов
 
-Список установленных пакетов может меняться. Чтобы получить полный список, добавьте следующие строки в модуль [Выполнение сценария R][execute-r-script] для отправки списка во выходной набор данных:
+Список установленных пакетов может меняться. Чтобы получить полный актуальный список установленных пакетов, включая описание каждого пакета, введите следующий код в модуле [Выполнение сценария R][execute-r-script]\:
 
-    out <- data.frame(installed.packages())
-    maml.mapOutputPort("out")
+    out <- data.frame(installed.packages(,,,fields="Description"))
+	maml.mapOutputPort("out")
 
-Чтобы просмотреть список пакетов, подключите модуль преобразования, например [Преобразование в CSV-файл][convert-to-csv], к выходным данным модуля [Выполнение сценария R][execute-r-script], выполните эксперимент, а затем щелкните выходные данные модуля преобразования и выберите **Скачать**. Для удобства можно воспользоваться [текущим полным списком номеров версий в формате Excel](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
+При этом список пакетов будет отправлен в выходной порт модуля [Выполнение сценария R][execute-r-script]. Чтобы просмотреть список пакетов, подключите модуль преобразования, например [Преобразование в CSV-файл][convert-to-csv], к выходным данным модуля [Выполнение сценария R][execute-r-script] слева, выполните эксперимент, а затем щелкните выходные данные модуля преобразования и выберите **Скачать**.
+
+![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
+
 
 ##Импорт пакетов
 
@@ -47,459 +50,462 @@
 
 `my_favorite_package.zip` здесь содержит ZIP-архив вашего пакета.
 
-##Вывод списка установленных пакетов
+<!--
 
-Для удобства список пакетов, включенных в текущий выпуск, приведен в следующей таблице.
+##List of installed packages
 
-Чтобы получить полный список пакетов, которые сейчас доступны, см. подраздел **Вывод списка всех установленных пакетов** выше. Текущая документация по R доступна [здесь](http://cran.r-project.org/manuals.html).
+For your convenience, the list of packages included in the current release is provided in the following table.
 
-- [Модули R от A до E]
-- [Модули R от F до L]
-- [Модули R от M до R]
-- [Модули R от S до Z]
+To get the complete list of packages that are currently available, see the section titled **Listing all currently-installed packages** above. Current R documentation is available [here](http://cran.r-project.org/manuals.html).
 
-[Модули R от A до E]: #r-modules-beginning-with-a-through-e
-[Модули R от F до L]: #r-modules-beginning-with-f-through-l
-[Модули R от M до R]: #r-modules-beginning-with-m-through-r
-[Модули R от S до Z]: #r-modules-beginning-with-s-through-z
+- [R modules beginning with A through E]
+- [R modules beginning with F through L]
+- [R modules beginning with M through R]
+- [R modules beginning with S through Z]
+
+[R modules beginning with A through E]: #r-modules-beginning-with-a-through-e
+[R modules beginning with F through L]: #r-modules-beginning-with-f-through-l
+[R modules beginning with M through R]: #r-modules-beginning-with-m-through-r
+[R modules beginning with S through Z]: #r-modules-beginning-with-s-through-z
 
 
-###Модули R от A до E
+###R modules beginning with A through E
 
-| Имя пакета | Описание пакета |
+| Package name | Package description |
 | ------------ | ------------------- |
-| abc | Инструменты для приблизительных байесовских вычислений |
-| abind | Объединение многомерных массивов |
-| actuar | Актуарные функции |
-| ade4 | Анализ экологических данных — исследовательские и евклидовы методы, использующиеся в науках об окружающей среде |
-| AdMit | Адаптивное сочетание t-распределений Стьюдента |
-| aod | Анализ данных с избыточной дисперсией |
-| ape | Филогенетический и эволюционный анализ |
-| approximator | Байесовский прогноз сложного компьютерного кода |
-| arm | Анализ данных с помощью регрессии и многоуровневых (иерархических) моделей |
-| arules | Интеллектуальный анализ ассоциативных правил и часто используемых наборов элементов |
-| arulesViz | Визуализация ассоциативных правил и часто используемых наборов элементов |
-| ash | Процедуры с использованием гистограммы со средним смещением (ASH) от Дэвида Скотта (David Scott) |
-| assertthat | Простое предварительное и последующее проверочное утверждение |
-| AtelieR | Графический интерфейс GTK для обучения основным принципам статистического вывода и выполнению простейших байесовских тестов |
-| BaBooN | Байесовское прогнозное сопоставление средних значений, полученных по методу бутстрэпа — единичное и множественное заполнение дискретных данных |
-| BACCO | Байесовкий анализ выходных данных компьютерного кода (BACCO) |
-| BaM | Функции и наборы данных для книг Джеффа Гилла (Jeff Gill) |
-| bark | Байесовские аддитивные регрессионные ядра |
-| BAS | Байесовское усреднение модели с помощью байесовской адаптивной выборки |
-| base | Базовый пакет R |
-| BayesDA | Функции и наборы данных для книги «Байесовский анализ данных» |
-| bayesGARCH | Байесовское оценивание параметров модели GARCH(1,1) с инновациями t-распределения Стьюдента |
-| bayesm | Байесовский вывод для маркетинга и микроэконометрии |
-| bayesmix | Байесовские смешанные модели в JAGS |
-| bayesQR | Байесовская квантильная регрессия |
-| bayesSurv | Байесовксая регрессия выживаемости с гибким распределением ошибок и распределением случайных эффектов |
-| Bayesthresh | Байесовские модели со смешанными эффектами и пороговыми значениями для категориальных данных |
-| BayesTree | Байесовские методы для моделей на основе деревьев |
-| BayesValidate | Пакет BayesValidate |
-| BayesX | Служебные программы R, поставляющиеся вместе с пакетом программного обеспечения BayesX |
-| BayHaz | Функции R для байесовского оценивания интенсивности отказов |
-| bbemkr | Байесовское оценивание пропускной способности для множественной ядерной регрессии с учетом погрешности Гаусса |
-| BCBCSF | Байесовская классификация, скорректированная на систематическую погрешность, с выбранными признаками |
-| BCE | Байесовская оценка композиции — оценка композиции образца (таксономическая) по данным биомаркеров |
-| bclust | Байесовская кластеризация с помощью иерархической модели spike-and-slab, подходящая для кластеризации многомерных данных |
-| bcp | Пакет для байесовского анализа для решения задач точки изменения |
-| BenfordTests | Статистические тесты для оценки соответствия закону Бенфорда |
-| bfp | Байесовские дробные многочлены |
-| BH | Файлы заголовка Boost C++ |
-| bisoreg | Байесовская изотонная регрессия с многочленами Бернштейна |
-| bit | Класс для векторов с 1-разрядными логическими значениями |
-| bitops | Побитовые операции |
-| BLR | Байесовская линейная регрессия |
-| BMA | Усреднение байесовской модели |
-| Bmix | Байесовская выборка для смешанных моделей по методу процесса разлома палки |
-| BMS | Библиотека усреднения байесовской модели |
-| bnlearn | Изучение структуры байесовской сети, изучение параметров и вывод |
-| boa | Программа байесовского анализа вывода (BOA) для методов Монте-Карло с использованием цепей Маркова |
-| Bolstad | Функции Bolstad |
-| boot | Функции бутстрепа (исходная версия от Анжело Канти (Angelo Canty) для S) |
-| bootstrap | Функции для книги «Введение в бутстреп» |
-| bqtl | Набор средств для байесовского картирования локусов количественных признаков |
-| BradleyTerry2 | Модель Брэдли-Терри |
-| brew | Создание платформы по шаблону для формирования отчетов |
-| brglm | Уменьшение смещения в обобщенных линейных моделях с биномиальным ответом |
-| bspec | Байесовский спектральный вывод |
-| bspmma | Байесовские полупараметрические модели для мета-анализа |
-| BVS | Байесовский выбор вариантов — байесовские методы определения неопределенности параметров модели для изучения генетических связей |
-| cairoDevice | Драйвер кроссплатформенного графического устройства с функцией сглаживания изображений на базе библиотеки Cairo |
-| calibrator | Байесовская калибрация сложного компьютерного кода |
-| car | Использование R в прикладной регрессии |
-| caret | Обучение классификации и регрессии |
-| catnet | Вывод для категориальных байесовских сетей |
-| caTools | Инструменты — функции перемещения статистики окна, GIF, Base64, AUC и т. д. |
-| chron | Хронологические объекты, которые могут обрабатывать значения даты и времени |
-| class | Функции для классификации |
-| HBase | Расширенный анализ кластеров, Руссо (Rousseeuw) и соавторов |
-| clusterSim | Поиск оптимальной процедуры кластеризации для набора данных |
-| coda | Анализ и диагностика выходных данных для методов Монте-Карло с использованием цепей Маркова |
-| codetools | Инструменты анализа кода для R |
-| coin | Процедура условного умозаключения для платформы определения критериев перестановки |
-| colorspace | Изменение цветового пространства |
-| combinat | Служебные программы для комбинаторики |
-| compiler | Пакет компилятора R |
-| corpcor | Эффективное оценивание коварианта и (частичная) корреляция |
-| cslogistic | Условно указанная логистическая регрессия |
-| ctv | Представления задач CRAN |
-| cubature | Адаптивная множественная интеграция по гиперкубам |
-| data.table | Расширение data.frame |
-| datasets | Пакет наборов данных R |
-| дата | Функции для обработки дат |
-| dclone | Клонирование данных и инструменты по методу Монте-Карло с использованием цепей Маркова для методов максимального правдоподобия |
-| deal | Изучение байесовских сетей со смешанными переменными |
-| Deducer | Deducer — графический пользовательский интерфейс для анализа данных для R |
-| DeducerExtras | Дополнительные диалоговые окна и функции для Deducer |
-| deldir | Триангуляция Делоне и разбиение Дирихле (Вороного) |
-| DEoptimR | Оптимизация дифференциальной эволюции на языке R |
-| deSolve | Общие алгоритмы для решения задач с начальными условиями с обыкновенными дифференциальными уравнениями (ODE), дифференциальными уравнениями с частными производными (PDE), дифференциальными алгебраическими уравнениями (DAE) и дифференциальными уравнениями с запаздывающим аргументом (DDE) |
-| devtools | Инструменты для упрощения разработки кода на языке R |
-| dichromat | Цветовые схемы для дихроматов |
-| digest | Создание криптографической сводки хэша для объектов R |
-| distrom | Распределенная мультиноминальная регрессия |
-| dlm | Байесовский анализ и анализ методом правдоподобия динамических линейных моделей |
-| doSNOW | Параллельный адаптер foreach для пакета snow |
-| dplyr | Грамматика обработки данных |
-| DPpackage | Байесовское непараметрическое моделирование в R |
-| dse | Оценивание динамических систем (блок временных рядов) |
-| e1071 | Различные функции статистического факультета (e1071), Венский технический университет |
-| EbayesThresh | Байесовское эмпирическое сравнение с порогом и другие связанные методы |
-| ebdbNet | Байесовское эмпирическое оценивание байесовских динамических сетей |
-| effects | Отображение эффектов для линейных моделей, обобщенных линейных моделей, мультиноминальных логит-моделей, логит-моделей с пропорциональным распределением шансов и моделей со смешанными эффектами |
-| emulator | Байесовская эмуляция компьютерных программ |
-| ensembleBMA | Вероятностное прогнозирование с помощью множеств и байесовского усреднения модели |
-| entropy | Оценивание энтропии, взаимной информации и ее количества |
-| EvalEst | Оценивание динамических систем — расширения |
-| evaluate | Инструменты синтаксического анализа и оценивания, которые предоставляют больше подробной информации, чем инструменты по умолчанию |
-| evdbayes | Байесовский анализ теории экстремальных значений |
-| evora | Эпигенетические выбросы переменных для анализа прогнозирования рисков |
-| exactLoglinTest | Точные тесты Монте-Карло для логлинейных моделей |
-| expm | Матричный экспоненциал |
-| extremevalues | Обнаружение одномерных выбросов |
+| abc | Tools for Approximate Bayesian Computation (ABC) |
+| abind | Combine multi-dimensional arrays |
+| actuar | Actuarial functions |
+| ade4 | Analysis of Ecological Data : Exploratory and Euclidean methods in Environmental sciences |
+| AdMit | Adaptive Mixture of Student-t distributions |
+| aod | Analysis of Overdispersed Data |
+| ape | Analyses of Phylogenetics and Evolution |
+| approximator | Bayesian prediction of complex computer codes |
+| arm | Data Analysis Using Regression and Multilevel/Hierarchical Models |
+| arules | Mining Association Rules and Frequent Itemsets |
+| arulesViz | Visualizing Association Rules and Frequent Itemsets |
+| ash | David Scott's ASH routines |
+| assertthat | Easy pre and post assertions |
+| AtelieR | A GTK GUI for teaching basic concepts in statistical inference, and doing elementary bayesian tests |
+| BaBooN | Bayesian Bootstrap Predictive Mean Matching - Multiple and single imputation for discrete data |
+| BACCO | Bayesian Analysis of Computer Code Output (BACCO) |
+| BaM | Functions and datasets for books by Jeff Gill |
+| bark | Bayesian Additive Regresssion Kernels |
+| BAS | Bayesian Model Averaging using Bayesian Adaptive Sampling |
+| base | The R Base Package |
+| BayesDA | Functions and Datasets for the book Bayesian Data Analysis |
+| bayesGARCH | Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations |
+| bayesm | Bayesian Inference for Marketing/Micro-econometrics |
+| bayesmix | Bayesian Mixture Models with JAGS |
+| bayesQR | Bayesian quantile regression |
+| bayesSurv | Bayesian Survival Regression with Flexible Error and Random Effects Distributions |
+| Bayesthresh | Bayesian thresholds mixed-effects models for categorical data |
+| BayesTree | Bayesian Methods for Tree Based Models |
+| BayesValidate | BayesValidate Package |
+| BayesX | R Utilities Accompanying the Software Package BayesX |
+| BayHaz | R Functions for Bayesian Hazard Rate Estimation |
+| bbemkr | Bayesian bandwidth estimation for multivariate kernel regression with Gaussian error |
+| BCBCSF | Bias-corrected Bayesian Classification with Selected Features |
+| BCE | Bayesian composition estimator: estimating sample (taxonomic) composition from biomarker data |
+| bclust | Bayesian clustering using spike-and-slab hierarchical model, suitable for clustering high-dimensional data |
+| bcp | A Package for Performing a Bayesian Analysis of Change Point Problems |
+| BenfordTests | Statistical Tests for Evaluating Conformity to Benford's Law |
+| bfp | Bayesian Fractional Polynomials |
+| BH | Boost C++ header files |
+| bisoreg | Bayesian Isotonic Regression with Bernstein Polynomials |
+| bit | A class for vectors of 1-bit booleans |
+| bitops | Bitwise Operations |
+| BLR | Bayesian Linear Regression |
+| BMA | Bayesian Model Averaging |
+| Bmix | Bayesian Sampling for Stick-breaking Mixtures |
+| BMS | Bayesian Model Averaging Library |
+| bnlearn | Bayesian network structure learning, parameter learning and inference |
+| boa | Bayesian Output Analysis Program (BOA) for MCMC |
+| Bolstad | Bolstad functions |
+| boot | Bootstrap Functions (originally by Angelo Canty for S) |
+| bootstrap | Functions for the book An Introduction to the Bootstrap |
+| bqtl | Bayesian QTL mapping toolkit |
+| BradleyTerry2 | Bradley-Terry Models |
+| brew | Templating Framework for Report Generation |
+| brglm | Bias reduction in binomial-response generalized linear models |
+| bspec | Bayesian spectral inference |
+| bspmma | bspmma: Bayesian Semiparametric Models for Meta-Analysis |
+| BVS | Bayesian Variant Selection: Bayesian Model Uncertainty Techniques for Genetic Association Studies |
+| cairoDevice | Cairo-based cross-platform antialiased graphics device driver |
+| calibrator | Bayesian calibration of complex computer codes |
+| car | Companion to Applied Regression |
+| caret | Classification and Regression Training |
+| catnet | Categorical Bayesian Network Inference |
+| caTools | Tools: moving window statistics, GIF, Base64, ROC AUC, etc. |
+| chron | Chronological objects which can handle dates and times |
+| class | Functions for Classification |
+| cluster | Cluster Analysis Extended Rousseeuw et al. |
+| clusterSim | Searching for optimal clustering procedure for a data set |
+| coda | Output analysis and diagnostics for MCMC |
+| codetools | Code Analysis Tools for R |
+| coin | Conditional Inference Procedures in a Permutation Test Framework |
+| colorspace | Color Space Manipulation |
+| combinat | combinatorics utilities |
+| compiler | The R Compiler Package |
+| corpcor | Efficient Estimation of Covariance and (Partial) Correlation |
+| cslogistic | Conditionally Specified Logistic Regression |
+| ctv | CRAN Task Views |
+| cubature | Adaptive multivariate integration over hypercubes |
+| data.table | Extension of data.frame |
+| datasets | The R Datasets Package |
+| date | Functions for handling dates |
+| dclone | Data Cloning and MCMC Tools for Maximum Likelihood Methods |
+| deal | Learning Bayesian Networks with Mixed Variables |
+| Deducer | Deducer: A data analysis GUI for R |
+| DeducerExtras | Additional dialogs and functions for Deducer |
+| deldir | Delaunay Triangulation and Dirichlet (Voronoi) Tessellation. |
+| DEoptimR | Differential Evolution Optimization in pure R |
+| deSolve | General Solvers for Initial Value Problems of Ordinary Differential Equations (ODE), Partial Differential Equations (PDE), Differential Algebraic Equations (DAE), and Delay Differential Equations (DDE) |
+| devtools | Tools to make developing R code easier |
+| dichromat | Color Schemes for Dichromats |
+| digest | Create cryptographic hash digests of R objects |
+| distrom | Distributed Multinomial Regression |
+| dlm | Bayesian and Likelihood Analysis of Dynamic Linear Models |
+| doSNOW | Foreach parallel adaptor for the snow package |
+| dplyr | dplyr: a grammar of data manipulation |
+| DPpackage | Bayesian nonparametric modeling in R |
+| dse | Dynamic Systems Estimation (time series package) |
+| e1071 | Misc Functions of the Department of Statistics (e1071), TU Wien |
+| EbayesThresh | Empirical Bayes Thresholding and Related Methods |
+| ebdbNet | Empirical Bayes Estimation of Dynamic Bayesian Networks |
+| effects | Effect Displays for Linear, Generalized Linear, Multinomial-Logit, Proportional-Odds Logit Models and Mixed-Effects Models |
+| emulator | Bayesian emulation of computer programs |
+| ensembleBMA | Probabilistic Forecasting using Ensembles and Bayesian Model Averaging |
+| entropy | Estimation of Entropy, Mutual Information and Related Quantities |
+| EvalEst | Dynamic Systems Estimation - extensions |
+| evaluate | Parsing and evaluation tools that provide more details than the default |
+| evdbayes | Bayesian Analysis in Extreme Value Theory |
+| evora | Epigenetic Variable Outliers for Risk prediction Analysis |
+| exactLoglinTest | Monte Carlo Exact Tests for Log-linear models |
+| expm | Matrix exponential |
+| extremevalues | Univariate outlier detection |
 
 
-###Модули R от F до L
+###R modules beginning with F through L
 
-| Имя пакета | Описание пакета |
+| Package name | Package description |
 | ------------ | ------------------- |
-| factorQR | Факторные модели байесовской квантильной регрессии |
-| faoutlier | Методы обнаружения случаев, оказывающих влияние, для факторного анализа и моделирования структурными уравнениями |
-| fitdistrplus | Справка по подбору параметрического распределения для нецензурированных или цензурированных данных |
-| FME | Гибкая среда моделирования для обратного моделирования, анализа чувствительности, возможности раздельной оценки параметров, анализа Монте-Карло |
-| foreach | Создание циклов foreach для R |
-| forecast | Функции прогнозирования для временных рядов и линейных моделей |
-| foreign | Считывание данных, хранимых в Minitab, S, SAS, SPSS, Stata, Systat, Weka, dBase и т. д. |
-| formatR | Автоматическое форматирование кода R |
-| Formula | Расширенные формулы для моделей |
-| fracdiff | Незначительно различающиеся модели ARIMA или ARFIMA(p,d,q) |
-| gam | Обобщенные аддитивные модели |
-| gamlr | Лассо-регрессия с гамма-распределением |
-| gbm | Обобщенные модели регрессии по методу бустинга |
-| gclus | Кластеризация графических объектов |
-| gdata | Различные инструменты программирования R для обработки данных |
-| gee | Алгоритм решения обобщенных оценочных уравнений |
-| genetics | Популяционная генетика |
-| geoR | Анализ геостатистических данных |
-| geoRglm | Пакет для обобщенных линейных пространственных моделей |
-| geosphere | Сферическая тригонометрия |
-| ggmcmc | Графические инструменты для анализа моделирования методов Монте-Карло с использованием цепей Маркова на основе байесовского вывода |
-| ggplot2 | Реализация грамматики графических объектов |
-| glmmBUGS | Использование обобщенных линейных смешанных моделей и пространственных моделей в WinBUGS, BRugs или OpenBUGS |
-| glmnet | Обобщенные линейные модели лассо-регрессии с регуляризацией эластичной сети |
-| gmodels | Различные инструменты программирования R для подгонки моделей |
-| gmp | Арифметические операции с повышенной точностью |
-| gnm | Обобщенные нелинейные модели |
-| googlePublicData | Библиотека R для создания файлов метаданных DSPL для Google Public Data Explorer |
-| googleVis | Интерфейс между R и Google Charts |
-| GPArotation | Вращение факторов в алгоритмах метода проекции градиента |
-| gplots | Различные средства программирования R для создания графиков по данным |
-| graphics | Пакет графических объектов R |
-| grDevices | Графические устройства R и поддержка цветов и шрифтов |
-| gregmisc | Различные функции от Грега |
-| grid | Пакет графических объектов сетки |
-| gridExtra | Функции в графической системе в виде сетки |
-| growcurves | Байесовские полупараметрические и непараметрические модели кривой роста, которые также включают случайные эффекты с множественной принадлежностью |
-| grpreg | Пути регуляризации для моделей регрессии с группированными независимыми переменными |
-| gsubfn | Служебные программы для строк и аргументов функций |
-| gtable | Упорядочение графических объектов сетки в таблицах |
-| gtools | Различные инструменты программирования R |
-| gWidgets | API gWidgets для создания интерактивных графических пользовательских интерфейсов, независимых от набора средств |
-| gWidgetsRGtk2 | Реализация набора средств gWidgets для RGtk2 |
-| haplo.stats | Статистический анализ гаплотипов с признаками и ковариатами при неопределенной фазе сцепления |
-| hbsae | Иерархическое байесовское оценивание по небольшой области |
-| hdrcde | Области с наибольшей плотностью и оценивание плотности условного распределения |
-| heavy | Пакет для смягчения выбросов с использованием распределений с медленно убывающими хвостами |
-| hflights | Рейсы из Хьюстона в 2011 г. |
-| HH | Статистический анализ и отображение данных, Хайбергер (Heiberger) и Холланд (Holland) |
-| HI | Моделирование распределений, которые поддерживает вложенная гиперплоскость |
-| highr | Выделение синтаксиса для R |
-| Hmisc | Различные функции от Гаррела (Harrell) |
-| htmltools | Инструменты для HTML |
-| httpuv | Библиотека сервера для HTTP и WebSocket |
-| httr | Инструменты для работы с URL-адресами и HTTP |
-| IBrokers | API R для программы Trader Workstation от компании Interactive Brokers |
-| igraph | Сетевой анализ и визуализация |
-| intervals | Инструменты для работы с точками и интервалами |
-| iplots | iPlots — интерактивные графические объекты для R |
-| ipred | Улучшенные прогностические факторы |
-| irr | Различные коэффициенты для согласованности и соответствия заключений различных исследователей |
-| iterators | Создание итератора для R |
-| JavaGD | Графическое устройство Java |
-| JGR | Графический пользовательский интерфейс Java для R |
-| kernlab | Лаборатория машинного обучения на основе ядра |
-| KernSmooth | Функции ядерного сглаживания от Ванд (Wand) и Джонс (Jones) (1995 г.) |
-| KFKSDS | Фильтр Калмана, функция сглаживания и функция сглаживания шумов |
-| kinship2 | Функции pedigree |
-| kknn | k взвешенных ближайших соседей |
-| klaR | Классификация и визуализация |
-| knitr | Пакет общего назначения для динамического формирования отчетов в R |
-| ks | Сглаживание ядра |
-| labeling | Создание меток оси |
-| Lahman | База данных «Бейсбол» Шона Ламана (Sean Lahman) |
-| lars | Регрессия наименьшего угла, лассо-регрессия и последовательная поэтапная регрессия |
-| lattice | Графическая система Lattice |
-| latticeExtra | Дополнительные графические служебные программы на базе Lattice |
-| lava | Линейные модели со скрытыми переменными |
-| lavaan | Анализ скрытых переменных |
-| leaps | Выбор подмножества регрессии |
-| LearnBayes | Функции для изучения байесовского вывода |
-| limSolve | Решение обратных линейных моделей |
-| lme4 | Представление линейных моделей со смешанными эффектами с помощью Eigen и S4 |
-| lmm | Линейные смешанные модели |
-| lmPerm | Критерии перестановки для линейных моделей |
-| lmtest | Тестирование линейных моделей регрессии |
-| locfit | Оценивание локальной регрессии, правдоподобия и плотности |
-| lpSolve | Интерфейс для Lp\_solve версии 5.5 для решения задач в линейных программах и программах целочисленных вычислений |
+| factorQR | Bayesian quantile regression factor models |
+| faoutlier | Influential case detection methods for factor analysis and SEM |
+| fitdistrplus | Help to fit of a parametric distribution to non-censored or censored data |
+| FME | A Flexible Modelling Environment for Inverse Modelling, Sensitivity, Identifiability, Monte Carlo Analysis |
+| foreach | Foreach looping construct for R |
+| forecast | Forecasting functions for time series and linear models |
+| foreign | Read Data Stored by Minitab, S, SAS, SPSS, Stata, Systat, Weka, dBase, ... |
+| formatR | Format R Code Automatically |
+| Formula | Extended Model Formulas |
+| fracdiff | Fractionally differenced ARIMA aka ARFIMA(p,d,q) models |
+| gam | Generalized Additive Models |
+| gamlr | Gamma Lasso Regression |
+| gbm | Generalized Boosted Regression Models |
+| gclus | Clustering Graphics |
+| gdata | Various R programming tools for data manipulation |
+| gee | Generalized Estimation Equation solver |
+| genetics | Population Genetics |
+| geoR | Analysis of geostatistical data |
+| geoRglm | geoRglm - a package for generalised linear spatial models |
+| geosphere | Spherical Trigonometry |
+| ggmcmc | Graphical tools for analyzing Markov Chain Monte Carlo simulations from Bayesian inference |
+| ggplot2 | An implementation of the Grammar of Graphics |
+| glmmBUGS | Generalised Linear Mixed Models and Spatial Models with WinBUGS, BRugs, or OpenBUGS |
+| glmnet | Lasso and elastic-net regularized generalized linear models |
+| gmodels | Various R programming tools for model fitting |
+| gmp | Multiple Precision Arithmetic |
+| gnm | Generalized Nonlinear Models |
+| googlePublicData | An R library to build Google's Public Data Explorer DSPL Metadata files |
+| googleVis | Interface between R and Google Charts |
+| GPArotation | GPA Factor Rotation |
+| gplots | Various R programming tools for plotting data |
+| graphics | The R Graphics Package |
+| grDevices | The R Graphics Devices and Support for Colours and Fonts |
+| gregmisc | Greg's Miscellaneous Functions |
+| grid | The Grid Graphics Package |
+| gridExtra | functions in Grid graphics |
+| growcurves | Bayesian semi and nonparametric growth curve models that additionally include multiple membership random effects |
+| grpreg | Regularization paths for regression models with grouped covariates |
+| gsubfn | Utilities for strings and function arguments |
+| gtable | Arrange grobs in tables |
+| gtools | Various R programming tools |
+| gWidgets | gWidgets API for building toolkit-independent, interactive GUIs |
+| gWidgetsRGtk2 | Toolkit implementation of gWidgets for RGtk2 |
+| haplo.stats | Statistical Analysis of Haplotypes with Traits and Covariates when Linkage Phase is Ambiguous |
+| hbsae | Hierarchical Bayesian Small Area Estimation |
+| hdrcde | Highest density regions and conditional density estimation |
+| heavy | Package for outliers accommodation using heavy-tailed distributions |
+| hflights | Flights that departed Houston in 2011 |
+| HH | Statistical Analysis and Data Display: Heiberger and Holland |
+| HI | Simulation from distributions supported by nested hyperplanes |
+| highr | Syntax highlighting for R |
+| Hmisc | Harrell Miscellaneous |
+| htmltools | Tools for HTML |
+| httpuv | HTTP and WebSocket server library |
+| httr | Tools for working with URLs and HTTP |
+| IBrokers | R API to Interactive Brokers Trader Workstation |
+| igraph | Network analysis and visualization |
+| intervals | Tools for working with points and intervals |
+| iplots | iPlots - interactive graphics for R |
+| ipred | Improved Predictors |
+| irr | Various Coefficients of Interrater Reliability and Agreement |
+| iterators | Iterator construct for R |
+| JavaGD | Java Graphics Device |
+| JGR | JGR - Java GUI for R |
+| kernlab | Kernel-based Machine Learning Lab |
+| KernSmooth | Functions for kernel smoothing for Wand and Jones (1995) |
+| KFKSDS | Kalman Filter, Smoother and Disturbance Smoother |
+| kinship2 | Pedigree functions |
+| kknn | Weighted k-Nearest Neighbors |
+| klaR | Classification and visualization |
+| knitr | A general-purpose package for dynamic report generation in R |
+| ks | Kernel smoothing |
+| labeling | Axis Labeling |
+| Lahman | Sean Lahman's Baseball Database |
+| lars | Least Angle Regression, Lasso and Forward Stagewise |
+| lattice | Lattice Graphics |
+| latticeExtra | Extra Graphical Utilities Based on Lattice |
+| lava | Linear Latent Variable Models |
+| lavaan | Latent Variable Analysis |
+| leaps | regression subset selection |
+| LearnBayes | Functions for Learning Bayesian Inference |
+| limSolve | Solving Linear Inverse Models |
+| lme4 | Linear mixed-effects models using Eigen and S4 |
+| lmm | Linear mixed models |
+| lmPerm | Permutation tests for linear models |
+| lmtest | Testing Linear Regression Models |
+| locfit | Local Regression, Likelihood and Density Estimation |
+| lpSolve | Interface to Lp_solve v. 5.5 to solve linear/integer programs |
 
 
-###Модули R от M до R
+###R modules beginning with M through R
 
-| Имя пакета | Описание пакета |
+| Package name | Package description |
 | ------------ | ------------------- |
-| magic | Создание и проверка магических квадратов |
-| magrittr | Оператор для передачи объектов для R |
-| mapdata | Дополнительные базы данных карты |
-| mapproj | Проекции карты |
-| maps | Рисование географических карт |
-| maptools | Инструменты для считывания и обработки пространственных объектов |
-| maptree | Сопоставление, очистка и построение диаграмм для моделей дерева |
-| markdown | Отрисовка разметки для R |
-| MASS | Поддержка функций и наборов данных для книги Венейблс (Venables) и Рипли (Ripley) «Современная прикладная статистика с использованием S» |
-| MasterBayes | Методы машинного обучения и методы Монте-Карло с использованием цепей Маркова для анализа и реконструкции функций pedigree |
-| Matrix | Классы и методы разреженной и плотной матрицы |
-| matrixcalc | Коллекция функций для вычислений матрицы |
-| MatrixModels | Моделирование в разреженных и плотных матрицах |
-| maxent | Мультиноминальная логистическая регрессия, используемая для уменьшения потребления памяти, с поддержкой классификации текста |
-| maxLik | Оценивание максимального правдоподобия |
-| mcmc | Методы Монте-Карло с использованием цепей Маркова |
-| MCMCglmm | Подбор обобщенных линейных смешанных моделей по методам Монте-Карло с использованием цепей Маркова |
-| MCMCpack | Пакет методов Монте-Карло с использованием цепей Маркова (MCMC) |
-| memoise | Функции мемоизации |
-| methods | Формальные методы и классы |
-| mgcv | Машина смешанных вычислений для обобщенного аддитивного моделирования с оцениванием сглаживания с помощью обобщенной перекрестной проверки, информационного критерия Акаике, ограниченного максимального правдоподобия |
-| mice | Многократное заполнение по цепочечным уравнениям |
-| microbenchmark | Функции точного расчета времени до долей микросекунды |
-| mime | Сопоставление имен файлов для типов MIME |
-| minpack.LM | Интерфейс R для нелинейного алгоритма наименьших квадратов Левенберга-Марквардта в MINPACK, а также поддержка границ |
-| minqa | Алгоритмы оптимизации без использования производных путем квадратичной аппроксимации |
-| misc3d | Различные трехмерные диаграммы |
-| miscF | Различные функции |
-| miscTools | Различные инструменты и служебные программы |
-| mixtools | Инструменты анализа конечных смешанных моделей |
-| mlbench | Задачи по измерению производительности Машинного обучения |
-| mlogitBMA | Байесовское усреднение моделей для мультиноминальных логит-моделей |
-| mnormt | Многомерное нормальное распределение и t-распределение |
-| MNP | Пакет R для подбора мультиноминальной пробит-модели |
-| modeltools | Инструменты и классы для статистических моделей |
-| mombf | Байесовский фактор момента и обратного момента |
-| monomvn | Оценивание для данных многомерного гауссовского распределения и t-распределения Стьюдента с монотонным уровнем потерь |
-| monreg | Непараметрическая монотонная регрессия |
-| mosaic | Статистические данные и служебные программы для обучения математике для проекта MOSAIC (mosaic-web.org) |
-| MSBVAR | Марковское переключение, байесовские модели векторной авторегрессии |
-| msm | Марковские модели с несколькими состояниями и скрытые марковские модели в непрерывном времени |
-| multcomp | Совместные выводы в общих параметрических моделях |
-| multicool | Перестановки мультимножеств в лексикографическом порядке с правилом выбора лучшей последовательности |
-| munsell | Цветовая система Манселла |
-| mvoutlier | Множественное обнаружение выбросов на основе устойчивых методов |
-| mvtnorm | Многомерное нормальное распределение и t-распределение |
-| ncvreg | Пути регуляризации для моделей регрессии со штрафом за абсолютное отклонение с плавным ограничением и минимаксную вогнутую функцию |
-| nlme | Линейные и нелинейные модели со смешанными эффектами |
-| NLP | Инфраструктура обработки естественного языка |
-| nnet | Нейронные сети прямого распространения и мультиноминальные логарифмические линейные модели |
-| numbers | Теоретико-числовые функции |
-| numDeriv | Точные числовые производные |
-| openNLP | Интерфейс для инструментов Apache OpenNLP |
-| openNLPdata | JAR-файлы Apache OpenNLP и базовые модели для английского языка |
-| OutlierDC | Обнаружение выбросов с помощью квантильной регрессии для цензурированных данных |
-| OutlierDM | Обнаружение выбросов для реплицируемых данных с высокой пропускной способностью |
-| outliers | Тесты для обнаружения выбросов |
-| pacbpred | PAC-байесовское оценивание и прогнозирование в разреженных аддитивных моделях |
-| parallel | Поддержка параллельных вычислений в R |
-| partitions | Аддитивное разбиение целых чисел |
-| party | Лаборатория для рекурсивного секционирования |
-| PAWL | Реализация алгоритма PAWL |
-| pbivnorm | Кумулятивная функция распределения для векторизированного двумерного нормального распределения |
-| pcaPP | Устойчивые методы анализа главных компонентов, используемые в принципе поиска наилучшей проекции |
-| permute | Функции для создания ограниченных перестановок данных |
-| pls | Регрессия по методу частичных наименьших квадратов и регрессия основных компонентов |
-| plyr | Инструменты для разбиения, применения и объединения данных |
-| png | Чтение и запись изображений в формате PNG |
-| polynom | Коллекция функций для реализации класса для выполнения одномерных полиномиальных преобразований |
-| PottsUtils | Служебные функции моделей Поттса |
-| predmixcor | Правило классификации, основанное на байесовских смешанных моделях с возможностью коррекции смещения при выборе признаков |
-| PresenceAbsence | Оценивание моделей наличия-отсутствия |
-| prodlim | Множительная оценка функции распределения. Метод Каплана-Майера и Аалена-Йогансона для цензурированного анализа истории событий (выживаемости) |
-| profdpm | Смешанные модели процесса Дирихле для профиля |
-| profileModel | Инструменты профилирования функций вывода для различных классов моделей |
-| proto | Объектное программирование прототипов |
-| pscl | Лаборатория вычислительной политологии, Стэнфордский университет |
-| psych | Процедуры для психологического и психометрического изучения, а также изучения личности |
-| quadprog | Функции для решения задач квадратичного программирования |
-| quantreg | Квантильная регрессия |
-| qvcalc | Квази-дисперсия для эффектов факторов в статистических моделях |
-| R.matlab | Чтение и запись MAT-файлов, а также возможность подключения между R и MATLAB |
-| R.methodsS3 | Служебная функция для определения методов S3 |
-| R.oo | Объектно-ориентированное программирование на языке R с ссылками или без них |
-| R.utils | Различные служебные программы для программирования |
-| R2HTML | Экспорт в HTML для объектов R |
-| R2jags | Пакет для запуска программы JAGS в R |
-| R2OpenBUGS | Запуск программы OpenBUGS в R |
-| R2WinBUGS | Запуск WinBUGS и OpenBUGS в R или S-PLUS |
-| ramps | Байесовское геостатистическое моделирование с репараметризованной и изолированной предварительной выборкой |
-| RandomFields | Моделирование и анализ случайных полей |
-| randomForest | Случайные леса Бреймана и Катлер для классификации и регрессии |
-| RArcInfo | Функции для импорта данных из бинарных покрытий в формате Arc/Info V7.x |
-| raster | Анализ и моделирование географических данных |
-| rbugs | Совместное использование R и OpenBugs и многое другое |
-| RColorBrewer | Палитры ColorBrewer |
-| Rcpp | Эффективная интеграция C++ и R |
-| RcppArmadillo | Интеграция RCPP для шаблонной библиотеки линейной алгебры Armadillo |
-| rcppbugs | Привязка R для CppBugs |
-| RcppEigen | Интеграция RCPP для шаблонной библиотеки линейной алгебры Eigen |
-| RcppExamples | Примеры использования RCPP для взаимодействия R и C++ |
-| RCurl | Общий интерфейс сетевого (HTTP, FTP и т. д.) клиента для R |
-| relimp | Относительный вклад эффектов в модели регрессии |
-| reshape | Гибкое изменение формы данных |
-| reshape2 | Гибкое изменение формы данных — перезагрузка пакета reshape |
-| rgdal | Привязки для библиотеки абстракции геопространственных данных |
-| rgeos | Интерфейс для GEOS (Geometry Engine Open Source) |
-| rgl | Система устройства трехмерной визуализации (OpenGL) |
-| RGraphics | Данные и функции из книги «Графика R, второе издание» |
-| RGtk2 | Привязки R для GTK 2.8.0 и выше |
-| RJaCGH | Обратимый скачок по методу Монте-Карло с использованием цепей Маркова для анализа массивов сравнительной геномной гибридизации |
-| rjags | Байесовские графические модели по методу Монте-Карло с использованием цепей Маркова |
-| rJava | Низкоуровневый интерфейс для перехода от R к Java |
-| RJSONIO | Сериализация объектов R в формат JSON (JavaScript Object Notation — нотация объектов JavaScript) |
-| robCompositions | Устойчивое оценивание сводных данных |
-| robustbase | Основная устойчивая статистика |
-| RODBC | Доступ к базе данных ODBC |
-| rootSolve | Нелинейный поиск корней, анализ равновесия и расчет стационарного процесса в обыкновенных дифференциальных уравнениях |
-| roxygen | Грамотное программирование в R |
-| roxygen2 | Документация в источнике по R |
-| rpart | Рекурсивное секционирование и деревья регрессии |
-| rrcov | Масштабируемая устойчивая оценка с высокой пороговой точкой |
-| rscproxy | Предоставление портативного интерфейса в стиле C для R (StatConnector) |
-| RSGHB | Функции для байесовского иерархического оценивания. Гибкий подход |
-| RSNNS | Симуляция нейронных сетей в R с помощью Штутгартского симулятора нейронных сетей (SNNS) |
-| RTextTools | Автоматическая классификация текста с использованием контролируемого обучения |
-| RUnit | Платформа для модульного тестирования для R |
-| runjags | Служебные программы для интерфейса, методы параллельных вычислений и дополнительные распределения для моделей Монте-Карло с использованием цепей Маркова в JAGS |
-| Runuran | Интерфейс R для генераторов случайных величин UNU.RAN |
-| rworldmap | Сопоставление глобальных данных, векторных данных и растровых данных |
-| rworldxtra | Границы стран в высоком разрешении |
+| magic | create and investigate magic squares |
+| magrittr | magrittr - a forward-pipe operator for R |
+| mapdata | Extra Map Databases |
+| mapproj | Map Projections |
+| maps | Draw Geographical Maps |
+| maptools | Tools for reading and handling spatial objects |
+| maptree | Mapping, pruning, and graphing tree models |
+| markdown | Markdown rendering for R |
+| MASS | Support Functions and Datasets for Venables and Ripley's MASS |
+| MasterBayes | ML and MCMC Methods for Pedigree Reconstruction and Analysis |
+| Matrix | Sparse and Dense Matrix Classes and Methods |
+| matrixcalc | Collection of functions for matrix calculations |
+| MatrixModels | Modelling with Sparse And Dense Matrices |
+| maxent | Low-memory Multinomial Logistic Regression with Support for Text Classification |
+| maxLik | Maximum Likelihood Estimation |
+| mcmc | Markov Chain Monte Carlo |
+| MCMCglmm | MCMC Generalised Linear Mixed Models |
+| MCMCpack | Markov chain Monte Carlo (MCMC) Package |
+| memoise | Memoise functions |
+| methods | Formal Methods and Classes |
+| mgcv | Mixed GAM Computation Vehicle with GCV/AIC/REML smoothness estimation |
+| mice | Multivariate Imputation by Chained Equations |
+| microbenchmark | Sub microsecond accurate timing functions |
+| mime | Map filenames to MIME types |
+| minpack.lm | R interface to the Levenberg-Marquardt nonlinear least-squares algorithm found in MINPACK, plus support for bounds |
+| minqa | Derivative-free optimization algorithms by quadratic approximation |
+| misc3d | Miscellaneous 3D Plots |
+| miscF | Miscellaneous Functions |
+| miscTools | Miscellaneous Tools and Utilities |
+| mixtools | Tools for analyzing finite mixture models |
+| mlbench | Machine Learning Benchmark Problems |
+| mlogitBMA | Bayesian Model Averaging for Multinomial Logit Models |
+| mnormt | The multivariate normal and t distributions |
+| MNP | R Package for Fitting the Multinomial Probit Model |
+| modeltools | Tools and Classes for Statistical Models |
+| mombf | Moment and Inverse Moment Bayes factors |
+| monomvn | Estimation for multivariate normal and Student-t data with monotone missingness |
+| monreg | Nonparametric monotone regression |
+| mosaic | Project MOSAIC (mosaic-web.org) statistics and mathematics teaching utilities |
+| MSBVAR | Markov-Switching, Bayesian, Vector Autoregression Models |
+| msm | Multi-state Markov and hidden Markov models in continuous time |
+| multcomp | Simultaneous Inference in General Parametric Models |
+| multicool | Permutations of multisets in cool-lex order. |
+| munsell | Munsell colour system |
+| mvoutlier | Multivariate outlier detection based on robust methods |
+| mvtnorm | Multivariate Normal and t Distributions |
+| ncvreg | Regularization paths for SCAD- and MCP-penalized regression models |
+| nlme | Linear and Nonlinear Mixed Effects Models |
+| NLP | Natural Language Processing Infrastructure |
+| nnet | Feed-forward Neural Networks and Multinomial Log-Linear Models |
+| numbers | Number-theoretic Functions |
+| numDeriv | Accurate Numerical Derivatives |
+| openNLP | Apache OpenNLP Tools Interface |
+| openNLPdata | Apache OpenNLP Jars and Basic English Language Models |
+| OutlierDC | Outlier Detection using quantile regression for Censored Data |
+| OutlierDM | Outlier detection for replicated high-throughput data |
+| outliers | Tests for outliers |
+| pacbpred | PAC-Bayesian Estimation and Prediction in Sparse Additive Models |
+| parallel | Support for Parallel computation in R |
+| partitions | Additive partitions of integers |
+| party | A Laboratory for Recursive Partytioning |
+| PAWL | Implementation of the PAWL algorithm |
+| pbivnorm | Vectorized Bivariate Normal CDF |
+| pcaPP | Robust PCA by Projection Pursuit |
+| permute | Functions for generating restricted permutations of data |
+| pls | Partial Least Squares and Principal Component regression |
+| plyr | Tools for splitting, applying and combining data |
+| png | Read and write PNG images |
+| polynom | A collection of functions to implement a class for univariate polynomial manipulations |
+| PottsUtils | Utility Functions of the Potts Models |
+| predmixcor | Classification rule based on Bayesian mixture models with feature selection bias corrected |
+| PresenceAbsence | Presence-Absence Model Evaluation |
+| prodlim | Product-limit estimation. Kaplan-Meier and Aalen-Johansson method for censored event history (survival) analysis |
+| profdpm | Profile Dirichlet Process Mixtures |
+| profileModel | Tools for profiling inference functions for various model classes |
+| proto | Prototype object-based programming |
+| pscl | Political Science Computational Laboratory, Stanford University |
+| psych | Procedures for Psychological, Psychometric, and Personality Research |
+| quadprog | Functions to solve quadratic programming problems |
+| quantreg | Quantile Regression |
+| qvcalc | Quasi variances for factor effects in statistical models |
+| R.matlab | Read and write of MAT files together with R-to-MATLAB connectivity |
+| R.methodsS3 | Utility function for defining S3 methods |
+| R.oo | R object-oriented programming with or without references |
+| R.utils | Various programming utilities |
+| R2HTML | HTML exportation for R objects |
+| R2jags | A Package for Running jags from R |
+| R2OpenBUGS | Running OpenBUGS from R |
+| R2WinBUGS | Running WinBUGS and OpenBUGS from R / S-PLUS |
+| ramps | Bayesian Geostatistical Modeling with RAMPS |
+| RandomFields | Simulation and Analysis of Random Fields |
+| randomForest | Breiman and Cutler's random forests for classification and regression |
+| RArcInfo | Functions to import data from Arc/Info V7.x binary coverages |
+| raster | raster: Geographic data analysis and modeling |
+| rbugs | Fusing R and OpenBugs and Beyond |
+| RColorBrewer | ColorBrewer palettes |
+| Rcpp | Seamless R and C++ Integration |
+| RcppArmadillo | Rcpp integration for Armadillo templated linear algebra library |
+| rcppbugs | R binding for cppbugs |
+| RcppEigen | Rcpp integration for the Eigen templated linear algebra library |
+| RcppExamples | Examples using Rcpp to interface R and C++ |
+| RCurl | General network (HTTP/FTP/...) client interface for R |
+| relimp | Relative Contribution of Effects in a Regression Model |
+| reshape | Flexibly reshape data |
+| reshape2 | Flexibly reshape data: a reboot of the reshape package |
+| rgdal | Bindings for the Geospatial Data Abstraction Library |
+| rgeos | Interface to Geometry Engine - Open Source (GEOS) |
+| rgl | 3D visualization device system (OpenGL) |
+| RGraphics | Data and Functions from the book R Graphics, Second Edition |
+| RGtk2 | R bindings for Gtk 2.8.0 and above |
+| RJaCGH | Reversible Jump MCMC for the analysis of CGH arrays |
+| rjags | Bayesian graphical models using MCMC |
+| rJava | Low-level R to Java interface |
+| RJSONIO | Serialize R objects to JSON, JavaScript Object Notation |
+| robCompositions | Robust Estimation for Compositional Data |
+| robustbase | Basic Robust Statistics |
+| RODBC | ODBC Database Access |
+| rootSolve | Nonlinear root finding, equilibrium and steady-state analysis of ordinary differential equations |
+| roxygen | Literate Programming in R |
+| roxygen2 | In-source documentation for R |
+| rpart | Recursive Partitioning and Regression Trees |
+| rrcov | Scalable Robust Estimators with High Breakdown Point |
+| rscproxy | statconn: provides portable C-style interface to R (StatConnector) |
+| RSGHB | Functions for Hierarchical Bayesian Estimation: A Flexible Approach |
+| RSNNS | Neural Networks in R using the Stuttgart Neural Network Simulator (SNNS) |
+| RTextTools | Automatic Text Classification via Supervised Learning |
+| RUnit | R Unit test framework |
+| runjags | Interface utilities, parallel computing methods and additional distributions for MCMC models in JAGS |
+| Runuran | R interface to the UNU.RAN random variate generators |
+| rworldmap | Mapping global data, vector and raster |
+| rworldxtra | Country boundaries at high resolution |
 
 
-###Модули R от S до Z
+###R modules beginning with S through Z
 
-| Имя пакета | Описание пакета |
+| Package name | Package description |
 | ------------ | ------------------- |
-| SampleSizeMeans | Расчет размера выборки для среднего значения нормально распределенной совокупности |
-| SampleSizeProportions | Требования к расчету размера выборки при оценивании различий между двумя биномиальными долями |
-| sandwich | Устойчивая оценка ковариантной матрицы |
-| sbgcop | Байесовское полупараметрическое оценивание и подстановка гауссовской копулы |
-| scales | Функции масштабирования для графики |
-| scapeMCMC | График диагностики по методу Монте-Карло с использованием цепей Маркова |
-| scatterplot3d | Трехмерная точечная диаграмма |
-| sciplot | Научные функции вычерчивания на графике для факторного анализа |
-| segmented | Сегментированные связи в моделях регрессии с оцениванием точек останова и изменения |
-| sem | Модели структурных уравнений |
-| seriation | Инфраструктура для упорядочения |
-| setRNG | Установка генератора случайных (нормальных) чисел и начального значения |
-| sgeostat | Объектно-ориентированная платформа для геостатического моделирования в S+ |
-| shapefiles | Чтение и запись файлов фигур, разработанных компанией ESRI |
-| shiny | Платформа веб-приложений для R |
-| SimpleTable | Байесовский вывод и анализ чувствительности для причинных эффектов из таблицы 2 x 2 и 2 x 2 x K при наличии неизмеренного смешивания |
-| slam | Разреженные облегченные массивы и матрицы |
-| smoothSurv | Регрессия выживаемости со сглаженным распределением ошибок |
-| sna | Инструменты для анализа социальных сетей |
-| snow | Простая сеть рабочих станций |
-| SnowballC | Парадигматические модули Snowball на основе библиотеки libstemmer для C в формате UTF-8 |
-| snowFT | Отказоустойчивая простая сеть рабочих станций |
-| sp | Классы и методы для пространственных данных |
-| spacetime | Классы и методы для пространственно-временных данных |
-| SparseM | Линейная алгебра для разреженных матриц |
-| spatial | Функции для кригинга и анализа точечного образа |
-| spBayes | Одномерное и многомерное пространственно-временное моделирование |
-| spdep | Пространственная зависимость — системы взвешивания, статистика и модели |
-| spikeslab | Прогнозирование и выбор переменных при регрессии типа spike-and-slab |
-| splancs | Анализ пространственных и пространственно-временных точечных образов |
-| splines | Сплайн-функции и классы регрессии |
-| spTimer | Пространственно-временное байесовское моделирование с использованием R |
-| stats | Пакет статистики для R |
-| stats4 | Применение статистических функций для классов S4 |
-| stochvol | Эффективный байесовский вывод для моделей стохастической волатильности (SV) |
-| stringr | Упрощение работы со строками |
-| strucchange | Тестирование, мониторинг и определение времени начала структурных изменений |
-| stsm | Модели структурных временных рядов |
-| stsm.class | Классы и методы для моделей структурных временных рядов |
-| SuppDists | Дополнительные распределения |
-| survival | Анализ выживаемости |
-| svmpath | Алгоритм пути метода опорных векторов |
-| tau | Служебные программы для анализа текста |
-| tcltk | Интерфейс для Tcl/Tk |
-| tcltk2 | Дополнения для Tcl/Tk |
-| TeachingDemos | Демонстрации для обучения и изучения |
-| tensorA | Расширенная тензорная арифметика с именованными индексами |
-| testthat | Код Testthat. Инструменты, упрощающие тестирование |
-| textcat | Классификации текста на основе N-грамм |
-| textir | Обратная регрессия для анализа текста |
-| tfplot | Пользовательские служебные программы для обработки временных рядов данных |
-| tframe | Ядро для написания кода временных рядов |
-| tgp | Модели с байесовским разделением дерева и гауссовским процессом |
-| TH.data | Архив данных Торстена Хортона |
-| timeDate | Rmetrics — хронологические и календарные объекты |
-| tm | Пакет для интеллектуального анализа текста |
-| средства | Инструменты для разработки пакета |
-| translations | Пакет переводов R |
-| tree | Деревья классификации и регрессии |
-| tseries | Анализ временных рядов и финансовая инженерия |
-| tsfa | Факторный анализ временных рядов |
-| tsoutliers | Автоматическое обнаружение выбросов во временных рядах |
-| TSP | Задача коммивояжера (TSP) |
-| UsingR | Наборы данных для учебника «Использование языка R для вводной статистики» |
-| utils | Пакет с инструментами для R |
-| varSelectIP | Объективный выбор в байесовских моделях |
-| vcd | Визуализация категориальных данных |
-| vegan | Пакет для экологии сообществ |
-| VGAM | Векторные обобщенные линейные и аддитивные модели |
-| VIF | Регрессия с расчетом фактора, увеличивающего дисперсию — алгоритм быстрой регрессии для больших объемов данных |
-| whisker | {{mustache}} для R, создание шаблонов без использования логики |
-| wordcloud | Облака ключевых слов |
-| XLConnect | Excel Connector для R |
-| XML | Инструменты для синтаксического анализа и создания XML-файлов в R и S-Plus |
-| xTable | Экспорт таблиц в LaTeX или HTML |
-| xts | Расширяемые временные ряды |
-| yaml | Методы преобразования данных из R в YAML и обратно |
-| zic | Байесовский вывод для моделей подсчета без учета инфляции |
-| zipfR | Статистические модели для распределения частотности слов |
-| zoo | Инфраструктура S3 для регулярных и нерегулярных временных рядов (полностью упорядоченные наблюдения) |
+| SampleSizeMeans | Sample size calculations for normal means |
+| SampleSizeProportions | Calculating sample size requirements when estimating the difference between two binomial proportions |
+| sandwich | Robust Covariance Matrix Estimators |
+| sbgcop | Semiparametric Bayesian Gaussian copula estimation and imputation |
+| scales | Scale functions for graphics |
+| scapeMCMC | MCMC Diagnostic Plots |
+| scatterplot3d | 3D Scatter Plot |
+| sciplot | Scientific Graphing Functions for Factorial Designs |
+| segmented | Segmented relationships in regression models with breakpoints/changepoints estimation |
+| sem | Structural Equation Models |
+| seriation | Infrastructure for seriation |
+| setRNG | Set (Normal) Random Number Generator and Seed |
+| sgeostat | An Object-oriented Framework for Geostatistical Modeling in S+ |
+| shapefiles | Read and Write ESRI Shapefiles |
+| shiny | Web Application Framework for R |
+| SimpleTable | Bayesian Inference and Sensitivity Analysis for Causal Effects from 2 x 2 and 2 x 2 x K Tables in the Presence of Unmeasured Confounding |
+| slam | Sparse Lightweight Arrays and Matrices |
+| smoothSurv | Survival Regression with Smoothed Error Distribution |
+| sna | Tools for Social Network Analysis |
+| snow | Simple Network of Workstations |
+| SnowballC | Snowball stemmers based on the C libstemmer UTF-8 library |
+| snowFT | Fault Tolerant Simple Network of Workstations |
+| sp | classes and methods for spatial data |
+| spacetime | classes and methods for spatio-temporal data |
+| SparseM | Sparse Linear Algebra |
+| spatial | Functions for Kriging and Point Pattern Analysis |
+| spBayes | Univariate and Multivariate Spatial-temporal Modeling |
+| spdep | Spatial dependence: weighting schemes, statistics and models |
+| spikeslab | Prediction and variable selection using spike and slab regression |
+| splancs | Spatial and Space-Time Point Pattern Analysis |
+| splines | Regression Spline Functions and Classes |
+| spTimer | Spatio-Temporal Bayesian Modelling Using R |
+| stats | The R Stats Package |
+| stats4 | Statistical Functions using S4 Classes |
+| stochvol | Efficient Bayesian Inference for Stochastic Volatility (SV) Models |
+| stringr | Make it easier to work with strings |
+| strucchange | Testing, Monitoring, and Dating Structural Changes |
+| stsm | Structural Time Series Models |
+| stsm.class | Class and Methods for Structural Time Series Models |
+| SuppDists | Supplementary distributions |
+| survival | Survival Analysis |
+| svmpath | svmpath: the SVM Path algorithm |
+| tau | Text Analysis Utilities |
+| tcltk | Tcl/Tk Interface |
+| tcltk2 | Tcl/Tk Additions |
+| TeachingDemos | Demonstrations for teaching and learning |
+| tensorA | Advanced tensors arithmetic with named indices |
+| testthat | Testthat code. Tools to make testing fun |
+| textcat | N-Gram Based Text Categorization |
+| textir | Inverse Regression for Text Analysis |
+| tfplot | Time Frame User Utilities |
+| tframe | Time Frame coding kernel |
+| tgp | Bayesian treed Gaussian process models |
+| TH.data | TH's Data Archive |
+| timeDate | Rmetrics - Chronological and Calendar Objects |
+| tm | Text Mining Package |
+| tools | Tools for Package Development |
+| translations | The R Translations Package |
+| tree | Classification and regression trees |
+| tseries | Time series analysis and computational finance |
+| tsfa | Time Series Factor Analysis |
+| tsoutliers | Automatic Detection of Outliers in Time Series |
+| TSP | Traveling Salesperson Problem (TSP) |
+| UsingR | Data sets for the text Using R for Introductory Statistics |
+| utils | The R Utils Package |
+| varSelectIP | Objective Bayes Model Selection |
+| vcd | Visualizing Categorical Data |
+| vegan | Community Ecology Package |
+| VGAM | Vector Generalized Linear and Additive Models |
+| VIF | VIF Regression: A Fast Regression Algorithm For Large Data |
+| whisker | {{mustache}} for R, logicless templating |
+| wordcloud | Word Clouds |
+| XLConnect | Excel Connector for R |
+| XML | Tools for parsing and generating XML within R and S-Plus |
+| xtable | Export tables to LaTeX or HTML |
+| xts | eXtensible Time Series |
+| yaml | Methods to convert R data to YAML and back |
+| zic | Bayesian Inference for Zero-Inflated Count Models |
+| zipfR | Statistical models for word frequency distributions |
+| zoo | S3 Infrastructure for Regular and Irregular Time Series (Z's ordered observations) |
 
+-->
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

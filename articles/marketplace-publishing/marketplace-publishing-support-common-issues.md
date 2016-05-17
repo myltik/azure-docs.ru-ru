@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="03/21/2015"
+      ms.date="05/03/2016"
       ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Решение основных проблем, возникающих у издателей Azure Marketplace
@@ -72,7 +72,7 @@
 
 ![inprivate][4]
 
-**2. Войдите в систему, указав рабочую или учебную учетную запись своей компании** (т. е. AzureStore@yourcompany.com)).
+**2. Войдите в систему, указав рабочую или учебную учетную запись своей компании** (т. е. AzureStore@yourcompany.com)).
 
 ![signin][5]
 
@@ -120,4 +120,4 @@
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

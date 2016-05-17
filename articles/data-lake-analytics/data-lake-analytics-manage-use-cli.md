@@ -3,7 +3,7 @@
    description="Узнайте, как управлять учетными записями, источниками данных, пользователями и заданиями аналитики озера данных Azure с помощью интерфейса командной строки Azure." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Управление аналитикой озера данных Azure с помощью интерфейса командной строки (CLI) Azure
 
@@ -150,7 +150,7 @@
 	
 ### Отправка заданий
 
-> [AZURE.NOTE] Приоритет задания по умолчанию — 1000, а степень параллелизма по умолчанию для задания — 1.
+> [AZURE.NOTE] Приоритет задания по умолчанию — 1000, а степень параллелизма по умолчанию для задания — 1.
 
 	azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
 
@@ -214,4 +214,4 @@
 - [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
 - [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

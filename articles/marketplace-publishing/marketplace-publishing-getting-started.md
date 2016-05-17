@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/07/2016"
+   ms.date="04/29/2016"
    ms.author="hascipio" />
 
 # Как опубликовать предложение в Microsoft Azure Marketplace
@@ -57,7 +57,7 @@
 
 - [Настройка Azure PowerShell](marketplace-publishing-powershell-setup.md)
 - [Локальное создание образа виртуальной машины](marketplace-publishing-vm-image-creation-on-premise.md)
-- [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../virtual-machines-windows-hero-tutorial/)
+- [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 **Службы данных**
 
@@ -82,4 +82,4 @@
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

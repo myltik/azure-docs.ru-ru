@@ -23,7 +23,7 @@
 
 В этом документе приведен пример использования пакета SDK для .NET для Hadoop для отправки заданий Pig в Hadoop в кластере HDInsight.
 
-Пакет SDK для HDInsight .NET предоставляет клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Pig позволяет создавать операции MapReduce путем моделирования ряда преобразований данных. Вы узнаете, как использовать базовое приложение C\# для отправки задания Pig в кластер HDInsight.
+Пакет SDK для HDInsight .NET предоставляет клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Pig позволяет создавать операции MapReduce путем моделирования ряда преобразований данных. Вы узнаете, как использовать базовое приложение C# для отправки задания Pig в кластер HDInsight.
 
 [AZURE.INCLUDE [azure-portal](../../includes/hdinsight-azure-portal.md)]
 
@@ -33,7 +33,7 @@
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-* Кластер Azure HDInsight \(Hadoop в HDInsight\) \(на платформе Windows или Linux\).
+* Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
 * Visual Studio 2012, Visual Studio 2013 или Visual Studio 2015.
 
 ## Поиск идентификатора подписки
@@ -51,8 +51,6 @@
 ## Создание приложения
 
 Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET.
-
-В следующем примере используется интерактивная аутентификация пользователя. Сведения об использовании неинтерактивной аутентификации см. в статье [Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 
 1. Откройте Visual Studio 2012 или 2013
@@ -209,4 +207,4 @@
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/03/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Приложения больших данных с открытым исходным кодом, которые работают с хранилищем озера данных Azure
@@ -40,4 +40,4 @@
 
 - [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

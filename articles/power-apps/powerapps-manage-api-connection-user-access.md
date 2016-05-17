@@ -14,76 +14,88 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 
 # Добавление нового интерфейса API, добавление подключения и предоставление доступа пользователям
 
-API существуют в [среде службы приложений](powerapps-get-started-azure-portal.md). Вы можете создавать API-интерфейсы из доступных API для PowerApps, приложений API, размещенных в среде службы приложений, а также из Swagger 2.0. Существует много готовых API, которые можно легко добавить в PowerApps. Кроме того, вы можете загрузить в него собственный API в формате JSON или Swagger 2.0.
+> [AZURE.IMPORTANT] Эта тема помещена в архив и скоро будет удалена. Узнать о наших новых планах можно в новом разделе [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Дополнительные сведения о PowerApps и инструкции по началу работы можно найти на сайте [PowerApps](https://powerapps.microsoft.com).  
+> - Дополнительные сведения о доступных подключениях в PowerApps см. в статье [Доступные подключения](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-Содержание раздела
+<!--Archived
+APIs exist within an [app service environment](powerapps-get-started-azure-portal.md). APIs can be created from the available APIs for PowerApps, from API apps hosted in your app service environment, or from Swagger 2.0. There are many pre-built APIs available that can easily be added to your PowerApps. You can also upload your own API in JSON format or Swagger 2.0. 
 
-- Инструкции по добавлению API в PowerApps и предоставлению пользователям вашей компании разрешений на использование API, включая изменение его свойств.
-- Инструкции по добавлению подключения к API и предоставлению пользователям вашей компании разрешений на использование этого подключения.
+This topic:
 
-
-#### Предварительные требования для начала работы
-
-- Включите [PowerApps в подписке Azure](powerapps-get-started-azure-portal.md).
-- Создание [среды службы приложений](powerapps-get-started-azure-portal.md).
-- Создайте API с помощью одного из следующих методов:  
-	- Создайте [API, управляемый корпорацией Майкрософт, или API, управляемый ИТ-службой](powerapps-register-from-available-apis.md).
-	- Создайте API, размещенный в [среде службы приложений](powerapps-register-api-hosted-in-app-service.md).
-	- Создайте API с помощью [определения API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
+- Lists the steps to add an API to PowerApps, and give users within your company permissions to use the API, including changing its properties.
+- Lists the steps to add a connection to your API, and give users within your company permissions to use the connection.
 
 
-## Предоставление пользователям доступа к API
-Теперь, когда API создан и добавлен в среду службы приложений, предоставьте пользователям вашей компании разрешение на его использование.
+#### Prerequisites to get started
 
-1. В PowerApps выберите **Управление API**, а затем нужный API. Например, если вы создали API *MS Power BI*, выберите его, чтобы открыть соответствующую колонку. Выберите **Управление доступом пользователей к API**: ![][1]  
+- Enable [PowerApps in your Azure subscription](powerapps-get-started-azure-portal.md).
+- Create an [App Service environment](powerapps-get-started-azure-portal.md).
+- Create an API using any of the following methods:  
+	- Create a [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md).
+	- Create an API hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md).
+	- Create using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md).
 
-2. Нажмите **Добавить**, чтобы добавить пользователей, и выберите права. После этого нажмите **Добавить**, чтобы сохранить изменения. Число пользователей или групп увеличивается в окне **Доступ пользователей к API**.
+
+## Give users access to the API
+Now that the API is created and added to your app service environment, it's time to give users within your company the permissions to use it. 
+
+1. In PowerApps, select **Manage APIs**, and select your API. For example, if you created a *MS Power BI* API, select it to open its blade. Select **API user access**:  
+![][1]  
+
+2. Select **Add** to add users, and select the rights. When done, select **Add** to save your changes. The Users or Groups count increases in the **API user access** window.
 
 
-## Добавление нового подключения в API
-Следующий шаг — это создание "подключения" к API, имеющего вид строки подключения. Это позволит API успешно подключаться к серверной системе. В общедоступной предварительной версии PowerApps Enterprise можно добавлять и настраивать только подключение SQL Server. Возможности этой версии продолжают расширяться.
+## Add a new connection to your API
+The next step is to create the "connection" to your API, which is kind of like a connection string. This allows the API to successfully connect to your "backend" system. For PowerApps Enterprise public preview, only SQL Server's connection can be added and configured. More are being added. 
 
-- [Создание подключения SQL Server](powerapps-create-api-sqlserver.md)
+- [Create SQL Server's connection](powerapps-create-api-sqlserver.md)
 
-## Предоставление пользователям доступа к среде выполнения для подключения
-Теперь предоставьте пользователям в вашей компании разрешения на использование подключения.
+## Give users runtime access to the connection
+Now give users within your company permissions to use the connection.
 
-1. Откройте API, выберите **Подключения**, а затем нужное подключение. Откроется новая колонка, в верхней части которой будет указано имя подключения. 
-2. В новой колонке выберите **Доступ пользователей к подключению**. В следующем примере выбрано подключение **Гибридный туннель**. Откроется новая колонка, в которой нужно выбрать **Доступ пользователей к подключению**: ![][2]
+1. Open your API, select **Connections**, and then select your specific connection. This opens a new blade that lists your connection name at the top. 
+2. In this new blade, select **Connection user access**.  In the following example, the **Hybrid Tunnel** connection is selected. The new blade opens and this is where you select **Connection user access**:  
+![][2]
   
-3. В колонке **Доступ пользователей к подключению** выберите **Добавить**, а затем щелкните разрешение, которое нужно предоставить: ![][3]
+3. In **Connection user access**, select **Add**, and then select the permission you want to give:  
+![][3]
   
-4. Добавьте пользователя или группу. Нажмите **Добавить**, чтобы сохранить изменения.
+4. Add your user or group. Select **Add** to save your changes.
 
-Теперь, когда пользователи получили разрешения на доступ к API и его подключению, они могут добавлять эти API в свои приложения, создаваемые в PowerApps. В частности:
+Now that users have permissions to the API and its connection, your users can add these APIs to their apps created in PowerApps. Specifically: 
 
-- Пользователи могут просматривать API, перечисленные в PowerApps в разделе **Доступные подключения**.
-- Пользователи могут увидеть подключение в PowerApps в разделе **Мои подключения**.
-
-
-## Удаление API
-Вы можете удалить добавленный ранее API. В PowerApps выберите **Управление API**, нужный API, а затем параметр **Удалить**: ![][4]
+- Users can see the API listed under **Available Connections** in PowerApps.
+- Users can see the connection under **My Connections** in PowerApps.
 
 
-## Сводка и дальнейшие действия
-Содержание раздела
+## Delete an API
+You can also delete an API you previously added. In PowerApps, select the **Manage APIs**, select the API, and select **Delete**:  
+![][4]
 
-- Вы добавили API и предоставили пользователям вашей компании права на его использование. Кроме того, вы можете использовать эти инструкции для управления доступом к среде выполнения. Например, если пользователь А покинет компанию, вы легко сможете удалить предоставленные ему разрешения на портале Azure. Тот же принцип применяется, если к компании присоединится пользователь B.
-- Добавили подключение (имеющее вид строки подключения). Этот шаг позволяет API, размещенному в Azure, подключаться к системе как к локальному серверу SQL. Вы предоставили пользователям вашей компании разрешения на использование подключения. 
-- Вы работали с различными колонками в зависимости от задачи. Чтобы добавить подключение, вы открывали API и использовали соответствующую колонку. Чтобы предоставить пользователю доступ, вы открывали API или подключение в зависимости от того, к чему вы предоставляли доступ. 
-- Кроме того, вы можете удалить все интерфейсы, созданные в среде службы приложений.
 
-Теперь вы можете переходить к [управлению и мониторингу PowerApps](powerapps-manage-monitor-usage.md).
+## Summary and next steps
+In this topic, you:
+
+- Added an API and gave users within your company the rights to use it. You can also use these steps to manage the runtime access at any time. For example, if userA leaves your company, you can use the Azure portal to easily remove this user's permissions. Same scenario if a UserB joins your company.
+- Added a connection (which is similar to a connection string). This step lets the API hosted in Azure to connect to your system, like an on-premises SQL Server. You also gave users within your company permissions to use the connection. 
+- You worked with different blades, depending on the task. To add a connection, you open the API and use its blade. To grant user access, you open the API or the connection, depending on what you're giving access. 
+- You can also delete any of the APIs you create within your app service environment.
+
+Next, you can [manage and monitor your PowerApps](powerapps-manage-monitor-usage.md).
+-->
+
 
 [1]: ./media/powerapps-manage-api-connection-user-access/apiuseraccess.png
 [2]: ./media/powerapps-manage-api-connection-user-access/connectionuseraccess.png
 [3]: ./media/powerapps-manage-api-connection-user-access/selectpermission.png
 [4]: ./media/powerapps-manage-api-connection-user-access/deleteapi.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -76,4 +76,4 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 [Цены на хранилище данных SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Загрузки Visual Studio]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

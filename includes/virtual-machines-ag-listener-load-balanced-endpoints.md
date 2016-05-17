@@ -17,4 +17,4 @@
 		Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
 	После импорта файла параметров публикации вы сможете управлять подпиской Azure в сеансе PowerShell.
-<!----HONumber=AcomDC_0128_2016-->
+<!------HONumber=AcomDC_0128_2016-->

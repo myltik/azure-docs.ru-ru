@@ -1,4 +1,13 @@
-<properties pageTitle="Настройка оповещений о выставлении счетов для подписок Microsoft Azure | Microsoft Azure" description="Описание настройки оповещений для счетов Azure во избежание непредвиденных ситуаций." services="billing" documentationCenter="" authors="vikdesai" manager="msmbaldwin" editor=""/ tags="billing" />
+<properties
+	pageTitle="Настройка предупреждений о выставлении счета для подписок Microsoft Azure | Microsoft Azure"
+	description="Описывает процесс настройки предупреждений на счете Azure, помогая избежать непредвиденных счетов."
+	services="billing"
+	documentationCenter=""
+	authors="vikdesai"
+	manager="msmbaldwin"
+	editor=""
+	tags="billing"
+	/>
 
 <tags
 	ms.service="multiple"
@@ -39,4 +48,4 @@ Azure поддерживает любой адрес электронной по
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

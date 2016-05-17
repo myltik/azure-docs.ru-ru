@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="04/06/2016"
    ms.author="iainfour;memccror"/>
 
 # Пометка виртуальной машины Linux в Azure
@@ -29,15 +29,15 @@
 
 Вы можете просмотреть все свойства определенной виртуальной машины, включая теги, с помощью следующей команды:
 
-        azure vm show -g MyResourceGroup -n MyVM
+        azure vm show -g MyResourceGroup -n MyTestVM
 
 Чтобы добавить новый тег виртуальной машины через интерфейс командной строки Azure, можно применить команду `azure vm set` с параметром тега **-t**:
 
-        azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
+        azure vm set -g MyResourceGroup -n MyTestVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
 Чтобы удалить все теги, можно использовать параметр **–T** в команде `azure vm set`.
 
-        azure vm set – g MyResourceGroup –n MyVM -T
+        azure vm set – g MyResourceGroup –n MyTestVM -T
 
 
 Теперь, когда мы применили теги к ресурсам с помощью Azure CLI и портала, рассмотрим сведения об использовании, чтобы увидеть теги на портале выставления счетов.
@@ -60,4 +60,4 @@
 [Расшифровка счета за использование Microsoft Azure]: ../billing-understand-your-bill.md
 [Получение ценных сведений о потреблении ресурсов Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

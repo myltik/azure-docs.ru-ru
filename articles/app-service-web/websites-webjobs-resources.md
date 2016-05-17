@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Документация по веб-заданиям Azure
@@ -22,7 +22,7 @@
 
 В данной теме содержатся ссылки на документацию о том, как применять веб-задания Azure и SDK веб-заданий Azure. Веб-задания Azure предоставляют простой способ запуска сценариев и программ в виде фоновых процессов в контексте [веб-приложений службы приложений, приложений API или мобильных приложений](../app-service/app-service-value-prop-what-is.md). Можно загружать и запускать исполняемые файлы, например cmd, bat, exe (.NET), ps1, sh, php, py, js и jar. Эти программы могут работать как веб-задания по расписанию (cron) или постоянно.
 
-Назначение [веб-заданий SDK](websites-webjobs-resources.md) — упрощение кода, с помощью которого веб-задание выполняет такие общие задачи, как обработка изображений, обработка очереди, объединение RSS, обслуживание файлов и отправка сообщений электронной почты. Пакет SDK для веб-заданий имеет встроенные функции для работы с хранилищем Azure и служебной шиной для планирования задач и обработки ошибок, а также других распространенных сценариев. Этот пакет расширяемый; также существует [репозиторий открытого кода для расширений](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
+Назначение [веб-заданий SDK](websites-webjobs-resources.md) — упрощение кода, с помощью которого веб-задание выполняет такие общие задачи, как обработка изображений, обработка очереди, объединение RSS, обслуживание файлов и отправка сообщений электронной почты. Пакет SDK для веб-заданий имеет встроенные функции для работы с хранилищем Azure и служебной шиной для планирования задач и обработки ошибок, а также других распространенных сценариев. Этот пакет расширяемый; также существует [репозиторий открытого кода для расширений](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). [Функции Azure](../azure-functions/functions-overview.md) (в настоящее время предварительная версия) основаны на версии пакета SDK веб-заданий, который работает со сценариями C#, Node.js и других языков.
 
 Создание, развертывание веб-заданий и управление ими средствами Visual Studio не вызовет проблем. Веб-задания можно создавать из шаблонов, публиковать их и управлять ими (запуск/остановка/мониторинг/jnkflrf).
 
@@ -82,7 +82,7 @@
 * [Кто записал этот большой двоичный объект?](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [Размещение интерактивного кода в облаке](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Добавление трассировки в веб-задания Azure](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [Наблюдение, диагностика и устранение неисправностей хранилища Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/)
+* [Наблюдение, диагностика и устранение неисправностей хранилища Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md)
 * Видеоролики
 	* [Средства для работы с веб-заданиями и удаленная отладка](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
@@ -109,11 +109,13 @@
 ##<a name="additionalsdk"></a>Дополнительные ресурсы по пакету SDK для веб-заданий
 
 * [Заметки о выпуске пакета SDK веб-заданий](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)
-* [Репозиторий открытого кода для расширений пакета SDK веб-заданий](https://github.com/Azure/azure-webjobs-sdk-extensions) с [подробным руководством по модели расширения](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).  
 * [Исходный код пакета SDK веб-заданий](https://github.com/Azure/azure-webjobs-sdk)
+* [Исходный код расширений пакета SDK веб-заданий](https://github.com/Azure/azure-webjobs-sdk-extensions) с [подробным руководством по модели расширения](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).  
+* [Исходный код пакета SDK веб-заданий](https://github.com/Azure/azure-webjobs-sdk-script/) (для [Функций Azure](../azure-functions/functions-overview.md))
 * [Веб-задания по загрузке файлов FREB в службу хранилища Azure с помощью пакета SDK для веб-заданий](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)
 * [Размещение веб-заданий Azure вне Azure с преимуществами ведения журнала из веб-заданий, размещенных на Azure](http://bypassion.dk/?p=510)
 * [Создание средства импорта данных с помощью веб-заданий Azure](http://www.freshconsulting.com/building-data-import-tool-azure-webjobs/)
+* [Обзор функций Azure](../azure-functions/functions-overview.md)
 * Видеоролики
 	* [Серия видеопрограмм по веб-заданиям Azure на канале 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
@@ -133,10 +135,11 @@
 
 * [StackOverflow для веб-заданий](http://stackoverflow.com/questions/tagged/azure-webjobs)
 * [StackOverflow для SDK веб-заданий](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
+* [StackOverflow для функций Azure](http://stackoverflow.com/questions/tagged/azure-functions)
 * [Форум по Azure и ASP.NET](http://forums.asp.net/1247.aspx)
 * [Форум по веб-приложениям службы приложений Azure](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Сайт пользовательских мнений по веб-приложениям Azure](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/). Используйте хештег #AzureWebJobs.
 * [Сообщение об ошибке или проблеме в веб-задании](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

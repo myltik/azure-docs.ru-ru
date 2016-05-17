@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="04/27/2016"
    ms.author="telmos" />
 
 # Развертывание виртуальной машины со статическим общедоступным IP-адресом с помощью шаблона
@@ -46,9 +46,9 @@
         }
       },
 
-Обратите внимание на свойство **publicIPAllocationMethod**, которому присвоено значение *Static*. Это свойство может иметь значение либо *Dynamic* \(значение по умолчанию\), либо *Static*. Установка значения Static гарантирует, что этот общедоступный IP-адрес никогда не изменится.
+Обратите внимание на свойство **publicIPAllocationMethod**, которому присвоено значение *Static*. Это свойство может иметь значение либо *Dynamic* (значение по умолчанию), либо *Static*. Установка значения Static гарантирует, что назначенный общедоступный IP-адрес никогда не изменится.
 
-В разделе ниже показана связь указанного выше общедоступного IP-адреса с сетевым адаптером.
+В разделе ниже показана связь общедоступного IP-адреса с сетевым интерфейсом.
 
       {
         "apiVersion": "2015-06-15",
@@ -81,9 +81,9 @@
         }
       },
 
-Обратите внимание на свойство **publicIPAddress**, указывающее **идентификатор** ресурса с именем **variables\('webVMSetting'\).pipName**. Это имя общедоступного IP-ресурса, показанного выше.
+Обратите внимание на свойство **publicIPAddress**, указывающее **идентификатор** ресурса с именем **variables('webVMSetting').pipName**. Это имя общедоступного IP-ресурса, показанного выше.
 
-Наконец, приведенный выше сетевой адаптер указан в свойстве **networkProfile** создаваемой виртуальной машины.
+Наконец, приведенный выше сетевой интерфейс указан в свойстве **networkProfile** создаваемой виртуальной машины.
 
       "networkProfile": {
         "networkInterfaces": [
@@ -95,7 +95,7 @@
 
 ## Развертывание шаблона с помощью кнопки развертывания
 
-Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP), нажмите **Deploy to Azure** \(Развернуть в Azure\), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
+Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Для развертывания этого шаблона с помощью кнопки развертывания щелкните **Развертывание в Azure** в файле Readme.md шаблона [виртуальной машины со статическим PIP-адресом](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP). При необходимости замените значения параметров по умолчанию и введите значения для параметров без значений. Следуйте инструкциям на портале, чтобы создать виртуальную машину с общедоступным статическим IP-адресом.
 
 ## Развертывание шаблона с помощью PowerShell
 
@@ -105,11 +105,11 @@
 
 2. При необходимости выполните командлет **New-AzureRMResourceGroup** в консоли PowerShell, чтобы создать новую группу ресурсов. Если вы уже создали группу ресурсов, перейдите к шагу 3.
 
-		New-AzureRmResourceGroup -Name StaticPublicIP -Location westus
+		New-AzureRmResourceGroup -Name PIPTEST -Location westus
 
 	Ожидаемые выходные данные:
 
-		ResourceGroupName : StaticPublicIP
+		ResourceGroupName : PIPTEST
 		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
@@ -126,7 +126,7 @@
 		DeploymentName    : DeployVM
 		ResourceGroupName : PIPTEST
 		ProvisioningState : Succeeded
-		Timestamp         : 1/8/2016 7:04:44 PM
+		Timestamp         : <Deployment date> <Deployment time>
 		Mode              : Incremental
 		TemplateLink      :
 		                    Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
@@ -152,7 +152,7 @@
 
 Чтобы развернуть шаблон с помощью интерфейса командной строки Azure, выполните следующие действия.
 
-1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы ранее не работали с командной строкой Azure, выполните действия, описанные в статье [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md), а затем процедуру подключения CLI к подписке в разделе "Использование имени входа Azure для интерактивной проверки подлинности" статьи [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
 2. Выполните команду **azure config mode**, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
 		azure config mode arm
@@ -161,13 +161,13 @@
 
 		info:    New mode is arm
 
-3. Откройте [файл параметров](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), выберите его содержимое и сохраните его в файл на своем компьютере. В этом примере мы сохранили файл параметров в файл *parameters.json*.
+3. Откройте [файл параметров](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), выберите его содержимое и сохраните его в файл на своем компьютере. Для этого примера параметры сохраняются в файл с именем *parameters.json*. Измените значения параметров в файле по мере необходимости (как минимум, рекомендуется заменить значение параметра adminPassword уникальным сложным паролем).
 
-4. Выполните командлет **azure group deployment create**, чтобы развернуть новую виртуальную сеть с помощью файлов шаблона и параметров, которые вы загрузили и изменили выше. В списке, который откроется после выполнения команды, будут указаны используемые параметры.
+4. Выполните командлет **azure group deployment create**, чтобы развернуть новую виртуальную сеть с помощью файлов шаблона и параметров, которые вы скачали и изменили раньше. В приведенной ниже команде замените <path> путем к папке, где сохранен файл.
 
-		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e parameters.json
+		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
 
-	Ожидаемые выходные данные:
+	Ожидаемый результат (перечисляются используемые значения параметров):
 
 		info:    Executing command group create
 		+ Getting resource group PIPTEST2
@@ -176,7 +176,7 @@
 		+ Initializing template configurations and parameters
 		+ Creating a deployment
 		info:    Created template deployment "azuredeploy"
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/PIPTEST2
+		data:    Id:                  /subscriptions/<Subscription ID>/resourceGroups/PIPTEST2
 		data:    Name:                PIPTEST2
 		data:    Location:            westus
 		data:    Provisioning State:  Succeeded
@@ -184,4 +184,4 @@
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

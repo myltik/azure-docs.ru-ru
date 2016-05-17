@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/07/2016"
+   ms.date="05/02/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Управление индексами columnstore в хранилище данных SQL Azure
@@ -240,8 +240,6 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 
 ## Дальнейшие действия
 
-Более подробные рекомендации по управлению индексами см. в статье об [управлении индексами][].
-
 Дополнительные советы по управлению см. в обзоре [управления][].
 
 <!--Image references-->
@@ -251,7 +249,6 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 [Секционирование таблиц]: sql-data-warehouse-develop-table-partitions.md
 [параллелизме]: sql-data-warehouse-develop-concurrency.md
 [управления]: sql-data-warehouse-manage-monitor.md
-[управлении индексами]: sql-data-warehouse-manage-indexes.md
 
 <!--MSDN references-->
 [ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
@@ -259,4 +256,4 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

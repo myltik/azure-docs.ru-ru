@@ -235,4 +235,4 @@ SSH — это служебная программа для входа в сис
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!----HONumber=AcomDC_0427_2016-->

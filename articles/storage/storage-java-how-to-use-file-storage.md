@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe" />
+	editor="" />
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Использование табличного хранилища из Java
@@ -216,4 +216,4 @@
 - [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

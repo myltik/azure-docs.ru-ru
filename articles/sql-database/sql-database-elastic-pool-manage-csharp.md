@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Управление пулом эластичных баз данных (C#) | Microsoft Azure"
+    pageTitle="Мониторинг пула эластичных баз данных и управление им с помощью C# | Microsoft Azure"
     description="Используйте методы разработки баз данных на C# для управлением пулом эластичных баз данных в Базе данных SQL Azure."
     services="sql-database"
     documentationCenter=""
-    authors="stevestein"
+    authors="sidneyh"
     manager="jhubbard"
     editor=""/>
 
@@ -13,33 +13,70 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/11/2016"
-    ms.author="sstein"/>
+    ms.date="04/28/2016"
+    ms.author="sidneyh"/>
 
-# Управление пулом эластичных баз данных и выбор его размера с помощью C&\#x23;
+# Мониторинг пула эластичных баз данных и управление им с помощью C&#x23; 
 
 > [AZURE.SELECTOR]
 - [Портал Azure](sql-database-elastic-pool-manage-portal.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
-- [C\#](sql-database-elastic-pool-manage-csharp.md)
+- [C#](sql-database-elastic-pool-manage-csharp.md)
 - [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 
-Узнайте, как управлять [пулом эластичных баз данных](sql-database-elastic-pool.md) с помощью языка C&\#x23;.
+Узнайте, как управлять [пулом эластичных баз данных](sql-database-elastic-pool.md) с помощью языка C&#x23;.
 
 Стандартные коды ошибок см. в статье [Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md).
 
-> [AZURE.NOTE] Сейчас пулы эластичных баз данных предоставляются в виде предварительной версии, которая доступна только с серверами Базы данных SQL версии 12. Если у вас есть сервер базы данных SQL версии 11, с помощью PowerShell вы можете в один шаг [обновить его до версии 12 и создать пул](sql-database-upgrade-server-portal.md).
+Сейчас пулы эластичных баз данных предоставляются в виде предварительной версии, которая доступна только с серверами Базы данных SQL версии 12. Если у вас есть сервер базы данных SQL версии 11, с помощью PowerShell вы можете в один шаг [обновить его до версии 12 и создать пул](sql-database-upgrade-server-portal.md).
 
-В примерах используется [библиотека базы данных SQL для .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), поэтому вам нужно ее установить. Для этого в Visual Studio запустите в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) \(**Средства** \> **Диспетчер пакетов NuGet** \> **Консоль диспетчера пакетов**\) следующую команду.
+В примерах используется [библиотека базы данных SQL для .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx). Установите ее. Для этого в Visual Studio выполните следующую команду в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**).
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
 
-## Обновление пула
+## Перемещение базы данных в пул эластичных БД
 
+Автономную базу данных можно переместить в пул и из него.
 
-    // Retrieve existing pool properties
+    // Retrieve current database properties.
+
+    currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
+
+    // Configure create or update parameters with existing property values, override those to be changed.
+    DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
+    {
+        Location = currentDatabase.Location,
+        Properties = new DatabaseCreateOrUpdateProperties()
+        {
+            Edition = "Standard",
+            RequestedServiceObjectiveName = "ElasticPool",
+            ElasticPoolName = "ElasticPool1",
+            MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
+            Collation = currentDatabase.Properties.Collation,
+        }
+    };
+
+    // Update the database.
+    var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
+
+## Получение списка баз данных в пуле эластичных БД
+
+Для получения всех баз данных в пуле вызовите метод [ListDatabases](https://msdn.microsoft.com/library/microsoft.azure.management.sql.elasticpooloperationsextensions.listdatabases).
+
+    //List databases in the elastic pool
+    DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
+    Console.WriteLine("Databases in Elastic Pool {0}", "server-name.ElasticPool1");
+    foreach (Database db in dbListInPool)
+    {
+        Console.WriteLine("  Database {0}", db.Name);
+    }
+
+## Изменение параметров производительности пула
+
+Получите существующие свойства пула. Измените значения и выполните метод CreateOrUpdate.
+
     var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
 
     // Configure create or update parameters with existing property values, override those to be changed.
@@ -59,79 +96,15 @@
     newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
 
-
-## Перемещение существующей базы данных в пул
-
-
-    // Update database service objective to add the database to a pool
-
-    // Retrieve current database properties
-    currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
-
-    // Configure create or update parameters with existing property values, override those to be changed.
-    DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = currentDatabase.Location,
-        Properties = new DatabaseCreateOrUpdateProperties()
-        {
-            Edition = "Standard",
-            RequestedServiceObjectiveName = "ElasticPool",
-            ElasticPoolName = "ElasticPool1",
-            MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
-            Collation = currentDatabase.Properties.Collation,
-        }
-    };
-
-    // Update the database
-    var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
-
-
-
-
-## Создание базы данных в пуле
-
-
-    // Create a new database in the pool
-
-    // Create a database: configure create or update parameters and properties explicitly
-    DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = currentServer.Location,
-        Properties = new DatabaseCreateOrUpdateProperties()
-        {
-            Edition = "Standard",
-            RequestedServiceObjectiveName = "ElasticPool",
-            ElasticPoolName = "ElasticPool1",
-            MaxSizeBytes = 268435456000, // 250 GB,
-            Collation = "SQL_Latin1_General_CP1_CI_AS"
-        }
-    };
-
-    var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
-
-
-
-## Получение списка всех баз данных в пуле
-
-В следующем примере создается список всех существующих в пуле баз данных.
-
-    //List databases in the elastic pool
-    DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
-    Console.WriteLine("Databases in Elastic Pool {0}", "server-name.ElasticPool1");
-    foreach (Database db in dbListInPool)
-    {
-        Console.WriteLine("  Database {0}", db.Name);
-    }
-
 ## Задержка операций эластичного пула
 
-- Изменение гарантированного количества eDTU на каждую базу данных \(databaseDtuMin\) или максимального eDTU на каждую базу данных \(databaseDtuMax\) обычно завершается в течение не более 5 минут.
-- Изменение eDTU или размера хранилища \(storageMB\) пула зависит от общего количества памяти, используемой всеми базами данных в пуле. Изменение занимает порядка 90 минут или меньше на каждые 100 ГБ. Например, если общее пространство, используемое всеми базами данных в пуле, равно 200 ГБ, то ожидаемая задержка при изменении eDTU пула или размера хранилища составит 3 часа или менее.
+- Изменение минимального или максимального числа eDTU для базы данных обычно завершается за 5 минут.
+- Изменение числа eDTU на пул зависит от общей емкости, используемой всеми базами данных в пуле. Изменение занимает порядка 90 минут или меньше на каждые 100 ГБ. Например, если общее пространство, используемое всеми базами данных в пуле, равно 200 ГБ, то ожидаемая задержка при изменении числа eDTU для пула составит до 3 часов.
 
 
-## Управление пулом: пример C&\#x23;
+## Управление пулом: пример C&#x23;
 
-Для выполнения этого примера требуются дополнительные библиотеки. Чтобы установить их, в Visual Studio выполните в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) \(**Средства** \> **Диспетчер пакетов NuGet** \> **Консоль диспетчера пакетов**\) следующие команды.
+Для выполнения этого примера требуются дополнительные библиотеки. Чтобы установить их, в Visual Studio выполните в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**) следующие команды.
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -451,13 +424,12 @@
     }
     }
 
-
-
 ## Дополнительные ресурсы
-
 
 - [База данных SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-- [Справочник по пулам эластичных баз данных](sql-database-elastic-pool-reference.md)
+- [Создание нового пула эластичных баз данных с помощью C#](sql-database-elastic-pool-create-csharp.md)
+- [Когда следует использовать пул эластичных баз данных?](sql-database-elastic-pool-guidance.md)
+- См. статью [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md). В ней описывается использование инструментов эластичных баз данных для масштабирования, перемещения данных, выполнения запросов и создания транзакций.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="javascript"
 	authors="adrianhall"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/07/2016"
-	ms.author="adrianha"/>
+	ms.date="05/03/2016"
+	ms.author="adrianha;ricksal"/>
 
 # Как использовать клиентскую библиотеку JavaScript для мобильных приложений Azure
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-В данном руководстве показано, как реализовать типичные сценарии с использованием последней версии [пакета SDK JavaScript для мобильных приложений Azure]. Если вы не знакомы с мобильными приложениями Azure, сначала изучите статью [Быстрый запуск мобильного приложения Azure], чтобы создать серверную часть и таблицу. В этом руководстве мы рассмотрим использование мобильного внутреннего сервера в веб-приложениях HTML и JavaScript.
+В данном руководстве показано, как реализовать типичные сценарии с использованием последней версии [пакета SDK JavaScript для мобильных приложений Azure]. Если вы не знакомы с мобильными приложениями Azure, сначала изучите статью [Быстрый запуск мобильного приложения Azure], чтобы создать серверную часть и таблицу. В этом руководстве мы рассмотрим использование мобильного внутреннего сервера в веб-приложениях HTML и JavaScript.
 
 ##<a name="Setup"></a>Настройка и необходимые компоненты
 
@@ -113,4 +113,4 @@ pushHandler.on('error', function (error) {
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [документации по объектам запросов]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

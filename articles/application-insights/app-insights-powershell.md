@@ -27,7 +27,7 @@
 
 Установите модуль Azure Powershell на компьютере, где требуется выполнять сценарии.
 
-1. Установите [установщик веб-платформы Майкрософт (версии 5 или более поздней)](http://www.microsoft.com/web/downloads/platform.aspx).
+1. Установите [установщик веб-платформы Майкрософт (версии 5 или более поздней)](http://www.microsoft.com/web/downloads/platform.aspx).
 2. Используйте его для установки Microsoft Azure PowerShell.
 
 ## Копирование JSON для существующих ресурсов
@@ -176,12 +176,12 @@
     * -webTestName — имя веб-теста, который нужно создать.
     * -url — это URL-адрес веб-приложения.
     * -text — это текстовая строка, отображаемая на веб-странице.
-    * -siteName — используется, если это веб-сайт Azure.
+    * -siteName — используется, если это веб-сайт Azure.
 
 
 ## Определение оповещений о метриках
 
-Для настройки оповещений можно использовать [метод PowerShell](app-insights-alerts.md/#set-alerts-by-using-powershell).
+Для настройки оповещений можно использовать [метод PowerShell](app-insights-alerts.md#set-alerts-by-using-powershell).
 
 
 ## Пример
@@ -321,4 +321,4 @@
 * [Отправка данных системы диагностики Azure в Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Создание заметок выпуска](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="robmcm"/>
-
 
 # Построение и развертывание приложения Node.js в облачной службе Azure
 
@@ -25,23 +24,22 @@
 
 В этом учебнике показано, как создать простое приложение Node.js, запускаемое в облачной службе Azure. Облачные службы являются основой для построения масштабируемых облачных приложений в Azure. Они обеспечивают разделение, независимое управление и масштабирование компонентов внешнего и внутреннего интерфейса приложения. Облачные службы предоставляют надежную выделенную виртуальную машину для надежного размещения каждой роли.
 
-Дополнительную информацию об облачных службах и сравнении их с веб-сайтами Azure и виртуальными машинами см. раздел [Сравнение веб-сайтов Azure, облачных служб и виртуальных машин](../app-service-web/choose-web-site-cloud-service-vm.md).
+Дополнительную информацию об облачных службах и сравнении их с веб-сайтами Azure и виртуальными машинами см. раздел [Сравнение веб-сайтов Azure, облачных служб и виртуальных машин].
 
->[AZURE.TIP] Требуется собрать простой веб-сайт? Если в вашем сценарии задействован только простой интерфейс веб-сайта, следует рассмотреть возможность <a href="../app-service-web/web-sites-nodejs-develop-deploy-mac.md">использования упрощенного веб-приложения.</a> По мере роста веб-приложения и изменения требований можно легко выполнить обновление к облачной службе.
-
+>[AZURE.TIP] Требуется собрать простой веб-сайт? Если в вашем сценарии задействован только простой интерфейс веб-сайта, мы рекомендуем [использовать упрощенное веб-приложение]. По мере роста веб-приложения и изменения требований можно легко выполнить обновление к облачной службе.
 
 Руководствуясь этим учебником, вы соберете простое веб-приложение, размещенное в веб-роли. Эмулятор вычислений будет использоваться для тестирования приложения локально, а затем будет развернут с помощью средств командной строки PowerShell.
 
 Приложение — это простое приложение hello world:
 
-![В окне браузера отображается веб-страница "Hello World"](./media/cloud-services-nodejs-develop-deploy-app/node14.png)
+![В окне браузера отображается веб-страница "Hello World"][A web browser displaying the Hello World web page]
 
 ## Предварительные требования
 
 > [AZURE.NOTE] В этом учебнике используется Azure PowerShell, для которого требуется операционная система Windows.
 
-- Установите и настройте [Azure PowerShell](../powershell-install-configure.md).
-- Скачайте и установите [пакет SDK для Azure для .NET 2.7](http://www.microsoft.com/ru-RU/download/details.aspx?id=48178). В параметрах установки выберите:
+- Установите и настройте [Azure PowerShell].
+- Скачайте и установите [пакет SDK для Azure для .NET 2.7]. В параметрах установки выберите:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -50,21 +48,21 @@
 
 Выполните следующие задачи для создания нового проекта облачной службы Azure с основными функциями формирования Node.js:
 
+1. Запустите **Windows PowerShell** от имени администратора. В меню **Пуск** или на **начальном экране** найдите приложение **Windows PowerShell**.
 
-1. Запустите **Windows PowerShell** от имени администратора. (В меню **Пуск** или на **начальном экране** найдите **Windows PowerShell**.)
+2. [Подключите PowerShell] к своей подписке.
 
-2.  [Подключите PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) к своей подписке.
-3.  Введите следующий командлет PowerShell, чтобы создать проект:
+3. Введите следующий командлет PowerShell, чтобы создать проект:
 
         New-AzureServiceProject helloworld
 
-	![Результат выполнения команды New-AzureService helloworld](./media/cloud-services-nodejs-develop-deploy-app/node9.png)
+	![Результат выполнения команды New-AzureService helloworld][The result of the New-AzureService helloworld command]
 
 	Командлет **New-AzureServiceProject** формирует базовую структуру для публикации приложения Node.js в облачной службе. Он содержит файлы конфигурации, необходимые для публикации в Azure. Командлет также изменяет рабочий каталог на каталог для службы.
 
 	Командлет создает следующие файлы:
 
-	-   **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** и **ServiceDefinition.csdef** являются специальными файлами Azure, необходимыми для публикации вашего приложения. Дополнительные сведения см. в разделе [Обзор создания размещенной службы для Azure][].
+	-   **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** и **ServiceDefinition.csdef** являются специальными файлами Azure, необходимыми для публикации вашего приложения. Дополнительные сведения см. в разделе [Обзор создания размещенной службы для Azure].
 
 	-   **deploymentSettings.json** хранит локальные параметры, используемые командлетами развертывания Azure PowerShell.
 
@@ -72,12 +70,11 @@
 
         Add-AzureNodeWebRole
 
-	![Вывод команды Add-AzureNodeWebRole.](./media/cloud-services-nodejs-develop-deploy-app/node11.png)
+	![Вывод команды Add-AzureNodeWebRole.][The output of the Add-AzureNodeWebRole command]
 
 	Командлет **Add-AzureNodeWebRole** создает базовое приложение Node.js. Он также изменяет файлы **.csfg** и **.csdef**, чтобы добавить записи конфигурации для новой роли.
 
 	> [AZURE.NOTE] Если имя роли не указано, используется имя по умолчанию. Можно ввести имя в качестве первого параметра командлета: `Add-AzureNodeWebRole MyRole`
-
 
 Приложение Node.js определяется в файле **server.js**, который находится в каталоге веб-роли (по умолчанию это **WebRole1**). Ниже приведен код:
 
@@ -88,12 +85,11 @@
 	    res.end('Hello World\n');
 	}).listen(port);
 
-Данный пример кода является практически аналогичным образцу Hello World на веб-сайте [nodejs.org][], за исключением того, что он использует номер порта, назначенный средой облака.
+Данный пример кода является практически аналогичным образцу Hello World на веб-сайте [nodejs.org], за исключением того, что он использует номер порта, назначенный средой облака.
 
 ## Развертывание приложения в Azure
 
 	[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
 
 ### Загрузка настроек публикации Azure
 
@@ -114,7 +110,6 @@
 
 	> [AZURE.NOTE] После импорта настроек публикации удалите загруженный файл PUBLISHSETTINGS, поскольку он содержит информацию, которая может использоваться другими пользователями для доступа к вашей учетной записи.
 
-
 ### Публикация приложения
 
 Для публикации выполните следующие команды.
@@ -130,15 +125,14 @@
 
 После успешной публикации появится следующий ответ:
 
-![Вывод команды Publish-AzureService](./media/cloud-services-nodejs-develop-deploy-app/node19.png)
+![Вывод команды Publish-AzureService][The output of the Publish-AzureService command]
 
 > [AZURE.NOTE]
 При первой публикации развертывание приложения может занять несколько минут, после этого оно становится доступным.
 
 После завершения развертывания откроется окно браузера и можно будет перейти в облачную службу.
 
-
-![В окне браузера отображается страница hello world. URL-адрес указывает, что страница размещается в Azure.](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
+![В окне браузера отображается страница "hello world"; URL-адрес указывает, что страница размещается в Azure.][A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]
 
 Теперь приложение работает в Azure.
 
@@ -148,10 +142,9 @@
 
 2.  Создайте новую **учетную запись хранения**, если она не существует. Учетная запись хранения Azure используется для хранения пакета приложения во время развертывания. После развертывания можно безопасно удалить учетную запись хранения.
 
-3.  Создайте новую **облачную службу**, если она не существует. При развертывании приложения в Azure **облачная служба** служит контейнером для размещения приложения. Дополнительные сведения см. в разделе [Обзор создания размещенной службы для Azure][].
+3.  Создайте новую **облачную службу**, если она не существует. При развертывании приложения в Azure **облачная служба** служит контейнером для размещения приложения. Дополнительные сведения см. в разделе [Обзор создания размещенной службы для Azure].
 
 4.  Публикует пакет развертывания в Azure.
-
 
 
 ## Остановка и удаление приложения
@@ -164,7 +157,7 @@
 
 	Остановка службы может занять несколько минут. Если эта служба остановлена, появится сообщение, указывающее на то, что она была остановлена.
 
-	![Состояние команды Stop-AzureService](./media/cloud-services-nodejs-develop-deploy-app/node48.png)
+	![Состояние команды Stop-AzureService][The status of the Stop-AzureService command]
 
 2.  Чтобы удалить службу, вызовите следующий командлет:
 
@@ -174,28 +167,35 @@
 
 	Удаление службы может занять несколько минут. После удаления службы появится сообщение, указывающее, что служба была удалена.
 
-	![Состояние команды Remove-AzureService](./media/cloud-services-nodejs-develop-deploy-app/node49.png)
+	![Состояние команды Remove-AzureService][The status of the Remove-AzureService command]
 
-	> [AZURE.NOTE] При удалении службы учетная запись хранения, созданная при первоначальной публикации службы, не удаляется. Оплата за использование хранилища будет насчитываться. Дополнительную информацию об удалении учетной записи хранения см. в разделе [Удаление учетной записи хранения из подписки Azure](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
+	> [AZURE.NOTE] При удалении службы учетная запись хранения, созданная при первоначальной публикации службы, не удаляется. Оплата за использование хранилища будет насчитываться. Дополнительную информацию об удалении учетной записи хранения см. в разделе [Удаление учетной записи хранения из подписки Azure].
 
 ## Дальнейшие действия
 
-Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
+Дополнительную информацию см. в [Центре разработчика Node.js].
 
-[The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
-[mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
+<!-- URL List -->
+
+[Сравнение веб-сайтов Azure, облачных служб и виртуальных машин]: ../app-service-web/choose-web-site-cloud-service-vm.md
+[использование упрощенного веб-приложения]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md">
+[Azure Powershell]: ../powershell-install-configure.md
+[пакет SDK для Azure для .NET 2.7]: http://www.microsoft.com/ru-RU/download/details.aspx?id=48178
+[Подключите PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
-[A directory listing of the helloworld folder.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
-[Обзор создания размещенной службы для Azure]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
-[A directory listing of the WebRole1 folder]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
-[The menu displayed when right-clicking the Azure emulator from the task bar.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
-[A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png
-[A browser window displaying the liveID sign in page]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-13.png
-[Internet Explorer displaying the save as dialog for the publishSettings file.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-14.png
+[Удаление учетной записи хранения из подписки Azure]: ../storage/how-to-manage-a-storage-account.md
+[Обзор создания размещенной службы для Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
+[Центре разработчика Node.js]: https://azure.microsoft.com/develop/nodejs/
 
+<!-- IMG List -->
+
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
 [The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-[How to Delete a Storage Account from an Azure Subscription]: https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/
-[powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
- 
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

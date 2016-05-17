@@ -3,8 +3,8 @@
 	description="В этом учебнике объясняется, как использовать содержимое из CDN для повышения производительности веб-приложения." 
 	services="cdn" 
 	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	authors="camsoper" 
+	manager="erikre" 
 	editor="jimbe"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="cephalin"/>
+	ms.date="04/29/2016" 
+	ms.author="casoper"/>
 
 # Обслуживание содержимого из CDN Azure в вашем веб-приложении #
 
@@ -277,4 +277,4 @@
 - [Использование Azure CDN](cdn-create-new-endpoint.md)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

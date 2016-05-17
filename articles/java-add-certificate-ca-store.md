@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 # Добавление сертификата в хранилище сертификатов ЦС Java
@@ -56,4 +56,4 @@
 
 Дополнительную информацию о Java см. в [Центре разработчика Java](/develop/java/).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

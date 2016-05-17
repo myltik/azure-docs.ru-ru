@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/02/2016" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Мультитенантные приложения со средствами эластичных баз данных и безопасностью на уровне строк 
@@ -58,7 +58,7 @@
 
 ### Entity Framework
 
-Для приложений, использующих Entity Framework, задать нужное значение в SESSION\_CONTEXT проще всего в рамках переопределения ElasticScaleContext, как описано в статье [Зависящая от данных маршрутизация с помощью EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Перед возвратом подключения, установленного с помощью зависящей от данных маршрутизации, просто создайте и выполните команду SqlCommand, которая устанавливает в SESSION\_CONTEXT для TenantId значение shardingKey, указанное для этого подключения. Таким образом, чтобы задать нужное значение в SESSION\_CONTEXT, необходимо написать код один раз.
+Для приложений, использующих Entity Framework, задать нужное значение в SESSION\_CONTEXT проще всего в рамках переопределения ElasticScaleContext, как описано в статье [Зависящая от данных маршрутизация с помощью EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Перед возвратом подключения, установленного с помощью зависящей от данных маршрутизации, просто создайте и выполните команду SqlCommand, которая устанавливает в SESSION\_CONTEXT для TenantId значение shardingKey, указанное для этого подключения. Таким образом, чтобы задать нужное значение в SESSION\_CONTEXT, необходимо написать код один раз.
 
 ```
 // ElasticScaleContext.cs 
@@ -312,4 +312,4 @@ GO
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

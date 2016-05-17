@@ -33,7 +33,7 @@
 
 ## Создание и развертывание простого веб-приложения Node.js
 
-1. Откройте программу командной строки и установите [генератор Express для Yeоman](https://github.com/petecoop/generator-express).
+1. Откройте любую программу командной строки и установите [генератор Express для Yeоman](https://github.com/petecoop/generator-express).
 
         npm install -g generator-express
 
@@ -203,4 +203,4 @@
 - [Центр разработчиков Node.js.](/develop/nodejs/)
 - [Начало работы с веб-приложениями в службе приложений Azure](app-service-web-get-started.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

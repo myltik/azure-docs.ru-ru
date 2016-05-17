@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Управление служебной шиной с помощью PowerShell | Microsoft Azure"
-	description="Управление Service Bus с помощью сценариев PowerShell вместо .NET"
+	description="Управление служебной шиной с помощью сценариев PowerShell"
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/02/2016"
 	ms.author="sethm"/>
 
 # Управление Service Bus с помощью PowerShell
@@ -156,6 +156,21 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 	Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
 	```
 
+## Перенос пространства имен в другую подписку Azure
+
+Следующая последовательность команд перемещает пространство имен из одной подписки Azure в другую. Для выполнения этой операции пространство имен уже должно быть активным, а пользователь, выполняющий команды PowerShell, должен обладать правами администратора в исходной и целевой подписках.
+
+```
+# Create a new resource group in target subscription
+Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzureRmResourceGroup -Name 'targetRP' -Location 'East US'
+
+# Move namespace from source subscription to target subscription
+Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzureRmResource -DestinationResourceGroupName 'targetRP' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+```
+
 ## Дальнейшие действия
 
 В этой статье описана базовая схема подготовки к работе сущности служебной шины с помощью PowerShell. Все действия, которые можно выполнить с помощью клиентских библиотек .NET, также доступны для сценария PowerShell.
@@ -165,7 +180,8 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 - [Как создать запросы, разделы и подписки Service Bus с помощью сценария PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Как создать пространство имен и концентратор событий служебной шины с помощью сценария PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Некоторые готовые сценарии также доступны для скачивания на странице [Сценарии PowerShell для служебной шины](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
+Некоторые готовые сценарии доступны для скачивания:
+- [Сценарии PowerShell для Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->
 [Варианты приобретения]: http://azure.microsoft.com/pricing/purchase-options/
@@ -179,4 +195,4 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [API .NET для служебной шины]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

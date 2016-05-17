@@ -37,11 +37,9 @@
 
 Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET.
 
-В следующем примере используется интерактивная аутентификация пользователя. Сведения об использовании неинтерактивной аутентификации см. в статье [Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
-
 **Отправка заданий**
 
-1. Создайте в Visual Studio консольное приложение C\#.
+1. Создайте в Visual Studio консольное приложение C#.
 2. Введите следующую команду в окне консоли диспетчера пакетов NuGet.
 
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
@@ -190,4 +188,4 @@
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

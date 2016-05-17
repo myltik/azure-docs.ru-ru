@@ -14,47 +14,61 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="guayan"/>
 
 # Настройка API для подключения к серверным ресурсам в домене Azure Active Directory
-По мере появления новых пользователей, создающих домены в Azure Active Directory (AAD), в эти домены AAD также добавляются серверные ресурсы. Можно создавать и настраивать интерфейсы API для подключения к этим серверным ресурсам.
 
-#### Предварительные требования для начала работы
+> [AZURE.IMPORTANT] Эта тема помещена в архив и скоро будет удалена. Узнать о наших новых планах можно в новом разделе [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Дополнительные сведения о PowerApps и инструкции по началу работы можно найти на сайте [PowerApps](https://powerapps.microsoft.com).  
+> - Дополнительные сведения о настраиваемых интерфейсах API в PowerApps см. в статье [Что такое пользовательские интерфейсы API](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
 
-- Регистрация в службе [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
-- Создание [среды службы приложений](powerapps-get-started-azure-portal.md).
-- Установка предварительной версии [Azure PowerShell][11] 1.0 или более поздней.
-- Регистрация API в своей [среде службы приложений](powerapps-register-api-hosted-in-app-service.md).
+<!--Archived
+As more users are creating domains on Azure Active Directory (AAD), backend resources are also being added to these AAD domains. You can create and configure APIs to connect to these backend resources. 
 
-## Шаг 1. Создание приложения Active Directory и назначение ему разрешений
+#### Prerequisites to get started
 
-Для доступа к серверной системе в домене AAD создайте приложение AAD и назначьте ей соответствующие разрешения для существующей серверной части (которая также является приложением AAD). Действия
+- Sign up for [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
+- Create an [app service environment](powerapps-get-started-azure-portal.md).
+- Install [Azure PowerShell][11] 1.0 Preview or above.
+- Register an API in your [app service environment](powerapps-register-api-hosted-in-app-service.md).
 
-1. На [классическом портале Azure][13] перейдите в Azure Active Directory, откройте клиент (или каталог) и перейдите на вкладку **приложений**:![][14]
-2. Нажмите кнопку **Добавить** внизу. Затем:  
+## Step 1: Create an Active Directory application and give it permissions
 
-	а) Выберите **Добавить приложение, разрабатываемое моей организацией**. б) Введите имя приложения и выберите **Веб-приложение и/или веб-API**. в) В поле **URL-адрес входа** и **URI кода приложения** введите уникальные URL-адреса в AAD и URL-адреса, подходящие для вашей организации. Например, можно указать http://powerappssignon.contoso.com или http://powerappsappid.contoso.com. Мы рекомендуем использовать URL-адрес в пределах домена AAD вашей организации. URL-адреса используются в качестве идентификаторов, их наличие необязательно. Никто не будет переходить по этим URL-адресам. Можно ввести HTTP или HTTPS.
+To access the backend system on an AAD domain, create an AAD application, and give it the proper permissions to your existing backend (which is also an AAD application). Steps:
 
-3. На только что созданной странице приложения AAD перейдите на вкладку **Настройка**: ![][15]
-4. В разделе **ключей** выберите длительность в раскрывающемся списке. Обратите внимание, что ключ появляется после выбора **Сохранить**: ![][16]
-5. В поле **единого входа** добавьте ``https://<your App Service Environment name>.azure-apim.net:456/redirect`` в качестве **URL-адреса ответа**.
-6. В разделе **Разрешения для других приложений**:  
+1. In the [Azure classic portal][13], go to your Azure Active Directory, open your tenant (or directory), and select the **applications** tab:  
+![][14]
+2. Select the **Add** button at the bottom. Then:  
 
-	1. Выберите **Добавить приложение**. Во всплывающем окне выберите приложение AAD, которое защищает существующую серверную часть: ![][17]  
+	a) Choose **Add an application my organization is developing**.  
+	b) Enter a name for your application and select **Web application and/or web API**.  
+	c) In **Sign-on URL** and **App ID URI**, enter unique URLs within your AAD and URLs that make sense to your organization. For example, you can enter http://powerappssignon.contoso.com or http://powerappsappid.contoso.com.  We recommend using a URL within your organization's AAD domain. The URLs are used as identifiers and there is no requirement that they need to exist. No one is going to browse the URLs you enter. You can enter HTTP or HTTPS.  
 
-	2. Добавьте разрешения из раскрывающегося списка. ![][18]
+3. In the newly created AAD application page, go to the **Configure** tab:  
+![][15]
+4. In the **keys** section, use the drop-down list to select a duration. Note that the key displays after you select **Save**:  
+![][16]
+5. In **single sign-on**, add ``https://<your App Service Environment name>.azure-apim.net:456/redirect`` as a **reply URL**.
+6. In **permissions to other applications**:  
 
-7. Щелкните **Сохранить** внизу.
-8. Скопируйте **код клиента** и **ключ** и сохраните их. После закрытия портала Azure ключ больше не отображается. 
+	1. Select **Add application**. In the pop-up window, choose the AAD application securing your existing backend:  
+	![][17]  
 
-Дополнительные сведения о приложениях AAD см. в статье [Интеграция приложений с Azure Active Directory](../active-directory/active-directory-integrating-applications.md).
+	2. Use the drop-down list to add the permissions:  
+	![][18]
 
-## Шаг 2. Настройка API с помощью Azure PowerShell
+7. Select **Save** at the bottom. 
+8. Copy the **client ID** and **key** and store them. The key isn't shown again after you close Azure portal. 
 
-На этом этапе портал Azure не предоставляет поддержку для инициализации конфигурации, необходимой для API. Чтобы настроить API на портале Azure, используйте следующий сценарий Azure PowerShell:
+See [Integrating Applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md) to learn more about  AAD applications. 
 
-> [AZURE.TIP] Сведения об установке, настройке и запуске Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][11]. Следующий сценарий работает с предварительной версией Azure PowerShell 1.0 или более поздней.
+## Step 2: Configure your API using Azure PowerShell
+
+At this point, there isn't any Azure portal support to initialize the configuration needed for your API. To configure the API in the Azure portal, use the following Auzre PowerShell script: 
+
+> [AZURE.TIP] To learn how to install, configure, and run Azure PowerShell, see [How to install and configure Azure PowerShell][11]. The following script works with Azure PowerShell 1.0 preview or above.
 
 ```powershell
 # get the API resource
@@ -85,16 +99,17 @@ Add-Member -InputObject $api.Properties -MemberType NoteProperty -Name Connectio
 New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Properties $api.Properties
 ```
 
-**Обратите внимание**, параметр соединения **token** очень важен. Можно выбрать собственное имя, если оно задано в виде Camel. Это имя будет использоваться позднее в серверном коде или политике API.
+**Notice** that the **token** connection parameter name is important. You can pick your own name as long as it's camel case. You'll use this name later in your backend code or API policy.
 
-Теперь перейдите в [портал Azure][19] в колонку настроек **Общие** для API. Вы должны увидеть дополнительные параметры настройки: ![][21]
+Next, go to [Azure portal][19], and go to the **General** settings blade of your API. You should see the additional configuration options:  
+![][21]
 
 
-## Попробуйте сейчас
+## Try it out
 
-Откройте приложение в PowerApps. В области **Доступные подключения** отображается новый API. При выборе **Подключиться** отображается окно входа в AAD. Введите данные учетной записи AAD вашей организации. Будет создано подключение.
+Open an app in PowerApps. In **Available connections**, your new API is listed. When you select **Connect**, it displays an AAD sign-in window. Enter your organization's AAD account details and your connection is created.
 
-Теперь при выполнении вызова из приложения к API с помощью этого соединения серверная часть получает маркер пользователя AAD в HTTP-заголовке **x-ms-apim-tokens** в следующем формате [кодировки Base64][20]\:
+Now when a runtime call is made from your app to the API using this connection, your backend receives the user's AAD token in the **x-ms-apim-tokens** HTTP header in the following [Base64 encoding][20] format:  
 
 ```json
 {
@@ -105,13 +120,13 @@ New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Propert
 }
 ```
 
-**Обратите внимание,** что имя свойства **token** совпадает с именем параметра подключения, используемого при настройке параметров.
+**Notice** that the property name **token** matches the connection parameter name you use when configuring the setting.
 
-После этого серверный код может получить маркер AAD из свойства **AccessToken** и при необходимости использовать его. Среда службы приложений автоматически обновляет маркер.
+Your backend code can then get the AAD token from the **AccessToken** property and use it, if needed. The app service environment automatically refreshes the token.
 
-## Настройка политики API
+## Configure the API policy
 
-При необходимости можно использовать политику API для вставки маркера AAD в стандартный заголовок **Authorization** HTTP. Таким образом, если серверному коду потребуется использовать маркер AAD, его можно будет получить стандартным способом, а не анализировать пользовательский заголовок HTTP и декодировать Base64. Для этого перейдите на портал Azure, откройте колонку **Политика** для своего API и установите следующую политику:
+Optionally, you can also use API policy to set the AAD token into the standard HTTP **Authorization** header. This way, if your backend code needs to use the AAD token, you can get it in a standard way rather than looking into a custom HTTP header and perform Base64 decoding. To do this, go to the Azure portal, go to the **Policy** blade of your API, and set the following policy:  
 
 ```xml
 <policies>
@@ -134,16 +149,16 @@ New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Propert
 </policies>
 ```
 
-Эта политика позволяет ссылаться на значения в заголовке **x-ms-apim-tokens** в качестве декодированного объекта JObject с помощью переменной **tokens**. После этого можно использовать политику **set-header** для получения фактического маркера AAD и включения его в заголовок **Authorization**. Это та же политика, которая используется в [Azure API Management](https://azure.microsoft.com/services/api-management/). Дополнительные сведения см. в статье [Политики в Azure API Management](../api-management/api-management-howto-policies.md).
+Looking at this policy, it basically lets you reference the values in the **x-ms-apim-tokens** header as a decoded JObject using a **tokens** variable. Then you can use the **set-header** policy to get the actual AAD token and set it to the **Authorization** header. This is the same policy used by [Azure API Management](https://azure.microsoft.com/services/api-management/). To learn more, see [Policies in Azure API Management](../api-management/api-management-howto-policies.md).
 
-**Обратите внимание,** что имя свойства **token** совпадает с именем параметра подключения, используемого при настройке параметров.
+**Notice** that the property name **token** matches the connection parameter name you used when configuring the setting.
 
-## Сводка и дальнейшие действия
+## Summary and next steps
 
-В этом разделе вы узнали, как настроить интерфейс API для подключения (и проверки подлинности) к серверным ресурсам в домене Azure Active Directory. Ниже приведены некоторые связанные разделы и ресурсы для подробного изучения PowerApps:
+In this topic, you've seen how to configure an API to connect (and authenticate) to a backend resource on an Azure Active Directory domain. Here are some related topics and resources for learning more about PowerApps.
 
-- [Разработка API для PowerApps](powerapps-develop-api.md)
-
+- [Develop an API for PowerApps](powerapps-develop-api.md)
+-->
 
 <!--References-->
 [11]: ../powershell-install-configure.md
@@ -157,4 +172,4 @@ New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Propert
 [20]: https://tools.ietf.org/html/rfc4648
 [21]: ./media/powerapps-configure-apis-aad/api-settings-aad.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

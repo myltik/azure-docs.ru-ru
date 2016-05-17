@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/09/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 # Загрузка пакета Azure SDK для Java
@@ -135,4 +135,4 @@
 [zip-download]: http://go.microsoft.com/fwlink/?LinkId=690320
 [Новые возможности набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=690333
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

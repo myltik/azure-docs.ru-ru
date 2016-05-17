@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="02/02/2016"
+   ms.date="05/02/2016"
    ms.author="elizapo"/>
 
 # Запуск любых приложений Windows на любом устройстве с помощью Azure RemoteApp
@@ -108,5 +108,6 @@
 Теперь, когда вы научились создавать коллекции, попробуйте создать [коллекцию, которая использует Office 365](remoteapp-tutorial-o365anywhere.md). Вы также можете создать [гибридную коллекцию](remoteapp-create-hybrid-deployment.md), получающую доступ к локальной сети.
 
 <!--Image references-->
+ 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

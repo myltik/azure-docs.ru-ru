@@ -3,7 +3,7 @@
    description="Узнайте, как управлять заданиями аналитики озера данных, источниками данных и пользователями." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="01/26/2016"
-   ms.author="jgao"/>
+   ms.author="edmaca"/>
 
 # Управление аналитикой озера данных Azure с помощью Azure PowerShell
 
@@ -392,4 +392,4 @@
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

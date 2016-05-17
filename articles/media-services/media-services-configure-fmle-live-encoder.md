@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/03/2016" 
 	ms.author="juliako;cenkdin;anilmur"/>
 
 #Использование кодировщика FMLE для отправки односкоростного обновляющегося потока
@@ -26,7 +26,7 @@
 
 В этом разделе показано, как настроить кодировщик [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени. Дополнительные сведения см. в разделе [Работа с каналами, выполняющими кодирование в реальном времени с помощью служб мультимедиа Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-В этом учебнике показано, как управлять службами мультимедиа Azure (AMS) с помощью Обозревателя служб мультимедиа Azure. Это средство запускается только на компьютерах с ОС Windows. Если у вас Mac или Linux, воспользуйтесь классическим порталом Azure для создания [каналов](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) и [программ](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
+В этом учебнике показано, как управлять службами мультимедиа Azure (AMS) с помощью Обозревателя служб мультимедиа Azure. Это средство запускается только на компьютерах с ОС Windows. Если у вас Mac или Linux, воспользуйтесь классическим порталом Azure для создания [каналов](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) и [программ](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
 
 Обратите внимание, что в этом руководстве мы используем кодек AAC. Однако FMLE не поддерживает AAC по умолчанию. Для использования AAC необходимо приобрести подключаемый модуль, например, от MainConcept: [подключаемый модуль AAC](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
@@ -170,4 +170,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

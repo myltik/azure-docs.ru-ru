@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Подключение к виртуальной машине Windows Server | Microsoft Azure"
-	description="Узнайте, как подключиться к виртуальной машине Windows Server и войти на нее с помощью портала Azure и модели развертывания Resource Manager."
+	description="Узнайте, как подключиться к виртуальной машине Windows и войти на нее с помощью портала Azure и модели развертывания Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/28/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
-# Как подключиться к виртуальной машине Azure под управлением Windows Server и войти на нее 
+# Как подключиться к виртуальной машине Azure под управлением Windows и войти на нее 
 
 
 Чтобы запустить сеанс удаленного рабочего стола, на портале Azure нажмите кнопку **Подключиться**. Сначала вы подключитесь к виртуальной машине, а затем сможете войти на нее.
@@ -43,4 +43,4 @@
 
 Если при попытке подключения возникает ошибка, см. статью [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). В ней описывается процесс диагностики и решения распространенных проблем.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

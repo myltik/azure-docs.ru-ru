@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/14/2016"
+   ms.date="05/03/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Мониторинг рабочей нагрузки с помощью динамических административных представлений
@@ -39,7 +39,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 -- Monitor running queries
 SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
 
--- Find the 10 longest running queries
+-- Find 10 queries which ran the longest
 SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 ```
 
@@ -143,15 +143,15 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
 ## Дальнейшие действия
-Дополнительные сведения о языке Transact-SQL и динамических административных представлениях (DMV) см. в [справочном обзоре][]. Дополнительные советы по управлению хранилищем данных SQL см. в [обзоре управления][].
+Дополнительные сведения о динамических административных представлениях см. в разделе [Системные представления][]. Советы по управлению хранилищем данных SQL см. в разделе [Общие сведения об управлении][]. Рекомендации см. в разделе [Рекомендации по использованию хранилища данных SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[обзоре управления]: sql-data-warehouse-overview-manage.md
-[table design]: sql-data-warehouse-develop-table-design.md
-[справочном обзоре]: sql-data-warehouse-overview-reference.md
 [manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
+[Общие сведения об управлении]: sql-data-warehouse-overview-manage.md
+[Рекомендации по использованию хранилища данных SQL]: sql-data-warehouse-best-practices.md
+[Системные представления]: sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -162,4 +162,4 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

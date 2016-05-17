@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/26/2016"
 	ms.author="davidmu"/>
 
 # Автоматическое масштабирование машин в масштабируемом наборе виртуальных машин
@@ -39,17 +39,17 @@
 
 Шаблон, создаваемый в этом руководстве, похож на шаблон, который можно найти в коллекции шаблонов. Дополнительные сведения см. в статье [Развертывание простого масштабируемого набора виртуальных машин, состоящего из виртуальных машин Windows и основной виртуальной машины](https://azure.microsoft.com/documentation/templates/201-vmss-windows-jumpbox/).
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+## Шаг 1. Установка Azure PowerShell
 
-## Шаг 1. Создание группы ресурсов и учетной записи хранения
+Сведения о том, как установить последнюю версию Azure PowerShell, выбрать нужную подписку и войти в учетную запись Azure, см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
-1. **Войдите в Microsoft Azure**. Откройте окно Microsoft Azure PowerShell и выполните командлет **Login-AzureRmAccount**.
+## Шаг 2. Создание группы ресурсов и учетной записи хранения
 
-2. **Создайте группу ресурсов**. Все ресурсы должны быть развернуты в группе ресурсов. В этом учебнике назовем группу ресурсов **vmsstestrg1**. См. информацию о командлете [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+1. **Создайте группу ресурсов**. Все ресурсы должны быть развернуты в группе ресурсов. В этом учебнике назовем группу ресурсов **vmsstestrg1**. См. информацию о командлете [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-3. **Разверните учетную запись хранения в новой группе ресурсов**. В этом руководстве используется несколько учетных записей для упрощения работы с масштабируемым набором виртуальных машин. Используйте командлет [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx), чтобы создать учетную запись хранения с именем **vmsstestsa**. Не закрывайте окно Azure PowerShell — оно понадобится для выполнения дальнейших инструкций этого руководства.
+2. **Разверните учетную запись хранения в новой группе ресурсов**. В этом руководстве используется несколько учетных записей для упрощения работы с масштабируемым набором виртуальных машин. Используйте командлет [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx), чтобы создать учетную запись хранения с именем **vmsstestsa**. Не закрывайте окно Azure PowerShell — оно понадобится для выполнения дальнейших инструкций этого руководства.
 
-## Шаг 2. Создание шаблона
+## Шаг 3. Создание шаблона
 С помощью шаблона диспетчера ресурсов Azure можно развертывать ресурсы Azure и управлять ими совокупно, используя JSON-описание ресурсов и связанные параметры развертывания.
 
 1. В любом текстовом редакторе создайте файл C:\\VMSSTemplate.json и добавьте начальную структуру JSON для поддержки шаблона.
@@ -472,7 +472,7 @@
     Далее приведены важные параметры для этого руководства.
 
     - **metricName** — это то же самое, что счетчик производительности, определенный в переменной wadperfcounter. Используя эту переменную, расширение системы диагностики собирает данные счетчика **Processor(\_Total)\\% Processor Time**.
-- **metricResourceUri** — это идентификатор ресурса масштабируемого набора виртуальных машин.
+    - **metricResourceUri** — это идентификатор ресурса масштабируемого набора виртуальных машин.
     - **timeGrain** — это степень детализации собираемых метрик. В данном шаблоне значение этого параметра равно 1 минуте.
     - **statistic** — этот параметр определяет, как объединяются метрики для выполнения автоматического масштабирования. Возможные значения: Average (Среднее), Min (Минимальное), Max (Максимальное). В этом шаблоне мы хотим определить среднее использование ЦП на виртуальных машинах в масштабируемом наборе.
     - **timeWindow** — это диапазон времени, в течение которого собираются данные об экземплярах. Значение должно составлять от 5 минут до 12 часов.
@@ -486,7 +486,7 @@
 
 12.	Сохраните файл шаблона.
 
-## Шаг 3. Отправка шаблона в хранилище
+## Шаг 4. Отправка шаблона в хранилище
 
 Шаблон можно отправить из окна Microsoft Azure PowerShell, если вы знаете имя учетной записи и первичный ключ учетной записи хранения, созданной на шаге 1.
 
@@ -515,15 +515,15 @@
             $fileName = "C:" + $BlobName
             Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
 
-## Шаг 4. Развертывание шаблона
+## Шаг 5. Развертывание шаблона
 
 После создания шаблона можно начать развертывать ресурсы. Чтобы запустить процесс, используйте следующую команду:
 
-        New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
+    New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
 
 Когда вы нажмете клавишу ВВОД, появится запрос на ввод переменных, которые вы назначили. Укажите следующие значения:
 
-	vmName: vmsstestvm1
+    vmName: vmsstestvm1
 	vmSSName: vmsstest1
 	instanceCount: 5
 	adminUserName: vmadmin1
@@ -532,26 +532,30 @@
 
 Для успешного развертывания всех ресурсов может потребоваться около 15 минут.
 
->[AZURE.NOTE]Вы также можете использовать возможности портала для развертывания ресурсов. Чтобы сделать это, используйте следующую ссылку: https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+>[AZURE.NOTE] Вы также можете использовать возможности портала для развертывания ресурсов. Для этого используйте ссылку: https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
 
-## Шаг 5. Мониторинг ресурсов
+## Шаг 6. Мониторинг ресурсов
 
 Сведения о масштабируемых наборах виртуальных машин можно получать, используя следующие методы:
 
  - Портал Azure — с помощью портала в настоящее время можно получить ограниченный объем сведений.
  - [Обозреватель ресурсов Azure](https://resources.azure.com/) — это лучшее средство для просмотра текущего состояния масштабируемого набора. Используйте этот путь, чтобы увидеть представление экземпляра созданного масштабируемого набора:
 
-		subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+        subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
  - Azure PowerShell — используйте эту команду, чтобы получить сведения:
 
-		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
+        Or
+        
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceView
 
  - Подключитесь к основной виртуальной машине так же, как к любому другому компьютеру. Теперь вы сможете удаленно подключаться к виртуальным машинам в масштабируемом наборе, чтобы отслеживать отдельные процессы.
 
->[AZURE.NOTE]Полный REST API для получения информации о масштабируемых наборах можно найти на странице [Масштабируемые наборы виртуальных машин](https://msdn.microsoft.com/library/mt589023.aspx).
+>[AZURE.NOTE] Полный REST API для получения информации о масштабируемых наборах можно найти на странице [Масштабируемые наборы виртуальных машин](https://msdn.microsoft.com/library/mt589023.aspx).
 
-## Шаг 6. Удаление ресурсов
+## Шаг 7. Удаление ресурсов
 
 Так как за использование ресурсов Azure взимается плата, рекомендуется всегда удалять ресурсы, которые больше не нужны. Не нужно отдельно удалять каждый ресурс из группы ресурсов. Можно удалить группу ресурсов, тогда все ее ресурсы будут автоматически удалены.
 
@@ -559,6 +563,11 @@
 
 Если вы хотите сохранить группу ресурсов, вы можете удалить только масштабируемый набор.
 
-	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
+    
+## Дальнейшие действия
 
-<!---HONumber=AcomDC_0427_2016-->
+- Сведения об управлении созданным набором масштабирования можно найти в статье [Управление виртуальными машинами в наборе масштабирования виртуальных машин](virtual-machine-scale-sets-windows-manage.md).
+- Дополнительные сведения о вертикальном масштабировании см. в статье [Вертикальное автомасштабирование масштабируемых наборов виртуальных машин](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+
+<!---HONumber=AcomDC_0504_2016-->

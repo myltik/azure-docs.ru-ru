@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Create a lab in DevTest Labs | Microsoft Azure"
-	description="Create a new lab in DevTest Labs for virtual machines"
+<properties
+	pageTitle="Создание лабораторий для разработки и тестирования | Microsoft Azure"
+	description="Создание лаборатории для разработки и тестирования для виртуальных машин"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Создание лаборатории в лаборатории для разработки и тестирования Azure
@@ -27,7 +27,7 @@
 
 ## Создание лаборатории
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Нажмите кнопку **Обзор**.
 
@@ -50,7 +50,7 @@
 
 Создав лабораторию, можно выполнить дальнейшие действия, приведенные ниже.
 
-- [Безопасный доступ к лаборатории для разработки и тестирования](devtest-lab-add-devtest-user.md).
+- [Безопасный доступ к лаборатории](devtest-lab-add-devtest-user.md).
 
 - [Определение политик лаборатории](devtest-lab-set-lab-policy.md).
 
@@ -58,6 +58,6 @@
 
 - [Создание пользовательских артефактов для виртуальных машин](devtest-lab-artifact-author.md).
 
-- [Добавление виртуальной машины с артефактами в лабораторию для разработки и тестирования Azure](devtest-lab-add-vm-with-artifacts.md).
+- [Добавление в лабораторию виртуальной машины с артефактами](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

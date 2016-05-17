@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016"  
 	ms.author="juliako"/>
 
 #Практическое руководство. Проверка хода выполнения задания
@@ -44,10 +44,10 @@
 
 ##Дальнейшее действие
 
-Опубликуйте содержимое. Дополнительные сведения см. в разделе [Кодирование ресурса](../media-services-manage-content#publish).
+Опубликуйте содержимое. Дополнительные сведения см. в разделе [Кодирование ресурса](media-services-manage-content.md#publish).
 
 
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->
