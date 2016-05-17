@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET | Microsoft Azure"
-	description="Вы можете хранить данные (файлы) в облаке в хранилище BLOB-объектов Azure (которое также называется хранилищем объектов). Приступая к работе с простыми операциями, выполняемыми в хранилище BLOB-объектов, включая создание и отправку контейнеров, а также загрузку, перечисление и удаление их содержимого."
+	description="Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -380,7 +380,7 @@
 
 ### Основные рекомендации
 
-- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 - [Приступая к работе с хранилищем файлов для .NET](storage-dotnet-how-to-use-files.md)
 - [Использование хранилища больших двоичных объектов Azure с пакетом SDK веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
@@ -395,4 +395,4 @@
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

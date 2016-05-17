@@ -29,8 +29,8 @@
 
 Чтобы установить Visual Studio 2015, сделайте следующее.
 
-1. [Загрузите Visual Studio 2015](https://www.visualstudio.com/downloads) с сайта Visual Studio Team Services.
-2. Выполните установку, следуя инструкциям [Установка Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) с сайта MSDN, а затем выберите конфигурации по умолчанию.
+1. [Загрузите Visual Studio 2015][] с сайта Visual Studio Team Services.
+2. Выполните установку, следуя инструкциям [Установка Visual Studio][] с сайта MSDN, а затем выберите конфигурации по умолчанию.
 
 ## Шаг 2. Загрузка и установка последней версии SQL Server Data Tools (SSDT)
 
@@ -38,15 +38,23 @@
 
 Чтобы установить последнюю версию SSDT, сделайте следующее.
 
-1. [Загрузите предварительную версию SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) для Visual Studio 2013 или 2015.
+1. [Загрузите предварительную версию SQL Server Data Tools][] для Visual Studio 2013 или 2015.
 2. Выполните установку, следуя инструкциям на сайте загрузки.
 
 ## Дальнейшие действия
 
-Теперь, когда у вас установлена последняя версия SSDT, можно приступать к [подключению](./sql-data-warehouse-get-started-connect.md) к базе данных.
+Теперь, когда у вас установлена последняя версия SSDT, можно приступать к [подключению][] к базе данных.
 
 <!--Anchors-->
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!--Arcticles-->
+[подключению]: ./sql-data-warehouse-get-started-connect.md
+
+<!--Other-->
+[Загрузите Visual Studio 2015]: https://www.visualstudio.com/downloads/
+[Установка Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
+[Загрузите предварительную версию SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
+
+<!---HONumber=AcomDC_0511_2016-->

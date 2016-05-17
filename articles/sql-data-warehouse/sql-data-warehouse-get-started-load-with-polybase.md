@@ -27,7 +27,7 @@
 В этом руководстве показано, как загрузить данные в хранилище данных SQL с помощью AzCopy и PolyBase. Изучив руководство, вы будете знать:
 
 - как использовать AzCopy для копирования данных в хранилище больших двоичных объектов;
-- как создавать объекты базы данных для определения внешних данных;
+- как создавать объекты базы данных для определения данных;
 - как выполнять запросы T-SQL для загрузки данных.
 
 >[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
@@ -253,7 +253,7 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 При разработке решений на основе PolyBase будет полезно изучить [Руководство по PolyBase][].
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png
+
 
 <!--Article references-->
 [PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-get-started-load-with-polybase.md
@@ -287,4 +287,4 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [Создание учетных данных для базы данных (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

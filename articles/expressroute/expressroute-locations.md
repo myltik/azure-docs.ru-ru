@@ -64,7 +64,7 @@ ExpressRoute поддерживается во всех регионах и ра
 |**China Telecom Global** | Поддерживаются | Не поддерживается | Гонконг |
 |**Cologix** | Поддерживаются | Скоро | Монреаль+, Торонто |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Поддерживаются | Поддерживаются | Амстердам, Дублин, Лондон |
-| **Comcast** | Поддерживаются | Не поддерживается | Кремниевая долина, Вашингтон (округ Колумбия) |
+| **Comcast** | Поддерживаются | Поддерживаются | Кремниевая долина, Вашингтон (округ Колумбия) |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Поддерживаются | Поддерживаются | Лос-Анджелес | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Поддерживаются | Поддерживаются | Амстердам, Атланта, Чикаго, Даллас, Гонконг, Лондон, Лос-Анджелес, Мельбурн, Нью-Йорк, Осака, Сан-Пауло, Сиэтл, Кремниевая долина, Сингапур, Сидней, Токио, Вашингтон (округ Колумбия), Торонто |
 | **euNetworks** | Поддерживаются | Поддерживаются | Амстердам |
@@ -157,4 +157,4 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

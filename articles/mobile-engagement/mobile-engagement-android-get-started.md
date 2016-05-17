@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="05/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Приступая к работе с Azure Mobile Engagement для приложений Android
@@ -68,7 +68,7 @@ Android Studio создаст демонстрационное приложен�
 
 ### Включение библиотеки пакета SDK в проект
 
-1. Скачайте [Пакет SDK Android для Mobile Engagement].
+1. Скачайте [пакет SDK Android для Mobile Engagement].
 2. Извлеките файл архива в папку на своем компьютере.
 3. Определите библиотеку JAR-файлов для текущей версии этого пакета SDK и скопируйте ее в буфер обмена.
 
@@ -132,11 +132,14 @@ Android Studio создаст демонстрационное приложен�
 
 	public class MainActivity extends EngagementActivity {
 
+> [AZURE.NOTE] Если базовый класс не является *Activity*, см. описание наследования из разных классов в разделе, посвященном [расширенной отчетности в Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
+
+
 Вы должны закомментировать (исключить) следующую строку этого простого сценария:
 
     // setSupportActionBar(toolbar);
 
-Если вы хотите сохранить эту строку, ознакомьтесь со сценарием «Базовые отчеты» в статье [Расширенная интеграция Android](mobile-engagement-android-integrate-engagement.md/#basic-reporting)
+Если вы хотите сохранить эту строку, см. раздел, посвященный [расширенной отчетности в Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
 
 ## Подключение приложения с возможностью его отслеживания в режиме реального времени
 
@@ -162,6 +165,10 @@ Mobile Engagement позволяет взаимодействовать и СВ�
 
 [AZURE.INCLUDE [Отправка уведомления с портала](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
+## Дополнительные ресурсы
+
+Подробные сведения об интеграции пакета SDK см. в статье [Пакет Android SDK для Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md).
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
@@ -175,4 +182,4 @@ Mobile Engagement позволяет взаимодействовать и СВ�
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

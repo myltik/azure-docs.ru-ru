@@ -240,4 +240,4 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 [портал Azure]: https://portal.azure.com
 [Загрузите демонстрационные данные]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

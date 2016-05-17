@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Приступая к работе с хранилищем таблиц Azure с помощью .NET | Microsoft Azure"
-	description="Хранение структурированных данных в облаке в хранилище таблиц Azure, хранилище данных NoSQL (Майкрософт). Приступая к работе с простыми операциями хранилища таблиц, включая создание и удаление таблиц, а также вставку, обновление, удаление данных и создание запросов к ним."
+	description="Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL)."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="04/29/2016"
 	ms.author="tamram"/>
 
 
@@ -463,4 +463,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -40,7 +40,7 @@ Azure Active Directory является платформой для управл
 
 ### Руководства по быстрому запуску мобильных приложений и приложений для ПК
 
-|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)| [![Windows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)|[![Магазин Windows](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova;](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
+|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)|[![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova;](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Магазин Windows](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
@@ -71,7 +71,7 @@ Azure Active Directory является платформой для управл
 - [Основные сведения о манифесте приложения Azure Active Directory](active-directory-application-manifest.md)
 - [Создание приложения с помощью API Office 365](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Отправка веб-приложений для Office 365 на панель мониторинга продавца](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-- Узнайте, как включить единый вход для нескольких приложений с помощью ADAL на устройствах [Android](active-directory-sso-android.md) и [iOS](active-directory-sso-ios.md).
+- Узнайте, как включить единый вход для нескольких приложений с помощью ADAL на устройствах [Android](active-directory-sso-android.md) и [iOS](active-directory-sso-ios.md)
 - [Предварительная версия. Как создавать приложения для входа пользователей с личными, рабочими и учебными учетными записями](active-directory-appmodel-v2-overview.md)
 - [Предварительная версия. Как создавать приложения, которые выполняют регистрацию и вход пользователей](../active-directory-b2c/active-directory-b2c-overview.md)
 
@@ -89,7 +89,7 @@ Azure Active Directory является платформой для управл
 
 - [Примеры кода Azure Active Directory ](https://github.com/azure-samples?query=active-directory). Самый простой способ навигации по списку примеров — это [индекс примеров кода](active-directory-code-samples.md).
 
-- [ADAL для .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx). Документация для библиотеки проверки подлинности .NET.
+- [ADAL для .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx). Документация по библиотеке проверки подлинности .NET.
 
 ### API Graph
 
@@ -118,7 +118,7 @@ Azure Active Directory является платформой для управл
 
 В этих обзорных презентациях представители разработчиков освещают ключевые темы, связанные с разработкой приложений с помощью Azure Active Directory, включая IDMaaS, проверку подлинности, федерацию удостоверений и единый вход.
 
-- [Microsoft Identity: State of the Union and Future Direction](https://azure.microsoft.com/documentation/videos/build-2016-microsoft-identity-state-of-the-union-and-future-direction/) (Microsoft Identity: последние достижения и перспективы развития)
+- [Microsoft Identity: State of the Union and Future Direction (Microsoft Identity: последние достижения и перспективы развития)](https://azure.microsoft.com/documentation/videos/build-2016-microsoft-identity-state-of-the-union-and-future-direction/)
 - [Azure Active Directory: "управление удостоверениями как служба" для современных приложений](https://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications/)
 - [Разработка современных веб-приложений с помощью Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory/)
 - [Разработка современных приложений в машинном коде с помощью Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/)
@@ -140,4 +140,4 @@ Azure Active Directory является платформой для управл
 
 - [Azure Active Directory в Твиттере](https://twitter.com/azuread). Объявления Azure Active Directory длиной не более 140 знаков.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

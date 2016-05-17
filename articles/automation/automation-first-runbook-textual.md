@@ -5,15 +5,15 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor=""/>
-
+    editor=""
+	keywords="рабочий процесс PowerShell, примеры рабочего процесса powershell, рабочие процессы powershell" />
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/21/2016"
+    ms.date="05/10/2016"
     ms.author="magoedte;bwren"/>
 
 # Первый Runbook рабочего процесса PowerShell
@@ -27,7 +27,7 @@
 Для работы с этим учебником необходимо следующее.
 
 -	Подписка Azure. Если у вас ее нет, [активируйте преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или <a href="/pricing/free-account/" target="_blank">[зарегистрируйте бесплатную учетную запись](https://azure.microsoft.com/free/).
--	[Учетная запись службы автоматизации](automation-security-overview.md), чтобы хранить модуль Runbook и выполнять проверку подлинности при работе с ресурсами Azure. Эта учетная запись должна иметь разрешение на запуск и остановку виртуальной машины.
+-	[Учетная запись службы автоматизации](automation-security-overview.md), чтобы хранить модуль Runbook и выполнять проверку подлинности ресурсов Azure. Эта учетная запись должна иметь разрешение на запуск и остановку виртуальной машины.
 -	Виртуальная машина Azure. Это не должна быть рабочая машина, поскольку в процессе изучения данного материала ее нужно будет остановить и запустить заново.
 
 ## Шаг 1. Создание нового модуля Runbook
@@ -116,4 +116,4 @@
 -	[Первый графический Runbook](automation-first-runbook-graphical.md)
 -	[Мой первый модуль Runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

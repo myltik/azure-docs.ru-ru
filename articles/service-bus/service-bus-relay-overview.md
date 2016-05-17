@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="05/06/2016"
 	ms.author="sethm"/>
 
 
@@ -31,11 +31,11 @@
 
 ## Дальнейшие действия
 
-Более подробные сведения о ретрансляторе служебной шины см. в следующих разделах.
+Дополнительные сведения о ретрансляторе служебной шины:
 
 - [Обзор архитектуры служебной шины Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Как использовать службу ретранслятора служебной шины](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

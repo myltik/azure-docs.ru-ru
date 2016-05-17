@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Внедрение каталога данных Azure | Microsoft Azure"
-   description="Эта статья предназначена для организаций, которые планируют внедрить у себя каталог данных Azure. В ней описаны подход к внедрению, непосредственно процесс внедрения, а также такие моменты, как разработка концепции, определение основных вариантов использования каталога в организации и выбор пилотного проекта."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor=""
-   tags=""/>
+	pageTitle="Внедрение каталога данных Azure | Microsoft Azure"
+	description="Эта статья предназначена для организаций, которые планируют внедрить у себя каталог данных Azure. В ней описаны подход к внедрению, непосредственно процесс внедрения, а также такие моменты, как разработка концепции, определение основных вариантов использования каталога в организации и выбор пилотного проекта."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="04/06/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="05/09/2016"
+	ms.author="spelluru"/>
 
 # Внедрение каталога данных Azure
 Эта статья поможет вам начать внедрение **каталога данных Azure** в своей организации. Чтобы успешно внедрить **каталог данных Azure**, вам нужно сосредоточиться на трех ключевых элементах: разработать концепцию, определить основные варианты использования каталога в организации и выбрать пилотный проект.
@@ -172,4 +172,4 @@
 -	[Комментарии к источникам данных](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
 - [Краудсорсинг метаданных](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

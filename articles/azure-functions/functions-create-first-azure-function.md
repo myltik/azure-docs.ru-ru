@@ -15,7 +15,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/21/2016"
+   ms.date="05/05/2016"
    ms.author="glenga"/>
 
 # Создание первой функции Azure
@@ -29,7 +29,7 @@
 
 В этом видео показано, как выполнять основные шаги, описанные в этом руководстве.
 
-[AZURE.VIDEO create-your-first-azure-function]
+[AZURE.VIDEO create-your-first-azure-function-simple]
 
 ##Создание функции при помощи быстрого запуска
 
@@ -64,4 +64,4 @@
 
 [AZURE.INCLUDE [Начало работы](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

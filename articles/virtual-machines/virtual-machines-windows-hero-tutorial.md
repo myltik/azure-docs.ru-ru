@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/28/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
 # Создание первой виртуальной машины Windows на портале Azure
@@ -116,4 +116,4 @@
 
 * Вы также можете [создать виртуальную машину Windows с помощью Powershell](virtual-machines-windows-ps-create.md) или [виртуальную машину Linux](virtual-machines-linux-quick-create-cli.md) с помощью интерфейса командной строки Azure.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

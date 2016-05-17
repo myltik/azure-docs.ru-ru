@@ -77,7 +77,7 @@
 [загрузить демонстрационные данные]: sql-data-warehouse-get-started-manually-load-samples.md
 [использованию командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL]: sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: sql-database-configure-firewall-settings.md
-[Установка и настройка Azure PowerShell]: powershell-install-configure.md
+[Установка и настройка Azure PowerShell]: ../powershell/powershell-install-configure.md
 [Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references--> 
@@ -90,4 +90,4 @@
 [Цены на хранилище данных SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

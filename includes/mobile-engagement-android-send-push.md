@@ -3,27 +3,27 @@
 
 Скопируйте ресурсы обмена сообщениями внутри приложения в файл Manifest.xml между тегами `<application>` и `</application>`.
 
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
+		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
   			<intent-filter>
     			<action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
     			<category android:name="android.intent.category.DEFAULT" />
     			<data android:mimeType="text/plain" />
   			</intent-filter>
 		</activity>
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light">
+		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
 			<intent-filter>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
 				<category android:name="android.intent.category.DEFAULT" />
 				<data android:mimeType="text/html" />
 			</intent-filter>
 		</activity>
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light">
+		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light" android:exported="false">
 			<intent-filter>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog" android:exported="false">
 			<intent-filter>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
 				<category android:name="android.intent.category.DEFAULT"/>
@@ -90,4 +90,6 @@
 		<uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
 		<permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-<!---HONumber=AcomDC_0330_2016-->
+
+
+
