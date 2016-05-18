@@ -90,7 +90,9 @@
 | Type=Perf (CounterName="% Processor Time") | measure max(Max) by Computer | Максимальный объем использования ЦП на всех компьютерах |
 | Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" | measure Avg(Average) by InstanceName | Средняя длина текущей дисковой очереди по всем экземплярам заданного компьютера |
 | Type=Perf CounterName="DiskTransfers/sec" | measure percentile95(Average) by Computer | 95-й процентиль для обращений к диску/с на всех компьютерах |
-| Type=Perf CounterName="% Processor Time" InstanceName="\_Total" | measure avg(CounterValue) by Computer Interval 1HOUR | Средний почасовой объем использования ЦП на всех компьютерах | | Type=Perf Computer="MyComputer" CounterName=%* InstanceName=\_Total | measure percentile70(CounterValue) by CounterName Interval 1HOUR | Почасовой 70-й процентиль процентного счетчика на заданном компьютере | | Type=Perf CounterName="% Processor Time" InstanceName="\_Total" (Computer="MyComputer") | measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR | Средний почасовой, минимальный, максимальный и 75-процентильный объем использования ЦП на заданном компьютере |
+| Type=Perf CounterName="% Processor Time" InstanceName="\_Total" | measure avg(CounterValue) by Computer Interval 1HOUR | Средний почасовой объем использования ЦП на всех компьютерах |
+| Type=Perf Computer="MyComputer" CounterName=%* InstanceName=\_Total | measure percentile70(CounterValue) by CounterName Interval 1HOUR | Почасовой 70-й процентиль процентного счетчика на заданном компьютере |
+| Type=Perf CounterName="% Processor Time" InstanceName="\_Total" (Computer="MyComputer") | measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR | Средний почасовой, минимальный, максимальный и 75-процентильный объем использования ЦП на заданном компьютере |
 
 ## Просмотр данных о производительности
 
@@ -108,4 +110,4 @@
 - Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md), которые можно применять для анализа данных, собираемых из источников данных и решений.  
 - Экспортируйте собранные данные в [Power BI](log-analytics-powerbi.md) для дополнительной визуализации и анализа.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
