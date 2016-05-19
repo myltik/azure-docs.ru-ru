@@ -29,7 +29,12 @@
 
 | Источник данных | Тип события | Описание |
 |:--|:--|:--|
-| [Пользовательские журналы](log-analytics-data-sources-custom-logs.md) | <LogName>\_CL | Текстовые файлы в агентах Windows или Linux, содержащие информацию о журналах. | | [Журналы событий Windows](log-analytics-data-sources-windows-events.md) | Event | События, собранные из журнала событий на компьютерах Windows. | | [Счетчики производительности Windows](log-analytics-data-sources-performance-counters.md) | Perf | Счетчики производительности, собранные с компьютеров Windows. | | [Счетчики производительности Linux](log-analytics-data-sources-performance-counters.md) | Perf | Счетчики производительности, собранные с компьютеров Linux. | | [Журналы IIS](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Журналы IIS (Internet Information Services) в формате W3C. | | Syslog | Syslog | События Syslog на компьютерах Windows или Linux. |
+| [Пользовательские журналы](log-analytics-data-sources-custom-logs.md) | \<LogName\>_CL | Текстовые файлы в агентах Windows или Linux, содержащие информацию о журналах. |
+| [Журналы событий Windows](log-analytics-data-sources-windows-events.md) | Event | События, собранные из журнала событий на компьютерах Windows. |
+| [Счетчики производительности Windows](log-analytics-data-sources-performance-counters.md) | Perf | Счетчики производительности, собранные с компьютеров Windows. |
+| [Счетчики производительности Linux](log-analytics-data-sources-performance-counters.md) | Perf | Счетчики производительности, собранные с компьютеров Linux. |
+| [Журналы IIS](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Журналы IIS (Internet Information Services) в формате W3C. |
+| Syslog | Syslog | События Syslog на компьютерах Windows или Linux. |
 
 ## Настройка источников данных
 
