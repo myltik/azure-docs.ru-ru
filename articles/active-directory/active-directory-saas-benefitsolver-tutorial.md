@@ -82,8 +82,8 @@
 
     ![Настройка параметров приложения](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Настройка параметров приложения")
 
-    1.  В текстовом поле **URL-адрес входа** введите ****http://azure.benefitsolver.com**.
-2.  В текстовом поле **URL-адрес ответа** введите ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+    1.  В текстовом поле **URL-адрес входа** введите **http://azure.benefitsolver.com**.
+	2.  В текстовом поле **URL-адрес ответа** введите **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
 
     3.  Нажмите кнопку **Далее**.
 

@@ -121,7 +121,10 @@
 
 ## Подробнее
 
-[Мониторинг приложений логики](app-service-logic-monitor-your-logic-apps.md)<br/>[Список соединителей и приложений API в службе приложений Microsoft Azure](app-service-logic-connectors-list.md)<br/>[Управление доступом на основе ролей на портале Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/>[Использование диспетчера гибридных подключений в службе приложений Azure](app-service-logic-hybrid-connection-manager.md)
+[Мониторинг приложений логики](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Список соединителей и приложений API в службе приложений Microsoft Azure](app-service-logic-connectors-list.md)<br/>
+[Управление доступом на основе ролей на портале Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/>
+[Использование диспетчера гибридных подключений в службе приложений Azure](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->

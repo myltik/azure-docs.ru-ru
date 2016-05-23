@@ -367,7 +367,7 @@
             }
         }
 
-6. Задайте константы в коде выше, в частности **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** и DICTIONARYFILENAME. DICTIONARYFILENAME содержит имя и расположение файла direction.tsv. Этот файл можно скачать по ссылке ****https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Если вы хотите изменить имя таблицы HBase, вам необходимо соответствующим образом изменить имя таблицы в веб-приложении.
+6. Задайте константы в коде выше, в частности **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** и DICTIONARYFILENAME. DICTIONARYFILENAME содержит имя и расположение файла direction.tsv. Этот файл можно скачать по ссылке **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Если вы хотите изменить имя таблицы HBase, вам необходимо соответствующим образом изменить имя таблицы в веб-приложении.
 
 7. Откройте файл **Program.cs** и замените код следующим:
 

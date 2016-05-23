@@ -19,7 +19,7 @@
 
 # Управление безопасностью после аварийного восстановления
 
->[AZURE.NOTE] [Active Geo-Replication]Раздел (sql-database-geo-replication-overview.md) теперь доступен для всех баз данных и всех уровней обслуживания.
+>[AZURE.NOTE] Раздел [Active Geo-Replication](sql-database-geo-replication-overview.md) теперь доступен для всех баз данных и всех уровней обслуживания.
 
 ## Обзор требований к проверке подлинности для аварийного восстановления
 

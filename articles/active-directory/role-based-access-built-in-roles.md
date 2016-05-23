@@ -157,7 +157,19 @@
 
 | **Действия** ||
 | ------- | ------ |
-| **/read | Чтение ресурсов всех типов | | Microsoft.DevTestLab/labs/createEnvironment/action | Создание лабораторной среды | | Microsoft.DevTestLab/labs/formulas/delete | Удаление формул | | Microsoft.DevTestLab/labs/formulas/write | Добавление или изменение формул | | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Оценка политик лаборатории | | Microsoft.Compute/virtualMachines/start/action | Запуск виртуальных машин | | Microsoft.Compute/virtualMachines/restart/action | Перезапуск виртуальных машин | | Microsoft.Compute/virtualMachines/deallocate/action | Отмена распределения виртуальных машин | | Microsoft.Storage/storageAccounts/listKeys/action | Вывод списка ключей учетной записи хранения | | Microsoft.Network/virtualNetworks/subnets/join/action | Присоединение виртуальной сети | | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Присоединение серверного пула адресов балансировщиков нагрузки | | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Присоединение правила NAT для входящего трафика балансировщиков нагрузки | | Microsoft.Network/publicIPAddresses/join/action | Присоединение общедоступного IP-адреса | | Microsoft.Network/networkInterfaces/join/action | Добавление виртуальной машины в сетевой интерфейс | | Microsoft.Network/networkInterfaces/write | Запись сетевых интерфейсов |
+| **/read | Чтение ресурсов всех типов |
+| Microsoft.DevTestLab/labs/createEnvironment/action | Создание лабораторной среды |
+| Microsoft.DevTestLab/labs/formulas/delete | Удаление формул | | Microsoft.DevTestLab/labs/formulas/write | Добавление или изменение формул |
+| Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Оценка политик лаборатории |
+| Microsoft.Compute/virtualMachines/start/action | Запуск виртуальных машин |
+| Microsoft.Compute/virtualMachines/restart/action | Перезапуск виртуальных машин |
+| Microsoft.Compute/virtualMachines/deallocate/action | Отмена распределения виртуальных машин |
+| Microsoft.Storage/storageAccounts/listKeys/action | Вывод списка ключей учетной записи хранения |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Присоединение виртуальной сети |
+| Microsoft.Network/loadBalancers/backendAddressPools/join/action | Присоединение серверного пула адресов балансировщиков нагрузки |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Присоединение правила NAT для входящего трафика балансировщиков нагрузки |
+| Microsoft.Network/publicIPAddresses/join/action | Присоединение общедоступного IP-адреса | | Microsoft.Network/networkInterfaces/join/action | Добавление виртуальной машины в сетевой интерфейс |
+| Microsoft.Network/networkInterfaces/write | Запись сетевых интерфейсов |
 
 ### Участник учетной записиDocument DB
 Может управлять учетными записями DocumentDB
@@ -377,7 +389,8 @@
 
 | **Действия** ||
 | ------- | ------ |
-| */read | Чтение ресурсов всех типов, кроме секретов. | | Microsoft.Authorization/* | Авторизация на чтение |
+| */read | Чтение ресурсов всех типов, кроме секретов. |
+| Microsoft.Authorization/* | Авторизация на чтение |
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
 ### Участник классической виртуальной машины
