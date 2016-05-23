@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Использование API службы Engagement в Android" 
+<properties
+	pageTitle="Использование API службы Engagement в Android"
 	description="Последний пакет Android SDK - Использование API службы Engagement в Android"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/29/2016" 
-	ms.author="piyushjo" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/10/2016"
+	ms.author="piyushjo;ricksal" />
 
 #Использование API службы Engagement в Android
 
-Этот документ представляет собой приложение к документу [Интеграция службы Engagement в Android](mobile-engagement-android-integrate-engagement.md). В нем рассказывается о том, как с помощью Engagement API предоставлять статистику по приложению.
+Этот документ представляет собой дополнение к статье [Reporting Options with Engagement on Android](mobile-engagement-android-advanced-reporting.md) (Параметры отчетов для службы Engagement на устройствах Android). В нем рассказывается о том, как с помощью Engagement API предоставлять статистику по приложению.
 
 Следует иметь в виду, что если вы хотите использовать службу Engagement только для получения отчетов о сеансах, действиях, сбоях и технической информации, проще всего сделать так, чтобы все подклассы `Activity` наследовались из класса `EngagementActivity`.
 
@@ -34,7 +34,7 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 Если пользователь неактивен между двумя *действиями* больше чем несколько секунд, то последовательность его *действий* разбивается на два отдельных *сеанса*. Эти несколько секунд называются «время ожидания сеанса».
 
-*Действие*, как правило, связано с одним экраном приложения, т. е. *действие* начинается при отображении экрана и завершается при его закрытии. Это происходит в том случае, если пакет SDK для Engagement интегрируется с помощью класса `EngagementActivity`.
+*Действие*, как правило, связано с одним экраном приложения, т. е. *действие* начинается при отображении экрана и завершается при его закрытии. Это происходит в том случае, если пакет SDK для Engagement интегрируется с помощью класса `EngagementActivity`.
 
 *Действиями* можно также управлять вручную с помощью API Engagement. Это позволяет разделить экран на несколько частей, чтобы получить дополнительную информацию об использовании этого экрана (например, информацию о частоте и продолжительности использования диалоговых окон на этом экране).
 
@@ -136,7 +136,7 @@ API Engagement предоставляется в классе `EngagementAgent`.
 В следующем примере показано, как создать отчет об ошибке при нехватке памяти на телефоне во время выполнения процесса приложения.
 
 			public MyApplication extends EngagementApplication {
-			
+
 			  @Override
 			  protected void onApplicationProcessLowMemory() {
 			    EngagementAgent.getInstance(this).sendError("low_memory", null);
@@ -148,18 +148,18 @@ API Engagement предоставляется в классе `EngagementAgent`.
 ### Пример
 
 Предположим, что вам необходимо сообщить о продолжительности процесса входа в систему:
-			
+
 			[...]
 			public void signIn(Context context, ...) {
-			
+
 			  /* We need an Android context to call the Engagement API, if you are extending Activity, Service, you can pass "this" */
 			  EngagementAgent engagementAgent = EngagementAgent.getInstance(context);
-			
+
 			  /* Report sign in job has started */
 			  engagementAgent.startJob("sign_in", null);
-			
+
 			  [... sign in ...]
-			
+
 			  /* Report sign in job is now ended */
 			  engagementAgent.endJob("sign_in");
 			}
@@ -177,10 +177,10 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 			  /* We need an Android context to call the Engagement API, if you are extending Activity, Service, you can pass "this" */
 			  EngagementAgent engagementAgent = EngagementAgent.getInstance(context);
-			
+
 			  /* Report sign in job has been started */
 			  engagementAgent.startJob("sign_in", null);
-			
+
 			  /* Try to sign in */
 			  while(true)
 			    try {
@@ -190,7 +190,7 @@ API Engagement предоставляется в классе `EngagementAgent`.
 			    catch(Exception e) {
 			      /* Report the error to Engagement */
 			      engagementAgent.sendJobError("sign_in_error", "sign_in", null);
-			
+
 			      /* Retry after a moment */
 			      sleep(2000);
 			    }
@@ -209,7 +209,7 @@ API Engagement предоставляется в классе `EngagementAgent`.
 Предположим, что у нас есть социальная сеть, и мы используем задание, чтобы сообщить об общем времени подключения пользователя к серверу. Пользователь может оставаться подключенных в фоновом режиме, даже если он использует другое приложение или телефон находится в спящем режиме, и поэтому сеанс отсутствует.
 
 Пользователь может получить сообщения от своих друзей. Это и есть событием задания.
-			
+
 			[...]
 			public void signin(Context context, ...) {
 			  [...Sign in code...]
@@ -296,6 +296,5 @@ API Engagement предоставляется в классе `EngagementAgent`.
 В предыдущем примере длина JSON-файла, отправленного на сервер, составляет 44 знака:
 
 			{"expiration":"2016-12-07","status":"premium"}
- 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

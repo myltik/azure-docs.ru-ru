@@ -50,7 +50,8 @@
 6. Чтобы установить пакеты, выполните в консоли следующую команду:
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
-        Install-Package Microsoft.Azure.Management.HDInsight -Pre
+        Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+        Install-Package Microsoft.Azure.Management.HDInsight
 
     Эти команды добавляют библиотеки .NET и ссылки на них в текущий проект Visual Studio.
 
@@ -64,7 +65,7 @@
         using Microsoft.Azure.Common.Authentication.Models;
         using Microsoft.Azure.Management.HDInsight;
         using Microsoft.Azure.Management.HDInsight.Models;
-        using Microsoft.Azure.Management.Resources;
+        using Microsoft.Azure.Management.ResourceManager;
 
         namespace CreateHDInsightCluster
         {
@@ -103,7 +104,8 @@
                     var tokenCreds = GetTokenCloudCredentials();
                     var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
                     
-                    var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+                    var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+                    var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
                     var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
                     _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
@@ -158,8 +160,7 @@
                 }
             }
         }
-
-		
+	
 10. Замените значения членов класса.
 
 7. Нажмите клавишу **F5** для запуска приложения. Должно открыться окно консоли, в котором отображается состояние приложения. Появится запрос на ввод учетных данных учетной записи Azure. На подготовку кластера HDInsight может уйти несколько минут (обычно около 15).
@@ -370,4 +371,4 @@
 - [Выполнение заданий Sqoop в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [Запуск заданий Oozie в HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

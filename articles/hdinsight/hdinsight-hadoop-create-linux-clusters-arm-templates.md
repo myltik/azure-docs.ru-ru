@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/08/2016"
+   ms.date="04/26/2016"
    ms.author="jgao"/>
 
 # Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM
@@ -30,7 +30,7 @@
 Прежде чем следовать указаниям в этой статье, необходимо подготовить следующее:
 
 - [Подписка Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) и (или) [Azure CLI](../xplat-cli-install.md).
+- Azure PowerShell и (или) Azure CLI.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
@@ -93,7 +93,7 @@
         New-AzureRmResourceGroup -Name $resourceGroupName -Location $Location
 
         # Create cluster and the dependent storage accounge
-        $parameters = @{clusterName="$hdinsightClusterName";clusterStorageAccountName="$defaultStorageAccountName"}
+        $parameters = @{clusterName="$hdinsightClusterName"}
 
         New-AzureRmResourceGroupDeployment `
             -Name $armDeploymentName `
@@ -123,7 +123,7 @@
 
 ## Развертывание с помощью REST API
 
-См. раздел [Развертывание с помощью REST API](../resource-group-template-deploy.md#deploy-with-the-rest-api).
+См. [Развертывание с помощью REST API](../resource-group-template-deploy.md#deploy-with-the-rest-api).
 
 ## Развертывание с помощью Visual Studio
 
@@ -137,7 +137,7 @@
 - Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание ресурсов с использованием библиотек .NET и шаблона](../virtual-machines/virtual-machines-windows-csharp-template.md).
 - Подробный пример развертывания приложения см. в статье [Предсказуемые подготовка и развертывание микрослужб в Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 - Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](../solution-dev-test-environments.md).
-- Дополнительные сведения о разделах в шаблоне Azure Resource Manager см. в статье [Создание шаблонов](../resource-group-authoring-templates.md).
+- Дополнительную информацию о разделах в шаблоне Azure Resource Manager см. в статье [Создание шаблонов](../resource-group-authoring-templates.md).
 - Список функций, которые можно использовать в шаблоне Azure Resource Manager, см. в статье [Функции шаблонов](../resource-group-template-functions.md).
 
 ##Приложение А. Шаблон ARM
@@ -276,7 +276,7 @@
             "roles": [
                 {
                 "name": "headnode",
-                "targetInstanceCount": "1",
+                "targetInstanceCount": "2",
                 "hardwareProfile": {
                     "vmSize": "Large"
                 },
@@ -313,4 +313,4 @@
     }
     }
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

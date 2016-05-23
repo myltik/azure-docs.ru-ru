@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # Как настроить конечные точки в классической виртуальной машине в Azure
@@ -36,6 +36,6 @@
 
 * Инструкции по управлению списком управления доступом с помощью командлета Azure PowerShell см. в разделе [Управление списками управления доступом для конечных точек с помощью PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
-* Если вы создали виртуальную машину на основе модели развертывания с помощью диспетчера ресурсов, вы также можете использовать Azure PowerShell для [создания балансировщика нагрузки с доступом к Интернету](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+* Если вы создали виртуальную машину с помощью модели развертывания Resource Manager, [создайте группы безопасности сети](../virtual-network/virtual-networks-create-nsg-arm-ps.md) с помощью Azure PowerShell и управляйте трафиком к этой виртуальной машине.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/03/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Изменения в атрибутах объекта внешнего пользователя в предварительной версии службы Azure Active Directory (Azure AD) B2B Collaboration
@@ -27,9 +27,9 @@
 Вы можете проверить значения этих атрибутов в Azure AD, чтобы понять, активировал ли пользователь-партнер свое приглашение в службу B2B Collaboration.
 
 ## Связанные статьи
-Ознакомьтесь с другими статьями о службе Azure B2B Collaboration.
+Другие статьи о службе совместной работы Azure AD B2B:
 
-- [Обзор службы Azure AD B2B Collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Принцип работы](active-directory-b2b-how-it-works.md)
 - [Подробное пошаговое руководство](active-directory-b2b-detailed-walkthrough.md)
 - [Справочник по формату файлов CSV](active-directory-b2b-references-csv-file-format.md)
@@ -37,4 +37,4 @@
 - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

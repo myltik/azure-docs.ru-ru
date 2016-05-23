@@ -38,11 +38,11 @@
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
 	        SharedPreferences prefs = getSharedPreferences(SHAREDPREFFILE, Context.MODE_PRIVATE);
-    	    String userId = prefs.getString(USERIDPREF, "undefined"); 
-	        if (userId == "undefined")
+    	    String userId = prefs.getString(USERIDPREF, null); 
+	        if (userId == null)
 	            return false;
-    	    String token = prefs.getString(TOKENPREF, "undefined"); 
-    	    if (token == "undefined")
+    	    String token = prefs.getString(TOKENPREF, null); 
+    	    if (token == null)
     	        return false;
         	    
     	    MobileServiceUser user = new MobileServiceUser(userId);
@@ -87,4 +87,5 @@
 
 6. Соберите приложение и проверьте проверку подлинности, используя действующую учетную запись. Запустите его как минимум дважды. Во время первого запуска вы должны получить приглашение для входа и создать кэш маркера. После этого при каждом запуске будет предприниматься попытка загрузки кэша маркера для проверки подлинности, приглашение для входа в систему не будет появляться.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+

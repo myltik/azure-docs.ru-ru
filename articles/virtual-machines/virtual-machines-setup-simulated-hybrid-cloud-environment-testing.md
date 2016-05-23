@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="04/25/2016" 
 	ms.author="josephd"/>
 
 # Создание имитации гибридной облачной среды для тестирования
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
 
-В этом разделе описываются шаги по созданию смоделированной гибридной облачной среды с помощью Microsoft Azure, в которой можно выполнять тестирование с использованием двух виртуальных сетей Azure. Эту конфигурацию можно использовать как альтернативу [настройке гибридной облачной среды для тестирования](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md), если у вас нет прямого подключения к Интернету и свободного общедоступного IP-адреса. Это конфигурация, которая получается в результате.
+В этом разделе описываются шаги по созданию смоделированной гибридной облачной среды с помощью Microsoft Azure, в которой можно выполнять тестирование с использованием двух виртуальных сетей Azure. Эту конфигурацию можно использовать как альтернативу [настройке гибридной облачной среды для тестирования](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md), если у вас нет прямого подключения к Интернету и свободного общедоступного IP-адреса. Это конфигурация, которая получается в результате.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_4.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph4.png)
 
 Они позволяет смоделировать гибридную облачную рабочую среду. В ее состав входит:
 
@@ -54,7 +54,7 @@
 
 Затем запустите командную строку Azure PowerShell.
 
-> [AZURE.NOTE] Следующая команда задает использование Azure PowerShell 1.0 и более поздней версии. Дополнительные сведения см. в статье об Azure PowerShell 1.0.
+> [AZURE.NOTE] Следующая команда задает использование Azure PowerShell 1.0 и более поздней версии. Дополнительные сведения см. в статье [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Войдите в свою учетную запись.
 
@@ -99,7 +99,7 @@
 
 Это текущая конфигурация.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_1.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph1.png)
  
 ## Этап 2. Создание виртуальной сети TestVNET
 
@@ -127,11 +127,11 @@
 
 Это текущая конфигурация.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_2.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph2.png)
  
 ##Этап 3. Создание подключения между виртуальными сетями
 
-Сначала получите случайный, надежно зашифрованный 32-значный общий ключ у администратора сети или администратора безопасности. Или см. статью [Создание случайной строки для общего ключа IPsec](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) со сведениями о получении общего ключа.
+Сначала получите случайный, надежно зашифрованный 32-значный общий ключ у администратора сети или администратора безопасности. Или см. статью [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx), в которой описывается получение общего ключа.
 
 Затем создайте VPN-подключение типа "сеть-сеть", используя следующие команды. Это может занять некоторое время.
 
@@ -145,7 +145,7 @@
 
 Это текущая конфигурация.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_3.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph3.png)
  
 ## Этап 4. Настройка DC2
 
@@ -190,7 +190,7 @@
 8.	На странице «Выбор параметров файловой системы» щелкните **Далее**.
 9.	На странице «Подтверждение выбора» щелкните **Создать**.
 10.	После завершения нажмите кнопку **Закрыть**.
-
+ 
 Затем настройте DC2 в качестве реплики контроллера домена для домена corp.contoso.com. Выполните следующие команды из командной строки Windows PowerShell на DC2.
 
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
@@ -200,19 +200,19 @@
 
 Отметим, что виртуальная сеть TestVNET имеет собственный DNS-сервер(DC2). Необходимо настроить виртуальную сеть TestVNET для использования этого DNS-сервера.
 
-1.	На левой панели портала Azure щелкните значок виртуальных сетей, а затем выберите **TestVNET**.
+1.	В левой области портала Azure щелкните значок виртуальных сетей, а затем выберите **TestVNET**.
 2.	На вкладке **Параметры** щелкните **DNS-серверы**.
 3.	В поле **Основной DNS-сервер** введите **192.168.0.4**, чтобы заменить 10.0.0.4.
 4.	Щелкните **Сохранить**.
 
 Это текущая конфигурация.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_4.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph4.png)
  
 Смоделированная гибридная облачная среда готова для тестирования.
 
 ## Дальнейшие действия
 
-- [Добавление новой виртуальной машины](virtual-machines-windows-create-powershell.md) к подсети TestVNET, например к подсети, где работает Microsoft SQL Server.
+- [Добавьте новую виртуальную машину](virtual-machines-windows-create-powershell.md) в подсеть TestVNET, например ВМ с Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

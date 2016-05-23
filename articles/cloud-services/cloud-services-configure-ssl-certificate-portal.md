@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016"
+	ms.date="04/19/2016"
 	ms.author="adegeo"/>
 
 
@@ -62,7 +62,7 @@ SSL-шифрование — это наиболее распространен
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA"
+                    		 storeName="My"
                              permissionLevel="limitedOrElevated" />
                 <!-- IMPORTANT! Unless your certificate is either
                 self-signed or signed directly by the CA root, you
@@ -138,14 +138,9 @@ SSL-шифрование — это наиболее распространен
 
 Подключитесь к порталу и...
 
-1. Выберите свою облачную службу с помощью одного из двух способов.
-    - Выберите свою **облачную службу** на портале. (Она находится в разделе **Просмотреть все/последнее**.)
+1. Выберите на портале свою **облачную службу**. Она находится в разделе **Все ресурсы**. 
     
-        ![Публикация облачной службы](media/cloud-services-configure-ssl-certificate-portal/browse.png)
-    
-        **OR**
-        
-    - В разделе **Просмотреть все** выберите **Облачные службы** в пункте **Отфильтровать по** и выберите нужный экземпляр облачной службы.
+    ![Публикация облачной службы](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
 3. Откройте **Параметры** облачной службы.
 
@@ -182,4 +177,4 @@ SSL-шифрование — это наиболее распространен
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name-portal.md).
 * [Управляйте облачной службой](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

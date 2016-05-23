@@ -3,7 +3,7 @@
 	description="Устранение проблем сопоставления сегментов с помощью класса RecoveryManager" 
 	services="sql-database" 
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="ddove"/>
 
 <tags 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/05/2016" 
 	ms.author="ddove"/>
 
 # Устранение проблем сопоставления сегментов с помощью класса RecoveryManager
@@ -129,14 +129,13 @@ GSM и LSM могут рассинхронизироваться по следу
 4. Выявите несоответствия в сопоставлении между GSM и LSM. 
 5. Устраните различия между GSM и LSM, ориентируясь на LSM. 
 
-В этом примере выполняются следующие действия: 1. Удаление сегментов из сопоставления сегментов, которое отражает расположения сегментов до отработки отказа. 2. Присоединение сегментов к сопоставлению сегментов, которое отражает новые местоположения сегментов (параметр Configuration.SecondaryServer — это новое имя сервера, но то же имя базы данных). 3. Получение маркеров восстановления путем обнаружения различий сопоставления между GSM и LSM для каждого сегмента. 4. Разрешение несоответствий путем ориентации на сопоставление каждого сегмента в LSM.
+В этом примере выполняются следующие действия.
+1. Удаление сегментов из сопоставления сегментов, которое отражает расположения сегментов до отработки отказа.
+2. Присоединение сегментов к сопоставлению сегментов, которое отражает новые местоположения сегментов (параметр Configuration.SecondaryServer — это новое имя сервера, но то же имя базы данных).
+3. Получение маркеров восстановления путем обнаружения различий сопоставления между GSM и LSM для каждого сегмента. 
+4. Разрешение несоответствий путем ориентации на сопоставление каждого сегмента в LSM. 
 
-	var shards = smm.GetShards(); 
-	foreach (shard s in shards) 
-	{ 
-	 if (s.Location.Server == Configuration.PrimaryServer) 
-		 { 
-		  ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database); 
+	var shards = smm.GetShards(); foreach (shard s in shards) { if (s.Location.Server == Configuration.PrimaryServer) { ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database);
 		
 		  rm.DetachShard(s.Location); 
 		
@@ -149,7 +148,7 @@ GSM и LSM могут рассинхронизироваться по следу
 			   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
 			} 
 		} 
-	} 
+	}
 
 
 
@@ -160,4 +159,4 @@ GSM и LSM могут рассинхронизироваться по следу
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

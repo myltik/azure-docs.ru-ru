@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Использование аналитики — эффективного инструмента поиска Application Insights" 
-	description="Использование аналитики — эффективного инструмента поиска по журналу диагностики Application Insights." 
+	pageTitle="Использование аналитики — эффективного инструмента поиска Application Insights" 
+	description="Использование аналитики — эффективного инструмента поиска по журналу диагностики Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -21,7 +21,7 @@
 # Использование аналитики в Application Insights
 
 
-[Аналитика](app-insights-analytics.md) — это эффективный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
+[Аналитика](app-insights-analytics.md) — это эффективный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
@@ -62,7 +62,7 @@
 
 > [AZURE.NOTE] Чтобы быстро изменить порядок результатов, доступных в веб-браузере, щелкните заголовок столбца. Но имейте в виду, что для большого результирующего набора в браузер загружается ограниченное количество строк. Поэтому сортировка таким способом не всегда показывает фактические наибольшие или наименьшие элементы. Для этого следует использовать оператор [top](app-insights-analytics-queries.md#top-operator) или [sort](app-insights-analytics-queries.md#sort-operator).
 
-Однако рекомендуется применять операторы [take](app-insights-analytics-queries.md#take-operator), [top](app-insights-analytics-queries.md#top-operator) или [summarize](app-insights-analytics-queries.md#summarize-operator), чтобы избежать скачивания больших таблиц с сервера. В любом случае имеется автоматическое ограничение — около 10 000 строк в запросе.
+Однако рекомендуется применять операторы [take](app-insights-analytics-queries.md#take-operator), [top](app-insights-analytics-queries.md#top-operator) или [summarize](app-insights-analytics-queries.md#summarize-operator), чтобы избежать скачивания больших таблиц с сервера. В любом случае существует автоматическое ограничение — около 10 000 строк в запросе.
 
 
 ## Схемы
@@ -81,7 +81,7 @@
 
 После выполнения запроса можно скачать CSV-файл. Щелкните **Экспорт в Excel**.
 
-## Экспорт в Power BI
+## Экспорт в Power BI
 
 1. Поместите курсор в запрос, а затем выберите **Экспорт в Power BI**.
 
@@ -91,7 +91,7 @@
 
 3. Скопируйте скрипт на языке M в расширенный редактор запросов Power BI Desktop.
  * Откройте экспортированный файл.
- * В Power BI Desktop выберите **Получить данные, Пустой запрос, Расширенный редактор** и вставьте этот скрипт на языке M.
+ * В Power BI Desktop выберите **"Получить данные", "Пустой запрос", "Расширенный редактор"** и вставьте этот скрипт на языке M.
 
     ![](./media/app-insights-analytics-using/250.png)
 
@@ -101,6 +101,7 @@
 
 
 
+
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

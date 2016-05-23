@@ -56,7 +56,11 @@ Apache Oozie — это система рабочих процессов и ко
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Рабочая станция с Azure PowerShell.**. Обратитесь к разделу [Установка и использование Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Для выполнения сценариев Windows PowerShell необходимо использовать права администратора и задать политику выполнения *RemoteSigned*. Дополнительные сведения см. в статье [Выполнение сценариев Windows PowerShell][powershell-script].
+- **Рабочая станция с Azure PowerShell.**. 
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+    
+    Для выполнения сценариев Windows PowerShell необходимо использовать права администратора и задать политику выполнения *RemoteSigned*. Дополнительные сведения см. в статье [Выполнение сценариев Windows PowerShell][powershell-script].
 
 ##Определение рабочего процесса Oozie и связанного с ним скрипта HiveQL
 
@@ -620,7 +624,6 @@ RunHiveScript имеет несколько переменных. Вы пере�
 
 - [Использование временного координатора Oozie с HDInsight][hdinsight-oozie-coordinator-time]
 - [Приступая к работе с Hadoop с использованием Hive в HDInsight для анализа данных об использовании мобильного телефона][hdinsight-get-started]
-- [Приступая к работе с эмулятором HDInsight][hdinsight-get-started-emulator]
 - [Использование хранилища больших двоичных объектов Azure с HDInsight][hdinsight-storage]
 - [Администрирование HDInsight с использованием PowerShell][hdinsight-admin-powershell]
 - [Отправка данных для заданий Hadoop в HDInsight][hdinsight-upload-data]
@@ -637,7 +640,7 @@ RunHiveScript имеет несколько переменных. Вы пере�
 [azure-data-factory-pig-hive]: ../data-factory/data-factory-data-transformation-activities.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
@@ -649,10 +652,9 @@ RunHiveScript имеет несколько переменных. Вы пере�
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
-[hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
@@ -678,4 +680,4 @@ RunHiveScript имеет несколько переменных. Вы пере�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

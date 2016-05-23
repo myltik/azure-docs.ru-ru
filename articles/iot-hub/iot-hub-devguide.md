@@ -68,7 +68,7 @@
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Иногда для пакета SDK требуется указать значение **Имя узла** или **Пространство имен**. В этом случае удалите схему из поля **Конечная точка, совместимая с концентраторами событий**. Например, если конечная точка, совместимая с концентраторами событий, это **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, **именем узла** будет **iothub-ns-myiothub-1234.servicebus.windows.net**, а **пространством имен** — **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] В случае, когда для пакета SDK нужно указать **имя узла** или **пространство имен**, удалите схему из **конечной точки, совместимой с концентраторами событий**. Например, если конечная точка, совместимая с концентраторами событий, это ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, **именем узла** будет **iothub-ns-myiothub-1234.servicebus.windows.net**, а **пространством имен** — **iothub-ns-myiothub-1234**.
 
 Затем можно использовать любую политику безопасности общего доступа с разрешениями **ServiceConnect**, которые позволяют выполнять подключение к указанному концентратору событий.
 
@@ -82,7 +82,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 
 * [клиент концентраторов событий Java;](https://github.com/hdinsight/eventhubs-client)
 * [воронка Apache Storm](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md), Вы можете просмотреть [воронку источника](https://github.com/apache/storm/tree/master/external/storm-eventhubs) на портале GitHub.
-* [интеграция Apache Spark.](../hdinsight/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+* [интеграция Apache Spark.](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md)
 
 ## Реестр удостоверений устройств
 
@@ -557,4 +557,4 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

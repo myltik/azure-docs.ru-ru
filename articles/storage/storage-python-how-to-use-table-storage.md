@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Использование табличного хранилища из Python | Microsoft Azure"
-	description="Узнайте, как создать, удалить, вставить и запросить таблицу с помощью службы таблиц в Python."
+	description="Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL)."
 	services="storage"
 	documentationCenter="python"
 	authors="emgerner-msft"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="04/29/2016"
 	ms.author="emgerner"/>
 
 
@@ -149,4 +149,4 @@
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

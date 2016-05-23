@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Служебная шина и PHP с протоколом AMQP 1.0 | Microsoft Azure"
-   description="Использование служебной шины в PHP с протоколом AMQP"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Служебная шина и PHP с протоколом AMQP 1.0 | Microsoft Azure"
+    description="Использование служебной шины в PHP с протоколом AMQP"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Использование служебной шины на платформе PHP с протоколом AMQP 1.0
 
@@ -187,4 +187,4 @@ if ($message->properties != null)
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

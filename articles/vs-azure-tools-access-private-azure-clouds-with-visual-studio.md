@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Доступ к частным облакам Azure с помощью Visual Studio
@@ -23,7 +23,7 @@
 
 ## Получение доступа к частному облаку Azure из Visual Studio
 
-1. Скачайте файл параметров публикации на портале управления частным облаком или запросите его у администратора. В общедоступной версии Azure скачать файл можно по ссылке [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/) (загруженный файл должен иметь расширение PUBLISHSETTINGS).
+1. Скачайте файл параметров публикации на [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885) для частного облака или запросите этот файл у администратора. В общедоступной версии Azure скачать файл можно по ссылке [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/) (загруженный файл должен иметь расширение PUBLISHSETTINGS).
 
 1. В **обозревателе серверов** в Visual Studio выберите узел **Azure**, а затем в контекстном меню выберите пункт **Управление подписками**.
 
@@ -43,4 +43,4 @@
 
 [Практическое руководство. Загрузка и импорт параметров публикации и сведений о подписке](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

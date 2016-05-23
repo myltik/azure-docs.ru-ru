@@ -71,7 +71,7 @@
 
 7. Остановите отозванную виртуальную машину:
 
-	`azure vm stop –g <your-resource-group-name> -n <your-virtual-machine-name>`
+	`azure vm deallocate -g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 8. Обобщите виртуальную машину:
 
@@ -197,4 +197,4 @@
 
 Сведения об управлении виртуальными машинами с помощью интерфейса командной строки см. в статье [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

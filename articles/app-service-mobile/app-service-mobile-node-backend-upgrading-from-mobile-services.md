@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="ggailey"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="02/09/2016"
-	ms.author="chrande"/>
+	ms.date="05/05/2016"
+	ms.author="adrianha"/>
 
 # Обновление существующего приложения мобильной службы Azure Node.js до службы приложений
 
@@ -38,7 +38,7 @@
 
 - Значительное повышение производительности по сравнению с пакетом SDK для мобильных служб.
 
-- Веб-сайт можно разместить вместе с мобильным сервером. Аналогичным образом можно легко добавить пакет SDK для мобильных приложений Azure в любое существующее приложение expressv4.
+- Веб-сайт можно разместить вместе с мобильным сервером. Аналогичным образом можно легко добавить пакет SDK для мобильных приложений Azure в любое существующее приложение express.v4.
 
 - Пакет SDK для мобильных приложений предназначен для кроссплатформенной и локальной разработки. Поэтому приложения с его использованием можно разрабатывать и запускать локально на платформах Windows, Linux и OSX. Теперь стало удобнее использовать распространенные методы разработки Node (например, выполнение тестов [Mocha](https://mochajs.org/) перед развертыванием).
 
@@ -191,7 +191,7 @@ CORS можно включить с помощью [параметра конф�
 
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK,
-        // see https://azure.microsoft.com/ru-RU/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/
+        // see https://azure.microsoft.com/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/
         logger.silly('Running TodoItem.insert');
 
         // This push uses a template mechanism, so we need a template/
@@ -271,7 +271,7 @@ CORS можно включить с помощью [параметра конф�
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[ценами службы приложений]: https://azure.microsoft.com/ru-RU/pricing/details/app-service/
+[ценами службы приложений]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
 [портал Azure]: https://portal.azure.com/
@@ -289,4 +289,4 @@ CORS можно включить с помощью [параметра конф�
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

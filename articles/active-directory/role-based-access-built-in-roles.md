@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/18/2016"
+	ms.date="05/10/2016"
 	ms.author="kgremban"/>
 
 #RBAC: встроенные роли
@@ -34,7 +34,7 @@
 | [Участник базы данных ClearDB MySQL](#cleardb-mysql-db-contributor) | Может создавать базы данных ClearDB MySQL |
 | [Участник](#contributor) | Может управлять всем, кроме доступа |
 | [Участник фабрики данных](#data-factory-contributor) | Может управлять фабриками данных |
-| [Пользователь лаборатории для разработки и тестирования](#devtest-lab-user) | Может просматривать все, а также подключать, запускать, перезагружать виртуальные машины и завершать их работу |
+| [Пользователь DevTest Labs](#devtest-labs-user) | Может просматривать все, а также подключать, запускать, перезагружать виртуальные машины и завершать их работу |
 | [Участник учетной записи DocumentDB](#document-db-account-contributor) | Может управлять учетными записями DocumentDB |
 | [Участник учетной записи интеллектуальных систем](#intelligent-systems-account-contributor) | Может управлять учетными записями интеллектуальных систем |
 | [Участник сети](#network-contributor) | Может управлять всеми сетевыми ресурсами |
@@ -152,21 +152,23 @@
 | Microsoft.Insights/alertRules/* | Создание правил оповещения и управление ими |
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
-### Пользователь лаборатории для разработки и тестирования
+### Пользователь DevTest Labs
 Может просматривать все, а также подключать, запускать, перезагружать виртуальные машины и завершать их работу
 
 | **Действия** ||
 | ------- | ------ |
-| */read | Чтение ресурсов всех типов | | Microsoft.DevTestLab/labs/labStats/action | Чтение лабораторной статистики | | Microsoft.DevTestLab/Environments/* | Создание сред и управление ими |
+| **/read | Чтение ресурсов всех типов |
 | Microsoft.DevTestLab/labs/createEnvironment/action | Создание лабораторной среды |
+| Microsoft.DevTestLab/labs/formulas/delete | Удаление формул | | Microsoft.DevTestLab/labs/formulas/write | Добавление или изменение формул |
+| Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Оценка политик лаборатории |
 | Microsoft.Compute/virtualMachines/start/action | Запуск виртуальных машин |
 | Microsoft.Compute/virtualMachines/restart/action | Перезапуск виртуальных машин |
 | Microsoft.Compute/virtualMachines/deallocate/action | Отмена распределения виртуальных машин |
 | Microsoft.Storage/storageAccounts/listKeys/action | Вывод списка ключей учетной записи хранения |
-| Microsoft.Network/virtualNetworks/join/action | Присоединение виртуальных сетей |
-| Microsoft.Network/loadBalancers/join/action | Присоединение балансировщиков нагрузки |
-| Microsoft.Network/publicIPAddresses/link/action | Ссылка на общедоступные IP-адреса |
-| Microsoft.Network/networkInterfaces/link/action | Ссылка на сетевые интерфейсы |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Присоединение виртуальной сети |
+| Microsoft.Network/loadBalancers/backendAddressPools/join/action | Присоединение серверного пула адресов балансировщиков нагрузки |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Присоединение правила NAT для входящего трафика балансировщиков нагрузки |
+| Microsoft.Network/publicIPAddresses/join/action | Присоединение общедоступного IP-адреса | | Microsoft.Network/networkInterfaces/join/action | Добавление виртуальной машины в сетевой интерфейс |
 | Microsoft.Network/networkInterfaces/write | Запись сетевых интерфейсов |
 
 ### Участник учетной записиDocument DB
@@ -369,17 +371,17 @@
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
 ### Участник учетной записи хранения
-Может управлять учетными записями хранения
+Может управлять учетными записями хранения, но не имеет к ним доступа.
 
 | **Действия** ||
 | ------- | ------ |
 | Microsoft.Storage/storageAccounts/* | Создание учетных записей хранения и управление ими |
 | Microsoft.Authorization/*/read | Авторизация на чтение всех элементов |
-| Microsoft.Resources/subscriptions/resources/read | Чтение ресурсов подписки |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Чтение групп ресурсов подписки |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Чтение ресурсов групп ресурсов подписки |
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Создание развертываний группы ресурсов подписки и управление ими |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Insights/alertRules/* | Создание правил оповещения Insights и управление ими |
+| Microsoft.Insights/diagnosticSettings/* | Управление параметрами диагностики |
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
 ### Администратор доступа пользователей
@@ -487,9 +489,9 @@
 | Microsoft.Insights/components/* | Создание компонентов Insights и управление ими |
 
 ## См. также
-- [Контроль доступа на основе ролей](role-based-access-control-configure.md). Начало работы с RBAC на портале Azure.
+- [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md). Начало работы с RBAC на портале Azure.
 - [Пользовательские роли в Azure RBAC](role-based-access-control-custom-roles.md). Сведения о создании пользовательских ролей в соответствии с потребностями доступа.
 - [Создание отчета по журналу изменения доступа](role-based-access-control-access-change-history-report.md). Отслеживание изменения назначений ролей в RBAC.
 - [Устранение неполадок контроля доступа на основе ролей](role-based-access-control-troubleshooting.md). Рекомендации по устранению распространенных проблем.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

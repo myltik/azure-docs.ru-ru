@@ -1,3 +1,1 @@
-Если в этой статье нет решения вашей проблемы с Azure, посетите форумы по Azure [на сайтах MSDN и Stack Overflow](https://azure.microsoft.com/support/forums/). Проблему можно разместить на этих форумах или отправить по адресу @AzureSupport в Твиттере. Кроме того, можно отправить запрос в службу поддержки Azure, выбрав **Получить поддержку** на сайте [службы поддержки Azure](https://azure.microsoft.com/support/options/).
-
-<!---HONumber=AcomDC_0427_2016-->
+Если в этой статье нет решения вашей проблемы с Azure, посетите форумы по Azure [на сайтах MSDN и Stack Overflow](https://azure.microsoft.com/support/forums/). Сообщить о проблеме можно на этих форумах или в [Твиттере (с тегом @AzureSupport)](https://twitter.com/AzureSupport). Кроме того, можно отправить запрос в службу поддержки Azure, выбрав **Получить поддержку** на сайте [службы поддержки Azure](https://azure.microsoft.com/support/options/).
