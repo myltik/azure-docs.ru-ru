@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="mattchenderson"
-	manager="dwrede"
+	manager="erikref"
 	editor=""/>
 
 <tags
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="mahender"/>
 
 # Проверка подлинности и авторизация в мобильных приложениях Azure
 
 ## Что такое проверка подлинности и авторизация службы приложений?
+
+> [AZURE.NOTE] Эта статья будет перенесена в консолидированную статью [Проверка подлинности и авторизация в службе приложений Azure](../app-service/app-service-authentication-overview.md), которая охватывает веб-приложения, мобильные приложения и приложения API.
 
 Проверка подлинности и авторизация службы приложений — это функция, которая позволяет пользователям приложения выполнять вход без изменений кода, необходимых в серверной части приложения. Она является простым способом обеспечения защиты приложения и работы с данными пользователей.
 
@@ -102,4 +104,4 @@
 [Настройка приложения для использования входа по учетной записи Майкрософт]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Настройка приложения для использования имени входа Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

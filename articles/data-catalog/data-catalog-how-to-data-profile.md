@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Практическое руководство по созданию профилей данных для источников данных"
-   description="В статье приведены инструкции по добавлению профилей данных уровня таблиц и столбцов при регистрации источников данных в каталоге данных Azure. В статье также объясняется, как профили данных помогают анализировать имеющиеся источники."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor=""
-   tags=""/>
+	pageTitle="Практическое руководство по созданию профилей данных для источников данных"
+	description="В статье приведены инструкции по добавлению профилей данных уровня таблиц и столбцов при регистрации источников данных в каталоге данных Azure. В статье также объясняется, как профили данных помогают анализировать имеющиеся источники."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="04/07/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="04/07/2016"
+	ms.author="spelluru"/>
 
 # Источники данных профиля данных
 
@@ -91,4 +91,4 @@
 -	[Как регистрировать источники данных](data-catalog-how-to-register.md)
 -	[Начало работы с каталогом данных Azure](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

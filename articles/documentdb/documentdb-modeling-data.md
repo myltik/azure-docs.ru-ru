@@ -3,7 +3,7 @@
 	description="Дополнительные сведения о моделировании данных для DocumentDB см. в базе данных документов NoSQL." 
 	keywords="моделирование данных"
 	services="documentdb" 
-	authors="ryancrawcour" 
+	authors="stephbaron" 
 	manager="jhubbard" 
 	editor="mimig1" 
 	documentationCenter=""/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
-	ms.author="ryancraw"/>
+	ms.date="05/12/2016" 
+	ms.author="stbaro"/>
 
 #Моделирование данных в DocumentDB#
 Хотя базы данных без схем, такие как DocumentDB, существенно упрощают внесение изменений в модель данных, вам все равно следует удалить время анализу ситуации с данными.
@@ -393,4 +393,4 @@
 Наконец, рекомендации по моделированию и сегментированию данных для мультитенантных приложений можно найти в статье [Масштабирование мультитенантного приложения с помощью Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -51,7 +51,7 @@
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Рабочая станция с Azure PowerShell.**. См. [Установка и использование Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Рабочая станция с Azure PowerShell.**.
 
 	Перед выполнением скриптов PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета:
 
@@ -60,9 +60,11 @@
 	При наличии нескольких подписок Azure используется следующий командлет для установки текущей подписки:
 
 		Select-AzureSubscription <AzureSubscriptionName>
+		
+	[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
->[AZURE.NOTE] Имена служб Azure и имена виртуальных машин должны быть уникальными. В этом учебнике используется имя Contoso-[имя службы или виртуальной машины Azure]-[EU/US]. Например, Contoso-VNet-EU — это виртуальная сеть Azure в центре обработки данных, расположенном в Северной Европе; Contoso-DNS-US — виртуальная машина DNS-сервера в центре обработки данных, расположенном на востоке США. Вам необходимо создать собственные имена.
+>[AZURE.NOTE] Имена служб Azure и имена виртуальных машин должны быть уникальными. В этом учебнике используется имя Contoso-[имя службы или виртуальной машины Azure]-[EU/US]. Например, Contoso-VNet-EU — это виртуальная сеть Azure в центре обработки данных, расположенном в Северной Европе; Contoso-DNS-US — виртуальная машина DNS-сервера в центре обработки данных, расположенном на востоке США. Вам необходимо создать собственные имена.
  
 
 ##Создание двух виртуальных сетей Azure
@@ -139,7 +141,7 @@
 
 При создании конфигурации между двумя виртуальными сетями необходимо настроить каждую из сетей так, чтобы они идентифицировали друг друга в качестве сайта локальной сети. В этом разделе вы настроите каждую виртуальную сеть в качестве локальной. Локальные сети используют общие пространства IP-адресов с соответствующей виртуальной сетью.
 
-![Настройка конфигурации VPN Azure «сайт-сайт» — локальные сети Azure][img-vnet-lnet-diagram]
+![Настройка конфигурации VPN Azure «сайт-сайт» — локальные сети Azure][img-vnet-lnet-diagram]
 
 
 **Создание локальной сети с именем Contoso-LNet-EU, соответствующей адресному пространству сети Contoso-VNet-EU**
@@ -197,7 +199,7 @@
 
 **Создание VPN-шлюза для Contoso-VNet-EU**
 
-- Повторите последние две процедуры для настройки подключения типа «сайт — сайт» между Contoso-VNet-US и Contoso-LNet-EU и последующего создания VPN-шлюза для Contoso-Vnet-US. После завершения вы получите IP-адрес VPN-шлюза для Contoso-VNet-US.
+- Повторите последние две процедуры для настройки подключения типа «сайт — сайт» между Contoso-VNet-US и Contoso-LNet-EU и последующего создания VPN-шлюза для Contoso-Vnet-US. После завершения вы получите IP-адрес VPN-шлюза для Contoso-VNet-US.
 
 
 ### Установка IP-адресов VPN-устройств для локальных сетей
@@ -270,4 +272,4 @@
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

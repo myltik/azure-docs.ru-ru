@@ -35,8 +35,9 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Рабочая станция с Azure PowerShell.**. См. раздел [Установка Azure PowerShell 1.0 и более поздних версий](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Рабочая станция с Azure PowerShell.**.
 
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 - [cURL][curl] (необязательно). Для установки см. раздел [выпусков и скачиваемых файлов cURL][curl-download].
 
@@ -128,17 +129,17 @@
 Отслеживание вызова API|URI|Описание
 ---|---|---
 Получение кластеров|`/api/v1/clusters`|
-Получение сведений о кластере.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net`|кластеры, службы, узлы
-Получение служб|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services`|Службы включают в себя: hdfs, mapreduce
-Получение сведений о службах.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;`|
-Получение компонентов службы|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components`|HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker
-Получение сведений о компонентах.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components/&lt;ComponentName&gt;`|ServiceComponentInfo, host-components, metrics
-Получение узлов|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts`|headnode0, workernode0
-Получение сведений об узлах.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;`|
-Получение компонентов узлов|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components`|namenode, resourcemanager
-Получение сведений о компонентах узла.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components/&lt;ComponentName&gt;`|HostRoles, component, host, metrics
-Получение конфигураций|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations`|Типы настройки: core-site, hdfs-site, mapred-site, hive-site
-Получение сведений о конфигурации.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations?type=&lt;ConfigType&gt;&tag=&lt;VersionName&gt;`|Типы настройки: core-site, hdfs-site, mapred-site, hive-site
+Получение сведений о кластере.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net`|кластеры, службы, узлы
+Получение служб|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services`|Службы включают в себя: hdfs, mapreduce
+Получение сведений о службах.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>`|
+Получение компонентов службы|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components`|HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker
+Получение сведений о компонентах.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>`|ServiceComponentInfo, host-components, metrics
+Получение узлов|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts`|headnode0, workernode0
+Получение сведений об узлах.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>`|
+Получение компонентов узлов|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components`|namenode, resourcemanager
+Получение сведений о компонентах узла.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components/<ComponentName>`|HostRoles, component, host, metrics
+Получение конфигураций|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations`|Типы настройки: core-site, hdfs-site, mapred-site, hive-site
+Получение сведений о конфигурации.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>`|Типы настройки: core-site, hdfs-site, mapred-site, hive-site
 
 
 ##Дальнейшие действия
@@ -173,4 +174,4 @@
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

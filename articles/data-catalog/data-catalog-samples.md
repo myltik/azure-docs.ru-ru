@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Примеры каталога данных для разработчиков | Microsoft Azure"
-   description="В этой статье рассматриваются доступные примеры разработчиков, использующие REST API каталога данных."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	pageTitle="Примеры каталога данных для разработчиков | Microsoft Azure"
+	description="В этой статье рассматриваются доступные примеры разработчиков, использующие REST API каталога данных."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager=""
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="03/30/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="03/30/2016"
+	ms.author="spelluru"/>
 
 
 # Примеры каталога данных для разработчиков
@@ -34,4 +34,4 @@
 
   Пример, показывающий, как использовать REST API каталога данных для извлечения ресурсов из каталога данных Azure и сериализации их в файл. Он также показывает, как взять набор ресурсов-контейнеров, сериализованный в формат JSON, и отправить его в каталог. Он поддерживает экспорт подмножества каталога с помощью поискового запроса.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

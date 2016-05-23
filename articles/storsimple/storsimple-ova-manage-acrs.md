@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Управление записями контроля доступа для виртуального массива StorSimple | Microsoft Azure"
+   pageTitle="Управление записями контроля доступа для виртуального массива StorSimple | Microsoft Azure"
    description="В этой статье объясняется, как с помощью записей контроля доступа (ACR) определять, какие узлы могут подключаться к тому в виртуальном массиве StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="05/03/2016"
    ms.author="alkohli" />
 
 # Управление записями контроля доступа для виртуального массива StorSimple с помощью службы диспетчера StorSimple 
@@ -35,7 +35,7 @@
 
 ## Получение имени IQN
 
-Чтобы получить имя IQN узла Windows, который работает под управлением Windows Server 2012, выполните следующие действия.
+Чтобы получить имя IQN узла Windows, который работает под управлением Windows Server 2012, выполните следующие действия.
 
 [AZURE.INCLUDE [storsimple-get-iqn](../../includes/storsimple-get-iqn.md)]
 
@@ -43,7 +43,7 @@
 
 Для добавления записей ACR используется страница **Настройка** службы диспетчера StorSimple. Как правило, одной записи контроля доступа соответствует один том.
 
-Сведения о связывании записи ACR с томом приведены в статье [Управление томами в виртуальном массиве StorSimple с помощью службы диспетчера StorSimple](storsimple-ova-manage-volumes).
+Сведения о связывании записи ACR с томом см. в разделе [Шаг 3. Добавление тома](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
 >[AZURE.IMPORTANT] 
 > 
@@ -114,4 +114,4 @@
 
 - Изучите дополнительную информацию о [добавлении томов и настройке записей ACR](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

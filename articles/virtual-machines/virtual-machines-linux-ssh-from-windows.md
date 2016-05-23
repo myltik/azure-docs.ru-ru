@@ -14,7 +14,7 @@ description="Узнайте, как создавать и использоват
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="04/15/2016" 
 	ms.author="rasquill"/>
 
 #Использование SSH с Windows в Azure
@@ -28,11 +28,11 @@ description="Узнайте, как создавать и использоват
 
 ## Необходимые SSH и программы создания ключей
 
-**SSH** &#8212; или [secure shell](https://en.wikipedia.org/wiki/Secure_Shell) &#8212; — это протокол зашифрованного подключения, позволяющий безопасно выполнять вход при наличии незащищенных подключений. Это протокол подключения по умолчанию для виртуальных машин Linux, размещенных в Azure, если виртуальные машины Linux не настроены для включения какого-либо другого механизма подключения. Пользователи Windows также могут подключаться к виртуальным машинам Linux в Azure и управлять ими с помощью реализации клиента **ssh**, однако компьютеры Windows, как правило, поставляются без клиента **ssh**-клиента, поэтому его необходимо выбрать.
+**SSH** &#8212; или [secure shell](https://en.wikipedia.org/wiki/Secure_Shell) &#8212; — это протокол зашифрованного подключения, позволяющий безопасно выполнять вход при наличии незащищенных подключений. Это протокол подключения по умолчанию для виртуальных машин Linux, размещенных в Azure, если виртуальные машины Linux не настроены для включения какого-либо другого механизма подключения. Пользователи Windows также могут подключаться к виртуальным машинам Linux в Azure и управлять ими с помощью реализации клиента **ssh**, однако компьютеры Windows, как правило, поставляются без клиента **ssh**-клиента, поэтому его необходимо выбрать.
 
 К числу стандартных клиентов, доступных для установки, относятся следующие.
 
-- [puTTY и puTTYgen]((http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+- [puTTY и puTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 - [MobaXterm](http://mobaxterm.mobatek.net/)
 - [Cygwin](https://cygwin.com/)
 - [Git для Windows](https://git-for-windows.github.io/), поставляемый вместе со средой и необходимыми инструментами
@@ -47,26 +47,19 @@ description="Узнайте, как создавать и использоват
 
 Ниже приведены сценарии развертывания и типы используемых в них файлов.
 
-1. Ключи **ssh-rsa** нужны для любого развертывания с использованием [портала Azure](https://portal.azure.com), независимо от модели развертывания.
+1. Ключи **ssh-rsa** нужны для всех развертываний, которые выполняются с использованием [портала Azure](https://portal.azure.com) независимо от модели развертывания.
 2. PEM-файл нужен для создания виртуальных машин с использованием [классического портала](https://manage.windowsazure.com). PEM-файлы также поддерживаются в классических развертываниях с использованием [интерфейса командной строки Azure](../xplat-cli-install.md).
 
-> [AZURE.NOTE] Если вы планируете управлять службой, развернутой с помощью классической модели развертывания, может потребоваться создать **CER-**файл для передачи на портал, хотя это не связано с использованием протокола **ssh** или подключением к виртуальным машинам Linux, о которых идет речь в этой статье. Чтобы создать эти файлы на Linux или Mac, введите
+> [AZURE.NOTE] Если вы планируете управлять службой, развернутой с помощью классической модели развертывания, может потребоваться создать **CER-**файл для передачи на портал, хотя это не связано с использованием протокола **ssh** или подключением к виртуальным машинам Linux, о которых идет речь в этой статье. Чтобы создать эти файлы в Windows, выполните команду <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer.
 
 ## Получение ssh-keygen и openssl в Windows ##
 
-[В этом разделе](#What-SSH-and-key-creation-programs-do-you-need) перечислено несколько служебных программ, которые включают `ssh-keygen` и `openssl` для Windows. Ниже приведено несколько примеров.
+[В этом разделе](#What-SSH-and-key-creation-programs-do-you-need) перечислено несколько служебных программ, которые включают `ssh-keygen` и `openssl` для Windows. Ниже приведены несколько примеров.
 
-### Использование Msysgit ###
+###Использование GitHub для Windows###
 
-1.	Загрузите и установите msysgit из следующего расположения:[http://msysgit.github.com/](http://msysgit.github.com/)
-2.	Запустите `msys` из каталога установки (например, c:\\msysgit\\msys.exe)
-3.	Перейдите в каталог `bin`, введя `cd bin`
-
-
-### Использование GitHub для Windows ###
-
-1.	Загрузите и установите GitHub для Windows из следующего расположения: [http://windows.github.com/](http://windows.github.com/)
-2.	Запустите оболочку Git из меню "Пуск" > "Все программы" GitHub, Inc
+1.	Скачайте и установите GitHub для Windows из следующего расположения: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
+2.	Запустите Git Bash из меню "Пуск > Все приложения > GitHub".
 
 > [AZURE.NOTE] При выполнении указанных команд `openssl` может возникнуть следующая ошибка.
 
@@ -98,17 +91,35 @@ description="Узнайте, как создавать и использоват
 1.	Выполните один из представленных выше наборов инструкций, чтобы иметь возможность запустить `openssl.exe`.
 2.	Введите следующую команду:
 
-		# openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
-
+  ```
+  openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
+  ```
 3.	Экран должен выглядеть следующим образом:
 
-	![linuxwelcomegit](./media/virtual-machines-linux-ssh-from-linux/linuxwelcomegit.png)
+  ```
+  $ openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
+  Generating a 2048 bit RSA private key
+  .......................................+++
+  .......................+++
+  writing new private key to 'myPrivateKey.key'
+  -----
+  You are about to be asked to enter information that will be incorporated
+  into your certificate request.
+  What you are about to enter is what is called a Distinguished Name or a DN.
+  There are quite a few fields but you can leave some blank
+  For some fields there will be a default value,
+  If you enter '.', the field will be left blank.
+  -----
+  Country Name (2 letter code) [AU]:
+  ```
 
 4.	Ответьте на задаваемые вопросы.
 5.	Должны быть созданы два файла: `myPrivateKey.key` и `myCert.pem`.
 6.	Если вы собираетесь обойтись без портала управления и использовать API напрямую, преобразуйте `myCert.pem` в `myCert.cer` (сертификат X509 с кодировкой DER) с помощью следующей команды:
 
-		# openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
+  ```
+  openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
+  ```
 
 ## Создание PPK для Putty ##
 
@@ -155,4 +166,4 @@ description="Узнайте, как создавать и использоват
 5.	Щелкните **Открыть**, чтобы подключится к виртуальной машине.
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

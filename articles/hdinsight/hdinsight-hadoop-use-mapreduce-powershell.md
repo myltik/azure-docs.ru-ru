@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="larryfr"/>
 
 #Выполнение запросов Hive с помощью PowerShell с использованием Hadoop в HDInsight
@@ -29,7 +29,9 @@
 
 - **Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux)**
 
-- **Рабочая станция с Azure PowerShell.**. См. [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+- **Рабочая станция с Azure PowerShell.**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##<a id="powershell"></a>Выполнение задания MapReduce с помощью Azure PowerShell
 
@@ -182,4 +184,4 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0211_2016--->
+<!---HONumber=AcomDC_0511_2016-->

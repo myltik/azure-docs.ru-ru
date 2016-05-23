@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015" 
+	ms.date="04/15/2016" 
 	ms.author="rasquill"/>
 
 #Использование SSH с Linux и Mac в Azure
@@ -38,7 +38,7 @@
 
 ## Создание ключей для использования с SSH
 
-В зависимости от сценария, Azure требует использовать файлы 2048-разрядных ключей формата **ssh-rsa** или эквивалентные PEM-файлы. Если у вас уже есть такие файлы, при создании виртуальной машины Azure передайте файл открытого ключа.
+Если у вас уже есть ключи SSH, при создании виртуальной машины Azure передайте файл открытого ключа.
 
 Если эти файлы нужно создать:
 
@@ -47,17 +47,14 @@
 	- Для Mac посетите [веб-сайт безопасности продуктов Apple](https://support.apple.com/HT201222) и при необходимости установите нужные обновления.
 	- Для дистрибутивов Linux на базе Debian, таких как Ubuntu, Debian, Mint и пр.:
 
-			sudo apt-get update ssh-keygen
-			sudo apt-get update openssl
+			sudo apt-get install --upgrade-only openssl
 
 	- Для дистрибутивов Linux на базе RPM, таких как CentOS и Oracle Linux:
 
-			sudo yum update ssh-keygen
 			sudo yum update openssl
 
 	- Для SLES и OpenSUSE:
 
-			sudo zypper update ssh-keygen
 			sudo zypper update openssl
 
 2. Используйте **ssh-keygen** для создания файлов 2048-разрядных открытых и закрытых ключей RSA, и, если у вас нет конкретного расположения или имен для файлов, оставьте значения по умолчанию: `~/.ssh/id_rsa`. Базовая команда выглядит так:
@@ -72,9 +69,7 @@
 
 	Если вы хотите создать PEM-файл из другого файла закрытого ключа, измените аргумент `-key`.
 
-> [AZURE.NOTE] Если вы планируете управлять службами, развернутыми с помощью классической модели развертывания, вам может потребоваться создать **CER-**файл для передачи на портал, хотя это не связано с использованием протокола **ssh** или подключением к виртуальным машинам Linux, о которых идет речь в этой статье. Чтобы создать эти файлы в Linux или Mac, выполните команду <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer,
-
-чтобы преобразовать PEM-файл в файл сертификата X509 с кодировкой DER.
+> [AZURE.NOTE] Если вы планируете управлять службами, развернутыми с помощью классической модели развертывания, вам может потребоваться создать **CER-**файл для передачи на портал, хотя это не связано с использованием протокола **ssh** или подключением к виртуальным машинам Linux, о которых идет речь в этой статье. Чтобы преобразовать PEM-файл в файл сертификата X509 в кодировке DER в ОС Linux или Mac, введите: <br /> openssl x509 -outform der -in myCert.pem -out myCert.cer
 
 ## Использование имеющихся ключей SSH
 
@@ -86,7 +81,7 @@
 
 ### Пример. Создание виртуальной машины с помощью файла id\_rsa.pub
 
-Чаще всего этот файл используется при создании виртуальной машины или передаче шаблона для создания виртуальной машины. В следующем примере кода показано создание новой безопасной виртуальной машины Linux в Azure путем передачи имени файла открытого ключа (в данном случае это файл `~/.ssh/id_rsa.pub` по умолчанию) в команду `azure vm create`. (Другие аргументы были созданы ранее.)
+Чаще всего этот файл используется при создании виртуальной машины или передаче шаблона для создания виртуальной машины. В следующем примере кода показано создание новой безопасной виртуальной машины Linux в Azure путем передачи имени файла открытого ключа (в данном случае это файл `~/.ssh/id_rsa.pub` по умолчанию) в команду `azure vm create`. (Другие аргументы, такие как группа ресурсов и учетная запись хранения, были созданы ранее.) В этом примере используется метод развертывания Resource Manager, поэтому убедитесь, что Azure CLI настроен соответствующим образом, с помощью команды `azure config mode arm`:
 
 	azure vm create \
 	--nic-name testnic \
@@ -94,7 +89,7 @@
 	--vnet-name testvnet \
 	--vnet-subnet-name testsubnet \
 	--storage-account-name computeteststore 
-	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
+	--image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
 	--username ops \
 	-ssh-publickey-file ~/.ssh/id_rsa.pub \
 	testrg testvm westeurope linux
@@ -133,23 +128,23 @@
 	data:    location               String  West Europe
 	data:    vmSize                 String  Standard_A2
 	data:    vmName                 String  sshvm
-	data:    ubuntuOSVersion        String  14.04.2-LTS
+	data:    ubuntuOSVersion        String  14.04.4-LTS
 	info:    group deployment create command OK
 
 
 ### Пример. Создание виртуальной машины с помощью PEM-файла
 
-После этого можно использовать PEM-файл с классическим порталом или в режиме классического развертывания и с командой `azure vm create`, как показано в следующем примере.
+После этого можно использовать PEM-файл с классическим порталом или с режимом классического развертывания (`azure config mode asm`) и командой `azure vm create`, как показано в следующем примере.
 
 	azure vm create \
 	-l "West US" -n testpemasm \
 	-P -t myCert.pem -e 22 \
 	testpemasm \
-	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-ru-RU-30GB \
+	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-ru-RU-30GB \
 	ops
 	info:    Executing command vm create
 	warn:    --vm-size has not been specified. Defaulting to "Small".
-	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-ru-RU-30GB
+	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-ru-RU-30GB
 	+ Looking up cloud service
 	info:    cloud service testpemasm not found.
 	+ Creating cloud service
@@ -263,30 +258,32 @@
 	RSA key fingerprint is dc:bb:e4:cc:59:db:b9:49:dc:71:a3:c8:37:36:fd:62.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
-	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-
+	
+    Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-49-generic x86_64)
+	
 	* Documentation:  https://help.ubuntu.com/
 
-	System information as of Sat Oct 10 20:53:08 UTC 2015
+    System information as of Fri Apr 15 18:51:42 UTC 2016
 
-	System load: 0.52              Memory usage: 5%   Processes:       80
-	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
+    System load: 0.31              Memory usage: 2%   Processes:       213
+    Usage of /:  42.1% of 1.94GB   Swap usage:   0%   Users logged in: 0
 
-	Graph this data and manage this system at:
-		https://landscape.canonical.com/
+    Graph this data and manage this system at:
+    https://landscape.canonical.com/
 
-	Get cloud support with Ubuntu Advantage Cloud Guest:
-		http://www.ubuntu.com/business/services/cloud
+    Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
 
-	0 packages can be updated.
+    0 packages can be updated.
 	0 updates are security updates.
-
+	
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-
+	
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
+
 
 ## Проблемы при подключении
 
@@ -296,4 +293,4 @@
  
 Теперь, когда вы подключились к виртуальной машине, обновите выбранный дистрибутив, перед тем как использовать его дальше.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

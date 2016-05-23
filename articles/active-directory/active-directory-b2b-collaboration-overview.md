@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/31/2016"
+   ms.date="05/09/2016"
    ms.author="curtand"/>
 
 # Служба Azure Active Directory B2B Collaboration
@@ -47,9 +47,9 @@
 Дополнительные сведения о службе B2B Сollaboration см. [в этом видео](http://aka.ms/aadshowb2b).
 
 ## Дальнейшие действия
-Ознакомьтесь с другими статьями о службе совместной работы Azure B2B.
+Другие статьи о службе совместной работы Azure AD B2B:
 
-- [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Обзор службы Azure AD B2B Collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Принцип работы](active-directory-b2b-how-it-works.md)
 - [Подробное пошаговое руководство](active-directory-b2b-detailed-walkthrough.md)
 - [Справочник по формату файлов CSV](active-directory-b2b-references-csv-file-format.md)
@@ -58,4 +58,4 @@
 - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

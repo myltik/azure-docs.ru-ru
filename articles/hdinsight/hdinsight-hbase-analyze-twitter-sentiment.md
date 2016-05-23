@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="05/09/2016" 
 	ms.author="jgao"/>
 
 # Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase в HDInsight
@@ -23,7 +23,7 @@
 
 Социальные веб-сайты являются одной из основных движущих сил для внедрения данных большого размера. Общедоступные API, предоставляемые сайтами, такими как Twitter, — полезный источник данных для анализа и понимания популярных тенденций. В этом учебнике вы создадите консольное приложение-службу, работающее в потоковом режиме, и веб-приложение ASP.NET для выполнения следующих задач:
 
-![][img-app-arch]
+![Анализ мнений пользователей Twitter с использованием HBase в HDInsight][img-app-arch]
 
 - Приложение потоковой передачи
 	- получение твитов с геотегами в режиме реального времени с помощью API потоковой передачи Twitter;
@@ -71,7 +71,7 @@
 ### Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Кластер HBase в HDInsight**. Инструкции по созданию кластера см. в разделе [Приступая к работе с HBase с Hadoop в HDInsight][hbase-get-started]. Для выполнения учебника необходимы следующие данные:
+- **Кластер HBase в HDInsight**. Инструкции по созданию кластера см. в статье [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Linux в HDInsight][hbase-get-started]. Для выполнения учебника необходимы следующие данные:
 
 
 	<table border="1">
@@ -81,7 +81,7 @@
 	<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
 	</table>
 
-- **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
+- **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 
 
@@ -146,8 +146,8 @@
 		Install-Package Microsoft.HBase.Client
 		Install-Package TweetinviAPI
     Эти команды установят [пакет SDK для HBase .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/), представляющий собой клиентскую библиотеку для доступа к кластеру HBase, и пакет [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/), который используется для доступа к API Twitter.
-3. В **обозревателе решений** добавьте к ссылке **System.Configuration".
-4. Добавьте новый файл класса в проект под названием **HBaseWriter.cs**, а затем замените код следующим:
+3. В **обозревателе решений** добавьте **System.Configuration** в ссылку.
+4. Добавьте в проект **HBaseWriter.cs** новый файл класса, а затем замените код следующим:
 
         using System;
         using System.Collections.Generic;
@@ -193,12 +193,12 @@
                     client = new HBaseClient(credentials);
 
                     // create the HBase table if it doesn't exist
-                    if (!client.ListTables().name.Contains(HBASETABLENAME))
+                    if (!client.ListTablesAsync().Result.name.Contains(HBASETABLENAME))
                     {
                         TableSchema tableSchema = new TableSchema();
                         tableSchema.name = HBASETABLENAME;
                         tableSchema.columns.Add(new ColumnSchema { name = "d" });
-                        client.CreateTable(tableSchema);
+                        client.CreateTableAsync(tableSchema).Wait;
                         Console.WriteLine("Table "{0}" is created.", HBASETABLENAME);
                     }
 
@@ -344,7 +344,7 @@
                                 }
 
                                 // Write the Tweet by words cell set to the HBase table
-                                client.StoreCells(HBASETABLENAME, set);
+								client.StoreCellsAsync(HBASETABLENAME, set).Wait();
                                 Console.WriteLine("\tRows written: {0}", set.rows.Count);
                             }
                             Thread.Sleep(100);
@@ -367,9 +367,9 @@
             }
         }
 
-6. Установите значения констант в предыдущем коде, включая **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** и DICTIONARYFILENAME. DICTIONARYFILENAME содержит имя и расположение файла direction.tsv. Этот файл можно скачать из ****https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Если вы хотите изменить имя таблицы HBase, вам необходимо соответствующим образом изменить имя таблицы в веб-приложении.
+6. Задайте константы в коде выше, в частности **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** и DICTIONARYFILENAME. DICTIONARYFILENAME содержит имя и расположение файла direction.tsv. Этот файл можно скачать по ссылке ****https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Если вы хотите изменить имя таблицы HBase, вам необходимо соответствующим образом изменить имя таблицы в веб-приложении.
 
-7. Откройте файл **Program.cs** и замените существующий код следующим:
+7. Откройте файл **Program.cs** и замените код следующим:
 
         using System;
         using System.Diagnostics;
@@ -441,13 +441,13 @@
             }
         }
 
-8. Установите значения констант, включая **TWITTERAPPACCESSTOKEN**, **TWITTERAPPACCESSTOKENSECRET**, **TWITTERAPPAPIKEY** и **TWITTERAPPAPISECRET**.
+8. Задайте константы, в частности **TWITTERAPPACCESSTOKEN**, **TWITTERAPPACCESSTOKENSECRET**, **TWITTERAPPAPIKEY** и **TWITTERAPPAPISECRET**.
 
-Чтобы запустить службу потоковой передачи, нажмите **F5**. Далее представлен снимок экрана консольного приложения:
+Чтобы запустить службу потоковой передачи, нажмите клавишу **F5**. Далее представлен снимок экрана консольного приложения:
 
-	![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
+![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
     
-Оставьте консольное приложение потоковой передачи запущенным, пока вы занимаетесь разработкой веб-приложения. Это даст возможность собрать больше данных. Чтобы просмотреть данные, добавленные в таблицу, можно использовать оболочку HBase. См. [Начало работы с HBase в HDInsight](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data)
+Оставьте консольное приложение потоковой передачи запущенным, пока вы занимаетесь разработкой веб-приложения. Это даст возможность собрать больше данных. Чтобы просмотреть данные, добавленные в таблицу, можно использовать оболочку HBase. См. статью [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Windows в HDInsight](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data).
 
 
 ## Визуализация мнений в режиме реального времени
@@ -470,7 +470,7 @@
 7. В окне **Управление подписками Microsoft Azure** щелкните **Вход**.
 8. Введите учетные данные Azure. Сведения о вашей подписке Azure появятся на вкладке **Учетные записи**.
 9. Нажмите кнопку **Закрыть**, чтобы закрыть окно **Управление подписками Microsoft Azure**.
-10. В окне **Новый проект ASP.NET — TweetSentimentWeb** нажмите кнопку **ОК**.
+10. В окне **Новый проект ASP.NET — TweetSentimentWeb** нажмите кнопку **ОК**.
 11. В окне **Настройка параметров сайта Microsoft Azure** выберите ближайший к вам **регион**. Указывать сервер базы данных не нужно. 
 12. Нажмите кнопку **ОК**.
 
@@ -598,11 +598,11 @@
 4. В классе **HBaseReader** измените значения констант следующим образом:
 
 	- **CLUSTERNAME**: имя кластера HBase, например, *https://<HBaseClusterName>.azurehdinsight.net/*. 
-    - **HADOOPUSERNAME**: имя пользователя Hadoop в кластере HBase. Имя по умолчанию — *admin*.
+    - **HADOOPUSERNAME**: имя пользователя Hadoop в кластере HBase. Имя по умолчанию — *admin*.
     - **HADOOPUSERPASSWORD**: пароль пользователя Hadoop в кластере HBase.
-    - **HBASETABLENAME** = "tweets\_by\_words".
+    - **HBASETABLENAME** = "tweets\_by\_words".
 
-	Имя таблицы HBase — **"tweets\_by\_words";**. Значения должны совпадать со значениями, отправленными в службу потоковой передачи, чтобы веб-приложение считывало данные из той же таблицы HBase.
+	Имя таблицы HBase — **"tweets\_by\_words";**. Значения должны совпадать со значениями, отправленными в службу потоковой передачи, чтобы веб-приложение считывало данные из той же таблицы HBase.
 
 
 
@@ -611,7 +611,7 @@
 
 1. В **обозревателе решений** разверните элемент **TweetSentimentWeb**.
 2. Щелкните правой кнопкой мыши элемент **Контроллеры**, выберите пункт **Добавить**, а затем щелкните **Контроллер**.
-3. Щелкните элемент **Web API 2 Controller - Empty** (Контроллер веб-интерфейса API 2 — пустой) и нажмите кнопку **Добавить**.
+3. Щелкните элемент **Web API 2 Controller - Empty** (Контроллер веб-интерфейса API 2 — пустой) и нажмите кнопку **Добавить**.
 4. В поле **Имя контроллера** введите **TweetsController** и нажмите кнопку **Добавить**.
 5. В **обозревателе решений** дважды щелкните файл TweetsController.cs, чтобы открыть его.
 5. Измените файл так, чтобы он выглядел следующим образом:
@@ -1236,8 +1236,8 @@
 - [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
 
 
-[hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
-[website-get-started]: ../web-sites-dotnet-get-started.md
+[hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
+[website-get-started]: ../app-service-web/web-sites-dotnet-get-started.md
 
 
 
@@ -1248,9 +1248,8 @@
 
 
 
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
 
 
 
@@ -1277,4 +1276,4 @@
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

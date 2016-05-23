@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="02/05/2016"
+ ms.date="04/26/2016"
  ms.author="larryfr"/>
 
 # Разработка заданий Scalding MapReduce с помощью Apache Hadoop в HDInsight
@@ -201,15 +201,15 @@ Scalding — это библиотека Scala, которая позволяе
 
     > [AZURE.NOTE] Если для защиты учетной записи SSH использовался пароль, будет предложено ввести пароль. Если использовался ключ SSH, возможно, нужно будет использовать параметр `-i` и указать путь к закрытому ключу. Например, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
 
-3. После подключения к головному узлу используйте следующую команду для запуска задания подсчета слов
+3. После подключения к головному узлу используйте следующую команду для запуска задания подсчета слов.
 
-        hadoop jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasb:///example/data/gutenberg/davinci.txt --output wasb:///example/wordcountout
+        yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasb:///example/data/gutenberg/davinci.txt --output wasb:///example/wordcountout
 
     Эта команда запускает класс WordCount, реализованный вами ранее. `--hdfs` указывает заданию использовать HDFS. `--input` задает входной текстовый файл, а `--output` указывает местоположение выходных файлов.
 
 4. После завершения задания просмотрите выходные данные с помощью следующей команды.
 
-        hadoop fs -text wasb:///example/wordcountout/part-00000
+        hdfs dfs -text wasb:///example/wordcountout/part-00000
 
     Будут отображены сведения, подобные следующим:
 
@@ -229,9 +229,9 @@ Scalding — это библиотека Scala, которая позволяе
 
 ## Запуск задания в кластере под управлением Windows
 
-> [AZURE.NOTE] В следующих действиях используется Windows PowerShell. Другие способы выполнения заданий MapReduce см. в разделе [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
+В следующих действиях используется Windows PowerShell. Другие способы выполнения заданий MapReduce см. в разделе [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
 
-1. [Установите и настройте Azure PowerShell](../powershell-install-configure.md).
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 2. Запустите Azure PowerShell и войдите в учетную запись Azure. После предоставления учетных данных команда возвращает информацию о вашей учетной записи.
 
@@ -344,4 +344,4 @@ Scalding — это библиотека Scala, которая позволяе
 
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->
