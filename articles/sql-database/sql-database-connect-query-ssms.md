@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/25/2016"
+	ms.date="05/09/2016"
 	ms.author="sstein;carlrab" />
 
 # Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL
 
 > [AZURE.SELECTOR]
-- [C#](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
+- [C#](sql-database-connect-query.md)
 - [Excel](sql-database-connect-excel.md)
 
 В этой статье описано, как подключиться к базе данных Azure SQL с помощью последней версии SQL Server Management Studio (SSMS) и выполнить простой запрос, используя инструкции Transact-SQL (T-SQL).
@@ -66,4 +66,4 @@
 
 Сведения о том, как создавать пользователей и администраторов базы данных см. в статье [SQL Database tutorial: Create SQL database user accounts to access and manage a database using the Azure portal](sql-database-get-started-security.md) (Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -22,13 +22,15 @@
 
 5. В обозревателе решений щелкните правой кнопкой мыши решение и выберите **Управление пакетами NuGet для решения**.
 
-6. Щелкните вкладку **Обзор** и выполните поиск `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Убедитесь, что имя проекта (**Receiver**) указано в поле **Версии**. Щелкните **Установить**, после чего примите условия использования.
+6. Щелкните вкладку **Обзор** и выполните поиск `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Убедитесь, что имя проекта (**Receiver**) указано в поле **Версии**. Щелкните **Установить** и примите условия использования.
 
     ![][13]
 
 	Будет скачана, установлена и добавлена ссылка на [пакет концентратора событий служебной шины Azure — EventProcessorHost NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) со всеми его зависимостями.
 
-7. Щелкните правой кнопкой мыши проект **Получатель**, выберите пункт **Добавить**, а затем **Класс**. Присвойте классу имя **SimpleEventProcessor**, а затем нажмите кнопку **ОК**, чтобы создать класс.
+7. Щелкните правой кнопкой мыши проект **Получатель**, выберите пункт **Добавить**, а затем **Класс**. Присвойте новому классу имя **SimpleEventProcessor**, а затем нажмите кнопку **ОК**, чтобы создать класс.
+
+	![][15]
 
 8. Добавьте в начало файла SimpleEventProcessor.cs следующие инструкции:
 
@@ -83,13 +85,13 @@
 
 	Этот класс будет вызываться из **EventProcessorHost** для обработки событий, полученных от концентратора событий. Обратите внимание, что в классе `SimpleEventProcessor` используется контрольный таймер для периодического вызова метода контрольных точек в контексте **EventProcessorHost**. Это гарантирует, что в случае перезагрузки получателя будет потеряно не более пяти минут обработки.
 
-9. Добавьте следующие операторы `using` в класс **Program** в начале файла:
+9. Добавьте в класс **Program** в начале файла следующую инструкцию `using`.
 
 	```
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-	Затем измените метод `Main` в классе `Program`, как показано ниже. Подставьте имя концентратора событий и строку подключения **ReceiveRule**, учетную запись хранения и ключ, которые были скопированы в предыдущих разделах. Не забудьте удалить суффикс `EntityPath` в строке подключения:
+	Затем измените метод `Main` в классе `Program` следующим кодом. При этом укажите имя концентратора событий и сохраненную ранее строку подключения уровня пространства имен, а также учетную запись хранения и ключ, которые вы скопировали в предыдущих разделах.
 
     ```
 	static void Main(string[] args)
@@ -98,8 +100,7 @@
       string eventHubName = "{Event Hub name}";
       string storageAccountName = "{storage account name}";
       string storageAccountKey = "{storage account key}";
-      string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", 
-      storageAccountName, storageAccountKey);
+      string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
 
       string eventProcessorHostName = Guid.NewGuid().ToString();
       EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
@@ -130,6 +131,6 @@
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
 
-<!---HONumber=AcomDC_0413_2016-->

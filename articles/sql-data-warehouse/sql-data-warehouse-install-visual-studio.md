@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Установка Visual Studio и (или) SSDT для хранилища данных SQL | Microsoft Azure"
-   description="Установка Visual Studio и (или) средств разработки SSDT для хранилища данных SQL Azure"
+   pageTitle="Установка Visual Studio и SSDT для хранилища данных SQL | Microsoft Azure"
+   description="Установка Visual Studio и SQL Server Data Tools (SSDT) для хранилища данных SQL Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,33 +13,32 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/16/2016"
    ms.author="sonyama;barbkess"/>
 
-# Установка Visual Studio 2015 и (или) SSDT для хранилища данных SQL
+# Установка Visual Studio 2015 и SSDT для хранилища данных SQL
 
 При разработке приложений для хранилища данных SQL мы рекомендуем использовать Visual Studio 2015 с последней версией SQL Server Data Tools (SSDT). Также поддерживается Visual Studio 2013 с SSDT.
 
-Для запуска запросов из интегрированной среды разработки (IDE) Visual Studio необходимо установить только SSDT. Будет выполнена установка IDE Visual Studio и SSDT, и вы сможете использовать обозреватель объектов SQL Server для подключения к серверу Azure SQL Server. После этого вы сможете просматривать и выполнять запросы к базам данных в хранилище данных SQL.
+Кроме того, для запуска запросов из интегрированной среды разработки (IDE) Visual Studio необходимо **обновление Microsoft SQL Server для средств работы с базами данных**. После установки этого расширения вы сможете просматривать объекты базы данных в дереве обозревателя объектов и выполнять запросы к хранилищу данных SQL.
 
+> [AZURE.NOTE] Хранилище данных SQL пока не поддерживает проекты базы данных Visual Studio. Эта функция будет добавлена в одной из следующих версий.
 
-## Шаг 1. Загрузите и установите Visual Studio.
+## Шаг 1. Установка Visual Studio 2015
 
-Если вы решили установить Visual Studio, можно использовать Visual Studio 2013 или Visual Studio 2015 с хранилищем данных SQL. Если приложение Visual Studio 2013 или 2015 уже установлено, перейдите к шагу 2 и установите SSDT.
-
-Чтобы установить Visual Studio 2015, сделайте следующее.
+Скачайте и установите Visual Studio 2015, используя приведенные ниже ссылки. Если приложение Visual Studio 2013 или 2015 уже установлено, можно перейти к шагу 2 и установить SSDT.
 
 1. [Загрузите Visual Studio 2015][] с сайта Visual Studio Team Services.
-2. Выполните установку, следуя инструкциям [Установка Visual Studio][] с сайта MSDN, а затем выберите конфигурации по умолчанию.
+2. Выполните установку, следуя инструкциям по [установке Visual Studio][] с сайта MSDN, а затем выберите конфигурации по умолчанию.
 
-## Шаг 2. Загрузка и установка последней версии SQL Server Data Tools (SSDT)
+## Шаг 2. Установка SSDT
 
-Независимо от того, установлено ли приложение Visual Studio, необходимо установить последнюю версию SQL Server Data Tools (SSDT), поддерживающую хранилище данных SQL.
+Чтобы установить SSDT для Visual Studio, проверьте наличие обновления SSDT в Visual Studio, выполнив следующие действия.
 
-Чтобы установить последнюю версию SSDT, сделайте следующее.
+1. В Visual Studio последовательно щелкните **Сервис**, **Расширения и обновления**, **Обновления**.
+2. Выберите **Обновления продукта** и поищите элемент **Обновление Microsoft SQL Server для средств работы с базами данных**.
 
-1. [Загрузите предварительную версию SQL Server Data Tools][] для Visual Studio 2013 или 2015.
-2. Выполните установку, следуя инструкциям на сайте загрузки.
+Если обновление не найдено, у вас установлена последняя версия. Чтобы убедиться, что компонент SSDT установлен, последовательно щелкните **Справка**, **О Microsoft Visual Studio** и найдите в списке пункт SQL Server Data Tools.
 
 ## Дальнейшие действия
 
@@ -49,12 +48,11 @@
 
 <!--Image references-->
 
-<!--Arcticles-->
+<!--Articles-->
 [подключению]: ./sql-data-warehouse-get-started-connect.md
 
 <!--Other-->
 [Загрузите Visual Studio 2015]: https://www.visualstudio.com/downloads/
-[Установка Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
-[Загрузите предварительную версию SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
+[установке Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

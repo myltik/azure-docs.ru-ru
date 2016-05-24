@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/03/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -176,4 +176,4 @@ ExpressRoute нельзя настроить как транзитный мар�
 	- [Создание и изменение маршрутизации для канала ExpressRoute с помощью PowerShell](expressroute-howto-routing-classic.md) или [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-arm.md) (Resource Manager).
 	- [Связывание виртуальной сети с каналами ExpressRoute](expressroute-howto-linkvnet-classic.md) или [Связывание виртуальных сетей с каналами ExpressRoute](expressroute-howto-linkvnet-arm.md) (Resource Manager).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

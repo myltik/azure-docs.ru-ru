@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/13/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Обзор хранилища озера данных Azure
@@ -67,11 +67,18 @@
 | Аутентификация | Хранилище озера данных Azure интегрируется с Azure Active Directory (AAD) для управления удостоверениями и доступом для всех данных, размещенных в хранилище озера данных Azure. В результате этой интеграции озеро данных Azure получает доступ ко всем функциям AAD, включая многофакторную проверку подлинности, условный доступ, контроль доступа на основе ролей, отслеживание использования приложений, мониторинг безопасности и предупреждения и т. д. Хранилище озера данных Azure поддерживает протокол OAuth 2.0 для проверки подлинности в интерфейсе REST. |
 | управление доступом; | Хранилище озера данных Azure обеспечивает контроль доступа за счет поддержки разрешений POSIX, предоставляемых протоколом WebHDFS. В текущем выпуске разрешения могут задаваться на уровне озера данных и будут применяться для всех файлов и папок в озере данных. Будущие обновления сделают доступным точный контроль доступа за счет использования разрешений для отдельных файлов и папок.|
 
-Инструкции по защите данных в хранилище озера данных см. в статье [Защита данных в хранилище озера данных Azure](data-lake-store-secure-data.md).
+Ссылки на дополнительные сведения о защите данных в хранилище озера данных приведены ниже.
+
+* Инструкции по защите данных в хранилище озера данных см. в статье [Защита данных в хранилище озера данных Azure](data-lake-store-secure-data.md).
+* Предпочитаете видео? [В этом видео](https://mix.office.com/watch/1q2mgzh9nn5lx) показано, как защитить данные, хранящиеся в хранилище озера данных.
 
 ## Приложения, совместимые с хранилищем озера данных Azure
 
-Список приложений с открытым кодом, совместимых с хранилищем озера данных Azure, см. в статье [Приложения и службы, совместимые с озером данных Azure](data-lake-store-compatible-oss-other-applications.md). См. статью [Интеграция с другими службами Azure](data-lake-store-integrate-with-other-services.md), чтобы узнать, как можно использовать хранилище озера данных с другими службами Azure для реализации более широкого диапазона сценариев.
+Хранилище озера данных Azure совместимо с большинством компонентов с открытым исходным кодом в экосистеме Hadoop. Также оно легко интегрируется с прочими службами Azure. Это делает хранилище озера данных идеальным вариантом для хранения данных. Перейдите по ссылкам ниже для получения дополнительных сведений об использовании хранилища озера данных как с компонентами с открытым исходным кодом, так и с другими службами Azure.
+
+* Список приложений с открытым исходным кодом, совместимых с хранилищем озера данных Azure, см. в статье [Приложения больших данных с открытым исходным кодом, которые работают с хранилищем озера данных Azure](data-lake-store-compatible-oss-other-applications.md).
+* См. статью [Интеграция с другими службами Azure](data-lake-store-integrate-with-other-services.md), чтобы узнать, как можно использовать хранилище озера данных с другими службами Azure для реализации более широкого диапазона сценариев.
+* См. статью [Сценарии работы с данными с использованием хранилища озера данных](data-lake-store-data-scenarios.md), чтобы узнать, как использовать хранилище озера данных в таких сценариях, как прием, обработка, загрузка и визуализация данных.
 
 ## Что такое файловая система хранилища озера данных Azure (adl://)?)
 
@@ -87,4 +94,20 @@
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Начало работы с хранилищем озера данных Azure с помощью пакета SDK .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+
+## Видео о хранилище озера данных
+
+Если вы предпочитаете обучаться по видео, вот ролики о различных возможностях хранилища озера данных.
+
+* [Create an Azure Data Lake Store Account](https://mix.office.com/watch/1k1cycy4l4gen) (Создание учетной записи хранения озера данных Azure)
+* [Use the Data Explorer to Manage Data in Azure Data Lake Store](https://mix.office.com/watch/icletrxrh6pc) (Управление данными в хранилище озера данных Azure с помощью обозревателя данных)
+* [Connect Azure Data Lake Analytics to Azure Data Lake Store](https://mix.office.com/watch/qwji0dc9rx9k) (Подключение Аналитики озера данных Azure с хранилищем озера данных)
+* [Access Azure Data Lake Store via Data Lake Analytics](https://mix.office.com/watch/1n0s45up381a8) (Доступ к хранилищу озера данных Azure с помощью Аналитики озера данных)
+* [Connect Azure HDInsight to Azure Data Lake Store](https://mix.office.com/watch/l93xri2yhtp2) (Подключение Azure HDInsight к хранилищу озера данных Azure)
+* [Access Azure Data Lake Store via Data Lake Analytics](https://mix.office.com/watch/1n9g5w0fiqv1q) (Доступ к хранилищу озера данных Azure с помощью Hive и Pig)
+* [Use DistCp (Hadoop Distributed Copy) to copy data to and from Azure Data Lake Store](https://mix.office.com/watch/1liuojvdx6sie) (Использование средства DistCp (Hadoop Distributed Copy) для копирования данных из хранилища озера данных Azure и обратно)
+* [Use Apache Sqoop to move data between relational sources and Azure Data Lake Store](https://mix.office.com/watch/1butcdjxmu114) (Использование Apache Sqoop для перемещения данных между реляционными источниками и хранилищем озера данных Azure)
+* [Data Orchestration using Azure Data Factory for Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka) (Оркестрация данных с помощью фабрики данных Azure для хранилища озера данных Azure)
+* [Securing Data in the Azure Data Lake Store](https://mix.office.com/watch/1q2mgzh9nn5lx) (Защита данных в хранилище озера данных Azure)
+
+<!---HONumber=AcomDC_0518_2016-->

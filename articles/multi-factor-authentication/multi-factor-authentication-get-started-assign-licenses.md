@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/10/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Назначение пользователям лицензии Azure MFA, Azure AD Premium или Enterprise Mobility
@@ -33,4 +33,4 @@
 7. **Щелкните** кнопку с галочкой, чтобы сохранить изменения. ![Назначение лицензий](./media/multi-factor-authentication-get-started-assign-licenses/assign4.png)
 8. Появится сообщение о том, сколько лицензий назначено и сколько не удалось назначить. Нажмите кнопку **ОК**. ![Назначение лицензий](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->
