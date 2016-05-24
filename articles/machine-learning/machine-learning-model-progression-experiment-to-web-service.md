@@ -160,4 +160,4 @@
 
 -   [Пошаговое руководство по разработке решения для прогнозной аналитики в службе машинного обучения Azure для оценки кредитных рисков](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!-----HONumber=AcomDC_0504_2016-->
+<!------HONumber=AcomDC_0504_2016-->
