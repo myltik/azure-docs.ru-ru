@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/10/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Приступая к работе с сервером Azure Multi-Factor Authentication
@@ -186,4 +186,4 @@ IP-подсеть|Маска сети|Диапазон IP-адресов
 [Синхронизация с Active Directory Windows Server](multi-factor-authentication-get-started-server-dirint.md)|Сведения об установке и настройке синхронизации между Active Directory и сервером Azure Multi-Factor Authentication.
 [Развертывание веб-службы мобильных приложений сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Сведения об установке и настройке веб-службы сервера Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

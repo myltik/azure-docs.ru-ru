@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/10/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Приступая к работе с Azure Mobile Engagement для приложений Android
@@ -68,7 +68,7 @@ Android Studio создаст демонстрационное приложен�
 
 ### Включение библиотеки пакета SDK в проект
 
-1. Скачайте [пакет SDK Android для Mobile Engagement].
+1. Скачайте [Пакет SDK Android для Mobile Engagement].
 2. Извлеките файл архива в папку на своем компьютере.
 3. Определите библиотеку JAR-файлов для текущей версии этого пакета SDK и скопируйте ее в буфер обмена.
 
@@ -165,7 +165,7 @@ Mobile Engagement позволяет взаимодействовать и СВ�
 
 [AZURE.INCLUDE [Отправка уведомления с портала](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
-## Дополнительные ресурсы
+## Дальнейшие действия
 
 Подробные сведения об интеграции пакета SDK см. в статье [Пакет Android SDK для Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md).
 
@@ -182,4 +182,4 @@ Mobile Engagement позволяет взаимодействовать и СВ�
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

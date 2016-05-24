@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/10/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Приступая к работе с веб-службой мобильного приложения сервера Azure Multi-Factor Authentication
@@ -90,4 +90,4 @@
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

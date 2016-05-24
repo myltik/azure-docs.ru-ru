@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/06/2016"
+   ms.date="05/16/2016"
    ms.author="derrickv"/>
 
 # Внедрение отчета Power BI с помощью IFrame
@@ -180,8 +180,42 @@ function postActionLoadReport() {
     iframe.contentWindow.postMessage(message, "*");
 }
 ```
+Внедрив в приложение отчет, вы сможете фильтровать в нем данные. В следующем разделе показано, как можно отфильтровать данные в отчете с помощью синтаксиса URL-адреса.
 
-В этой статье представлен код для интеграции отчета **Power BI** в приложение. Чтобы быстро приступить к интеграции отчета в приложение, скачайте следующие примеры на GitHub:
+## Фильтрация данных в отчете
+
+Можно отфильтровать внедренный отчет, используя синтаксис URL-адреса. Для этого добавьте параметр строки запроса в исходный URL-адрес iFrame с указанием фильтра. Вы можете **отфильтровать данные по значению** и **скрыть панель фильтра**.
+
+
+**Фильтрация по значению**
+
+Чтобы отфильтровать данные значению, используйте синтаксис запроса **$filter** с оператором **eq**.
+
+```
+https://app.powerbi.com/reportEmbed
+?reportId=d2a0ea38-0694-...-ee9655d54a4a&
+$filter={tableName/fieldName}%20eq%20'{fieldValue}'
+```
+
+Например, можно отфильтровать данные по свойству Store Chain, для которого задано значение Lindseys. Фильтр в составе URL-адреса будет выглядеть так:
+
+```
+$filter=Store/Chain%20eq%20'Lindseys'
+```
+
+> [AZURE.NOTE] {tableName/fieldName} не может содержать пробелы или специальные знаки. {FieldValue} принимает одно дискретное значение.
+
+**Скрытие панели фильтра**
+
+Чтобы скрыть **панель фильтра**, добавьте в запрос отчета строку **filterPaneEnabled**.
+
+```
+&filterPaneEnabled=false
+```
+
+## Заключение
+
+В этой статье мы рассмотрели код для интеграции отчета **Power BI** в приложение. Чтобы быстро приступить к интеграции отчета в приложение, скачайте следующие примеры на GitHub:
 
 - [пример интеграции отчета с помощью IFrame;](https://github.com/Azure-Samples/power-bi-embedded-iframe)
 - [Пример панели мониторинга веб-приложения](http://go.microsoft.com/fwlink/?LinkId=761493)
@@ -192,6 +226,6 @@ function postActionLoadReport() {
 - [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) (Получение отчета)
+- [Get Reports (Получение отчета)](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

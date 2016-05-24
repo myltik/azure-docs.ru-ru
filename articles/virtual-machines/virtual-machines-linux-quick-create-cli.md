@@ -166,10 +166,9 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 С помощью команды `azure vm quick-create` можно быстро развернуть виртуальную машину, чтобы войти в оболочку Bash и начать работать. Команда `vm quick-create` не дает дополнительные преимущества сложной среды. Чтобы развернуть виртуальную машину Linux, настроенную для вашей инфраструктуры, выполните инструкции, приведенные в любой из следующих статей.
 
 - [Развертывание виртуальных машин и управление ими с помощью шаблонов Azure Resource Manager и интерфейса командной строки Azure.](virtual-machines-linux-cli-deploy-templates.md)
-- [Развертывание виртуальных машин и управление ими с помощью шаблонов Azure Resource Manager и интерфейса командной строки Azure](virtual-machines-linux-cli-deploy-templates.md).
+- [Создание виртуальной машины Linux с нуля с помощью Azure CLI](virtual-machines-linux-create-cli-complete.md).
 - [Создание защищенной виртуальной машины Linux с помощью шаблона Azure.](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-- [Создание виртуальной машины Linux с нуля с помощью Azure CLI.](virtual-machines-linux-create-cli-complete.md)
 
 Эти статьи помогут вам создать свою инфраструктуру Azure. Кроме того, вы сможете использовать разные закрытые и открытые средства для развертывания, настройки и оркестрации инфраструктуры.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

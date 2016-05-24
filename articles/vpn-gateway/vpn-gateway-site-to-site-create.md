@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/13/2016"
    ms.author="cherylmc"/>
 
 # Создание виртуальной сети с VPN-подключением типа "сеть — сеть" с помощью классического портала Azure
@@ -27,17 +27,20 @@
 
 В этой статье показано, как создать виртуальную сеть и VPN-подключение типа "сеть-сеть" к локальной сети. Подключения типа "сеть — сеть" можно использовать для распределенных и гибридных конфигураций. Эта статья применима к модели классического развертывания. Инструкции из этой статьи выполняются на классическом портале Azure.
 
+
 **О моделях развертывания Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+## Схема подключения
  
 ![Схема "сеть — сеть"](./media/vpn-gateway-site-to-site-create/site2site.png "сеть — сеть")
 
 **Модели развертывания и средства для подключений типа "сеть — сеть"**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
- 
-Если вы хотите объединить виртуальные сети, но не создаете подключение к локальному расположению, см. статью [Настройка подключения между виртуальными сетями для классической модели развертывания](virtual-networks-configure-vnet-to-vnet-connection.md) или [Настройка подключения между виртуальными сетями с помощью Azure Resource Manager и PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+
+Если вы хотите объединить виртуальные сети, не создавая соединение с локальным расположением, см. статью [Настройка подключения между виртуальными сетями с помощью Azure Resource Manager и PowerShell](virtual-networks-configure-vnet-to-vnet-connection.md). Если вам нужен другой тип конфигурации соединения, см. статью [Топологии подключения через VPN-шлюз Azure](vpn-gateway-topology.md).
 
  
 ## Перед началом работы
@@ -48,7 +51,7 @@
 
 -  Внешний общедоступный IP-адрес для VPN-устройства. Этот IP-адрес не может располагаться вне преобразования сетевых адресов (NAT).
 
-- Подписка Azure. Если у вас нет подписки Azure, вы можете активировать [преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
+- Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрировать бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Создание виртуальной сети
@@ -109,4 +112,4 @@
 
 Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительную информацию см. в [документации по виртуальным машинам](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

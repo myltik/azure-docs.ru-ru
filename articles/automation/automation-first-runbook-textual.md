@@ -6,14 +6,14 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-	keywords="рабочий процесс PowerShell, примеры рабочего процесса powershell, рабочие процессы powershell" />
+	keywords="рабочий процесс PowerShell, примеры рабочего процесса powershell, рабочие процессы powershell"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="05/18/2016"
     ms.author="magoedte;bwren"/>
 
 # Первый Runbook рабочего процесса PowerShell
@@ -45,8 +45,23 @@
 
 Можно либо напрямую ввести код в модуль Runbook, либо выбрать командлеты, модули Runbook и ресурсы из элемента управления "Библиотека" и добавить их к модулю Runbook с любыми связанными параметрами. В этом пошаговом руководстве мы введем код напрямую в модуль Runbook.
 
-1.	Созданный нами модуль Runbook в настоящее время пуст и содержит лишь обязательное ключевое слово *workflow*, имя нашего модуля Runbook и фигурной скобки, в которых будет помещен весь рабочий процесс. <br> ![Элемент управления "Модули Runbook"](media/automation-first-runbook-textual/empty-runbook.png)
-2.	Введите *Write-Output "Привет, мир!"* между фигурными скобками. <br> ![Привет, мир!](media/automation-first-runbook-textual/hello-world.png)
+1.	Созданный нами модуль Runbook пока пуст и содержит лишь обязательное ключевое слово *workflow*, имя нашего модуля Runbook и фигурные скобки, в которые будет добавлен весь рабочий процесс. 
+
+    ```
+    Workflow MyFirstRunbook-Workflow
+    {
+    }
+    ```
+
+2.	Введите *Write-Output "Привет, мир!"* между фигурными скобками.
+   
+    ```
+    Workflow MyFirstRunbook-Workflow
+    {
+      Write-Output "Hello World"
+    }
+    ```
+
 3.	Щелкните **Сохранить**, чтобы сохранить модуль Runbook.<br> ![Сохранить Runbook](media/automation-first-runbook-textual/runbook-edit-toolbar-save.png)
 
 ## Шаг 3. Тестирование модуля Runbook
@@ -78,23 +93,38 @@
 
 ## Шаг 5. Добавление проверки подлинности для управления ресурсами Azure
 
-Мы протестировали и опубликовали свой модуль Runbook, но пока он не выполняет никаких полезных действий. Нам нужно, чтобы он управлял ресурсами Azure. Runbook не сможет делать это, пока не пройдет проверку подлинности с использованием учетных данных, упомянутых в [предварительных требованиях](#prerequisites). Для этого используется командлет **Add-AzureAccount**.
+Мы протестировали и опубликовали свой модуль Runbook, но пока он не выполняет никаких полезных действий. Нам нужно, чтобы он управлял ресурсами Azure. Runbook не сможет делать это, пока не пройдет проверку подлинности с использованием учетных данных, упомянутых в [предварительных требованиях](#prerequisites). Для этого используется командлет **Add-AzureRMAccount**.
 
 1.	Откройте текстовый редактор, щелкнув **Изменить** в области MyFirstRunbook-Workflow.<br> ![Изменить Runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png)
 2.	Нам больше не потребуется использовать строку **Write-Output**, поэтому удалите ее.
 3.	Поместите курсор в пустую строку между фигурными скобками.
-4.	В элементе управления "Библиотека" разверните пункт **Ресурсы**, а затем — **Учетные данные**.
-5.	Щелкните правой кнопкой ваши учетные данные, а затем щелкните **Добавить на холст**. При этом будет добавлено действие **Get-AutomationPSCredential** для ваших учетных данных.
-6.	Перед действием **Get-AutomationPSCredential** введите *$Credential =*, чтобы назначить эти учетные данные переменной.
-7.	В следующей строке введите *Add-AzureAccount -Credential $Credential*. <br> ![Проверка подлинности](media/automation-first-runbook-textual/authentication.png)
-8.	Щелкните **область тестирования**, чтобы проверить модуль Runbook.
-9.	Щелкните **Пуск**, чтобы начать тестирование. По завершении вы должны будете получить выходные данные, сходные с указанными, в которых содержатся сведения о пользователе этих учетных данных. Это подтверждает допустимость учетных данных.<br> ![Проверка подлинности](media/automation-first-runbook-textual/authentication-test.png)
+4.	Введите или скопируйте и вставьте следующий код, который выполнит проверку подлинности с помощью учетной записи запуска от имени службы автоматизации:
+
+    ```
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    ```
+
+5.	Щелкните **область тестирования**, чтобы проверить модуль Runbook.
+6.	Щелкните **Пуск**, чтобы начать тестирование. После его завершения на экране должны отобразиться основные сведения из вашей учетной записи. Это подтверждает правильность учетных данных. <br> ![Проверка подлинности](media/automation-first-runbook-textual/runbook-auth-results.png)
 
 ## Шаг 6. Добавление кода запуска виртуальной машины
 
 Теперь, когда созданный модуль Runbook проходит проверку подлинности для подписки Azure, мы можем перейти к управлению ресурсами. Мы добавим команду запуска виртуальной машины. Вы можете выбрать любую виртуальную машину в своей подписке Azure. Имя этой машины будет прописано в коде командлета.
 
-1.	После *Add-AzureAccount* введите *Start-AzureVM -Name 'VMName' -ServiceName 'VMServiceName'*, указав имя и имя службы виртуальной машины, которую необходимо запустить. <br> ![Проверка подлинности](media/automation-first-runbook-textual/start-azurevm.png)
+1.	После команды *Add-AzureRmAccount* введите команду *Start-AzureRmVM -Name 'имя\_ВМ' -ResourceGroupName 'имя\_группы\_ресурсов'*, указав имя виртуальной машины, которую нужно запустить, и имя ее группы ресурсов.  
+
+    ```
+    workflow MyFirstRunbook-Workflow
+    {
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
+    }
+    ```
+
 2.	Сохраните модуль Runbook, после чего щелкните **область тестирования** для выполнения проверок.
 3.	Щелкните **Пуск**, чтобы начать тестирование. После завершения теста проверьте, запущена ли виртуальная машина.
 
@@ -102,18 +132,35 @@
 
 Созданный модуль Runbook в настоящее время запускает виртуальную машину, жестко указанную в модуле Runbook, однако было бы полезнее, если бы мы могли указать виртуальную машину при запуске Runbook. Для этого добавим в модуль Runbook входные параметры.
 
-1.	Добавьте параметры для *VMName* и *VMServiceName* в Runbook и используйте эти переменные в командлете **Start-AzureVM**, как показано на рисунке ниже. <br> ![Проверка подлинности](media/automation-first-runbook-textual/params.png)
+1.	Добавьте параметры для *VMName* и *ResourceGroupName* в модуль Runbook и используйте эти переменные в командлете **Start-AzureRmVM**, как показано в примере ниже. 
+
+    ```
+    workflow MyFirstRunbook-Workflow
+    {
+       Param(
+        [string]$VMName,
+        [string]$ResourceGroupName
+       )  
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
+    }
+    ```
+
 2.	Сохраните модуль Runbook и откройте область тестирования. Обратите внимание, что теперь значения двух входных переменных, которые будут использоваться в тесте, можно указать.
 3.	Закройте область тестирования.
 4.	Щелкните **Опубликовать**, чтобы опубликовать новую версию модуля Runbook.
 5.	Остановите виртуальную машину, запущенную на предыдущем этапе.
-6.	Щелкните **Пуск**, чтобы запустить модуль Runbook. Введите **ИмяВМ** и **ИмяСлужбыВМ** для виртуальной машины, которую нужно запустить.<br> ![Запуск модуля Runbook](media/automation-first-runbook-textual/start-runbook-input-params.png)
+6.	Щелкните **Пуск**, чтобы запустить модуль Runbook. Введите **имя виртуальной машины** и **имя группы ресурсов** для виртуальной машины, которую нужно запустить.<br> ![Запуск модуля Runbook](media/automation-first-runbook-textual/automation-pass-params.png)
 
 7.	Когда модуль Runbook будет выполнен, проверьте, запустилась ли виртуальная машина.
 
-## Связанные статьи
+## Дальнейшие действия
 
--	[Первый графический Runbook](automation-first-runbook-graphical.md)
--	[Мой первый модуль Runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
+-  Сведения о том, как начать работу с графическими модулями Runbook, см. в статье [Первый графический Runbook](automation-first-runbook-graphical.md).
+-	Сведения о том, как начать работу с модулями Runbook, см. в статье [Мой первый модуль Runbook PowerShell](automation-first-runbook-textual-powershell.md).
+-  Дополнительные сведения о типах модулей Runbook, их преимуществах и ограничениях см. в статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md).
+-	Дополнительные сведения о функции поддержки скриптов PowerShell см. в статье, посвященной [поддержке собственных скриптов PowerShell в службе автоматизации Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

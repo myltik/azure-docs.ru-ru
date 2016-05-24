@@ -41,7 +41,7 @@
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
-### Туннель DC/OS
+## Туннель DC/OS
 
 Чтобы создать туннель к связанным с DC/OS конечным точкам, выполните следующую команду:
 
@@ -59,7 +59,7 @@ ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com 
 
 Аналогичным образом через этот туннель можно подключаться к интерфейсам REST API каждого приложения.
 
-### Туннель Swarm
+## Туннель Swarm
 
 Чтобы открыть туннель для конечной точки Swarm, выполните следующую команду:
 
@@ -117,4 +117,4 @@ export DOCKER_HOST=:2375
 
 [Управление службой контейнеров Azure через REST API](./container-service-mesos-marathon-rest.md) [Управление службой контейнеров Azure с помощью Docker Swarm](./container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->
