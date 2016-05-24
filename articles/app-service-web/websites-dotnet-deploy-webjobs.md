@@ -188,4 +188,4 @@
 
 В этой статье показано, как развернуть WebJob с помощью Visual Studio. Дополнительные сведения о развертывании веб-заданий Azure см. в статье [Веб-задания Azure. Рекомендуемые ресурсы. Развертывание](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
-<!----HONumber=AcomDC_0504_2016-->
+<!-----HONumber=AcomDC_0504_2016-->

@@ -109,4 +109,4 @@
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!-----HONumber=AcomDC_0504_2016-->
+<!------HONumber=AcomDC_0504_2016-->
