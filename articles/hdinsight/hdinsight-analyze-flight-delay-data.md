@@ -51,7 +51,9 @@ Hive предоставляет средства для выполнения з�
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Рабочая станция с Azure PowerShell.**. См. раздел [Установка Azure PowerShell 1.0 и более поздних версий](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Рабочая станция с Azure PowerShell.**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 **Файлы, используемые в этом учебнике**
 
@@ -256,7 +258,7 @@ Hadoop MapReduce представляет из себя пакетную обр�
 3. Щелкните элемент **Загрузить**.
 4. Распакуйте файл в папку **C:\\Tutorials\\FlightDelay\\2013Data**. Каждый файл представляет собой CSV-файл и имеет размер около 60 ГБ.
 5.	Переименуйте файл в название месяца, данные по которому он содержит. Например, файл, содержащий данные за январь, следует назвать *January.csv*.
-6. Повторите шаги 2 и 5, чтобы загрузить файл для каждого из 12 месяцев 2013 года. Для выполнения руководства вам понадобится как минимум один файл.  
+6. Повторите шаги 2 и 5, чтобы загрузить файл для каждого из 12 месяцев 2013 года. Для выполнения руководства вам понадобится как минимум один файл.  
 
 **Отправка данных о задержке рейсов в хранилище больших двоичных объектов Azure**
 
@@ -729,7 +731,7 @@ Hadoop MapReduce представляет из себя пакетную обр�
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 [hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
@@ -740,4 +742,4 @@ Hadoop MapReduce представляет из себя пакетную обр�
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

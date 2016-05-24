@@ -20,7 +20,7 @@
 # Создание приложения для аварийного восстановления облака с использованием активной георепликации в базе данных SQL
 
 
-> [AZURE.NOTE] [Active Geo-Replication]Раздел (sql-database-geo-replication-overview.md) теперь доступен для всех баз данных и всех уровней.
+> [AZURE.NOTE] Раздел [Active Geo-Replication](sql-database-geo-replication-overview.md) теперь доступен для всех баз данных и всех уровней.
 
 
 
@@ -162,5 +162,6 @@
 - [Проектирование приложений для аварийного восстановления в облаке](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Финализация восстановленной Базы данных SQL Azure](sql-database-recovered-finalize.md)
 - [Часто задаваемые вопросы о непрерывности бизнес-процессов и аварийном восстановлении в базах данных SQL](sql-database-bcdr-faq.md)
+
 
 <!---HONumber=AcomDC_0504_2016-->

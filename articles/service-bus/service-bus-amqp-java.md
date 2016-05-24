@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Служебная шина и Java с протоколом AMQP 1.0 | Microsoft Azure"
-   description="Использование служебной шины на платформе Java с протоколом AMQP"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Служебная шина и Java с протоколом AMQP 1.0 | Microsoft Azure"
+    description="Использование служебной шины на платформе Java с протоколом AMQP"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Использование служебной шины для Java с протоколом AMQP 1.0
 
@@ -446,4 +446,4 @@ while (propertyNames.hasMoreElements())
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 [классического портала Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

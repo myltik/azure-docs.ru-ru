@@ -1,6 +1,6 @@
-The following table lists the possible upload and capture combinations of Windows generalized (gen.) and specialized (spec.) OS images. The combinations that will process without any errors are indicated by a Y, and those that will throw errors are indicated by an N. The causes and resolutions for the different errors you will run into are given below the table.
+В следующей таблице перечислены возможные комбинации отправок и записей универсальных (унив.) и специализированных (спец.) образов ОС Windows. Сочетания, которые будут работать без проблем, обозначены меткой "Да", а комбинации, которые будут выдавать ошибки, — меткой "Нет". После таблицы приведены причины возникновения ошибок и способы их устранения.
 
-| OS            | Upload spec. | Upload gen. | Capture spec. | Capture gen. |
+| ОС | Отправка спец. | Отправка унив. | Запись спец. | Запись унив. |
 |---------------|--------------|-------------|---------------|--------------|
-| Windows gen.  | N<sup>1</sup>            | Y           | N<sup>3</sup>             | Y            |
-| Windows spec. | Y            | N<sup>2</sup>           | Y             | N<sup>4</sup>            |
+| Windows унив. | Нет<sup>1</sup> | Да | Нет<sup>3</sup> | Да |
+| Windows спец. | Да | Нет<sup>2</sup> | Да | Нет<sup>4</sup> |

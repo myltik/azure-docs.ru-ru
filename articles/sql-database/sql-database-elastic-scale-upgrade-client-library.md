@@ -4,7 +4,7 @@
 	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/01/2016" 
+	ms.date="04/26/2016" 
 	ms.author="ddove;sidneyh" />
 
-# Обновление до последней версии клиентской библиотеки эластичной базы данных
+# Обновление приложения для использования новой версии клиентской библиотеки эластичной базы данных
 
-Новые версии [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md) доступны на сайте [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) и через интерфейс диспетчера пакетов NuGet в Visual Studio. В обновленных версиях исправлены ошибки и добавлена поддержка новых возможностей клиентской библиотеки.
+Новые версии [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md) доступны через интерфейс диспетчера пакетов NuGet в Visual Studio. В обновленных версиях исправлены ошибки и добавлена поддержка новых возможностей клиентской библиотеки.
+
+**Новая версия**: [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 Выполните повторную сборку приложения с использованием новой библиотеки, а также измените существующие метаданные диспетчера сопоставления сегментов, сохраненные в базах данных SQL Azure, чтобы обеспечить поддержку новых функций.
 
@@ -39,7 +41,7 @@
 
 **3. Обновите свои службы разбиения и объединения.** Если для реорганизации сегментированных данных используется инструмент разбиения и объединения эластичной базы данных, [скачайте и установите последнюю версию инструмента](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Подробные указания по обновлению данной службы можно найти [здесь](sql-database-elastic-scale-overview-split-and-merge.md).
 
-**4. Обновите свои базы данных диспетчера сопоставления сегментов**. Обновите метаданные, обслуживающие функцию сопоставления сегментов в базе данных SQL Azure. Это можно сделать двумя способами — с помощью PowerShell или C#. Ниже описаны оба этих способа.
+**4. Обновите базы данных диспетчера сопоставления сегментов**. Обновите метаданные, обслуживающие функцию сопоставления сегментов в базе данных SQL Azure. Это можно сделать двумя способами — с помощью PowerShell или C#. Ниже описаны оба этих способа.
 
 ***Вариант 1. Обновление метаданных с помощью PowerShell***
 
@@ -74,20 +76,7 @@
 
 ## Журнал версий клиента эластичной базы данных 
 
-**Версия 1.0, апрель 2015 г.**
-
-* Выход общедоступного выпуска
-* Добавлена поддержка для типов даты и времени в качестве ключей сегментирования
-
-**Версия 0.8, март 2015 г.**
-
-* Добавлена поддержка асинхронной маршрутизации в зависимости от данных с помощью новых методов ShardMap.OpenConnectionForKeyAsync. 
-* В ShardMap добавлено общее свойство KeyType. 
-* Добавлены некоторые улучшения, поддерживающие сценарии восстановления базы данных и аварийного восстановления сегментов. 
-
-**Версия 0.7, октябрь 2014 г.**
-
-Исходная предварительная версия
+Журнал версий можно просмотреть здесь: [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -97,4 +86,4 @@
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

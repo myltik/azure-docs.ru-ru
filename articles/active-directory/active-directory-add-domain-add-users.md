@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="04/20/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Назначение пользователей пользовательскому домену
@@ -56,10 +56,10 @@
 
 ## Дальнейшие действия
 
-- [Использование пользовательских доменных имен для упрощения входа пользователей в систему](active-directory-add-domain.md)
-- [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
-- [Добавление и проверка пользовательского доменного имени в Azure Active Directory](active-directory-add-domain-add-verify-general.md)
-- [Изменение регистратора DNS для пользовательского доменного имени](active-directory-add-domain-change-registrar.md)
-- [Удаление пользовательского доменного имени в Azure Active Directory](active-directory-add-domain-delete-domain.md)
+-   [Использование пользовательских доменных имен для упрощения входа пользователей в систему](active-directory-add-domain.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+-   [Управление именами пользовательских доменов](active-directory-add-manage-domain-names.md)
+
+-   [Общие сведения об управлении доменами в Azure AD](active-directory-add-domain-concepts.md)
+
+<!---HONumber=AcomDC_0511_2016-->

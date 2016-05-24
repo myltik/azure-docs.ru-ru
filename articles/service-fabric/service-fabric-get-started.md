@@ -3,7 +3,7 @@
    description="Установите среду выполнения, пакет SDK и инструменты и создайте локальный кластер разработки. После этого вы сможете создавать приложения."
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/18/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Подготовка среды разработки
  Чтобы создавать и запускать [приложения Service Fabric][1] на компьютере для разработки, вам нужно установить среду выполнения, пакет SDK и инструменты. Вам также нужно включить выполнение сценариев Windows PowerShell, включенных в пакет SDK.
@@ -64,4 +64,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Ссылка Core SDK WebPI"
 [powershell5-download]: https://www.microsoft.com/ru-RU/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

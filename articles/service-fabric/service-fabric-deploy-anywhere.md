@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/05/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 # Создание автономных кластеров Service Fabric в Windows Server или Linux
@@ -62,4 +62,4 @@ Service Fabric предоставляет установочный пакет, �
 
 Создание кластера на основе виртуальных машин или компьютеров под управлением Linux: [Service Fabric в Linux](service-fabric-linux-overview.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

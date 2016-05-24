@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Настройка облачной службы | Microsoft Azure" 
+	pageTitle="Настройка облачной службы (классический портал) | Microsoft Azure" 
 	description="Узнайте, как настроить облачные службы в Azure. Как обновить конфигурацию облачной службы и настроить удаленный доступ к экземплярам роли." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016"
+	ms.date="04/22/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Настройка облачных служб
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-configure-portal.md)
-- [Azure classic portal](cloud-services-how-to-configure.md)
+- [Портал Azure](cloud-services-how-to-configure-portal.md)
+- [Классический портал Azure](cloud-services-how-to-configure.md)
 
 Часто используемые параметры облачной службы можно настроить на классическом портале Azure. Также можно напрямую изменить файлы конфигурации. Для этого загрузите и измените нужный файл, а затем отправьте его для обновления конфигурации облачной службы. В любом случае обновления конфигурации применяются ко всем экземплярам ролей.
 
@@ -84,6 +84,6 @@
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name.md).
 * [Управляйте облачной службой](cloud-services-how-to-manage.md).
 * [Активация подключения к удаленному рабочему столу для роли в облачных службах Azure](cloud-services-role-enable-remote-desktop.md)
-* Настройте [SSL-сертификаты](cloud-services-configure-ssl-certificate.md).
+* Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

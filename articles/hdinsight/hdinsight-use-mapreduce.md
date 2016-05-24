@@ -146,7 +146,7 @@ Hadoop MapReduce — это программная платформа для н
 	  }
 	}
 
-Инструкции по написанию собственного задания MapReduce см. в разделе [Разработка программ MapReduce на Java для HDInsight](hdinsight-develop-deploy-java-mapreduce.md).
+Инструкции по написанию собственного задания MapReduce см. в разделе [Разработка программ MapReduce на Java для HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md).
 
 ##<a id="run"></a>Запуск MapReduce
 
@@ -163,7 +163,7 @@ HDInsight может запускать задания HiveQL с помощью 
 
 Хотя платформа MapReduce предоставляет мощные диагностические функции, она может быть сложной для освоения. Некоторые платформы на основе Java упрощают определение приложений MapReduce, а такие технологии, как Pig и Hive, упрощают работу с данными в HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-* [Разработка программ MapReduce на Java для HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+* [Разработка программ MapReduce на Java для HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 
 * [Разработка программ MapReduce с потоковой передачей Python для HDInsight](hdinsight-hadoop-streaming-python.md)
 
@@ -178,7 +178,7 @@ HDInsight может запускать задания HiveQL с помощью 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-samples]: hdinsight-run-samples.md
@@ -188,4 +188,4 @@ HDInsight может запускать задания HiveQL с помощью 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

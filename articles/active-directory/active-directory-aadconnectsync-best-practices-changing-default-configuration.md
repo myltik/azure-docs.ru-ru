@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="markusvi;andkjell"/>
+	ms.date="05/10/2016"
+	ms.author="markvi;andkjell"/>
 
 
 # Службы синхронизации Azure AD Connect: рекомендации по изменению конфигурации по умолчанию
@@ -109,4 +109,4 @@
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="05/09/2016"
 	ms.author="cynthn"/>
 
 # Подключение диска данных к виртуальной машине Windows на портале Azure
@@ -31,7 +31,7 @@
 
 ## <a id="initializeinWS"></a>Практическое руководство. Инициализация нового диска данных в Windows Server
 
-1. Подключитесь к виртуальной машине. Инструкции см. в статье [How to connect and log on to an Azure virtual machine running Windows Server](virtual-machines-windows-connect-logon.md) (Подключение и вход на виртуальную машину Azure под управлением Windows Server).
+1. Подключитесь к виртуальной машине. Инструкции см. в статье [Как подключиться к виртуальной машине Azure под управлением Windows Server и войти на нее](virtual-machines-windows-connect-logon.md).
 
 2. После входа в систему на виртуальной машине откройте **Диспетчер сервера** В левой панели выберите **Файловые службы и службы хранилища**.
 
@@ -55,4 +55,4 @@
 
 Если вашему приложению нужно использовать диск D для хранения данных, вы можете [изменить букву временного диска Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

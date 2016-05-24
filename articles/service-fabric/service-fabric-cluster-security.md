@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/01/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 # Защита кластера Service Fabric
@@ -82,6 +82,7 @@ Login-AzureRmAccount
 ```
 
 Следующий сценарий создаст группу ресурсов и/или хранилище ключей, если они еще не созданы. **Обратите внимание: если используется существующее хранилище ключей, оно должно быть настроено для поддержки развертывания с помощью этого сценария.**
+
 ```
 Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForDeployment
 ```
@@ -134,11 +135,11 @@ Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -R
 Так как это самозаверяющий сертификат, перед его использованием для подключения к безопасному кластеру необходимо импортировать его в хранилище TrustedPeople на вашем компьютере.
 
 ```
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password")
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
 ```
 
 ```
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password")
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
 ```
 
 Если сценарий успешно выполнен, вы получите следующие выходные данные. Они понадобятся для выполнения шага 3.
@@ -262,4 +263,4 @@ Service Fabric позволяет указать два сертификата 
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

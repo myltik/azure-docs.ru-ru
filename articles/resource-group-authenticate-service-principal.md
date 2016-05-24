@@ -23,9 +23,9 @@
 В этой статье рассказывается, как создавать приложение и субъект-службу, назначать субъекту-службе роль и проходить проверку подлинности в качестве субъекта-службы, используя Azure PowerShell или интерфейс командной строки Azure для Mac, Linux и Windows. Если вы еще не установили Azure PowerShell, см. статью [Как установить и настроить Azure PowerShell](./powershell-install-configure.md). Если у вас не установлен интерфейс CLI Azure для Mac, Linux или Windows, см. статью [Установка и настройка CLI Azure](xplat-cli-install.md). Подробнее об использовании портала для выполнения этих шагов см. в разделе [Создание приложения Active Directory и субъекта-службы с помощью портала](resource-group-create-service-principal-portal.md).
 
 ## Основные понятия
-1. Azure Active Directory — это служба управления удостоверениями и доступом, созданная для облака. Дополнительные сведения см. в статье [Что такое Azure Active Directory](active-directory/active-directory-whatis.md).
-2. Субъект-служба — это экземпляр приложения в каталоге, которому требуется доступ к другим ресурсам.
-3. Приложение Active Directory — запись в каталоге, которая связывает некоторое приложение со службой AAD.
+1. Azure Active Directory — это служба управления удостоверениями и доступом, созданная для облака. Дополнительные сведения см. в статье [Что такое Azure Active Directory](active-directory/active-directory-whatis.md).
+2. Субъект-служба — это экземпляр приложения в каталоге, которому требуется доступ к другим ресурсам.
+3. Приложение Active Directory — запись в каталоге, которая связывает некоторое приложение со службой AAD.
 
 Более подробное описание приложений и субъектов-служб см. в разделе [Объекты приложений и объекты субъектов-служб](active-directory/active-directory-application-objects.md). Дополнительные сведения об аутентификации Active Directory см. в статье [Сценарии проверки подлинности в Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
@@ -69,7 +69,7 @@
 
 3. Предоставьте субъекту-службе разрешения на вашу подписку. В этом примере вы предоставите субъекту-службе разрешение на чтение всех ресурсов в подписке. Для параметра **ServicePrincipalName** укажите значение **ApplicationId** или **IdentifierUris**, которое использовалось при создании приложения. Дополнительные сведения о контроле доступа на основе ролей см. в статье [Контроль доступа на основе ролей Azure](./active-directory/role-based-access-control-configure.md).
 
-        PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+        PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
 Вы создали приложение Active Directory и субъект-службу для этого приложения. Вы назначили субъект-службу роли. Теперь вам нужно войти в систему в качестве субъекта-службы и выполнить операции от имени субъекта-службы. В этом разделе представлены три варианта:
 
@@ -523,4 +523,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

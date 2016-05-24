@@ -14,19 +14,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Формат внешнего пользовательского токена для предварительной версии службы Azure Active Directory B2B Collaboration
 
 Утверждения для стандартного токена Azure AD рассматриваются в статье [Поддерживаемые типы токенов и утверждений](active-directory-token-and-claims.md).
 
-Следующие утверждения отличаются от авторизованного внешнего пользователя B2B Collaboration:<br/> ― **OID** ― идентификатор объекта из клиента источника<br/> ― **TID** ― идентификатор клиента из клиента источника<br/> ― **Issuer** ― клиент источника<br/> ― **IDP** ― главный клиент пользователя<br/> ― **AltSecId** ― альтернативный идентификатор безопасности, который вам не виден<br/>
+Утверждения, которые отличаются для внешнего пользователя службы совместной работы B2B, прошедшего проверку подлинности, приведены ниже.<br/>
+- **OID** — идентификатор объекта из клиента ресурса;<br/>
+- **TID** — идентификатор клиента из клиента ресурса;<br/>
+- **Издатель** — клиент ресурса;<br/>
+- **IDP** — домашний клиент пользователя;<br/>
+- **AltSecId** — альтернативный идентификатор безопасности, являющийся непрозрачными для вас.<br/>
 
 ## Связанные статьи
-Ознакомьтесь с другими статьями о службе Azure B2B Collaboration.
+Другие статьи о службе совместной работы Azure AD B2B:
 
-- [Обзор службы Azure AD B2B Collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Что такое служба совместной работы Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Принцип работы](active-directory-b2b-how-it-works.md)
 - [Подробное пошаговое руководство](active-directory-b2b-detailed-walkthrough.md)
 - [Справка в формате CSV-файла](active-directory-b2b-references-csv-file-format.md)
@@ -34,4 +39,4 @@
 - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

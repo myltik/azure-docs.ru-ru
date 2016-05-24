@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 # Производительность хранилища Microsoft Azure и контрольный список масштабируемости
@@ -186,7 +186,7 @@
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-Дополнительные сведения см. в статье [«ThreadPool.SetMinThreads — метод (Int32, Int32)»](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx).
+Дополнительные сведения см. в статье «ThreadPool.SetMinThreads — метод (Int32, Int32)» (http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx)).
 
 ####<a name="subheading11"></a>Воспользуйтесь преимуществами функции сборки мусора .NET 4.5
 Используйте для клиентского приложения .NET 4.5 или более поздней версии, чтобы воспользоваться новыми способами повышения производительности в технологии сборки серверного мусора.
@@ -405,4 +405,4 @@
 ##Заключение
 В этой статье обсуждаются некоторые из наиболее распространенных, проверенных подходов для оптимизации производительности при использовании службы хранилища Azure. Мы призываем разработчиков оценить применимость описанных выше методик к их приложениям и рассмотреть, исходя из рекомендаций, возможность повышения производительности подобных приложений, использующих службу хранилища Azure.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

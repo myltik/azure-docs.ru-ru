@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 
@@ -107,4 +107,4 @@ AMQP 1.0 разрабатывался с 2008 г. активной группо�
 [Установка Apache Qpid Proton-C на виртуальной машине Azure под управлением Linux]: service-bus-amqp-apache.md
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

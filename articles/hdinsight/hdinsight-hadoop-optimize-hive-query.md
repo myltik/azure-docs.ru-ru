@@ -57,6 +57,7 @@ Tez работает быстрее, так как:
 
 При подготовке кластеров HDInsight под управлением Windows необходимо включить Tez. Ниже приведен пример сценария Azure PowerShell для подготовки кластера Hadoop с активированной платформой Tez.
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 	$clusterName = "[HDInsightClusterName]"
 	$location = "[AzureDataCenter]" #i.e. West US
@@ -220,4 +221,4 @@ Hive поддерживает различные форматы. Наприме�
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

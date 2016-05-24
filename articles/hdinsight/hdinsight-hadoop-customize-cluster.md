@@ -48,7 +48,7 @@ HDInsight предоставляет несколько скриптов для 
 **Установка Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. См. статью [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark].
 **Установка R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. См. статью [Установка и использование R в кластерах HDInsight][hdinsight-install-r].
 **Установка Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
-— **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
+— **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
 | **Предварительная загрузка библиотек Hive** | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. См. статью [Добавление библиотек Hive в кластеры HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 
@@ -175,8 +175,9 @@ HDInsight предоставляет несколько скриптов для 
 1. Создайте в Visual Studio консольное приложение C#.
 2. Введите следующую команду в окне консоли диспетчера пакетов NuGet.
 
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
+		Install-Package Microsoft.Azure.Management.ResourceManager -Pre 
+		Install-Package Microsoft.Azure.Management.HDInsight
 
 2. Используйте следующие инструкции using в файле Program.cs:
 
@@ -189,7 +190,7 @@ HDInsight предоставляет несколько скриптов для 
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
-		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.ResourceManager;
 
 3. Замените существующий код в файле класса следующим:
 
@@ -216,13 +217,13 @@ HDInsight предоставляет несколько скриптов для 
             var tokenCreds = GetTokenCloudCredentials();
             var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
             
-            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+            var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+            var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
+            var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
             _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
             CreateCluster();
-
         }
 
         private static void CreateCluster()
@@ -322,4 +323,4 @@ HDInsight предоставляет несколько скриптов для 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Этапы создания кластера"
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

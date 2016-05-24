@@ -55,7 +55,7 @@
 
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Рабочая станция** с Office 2013 профессиональный плюс, Office 365 профессиональный плюс, Excel 2013 автономный или Office 2010 профессиональный плюс.
+- **Рабочая станция** с Office 2013 профессиональный плюс, Office 365 профессиональный плюс, Excel 2013 автономный или Office 2010 профессиональный плюс.
 
 **Предполагаемое время выполнения заданий этого учебника:** 30 минут.
 
@@ -80,7 +80,7 @@
 
 >[AZURE.NOTE]  Создавайте учетную запись хранения в том расположении, в котором поддерживается кластер, а именно: **Восточная Азия**, **Юго-Восточная Азия**, **Северная Европа**, **Западная Европа**, **Восток США**, **Запад США**, **Северо-центральный регион США**, **Южно-центральный регион США**.
 
-Выберите новую учетную запись хранения в списке и щелкните **УПРАВЛЕНИЕ КЛЮЧАМИ ДОСТУПА** в нижней части страницы. Запишите значения в полях **ПЕРВИЧНЫЙ КЛЮЧ ДОСТУПА** (или **ВТОРИЧНЫЙ КЛЮЧ ДОСТУПА** —любой из ключей будет работать). Они потребуются позже в этом учебнике. Дополнительные сведения см. в статье [Создание учетной записи хранения][azure-create-storageaccount].
+Выберите новую учетную запись хранения в списке и щелкните **УПРАВЛЕНИЕ КЛЮЧАМИ ДОСТУПА** в нижней части страницы. Запишите значения в полях **ПЕРВИЧНЫЙ КЛЮЧ ДОСТУПА** (или **ВТОРИЧНЫЙ КЛЮЧ ДОСТУПА** —любой из ключей будет работать). Они потребуются позже в этом учебнике. Дополнительные сведения см. в статье [Создание учетной записи хранения][azure-create-storageaccount].
 
 ##<a name="provision"></a>Подготовка кластера Hadoop
 
@@ -242,7 +242,7 @@
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-emulator]: hdinsight-hadoop-emulator-get-started.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
 [hdinsight-sensor-data-sample]: hdinsight-hive-analyze-sensor-data.md
@@ -251,7 +251,7 @@
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account.md
+[azure-create-storageaccount]: ../storage/storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
 [apache-hive]: http://go.microsoft.com/fwlink/?LinkId=510085
@@ -283,4 +283,4 @@
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="05/05/2016"
 	ms.author="giridham;jimpark"/>
 
 # Восстановление данных с другого сервера DPM в хранилище архивации
@@ -32,7 +32,7 @@
 
     ![Учетные данные для внешнего сервера DPM](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
-    >[AZURE.NOTE]Данные на серверах DPM можно восстановить только с серверов DPM, зарегистрированных в том же хранилище архивации.
+    >[AZURE.NOTE] Данные на серверах DPM можно восстановить только с серверов DPM, зарегистрированных в том же хранилище архивации.
 
     После успешного добавления внешнего сервера DPM данные внешнего и локального серверов DPM можно просмотреть на вкладке **Восстановление**.
 
@@ -73,7 +73,7 @@
 
     ![Сводка параметров восстановления с внешнего сервера DPM](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
-    >[AZURE.NOTE]Ход восстановления можно отслеживать на вкладке **Мониторинг** сервера DPM.
+    >[AZURE.NOTE] Ход восстановления можно отслеживать на вкладке **Мониторинг** сервера DPM.
 
     ![Мониторинг восстановления](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
 
@@ -103,4 +103,4 @@
 ## Дальнейшие действия
 • [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0511_2016-->

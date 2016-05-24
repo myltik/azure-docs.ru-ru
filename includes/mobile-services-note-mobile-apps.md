@@ -1,5 +1,5 @@
->[AZURE.WARNING] Этот раздел посвящен **мобильным службам Azure**. Эта служба заменена мобильными приложениями службы приложений Azure. Мы рекомендуем использовать мобильные приложения службы приложений Azure для всех новых развертываний мобильной серверной части. Мы рекомендуем [перенести сайт в службу приложений Azure](../articles/app-service-mobile/app-service-mobile-migrating-from-mobile-services.md).
+>[AZURE.WARNING] Этот раздел посвящен **мобильным службам Azure**. Эта служба заменена службой мобильных приложений службы приложений Azure и в ближайшее время будет удалена из Azure. Мы рекомендуем использовать мобильные приложения службы приложений Azure для всех новых развертываний мобильной серверной части. Дополнительные сведения о предстоящем удалении службы см. в [этом объявлении](https://azure.microsoft.com/blog/transition-of-azure-mobile-services/).
+> 
+> Узнайте, как [перенести свой сайт в службу приложений Azure](../articles/app-service-mobile/app-service-mobile-migrating-from-mobile-services.md).
 >
-> Чтобы начать работу с мобильными приложениями Azure, обратитесь к [центру документации по мобильным приложениям Azure](/documentation/learning-paths/appservice-mobileapps/).
-
-<!---HONumber=AcomDC_0413_2016-->
+> Сведения о том, как начать работу со службой мобильных приложений Azure, см. в [центре документации по мобильным приложениям службы приложений](https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/).

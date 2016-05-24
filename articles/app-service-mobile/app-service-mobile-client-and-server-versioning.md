@@ -4,7 +4,7 @@
   services="app-service\mobile"
   documentationCenter=""
   authors="lindydonna"
-  manager="dwrede"
+  manager="erikre"
   editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="02/04/2016"
+  ms.date="05/10/2016"
   ms.author="donnam"/>
 
 # Управление версиями клиента и сервера в мобильных приложениях и мобильных службах
@@ -53,7 +53,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | [Клиенты мобильных служб] | кнопку "ОК" | Ошибка* |
 | [Клиенты мобильных приложений] | Ошибка* | кнопку "ОК" |
 
-\* Это поведение можно изменить, указав параметр **MS\_SkipVersionCheck**.
+* Это поведение можно изменить, указав параметр **MS\_SkipVersionCheck**.
 
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
@@ -79,7 +79,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 | Платформа сервера | Версия | Принятый заголовок версии |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* версия 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | ** Нет заголовка версии ** |
+| .NET | [WindowsAzure.MobileServices.Backend.* версия 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Нет заголовка версии** |
 | Node.js | (ожидается в ближайшее время) | **Нет заголовка версии** |
 
 <!-- TODO: add Node npm version -->
@@ -113,7 +113,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | Платформа сервера | SDK | Принятый заголовок версии |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
 | .NET | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
-| Node.js | [azure-mobile-apps версия 1.0-beta1 (или более поздняя)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
+| Node.js | [azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
 
 ### Поведение внутренних серверов мобильных приложений
 
@@ -138,4 +138,4 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Перенос мобильной службы в службу приложений Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

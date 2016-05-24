@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement"
+	pageTitle="Интеграция пакета Android SDK с Azure Mobile Engagement"
 	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,44 +13,55 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/10/2016"
-	ms.author="piyushjo" />
+	ms.date="05/10/2016"
+	ms.author="piyushjo;ricksal" />
 
 
-#Пакет Android SDK для Azure Mobile Engagement
+# Использование дополнительных функций Azure Mobile Engagement для приложений Android
 
-Начните здесь, чтобы получить все сведения об интеграции службы Azure Mobile Engagement в приложение Android. Если вы хотите потренироваться, обязательно пройдите наш [15-минутный учебник](mobile-engagement-android-get-started.md).
+> [AZURE.SELECTOR]
+- [Универсальная платформа Windows](mobile-engagement-windows-store-sdk-overview.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
+- [iOS](mobile-engagement-ios-sdk-overview.md)
+- [Android](mobile-engagement-android-sdk-overview.md)
 
-Щелкните, чтобы просмотреть [содержимое пакета SDK](mobile-engagement-android-sdk-content.md).
+Изучите все дополнительные функции Azure Mobile Engagement, которые можно интегрировать в ваши приложения Android.
 
-##Процедуры по интеграции
-1. Начните с этого раздела: [Интеграция службы Mobile Engagement в приложение Android](mobile-engagement-android-integrate-engagement.md)
+## Предварительные требования
 
-2. Сведения об уведомлениях: [Интеграция модуля Reach (уведомления) в приложение Android](mobile-engagement-android-integrate-engagement-reach.md)
-	1. Google Cloud Messaging (GCM): [Интеграция GCM с помощью службы Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
-	2. Amazon Device Messaging (ADM): [Интеграция ADM с помощью службы Mobile Engagement](mobile-engagement-android-adm-integrate.md)
+[AZURE.INCLUDE [Предварительные требования](../../includes/mobile-engagement-android-prereqs.md)]
 
-3. Реализация плана добавления тегов: [Использование расширенного API добавления тегов службы Mobile Engagement в приложении Android](mobile-engagement-android-use-engagement-api.md)
+## Дополнительные функции
 
+### Функции отчетов
 
-##Заметки о выпуске
+Можно добавить такие функции:
 
-##4\.2.0 (11.03.2016)
+1. [дополнительные параметры отчетов](mobile-engagement-android-advanced-reporting.md);
+2. [параметры отчетов о местонахождении](mobile-engagement-android-location-reporting.md);
+3. [дополнительные параметры конфигурации](mobile-engagement-android-advanced-configuration.md).
+
+### Уведомления:
+[Интеграция модуля Reach (уведомления) в приложение Android](mobile-engagement-android-integrate-engagement-reach.md)
+
+1. Google Cloud Messaging (GCM): [Интеграция GCM с помощью службы Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+
+2. Amazon Device Messaging (ADM): [Интеграция ADM с помощью службы Mobile Engagement](mobile-engagement-android-adm-integrate.md)
+
+### Реализация плана добавления тегов:
+[Использование расширенного API добавления тегов службы Mobile Engagement в приложении Android](mobile-engagement-android-use-engagement-api.md)
+
+## Заметки о выпуске
+
+### 4\.2.0 (11.03.2016)
 
 - Пакет SDK теперь лицензируется MIT.
 - Разрешено указание пользовательского идентификатора устройства во время инициализации пакета SDK.
 
-##4\.1.0 (25.08.2015)
+Информацию о всех версиях см. в [полной версии заметок о выпуске](mobile-engagement-android-release-notes.md).
 
-- Обработка новой модели разрешений для Android M.
-- Возможность настройки функций расположения в среде выполнения, а не с помощью `AndroidManifest.xml`.
-- Исправление ошибки разрешений: если используется `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` больше не требуется.
-- Улучшение стабильности.
-
-Информацию о всех версиях см. в [полных заметках о выпуске](mobile-engagement-android-release-notes.md).
-
-##Процедуры обновления
+## Процедуры обновления
 
 Если вы уже интегрировали более старую версию нашего пакета SDK в свое приложение, обратитесь к разделу [Процедуры обновления](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

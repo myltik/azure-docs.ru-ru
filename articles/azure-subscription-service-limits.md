@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/09/2016"
 	ms.author="jroth"/>
 
 # Подписка Azure, границы, квоты и ограничения службы
@@ -284,4 +284,4 @@
 
 [Размеры для облачных служб](cloud-services/cloud-services-sizes-specs.md)
 
-<!-----HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

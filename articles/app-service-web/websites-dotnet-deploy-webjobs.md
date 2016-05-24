@@ -126,7 +126,7 @@
 
 Для запланированного веб-задания (не для постоянных веб-заданий) Visual Studio создает коллекцию заданий [планировщика Azure](/services/scheduler/), если она не существует, и создает задание в коллекции.
 
-* Коллекция заданий планировщика называется *WebJobs-{regionname}**, где *{regionname}* — регион, в котором размещено веб-приложение. Например, WebJobs-WestUS.
+* Коллекция заданий планировщика называется *WebJobs-{regionname}*, где *{regionname}* — регион, в котором размещено веб-приложение. Например, WebJobs-WestUS.
 * Задание планировщика называется *{webappname}-{webjobname}*. Например, MyWebApp-MyWebJob. 
  
 >[AZURE.NOTE]
@@ -188,4 +188,4 @@
 
 В этой статье показано, как развернуть WebJob с помощью Visual Studio. Дополнительные сведения о развертывании веб-заданий Azure см. в статье [Веб-задания Azure. Рекомендуемые ресурсы. Развертывание](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-----HONumber=AcomDC_0504_2016-->

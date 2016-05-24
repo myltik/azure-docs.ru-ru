@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/16/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Подключение и создание запросов с помощью SQLCMD
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [Visual Studio][]
+- [SQLCMD][]
 
 В этом пошаговом руководстве показано, как всего за несколько минут можно создать базу данных хранилища данных SQL Azure с помощью служебной программы sqlcmd.exe. В этом пошаговом руководстве описаны следующие операции.
 
@@ -30,13 +30,13 @@
 
 ## Предварительные требования
 
-+ [sqlcmd.exe](https://msdn.microsoft.com/library/azure/ms162773.aspx). Чтобы загрузить sqlcmd.exe, перейдите на страницу загрузки [Microsoft Command Line Utilities 11 для SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501).
++ Чтобы скачать [sqlcmd.exe][], перейдите на страницу [Microsoft Command Line Utilities 11 для SQL Server][].
 
 ## Получение полного имени сервера Azure SQL
 
-Для подключения к базе данных требуется полное имя сервера (**имя\_сервера**.database.windows.net*), содержащее базу данных, к которой необходимо подключиться.
+Для подключения к базе данных требуется полное имя сервера (***имя\_сервера**.database.windows.net*), содержащее базу данных, к которой необходимо подключиться.
 
-1. Перейдите на [портал Azure](https://portal.azure.com).
+1. Перейдите на [портал Azure][].
 2. Перейдите к базе данных, к которой нужно подключиться.
 3. Найдите полное имя сервера (мы будем использовать его на следующих этапах).
 
@@ -70,17 +70,27 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 3> QUIT
 ```
 
-Дополнительные сведения о sqlcmd см. в [документации по sqlcmd](https://msdn.microsoft.com/library/azure/ms162773.aspx).
+Дополнительные сведения о sqlcmd см. в [документации по sqlcmd][sqlcmd.exe].
 
 
 ## Дальнейшие действия
 
 Теперь, когда вы можете подключаться к базе данных и отправлять запросы, попробуйте [подключиться к PowerBI][].
 
-[подключиться к PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
+Сведения о том, как настроить в своей среде аутентификацию Windows, см. в статье [Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory][].
 
+<!--Articles-->
+[Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory]: ../sql-database/sql-database-aad-authentication.md
+[подключиться к PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
+[Visual Studio]: ./sql-data-warehouse-get-started-connect.md
+[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+
+<!--Other-->
+[sqlcmd.exe]: https://msdn.microsoft.com/ru-RU/library/ms162773.aspx
+[Microsoft Command Line Utilities 11 для SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
+[портал Azure]: https://portal.azure.com
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

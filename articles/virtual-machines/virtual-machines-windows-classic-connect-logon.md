@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Вход в виртуальную машину | Microsoft Azure"
+	pageTitle="Вход на классическую виртуальную машину Azure | Microsoft Azure"
 	description="Использование классического портала Azure для входа в виртуальную машину Windows, созданную с использованием классической модели развертывания."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
 
@@ -57,4 +57,4 @@
 
 Если эти рекомендации не помогли устранить проблему или они вам не подходят, см. статью [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). В ней описывается процесс диагностики и решения распространенных проблем.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

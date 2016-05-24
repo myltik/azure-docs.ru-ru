@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Предварительная версия службы совместной работы Azure Active Directory (Azure AD) B2B: простая и надежная облачная интеграция партнеров
@@ -32,7 +32,7 @@
 Чтобы сравнить варианты использования для службы совместной работы Azure AD B2B, Azure AD B2C и приложения с несколькими клиентами Azure AD, см. статью [Comparing capabilities for managing external identities using Azure Active Directory](active-directory-b2b-compare-external-identities.md) (Сравнение возможностей управления внешними удостоверениями с помощью Azure Active Directory).
 
 ## Связанные статьи
-Ознакомьтесь с другими статьями о службе совместной работы Azure B2B.
+Другие статьи о службе совместной работы Azure AD B2B:
 
 - [Принцип работы](active-directory-b2b-how-it-works.md)
 - [Подробное пошаговое руководство](active-directory-b2b-detailed-walkthrough.md)
@@ -42,4 +42,4 @@
 - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->
