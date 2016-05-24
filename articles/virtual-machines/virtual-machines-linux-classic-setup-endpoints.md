@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # Как настроить конечные точки в классической виртуальной машине в Azure
@@ -23,13 +23,15 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
-При создании виртуальной машины Linux на классическом портале Azure общие конечные точки, такие как конечные точки для Secure Shell \(SSH\), обычно создаются автоматически. При необходимости при создании виртуальной машины или впоследствии можно настроить дополнительные конечные точки.
+При создании виртуальной машины Linux на классическом портале Azure конечная точка для Secure Shell (SSH) обычно создается автоматически. При необходимости при создании виртуальной машины или впоследствии можно настроить дополнительные конечные точки.
  
 
 [AZURE.INCLUDE [virtual-machines-common-classic-setup-endpoints](../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 
 ## Дальнейшие действия
 
-* Вы также можете создать конечную точку виртуальной машины с помощью интерфейса командной строки Azure в [режиме управления службами](../virtual-machines-command-line-tools.md). Выполните команду **azure vm endpoint create**.
+* Вы также можете создать конечную точку виртуальной машины с помощью [интерфейса командной строки Azure](../virtual-machines-command-line-tools.md). Выполните команду **azure vm endpoint create**.
 
-<!---HONumber=AcomDC_0413_2016-->
+* Если вы создали виртуальную машину с помощью модели развертывания Resource Manager, [создайте группы безопасности сети](../virtual-network/virtual-networks-create-nsg-arm-cli.md) с помощью интерфейса командной строки Azure в режиме Resource Manager и управляйте трафиком, поступающим к этой виртуальной машине.
+
+<!---HONumber=AcomDC_0511_2016-->

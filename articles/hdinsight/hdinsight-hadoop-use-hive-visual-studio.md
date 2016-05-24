@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="04/22/2016"
    ms.author="larryfr"/>
 
 #Выполнение запросов Hive с помощью инструментов HDInsight для Visual Studio
@@ -31,7 +31,13 @@
 
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
 
-* Visual Studio 2012 [с обновлением 4](http://www.microsoft.com/download/details.aspx?id=39305), Visual Studio 2013 [с обновлением 3](http://go.microsoft.com/fwlink/?LinkId=390465) или [Visual Studio Express 2013](http://www.microsoft.com/download/details.aspx?id=40769).
+* Одна из следующих версий Visual Studio:
+
+    Visual Studio 2013 Community, Professional, Premium или Ultimate с [обновлением 4](https://www.microsoft.com/download/details.aspx?id=44921);
+
+    Visual Studio 2015 (Community/Enterprise)
+
+- Средства HDInsight для Visual Studio. Пошаговые указания по установке и настройке инструментов Visual Studio Hadoop см. в статье [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 ##<a id="run"></a> Выполнение запросов Hive с помощью инструментов HDInsight для Visual Studio
 
@@ -59,7 +65,7 @@
     * **SELECT**: подсчет количества строк, у которых столбец **t4** содержит значение **ERROR**. Эта команда должна вернуть значение **3**, так как данное значение содержат три строки.
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** — указывает Hive, что возвратить нужно только данные из файлов с расширением LOG. Это ограничивает поиск файлом sample.log, в котором содержатся данные, и предотвращает возврат данных из других примеров файлов данных, не соответствующих определенной нами схеме.
 
-3. На панели инструментов выберите **кластер HDInsight**, который нужно использовать для этого запроса, а затем выберите **Отправить**, чтобы выполнить операторы как задание Hive. Отобразится **сводка по заданию Hive** и информация о его выполнении. Воспользуйтесь ссылкой **Обновить**, чтобы обновить информацию о задании. Обновляйте ее до тех пор, пока **Состояние задания** не изменится на **Завершено**.
+3. На панели инструментов выберите **кластер HDInsight**, который нужно использовать для этого запроса, а затем выберите **Submit to WebHCat** (Отправить в WebHCat), чтобы выполнить инструкции как задание Hive с помощью WebHCat. Задание также можно отправить с помощью кнопки __Execute via HiveServer2__ (Выполнить через HiveServer2), если сервер HiveServer2 доступен в вашей версии кластера. Отобразится **сводка по заданию Hive** и информация о его выполнении. Воспользуйтесь ссылкой **Обновить**, чтобы обновить информацию о задании. Обновляйте ее до тех пор, пока **Состояние задания** не изменится на **Завершено**.
 
 4. Воспользуйтесь ссылкой **Выходные данные задания**, чтобы просмотреть выходные данные этого задания. В них должен быть текст `[ERROR] 3`, который является значением, возвращенным оператором SELECT.
 
@@ -135,4 +141,4 @@
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

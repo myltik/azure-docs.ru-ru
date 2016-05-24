@@ -1,6 +1,6 @@
 <properties
     pageTitle="Использование хранилища BLOB-объектов (C++) | Microsoft Azure"
-    description="Узнайте, как использовать службу хранилища BLOB-объектов в Azure. Примеры написаны на C++."
+	description="Вы можете хранить неструктурированные данные в облаке в хранилище BLOB-объектов Azure (хранилище объектов)."
     services="storage"
     documentationCenter=".net"
     authors="tamram"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2016"
+    ms.date="04/29/2016"
     ms.author="dineshm"/>
 
 # Использование хранилища BLOB-объектов из C++  
@@ -238,4 +238,4 @@
 -	[Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

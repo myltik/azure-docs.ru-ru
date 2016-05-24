@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="wesmc"/>
 
 # Добавление push-уведомлений в приложение Xamarin.Forms
@@ -40,7 +40,7 @@
 
 Чтобы создать концентратор уведомлений, выполните приведенные ниже действия. Если концентратор уже создан, просто выберите его.
 
-1. Войдите на [портал Azure](https://portal.azure.com/). Последовательно щелкните **Просмотр** \> **Мобильные приложения** \> ваша серверная часть \> **Параметры** \> **Мобильные службы** \> **Push-уведомления** \> **Концентратор уведомлений** \> **+ Концентратор уведомлений**, а затем укажите имя и пространство имен для нового концентратора уведомлений и нажмите кнопку **ОК**.
+1. Войдите на [портал Azure](https://portal.azure.com/). Последовательно щелкните **Просмотр** > **Мобильные приложения** > ваша серверная часть > **Параметры** > **Мобильные службы** > **Push-уведомления** > **Концентратор уведомлений** > **+ Концентратор уведомлений**, а затем укажите имя и пространство имен для нового концентратора уведомлений и нажмите кнопку **ОК**.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
 
@@ -52,12 +52,12 @@
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 
-##\(Необязательно\) Настройка и запуск проекта Android
+##(Необязательно) Настройка и запуск проекта Android
 
 В этом разделе описано, как запустить проект Xamarin Android для устройств под управлением Android. Пропустите этот раздел, если вы не работаете с устройствами Android.
 
 
-####Включение Google Cloud Messaging \(GCM\)
+####Включение Google Cloud Messaging (GCM)
 
 
 [AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
@@ -65,7 +65,7 @@
 
 ####Настройка концентратора уведомлений для GCM
 
-1. Войдите на [портал Azure](https://portal.azure.com/). Щелкните **Обзор** \> **Мобильные приложения** \> ваше мобильное приложение \> **Параметры** \> **Push-уведомления** \> **Google \(GCM\)**. Вставьте ранее созданный ключ API для сервера и нажмите кнопку **Сохранить**. Теперь ваша служба настроена для работы с push-уведомлениями в Android.
+1. Войдите на [портал Azure](https://portal.azure.com/). Щелкните **Обзор** > **Мобильные приложения** > ваше мобильное приложение > **Параметры** > **Push-уведомления** > **Google (GCM)**. Вставьте ранее созданный ключ API для сервера и нажмите кнопку **Сохранить**. Теперь ваша служба настроена для работы с push-уведомлениями в Android.
 
 	![](./media/app-service-mobile-xamarin-forms-get-started-push/mobile-app-save-gcm-api-key.png)
 
@@ -145,6 +145,9 @@
 		using Newtonsoft.Json.Linq;
 		using System.Text;
 		using System.Linq;
+		using Android.Support.V4.App;
+		using Android.Media;
+
 
 9. Добавьте следующие запросы на разрешения в начало файла — после инструкций `using` и перед объявлением `namespace`.
 
@@ -189,24 +192,21 @@
 		    Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
 		    RegistrationID = registrationId;
 
-		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
-
             var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
 
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
-
 		}
 
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
         {
             try
             {
-                const string templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+                const string templateBodyGCM = "{"data":{"message":"$(messageParam)"}}";
 
                 JObject templates = new JObject();
                 templates["genericMessage"] = new JObject
                 {
-                  {"body", templateBodyGCM}
+                	{"body", templateBodyGCM}
                 };
 
                 await push.RegisterAsync(RegistrationID, templates);
@@ -256,28 +256,35 @@
 		    createNotification("Unknown message details", msg.ToString());
 		}
 
-		void createNotification(string title, string desc)
-		{
-		    //Create notification
-		    var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
+        void createNotification(string title, string desc)
+        {
+            //Create notification
+            var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
 
-		    //Create an intent to show ui
-		    var uiIntent = new Intent(this, typeof(MainActivity));
+            //Create an intent to show ui
+            var uiIntent = new Intent(this, typeof(MainActivity));
 
-		    //Create the notification
-		    var notification = new Notification(Android.Resource.Drawable.SymActionEmail, title);
+            //Use Notification Builder
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 
-		    //Auto cancel will remove the notification once the user touches it
-		    notification.Flags = NotificationFlags.AutoCancel;
+            //Create the notification
+            //we use the pending intent, passing our ui intent over which will get called
+            //when the notification is tapped.
+            var notification = builder.SetContentIntent(PendingIntent.GetActivity(this, 0, uiIntent, 0))
+                    .SetSmallIcon(Android.Resource.Drawable.SymActionEmail)
+                    .SetTicker(title)
+                    .SetContentTitle(title)
+                    .SetContentText(desc)
 
-		    //Set the notification info
-		    //we use the pending intent, passing our ui intent over which will get called
-		    //when the notification is tapped.
-		    notification.SetLatestEventInfo(this, title, desc, PendingIntent.GetActivity(this, 0, uiIntent, 0));
+                    //Set the notification sound
+                    .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
 
-		    //Show the notification
-		    notificationManager.Notify(1, notification);
-		}
+                    //Auto cancel will remove the notification once the user touches it
+                    .SetAutoCancel(true).Build();
+
+            //Show the notification
+            notificationManager.Notify(1, notification);
+        }
 
 14. Необходимо также реализовать обработчики `OnUnRegistered` и `OnError` для приемника.
 
@@ -297,19 +304,17 @@
 
 1. В Visual Studio или Xamarin Studio щелкните правой кнопкой мыши проект **droid** и выберите пункт **Назначить запускаемым проектом**.
 
-2. Нажмите кнопку **Выполнить**, чтобы построить проект и запустить приложение на устройстве с iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
+2. Нажмите кнопку **запуска**, чтобы создать проект и запустить приложение на устройстве Android.
 
-	> [AZURE.NOTE] Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
+3. В приложении введите задачу, а затем щелкните значок плюса (**+**).
 
-2. В приложении введите задачу, а затем щелкните значок плюса \(**+**\).
-
-3. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
+4. После добавления элемента должно отобразиться соответствующее уведомление.
 
 
 
 
 
-##\(Необязательно\) Настройка и запуск проекта iOS
+##(Необязательно) Настройка и запуск проекта iOS
 
 В этом разделе описано, как запустить проект Xamarin iOS для устройств под управлением iOS. Пропустите этот раздел, если вы не работаете с устройствами iOS.
 
@@ -318,7 +323,7 @@
 
 ####Настройка концентратора уведомлений для APNs
 
-1. Войдите на [портал Azure](https://portal.azure.com/). Щелкните **Обзор** \> **Мобильные приложения** \> ваше мобильное приложение \> **Параметры** \> **Push-уведомления** \> **Apple \(APNS\)** \> **Отправка сертификата**. Отправьте экспортированный ранее P12-файл сертификата push-уведомлений. Если вы создали сертификат push-уведомлений для разработки и тестирования, не забудьте выбрать параметр **Песочница**. В противном случае выберите параметр **Рабочая среда**. Теперь ваша служба настроена для работы с push-уведомлениями в iOS.
+1. Войдите на [портал Azure](https://portal.azure.com/). Щелкните **Обзор** > **Мобильные приложения** > ваше мобильное приложение > **Параметры** > **Push-уведомления** > **Apple (APNS)** > **Отправка сертификата**. Отправьте экспортированный ранее P12-файл сертификата push-уведомлений. Если вы создали сертификат push-уведомлений для разработки и тестирования, не забудьте выбрать параметр **Песочница**. В противном случае выберите параметр **Рабочая среда**. Теперь ваша служба настроена для работы с push-уведомлениями в iOS.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -368,7 +373,7 @@
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
-            const string templateBodyAPNS = "{\"aps\":{\"alert\":\"$(messageParam)\"}}";
+            const string templateBodyAPNS = "{"aps":{"alert":"$(messageParam)"}}";
 
             JObject templates = new JObject();
             templates["genericMessage"] = new JObject
@@ -405,18 +410,18 @@
 
 1. Щелкните проект iOS правой кнопкой мыши и выберите пункт **Назначить запускаемым проектом**.
 
-2. Нажмите кнопку **Выполнить** или клавишу **F5** в Visual Studio, чтобы выполнить сборку проекта и запустить приложение на устройстве с iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
+2. Нажмите кнопку **запуска** или клавишу **F5** в Visual Studio, чтобы выполнить сборку проекта и запустить приложение на устройстве iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
 
 	> [AZURE.NOTE] Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
-3. В приложении введите задачу, а затем щелкните значок плюса \(**+**\).
+3. В приложении введите задачу, а затем щелкните значок плюса (**+**).
 
 4. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
 
 
 
 
-##\(Необязательно\) Настройка и запуск проекта Windows
+##(Необязательно) Настройка и запуск проекта Windows
 
 В этом разделе описано, как запустить проект Xamarin WinApp для устройств под управлением Windows. Пропустите этот раздел, если вы не работаете с устройствами Windows.
 
@@ -437,9 +442,13 @@
 
 		using System.Threading.Tasks;
 		using Windows.Networking.PushNotifications;
-		using WesmcMobileAppGaTest;
 		using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
+
+	Также добавьте оператор `using` для пространства имен в переносимом проекте, содержащем класс `TodoItemManager`.
+
+		using <Your namespace for the TodoItemManager class>;
+ 
 
 2. В файл App.xaml.cs добавьте приведенный ниже метод `InitNotificationsAsync`. Этот метод получает канал push-уведомлений и регистрирует шаблон для получения шаблонных уведомлений из концентратора уведомлений. Этому клиенту будет доставлено шаблонное уведомление, поддерживающее параметр `messageParam`.
 
@@ -448,22 +457,22 @@
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            const string templateBodyWNS = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(messageParam)</text></binding></visual></toast>";
+            const string templateBodyWNS = "<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>";
 
             JObject headers = new JObject();
             headers["X-WNS-Type"] = "wns/toast";
 
             JObject templates = new JObject();
             templates["genericMessage"] = new JObject
-                {
-                  {"body", templateBodyWNS},
-                  {"headers", headers} // Only needed for WNS & MPNS
-                };
+			{
+				{"body", templateBodyWNS},
+				{"headers", headers} // Only needed for WNS & MPNS
+			};
 
             await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
-3. В файле App.xaml.cs обновите обработчик событий `OnLaunched` с помощью атрибута `async` и вызовите метод `InitNotificationsAsync`.
+3. В файле App.xaml.cs обновите обработчик событий `OnLaunched` с помощью атрибута `async` и добавьте вызов `InitNotificationsAsync` в нижней части метода.
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -510,13 +519,11 @@
 1. В Visual Studio щелкните правой кнопкой мыши проект **WinApp** и выберите пункт **Назначить запускаемым проектом**.
 
 
-2. Нажмите кнопку **Выполнить**, чтобы построить проект и запустить приложение на устройстве с iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
+2. Нажмите кнопку **Запуск**, чтобы создать проект и запустить приложение.
 
-	> [AZURE.NOTE] Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
+3. В приложении, введите имя нового объекта todoitem и нажмите значок "плюс" (**+**), чтобы добавить его.
 
-3. В приложении введите задачу, а затем щелкните значок плюса \(**+**\).
-
-4. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
+4. После добавления элемента должно отобразиться соответствующее уведомление.
 
 
 
@@ -527,4 +534,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

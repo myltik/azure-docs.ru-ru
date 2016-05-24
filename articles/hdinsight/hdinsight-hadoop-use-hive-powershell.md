@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="04/07/2016"
    ms.author="larryfr"/>
 
 #Выполнение запросов Hive с помощью PowerShell
@@ -31,7 +31,9 @@
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 - **Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux)**
-- **Рабочая станция с Azure PowerShell**. См. раздел [Установка Azure PowerShell 1.0 и более поздних версий](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Рабочая станция с Azure PowerShell.**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##Выполнение запросов Hive с помощью Azure PowerShell
 
@@ -186,4 +188,4 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

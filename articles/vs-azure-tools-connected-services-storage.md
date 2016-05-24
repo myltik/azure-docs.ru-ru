@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Добавление хранилища Azure с использованием подключенных служб Visual Studio
@@ -79,7 +79,7 @@ Visual Studio 2015 позволяет подключить любую облач
  - В случае проектов ASP.NET см. статью [Что произошло: проекты ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
  - В случае проектов ASP.NET 5 см. статью [Что произошло: проекты ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
  - В случае проектов облачной службы (веб-ролей и рабочих ролей) см. статью [Что произошло: проекты облачной службы](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
- - В случае проектов WebJob см. статью [Что произошло: проекты WebJob](vs-storage-webjobs-what-happened/).
+ - В случае проектов WebJob см. статью [Что произошло: проекты WebJob](./storage/vs-storage-webjobs-what-happened.md).
 
 ## Дальнейшие действия
 
@@ -94,4 +94,4 @@ Visual Studio 2015 позволяет подключить любую облач
 
      - [Хранилище документации на сайте azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

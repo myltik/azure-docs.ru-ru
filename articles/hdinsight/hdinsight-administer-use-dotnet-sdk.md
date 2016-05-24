@@ -36,7 +36,8 @@
 Необходимо установить следующие пакеты Nuget:
 
 	Install-Package Microsoft.Azure.Common.Authentication -Pre
-	Install-Package Microsoft.Azure.Management.HDInsight -Pre
+	Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+	Install-Package Microsoft.Azure.Management.HDInsight
 
 В следующем примере кода показано, как подключиться к Azure, прежде чем администрировать кластеры HDInsight в подписке Azure.
 
@@ -48,6 +49,7 @@
 	using Microsoft.Azure.Common.Authentication.Models;
 	using Microsoft.Azure.Management.HDInsight;
 	using Microsoft.Azure.Management.HDInsight.Models;
+	using Microsoft.Azure.Management.ResourceManager;
 
 	namespace HDInsightManagement
 	{
@@ -60,6 +62,10 @@
 			{
 				var tokenCreds = GetTokenCloudCredentials();
 				var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+				
+				var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+				var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
+				var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
 				_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
@@ -273,4 +279,4 @@
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

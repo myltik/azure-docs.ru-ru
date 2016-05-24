@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="05/04/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Управление базами данных в хранилище данных SQL Azure
@@ -42,7 +42,7 @@
 Начало работы с порталом Azure описывается в статье [Создание хранилища данных SQL (портал Azure)][].
 
 ### SQL Server Data Tools в Visual Studio
-Средства [SQL Server Data Tools][] \(SSDT) в Visual Studio предлагают возможности подключения, управления и разработки для баз данных. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), предлагаем обратить внимание на SSDT в составе Visual Studio.
+Средства [SQL Server Data Tools][] (SSDT) в Visual Studio предлагают возможности подключения, управления и разработки для баз данных. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), предлагаем обратить внимание на SSDT в составе Visual Studio.
 
 Средства SSDT содержат обозреватель объектов сервера SQL, который позволяет визуализировать, подключать и выполнять скрипты для баз данных хранилища данных SQL. Чтобы быстро подключиться к хранилищу данных SQL, нажмите кнопку **Открыть в Visual Studio** в командной строке во время просмотра сведений базы данных на классическом портале Azure.
 
@@ -115,7 +115,7 @@
 <!--Image references-->
 
 <!--Article references-->
-[Варианты избыточности хранилища Azure]: storage-redundancy.md#read-access-geo-redundant-storage
+[Варианты избыточности хранилища Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Создание хранилища данных SQL (портал Azure)]: sql-data-warehouse-get-started-provision.md
 [Создание базы данных (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
@@ -139,4 +139,4 @@
 <!--Other web references-->
 [Портал Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

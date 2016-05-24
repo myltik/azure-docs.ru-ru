@@ -14,21 +14,16 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/06/2016"
 	ms.author="robmcm"/>
 
-
-
-
-
-#Веб-приложение Ruby on Rails на виртуальной машине Azure
+# Веб-приложение Ruby on Rails на виртуальной машине Azure
 
 В этом учебнике описано, как разместить веб-сайт Ruby on Rails в Azure с помощью виртуальной машины Linux.
 
 Данный учебник был проверен с использованием Ubuntu Server 14.04 LTS. Если вы используете другой дистрибутив Linux, могут потребоваться другие действия для установления Rails.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
-
 
 ## Создание виртуальной машины Azure
 
@@ -70,9 +65,9 @@
 
 3. Используйте следующую команду для установки Rails:
 
-		sudo gem install rails --no-rdoc --no-ri
+		sudo gem install rails --no-rdoc --no-ri -V
 
-	С помощью флагов --no-rdoc и --no-ri можно пропустить установку документации, что значительно ускорит процесс.
+	С помощью флагов --no-rdoc и --no-ri можно пропустить установку документации, что значительно ускорит процесс. Вероятно, эта команда будет долго выполняться. Добавив параметр -V, вы сможете наблюдать за ходом установки.
 
 ## Создание и запуск приложения
 
@@ -93,7 +88,6 @@
 	[2015-06-09 23:34:23] INFO  WEBrick 1.3.1
 	[2015-06-09 23:34:23] INFO  ruby 1.9.3 (2013-11-22) [x86_64-linux]
 	[2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
-
 
 ## Добавление конечной точки
 
@@ -129,8 +123,7 @@
 
 	![страница Rails по умолчанию][default-rails-cloud]
 
-
-##<a id="next"></a>Дальнейшие действия
+## Дальнейшие действия
 
 В этом учебнике большинство действий вы выполняли вручную. В рабочей среде вы напишете приложение на компьютере для разработки и развернете его на виртуальной машине Azure. Кроме того, большинство рабочих сред размещают приложение Rails вместе с другим серверным процессом, например Apache или NginX, который обрабатывает маршрутизацию запросов к нескольким экземплярам приложения Rails и обслуживает статические ресурсы. Дополнительные сведения см. на веб-сайте http://rubyonrails.org/deploy/.
 
@@ -144,35 +137,23 @@
 
 * [Передача контента с широкой полосой пропускания с помощью CDN][cdn-howto]
 
-
-
 <!-- WA.com links -->
 [blobs]: ../storage/storage-ruby-how-to-use-blob-storage.md
-
-[cdn-howto]: /develop/ruby/app-services/
-
+[cdn-howto]: https://azure.microsoft.com/develop/ruby/app-services/
 [management-portal]: https://manage.windowsazure.com/
-
-[tables]: /develop/ruby/how-to-guides/table-service/
-
+[tables]: ../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]: virtual-machines-linux-classic-createportal.md
-
 
 <!-- External Links -->
 [rails-guides]: http://guides.rubyonrails.org/
-
 [sqlite3]: http://www.sqlite.org/
 
 <!-- Images -->
 
 [default-rails-cloud]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/basicrailscloud.png
-
 [vmlist]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/vmlist.png
-
 [endpoints]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/endpoints.png
-
 [new-endpoint]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
-
 [new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

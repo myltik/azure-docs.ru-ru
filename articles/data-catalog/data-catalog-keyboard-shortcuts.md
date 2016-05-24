@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Каталог данных Azure | Microsoft Azure"
-   description="В этой статье представлены сочетания клавиш для каталога данных Azure."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor="steelanddata"
-   tags=""/>
+	pageTitle="Каталог данных Azure | Microsoft Azure"
+	description="В этой статье представлены сочетания клавиш для каталога данных Azure."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="03/31/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="03/31/2016"
+	ms.author="spelluru"/>
 
 # Сочетания клавиш для каталога данных Azure
 
@@ -92,4 +92,4 @@
 |Переключить меню **Открыть в**. | ALT+O
 |Изучить контейнер, если ресурс является контейнером. | ALT+L
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

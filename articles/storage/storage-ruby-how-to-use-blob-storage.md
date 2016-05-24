@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Использование хранилища больших двоичных объектов из Ruby | Microsoft Azure"
-	description="Узнайте, как отправлять, скачивать, перечислять и удалять содержимое больших двоичных объектов с помощью хранилища больших двоичных объектов. Примеры кода написаны на Ruby."
+	description="Вы можете хранить неструктурированные данные в облаке в хранилище BLOB-объектов Azure (хранилище объектов)."
 	services="storage"
 	documentationCenter="ruby"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="02/17/2016"
+    ms.date="04/29/2016"
 	ms.author="robmcm"/>
 
 
@@ -155,4 +155,4 @@
 - Репозиторий [пакетов SDK Azure для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

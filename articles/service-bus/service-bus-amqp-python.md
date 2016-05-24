@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Служебная шина и Python с протоколом AMQP 1.0 | Microsoft Azure"
-   description="Использование служебной шины в Python с протоколом AMQP"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Служебная шина и Python с протоколом AMQP 1.0 | Microsoft Azure"
+    description="Использование служебной шины в Python с протоколом AMQP"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/08/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/10/2016"
+    ms.author="sethm" />
 
 # Использование служебной шины в Python с протоколом AMQP 1.0
 
@@ -216,4 +216,4 @@ if message.properties != None:
 
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

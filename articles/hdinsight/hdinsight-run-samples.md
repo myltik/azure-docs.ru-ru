@@ -32,7 +32,7 @@
 
 В Интернете есть много дополнительной документации по связанным с Hadoop технологиям, например по программированию и потоковой передаче MapReduce с использованием Java, а также документация по командлетам, используемым в сценариях PowerShell. Дополнительную информацию об этих файлах см. в следующих разделах.
 
-- [Разработка программ MapReduce на Java для Hadoop в HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+- [Разработка программ MapReduce на Java для Hadoop в HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 - [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Введение в Azure HDInsight][hdinsight-introduction]
 
@@ -55,7 +55,7 @@
 
 Исходный код можно найти в [Приложении А](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-Процедуру разработки MapReduce на Java программы см. в разделе [Разработка программ MapReduce на Java для Hadoop в HDInsight](hdinsight-develop-deploy-java-mapreduce.md).
+Процедуру разработки MapReduce на Java программы см. в разделе [Разработка программ MapReduce на Java для Hadoop в HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md).
  
 **Отправка задания MapReduce для подсчета слов**
 
@@ -1000,4 +1000,4 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

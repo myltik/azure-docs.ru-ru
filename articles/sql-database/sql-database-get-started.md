@@ -55,8 +55,8 @@
 - Если вы хотите переместить в Azure локальные базы данных SQL Server, изучите этот процесс в статье [Перенос базы данных SQL Server в базу данных SQL Azure](sql-database-cloud-migrate.md).
 
 
-## Дополнительные ресурсы
+## Подробнее
 
-[Обзор Базы данных SQL](sql-database-technical-overview.md)
+[Что такое база данных SQL?](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

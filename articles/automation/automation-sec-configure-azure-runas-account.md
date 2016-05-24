@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="05/16/2016"
     ms.author="magoedte"/>
 
 # Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени
@@ -53,7 +53,15 @@
 
 7. Ход создания учетной записи службы автоматизации в Azure можно отслеживать в разделе **Уведомления** в меню.
 
-По завершении будет создана учетная запись службы автоматизации с ресурсом-контейнером сертификатов с именем **AzureRunAsCertificate** и сроком действия в один год, а также ресурсом-контейнером подключений с именем **AzureRunAsConnection**.
+### Создаваемые ресурсы
+При создании учетной записи службы автоматизации автоматически создаются несколько ресурсов. Они перечислены в следующей таблице.
+
+Ресурс|Описание 
+----|----
+Модуль Runbook AzureAutomationTutorial|Пример модуля Runbook, который демонстрирует, как выполнить проверку подлинности с помощью учетной записи запуска от имени и отобразить первые 10 виртуальных машин Azure в подписке.
+AzureRunAsCertificate|Ресурс-контейнер сертификатов, который создается, если учетная запись запуска от имени создается либо при создании учетной записи службы автоматизации, либо с помощью приведенного ниже скрипта PowerShell для существующей учетной записи. Срок действия этого сертификата — один год. 
+AzureRunAsConnection|Ресурс-контейнер подключений, который создается, если учетная запись запуска от имени создается либо при создании учетной записи службы автоматизации, либо с помощью приведенного ниже скрипта PowerShell для существующей учетной записи.
+модули|15 модулей с командлетами для Azure, PowerShell и службы автоматизации, готовыми для использования с модулями Runbook.  
 
 ## Обновление учетной записи службы автоматизации с помощью PowerShell
 С помощью описанной ниже процедуры можно обновить существующую учетную запись службы автоматизации и создать субъект-службу, используя PowerShell. Эта процедура необходима, если вы создали учетную запись, но не создали учетную запись запуска от имени.
@@ -92,6 +100,9 @@ Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
     [String] $ApplicationDisplayName,
 
     [Parameter(Mandatory=$true)]
+    [String] $SubscriptionName,
+
+    [Parameter(Mandatory=$true)]
     [String] $CertPlainPassword,
 
     [Parameter(Mandatory=$false)]
@@ -100,6 +111,7 @@ Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
 
     Login-AzureRmAccount
     Import-Module AzureRM.Resources
+    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
@@ -156,17 +168,18 @@ Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
     ```
 <br>
 2. На компьютере запустите с повышенными правами сеанс **Windows PowerShell** с **начального** экрана.
-3. Из оболочки командной строки PowerShell с повышенными правами перейдите к папке, которая содержит скрипт, созданный на этапе 1, и выполните его. Для этого измените значения параметров *-ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName* и *-CertPlainPassword*.<br>
+3. Из оболочки командной строки PowerShell с повышенными правами перейдите к папке, которая содержит скрипт, созданный на этапе 1, и выполните его. Для этого измените значения параметров *-ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionName* и *-CertPlainPassword*.<br>
 
     ```
     .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
      -AutomationAccountName <NameofAutomationAccount> `
      -ApplicationDisplayName <DisplayNameofAutomationAccount> `
+     -SubscriptionName <SubscriptionName> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>
 
-    >[AZURE.NOTE] После выполнения сценария появится запрос на проверку подлинности в Azure. Вам *нужно* войти с помощью учетной записи администратора службы в подписке. <br>
+    >[AZURE.NOTE] После выполнения сценария появится запрос на проверку подлинности в Azure. Вам *необходимо* войти с помощью учетной записи администратора службы в подписке. <br>
 4. Когда сценарий успешно завершится, перейдите к следующему разделу для тестирования и проверки новой конфигурации учетных данных.
 
 ### Тестирование проверки подлинности
@@ -174,15 +187,15 @@ Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
 
 1. На портале Azure откройте учетную запись службы автоматизации, созданную ранее.  
 2. Щелкните плитку **Модули Runbook**, чтобы открыть список модулей Runbook.
-3. Создайте новый модуль Runbook, щелкнув **Добавить Runbook**, а затем в колонке **Добавление модуля Runbook** щелкните **Создать новый Runbook**.
+3. Создайте новый модуль Runbook, нажав кнопку **Добавить Runbook**. Затем в колонке **Добавление модуля Runbook** щелкните **Создать новый Runbook**.
 4. Присвойте модулю Runbook имя *Test-SecPrin-Runbook* и в качестве **типа модуля Runbook** выберите PowerShell. Щелкните **Создать**, чтобы создать модуль Runbook.
 5. В колонке **Изменение Runbook PowerShell** вставьте на холст следующий код:<br>
 
     ```
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
      -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-   ```  
+    ```  
 <br>
 6. Щелкните **Сохранить**, чтобы сохранить модуль Runbook.
 7. Щелкните **Тестовая область**, чтобы открыть колонку **Тест**.
@@ -190,14 +203,47 @@ Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
 9. При этом создается объект [Задание Runbook](automation-runbook-execution.md), а его состояние отображается на панели.  
 10. Сначала задание получает состояние *В очереди*, указывающее на то, что задание ожидает, пока рабочая роль Runbook в облаке станет доступной. Как только исполнитель затребует задание, оно получит состояние *Запущено*, а с началом фактического выполнения модуля Runbook — состояние *Выполняется*.  
 11. Когда задание модуля Runbook будет выполнено, на экране появится результат. В нашем случае должно отобразиться состояние **Завершено**.<br> ![Тестирование модуля Runbook субъекта безопасности](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
-12. Закройте колонку **Тест**, чтобы вернуться на холст.
+12. Закройте колонку **Test**, чтобы вернуться на холст.
 13. Закройте колонку **Изменение Runbook PowerShell**.
 14. Закройте колонку **Test-SecPrin-Runbook**.
 
-Приведенный выше код, с помощью которого можно проверить, правильно ли настроена новая учетная запись, используется в модулях Runbook PowerShell для проверки подлинности в службе автоматизации Azure. Такая проверка подлинности необходима для управления ресурсами ARM. Конечно, вы можете и дальше использовать для проверки подлинности учетную запись службы автоматизации, которую использовали до сих пор.
+## Пример кода для проверки подлинности с помощью ресурсов ARM
+
+Чтобы выполнить проверку подлинности с помощью учетной записи запуска от имени для управления ресурсами ARM с помощью модулей Runbook, можно использовать обновленный пример кода, приведенный ниже, взятый из примера модуля Runbook AzureAutomationTutorial.
+
+   ```
+   $connectionName = "AzureRunAsConnection"
+   $SubId = Get-AutomationVariable -Name 'SubscriptionId'
+   try
+   {
+      # Get the connection "AzureRunAsConnection "
+      $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+      "Logging in to Azure..."
+      Add-AzureRmAccount `
+         -ServicePrincipal `
+         -TenantId $servicePrincipalConnection.TenantId `
+         -ApplicationId $servicePrincipalConnection.ApplicationId `
+         -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+	  "Setting context to a specific subscription"	 
+	  Set-AzureRmContext -SubscriptionId $SubId	 		 
+   }
+   catch {
+       if (!$servicePrincipalConnection)
+       {
+           $ErrorMessage = "Connection $connectionName not found."
+           throw $ErrorMessage
+       } else{
+           Write-Error -Message $_.Exception
+           throw $_.Exception
+       }
+   } 
+   ```
+
+Этот скрипт включает две дополнительные строки кода, что позволяет ссылаться на контекст подписки и без проблем работать с несколькими подписками. Ресурс-контейнер переменных с именем SubscriptionId содержит идентификатор подписки, а после инструкции командлета Add-AzureRmAccount [командлет Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) указывается с набором параметров *-SubscriptionId*. Если имя переменной слишком общее, можно изменить имя переменной, включив в него префикс или другое соглашение об именовании, чтобы упростить идентификацию для ваших целей. Кроме того, можно использовать набор параметров -SubscriptionName вместо -SubscriptionId с соответствующим ресурсом-контейнером переменных.
 
 ## Дальнейшие действия
 - Дополнительные сведения о субъектах-службах см. в статье [Объекты приложений и объекты субъектов-служб](../active-directory/active-directory-application-objects.md).
 - Дополнительные сведения об управлении доступом на основе ролей в службе автоматизации Azure см. в статье [Управление доступом на основе ролей в службе автоматизации Azure](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

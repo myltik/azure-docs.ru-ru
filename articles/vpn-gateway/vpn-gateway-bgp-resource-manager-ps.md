@@ -187,7 +187,7 @@
 #### 1\. Получение обоих шлюзов
 
 		$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
-		$lng5gw  = Get-AzureRmVirtualNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5
+		$lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5
 
 #### 2\. Создание подключения между TestVNet1 и Site5
 
@@ -278,7 +278,7 @@
 Не забудьте войти и подключиться к подписке 1.
 
 	$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-	$vnet2gw = Get-AzureRmLocalNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
+	$vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 	
 #### 2\. Создание двух подключений
 
@@ -300,4 +300,4 @@
 
 Установив подключение, можно добавить виртуальные машины в виртуальные сети. Инструкции см. в статье [Создание виртуальной машины под управлением Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

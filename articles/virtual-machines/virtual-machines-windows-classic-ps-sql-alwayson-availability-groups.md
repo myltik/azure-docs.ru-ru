@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Настройка групп доступности AlwaysOn в виртуальной машине Azure | Microsoft Azure"
-	description="В этом руководстве используются ресурсы, созданные в классической модели развертывания, а также применяется PowerShell для создания группы доступности AlwaysOn в Azure."
+	pageTitle="Настройка групп доступности Always On в виртуальной машине Azure | Microsoft Azure"
+	description="В этом руководстве используются ресурсы, созданные в классической модели развертывания, а также применяется PowerShell для создания группы доступности Always On в Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="05/04/2016"
 	ms.author="mikeray" />
 
-# Настройка групп доступности AlwaysOn в виртуальной машине Azure (графический пользовательский интерфейс)
+# Настройка групп доступности Always On на виртуальной машине Azure с помощью PowerShell
 
 > [AZURE.SELECTOR]
 - [Портал](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
@@ -27,7 +27,7 @@
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
 
-Виртуальные машины Azure позволяют администраторам баз данных сократить затраты при реализации более высокого уровня доступности системы SQL Server. В этом учебнике рассказывается, как реализовать группу доступности с помощью сквозного соединения SQL Server AlwaysOn в среде Azure. В конце учебника ваше решение SQL Server AlwaysOn в Azure будет состоять из следующих элементов:
+Виртуальные машины Azure позволяют администраторам баз данных сократить затраты при реализации более высокого уровня доступности системы SQL Server. В этом руководстве описано, как реализовать группу доступности с помощью сквозного соединения SQL Server Always On в среде Azure. Когда вы завершите, решение SQL Server Always On в Azure будет состоять из следующих элементов:
 
 - виртуальной сети, содержащей несколько подсетей, включая начальную и конечной подсети;
 
@@ -47,7 +47,7 @@
 
 - В системе установлены [командлеты Azure PowerShell](../powershell-install-configure.md).
 
-- Вы хорошо понимаете принцип работы групп доступности AlwaysOn в локальных решениях. Дополнительные сведения см. в статье [Группы доступности AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+- Вы хорошо понимаете принцип работы групп доступности Always On в локальных решениях. Дополнительные сведения см. в статье [Группы доступности AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## Подключение к подписке Azure и создание виртуальной сети
 
@@ -534,14 +534,14 @@
 		$svc2.Start();
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. Загрузите файл **CreateAzureFailoverCluster.ps1** из раздела [Создание кластера WSFC для групп доступности AlwaysOn на виртуальной машине Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) в локальный рабочий каталог. Этот скрипт поможет создать рабочий WSFC-кластер. Важные сведения о взаимодействии кластера WSFC с сетью Azure см. в статье [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-high-availability-dr.md).
+1. Скачайте файл **CreateAzureFailoverCluster.ps1** из раздела [Создание кластера WSFC для групп доступности Always On на виртуальной машине Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) в локальный рабочий каталог. Этот скрипт поможет создать рабочий WSFC-кластер. Важные сведения о взаимодействии кластера WSFC с сетью Azure см. в статье [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
 1. Измените рабочий каталог и создайте WSFC-каталог с помощью загруженного скрипта.
 
 		Set-ExecutionPolicy Unrestricted -Force
 		.\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
 
-1. Включите группы доступности AlwaysOn для экземпляров SQL Server по умолчанию на виртуальных машинах **ContosoSQL1** и **ContosoSQL2**.
+1. Включите группы доступности Always On для экземпляров SQL Server по умолчанию на виртуальных машинах **ContosoSQL1** и **ContosoSQL2**.
 
 		Enable-SqlAlwaysOn `
 		    -Path SQLSERVER:\SQL\$server1\Default `
@@ -625,8 +625,8 @@
 		    -Database $db
 
 ## Дальнейшие действия
-Решение SQL Server AlwaysOn на основе группы доступности в Azure успешно создано. Инструкции по настройке прослушивателя группы доступности см. в статье [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Решение SQL Server Always On на основе группы доступности в Azure успешно создано. Инструкции по настройке прослушивателя для этой группы доступности см. в статье [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

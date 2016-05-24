@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/19/2016"
+   ms.date="05/11/2016"
    ms.author="cherylmc" />
 
 # Партнеры и одноранговые расположения ExpressRoute
@@ -64,7 +64,7 @@ ExpressRoute поддерживается во всех регионах и ра
 |**China Telecom Global** | Поддерживаются | Не поддерживается | Гонконг |
 |**Cologix** | Поддерживаются | Скоро | Монреаль+, Торонто |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Поддерживаются | Поддерживаются | Амстердам, Дублин, Лондон |
-| **Comcast** | Поддерживаются | Поддерживаются | Кремниевая долина, Вашингтон (округ Колумбия) |
+| **Comcast** | Поддерживаются | Поддерживаются | Чикаго, Кремниевая долина, Вашингтон, округ Колумбия |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Поддерживаются | Поддерживаются | Лос-Анджелес | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Поддерживаются | Поддерживаются | Амстердам, Атланта, Чикаго, Даллас, Гонконг, Лондон, Лос-Анджелес, Мельбурн, Нью-Йорк, Осака, Сан-Пауло, Сиэтл, Кремниевая долина, Сингапур, Сидней, Токио, Вашингтон (округ Колумбия), Торонто |
 | **euNetworks** | Поддерживаются | Поддерживаются | Амстердам |
@@ -79,7 +79,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **NTT Communications** | Поддерживаются | Поддерживаются | Лондон, Осака, Токио |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Поддерживаются | Поддерживаются | Амстердам, Гонконг, Лондон, Кремниевая долина, Сингапур, Вашингтон, округ Колумбия |
 | **PCCW Global Limited** | Поддерживаются | Поддерживаются | Гонконг |
-| **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Поддерживаются | Не поддерживается | Сингапур |
+| **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Поддерживаются | Поддерживаются | Сингапур |
 | **Softbank** | Поддерживаются | Поддерживаются | Осака, Токио | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Поддерживаются | Поддерживаются | Амстердам, Ченнаи, Гонконг, Лондон, Мумбаи, Кремниевая долина, Сингапур, Вашингтон (округ Колумбия) |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Поддерживаются | Поддерживаются | Амстердам, Лондон |
@@ -134,7 +134,7 @@ ExpressRoute поддерживается во всех регионах и ра
 - Закажите канал ExpressRoute с Exchange у вашего поставщика услуг подключения для связи с Майкрософт.
 	- Для настройки подключения выполните действия, описанные в статье [Создание и изменение канала ExpressRoute с помощью PowerShell](expressroute-howto-circuit-classic.md).
 
-|**Поставщик услуг подключения**|**Exchange**|**Одноранговые расположения**|
+|**Поставщик услуг подключения**|**Exchange**|**Расположения**|
 |---|---|---|
 |**Alaska Communications**|Equinix|Сиэтл;|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Кремниевая долина|
@@ -157,4 +157,4 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

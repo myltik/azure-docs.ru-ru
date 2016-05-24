@@ -30,7 +30,10 @@ articles/sql-database/sql-database-configure-firewall-settings
 
  	![новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
     
-5. Щелкните **Добавить IP-адрес клиента**, чтобы система Azure создала правило для IP-адреса ваше клиента.
+
+ 	> [AZURE.IMPORTANT] Если вы не видите в колонке параметр **Брандмауэр**, убедитесь, что вы открыли колонку для логического сервера базы данных SQL, а не колонку для базы данных SQL.
+
+5. Щелкните **Добавить IP-адрес клиента**, чтобы система Azure создала правило для IP-адреса вашего клиента.
 
       ![новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
 
@@ -42,4 +45,4 @@ articles/sql-database/sql-database-configure-firewall-settings
 
      ![новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
 
-	>[AZURE.IMPORTANT] Ваш IP-адрес клиента, скорее всего, будет периодически меняться; в таком случае вы не сможете получить доступ к серверу, пока не создадите новое правило брандмауэра. Вы можете узнать свой IP-адрес с помощью службы [Bing](http://www.bing.com/search?q=my%20ip%20address). Затем добавьте один IP-адрес или диапазон IP-адресов. Подробные сведения см. в разделе [Управление существующими правилами брандмауэра с помощью портала Azure](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal).
+	>[AZURE.IMPORTANT] Ваш IP-адрес клиента, скорее всего, будет периодически меняться; в таком случае вы не сможете получить доступ к серверу, пока не создадите новое правило брандмауэра. Вы можете узнать свой IP-адрес с помощью службы [Bing](http://www.bing.com/search?q=my%20ip%20address). Затем добавьте один IP-адрес или диапазон IP-адресов. Подробные сведения см. в статье [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal).

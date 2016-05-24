@@ -1,6 +1,6 @@
 <properties
     pageTitle="Использование хранилища BLOB-объектов Azure из iOS | Microsoft Azure"
-    description="Узнайте, как отправлять, скачивать, перечислять и удалять содержимое больших двоичных объектов с помощью хранилища больших двоичных объектов Azure. Примеры написаны на Objective-C."
+	description="Вы можете хранить неструктурированные данные в облаке в хранилище BLOB-объектов Azure (хранилище объектов)."
     services="storage"
     documentationCenter="ios"
     authors="micurd"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="04/11/2016"
     ms.author="micurd"/>
 
 # Использование хранилища BLOB-объектов из iOS
@@ -111,7 +111,7 @@
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-Как видите, при использовании маркера SAS в приложении iOS вам не нужно предоставлять имя и ключ учетной записи. Дополнительные сведения о SAS см. в статье [Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](../storage-dotnet-shared-access-signature-part-1).
+Как видите, при использовании маркера SAS в приложении iOS вам не нужно предоставлять имя и ключ учетной записи. Дополнительные сведения о SAS см. в статье [Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](storage-dotnet-shared-access-signature-part-1.md).
 
 ##Асинхронные операции
 > [AZURE.NOTE] Все методы, которые выполняют запрос к службе, являются асинхронными операциями. Из образцов кода понятно, что у этих методов есть обработчик завершения. Код внутри обработчика завершения выполняется **после** завершения запроса. Код за пределами обработчика завершения (следующий за ним) выполняется **во время** выполнения запроса.
@@ -355,4 +355,4 @@
 
 Если у вас есть вопросы по данной библиотеке, вы можете опубликовать их на нашем [форуме MSDN по Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) или на сайте [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Если у вас есть предложения по функциям хранилища Azure, вы можете опубликовать их на сайте [отзывов о хранилище Azure](https://feedback.azure.com/forums/217298-storage/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

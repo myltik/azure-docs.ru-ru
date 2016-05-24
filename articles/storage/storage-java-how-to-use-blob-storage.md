@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Использование хранилища больших двоичных объектов Azure из Java | Microsoft Azure"
-	description="Узнайте, как отправлять, скачивать, перечислять и удалять содержимое больших двоичных объектов с помощью хранилища больших двоичных объектов Azure. Примеры кода написаны на Java."
+	description="Вы можете хранить неструктурированные данные в облаке в хранилище BLOB-объектов Azure (хранилище объектов)."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -270,4 +270,4 @@
 [REST API службы хранилища Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

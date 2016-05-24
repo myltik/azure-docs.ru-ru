@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Как использовать хранилище больших двоичных объектов из PHP | Microsoft Azure"
-	description="Узнайте, как отправлять, перечислять, передавать и удалять большие двоичные объекты с помощью службы BLOB-объектов Azure. Примеры кода написаны на PHP."
+	description="Вы можете хранить неструктурированные данные в облаке в хранилище BLOB-объектов Azure (хранилище объектов)."
 	documentationCenter="php"
 	services="storage"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/17/2016"
+    ms.date="04/29/2016"
 	ms.author="robmcm"/>
 
 # Использование хранилища больших двоичных объектов из PHP
@@ -306,4 +306,4 @@
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

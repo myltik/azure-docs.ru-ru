@@ -3,7 +3,7 @@
    description="Установка локального кластера Service Fabric, развертывание в нем существующего приложения и обновление этого приложения."
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/12/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Начало развертывания и обновления приложений в локальном кластере
 Пакет SDK Service Fabric включает полную локальную среду разработки, которая позволяет быстро приступить к развертыванию приложений в локальном кластере и управлению ими. Следуя инструкциям в этой статье и используя Windows PowerShell, вы создадите локальный кластер, развернете в нем существующее приложение, а затем обновите приложение до новой версии.
@@ -190,4 +190,4 @@
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

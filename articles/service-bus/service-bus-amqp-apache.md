@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Установка Apache Qpid Proton-C на виртуальной машине Linux | Microsoft Azure"
-   description="Создание виртуальной машины CentOS Linux с использованием виртуальных машин Azure и процедура построения и установки библиотеки Apache Qpid Proton-C."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Установка Apache Qpid Proton-C на виртуальной машине Linux | Microsoft Azure"
+    description="Создание виртуальной машины CentOS Linux с использованием виртуальных машин Azure и процедура построения и установки библиотеки Apache Qpid Proton-C."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Установка Apache Qpid Proton-C на виртуальной машине Azure под управлением Linux
 
@@ -116,4 +116,4 @@
 
 [классическом портале Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

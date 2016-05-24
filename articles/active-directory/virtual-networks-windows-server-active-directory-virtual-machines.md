@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Windows Server Active Directory в виртуальных машинах Azure | Microsoft Azure" 
-	description="Вы можете запускать доменные службы Active Directory (AD DS) или службы федерации Active Directory (AD FS) Windows Server в виртуальных машинах Azure." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Windows Server Active Directory в виртуальных машинах Azure | Microsoft Azure"
+	description="Вы можете запускать доменные службы Active Directory (AD DS) или службы федерации Active Directory (AD FS) Windows Server в виртуальных машинах Azure."
+	services="active-directory"
+	documentationCenter=""
+	authors="markusvi"
+	manager="stevenpo"
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/07/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/07/2016"
 	ms.author="markusvi"/>
 
 
@@ -24,7 +24,7 @@
 
 ## Основные рекомендации
 
-- [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) 
+- [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
 ## Видео
 
@@ -33,7 +33,7 @@
 ## Руководства
 
 - [Установка нового леса Active Directory в виртуальной сети Azure](active-directory-new-forest-virtual-machine.md)
-- [Установка реплики контроллера домена Active Directory в виртуальных сетях Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md) 
+- [Установка реплики контроллера домена Active Directory в виртуальных сетях Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)
 - [Настройка гибридной облачной среды для тестирования](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)
 
 
@@ -42,9 +42,4 @@
 - [Регистрация организации в Azure](sign-up-organization.md)
 - [Удостоверение Azure](fundamentals-identity.md)
 
-
-
-
- 
-
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

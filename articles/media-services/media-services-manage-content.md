@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016"   
+	ms.date="04/25/2016"   
 	ms.author="juliako"/>
 
 
@@ -61,7 +61,7 @@
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-index-content.md)
-- [Portal](media-services-manage-content.md#index)
+- [Портал](media-services-manage-content.md#index)
 
 Индексатор мультимедийных данных Azure позволяет искать содержимое файлов мультимедиа и создавать полнотекстовую транскрипцию для скрытых субтитров и ключевых слов. Содержимое можно индексировать на классическом портале Azure с помощью действий, показанных ниже. Однако, если вам требуется больше контроля над файлами и выполнением задания индексирования, можно использовать пакет SDK служб мультимедиа для .NET или API REST. Дополнительную информацию см. в разделе [Индексирование файлов мультимедиа с помощью индексатора мультимедийных данных Azure](media-services-index-content.md).
 
@@ -79,7 +79,7 @@
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encode-asset.md)
 - [REST](media-services-rest-encode-asset.md)
-- [Portal](media-services-manage-content.md#encode)
+- [Портал](media-services-manage-content.md#encode)
 
 Для поставки цифрового видео по Интернету необходимо сжать мультимедиа. Службы мультимедиа предоставляют кодировщик мультимедиа, который позволяет указать, как следует кодировать содержимое (например, используемые кодеки, формат файла, разрешение и битрейт).
 
@@ -100,12 +100,14 @@
 
 1.  Выберите файл, который следует закодировать.
 
-  Если кодирование поддерживается для этого типа файла, кнопка ОБРАБОТАТЬ будет активна в нижней части страницы СОДЕРЖИМОЕ. 4. В диалоговом окне **Обработка** выберите **Стандартный кодировщик служб мультимедиа**. 5. Выберите одну из **конфигураций кодирования**.
+  Если кодирование поддерживается для этого типа файла, кнопка ОБРАБОТАТЬ будет активна в нижней части страницы СОДЕРЖИМОЕ.
+4. В диалоговом окне **Процесс** выберите **Media Encoder Standard**.
+5. Выберите одну из **конфигураций кодирования**.
 
 ![Process2][process2]
 
 
-В статье [Строки предустановок задач для Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) объясняется значение каждой из предустановок.
+В статье [Task Presets for MES (Media Encoder Standard)](https://msdn.microsoft.com/library/mt269960) (Предустановки задач для Media Encoder Standard) объясняется, что означает каждая предустановка.
 
 5. Затем введите нужное понятное имя выходного содержимого или примите значение по умолчанию. Нажмите кнопку проверки, чтобы начать операцию кодирования, ход выполнения которой можно отслеживать в нижней части портала.
 6. Нажмите кнопку ОК.
@@ -142,7 +144,7 @@
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
 - [REST](media-services-rest-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [Портал](media-services-manage-content.md#publish)
 
 ###Обзор
 
@@ -220,4 +222,4 @@ URL-адрес потоковой передачи имеет следующий
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

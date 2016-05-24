@@ -84,8 +84,7 @@
 
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 * [Установка и использование Spark в кластерах Hadoop](hdinsight-hadoop-spark-install.md)
-* [Сервер заданий Spark в кластерах HDInsight](hdinsight-apache-spark-job-server.md)
-* [Подготовка Apache Spark и выполнение интерактивных запросов с помощью Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1.md)
+
 
 
 ## Решения для больших объемов данных
@@ -131,4 +130,4 @@
 * [Значение сообщений об ошибках](hdinsight-debug-jobs.md)
 * [Получить помощь на форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

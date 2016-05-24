@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/29/2016"
+   ms.date="05/07/2016"
    ms.author="glenga"/>
    
 # Создание функции Azure объекта webhook или API
@@ -67,7 +67,8 @@
 
 	![Создание функции объекта webhook GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png)
 
-На этом этапе объект webhook GitHub настраивается для активации функции при добавлении нового примечания к вопросу. Теперь проверим его работу.
+На этом этапе объект webhook GitHub настраивается для активации функции при добавлении нового примечания к вопросу. 
+Теперь проверим его работу.
 
 ##Проверка функции
 
@@ -82,11 +83,14 @@
 
 Дополнительные сведения о функциях Azure см. в следующих статьях.
 
-+ [Azure Functions developer reference](functions-reference.md) (Справочник разработчика функций Azure). Справочник программиста по созданию функций, а также определению триггеров и привязок.
-+ [Testing Azure Functions](functions-test-a-function.md) (Тестирование функций Azure). Описание различных средств и методов тестирования функций.
-+ [How to scale Azure Functions](functions-scale.md) (Масштабирование функций Azure). Обсуждение планов обслуживания Azure, доступных для использования с функциями Azure (включая динамический план обслуживания), а также выбор подходящего плана.  
++ [Azure Functions developer reference](functions-reference.md)  
+(Справочник разработчика функций Azure). Справочник программиста по созданию функций, а также определению триггеров и привязок.
++ [Testing Azure Functions](functions-test-a-function.md)  
+(Тестирование функций Azure). Описание различных средств и методов тестирования функций.
++ [How to scale Azure Functions](functions-scale.md)  
+(Масштабирование функций Azure). Обсуждение планов обслуживания Azure, доступных для использования с функциями Azure (включая динамический план обслуживания), а также выбор подходящего плана.  
 
 
 [AZURE.INCLUDE [Начало работы](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0511_2016-->

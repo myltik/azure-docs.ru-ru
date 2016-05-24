@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Настройка прослушивателя внутренней подсистемы балансировки нагрузки для групп доступности AlwaysOn | Microsoft Azure"
-	description="В этом руководстве используются ресурсы, созданные в классической модели развертывания, а также создается прослушиватель группы доступности AlwaysOn в Azure с помощью внутренней подсистемы балансировки нагрузки (ILB)."
+	description="В этом руководстве используются ресурсы, созданные в классической модели развертывания, а также создается прослушиватель группы доступности AlwaysOn в Azure с помощью внутренней подсистемы балансировки нагрузки."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="mikeray" />
 
 # Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure
@@ -24,9 +24,9 @@
 
 ## Обзор
 
-В этом разделе показано, как настроить прослушиватель для группы доступности AlwaysOn с помощью **внутренней подсистемы балансировки нагрузки (ILB)**.
+В этой статье показано, как настроить прослушиватель для группы доступности AlwaysOn с помощью **внутренней подсистемы балансировки нагрузки**.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов. Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в модели Resource Manager описана в статье [Настройка внутреннего балансировщика нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 
 В группе доступности могут быть реплики, доступные только локально или только в Azure. В гибридных конфигурациях возможны оба способа доступа одновременно. Реплики в Azure могут находиться в одном или нескольких регионах (при использовании нескольких виртуальных сетей). В приведенных ниже указаниях предполагается, что вы уже [настроили группу доступности](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md), но еще не настроили прослушиватель.
@@ -138,4 +138,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!------HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

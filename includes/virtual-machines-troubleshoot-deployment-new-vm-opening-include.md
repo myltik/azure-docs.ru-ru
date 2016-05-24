@@ -1,4 +1,4 @@
-When you try to create a new Azure Virtual Machine (VM), the common errors you encounter are provisioning failures or allocation failures.
+Наиболее распространенные ошибки, возникающие при попытке создания новой виртуальной машины Azure, — ошибки подготовки и ошибки выделения.
 
-- A provisioning failure happens when the OS image fails to load either due to incorrect preparatory steps or because of selecting the wrong settings during the image capture from the portal.
-- An allocation failure results when the cluster or region either does not have resources available or cannot support the requested VM size.
+- Ошибки подготовки возникают, когда образ операционной системы не удается загрузить из-за неправильных подготовительных действий или из-за выбора неправильных параметров во время записи образа на портале.
+- Ошибки выделения возникают, когда кластер или регион не имеют доступных ресурсов или не поддерживают запрошенный размер виртуальной машины.

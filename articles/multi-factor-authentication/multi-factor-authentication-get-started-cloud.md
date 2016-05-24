@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/10/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Приступая к работе с Azure Multi-Factor Authentication в облаке
@@ -90,4 +90,4 @@
 ## Дальнейшие действия
 Теперь, когда многофакторная проверка подлинности в облаке настроена, можно настроить и выполнить развертывание. См. статью [Настройка Azure Multi-Factor Authentication.]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

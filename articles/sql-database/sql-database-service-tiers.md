@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="carlrabeler"
 	manager="jhubbard"
-	editor="jeffreyg"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/27/2016"
+	ms.date="05/13/2016"
 	ms.author="carlrab"/>
 
 # Параметры базы данных SQL и производительность: возможности разных уровней служб
@@ -64,4 +64,4 @@
 - Узнайте, как [отслеживать пулы эластичных баз данных, управлять ими и изменять их размеры](sql-database-elastic-pool-manage-portal.md), а также как [отслеживать производительность отдельных баз данных](sql-database-single-database-monitor.md).
 - Вы узнали об уровнях базы данных SQL. Теперь воспользуйтесь [бесплатной пробной версией](https://azure.microsoft.com/pricing/free-trial/) и узнайте, [как создать свою первую базу данных SQL](sql-database-get-started.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->
