@@ -24,7 +24,7 @@
 
 >[AZURE.NOTE] Azure AD Connect применяет компоненты и функции, ранее выпущенные как Dirsync и служба синхронизации AAD. Они больше не выпускаются по отдельности. Все усовершенствования будут включаться в обновления для Azure AD Connect, поэтому вам всегда будут доступны самые последние функции.
 >
->Компоненты DirSync и Azure AD Sync являются устаревшими. Дополнительные сведения см. в статье [Upgrade Windows Azure Active Directory Sync (“DirSync”) and Azure Active Directory Sync (“Azure AD Sync”)](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM) (Обновление Windows Azure Active Directory Sync (DirSync) и Azure Active Directory Sync (Azure AD Sync)).
+>Компоненты DirSync и Azure AD Sync являются устаревшими. Дополнительные сведения см. в статье [Upgrade Azure Active Directory Sync (“DirSync”) and Azure Active Directory Sync (“Azure AD Sync”)](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM) (Обновление Azure Active Directory Sync (DirSync) и Azure Active Directory Sync (Azure AD Sync)).
 
 
 Воспользуйтесь следующей подсказкой для каждой таблицы.
