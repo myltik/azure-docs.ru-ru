@@ -116,4 +116,4 @@
 
 * Вы также можете [создать виртуальную машину Windows с помощью Powershell](virtual-machines-windows-ps-create.md) или [виртуальную машину Linux](virtual-machines-linux-quick-create-cli.md) с помощью интерфейса командной строки Azure.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0511_2016--->
