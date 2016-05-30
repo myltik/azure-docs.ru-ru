@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Список совместимости с федерацией Azure AD
@@ -168,7 +168,7 @@ CA SiteMinder Federation 12.52 реализует широко использу�
 Дополнительные сведения о CA SiteMinder см. в статье [CA SiteMinder Federation.](http://www.ca.com/us/products/ca-single-sign-on.html)
 
 ## RadiantOne CFS 3.0 
-RadiantOne Cloud Federation Service \(CFS\) 3.0 реализует широко использующийся стандарт удостоверений WS Federation/WS-Trust для предоставления инфраструктуры единого входа и платформы обмена атрибутами.
+RadiantOne Cloud Federation Service (CFS) 3.0 реализует широко использующийся стандарт удостоверений WS Federation/WS-Trust для предоставления инфраструктуры единого входа и платформы обмена атрибутами.
 
 Далее приводится таблица поддержки сценария реализации единого входа:
 
@@ -304,7 +304,7 @@ Dell One Identity Cloud Access Manager реализует широко испо�
 
 Дополнительные сведения о Dell One Identity Cloud Access Manager см. в статье [Dell One Identity Cloud Access Manager](http://software.dell.com/products/cloud-access-manager).
 
- Инструкции по настройке STS для предоставления интерфейса единого входа пользователям Office 365 см. в статье [Configure Office 365 Users \(Настройка пользователей Office 365\)](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365).
+ Инструкции по настройке STS для предоставления интерфейса единого входа пользователям Office 365 см. в статье [Configure Office 365 Users (Настройка пользователей Office 365)](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365).
 
 ## AuthAnvil Single Sign On 4.5 
 AuthAnvil Single Sign On 4.5 реализует широко использующийся стандарт удостоверений WS Federation/WS-Trust для предоставления инфраструктуры единого входа и платформы обмена атрибутами.
@@ -320,4 +320,4 @@ AuthAnvil Single Sign On 4.5 реализует широко использую�
 
 Дополнительные сведения см. в статье [AuthAnvil Single Sign On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-).
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -19,7 +19,7 @@
 
 # Создание, изменение и выполнение SQL-запросов для DocumentDB с помощью обозревателя запросов 
 
-В этой статье приведены общие сведения об обозревателе запросов [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), который представляет собой средство портала Azure, предназначенное для создания, изменения и выполнения SQL-запросов к [коллекции DocumentDB](documentdb-create-collection).
+В этой статье приведены общие сведения об обозревателе запросов [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), который представляет собой инструмент портала Azure, предназначенный для создания, изменения и выполнения SQL-запросов к [коллекции DocumentDB](documentdb-create-collection.md).
 
 1. На панели быстрых переходов портала Azure щелкните элемент **Учетные записи DocumentDB**. Если элемент **Учетные записи DocumentDB** не отображается, нажмите кнопку **Обзор**, а затем щелкните **Учетные записи DocumentDB**.
 
@@ -79,4 +79,4 @@
 
 Узнайте больше о грамматике SQL в DocumentDB, которую поддерживает обозреватель запросов, прочитав статью [SQL-запросы и синтаксис SQL в DocumentDB](documentdb-sql-query.md), или распечатайте копию [памятки по DocumentDB SQL](documentdb-sql-query-cheat-sheet.md). Вы также можете поэкспериментировать на [площадке для запросов](https://www.documentdb.com/sql/demo), где запросы можно тестировать через Интернет с помощью примера набора данных.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="05/10/2016"
 	ms.author="hangzh;bradsev" />
 
 # Выборка данных в таблицах Azure HDInsight Hive
-
-## Введение
 
 В этой статье мы опишем, как уменьшить размер выборки данных, хранящихся в таблицах Azure HDInsight Hive, с помощью запросов Hive. Мы охватим три распространенных метода выборки:
 
@@ -109,4 +107,4 @@
 Сведения о дополнительных методах выборки, доступных в Hive, см. в статье [Руководство по языку: выборка](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

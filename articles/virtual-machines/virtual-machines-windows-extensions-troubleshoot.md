@@ -28,9 +28,9 @@
 
 Пример:
 
-Azure Powershell:
+Azure PowerShell.
 
-      Get-AzureVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
 
 Пример выходных данных:
 
@@ -64,10 +64,10 @@ Azure Powershell:
 При выполнении сценариев на виртуальной машине с помощью расширения пользовательских сценариев может возникать ошибка, указывающая на то, что виртуальная машина создана успешно, но сценарий не выполнен. В этом случае рекомендуется удалить соответствующее расширение и выполнить шаблон еще раз. Примечание. В будущем эта функция будет усовершенствована, что позволит устранить необходимость в удалении расширения.
 
 
-#### Удаление расширения с помощью Azure Powershell
+#### Удаление расширения с помощью Azure PowerShell
 
-    Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 После удаления расширения шаблон можно выполнить повторно, чтобы запустить скрипты на виртуальной машине.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

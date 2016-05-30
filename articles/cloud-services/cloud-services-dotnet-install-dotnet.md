@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Установка .NET для роли облачной службы"
+   pageTitle="Установка .NET для роли облачной службы | Microsoft Azure"
    description="В этой статье описывается, как вручную установить платформу .NET Framework для веб-роли и рабочей роли облачной службы."
    services="cloud-services"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/17/2016"
+   ms.date="05/17/2016"
    ms.author="adegeo"/>
 
 # Установка .NET для роли облачной службы 
@@ -183,4 +183,4 @@
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

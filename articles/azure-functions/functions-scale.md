@@ -47,4 +47,4 @@
 
 [AZURE.INCLUDE [Динамический план обслуживания](../../includes/functions-dynamic-service-plan.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

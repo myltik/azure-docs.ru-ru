@@ -14,18 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/11/2016"
+   ms.date="04/22/2016"
    ms.author="seanmck"/>
 
 # ПРЕДВАРИТЕЛЬНАЯ ВЕРСИЯ: создание кластера Service Fabric с использованием Azure Active Directory для проверки подлинности клиента
 
-С помощью Azure Active Directory \(AAD\) можно защитить доступ к конечным точкам управления кластера Service Fabric. Эта статья рассказывает о том, как создать необходимые артефакты AAD, как заполнить их во время создания кластера и как подключиться к этим кластерам впоследствии.
+С помощью Azure Active Directory (AAD) можно защитить доступ к конечным точкам управления кластера Service Fabric. Эта статья рассказывает о том, как создать необходимые артефакты AAD, как заполнить их во время создания кластера и как подключиться к этим кластерам впоследствии.
 
 >[AZURE.IMPORTANT] Интеграция AAD с кластерами Service Fabric сейчас находится в предварительной версии. Все описанное в этой статье доступно в среде выполнения Service Fabric версии 5.0, но сейчас использовать ее для кластеров в рабочей среде не рекомендуется.
 
 ## Моделирование кластера Service Fabric в AAD
 
-AAD позволяет организациям \(известным как клиенты\) управлять доступом пользователей к приложениям, которые делятся на приложения с веб-интерфейсом входа и приложения с собственным интерфейсом входа клиента. В этом документе предполагается, что клиент уже создан. Если это не так, обратитесь к статье [Как получить клиент Azure Active Directory](../active-directory/active-directory-howto-tenant.md).
+AAD позволяет организациям (известным как клиенты) управлять доступом пользователей к приложениям, которые делятся на приложения с веб-интерфейсом входа и приложения с собственным интерфейсом входа клиента. В этом документе предполагается, что клиент уже создан. Если это не так, обратитесь к статье [Как получить клиент Azure Active Directory](../active-directory/active-directory-howto-tenant.md).
 
 Кластеры Service Fabric предлагают множество точек входа для управления функциями кластеров, включая веб-интерфейс [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) и [Visual Studio](service-fabric-manage-application-in-visual-studio.md). В ходе выполнения действий, описанных в этой статье, вы создадите два приложения AAD для управления доступом к кластеру: веб-приложение и собственное приложение.
 
@@ -33,9 +33,13 @@ AAD позволяет организациям \(известным как кл
 
 >[AZURE.NOTE] Эти действия необходимо выполнить *перед* созданием кластера, поэтому в тех случаях, когда сценариям необходимы имена кластеров и конечные точки, нужно использовать плановые значения, а не те кластеры и конечные точки, которые вы уже создали.
 
-1. Для выполнения дальнейших действий [скачайте скрипты][sf-aad-ps-script-download] и извлеките их.
+1. [Загрузите скрипты][sf-aad-ps-script-download] на компьютер.
 
-2. Запустите `SetupApplications.ps1`, указав TenantId \(идентификатор клиента\), ClusterName \(имя кластера\) и WebApplicationReplyUrl \(URL-адрес ответа веб-приложения\) в качестве параметров. Например:
+2. Щелкните ZIP-файл правой кнопкой мыши, выберите **Свойства**, установите флажок **Разблокировать** и примените изменения.
+
+3. Извлеките ZIP-файл.
+
+4. Запустите `SetupApplications.ps1`, указав TenantId (идентификатор клиента), ClusterName (имя кластера) и WebApplicationReplyUrl (URL-адрес ответа веб-приложения) в качестве параметров. Например:
 
     ```powershell
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
@@ -43,7 +47,7 @@ AAD позволяет организациям \(известным как кл
 
     Для определения **TenantId** взгляните на URL-адрес клиента на классическом портале Azure. Идентификатор GUID, включенный в этот URL-адрес, и есть идентификатор клиента TenantId. Например:
 
-    https://<i></i>manage.windowsazure.com/microsoft.onmicrosoft.com\#Workspaces/ActiveDirectoryExtension/Directory/\*\*690ec069-8200-4068-9d01-5aaf188e557a\*\*/users
+    https://<i></i>manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/**690ec069-8200-4068-9d01-5aaf188e557a**/users
 
     Имя кластера **ClusterName** будет использоваться в качестве префикса для приложений AAD, создаваемых сценарием. Это имя может не совпадать с фактическим именем кластера, так как оно лишь позволяет связать артефакты AAD с кластерами Service Fabric, с которыми они используются.
 
@@ -56,7 +60,7 @@ AAD позволяет организациям \(известным как кл
     - *ClusterName*\_Cluster
     - *ClusterName*\_Client
 
-    Скрипт выведет код JSON, необходимый для шаблона Azure Resource Manager \(ARM\) при создании кластера в следующем разделе, поэтому не закрывайте окно PowerShell.
+    Скрипт выведет код JSON, необходимый для шаблона Azure Resource Manager (ARM) при создании кластера в следующем разделе, поэтому не закрывайте окно PowerShell.
 
     ![Выходные данные сценария SetupApplication включают код JSON, необходимый для шаблона ARM][setupapp-script-output]
 
@@ -76,7 +80,7 @@ AAD позволяет организациям \(известным как кл
   }
 ```
 
-Параметр clusterApplication ссылается на веб-приложение, созданное в предыдущем разделе. Его идентификатор можно найти в выходных данных сценария SetupApplication \(он указан как `WebAppId`\). Параметр clientApplication ссылается на собственное приложение, и его идентификатор клиента доступен в выходных данных сценария SetupApplication как NativeClientAppId.
+Параметр clusterApplication ссылается на веб-приложение, созданное в предыдущем разделе. Его идентификатор можно найти в выходных данных сценария SetupApplication (он указан как `WebAppId`). Параметр clientApplication ссылается на собственное приложение, и его идентификатор клиента доступен в выходных данных сценария SetupApplication как NativeClientAppId.
 
 ## Назначение пользователей ролям
 
@@ -135,7 +139,7 @@ Connect-ServiceFabricCluster -AzureActiveDirectory -ConnectionEndpoint <cluster_
 
 При проверке подлинности собственного клиента, например Visual Studio или PowerShell, может появиться следующее сообщение об ошибке:
 
-*Адрес ответа http://localhost/ не совпадает с адресом ответа, который настроен для приложения \<GUID\_клиентского\_приложения\_в\_кластере\>*
+*Адрес ответа http://localhost/ не совпадает с адресом ответа, который настроен для приложения <GUID\_клиентского\_приложения\_в\_кластере>*
 
 Чтобы это обойти, добавьте **http://<i></i>localhost** в качестве URI перенаправления в определение клиентского приложения в кластере для AAD, в дополнение к адресу 'urn:ietf:wg:oauth:2.0:oob', который уже указан.
 
@@ -147,7 +151,7 @@ Connect-ServiceFabricCluster -AzureActiveDirectory -ConnectionEndpoint <cluster_
 <!-- Links -->
 [sf-aad-ps-script-download]: http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [secure-cluster-arm-template]: https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad
-[aad-graph-api-docs]: https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog
+[aad-graph-api-docs]: https://msdn.microsoft.com/ru-RU/library/azure/ad/graph/api/api-catalog
 [azure-classic-portal]: https://manage.windowsazure.com
 
 <!-- Images -->
@@ -156,4 +160,4 @@ Connect-ServiceFabricCluster -AzureActiveDirectory -ConnectionEndpoint <cluster_
 [setupapp-script-output]: ./media/service-fabric-cluster-security-client-auth-with-aad/setupapp-script-arm-json-output.png
 [vs-publish-aad-login]: ./media/service-fabric-cluster-security-client-auth-with-aad/vs-login-prompt.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

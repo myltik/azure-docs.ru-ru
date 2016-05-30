@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="04/26/2016"
    ms.author="dobett"/>
 
 
-# Подключение устройства к предварительно настроенному решению для удаленного мониторинга IoT Suite
+# Подключение устройства к предварительно настроенному решению для удаленного мониторинга (mbed)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -36,11 +36,11 @@
 
 ### Создание проекта mbed и импорт примера кода
 
-1. Откройте в веб-браузере [сайт для разработчиков](https://developer.mbed.org/) на портале mbed.org. Если у вас еще нет учетной записи, зарегистрируйтесь \(бесплатно\). Если учетная запись есть, используйте ее для входа. Щелкните **Compiler** \(Компилятор\) в правом верхнем углу страницы. Откроется интерфейс управления рабочими областями.
+1. Откройте в веб-браузере [сайт для разработчиков](https://developer.mbed.org/) на портале mbed.org. Если у вас еще нет учетной записи, зарегистрируйтесь (бесплатно). Если учетная запись есть, используйте ее для входа. Щелкните **Compiler** (Компилятор) в правом верхнем углу страницы. Откроется интерфейс управления рабочими областями.
 
 2. Убедитесь, что в правом верхнем углу окна отображается аппаратная платформа, которую вы используете. В противном случае щелкните значок и выберите другую платформу.
 
-3. Щелкните **Импорт** в главном меню. Затем щелкните ссылку **Click here** \(Щелкните здесь\), чтобы выполнить импорт с URL-адреса рядом со значком земного шара и логотипом mbed.
+3. Щелкните **Импорт** в главном меню. Затем щелкните ссылку **Click here** (Щелкните здесь), чтобы выполнить импорт с URL-адреса рядом со значком земного шара и логотипом mbed.
 
     ![][6]
 
@@ -48,7 +48,7 @@
 
     ![][7]
 
-5. В окне компилятора mbed вы увидите, что при импорте проекта были импортированы различные библиотеки. Некоторые из них предоставляются и обслуживаются командой разработчиков Azure IoT \([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure\_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)\), остальные являются библиотеками сторонних производителей, доступными в каталоге библиотек mbed.
+5. В окне компилятора mbed вы увидите, что при импорте проекта были импортированы различные библиотеки. Некоторые из них предоставляются и обслуживаются командой разработчиков Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure\_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), остальные являются библиотеками сторонних производителей, доступными в каталоге библиотек mbed.
 
     ![][8]
 
@@ -61,7 +61,7 @@
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. Измените \[идентификатор устройства\] и \[ключ устройства\] в соответствии с параметрами своего устройства, чтобы программа смогла подключиться к центру IoT. Используйте имя узла центра IoT для замены заполнителей \[IoTHub Name\] и \[IoTHub Suffix, т.е. azure-devices.net\]. Например, если имя узла центра IoT — contoso.azure-devices.net, то contoso — это **hubName** \(имя центра\), а все остальное — **hubSuffix** \(суффикс центра\):
+7. Измените [идентификатор устройства] и [ключ устройства] в соответствии с параметрами своего устройства, чтобы программа смогла подключиться к центру IoT. Используйте имя узла центра IoT для замены заполнителей [IoTHub Name] и [IoTHub Suffix, т.е. azure-devices.net]. Например, если имя узла центра IoT — contoso.azure-devices.net, то contoso — это **hubName** (имя центра), а все остальное — **hubSuffix** (суффикс центра):
 
     ```
     static const char* deviceId = "mydevice";
@@ -199,9 +199,9 @@ EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
 
     ![][11]
 
-4. В PuTTY выберите тип подключения **Serial** \(Последовательный\). Устройство обычно подключается со скоростью 115200 бод, поэтому введите 115200 в поле **Скорость**. Затем щелкните **Открыть**.
+4. В PuTTY выберите тип подключения **Serial** (Последовательный). Устройство обычно подключается со скоростью 9600 бод, поэтому введите 9600 в поле **Speed** (Скорость). Затем щелкните **Открыть**.
 
-5. Начнется выполнение программы. Если программа не запускается автоматически при подключении, возможно, нужно перезагрузить плату \(для этого нажмите клавиши CTRL+BREAK или кнопку сброса на плате\).
+5. Начнется выполнение программы. Если программа не запускается автоматически при подключении, возможно, нужно перезагрузить плату (для этого нажмите клавиши CTRL+BREAK или кнопку сброса на плате).
 
     ![][10]
 
@@ -220,4 +220,4 @@ EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 [lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

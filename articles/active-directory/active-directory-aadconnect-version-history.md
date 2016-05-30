@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/20/2016"
+   ms.date="05/11/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: история выпусков версий
@@ -29,6 +29,22 @@
 | Действия по переходу с Azure AD Connect | Различные методы [обновления предыдущей версии до последней версии](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect. |
 | Необходимые разрешения | Разрешения, необходимые для установки обновления, в разделе [Учетные записи и разрешения](active-directory-aadconnect-accounts-permissions.md#upgrade). |
 | Скачивание| [Загрузка Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+
+## 1\.1.180.0
+Дата выпуска: май 2016 г.
+
+**Новые функции:**
+
+- Предупреждает и помогает выполнить проверку доменов, если это не было сделано перед запуском Azure AD Connect.
+- Добавлена поддержка облака [Microsoft Cloud Germany](active-directory-aadconnect-instances.md#microsoft-cloud-germany).
+- Добавлена поддержка последней инфраструктуры для [облака Microsoft Azure для государственных организаций](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) с новым перечнем URL-адресов.
+
+**Исправленные проблемы и внесенные улучшения:**
+
+- В редактор правил синхронизации добавлена фильтрация, чтобы упростить поиск правил синхронизации.
+- Повышена производительность при удалении пространства соединителя.
+- Исправлена проблема, когда один и тот же объект удалялся и добавлялся при одном запуске ("delete/add").
+- Отключенное правило синхронизации больше не будет повторно включать включенные объекты и атрибуты при обновлении версии или обновлении схемы.
 
 ## 1\.1.130.0
 Выпущено: апрель 2016 г.
@@ -63,7 +79,7 @@
 
 **Новые функции:**
 
-- Функция [автоматического обновления](active-directory-aadconnect-feature-automatic-upgrade.md) для быстрой настройки клиентов.
+- Функция [автоматического обновления](active-directory-aadconnect-feature-automatic-upgrade.md) для тех, кто использует стандартные параметры.
 - Поддержка глобального администратора с помощью многофакторной проверки подлинности и управления персональными данными в мастере установки.
     - Необходимо разрешить в своем прокси-сервере трафик к https://secure.aadcdn.microsoftonline-p.com при использовании MFA.
     - Для правильной работы необходимо добавить https://secure.aadcdn.microsoftonline-p.com в список надежных сайтов для MFA.
@@ -73,7 +89,7 @@
 
 **Функции, повышенные с предварительной версии до общедоступной версии:**
 
-- [Обратная запись устройств](active-directory-aadconnect-feature-device-writeback.md).
+- [Обратная запись устройства](active-directory-aadconnect-feature-device-writeback.md).
 - [Расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **Новые функции предварительной версии:**
@@ -268,4 +284,4 @@
 ## Дальнейшие действия
 Ознакомьтесь с дополнительными сведениями об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

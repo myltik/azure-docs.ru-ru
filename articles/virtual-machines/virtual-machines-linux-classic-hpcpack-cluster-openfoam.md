@@ -1,5 +1,5 @@
 <properties
- pageTitle="Запуск заданий OpenFOAM с помощью пакета HPC на виртуальных машинах Linux | Microsoft Azure"
+ pageTitle="Запуск заданий OpenFOAM с помощью пакета HPC на виртуальных машинах Linux | Microsoft Azure"
  description="Развертывание кластера Microsoft HPC в Azure и запуск заданий OpenFOAM на нескольких вычислительных узлах Linux в сети RDMA."
  services="virtual-machines-linux"
  documentationCenter=""
@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-OpenFOAM (англ. Open Field Operation and Manipulation) — это распространяемый бесплатно пакет программного обеспечения с открытым исходным кодом для вычислительной гидродинамики (CFD). Он широко используется в науке и технике, как в научных, так и в коммерческих организациях. Пакет содержит средства для сеточного разбиения (например, snappyHexMesh), включает средство распараллеливания расчетов для сложных геометрических объектов, а также функции предварительной и последующей обработки. Почти все процессы выполняются параллельно, что позволяет пользователям максимально задействовать ресурсы компьютера.
+OpenFOAM (англ. Open Field Operation and Manipulation) — это распространяемый бесплатно пакет программного обеспечения с открытым исходным кодом для вычислительной гидродинамики (CFD). Он широко используется в науке и технике, как в научных, так и в коммерческих организациях. Пакет содержит средства для сеточного разбиения (например, snappyHexMesh), включает средство распараллеливания расчетов для сложных геометрических объектов, а также функции предварительной и последующей обработки. Почти все процессы выполняются параллельно, что позволяет пользователям максимально задействовать ресурсы компьютера.
 
 Пакет Microsoft HPC предоставляет функции, необходимые для работы приложений высокопроизводительных и параллельных вычислений, включая приложения MPI, в кластерах виртуальных машин Microsoft Azure. Пакет HPC также поддерживает приложения высокопроизводительных вычислений для Linux на виртуальных вычислительных узлах Linux, развернутых в кластере HPC. Общие сведения об использовании вычислительных узлов Linux и пакета HPC см. в статье [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
@@ -30,7 +30,7 @@ OpenFOAM (англ. Open Field Operation and Manipulation) — это распр
 
 ## Предварительные требования
 
-*   **Кластер пакета HPC с вычислительными узлами размера A8 или A9 Linux** — разверните кластер пакета HPC с вычислительными узлами размером A8 или A9 Linux в Azure, используя [шаблон Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) или [скрипт Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script). Предварительные требования и необходимые действия для обоих вариантов см. в статье [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Если выбран вариант развертывания сценария Powershell, см. пример файла конфигурации в примерах файлов в конце этой статьи для развертывания кластера пакета HPC на основе Azure, состоящего из головного узла Windows Server 2012 R2 размера A8 и 2 вычислительных узлов SUSE Linux Enterprise Server 12 размера A8. Вместо используемых в файле имен подписки и службы подставьте свои значения. 
+*   **Кластер пакета HPC с вычислительными узлами размера A8 или A9 Linux** — разверните кластер пакета HPC с вычислительными узлами размером A8 или A9 под управлением Linux в Azure, используя [шаблон Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) или [скрипт Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Предварительные требования и необходимые действия для обоих вариантов см. в статье [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Если вы выбрали вариант со скриптом PowerShell, используйте один из примеров файлов конфигурации в конце этой статьи, чтобы развернуть кластер пакета HPC Azure, который состоит из головного узла Windows Server 2012 R2 размера А8 и двух вычислительных узлов размера А8 под управлением SUSE Linux Enterprise Server 12. Вместо используемых в файле имен подписки и службы подставьте свои значения. 
 
     **Дополнительные сведения**
 
@@ -42,7 +42,7 @@ OpenFOAM (англ. Open Field Operation and Manipulation) — это распр
         
 *   **Intel MPI**. Для запуска OpenFOAM на вычислительных узлах Linux в Azure вам потребуется среда выполнения Intel MPI Library 5, которую можно загрузить на сайте [Intel.com](https://software.intel.com/ru-RU/intel-mpi-library/) (требуется регистрация). Затем установите Intel MPI на вычислительные узлы Linux. Для этого после регистрации на сайте Intel перейдите по ссылке в письме с подтверждением на соответствующую веб-страницу и скопируйте ссылку для скачивания TGZ-файла для соответствующей версии Intel MPI. В этой статье используется Intel MPI версии 5.0.3.048.
 
-*   **Исходный пакет OpenFOAM.** Загрузите исходный пакет OpenFOAM для Linux на сайте [OpenFOAM Foundation](http://www.openfoam.org/download/source.php). В этой статье используется пакет версии 2.3.1, доступный для загрузки в виде файла OpenFOAM-2.3.1.tgz. Инструкции по распаковке и компиляции OpenFOAM на вычислительных узлах Linux приведены далее в этой статье.
+*   **Исходный пакет OpenFOAM.** Загрузите исходный пакет OpenFOAM для Linux на сайте [OpenFOAM Foundation](http://www.openfoam.org/download/source.php). В этой статье используется пакет версии 2.3.1, доступный для загрузки в виде файла OpenFOAM-2.3.1.tgz. Инструкции по распаковке и компиляции OpenFOAM на вычислительных узлах Linux приведены далее в этой статье.
 
 *   **EnSight** (необязательно). Для просмотра результатов моделирования OpenFOAM загрузите и установите на головном узле кластера пакета HPC приложение [EnSight](https://www.ceisoftware.com/download/) для Windows, предназначенное для визуализации и анализа данных. Сведения о лицензировании и загрузке приведены на сайте EnSight.
 
@@ -67,7 +67,7 @@ OpenFOAM (англ. Open Field Operation and Manipulation) — это распр
 
     ![Создание пары ключей RSA][keygen]
 
-3.	Измените каталог на ~/.ssh. Закрытый ключ хранится в файле id\_rsa, а открытый — в файле id\_rsa.pub.
+3.	Измените каталог на ~/.ssh. Закрытый ключ хранится в файле id\_rsa, а открытый — в файле id\_rsa.pub.
 
     ![Открытые и закрытые ключи][keys]
 
@@ -113,7 +113,7 @@ OpenFOAM (англ. Open Field Operation and Manipulation) — это распр
 
 Первая команда создает папку /openfoam на всех узлах в группе LinuxNodes. Вторая команда подключает общую папку //SUSE12RDMA-HN/OpenFOAM и задает для битов режимов dir\_mode и file\_mode на узлах Linux значение 777. Значения *username* и *password* должны соответствовать учетным данным пользователя на головном узле.
 
->[AZURE.NOTE]Символ «`» во второй команде — это escape-символ для PowerShell. «`,» означает, что запятая является частью команды.
+>[AZURE.NOTE]Символ «`» во второй команде — это escape-символ для PowerShell. «`,» означает, что запятая является частью команды.
 
 ## Установка пакетов MPI и OpenFOAM
 
@@ -140,7 +140,7 @@ OpenFOAM (англ. Open Field Operation and Manipulation) — это распр
 
 2.  Для автоматической установки библиотеки Intel MPI используйте файл silent.cfg. Пример можно найти в файлах примеров в конце этой статьи. Поместите этот файл в общую папку /openfoam. Дополнительные сведения о файле silent.cfg см. в статье [Руководство по установке библиотеки Intel MPI для Linux. Автоматическая установка](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html#silentinstall).
 
-    >[AZURE.TIP]Сохраните файл silent.cfg как текстовый файл, в котором для завершения строк используется нотация Linux (только LF, а не CR LF). Это гарантирует, что файл будет правильно работать на узлах Linux.
+    >[AZURE.TIP]Сохраните файл silent.cfg как текстовый файл, в котором для завершения строк используется нотация Linux (только LF, а не CR LF). Это гарантирует, что файл будет правильно работать на узлах Linux.
 
 3.  Установка библиотеки Intel MPI в автоматическом режиме.
  
@@ -232,11 +232,11 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
     $ cd /openfoam/sloshingTank3D
     ```
 
-4.  Если вы используете стандартные параметры, представленные в этом примере, выполнение может занять несколько десятков минут или больше. Поэтому для ускорения выполнения можно изменить некоторые параметры. Простым решением является изменение переменных шага deltaT и writeInterval в файле system/controlDict, который хранит все входные данные, связанные с управлением временем, чтением и записью данных в решении. Например, значение deltaT можно изменить с 0,05 на 0,5, а значение writeInterval — с 0,05 на 0,5.
+4.  Если вы используете стандартные параметры, представленные в этом примере, выполнение может занять несколько десятков минут или больше. Поэтому для ускорения выполнения можно изменить некоторые параметры. Простым решением является изменение переменных шага deltaT и writeInterval в файле system/controlDict, который хранит все входные данные, связанные с управлением временем, чтением и записью данных в решении. Например, значение deltaT можно изменить с 0,05 на 0,5, а значение writeInterval — с 0,05 на 0,5.
 
     ![Изменение переменных шага][step_variables]
 
-5.  Укажите нужные значения переменных в файле system/decomposeParDict. В этом примере используется 2 узла Linux с 8 ядрами, поэтому присвойте параметру numberOfSubdomains значение 16, а параметру n hierarchicalCoeffs — (1 1 16), что означает выполнение задания OpenFOAM с созданием 16 параллельных процессов. Дополнительные сведения см. в статье [Руководство пользователя OpenFOAM. 3.4. Запуск приложений в параллельном режиме.](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
+5.  Укажите нужные значения переменных в файле system/decomposeParDict. В этом примере используется 2 узла Linux с 8 ядрами, поэтому присвойте параметру numberOfSubdomains значение 16, а параметру n hierarchicalCoeffs — (1 1 16), что означает выполнение задания OpenFOAM с созданием 16 параллельных процессов. Дополнительные сведения см. в статье [Руководство пользователя OpenFOAM. 3.4. Запуск приложений в параллельном режиме.](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
 
     ![Разделение процессов][decompose]
 
@@ -254,7 +254,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
     $ runApplication setFields  
     ```
     
-7.  На головном узле вы увидите, что файлы с примерами данных копируются в папку C:\\OpenFoam\\sloshingTank3D. (C:\\OpenFoam — это общая папка на головном узле).
+7.  На головном узле вы увидите, что файлы с примерами данных копируются в папку C:\\OpenFoam\\sloshingTank3D. (C:\\OpenFoam — это общая папка на головном узле).
 
     ![Файлы данных на головном узле][data_files]
 
@@ -271,7 +271,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
     SUSE12RDMA-LN2
     ```
     
-    >[AZURE.TIP]Также вы можете создать этот файл в каталоге C:\\OpenFoam\\hostfile на головном узле. В таком случае сохраните его в виде текстового файла с нотацией Linux для завершения строк (только LF, а не CR LF). Это гарантирует, что файл будет правильно работать на узлах Linux.
+    >[AZURE.TIP]Также вы можете создать этот файл в каталоге C:\\OpenFoam\\hostfile на головном узле. В таком случае сохраните его в виде текстового файла с нотацией Linux для завершения строк (только LF, а не CR LF). Это гарантирует, что файл будет правильно работать на узлах Linux.
 
     **Оболочка сценария bash**
 
@@ -299,7 +299,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
         
         * `<Cores of node_n_...>`: количество ядер каждого узла, выделенного для этого задания.
 
-        Например, если для выполнения задания требуется 2 узла, значение $CCP\_NODES\_CORES будет выглядеть примерно так:
+        Например, если для выполнения задания требуется 2 узла, значение $CCP\_NODES\_CORES будет выглядеть примерно так:
         
         ```
         2 SUSE12RDMA-LN1 8 SUSE12RDMA-LN2 8
@@ -338,9 +338,9 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
     
         *   Назначьте этой задаче 1 узел.
 
-        *   **Командная строка** — `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`.
+        *   **Командная строка** — `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`.
     
-        *   **Рабочий каталог** — /openfoam/sloshingTank3D.
+        *   **Рабочий каталог** — /openfoam/sloshingTank3D.
         
         См. следующий рисунок. Остальные задачи настраиваются аналогичным образом.
 
@@ -350,25 +350,25 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
         *   Назначьте этой задаче 2 узла.
 
-        *   **Командная строка** — `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`.
+        *   **Командная строка** — `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`.
 
-        *   **Рабочий каталог** — /openfoam/sloshingTank3D.
+        *   **Рабочий каталог** — /openfoam/sloshingTank3D.
 
     *   **Задача 3**. Запуск **reconstructPar** для слияния наборов каталогов времени из каждого processor\_N\_ directory в общий набор каталогов времени.
 
         *   Назначьте этой задаче 1 узел.
 
-        *   **Командная строка** — `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`.
+        *   **Командная строка** — `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`.
 
-        *   **Рабочий каталог** — /openfoam/sloshingTank3D.
+        *   **Рабочий каталог** — /openfoam/sloshingTank3D.
 
     *   **Задача 4**. Запуск **foamToEnsight** в параллельном режиме для преобразования выходных файлов OpenFOAM в формат EnSight. Преобразованные файлы помещаются в папку Ensight учебного каталога.
 
         *   Назначьте этой задаче 2 узла.
 
-        *   **Командная строка** — `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`.
+        *   **Командная строка** — `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`.
 
-        *   **Рабочий каталог** — /openfoam/sloshingTank3D.
+        *   **Рабочий каталог** — /openfoam/sloshingTank3D.
 
 6.	Добавьте зависимости этих задач в возрастающем порядке.
 
@@ -394,7 +394,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     ![Процессы Linux][linux_processes]
 
-9.  После завершения задания результаты можно будет найти в папке C:\\OpenFoam\\sloshingTank3D, а файлы журнала — в папке C:\\OpenFoam.
+9.  После завершения задания результаты можно будет найти в папке C:\\OpenFoam\\sloshingTank3D, а файлы журнала — в папке C:\\OpenFoam.
 
 
 ## Просмотр результатов в EnSight
@@ -654,4 +654,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

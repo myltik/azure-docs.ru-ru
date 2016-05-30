@@ -6,14 +6,14 @@
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-   
+
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="05/17/2016"
    ms.author="bscholl"/>
 
 # Развертывание гостевого исполняемого файла в Service Fabric
@@ -34,7 +34,7 @@
 
 ## Краткий обзор файлов манифестов приложений и служб
 
-Перед изучением сведений о развертывании гостевого исполняемого файла рекомендуем ознакомиться с моделью развертывания и упаковки Service Fabric. Модель развертывания и упаковки Service Fabric основана преимущественно на двух файлах.
+Перед изучением сведений о развертывании гостевого исполняемого файла рекомендуем ознакомиться с моделью развертывания и упаковки Service Fabric. Модель развертывания и упаковки Service Fabric основана преимущественно на двух XML-файлах — манифестах приложения и службы. Определение схемы для файла ApplicationManifest.xml и ServiceManifest.xml устанавливается с пакетом SDK и средствами для Service Fabric по адресу *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 
 * **Манифест приложения.**
@@ -248,10 +248,10 @@ Service Fabric создает расширенную копию содержим
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MultipleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\nodeapp'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MultipleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'nodeapp'
 
 Write-Host 'Registering application type...'
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\nodeapp'
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'nodeapp'
 
 New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0
 
@@ -272,11 +272,11 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 В обозревателе Service Fabric определите узел, где запущена служба. В этом примере она выполняется на узле Node1.
 
-![Узел, на котором запущена служба](./media/service-fabric-deploy-existing-app/runningapplication.png)
+![Узел, на котором запущена служба](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
 
 Если вы перейдете к узлу, а затем к приложению, вы увидите основные сведения об узле, включая его расположение на диске.
 
-![Расположение на диске](./media/service-fabric-deploy-existing-app/locationondisk.png)
+![Расположение на диске](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
 Если перейти в этот каталог в обозревателе сервера, вы увидите рабочий каталог и папку журналов службы, как показано ниже.
 
@@ -286,8 +286,8 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 ## Дальнейшие действия
 Из этой статьи вы узнали об основной процедуре упаковки гостевого исполняемого файла и его развертывания в Service Fabric. Далее можно ознакомиться с дополнительными материалами по этой теме.
 
-- [Пример для упаковки и развертывания гостевого исполняемого файла на GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), включая ссылку на предварительную версию упаковочного средства
+- [Пример для упаковки и развертывания гостевого исполняемого файла на GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), включая ссылку на предварительную версию упаковочного средства
 - [Развертывание нескольких пользовательских приложений](service-fabric-deploy-multiple-apps.md)
 - [Создание первого приложения Service Fabric в Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

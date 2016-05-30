@@ -5,8 +5,7 @@
 Шаблон Azure Resource Manager позволяет декларативно задать инфраструктуру IaaS Azure на языке JSON, установив зависимости между ресурсами.
 
 
-Чтобы узнать больше о разработке шаблонов для использования расширений, см. статью о [разработке шаблонов расширения](../articles/virtual-machines/virtual-machines-windows-extensions-authoring-templates.md).
+Дополнительные сведения о разработке шаблонов для использования расширений, см. в статье о [разработке шаблонов расширения](../articles/virtual-machines/virtual-machines-windows-extensions-authoring-templates.md).
 
 В этой статье вы узнаете, как устранять некоторые распространенные сбои в расширении виртуальной машины.
 
-<!---HONumber=AcomDC_0330_2016-->

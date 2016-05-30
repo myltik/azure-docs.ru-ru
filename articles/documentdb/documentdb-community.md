@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="04/16/2016"
+  ms.date="05/09/2016"
   ms.author="andrl"/>
 
 # Портал сообщества
@@ -147,12 +147,8 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 | Название мероприятия | Докладчик | Расположение | Дата | Хэш-тег |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Глобальный учебный курс по Azure — Южная Калифорния](http://xprs.imcreator.com/free/vishalishere/gab2016) | Леонард Лоубел (Leonard Lobel) | Ориндж, штат Калифорния | 16 апреля 2016 г. | [#GlobalAzure](https://twitter.com/hashtag/GlobalAzure)
-| [Глобальный учебный курс по Azure — Редмонд](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | Дэвид Мекоген (David Makogon) | Редмонд, штат Вашингтон | 16 апреля 2016 г. | [#GlobalAzure](https://twitter.com/hashtag/GlobalAzure)
-| [Integration User Group](http://www.integrationusergroup.com/#) | Ховард Эдидин (Howard Edidin) | Вебинар | 25 апреля 2016 г. | Недоступно |
-| [Meetup: NYC .NET Developers Group](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Леонард Лоубел (Leonard Lobel) | Нью-Йорк, штат Нью-Йорк | 21 апреля 2016 г. | Недоступно |
-| [SQLBits XV](https://sqlbits.com/) | Эндрю Лю (Andrew Liu), Аравинд Рамачандран (Aravind Ramachandran) | Ливерпуль, Великобритания | 4–7 мая 2016 г. | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 | [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Эндрю Лю (Andrew Liu) | Лондон, Великобритания | 12 мая 2016 г. | Недоступно |
+| [Meetup: ONETUG - Orlando .NET User Group](http://www.meetup.com/ONETUG/events/230797164/) | Сантош Хари (Santosh Hari) | Орландо, штат Флорида (США) | 12 мая 2016 г. | [#ONETUG](https://twitter.com/search?q=%23onetug&src=typd) |
 
 *Вы являетесь докладчиком или организуете мероприятие? [Мы можем помочь!](mailto:askdocdb@microsoft.com) Узнайте как.*
 
@@ -160,6 +156,11 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 | Название мероприятия | Докладчик | Расположение | Дата | Записи |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [SQLBits XV](https://sqlbits.com/) | Эндрю Лю (Andrew Liu), Аравинд Рамачандран (Aravind Ramachandran) | Ливерпуль, Великобритания | 4–7 мая 2016 г. | Недоступно
+| [Meetup: NYC .NET Developers Group](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Леонард Лоубел (Leonard Lobel) | Нью-Йорк, штат Нью-Йорк | 21 апреля 2016 г. | Недоступно |
+| [Integration User Group](http://www.integrationusergroup.com/#) | Ховард Эдидин (Howard Edidin) | Вебинар | 25 апреля 2016 г. | Недоступно |
+| [Глобальный учебный курс по Azure — Южная Калифорния](http://xprs.imcreator.com/free/vishalishere/gab2016) | Леонард Лоубел (Leonard Lobel) | Ориндж, штат Калифорния | 16 апреля 2016 г. | Недоступно |
+| [Глобальный учебный курс по Azure — Редмонд](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | Дэвид Мекоген (David Makogon) | Редмонд, штат Вашингтон | 16 апреля 2016 г. | Недоступно |
 | [SQL Saturday № 481 — Израиль, 2016](http://www.sqlsaturday.com/481/Sessions/Details.aspx?sid=40912) | Леонард Лоубел (Leonard Lobel) | Ха Меркац, Израиль | 4 апреля 2016 г. | Недоступно |
 | [Build 2016](https://build.microsoft.com/) | Джон Макинтайр (John Macintyre) | Сан-Франциско, Калифорния | 31 марта 2016 г. | [Delivering Applications at Scale with DocumentDB, Azure's NoSQL Document Database (Масштабная доставка приложений с помощью DocumentDB, базы данных документов NoSQL Azure)](https://channel9.msdn.com/Events/Build/2016/B840)
 | [SQL Saturday № 505 — Бельгия, 2016](http://www.sqlsaturday.com/505/Sessions/Details.aspx?sid=44217) | Михаил Матеев | Антверпен, Бельгия | 19 марта 2016 г. | Недоступно |
@@ -307,4 +308,4 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 Хотите стать мастером DocumentDB? Несмотря на то, что критериев для отбора мастеров DocumentDB не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, как, например, StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="05/09/2016"
    ms.author="dobett"/>
 
 
-# Подключение устройства к предварительно настроенному решению для удаленного мониторинга IoT Suite
+# Подключение устройства к предварительно настроенному решению для удаленного мониторинга (Windows)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -54,7 +54,6 @@
     #include "iothub_client.h"
     #include "serializer.h"
     #include "schemaserializer.h"
-    #include "threadapi.h"
     ```
 
 2. После инструкций `#include` добавьте указанные ниже объявления переменных. Замените значения заполнителей [Device Id] и [Device Key] значениями для устройства, отображенными на панели мониторинга решения для удаленного мониторинга. Замените [IoTHub Name] именем узла центра IoT, которое отображается на панели мониторинга. Например, если узел центра IoT имеет имя **contoso.azure-devices.net**, замените [IoTHub Name] на contoso:
@@ -360,4 +359,4 @@
 
 [lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

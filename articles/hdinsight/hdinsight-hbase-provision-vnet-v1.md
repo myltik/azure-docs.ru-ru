@@ -21,9 +21,11 @@
 
 Узнайте, как создать кластеры Azure HDInsight HBase в [виртуальной сети Azure][1].
 
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Подготовка кластеров HBase в виртуальной сети Azure](hdinsight-hbase-provision-vnet.md)
+> [AZURE.IMPORTANT] Действия, описанные в этом документе, выполняются на классическом портале Azure. Для создания служб корпорация Майкрософт не рекомендует использовать классический портал Azure. Объяснение преимуществ портала Azure см. на [портале Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+>
+> В этом документе также содержатся сведения об использовании Azure PowerShell. Представленные фрагменты кода основаны на командах, использующих управление службами Azure (ASM) для работы с HDInsight, и поэтому __не рекомендуются__. Эти команды будут удалены с 1 января 2017 г.
+>
+>Версию этого документа, в которой используется портал Azure, а также фрагменты кода PowerShell, использующие Azure Resource Manager (ARM), см. в статье [Подготовка кластеров HBase в виртуальной сети Azure](hdinsight-hbase-provision-vnet.md).
 
 Благодаря интеграции виртуальной сети кластеры HBase могут быть развернуты в той же виртуальной сети, что и приложения. Это позволяет приложениям взаимодействовать с HBase непосредственно. К преимуществам относятся:
 
@@ -434,4 +436,4 @@ DNS-сервер является необязательным, но в неко
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Подготовка сведений для нового кластера HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Использование действия сценария для настройки кластера HBase"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

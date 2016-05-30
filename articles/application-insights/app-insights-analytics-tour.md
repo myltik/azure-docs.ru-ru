@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/04/2016" 
 	ms.author="awills"/>
 
 
@@ -31,10 +31,10 @@
 
 Откройте аналитику в [колонке "Обзор"](app-insights-dashboards.md) приложения в Application Insights.
 
-![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics/001.png)
+![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics-tour/001.png)
 
 	
-## [Take](app-insights-analytics-aggregations.md#take): показать n строк
+## Оператор [take](app-insights-analytics-reference.md#take-operator): отображение n строк
 
 Точки данных, регистрирующие операции пользователя (обычно HTTP-запросы, полученные веб-приложением), хранятся в таблице `requests`. Каждая строка представляет точку данных телеметрии, полученную из пакета SDK Application Insights в приложении.
 
@@ -56,7 +56,7 @@
 
 > [AZURE.NOTE] Чтобы изменить порядок результатов, доступных в веб-браузере, щелкните заголовок столбца. Но имейте в виду, что для большого результирующего набора в браузер загружается ограниченное количество строк. Не забывайте, что такая сортировка не всегда показывает фактические наибольшие или наименьшие элементы. Для этого следует использовать оператор `top` или `sort`.
 
-## [Top](app-insights-analytics-aggregations.md#top) и [sort](app-insights-analytics-aggregations.md#sort)
+## Операторы [top](app-insights-analytics-reference.md#top-operator) и [sort](app-insights-analytics-reference.md#sort-operator)
 
 `take` позволяет получить быструю выборку из результата, но отображает строки из таблицы в произвольном порядке. Чтобы упорядочить строки, используйте `top` (для выборки) или `sort` (для всей таблицы).
 
@@ -84,9 +84,9 @@
 Заголовки столбцов в табличном представлении также можно использовать для сортировки результатов на экране. Но, разумеется, если вы использовали `take` или `top` для получения только части таблицы, отсортировать можно только полученные записи.
 
 
-## [Project](app-insights-analytics-aggregations.md#project): выбор, переименование и вычисление столбцов
+## Оператор [Project](app-insights-analytics-reference.md#project-operator): выбор, переименование и вычисление столбцов
 
-Воспользуйтесь [`project`](app-insights-analytics-aggregations.md#project), чтобы выбрать только нужные столбцы:
+С помощью оператора [`project`](app-insights-analytics-reference.md#project-operator) можно выбрать только нужные столбцы.
 
 ```AIQL
 
@@ -117,11 +117,13 @@
 * `1d` (т. е. цифра 1, а затем "d") — это литерал интервала времени, который означает один день. Вот еще несколько литералов интервала времени: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (псевдоним `bin`) округляет значение до ближайшего числа, кратного указанному базовому значению. Поэтому `floor(aTime, 1s)` округляет время до ближайшей секунды.
 
-[Выражения](app-insights-analytics-scalars.md) могут включать в себя все обычные операторы (`+`, `-`…) и ряд полезных функций.
+[Выражения](app-insights-analytics-reference.md#scalars) могут включать в себя все обычные операторы (`+`, `-` и т. д.) и ряд полезных функций.
 
-## [Extend](app-insights-analytics-aggregations.md#extend): вычисление столбцов
+    
 
-Если требуется лишь добавить новые столбцы к существующим, используйте [`extend`](app-insights-analytics-aggregations.md#extend):
+## Оператор [Extend](app-insights-analytics-reference.md#extend-operator): вычисление столбцов
+
+Для добавления новых столбцов к имеющимся можно использовать оператор [`extend`](app-insights-analytics-reference.md#extend-operator).
 
 ```AIQL
 
@@ -130,11 +132,55 @@
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Если вы хотите сохранить все существующие столбцы, можете воспользоваться [`extend`](app-insights-analytics-aggregations.md#extend). Это менее подробный вариант, чем [`project`](app-insights-analytics-aggregations.md#project).
+Если вы хотите сохранить все имеющиеся столбцы, можете воспользоваться [`extend`](app-insights-analytics-reference.md#extend-operator). Это менее подробный вариант, чем [`project`](app-insights-analytics-reference.md#project-operator).
 
-## [Summarize](app-insights-analytics-aggregations.md#summarize): агрегирование групп строк
 
-`Summarize` применяет указанную *статистическую функцию* для групп строк.
+## Доступ к вложенным объектам
+
+Доступ к вложенным объектам осуществляется легко. Например, в потоке исключений структурированные объекты выглядят следующим образом:
+
+![result](./media/app-insights-analytics-tour/520.png)
+
+Этот поток можно выровнять, выбрав необходимые свойства.
+
+```AIQL
+
+    exceptions | take 10
+    | extend method1 = details[0].parsedStack[1].method
+```
+
+## Пользовательские свойства и измерения
+
+Если ваше приложение прикрепляет к событиям [пользовательские измерения или свойства](app-insights-api-custom-events-metrics.md#properties), то они будут отображаться в объектах `customDimensions` и `customMeasurements`.
+
+
+Например, если приложение включает в себя:
+
+```C#
+
+    var dimensions = new Dictionary<string, string> 
+                     {{"p1", "v1"},{"p2", "v2"}};
+    var measurements = new Dictionary<string, double>
+                     {{"m1", 42.0}, {"m2", 43.2}};
+	telemetryClient.TrackEvent("myEvent", dimensions, measurements);
+```
+
+Чтобы извлечь эти значения в аналитике, необходимо выполнить следующий сценарий:
+
+```AIQL
+
+    customEvents
+    | extend p1 = customDimensions.p1, 
+      m1 = todouble(customMeasurements.m1) // cast numerics
+
+``` 
+
+> [AZURE.NOTE] В [обозревателе метрик](app-insights-metrics-explorer.md) все пользовательские измерения, присоединенные к любому типу телеметрии, отображаются в колонке метрик вместе с метриками, отправленными с помощью `TrackMetric()`. Но в аналитике пользовательские измерения по-прежнему прикреплены к типу телеметрии, при котором они были выполнены, а метрики отображаются в их собственном потоке `metrics`.
+
+
+## Оператор [Summarize](app-insights-analytics-reference.md#summarize-operator): агрегирование групп строк
+
+`Summarize` применяет указанную *агрегатную функцию* для групп строк.
 
 Например, время, требуемое вашему веб-приложению для ответа на запрос, указано в поле `duration`. Давайте рассмотрим среднее время ответа для всех запросов:
 
@@ -158,19 +204,19 @@
 
 ![](./media/app-insights-analytics-tour/440.png)
 
-Обратите внимание, что `name=` можно использовать для задания имени столбца результатов в статистических выражениях или предложении By.
+Обратите внимание, что `name=` можно использовать для задания имени столбца результатов в агрегатных выражениях или предложении By.
 
 ## Подсчет данных выборки
 
-Для подсчета событий рекомендуется использовать статистическую функцию `sum(itemCount)`. Во многих случаях itemCount==1, поэтому функция просто подсчитывает количество строк в группе. Однако когда [выборка](app-insights-sampling.md) осуществляется в операции, лишь часть исходных событий сохраняется в виде точки данных в Application Insights, поэтому для каждой отображаемой точки данных существуют события `itemCount`. Таким образом, суммирование по itemCount позволяет правильно оценить исходное число событий.
+Для подсчета событий рекомендуется использовать агрегатную функцию `sum(itemCount)`. Во многих случаях itemCount==1, поэтому функция просто подсчитывает количество строк в группе. Однако когда [выборка](app-insights-sampling.md) осуществляется в операции, лишь часть исходных событий сохраняется в виде точки данных в Application Insights, поэтому для каждой отображаемой точки данных существуют события `itemCount`. Таким образом, суммирование по itemCount позволяет правильно оценить исходное число событий.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-Существует также агрегат `count()` (и операция подсчета) для случаев, когда действительно нужно подсчитать количество строк в группе.
+Существует также агрегат `count()` (и операция подсчета), используемый в случаях, когда действительно нужно подсчитать количество строк в группе.
 
 
-Доступен целый [спектр статистических функций](app-insights-analytics-aggregations.md).
+Доступен целый [спектр агрегатных функций](app-insights-analytics-reference.md#aggregations).
 
 
 ## Отображение результатов
@@ -196,7 +242,7 @@
 Обратите внимание, что хотя мы не сортировали результаты по времени (как видно в окне таблицы), дата и время на диаграмме всегда отображаются в правильном порядке.
 
 
-## [Where](app-insights-analytics-aggregations.md#where): фильтрация по условию
+## Оператор [Where](app-insights-analytics-reference.md#where-operator): фильтрация по условию
 
 Если вы настроили мониторинг Application Insights для [клиентской](app-insights-javascript.md) и серверной сторон приложения, некоторые данные телеметрии в базу данных поступают из браузеров.
 
@@ -216,9 +262,9 @@
 
  * `and`, `or`: логические операторы;
  * `==`, `<>`: равно и не равно;
- * `=~`, `!=`: равенство и неравенство строк с учетом регистра. Существует множество других операторов сравнения строк.
+ * `=~`, `!=`: равенство и неравенство строк без учета регистра. Существует множество других операторов сравнения строк.
 
-Прочтите всю информацию о [скалярных выражениях](app-insights-analytics-scalars.md).
+Прочтите всю информацию о [скалярных выражениях](app-insights-analytics-reference.md#scalars).
 
 ### Фильтрация событий
 
@@ -230,7 +276,7 @@
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` имеет строковый тип, поэтому мы должны [привести его тип](app-insights-analytics-scalars.md#casts) для числового сравнения.
+`responseCode` имеет строковый тип, поэтому мы должны [привести его тип](app-insights-analytics-reference.md#casts) для числового сравнения.
 
 Суммирование различных ответов:
 
@@ -272,7 +318,7 @@
 
 ![](./media/app-insights-analytics-tour/090.png)
 
-Чтобы просмотреть несколько строк на диаграмме, щелкните **Разбить по** и выберите столбец.
+Чтобы просмотреть несколько строк на диаграмме, щелкните **Split by** (Разбить по) и выберите столбец.
 
 ![](./media/app-insights-analytics-tour/100.png)
 
@@ -339,7 +385,7 @@
 
 
 
-## [Процентили](app-insights-analytics-aggregations.md#percentiles)
+## [Процентили](app-insights-analytics-reference.md#percentiles)
 
 Какие диапазоны длительности покрывают различные процентные доли сеансов?
 
@@ -385,11 +431,11 @@
 ![](./media/app-insights-analytics-tour/190.png)
 
 
-## [Join](app-insights-analytics-aggregations.md#join)
+## [Join](app-insights-analytics-reference.md#join)
 
 Имеется доступ к нескольким таблицам, включая запросы и исключения.
 
-Чтобы найти исключения, связанные с запросом, который завершился неудачно, можно объединить таблицы по `session_Id`.
+Чтобы найти исключения, связанные с запросом, который завершился неудачно, можно соединить таблицы по `session_Id`.
 
 ```AIQL
 
@@ -404,9 +450,9 @@
 
 
 
-## [Let](app-insights-analytics-aggregations.md#let): присвоение результата переменной
+## Оператор [Let](app-insights-analytics-reference.md#let-clause): присвоение результата переменной
 
-Используйте [let](./app-insights-analytics-syntax.md#let-statements) для разделения частей предыдущего выражения. Результаты не изменились:
+С помощью оператора [let](./app-insights-analytics-syntax.md#let-statements) можно разделить части предыдущего выражения. Результаты не изменились:
 
 ```AIQL
 
@@ -423,4 +469,4 @@
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/11/2016"
 	ms.author="andkjell"/>
 
 
@@ -46,11 +46,7 @@ Azure AD Connect является преемником DirSync и Azure AD Sync.
 
 Обновление на месте для перехода с DirSync на Azure AD Connect демонстрируется в следующем видеоролике Channel 9:
 
-<!-- The next section is actually supposed to look like this, but video ids are not working at present.
 > [AZURE.VIDEO azure-active-directory-connect-in-place-upgrade-from-legacy-tools]
--->
-
-[Azure Active Directory Connect: обновление устаревших средств на месте](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools) ![обновление на месте](./media/active-directory-aadconnect-dirsync-deprecated/inplaceupgrade.png)
 
 ## Часто задаваемые вопросы
 **Вопрос. Мне прислали уведомление по электронной почте от команды Azure и (или) сообщение из центра сообщений Office 365, хотя я использую Connect.** Уведомление было также отправлено клиентам, использующим Azure AD Connect с номером сборки 1.0.*.0 (версии, предшествующие выпуску 1.1). Корпорация Майкрософт рекомендует пользователям обновлять Azure AD Connect до последних выпусков. В версии 1.1 функция [автоматического обновления](active-directory-aadconnect-feature-automatic-upgrade.md) существенно упрощает эту задачу: благодаря ей у вас всегда будет установлена последняя версия Azure AD Connect.
@@ -65,4 +61,4 @@ Azure AD Connect является преемником DirSync и Azure AD Sync.
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

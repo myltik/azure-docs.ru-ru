@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Секционированные сущности обмена сообщениями | Microsoft Azure"
-   description="В этой статье описывается, как секционировать сущности обмена сообщениями с помощью нескольких посредников сообщений."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Секционированные сущности обмена сообщениями | Microsoft Azure"
+    description="В этой статье описывается, как секционировать сущности обмена сообщениями с помощью нескольких посредников сообщений."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Секционированные сущности обмена сообщениями
 
@@ -144,4 +144,4 @@ committableTransaction.Commit();
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [AMQP 1.0 для секционированных очередей и разделов служебной шины]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

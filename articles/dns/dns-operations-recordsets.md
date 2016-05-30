@@ -9,14 +9,14 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/04/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
-# Как управлять записями DNS с помощью PowerShell
+# Управление записями и наборами записей DNS с помощью PowerShell
 
 
 
@@ -27,274 +27,215 @@
 
 
 
-В этом руководстве показано, как управлять наборами записей и записями для зоны DNS с помощью Azure PowerShell.
+В этой статье описывается, как управлять наборами записей и записями для зоны DNS с помощью Azure PowerShell.
 
-Важно понимать различие между наборами записей DNS и отдельными записями DNS. Набор записей — это коллекция записей в зоне с одним именем и типом. Подробнее: [Общие сведения о наборах записей и записях](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
+Важно понимать различие между наборами записей DNS и отдельными записями DNS. Набор записей — это коллекция записей в зоне с одним именем и типом. Дополнительные сведения см. в статье [Общие сведения о наборах записей и записях](dns-getstarted-create-recordset-portal.md).
 
-## Создание набора записей
+Для управления наборами записей и записями вам потребуется установить последнюю версию командлетов PowerShell Azure Resource Manager. Дополнительную информацию об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md). Дополнительные сведения о работе с PowerShell см. в статье [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md).
 
-Наборы записей создаются с помощью командлета New-AzureRmDnsRecordSet. Вам необходимо указать имя набора записей, зону, время жизни (TTL) и тип записи.
 
-Имя набора записей должно быть относительным, т. е. не содержать имя зоны. Например, имя набора записей www в зоне contoso.com создаст наборе запись с полным именем www.contoso.com.
 
-В качестве имени набора записей в вершине зоны используйте "@", включая кавычки. Тогда полное имя набора записей будет идентично имени зоны (в этом случае "contoso.com").
+## Создание нового набора записей и записи
 
-Служба Azure DNS поддерживает следующие типы записей: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. Наборы записей типа SOA создаются автоматически вместе с каждой зоной, их невозможно создать отдельно.
-
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
-
-Если набор записей уже существует, команда завершится ошибкой, если не указать параметр -Overwrite. Параметр -Overwrite отображает запрос подтверждения, который можно отменить с помощью параметра -Force.
-
-В приведенном выше примере зона задается с помощью имени зоны и имени группы ресурсов. Кроме того, можно указать объект зоны, который возвращается командлетом Get-AzureRmDnsZone или New-AzureRmDnsZone.
-
-	PS C:\> $zone = Get-AzureRmDnsZone -ZoneName contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 –Zone $zone [-Tag $tags] [-Overwrite] [-Force]
-
-Командлет New-AzureRmDnsRecordSet возвращает локальный объект, представляющий набор записей, созданный в Azure DNS.
-
->[AZURE.IMPORTANT] Наборы записей CNAME не могут сосуществовать с другими наборами записей с тем же именем. Например, невозможно одновременно создать запись CNAME и запись A с относительным именем www. Поскольку вершина зоны (имя = "@") всегда содержит наборы записей NS и SOA, созданные при создании зоны, невозможно создать набор записей CNAME на вершине зоны. Это связано со стандартами DNS, а не ограничениями Azure DNS.
-
-### Записи с подстановочными знаками
-
-Azure DNS поддерживает [записи с подстановочными знаками](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Они возвращаются для любого запроса с совпадающим именем (пока не найдется еще более близкое совпадение из набора записей без подстановочных знаков).
-
-Чтобы создать набор записей с подстановочными знаками, используйте знак "*" вместо имени набора записей или вместо первых символов имени, например "*.foo".
-
-Наборы записей с подстановочными знаками поддерживаются для всех типов записей, за исключением NS и SOA.
+Чтобы создать набор записей на портале Azure, ознакомьтесь со статьей [Создание записей DNS с помощью портала Azure](dns-getstarted-create-recordset.md).
 
 ## Получение набора записей
 
-Чтобы получить существующий набор записей, используйте командлет Get-AzureRmDnsRecordSet, указав относительное имя набора записей, тип записи и зону:
+Чтобы извлечь существующий набор записей, используйте команду `Get-AzureRmDnsRecordSet`. Укажите относительное имя набора записей, тип записей и зону.
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	$rs = Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
-Как и для командлета New-AzureRmDnsRecordSet, имя записи должно быть относительным, т. е. не содержать имя зоны. Зону можно задать с помощью имени зоны и имени группы ресурсов или с помощью объекта зоны.
+Как и для командлета `New-AzureRmDnsRecordSet`, имя набора записей должно быть относительным, т. е. не содержать имя зоны.
 
-	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name www –RecordType A -Zone $zone
+Зону можно задать с помощью имени зоны и имени группы ресурсов или с помощью объекта зоны.
+
+	$zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
+	$rs = Get-AzureRmDnsRecordSet -Name www –RecordType A -Zone $zone
 	
-Командлет Get-AzureRmDnsRecordSet возвращает локальный объект, представляющий набор записей, созданный в Azure DNS.
+Командлет `Get-AzureRmDnsRecordSet` возвращает локальный объект, представляющий набор записей, созданный в Azure DNS.
 
 ## Перечисление наборов записей
-Если опустить параметр -Name или -RecordType, командлет Get-AzureRmDnsRecordSet также может использоваться для перечисления наборов записей.
 
-### Вариант 1 
+Если опустить параметр *-Name* и (или) параметр *-RecordType*, командлет `Get-AzureRmDnsRecordSet` может также использоваться для вывода списка наборов записей.
 
-Вывод списка всех наборов записей. Возвращает все наборы записей, независимо от имени и типа записи:
+### Вывод списка всех наборов записей 
 
-	PS C:\> $list = Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+Этот пример вернет все наборы записей, независимо от имени и типа записи.
 
-### Вариант 2 
+	$list = Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
-Вывод списка наборов записей указанного типа. Возвращает все наборы записей, соответствующие заданному типу записей (в данном случае это записи A):
+### Вывод списка наборов записей указанного типа
 
-	PS C:\> $list = Get-AzureRmDnsRecordSet –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
+Этот пример вернет все наборы записей, соответствующие указанному типу записи. В этом случае это записи A.
 
-В обоих вариантах выше зону можно указать с помощью параметров -ZoneName и -ResourceGroupName (как показано) или с помощью объекта зоны.
+	$list = Get-AzureRmDnsRecordSet –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
 
-	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
-	PS C:\> $list = Get-AzureRmDnsRecordSet -Zone $zone
+Зону можно указать с помощью параметров *-ZoneName* и *-ResourceGroupName* (как показано) или с помощью объекта зоны.
+
+	$zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
+	$list = Get-AzureRmDnsRecordSet -Zone $zone
 
 ## Добавление записи в набор записей
 
-Записи добавляются в наборы записей с помощью командлета Add-AzureRmDnsRecordConfig. Это автономная операция — изменяется только локальный объект, представляющий набор записей.
+Записи добавляются в наборы записей с помощью командлета `Add-AzureRmDnsRecordConfig`. Это автономная операция — изменяется только локальный объект, представляющий набор записей.
 
-Параметры для добавления записей в набор записей зависят от типа набора записей. Например, при использовании набора записей типа A вы сможете указать записи только с параметром IPv4Address.
+Параметры для добавления записей в набор записей зависят от типа набора записей. Например, при использовании набора записей типа *A* вы сможете указать записи только с параметром *-IPv4Address*.
 
-Дополнительные записи можно добавить для каждого набора записей с помощью новых вызовов Add-AzureRmDnsRecordConfig. В любой набор записей можно добавить до 20 записей. Однако наборы записей типа CNAME могут содержать не более одной записи, при этом набор записей не может содержать две одинаковые записи. Пустые наборы записей (с нулевым числом записей) могут быть созданы, но они не отображаются в серверами имен Azure DNS.
+Дополнительные записи можно добавить в каждый набор записей с помощью новых вызовов `Add-AzureRmDnsRecordConfig`. В любой набор записей можно добавить до 20 записей. Однако наборы записей типа *CNAME* могут содержать не более одной записи, при этом набор записей не может содержать две одинаковые записи. Пустые наборы записей (с нулевым числом записей) могут быть созданы, но они не отображаются в серверами имен Azure DNS.
 
-Когда набор записей содержит нужную коллекцию записей, его необходимо зафиксировать с помощью командлета Set-AzureRmDnsRecordSet, который заменяет существующий набор записей в Azure DNS на предоставленный набор. В следующих примерах показано, как создать набор записей каждого типа, содержащий одну запись.
+После того, как в набор записей помещена нужная коллекция записей, его нужно зафиксировать с помощью командлета `Set-AzureRmDnsRecordSet`. После фиксации набор записей заменяет собой существующий набор записей в Azure DNS.
 
-### Создание набора записей с одной записью A
+### Создание набора записей A с одной записью
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
+	$rs = New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
+	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
 Последовательность операций для создания записи можно также направить в конвейер, передав объект набора записей с помощью конвейера, а не как параметр. Например:
 
-	PS C:\> New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Add-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
+	New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Add-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
 
-### Создание набора записей AAAA с одной записью
+### Дополнительные примеры типов записей
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
-
-### Создание набора записей CNAME с одной записью
-
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
-
-### Создание набора записей MX с одной записью
-
-Чтобы создать запись MX на вершине зоны (например, "contoso.com"), в этом примере мы используем имя набора записей "@". Так обычно и делается при создании записей MX.
-
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "@" -RecordType MX -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
-
-### Создание набора записей NS с одной записью
-
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
-
-### Создание набора записей SRV с одной записью
-
-При создании записи SRV в корне зоны просто укажите \_service и \_protocol в имени записи — включать ".@" в имя записи не нужно.
-
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
-
-### Создание набора записей TXT с одной записью
-
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
+[AZURE.INCLUDE [dns-add-record-ps-include](../../includes/dns-add-record-ps-include.md)]
 
 ## Изменение существующих наборов записей
 
-Для изменения существующих наборов записей использует шаблон, аналогичный процедуре создания записей. Последовательность операций выглядит следующим образом.
+Для изменения существующих наборов записей используется алгоритм, аналогичный процедуре создания записей. Последовательность операций выглядит следующим образом.
 
-1.	Получите существующий набор записей с помощью командлета Get-AzureRmDnsRecordSet.
+1.	Извлеките существующий набор записей, используя командлет `Get-AzureRmDnsRecordSet`.
+
 2.	Измените набор записей, добавив записи, удалив записи, изменив параметры записи или срок жизни набора записей. Эти изменения производятся в автономном режиме — только в локальном объекте, который представляет изменяемый набор записей.
-3.	Примените изменения, используя командлет Set-AzureRmDnsRecordSet: При этом существующий набор записей в Azure DNS заменяется на представленный набор.
 
-Это показано в следующих примерах:
+3.	Зафиксируйте изменения с помощью командлета `Set-AzureRmDnsRecordSet`. При этом существующий набор записей в Azure DNS заменяется предоставленным набором записей.
+
 
 ### Обновление записи в существующем наборе записей
 
-В этом примере мы изменим IP-адрес существующей записи A:
+В этом примере мы изменим IP-адрес существующей записи A.
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> $rs.Records[0].Ipv4Address = "134.170.185.46"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
+	$rs = Get-AzureRmDnsRecordSet -name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	$rs.Records[0].Ipv4Address = "134.170.185.46"
+	Set-AzureRmDnsRecordSet -RecordSet $rs 
 
-Командлет Set-AzureRmDnsRecordSet использует проверки etag, чтобы параллельные изменения не перезаписывались. Используйте флажок -Overwrite для подавления этих проверок. Подробные сведения см. в разделе "Etag и теги".
+Командлет `Set-AzureRmDnsRecordSet` использует проверки *Etag*, чтобы параллельные изменения не перезаписывались. Используйте параметр *-Overwrite* для подавления этих проверок. Дополнительные сведения см. в разделе [О Etag и тегах](dns-getstarted-creatednszone.md#tagetag).
 
-### Изменение записи SOA
+### Изменение записи типа SOA
 
->[AZURE.NOTE] Невозможно добавить или удалить записи из автоматически созданного набора записей типа SOA (имя = "@"), но можно изменить любой параметр в записи SOA (кроме "Host") и значение TTL набора записей.
+Невозможно добавить или удалить записи из автоматически созданного набора записей типа SOA (имя = "@"), но можно изменить любой параметр в записи SOA (кроме "Host") и значение TTL набора записей.
 
-В следующем примере показано, как изменить свойство Email записи SOA:
+В следующем примере показано, как изменить свойство *Email* записи типа SOA.
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> $rs.Records[0].Email = "admin.contoso.com"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
+	$rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	$rs.Records[0].Email = "admin.contoso.com"
+	Set-AzureRmDnsRecordSet -RecordSet $rs 
 
 ### Изменение записи NS на вершине зоны
 
->[AZURE.NOTE] Невозможно добавить, удалить или изменить записи в автоматически созданном наборе записей NS на вершине зоны (имя = "@"). Разрешено только одно изменение — изменить TTL набора записей.
+Невозможно добавить, удалить или изменить записи в автоматически созданном наборе записей NS на вершине зоны (имя = "@"). Разрешено только одно изменение — изменить TTL набора записей.
 
 В следующем примере показано, как изменить свойство TTL набора записей NS:
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> $rs.Ttl = 300
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
+	$rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	$rs.Ttl = 300
+	Set-AzureRmDnsRecordSet -RecordSet $rs 
 
 ### Добавление записей в существующий набор записей
 
-В этом примере мы добавим две дополнительные записи MX в существующий набор записей:
+В этом примере мы добавим две дополнительные записи MX в существующий набор записей.
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail2.contoso.com" -Preference 10
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail3.contoso.com" -Preference 20
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
+	$rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail2.contoso.com" -Preference 10
+	Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail3.contoso.com" -Preference 20
+	Set-AzureRmDnsRecordSet -RecordSet $rs 
 
 ## Удаление записи из существующего набора записей
 
-Записи можно удалить из набора с помощью командлета Remove-AzureRmDnsRecordConfig. Обратите внимание, что удаляемая запись должна точно соответствовать существующей записи по всем параметрам. Изменения необходимо зафиксировать с помощью командлета Set-AzureRmDnsRecordSet.
+Записи можно удалить из набора записей с помощью командлета `Remove-AzureRmDnsRecordConfig`. Обратите внимание, что удаляемая запись должна точно соответствовать существующей записи по всем параметрам. Изменения необходимо зафиксировать с помощью командлета `Set-AzureRmDnsRecordSet`.
 
-При удалении последней записи из набора сам набор не удаляется. Подробнее см. в разделе [Удаление набора записей](#delete-a-record-set) ниже.
+При удалении последней записи из набора сам набор не удаляется. Дополнительные сведения см. в разделе [Удаление набора записей](#delete-a-record-set) ниже.
 
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
+	$rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
 Последовательность операций для удаления записи можно также направить в конвейер, передав объект набора записей с помощью конвейера, а не как параметр. Например:
 
-	PS C:\> Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
+	Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
 
 ### Удаление записи AAAA из набора записей
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
+	$rs = Get-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### Удаление записи CNAME из набора записей
 
 Так как набор записей CNAME может содержать не более одной записи, ее удаление приведет к получению пустого набора.
 
-	PS C:\> $rs =  Get-AzureRmDnsRecordSet -name "test-cname" -RecordType CNAME -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup	
-	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
+	$rs =  Get-AzureRmDnsRecordSet -name "test-cname" -RecordType CNAME -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup	
+	Remove-AzureRmDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### Удаление записи MX из набора записей
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup	
-	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
+	$rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup	
+	Remove-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### Удаление записи NS из набора записей
 	
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
+	$rs = Get-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	Remove-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### Удаление записи SRV из набора записей
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
+	$rs = Get-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	Remove-AzureRmDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### Удаление записи TXT из набора записей
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
+	$rs = Get-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	Remove-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ## Удаление набора записей
-Наборы записей можно удалить с помощью командлета Remove-AzureRmDnsRecordSet.
 
->[AZURE.NOTE] Невозможно удалить наборы записей SOA и NS на вершине зоны (имя = "@"), которые создаются автоматически вместе с зоной. Они будут удалены автоматически при удалении зоны.
+Наборы записей можно удалять с помощью командлета `Remove-AzureRmDnsRecordSet`. Невозможно удалить наборы записей типа SOA и NS на вершине зоны (имя = "@"), которые создаются автоматически вместе с зоной. Они будут удалены автоматически при удалении зоны.
 
 Используйте один из следующих трех способов для удаления набора записей.
 
-### Вариант 1
+### Укажите все параметры по имени.
 
-Укажите все параметры по имени:
+Чтобы отключить запрос подтверждения, можно указать необязательный параметр *-Force*.
 
-	PS C:\> Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup [-Force]
+	Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup [-Force]
 
-Чтобы отключить запрос подтверждения, можно указать необязательный параметр -Force.
 
-### Вариант 2
+### Укажите набор записей по имени и типу, укажите зону с помощью объекта.
 
-Укажите набор записей по имени и типу, укажите зону объектом:
+	$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone [-Force]
 
-	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone [-Force]
+### Укажите набора записей объектом.
 
-### Вариант 3
+	$rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	Remove-AzureRmDnsRecordSet –RecordSet $rs [-Overwrite] [-Force]
 
-Укажите набора записей объектом.
-
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureRmDnsRecordSet –RecordSet $rs [-Overwrite] [-Force]
-
-При указании набора записей с помощью объекта вы можете выполнить проверки etag, чтобы убедиться, что параллельные изменения не удаляются. Необязательный флажок -Overwrite подавляет эти проверки. Подробные сведения см. в разделе [Etag и теги](../dns-getstarted-create-dnszone#Etags-and-tags).
+При указании набора записей с помощью объекта вы можете выполнить проверки Etag, чтобы убедиться, что параллельные изменения не удаляются. Необязательный параметр *-Overwrite* подавляет эти проверки. Подробные сведения см. в разделе [Etag и теги](dns-getstarted-create-dnszone.md#tagetag).
 
 Объект набора записей также можно направить в конвейер, а не передать в качестве параметра:
 
-	PS C:\> Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordSet [-Overwrite] [-Force]
+	Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordSet [-Overwrite] [-Force]
 
-##См. также
+## Дальнейшие действия
 
-[Приступая к созданию наборов записей и записей](dns-getstarted-create-recordset.md)<BR> [Управление зонами DNS](dns-operations-dnszones.md)<BR> [Автоматизации операций с помощью пакета SDK для .NET](dns-sdk.md)
+Дополнительные сведения об Azure DNS см. в статье [Обзор Azure DNS](dns-overview.md). Сведения об автоматизации DNS см. в статье [Создание зон DNS и наборов записей с помощью пакета SDK для .NET](dns-sdk.md).
+
+Если вы хотите работать с обратными записями DNS, ознакомьтесь с разделом [Как управлять обратными записями DNS для служб с помощью PowerShell](dns-reverse-dns-record-operations-ps.md).
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

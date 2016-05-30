@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Управление несколькими средами в Service Fabric | Microsoft Azure"
+   pageTitle="Управление несколькими средами в Service Fabric | Microsoft Azure"
    description="Приложения Service Fabric могут выполняться в кластерах размером от одного до нескольких тысяч компьютеров. Иногда для этих различных сред необходимо по-разному настроить приложение. В этой статье объясняется, как определить различные параметры приложения в каждой среде."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="04/26/2016"
    ms.author="seanmck"/>
 
 # Управление параметрами приложения для нескольких сред
@@ -24,7 +24,7 @@
 
 ## Выбор параметров среды
 
-Решить эту проблему с конфигурацией можно с помощью набора параметризованных служб по умолчанию и файлов параметров приложения, которые заполнят значения этих параметров для данной среды.
+Решить эту проблему с конфигурацией можно с помощью набора параметризованных служб по умолчанию и файлов параметров приложения, которые заполнят значения этих параметров для данной среды. Параметры служб и приложений по умолчанию настраиваются в манифестах приложений и служб. Определение схемы для файла ServiceManifest.xml и ApplicationManifest.xml устанавливается с пакетом SDK и средствами для Service Fabric по адресу *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 ### Службы по умолчанию
 
@@ -33,10 +33,13 @@
     <DefaultServices>
         <Service Name="Stateful1">
             <StatefulService
-                ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+                ServiceTypeName="Stateful1Type"
+                TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
+                MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
 
                 <UniformInt64Partition
-                    PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808"
+                    PartitionCount="[Stateful1_PartitionCount]"
+                    LowKey="-9223372036854775808"
                     HighKey="9223372036854775807"
                 />
         </StatefulService>
@@ -53,12 +56,12 @@
 
 Атрибут DefaultValue указывает значение, которое используется при отсутствии более конкретного параметра для данной среды.
 
->[AZURE.NOTE] Не все параметры экземпляра службы подходят для конфигурации среды. В примере выше значения LowKey и HighKey для схемы секционирования службы явно заданы для всех экземпляров службы, так как диапазон разделов — это функция домена данных, а не среды.
+>[AZURE.NOTE] Не все параметры экземпляра службы подходят для конфигурации среды. В примере выше значения LowKey и HighKey для схемы секционирования службы явно заданы для всех экземпляров службы, так как диапазон разделов — это функция домена данных, а не среды.
 
 
 ### Параметры конфигурации службы в среде
 
-[Модель приложения Service Fabric](service-fabric-application-model.md) позволяет службам включать пакеты конфигураций, содержащие пользовательские пары «ключ — значение», которые считываются во время выполнения. Среда может различать значения этих параметров, если в манифесте приложения указать класс `ConfigOverride`.
+[Модель приложения Service Fabric](service-fabric-application-model.md) позволяет службам включать пакеты конфигураций, содержащие пользовательские пары "ключ — значение", которые считываются во время выполнения. Среда может различать значения этих параметров, если в манифесте приложения указать класс `ConfigOverride`.
 
 Предположим, что в файле Config\\Settings.xml для службы `Stateful1` указан следующий параметр:
 
@@ -67,7 +70,7 @@
       <Parameter Name="MaxQueueSize" Value="25" />
     </Section>
 
-Чтобы переопределить это значение для конкретной пары «приложение — среда», создайте `ConfigOverride` при импорте манифеста служб в манифест приложения.
+Чтобы переопределить это значение для конкретной пары "приложение — среда", создайте `ConfigOverride` при импорте манифеста служб в манифест приложения.
 
     <ConfigOverrides>
      <ConfigOverride Name="Config">
@@ -81,7 +84,7 @@
 
 Как показано выше, позднее среда может настроить этот параметр. Для этого объявите его в разделе параметров в манифесте приложения и укажите конкретные значения для среды в файлах параметров приложения.
 
->[AZURE.NOTE] Что касается параметров конфигурации службы, значение ключа можно задать в трех местах: в пакете конфигурации службы, в манифесте приложения и в файле параметров приложения. Service Fabric сначала выберет значения из файла параметров приложения (если он указан), затем из манифеста приложения и наконец из пакета конфигурации.
+>[AZURE.NOTE] Что касается параметров конфигурации службы, значение ключа можно задать в трех местах: в пакете конфигурации службы, в манифесте приложения и в файле параметров приложения. Service Fabric сначала выберет значения из файла параметров приложения (если он указан), затем из манифеста приложения и наконец из пакета конфигурации.
 
 
 ### Файлы параметров приложений
@@ -116,9 +119,11 @@
 
 ### Развертывание из PowerShell
 
-Сценарий PowerShell `DeployCreate-FabricApplication.ps1` принимает файл параметров в качестве параметра.
+Сценарий `Deploy-FabricApplication.ps1` PowerShell, включенный в шаблон проекта приложения, принимает профиль публикации как параметр, а PublishProfile содержит ссылку на файл параметров приложения.
 
-    ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -ApplicationDefinitionFilePath <app_instance_definition_path>
+  ```PowerShell
+    ./Deploy-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
+  ```
 
 ## Дальнейшие действия
 
@@ -129,4 +134,4 @@
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

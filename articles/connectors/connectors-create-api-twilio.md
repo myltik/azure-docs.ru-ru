@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/10/2016"
+ms.date="05/12/2016"
 ms.author="mandia"/>
 
 # Начало работы с API-интерфейсом Twilio
@@ -47,9 +47,10 @@ API Twilio позволяет выполнять следующие действ
 |Идентификатор учетной записи|Да|Введите идентификатор своей учетной записи Twilio|
 |Маркер доступа|Да|Введите свой маркер доступа Twilio|
 
-Сведения о создании маркера доступа см. в статье о [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity).
+>[AZURE.INCLUDE [Шаги по созданию подключения к Twilio](../../includes/connectors-create-api-twilio.md)]
 
-После создания подключения нужно ввести свойства Twilio. Эти свойства описаны далее в **справочнике по REST API**.
+Если у вас нет маркера доступа, прочитайте в статье про [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) о том, как его создать.
+
 
 >[AZURE.TIP] Это подключение к Twilio можно использовать в других приложениях логики.
 
@@ -247,4 +248,4 @@ API Twilio позволяет выполнять следующие действ
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

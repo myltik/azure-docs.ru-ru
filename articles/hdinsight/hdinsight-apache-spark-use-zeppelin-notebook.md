@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="05/16/2016" 
 	ms.author="nitinme"/>
 
 
@@ -26,7 +26,7 @@
 **Предварительные требования:**
 
 * Прежде чем приступать к изучению этого учебника, необходимо оформить подписку Azure. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Кластер Apache Spark. Инструкции см. в разделе [Создание кластеров Apache Spark в Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
+* Кластер Apache Spark. Инструкции см. в разделе [Создание кластеров Apache Spark в Azure HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * Клиент SSH. В дистрибутивах Linux и Unix и Macintosh OS X команда `ssh` входит в состав операционной системы. Для Windows рекомендуем воспользоваться [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 	> [AZURE.NOTE] Если вы планируете использовать клиент SSH, отличный от `ssh` или PuTTY, обратитесь к документации своего клиента за информацией о настройке туннеля SSH.
@@ -39,13 +39,15 @@
 
 ## Установка записной книжки Zeppelin в процессе создания кластера
 
-Записную книжку Zeppelin в кластере Spark можно установить с помощью действия сценария. Действие сценария использует пользовательские скрипты для установки компонентов в кластере, которые по умолчанию недоступны. Пользовательский скрипт для установки Zeppelin на кластере Spark доступен на **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+Записную книжку Zeppelin в кластере Spark можно установить с помощью действия сценария. Действие сценария использует пользовательские скрипты для установки компонентов в кластере, которые по умолчанию недоступны. Можно использовать пользовательский сценарий для установки Zeppelin с портала Azure, воспользовавшись пакетом SDK для HDInsight .NET или Azure PowerShell.
 
 ### Использование портала Azure
 
 Инструкции по использованию пакета HDInsight .NET SDK для выполнения действия сценария по установке записной книжки Zeppelin см. в разделе [Настройка кластеров HDInsight с помощью действий сценариев](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). В инструкции, приведенные в этой статье, необходимо внести несколько изменений.
 
-* Используйте сценарий для установки записной книжки Zeppelin. Необходимый сценарий: **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* Требуется использовать сценарий для установки Zeppelin. Пользовательский сценарий для установки Zeppelin на кластер Spark в HDInsight доступен по следующим ссылкам.
+	* Для кластеров Spark 1.6.0: `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+	* Для кластеров Spark 1.5.2: `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 
 * Сценарий необходимо выполнять только на головном узле.
 
@@ -55,7 +57,9 @@
 
 Инструкции по использованию пакета HDInsight .NET SDK для выполнения действия сценария по установке записной книжки Zeppelin см. в разделе [Настройка кластеров HDInsight с помощью действий сценариев](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk). В инструкции, приведенные в этой статье, необходимо внести несколько изменений.
 
-* Используйте сценарий для установки записной книжки Zeppelin. Необходимый сценарий: **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* Требуется использовать сценарий для установки Zeppelin. Пользовательский сценарий для установки Zeppelin на кластер Spark в HDInsight доступен по следующим ссылкам.
+	* Для кластеров Spark 1.6.0: `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+	* Для кластеров Spark 1.5.2: `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 
 * Сценарий не требует никаких параметров.
 
@@ -63,7 +67,13 @@
 
 ### Использование Azure PowerShell
 
-Представленный ниже фрагмент кода PowerShell позволяет создать кластер Spark в HDInsight Linux с установленной записной книжкой Zeppelin. Прежде чем продолжить, установите PowerShell. Инструкции см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Представленный ниже фрагмент кода PowerShell позволяет создать кластер Spark в HDInsight Linux с установленной записной книжкой Zeppelin. В зависимости от версии кластера Spark необходимо изменить приведенный ниже фрагмент кода PowerShell, чтобы указать ссылку на соответствующий пользовательский сценарий.
+
+* Для кластеров Spark 1.6.0: `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+* Для кластеров Spark 1.5.2: `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 
 	Login-AzureRMAccount
 	
@@ -217,13 +227,13 @@
 
 2. Создайте новую записную книжку. На панели заголовка щелкните элемент **Notebook**, а затем — **Создать новую заметку**.
 
-	![Создание новой записной книжки Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.createnewnote.png "Создание новой записной книжки Zeppelin")
+	![Создание новой записной книжки Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.createnewnote.png "Создание новой записной книжки Zeppelin")
 
 	На той же странице под заголовком **Notebook** отобразится новая записная книжка с именем, начинающимся с **Заметка XXXXXXXXX**. Щелкните новую записную книжку.
 
 3. На веб-странице для новой записной книжки щелкните заголовок и при необходимости переименуйте записную книжку. Нажмите клавишу ВВОД, чтобы сохранить изменения. Кроме того, убедитесь, что в правом верхнем углу в заголовке записной книжки отображается состояние **Подключено**.
 
-	![Состояния записной книжки Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.newnote.connected.png "Состояния записной книжки Zeppelin")
+	![Состояния записной книжки Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "Состояния записной книжки Zeppelin")
 
 4. Загрузите демонстрационные данные во временную таблицу. При создании кластера Spark в HDInsight файл с демонстрационными данными **hvac.csv** копируется в связанную учетную запись хранения по следующему пути: **\\HdiSamples\\SensorSampleData\\hvac**.
 
@@ -250,7 +260,7 @@
 		
 	Нажмите клавиши **SHIFT + ВВОД** или кнопку **Воспроизвести** для абзаца, чтобы выполнить фрагмент кода. Состояние, которое отображается в правом верхнем углу абзаца, должно изменяться в следующей последовательности: READY (ГОТОВО), PENDING (ОЖИДАЕТ), RUNNING (ВЫПОЛНЯЕТСЯ) и FINISHED (ЗАВЕРШЕНО). Выходные данные отображаются в нижней части того же абзаца. Снимок экрана выглядит следующим образом:
 
-	![Создание временной таблицы из необработанных данных](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.loaddataintotable.png "Создание временной таблицы из необработанных данных")
+	![Создание временной таблицы из необработанных данных](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.loaddDataintotable.png "Создание временной таблицы из необработанных данных")
 
 	Можно указать заголовок для каждого абзаца. В правом верхнем углу экрана щелкните значок **Параметры**, а затем щелкните элемент **Показать заголовок**.
 
@@ -265,7 +275,7 @@
 
 	Выходные данные показаны на снимке экрана ниже.
 
-	![Выполнение инструкции Spark SQL с помощью записной книжки](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery1.png "Выполнение инструкции Spark SQL с помощью записной книжки")
+	![Выполнение инструкции Spark SQL с помощью записной книжки](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery1.png "Выполнение инструкции Spark SQL с помощью записной книжки")
 
 	 Используйте параметры отображения (выделены красным прямоугольником) для переключения между различными представлениями одних и тех же выходных данных. Щелкните элемент **Параметры**, чтобы определить ключи и значения в выходных данных. На снимке экрана выше в параметр **buildingID** используется в качестве ключа, а среднее значение **temp\_diff** — как значение.
 
@@ -279,13 +289,13 @@
 
 	Вставьте этот фрагмент кода в новый абзац и нажмите клавиши **SHIFT + ВВОД**. Выходные данные показаны на снимке экрана ниже.
 
-	![Выполнение инструкции Spark SQL с помощью записной книжки](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery2.png "Выполнение инструкции Spark SQL с помощью записной книжки")
+	![Выполнение инструкции Spark SQL с помощью записной книжки](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery2.png "Выполнение инструкции Spark SQL с помощью записной книжки")
 
 	Для последующих запросов можно выбрать новое значение из раскрывающегося списка и повторно выполнить запрос. Щелкните **Settings** (Параметры), чтобы определить ключ и значения в выходных данных. На снимке экрана выше параметр **buildingID** используется в качестве ключа, среднее значение **temp\_diff** используется как значение, а **targettemp** — как группа.
 
 7. Перезапустите интерпретатор Spark SQL, чтобы выйти из приложения. Перейдите на вкладку **Интерпретатор** в верхней части окна, а затем для интерпретатора Spark нажмите кнопку **Перезапустить**.
 
-	![Перезапуск интерпретатора Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.zeppelin.restart.interpreter.png "Перезапуск интерпретатора Zeppelin")
+	![Перезапуск интерпретатора Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Перезапуск интерпретатора Zeppelin")
 
 
 ## <a name="seealso"></a>См. также:
@@ -332,4 +342,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

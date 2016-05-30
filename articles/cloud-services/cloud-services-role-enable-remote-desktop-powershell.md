@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="01/19/2016" 
+ms.date="05/17/2016" 
 ms.author="adegeo"/>
 
 # Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell
@@ -35,7 +35,7 @@ ms.author="adegeo"/>
 Если вы используете PowerShell интерактивно, то можете задать объект PSCredential, вызвав командлет [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx).
 
 ```
-	$remoteusercredentials = Get-Credential
+$remoteusercredentials = Get-Credential
 ```
 
 В открывшемся диалоговом окне вы сможете в защищенном режиме указать имя пользователя и пароль для удаленного пользователя.
@@ -45,7 +45,7 @@ ms.author="adegeo"/>
 Для создания файла надежного пароля используйте эту команду PowerShell:
 
 ```
-	ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
+ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ``` 
 
 После того как вы создадите файл пароля (password.txt), вы сможете использовать только его, и вам не потребуется вводить пароль в виде обычного текста. При необходимости сменить пароль можно сгенерировать обновленный файл password.txt. Для этого нужно просто выполнить указанную выше команду PowerShell для нового пароля.
@@ -57,12 +57,12 @@ ms.author="adegeo"/>
 В этом примере показано, как установить расширение удаленного рабочего стола для облачной службы с помощью PowerShell:
 
 ```
-	$servicename = "cloudservice"
-	$username = "RemoteDesktopUser"
-	$securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
-	$expiry = $(Get-Date).AddDays(1)
-	$credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
-	Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
+$servicename = "cloudservice"
+$username = "RemoteDesktopUser"
+$securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
+$expiry = $(Get-Date).AddDays(1)
+$credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
+Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
 ```
 При необходимости вы также можете указать слот развертывания и роли, для которых необходимо включить удаленный рабочий стол. Если эти параметры не указаны, командлет по умолчанию будет использовать рабочий слот развертывания и включит удаленный рабочий стол для всех ролей в рабочей среде.
 
@@ -73,7 +73,7 @@ ms.author="adegeo"/>
 Командлет [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) можно использовать для добавления удаленного рабочего стола для определенного экземпляра роли облачной службы. Вы можете использовать в этом командлете параметр *LocalPath*, чтобы загрузить RDP-файл локально, или параметр *Launch*, чтобы напрямую открыть диалоговое окно «Подключение к удаленному рабочему столу» для доступа к экземпляру роли облачной службы.
 
 ```
-	Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
+Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
 ```
 
 
@@ -81,7 +81,7 @@ ms.author="adegeo"/>
 Командлет [Get-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495261.aspx) показывает, включен ли удаленный рабочий стол в развернутой службе. Он возвращает имя пользователя удаленного рабочего стола и роли, для которых включено расширение удаленного рабочего стола. Вы также можете указать слот развертывания (по умолчанию используется рабочий слот).
 
 ```
-	Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
+Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
 ## Удаление расширения удаленного рабочего стола из службы 
@@ -91,10 +91,11 @@ ms.author="adegeo"/>
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
-
 ```  
 
->[AZURE.NOTE] Параметр *UninstallConfiguration* удаляет все конфигурации расширения, примененные к службе. Конфигурации расширения связаны с конфигурацией службы. Для активации расширения в развернутой службе развертывание должно быть связано с конфигурацией расширения. Вызов командлета Remove без параметра *UninstallConfiguration* разорвет связь развертывания с конфигурацией расширения, что позволит эффективно удалить расширение из развернутой службы. Однако конфигурация расширения будет по-прежнему связана со службой. Чтобы полностью удалить конфигурацию расширения, выполните командлет Remove с параметром *UninstallConfiguration*.
+>[AZURE.NOTE] Чтобы полностью удалить конфигурацию расширения, выполните командлет *remove* с параметром **UninstallConfiguration**.
+>
+>Параметр **UninstallConfiguration** удаляет все конфигурации расширения, примененные к службе. Конфигурации расширения связаны с конфигурацией службы. Для активации расширения в развернутой службе развертывание должно быть связано с конфигурацией расширения. Вызов командлета *remove* без параметра **UninstallConfiguration** разорвет связь развертывания с конфигурацией расширения, что позволит эффективно удалить расширение из развернутой службы. Однако конфигурация расширения будет по-прежнему связана со службой.
 
 
 
@@ -102,4 +103,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [Настройка облачных служб](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

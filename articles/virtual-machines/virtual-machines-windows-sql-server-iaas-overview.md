@@ -14,14 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="05/18/2016"
 	ms.author="jroth"/>
 
 # Общие сведения об SQL Server на виртуальных машинах Azure
 
 [SQL Server на виртуальных машинах Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) позволяет разместить в облаке базы данных SQL Server. Например, вы можете перенести локальную базу данных на виртуальную машину Azure, на которой установлены Windows Server 2012 R2 и SQL Server 2014 Enterprise edition. Но существует и множество других сценариев, например конфигурация с несколькими компьютерами, которая обеспечит высокий уровень доступности, или гибридные архитектуры с подключением к локальным сетям.
 
-Отличный обзор приведен в видеоролике [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Виртуальная машина Azure — лучшая платформа для SQL Server 2016).
+Подробный обзор см. в этом видео:
+
+> [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
 
 ## Предложения для SQL
 
@@ -69,9 +71,9 @@
 
 ## высокую доступность;
 
-Если требуется высокий уровень доступности, вам помогут группы доступности SQL Server. Это подразумевает использование нескольких виртуальных машин Azure в виртуальной сети. На портале Azure есть шаблон, который настраивает эту конфигурацию. Подробнее см. статью [Настройка группы доступности AlwaysOn на виртуальных машинах Azure Resource Manager (графический пользовательский интерфейс) ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
+Если требуется высокий уровень доступности, вам помогут группы доступности SQL Server. Это подразумевает использование нескольких виртуальных машин Azure в виртуальной сети. На портале Azure есть шаблон, который настраивает эту конфигурацию. Подробнее см. в статье [Настройка группы доступности AlwaysOn на виртуальных машинах диспетчера ресурсов Azure с помощью графического пользовательского интерфейса ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
 
-Если вы хотите вручную настроить группу доступности и связанный прослушиватель, изучите статью [Настройка групп доступности AlwaysOn в виртуальной машине Azure (графический пользовательский интерфейс)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Если вы хотите вручную настроить группу доступности и связанный прослушиватель, см. статью [Настройка групп доступности AlwaysOn в виртуальной машине Azure (графический пользовательский интерфейс)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 Дополнительные рекомендации по обеспечению высокого уровня доступности см. в разделе [Высокий уровень доступности и аварийное восстановление для SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
@@ -86,6 +88,6 @@
 
 Затем просмотрите [рекомендации по повышению производительности](virtual-machines-windows-sql-performance.md) и [методы переноса](virtual-machines-windows-migrate-sql.md), которые помогут перенести рабочие нагрузки SQL Server на виртуальные машины Azure.
 
-Если у вас останутся вопросы о работе SQL Server на виртуальных машинах Azure, изучите статью [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-faq.md). Чтобы получить поддержку от корпорации Майкрософт и сообщества, вы можете оставить комментарий под любой статьей о виртуальных машинах SQL.
+Если у вас останутся вопросы о работе SQL Server на виртуальных машинах Azure, изучите статью [Часто задаваемые вопросы об SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-faq.md). Чтобы получить поддержку от корпорации Майкрософт и сообщества, вы можете оставить комментарий под любой статьей о виртуальных машинах SQL.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -117,7 +117,7 @@ using System.Threading.Tasks;
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
-    log.Verbose($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -177,7 +177,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
     string jsonContent = await req.Content.ReadAsStringAsync();
     dynamic data = JsonConvert.DeserializeObject(jsonContent);
 
-    log.Verbose($"WebHook was triggered! Comment: {data.comment.body}");
+    log.Info($"WebHook was triggered! Comment: {data.comment.body}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         body = $"New GitHub comment: {data.comment.body}"
@@ -233,7 +233,7 @@ module.exports = function (context, data) {
 "runOnStartup": false,
 ```
 
-Немедленная активация, а затем через каждые два часа соответственно:
+Немедленная активация, а затем через каждые два часа:
 
 ```json
 "schedule": "0 0 */2 * * *",
@@ -254,7 +254,7 @@ module.exports = function (context, data) {
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
-    log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");    
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");    
 }
 ```
 
@@ -262,43 +262,23 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 Этот раздел содержит следующие подразделы:
 
-* [Свойство connection службы хранилища Azure в файле function.json](#storageconnection)
 * [Триггер очереди службы хранилища Azure](#storagequeuetrigger)
 * [Выходная привязка очереди службы хранилища Azure](#storagequeueoutput)
 * [Триггер большого двоичного объекта службы хранилища Azure](#storageblobtrigger)
 * [Входные и выходные привязки для больших двоичных объектов службы хранилища Azure](#storageblobbindings)
 * [Входные и выходные привязки для таблиц службы хранилища Azure](#storagetablesbindings)
 
-### <a id="storageconnection"></a> Свойство connection службы хранилища Azure в файле function.json
-
-В файле *function.json* содержится свойство `connection` для всех триггеров и привязок службы хранилища Azure. Например:
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myQueueItem",
-            "type": "queueTrigger",
-            "direction": "in",
-            "queueName": "myqueue-items",
-            "connection":""
-        }
-    ]
-}
-```
-
-Если не задавать значение для свойства `connection`, триггер или привязка будет использоваться с учетной записью хранения по умолчанию для приложения функций. Если требуется, чтобы триггер или привязка использовались с другой учетной записью хранения, создайте в приложении функций параметр приложения, который указывает на требуемую учетную запись хранения, и установите имя параметра приложения в качестве значения для свойства `connection`. Чтобы добавить параметр приложения, сделайте следующее:
-
-1. В колонке **Приложения функций** на портале Azure щелкните **Параметры приложения функций > Перейти к параметрам службы приложений**.
-
-2. В колонке **Параметры** щелкните раздел **Параметры приложения**.
-
-3. Прокрутите вниз до раздела **Параметры приложения** и добавьте запись с **ключом** (*{некоторое уникальное значение по усмотрению}*) и **значением** (строка подключения для учетной записи хранения).
-
 ### <a id="storagequeuetrigger"></a> Триггер очереди службы хранилища Azure
 
-Файл *function.json* содержит имя очереди для опроса и имя переменной для сообщения очереди. Например:
+Файл *function.json* для триггера очереди службы хранилища указывает следующие свойства:
+
+- `name` — имя переменной, используемой в коде функции для очереди или сообщения очереди. 
+- `queueName` — имя очереди для опроса. Сведения о правилах именования очередей см. в статье [Именование очередей и метаданных](https://msdn.microsoft.com/library/dd179349.aspx).
+- `connection` — имя параметра приложения, содержащего строку подключения к службе хранилища. Если оставить свойство `connection` пустым, триггер будет использовать строку подключения к службе хранилища по умолчанию для приложения-функции, указанную в параметре приложения AzureWebJobsStorage.
+- `type` — для этого свойства нужно задать значение *queueTrigger*.
+- `direction` — для этого свойства нужно задать значение *in*. 
+
+#### Пример файла *function.json* для триггера очереди службы хранилища
 
 ```json
 {
@@ -306,10 +286,10 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
     "bindings": [
         {
             "name": "myQueueItem",
-            "type": "queueTrigger",
-            "direction": "in",
             "queueName": "myqueue-items",
-            "connection":""
+            "connection":"",
+            "type": "queueTrigger",
+            "direction": "in"
         }
     ]
 }
@@ -319,10 +299,10 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 Сообщение очереди можно десериализировать в один из следующих типов:
 
-* `string`
-* `byte[]`
-* объект JSON;   
-* `CloudQueueMessage`
+* объект (JSON);
+* Строка
+* массив байтов; 
+* `CloudQueueMessage` (C#). 
 
 #### Метаданные триггера очереди
 
@@ -349,7 +329,7 @@ public static void Run(string myQueueItem,
     int dequeueCount,
     TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}\n" +
+    log.Info($"C# Queue trigger function processed: {myQueueItem}\n" +
         $"queueTrigger={queueTrigger}\n" +
         $"expirationTime={expirationTime}\n" +
         $"insertionTime={insertionTime}\n" +
@@ -372,23 +352,33 @@ public static void Run(string myQueueItem,
 
 ### <a id="storagequeueoutput"></a> Выходная привязка очереди службы хранилища Azure
 
-Файл *function.json* содержит имя выходной очереди и имя переменной для содержимого сообщения. В этом примере используется триггер очереди и записывается сообщение очереди.
+Файл *function.json* для выходной привязки очереди службы хранилища указывает следующие свойства:
+
+- `name` — имя переменной, используемой в коде функции для очереди или сообщения очереди. 
+- `queueName` — имя очереди. Сведения о правилах именования очередей см. в статье [Именование очередей и метаданных](https://msdn.microsoft.com/library/dd179349.aspx).
+- `connection` — имя параметра приложения, содержащего строку подключения к службе хранилища. Если оставить свойство `connection` пустым, триггер будет использовать строку подключения к службе хранилища по умолчанию для приложения-функции, указанную в параметре приложения AzureWebJobsStorage.
+- `type` — для этого свойства нужно задать значение *queue*.
+- `direction` — для этого свойства нужно задать значение *out*. 
+
+#### Пример файла *function.json* для выходной привязки очереди службы хранилища
+
+В этом примере используется триггер очереди и записывается сообщение очереди.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
     },
     {
       "name": "myQueue",
-      "type": "queue",
       "queueName": "samples-workitems-out",
-      "connection": "",
+      "connection": "MyStorageConnection",
+      "type": "queue",
       "direction": "out"
     }
   ],
@@ -400,10 +390,12 @@ public static void Run(string myQueueItem,
 
 Привязка `queue` может сериализировать следующие типы в сообщения очереди:
 
-* `string` (создает сообщение очереди, если по завершении вызова функции значение параметра не равно null);
-* `byte[]` (действует как тип string); 
-* `CloudQueueMessage` (действует как тип string); 
-* объект JSON (создает сообщение с пустым объектом, если по завершении функции значение параметра — null).
+* объект (`out T` на C#, создает сообщение с пустым объектом, если по завершении функции значение параметра — null);
+* строка (`out string` на C#, создает сообщение очереди, если по завершении вызова функции значение параметра не равно null);
+* массив байтов (`out byte[]` на C#, действует как строка); 
+* `out CloudQueueMessage` (C#, действует как строка). 
+
+При использовании C# можно также привязать параметр `ICollector<T>` или `IAsyncCollector<T>`, где `T` — это один из поддерживаемых типов выходных привязок очереди.
 
 #### Пример кода выходной привязки очереди
 
@@ -428,7 +420,17 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ### <a id="storageblobtrigger"></a> Триггер большого двоичного объекта службы хранилища Azure
 
-Файл *function.json* содержит путь, по которому расположен отслеживаемый контейнер, и при необходимости шаблон имени большого двоичного объекта. Этот пример активирует все большие двоичные объекты, которые добавлены в контейнер samples-workitems.
+Файл *function.json* для триггера большого двоичного объекта службы хранилища указывает следующие свойства:
+
+- `name` — имя переменной, используемой в коде функции для большого двоичного объекта. 
+- `path` — путь, по которому расположен отслеживаемый контейнер, и при необходимости шаблон имени большого двоичного объекта.
+- `connection` — имя параметра приложения, содержащего строку подключения к службе хранилища. Если оставить свойство `connection` пустым, триггер будет использовать строку подключения к службе хранилища по умолчанию для приложения-функции, указанную в параметре приложения AzureWebJobsStorage.
+- `type` — для этого свойства нужно задать значение *blobTrigger*.
+- `direction` — для этого свойства нужно задать значение *in*.
+
+#### Пример файла *function.json* для триггера большого двоичного объекта службы хранилища
+
+Этот пример активирует все большие двоичные объекты, которые добавлены в контейнер samples-workitems.
 
 ```json
 {
@@ -445,13 +447,15 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 }
 ```
 
-> [AZURE.NOTE] Если контейнер больших двоичных объектов, который отслеживает триггер, содержит более 10 000 больших двоичных объектов, среда выполнения Функций проверяет файлы журналов, чтобы найти новые или измененные большие двоичные объекты. Это не происходит в режиме реального времени. После создания большого двоичного объекта функция может не вызываться несколько минут или даже дольше. Кроме того, [журналы хранилища создаются на условиях максимально возможного исполнения](https://msdn.microsoft.com/library/azure/hh343262.aspx): регистрация всех событий не гарантируется. В некоторых случаях журналы могут пропускаться. Если ограниченная скорость и надежность триггеров больших двоичных объектов для больших контейнеров недопустимы для вашего приложения, для обработки большого двоичного объекта во время его создания рекомендуется создать сообщение очереди и использовать триггер очереди вместо триггера большого двоичного объекта.
-
 #### Поддерживаемые типы триггеров больших двоичных объектов
 
-Большие двоичные объекты можно десериализировать в такие типы:
+Большой двоичный объект можно десериализировать в один из следующих типов функций Node или C#:
 
-* строка
+* объект (JSON);
+* Строка
+
+В функции C# можно выполнить привязку одного из следующих типов:
+
 * `TextReader`
 * `Stream`
 * `ICloudBlob`
@@ -465,12 +469,12 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 #### Пример кода C# триггера большого двоичного объекта
 
-В этом примере кода C# регистрируется содержимое каждого большого двоичного объекта, который добавляется в контейнер.
+В этом примере кода C# регистрируется содержимое каждого большого двоичного объекта, который добавляется в отслеживаемый контейнер.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
 {
-    log.Verbose($"C# Blob trigger function processed: {myBlob}");
+    log.Info($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
@@ -510,7 +514,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 Уведомления о получении большого двоичного объекта хранятся в контейнере с именем *azure-webjobs-hosts* в учетной записи хранения Azure, указанной в строке подключения AzureWebJobsStorage. Уведомление о получении большого двоичного объекта содержит следующую информацию:
 
-* функция, вызванная для большого двоичного объекта ("*{имя\_приложения\_функции}*.Functions.*{имя\_функции}*", например functionsf74b96f7.Functions.CopyBlob);
+* функция, вызванная для большого двоичного объекта ("*{имя\_приложения\_функции}*.Functions.*{имя\_функции}*", например, functionsf74b96f7.Functions.CopyBlob);
 * имя контейнера;
 * тип большого двоичного объекта (BlockBlob или PageBlob);
 * имя большого двоичного объекта;
@@ -524,22 +528,36 @@ public static void Run(string myBlob, TraceWriter log)
 
 Сообщением очереди для подозрительных больших двоичных объектов является объект JSON, содержащий следующие свойства:
 
-* FunctionId (в формате *{имя\_функции\_приложения}*.Functions.*{имя\_функции}*);
+* FunctionId (в формате *{имя\_приложения\_функции}*.Functions.*{имя\_функции}*);
 * BlobType (BlockBlob или PageBlob);
 * ContainerName;
 * BlobName
 * ETag (идентификатор версии BLOB-объектов, например 0x8D1DC6E70A277EF)
 
+#### Опрос больших двоичных объектов для больших контейнеров
+
+Если контейнер больших двоичных объектов, который отслеживает триггер, содержит более 10 000 больших двоичных объектов, среда выполнения Функций проверяет файлы журналов, чтобы найти новые или измененные большие двоичные объекты. Это не происходит в режиме реального времени. После создания большого двоичного объекта функция может не вызываться несколько минут или даже дольше. Кроме того, [журналы хранилища создаются на условиях максимально возможного исполнения](https://msdn.microsoft.com/library/azure/hh343262.aspx): регистрация всех событий не гарантируется. В некоторых случаях журналы могут пропускаться. Если ограниченная скорость и надежность триггеров больших двоичных объектов для больших контейнеров недопустимы для вашего приложения, для обработки большого двоичного объекта во время его создания рекомендуется создать сообщение очереди и использовать триггер очереди вместо триггера большого двоичного объекта.
+ 
 ### <a id="storageblobbindings"></a> Входные и выходные привязки для больших двоичных объектов службы хранилища Azure
 
-Файл *function.json* содержит имя контейнера и имена переменных для имени и содержимого большого двоичного объекта. В этом примере триггер очереди используется для копирования большого двоичного объекта:
+Файл *function.json* для входной и выходной привязки для больших двоичных объектов службы хранилища указывает следующие свойства:
+
+- `name` — имя переменной, используемой в коде функции для большого двоичного объекта. 
+- `path` — путь, по которому расположен контейнер для чтения из большого двоичного объекта или записи в большой двоичный объект, и при необходимости шаблон имени большого двоичного объекта.
+- `connection` — имя параметра приложения, содержащего строку подключения к службе хранилища. Если оставить свойство `connection` пустым, привязка будет использовать строку подключения к службе хранилища по умолчанию для приложения-функции, указанную в параметре приложения AzureWebJobsStorage.
+- `type` — для этого свойства нужно задать значение *blob*.
+- `direction` — для этого свойства нужно задать значения *in* или *out*. 
+
+#### Пример файла *function.json* для входной и выходной привязки для больших двоичных объектов службы хранилища
+
+В этом примере триггер очереди используется для копирования большого двоичного объекта:
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -548,14 +566,14 @@ public static void Run(string myBlob, TraceWriter log)
       "name": "myInputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "in"
     },
     {
       "name": "myOutputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "out"
     }
   ],
@@ -565,13 +583,16 @@ public static void Run(string myBlob, TraceWriter log)
 
 #### Поддерживаемые типы входных и выходных привязок больших двоичных объектов
 
-Привязка `blob` может сериализировать или десериализировать следующие типы:
+Привязка `blob` в функциях Node.js или C# может сериализировать или десериализировать следующие типы:
 
+* объект (`out T` на C#, для выходного большого двоичного объекта: создает большой двоичный объект в качестве объекта со значением null, если значение параметра равно null при завершении функции);
+* строка (`out string` на C#, для выходного большого двоичного объекта: создает большой двоичный объект, только если для параметра строки не задано значение null при возврате функции).
+
+В функции C# можно выполнить привязку следующих типов:
+
+* `TextReader` (только для входных больших двоичных объектов);
+* `TextWriter` (только для выходных больших двоичных объектов);
 * `Stream`
-* `TextReader`
-* `TextWriter`
-* `string` (для выходного большого двоичного объекта: создает большой двоичный объект, только если для параметра строки не задано значение null при возврате функции);
-* объект JSON (для выходного большого двоичного объекта: создает большой двоичный объект в качестве объекта с значением null, если значение параметра равно null при завершении функции);
 * `CloudBlobStream` (только для выходных больших двоичных объектов);
 * `ICloudBlob`
 * `CloudBlockBlob` 
@@ -581,33 +602,49 @@ public static void Run(string myBlob, TraceWriter log)
 
 В этом примере кода C# копируется большой двоичный объект, имя которого поступает в сообщение очереди.
 
-```CSHARP
+```csharp
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
 
 ### <a id="storagetablesbindings"></a> Входные и выходные привязки для таблиц службы хранилища Azure
 
-Файл *function.json* для таблиц хранилища содержит следующие свойства:
+Файл *function.json* для таблиц службы хранилища указывает следующие свойства:
 
-* `name` — имя переменной, которая используется в коде для привязки таблицы;
-* `tableName`
-* `partitionKey` и `rowKey` используются вместе для чтения одной сущности в функции C# или Node или записи одной сущности в функцию Node;
-* `take` — максимальное число строк, которые нужно считать, для входных данных таблицы в функции Node.
-* `filter` — выражение фильтра OData для входных данных таблицы в функции Node.
+- `name` — имя переменной, используемой в коде функции для привязки таблицы. 
+- `tableName` — имя таблицы.
+- `partitionKey` и `rowKey` — используются вместе для чтения одной сущности в функции C# или Node или записи одной сущности в функцию Node.
+- `take` — максимальное число строк, которые нужно считать, для входных данных таблицы в функции Node.
+- `filter` — выражение фильтра OData для входных данных таблицы в функции Node.
+- `connection` — имя параметра приложения, содержащего строку подключения к службе хранилища. Если оставить свойство `connection` пустым, привязка будет использовать строку подключения к службе хранилища по умолчанию для приложения-функции, указанную в параметре приложения AzureWebJobsStorage.
+- `type` — для этого свойства нужно задать значение *table*.
+- `direction` — для этого свойства нужно задать значения *in* или *out*. 
 
-Эти свойства поддерживают следующие сценарии:
+#### Поддерживаемые типы входных и выходных таблиц службы хранилища
+
+Привязка `table` может сериализировать или десериализировать объекты в функциях Node.js или C#. В объектах будут использоваться свойства RowKey и PartitionKey.
+
+В функции C# можно выполнить привязку следующих типов:
+
+* `T`, где `T` реализует `ITableEntity`;
+* `IQueryable<T>` (только для входных больших двоичных объектов);
+* `ICollector<T>` (только для выходных больших двоичных объектов);
+* `IAsyncCollector<T>` (только для выходных больших двоичных объектов).
+
+#### Сценарии привязки таблиц службы хранилища
+
+Привязка таблицы применима в следующих сценариях.
 
 * Чтение одной строкой в функции C# или Node.
 
-	Задайте значения `partitionKey` и `rowKey`. Свойства `filter` и `take` не используются в этом сценарии.
+	Задайте значения `partitionKey` и `rowKey`. Свойства`filter` и `take` не используются в этом сценарии.
 
 * Чтение нескольких строк в функции C#.
 
-	Среда выполнения Функций предоставляет объект `IQueryable<T>`, привязанный к таблице. Тип `T` должен быть производным от параметра `TableEntity` или реализовать параметр `ITableEntity`. Свойства `partitionKey`, `rowKey`, `filter` и `take` не используются в этом сценарии. Для фильтрации можно использовать объект `IQueryable`.
+	Среда выполнения функций предоставляет объект `IQueryable<T>`, привязанный к таблице. Тип `T` должен быть производным от параметра `TableEntity` или реализовать параметр `ITableEntity`. Свойства `partitionKey`, `rowKey`, `filter` и `take` не используются в этом сценарии. Для фильтрации можно использовать объект `IQueryable`.
 
 * Чтение нескольких строк в функции Node.
 
@@ -615,18 +652,18 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 * Запись одной или нескольких строк в функции C#.
 
-	Среда выполнения Функций предоставляет параметр `ICollector<T>` или `IAsyncCollector<T>`, привязанный к таблице, а в свойстве `T` указывается схема сущностей, которые требуется добавить. Как правило, тип `T` является производным от `TableEntity` или реализует `ITableEntity`, но не во всех случаях. Свойства `partitionKey`, `rowKey`, `filter` и `take` не используются в этом сценарии.
+	Среда выполнения функций предоставляет параметр `ICollector<T>` или `IAsyncCollector<T>`, привязанный к таблице, а в свойстве `T` указывается схема сущностей, которые требуется добавить. Как правило, тип `T` является производным от `TableEntity` или реализует `ITableEntity`, но не во всех случаях. Свойства `partitionKey`, `rowKey`, `filter` и `take` не используются в этом сценарии.
 
-#### Чтение одной сущности таблицы в коде C# или Node
+#### Пример таблиц службы хранилища: чтение одной сущности таблицы в коде C# или Node
 
-В этом примере *function.json* для чтения одной строки таблицы используется триггер очереди с жестко заданным значением ключа раздела и ключом строки в сообщении очереди.
+В этом примере *function.json* для чтения одной строки таблицы используется триггер очереди с жестко заданным значением ключа секции и ключом строки в сообщении очереди.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -637,20 +674,21 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "in"
     }
   ],
   "disabled": false
 }
 ```
+
 Следующий пример кода C# используется с предыдущим файлом *function.json* для чтения одной сущности таблицы. В сообщении очереди содержится значение ключа строки, а сущность таблицы считывается в тип, определенный в файле *run.csx*. Этот тип содержит свойства `PartitionKey` и `RowKey`. Он не является производным от `TableEntity`.
 
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
-    log.Verbose($"Name in Person entity: {personEntity.Name}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"Name in Person entity: {personEntity.Name}");
 }
 
 public class Person
@@ -671,16 +709,16 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-#### Чтение нескольких сущностей таблицы на языке C# 
+#### Пример таблиц службы хранилища: чтение нескольких сущностей таблицы на языке C# 
 
-В следующем примере файла *function.json* и кода C# считываются сущности для ключа раздела, указанного в сообщении очереди.
+В следующем примере файла *function.json* и кода C# считываются сущности для ключа секции, указанного в сообщении очереди.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -688,6 +726,7 @@ module.exports = function (context, myQueueItem) {
     {
       "name": "tableBinding",
       "type": "table",
+      "connection": "MyStorageConnection",
       "tableName": "Person",
       "direction": "in"
     }
@@ -704,10 +743,10 @@ using Microsoft.WindowsAzure.Storage.Table;
 
 public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
     foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
     {
-        log.Verbose($"Name: {person.Name}");
+        log.Info($"Name: {person.Name}");
     }
 }
 
@@ -717,7 +756,7 @@ public class Person : TableEntity
 }
 ``` 
 
-#### Создание сущностей таблицы на языке C# 
+#### Пример таблиц службы хранилища: создание сущностей таблицы на языке C# 
 
 В следующем примере файлов *function.json* и *run.csx* показано, как создавать сущности таблицы на языке C#.
 
@@ -731,7 +770,7 @@ public class Person : TableEntity
     },
     {
       "tableName": "Person",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
@@ -746,7 +785,7 @@ public static void Run(string input, ICollector<Person> tableBinding, TraceWrite
 {
     for (int i = 1; i < 10; i++)
         {
-            log.Verbose($"Adding Person entity {i}");
+            log.Info($"Adding Person entity {i}");
             tableBinding.Add(
                 new Person() { 
                     PartitionKey = "Test", 
@@ -766,7 +805,7 @@ public class Person
 
 ```
 
-#### Создание сущности таблицы на платформе Node
+#### Пример таблиц службы хранилища: создание сущности таблицы на платформе Node
 
 В следующем примере файлов *function.json* и *run.csx* показано, как создавать сущности таблицы на платформе Node.
 
@@ -775,7 +814,7 @@ public class Person
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -784,7 +823,7 @@ public class Person
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "personEntity",
       "type": "table",
       "direction": "out"
@@ -798,6 +837,167 @@ public class Person
 module.exports = function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
     context.bindings.personEntity = {"Name": "Name" + myQueueItem }
+    context.done();
+};
+```
+
+## Триггеры и привязки служебной шины Azure
+
+Этот раздел содержит следующие подразделы:
+
+* [Служебная шина Azure: поведение PeekLock](#sbpeeklock)
+* [Служебная шина Azure: обработка подозрительных сообщений](#sbpoison)
+* [Служебная шина Azure: однопоточная обработка](#sbsinglethread)
+* [Триггер очереди или раздела служебной шины Azure](#sbtrigger)
+* [Выходная привязка очереди или раздела служебной шины Azure](#sboutput)
+
+### <a id="sbpeeklock"></a> Служебная шина Azure: поведение PeekLock
+
+Среда выполнения функций получает сообщение в режиме `PeekLock` и вызывает метод `Complete` для сообщения, если функция выполнена успешно, или `Abandon` в случае сбоя. Если функция выполняется дольше времени ожидания `PeekLock`, блокировка возобновляется автоматически.
+
+### <a id="sbpoison"></a> Служебная шина Azure: обработка подозрительных сообщений
+
+В служебной шине выполняется собственная обработка подозрительных сообщений, которую нельзя контролировать или настраивать с помощью конфигурации или кода функций Azure.
+
+### <a id="sbsinglethread"></a> Служебная шина Azure: однопоточная обработка
+
+По умолчанию в среде выполнения функций одновременно обрабатываются несколько сообщений очереди. Чтобы настроить среду выполнения для обработки только одного сообщения очереди или раздела за раз, для свойства `serviceBus.maxConcurrrentCalls` в файле *host.json* нужно задать значение 1. Дополнительные сведения о файле *host.json* см. в разделе [Структура папок](functions-reference.md#folder-structure) статьи "Справочник разработчика по функциям Azure" и в разделе [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) в репозитории вики WebJobs.Script.
+
+### <a id="sbtrigger"></a> Триггер очереди или раздела служебной шины Azure
+
+Файл *function.json* для триггера служебной шины указывает следующие свойства:
+
+- `name` — имя переменной, используемой в коде функции для очереди или раздела, а также для сообщения очереди или сообщения раздела. 
+- `queueName` — имя очереди для опроса (только для триггера очереди).
+- `topicName` — имя раздела для опроса (только для триггера раздела).
+- `subscriptionName` — имя подписки (только для триггера раздела).
+- `connection` — имя параметра приложения, содержащего строку подключения к служебной шине. Строка подключения должна иметь масштаб для пространства имен служебной шины. Она не должна ограничиваться определенной очередью или разделом. Если строка подключения не имеет прав на управление, задайте свойство `accessRights`. Если оставить свойство `connection` пустым, привязка или триггер будет использовать строку подключения к служебной шине по умолчанию для приложения-функции, указанную в параметре приложения AzureWebJobsServiceBus.
+- `accessRights` — указывает права доступа для строки подключения. Значение по умолчанию — `manage`. Если используется строка подключения, которая не предоставляет разрешения на управление, задайте для нее значение `listen`. В противном случае выполнение операций, для которых требуются права на управление, в среде выполнения функций может завершиться ошибкой.
+- `type` — для этого свойства нужно задать значение *serviceBusTrigger*.
+- `direction` — для этого свойства нужно задать значение *in*. 
+
+Сообщение очереди служебной шины можно десериализировать в один из следующих типов:
+
+* объект (JSON);
+* строка
+* массив байтов; 
+* `BrokeredMessage` (C#). 
+
+#### Пример файла *function.json* для использования триггера очереди служебной шины
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "testqueue",
+      "connection": "MyServiceBusConnection",
+      "name": "myQueueItem",
+      "type": "serviceBusTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+#### Пример кода C#, который обрабатывает сообщение очереди служебной шины
+
+```csharp
+public static void Run(string myQueueItem, TraceWriter log)
+{
+    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+}
+```
+
+#### Пример кода Node.js, который обрабатывает сообщение очереди служебной шины
+
+```javascript
+module.exports = function(context, myQueueItem) {
+    context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.done();
+};
+```
+
+### <a id="sboutput"></a> Выходная очередь или раздел служебной шины Azure
+
+Файл *function.json* для выходной привязки служебной шины указывает следующие свойства:
+
+- `name` — имя переменной, используемой в коде функции для очереди или сообщения очереди. 
+- `queueName` — имя очереди для опроса (только для триггера очереди).
+- `topicName` — имя раздела для опроса (только для триггера раздела).
+- `subscriptionName` — имя подписки (только для триггера раздела).
+- `connection` — то же, что и для триггера служебной шины.
+- `accessRights` — указывает права доступа для строки подключения. Значение по умолчанию — `manage`. Если используется строка подключения, которая не предоставляет разрешения на управление, задайте для нее значение `send`. В противном случае выполнение операций, для которых требуются права на управление (например, для создания очереди), в среде выполнения функций может завершиться ошибкой.
+- `type` — для этого свойства нужно задать значение *serviceBus*.
+- `direction` — для этого свойства нужно задать значение *out*. 
+
+Функции Azure могут создать сообщение очереди служебной шины из следующих типов:
+
+* объект (всегда создает сообщение JSON; создает сообщение с пустым объектом, если по завершении функции значение — null);
+* строка (создает сообщение, если по завершении функции значение не равно null);
+* массив байтов (действует как строка); 
+* `BrokeredMessage` (C#, действует как строка).
+
+Чтобы создать несколько сообщений в функции C#, можно использовать `ICollector<T>` или `IAsyncCollector<T>`. Сообщение создается при вызове метода `Add`.
+
+#### Пример файла *function.json* для использования триггера таймера, чтобы записать сообщения очереди служебной шины
+
+```JSON
+{
+  "bindings": [
+    {
+      "schedule": "0/15 * * * * *",
+      "name": "myTimer",
+      "runsOnStartup": true,
+      "type": "timerTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "outputSbQueue",
+      "type": "serviceBus",
+      "queueName": "testqueue",
+      "connection": "MyServiceBusConnection",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+#### Примеры кода C# для создания сообщений очереди служебной шины
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
+{
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputSbQueue = message;
+}
+```
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
+{
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputSbQueue.Add("1 " + message);
+    outputSbQueue.Add("2 " + message);
+}
+```
+
+#### Пример кода Node.js для создания сообщения очереди служебной шины
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    var message = 'Service Bus queue message created at ' + timeStamp;
+    context.log(message);   
+    context.bindings.outputSbQueueMsg = message;
     context.done();
 };
 ```
@@ -820,7 +1020,7 @@ module.exports = function (context, myQueueItem) {
 - `databaseName` — база данных, содержащая документ.
 - `collectionName` — коллекция, содержащая документ.
 - `id` — идентификатор документа, который нужно получить. Это свойство поддерживает привязки, аналогичные {queueTrigger}, в которых в качестве идентификатора документа будет использоваться значение строки сообщения очереди.
-- `connection` — эта строка должна быть строкой параметра приложения, для которой установлена конечная точка учетной записи DocumentDB. При выборе учетной записи на вкладке "Интеграция" будет создан параметр приложения с именем в формате yourAccount\_DOCUMENTDB. Если параметр приложения нужно создать вручную, фактическую строку подключения необходимо записать в следующем формате: AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
+- `connection` — эта строка должна быть строкой параметра приложения, для которой задана конечная точка учетной записи DocumentDB. При выборе учетной записи на вкладке "Интеграция" будет создан параметр приложения с именем в формате yourAccount\_DOCUMENTDB. Если параметр приложения нужно создать вручную, фактическую строку подключения необходимо записать в следующем формате: AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
 - direction — для этого свойства нужно задать значение *in*.
 
 Пример файла function.json:
@@ -851,7 +1051,7 @@ module.exports = function (context, myQueueItem) {
 
 #### Пример входного кода Azure DocumentDB для триггера очереди Node.js
  
-Используя пример файла function.json выше, входная привязка DocumentDB извлечет документ с идентификатором, который соответствует строке сообщения очереди, и передаст его в свойство привязки `documentIn`. В функциях Node.js обновленные документы не отправляются обратно в коллекцию. Тем не менее для поддержки обновлений входную привязку можно передать непосредственно в выходную привязку DocumentDB с именем `documentOut`. В этом примере кода значение свойства text входного документа обновляется и устанавливается в качестве выходного документа.
+Используя приведенный выше пример файла function.json, входная привязка DocumentDB извлечет документ с идентификатором, который соответствует строке сообщения очереди, и передаст его в свойство привязки `documentIn`. В функциях Node.js обновленные документы не отправляются обратно в коллекцию. Тем не менее для поддержки обновлений входную привязку можно передать непосредственно в выходную привязку DocumentDB с именем `documentOut`. В этом примере кода значение свойства text входного документа обновляется и устанавливается в качестве выходного документа.
  
 	module.exports = function (context, input) {   
 	    context.bindings.documentOut = context.bindings.documentIn;
@@ -870,7 +1070,7 @@ module.exports = function (context, myQueueItem) {
 - `databaseName` — база данных, содержащая коллекцию, в которой будет создан документ.
 - `collectionName` — коллекция, в которой будет создан документ.
 - `createIfNotExists` — логическое значение, указывающее, нужно ли создавать коллекцию, если она не существует. Значение по умолчанию — *false*. Это вызвано тем, что коллекции создаются с использованием зарезервированной пропускной способности, с которой связаны ценовые требования. Дополнительные сведения см. на [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection` — эта строка должна быть строкой **параметра приложения**, для которой установлена конечная точка учетной записи DocumentDB. При выборе учетной записи на вкладке **Интеграция** будет создан параметр приложения с именем в формате `yourAccount_DOCUMENTDB`. Если параметр приложения нужно создать вручную, строку подключения необходимо записать в формате `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
+- `connection` — эта строка должна быть строкой **параметра приложения**, для которой задана конечная точка учетной записи DocumentDB. При выборе учетной записи на вкладке **Интеграция** будет создан параметр приложения с именем в формате `yourAccount_DOCUMENTDB`. Если параметр приложения нужно создать вручную, строку подключения необходимо записать в формате `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
 - `direction` — для этого свойства нужно задать значение *out*. 
  
 Пример файла function.json:
@@ -917,7 +1117,7 @@ module.exports = function (context, myQueueItem) {
 
 	public static void Run(string myQueueItem, out object document, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	   
 	    document = new {
 	        text = $"I'm running in a C# function! {myQueueItem}"
@@ -945,7 +1145,7 @@ module.exports = function (context, myQueueItem) {
 	
 	public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	    
 	    dynamic employee = JObject.Parse(myQueueItem);
 	    
@@ -966,30 +1166,30 @@ module.exports = function (context, myQueueItem) {
 	  "address": "A town nearby"
 	}
 
-## Привязки инструмента Easy Tables в мобильных приложениях Azure
+## Привязки мобильных приложений Azure
 
-Мобильные приложения службы приложений Azure позволяют предоставлять данные конечных точек таблиц мобильным клиентам. Эти же табличные данные можно использовать во входных и выходных привязках в Функциях Azure. При наличии мобильного приложения серверной части Node.js с этими табличными данными можно работать на портале Azure, используя инструмент *Easy Tables*. Инструмент Easy Tables поддерживает динамическую схему, чтобы столбцы добавлялись автоматически в соответствии с формой вставляемых данных. Таким образом упрощается разработка схемы. Динамическая схема включена по умолчанию и должна быть отключена в рабочем мобильном приложении. Дополнительные сведения об Easy Tables в мобильных приложениях см. в разделе [Практическое руководство. Работа с инструментом "Easy Tables" на портале Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing). Обратите внимание, что сейчас Easy Tables на портале не поддерживаются для мобильных приложений серверной части .NET. Вы можете по-прежнему использовать привязки функций для конечных точек таблиц мобильных приложений серверной части .NET. Однако динамическая схема в этих приложениях не поддерживается.
+Мобильные приложения службы приложений Azure позволяют предоставлять данные конечных точек таблиц мобильным клиентам. Эти же табличные данные можно использовать во входных и выходных привязках в Функциях Azure. Мобильное приложение серверной части Node.js идеально подходит для предоставления табличных данных, которые можно использовать с функциями, так как оно поддерживает динамическую схему. Динамическая схема включена по умолчанию и должна быть отключена в рабочем мобильном приложении. Дополнительные сведения о конечных точках таблицы в серверной части на основе Node.js. см. в разделе [Обзор операций с таблицами](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). В мобильных приложениях серверная часть Node.js поддерживает возможность просмотра и изменения таблиц на портале. Дополнительные сведения см. в разделе [Практическое руководство. Работа с инструментом "Easy Tables" на портале Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) статьи "Использование пакета SDK Node.js для мобильных приложений Azure". При использовании мобильного приложения серверной части .NET с Функциями Azure необходимо вручную обновить модель данных, как требуется для вашей функции. Дополнительные сведения о конечных точках таблицы в мобильном приложении серверной части .NET см. в разделе [Практическое руководство. Определение контроллера таблиц](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) статьи "Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure".
 
 Этот раздел содержит следующие подразделы:
 
-* [Ключ API Easy Tables мобильных приложений Azure](#easytablesapikey)
-* [Входная привязка Easy Tables мобильных приложений Azure](#easytablesinput)
-* [Выходная привязка Easy Tables мобильных приложений Azure](#easytablesoutput)
+* [Ключ API таблиц мобильных приложений Azure](#mobiletablesapikey)
+* [Входная привязка таблиц мобильных приложений Azure](#mobiletablesinput)
+* [Выходная привязка таблиц мобильных приложений Azure](#mobiletablesoutput)
 
-### <a id="easytablesapikey"></a> Использование ключа API для обеспечения безопасного доступа к конечным точкам Easy Tables в мобильных приложениях Azure
+### <a id="mobiletablesapikey"></a> Использование ключа API для обеспечения безопасного доступа к конечным точкам таблицы в мобильных приложениях Azure
 
-В настоящее время Функции Azure не могут получить доступ к конечным точкам, защищенным с помощью аутентификации службы приложений. Это означает, что все конечные точки мобильных приложений, используемые в функциях, с привязками Easy Tables должны разрешать анонимный доступ (настройка по умолчанию). Привязки Easy Tables позволяют указать ключ API — общий секрет, который можно использовать для предотвращения нежелательного доступа из приложений, отличных от функций. Служба мобильных приложений не включает встроенную поддержку аутентификации с помощью ключа API. Тем не менее его можно реализовать в мобильном приложении серверной части Node.js, используя примеры в статье [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) (Мобильные приложения службы приложений Azure, реализующие ключ API).
+В Функциях Azure привязка таблиц мобильных приложений позволяет указать ключ API — общий секрет, который можно использовать для предотвращения нежелательного доступа из приложений, отличных от функций. Служба мобильных приложений не включает встроенную поддержку аутентификации с помощью ключа API. Тем не менее его можно реализовать в мобильном приложении серверной части Node.js, используя примеры в статье [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) (Серверная часть мобильных приложений службы приложений Azure, реализующая ключ API). Аналогичным образом можно реализовать ключ API в [мобильном приложении серверной части .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).
 
 >[AZURE.IMPORTANT] Этот ключ API не следует предоставлять клиентам мобильных приложений. Его нужно безопасно предоставлять клиентам на стороне службы, например Функциям Azure.
 
-### <a id="easytablesinput"></a> Входная привязка Easy Tables мобильных приложений Azure
+### <a id="mobiletablesinput"></a> Входная привязка мобильных приложений Azure
 
 Входные привязки могут загрузить запись из конечной точки таблицы мобильных приложений и передать ее непосредственно вашей привязке. Идентификатор записи определяется по триггеру, который вызвал функцию. В функции C# любые изменения, внесенные в запись, автоматически отправляются обратно в таблицу после успешного выхода из функции.
 
-Файл function.json поддерживает следующие свойства, которые можно использовать во входных привязках Easy Tables мобильных приложений:
+Файл function.json поддерживает следующие свойства, которые можно использовать во входных привязках мобильных приложений:
 
 - `name` — имя переменной, используемой в коде функции для новой записи.
-- `type` — для типа привязки нужно задать значение *easyTable*.
+- `type` — для типа привязки нужно задать значение *mobileTable*.
 - `tableName` — таблица, в которой будет создана запись.
 - `id` — идентификатор записи, которую нужно получить. Это свойство поддерживает привязки, аналогичные `{queueTrigger}`, в которых в качестве идентификатора записи будет использоваться значение строки сообщения очереди.
 - `apiKey` — строка, представляющая собой параметр приложения, который указывает дополнительный ключ API для мобильного приложения. Наличие этой строки обязательно, если мобильное приложение использует ключ API для ограничения клиентского доступа.
@@ -1002,7 +1202,7 @@ module.exports = function (context, myQueueItem) {
 	  "bindings": [
 	    {
 	      "name": "record",
-	      "type": "easyTable",
+	      "type": "mobileTable",
 	      "tableName": "MyTable",
 	      "id" : "{queueTrigger}",
 	      "connection": "My_MobileApp_Uri",
@@ -1013,9 +1213,9 @@ module.exports = function (context, myQueueItem) {
 	  "disabled": false
 	}
 
-#### Пример кода Easy Tables мобильных приложений Azure для триггера очереди C#
+#### Пример кода мобильных приложений Azure для триггера очереди C#
 
-Исходя из примера файла function.json выше, входная привязка извлекает запись с идентификатором, который соответствует строке сообщения очереди, и передает ее в параметр *record*. Если запись не найдена, параметр имеет значение null. При выходе из функции записи присваивается новое значение *text*.
+Исходя из приведенного выше примера файла function.json, входная привязка извлекает из конечной точки таблицы в мобильных приложениях запись с идентификатором, который соответствует строке сообщения очереди, и передает ее в параметр *record*. Если запись не найдена, параметр имеет значение null. При выходе из функции записи присваивается новое значение *Text*.
 
 	#r "Newtonsoft.Json"	
 	using Newtonsoft.Json.Linq;
@@ -1028,9 +1228,9 @@ module.exports = function (context, myQueueItem) {
 	    }    
 	}
 
-#### Пример кода Easy Tables мобильных приложений Azure для триггера очереди Node.js
+#### Пример кода мобильных приложений Azure для триггера очереди Node.js
 
-Исходя из примера файла function.json выше, входная привязка извлекает запись с идентификатором, который соответствует строке сообщения очереди, и передает ее в параметр *record*. В функциях Node.js обновленные записи не отправляются обратно в таблицу. В этом примере кода полученная запись записывается в журнал.
+Исходя из приведенного выше примера файла function.json, входная привязка извлекает из конечной точки таблицы в мобильных приложениях запись с идентификатором, который соответствует строке сообщения очереди, и передает ее в параметр *record*. В функциях Node.js обновленные записи не отправляются обратно в таблицу. В этом примере кода полученная запись записывается в журнал.
 
 	module.exports = function (context, input) {    
 	    context.log(context.bindings.record);
@@ -1038,15 +1238,15 @@ module.exports = function (context, myQueueItem) {
 	};
 
 
-### <a id="easytablesoutput"></a> Выходная привязка Easy Tables мобильных приложений Azure
+### <a id="mobiletablesoutput"></a> Выходная привязка мобильных приложений Azure
 
-Функция может сделать запись в конечную точку таблицы мобильных приложений, используя выходную привязку Easy Tables.
+Функция может сделать запись в конечную точку таблицы мобильных приложений, используя выходную привязку.
 
-Файл function.json поддерживает следующие свойства, которые можно использовать в выходных привязках Easy Tables:
+Файл function.json поддерживает следующие свойства, которые можно использовать в выходной привязке таблицы мобильного приложения:
 
 - `name` — имя переменной, используемой в коде функции для новой записи.
-- `type` — тип привязки, для которого нужно задать значение *easyTable*.
-- `tableName` — таблица, в которой создается запись.
+- `type` — тип привязки, для которого нужно задать значение *mobileTable*.
+- `tableName` — таблица, где создается запись.
 - `apiKey` — строка, представляющая собой параметр приложения, который указывает дополнительный ключ API для мобильного приложения. Наличие этой строки обязательно, если мобильное приложение использует ключ API для ограничения клиентского доступа.
 - `connection` — строка, представляющая собой параметр приложения, который указывает URI мобильного приложения.
 - `direction` — направление привязки. Для этого свойства следует задать значение *out*.
@@ -1057,7 +1257,7 @@ module.exports = function (context, myQueueItem) {
 	  "bindings": [
 	    {
 	      "name": "record",
-	      "type": "easyTable",
+	      "type": "mobileTable",
 	      "tableName": "MyTable",
 	      "connection": "My_MobileApp_Uri",
 	      "apiKey": "My_MobileApp_Key",
@@ -1067,9 +1267,9 @@ module.exports = function (context, myQueueItem) {
 	  "disabled": false
 	}
 
-#### Пример кода Easy Tables мобильных приложений Azure для триггера очереди C#
+#### Пример кода мобильных приложений Azure для триггера очереди C#
 
-В этом примере кода C# новая запись со свойством *Text* вставляется в таблицу, указанную в привязке выше.
+В этом примере кода C# новая запись в конечной точке таблицы мобильных приложений со свойством *Text* вставляется в таблицу, указанную в приведенной выше привязке.
 
 	public static void Run(string myQueueItem, out object record)
 	{
@@ -1078,9 +1278,9 @@ module.exports = function (context, myQueueItem) {
 	    };
 	}
 
-#### Пример кода Easy Tables мобильных приложений Azure для триггера очереди Node.js
+#### Пример кода мобильных приложений Azure для триггера очереди Node.js
 
-В этом примере кода Node.js новая запись со свойством *text* вставляется в таблицу, указанную в привязке выше.
+В этом примере кода Node.js новая запись в конечной точке таблицы мобильных приложений со свойством *Text* вставляется в таблицу, указанную в приведенной выше привязке.
 
 	module.exports = function (context, input) {
 	
@@ -1124,14 +1324,14 @@ module.exports = function (context, myQueueItem) {
 
 Для использования выходной привязки центра уведомлений необходимо настроить отдельную строку подключения. Это можно сделать на вкладке *Интеграция*, просто выбрав центр уведомлений или создав его.
 
-Можно также вручную добавить строку подключения для существующего центра, добавив ее в качестве значения *DefaultFullSharedAccessSignature* для центра уведомлений. Эта строка подключения предоставляет разрешение на доступ к функции для отправки сообщений с уведомлениями. К значению строки подключения *DefaultFullSharedAccessSignature* можно получить доступ, нажав кнопку **Ключи** в главной колонке ресурса центра уведомлений на портале Azure. Чтобы добавить строку подключения для центра вручную, сделайте следующее:
+Можно также вручную добавить строку подключения для имеющегося центра, добавив ее в качестве значения *DefaultFullSharedAccessSignature* для центра уведомлений. Эта строка подключения предоставляет разрешение на доступ к функции для отправки сообщений с уведомлениями. К значению строки подключения *DefaultFullSharedAccessSignature* можно получить доступ, нажав кнопку **Ключи** в главной колонке ресурса центра уведомлений на портале Azure. Чтобы добавить строку подключения для центра вручную, сделайте следующее:
 
-1. В колонке **Приложения функций** на портале Azure щелкните **Параметры приложения функций > Перейти к параметрам службы приложений**.
+1. В колонке **Контейнер функций** на портале Azure щелкните **Function App Settings > Go to App Service settings** (Параметры приложений-функций > Перейти к параметрам службы приложений).
 
 2. В колонке **Параметры** щелкните раздел **Параметры приложения**.
 
 3. Прокрутите вниз до раздела **Строки подключения** и добавьте именованную запись в качестве значения *DefaultFullSharedAccessSignature* для центра уведомлений. Измените тип на **Пользовательский**.
-4. Укажите имя строки подключения в выходных привязках, как и в случае с именем строки подключения **MyHubConnectionString**, использованном в примере выше.
+4. Укажите имя строки подключения в выходных привязках, как и в случае с именем строки подключения **MyHubConnectionString**, использованном в приведенном выше примере.
 
 ### Пример кода для центра уведомлений Azure для триггера таймера Node.js 
 
@@ -1163,7 +1363,7 @@ module.exports = function (context, myQueueItem) {
 	 
 	public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
         notification = GetTemplateProperties(myQueueItem);
 	}
 	 
@@ -1180,13 +1380,13 @@ module.exports = function (context, myQueueItem) {
 	 
 	public static void Run(string myQueueItem,  out string notification, TraceWriter log)
 	{
-		log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+		log.Info($"C# Queue trigger function processed: {myQueueItem}");
 		notification = "{"message":"Hello from C#. Processed a queue item!"}";
 	}
 
 ### Пример кода C# для триггера очереди для центра уведомлений Azure с использованием типа Notification
 
-В этом примере показано, как использовать тип `Notification`, определенный в [библиотеке центров уведомлений Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). Чтобы использовать этот тип и библиотеку, необходимо передать файл *project.json* для приложения функций. Файл project.json — это текстовый JSON-файл, который будет выглядеть следующим образом:
+В этом примере показано, как использовать тип `Notification`, определенный в [библиотеке центров уведомлений Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). Чтобы использовать этот тип и библиотеку, необходимо передать файл *project.json* для приложения-функции. Файл project.json — это текстовый JSON-файл, который будет выглядеть следующим образом:
 
 	{
 	  "frameworks": {
@@ -1208,7 +1408,7 @@ module.exports = function (context, myQueueItem) {
 	 
 	public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
 	{
-	   log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	   log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	   notification = GetTemplateNotification(myQueueItem);
 	}
 	private static TemplateNotification GetTemplateNotification(string message)
@@ -1222,8 +1422,8 @@ module.exports = function (context, myQueueItem) {
 
 Для получения дополнительных сведений см. следующие ресурсы:
 
-* [Справочник разработчика по функциям Azure](functions-reference.md);
-* [Справочник разработчика C# по функциям Azure](functions-reference-csharp.md);
-* [Справочник разработчика NodeJS по функциям Azure](functions-reference-node.md).
+* [Справочник разработчика по функциям Azure](functions-reference.md)
+* [Справочник разработчика C# по функциям Azure](functions-reference-csharp.md)
+* [Справочник разработчика NodeJS по функциям Azure.](functions-reference-node.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

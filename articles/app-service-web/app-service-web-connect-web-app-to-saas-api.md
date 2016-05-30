@@ -22,12 +22,7 @@
 
 ## Предварительные требования
 
-Этот учебник основан на данных из учебников по приложению PI:
-
-1. [Создание приложения API Azure](../app-service-dotnet-create-api-app)
-3. [Развертывание приложения API Azure](../app-service-dotnet-deploy-api-app)
-4. [Отладка приложения API Azure](../app-service-dotnet-remotely-debug-api-app)
-
+Этот учебник основан на статье [Создание приложения API Azure](../app-service-api/app-service-api-dotnet-get-started.md).
 
 ## Создание приложения ASP.NET MVC в Visual Studio
 
@@ -39,11 +34,11 @@
 
 	![Новое приложение ASP.NET](./media/app-service-web-connect-web-app-to-saas-api/2-Change-Auth-To-No-Auth.png)
 
-1. В обозревателе решений щелкните правой кнопкой мыши только что созданный проект веб-приложения и выберите **Добавить** > **Клиент API REST...**.
+1. В обозревателе решений щелкните правой кнопкой мыши только что созданный проект веб-приложения и выберите **Добавить** > **Клиент REST API…**.
 
 	![Добавьте ссылку на приложение API Azure...](./media/app-service-web-connect-web-app-to-saas-api/3-Add-Azure-API-App-SDK.png)
 
-1. В окне **Добавление клиента API REST** выберите скачивание из приложения API Microsoft Azure и нажмите кнопку "Обзор". Выберите приложение API, к которому вы хотите подключиться.
+1. В окне **Добавление клиента REST API** выберите скачивание из приложения API Microsoft Azure и нажмите кнопку "Обзор". Выберите приложение API, к которому вы хотите подключиться.
 
 	![Выберите существующее приложение API.](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
@@ -89,4 +84,4 @@
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

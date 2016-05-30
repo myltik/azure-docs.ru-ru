@@ -31,9 +31,11 @@ Azure PowerShell — это полнофункциональная среда с
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-##См. статью "Установка Azure PowerShell 1.0 и более поздних версий".
+##Установка Azure PowerShell
 
-Сначала необходимо удалить версии 0.9x.
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+Если вы установили Azure PowerShell версии 0.9x, то перед установкой новой версии ее необходимо удалить.
 
 Проверка версии установленной оболочки PowerShell:
 
@@ -41,26 +43,10 @@ Azure PowerShell — это полнофункциональная среда с
 	
 Для удаления старой версии запустите "Программы и компоненты" в панели управления.
 
-Существует два основных варианта установки Azure PowerShell.
-
-- [Коллекция PowerShell](https://www.powershellgallery.com/). Выполните следующие команды из интегрированной среды сценариев с повышенными привилегиями PowerShell или консоли Windows PowerShell с повышенными привилегиями:
-
-		# Install the Azure Resource Manager modules from PowerShell Gallery
-		Install-Module AzureRM
-		Install-AzureRM
-		
-		# Import AzureRM modules for the given version manifest in the AzureRM module
-		Import-AzureRM
-
-	Дополнительные сведения см. в статье [Коллекция PowerShell](https://www.powershellgallery.com/).
-
-- [Установщик веб-платформы Майкрософт \(WebPI\)](http://aka.ms/webpi-azps). Если вы установили Azure PowerShell 0.9.x, появится запрос для удаления версии 0.9.x. Если вы установили модули Azure PowerShell из коллекции PowerShell, установщик требует удалить эти модули перед установкой, чтобы обеспечить целостность среды PowerShell Azure. Инструкции см. в разделе [Установка Azure PowerShell 1.0 с помощью установщика веб-платформы](https://azure.microsoft.com/blog/azps-1-0/).
-
-Обновления для установщика веб-платформы будут выпускаться ежемесячно. Обновления для коллекции PowerShell будут выпускаться на постоянной основе. Если вы решите установить коллекцию PowerShell, она станет основным источником всего нового и лучшего в Azure PowerShell.
 
 ##Создание кластеров
 
-См. раздел [Создание кластеров под управлением Linux в HDInsight с помощью Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+Ознакомьтесь с разделом [Создание кластеров под управлением Linux в HDInsight с помощью Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
 ##Получение списка кластеров
 Чтобы получить список всех кластеров в текущей подписке, используйте следующую команду:
@@ -81,7 +67,7 @@ Azure PowerShell — это полнофункциональная среда с
 ##Масштабирование кластеров
 Масштабирование кластера позволяет изменить количество рабочих узлов в кластере, который работает под управлением Azure HDInsight. При этом не требуется повторно создавать кластер.
 
->[AZURE.NOTE] Поддерживаются только кластеры HDInsight версии 3.1.3 или более поздней. Если вы не знаете версию кластера, см. страницу «Свойства». См. раздел [Знакомство с интерфейсом портала кластера](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE] Поддерживаются только кластеры HDInsight версии 3.1.3 или более поздней. Если вы не знаете версию кластера, см. страницу «Свойства». См. раздел [Отображение кластеров](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 
 Ниже представлены возможности, связанные с изменением количества узлов данных в кластере каждого типа, поддерживаемого в HDInsight.
 
@@ -99,7 +85,6 @@ Azure PowerShell — это полнофункциональная среда с
 		>hbase shell
 		>balancer
 
-	Дополнительные сведения об использовании оболочки HBase см.
 - Storm
 
 	Вы можете с легкостью добавлять и удалять узлы данных в работающем кластере Storm. Но после успешного завершения операции масштабирования потребуется повторная балансировка топологии.
@@ -130,7 +115,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 ##Предоставление и отмена доступа
 
-В кластерах HDInsight имеются следующие веб-службы HTTP \(все эти службы имеют конечные точки RESTful\):
+В кластерах HDInsight имеются следующие веб-службы HTTP (все эти службы имеют конечные точки RESTful):
 
 - ODBC
 - JDBC
@@ -249,4 +234,4 @@ Azure PowerShell — это полнофункциональная среда с
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

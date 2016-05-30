@@ -28,7 +28,9 @@
 
 ## SQL Server Management Studio и SQL Server Data Tools в Visual Studio
 
-SQL Server Management Studio \(SSMS\) и SQL Server Data Tools \(SSDT\) в Visual Studio представляют собой клиентские средства, которые выполняются на компьютере и позволяют подключаться к базам данных в облаке, разрабатывать их, а также управлять ими. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки \(IDE\), [предлагаем обратить внимание на SSDT в составе Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Многие администраторы баз данных знакомы с решением SSMS, которое можно использовать с базами данных SQL Azure. [Загрузите последнюю версию SSMS](https://msdn.microsoft.com/library/mt238290) и всегда используйте последнюю версию решения при работе с базой данных SQL Azure. Дополнительные сведения об управлении базами данных SQL Azure с помощью SSMS и SSDT см. в статье [Управление базами данных SQL с помощью SSMS](sql-database-manage-azure-ssms.md).
+SQL Server Management Studio (SSMS) и SQL Server Data Tools (SSDT) в Visual Studio представляют собой клиентские средства, которые выполняются на компьютере и позволяют подключаться к базам данных в облаке, разрабатывать их, а также управлять ими. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), [предлагаем обратить внимание на SSDT в составе Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Многие администраторы баз данных знакомы с решением SSMS, которое можно использовать с базами данных SQL Azure. [Загрузите последнюю версию SSMS](https://msdn.microsoft.com/library/mt238290) и всегда используйте последнюю версию решения при работе с базой данных SQL Azure. Дополнительные сведения об управлении базами данных SQL Azure с помощью SSMS и SSDT см. в статье [Управление базами данных SQL с помощью SSMS](sql-database-manage-azure-ssms.md).
+
+> [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и базы данных SQL, необходимо всегда использовать последнюю версию SQL Server Management Studio и SQL Server Data Tools для Visual Studio. Более старые версии этих средств не будут успешно работать с базой данных SQL.
 
 ## Программы командной строки
 
@@ -44,4 +46,4 @@ SQL Server Management Studio \(SSMS\) и SQL Server Data Tools \(SSDT\) в Visua
 * Управление базами данных в модели с одним клиентом или мультитенантной модели с помощью [клиентской библиотеки эластичного масштабирования](sql-database-elastic-database-client-library.md).
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

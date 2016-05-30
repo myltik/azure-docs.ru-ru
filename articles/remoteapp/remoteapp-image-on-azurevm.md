@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/05/2016" 
+    ms.date="05/12/2016" 
     ms.author="elizapo" />
 
 
@@ -58,4 +58,4 @@
 
 Теперь вы готовы создать новую коллекцию: [облачную](remoteapp-create-cloud-deployment.md) или [гибридную](remoteapp-create-hybrid-deployment.md) — в зависимости от того, что вам нужно.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

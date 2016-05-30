@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="05/16/2016"
 	ms.author="curtand"/>
 
 # Какие дальнейшие действия можно предпринимать с помощью Azure AD?
@@ -40,4 +40,4 @@
 * [Регистрация организации в Azure](sign-up-organization.md)
 * [Удостоверение Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->
