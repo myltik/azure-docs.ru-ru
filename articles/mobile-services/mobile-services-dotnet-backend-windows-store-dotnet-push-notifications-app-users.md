@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Рассылка push-уведомлений пользователям, прошедшим проверку подлинности (универсальное приложение для Windows 8.1) | Мобильные службы Azure"
-	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений конкретному прошедшему проверку подлинности пользователю при помощи универсального приложения для Windows 8.1."
+	pageTitle="Рассылка push-уведомлений пользователям, прошедшим проверку подлинности (универсальное приложение для Windows 8.1) | Мобильные службы Azure"
+	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений конкретному прошедшему проверку подлинности пользователю при помощи универсального приложения для Windows 8.1."
 	services="mobile-services,notification-hubs"
 	documentationCenter="windows"
 	authors="ggailey777"
@@ -62,8 +62,8 @@
 
 
 <!-- URLs. -->
-[Приступая к работе с аутентификацией в мобильных службах]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
-[Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
-[Приступая к работе с push-уведомлениями в мобильных службах]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
+[Приступая к работе с аутентификацией в мобильных службах]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md
+[Приступая к работе с push-уведомлениями в мобильных службах]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

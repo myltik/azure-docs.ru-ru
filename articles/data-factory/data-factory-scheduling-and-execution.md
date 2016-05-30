@@ -698,4 +698,4 @@ CopyActivity2: входные данные — Dataset3, Dataset2, выходн�
 
   
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

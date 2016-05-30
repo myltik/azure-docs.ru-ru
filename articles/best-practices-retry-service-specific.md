@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Конкретные рекомендации по использованию механизма повторов
 
-![](media/best-practices-retry-service-specific/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Обзор
 
@@ -1107,4 +1107,4 @@ var result = await policy.ExecuteAsync(() => authContext.AcquireTokenAsync(resou
 | **Линейный (фиксированный интервал)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 секунда<br />true | Количество повторных попыток.<br />Задержка между попытками.<br />Будет ли первая попытка повтора выполнена немедленно. |
 Примеры использования блока приложения для обработки временной ошибки смотрите в разделах Примеры, приведенные ранее в этом руководстве для базы данных SQL Azure с помощью ADO.NET и Azure Active Directory.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

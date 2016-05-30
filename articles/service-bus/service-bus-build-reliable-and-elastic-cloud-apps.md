@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 # Создание гибких и надежных облачных приложений с использованием обмена сообщениями 
@@ -39,10 +39,11 @@
 
 - [Очереди Azure и очереди служебной шины Azure: сравнение и противопоставление](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Справочник по API REST служебной шины](http://msdn.microsoft.com/library/azure/hh780717.aspx)
+- [Справочник по API REST RP служебной шины](https://msdn.microsoft.com/library/azure/mt639375.aspx)
 
 ## Связанные службы
 
 - [Облачные службы](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

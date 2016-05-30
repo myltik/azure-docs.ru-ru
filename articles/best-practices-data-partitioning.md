@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Руководство по секционированию данных
 
-![](media/best-practices-data-partitioning/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Обзор
 
@@ -570,4 +570,4 @@ _Рис. 10. Предлагаемая структура в хранилище R
 [Что такое база данных SQL Azure]: sql-database/sql-database-technical-overview.md
 [Что такое база данных SQL Azure]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

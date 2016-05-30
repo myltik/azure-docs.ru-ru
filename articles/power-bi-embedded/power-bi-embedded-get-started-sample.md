@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="05/16/2016"
    ms.author="derrickv"/>
 
 # Приступая к работе с примером Microsoft Power BI Embedded
@@ -22,7 +22,7 @@
 
  -	[Пример панели мониторинга веб-приложения](http://go.microsoft.com/fwlink/?LinkId=761493)
  -	[Справочник по API Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
- -	[Пакет SDK Power BI Embedded для .NET \(доступен в NuGet\)](http://go.microsoft.com/fwlink/?LinkId=746472)
+ -	[Пакет SDK Power BI Embedded для .NET (доступен в NuGet)](http://go.microsoft.com/fwlink/?LinkId=746472)
 
 В этой статье приведены общие сведения о примере для начала работы с **Power BI Embedded**. Давайте приступим к настройке примера приложения, чтобы вы могли запустить пример веб-приложения.
 
@@ -97,7 +97,7 @@ Checking import state... Succeeded
 В следующем разделе рассматривается пример кода **Power BI Embedded**.
 
 ## Изучение примера кода
-Пример для предварительной версии **Microsoft Power BI Embedded** представляет собой панель мониторинга веб-приложения и показывает, как интегрировать отчеты **Power BI** в приложение. Для демонстрации рекомендаций в нем используется шаблон проектирования "модель-представление-контроллер" \(MVC\). В этом разделе описаны части примера кода, которые можно изучить в решении веб-приложения **PowerBI-embedded**. Шаблон "модель-представление-контроллер" \(MVC\) разбивает модель домена, представление и действия на основе ввода пользователя на три различных класса: модель, представление и контроллер. Дополнительные сведения о MVC см. в разделе [Сведения об ASP.NET](http://www.asp.net/mvc).
+Пример для предварительной версии **Microsoft Power BI Embedded** представляет собой панель мониторинга веб-приложения и показывает, как интегрировать отчеты **Power BI** в приложение. Для демонстрации рекомендаций в нем используется шаблон проектирования "модель-представление-контроллер" (MVC). В этом разделе описаны части примера кода, которые можно изучить в решении веб-приложения **PowerBI-embedded**. Шаблон "модель-представление-контроллер" (MVC) разбивает модель домена, представление и действия на основе ввода пользователя на три различных класса: модель, представление и контроллер. Дополнительные сведения о MVC см. в разделе [Сведения об ASP.NET](http://www.asp.net/mvc).
 
 Пример кода для предварительной версии **Microsoft Power BI Embedded** разбивается следующим образом. Каждая часть включает имя файла для решения PowerBI-embedded.sln, поэтому вы легко найдете соответствующий код в примере.
 
@@ -159,9 +159,9 @@ Report.cshtml: устанавливает **Model.AccessToken** и лямбда-
 
 ### Controller
 
-**DashboardController.cs**: создает PowerBIClient, передающий **маркер приложения**. Для получения **Учетных данных** создается веб-маркер JSON \(JWT\) на основе **Ключа подписи**. **Учетные данные** используются для создания экземпляра **PowerBIClient**. Дополнительные сведения о **маркерах приложения** см. в статье [Как устроен поток маркеров приложений?](#key-flow). После создания экземпляра **PowerBIClient** можно вызвать методы GetReports\(\) и GetReportsAsync\(\).
+**DashboardController.cs**: создает PowerBIClient, передающий **маркер приложения**. Для получения **Учетных данных** создается веб-маркер JSON (JWT) на основе **Ключа подписи**. **Учетные данные** используются для создания экземпляра **PowerBIClient**. Дополнительные сведения о **маркерах приложения** см. в статье [Как устроен поток маркеров приложений?](#key-flow). После создания экземпляра **PowerBIClient** можно вызвать методы GetReports() и GetReportsAsync().
 
-CreatePowerBIClient\(\)
+CreatePowerBIClient()
 
     private IPowerBIClient CreatePowerBIClient(PowerBIToken token)
     {
@@ -175,7 +175,7 @@ CreatePowerBIClient\(\)
         return client;
     }
 
-ActionResult Reports\(\)
+ActionResult Reports()
 
     public ActionResult Reports()
     {
@@ -194,7 +194,7 @@ ActionResult Reports\(\)
     }
 
 
-Задача<ActionResult> Report\(string reportId\)
+Задача<ActionResult> Report(string reportId)
 
     public async Task<ActionResult> Report(string reportId)
     {
@@ -222,14 +222,14 @@ ActionResult Reports\(\)
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
 
-### Фильтрация отчетов, внедренных в приложение
+## Фильтрация отчетов, внедренных в приложение
 
-Можно отфильтровать внедренный отчет, используя синтаксис URL-адреса. Для этого добавьте параметр строки запроса в исходный URL-адрес iFrame с указанием фильтра. Ниже приведен синтаксис запроса фильтра.
+Можно отфильтровать внедренный отчет, используя синтаксис URL-адреса. Для этого добавьте параметр строки запроса **$filter** с оператором **eq** в исходный URL-адрес iFrame с указанием фильтра. Ниже приведен синтаксис запроса фильтра.
 
 ```
 https://app.powerbi.com/reportEmbed
-?reportId=d2a0ea38-0694-4c70-9673-ee9655d54a4a&
-$filter={tableName/fieldName} eq '{fieldValue}'
+?reportId=d2a0ea38-...-9673-ee9655d54a4a&
+$filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ```
 
 > [AZURE.NOTE] {tableName/fieldName} не может содержать пробелы или специальные знаки. {FieldValue} принимает одно дискретное значение.
@@ -242,4 +242,4 @@ $filter={tableName/fieldName} eq '{fieldValue}'
 - [Приступая к работе с предварительной версией Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Сведения о потоке маркеров приложений в Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

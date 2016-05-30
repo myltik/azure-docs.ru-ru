@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/16/2015"
+   ms.date="04/25/2016"
    ms.author="sngun"/>
 
 # Входные параметры Runbook
@@ -51,7 +51,7 @@
 
 >[AZURE.NOTE] Если не указать атрибут **Mandatory** при определении параметров, то по умолчанию параметр будет необязательным. Кроме того, если в модуле Runbook рабочих процессов PowerShell задать для параметра значение по умолчанию, он будет необязательным в PowerShell, независимо от значения атрибута **Mandatory**.
 
-К примеру, настроим входные параметры Runbook рабочего процесса PowerShell, который выводит сведения об одной или всех виртуальных машинах в службе. Как показано на снимке экрана ниже, у такого модуля Runbook будет два параметра — параметр имени виртуальной машины и имени службы.
+К примеру, настроим входные параметры Runbook рабочего процесса PowerShell, который выводит сведения об одной или всех виртуальных машинах в службе. Как показано на снимке экрана ниже, у такого модуля Runbook будет два параметра — параметр имени виртуальной машины и имени службы.
 
 ![Рабочий процесс PowerShell службы автоматизации](media/automation-runbook-input-parameters/automation_01_PowerShellWorkflow.png)
 
@@ -71,11 +71,11 @@
 
 Чтобы показать, как [настроить графический модуль Runbook](automation-first-runbook-graphical.md), мы создадим графический модуль Runbook, который выводит сведения об одной или всех виртуальных машинах в службе. Настройка модуля состоит из двух основных операций, как описано ниже.
 
-[**Add-AzureAccount**](https://msdn.microsoft.com/library/dn495128.aspx) — для проверки подлинности в Azure.
+[**Add-AzureAccount**](https://msdn.microsoft.com/library/dn495128.aspx) — для проверки подлинности в Azure.
 
-[**Get-AzureVM**](https://msdn.microsoft.com/library/azure/dn495236.aspx) — для получения всех виртуальных машин.
+[**Get-AzureVM**](https://msdn.microsoft.com/library/azure/dn495236.aspx) — для получения всех виртуальных машин.
 
-Для вывода имен виртуальных машин можно использовать действие [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx). Действие **Get-AzureVM** принимает два параметра — **имя виртуальной машины** и **имя службы**. Так как при каждом запуске модуля Runbook для этих параметров могут требоваться различные значения, вы можете добавить в модуль входные параметры. Их добавление предусматривает три шага:
+Для вывода имен виртуальных машин можно использовать действие [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx). Действие **Get-AzureVM** принимает два параметра — **имя виртуальной машины** и **имя службы**. Так как при каждом запуске модуля Runbook для этих параметров могут требоваться различные значения, вы можете добавить в модуль входные параметры. Их добавление предусматривает три шага:
 
 1. В колонке **Модули Runbook** выберите графический модуль Runbook и [измените](automation-graphical-authoring-intro.md) его.
 
@@ -98,11 +98,11 @@
 
 4. Создайте два параметра со следующими свойствами, которые будут использоваться для действия **Get-AzureVM**:
 
-    * **Параметр1:** "Имя" — VMName, "Тип" — "Строковый", "Обязательный" — "Нет".
+    * **Параметр1:** "Имя" — VMName, "Тип" — "Строковый", "Обязательный" — "Нет".
 
-    * **Параметр2:** "Имя" — ServiceName, "Тип" — "Строковый", "Обязательный" — "Нет", "Значение по умолчанию" — "Пользовательское", "Пользовательское значение по умолчанию" — <имя службы по умолчанию, которая содержит виртуальные машины>.
+    * **Параметр2:** "Имя" — ServiceName, "Тип" — "Строковый", "Обязательный" — "Нет", "Значение по умолчанию" — "Пользовательское", "Пользовательское значение по умолчанию" — <имя службы по умолчанию, которая содержит виртуальные машины>.
 
-5. После добавления параметров нажмите кнопку **ОК**. Теперь вы можете просмотреть их в колонке **Входные и выходные данные**. Нажмите кнопку **ОК** еще раз, а затем — **Сохранить** и **Опубликовать**, чтобы сохранить параметры и опубликовать модуль Runbook.
+5. После добавления параметров нажмите кнопку **ОК**. Теперь вы можете просмотреть их в колонке **Входные и выходные данные**. Нажмите кнопку **ОК** еще раз, а затем — **Сохранить** и **Опубликовать**, чтобы сохранить параметры и опубликовать модуль Runbook.
 
 ## Назначение значений входным параметрам в модулях Runbook
 
@@ -110,7 +110,7 @@
 
 ### Запуск Runbook и назначение параметров
 
-Существует много способов для запуска модуля Runbook — с помощью пользовательского интерфейса портала Azure, объекта Webhook, командлетов PowerShell, REST API и пакета SDK. Ниже рассмотрены различные методы запуска модуля Runbook и назначения параметров.
+Существует много способов для запуска модуля Runbook — с помощью пользовательского интерфейса портала Azure, объекта Webhook, командлетов PowerShell, REST API и пакета SDK. Ниже рассмотрены различные методы запуска модуля Runbook и назначения параметров.
 
 - **Запуск опубликованного модуля Runbook на портале Azure и назначение параметров**
 
@@ -129,7 +129,7 @@
 
     - **Командлеты для управления службами Azure.** Модуль Runbook службы автоматизации, созданный в группе ресурсов по умолчанию, можно запустить с помощью командлета [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
 
-    **Пример**  
+    **Пример**
 
       ```
         $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
@@ -137,13 +137,13 @@
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
 
-    - **Командлеты для управления службами Azure.** Модуль Runbook службы автоматизации, созданный в группе ресурсов, можно запустить с помощью командлета [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
+    - **Командлеты Azure Resource Manager**. Модуль Runbook службы автоматизации, созданный в группе ресурсов, можно запустить с помощью командлета [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
 
 
-    **Пример.**  
+    **Пример**
 
       ```
-		$params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+        $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
@@ -152,7 +152,7 @@
 
 - **Запуск Runbook с использованием пакета SDK и назначение параметров**
 
-    - **Метод, предусматривающий использование управления службами Azure**. Вы можете запустить Runbook, используя пакет SDK для языка программирования. Ниже приведен фрагмент кода C# для запуска модуля Runbook в вашей учетной записи службы автоматизации. Весь код можно просмотреть в нашем [репозитории GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+    - **Метод, предусматривающий использование управления службами Azure**. Запустить модуль Runbook можно с помощью пакета SDK для языка программирования. Ниже приведен фрагмент кода C# для запуска модуля Runbook в вашей учетной записи службы автоматизации. Весь код можно просмотреть в нашем [репозитории GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
     ```      
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -172,7 +172,7 @@
         }
     ```
 
-    - **Метод, предусматривающий использование диспетчера ресурсов Azure.** Для запуска модуля Runbook можно использовать пакет SDK для языка программирования. Ниже приведен фрагмент кода C# для запуска модуля Runbook в вашей учетной записи службы автоматизации. Весь код можно просмотреть в нашем [репозитории GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+    - **Метод, предусматривающий использование Azure Resource Manager.** Для запуска модуля Runbook можно использовать пакет SDK для языка программирования. Ниже приведен фрагмент кода C# для запуска модуля Runbook в вашей учетной записи службы автоматизации. Весь код можно просмотреть в нашем [репозитории GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
     ```
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -213,17 +213,17 @@
 
 В URI запроса замените следующие параметры:
 
-* **subscription-id** — идентификатором своей подписки Azure.  
+* **subscription-id** — идентификатором своей подписки Azure.  
 * **cloud-service-name** — именем облачной службы, в которую следует отправить запрос.  
 * **automation-account-name** — именем учетной записи службы автоматизации в указанной облачной службе.  
-* **job-id** — идентификатором GUID задания. Чтобы создать GUID в PowerShell, можно использовать команду **[GUID]::NewGuid().ToString()**.
+* **job-id** — идентификатором GUID задания. Чтобы создать GUID в PowerShell, можно использовать команду **[GUID]::NewGuid().ToString()**.
 
 Чтобы передать параметры в задание модуля Runbook, используйте текст запроса. Он принимает следующие два свойства, представленные в формате JSON:
 
 * **Имя модуля Runbook** — обязательное свойство. Имя модуля Runbook для запуска задания.  
 * **Параметры модуля Runbook** — необязательное свойство. Это словарь со списком параметров (именами и значениями) в формате, где имя должно быть строкового типа, а значение может быть любым допустимым значением JSON.
 
-Если вы хотите запустить Runbook **Get-AzureVMTextual**, созданный ранее с использованием параметров **VMName** и **ServiceName**, используйте следующий формат JSON в тексте запроса.
+Если вы хотите запустить модуль Runbook **Get-AzureVMTextual**, созданный ранее с использованием параметров **VMName** и **ServiceName**, используйте следующий формат JSON в тексте запроса.
 
 ```
         {
@@ -249,7 +249,7 @@
 
 ### Связывание Runbook с расписанием и назначение параметров
 
-Вы можете [связать расписание](automation-scheduling-a-runbook.md) с модулем, чтобы запускать Runbook в определенное время. При создании расписания вы назначаете входные параметры, значения которых будут использоваться модулем Runbook во время запуска согласно расписанию. Расписание нельзя сохранить, если не указаны значения для всех обязательных параметров.
+Вы можете [связать расписание](automation-scheduling-a-runbook.md) с модулем Runbook, чтобы он запускался в определенное время. При создании расписания вы назначаете входные параметры, значения которых будут использоваться модулем Runbook во время запуска согласно расписанию. Расписание нельзя сохранить, если не указаны значения для всех обязательных параметров.
 
 ![Создание расписания и назначение параметров](media/automation-runbook-input-parameters/automation_07_ScheduleAndAssignParameters.png)
 
@@ -259,16 +259,16 @@
 
 ![Создание Webhook и назначение параметров](media/automation-runbook-input-parameters/automation_08_CreateWebhookAndAssignParameters.png)
 
-При выполнении модуля Runbook с помощью объекта Webhook происходит отправка предопределенного входного параметра **[Webhookdata](automation-webhooks.md#details-of-a-webhook)** и определенных входных параметров. Щелкните параметр **WebhookData**, чтобы развернуть его и просмотреть дополнительные сведения.
+При выполнении модуля Runbook с помощью объекта webhook происходит отправка предопределенного входного параметра **[Webhookdata](automation-webhooks.md#details-of-a-webhook)** и определенных входных параметров. Щелкните параметр **WebhookData**, чтобы развернуть его и просмотреть дополнительные сведения.
 
 ![Параметр WebhookData](media/automation-runbook-input-parameters/automation_09_WebhookDataParameter.png)
 
 
 ## Дальнейшие действия
 
-- Дополнительные сведения о входных и выходных данных Runbook см. в записи блога [Служба автоматизации Azure. Входные данные и выходные данные Runbook. Вложенные модули Runbook](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/).
-- Дополнительные сведения о различных способах запуска модуля Runbook см. в статье [Запуск модуля Runbook](automation-starting-a-runbook.md).
-- Сведения об изменении текстового модуля Runbook см. в статье [Изменение текстовых модулей Runbook](automation-edit-textual-runbook.md).
+- Дополнительные сведения о входных и выходных данных Runbook см. в записи блога [Azure Automation: runbook input, output, and nested runbooks](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/) (Служба автоматизации Azure. Входные и выходные данные Runbook. Вложенные модули Runbook).
+- Дополнительные сведения о различных способах запуска модуля Runbook см. в статье [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md).
+- Сведения об изменении текстового модуля Runbook см. в статье [Изменение текстовых модулей Runbook в службе автоматизации Azure](automation-edit-textual-runbook.md).
 - Сведения об изменении графического модуля Runbook см. в статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

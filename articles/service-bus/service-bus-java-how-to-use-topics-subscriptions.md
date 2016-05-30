@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="05/06/2016"
 	ms.author="sethm"/>
 
 # Использование разделов и подписок служебной шины
@@ -32,11 +32,12 @@
 
 Добавьте в начало Java-файла следующие инструкции import:
 
-    // Include the following imports to use service bus APIs
-    import com.microsoft.windowsazure.services.servicebus.*;
-    import com.microsoft.windowsazure.services.servicebus.models.*;
-    import com.microsoft.windowsazure.core.*;
-    import javax.xml.datatype.*;
+```
+import com.microsoft.windowsazure.services.servicebus.*;
+import com.microsoft.windowsazure.services.servicebus.models.*;
+import com.microsoft.windowsazure.core.*;
+import javax.xml.datatype.*;
+```
 
 Добавьте библиотеки Azure для Java в путь построения и включите его в сборку развертывания проекта.
 
@@ -66,7 +67,7 @@
 		System.exit(-1);
 	}
 
-Существуют методы **TopicInfo**, позволяющие настроить свойства раздела (например, задавать значение «время жизни» (Time to Live, TTL) по умолчанию, применяемое к сообщениям, отправленным в раздел). Следующий пример показывает, как создать раздел с именем `TestTopic` и размером не более 5 ГБ.
+Существуют методы **TopicInfo**, позволяющие настроить свойства раздела (например, задавать значение "время жизни" (Time to Live, TTL) по умолчанию, применяемое к сообщениям, отправленным в раздел). Следующий пример показывает, как создать раздел с именем `TestTopic` и размером не более 5 ГБ.
 
     long maxSizeInMegabytes = 5120;  
 	TopicInfo topicInfo = new TopicInfo("TestTopic");  
@@ -95,30 +96,29 @@
 
 В следующем примере создается подписка с именем `HighMessages`, содержащая объект [SqlFilter][], который выбирает только сообщения, значение настраиваемого свойства **MessageNumber** которых превышает 3.
 
-    // Create a "HighMessages" filtered subscription  
-	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
-    CreateSubscriptionResult result =
-		service.createSubscription("TestTopic", subInfo);
-	RuleInfo ruleInfo = new RuleInfo("myRuleGT3");
-	ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");
-	CreateRuleResult ruleResult =
-		service.createRule("TestTopic", "HighMessages", ruleInfo);
-    // Delete the default rule, otherwise the new rule won't be invoked.
-    service.deleteRule("TestTopic", "HighMessages", "$Default");
+```
+// Create a "HighMessages" filtered subscription  
+SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
+CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
+RuleInfo ruleInfo = new RuleInfo("myRuleGT3");
+ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");
+CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", ruleInfo);
+// Delete the default rule, otherwise the new rule won't be invoked.
+service.deleteRule("TestTopic", "HighMessages", "$Default");
+```
 
 Аналогичным образом в следующем примере создается подписка с именем `LowMessages` и фильтром [SqlFilter][], который выбирает только те сообщения, у которых значение свойства **messagenumber** меньше или равно 3:
 
-    // Create a "LowMessages" filtered subscription
-	SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
-	CreateSubscriptionResult result =
-		service.createSubscription("TestTopic", subInfo);
-    RuleInfo ruleInfo = new RuleInfo("myRuleLE3");
-	ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");
-	CreateRuleResult ruleResult =
-		service.createRule("TestTopic", "LowMessages", ruleInfo);
-    // Delete the default rule, otherwise the new rule won't be invoked.
-    service.deleteRule("TestTopic", "LowMessages", "$Default");
-
+```
+// Create a "LowMessages" filtered subscription
+SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
+CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
+RuleInfo ruleInfo = new RuleInfo("myRuleLE3");
+ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");
+CreateRuleResult ruleResult = service.createRule("TestTopic", "LowMessages", ruleInfo);
+// Delete the default rule, otherwise the new rule won't be invoked.
+service.deleteRule("TestTopic", "LowMessages", "$Default");
+```
 
 Если сообщение отправляется в раздел `TestTopic`, оно всегда будет доставляться в приемники, подписанные на подписку `AllMessages`, и в отдельные приемники, подписанные на подписки `HighMessages` и `LowMessages` (в зависимости от содержимого сообщений).
 
@@ -126,27 +126,31 @@
 
 Чтобы отправить сообщение в раздел служебной шины, приложение получает объект **ServiceBusContract**. В следующем примере кода показано, как отправить сообщение в раздел `TestTopic`, созданный ранее в пространстве имен `HowToSample`.
 
-    BrokeredMessage message = new BrokeredMessage("MyMessage");
-    service.sendTopicMessage("TestTopic", message);
+```
+BrokeredMessage message = new BrokeredMessage("MyMessage");
+service.sendTopicMessage("TestTopic", message);
+```
 
 Сообщения, отправляемые в разделы Service Bus и получаемые из них, — это экземпляры класса [BrokeredMessage][]. Объекты [BrokeredMessage][] имеют набор стандартных методов (например, **setLabel** и **TimeToLive**), словарь, используемый для хранения настраиваемых свойств приложения, и текст из произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору [BrokeredMessage][] любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий **DataContractSerializer**. Кроме того, может быть предоставлен объект **java.io.InputStream**.
 
 В следующем примере показано, как отправить пять тестовых сообщений в очередь `TestTopic` объекта **MessageSender**, полученного в предыдущем фрагменте кода: Обратите внимание, что значение свойства **MessageNumber** всех сообщений зависит от итерации цикла (определяет, какие подписки получают их):
 
-    for (int i=0; i<5; i++)  {
-       	// Create message, passing a string message for the body
-		BrokeredMessage message = new BrokeredMessage("Test message " + i);
-		// Set some additional custom app-specific property
-		message.setProperty("MessageNumber", i);
-		// Send message to the topic
-		service.sendTopicMessage("TestTopic", message);
-	}
+```
+for (int i=0; i<5; i++)  {
+// Create message, passing a string message for the body
+BrokeredMessage message = new BrokeredMessage("Test message " + i);
+// Set some additional custom app-specific property
+message.setProperty("MessageNumber", i);
+// Send message to the topic
+service.sendTopicMessage("TestTopic", message);
+}
+```
 
 Разделы служебной шины поддерживают максимальный размер сообщения 256 МБ (максимальный размер заголовка, содержащего стандартные и настраиваемые свойства приложения — 64 МБ). Ограничения на количество сообщений в разделе нет, но есть максимальный общий размер сообщений, содержащихся в разделе. Этот размер задается при создании с верхним пределом 5 ГБ.
 
 ## Как получать сообщения из подписки
 
-Основным способом получения сообщений из подписки является использование объекта **ServiceBusContract**. Полученные сообщения могут работать в двух различных режимах: **ReceiveAndDelete** и **PeekLock**.
+Для получения сообщений из подписки используйте объект **ServiceBusContract**. Полученные сообщения могут работать в двух различных режимах: **ReceiveAndDelete** и **PeekLock**.
 
 При использовании режима **ReceiveAndDelete** получение является одиночной операцией, т. е. когда служебная шина получает запрос на чтение для сообщения в подписке, сообщение помечается как использованное и возвращается в приложение. Режим **ReceiveAndDelete** представляет собой самую простую модель, которая лучше всего работает для сценариев, где приложение может не обрабатывать сообщение в случае сбоя. Чтобы это понять, рассмотрим сценарий, в котором объект-получатель выдает запрос на получение и выходит из строя до его обработки. Поскольку служебная шина помечает сообщение как использованное, то когда после своего перезапуска приложение снова начнет обрабатывать сообщения, оно пропустит сообщение, использованное до сбоя.
 
@@ -154,56 +158,58 @@
 
 В следующем примере показано, как получать и обрабатывать сообщения с помощью режима **PeekLock** (не используется по умолчанию): В следующем примере выполняется цикл и обрабатывает сообщения в подписке «HighMessages», а затем завершает работу, когда больше нет сообщений (Кроме того, можно настроить ожидание новых сообщений).
 
-	try
-	{
-		ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-		opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
+```
+try
+{
+	ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
+	opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
 
-		while(true)  {
-		    ReceiveSubscriptionMessageResult  resultSubMsg =
-		        service.receiveSubscriptionMessage("TestTopic", "HighMessages", opts);
-		    BrokeredMessage message = resultSubMsg.getValue();
-		    if (message != null && message.getMessageId() != null)
-		    {
-			    System.out.println("MessageID: " + message.getMessageId());
-			    // Display the topic message.
-			    System.out.print("From topic: ");
-			    byte[] b = new byte[200];
-			    String s = null;
-			    int numRead = message.getBody().read(b);
-			    while (-1 != numRead)
-	            {
-	                s = new String(b);
-	                s = s.trim();
-	                System.out.print(s);
-	                numRead = message.getBody().read(b);
-			    }
-	            System.out.println();
-			    System.out.println("Custom Property: " +
-			        message.getProperty("MessageNumber"));
-			    // Delete message.
-			    System.out.println("Deleting this message.");
-			    service.deleteMessage(message);
-		    }  
-		    else  
-		    {
-		        System.out.println("Finishing up - no more messages.");
-		        break;
-		        // Added to handle no more messages.
-		        // Could instead wait for more messages to be added.
+	while(true)  {
+	    ReceiveSubscriptionMessageResult  resultSubMsg =
+	        service.receiveSubscriptionMessage("TestTopic", "HighMessages", opts);
+	    BrokeredMessage message = resultSubMsg.getValue();
+	    if (message != null && message.getMessageId() != null)
+	    {
+		    System.out.println("MessageID: " + message.getMessageId());
+		    // Display the topic message.
+		    System.out.print("From topic: ");
+		    byte[] b = new byte[200];
+		    String s = null;
+		    int numRead = message.getBody().read(b);
+		    while (-1 != numRead)
+            {
+                s = new String(b);
+                s = s.trim();
+                System.out.print(s);
+                numRead = message.getBody().read(b);
 		    }
+            System.out.println();
+		    System.out.println("Custom Property: " +
+		        message.getProperty("MessageNumber"));
+		    // Delete message.
+		    System.out.println("Deleting this message.");
+		    service.deleteMessage(message);
+	    }  
+	    else  
+	    {
+	        System.out.println("Finishing up - no more messages.");
+	        break;
+	        // Added to handle no more messages.
+	        // Could instead wait for more messages to be added.
 	    }
-	}
-	catch (ServiceException e) {
-	    System.out.print("ServiceException encountered: ");
-	    System.out.println(e.getMessage());
-	    System.exit(-1);
-	}
-	catch (Exception e) {
-	    System.out.print("Generic exception encountered: ");
-	    System.out.println(e.getMessage());
-	    System.exit(-1);
-	}
+    }
+}
+catch (ServiceException e) {
+    System.out.print("ServiceException encountered: ");
+    System.out.println(e.getMessage());
+    System.exit(-1);
+}
+catch (Exception e) {
+    System.out.print("Generic exception encountered: ");
+    System.out.println(e.getMessage());
+    System.exit(-1);
+}
+```
 
 ## Как обрабатывать сбои приложения и нечитаемые сообщения
 
@@ -217,13 +223,15 @@
 
 Основным способом удаления разделов и подписок является использование объекта **ServiceBusContract**. При удалении раздела также удаляются все подписки, зарегистрированные в этом разделе. Подписки также можно удалять по отдельности.
 
-    // Delete subscriptions
-    service.deleteSubscription("TestTopic", "AllMessages");
-    service.deleteSubscription("TestTopic", "HighMessages");
-    service.deleteSubscription("TestTopic", "LowMessages");
+```
+// Delete subscriptions
+service.deleteSubscription("TestTopic", "AllMessages");
+service.deleteSubscription("TestTopic", "HighMessages");
+service.deleteSubscription("TestTopic", "LowMessages");
 
-    // Delete a topic
-	service.deleteTopic("TestTopic");
+// Delete a topic
+service.deleteTopic("TestTopic");
+```
 
 ## Дальнейшие действия
 
@@ -238,4 +246,4 @@
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

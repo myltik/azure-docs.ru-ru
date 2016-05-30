@@ -19,8 +19,10 @@
 # Восстановление размещения виртуальных машин VMware и физических серверов на локальном сайте
 
 > [AZURE.SELECTOR]
-- [Расширенная архитектура](site-recovery-failback-azure-to-vmware-classic.md)
-- [Предыдущие версии](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Портал Azure](site-recovery-failback-azure-to-vmware.md)
+- [Классический портал Azure](site-recovery-failback-azure-to-vmware-classic.md)
+- [Классический портал Azure (прежняя версия)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
 
 
 В этой статье описывается, как восстановить размещение виртуальных машин Azure на локальном сайте с переносом из Azure. Когда вы будете готовы к восстановлению размещения виртуальных машин VMware или физических серверов Windows и Linux, для которых была выполнена отработка отказа из локального сайта в Azure, следуйте инструкциям, изложенным в этом [руководстве](site-recovery-vmware-to-azure-classic.md).
@@ -37,7 +39,7 @@
 
 Используйте эту архитектуру, когда сервер обработки находится в Azure и у вас VPN-подключение или подключение ExpressRoute.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 Чтобы просмотреть полный список портов и схему архитектуры восстановления, обратитесь к рисунку ниже.
 
@@ -202,4 +204,4 @@
 - ExpressRoute необходимо настроить в виртуальной сети Azure, где будет выполняться отработка отказа исходных машин и где будут размещены виртуальные машины Azure после отработки отказа.
 - Данные реплицируются в учетную запись хранения Azure в общедоступной конечной точке. В ExpressRoute следует настроить общедоступный пиринг с целевым центром обработки данных, чтобы для репликации Site Recovery использовалось подключение ExpressRoute.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

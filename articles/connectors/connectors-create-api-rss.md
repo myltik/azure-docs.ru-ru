@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Начало работы с соединителем RSS
@@ -25,7 +25,7 @@ ms.author="deonhe"/>
 
 - [Приложения логики](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps.](http://powerapps.microsoft.com)  
-- [Потоки](http://flows.microsoft.com)  
+- [Поток](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
@@ -70,7 +70,7 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|feedUrl|string|Да|запрос|Нет|URL-адрес веб-канала|
+|feedUrl|строка|Да|запрос|Нет|URL-адрес веб-канала|
 
 #### Ответ
 
@@ -135,4 +135,4 @@ ms.author="deonhe"/>
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

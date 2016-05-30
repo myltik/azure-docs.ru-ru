@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Создание паролей приложений на портале Myapps в службе Office 365 для Azure Multi-Factor Authentication
@@ -25,7 +25,7 @@
 ## Создание паролей приложений без подписки на Office 365 или Azure
 --------------------------------------------------------------------------------
 <ol>
-<li>Войдите на сайт [https://myapps.microsoft.com](https://myapps.microsoft.com).</li>
+<li>Войдите на сайт [https://myapps.microsoft.com](https://myapps.microsoft.com).</li>	
 <li>Вверху выберите профиль.</li>
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/myapp.png)</center>
@@ -39,4 +39,7 @@
 <li>Введите имя для пароля приложения и щелкните **Далее**.</li>
 <li>Скопируйте пароль приложения в буфер обмена и вставьте его в свое приложение.</li>
 
-<!---HONumber=AcomDC_0218_2016-->
+
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

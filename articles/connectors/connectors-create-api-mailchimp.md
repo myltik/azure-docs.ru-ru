@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Начало работы с соединителем MailChimp
@@ -25,7 +25,7 @@ ms.author="deonhe"/>
 
 - [Приложения логики](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps.](http://powerapps.microsoft.com)  
-- [Потоки](http://flows.microsoft.com)  
+- [Поток](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
@@ -62,7 +62,8 @@ ms.author="deonhe"/>
 |Свойство| Обязательно|Описание|
 | ---|---|---|
 |токен|Да|Укажите учетные данные MailChimp|
-Созданное подключение можно использовать для выполнения действий и прослушивания триггеров, описанных в этой статье.
+
+>[AZURE.INCLUDE [Шаги по созданию подключения к MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 
 >[AZURE.TIP] Это подключение можно использовать в других приложениях логики.
 
@@ -143,7 +144,7 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|list\_id|string|Да|path|Нет|Уникальный идентификатор для списка|
+|list\_id|строка|Да|path|Нет|Уникальный идентификатор для списка|
 |member\_email|string|Да|path|Нет|Адрес электронной почты удаляемого элемента|
 
 #### Ответ
@@ -167,7 +168,7 @@ ms.author="deonhe"/>
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
 |list\_id|строка|Да|path|Нет|Уникальный идентификатор для списка|
-|member\_email|строка|Да|path|Нет|Уникальный адрес электронной почты изменяемого элемента|
+|member\_email|string|Да|path|Нет|Уникальный адрес электронной почты изменяемого элемента|
 |updateMemberInListRequest| |Да|текст|Нет|Объект JSON, отправляемый в тексте со сведениями об изменяемом элементе|
 
 #### Ответ
@@ -190,7 +191,7 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|list\_id|string|Да|path|Нет|Уникальный идентификатор для списка|
+|list\_id|строка|Да|path|Нет|Уникальный идентификатор для списка|
 
 #### Ответ
 
@@ -259,7 +260,7 @@ ms.author="deonhe"/>
 | Имя свойства | Тип данных | Обязательное |
 |---|---|---|
 |subject\_line|string|Да |
-|title|string|Нет |
+|title|строка|Нет |
 |from\_name|string|Да |
 |reply\_to|строка|Да |
 |use\_conversation|Логическое|Нет |
@@ -401,14 +402,14 @@ ms.author="deonhe"/>
 
 | Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|id|строка|Нет |
+|id|string|Нет |
 |type|строка|Нет |
 |create\_time|string|Нет |
 |archive\_url|string|Нет |
-|status|string|Нет |
+|status|строка|Нет |
 |emails\_sent|целое число|Нет |
 |send\_time|string|Нет |
-|content\_type|строка|Нет |
+|content\_type|string|Нет |
 |recipient|array|Нет |
 |Параметры|не определено|Нет |
 |variate\_settings|не определено|Нет |
@@ -465,7 +466,7 @@ ms.author="deonhe"/>
 |---|---|---|
 |включено|Логическое|Нет |
 |can\_cancel|Логическое|Нет |
-|status|string|Нет |
+|status|строка|Нет |
 |emails\_sent|целое число|Нет |
 |emails\_canceled|целое число|Нет |
 
@@ -495,7 +496,7 @@ ms.author="deonhe"/>
 |use\_archive\_bar|Логическое|Нет |
 |campaign\_defaults|не определено|Да |
 |notify\_on\_subscribe|string|Нет |
-|notify\_on\_unsubscribe|string|Нет |
+|notify\_on\_unsubscribe|строка|Нет |
 |email\_type\_option|Логическое|Да |
 |visibility|строка|Нет |
 
@@ -601,7 +602,7 @@ ms.author="deonhe"/>
 |язык|строка|Нет |
 |виртуальный IP-адрес|Логическое|Нет |
 |location|не определено|Нет |
-|email\_address|строка|Да |
+|email\_address|string|Да |
 
 
 
@@ -631,25 +632,25 @@ ms.author="deonhe"/>
 | Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |id|string|Нет |
-|email\_address|string|Нет |
+|email\_address|строка|Нет |
 |unique\_email\_id|string|Нет |
-|email\_type|строка|Нет |
+|email\_type|string|Нет |
 |status|строка|Нет |
 |merge\_fields|не определено|Нет |
 |interests|string|Нет |
 |stats|не определено|Нет |
 |ip\_signup|строка|Нет |
 |timestamp\_signup|string|Нет |
-|ip\_opt|строка|Нет |
+|ip\_opt|string|Нет |
 |timestamp\_opt|строка|Нет |
 |member\_rating|целое число|Нет |
-|last\_changed|string|Нет |
-|язык|string|Нет |
+|last\_changed|строка|Нет |
+|язык|строка|Нет |
 |виртуальный IP-адрес|Логическое|Нет |
 |email\_client|строка|Нет |
 |location|не определено|Нет |
 |last\_note|не определено|Нет |
-|list\_id|строка|Нет |
+|list\_id|string|Нет |
 |_\_links|array|No |
 
 
@@ -660,7 +661,7 @@ ms.author="deonhe"/>
 | Имя свойства | Тип данных | Обязательное |
 |---|---|---|
 |note\_id|целое число|Нет |
-|created\_at|строка|Нет |
+|created\_at|string|Нет |
 |created\_by|строка|Нет |
 |note|string|Нет |
 
@@ -723,7 +724,7 @@ ms.author="deonhe"/>
 |email\_type|string|Нет |
 |status|строка|Нет |
 |merge\_fields|не определено|Да |
-|interests|строка|Нет |
+|interests|string|Нет |
 |stats|не определено|Нет |
 |ip\_signup|строка|Нет |
 |timestamp\_signup|string|Нет |
@@ -743,4 +744,4 @@ ms.author="deonhe"/>
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Создание виртуальной машины с помощью PowerShell | Microsoft Azure"
-	description="Создание и настройка виртуальной машины Azure с использованием Powershell и модели развертывания на основе диспетчера ресурсов."
+	description="Создание и настройка виртуальной машины Azure с использованием PowerShell и модели развертывания Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="03/04/2016"
 	ms.author="cynthn"/>
 
-# Создание и настройка виртуальной машины Windows с помощью диспетчера ресурсов и Azure PowerShell
+# Создание и настройка виртуальной машины Windows с использованием Azure PowerShell и модели развертывания Resource Manager.
 
 > [AZURE.SELECTOR]
 - [Портал — Windows](virtual-machines-windows-hero-tutorial.md)
@@ -28,17 +28,15 @@
 
 <br>
 
-
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-create-powershell.md).
-
 Ниже показано, как составить набор команд Azure PowerShell для создания и настройки виртуальной машины Azure. Используя процесс на основе стандартных блоков, вы можете быстро подготовить набор команд для создания виртуальной машины под управлением Windows или расширения уже развернутых. Также можно создать несколько наборов команд, позволяющих быстро настраивать ИТ-среды для разработки, тестирования и профессионального использования.
 
 Материал в этих шагах для создания наборов команд Azure PowerShell представлен таким образом, что достаточно лишь заполнить пробелы. Этот подход может оказаться полезным, если вы не знакомы с PowerShell или хотите знать, какие именно значения следует задать для обеспечения работоспособности конфигурации. Опытные пользователи PowerShell могут подставить в команды собственные значения переменных (строки, начинающиеся со знака "$").
 
+> [AZURE.IMPORTANT] Если вы хотите, чтобы виртуальная машина входила в группу доступности, ее нужно добавить в группу при создании. Добавлять виртуальные машины в группу доступности после создания пока невозможно.
+
 ## Шаг 1. Установка Azure PowerShell
 
-Существует два основных способа установки — с помощью [коллекции PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) или [установщика веб-платформы](http://aka.ms/webpi-azps). Обновления для установщика веб-платформы будут выпускаться ежемесячно. Обновления для коллекции PowerShell будут выпускаться на постоянной основе.
+Есть два основных способа установки — с помощью [коллекции PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) и [установщика веб-платформы](http://aka.ms/webpi-azps). Обновления для установщика веб-платформы будут выпускаться ежемесячно. Обновления для коллекции PowerShell будут выпускаться на постоянной основе.
 
 Дополнительные сведения см. в статье [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
 
@@ -52,7 +50,7 @@
 
 Получите доступные подписки с помощью следующей команды.
 
-	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+	Get-AzureRmSubscription | Sort SubscriptionName | Select SubscriptionName
 
 Задайте подписку Azure для текущего сеанса. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
 
@@ -115,6 +113,7 @@
 ### группа доступности;
 
 
+
 При необходимости создайте для новой виртуальной машины группу доступности, используя следующие команды.
 
 	$avName="<availability set name>"
@@ -136,7 +135,7 @@
 	$locName="West US"
 	$frontendSubnet=New-AzureRmVirtualNetworkSubnetConfig -Name frontendSubnet -AddressPrefix 10.0.1.0/24
 	$backendSubnet=New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix 10.0.2.0/24
-	New-AzureRmVirtualNetwork -Name TestNet -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -SubnetId $frontendSubnet,$backendSubnet
+	New-AzureRmVirtualNetwork -Name TestNet -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $frontendSubnet,$backendSubnet
 
 Чтобы вывести список существующих виртуальных сетей, используйте следующие команды:
 
@@ -220,7 +219,7 @@
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
 	$lb=Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgName
-	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
+	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex] -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
 Строка $nicName должна быть уникальной для группы ресурсов. В строку рекомендуется включить имя виртуальной машины, например LOB07-NIC.
 
@@ -239,7 +238,7 @@
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$lb=Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgName
-	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
+	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex] -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 Затем создайте локальный объект виртуальной машины и при необходимости добавьте его в группу доступности. Скопируйте код первого или второго варианта в набор команд и введите имя и размер виртуальной машины, а также имя группы доступности.
 
@@ -293,7 +292,7 @@
 |MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
 |MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
 
-Если вашего образа виртуальной машины нет в списке, определите издателя, предложение и номер SKU, следуя приведенным [здесь](virtual-machines-linux-cli-ps-findimage.md#powershell) инструкциям.
+Если вашего образа виртуальной машины нет в списке, определите издателя, предложение и номер SKU, следуя приведенным [здесь](virtual-machines-windows-cli-ps-findimage.md#powershell) инструкциям.
 
 Скопируйте эти команды в набор команд и укажите имя издателя, название предложения и номер SKU.
 
@@ -317,7 +316,7 @@
 
 Просмотрите в текстовом редакторе или среде PowerShell ISE набор команд Azure PowerShell, созданный при выполнении шага 4. Убедитесь, что все переменные указаны и имеют правильные значения. Также убедитесь, что удалены все символы < and >.
 
-Если вы используете текстовый редактор, скопируйте набор команд в буфер обмена и щелкните его правой кнопкой мыши в командном окне Azure PowerShell. При этом набор команд отправляется как последовательность команд PowerShell и создается виртуальная машина Azure. Или выполните набор команд в среде Azure PowerShell ISE.
+Если вы используете текстовый редактор, скопируйте набор команд в буфер обмена и щелкните его правой кнопкой мыши в командном окне Windows PowerShell. При этом набор команд отправляется как последовательность команд PowerShell и создается виртуальная машина Azure. Или выполните набор команд в среде Azure PowerShell ISE.
 
 Для того чтобы использовать данные сведения для создания других виртуальных машин, сохраните этот набор команд как файл сценария PowerShell (PS1).
 
@@ -341,7 +340,7 @@
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
 	$subnetIndex=0
-	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$vnet=Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
 	# Create the NIC
 	$nicName="LOB07-NIC"
@@ -392,4 +391,4 @@
 
 [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,8 +4,8 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/08/2016"
+	ms.date="04/20/2016"
 	ms.author="jroth" />
 
-# Создание виртуальной машины SQL Server в Azure PowerShell \(классическая модель\)
+# Подготовка виртуальной машины SQL Server к работе с помощью Azure PowerShell (классическая модель)
 
 ## Обзор
 
 В данной статье описаны шаги по созданию виртуальной машины SQL Server в Azure с помощью командлетов PowerShell.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов. Дополнительные сведения об использовании классической модели развертывания см. в статье [Подготовка виртуальной машины SQL Server к работе с помощью Azure PowerShell (в Resource Manager)](virtual-machines-windows-ps-sql-create.md).
 
 ## Установка и настройка PowerShell
 
@@ -77,7 +77,7 @@
 
 		Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
 
-1. В найденном семействе образов может быть несколько опубликованных образов. Используйте следующий сценарий, чтобы найти имя последнего опубликованного образа виртуальной машины для выбранного семейства образов \(например, **SQL Server 2014 Enterprise с пакетом обновления 1 на Windows Server 2012 R2**\):
+1. В найденном семействе образов может быть несколько опубликованных образов. Используйте следующий сценарий, чтобы найти имя последнего опубликованного образа виртуальной машины для выбранного семейства образов (например, **SQL Server 2014 Enterprise с пакетом обновления 1 на Windows Server 2012 R2**):
 
 		$family="<ImageFamily value>"
 		$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -113,7 +113,7 @@
 
 ## Пример сценария PowerShell
 
-В следующем примере приведен полный сценарий, создающий виртуальную машину **SQL Server 2014 Enterprise с пакетом обновления 1 \(SP1\) на Windows Server 2012 R2**. При использовании этого сценария необходимо настроить исходные переменные на основе предыдущих шагов, описанных в этом разделе.
+В следующем примере приведен полный сценарий, создающий виртуальную машину **SQL Server 2014 Enterprise с пакетом обновления 1 (SP1) на Windows Server 2012 R2**. При использовании этого сценария необходимо настроить исходные переменные на основе предыдущих шагов, описанных в этом разделе.
 
 	# Customize these variables based on your settings and requirements:
 	$dcLocation = "East US"
@@ -154,7 +154,7 @@
 		$documentspath = [environment]::getfolderpath("mydocuments")
 		Get-AzureRemoteDesktopFile -ServiceName $svcname -Name $vmname -LocalPath "$documentspath\vm1.rdp"
 
-1. Запустите файл .RDP из каталога документов. Войдите в систему с именем пользователя и паролем администратора, которые были указаны ранее \(например, если имя пользователя — VMAdmin, укажите "\\VMAdmin" в качестве пользователя и введите пароль\).
+1. Запустите файл .RDP из каталога документов. Войдите в систему с именем пользователя и паролем администратора, которые были указаны ранее (например, если имя пользователя — VMAdmin, укажите "\\VMAdmin" в качестве пользователя и введите пароль).
 
 		.\vm1.rdp
 
@@ -168,8 +168,8 @@
 
 Во многих случаях следующим этапом является миграция баз данных на новую виртуальную машину SQL. Руководство по миграции баз данных см. в статье [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-windows-migrate-sql.md).
 
-Если вам также интересно создание виртуальных машин SQL на портале Azure, см. статью [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-portal-sql-server-provision.md). Обратите внимание на то, что в пошаговом руководстве по работе с порталом виртуальные машины создаются с помощью рекомендованной модели, предусматривающей использование диспетчера ресурсов, а не классической модели, применяемой в разделе, посвященном PowerShell.
+Подробнее о создании виртуальных машин SQL на портале Azure см. в статье [Подготовка виртуальной машины SQL Server на портале Azure](virtual-machines-windows-portal-sql-server-provision.md). Обратите внимание на то, что в пошаговом руководстве по работе с порталом виртуальные машины создаются с помощью рекомендованной модели, предусматривающей использование диспетчера ресурсов, а не классической модели, применяемой в разделе, посвященном PowerShell.
 
 В дополнение к этим ресурсам рекомендуем ознакомиться с [другими статьями, связанными с запуском SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

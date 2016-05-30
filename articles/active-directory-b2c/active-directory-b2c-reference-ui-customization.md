@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory B2C: настройка пользовательского интерфейса Azure AD B2C
@@ -198,6 +198,61 @@
 
 Эта страница содержит форму регистрации, которую нужно заполнить пользователю при регистрации с использованием существующей учетной записи от таких поставщиков удостоверений социальных сетей, как Facebook или Google+. Эта страница аналогична странице регистрации локальных учетных записей (см. предыдущий раздел), за исключением полей для ввода пароля.
 
+### Единая страница регистрации или входа
+
+На этой странице обрабатывается регистрация и вход пользователей, которые могут использовать поставщики удостоверений, такие как Facebook или Google+, или локальные учетные записи.
+
+```HTML
+
+<div id="api" data-name="Unified">
+        <div class="social" role="form">
+               <div class="intro">
+                       <h2>Sign in with your social account</h2>
+               </div>
+               <div class="options">
+                       <div><button class="accountButton firstButton" id="MicrosoftAccountExchange" tabindex="1">msa</button></div>
+                       <div><button class="accountButton" id="FacebookExchange" tabindex="1">fb</button></div>
+               </div>
+        </div>
+        <div class="divider">
+               <h2>OR</h2>
+        </div>
+        <div class="localAccount" role="form">
+               <div class="intro">
+                       <h2>Sign in with your existing account</h2>
+               </div>
+               <div class="error pageLevel" aria-hidden="true" style="display: none;">
+                       <p role="alert"></p>
+               </div>
+               <div class="entry">
+                       <div class="entry-item">
+                               <label for="logonIdentifier">Email Address</label> 
+                               <div class="error itemLevel" aria-hidden="true" style="display: none;">
+                                      <p role="alert"></p>
+                               </div>
+                               <input type="email" id="logonIdentifier" name="LogonIdentifier" pattern="^[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="LogonIdentifier" value="" tabindex="1">
+                       </div>
+                       <div class="entry-item">
+                               <div class="password-label"> <label for="password">Password</label><a id="forgotPassword" tabindex="2">Forgot your password?</a></div>
+                               <div class="error itemLevel" aria-hidden="true" style="display: none;">
+                                      <p role="alert"></p>
+                               </div>
+                               <input type="password" id="password" name="Password" placeholder="Password" tabindex="1">
+                       </div>
+                       <div class="working"></div>
+                       <div class="buttons"> <button id="next" tabindex="1">Sign in</button> </div>
+               </div>
+               <div class="divider">
+                       <h2>OR</h2>
+               </div>
+               <div class="create">
+                       <p>Don't have an account?<a id="createAccount" tabindex="1">Sign up now</a> </p>
+               </div>
+        </div>
+</div>
+
+```
+
 ### Страница многофакторной проверки подлинности
 
 Эта страница позволяет пользователю подтвердить свой номер телефона (с помощью SMS-сообщения или голосового звонка) во время регистрации или входа.
@@ -266,7 +321,7 @@
 Если вы планируете использовать возможности настройки пользовательского интерфейса страницы, изучите следующие рекомендации.
 
 - Не копируйте стандартное содержимое Azure AD B2C и не пытайтесь изменить его. Лучше создать содержимое HTML5 с нуля, используя стандартное содержимое в качестве образца.
-- В целях безопасности мы запрещаем добавлять в содержимое какие-либо сценарии JavaScript. Большинство необходимых вам возможностей уже доступны. Если вам не хватает каких-либо функций, сообщите нам на [форуме](http://feedback.azure.com/forums/169401-azure-active-directory).
+- В целях безопасности мы запрещаем добавлять в содержимое какие-либо сценарии JavaScript. Большинство необходимых вам возможностей уже доступны. Если вам не хватает каких-либо функций, сообщите нам, используя сайт [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory).
 - Поддерживаемые версии браузеров:
 	- Internet Explorer 11;
 	- Internet Explorer 10;
@@ -277,4 +332,4 @@
 	- Mozilla Firefox 38.0;
 	- Mozilla Firefox 37.0.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

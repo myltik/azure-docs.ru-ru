@@ -92,7 +92,7 @@
 	rm -rf anaconda/
 
 	# Update Jupyter to the latest install and generate its config file
-	sudo /anaconda3/bin/conda install -f jupyter -y
+	sudo /anaconda3/bin/conda install jupyter -y
 	/anaconda3/bin/jupyter-notebook --generate-config
 
 
@@ -124,7 +124,7 @@
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-Далее предстоит отредактировать файл конфигурации профиля, т. е. файл `jupyter_notebook_config.py` в текущей папке профиля. Если этот файл не существует, создайте его. Этот файл содержит несколько полей, которые по умолчанию закомментированы. Этот файл можно открыть в любом текстовом редакторе. Необходимо убедиться, что в нем есть по крайней мере следующее содержимое: Не забудьте заменить пароль на sha1 из предыдущего шага.
+Далее предстоит отредактировать файл конфигурации профиля, т. е. файл `jupyter_notebook_config.py` в текущей папке профиля. Если этот файл не существует, создайте его. Этот файл содержит несколько полей, которые по умолчанию закомментированы. Этот файл можно открыть в любом текстовом редакторе. Необходимо убедиться, что в нем есть по крайней мере следующее содержимое: **Не забудьте заменить пароль c.NotebookApp.password в файле конфигурации паролем sha1 из предыдущего шага**.
 
     c = get_config()
 
@@ -135,7 +135,7 @@
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
 
     # Network and browser details. We use a fixed port (9999) so it matches
-    # our Azure setup, where we've allowed :wqtraffic on that port
+    # our Azure setup, where we've allowed traffic on that port
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
@@ -195,8 +195,8 @@ Jupyter Notebook предоставляет богатый возможност�
 
 Дополнительную информацию можно найти в [Центре разработчика Python](/develop/python/).
 
-[portal-vm-linux]: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/ru-RU/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [репозитории]: https://github.com/ipython/ipython
 [Средствах Python для Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

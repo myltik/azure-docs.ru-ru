@@ -30,8 +30,11 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Рабочая станция с Azure PowerShell.**. См. раздел [Установка Azure PowerShell 1.0 и более поздних версий](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
-- **Кластер Hadoop в HDInsight**. См. раздел [Создание кластера и базы данных SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+- **Рабочая станция с Azure PowerShell.**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+- **Кластер Hadoop в HDInsight**. Ознакомьтесь с разделом [Создание кластера и базы данных SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 	
 ## Запуск Sqoop с помощью PowerShell
@@ -174,4 +177,4 @@
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

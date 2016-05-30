@@ -43,7 +43,7 @@
 
 Azure PowerShell позволяет восстановить базу данных программными средствами с помощью командлета [Restore-AzureRmSqlDatabase][].
 
-> [AZURE.NOTE]  Чтобы использовать Azure Powershell с хранилищем данных SQL, установите Azure PowerShell 1.0.3 или выше. Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][]. Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][].
+> [AZURE.NOTE]  Чтобы использовать Azure Powershell с хранилищем данных SQL, установите Azure PowerShell 1.0.3 или выше. Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][]. Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell][].
 
 1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
@@ -163,9 +163,9 @@ $RestoredDatabase.status
 <!--Image references-->
 
 <!--Article references-->
-[обзоре непрерывности бизнес-процессов базы данных Azure SQL]: sql-database-business-continuity.md
-[Финализация восстановленной базы данных]: sql-database-recovered-finalize.md
-[Установка и настройка Azure PowerShell]: powershell-install-configure.md
+[обзоре непрерывности бизнес-процессов базы данных Azure SQL]: ../sql-database/sql-database-business-continuity.md
+[Финализация восстановленной базы данных]: ../sql-database/sql-database-recovered-finalize.md
+[Как установить и настроить Azure PowerShell]: ../powershell/powershell-install-configure.md
 
 <!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -181,4 +181,4 @@ $RestoredDatabase.status
 [портал Azure]: https://portal.azure.com/
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

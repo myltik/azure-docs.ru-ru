@@ -1,22 +1,17 @@
-## Connect to Outlook.com
+## Подключение к Outlook.com
 
-### Prerequisites
-- An Outlook.com account
+### Предварительные требования
+- Учетная запись Outlook.com.
 
-Before you can use your Outlook.com account in a Logic app, you must authorize the Logic app to connect to your Outlook.com account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Прежде чем использовать учетную запись Outlook.com в приложении логики, необходимо авторизовать приложение логики для подключения к вашей учетной записи Outlook.com. К счастью, это можно легко сделать из приложения логики на портале Azure.
 
-Here are the steps to authorize your Logic app to connect to your Outlook.com account:
+Ниже приведены указания по авторизации приложения логики для подключения к учетной записи Outlook.com.
 
-1. All Logic apps need to be started by a trigger so after you create your Logic app, the designer opens and displays a list of triggers that you can use to start your Logic app:
+1. Все приложения логики должны запускаться с помощью триггера. Поэтому после создания приложения логики открывается конструктор, отображающий список триггеров, которые можно использовать для запуска приложения логики:
 
   ![](./media/connectors-create-api-outlook/office365-outlook-0.png)
-2. Enter "outlook" in the search box. Notice the list is filtered to list all the triggers with "Outlook" in the name:
-  ![](./media/connectors-create-api-outlook/office365-outlook-0-5.png)
-3. Select **Office 365 Outlook - On new email**.   
-  If you haven't created any connections to Outlook before, you'll get prompted to provide your Outlook.com credentials. These credentials will be used to authorize your Logic app to connect to, and access your Outlook.com account's data: 
-  ![](./media/connectors-create-api-outlook/office365-outlook-1.png)
-4. Provide your credentials for Outlook and sign in:
-  ![](./media/connectors-create-api-outlook/office365-outlook-2.png)  
-That's it. You've now created a connection to Outlook. This connection will be available for use in any other Logic app that you create.
+2. В поле поиска введите запрос "outlook". Список фильтруется, и отображаются все триггеры, в имени которых содержится "Outlook": ![](./media/connectors-create-api-outlook/office365-outlook-0-5.png)
+3. Выберите **Office 365 Outlook — On new email** (Office 365 Outlook — при получении нового сообщения). Если вы ранее не создавали подключение к Outlook, вам будет предложено ввести учетные данные Outlook.com. Эти учетные данные будут использоваться для авторизации приложения логики, чтобы оно могло подключиться и получить доступ к данным вашей учетной записи Outlook.com. ![](./media/connectors-create-api-outlook/office365-outlook-1.png)
+4. Укажите учетные данные для Outlook и войдите. ![](./media/connectors-create-api-outlook/office365-outlook-2.png) Вот и все. Подключение к Outlook создано. Оно будет доступно для использования в других приложениях логики, которые вы создадите.
 
 

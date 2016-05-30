@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/26/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Перенос существующей мобильной службы Azure в службу приложений Azure
@@ -255,7 +255,7 @@
 
 Дополнительную информацию см. в документации по [центрам уведомлений].
 
-> [AZURE.TIP] Компоненты управления центрами уведомлений на [портале Azure] находятся на стадии предварительной версии. [классический портал Azure] остается доступным для управления всеми центрами уведомлений.
+> [AZURE.TIP] Компоненты управления центрами уведомлений на [портале Azure] находятся на стадии предварительной версии. [Классический портал Azure] остается доступным для управления всеми центрами уведомлений.
 
 ### <a name="legacy-push"></a> Параметры отправки push-уведомлений устаревшего типа
 
@@ -265,7 +265,7 @@
 
 ### <a name="app-settings"></a>Другие параметры приложения
 
-Из мобильной службы перенесены приведенные ниже дополнительные параметры приложения. Они доступны в разделе *Параметры* > *Параметры приложения*.
+Из мобильной службы перенесены приведенные ниже дополнительные параметры приложения. Они доступны в разделе *Параметры* > *Параметры приложения*.
 
 | Параметр приложения | Описание |
 | :------------------------------- | :-------------------------------------- |
@@ -332,6 +332,33 @@
 
 Решение. Мы работаем над устранением этой проблемы. Если вы хотите клонировать сайт, сделайте это на портале.
 
+### Изменение web.config не поддерживается
+
+При наличии сайта ASP.NET изменения в файл `Web.config` не поддерживаются. Во время запуска служба приложений Azure создает подходящий файл `Web.config` для поддержки среды выполнения мобильных служб. Некоторые параметры (например, пользовательские заголовки) можно переопределить с помощью файла преобразования XML. Создайте файл с именем `applicationHost.xdt` — этот файл должен оказаться в каталоге `D:\home\site` службы Azure. Этого можно добиться, используя пользовательский сценарий развертывания или непосредственно с помощью Kudu. Ниже показан пример документа.
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <httpProtocol>
+      <customHeaders>
+        <add name="X-Frame-Options" value="DENY" xdt:Transform="Replace" />
+        <remove name="X-Powered-By" xdt:Transform="Insert" />
+      </customHeaders>
+    </httpProtocol>
+    <security>
+      <requestFiltering removeServerHeader="true" xdt:Transform="SetAttributes(removeServerHeader)" />
+    </security>
+  </system.webServer>
+</configuration>
+```
+
+Дополнительные сведения см. в документе [XDT Transform Samples] (примеры преобразования XDT) на сайте GitHub.
+
+### Перенесенные мобильные службы нельзя добавить в диспетчер трафика
+
+При создании профиля диспетчера трафика нельзя напрямую выбрать перенесенную мобильную службу для профиля. Необходимо использовать "внешнюю конечную точку". Внешнюю конечную точку можно добавить только через PowerShell. Дополнительные сведения см. в [учебнике по диспетчеру трафика](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 После того как ваше приложение будет перенесено в службу приложений, вы сможете использовать еще больше компонентов.
@@ -354,7 +381,7 @@
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Цены службы приложений]: https://azure.microsoft.com/pricing/details/app-service/
+[Цены службы приложений]: https://azure.microsoft.com/ru-RU/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Автоматическое масштабирование]: ../app-service-web/web-sites-scale.md
 [службы приложений Azure]: ../app-service/app-service-value-prop-what-is.md
@@ -364,10 +391,10 @@
 [портал Azure]: https://portal.azure.com
 [портала Azure]: https://portal.azure.com
 [портале Azure]: https://portal.azure.com
-[регионе Azure]: https://azure.microsoft.com/regions/
+[регионе Azure]: https://azure.microsoft.com/ru-RU/regions/
 [планы планировщика Azure]: ../scheduler/scheduler-plans-billing.md
 [непрерывно развертывать]: ../app-service-web/web-sites-publish-source-control.md
-[преобразовать смешанные пространства имен]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[преобразовать смешанные пространства имен]: https://azure.microsoft.com/ru-RU/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [пользовательские доменные имена]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -383,6 +410,7 @@
 [промежуточные слоты]: ../app-service-web/web-sites-staged-publishing.md
 [промежуточных слотов]: ../app-service-web/web-sites-staged-publishing.md
 [виртуальной сети]: ../app-service-web/web-sites-integrate-with-vnet.md
-[Веб-задания]: ../app-service-web/websites-webjobs-resources.md
+[веб-задания]: ../app-service-web/websites-webjobs-resources.md
+[XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

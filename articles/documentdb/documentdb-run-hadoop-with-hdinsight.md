@@ -44,7 +44,7 @@
 	<tr><th>URI-адрес сценария</th>
 		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
 	<tr><th>Дата изменения</th>
-		<td>26.04.2015</td></tr>
+		<td>26.04.2016</td></tr>
 	<tr><th>Поддерживаемые версии HDInsight</th>
 		<td>3.1, 3.2</td></tr>
 	<tr><th>Журнал изменений</th>
@@ -76,8 +76,7 @@
 
 1. Войдите на [классический портал Azure][azure-classic-portal].
 
-2. Щелкните **+ СОЗДАТЬ** в левом нижнем углу, выберите **СЛУЖБЫ ДАННЫХ**, затем **ХРАНИЛИЩЕ**, а затем щелкните **БЫСТРОЕ СОЗДАНИЕ**. 
-	![Классический портал Azure, на котором можно настроить новую учетную запись хранения с помощью функции быстрого создания.][image-storageaccount-quickcreate]
+2. Щелкните **+ СОЗДАТЬ** в левом нижнем углу, выберите **СЛУЖБЫ ДАННЫХ**, затем **ХРАНИЛИЩЕ**, а затем щелкните **БЫСТРОЕ СОЗДАНИЕ**. ![Классический портал Azure, на котором можно настроить новую учетную запись хранения с помощью функции быстрого создания.][image-storageaccount-quickcreate]
 
 3. Введите **URL-адрес**, выберите значения для параметров **РАСПОЛОЖЕНИЕ** и **РЕПЛИКАЦИЯ**, а затем нажмите кнопку **СОЗДАТЬ УЧЕТНУЮ ЗАПИСЬ ХРАНЕНИЯ**. Территориальные группы не поддерживаются.
 	
@@ -221,8 +220,7 @@
 
     <p>Сначала создадим таблицу Hive из коллекции DocumentDB. Добавьте следующий фрагмент кода в область сценариев PowerShell <strong>после</strong> фрагмента кода с шага&#160;1. Убедитесь, что включен дополнительный параметр DocumentDB.query для обрезки документов до вида _ts и _rid. </p>
 
-    > [AZURE.NOTE] **Именование DocumentDB.inputCollections не было ошибочным.** Да, разрешается добавление нескольких коллекций в качестве входных данных: </br> 
-    '*DocumentDB.inputCollections*' = '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*' </br> Имена коллекций отделены одной запятой, без пробелов.
+    > [AZURE.NOTE] **Именование DocumentDB.inputCollections не было ошибочным.** Да, разрешается добавление нескольких коллекций в качестве входных данных: </br> '*DocumentDB.inputCollections*' = '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*' </br> Имена коллекций отделены одной запятой, без пробелов.
 
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
@@ -238,9 +236,7 @@
  
 3.  Теперь создадим таблицу Hive для выходной коллекции. Выходными свойствами документа будут месяц, день, час, минута и общее число вхождений.
 
-	> [AZURE.NOTE] **Повторим еще раз: именование DocumentDB.outputCollections не было ошибкой.** Да, разрешается добавление нескольких коллекций в качестве выходных данных: </br> 
-	'*DocumentDB.outputCollections*' = '*\<DocumentDB Output Collection Name 1\>*,*\<DocumentDB Output Collection Name 2\>*' </br> Имена коллекций отделены одной запятой, без пробелов. </br></br> 
-	Документы будут распределяться по нескольким коллекциям согласно схеме циклического перебора. Пакет документов будет храниться в одной коллекции, второй пакет документов будет храниться в следующей коллекции и т. д.
+	> [AZURE.NOTE] **Повторим еще раз: именование DocumentDB.outputCollections не было ошибкой.** Да, разрешается добавление нескольких коллекций в качестве выходных данных: </br> '*DocumentDB.outputCollections*' = '*<DocumentDB Output Collection Name 1>*,*<DocumentDB Output Collection Name 2>*' </br> Имена коллекций отделены одной запятой, без пробелов. </br></br> Документы будут распределяться по нескольким коллекциям согласно схеме циклического перебора. Пакет документов будет храниться в одной коллекции, второй пакет документов будет храниться в следующей коллекции и т. д.
 
 		# Create a Hive table for the output data to DocumentDB.
 	    $queryStringPart2 = "drop table DocumentDB_analytics; " +
@@ -318,8 +314,7 @@
 2. <p>Начнем создавать строку запроса. Напишем запрос Pig, который принимает все системные отметки времени документов (_ts) и уникальные идентификаторы (_rid) из коллекции DocumentDB, подсчитывает все документы поминутно и затем сохраняет результаты в новую коллекцию DocumentDB.</p>
     <p>Сначала загрузите документы из DocumentDB в HDInsight. Добавьте следующий фрагмент кода в область сценариев PowerShell <strong>после</strong> фрагмента кода с шага&#160;1. Добавьте запрос DocumentDB в дополнительный параметр запроса DocumentDB для обрезки документов до вида _ts и _rid.</p>
 
-    > [AZURE.NOTE] Да, разрешается добавление нескольких коллекций в качестве входных данных: </br> 
-    '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*'</br>. Имена коллекций отделены одной запятой, без пробелов. </b>
+    > [AZURE.NOTE] Да, разрешается добавление нескольких коллекций в качестве входных данных: </br> '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*'</br>. Имена коллекций отделены одной запятой, без пробелов. </b>
 
 	Документы будут распределяться по нескольким коллекциям согласно циклической схеме. Пакет документов будет храниться в одной коллекции, второй пакет документов будет храниться в следующей коллекции и т. д.
 
@@ -339,8 +334,7 @@
 
 4. И, наконец, сохраним результаты в новой выходной коллекции.
 
-    > [AZURE.NOTE] Да, разрешается добавление нескольких коллекций в качестве выходных данных: </br> 
-    '<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>'</br>. Имена коллекций отделены одной запятой, без пробелов.</br> Документы будут распределяться по нескольким коллекциям согласно циклической схеме. Пакет документов будет храниться в одной коллекции, второй пакет документов будет храниться в следующей коллекции и т. д.
+    > [AZURE.NOTE] Да, разрешается добавление нескольких коллекций в качестве выходных данных: </br> '<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>'</br>. Имена коллекций отделены одной запятой, без пробелов.</br> Документы будут распределяться по нескольким коллекциям согласно циклической схеме. Пакет документов будет храниться в одной коллекции, второй пакет документов будет храниться в следующей коллекции и т. д.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
@@ -467,7 +461,7 @@
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md#powershell
-[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
 [hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
@@ -486,4 +480,4 @@
 [powershell-install-configure]: ../powershell-install-configure.md
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

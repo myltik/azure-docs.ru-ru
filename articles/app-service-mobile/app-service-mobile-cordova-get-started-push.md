@@ -197,8 +197,8 @@
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Средства Visual Studio для Apache Cordova]: https://www.visualstudio.com/ru-RU/features/cordova-vs.aspx
 [центрах уведомлений]: ../notification-hubs/notification-hubs-overview.md
-[Пакет SDK для Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
+[Пакет SDK для Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

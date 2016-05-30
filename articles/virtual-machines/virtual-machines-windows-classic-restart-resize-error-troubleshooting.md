@@ -1,19 +1,19 @@
 <properties
    pageTitle="Неполадки при перезапуске или изменении размера виртуальной машины | Microsoft Azure"
    description="Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure"
-   services="virtual-machines"
+   services="virtual-machines-windows"
    documentationCenter=""
-   authors="delhan"
+   authors="Deland-Han"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 
 <tags
-   ms.service="virtual-machines"
-   ms.topic="support-article"
-   ms.tgt_pltfrm="virtual-machines"
+   ms.service="virtual-machines-windows"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows"
    ms.workload="required"
-   ms.date="04/28/2016"
+   ms.date="05/12/2016"
    ms.devlang="na"
    ms.author="delhan"/>
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Классический](../articles/virtual-machines/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-- [Диспетчер ресурсов](../articles/virtual-machines/virtual-machines-windows-arm-restart-resize-error-troubleshooting.md)
+- [Диспетчер ресурсов](../articles/virtual-machines/virtual-machines-windows-restart-resize-error-troubleshooting.md)
 
 Когда вы запускаете остановленную виртуальную машину Azure или изменяете размер существующей виртуальной машины Azure, часто возникает ошибка выделения ресурсов. Это происходит, когда кластер или регион не имеют доступных ресурсов или не поддерживают запрашиваемый размер виртуальной машины.
 
@@ -76,9 +76,9 @@
   * Создайте новую облачную службу, не связанную с территориальной группой или с виртуальной сетью, которая связана с территориальной группой.
 
   * Создайте в этой службе новую виртуальную машину большего размера.
-  
+
 Вы можете объединить все виртуальные машины в одной облачной службе. Если существующая облачная служба связана с виртуальной сетью на основе региона, вы можете подключить новую облачную службу к существующей виртуальной сети.
 
 Если существующая облачная служба не связана с виртуальной сетью на основе региона, следует удалить виртуальные машины из существующей облачной службы и воссоздать их в новой облачной службе с помощью дисков. Не забывайте, что новая облачная служба будет иметь новое имя и новый виртуальный IP-адрес. Следовательно, эти данные потребуется обновить для всех зависимостей, которые используют эту информацию о существующей облачной службе.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

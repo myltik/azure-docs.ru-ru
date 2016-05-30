@@ -238,4 +238,4 @@
 - [Приступая к работе с веб-приложениями Node.js в службе приложений Azure](app-service-web-nodejs-get-started.md)
 - [Использование модулей Node.js с приложениями Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

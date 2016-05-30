@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/10/2016"
 	ms.author="piyushjo" />
 
 
@@ -24,6 +24,41 @@
 Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить несколько процедур. Например, при миграции из версии 1.4.0 в 1.6.0, необходимо сначала выполнить процедуру "из версии 1.4.0 в 1.5.0", а затем процедуру "из версии 1.5.0 в 1.6.0".
 
 Независимо от того, с какой версии выполняется обновление, необходимо заменить `mobile-engagement-VERSION.jar` на новую версию.
+
+##Версии с 4.2.0 до 4.2.1
+
+Фактически это действие можно выполнить в любой версии пакета SDK — это повышает безопасность при интеграции действий модуля Reach.
+
+Теперь ко всем действиям модуля Reach необходимо добавлять `exported="false"`.
+
+Действия модуля Reach должны выглядеть в `AndroidManifest.xml` следующим образом.
+
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+			    <category android:name="android.intent.category.DEFAULT" />
+			    <data android:mimeType="text/plain" />
+			  </intent-filter>
+			</activity>
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+			    <category android:name="android.intent.category.DEFAULT" />
+			    <data android:mimeType="text/html" />
+			  </intent-filter>
+			</activity>
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
+			    <category android:name="android.intent.category.DEFAULT" />
+			  </intent-filter>
+			</activity>
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog" android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			  </intent-filter>
+			</activity>
 
 ##С версии 4.0.0 до версии 4.1.0
 
@@ -386,4 +421,4 @@
 			}
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

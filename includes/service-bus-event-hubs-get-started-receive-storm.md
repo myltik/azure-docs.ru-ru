@@ -16,7 +16,7 @@
 
 4. В Eclipse создайте новый проект Maven (щелкните **Файл**, **Создать**, **Проект**).
 
-   ![][12]
+	![][12]
 
 5. Щелкните **Использовать расположение рабочей области по умолчанию**, затем нажмите кнопку **Далее**
 
@@ -229,5 +229,3 @@
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-
-<!---HONumber=AcomDC_0316_2016-->

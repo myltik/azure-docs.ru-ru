@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание отчетов о расположении в Android Mobile Engagement"
-	description="Создание отчетов о расположении в приложениях Android для Azure Mobile Engagement."
+	pageTitle="Создание отчетов о расположении для пакета SDK для Android в Azure Mobile Engagement"
+	description="Сведения о создании отчетов о расположении для пакета SDK для Android в Azure Mobile Engagement."
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
-# Отчеты о расположении Engagement в Android
+# Создание отчетов о расположении для пакета SDK для Android в Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
 - [Android](mobile-engagement-android-integrate-engagement.md)
 
-В этой статье описывается, как создавать отчеты о расположении Engagement в приложении Android.
+В этой статье описывается, как создавать отчеты о расположении для приложения Android.
 
 ## Предварительные требования
 
 [AZURE.INCLUDE [Предварительные требования](../../includes/mobile-engagement-android-prereqs.md)]
-
 
 ## Отчеты о расположении
 
@@ -47,7 +46,7 @@
 
 Также необходимо добавить следующее разрешение, если оно отсутствует:
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Вы также можете продолжить использовать команду ``ACCESS_FINE_LOCATION``, если она уже используется в приложении.
 
@@ -66,7 +65,7 @@
 
 Также необходимо добавить следующее разрешение, если оно отсутствует:
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Вы также можете продолжить использовать команду ``ACCESS_FINE_LOCATION``, если она уже используется в приложении.
 
@@ -82,7 +81,7 @@
 
 Также необходимо добавить следующее разрешение, если оно отсутствует:
 
-		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 #### Отчет в фоновом режиме
 
@@ -98,18 +97,18 @@
 
 Отчет о расположении в фоновом режиме будет остановлен, если пользователь перезагружает устройство. Можно добавить следующий код, чтобы обеспечить его автоматический перезапуск во время загрузки:
 
-		<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
-			   android:exported="false">
-			<intent-filter>
-			    <action android:name="android.intent.action.BOOT_COMPLETED" />
-			</intent-filter>
-		</receiver>
+	<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+		   android:exported="false">
+		<intent-filter>
+		    <action android:name="android.intent.action.BOOT_COMPLETED" />
+		</intent-filter>
+	</receiver>
 
 Также необходимо добавить следующее разрешение, если оно отсутствует:
 
-		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-### Разрешения в Android M
+## Разрешения в Android M
 
 Начиная с Android M, управление некоторыми разрешениями осуществляется в среде выполнения и требует согласия пользователя.
 
@@ -160,4 +159,4 @@
         getEngagementAgent().refreshPermissions();
     }
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

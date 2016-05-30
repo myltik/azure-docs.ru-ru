@@ -29,7 +29,7 @@
 
 В домашнем ресурсе вашего приложения в Application Insights щелкните "Аналитика".
 
-![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics/001.png)
+![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics-using/001.png)
 
 Встроенный учебник подаст вам некоторые идеи о возможностях.
 
@@ -37,7 +37,7 @@
 
 ## Написание запросов
 
-Напишите запрос, начиная с имен каких-либо таблиц, приведенных в левой части окна. Используйте `|` для создания конвейера [операторов](app-insights-analytics-queries.md).
+Напишите запрос, начиная с имен каких-либо таблиц, приведенных в левой части окна. Используйте `|` для создания конвейера [операторов](app-insights-analytics-reference.md#queries-and-operators).
 
 
 ![](./media/app-insights-analytics-using/150.png)
@@ -60,9 +60,9 @@
 
 ![](./media/app-insights-analytics-using/030.png)
 
-> [AZURE.NOTE] Чтобы быстро изменить порядок результатов, доступных в веб-браузере, щелкните заголовок столбца. Но имейте в виду, что для большого результирующего набора в браузер загружается ограниченное количество строк. Поэтому сортировка таким способом не всегда показывает фактические наибольшие или наименьшие элементы. Для этого следует использовать оператор [top](app-insights-analytics-queries.md#top-operator) или [sort](app-insights-analytics-queries.md#sort-operator).
+> [AZURE.NOTE] Чтобы быстро изменить порядок результатов, доступных в веб-браузере, щелкните заголовок столбца. Но имейте в виду, что для большого результирующего набора в браузер загружается ограниченное количество строк. Поэтому сортировка таким способом не всегда показывает фактические наибольшие или наименьшие элементы. Для этого следует использовать оператор [top](app-insights-analytics-reference.md#top-operator) или [sort](app-insights-analytics-reference.md#sort-operator).
 
-Однако рекомендуется применять операторы [take](app-insights-analytics-queries.md#take-operator), [top](app-insights-analytics-queries.md#top-operator) или [summarize](app-insights-analytics-queries.md#summarize-operator), чтобы избежать скачивания больших таблиц с сервера. В любом случае существует автоматическое ограничение — около 10 000 строк в запросе.
+Однако рекомендуется применять операторы [take](app-insights-analytics-reference.md#take-operator), [top](app-insights-analytics-reference.md#top-operator) или [summarize](app-insights-analytics-reference.md#summarize-operator), чтобы избежать скачивания больших таблиц с сервера. В любом случае существует автоматическое ограничение — около 10 000 строк в запросе.
 
 
 ## Схемы
@@ -75,7 +75,7 @@
 
 ![](./media/app-insights-analytics-using/100.png)
 
-По умолчанию результаты изначально отображаются в виде таблицы, а схему вы выбираете вручную. Однако можно использовать [директиву render](app-insights-analytics-queries.md#render-directive) в конце запроса, чтобы выбрать схему.
+По умолчанию результаты изначально отображаются в виде таблицы, а схему вы выбираете вручную. Однако можно использовать [директиву render](app-insights-analytics-reference.md#render-directive) в конце запроса, чтобы выбрать схему.
 
 ## Экспорт в Excel
 
@@ -104,4 +104,4 @@
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

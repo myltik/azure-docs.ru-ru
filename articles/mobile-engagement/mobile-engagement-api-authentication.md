@@ -32,9 +32,9 @@
 
 	Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
 
->[AZURE.NOTE] Срок действия токенов Azure Active Directory — 1 час.
+>[AZURE.NOTE] Срок действия токенов Azure Active Directory — 1 час.
 
-Существует несколько способов получить токен. Так как вызовы API обычно осуществляются из облачной службы, возможно, понадобится использовать ключ API. Ключ API в Azure — это пароль субъекта-службы. Следующая процедура описывает один из способов его ручной настройки.
+Существует несколько способов получить токен. Так как вызовы API обычно осуществляются из облачной службы, возможно, понадобится использовать ключ API. Ключ API в Azure — это пароль субъекта-службы. Следующая процедура описывает один из способов его ручной настройки.
 
 ### Однократная настройка (с использованием сценария)
 
@@ -76,7 +76,7 @@
 		
 	**TenantId**, **SubscriptionId**, **ApplicationId** и **Secret**.
 
-	Вы будете использовать TenantId в качестве `{TENANT_ID}`, ApplicationId — в качестве `{CLIENT_ID}`, а Secret — в качестве — `{CLIENT_SECRET}`.
+	Вы будете использовать TenantId в качестве `{TENANT_ID}`, ApplicationId — в качестве `{CLIENT_ID}`, а Secret — в качестве — `{CLIENT_SECRET}`.
 
 	> [AZURE.NOTE] Политика безопасности по умолчанию может блокировать выполнение сценариев PowerShell. В таком случае используйте следующую команду, чтобы настроить временную политику и обеспечить возможность выполнить сценарий:
 
@@ -95,7 +95,7 @@
 1. Вызовите API со следующими параметрами и замените TENANT\_ID, CLIENT\_ID и CLIENT\_SECRET:
 
 	- **URL-адрес запроса** как **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
-	- **Заголовок Content-Type HTTP** как *application/x-www-form-urlencoded*
+- **Заголовок Content-Type HTTP** как *application/x-www-form-urlencoded*
 	- **Текст запроса HTTP** как *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
 
 	Вот пример запроса:
@@ -115,7 +115,7 @@
 		{"token_type":"Bearer","expires_in":"3599","expires_on":"1445395811","not_before":"144
 		5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_TOKEN}}
 
-	В этом примере предусмотрено кодирование параметров POST в URL-адреса, поэтому на самом деле значение `resource` — `https://management.core.windows.net/`. Следует также закодировать параметр `{CLIENT_SECRET}` в URL-адрес, так как в нем могут содержаться специальные знаки.
+	В этом примере предусмотрено кодирование параметров POST в URL-адреса, поэтому на самом деле значение `resource` — `https://management.core.windows.net/`. Следует также закодировать параметр `{CLIENT_SECRET}` в URL-адрес, так как в нем могут содержаться специальные знаки.
 
 	> [AZURE.NOTE] Для тестирования можно использовать средство клиента HTTP, такое как [Fiddler](http://www.telerik.com/fiddler) или [расширение Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop).
 
@@ -123,7 +123,7 @@
 
 		Authorization: Bearer {ACCESS_TOKEN}
 
-	Если вернется код состояния 401, проверьте текст ответа. Возможно, истек срок действия маркера. В этом случае следует получить новый маркер.
+	Если вернется код состояния 401, проверьте текст ответа. Возможно, истек срок действия маркера. В этом случае следует получить новый маркер.
 
 ##Использование API
 
@@ -136,7 +136,7 @@
 		https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/
 		providers/Microsoft.MobileEngagement/appcollections/{app-collection}/apps/{app-resource-name}/
 
-	Чтобы получить параметры, щелкните имя приложения, а затем — "Панель мониторинга", и вы увидите страницу с такими тремя параметрами:
+	Чтобы получить параметры, щелкните имя приложения, а затем — "Панель мониторинга", и вы увидите страницу с такими тремя параметрами:
 
 	- **1** `{subscription-id}`
 	- **2** `{app-collection}`
@@ -146,7 +146,8 @@
 	![Параметры URI API Mobile Engagement][2]
 
 >[AZURE.NOTE] <br/>
->1. Игнорируйте параметр корневого адреса API, так как он предназначался для предыдущих API.<br/> 2. Используемое имя ресурса приложения должно отличаться от имени самого приложения. 
+>1. Игнорируйте параметр корневого адреса API, так как он предназначался для предыдущих API.<br/>
+>2. Если вы создали приложение с помощью классического портала Azure, используемое имя ресурса приложения должно отличаться от имени самого приложения. Если вы создали приложение на портале Azure, используйте имя самого приложения (для приложений, создаваемых на новом портале, никакой разницы между именем ресурса приложения и именем приложения нет).  
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication/azure-module.png
@@ -154,4 +155,4 @@
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

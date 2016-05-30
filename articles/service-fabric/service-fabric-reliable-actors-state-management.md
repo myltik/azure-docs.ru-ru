@@ -232,4 +232,4 @@ class MyActor : Actor, IMyActor
  - [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Пример кода](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

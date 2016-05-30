@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/14/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Справочник разработчика C# по функциям Azure
@@ -87,7 +87,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 
 ## Импорт пространств имен
 
-Если требуется импортировать пространства имен, это можно сделать как обычно — с помощью предложения `using`.
+Если требуется импортировать пространства имен, это можно сделать как обычно — с помощью предложения `using`.
 
 ```csharp
 using System.Net;
@@ -100,8 +100,10 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 * `System`
 * `System.Collections.Generic`
+* `System.IO`
 * `System.Linq`
 * `System.Net.Http`
+* `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
@@ -121,7 +123,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 Следующие сборки автоматически добавляются средой внешнего размещения Функций Azure:
 
-* `mscorlib`,
+* `mscorlib`
 * `System`
 * `System.Core`
 * `System.Xml`
@@ -135,14 +137,16 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 Кроме того, следующие сборки представляют собой частные случаи, и к ним можно обращаться по простому имени (например, `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-Если необходимо указать ссылку на закрытую сборку, можно отправить файл сборки в папку `bin`, связанную с вашей функцией, и указать его по имени файла (например, `#r "MyAssembly.dll"`).
+Если необходимо указать ссылку на закрытую сборку, можно отправить файл сборки в папку `bin`, связанную с вашей функцией, и указать его по имени файла (например, `#r "MyAssembly.dll"`). Дополнительные сведения о передаче файлов в папку функции см. в следующем разделе.
 
 ## Управление пакетами
 
-Чтобы использовать пакеты NuGet в функции C#, отправьте файл *project.json* в папку соответствующей функции в файловой системе приложения функции. Ниже приведен пример файла *project.json*, который добавляет ссылку на Microsoft.ProjectOxford.Face версии 1.1.0:
+Чтобы использовать пакеты NuGet в функции C#, отправьте файл *project.json* в папку соответствующей функции в файловой системе приложения-функции. Ниже приведен пример файла *project.json*, который добавляет ссылку на Microsoft.ProjectOxford.Face версии 1.1.0:
 
 ```json
 {
@@ -156,47 +160,17 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 }
 ```
 
-При отправке файла *project.json* среда выполнения получает пакеты и автоматически добавляет ссылки на сборки пакетов. Добавлять директивы `#r "AssemblyName"` не нужно. Просто добавьте необходимые инструкции `using` в файл *run.csx* для использования типов, определенных в пакетах NuGet.
+При отправке файла *project.json* среда выполнения получает пакеты и автоматически добавляет ссылки на сборки пакетов. Добавлять директивы `#r "AssemblyName"` не нужно. Просто добавьте необходимые указания `using` в файл *run.csx* для использования типов, определенных в пакетах NuGet.
 
 ### Отправка файла project.json
 
-Сначала убедитесь, что приложение функции запущено, для чего можно открыть эту функцию на портале Azure. Это также обеспечивает доступ к потоковым журналам, где будут отображаться выходные данные установки пакета.
+1. Сначала убедитесь, что приложение функции запущено, для чего можно открыть эту функцию на портале Azure. 
 
-Приложения функций строятся на основе службы приложений, поэтому для этих приложений доступны все [параметры развертывания, доступные для стандартных веб-приложений](../app-service-web/web-sites-deploy.md). Вот некоторые методы, которые можно использовать.
+	Это также обеспечивает доступ к потоковым журналам, где будут отображаться выходные данные установки пакета.
 
-#### Отправка файла project.json с помощью Visual Studio Online (Monaco)
+2. Чтобы передать файл project.json, используйте один из методов, описанных в разделе **Как обновить файлы приложения-функции** статьи [Справочник разработчика по функциям Azure](functions-reference.md#fileupdate).
 
-1. На портале Функций Azure щелкните **Параметры приложения функций**.
-
-2. В разделе **Дополнительные параметры** щелкните **Перейти к параметрам службы приложений**.
-
-3. Щелкните **Средства**.
-
-4. В разделе **Разработка** щелкните **Visual Studio Online**.
-
-5. Выберите **Вкл.**, если этот параметр еще не включен, а затем щелкните **Перейти**.
-
-6. После загрузки Visual Studio Online перетащите файл *project.json* вашего проекта в папку функции (папку, имя которой соответствует имени требуемой функции).
-
-#### Отправка файла project.json с использованием конечной точки SCM (Kudu) приложения функции
-
-1. Перейдите на страницу `https://<function_app_name>.scm.azurewebsites.net`.
-
-2. Щелкните **Консоль отладки > CMD**.
-
-3. Перейдите в папку *D:\\home\\site\\wwwroot<имя\_функции>*.
-
-4. Перетащите файл *project.json* в эту папку (на файловую сетку).
-
-#### Отправка файла project.json с помощью FTP
-
-1. Для настройки FTP следуйте инструкциям в [этом разделе](../app-service-web/web-sites-deploy.md#ftp).
-
-2. Подключившись к сайту приложения функции, скопируйте файл *project.json* в расположение */site/wwwroot/<function_name>*.
-
-#### Журнал установки пакета 
-
-После отправки файла *project.json* в потоковом журнале функции отобразятся выходные данные, подобные следующему примеру:
+3. После отправки файла *project.json* в потоковом журнале функции отобразятся выходные данные, подобные следующему примеру:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -213,6 +187,25 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.455 Packages restored.
+```
+
+## Переменные среды
+
+Чтобы получить значение переменной среды или значение параметра приложения, используйте свойство `System.Environment.GetEnvironmentVariable`, как показано в следующем примере кода:
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+}
+
+public static string GetEnvironmentVariable(string name)
+{
+    return name + ": " + 
+        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+}
 ```
 
 ## Повторное использование кода CSX
@@ -258,4 +251,4 @@ public static void MyLogger(TraceWriter log, string logtext)
 * [Справочник разработчика NodeJS по функциям Azure](functions-reference-node.md)
 * [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

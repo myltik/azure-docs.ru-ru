@@ -1,5 +1,5 @@
 <properties
-  pageTitle="Azure IoT Suite и Azure Active Directory | Microsoft Azure"
+  pageTitle="Azure IoT Suite и Azure Active Directory | Microsoft Azure"
   description="В этой статье описывается, как набор Azure IoT Suite использует Azure Active Directory для управления разрешениями."
   services=""
   suite="iot-suite"
@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="03/02/2016"
+  ms.date="05/16/2016"
   ms.author="araguila"/>
   
 # Разрешения на сайте azureiotsuite.com
@@ -145,4 +145,4 @@
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

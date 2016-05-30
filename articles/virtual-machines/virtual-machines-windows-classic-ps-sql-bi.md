@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
-	manager="jeffreyg"
+	manager="mblythe"
 	editor="monicar"
 	tags="azure-service-management"/>
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/11/2015"
+	ms.date="05/13/2016"
 	ms.author="asaxton" />
 
 # Бизнес-аналитика SQL Server на виртуальных машинах Azure
@@ -50,27 +50,29 @@
 
 	Set-AzureSubscription -SubscriptionName $subscriptionName -Certificate $certificate -SubscriptionID $subscriptionID
 
+	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2016"
+	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2016*"} | select imagename,category, location, label, description
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2014"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2014*"} | select imagename,category, location, label, description
-
-	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2012"
-	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2012*"} | select imagename,category, location, label, description
 
 Дополнительные сведения о выпусках и функциях, поддерживаемых в SQL Server, см. в следующих разделах.
 
 - [Выпуски SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
 
-- [Функции, поддерживаемые различными выпусками SQL Server 2014](https://msdn.microsoft.com/library/cc645993.aspx)
+- [Features Supported by the Editions of SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx) (Функции, поддерживаемые различными выпусками SQL Server 2016).
 
 ### Компоненты бизнес-аналитики, установленные в образах коллекции виртуальных машин SQL Server
 
 В следующей таблице перечислены компоненты бизнес-аналитики, установленные в общих образах коллекции виртуальных машин Microsoft Azure, для SQL Server.
 
-- SQL Server 2014 RTM Enterprise
+- SQL Server 2016 RC3
 
-- SQL Server 2014 Standard
+- SQL Server 2014 SP1 Enterprise
+
+- SQL Server 2014 SP1 Standard
 
 - SQL Server 2012 SP2 Enterprise
 
@@ -81,7 +83,7 @@
 |**Собственный режим служб Reporting Services**|Да|Установлен, но требует настройки, включая URL-адрес диспетчера отчетов. См. раздел [Настройка служб Reporting Services](#configure-reporting-services).|
 |**Режим SharePoint служб Reporting Services**|Нет|Образ коллекции виртуальных машин Microsoft Azure не включает в себя SharePoint или файлы установки SharePoint. <sup>1</sup>|
 |**Многомерный и интеллектуальный анализ данных в службах Analysis Services (OLAP)**|Да|Установлен и настроен в качестве экземпляра служб Analysis Services по умолчанию.|
-|**Табличный режим служб Analysis Services**|Нет|Поддерживается в образах SQL Server 2012 и 2014, но не устанавливается по умолчанию. Установите другой экземпляр служб Analysis Services. См. подраздел "Установка других служб и компонентов SQL Server" этого раздела.|
+|**Табличный режим служб Analysis Services**|Нет|Поддерживается в образах SQL Server 2012, 2014 и 2016, но не устанавливается по умолчанию. Установите другой экземпляр служб Analysis Services. См. подраздел "Установка других служб и компонентов SQL Server" этого раздела.|
 |**Power Pivot служб Analysis Services для SharePoint**|Нет|Образ коллекции виртуальных машин Microsoft Azure не включает в себя SharePoint или файлы установки SharePoint. <sup>1</sup>|
 
 <sup>1</sup> Дополнительные сведения о SharePoint и виртуальных машинах Azure см. в статьях [Архитектура Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) и [Развертывание SharePoint на виртуальных машинах Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=34598).
@@ -184,7 +186,7 @@
 
 1. Нажмите кнопку **Пуск** и выберите **Все программы**.
 
-1. Щелкните **Microsoft SQL Server 2012**.
+1. Выберите пункт **Microsoft SQL Server 2016**.
 
 1. Выберите **Средства настройки**.
 
@@ -240,9 +242,9 @@
 
 1. На странице **Ход выполнения и завершение** нажмите кнопку **Далее**.
 
-**URL-адрес диспетчера отчетов:**
+**URL-адрес веб-портала или URL-адрес диспетчера отчетов для выпусков 2012 и 2014:**
 
-1. Щелкните элемент **URL-адрес диспетчера отчетов** на левой панели.
+1. Щелкните **Web Portal URL** (URL-адрес веб-портала) или **URL-адрес диспетчера отчетов** для выпусков 2012 и 2014 в левой области.
 
 1. Нажмите кнопку **Применить**.
 
@@ -260,31 +262,33 @@
 
 1. Перейдите в каталог http://localhost/reports на виртуальной машине.
 
-### Подключение к удаленному диспетчеру отчетов
+### Подключение к удаленному веб-порталу или диспетчеру отчетов для выпусков 2012 и 2014
 
-Если требуется подключиться к диспетчеру отчетов на виртуальной машине с удаленного компьютера, создайте новую конечную точку TCP виртуальной машины. По умолчанию сервер отчетов прослушивает HTTP-запросы через **порт 80**. В случае настройки URL-адресов сервера отчетов на использование другого порта необходимо указать этот номер порта в следующих инструкциях.
+Если требуется подключиться к веб-порталу или диспетчеру отчетов для выпусков 2012 и 2014 на виртуальной машине с удаленного компьютера, создайте новую конечную точку TCP виртуальной машины. По умолчанию сервер отчетов прослушивает HTTP-запросы через **порт 80**. В случае настройки URL-адресов сервера отчетов на использование другого порта необходимо указать этот номер порта в следующих инструкциях.
 
 1. Создайте конечную точку для виртуальной машины через TCP-порт 80. Дополнительные сведения см. в подразделе [Конечные точки виртуальной машины и порты брандмауэра](#virtual-machine-endpoints-and-firewall-ports) этого документа.
 
 1. Откройте порт 80 в брандмауэре виртуальной машины.
 
-1. Перейдите к диспетчеру отчетов, используя **DNS-имя** виртуальной машины Azure в качестве имени сервера в URL-адресе. Например:
+1. Перейдите к веб-порталу или диспетчеру отчетов, используя **DNS-имя** виртуальной машины Azure в качестве имени сервера в URL-адресе. Например:
 
-	**Диспетчер отчетов**: http://uebi.cloudapp.net/reportserver **Сервер отчетов**: http://uebi.cloudapp.net/reports
+	**Сервер отчетов**: http://uebi.cloudapp.net/reportserver, **веб-портал**: http://uebi.cloudapp.net/reports.
 
-	[Настройка брандмауэра для доступа к серверу отчетов](https://technet.microsoft.com/library/bb934283.aspx)
+	[Настройка брандмауэра для доступа к серверу отчетов](https://msdn.microsoft.com/library/bb934283.aspx)
 
 ### Создание и публикация отчетов на виртуальной машине Azure
 
 В следующей таблице перечислены некоторые параметры, доступные для публикации существующих отчетов с локального компьютера на сервер отчетов, размещенный на виртуальной машине Microsoft Azure.
 
-- **Построитель отчетов**. Виртуальная машина включает в себя ClickOnce-версию построителя отчетов Microsoft SQL Server. Для первого запуска построителя отчетов на виртуальной машине выполните следующие действия.
+- **Построитель отчетов**. Виртуальная машина включает в себя ClickOnce-версию построителя отчетов Microsoft SQL Server для выпусков 2012 и 2014. Для первого запуска построителя отчетов на виртуальной машине с SQL 2016 сделайте следующее:
 
 	1. Запустите браузер с правами администратора.
 
-	1. Перейдите к диспетчеру отчетов на виртуальной машине и щелкните элемент **Построитель отчетов** на ленте.
+	1. Перейдите на веб-портал на виртуальной машине и выберите значок **Скачать** в правом верхнем углу.
+	
+	1. Выберите **Построитель отчетов**.
 
-	Дополнительные сведения см. в разделе [Установка, удаление и поддержка построителя отчетов](https://technet.microsoft.com/library/dd207038.aspx).
+	Дополнительные сведения см. в разделе [Start Report Builder](https://msdn.microsoft.com/library/ms159221.aspx) (Запуск построителя отчетов).
 
 - **SQL Server Data Tools**: виртуальная машина. Компонент SQL Server Data Tools устанавливается на виртуальной машине и может использоваться для создания **проектов сервера отчетов** и отчетов на виртуальной машине. SQL Server Data Tools может публиковать отчеты на сервере отчетов на виртуальной машине.
 
@@ -308,11 +312,11 @@
 
 1. Нажмите кнопку **Пуск** и выберите **Все программы**.
 
-1. Щелкните **Microsoft SQL Server 2014** или **Microsoft SQL Server 2012**, а затем — **Средства настройки**.
+1. Щелкните **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** или **Microsoft SQL Server 2012**, а затем выберите **Средства настройки**.
 
 1. Щелкните **Центр установки SQL Server**.
 
-Либо запустите файл C:\\SQLServer\_12.0\_full\\setup.exe или C:\\SQLServer\_11.0\_full\\setup.exe.
+Либо запустите файл C:\\SQLServer\_13.0\_full\\setup.exe, C:\\SQLServer\_12.0\_full\\setup.exe или C:\\SQLServer\_11.0\_full\\setup.exe.
 
 >[AZURE.NOTE] При первом запуске программы установки SQL Server может потребоваться скачивание большего числа файлов установки, а также перезагрузка виртуальной машины и перезапуск программы установки SQL Server.
 >
@@ -324,13 +328,13 @@
 
 - [Установка служб Analysis Services в табличном режиме](https://msdn.microsoft.com/library/hh231722.aspx)
 
-- [Табличное моделирование (руководство по Adventure Works)](https://technet.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
+- [Табличное моделирование (руководство по Adventure Works)](https://msdn.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
 
 **Порядок установки табличного режима служб Analysis Services:**
 
 1. В левой области мастера установки SQL Server щелкните элемент **Установка**, а затем — элемент **Новая установка изолированного экземпляра SQL Server или добавление компонентов к существующей установке**.
 
-	- Если вы видите элемент **Обзор папок**, перейдите к папке c:\\SQLServer\_12.0\_full или c:\\SQLServer\_11.0\_full и нажмите кнопку **ОК**.
+	- Если вы видите элемент **Выбор папки**, перейдите к папке c:\\SQLServer\_13.0\_full, c:\\SQLServer\_12.0\_full или c:\\SQLServer\_11.0\_full и нажмите кнопку **ОК**.
 
 1. Нажмите кнопку **Далее** на странице обновлений продуктов.
 
@@ -388,9 +392,7 @@
 
 	|Порт|Тип|Описание|
 |---|---|---|
-|**80**|TCP|Удаленный доступ к серверу отчетов (*).|
-|**1433**|TCP|SQL Server Management Studio (*).|
-|**1434**|UDP|Обозреватель SQL Server. Это необходимо, если виртуальная машина присоединена к домену.|
+|**80**|TCP|Удаленный доступ к серверу отчетов (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|Обозреватель SQL Server. Это необходимо, если виртуальная машина присоединена к домену.|
 |**2382**|TCP|Обозреватель SQL Server.|
 |**2383**|TCP|Экземпляр SQL Server Analysis Services по умолчанию и кластеризованные именованные экземпляры.|
 |**Определяется пользователем**|TCP|Создайте статический порт именованного экземпляра служб Analysis Services для выбранного номера порта, а затем разблокируйте этот порт в брандмауэре.|
@@ -433,4 +435,4 @@
 
 - [Управление базой данных SQL Azure с помощью PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

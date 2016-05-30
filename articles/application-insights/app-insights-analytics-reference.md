@@ -543,7 +543,7 @@ range timestamp from ago(4h) to now() step 1m
 Пытается сгруппировать похожие записи. Для каждой группы оператор выводит шаблон (`Pattern`), который считает наилучшим описанием этой группы, а также количество записей (`Count`).
 
 
-![](./media/app-insights-analytics-queries/reduce.png)
+![](./media/app-insights-analytics-reference/reduce.png)
 
 **Синтаксис**
 
@@ -701,7 +701,7 @@ Traces
 
 **Аргументы**
 
-*  *Table1*, *Table2* …
+* *Table1*, *Table2*…
  *  Имя таблицы, например `requests`, или таблицы, определенной в [предложении let](#let-clause).
  *  Или выражение запроса, например `(requests | where success=="True")`.
  *  Набор таблиц, указанных с помощью подстановочного знака. Например, `e*` сформирует объединение всех таблиц, определенных в предыдущих предложениях let, имена которых начинаются на e, вместе с таблицей exceptions.
@@ -844,7 +844,7 @@ traces
       by name
 
 
-![](./media/app-insights-analytics-aggregations/argmin.png)
+![](./media/app-insights-analytics-reference/argmin.png)
  
 
 
@@ -980,7 +980,7 @@ traces
     | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/dcount.png)
+![](./media/app-insights-analytics-reference/dcount.png)
 
 ### makelist
 
@@ -1004,7 +1004,7 @@ traces
     | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/makeset.png)
+![](./media/app-insights-analytics-reference/makeset.png)
 
 Противоположную функцию выполняет [оператор `mvexpand`](#mvexpand-operator).
 
@@ -1052,7 +1052,7 @@ traces
         percentiles(duration, 5, 20, 50, 80, 95) 
       by name
 
-![](./media/app-insights-analytics-aggregations/percentiles.png)
+![](./media/app-insights-analytics-reference/percentiles.png)
 
 Результаты показывают, что для запроса /Events/Index 5 % запросов были выполнены за 2,44 с, половина запросов — за 3,52 с, а 5 % — более чем за 6,85 с.
 
@@ -1288,17 +1288,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | Добавить |
-| – | Вычитание |
-| * | Умножение |
-| / | Деление |
-| % | Остаток от деления |
-||
-|`<` | Меньше
-|`<=`|Меньше или равно
-|`>` |Больше
-|`>=`|Больше или равно
-|`<>`|Не равно
-|`!=`|Не равно
+| – | Вычитание || * | Умножение | | / | Деление | | % | Остаток от деления | || |`<` | Меньше |`<=`|Меньше или равно |`>` |Больше |`>=`|Больше или равно |`<>`|Не равно |`!=`|Не равно
 
 
 
@@ -1911,7 +1901,7 @@ substring("ABCD", 0, 2)       // AB
 
 Ниже приведен результат запроса на исключение Application Insights. Значение `details` является массивом.
 
-![](./media/app-insights-analytics-scalars/310.png)
+![](./media/app-insights-analytics-reference/310.png)
 
 **Индексирование:** массивы и объекты можно индексировать так же, как в JavaScript.
 
@@ -1943,7 +1933,7 @@ substring("ABCD", 0, 2)       // AB
     | mvexpand details[0].parsedStack[0]
 
 
-![](./media/app-insights-analytics-scalars/410.png)
+![](./media/app-insights-analytics-reference/410.png)
 
 
 **treepath:** используется для поиска всех путей в сложном объекте:
@@ -1953,7 +1943,7 @@ substring("ABCD", 0, 2)       // AB
     | mvexpand path
 
 
-![](./media/app-insights-analytics-scalars/420.png)
+![](./media/app-insights-analytics-reference/420.png)
 
 **buildschema** применяется для поиска минимальной схемы, которая допускает все значения выражения в таблице:
 
@@ -2233,4 +2223,4 @@ range(1, 8, 3)
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

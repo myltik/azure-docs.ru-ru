@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2016"
+   ms.date="05/13/2016"
    ms.author="alkohli" />
 
 # Безопасная установка и эксплуатация устройства StorSimple
@@ -179,4 +179,4 @@
 
 - Для устройства 8600 перейдите к разделу [Установите ваше устройство StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0518_2016-->

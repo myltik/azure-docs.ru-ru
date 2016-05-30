@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/09/2016"
    ms.author="tedway; neerajkh"/>
 
 # Справка по размещению в различных регионах
@@ -38,7 +38,9 @@
 
 ## Управление веб-службой
 
-Для программного управления веб-службами, например для повторного обучения, используйте адрес региона: ****https://asiasoutheast.management.azureml.net**.
+Для программного управления веб-службами, например для повторного обучения, используйте адрес региона:
+- https://asiasoutheast.management.azureml.net
+- https://europewest.management.azureml.net
 
 ### Примечания
 
@@ -57,4 +59,4 @@
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

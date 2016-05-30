@@ -11,7 +11,7 @@
 
 Задача | Режим управления службами | Модель диспетчера ресурсов.
 -------------- | ----------- | -------------------------
-Создание самой простой виртуальной машины | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Получите `image-urn` из команды `azure vm image list`. Примеры см. в [этой статье](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md).)
+Создание самой простой виртуальной машины | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Получите `image-urn` для популярных образов Marketplace, выполнив `azure help vm quick-create`. Для имен URN в формате *publisherName:offer:skus:version* см. примеры [в этой статье](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md).)
 Создание виртуальной машины Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Создание виртуальной машины Windows | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 Вывод списка виртуальных машин | `azure  vm list [options]` | `azure  vm list [options]`
@@ -40,6 +40,5 @@
 
 ## Дальнейшие действия
 
-* Дополнительные примеры команд интерфейса командной строки см. в статьях [Команды Azure CLI в режиме управления службами Azure](../articles/virtual-machines-command-line-tools.md) и [Команды Azure CLI в режиме Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
+* Дополнительные примеры команд интерфейса командной строки см. в статьях [Команды Azure CLI в режиме управления службами Azure (ASM)](../articles/virtual-machines-command-line-tools.md) и [Команды Azure CLI в режиме Azure Resource Manager (ARM)](../articles/virtual-machines/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0420_2016-->

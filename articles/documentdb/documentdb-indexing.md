@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="05/05/2016" 
 	ms.author="arramac"/>
 	
 # Автоматическое индексирование в Azure DocumentDB
@@ -23,7 +23,7 @@
 После прочтения этой статьи вы сможете ответить на следующие вопросы:
 
 - Как DocumentDB выводит схему из документа JSON?
-- Как DocumentDB строит индекс разнородных документов?
+- Как DocumentDB формирует индекс разнородных документов?
 - Как DocumentDB выполняет автоматическое индексирование в масштабе?
 
 ##<a id="HowDocumentDBIndexingWorks"></a> Как работает индексирование в DocumentDB
@@ -67,4 +67,4 @@
 - Узнайте о том, как настроить индекс DocumentDB, [здесь](documentdb-indexing-policies.md).
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

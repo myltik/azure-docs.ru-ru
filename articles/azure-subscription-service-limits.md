@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/11/2016"
 	ms.author="jroth"/>
 
 # Подписка Azure, границы, квоты и ограничения службы
@@ -22,7 +22,7 @@
 
 Настоящий документ описывает некоторые из наиболее известных ограничений Microsoft Azure. Учтите, что на текущий момент он охватывает не все службы Azure. Со временам эти ограничения будут расширены.
 
-> [AZURE.NOTE] Если требуется сделать ограничение выше значения **ограничения по умолчанию**, то можно [бесплатно отправить запрос в службу поддержки](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Ограничения не могут быть увеличены выше значения **Максимальное ограничение** в таблицах ниже. Если столбца **Максимальное ограничение** нет, то указанный ресурс не имеет настраиваемого ограничения.
+> [AZURE.NOTE] Если требуется сделать ограничение выше значения **ограничения по умолчанию**, то можно [бесплатно отправить запрос в службу поддержки](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Ограничения не могут быть увеличены выше значения **Максимальное ограничение ** в таблицах ниже. Если столбца **Максимальное ограничение ** нет, то указанный ресурс не имеет настраиваемого ограничения.
 
 ## Ограничения и диспетчер ресурсов Azure
 
@@ -41,6 +41,7 @@
 - [Управление API](#api-management-limits)
 - [Служба приложений](#app-service-limits)
 - [Application Insights](#application-insights-limits)
+- [Автоматизация](#automation-limits)
 - [кэш Azure Redis](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [Архивация](#backup-limits)
@@ -272,6 +273,9 @@
 ### Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
+### Ограничения автоматизации
+[AZURE.INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
 ### Ограничения базы данных SQL
 
 Ограничения базы данных SQL см. в разделе [Ограничения ресурсов базы данных SQL](sql-database/sql-database-resource-limits.md).
@@ -284,4 +288,4 @@
 
 [Размеры для облачных служб](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

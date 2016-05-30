@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/13/2016"
    ms.author="bwren" />
 
 # Что такое Log Analytics?
@@ -69,8 +69,8 @@ Log Analytics предъявляет минимальные требования
 
 ## Дальнейшие действия
 
-- [Создайте бесплатную учетную запись Log Analytics](log-analytics) для тестирования в собственной среде.
+- [Создайте бесплатную учетную запись Log Analytics](log-analytics-get-started.md) для тестирования в собственной среде.
 - Просмотрите различные [источники данных](log-analytics-data-sources.md), доступные для сбора данных в репозиторий OMS. 
 - Чтобы добавить функции в службу Log Analytics, [найдите доступные решения в коллекции решений](log-analytics-add-solutions.md). 
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

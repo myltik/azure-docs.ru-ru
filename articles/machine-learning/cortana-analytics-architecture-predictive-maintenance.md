@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Архитектура шаблона решения Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических и других компаниях | Microsoft Azure"
+	pageTitle="Архитектура диагностического обслуживания | Microsoft Azure"
 	description="Схема архитектуры шаблона решения Microsoft Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических, транспортных и обслуживающих компаниях."
 	services="cortana-analytics"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="05/14/2016"
 	ms.author="garye" />
 
 # Архитектура шаблона решения Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических и других компаниях
@@ -26,4 +26,4 @@
 
 [image]: ./media/cortana-analytics-architecture-predictive-maintenance/ca-topologies-maintenance-prediction.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

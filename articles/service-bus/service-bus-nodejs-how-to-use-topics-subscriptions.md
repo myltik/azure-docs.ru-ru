@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 
@@ -119,7 +119,7 @@ function handle (requestOptions, next)
 function (returnObject, finalCallback, next)
 ```
 
-В этой функции обратного вызова и после обработки returnObject (ответ на запрос к серверу) функция обратного вызова должна либо вызвать "next", если он существует, чтобы продолжить обработку других фильтров, либо в противном случае просто вызвать "finalCallback" для завершения обращения к службе.
+В этой функции обратного вызова и после обработки **returnObject** (ответ на запрос к серверу) функция обратного вызова должна либо вызвать "next", если он существует, чтобы продолжить обработку других фильтров, либо в противном случае просто вызвать **finalCallback** для завершения обращения к службе.
 
 В Azure SDK для Node.js включены два фильтра, реализующие логику повторных попыток: **ExponentialRetryPolicyFilter** и **LinearRetryPolicyFilter** Следующий код создает объект **ServiceBusService**, использующий **ExponentialRetryPolicyFilter**
 
@@ -317,7 +317,7 @@ for (i = 0;i < 5;i++) {
 -   Посетите репозиторий [Пакет SDK хранилища Azure для Node][] на веб-сайте GitHub.
 
   [Пакет SDK хранилища Azure для Node]: https://github.com/Azure/azure-sdk-for-node
-  [классическом портале Azure]: http://manage.windowsazure.com
+  [классическом портале Azure]: https://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
@@ -327,4 +327,4 @@ for (i = 0;i < 5;i++) {
   [Веб-приложение Node.js с хранилищем]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

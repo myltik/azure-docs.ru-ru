@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Поддержка нескольких доменов для федерации с Azure AD
@@ -153,4 +153,4 @@
 ![Заменить утверждение](./media/active-directory-multiple-domains/sub2.png)
 5.	Нажмите кнопку "ОК". Нажмите кнопку "Применить". Нажмите кнопку "ОК". Откройте оснастку управления AD FS.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

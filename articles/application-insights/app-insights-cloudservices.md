@@ -47,7 +47,7 @@
     ![Нажмите "Свойства", выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-cloudservices/02-props.png)
 
 
-Обычно лучше создавать отдельный ресурс для данных из каждой рабочей роли и веб-роли.
+Обычно [лучше создавать отдельный ресурс для данных из каждой рабочей роли и веб-роли](app-insights-separate-resources.md).
 
 В качестве альтернативы можно отправлять данные из всех ролей только в один ресурс, но задать значение [свойства по умолчанию][apidefaults], чтобы можно было фильтровать или группировать результаты из каждой роли.
 
@@ -59,7 +59,7 @@
     ![Щелкните проект правой кнопкой мыши и выберите пункт "Управление пакетами Nuget"](./media/app-insights-cloudservices/03-nuget.png)
 
 
-2. Добавьте пакет NuGet [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Эта версия пакета SDK включает модули, которые добавляют контекст сервера, например информацию о роли. Для рабочих ролей используйте Application Insights для служб Windows.
+2. Для веб-ролей добавьте пакет NuGet [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Эта версия пакета SDK включает модули, которые добавляют контекст сервера, например информацию о роли. Для рабочих ролей используйте [Application Insights для служб Windows](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Поиск Application Insights](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -173,7 +173,7 @@
 
 Если приложение использует платформу .NET Framework 4.6 или более поздней версии, больше ничего делать не нужно.
 
-В противном случае нужно настроить веб-роль или рабочую роль с помощью [агента Application Insights](app-insights-monitor-performance-live-website-now.md), который называется также "Монитор состояния".
+В противном случае нужно настроить веб-роль или рабочую роль с помощью [агента Application Insights](app-insights-monitor-performance-live-website-now.md), который также называется монитором состояния.
 
 Вот что нужно сделать, чтобы использовать агент Application Insights с помощью веб-ролей или рабочих ролей.
 
@@ -201,10 +201,10 @@
 
 Способы сбора необработанных исключений, выдаваемых веб-приложениями разных типов, см. в статье [Мониторинг исключений в Application Insights](app-insights-asp-net-exceptions.md).
 
-Образец веб-роли имеет контроллеры MVC5 и веб-API 2. Необработанные исключения из 2 регистрируются такими объектами:
+Образец веб-роли имеет контроллеры MVC5 и веб-API 2. Необработанные исключения из 2 регистрируются такими объектами:
 
 * объектом [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs), заданным [здесь](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12) для контроллеров MVC5;
-* объектом [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs), заданным [здесь](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) для контроллеров веб-API 2.
+* объектом [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs), заданным [здесь](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) для контроллеров веб-API 2.
 
 Для рабочих ролей есть два способа отслеживания исключений.
 
@@ -234,7 +234,7 @@
 
 ## Коррелированная телеметрия для рабочих ролей
 
-Если вы видите причины неудавшихся запросов или запросов с высокой задержкой, это значит, что вы обладаете широким спектром возможностей диагностики. При работе с веб-ролями пакет SDK автоматически настраивает корреляцию между связанными данными телеметрии. Для рабочих ролей вы можете использовать пользовательский инициализатор телеметрии, чтобы задать атрибут общего контекста Operation.Id, и тогда эта возможность будет доступна для всех сведений телеметрии. Вы сможете узнать причину сбоя или задержки — зависимость или ваш код — с одного взгляда.
+Если вы видите причины неудавшихся запросов или запросов с высокой задержкой, это значит, что вы обладаете широким спектром возможностей диагностики. При работе с веб-ролями пакет SDK автоматически настраивает корреляцию между связанными данными телеметрии. Для рабочих ролей вы можете использовать пользовательский инициализатор телеметрии, чтобы задать атрибут общего контекста Operation.Id, и тогда эта возможность будет доступна для всех сведений телеметрии. Вы сможете узнать причину сбоя или задержки — зависимость или ваш код — с одного взгляда.
 
 Этот процесс описывается далее.
 
@@ -275,7 +275,7 @@
 
 [api]: app-insights-api-custom-events-metrics.md
 [apidefaults]: app-insights-api-custom-events-metrics.md#default-properties
-[apidynamicikey]: app-insights-api-custom-events-metrics.md#dynamic-ikey
+[apidynamicikey]: app-insights-separate-resources.md#dynamic-ikey
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: app-insights-azure.md
 [client]: app-insights-javascript.md
@@ -286,4 +286,4 @@
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -138,9 +138,7 @@
 
 В распоряжении разработчиков имеются кроссплатформенные инструменты, которые позволяют гораздо эффективнее использовать ресурсы любого мобильного устройства на основе одного и того же кода (обычно — JavaScript). Мобильные службы упрощают создание серверных служб для платформ разработки кроссплатформенных приложений и управление этими службами. Это возможно благодаря кратким учебникам для следующих платформ разработки:
 
-+ [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator позволяет разработать на JavaScript единое приложение, которое после компиляции будет работать на всех платформах мобильных устройств как собственное. Это дает возможность обеспечить эффективное взаимодействие с пользователем через пользовательский интерфейс, получить доступ ко всем ресурсам устройства и создать высокопроизводительное приложение. Дополнительную информацию см. в [учебнике по платформе Appcelerator][Appcelerator].
-
-+ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707) **или** [**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (распространение проекта Apache Cordova) — бесплатная платформа с открытым исходным кодом. Позволяет использовать стандартизированные веб-API, HTML и JavaScript для разработки единого приложения, которое будет работать на устройствах под управлением Android, iOS и Windows. PhoneGap обладает пользовательским интерфейсом, основанным на веб-представлениях. Взаимодействие с пользователем в этой платформе улучшается за счет ускорения собственных ресурсов устройства, таких как push-уведомления, датчик ускорения, камера, память, функция определения географического положения и встроенный в приложение браузер. Дополнительную информацию см. в [кратком учебнике по платформе PhoneGap][PhoneGap].
++ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)** или **[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (распространение проекта Apache Cordova) — бесплатная платформа с открытым исходным кодом. Позволяет использовать стандартизированные веб-API, HTML и JavaScript для разработки единого приложения, которое будет работать на устройствах под управлением Android, iOS и Windows. PhoneGap обладает пользовательским интерфейсом, основанным на веб-представлениях. Взаимодействие с пользователем в этой платформе улучшается за счет ускорения собственных ресурсов устройства, таких как push-уведомления, датчик ускорения, камера, память, функция определения географического положения и встроенный в приложение браузер. Дополнительную информацию см. в [кратком учебнике по платформе PhoneGap][PhoneGap].
 
 	Теперь Visual Studio также позволяет строить кросс-платформенные приложения Cordova, используя расширение гибридных приложений для нескольких устройств для Visual Studio, что является предварительной версией ПО. Дополнительную информацию см. в статье [Getting Started with Multi-Device Hybrid Apps Using HTML and JavaScript](http://msdn.microsoft.com/library/dn771545.aspx) (Приступая к работе с расширением Multi-Device Hybrid Apps с помощью HTML и JavaScript).
 
@@ -167,10 +165,10 @@
 [TemplatePushMessage]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
 [PhoneGap]: mobile-services-javascript-backend-phonegap-get-started.md
 [Sencha]: partner-sencha-mobile-services-get-started.md
-[Appcelerator]: ../partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+[Appcelerator]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
 [SendAsync]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
 [What's next for Windows Phone 8 developers]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0518_2016-->

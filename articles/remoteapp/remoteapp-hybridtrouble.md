@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/11/2016"
+    ms.date="05/16/2016"
     ms.author="elizapo" />
 
 
@@ -67,4 +67,4 @@
 
 Созданное или добавленное имя домена должно быть внутренним именем домена (а не именем домена Azure AD) и иметь разрешимый формат DNS (contoso.local). Например, если у вас имеется внутреннее имя Active Directory (contoso.local) и имя участника-пользователя Active Directory (contoso.com), при создании коллекции необходимо использовать внутреннее имя.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

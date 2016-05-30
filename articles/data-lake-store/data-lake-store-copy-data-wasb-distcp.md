@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/13/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Использование Distcp для копирования данных между BLOB-объектами и хранилищем озера данных
 
-После создания кластера HDInsight, который имеет доступ к учетной записи хранилища озера данных, можно использовать средства экосистемы Hadoop, такие как Distcp, для копирования данных в **из хранилища кластера HDInsight (WASB) в учетную запись хранилища озера данных и обратно**. В этой статье описано, как это сделать.
+После создания кластера HDInsight, который имеет доступ к учетной записи хранилища озера данных, можно использовать средства экосистемы Hadoop, такие как Distcp, для копирования данных в ** из хранилища кластера HDInsight (WASB) в учетную запись хранилища озера данных и обратно**. В этой статье описано, как это сделать.
 
 ##Предварительные требования
 
@@ -27,6 +27,10 @@
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
 - **Кластер Azure HDInsight** с доступом к учетной записи хранилища озера данных. См. статью [Создание кластера HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md). Убедитесь, что вы включили удаленный рабочий стол для кластера.
+
+## Учитесь быстрее с помощью видео?
+
+[Просмотрите это видно](https://mix.office.com/watch/1liuojvdx6sie) об использовании Distcp для копирования данных между большими двоичными объектами службы хранилища Azure и хранилищем озера данных Azure.
 
 ## Использование Distcp на удаленном рабочем столе (кластер Windows) или через SSH (кластер Linux)
 
@@ -52,13 +56,13 @@
 
 		hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder
 
-	Она скопирует содержимое папки **/example/data/gutenberg/** WASB в папку **/myfolder** в учетной записи хранилища озера данных.
+	Эта команда скопирует содержимое папки **/example/data/gutenberg/** WASB в папку **/myfolder** в учетной записи хранилища озера данных.
 
 6. Аналогичным образом используйте Distcp для копирования данных из учетной записи хранилища озера данных в WASB.
 
 		hadoop distcp adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
 
-	Она скопирует содержимое папки **/myfolder** в учетной записи хранилища озера данных в папку **/example/data/gutenberg/** в WASB.
+	Эта команда скопирует содержимое папки **/myfolder** в учетной записи хранилища озера данных в папку **/example/data/gutenberg/** в WASB.
 
 ## См. также
 
@@ -67,4 +71,4 @@
 - [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

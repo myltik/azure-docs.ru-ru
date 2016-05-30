@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="05/16/2016" 
 	ms.author="nitinme"/>
 
 # Анализ журналов веб-сайта с помощью пользовательской библиотеки с HDInsight Spark на платформе Linux (предварительная версия)
@@ -244,4 +244,4 @@
 
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

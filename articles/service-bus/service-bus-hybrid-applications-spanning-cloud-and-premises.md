@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="05/06/2016" 
 	ms.author="sethm"/>
 
 # Задействование гибридными приложениями облачных и локальных ресурсов
@@ -38,13 +38,13 @@
 - [Сведения о расценках на служебную шину](https://azure.microsoft.com/pricing/details/service-bus/)
 - [Вопросы и ответы по расценкам на служебную шину](service-bus-pricing-faq.md)
 - [Справочник по API REST служебной шины](http://msdn.microsoft.com/library/azure/hh780717.aspx)
-- [Подписка на бесплатный пробный период Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
+- Зарегистрируйте [бесплатную учетную запись Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
  
 ## Связанные службы
 
 - [Службы BizTalk](https://azure.microsoft.com/services/biztalk-services/)
-- [Мобильные службы](https://azure.microsoft.com/services/mobile-services/)
+- [Мобильные приложения](https://azure.microsoft.com/services/app-service/mobile/)
 - [Облачные службы](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

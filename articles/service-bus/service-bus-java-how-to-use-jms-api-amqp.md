@@ -53,7 +53,7 @@ JMS использует интерфейс JNDI для разделения л�
 	
 # Register a ConnectionFactory in JNDI using the form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
-connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
+connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 	
 # Register some queues in JNDI using the form
 # queue.[jndi_name] = [physical_name]
@@ -77,13 +77,13 @@ connectionfactory.[jndi_name] = [ConnectionURL]
 Формат **URL\_подключения** выглядит следующим образом:
 
 ```
-amqps://[username]:[password]@[namespace].servicebus.windows.net
+amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 ```
-где **[namespace]**, **[username]** и **[password]** имеют следующий смысл:
+Где параметры **[namespace]**, **[SASPolicyName]** и **[SASPolicyKey]** имеют следующий смысл:
 
 - **[namespace]**: пространство имен служебной шины.
-- **[username]**: имя издателя служебной шины.
-- **[password]**: ключ издателя служебной шины, закодированный в URL-адресе.
+- **[SASPolicyName]**: имя политики подписанного URL-адреса.
+- **[SASPolicyKey]**: ключ политики подписанного URL-адреса.
 
 > [AZURE.NOTE] Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа URL-кодирования доступна по адресу [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
@@ -339,4 +339,4 @@ exit
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

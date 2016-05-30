@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="05/07/2016"
 	ms.author="awills"/>
 
 # Ресурсы, роли и контроль доступа в Application Insights
@@ -58,7 +58,7 @@
 
 Для этого у вас должны быть права владельца подписки или группы ресурсов.
 
-У пользователя должна быть [учетная запись Майкрософт][account]. Вы можете предоставлять доступ отдельным пользователям и группам пользователей, определенным в Azure Active Directory.
+У пользователя должна быть [учетная запись Майкрософт][account] или доступ к [рабочей учетной записи Майкрософт](..\active-directory\sign-up-organization.md). Вы можете предоставлять доступ отдельным пользователям и группам пользователей, определенным в Azure Active Directory.
 
 #### Переход к группе ресурсов
 
@@ -91,7 +91,7 @@
 
 ![Введите адрес электронной почты нового пользователя. Выбор пользователя](./media/app-insights-resources-roles-access-control/04-user.png)
 
-Если в каталоге нет необходимого пользователя, вы можете пригласить любого пользователя с учетной записью Майкрософт \(если он использует такие службы, как Outlook.com, OneDrive, Windows Phone или XBox Live, значит, у него есть учетная запись Майкрософт\).
+Если в каталоге нет необходимого пользователя, вы можете пригласить любого пользователя с учетной записью Майкрософт (если он использует такие службы, как Outlook.com, OneDrive, Windows Phone или XBox Live, значит, у него есть учетная запись Майкрософт).
 
 
 
@@ -104,8 +104,8 @@
 <!--Link references-->
 
 [account]: https://account.microsoft.com
-[group]: ../azure-preview-portal-using-resource-groups.md
-[portal]: http://portal.azure.com/
+[group]: ../azure-portal/resource-group-portal.md
+[portal]: https://portal.azure.com/
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

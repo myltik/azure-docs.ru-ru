@@ -361,7 +361,10 @@ ms.author="larryfr"/>
 
 ##Передача JAR-файла и запуск задания
 
-> [AZURE.NOTE] Существует множество способов передачи файла в ваш кластер HDInsight, они описаны в разделе [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md). В следующих действиях используется [Azure PowerShell](../powershell-install-configure.md).
+Существует множество способов передачи файла в ваш кластер HDInsight, они описаны в разделе [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md). В следующих действиях используется Azure PowerShell.
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 
 1. После установки и настройки Azure PowerShell создайте новый файл с именем __hbase-runner.psm1__. Используйте следующее в качестве содержимого этого файла:
 
@@ -629,4 +632,4 @@ ms.author="larryfr"/>
 
 Используйте параметр `-showErr` для просмотра стандартной ошибки (STDERR), выдаваемой при выполнении задания.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

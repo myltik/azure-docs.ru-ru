@@ -3,7 +3,7 @@
    description="Учебник по использованию машинного обучения Azure с хранилищем данных SQL Azure для разработки решений."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shigu;barbkess;sonyama"/>
 
 # Использование машинного обучения Azure с хранилищем данных SQL
 
@@ -43,7 +43,7 @@
 Выберите модуль чтения и заполните область свойств.
 
 1. Выберите базу данных SQL Azure в качестве базы данных-источника.
-2. Имя сервера баз данных: введите имя сервера. Эти сведения можно узнать на [классическом портале Azure][].
+2. Имя сервера баз данных: введите имя сервера. Эти сведения можно узнать на [портале Azure][].
 
 ![][server_name]
 
@@ -96,12 +96,12 @@ FROM dbo.DimProduct;
 
 ![][drag_writer]
 
-### Шаг 2
+### Шаг 2
 
 Выберите модуль записи и заполните панель свойств.
 
 1. Выберите базу данных SQL Azure в качестве целевой базы данных.
-2. Имя сервера баз данных: введите имя сервера. Эти сведения можно узнать на [классическом портале Azure][].
+2. Имя сервера баз данных: введите имя сервера. Эти сведения можно узнать на [портале Azure][].
 3. Имя базы данных: введите имя базы данных на сервере, который только что был указан.
 4. Имя учетной записи пользователя сервера: введите имя пользователя учетной записи, которая имеет разрешение на запись в базу данных.
 5. Пароль учетной записи пользователя сервера: введите пароль для учетной записи указанного пользователя.
@@ -136,12 +136,12 @@ FROM dbo.DimProduct;
 
 <!--Article references-->
 
-[Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop/
-[Обзор интеграции хранилища данных SQL]: ./sql-data-warehouse-overview-integration/
+[Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
+[Обзор интеграции хранилища данных SQL]: ./sql-data-warehouse-overview-integration.md
 [Создание эксперимента]: https://azure.microsoft.com/ru-RU/documentation/articles/machine-learning-create-experiment/
 [Основные сведения о машинном обучении Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/machine-learning-what-is-machine-learning/
 [Студии машинного обучения Microsoft Azure]: https://studio.azureml.net/Home
-[классическом портале Azure]: https://portal.azure.com/
+[портале Azure]: https://portal.azure.com/
 
 <!--MSDN references-->
 
@@ -149,4 +149,4 @@ FROM dbo.DimProduct;
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->
