@@ -1798,7 +1798,7 @@ SAProuter позволяет осуществлять взаимодействи
 * Решение SIOS DataKeeper Cluster Edition настроено так, что оно синхронно отражает содержимое тома дополнительного подключенного VHD исходной виртуальной машины в томе дополнительного подключенного VHD целевой виртуальной машины.
 * SIOS DataKeeper абстрагирует исходные и конечные локальные тома и предоставляет их отказоустойчивому кластеру Windows как один общий диск.
  
-Сведения о том, как установить отказоустойчивый кластер Windows с SIOS DataKeeper и SAP, см. в техническом документе [Clustering SAP ASCS/SCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] (Кластеризация экземпляра SAP ASCS/SCS с использованием отказоустойчивого кластера Windows Server в Azure с помощью SIOS DataKeeper).
+Сведения о том, как установить отказоустойчивый кластер Windows с SIOS DataKeeper и SAP, см. в техническом документе [Clustering SAP ASCS/SCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] \(Кластеризация экземпляра SAP ASCS/SCS с использованием отказоустойчивого кластера Windows Server в Azure с помощью SIOS DataKeeper).
 
 #### Высокая доступность экземпляра SAP (A)SCS в Linux
  

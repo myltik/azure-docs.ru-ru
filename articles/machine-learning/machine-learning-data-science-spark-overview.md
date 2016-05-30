@@ -107,7 +107,7 @@
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-Для доступа к записным книжкам Jupyter также можно перейти по ссылке ******https://CLUSTERNAME.azurehdinsight.net/jupyter***. Просто замените фрагмент CLUSTERNAME в URL-адресе на имя собственного кластера. Для доступа к записным книжкам необходим пароль к учетной записи администратора.
+Для доступа к записным книжкам Jupyter также можно перейти по ссылке ***https://CLUSTERNAME.azurehdinsight.net/jupyter***. Просто замените фрагмент CLUSTERNAME в URL-адресе на имя собственного кластера. Для доступа к записным книжкам необходим пароль к учетной записи администратора.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 

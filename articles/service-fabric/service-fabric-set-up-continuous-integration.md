@@ -99,8 +99,9 @@
 | CertificateSecretName | Любое значение. |
 | CertificateDnsName | Должно соответствовать DNS-имени кластера. Пример: `mycluster.westus.cloudapp.azure.com` |
 | SecureCertificatePassword | Любое значение. Этот параметр используется при импорте сертификата на компьютер сборки. |
-| KeyVaultName | Любое значение. |
+
 | KeyVaultResourceGroupName | Любое значение. Тем не менее, не используйте имя группы ресурсов, которую планируете использовать для кластера. |
+| KeyVaultName | Любое значение. |
 | PfxFileOutputPath| Любое значение. Этот файл используется для импорта сертификата на компьютер сборки. |
 
 После выполнения сценария он выведет следующие три значения. Обратите внимание на эти значения, так как они будут использоваться в качестве переменных сборки:
@@ -159,10 +160,11 @@
 
     b. Откройте командную строку администратора PowerShell и выполните следующие команды, используя тот же пароль, который ранее был передан в `CreateAndUpload-Certificate.ps1`.
 
-    ```powershell
-    $password = Read-Host -AsSecureString
-    Import-PfxCertificate -FilePath <path/to/cert.pfx> -CertStoreLocation Cert:\LocalMachine\My -Password $password -Exportable
-    ```
+        ```
+	powershell
+        $password = Read-Host -AsSecureString
+        Import-PfxCertificate -FilePath <path/to/cert.pfx> -CertStoreLocation Cert:\LocalMachine\My -Password $password -Exportable
+        ```
 
 2.	Запустите диспетчер сертификатов.
 
@@ -194,7 +196,7 @@
 
 1.	Скачайте архив agent.zip. Для этого:
 
-    а. Перейдите к командному проекту, например ****https://[your-VSTS-account-name].visualstudio.com**.
+    а. Перейдите к командному проекту, например **https://[your-VSTS-account-name].visualstudio.com**.
 
     b. Щелкните значок шестеренки в правом верхнем углу экрана.
 

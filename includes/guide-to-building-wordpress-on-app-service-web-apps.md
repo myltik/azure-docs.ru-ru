@@ -14,7 +14,7 @@
 
 ###Перенос приложения в службу приложений 
 - [How to plan your migration to Azure Websites](https://azure.microsoft.com/blog/how-to-plan-your-migration-to-azure-websites/) (Как спланировать миграцию в Веб-сайты Azure)
-- [Migrate your existing WordPress site to Windows Azure](https://sunithamk.wordpress.com/2013/11/06/migrate-your-existing-wordpress-site-to-windows-azure/) (Миграция существующего сайта WordPress в Windows Azure)
+- [Migrate your existing WordPress site to Microsoft Azure](https://sunithamk.wordpress.com/2013/11/06/migrate-your-existing-wordpress-site-to-windows-azure/) (Миграция существующего сайта WordPress в Microsoft Azure)
 - [Linux Site Migration Tool](https://www.movemetothecloud.net/LinuxMigration) (Средство миграции сайтов в Linux)
 - [Azure Web Apps – Basic Operations Checklist](https://sunithamk.wordpress.com/2015/10/27/azure-web-apps-basic-operations-checklist/) (Веб-приложения Azure — список основных операций)
 - [Configure PHP in Azure App Service Web Apps](../articles/app-service-web/web-sites-php-configure.md) (Настройка PHP в веб-приложениях службы приложений Azure)

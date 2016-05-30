@@ -109,7 +109,7 @@ Xamarin, Git, эмуляторы и другие полезные компоне
 
 Кроме того, если вы хотите следить за обновлениями кода или принимать участие в его разработке, клонируйте репозиторий, используя следующую команду:
 
-****git clone https://github.com/Azure-Samples/MyDriving.git**
+**git clone https://github.com/Azure-Samples/MyDriving.git**
 
 ## Получение ключа API для Карт Bing
 

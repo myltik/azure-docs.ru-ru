@@ -1134,7 +1134,7 @@ SAP в настоящее время поддерживает версию SAP A
 ### Поддерживаемые версии Microsoft Windows и типы виртуальных машин Azure для СУБД SAP MaxDB
 Сведения о поддерживаемых версиях Microsoft Windows для СУБД SAP MaxDB в Azure, см. по следующим ссылкам:
 
-* [SAP Product Availability Matrix (PAM)][sap-pam] (Матрица доступности продуктов SAP);
+* [SAP Product Availability Matrix (PAM)][sap-pam] \(Матрица доступности продуктов SAP);
 * примечание SAP [1928533].
 
 Мы настоятельно рекомендуем использовать последнюю версию операционной системы Microsoft Windows — Microsoft Windows 2012 R2.

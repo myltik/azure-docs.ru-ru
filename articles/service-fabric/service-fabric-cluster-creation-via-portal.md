@@ -141,46 +141,51 @@
 
 ### Подключение к незащищенному кластеру
 
-```powershell
-Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
 ```
+    powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
+    ```
 
 ### Безопасное подключение к кластеру
 
-1. Выполните следующую команду, чтобы установить сертификат на компьютере, на котором вы собираетесь выполнять команду PowerShell Connect-serviceFabricCluster.
+    1. Выполните следующую команду, чтобы установить сертификат на компьютере, на котором вы собираетесь выполнять команду PowerShell Connect-serviceFabricCluster.
 
-    ```powershell
-    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-    ```
+        ```
+	powershell
+        Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+                -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+                -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+        ```
 
-2. Для подключения к защищенному кластеру выполните следующую команду PowerShell: Сертификат имеет те же данные, которые вы указали на портале.
+    2. Для подключения к защищенному кластеру выполните следующую команду PowerShell: Сертификат имеет те же данные, которые вы указали на портале.
 
-    ```powershell
-    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-              -KeepAliveIntervalInSec 10 `
-              -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-              -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-              -StoreLocation CurrentUser -StoreName My
-    ```
+        ```
+	powershell
+        Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+                  -KeepAliveIntervalInSec 10 `
+                  -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+                  -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+                  -StoreLocation CurrentUser -StoreName My
+        ```
 
     Например, приведенная выше команда PowerShell должна выглядеть следующим образом:
 
-    ```powershell
-    Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
-              -KeepAliveIntervalInSec 10 `
-              -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-              -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
-              -StoreLocation CurrentUser -StoreName My
-    ```
+        ```
+	powershell
+        Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+                  -KeepAliveIntervalInSec 10 `
+                  -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+                  -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+                  -StoreLocation CurrentUser -StoreName My
+        ```
 
 ### Развертывание приложения
 Установив подключение, выполните следующие команды для развертывания приложения, заменив указанные здесь пути соответствующими значениями на своем компьютере. В приведенном ниже примере показано развертывание примера приложения для подсчета слов:
 
 1. Скопируйте пакет в кластер, к которому вы подключились ранее.
 
-    ```powershell
+    ```
+    powershell
     $applicationPath = "C:\VS2015\WordCount\WordCount\pkg\Debug"
     ```
 
@@ -189,13 +194,15 @@ Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAlive
     ```
 2. Зарегистрируйте свой тип приложения в Service Fabric.
 
-    ```powershell
+    ```
+    powershell
     Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
     ```
 
 3. Создайте новый экземпляр только что зарегистрированного типа приложения.
 
-    ```powershell
+    ```
+    powershell
     New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
     ```
 

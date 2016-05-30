@@ -60,7 +60,7 @@ API возвращает определенный язык и численную
                
 	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-Ключ учетной записи можно найти в вашей учетной записи в [Azure Data Market](https://datamarket.azure.com/account/keys). Обратите внимание, что в настоящее время в качества формата входных и выходных данных принимается только JSON. XML не поддерживается.
+Ключ учетной записи можно найти в вашей учетной записи в [Azure Data Market](https://datamarket.azure.com/account/keys).
 
 ---
 
@@ -95,7 +95,7 @@ API возвращает определенный язык и численную
 
 **Пример запроса**
 
-В приведенном ниже вызове запрашиваются ключевые фразы в тексте "It was a wonderful hotel to stay at, with unique decor and friendly staff".
+В приведенном ниже вызове запрашиваются ключевые фразы в тексте "Замечательный отель для проживания, с уникальным декором и доброжелательным персоналом.".
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
 	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
