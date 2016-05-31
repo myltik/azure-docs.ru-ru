@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -27,10 +27,9 @@
 
 |**Ресурс агента**|**Порты**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|порт 443|
-|*.oms.opinsights.azure.com|Порт 443|
+|*.ods.opinsights.azure.com|порт 443| |*.oms.opinsights.azure.com|Порт 443|
 |ods.systemcenteradvisor.com|Порт 443|
-|*.blob.core.windows.net|Port 443|
+|**.blob.core.windows.net|Port 443|
 
 Далее описано, как настроить параметры прокси-сервера для Microsoft Monitoring Agent с помощью панели управления. Эту процедуру необходимо использовать для каждого сервера. Если вам нужно настроить несколько серверов, возможно, проще использовать скрипт для автоматизации этого процесса. Далее описано, [как настроить параметры прокси-сервера для Microsoft Monitoring Agent с помощью скрипта](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
@@ -40,8 +39,7 @@
 
 2. Откройте **Microsoft Monitoring Agent**.
 
-3. Перейдите на вкладку **Параметры прокси-сервера**.  
-  ![вкладка параметров прокси-сервера](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
+3. Перейдите на вкладку **Параметры прокси-сервера**.![вкладка параметров прокси-сервера](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
 
 4. Выберите **Использовать прокси-сервер** и введите URL-адрес и номер порта (если он нужен), как показано в примере. Если для доступа к прокси-серверу требуется проверка подлинности, введите имя пользователя и пароль.
 
@@ -97,32 +95,25 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 |**Ресурс агента**|**Порты**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|порт 443|
-|*.oms.opinsights.azure.com|Порт 443|
+|*.ods.opinsights.azure.com|порт 443| |*.oms.opinsights.azure.com|Порт 443|
 |ods.systemcenteradvisor.com|Порт 443|
-|*.blob.core.windows.net/|Port 443|
+|**.blob.core.windows.net/|Port 443|
 
 Список ресурсов и портов сервера управления:
 
 |**Ресурс сервера управления**|**Порты**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443|
-|service.systemcenteradvisor.com|Port 443|
-|scadvisor.accesscontrol.windows.net|Port 443|
-|scadvisorservice.accesscontrol.windows.net|Port 443|
-|*.blob.core.windows.net|Порт 443|
+|*.ods.opinsights.azure.com|Port 443| |service.systemcenteradvisor.com|Port 443| |scadvisor.accesscontrol.windows.net|Port 443| |scadvisorservice.accesscontrol.windows.net|Port 443| |*.blob.core.windows.net|Порт 443|
 |data.systemcenteradvisor.com|Порт 443|
 |ods.systemcenteradvisor.com|Порт 443|
-|*.systemcenteradvisor.com|Порт 443|
+|**.systemcenteradvisor.com|Порт 443|
 
 Список ресурсов OMS и консоли Operations Manager:
 
 |**Ресурс OMS и консоли Operations Manager**|**Порты**|
 |----|----|
-|*.systemcenteradvisor.com|порт 80 и 443|
-|*.live.com|Порты 80 и 443|
-|*.microsoftonline.com|Порты 80 и 443|
-|login.windows.net|Порт 80 и 443|
+|*.systemcenteradvisor.com|порт 80 и 443| |*.live.com|Порты 80 и 443|
+|**.microsoftonline.com|Порты 80 и 443| |login.windows.net|Порт 80 и 443|
 
 
 
@@ -138,12 +129,9 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 1. Откройте консоль Operations Manager и выберите рабочую область **Администрирование**.
 
-2. Разверните **оперативную аналитику** и выберите **Подключение к оперативной аналитике**.  
-    ![Подключение к OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om01.png)
-3. В представлении "Подключение к OMS" щелкните **Настройка прокси-сервера**.  
-    ![Настройка прокси-сервера для подключения к OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om02.png)
-4. В мастере настройки прокси-сервера оперативной аналитики выберите **Использовать прокси-сервер для доступа к веб-службе оперативной аналитики**, а затем введите URL-адрес с номером порта, например **http://myproxy:80**.  
-    ![Прокси-адрес OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
+2. Разверните **оперативную аналитику** и выберите **Подключение к оперативной аналитике**. ![Подключение к OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om01.png)
+3. В представлении "Подключение к OMS" щелкните **Настройка прокси-сервера**. ![Настройка прокси-сервера для подключения к OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om02.png)
+4. В мастере настройки прокси-сервера оперативной аналитики выберите **Использовать прокси-сервер для доступа к веб-службе оперативной аналитики**, а затем введите URL-адрес с номером порта, например ****http://myproxy:80**. ![Прокси-адрес OMS Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 
 ### Указание учетных данных, если для прокси-сервера требуется аутентификация
@@ -151,24 +139,17 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 1. Откройте консоль Operations Manager и выберите рабочую область **Администрирование**.
 2. В разделе **Конфигурации запуска от имени** выберите **Профили**.
-3. Откройте профиль **Запуск от имени прокси-сервера профиля System Center Advisor**.  
-    ![Изображение «Запуск от имени прокси-сервера профиля System Center Advisor»](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
-4. В мастере профиля запуска от имени нажмите кнопку **Добавить**, чтобы использовать учетную запись запуска от имени. Можно создать новую учетную запись запуска от имени или использовать существующую учетную запись. Эта учетная запись должна иметь достаточные разрешения для передачи данных через прокси-сервер.  
-    ![изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
-5. Чтобы настроить учетную запись для управления, выберите **Выбранный класс, группа или объект** для открытия окна поиска объектов.  
-    ![изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
-6. Найдите и выберите **группу серверов мониторинга Microsoft System Center Advisor**.  
-    ![изображение поля поиска объектов](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
-7. Нажмите кнопку **ОК**, чтобы закрыть окно "Добавление учетной записи запуска от имени".  
-    ![изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
-8. Закройте мастер и сохраните изменения.  
-    ![изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
+3. Откройте профиль **Запуск от имени прокси-сервера профиля System Center Advisor**. ![Изображение «Запуск от имени прокси-сервера профиля System Center Advisor»](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
+4. В мастере профиля запуска от имени нажмите кнопку **Добавить**, чтобы использовать учетную запись запуска от имени. Можно создать новую учетную запись запуска от имени или использовать существующую учетную запись. Эта учетная запись должна иметь достаточные разрешения для передачи данных через прокси-сервер. ![изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
+5. Чтобы настроить учетную запись для управления, выберите **Выбранный класс, группа или объект** для открытия окна поиска объектов. ![изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
+6. Найдите и выберите **группу серверов мониторинга Microsoft System Center Advisor**. ![изображение поля поиска объектов](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
+7. Нажмите кнопку **ОК**, чтобы закрыть окно "Добавление учетной записи запуска от имени". ![изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
+8. Закройте мастер и сохраните изменения. ![изображение мастера запуска от имени профиля](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
 
 
 ### Вот как можно проверить, скачаны ли пакеты управления OMS
 
-- Если вы добавили решения в OMS, их можно просмотреть в консоли Operations Manager как пакеты управления, в разделе **Администрирование**. Выполните поиск *System Center Advisor*, чтобы быстро их найти.  
-    ![пакеты управления скачаны](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)
+- Если вы добавили решения в OMS, их можно просмотреть в консоли Operations Manager как пакеты управления, в разделе **Администрирование**. Выполните поиск *System Center Advisor*, чтобы быстро их найти. ![пакеты управления скачаны](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)
 - Пакеты управления OMS можно также проверить с помощью следующих команд Windows PowerShell на сервере управления Operations Manager:
 
         get-scommanagementpack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
@@ -179,10 +160,8 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 1. На сервере управления Operations Manager откройте системный монитор (perfmon.exe) и выберите **Системный монитор**.
 2. Щелкните **Добавить** и выберите **Группы управления службы работоспособности**.
-3. Добавьте все счетчики, которые начинаются с **HTTP**.  
-    ![добавление счетчиков](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
-4. Если Operations Manager настроен правильно, вы увидите активность счетчиков управления службы работоспособности для событий и других данных для пакетов управления, которые вы добавили в OMS и для которых настроили политику сбора данных журналов.  
-    ![Отображение активности на мониторе производительности](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
+3. Добавьте все счетчики, которые начинаются с **HTTP**. ![добавление счетчиков](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
+4. Если Operations Manager настроен правильно, вы увидите активность счетчиков управления службы работоспособности для событий и других данных для пакетов управления, которые вы добавили в OMS и для которых настроили политику сбора данных журналов. ![Отображение активности на мониторе производительности](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
 
 ## Гибридные компоненты Runbook Worker в службе автоматизации Azure
@@ -196,5 +175,4 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 - Чтобы добавить функции и реализовать сбор данных, [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md).
 - Подробная информация, которую собирают решения, описана в статье [о поиске по журналам](log-analytics-log-searches.md).
 
-<!---HONumber=AcomDC_0504_2016-->
-
+<!---HONumber=AcomDC_0525_2016-->

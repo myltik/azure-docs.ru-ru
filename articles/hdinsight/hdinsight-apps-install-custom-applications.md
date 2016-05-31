@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/18/2016"
+   	ms.date="05/24/2016"
    	ms.author="jgao"/>
 
 # Установка пользовательских приложений HDInsight
@@ -48,7 +48,7 @@
 
 1. Щелкните следующее изображение, чтобы войти в Azure и открыть шаблон ARM на портале Azure. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     Эта кнопка открывает шаблон ARM на портале Azure. Шаблон ARM находится по адресу [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue). Чтобы научиться создавать этот шаблон ARM, см. статью [Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (Установка приложения HDInsight).
     
@@ -65,7 +65,7 @@
 
 1. Щелкните следующее изображение, чтобы войти в Azure и открыть шаблон ARM на портале Azure. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     Эта кнопка открывает шаблон ARM на портале Azure. Шаблон ARM находится по адресу [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json). Чтобы научиться создавать этот шаблон ARM, см. статью [Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (Установка приложения HDInsight).
 
@@ -86,8 +86,25 @@
  
 ## Устранение неполадок, связанных с установкой
 
-См. раздел, посвященный [устранению неполадок](hdinsight-apps-install-applications.md#troubleshoot), в статье "Установка приложения HDInsight".
+Состояние установки приложения можно наблюдать в уведомлении портала (щелкните значок колокольчика в верхней части портала).
 
+Если произошел сбой установки приложения, вы можете увидеть сообщения об ошибках и информацию об отладке в трех местах.
+
+- Приложения HDInsight: общие сведения об ошибке.
+
+    Откройте кластер на портале и в колонке "Параметры" щелкните пункт "Приложения".
+
+    ![приложения hdinsight приложение ошибка установки](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
+
+- Действие сценария HDInsight: если сообщение об ошибке приложений HDInsight указывает на сбой действия сценария, дополнительные сведения о сбое сценария отобразятся на панели действий сценария.
+
+    В колонке "Параметры" выберите пункт "Действия сценария". Журнал действий сценария отображает сообщения об ошибках.
+
+    ![приложения hdinsight ошибка действия сценария](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
+    
+- Веб-интерфейс Ambari: если сценарий установки был причиной сбоя, используйте веб-интерфейс Ambari, чтобы просмотреть полные журналы сценариев установки.
+
+    Дополнительные сведения см. в разделе [Устранение неполадок](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
 ## Дальнейшие действия
 
@@ -96,4 +113,4 @@
 - [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md) — узнайте, как использовать действие сценария для установки дополнительных приложений.
 - [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) — узнайте, как вызывать шаблоны ARM для создания кластеров HDInsight.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->
