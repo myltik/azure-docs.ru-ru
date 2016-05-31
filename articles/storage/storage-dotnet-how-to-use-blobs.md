@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET | Microsoft Azure"
+	pageTitle="Приступая к работе с хранилищем BLOB-объектов Azure (хранилищем объектов) с помощью .NET| Microsoft Azure"
 	description="Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure."
 	services="storage"
 	documentationCenter=".net"
@@ -395,4 +395,4 @@
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->
