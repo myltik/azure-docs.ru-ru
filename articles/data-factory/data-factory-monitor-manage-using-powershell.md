@@ -139,7 +139,7 @@
 		  		}
 			}
 
-	Замените **servername**, **databasename**, ****username@servername** и **password** на имя вашего сервера Azure SQL Server, имя базы данных, имя учетной записи пользователя и пароль.
+	Замените **servername**, **databasename**, **username@servername** и **password** на имя вашего сервера Azure SQL Server, имя базы данных, имя учетной записи пользователя и пароль.
 
 2.	Выполните следующую команду для создания связанной службы.
 	

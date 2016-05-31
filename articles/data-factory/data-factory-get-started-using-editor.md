@@ -102,7 +102,7 @@
 
 	![Параметры редактора SQL Azure][image-editor-azure-sql-settings]
 
-2. Замените **servername**, **databasename**, ****username@servername** и **password** на имя вашего сервера Azure SQL Server, имя базы данных, имя учетной записи пользователя и пароль.
+2. Замените **servername**, **databasename**, **username@servername** и **password** на имя вашего сервера Azure SQL Server, имя базы данных, имя учетной записи пользователя и пароль.
 3. Щелкните **Развернуть** на панели инструментов, чтобы создать и развернуть AzureSqlLinkedService. 
    
 
