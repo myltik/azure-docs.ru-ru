@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Подключение к базе данных SQL с помощью Node.js"
+	pageTitle="Подключение к базе данных SQL с помощью Node.js | Microsoft Azure"
 	description="В этой статье представлен пример кода Node.js, который можно использовать для подключения к базе данных SQL Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -38,4 +38,4 @@
 
 [Эксперимент по подключению к SQL с использованием Node.js](https://msdn.microsoft.com/library/mt715784.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

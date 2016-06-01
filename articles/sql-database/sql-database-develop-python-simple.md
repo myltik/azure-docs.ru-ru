@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Подключение к базе данных SQL с помощью Python"
+	pageTitle="Подключение к базе данных SQL с помощью Python | Microsoft Azure"
 	description="В статье представлен пример кода Python, который можно использовать для подключения к базе данных SQL Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -47,4 +47,4 @@
 
 Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

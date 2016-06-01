@@ -1,7 +1,7 @@
-Resource|Maximum Limit
+Ресурс|Максимальное ограничение
 ---|---
-Max number of new jobs that can be submitted every 30 seconds per Automation Account (non Scheduled jobs)|100
-Max number of concurrent running jobs at the same instance of time per Automation Account (non Scheduled jobs)|200
-Max number of modules that can be imported every 30 seconds per Automation Account|5
-Max size of a Module|100 MB
-Job Run Time - Free tier|500 minutes per subscription per calendar month
+Максимальное количество новых заданий, которые могут быть отправлены каждые 30 секунд, на учетную запись службы автоматизации (незапланированные задания)|100
+Максимальное количество параллельно выполняющихся заданий за то же время на учетную запись службы автоматизации (незапланированные задания)|200
+Максимальное количество модулей, которые могут быть импортированы каждые 30 секунд, на учетную запись службы автоматизации|5
+Максимальный размер модуля|100 МБ
+Время выполнения заданий — уровень "Бесплатный"|500 минут на подписку в календарный месяц

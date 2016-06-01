@@ -83,8 +83,14 @@
 
 ##<a id="apr_changes16"></a> Выпуск: апрель 2016 г.
 
-В этом выпуске в службах мультимедиа Azure появилась возможность аналитики мультимедиа для интеллектуальной работы с видео. Подробные сведения см. в статье (Общие сведения об аналитике служб мультимедиа Azure) [media-services-analytics-overview.md].
+### Аналитика мультимедиа Azure
 
+В службах мультимедиа Azure появилась возможность аналитики мультимедиа для интеллектуальной работы с видео. Подробные сведения см. в статье [Общие сведения об аналитике служб мультимедиа Azure](media-services-analytics-overview.md).
+
+### Apple FairPlay (предварительная версия)
+
+Службы мультимедиа Azure теперь позволяют применять динамическое шифрование содержимого HTTP Live Streaming (HLS) с помощью Apple FairPlay. Службу доставки лицензий для служб мультимедиа можно также использовать для доставки клиентам лицензий FairPlay. Более подробные сведения см. в статье [Использование служб мультимедиа Azure для потоковой передачи содержимого HLS, защищенного с помощью Apple FairPlay](media-services-protect-hls-with-fairplay.md).
+  
 ##<a id="feb_changes16"></a> Выпуск: февраль 2016 г.
 
 Последняя версия пакета SDK служб мультимедиа Azure для .NET (3.5.3) содержит исправление ошибки, связанной с Widevine. Устраненная проблема: AssetDeliveryPolicy не удавалось повторно использовать для нескольких ресурсов-контейнеров, зашифрованных с помощью Widevine. В рамках этого исправления в пакет SDK добавлено следующее свойство: **WidevineBaseLicenseAcquisitionUrl**.
@@ -200,29 +206,29 @@
 
 ##<a id="april_changes_15"></a>Выпуск: апрель 2015 г.
 
-###Общие обновления служб мультимедиа
+        ###General Media Services Updates
 
-- [Выход мультимедиапроигрывателя Azure](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
-- Начиная с интерфейса REST 2.10 служб мультимедиа, каналы, которые настроены для приема протокола RTMP, создаются с первичными и вторичными URL-адресами приема. Дополнительные сведения см. в разделе [Конфигурации приема канала](media-services-manage-channels-overview.md#channel_input)
-- Обновления индексатора мультимедийных данных Azure
-	- Поддержка испанского языка
-	- Формат xml новой конфигурации
-	
-	Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
-###Обновления пакета SDK служб мультимедиа для .NET
+        - [Announcing Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+        - Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-live-streaming-with-onprem-encoders.md#channel_input)
+        - Azure Media Indexer updates
+        - Support for Spanish Language
+        - New configuration xml format
 
-Пакет SDK служб мультимедиа Azure для .NET обновлен до версии 3.2.0.0.
+        For more information see [this blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+        ###Media Services .NET SDK Updates
 
-Ниже приведены некоторые обновления для клиентов.
- 
-- **Критическое изменение**: **TokenRestrictionTemplate.Issuer** и **TokenRestrictionTemplate.Audience** изменено на тип строки. 
-- Обновления, связанные с созданием пользовательских политик повторов. 
-- Исправления ошибок, относящиеся к передаче или загрузке файлов. 
-- Класс **MediaServicesCredentials** теперь принимает первичные и дополнительные конечные точки службы контроля доступа для проверки подлинности.
+        Azure Media Services .NET SDK is now version 3.2.0.0.
+
+        The following are some of the customer facing updates:
+
+        - **Breaking change**: Changed **TokenRestrictionTemplate.Issuer** and **TokenRestrictionTemplate.Audience** to be of a string type.
+        - Updates related to creating custom retry policies.
+        - Bug fixes related to uploading/downloading files.
+        - The **MediaServicesCredentials** class now accepts primary and secondary access control endpoint to authenticate against.
 
 
 
-##<a id="march_changes_15"></a>Выпуск: март 2015 г.
+        ##<a id="march_changes_15"></a>March 2015 Release
 
 ### Общие обновления служб мультимедиа
 
@@ -662,4 +668,4 @@ API REST служб мультимедиа обновлены до версии 
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

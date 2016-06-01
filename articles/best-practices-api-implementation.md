@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,8 +19,7 @@
 
 # Руководство по реализации API
 
-![](media/best-practices-api-implementation/pnp-logo.png)
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 Некоторые разделы в этом руководстве находятся в процессе обсуждения и могут быть изменены в дальнейшем. Будем рады вашим отзывам!
 
@@ -1152,4 +1151,4 @@ Azure предоставляет [службу управления API](https:/
 - На странице [Проверка кода при помощи модульных тестов](https://msdn.microsoft.com/library/dd264975.aspx) на веб-сайте Майкрософт предоставлены подробные сведения о создании модульных тестов и управлении ими с помощью Visual Studio.
 - На странице [Запуск тестов производительности в приложении](https://msdn.microsoft.com/library/dn250793.aspx) на веб-сайте Майкрософт описывается порядок использования Visual Studio Ultimate для создания веб-тестов производительности и загрузки тестового проекта.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="04/11/2016"
+    ms.date="04/24/2016"
     ms.author="csand;magoedte" />
 
 # Решение службы автоматизации Azure: обработка оповещений виртуальной машины Azure
@@ -66,14 +66,110 @@
 
 Если для оповещения настроен модуль Runbook, его можно отключить, не удаляя конфигурацию модуля Runbook. Это позволяет продолжить выполнение оповещения и, возможно, проверить некоторые правила оповещения и позже включить модуль Runbook повторно.
 
+## Создание модуля Runbook, который работает с оповещениями Azure
+
+При выборе модуля Runbook в качестве части правила генерации оповещений Azure он должен содержать логику для управления данными оповещений, которые в него поступают. При настройке модуля Runbook в правиле генерации оповещений для него создается webhook, который затем используется для запуска модуля Runbook каждый раз, когда активируется оповещение. Фактический вызов для запуска модуля Runbook осуществляется с помощью HTTP-запроса POST на URL-адрес webhook. Текст запроса POST содержит объект в формате JSON с полезными свойствами, связанными с оповещением. Как видно ниже, данные оповещения содержат такие сведения, как идентификатор подписки, имя группы ресурсов, имя ресурса и тип ресурса.
+
+### Пример данных оповещения
+```
+{
+    "WebhookName": "AzureAlertTest",
+    "RequestBody": "{
+	"status":"Activated",
+	"context": {
+		"id":"/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/microsoft.insights/alertrules/AlertTest",
+		"name":"AlertTest",
+		"description":"",
+		"condition": {
+			"metricName":"CPU percentage guest OS",
+			"metricUnit":"Percent",
+			"metricValue":"4.26337916666667",
+			"threshold":"1",
+			"windowSize":"60",
+			"timeAggregation":"Average",
+			"operator":"GreaterThan"},
+		"subscriptionId":<subscriptionID> ",
+		"resourceGroupName":"TestResourceGroup",
+		"timestamp":"2016-04-24T23:19:50.1440170Z",
+		"resourceName":"TestVM",
+		"resourceType":"microsoft.compute/virtualmachines",
+		"resourceRegion":"westus",
+		"resourceId":"/subscriptions/<subscriptionId>/resourceGroups/TestResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM",
+		"portalLink":"https://portal.azure.com/#resource/subscriptions/<subscriptionId>/resourceGroups/TestResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM"
+		},
+	"properties":{}
+	}",
+    "RequestHeader": {
+        "Connection": "Keep-Alive",
+        "Host": "<webhookURL>"
+    }
+}
+```
+
+Когда webhook службы автоматизации получает HTTP-запрос POST, он извлекает данные оповещения и передает их в модуль Runbook в качестве входного параметра WebhookData модуля Runbook. Ниже приведен пример модуля Runbook, в котором показано, как использовать параметр WebhookData, извлекать данные оповещения и использовать его для управления ресурсом Azure, активировавшим оповещение.
+
+### Пример модуля Runbook
+
+```
+#  This runbook will restart an ARM (V2) VM in response to an Azure VM alert.
+
+[OutputType("PSAzureOperationResponse")]
+
+param ( [object] $WebhookData )
+
+if ($WebhookData)
+{
+	# Get the data object from WebhookData
+	$WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
+
+    # Assure that the alert status is 'Activated' (alert condition went from false to true)
+    # and not 'Resolved' (alert condition went from true to false)
+	if ($WebhookBody.status -eq "Activated")
+    {
+	    # Get the info needed to identify the VM
+	    $AlertContext = [object] $WebhookBody.context
+	    $ResourceName = $AlertContext.resourceName
+	    $ResourceType = $AlertContext.resourceType
+        $ResourceGroupName = $AlertContext.resourceGroupName
+        $SubId = $AlertContext.subscriptionId
+
+	    # Assure that this is the expected resource type
+	    Write-Verbose "ResourceType: $ResourceType"
+	    if ($ResourceType -eq "microsoft.compute/virtualmachines")
+	    {
+		    # This is an ARM (V2) VM
+
+		    # Authenticate to Azure with service principal and certificate
+            $ConnectionAssetName = "AzureRunAsConnection"
+		    $Conn = Get-AutomationConnection -Name $ConnectionAssetName
+		    if ($Conn -eq $null) {
+                throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
+            }
+		    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+		    Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
+
+            # Restart the VM
+		    Restart-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName
+	    } else {
+		    Write-Error "$ResourceType is not a supported resource type for this runbook."
+	    }
+    } else {
+        # The alert status was not 'Activated' so no action taken
+		Write-Verbose ("No action taken. Alert status: " + $WebhookBody.status)
+    }
+} else {
+    Write-Error "This runbook is meant to be started from an Azure alert only."
+}
+```
+
 ## Сводка
 
 При настройке оповещения на виртуальной машине Azure вы получаете возможность легко настраивать модуль Runbook службы автоматизации для автоматического выполнения действия исправления при инициализации оповещения. В этом выпуске можно выбрать модуль Runbook для перезапуска, остановки или удаления виртуальной машины в зависимости от вашего сценария оповещений. Это только начало использования сценариев, в которых вы управляете действиями (оповещение, устранение неполадок, исправление), автоматически предпринимаемыми при инициализации оповещения.
 
 ## Дальнейшие действия
 
-- Чтобы приступить к работе с графическими модулями Runbook, обратитесь к статье [Первый графический Runbook](automation-first-runbook-graphical.md)
-- Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
-- Чтобы получить дополнительные сведения о типах модулей Runbook, их преимуществах и ограничениях, обратитесь к статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md)
+- Сведения о том, как начать работу с графическими модулями Runbook, см. в статье [Первый графический Runbook](automation-first-runbook-graphical.md).
+- Сведения о том, как начать работу с модулями Runbook рабочих процессов PowerShell, см. в статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
+- Дополнительные сведения о типах модулей Runbook, их преимуществах и ограничениях см. в статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

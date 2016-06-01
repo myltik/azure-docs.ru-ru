@@ -60,7 +60,7 @@
 
 Роли в Exchange Online или SharePoint Online, за исключением упомянутых выше, не представлены в Azure AD и поэтому не отображаются в PIM. Дополнительные сведения об изменении детализированных назначений ролей в этих службах Office 365 см. в статье [Разрешения в Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Подписки Azure и группы ресурсов также не представлены в Azure AD. Управление подписками Azure описано в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator), а дополнительные сведения об Azure RBAC приведены в статье [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md).
+Подписки Azure и группы ресурсов также не представлены в Azure AD. Управление подписками Azure описано в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator.md), а дополнительные сведения об Azure RBAC приведены в статье [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -87,4 +87,4 @@
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

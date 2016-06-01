@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/16/2016"
 	ms.author="markvi"/>
 
 #Уведомления защиты идентификации Azure Active Directory 
@@ -59,4 +59,4 @@
 
 - [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

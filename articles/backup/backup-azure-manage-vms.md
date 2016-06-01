@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="05/06/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Управление резервными копиями виртуальных машин Azure и их мониторинг
@@ -42,7 +42,9 @@
     ![Задания](./media/backup-azure-manage-vms/backup-job.png)
 
 ## Резервное копирование виртуальной машины по запросу
-Резервное копирование виртуальной машины по запросу можно выполнять, когда для нее настроена защита. Если процесс первоначального резервного копирования находится в состоянии ожидания для виртуальной машины, то процесс резервного копирования по запросу создаст полную копию виртуальной машины в хранилище службы архивации Azure. Если процесс первого резервного копирования завершен, процесс резервного копирования по запросу будет только отправлять изменения, произошедшие со времени предыдущего резервного копирования, в хранилище службы архивации Azure.
+Резервное копирование виртуальной машины по запросу можно выполнять, когда для нее настроена защита. Если процесс первоначального резервного копирования находится в состоянии ожидания для виртуальной машины, то процесс резервного копирования по запросу создаст полную копию виртуальной машины в хранилище службы архивации Azure. Если процесс первой архивации завершен, при архивации по запросу будут отправляться только изменения, произошедшие со времени предыдущей архивации, в хранилище службы архивации Azure (т. е. она всегда будет добавочной).
+
+>[AZURE.NOTE] В политике архивации, соответствующей виртуальной машине, для диапазона сохранения резервной копии по запросу указано значение ежедневного сохранения.
 
 Чтобы выполнить резервное копирование виртуальной машины по запросу, выполните следующие действия:
 
@@ -198,62 +200,38 @@
     ![Сведения об операции](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
 ## Оповещения
-Вы можете получать настраиваемые оповещения о заданиях на портале. Для этого в PowerShell нужно определить правила оповещений для событий журналов операций.
-
-Оповещения о событиях работают в режиме диспетчера ресурсов Azure. Чтобы перейти в этот режим, выполните следующий командлет в командной строке с повышенными привилегиями:
-
-```
-PS C:\> Switch-AzureMode AzureResourceManager
-```
+Вы можете получать настраиваемые оповещения о заданиях на портале. Для этого в PowerShell нужно определить правила оповещений для событий журналов операций. Мы рекомендуем использовать *PowerShell версии 1.3.0 или более поздней*.
 
 Чтобы настроить пользовательское оповещение об ошибках резервного копирования, используйте команду такого типа:
 
 ```
-PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
+PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
+PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
 ```
 
 **ResourceId**. Этот параметр можно получить во всплывающем окне "Журналы операций", как описано в разделе выше. ResourceUri во всплывающем окне сведений об операции — это и есть параметр ResourceId, который нужно указать для этого командлета.
 
-**EventName**. Для оповещений о резервном копировании виртуальных машин IaaS поддерживаются такие значения: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy.
+**OperationName**. Этот параметр будет иметь формат Microsoft.Backup/backupvault/<EventName>, где EventName соответствует одному из следующих значений: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy.
 
-**Level**. Поддерживаемые значения: Informational, Error. Для оповещений о неудачных операциях используйте значение Error, для оповещений о выполненных заданиях — Informational.
-
-**OperationName**. Этот параметр будет иметь формат Microsoft.Backup/backupvault/<EventName>, где EventName соответствует описанному выше.
-
-**Status**. Поддерживаемые значения: Started, Succeeded и Failed. Рекомендуется оставить значение Informational как уровень для состояния Succeeded.
-
-**SubStatus**. Такое же значение, как для состояния операций резервного копирования.
-
-**RuleType**. Оставьте значение *Event*, так как оповещения о резервном копировании основаны на событиях.
+**Status**. Поддерживаемые значения: Started, Succeeded и Failed.
 
 **ResourceGroup**. Группа ресурсов, к которой принадлежит ресурс, где запущена операция. Это значение можно получить из значения ResourceId. Значение между полями */resourceGroups/* и */providers/* в значении ResourceId — это значение для параметра ResourceGroup.
 
 **Name**. Имя правила оповещения.
 
-**Description**. Описание правила оповещения.
+**CustomEmail**. Укажите адрес электронной почты для отправки оповещений.
 
-**CustomEmails**. Укажите адрес электронной почты для отправки оповещений.
-
-**SendToServiceOwners**. Этот параметр отправляет оповещения всем администраторам и соадминистраторам подписки.
-
-Ниже приведен пример оповещения по почте.
-
-Пример заголовка:
-
-![Заголовок оповещения](./media/backup-azure-manage-vms/alert-header.png)
-
-Пример текста оповещения:
-
-![Текст оповещения](./media/backup-azure-manage-vms/alert-body.png)
+**SendToServiceOwners**. Этот параметр отправляет оповещения всем администраторам и соадминистраторам подписки. Кроме того, его можно использовать в командлете **New-AzureRmAlertRuleEmail**.
 
 ### Связанные с оповещениями ограничения
 К оповещениям на основе событий применяются такие ограничения:
 
 1. Оповещения активируются на всех виртуальных машинах в хранилище службы архивации. Оповещения нельзя настроить для определенного набора виртуальных машин в хранилище службы архивации.
-2. Оповещения разрешаются автоматически, если в течение действия следующего оповещения не инициируется событие, соответствующее оповещению. Чтобы задать период действия оповещения, используйте параметр *WindowSize* в командлете Add-AlertRule.
+2. Эта функция предоставляется в предварительной версии. [Подробнее](../azure-portal/insights-powershell-samples.md/#create-alert-rules)
+3. Вы будете получать оповещения от отправителя alerts-noreply@mail.windowsazure.com. В настоящее время невозможно изменить отправителя электронной почты. 
 
 ## Дальнейшие действия
 
 - [Восстановление виртуальных машин Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

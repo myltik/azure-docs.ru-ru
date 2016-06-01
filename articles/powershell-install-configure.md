@@ -52,7 +52,9 @@ Azure PowerShell можно установить одним из двух мет
         + FullyQualifiedErrorId : CommandNotFoundException
 ```
 
-Чтобы это исправить, перезагрузите компьютер.
+This can be corrected by restarting the machine or importing the cmdlets from C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\ as following (where XXXX is the version of PowerShell installed:
+```
+import-module "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure\\XXXX\\azure.psd1" import-module "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure\\XXXX\\expressroute\\expressroute.psd1" ```
 
 ###Установка Azure PowerShell из коллекции PowerShell
 
@@ -175,4 +177,4 @@ Azure PowerShell можно установить одним из двух мет
 
 Примеры скриптов и инструкции, которые помогут вам освоить использование скриптов для управления Azure, см. в статье [Центр скриптов](http://go.microsoft.com/fwlink/p/?LinkId=321940).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

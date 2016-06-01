@@ -13,10 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
-   ms.author="shivaniguptamsft;barbkess;sonyama"/>
+   ms.date="05/18/2016"
+   ms.author="shigu;barbkess;sonyama"/>
 
 # Анализ данных с помощью машинного обучения Azure
+
+> [AZURE.SELECTOR]
+- [Power BI][]
+- [Машинное обучение Azure][]
+
 В этом учебнике показано, как построить прогнозную модель машинного обучения с помощью машинного обучения Azure и данных хранилища данных SQL Azure. В этом руководстве мы создадим кампанию целевого маркетинга для Adventure Works (магазин велосипедов). Для этого мы предскажем, есть ли вероятность того, что клиент купит велосипед.
 
 > [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
@@ -129,5 +134,7 @@ FROM [dbo].[vTargetMail]
 [Введение в машинное обучение в Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [загрузить демонстрационные данные вручную]: sql-data-warehouse-get-started-manually-load-samples.md
 [Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
+[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Машинное обучение Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

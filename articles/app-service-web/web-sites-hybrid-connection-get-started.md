@@ -73,17 +73,17 @@
 2. На выноске «Гибридные подключения» щелкните кнопку **Добавить**.
 	
 	<!-- ![Add a hybrid connnection][CreateHCAddHC]
--->
+	-->
 	
 3. Откроется выноска **Добавление гибридного подключения**. Поскольку это ваше первое гибридное подключение, параметр **Новое гибридное подключение** выбран автоматически, и откроется выноска **Создание гибридного подключения**.
 	
 	![Создание гибридного подключения][TwinCreateHCBlades]
 	
-	В колонке **Создание гибридного подключения**:
-	- в поле **Имя** укажите имя подключения,
-	- в поле **Имя узла** введите имя локального компьютера, на котором размещен ресурс,
-	- в поле **Порт** введите номер порта, который использует локальный ресурс (1433 для экземпляра SQL Server по умолчанию).
-	- Нажмите **Служба Biz Talk**
+	На **выноске Создание гибридного подключения**:
+	- в поле **Имя** укажите имя подключения;
+	- в поле **Имя узла** введите имя локального компьютера, на котором размещается ваш ресурс;
+	- в поле **Порт** введите номер порта, который использует ваш локальный ресурс (1433 для экземпляра SQL Server по умолчанию).
+	- Щелкните кнопку **Служба BizTalk**
 
 
 4. Откроется колонка **Создание службы BizTalk**. Введите имя службы BizTalk и нажмите кнопку **ОК**.
@@ -98,14 +98,14 @@
 	
 6. После завершения процесса в области уведомлений на портале появится сообщение об успешном создании подключения.
 	<!--- TODO
-
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+	
+	Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
 	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
 	Create hybrid conn step, you get the following error
 	Failed to create hybrid connection RelecIoudHC. The 
 	resource type could not be found in the namespace 
 	'Microsoft.BizTaIkServices for api version 2014-06-01'.
-
+	
 	The error indicates it couldn't find the type, not the instance.
 	![Success notification][CreateHCSuccessNotification]
 	-->
@@ -164,11 +164,11 @@
 
 ## Настройка проекта серверной части мобильного приложения .NET для подключения к базе данных сервера SQL Server
 
-В службе приложений проект серверной части мобильного приложения .NET — это просто веб-приложение ASP.NET с установленным и инициализированным дополнительным пакетом SDK для мобильных приложений. Чтобы использовать веб-приложение в качестве серверной части мобильного приложения, необходимо [загрузить и инициализировать пакет SDK серверной части мобильного приложения .NET](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).
+В службе приложений проект серверной части мобильного приложения .NET — это просто веб-приложение ASP.NET с установленным и инициализированным дополнительным пакетом SDK для мобильных приложений. Чтобы использовать веб-приложение в качестве серверной части мобильного приложения, необходимо [скачать и инициализировать пакет SDK серверной части .NET для мобильных приложений](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).
 
 Для мобильных приложений также необходимо определить строку подключения для локальной базы данных и изменить серверную часть для использования этого подключения.
 
-1. В обозревателе решений Visual Studio откройте файл Web.config для своей серверной части мобильного приложения .NET, найдите раздел **connectionStrings** и добавьте новую запись SqlClient (см. пример ниже), которая указывает на локальную базу данных SQL Server:
+1. В обозревателе решений Visual Studio откройте файл Web.config для своей серверной части .NET мобильного приложения, найдите раздел **connectionStrings** и добавьте новую запись SqlClient (см. пример ниже), которая указывает на локальную базу данных SQL Server:
 
 	    <add name="OnPremisesDBConnection"
          connectionString="Data Source=OnPremisesServer,1433;
@@ -227,7 +227,7 @@
 
 [Веб-сайт гибридных подключений](https://azure.microsoft.com/services/biztalk-services/)
 
-[Службы BizTalk: вкладки "Панель мониторинга", "Монитор", "Масштаб", "Настройка" и "Гибридные подключения"](../biztalk-dashboard-monitor-scale-tabs/)
+[Службы BizTalk: вкладки "Панель мониторинга", "Монитор", "Масштаб", "Настройка" и "Гибридные подключения"](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 
 [Создание реального облака с гибридным подключением с помощью простой переносимости приложений (видео Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
@@ -262,4 +262,4 @@
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

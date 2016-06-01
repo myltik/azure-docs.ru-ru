@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Отключение растяжения базы данных и возвращение удаленных данных
@@ -42,7 +42,7 @@
 
     -   **Отключение | Возврат данных из Azure**. Скопируйте удаленные данные для таблицы из Azure обратно на SQL Server, затем отключите растяжение базы данных для таблицы. Эта операция не может быть отменена.
 
-        >   [AZURE.NOTE] При копировании удаленных данных для таблицы из Azure обратно на сервер SQL Server взимается плата за передачу данных. Дополнительные сведения см. в разделе [Сведения о ценах — передача данных](https://azure.microsoft.com/pricing/details/data-transfers/).
+        >   [AZURE.NOTE] При копировании удаленных данных для таблицы из Azure обратно на сервер SQL Server взимается плата за передачу данных. Дополнительные сведения см. в разделе [Сведения о ценах — передача данных](https://azure.microsoft.com/pricing/details/data-transfers/).
 
         После копирования всех удаленных данных из Azure обратно на SQL Server растяжение для таблицы отключается.
 
@@ -58,7 +58,7 @@
     ALTER TABLE <table name>
        SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;
     ```
-    >   [AZURE.NOTE] При копировании удаленных данных для таблицы из Azure обратно на сервер SQL Server взимается плата за передачу данных. Дополнительные сведения см. в разделе [Сведения о ценах — передача данных](https://azure.microsoft.com/pricing/details/data-transfers/).
+    >   [AZURE.NOTE] При копировании удаленных данных для таблицы из Azure обратно на сервер SQL Server взимается плата за передачу данных. Дополнительные сведения см. в разделе [Сведения о ценах — передача данных](https://azure.microsoft.com/pricing/details/data-transfers/).
 
     После копирования всех удаленных данных из Azure обратно на SQL Server растяжение для таблицы отключается.
 
@@ -98,4 +98,4 @@ ALTER DATABASE <database name>
 
 [Приостановите и возобновите растяжение баз данных](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

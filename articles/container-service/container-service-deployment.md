@@ -40,7 +40,7 @@
 - Подписка — выберите подписку Azure.
 - Группа ресурсов — выберите существующую группу ресурсов или создайте новую.
 - Расположение — выберите регион Azure для развертывания службы контейнеров Azure.
-- Открытый ключ SSH — добавьте открытый ключ, который будет использоваться для проверки подлинности при входе на виртуальные машины службы контейнеров Azure. Важно! Убедитесь, что ключ не разбит разрывами строки, а также содержит префикс ssh-rsa и постфикс username@domain. Он должен выглядеть так: **ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**. Рекомендации по созданию ключей SSH см. в соответствующих статьях для [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) и [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- Открытый ключ SSH — добавьте открытый ключ, который будет использоваться для проверки подлинности при входе на виртуальные машины службы контейнеров Azure. Важно! Убедитесь, что ключ не разбит разрывами строки, а также содержит префикс ssh-rsa и постфикс username@domain. Он должен выглядеть так: **ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**. Рекомендации по созданию ключей SSH см. в соответствующих статьях для [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) и [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
 Щелкните **ОК**, когда будете готовы продолжить.
 
@@ -142,7 +142,7 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 
 ## Создание службы с помощью PowerShell
 
-Кластер службы контейнеров Azure также можно развернуть с помощью PowerShell. В этом руководстве используется [модуль Azure PowerShell]( https://azure.microsoft.com/blog/azps-1-0/) версии 1.0.
+Кластер службы контейнеров Azure также можно развернуть с помощью PowerShell. В этом руководстве используется [модуль Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/) версии 1.0.
 
 Выберите один из следующих шаблонов, чтобы развернуть кластер DC/OS или Docker Swarm. (обратите внимание, что эти шаблоны отличаются только выбором оркестратора по умолчанию):
 
@@ -191,6 +191,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
  
 Теперь, когда у вас есть работающий кластер, ознакомьтесь со следующими документами, чтобы узнать о возможностях подключения и управления.
  
-[Подключение к кластеру службы контейнеров Azure](./container-service-connect.md) [Работа со службой контейнеров Azure и DC/OS](./container-service-mesos-marathon-rest.md) [Работа со службой контейнеров Azure и Docker Swarm](./container-service-docker-swarm.md)
+[Подключение к кластеру службы контейнеров Azure](container-service-connect.md) [Работа со службой контейнеров Azure и DC/OS](container-service-mesos-marathon-rest.md) [Работа со службой контейнеров Azure и Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

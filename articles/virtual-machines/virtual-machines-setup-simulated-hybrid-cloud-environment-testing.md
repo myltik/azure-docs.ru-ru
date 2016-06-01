@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/25/2016" 
@@ -215,4 +215,4 @@
 
 - [Добавьте новую виртуальную машину](virtual-machines-windows-create-powershell.md) в подсеть TestVNET, например ВМ с Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Начало работы с соединителем Wunderlist
@@ -25,7 +25,7 @@ ms.author="deonhe"/>
 
 - [Приложения логики](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps.](http://powerapps.microsoft.com)  
-- [Потоки](http://flows.microsoft.com)  
+- [Поток](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
@@ -87,6 +87,10 @@ ms.author="deonhe"/>
 | ---|---|---|
 |токен|Да|Учетные данные Wunderlist|
 Созданное подключение можно использовать для выполнения действий и прослушивания триггеров, описанных в этой статье.
+
+
+>[AZURE.INCLUDE [Шаги по созданию подключения к Wunderlist](../../includes/connectors-create-api-wunderlist.md)]
+
 
 >[AZURE.TIP] Это подключение можно использовать в других приложениях логики.
 
@@ -641,7 +645,7 @@ ms.author="deonhe"/>
 |---|---|---|
 |id|целое число|Нет |
 |created\_at|string|Нет |
-|title|string|Нет |
+|title|строка|Нет |
 |list\_type|строка|Нет |
 |type|строка|Нет |
 |версия|целое число|Нет |
@@ -657,7 +661,7 @@ ms.author="deonhe"/>
 |created\_at|string|Нет |
 |title|строка|Нет |
 |версия|целое число|Нет |
-|type|string|Нет |
+|type|строка|Нет |
 
 
 
@@ -669,13 +673,13 @@ ms.author="deonhe"/>
 |id|целое число|Нет |
 |assignee\_id|целое число|Нет |
 |assigner\_id|целое число|Нет |
-|created\_at|строка|Нет |
+|created\_at|string|Нет |
 |created\_by\_id|целое число|Нет |
 |due\_date|string|Нет |
 |list\_id|целое число|Нет |
 |версия|целое число|Нет |
 |starred|Логическое|Нет |
-|title|string|Нет |
+|title|строка|Нет |
 
 
 
@@ -686,10 +690,10 @@ ms.author="deonhe"/>
 |---|---|---|
 |id|целое число|Нет |
 |task\_id|целое число|Нет |
-|created\_at|строка|Нет |
+|created\_at|string|Нет |
 |created\_by\_id|целое число|Нет |
 |версия|строка|Нет |
-|title|string|Нет |
+|title|строка|Нет |
 
 
 
@@ -701,8 +705,8 @@ ms.author="deonhe"/>
 |id|целое число|Нет |
 |task\_id|целое число|Нет |
 |Содержимое|string|Нет |
-|created\_at|строка|Нет |
-|updated\_at|строка|Нет |
+|created\_at|string|Нет |
+|updated\_at|string|Нет |
 |версия|целое число|Нет |
 
 
@@ -730,8 +734,8 @@ ms.author="deonhe"/>
 |дата|string|Нет |
 |task\_id|целое число|Нет |
 |версия|целое число|Нет |
-|type|string|Нет |
-|created\_at|строка|Нет |
+|type|строка|Нет |
+|created\_at|string|Нет |
 |updated\_at|string|Нет |
 
 
@@ -745,7 +749,7 @@ ms.author="deonhe"/>
 |дата|string|Нет |
 |task\_id|целое число|Нет |
 |версия|целое число|Нет |
-|created\_at|строка|Нет |
+|created\_at|string|Нет |
 |updated\_at|string|Нет |
 
 
@@ -792,7 +796,7 @@ ms.author="deonhe"/>
 
 | Имя свойства | Тип данных | Обязательное |
 |---|---|---|
-|title|string|Да |
+|title|строка|Да |
 
 
 
@@ -803,7 +807,7 @@ ms.author="deonhe"/>
 |---|---|---|
 |list\_id|целое число|Да |
 |task\_id|целое число|Да |
-|title|string|Да |
+|title|строка|Да |
 |выполнено|Логическое|Нет |
 
 
@@ -847,7 +851,7 @@ ms.author="deonhe"/>
 | Имя свойства | Тип данных | Обязательное |
 |---|---|---|
 |версия|целое число|Нет |
-|title|string|Нет |
+|title|строка|Нет |
 |assignee\_id|целое число|Нет |
 |выполнено|Логическое|Нет |
 |recurrence\_type|string|Нет |
@@ -873,7 +877,7 @@ ms.author="deonhe"/>
 | Имя свойства | Тип данных | Обязательное |
 |---|---|---|
 |версия|целое число|Нет |
-|title|string|Нет |
+|title|строка|Нет |
 |выполнено|Логическое|Нет |
 
 
@@ -900,4 +904,4 @@ ms.author="deonhe"/>
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

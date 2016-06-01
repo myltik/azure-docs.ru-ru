@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Расширение агента IaaS для SQL Server (классическая модель) | Microsoft Azure"
-	description="В этом разделе описывается расширение агента SQL Server, которое позволяет виртуальной машине SQL Server в Azure использовать функции автоматизации. В разделе используется классическая модель развертывания."
+	pageTitle="Расширение агента SQL Server для виртуальных машин SQL Server (классическая модель) | Microsoft Azure"
+	description="В этой статье описывается управление расширением агента SQL Server, которое позволяет автоматизировать выполнение определенных задач администрирования SQL Server. Эти задачи включают в себя автоматическую архивацию, автоматическую установку исправлений и интеграцию с хранилищем ключей Azure. В этом разделе используется классическая модель развертывания."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="rothja"
 	manager="jhubbard"
-   editor=""    
-   tags="azure-service-management"/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,64 +14,73 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/08/2016"
+	ms.date="05/16/2016"
 	ms.author="jroth"/>
 
-# Расширение агента IaaS для SQL Server \(классическая модель\)
+# Расширение агента SQL Server для виртуальных машин SQL Server (классическая модель)
 
-Это расширение позволяет серверу SQL Server в инфраструктуре виртуальных машинах Azure использовать описанные в этой статье службы, которые будут работать, только если установлено данное расширение. Расширение автоматически устанавливается для образов из коллекции SQL Server на портале Azure, и его можно установить на любую виртуальную машину SQL Server в Azure, на которой установлен гостевой агент виртуальной машины Azure.
+> [AZURE.SELECTOR]
+- [Диспетчер ресурсов](virtual-machines-windows-sql-server-agent-extension.md)
+- [Классический](virtual-machines-windows-classic-sql-server-agent-extension.md)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+Расширение агента IaaS для SQL Server (SQLIaaSAgent) запускается на виртуальных машинах Azure для автоматизации задач администрирования. В этом разделе представлен обзор служб, поддерживаемых расширением, а также указания по установке, проверке состояния и удалению расширения.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов. Чтобы просмотреть версию этой статьи для модели Resource Manager, см. статью [SQL Server Agent Extension for SQL Server VMs Resource Manager](virtual-machines-windows-sql-server-agent-extension.md) (Расширение агента IaaS для виртуальных машин SQL Server (Resource Manager)).
+
+## Поддерживаемые службы
+
+Расширение агента IaaS для SQL Server поддерживает следующие задачи администрирования:
+
+| Функция администрирования | Описание |
+|---------------------|-------------------------------|
+| **Автоматическая архивация SQL** | Автоматизирует планирование архивации всех баз данных для установленного на виртуальной машине экземпляра SQL Server по умолчанию. Дополнительные сведения см. в статье [Автоматическая архивация SQL Server на виртуальных машинах Azure (классическая модель)](virtual-machines-windows-classic-sql-automated-backup.md).|
+| **Автоматическая установка исправлений SQL** | Настраивает период обслуживания, во время которого можно обновить виртуальную машину. Таким образом можно избежать установки обновлений в пиковые периоды рабочей нагрузки. Дополнительные сведения см. в статье [Автоматическая установка исправлений SQL Server на виртуальных машинах Azure (классическая модель)](virtual-machines-windows-classic-sql-automated-patching.md).|
+| **Интеграция с хранилищем ключей Azure** | Автоматически устанавливает и настраивает хранилище ключей Azure на виртуальной машине SQL Server. Дополнительные сведения см. в статье [Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure (классическая модель)](virtual-machines-windows-classic-ps-sql-keyvault.md).|
 
 ## Предварительные требования
+
+Требования для использования расширения агента IaaS для SQL Server на виртуальной машине:
+
+- гостевой агент виртуальной машины Azure (расширение BGInfo автоматически устанавливается на новых виртуальных машинах Azure);
+- Windows Server 2012, Windows Server 2012 R2 или более поздней версии;
+- SQL Server 2012, SQL Server 2014 или более поздней версии.
+
 Требования для использования командлетов Powershell:
 
 - Последняя версия Azure PowerShell [доступна здесь](../powershell-install-configure.md).
 
-Требования для использования расширения на виртуальной машине:
+## Установка
 
-- гостевой агент виртуальной машины Azure;
-- Windows Server 2012, Windows Server 2012 R2 или более поздняя версия;
-- SQL Server 2012, SQL Server 2014 или более поздняя версия.
+Расширение агента IaaS для SQL Server автоматически устанавливается при подготовке одного из образов коллекции виртуальных машин SQL Server.
 
-## Доступные после установки расширения службы
+При создании виртуальной машины Windows Server только для OС можно установить расширение вручную с помощью командлета PowerShell **Set-AzureVMSqlServerExtension**. Используйте команду, чтобы настроить одну из служб агента, например автоматическую установку исправлений. Виртуальная машина устанавливает агент, если он не установлен.
 
-- **Служба автоматической архивации SQL**. Эта служба позволяет автоматизировать планирование архивации всех баз данных для установленного на виртуальной машине экземпляра SQL Server по умолчанию. Дополнительную информацию см. в статье [Автоматическая архивация SQL Server на виртуальных машинах Azure \(классическая модель\)](virtual-machines-windows-classic-sql-automated-backup.md).
-- **Служба автоматической установки исправлений SQL**. Эта служба позволяет настроить период обслуживания, во время которого возможно обновление виртуальной машины. Таким образом можно избежать установки обновлений в пиковые периоды рабочей нагрузки. Дополнительные сведения см. в статье [Автоматическая установка исправлений SQL Server на виртуальных машинах Azure \(классическая модель\)](virtual-machines-windows-classic-sql-automated-patching.md).
-- **Интеграции хранилища ключей Azure**. Эта служба позволяет автоматически установить и настроить хранилище ключей Azure на виртуальной машине SQL Server. Дополнительные сведения см. в статье [Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure \(классическая модель\)](virtual-machines-windows-classic-ps-sql-keyvault.md).
+>[AZURE.NOTE] Указания по использованию командлета PowerShell **Set-AzureVMSqlServerExtension** см. в отдельных подразделах раздела [Поддерживаемые службы](#supported-services) в этой статье.
 
-## Добавление расширения с помощью Powershell
-Если вы подготавливаете виртуальную машину SQL Server с помощью [портала Azure](virtual-machines-windows-portal-sql-server-provision.md), данное расширение будет установлено автоматически. На виртуальных машинах SQL Server, подготовленных с помощью классического портала Azure, или виртуальных машинах, на которых вы используете собственную лицензию SQL, это расширение можно добавить с помощью командлета Azure PowerShell **Set-AzureVMSqlServerExtension**.
+## Состояние
 
-### Синтаксис
+Одним из способов проверки того, что расширение установлено, является просмотр состояния агента на портале Azure. В колонке виртуальной машины выберите **Все параметры**, а затем щелкните **Расширения**. В списке будет указано расширение **SQLIaaSAgent**.
 
-Set-AzureVMSqlServerExtension [[-ReferenceName\] \[String]] \[-VM\] IPersistentVM [[-Version\] \[String]] [[-AutoPatchingSettings\] \[AutoPatchingSettings]] \[-AutoBackupSettings\[AutoBackupSettings\]\] \[-Profile \[AzureProfile\]\] \[CommonParameters\]
-
-> [AZURE.NOTE] Параметр -Version лучше не использовать. Без него по умолчанию используется последняя версия расширения.
-
-### Пример
-В следующем примере настраиваются параметры автоматической архивации с помощью конфигурации, определенной в $abs \(здесь не показана\). ServiceName — имя облачной службы, в которой размещается виртуальная машина. Полный пример см. в статье [Автоматическая архивация SQL Server на виртуальных машинах Azure \(классическая модель\)](virtual-machines-windows-classic-sql-automated-backup.md).
-
-	Get-AzureVM –ServiceName "serviceName" –Name "vmName" | Set-AzureVMSqlServerExtension –AutoBackupSettings $abs | Update-AzureVM**
-
-## Проверка статуса расширения
-Для проверки состояния этого расширения и связанных с ним служб можно использовать любой портал. В сведениях о существующей виртуальной машине найдите в разделе **Параметры** пункт **Расширения**.
+![Расширение агента IaaS для SQL Server на портале Azure](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)
 
 Можно также использовать командлет Azure PowerShell **Get-AzureVMSqlServerExtension**.
 
-### Синтаксис
-
-Get-AzureVMSqlServerExtension [[-VM\] \[IPersistentVM]] \[-Profile \[AzureProfile\]\] \[CommonParameters\]
-
-### Пример
 	Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
 
-## Удаление расширения с помощью Powershell   
-Чтобы удалить это расширение с виртуальной машины, используйте командлет Azure PowerShell **Remove-AzureVMSqlServerExtension**.
+## Удаление   
 
-### Синтаксис
+Чтобы удалить расширение на портале Azure, в колонке **Расширения** в свойствах виртуальной машины щелкните многоточие, а затем выберите **Удалить**.
 
-Remove-AzureVMSqlServerExtension \[-Profile \[AzureProfile\]\] -VM IPersistentVM \[CommonParameters\]
+![Удаление расширения агента IaaS для SQL Server на портале Azure](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-uninstall.png)
 
-<!---HONumber=AcomDC_0413_2016-->
+Вы также можете использовать командлет PowerShell **Remove-AzureVMSqlServerExtension**.
+
+	Get-AzureVM –ServiceName "service" –Name "vmname" | Remove-AzureVMSqlServerExtension | Update-AzureVM
+
+## Дальнейшие действия
+
+Начните работать с одной из служб, поддерживаемых расширением. Дополнительные сведения см. в разделе [Поддерживаемые службы](#supported-services) в этой статье.
+
+Подробные сведения о работе SQL Server на виртуальных машинах Azure см. в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

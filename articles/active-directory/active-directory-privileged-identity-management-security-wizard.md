@@ -31,12 +31,12 @@
 
 Впоследствии мастер отображаться не будет. При следующем использовании PIM вы увидите панель мониторинга PIM.
 
-- Чтобы научиться добавлять пользователей в роли и удалять их, а также изменять назначения с постоянных на временные, ознакомьтесь с разделом, посвященным [добавлению и удалению ролей пользователей](active-directory-privileged-identity-management-how-to-add-role-to-user).
-- Если вы хотите предоставить доступ к управлению PIM большему количеству пользователей, ознакомьтесь с разделом, посвященным [предоставлению доступа к управлению в PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim).
+- Чтобы научиться добавлять пользователей в роли и удалять их, а также изменять назначения с постоянных на временные, ознакомьтесь с разделом, посвященным [добавлению и удалению ролей пользователей](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
+- Если вы хотите предоставить доступ к управлению PIM большему количеству пользователей, ознакомьтесь с разделом, посвященным [предоставлению доступа к управлению в PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 
 
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

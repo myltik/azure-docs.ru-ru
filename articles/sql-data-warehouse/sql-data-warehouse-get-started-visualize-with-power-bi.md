@@ -13,17 +13,20 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/18/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Визуализация данных с помощью Power BI
 
+> [AZURE.SELECTOR]
+- [Power BI][]
+- [Машинное обучение Azure][]
+
+В этом руководстве показано, как использовать Power BI для подключения к хранилищу данных SQL и создания нескольких базовых визуализаций.
 
 > [AZURE.NOTE] Для работы с этим руководством необходима база данных хранилища данных SQL, в которую предварительно загружена демонстрационная база данных AdventureWorksDW. В статье [Создание хранилища данных SQL](sql-data-warehouse-get-started-provision.md) показано, как создать такую базу данных.
 >
 > Если база данных хранилища данных SQL уже существует, но не содержит демонстрационных данных, вы можете [загрузить демонстрационные данные вручную][].
-
-В этом руководстве показано, как использовать Power BI для подключения к хранилищу данных SQL и создания нескольких базовых визуализаций.
 
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
@@ -85,7 +88,7 @@
 Ход выполнения можно сохранить в любой момент, выбрав в меню **Файл** пункт **Сохранить**.
 
 ## Дальнейшие действия
-Теперь, когда вы разобрались с образцом данных, узнайте, как [разрабатывать хранилища данных][], [загружать данные][] и [переносить готовые решения][].
+Теперь, когда вы разобрались с образцом данных, узнайте, как [разрабатывать хранилища данных][], [загружать данные][] и [переносить готовые решения][]. Или см. [веб-сайт Power BI][].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -106,9 +109,13 @@
 [разрабатывать хранилища данных]: ./sql-data-warehouse-overview-develop.md
 [загружать данные]: ./sql-data-warehouse-overview-load.md
 [загрузить демонстрационные данные вручную]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[портал Azure]: https://portal.azure.com/
-[Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Машинное обучение Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!--Other-->
+[портал Azure]: https://portal.azure.com/
+[веб-сайт Power BI]: http://www.powerbi.com/
+
+<!---HONumber=AcomDC_0525_2016-->

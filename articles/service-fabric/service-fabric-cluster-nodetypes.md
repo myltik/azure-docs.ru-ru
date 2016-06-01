@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/17/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -66,7 +66,7 @@
 
 Порты распределяются по возрастанию номера экземпляра масштабируемого набора ВМ. Поэтому в примере с типом узла FrontEnd для каждого из пяти экземпляров будут использоваться указанные далее порты. Вам потребуется выполнить такое же сопоставление для экземпляра масштабируемого набора ВМ.
 
-|**Экземпляр VMSS**|**Порт**|
+|**Экземпляр масштабируемого набора ВМ**|**Порт**|
 |-----------------------|--------------------------|
 |FrontEnd\_0|3389|
 |FrontEnd\_1|3390|
@@ -133,4 +133,4 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

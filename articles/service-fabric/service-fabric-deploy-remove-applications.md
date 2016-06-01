@@ -3,7 +3,7 @@
    description="Развертывание и удаление приложений в Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/08/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Развертывание приложения
 
@@ -82,7 +82,7 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-Команда **Register-ServiceFabricApplicationType** возвращает данные только после того, как система успешно завершит копирование пакета приложения. Срок выполнения команды зависит от содержимого пакета приложения. При необходимости можно увеличить время ожидания, используя параметр **-TimeoutSec** (значение по умолчанию — 60 секунд).
+Команда **Register-ServiceFabricApplicationType** возвращает данные только после того, как система успешно завершит копирование пакета приложения. Срок выполнения команды зависит от содержимого пакета приложения. При необходимости можно увеличить время ожидания, используя параметр **-TimeoutSec** (значение по умолчанию — 60 секунд).
 
 Чтобы вывести список успешно зарегистрированных версий типов приложения, используйте команду **Get-ServiceFabricApplicationType**.
 
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

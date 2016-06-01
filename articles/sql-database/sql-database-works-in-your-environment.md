@@ -43,4 +43,14 @@
 
 Ознакомиться с другими преимуществами базы данных SQL вы можете [здесь](https://azure.microsoft.com/services/sql-database/).
 
-<!---HONumber=AcomDC_0511_2016-->
+## Дальнейшие действия
+
+Вы можете получить [бесплатную подписку Azure](https://azure.microsoft.com/get-started/) и [создать первую Базу данных SQL Azure](sql-database-get-started.md).
+
+## Подробнее
+
+Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Вы можете ознакомиться с [техническим обзором Базы данных SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

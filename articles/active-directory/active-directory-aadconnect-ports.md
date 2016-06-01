@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Порты и протоколы, необходимые для гибридной идентификации
@@ -84,4 +84,4 @@
 ### 6б. Конечные точки для агента Azure AD Connect Health для (AD FS и синхронизации) и Azure AD
 Список конечных точек см. в [разделе "Требования" для агента Azure AD Connect Health](active-directory-aadconnect-health.md#requirements).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

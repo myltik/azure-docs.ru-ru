@@ -1,27 +1,27 @@
 <properties
    pageTitle="Неполадки при перезапуске или изменении размера виртуальной машины | Microsoft Azure"
    description="Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure"
-   services="virtual-machines"
+   services="virtual-machines-linux, azure-resource-manager"
    documentationCenter=""
-   authors="delhan"
+   authors="Deland-Han"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 
 <tags
-   ms.service="virtual-machines"
-   ms.topic="support-article"
-   ms.tgt_pltfrm="virtual-machines"
+   ms.service="virtual-machines-linux"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="04/28/2016"
+   ms.date="05/12/2016"
    ms.author="delhan"/>
 
 # Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure
 
 > [AZURE.SELECTOR]
 - [Классический](../articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
-- [Диспетчер ресурсов](../articles/virtual-machines/virtual-machines-linux-arm-restart-resize-error-troubleshooting.md)
+- [Диспетчер ресурсов](../articles/virtual-machines/virtual-machines-linux-restart-resize-error-troubleshooting.md)
 
 Когда вы запускаете остановленную виртуальную машину Azure или изменяете размер существующей виртуальной машины Azure, часто возникает ошибка выделения ресурсов. Это происходит, когда кластер или регион не имеют доступных ресурсов или не поддерживают запрашиваемый размер виртуальной машины.
 
@@ -70,10 +70,10 @@
 * Если нельзя изменить размер запрошенной виртуальной машины,
 
   1. остановите все виртуальные машины в группе доступности.
-  
+
     * Для этого последовательно выберите пункты **Группы ресурсов** > _имя вашей группы ресурсов_ > **Ресурсы** > _имя вашей группы доступности_ > **Виртуальные машины** > _имя вашей виртуальной машины_ > **Остановить**.
 
   2. После остановки всех виртуальных машин увеличьте размер требуемой виртуальной машины.
   3. Выберите виртуальную машину с измененным размером, нажмите кнопку **Пуск** и запустите каждую из остановленных виртуальных машин.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

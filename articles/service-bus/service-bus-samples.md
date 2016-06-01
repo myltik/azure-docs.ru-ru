@@ -1,25 +1,27 @@
 <properties 
-   pageTitle="Обзор примеров для служебной шины | Microsoft Azure"
-   description="Классификация и описание примеров использования служебной шины со ссылками."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Обзор примеров для служебной шины | Microsoft Azure"
+    description="Классификация и описание примеров использования служебной шины со ссылками."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Служебная шина: примеры
 
 В примерах служебной шины демонстрируются ключевые возможности [служебной шины](https://azure.microsoft.com/services/service-bus/) (облачной службы) и [служебной шины для Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). В этой статье приведены категории примеров с описаниями и ссылками.
 
 >[AZURE.NOTE] Примеры служебной шины не устанавливаются вместе с пакетом SDK. Примеры доступны на [странице примеров пакета SDK для Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+>
+>Обновленный набор примеров обмена сообщениями Service Bus см. [здесь](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) (на момент написания этой статьи они в ней не описаны). Примеры ретрансляции см. [здесь](https://github.com/Azure-Samples/azure-servicebus-relay-samples).
 
 ## Обмен сообщениями через посредника в служебной шине
 
@@ -132,4 +134,4 @@
 - [Архитектура служебной шины](service-bus-architecture.md)
 - [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

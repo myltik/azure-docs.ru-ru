@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/02/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Работа с фабрикой данных Azure и хранилищем данных SQL
@@ -29,26 +29,25 @@
 + Локальный сервер SQL Server
 + Сервер SQL Server в IaaS
 
-Сведения о настройке копирования данных см. в разделе [Копирование данных с помощью фабрики данных Azure](../data-factory/data-factory-data-movement-activities.md).
+Сведения о том, как настроить копирование данных, см. в разделе [Копирование данных с помощью фабрики данных Azure][].
 
 ## Хранимые процедуры
  Фабрику данных Azure можно использовать как для планирования передачи данных, так и для управления выполнением хранимых процедур. Это позволяет создавать более сложные конвейеры и расширять возможности фабрики данных Azure за счет использоваться вычислительных мощностей хранилища данных SQL.
 
 ## Дальнейшие действия
-Общие сведения об интеграции см. в разделе [Обзор интеграции хранилища данных SQL](sql-data-warehouse-overview-integrate.md). Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL](sql-data-warehouse-overview-develop.md).
+Общие сведения об интеграции см. в разделе [Обзор интеграции хранилища данных SQL][]. Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: https://azure.microsoft.com/ru-RU/documentation/articles/data-factory-azure-sql-connector/
-[SQL Data Warehouse development overview]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-develop/
-[SQL Data Warehouse integration overview]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-integrate/
+[Копирование данных с помощью фабрики данных Azure]: ../data-factory/data-factory-data-movement-activities.md
+[Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
+[Обзор интеграции хранилища данных SQL]: ./sql-data-warehouse-overview-integrate.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [документации к фабрике данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
-[Copy data with Azure Data Factory]: https://azure.microsoft.com/ru-RU/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

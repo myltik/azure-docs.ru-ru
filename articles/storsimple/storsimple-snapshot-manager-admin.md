@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="05/18/2016"
    ms.author="v-sharos" />
 
 # Использование диспетчера моментальных снимков StorSimple для администрирования решения StorSimple
@@ -39,7 +39,7 @@
 
 - Процедуры развертывания диспетчера моментальных снимков StorSimple см. в [статье о его развертывании](storsimple-snapshot-manager-deployment.md).
 
->[AZURE.NOTE]Диспетчер моментальных снимков StorSimple нельзя использовать виртуальными массивами Microsoft Azure StorSimple (также известными как локальные виртуальные устройства StorSimple).
+>[AZURE.NOTE] Диспетчер моментальных снимков StorSimple нельзя использовать виртуальными массивами Microsoft Azure StorSimple (также известными как локальные виртуальные устройства StorSimple).
 
 ## Диспетчер моментальных снимков StorSimple: задачи и рабочие процессы
 
@@ -62,4 +62,4 @@
 
 [Скачать диспетчер моментальных снимков StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

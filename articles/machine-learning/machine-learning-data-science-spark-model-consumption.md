@@ -3,7 +3,7 @@
 	description="Сведения об оценке моделей обучения, сохраненных в хранилище BLOB-объектов Azure."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="bradsev,deguhath,gokuma"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,22 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/05/2016"
 	ms.author="deguhath;bradsev" />
 
 # Оценка моделей машинного обучения, созданных с помощью Spark 
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-
-## Введение
-
 В этой статье описывается, как загрузить модели машинного обучения, созданные с помощью Spark MLlib и сохраненные в хранилище BLOB-объектов Azure, а также как оценить их с помощью наборов данных, которые сохранены в этом же хранилище. Здесь также описано, как выполнить предварительную подготовку входных данных, преобразовать признаки с помощью функций индексирования и кодирования в наборе средств MLlib и как создать объекты данных с помеченной вершиной, которые можно использовать в качестве входных данных для оценки при помощи моделей машинного обучения. Для оценки будут использоваться такие модели, как линейная регрессия, логистическая регрессия, случайные леса и увеличивающиеся деревья принятия решений.
 
 
 ## Предварительные требования
 
-1. Чтобы приступить к выполнению шагов, описанных в этом руководстве, потребуется учетная запись Azure и кластер HDInsight Spark. Дополнительные сведения о требованиях, необходимых для выполнения задач, описание данных о поездках в такси по Нью-Йорку за 2013 г. и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark см. в статье [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Обзор процедуры анализа и обработки данных с помощью Spark в Azure HDInsight). Записная книжка **machine-learning-data-science-spark-model-consumption.ipynb** с примером кода, который используется в этом разделе, доступна на [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python).
+1. Вам потребуется учетная запись Azure и кластер HDInsight Spark. Чтобы выполнить инструкции этого руководства, вам потребуется кластер HDInsight 3.4 Spark 1.6. Дополнительные сведения о требованиях, необходимых для выполнения задач, описание данных о поездках в такси по Нью-Йорку за 2013 г. и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark см. в статье [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Обзор анализа и обработки данных с помощью Spark в Azure HDInsight). Записная книжка **machine-learning-data-science-spark-data-exploration-modeling.ipynb** с примером кода, который используется в этом разделе, доступна на [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 2. Вам также необходимо создать модели машинного обучения, которые будут оцениваться. Для этого выполните действия, описанные в статье [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) (Исследование и моделирование данных с помощью Spark).
 
@@ -36,11 +33,11 @@
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
  
 
-## Настройка Spark и путей каталога к сохраненным данным и моделям 
+## Настройка места хранения, библиотек и предустановленого контекста Spark
 
 Spark может считывать данные и записывать их в хранилище BLOB-объектов Azure (WASB). Таким образом, данные из хранилища можно обрабатывать с помощью Spark и сохранять полученные данные в этом же хранилище.
 
-Чтобы сохранить модели или файлы в хранилище BLOB-объектов, необходимо указать путь соответствующим образом. Контейнер по умолчанию, присоединенный к кластеру Spark, можно указать с помощью пути, который начинается с *wasb///*. В следующем примере кода указывается расположение данных, которые необходимо считать, и путь для каталога хранилища модели, где будут сохранены выходные данные модели.
+Чтобы сохранить модели или файлы в хранилище BLOB-объектов, необходимо указать путь соответствующим образом. Контейнер по умолчанию, присоединенный к кластеру Spark, можно указать с помощью пути, который начинается с *"wasb//"*. В следующем примере кода указывается расположение данных, которые необходимо считать, и путь для каталога хранилища модели, где будут сохранены выходные данные модели.
 
 
 ### Настройка путей каталога к месту хранения в хранилище BLOB-объектов
@@ -49,7 +46,11 @@ Spark может считывать данные и записывать их в
 
 Результаты оценки сохраняются в следующем расположении: wasb:///user/remoteuser/NYCTaxi/ScoredResults. Если путь задан неправильно, сохранить результаты в эту папку не удастся.
 
->AZURE.NOTE. Путь к расположению файлов можно скопировать из выходных данных, полученных после выполнения последнего фрагмента кода записной книжки **machine-learning-data-science-spark-data-exploration-modeling.ipynb**, и вставить в заполнители в этом коде.
+
+>[AZURE.NOTE] Путь к расположению файлов можно скопировать из выходных данных, полученных после выполнения последнего фрагмента кода записной книжки **machine-learning-data-science-spark-data-exploration-modeling.ipynb**, и вставить в заполнители в этом коде.
+
+
+Ниже приведен код для настройки путей к каталогам:
 
 	# LOCATION OF DATA TO BE SCORED (TEST DATA)
 	taxi_test_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Test.tsv";
@@ -76,10 +77,10 @@ Spark может считывать данные и записывать их в
 
 **ВЫХОДНЫЕ ДАННЫЕ:**
 
-datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
+datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 
-### Импорт библиотек и настройка контекста Spark 
+### Импорт библиотек
 
 Чтобы импортировать библиотеки и настроить контекст Spark, используйте следующий код:
 
@@ -88,6 +89,8 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 	from pyspark import SparkConf
 	from pyspark import SparkContext
 	from pyspark.sql import SQLContext
+	import matplotlib
+	import matplotlib.pyplot as plt
 	from pyspark.sql import Row
 	from pyspark.sql.functions import UserDefinedFunction
 	from pyspark.sql.types import *
@@ -95,17 +98,22 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 	from numpy import array
 	import numpy as np
 	import datetime
-	
-	# SET SPARK CONTEXT
-	sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-	sqlContext = SQLContext(sc)
-	atexit.register(lambda: sc.stop())
-	
-	sc.defaultParallelism
 
-**ВЫХОДНЫЕ ДАННЫЕ:**
 
-4\.
+### Предустановленный контекст Spark и волшебные команды PySpark
+
+Ядра PySpark и Spark, предоставляемые с записными книжками Jupyter, имеют предустановленный контекст, поэтому вам не требуется явно настраивать контексты Spark или Hive перед началом работы с разрабатываемым приложением; они доступны по умолчанию. а именно:
+
+- sc для Spark; 
+- sqlContext для Hive.
+
+Ядро PySpark предоставляет несколько "волшебных команд". Это специальные команды, которые можно вызывать с %%. В этих примерах кода используются две подобные команды.
+
+- **%%local** Указывает, что код в последующих строках будет выполнен локально. В качестве кода должен быть указан корректный код Python.
+- **%%sql -o <variable name>** Выполняет запрос Hive к sqlContext. Если передан параметр -o, результат запроса сохраняется в контексте %%local Python в качестве таблицы данных Pandas.
+ 
+
+Дополнительные сведения о ядрах для записных книжек Jupyter и предустановленных волшебных командах с оператором %% (например, %%local), которые они предоставляют, см. в статье [Ядра, доступные для использования с записными книжками Jupyter с кластерами HDInsight Spark на платформе Linux в HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 
 ## Прием данных и создание очищенного фрейма данных
@@ -174,7 +182,7 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 
 **ВЫХОДНЫЕ ДАННЫЕ:**
 
-Время на выполнение кода выше: 15,36 с.
+Время на выполнение кода выше: 46,37 с.
 
 
 ## Подготовка данных для оценки в Spark 
@@ -195,7 +203,7 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 	timestart = datetime.datetime.now()
 	
 	# LOAD PYSPARK LIBRARIES
-	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer
+	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, VectorIndexer
 	
 	# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
 	sqlStatement = """
@@ -249,7 +257,7 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 
 **ВЫХОДНЫЕ ДАННЫЕ:**
 
-Время на выполнение кода выше: 4,88 с.
+Время на выполнение кода выше: 5,37 с.
 
 
 ### Создание объектов устойчивого распределенного набора данных с массивами признаков для получения входных данных для моделей
@@ -326,7 +334,7 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 
 **ВЫХОДНЫЕ ДАННЫЕ:**
 
-Время на выполнение кода выше: 9,94 с.
+Время на выполнение кода выше: 11,72 с.
 
 
 ## Оценка с использованием модели логистической регрессии и сохранение выходных данных в хранилище BLOB-объектов
@@ -360,7 +368,7 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 
 **ВЫХОДНЫЕ ДАННЫЕ:**
 
-Время на выполнение кода выше: 32,46 с.
+Время на выполнение кода выше: 19,22 с.
 
 
 ## Оценка модели линейной регрессии
@@ -377,7 +385,7 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 	#LOAD LIBRARIES​
 	from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 	
-	# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
+	# LOAD MODEL AND SCORE USING **SCALED VARIABLES **
 	savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
 	predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
 	
@@ -395,14 +403,14 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 
 **ВЫХОДНЫЕ ДАННЫЕ:**
 
-Время на выполнение кода выше: 25,00 с.
+Время на выполнение кода выше: 16,63 с.
 
 
 ## Оценка моделей классификации и регрессии с применением алгоритма случайного леса
 
 С помощью кода, описанного в этом разделе, можно загрузить сохраненные в хранилище BLOB-объектов Azure модели классификации и регрессии с применением алгоритма случайного леса, оценить их эффективность с помощью стандартных показателей классификации и регрессии, а затем сохранить результаты в том же хранилище.
 
-[Случайные леса](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) — это алгоритм, заключающийся в использовании комитета деревьев принятия решений. Такие комитеты используются во избежание переобучения. С помощью этого алгоритма можно обрабатывать категориальные признаки, расширять модель для выполнения задач мультиклассовой классификации, а также определять нелинейные зависимости и взаимодействия признаков. Этот метод не требуют масштабирования признаков. Случайные леса — одна из самых эффективных моделей машинного обучения для задач классификации и регрессии.
+[Случайные леса](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) — это совокупности деревьев принятия решений. Такие комитеты используются во избежание переобучения. С помощью этого алгоритма можно обрабатывать категориальные признаки, расширять модель для выполнения задач мультиклассовой классификации, а также определять нелинейные зависимости и взаимодействия признаков. Этот метод не требуют масштабирования признаков. Случайные леса — одна из самых эффективных моделей машинного обучения для задач классификации и регрессии.
 
 [spark.mllib](http://spark.apache.org/mllib/) предусматривает использование метода случайного леса в моделях двоичной, мультиклассовой классификации и регрессии с применением как непрерывных, так и категориальных признаков.
 
@@ -443,7 +451,7 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 
 **ВЫХОДНЫЕ ДАННЫЕ:**
 
-Время на выполнение кода выше: 52,2 с.
+Время на выполнение кода выше: 31,07 с.
 
 
 ## Оценка моделей классификации и регрессии с применением метода увеличивающихся деревьев принятия решений
@@ -463,7 +471,7 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 	#IMPORT MLLIB LIBRARIES
 	from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
 	
-	# CLASSIFICATION:LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+	# CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
 
 	#LOAD AND SCORE THE MODEL
 	savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeClassificationFileLoc)
@@ -496,7 +504,8 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 	
 **ВЫХОДНЫЕ ДАННЫЕ:**
 
-Время на выполнение кода выше: 27,73 с.
+Время на выполнение кода выше: 14,6 с.
+
 
 ## Очистка объектов из памяти и вывод расположений оцененных файлов
 
@@ -520,17 +529,17 @@ datetime.datetime(2016, 4, 19, 17, 21, 28, 379845).
 
 **ВЫХОДНЫЕ ДАННЫЕ:**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS\_2016-04-1917\_22\_36.354603.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS\_2016-05-0317\_22\_38.953814.txt
 
-linearRegFileLoc: LinearRegressionWithSGD\_2016-04-1917\_23\_06.083178
+linearRegFileLoc: LinearRegressionWithSGD\_2016-05-0317\_22\_58.878949
 
-randomForestClassificationFileLoc: RandomForestClassification\_2016-04-1917\_23\_33.994108.txt
+randomForestClassificationFileLoc: RandomForestClassification\_2016-05-0317\_23\_15.939247.txt
 
-randomForestRegFileLoc: RandomForestRegression\_2016-04-1917\_24\_00.352683.txt
+randomForestRegFileLoc: RandomForestRegression\_2016-05-0317\_23\_31.459140.txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification\_2016-04-1917\_24\_21.465683.txt
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification\_2016-05-0317\_23\_49.648334.txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-04-1917\_24\_32.371641.txt
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_56.860740.txt
 
 
 
@@ -540,7 +549,9 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-04-1917\_24\_
 
 Вы можете использовать Livy, чтобы удаленно отправить запрос на выполнение пакетного задания оценки файла, сохраненного в большом двоичном объекте Azure, а затем записать результаты в другой большой двоичный объект. Чтобы сделать это, необходимо загрузить скрипт Python из [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) в большой двоичный объект кластера Spark. Используйте **обозреватель хранилищ Microsoft Azure** или **AzCopy**, чтобы скопировать скрипт в большой двоичный объект кластера. В нашем случае мы загрузили скрипт в ***wasb:///example/python/ConsumeGBNYCReg.py***.
 
->AZURE.NOTE. Необходимые ключи доступа можно найти на портале для учетной записи хранения, связанной с кластером Spark.
+
+>[AZURE.NOTE] Необходимые ключи доступа можно найти на портале для учетной записи хранения, связанной с кластером Spark.
+
 
 После загрузки скрипт будет выполняться в кластере Spark в распределенном контексте. Он загрузит модель и запустит прогнозирование на основе входных файлов в зависимости от модели.
 
@@ -553,7 +564,9 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-04-1917\_24\_
 
 Чтобы вызвать задание Spark через Livy, необходимо выполнить простой вызов HTTP с обычной проверкой подлинности. В удаленной системе для этого можно использовать любой язык.
 
->AZURE.NOTE. При выполнении вызова HTTP удобнее использовать библиотеку запросов для Python, но она не установлена по умолчанию в Функциях Azure. Поэтому вместо нее используются старые библиотеки HTTP.
+
+>[AZURE.NOTE] При выполнении вызова HTTP удобнее использовать библиотеку запросов для Python, но она не установлена по умолчанию в функциях Azure. Поэтому вместо нее используются старые библиотеки HTTP.
+
 
 Ниже приведен пример кода Python для вызова HTTP.
 
@@ -582,14 +595,19 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-04-1917\_24\_
 	conn.close()
 
 
-Чтобы отправить запрос на выполнение задания Spark для оценки большого двоичного объекта на основе событий (например, активации, создания или обновления большого двоичного объекта), можно добавить код Python в [Функции Azure](../functions/).
+Чтобы отправить запрос на выполнение задания Spark для оценки большого двоичного объекта на основе событий (например, активации, создания или обновления большого двоичного объекта), можно добавить код Python в [Функции Azure](https://azure.microsoft.com/documentation/services/functions/).
 
-Если вы не хотите иметь дело с кодом, используйте [приложения логики Azure](../app-service/logic/), чтобы вызвать пакетную оценку Spark. Для этого определите действие HTTP в **конструкторе приложений логики** и настройте соответствующие параметры.
+Если вы не хотите иметь дело с кодом, используйте [приложения логики Azure](https://azure.microsoft.com/documentation/services/app-service/logic/), чтобы вызвать пакетную оценку Spark. Для этого определите действие HTTP в **конструкторе приложений логики** и настройте соответствующие параметры.
 
-- На портале Azure создайте приложение логики, выбрав **+ Создать** -> **Интернет+мобильные устройства** -> **Приложение логики**. 
+- На портале Azure создайте приложение логики, выбрав **+Создать** -> **Интернет + мобильные устройства** -> **Приложение логики**. 
 - Введите имя приложения логики и плана служб приложений, чтобы открыть **конструктор приложений логики**.
 - Выберите действие HTTP и введите параметры, показанные на рисунке ниже.
 
 ![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+
+## Что дальше? 
+
+**Перекрестная проверка и очистка гиперпараметров**. Сведения об обучении моделей с помощью перекрестной проверки и очистки гиперпараметров см. в статье [Расширенное исследование и моделирование данных в Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md).
+
+<!---HONumber=AcomDC_0518_2016-->

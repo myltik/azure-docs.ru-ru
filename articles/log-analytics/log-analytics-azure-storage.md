@@ -80,21 +80,28 @@ Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
+$workspaceName = "your workspace name"
+$VMresourcegroup = "**"
+$VMresourcename = "**"
 
-$workspaceId="**"
-$workspaceKey="**"
+$workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq $workspaceName})
 
-$resourcegroup = "**"
-$resourcename = "**"
+if ($workspace.Name -ne $workspaceName) 
+{
+    Write-Error "Unable to find OMS Workspace $workspaceName. Do you need to run Select-AzureRMSubscription?"
+}
 
-$vm = Get-AzureRMVM -ResourceGroupName $resourcegroup -Name $resourcename
+$workspaceId = $workspace.CustomerId 
+$workspaceKey = (Get-AzureRmOperationalInsightsWorkspaceSharedKeys -ResourceGroupName $workspace.ResourceGroupName -Name $workspace.Name).PrimarySharedKey
+
+$vm = Get-AzureRMVM -ResourceGroupName $VMresourcegroup -Name $VMresourcename
 $location = $vm.Location
 
-Set-AzureRMVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
 
 
 ```
-При настройке с помощью PowerShell необходимо указать идентификатор рабочей области и первичный ключ. Идентификатор рабочей области и первичный ключ находятся на странице **Параметры** портала OMS.
+При настройке с помощью PowerShell необходимо указать идентификатор рабочей области и первичный ключ. Идентификатор рабочей области и первичный ключ можно найти на странице **Параметры** портала OMS или с помощью PowerShell, как показано в приведенном выше примере.
 
 ![идентификатор рабочей области и первичный ключ](./media/log-analytics-azure-storage/oms-analyze-azure-sources.png)
 
@@ -130,12 +137,15 @@ Syslog|События, отправляемые в управляющие про
 В настоящее время OMS может анализировать:
 
 - Журналы IIS от веб-ролей и виртуальных машин
-- Журналы событий Windows от веб-ролей и рабочих ролей и виртуальных машин Azure, работающих под операционной системой Windows
+- Журналы событий Windows и журналы трассировки событий от веб-ролей и рабочих ролей и виртуальных машин Azure, работающих под операционной системой Windows
 - Системный журнал от виртуальных машин Azure, работающих под операционной системой Linux
+- Данные диагностики для группы безопасности сети, шлюза приложений и ресурсов KeyVault записываются в хранилище BLOB-объектов в формате JSON.
 
 Журналы должны находиться в следующих расположениях:
 
 - WADWindowsEventLogsTable (хранилище таблиц) — содержит сведения из журналов событий Windows.
+- WADETWEventTable (хранилище таблиц) — содержит сведения из журналов трассировки событий Windows.
+- WADServiceFabricSystemEventTable, WADServiceFabricReliableActorEventTable WADServiceFabricReliableServiceEventTable (хранилище таблиц) — содержит сведения о событиях, связанных с операциями, субъектами и службами Service Fabric.
 - wad-iis-logfiles (хранилище больших двоичных объектов) — содержит сведения о журналах IIS.
 - LinuxsyslogVer2v0 (хранилище таблиц) — содержит события системного журнала Linux.
 
@@ -143,7 +153,7 @@ Syslog|События, отправляемые в управляющие про
 
 При работе с виртуальными машинами вы можете установить [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) на виртуальную машину, чтобы включить дополнительные функции анализа. Это позволит, помимо возможности анализа журналов IIS и журналов событий, выполнять дополнительные виды анализа, включая отслеживание изменений конфигурации, оценку SQL и оценку обновлений.
 
-Вы можете помочь нам определить, какие дополнительные журналы должны анализироваться службой OMS в первую очередь, проголосовав на [странице отзывов](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
+Вы можете помочь нам определить, какие дополнительные журналы должны анализироваться службой OMS в первую очередь, проголосовав на [странице отзывов](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 ## Включение диагностики в веб-роли для сбора журналов IIS и событий
 
@@ -263,4 +273,4 @@ Syslog|События, отправляемые в управляющие про
 
 - Если ваша организация использует прокси-сервер или брандмауэр, [настройте прокси-сервер и брандмауэр в Log Analytics](log-analytics-proxy-firewall.md), чтобы агенты могли взаимодействовать со службой Log Analytics.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

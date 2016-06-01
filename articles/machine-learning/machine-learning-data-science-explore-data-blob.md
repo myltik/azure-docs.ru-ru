@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Просмотр данных в хранилище больших двоичных объектов Azure с помощью Pandas
-
-## Введение
 
 В этом документе описывается просмотр данных, которые хранятся в контейнере больших двоичных объектов Azure, с помощью пакета Python [Pandas](http://pandas.pydata.org/).
 
@@ -99,7 +97,7 @@
 		dataframe_blobdata_noNA = dataframe_blobdata.dropna()
 		dataframe_blobdata_noNA.shape
 
-	Другой способ заменить отсутствующие значения — воспользоваться функцией режима.
+	Другой способ заменить отсутствующие значения — воспользоваться функцией режима.
 	
 		dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})		
 
@@ -117,4 +115,4 @@
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

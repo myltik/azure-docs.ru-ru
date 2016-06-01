@@ -4,7 +4,7 @@
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
-   manager="stevenka"
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="04/21/2016"
    ms.author="magoedte;bwren" />
 
 # Дочерние модули Runbook в службе автоматизации Azure
@@ -28,7 +28,7 @@
 
 При публикации Runbook все дочерние Runbook, которые он вызывает, уже должны быть опубликованы. Это связано с тем, что служба автоматизации Azure создает связь с любыми дочерними Runbook при компиляции Runbook. В противном случае родительский компонент Runbook будет отображаться как доступный для публикации, но будет выдавать исключение при запуске. В этом случае можно повторно опубликовать родительский Runbook, чтобы исправить ссылки на дочерние Runbook. Не надо повторно публиковать родительский Runbook, если были изменены все дочерние Runbook, так как связь уже будет создана.
 
-Параметры дочернего Runbook со встроенным вызовом могут иметь любой тип данных, включая сложные объекты. Также отсутствует [сериализация JSON](automation-starting-a-runbook.md#runbook-parameters), как при запуске Runbook с помощью портала управления Azure или командлета Start-AzureAutomationRunbook.
+Параметры дочернего модуля Runbook со встроенным вызовом могут иметь любой тип данных, включая сложные объекты. Кроме того, отсутствует [сериализация JSON](automation-starting-a-runbook.md#runbook-parameters), как при запуске Runbook с помощью портала управления Azure или командлета Start-AzureRmAutomationRunbook.
 
 ### Типы Runbook
 
@@ -40,40 +40,30 @@
 
 В следующем примере вызывается тестовый дочерний Runbook, который принимает три параметра: сложный объект, целое число и логическое значение. Выходные данные дочернего Runbook присваиваются переменной. В этом случае дочерний Runbook представляет собой Runbook рабочего процесса PowerShell.
 
-	$vm = Get-AzureVM –ServiceName "MyVM" –Name "MyVM"
-	$output = Test-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+	$vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
+    $output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
 
 Ниже приведен тот же пример с использованием Runbook PowerShell в качестве дочернего элемента.
 
-	$vm = Get-AzureVM –ServiceName "MyVM" –Name "MyVM"
-	$output = .\Test-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+	$vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
+    $output = .\PS-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+
 
 
 ##  Запуск дочернего Runbook с помощью командлета
 
-Чтобы запустить Runbook, воспользуйтесь командлетом [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/dn690259.aspx), как описано в статье [Запуск Runbook с помощью Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). При запуске дочернего Runbook из командлета родительский Runbook перейдет к следующей строке сразу после создания задания для дочернего Runbook. Если необходимо извлечь выходные данные из Runbook, то следует получить доступ к заданию с помощью командлета [Get AzureAutomationJobOutput](http://msdn.microsoft.com/library/dn690268.aspx).
+Чтобы запустить модуль Runbook, можно воспользоваться командлетом [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), как описано в разделе [Запуск модуля Runbook с помощью Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Этот командлет можно использовать в двух режимах. В одном режиме командлет возвращает идентификатор задания при создании дочернего задания для дочернего модуля Runbook. В другом режиме, который можно включить, указав параметр **-wait**, командлет ожидает завершения дочернего задания и возвращает выходные данные из дочернего модуля Runbook.
 
-Задание дочернего Runbook, запущенного с помощью командлета, будет выполняться отдельно от задания родительского Runbook. Это порождает больше заданий, чем при встроенном вызове компонента runbook, и усложняет их отслеживание. Родительский Runbook может запустить несколько дочерних Runbook, не ожидая завершения каждого из них. Для такого параллельного выполнения дочерних Runbook с помощью встроенного вызова в родительском Runbook потребуется использовать [ключевое слово parallel](automation-powershell-workflow.md#parallel-processing).
+Задание дочернего Runbook, запущенного с помощью командлета, будет выполняться отдельно от задания родительского Runbook. Это порождает больше заданий, чем при встроенном вызове компонента runbook, и усложняет их отслеживание. Родительский модуль Runbook может запустить несколько дочерних модулей Runbook асинхронно, не ожидая завершения каждого из них. Для такого параллельного выполнения дочерних Runbook с помощью встроенного вызова в родительском Runbook потребуется использовать [ключевое слово parallel](automation-powershell-workflow.md#parallel-processing).
 
 Параметры дочернего Runbook, запускаемого с помощью командлета, предоставляются в виде хэш-таблицы, как описано в статье [Параметры Runbook](automation-starting-a-runbook.md#runbook-parameters). Можно использовать только простые типы данных. Если у Runbook есть параметр со сложным типом данных, то для него необходимо использовать встроенный вызов.
 
 ### Пример
 
-В следующем примере запускается дочерний Runbook с параметрами и ожидается его завершение. После завершения его выходные данные собираются из задания родительским Runbook.
+В следующем примере с помощью командлета Start-AzureRmAutomationRunbook с параметром -wait запускается дочерний модуль Runbook с параметрами и ожидается его завершение. После завершения его выходные данные собираются из дочернего модуля Runbook.
 
 	$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" –Parameters $params
-	
-	$doLoop = $true
-	While ($doLoop) {
-	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
-	   $status = $job.Status
-	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
-	}
-	
-	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
-
-[Start-ChildRunbook](http://gallery.technet.microsoft.com/scriptcenter/Start-Azure-Automation-1ac858a9) — это вспомогательный Runbook из коллекции TechNet, используемый для запуска Runbook из командлета. Это дает возможность дождаться завершения дочернего Runbook и извлечь выходные данные. Помимо использования этого Runbook в собственной среде службы автоматизации Azure, его можно использовать в качестве эталона для работы с модулями Runbook и заданиями с помощью командлетов. Сам вспомогательный Runbook должен быть вызван с помощью встроенного вызова, так как ему требуется параметр хэш-таблицы, чтобы принять значения параметров для дочернего Runbook.
+    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResouceGroupName "LabRG" –Parameters $params –wait
 
 
 ## Сравнение методов вызова дочернего Runbook
@@ -83,15 +73,15 @@
 | | Встроенный| Командлет|
 |:---|:---|:---|
 |Job|Дочерние Runbook выполняются в том же задании, что и родительский.|Для дочернего Runbook создается отдельное задание.|
-|Выполнение|Родительский Runbook ожидает завершения дочернего Runbook, прежде чем продолжить выполнение.|Родительский Runbook продолжает выполнение сразу после запуска дочернего Runbook.|
-|Выходные данные|Родительский Runbook может получить выходные данные непосредственно из дочернего Runbook.|Родительский Runbook должен извлекать выходные данные из задания дочернего Runbook.|
+|Выполнение|Родительский Runbook ожидает завершения дочернего Runbook, прежде чем продолжить выполнение.|Родительский модуль Runbook продолжает работу сразу после запуска дочернего модуля Runbook *или* ожидает завершения дочернего задания.|
+|Выходные данные|Родительский Runbook может получить выходные данные непосредственно из дочернего Runbook.|Родительский модуль Runbook должен получить выходные данные из задания дочернего модуля Runbook *или* может получить выходные данные непосредственно из дочернего модуля Runbook.|
 |Параметры|Значения параметров дочернего Runbook указываются отдельно и могут иметь любой тип данных.|Значения параметров дочернего Runbook должны быть объединены в одну хэш-таблицу и могут содержать только простые, регулярные и объектные типы данных, использующие сериализацию JSON.|
 |Учетная запись службы автоматизации|Родительский Runbook может использовать только дочерний Runbook, находящийся в той же учетной записи автоматизации.|Родительский Runbook может использовать дочерний Runbook из любой учетной записи автоматизации в той же подписке Azure и даже в другой подписке, если к ней есть подключение.|
 |Публикация|Перед публикацией родительского Runbook должен быть опубликован дочерний Runbook.|Дочерний Runbook должен быть опубликован в любое время до запуска родительского Runbook.|
 
-## Связанные статьи
+## Дальнейшие действия
 
 - [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md)
 - [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

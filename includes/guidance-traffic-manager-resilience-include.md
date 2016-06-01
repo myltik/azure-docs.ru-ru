@@ -1,7 +1,7 @@
-##Highly available solutions with Azure traffic manager
+##Решения высокой доступности с использованием диспетчера трафика Azure
 
-You need to determine whether your workload's high availability requirements can be met by using Azure traffic manager alone, or if you need to combine traffic manager with other DNS solutions, or processes. Depending on your needs, you can use:
+Вам необходимо определить, можете ли вы удовлетворить требование высокой доступности рабочих нагрузок только с помощью диспетчера трафика Azure или вам также нужно использовать другие средства или решения системы DNS. В зависимости от потребностей можно использовать:
 
-- **Traffic manager alone**. If a 99.99% up time is sufficient for your workload, you can use traffic manager by itself. In the event of failure in the traffic manager service, users will not be able to access your workload until the traffic manager service is reestablished.
+- **Диспетчер трафика**. Если для рабочей нагрузки достаточно уровня доступности 99,99 %, можно использовать только диспетчер трафика. В случае сбоя службы диспетчера трафика пользователи не смогут получить доступ к вашей рабочей нагрузке, пока работа этой службы не будет восстановлена.
 
-- **Use another traffic manager solution along with Azure traffic manager**. In the event of failure in the traffic manager service, you can change your CNAME record to point to the other traffic manager service. Access to your workload is still available, and distributed to all locations hosting your workload. This is the most expensive solution, but may be required for workloads that need a higher SLA.
+- **Применение диспетчера трафика Azure и другого аналогичного решения**. В случае сбоя службы диспетчера трафика можно изменить запись CNAME и указать в ней другую службу диспетчера трафика. Таким образом ваша рабочая нагрузка будет доступна из всех расположений, на которых она размещена. Это дорогостоящее решение, но оно может понадобиться для рабочих нагрузок, требующих более высокого уровня доступности.

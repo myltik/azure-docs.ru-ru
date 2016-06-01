@@ -13,13 +13,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="03/04/2016"
+	ms.date="05/24/2016"
 	ms.author="sdanie"/>
 
 # Использование кэша Redis для Azure с Python
 
 > [AZURE.SELECTOR]
-- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [ASP.NET](cache-web-app-howto.md)
 - [Node.js](cache-nodejs-get-started.md)
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
@@ -34,30 +35,37 @@
 
 ## Создание кэша Redis в Azure
 
-На [портале Azure](http://go.microsoft.com/fwlink/?LinkId=398536) последовательно щелкните **Создать** и **Данные+хранилище**, а затем выберите **Кэш Redis**.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-  ![][1]
+## Получение имени узла и ключей доступа
 
-Введите имя узла DNS. Оно будет иметь форму `<name>
-  .redis.cache.windows.net`. Щелкните **Создать**.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-  ![][2]
 
-  Создав кэш, [перейдите к нему](cache-configure.md#configure-redis-cache-settings) и просмотрите его параметры. Вам потребуются следующие значения.
+## Включение конечной точки без SSL
 
-  - **Имя узла.** Это имя, введенное при создании кэша.
-  - **Порт.** Щелкните ссылку в разделе **Порты** для просмотра портов. Используйте порт SSL.
-  - **Ключ доступа.** Щелкните ссылку в разделе **Ключи** и скопируйте первичный ключ.
+Некоторые клиенты Redis не поддерживают SSL. [Все порты, кроме SSL, отключены для новых экземпляров кэша Redis для Azure](cache-configure.md#access-ports) по умолчанию. На момент написания этой статьи клиент [redis-py](https://github.com/andymccurdy/redis-py) не поддерживает SSL.
 
-  ## Добавление данных в кэш и их извлечение
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
-  >>> import redis r = redis.StrictRedis(host='<name>.redis.cache.windows.net', port=6380, db=0, password='<key>', ssl=True) >>> r.set('foo', 'bar') True >>> r.get('foo') b'bar'
 
-Замените *&lt;name&gt;* именем своего кэша, а *&lt;key&gt;* — ключом доступа.
+## Добавление данных в кэш и их извлечение
+
+
+	>>> import redis
+	>>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net',
+	      port=6380, db=0, password='<key>', ssl=True)
+	>>> r.set('foo', 'bar')
+	True
+	>>> r.get('foo')
+	b'bar'
+
+
+Замените значение `<name>` именем своего кэша, а значение `key` — ключом доступа.
 
 
 <!--Image references-->
-[1]: ./media/cache-python-get-started/cache01.png
-[2]: ./media/cache-python-get-started/cache02.png
+[1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
+[2]: ./media/cache-python-get-started/redis-cache-cache-create.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

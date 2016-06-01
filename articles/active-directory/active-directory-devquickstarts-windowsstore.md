@@ -37,7 +37,7 @@
 3. установить и настроить ADAL;
 5. использовать ADAL для получения маркеров из Azure AD.
 
-Чтобы начать работу, [загрузите проект схемы](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/skeleton.zip) или [загрузите готовый пример](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip). Каждый из них является решением Visual Studio 2013. Вам также потребуется клиент Azure AD, в котором можно создавать пользователей и регистрировать приложение. Если у вас еще нет клиента, [узнайте, как его получить](active-directory-howto-tenant.md).
+Чтобы начать работу, [загрузите проект схемы](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/skeleton.zip) или [загрузите готовый пример](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip). Каждый из них является решением Visual Studio 2015. Вам также потребуется клиент Azure AD, в котором можно создавать пользователей и регистрировать приложение. Если у вас еще нет клиента, [узнайте, как его получить](active-directory-howto-tenant.md).
 
 ## *1. Регистрация приложения Directory Searcher*
 Чтобы приложение могло получать маркеры, сначала необходимо его зарегистрировать в клиенте Azure AD и предоставить ему разрешение на доступ к интерфейсу Graph API Azure AD.
@@ -53,7 +53,8 @@
 - Также во вкладке **Настройка** найдите раздел "Разрешения для других приложений". Для приложения Azure Active Directory добавьте разрешение на **Допуск к каталогу в качестве пользователя, выполнившего вход**, в списке **Делегированные разрешения**. Это позволит приложению запрашивать интерфейс Graph API для пользователей.
 
 ## *2. Установка и настройка ADAL*
-Теперь, когда приложение зарегистрировано в Azure AD, можно установить библиотеку ADAL и написать код для работы с удостоверением. Чтобы ADAL имела возможность взаимодействовать с Azure AD, ему необходимо предоставить некоторые сведения о регистрации приложения. Начните с добавления ADAL в проект DirectorySearcher с помощью консоли диспетчера пакетов.
+Теперь, когда приложение зарегистрировано в Azure AD, можно установить библиотеку ADAL и написать код для работы с удостоверением. Чтобы ADAL могла обмениваться информацией с Azure AD, необходимо предоставить некоторую информацию о регистрации вашего приложения.
+-	Сначала добавьте ADAL в проект DirectorySearcher с помощью консоли диспетчера пакетов.
 
 ```
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -96,13 +97,16 @@ public MainPage()
 private async void Search(object sender, RoutedEventArgs e)
 {
     ...
-    AuthenticationResult result = await authContext.AcquireTokenAsync(graphResourceId, clientId, redirectURI);
-    if (result.Status != AuthenticationStatus.Success)
+    AuthenticationResult result = null;
+    try
     {
-        if (result.Error != "authentication_canceled")
+        result = await authContext.AcquireTokenAsync(graphResourceId, clientId, redirectURI, new PlatformParameters(PromptBehavior.Auto, false));
+    }
+    catch (AdalException ex)
+    {
+        if (ex.ErrorCode != "authentication_canceled")
         {
-            MessageDialog dialog = new MessageDialog(string.Format("If the error continues, please contact your administrator.\n\nError: {0}\n\nError Description:\n\n{1}", result.Error, result.ErrorDescription), "Sorry, an error occurred while signing you in.");
-            await dialog.ShowAsync();
+            ShowAuthError(string.Format("If the error continues, please contact your administrator.\n\nError: {0}\n\nError Description:\n\n{1}", ex.ErrorCode, ex.Message));
         }
         return;
     }
@@ -114,8 +118,8 @@ private async void Search(object sender, RoutedEventArgs e)
 - Теперь настало время использовать только что полученный маркер access\_token. Также в методе `Search(...)` введите маркер в запрос GET интерфейса Graph API в заголовке авторизации:
 
 ```C#
-// Add the access token to the Authorization Header of the call to the Graph API
-httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+// Add the access token to the Authorization Header of the call to the Graph API, and call the Graph API.
+httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
 
 ```
 - Для отображения сведений о пользователе в вашем приложении, например идентификатора пользователя, также можно использовать объект `AuthenticationResult`.
@@ -146,4 +150,4 @@ ADAL упрощает процесс включения всех этих общ
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

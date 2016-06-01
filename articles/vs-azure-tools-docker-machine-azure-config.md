@@ -1,0 +1,110 @@
+<properties
+   pageTitle="Создание узлов Docker в Azure с помощью машины Docker | Microsoft Azure"
+   description="Описывается использование машины Docker для создания узлов Docker в Azure."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="SteveLas"
+   manager="douge"
+   editor="" />
+<tags
+   ms.service="multiple"
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="05/16/2016"
+   ms.author="stevelas" />
+
+# Создание узлов Docker в Azure с помощью машины Docker
+
+Для запуска контейнеров [Docker](https://www.docker.com/) требуется виртуальная машина узла с запущенной управляющей программой Docker. В этом разделе описывается использование команды [docker-machine](https://docs.docker.com/machine/) для создания новых виртуальных машин Linux, настроенных с помощью управляющей программы Docker, запущенной в Azure.
+
+**Примечание.**
+- *Для выполнения действий, описанных в этой статье, требуется машина Docker версии 0.7.0 или более поздней версии*.
+- *Поддержка контейнеров Windows на машинах Docker будет реализована в ближайшем будущем*.
+
+## Создание виртуальных машин с помощью машины Docker
+
+Создавайте виртуальные машины узла Docker в Azure с помощью команды `docker-machine create`, используя драйвер `azure`.
+
+Для драйвера Azure потребуется ваш идентификатор подписки. Для получения подписки Azure можно воспользоваться [интерфейсом командной строки Azure](xplat-cli-install.md) или [порталом Azure](https:/portal.azure.com).
+
+**Использование портала Azure**
+- Выберите подписки из левой области навигации и скопируйте в идентификатор подписки.
+
+**Использование Azure CLI**
+- Введите ```azure account list``` и скопируйте идентификатор подписки.
+
+
+Чтобы просмотреть параметры и их значения по умолчанию, введите `docker-machine create --driver azure`. Также можно ознакомиться с [документацией по драйверу Docker Azure](https://docs.docker.com/machine/drivers/azure/).
+
+В приведенном ниже примере используются значения по умолчанию, но в нем не открывается порт 80 в виртуальной машине для доступа к Интернету.
+
+```
+docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-open-port 80 mydockerhost
+```
+
+## Выбор узла Docker с помощью машины Docker
+Когда в машине Docker есть запись для узла, можно установить узел по умолчанию при выполнении команд Docker.
+##с использованием PowerShell.
+```powershell
+docker-machine env MyDockerHost | Invoke-Expression 
+```
+
+##Использование Bash
+```bash
+eval $(docker-machine env MyDockerHost)
+```
+
+Теперь можно выполнять команды Docker в указанном узле.
+
+```
+docker ps
+docker info
+```
+
+## Запуск контейнера
+
+Теперь, когда узел настроен, можно запустить простой веб-сервер, чтобы проверить правильность настроек узла. В этом примере мы используем стандартный образ nginx, указываем, что он должен прослушивать порт 80, и что при перезапуске виртуальной машины узла контейнер также должен перезапускаться (`--restart=always`).
+
+```bash
+docker run -d -p 80:80 --restart=always nginx
+```
+
+Результаты должны быть примерно следующими:
+
+```
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+efd26ecc9548: Pull complete
+a3ed95caeb02: Pull complete
+83f52fbfa5f8: Pull complete
+fa664caa1402: Pull complete
+Digest: sha256:12127e07a75bda1022fbd4ea231f5527a1899aad4679e3940482db3b57383b1d
+Status: Downloaded newer image for nginx:latest
+25942c35d86fe43c688d0c03ad478f14cc9c16913b0e1c2971cb32eb4d0ab721
+```
+
+## Проверка контейнера
+
+Проверьте запущенные контейнеры с помощью `docker ps`:
+
+```bash
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                         NAMES
+d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
+```
+
+Введите `docker-machine ip <VM name>`, чтобы узнать IP-адрес, который вводится в браузере:
+```
+PS C:\> docker-machine ip MyDockerHost
+191.237.46.90
+```
+
+![Запущенный контейнер nginx](./media/vs-azure-tools-docker-machine-azure-config/nginxsuccess.png)
+
+##Сводка
+С помощью машины Docker можно легко подготовить узлы Docker в Azure к выполнению проверок отдельных узлов Docker. Сведения о рабочем размещении контейнеров см. в разделе [Служба контейнеров Azure](http://aka.ms/AzureContainerService).
+
+Сведения о разработке приложений .NET Core с помощью Visual Studio см. в разделе [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) (Инструменты Docker для Visual Studio).
+
+<!---HONumber=AcomDC_0518_2016-->

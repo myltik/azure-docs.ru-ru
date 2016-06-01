@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Интеграция пакета Android SDK с Azure Mobile Engagement"
-	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
+	description="Описывает, как интегрировать пакет SDK для Azure Mobile Engagement в приложения Android."
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/17/2016"
 	ms.author="piyushjo;ricksal" />
 
-
-# Использование дополнительных функций Azure Mobile Engagement для приложений Android
+# Интеграция пакета Android SDK с Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
 - [Универсальная платформа Windows](mobile-engagement-windows-store-sdk-overview.md)
@@ -25,7 +24,7 @@
 - [iOS](mobile-engagement-ios-sdk-overview.md)
 - [Android](mobile-engagement-android-sdk-overview.md)
 
-Изучите все дополнительные функции Azure Mobile Engagement, которые можно интегрировать в ваши приложения Android.
+В этом документе описываются все параметры интеграции и конфигурации в пакете Android SDK для Azure Mobile Engagement.
 
 ## Предварительные требования
 
@@ -53,6 +52,16 @@
 
 ## Заметки о выпуске
 
+### 4\.2.2 (17.05.2016)
+
+- Улучшение стабильности.
+
+### 4\.2.1 (10.05.2016)
+
+- Безопасность: отключение доступа к локальному файлу веб-представления.
+- Безопасность: удаление класса `EngagementPreferenceActivity`, расширяющего устаревший и небезопасный класс `PreferenceActivity`.
+- Безопасность: действия модуля Reach теперь официально используют `exported="false"`, этот флаг можно также применять в предыдущих версиях пакета SDK.
+
 ### 4\.2.0 (11.03.2016)
 
 - Пакет SDK теперь лицензируется MIT.
@@ -64,4 +73,4 @@
 
 Если вы уже интегрировали более старую версию нашего пакета SDK в свое приложение, обратитесь к разделу [Процедуры обновления](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

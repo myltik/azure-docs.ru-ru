@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/30/2016"
+   ms.date="05/02/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Защита базы данных в хранилище данных SQL
@@ -86,7 +86,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-Прозрачное шифрование данных также можно включить из параметров базы данных на [классическом портале Azure][]. Дополнительные сведения см. в статье [Начало работы с прозрачным шифрованием данных (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
+Прозрачное шифрование данных также можно включить из параметров базы данных на [портале Azure][]. Дополнительные сведения см. в статье [Начало работы с прозрачным шифрованием данных (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Аудит
 
@@ -108,9 +108,9 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 [разрешений]: https://msdn.microsoft.com/library/ms191291.aspx
 [хранимые процедуры]: https://msdn.microsoft.com/library/ms190782.aspx
 [прозрачное шифрование данных]: http://go.microsoft.com/fwlink/?LinkId=526242
-[классическом портале Azure]: https://portal.azure.com/
+[портале Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Контроль доступа на основе ролей на портале Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

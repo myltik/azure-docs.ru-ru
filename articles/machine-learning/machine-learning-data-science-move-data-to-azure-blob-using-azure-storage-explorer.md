@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # Перемещение данных в хранилище больших двоичных объектов Azure и из него с помощью обозревателя хранилищ Azure
 
-## Введение 
-
-Обозреватель хранилищ Azure — это бесплатный инструмент для проверки и изменения данных в учетной записи хранения Azure на платформе Windows. Здесь описывается, как использовать этот инструмент для отправки и скачивания данных из хранилища BLOB-объектов Azure. Его можно скачать из [обозревателя хранилищ Azure](http://storageexplorer.com/).
+Обозреватель хранилищ Azure — это бесплатный инструмент для проверки и изменения данных в учетной записи хранения Azure на платформе Windows. Здесь описывается, как использовать этот инструмент для отправки и скачивания данных из хранилища BLOB-объектов Azure. Его можно скачать из [обозревателя хранилищ Azure](http://storageexplorer.com/).
 
 Сведения о технологиях, которые используются для перемещения данных в хранилище больших двоичных объектов Azure и из него, см. по следующим ссылкам:
  
@@ -59,4 +57,4 @@
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

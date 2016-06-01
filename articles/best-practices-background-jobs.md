@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,8 +19,7 @@
 
 # Руководство по фоновым заданиям
 
-![Логотип для шаблонов и рекомендаций](media/best-practices-background-jobs/pnp-logo.png)
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Обзор
 
@@ -321,4 +320,4 @@
 - [Очереди Azure и очереди служебной шины: сходства и различия](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Включение диагностики в облачной службе](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

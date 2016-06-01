@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/29/2016"
+	ms.date="05/19/2016"
 	ms.author="deonhe"/>
 
 # Список управляемых соединителей
@@ -27,7 +27,7 @@
 
 Выберите значок и узнайте, как быстро задействовать соединители для создания приложений, которые вызывают эти службы. Эти соединители можно использовать для создания приложений логики, приложений PowerApps и потоков.
 
-|Интерфейсы API||||
+|Соединители||||
 |-----------|-----------|-----------|-----------|
 |[![Значок API][blobicon]<br/>**Большой двоичный объект Azure**][azureblobdoc]|[![Значок API][bingsearchicon]<br/>**Поиск Bing**][bingsearchdoc]|[![Значок API][boxicon]<br/>**Box**][boxDoc]|[![Значок API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|
 |[![Значок API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![Значок API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Значок API][ftpicon]<br/>**FTP**][ftpdoc]|[![Значок API][githubicon]<br/>**GitHub**][githubdoc]|
@@ -35,11 +35,10 @@
 |[![Значок API][office365icon]<br/>**Office 365**<br/>**Пользователи**][office365usersdoc]|[![Значок API][office365icon]<br/>**Office 365**<br/>**Видео**][office365videodoc]|[![Значок API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Значок API][onedriveicon]<br/>**OneDrive<br/>для бизнеса**][onedriveforbusinessdoc]|
 |[![Значок API][outlookicon]<br/>**Outlook**][outlookdoc]|[![Значок API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Значок API][rssicon]<br/>**RSS**][rssdoc]|[![Значок API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|
 |[![Значок API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|[![Значок API][servicebusicon]<br/>**Служебная шина**][servicebusdoc]|[![Значок API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Значок API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|
-|[![Значок API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Значок API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Значок API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Значок API][sqlicon]<br/>**SQL Mashup**][mashupsqldoc]|
-|[![Значок API][trelloicon]<br/>**Trello**][trellodoc]|[![Значок API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Значок API][twittericon]<br/>**Twitter**][twitterdoc]|[![Значок API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|
-[![Значок API][yammericon]<br/>**Yammer**][yammerdoc] | |
+|[![Значок API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Значок API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Значок API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Значок API][trelloicon]<br/>**Trello**][trellodoc]|
+[![Значок API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Значок API][twittericon]<br/>**Twitter**][twitterdoc]|[![Значок API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Значок API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
-> [AZURE.NOTE] Если вы создавали приложения логики с помощью схемы 2014-12-01-preview, вы заметите, что в списке нет соединителей для корпоративной интеграции, например BizTalk. Мы знаем, что эти интерфейсы тоже нужны, поэтому мы работаем над тем, чтобы предоставить их вам как можно быстрее. Хотя мы не можем озвучить точную дату доступности этих интерфейсов, помните, что эта задача является одним из наших основных приоритетов. А пока вы можете получить доступ к своим [интерфейсам API v1 и API BizTalk из приложений логики](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Благодарим вас за понимание. Следите за новостями.
+> [AZURE.NOTE] Если вы создавали приложения логики с помощью схемы 2014-12-01-preview, вы заметите, что в списке нет соединителей для корпоративной интеграции, например BizTalk. Мы знаем, что эти интерфейсы тоже нужны, поэтому мы работаем над тем, чтобы предоставить их вам как можно быстрее. Хотя мы не можем озвучить точную дату доступности этих интерфейсов, помните, что эта задача является одним из наших основных приоритетов. А пока вы можете получить доступ к своим [API-интерфейсам v1 и BizTalk из приложений логики](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Благодарим вас за понимание. Следите за новостями.
 
 
 ### Соединители могут быть триггерами.
@@ -55,12 +54,12 @@
 Соединители могут также использоваться как действия в приложениях. Действия удобно использовать для поиска данных, которые можно использовать при выполнении вашего приложения. Например, при обработке заказа может потребоваться найти в базе данных SQL дополнительные сведения о клиенте либо записать, обновить или удалить данные в таблице назначения. Это можно сделать с помощью действий, предоставляемых соединителями. Действия сопоставляются с операциями, определенными в метаданных Swagger.
 
 
-[Новая версия схемы 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
-[Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Что такое Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md)  
-[Перенос приложений логики в версию схемы 2015-08-01-preview](connectors-schema-migration.md) 
+[Новая версия схемы 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md) 
+[Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md) 
+[Что такое Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md) 
+[Перенос приложений логики в версию схемы 2015-08-01-preview](connectors-schema-migration.md)
 
-<!--API Documentation-->
+<!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Подключается к BLOB-объекту Azure для управления файлами в контейнере BLOB-объектов."
 [bingsearchDoc]: ./connectors-create-api-bingsearch.md "Поиск веб-страниц, изображений, новостей и видео с помощью службы Bing."
 [boxDoc]: ./connectors-create-api-box.md "Подключается к Box для отправки, получения, удаления, составления списков и выполнения других задач с файлами."
@@ -90,7 +89,6 @@
 [mailchimpdoc]: ./connectors-create-api-mailchimp.md "Оптимизация отправляемой электронной почты."
 [smtpdoc]: ./connectors-create-api-smtp.md "Подключается к SMTP-серверу и отправляет электронные сообщения с вложениями."
 [sqldoc]: ./connectors-create-api-sqlazure.md "Подключается к базе данных SQL Azure. Вы можете создавать, обновлять, получать и удалять записи в таблице базы данных SQL."
-[mashupsqldoc]: ./connectors-create-api-mashupsql.md "Подключается к SQL. Вы можете создавать, обновлять, получать и удалять записи в таблице базы данных SQL."
 [trellodoc]: ./connectors-create-api-trello.md "Trello — это бесплатное универсальное и визуальное средство организации данных."
 [twiliodoc]: ./connectors-create-api-twilio.md "Подключается к Twilio для отправки и получения сообщений, получения доступных номеров, управления входящими телефонными номерами и выполнения других задач."
 [twitterdoc]: ./connectors-create-api-twitter.md "Подключается к Twitter для получения временных шкал, публикации твитов и выполнения других задач."
@@ -124,11 +122,10 @@
 [slackicon]: ./media/apis-list/slackicon.png
 [smtpicon]: ./media/apis-list/smtpicon.png
 [sqlicon]: ./media/apis-list/sqlicon.png
-[mashupsqlicon]: ./media/apis-list/mashupsqlicon.png
 [trelloicon]: ./media/apis-list/trelloicon.png
 [twilioicon]: ./media/apis-list/twilioicon.png
 [twittericon]: ./media/apis-list/twittericon.png
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

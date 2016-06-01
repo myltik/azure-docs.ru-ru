@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Добавление репозитория артефактов Git в DevTest Lab | Microsoft Azure"
-	description="Из этой статьи вы узнаете, как добавить репозиторий Git GitHub или Visual Studio Team Services, предназначенный для настраиваемых артефактов, в свое решение DevTest Lab."
+	pageTitle="Добавление репозитория артефактов Git в лабораторию | Microsoft Azure"
+	description="Добавление репозитория Git GitHub или Visual Studio Team Services, предназначенного для настраиваемых артефактов, в DevTest Labs."
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Добавление репозитория артефактов Git в DevTest Lab
+# Добавление репозитория артефактов Git в лабораторию
 
-> [AZURE.NOTE] Щелкните следующую ссылку, чтобы просмотреть видео для этой статьи: [Как добавить частный репозиторий артефактов в лабораторию для разработки и тестирования](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab).
+> [AZURE.NOTE] Щелкните следующую ссылку, чтобы просмотреть видео для этой статьи: [How to add your private artifacts repository in DevTest Labs](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab) (Как добавить частный репозиторий артефактов в DevTest Labs).
 
 ## Обзор
 
-По умолчанию DevTest Lab включает артефакты из официального хранилища артефактов Azure DevTest Lab. Вы можете добавить репозиторий артефактов Git в свою лабораторию и включить в него артефакты, созданные вашей командой. Репозиторий артефактов может находиться в [GitHub](https://github.com) или [Visual Studio Team Services (VSTS)](https://visualstudio.com).
+По умолчанию лаборатория включает в себя артефакты из официального репозитория артефактов Azure DevTest Labs. Вы можете добавить репозиторий артефактов Git в свою лабораторию и включить в него артефакты, созданные вашей командой. Репозиторий артефактов может находиться в [GitHub](https://github.com) или [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
 - Сведения о создании репозитория GitHub см. в статье [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
 - Сведения о создании проекта Team Services с репозиторием Git см. в статье [Connect to Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
@@ -51,7 +51,7 @@
 
 ###Подключение лаборатории к репозиторию GitHub
 
-1. Войдите на [портал предварительной версии Azure](https://portal.azure.com).
+1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Выберите **Обзор**, а затем в списке выберите **Лаборатории для разработки и тестирования**.
 
@@ -101,7 +101,7 @@
 
 1. Новый маркер появится в списке **Персональные маркеры доступа**. Выберите пункт **Скопировать маркер** и сохраните значение маркера, так как оно вам скоро понадобится.
 
-### В DevTest Lab
+### В лаборатории
 
 1. В колонке лаборатории выберите **Параметры**.
 
@@ -117,4 +117,4 @@
     3. Введите сохраненный **персональный маркер доступа** в хранилище артефактов.
     4. Нажмите **Сохранить**.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

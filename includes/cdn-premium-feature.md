@@ -1,1 +1,1 @@
-> [AZURE.IMPORTANT] This is a feature of **Azure CDN Premium from Verizon**, and is not available with **Azure CDN Standard** products.  For a comparison of CDN features, see [Azure CDN Overview](cdn-overview.md#azure-cdn-features). 
+> [AZURE.IMPORTANT] Эта функция **Azure CDN уровня "Премиум" из Verizon**; она недоступна для продуктов **Azure CDN уровня "Стандартный"**. Сравнение возможностей CDN в статье [Обзор Azure CDN](cdn-overview.md#azure-cdn-features).

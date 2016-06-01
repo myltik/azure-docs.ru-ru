@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Управление хранилищем озера данных Azure с помощью пакета SDK Azure для Node.js | Azure" 
+   pageTitle="Управление хранилищами озера данных Azure с помощью пакета Azure SDK для Node.js | Microsoft Azure"
    description="Узнайте, как управлять учетными записями и файловой системой хранилища озера данных." 
    services="data-lake-store" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/07/2016"
+   ms.date="04/21/2016"
    ms.author="nitinme"/>
 
 # Управление хранилищем озера данных Azure с помощью пакета SDK Azure для Node.js
@@ -27,90 +27,118 @@
 - [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
-Используя пакет SDK Azure для Node.js, можно управлять учетными записями и файловой системой хранилища озера данных Azure.
 
-- Управление учетными записями: создание, получение, вывод списка, обновление и удаление.
+Используя пакет Azure SDK для Node.js, можно управлять учетными записями хранилища озера данных Azure, а также операциями файловой системы.
+
+Сейчас он поддерживает:
+
+  *  **Node.js версии 0.10.0 или выше;**
+  *  **версию REST API для учетной записи: 2015-10-01-preview;**
+  *  **версию REST API для файловой системы: 2015-10-01-preview**.
+
+## Функции
+
+- Управление учетными записями: создание, получение, получение списков, обновление и удаление.
 - Управление файловой системой: создание, получение, передача, добавление, скачивание, чтение, удаление и вывод списка список.
 
-**Предварительные требования**
+## Установка
 
-Перед началом работы с этим учебником необходимо иметь следующее:
+```bash
+npm install azure-arm-datalake-store
+```
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Учетная запись хранилища озера данных Azure**. См. учебник [Начало работы с хранилищем озера данных Azure с помощью портала Azure](data-lake-store-get-started-portal.md), чтобы создать учетную запись.
-- **Субъект-служба с разрешениями для доступа к учетной записи аналитики озера данных**. См. раздел [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](../resource-group-authenticate-service-principal.md).
+## Проверка подлинности с помощью Azure Active Directory
 
-## Установка пакета SDK
+ ```javascript
+ var msrestAzure = require('ms-rest-azure');
+ //user authentication
+ var credentials = new msRestAzure.UserTokenCredentials('your-client-id', 'your-domain', 'your-username', 'your-password', 'your-redirect-uri');
+ //service principal authentication
+ var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
+ ```
 
-Чтобы установить пакет SDK, выполните следующее.
+## Создание клиентов аналитики озера данных
 
-1. Установите [Node.js](https://nodejs.org/).
-2. В командной строке, окне терминала или окне Bash выполните следующие команды.
+```javascript
+var adlsManagement = require("azure-arm-datalake-store");
+var acccountClient = new adlsManagement.DataLakeStoreAccountClient(credentials, 'your-subscription-id');
+var filesystemClient = new adlsManagement.DataLakeStoreFileSystemClient(credentials, 'azuredatalakestore.net');
+```
 
-		npm install async
-		npm install adal-node
-		npm install azure-common
-		npm install azure-arm-datalake-store
-	
-## Пример Node.js
+## Создание учетной записи хранения озера данных
 
-Следующий пример создает файл в учетной записи хранилища озера данных и затем добавляет данные.
+```javascript
+var util = require('util');
+var resourceGroupName = 'testrg';
+var accountName = 'testadlsacct';
+var location = 'eastus2';
 
-	var async = require('async');
-	var adalNode = require('adal-node');
-	var azureCommon = require('azure-common');
-	var azureDataLakeStore = require('azure-arm-datalake-store');
-	
-	var resourceUri = 'https://management.core.windows.net/';
-	var loginUri = 'https://login.windows.net/'
-	
-	var clientId = 'application_id_(guid)';
-	var clientSecret = 'application_password';
-	
-	var tenantId = 'aad_tenant_id';
-	var subscriptionId = 'azure_subscription_id';
-	var resourceGroup = 'adls_resourcegroup_name';
-	
-	var accountName = 'adls_account_name';
-	
-	var context = new adalNode.AuthenticationContext(loginUri+tenantId);
-	
-	var client;
-	var response;
-	
-	var destinationFilePath = '/newFileName.txt';
-	var content = 'desired file contents';
-	
-	async.series([
-		function (next) {
-			context.acquireTokenWithClientCredentials(resourceUri, clientId, clientSecret, function(err, result){
-				if (err) throw err;
-				response = result;
-				next();
-			});
-		},
-		function (next) {
-			var credentials = new azureCommon.TokenCloudCredentials({
-				subscriptionId : subscriptionId,
-				authorizationScheme : response.tokenType,
-				token : response.accessToken
-			});
-		
-			client = azureDataLakeStore.createDataLakeStoreFileSystemManagementClient(credentials, 'azuredatalakestore.net');
-	
-			next();
-		},
-		function (next) {
-			client.fileSystem.directCreate(destinationFilePath, accountName, content, function(err, result){
-				if (err) throw err;
-			});
-		}
-	]);
+// account object to create
+var accountToCreate = {
+  tags: {
+    testtag1: 'testvalue1',
+    testtag2: 'testvalue2'
+  },
+  name: accountName,
+  location: location
+};
 
+client.account.create(resourceGroupName, accountName, accountToCreate, function (err, result, request, response) {
+  if (err) {
+    console.log(err);
+    /*err has reference to the actual request and response, so you can see what was sent and received on the wire.
+      The structure of err looks like this:
+      err: {
+        code: 'Error Code',
+        message: 'Error Message',
+        body: 'The response body if any',
+        request: reference to a stripped version of http request
+        response: reference to a stripped version of the response
+      }
+    */
+  } else {
+    console.log('result is: ' + util.inspect(result, {depth: null}));
+  }
+});
+```
 
-##См. также 
+## Создание файла с содержимым
+```javascript
+var util = require('util');
+var accountName = 'testadlsacct';
+var fileToCreate = '/myfolder/myfile.txt';
+var options = {
+  streamContents: new Buffer('some string content')
+}
 
-- [Пакет Azure SDK для Node.js](http://azure.github.io/azure-sdk-for-node/)
-- [Управление аналитикой озера данных Azure с помощью Node.js](../data-lake-analytics/data-lake-analytics-manage-use-nodejs.md)
+filesystemClient.filesystem.listFileStatus(accountName, fileToCreate, options, function (err, result, request, response) {
+  if (err) {
+    console.log(err);
+  } else {
+    // no result is returned, only a 201 response for success.
+    console.log('response is: ' + util.inspect(response, {depth: null}));
+  }
+});
+```
 
-<!---HONumber=AcomDC_0413_2016-->
+## Получение списка файлов и папок
+
+```javascript
+var util = require('util');
+var accountName = 'testadlsacct';
+var pathToEnumerate = '/myfolder';
+filesystemClient.filesystem.listFileStatus(accountName, pathToEnumerate, function (err, result, request, response) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('result is: ' + util.inspect(result, {depth: null}));
+  }
+});
+```
+
+## См. также
+
+- [Пакет Microsoft Azure SDK для Node.js](https://github.com/azure/azure-sdk-for-node)
+- [Пакет Microsoft Azure SDK для Node.js — управление аналитикой озера данных](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
+
+<!---HONumber=AcomDC_0518_2016-->

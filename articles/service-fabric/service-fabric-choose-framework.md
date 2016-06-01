@@ -34,7 +34,7 @@ Service Fabric предлагает несколько способов запи
 
 Надежными службами могут также быть службы с отслеживанием состояния, эксклюзивные для Service Fabric, где состояние сохраняется прямо в службу с использованием Reliable Collections. Состояние становится высокодоступным за счет репликации и распределения путем секционирования, которыми автоматически управляет Service Fabric.
 
-[Узнайте больше о надежных службах](service-fabric-reliable-services-introduction) или начните с [написания первой надежной службы](service-fabric-reliable-services-quick-start.md).
+[Узнайте больше о надежных службах](service-fabric-reliable-services-introduction.md) или начните с [написания первой надежной службы](service-fabric-reliable-services-quick-start.md).
 
 ## Надежные субъекты
 
@@ -45,4 +45,4 @@ Service Fabric предлагает несколько способов запи
 ## Дальнейшие действия
 [Узнайте больше о надежных субъектах](service-fabric-reliable-actors-introduction.md) или начните с [написания первой службы надежного субъекта](service-fabric-reliable-actors-get-started.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

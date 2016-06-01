@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Как создать базу данных в DocumentDB | Microsoft Azure" 
-	description="Узнайте, как создать базу данных с помощью портала веб-служб для Azure DocumentDB, базу данных документов NoSQL для JSON. Загрузите бесплатную учетную запись уже сегодня." 
+	description="Узнайте, как с помощью портала веб-служб для Azure DocumentDB создать базу данных — молниеносно быструю глобальную базу данных NoSQL." 
 	keywords="Как создать базу данных" 
 	services="documentdb" 
 	authors="mimig1" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mimig"/>
 
 # Создание базы данных для DocumentDB на портале Azure
@@ -51,4 +51,4 @@
 
 После добавления документов в коллекции вы можете использовать [DocumentDB SQL](documentdb-sql-query.md) для [выполнения запросов](documentdb-sql-query.md#executing-sql-queries) для документов с помощью [обозревателя запросов](documentdb-query-collections-query-explorer.md) на портале, интерфейса [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) или одного из [пакетов SDK](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="05/16/2016"
     ms.author="asmalser-msft"/>
 
 #Учебник. Как интегрировать Salesforce с Azure Active Directory
@@ -22,7 +22,7 @@
 
 ##Предварительные требования
 
-1. Для доступа к Azure Active Directory через [портал управления Azure](https://manage.windowsazure.com) необходима действующая подписка Azure.
+1. Для доступа к Azure Active Directory через [классический портал Azure](https://manage.windowsazure.com) необходима действующая подписка Azure.
 
 2. У вас должен быть действительный клиент в [Salesforce.com](https://www.salesforce.com/).
 
@@ -46,7 +46,7 @@
 
 ##Шаг 1. Добавление Salesforce в каталог
 
-1. На [портале управления Azure](https://manage.windowsazure.com) в области навигации слева щелкните **Active Directory**.
+1. На [классическом портале Azure](https://manage.windowsazure.com) в области навигации слева щелкните **Active Directory**.
 
 	![Выберите Active Directory в области навигации слева.][0]
 
@@ -256,4 +256,4 @@
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

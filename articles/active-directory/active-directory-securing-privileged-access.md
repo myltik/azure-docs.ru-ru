@@ -34,9 +34,10 @@
 Azure Multi-Factor Authentication помогает защитить доступ к данным и приложениям, при этом не усложняя процесс входа пользователя в систему. Этот метод обеспечивает строгую проверку подлинности с помощью широкого диапазона простых вариантов проверки, включая телефонные звонки, текстовые сообщения, уведомления в мобильном приложении, код подтверждения и сторонние OATH-токены.
 
 Общие сведения о принципах работы Multi-Factor Authentication см. в следующем видео.
-<center>[AZURE.VIDEO windows-azure-multi-factor-authentication]</center>
 
-Дополнительные сведения см. в разделе [Многофакторная проверка подлинности для Office 365 и Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/).
+>[AZURE.VIDEO windows-azure-multi-factor-authentication]
+
+Дополнительные сведения см. в статье [MFA for Office 365 and MFA for Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) (Многофакторная проверка подлинности (MFA) для Office 365 и Azure).
 
 ## Временное ограничение привилегий
 
@@ -50,7 +51,7 @@ Azure Multi-Factor Authentication помогает защитить доступ
 
 ## Обнаружение атак
 
-[Служба защиты идентификации Azure Active Directory](active-directory-identityprotection.d) предоставляет единое представление для просмотра сведений обо всех представляющих риск событиях и возможных уязвимостях, которые могут повлиять на учетные записи вашей организации. Она позволяет рассчитать уровень риска для каждого пользователя на основе соответствующих событий и настроить политики рисков, чтобы обеспечить автоматическую защиту удостоверений в организации. Эти политики наряду с другими средствами условного контроля доступа Azure Active Directory и EMS могут автоматически блокировать пользователя или предлагать ему выполнить различные действия, включая сброс пароля и принудительную многофакторную проверку подлинности.
+[Служба защиты идентификации Azure Active Directory](active-directory-identityprotection.md) предоставляет единое представление для просмотра сведений обо всех представляющих риск событиях и возможных уязвимостях, которые могут повлиять на учетные записи вашей организации. Она позволяет рассчитать уровень риска для каждого пользователя на основе соответствующих событий и настроить политики рисков, чтобы обеспечить автоматическую защиту удостоверений в организации. Эти политики наряду с другими средствами условного контроля доступа Azure Active Directory и EMS могут автоматически блокировать пользователя или предлагать ему выполнить различные действия, включая сброс пароля и принудительную многофакторную проверку подлинности.
 
 ![Защита идентификации Azure AD][3]
 
@@ -71,10 +72,10 @@ Azure Multi-Factor Authentication помогает защитить доступ
 - Включите [многофакторную проверку подлинности Azure](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 - Включите [управление привилегированными пользователями Azure AD](active-directory-privileged-identity-management-configure.md)
 - Включите [защиту идентификации Azure AD](active-directory-identityprotection.md)
-- Включите [элементы условного контроля доступа](active-directory-conditional-access.md)
+- Включите [элементы управления условным доступом](active-directory-conditional-access.md)
 
 
-Дополнительные сведения о создании полной стратегии защиты см. в разделе «Обязанности клиента и стратегия» документа [Защита Microsoft Cloud для архитекторов решений](http://aka.ms/securecustomer). Дополнительные сведения об использовании служб Майкрософт для любой из этих задач можно получить у своего представителя Майкрософт или на нашей [странице решений кибербезопасности](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Дополнительные сведения о создании полной стратегии защиты см. в разделе "Обязанности клиента и стратегия" документа [Защита Microsoft Cloud для архитекторов решений](http://aka.ms/securecustomer). Дополнительные сведения об использовании служб Майкрософт для любой из этих задач можно получить у своего представителя Майкрософт или на нашей [странице решений кибербезопасности](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
@@ -82,4 +83,4 @@ Azure Multi-Factor Authentication помогает защитить доступ
 [3]: ./media/active-directory-identityprotection/29.png
 [4]: ./media/active-directory-conditional-access/conditionalaccess-saas-apps.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

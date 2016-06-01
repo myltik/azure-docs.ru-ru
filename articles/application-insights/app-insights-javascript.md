@@ -12,10 +12,11 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/19/2016"
+	ms.date="05/18/2016"
 	ms.author="awills"/>
 
 # Application Insights для веб-страниц
+
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -89,8 +90,14 @@ Application Insights можно использовать с любыми веб-
     // Don't log browser exceptions.
     disableExceptionTracking: true,
 
+    // Don't log ajax calls.
+    disableAjaxTracking: boolean,
+
     // Limit number of Ajax calls logged, to reduce traffic.
     maxAjaxCallsPerView: 10, // default is 500
+
+    // Time page load up to execution of first trackPageView().
+    overridePageViewDuration: boolean,
 
     // Set these dynamically for an authenticated user.
     appUserId: string,
@@ -204,7 +211,11 @@ Application Insights можно использовать с любыми веб-
 
 ### Свойства просмотра страниц
 
-* **Длительность просмотра страницы**. Время, необходимое для загрузки страницы и запуска сценариев. В частности, имеется в виду промежуток времени между началом загрузки страницы и выполнением сценария trackPageView. Если после инициализации сценария trackPageView вы переместили его из обычного положения, значение будет иным.
+* **Длительность просмотра страницы** 
+
+ * По умолчанию время, необходимое для загрузки страницы, от запроса клиента до полной загрузки (включая вспомогательные файлы, но за исключением асинхронных задач, таких как вызовы Ajax).
+ * Если в [конфигурации страницы](#detailed-configuration) указано значение `overridePageViewDuration`, это интервал между запросом клиента и выполнением первого `trackPageView`. Если после инициализации сценария trackPageView вы переместили его из обычного положения, значение будет иным.
+ * Если задано значение `overridePageViewDuration` и указан аргумент длительности в вызове `trackPageView()`, будет использовано значение аргумента. 
 
 
 ## Настраиваемые счетчики страниц
@@ -238,4 +249,4 @@ Application Insights можно использовать с любыми веб-
 * [Пользовательские события и метрики](app-insights-api-custom-events-metrics.md)
 * [Сборка, измерение и обучение](app-insights-overview-usage.md)
 
-<!------HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

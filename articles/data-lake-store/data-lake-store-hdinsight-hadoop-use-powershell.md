@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/13/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Создание кластера HDInsight с хранилищем озера данных с помощью Azure PowerShell
@@ -28,6 +28,8 @@
 * **В кластерах Hadoop и Storm (Windows и Linux)** хранилище озера данных может использоваться только как дополнительная учетная запись хранения. Учетной записью хранения по умолчанию для таких кластеров по-прежнему будут BLOB-объекты хранилища Azure (WASB).
 
 * **Для кластеров HBase (Windows и Linux)** хранилище озера данных можно использовать как хранилище по умолчанию или дополнительное хранилище.
+
+> [AZURE.NOTE] Создание кластеров HDInsight с доступом к хранилищу озера данных доступно только при использовании HDInsight версии 3.2 (как для Windows, так и для Linux).
 
 
 В этой статье мы подготовим кластер Hadoop, в котором хранилище озера данных будет дополнительным хранилищем.
@@ -261,7 +263,7 @@
 
     	hive
 
-2. Используя интерфейс командной строки, введите следующие операторы, чтобы создать таблицу с именем **vehicles** с помощью примера данных в хранилище озера данных.
+2. Используя интерфейс командной строки, введите следующие инструкции, чтобы создать таблицу с именем **vehicles** с помощью примера данных в хранилище озера данных.
 
 		DROP TABLE vehicles;
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
@@ -378,4 +380,4 @@
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

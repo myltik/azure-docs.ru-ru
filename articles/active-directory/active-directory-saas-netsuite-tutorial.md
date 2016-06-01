@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="05/16/2016"
     ms.author="asmalser-msft"/>
 
 #Учебник. Как интегрировать NetSuite с Azure Active Directory
@@ -22,13 +22,13 @@
 
 ##Предварительные требования
 
-1. Для доступа к Azure Active Directory через [портал управления Azure](https://manage.windowsazure.com) необходима действующая подписка Azure.
+1. Для доступа к Azure Active Directory через [классический портал Azure](https://manage.windowsazure.com) необходима действующая подписка Azure.
 
 2. Требуется административный доступ к подписке [NetSuite](http://www.netsuite.com/portal/home.shtml). Для любой из этих служб можно воспользоваться бесплатной пробной учетной записью.
 
 ##Шаг 1. Добавление NetSuite в каталог
 
-1. На [портале управления Azure](https://manage.windowsazure.com) в области навигации слева щелкните **Active Directory**.
+1. На [классическом портале Azure](https://manage.windowsazure.com) в области навигации слева щелкните **Active Directory**.
 
 	![Выберите Active Directory в области навигации слева.][0]
 
@@ -259,4 +259,4 @@
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

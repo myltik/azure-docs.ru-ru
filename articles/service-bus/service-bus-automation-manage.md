@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="04/18/2016"
 	ms.author="csand"/>
 
 # Управление служебной шиной Azure при помощи службы автоматизации Azure
@@ -30,14 +30,13 @@
 
 ## Как служба автоматизации Azure может помочь управлять служебной шиной Azure?
 
-Для управления служебной шиной можно использовать средства службы автоматизации Azure посредством [API REST служебной шины](https://msdn.microsoft.com/library/azure/hh780717.aspx). В службе автоматизации Azure можно выполнять сценарии PowerShell для выполнения многих задач служебной шины с помощью интерфейсов REST API. Вы также можете связать эти вызовы REST API в службе автоматизации Azure с командлетами PowerShell для других служб Azure, чтобы автоматизировать сложные задачи в службах Azure и системах сторонних производителей.
+Для управления служебной шиной можно использовать средства службы автоматизации Azure посредством [API REST служебной шины](https://msdn.microsoft.com/library/azure/hh780717.aspx). В службе автоматизации Azure можно выполнять сценарии PowerShell для выполнения многих задач служебной шины с помощью интерфейсов REST API. Вы также можете связать эти вызовы REST API в службе автоматизации Azure с командлетами для других служб Azure, чтобы автоматизировать сложные задачи в службах Azure и системах сторонних производителей.
 
 Вот несколько примеров использования PowerShell для управления служебной шиной Azure.
-
-- [Пользовательские командлеты PowerShell для управления очередями служебной шины Azure](https://blogs.technet.microsoft.com/uktechnet/2014/12/04/sample-of-custom-powershell-cmdlets-to-manage-azure-servicebus-queues/)
-- [Как создать запросы, разделы и подписки Service Bus с помощью сценария PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-- [Создание пространств имен служебной шины Azure с помощью PowerShell](http://buildazure.com/2015/09/24/create-azure-service-bus-namespaces-using-powershell-and-x-plat-cli/)
-- [Модуль с DSCResource для добавления узлов настройки для создания служебной шины Azure](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0)
+* [Пользовательские командлеты PowerShell для управления очередями служебной шины Azure](https://blogs.technet.microsoft.com/uktechnet/2014/12/04/sample-of-custom-powershell-cmdlets-to-manage-azure-servicebus-queues/)
+* [Как создать запросы, разделы и подписки Service Bus с помощью сценария PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Создание пространств имен служебной шины Azure с помощью PowerShell](http://buildazure.com/2015/09/24/create-azure-service-bus-namespaces-using-powershell-and-x-plat-cli/)
+* [Модуль с DSCResource для добавления узлов настройки для создания служебной шины Azure](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0)
 
 ## Дальнейшие действия
 
@@ -46,4 +45,4 @@
 * См. [учебник по началу работы](https://azure.microsoft.com/documentation/learning-paths/automation/) со службой автоматизации Azure.
 * Узнайте, как [управлять служебной шиной с помощью PowerShell](service-bus-powershell-how-to-provision.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

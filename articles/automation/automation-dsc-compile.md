@@ -37,7 +37,7 @@
 
 После выбора метода компиляции вы можете выполнять процедуры, описанные ниже, чтобы начать компилирование.
 
-##Компилирование конфигурации DSC с помощью портала предварительной версии Azure##
+##Компилирование конфигурации DSC с помощью портала Azure##
 
 1.  В своей учетной записи автоматизации щелкните элемент **Конфигурации**.
 2.  Щелкните конфигурацию, чтобы открыть ее колонку.
@@ -115,7 +115,7 @@
     }
     
     
-    Start-AzureRMAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
+    Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
     
 
 Сведения о передаче учетных данных PSCredentials в качестве параметров см. в статье <a href="#credential-assets">**Доступ к учетным данным**</a> ниже.
@@ -228,4 +228,4 @@
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,7 +33,7 @@
 
 Гибридное подключение можно создать на портале Azure с помощью веб-приложений **или** служб BizTalk.
 
-**Подробности о создании гибридных подключений с помощью веб-приложений** см. в статье [Подключение веб-приложений Azure к локальным ресурсам](../app-service-web/web-sites-hybrid-connection-get-started.md).
+**Подробности о создании гибридных подключений с помощью веб-приложений** см. в статье [Подключение веб-приложений Azure к локальным ресурсам](../app-service-web/web-sites-hybrid-connection-get-started.md). Кроме того, диспетчер гибридных подключений можно установить из веб-приложения. Этот метод является предпочтительным.
 
 **Создание гибридных подключений в службах BizTalk**
 
@@ -152,4 +152,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->
