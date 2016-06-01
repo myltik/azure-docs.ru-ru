@@ -98,7 +98,7 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 
 ## TimeoutException 
 
-[TimeoutException][] указывает, что запущенная пользователем операция занимает больше времени, чем время ожидания операции.
+[TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) указывает, что запущенная пользователем операция занимает больше времени, чем время ожидания операции.
 
 ### Очереди и разделы
 
@@ -139,4 +139,4 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 - [Базовая информация о служебной шине](service-bus-fundamentals-hybrid-solutions.md)
 - [Архитектура служебной шины](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

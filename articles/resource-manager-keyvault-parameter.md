@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Использование секретного кода хранилища ключей в шаблоне диспетчера ресурсов | Microsoft Azure"
+   pageTitle="Секретный код хранилища ключей в шаблоне диспетчера ресурсов | Microsoft Azure"
    description="Демонстрирует передачу секретного кода из хранилища ключей в виде параметра при развертывании."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="05/16/2016"
    ms.author="tomfitz"/>
 
 # Передача безопасных значений в процессе развертывания
@@ -103,4 +103,4 @@
 - Сведения об использовании хранилища ключей с виртуальной машиной см. в разделе [Вопросы безопасности при работе с диспетчером ресурсов Azure](best-practices-resource-manager-security.md).
 - Полные примеры ссылок на секретные коды ключей см. в статье [Примеры хранилища ключей](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

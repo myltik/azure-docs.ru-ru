@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -53,7 +53,8 @@
 - Также на вкладке **Настройка** найдите раздел "Разрешения для других приложений". Для приложения Azure Active Directory добавьте разрешение на **Допуск к каталогу вашей организации** в списке **Делегированные разрешения**. Это позволит приложению запрашивать интерфейс Graph API для пользователей.
 
 ## *2. Установка и настройка ADAL*
-Теперь, когда приложение зарегистрировано в Azure AD, можно установить библиотеку ADAL и написать код для работы с удостоверением. Чтобы ADAL имела возможность взаимодействовать с Azure AD, ему необходимо предоставить некоторые сведения о регистрации приложения. Начните с добавления ADAL в проект DirectorySearcher с помощью консоли диспетчера пакетов.
+Теперь, когда приложение зарегистрировано в Azure AD, можно установить библиотеку ADAL и написать код для работы с удостоверением. Чтобы ADAL могла обмениваться информацией с Azure AD, необходимо предоставить некоторую информацию о регистрации вашего приложения.
+-	Сначала добавьте ADAL в проект DirectorySearcher с помощью консоли диспетчера пакетов.
 
 ```
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -65,7 +66,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     -	`ida:RedirectUri` — это URL-адрес перенаправления, зарегистрированный на портале.
 
 ## *3. Использование библиотеки ADAL для получения маркеров из Azure AD*
-Основной принцип ADAL состоит в следующем: каждый раз, когда вашему приложению необходим маркер доступа, оно будет просто вызывать `authContext.AcquireToken(...)`, а библиотека ADAL сделает все остальное.
+Основной принцип ADAL состоит в следующем: каждый раз, когда вашему приложению необходим маркер доступа, оно будет просто вызывать `authContext.AcquireTokenAsync(...)`, а библиотека ADAL сделает все остальное.
 
 -	В проекте `DirectorySearcher` откройте `MainWindow.xaml.cs` и найдите метод `MainWindow()`. Первый шаг состоит в инициализации `AuthenticationContext` — основного класса ADAL. Здесь вы отправляете в библиотеку ADAL координаты, которые ей требуются для взаимодействия с Azure AD, и сообщаете о способе кэширования маркеров.
 
@@ -75,22 +76,28 @@ public MainWindow()
     InitializeComponent();
 
     authContext = new AuthenticationContext(authority, new FileCache());
-    ...
+
+    CheckForCachedToken();
 }
 ```
 
 - Теперь найдите метод `Search(...)`, который будет вызываться при нажатии кнопки "Поиск" в пользовательском интерфейсе приложения. Этот метод выполняет запрос GET в интерфейс Graph API службы Azure AD для запроса списка пользователей, чьи UPN начинаются с данного слова поиска. Но для отправки запросов в Graph API необходимо включить access\_token в заголовок `Authorization` запроса — именно отсюда ADAL начинает свою работу.
 
 ```C#
-private void Search(object sender, RoutedEventArgs e)
+private async void Search(object sender, RoutedEventArgs e)
 {
-    ...
+    // Validate the Input String
+    if (string.IsNullOrEmpty(SearchText.Text))
+    {
+        MessageBox.Show("Please enter a value for the To Do item name");
+        return;
+    }
 
     // Get an Access Token for the Graph API
     AuthenticationResult result = null;
     try
     {
-        result = authContext.AcquireToken(graphResourceId, clientId, redirectUri);
+        result = await authContext.AcquireTokenAsync(graphResourceId, clientId, redirectUri, new PlatformParameters(PromptBehavior.Auto));
         UserNameLabel.Content = result.UserInfo.DisplayableId;
         SignOutButton.Visibility = Visibility.Visible;
     }
@@ -106,10 +113,10 @@ private void Search(object sender, RoutedEventArgs e)
     ...
 }
 ```
-- Когда приложение запрашивает маркер путем вызова `AcquireToken(...)`, библиотека ADAL пытается вернуть маркер без запроса учетных данных пользователя. Если ADAL решит, что пользователь должен выполнить вход для получения маркера, будет отображено диалоговое окно входа. Введенные учетные данные пользователя будут использованы для проверки подлинности, и в случае успешной проверки библиотека вернет маркер. Если библиотеке ADAL не удастся по какой-либо причине вернуть маркер, она вызовет исключение `AdalException`.
+- Когда приложение запрашивает маркер путем вызова `AcquireTokenAsync(...)`, библиотека ADAL пытается вернуть маркер без запроса учетных данных пользователя. Если ADAL решит, что пользователь должен выполнить вход для получения маркера, будет отображено диалоговое окно входа. Введенные учетные данные пользователя будут использованы для проверки подлинности, и в случае успешной проверки библиотека вернет маркер. Если библиотеке ADAL не удастся по какой-либо причине вернуть маркер, она вызовет исключение `AdalException`.
 - Обратите внимание, что объект `AuthenticationResult` содержит объект `UserInfo`, который может использоваться для сбора сведений, необходимых приложению. В DirectorySearcher объект `UserInfo` используется для настройки пользовательского интерфейса приложения на основе идентификатора пользователя.
 
-- Когда пользователь нажимает кнопку выхода, необходимо, чтобы при следующем вызове `AcquireToken(...)` пользователю было предложено войти. С ADAL это так же просто, как и очистка кэша маркера:
+- Когда пользователь нажимает кнопку выхода, необходимо, чтобы при следующем вызове `AcquireTokenAsync(...)` пользователю было предложено войти. С ADAL это так же просто, как и очистка кэша маркера:
 
 ```C#
 private void SignOut(object sender = null, RoutedEventArgs args = null)
@@ -121,20 +128,16 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 }
 ```
 
-- Если пользователь не нажимает кнопку выхода, то можно реализовать восстановление данных сеанса пользователя при следующем запуске приложения DirectorySearcher. При запуске приложения можно проверить кэш маркеров библиотеки ADAL на наличие соответствующего маркера и соответственно обновить пользовательский интерфейс. В методе `MainWindow()` выполните другой вызов `AcquireToken(...)`, на этот раз передав параметр `PromptBehavior.Never`. `PromptBehavior.Never` сообщает ADAL, что пользователю не следует предлагать войти, и вместо этого библиотека ADAL должна вызвать исключение, если не удается вернуть маркер.
+- Если пользователь не нажимает кнопку выхода, то можно реализовать восстановление данных сеанса пользователя при следующем запуске приложения DirectorySearcher. При запуске приложения можно проверить кэш маркеров библиотеки ADAL на наличие соответствующего маркера и соответственно обновить пользовательский интерфейс. В методе `CheckForCachedToken()` выполните другой вызов `AcquireTokenAsync(...)`, на этот раз передав параметр `PromptBehavior.Never`. `PromptBehavior.Never` сообщает ADAL, что пользователю не следует предлагать войти, и вместо этого библиотека ADAL должна породить исключение, если не удается вернуть маркер.
 
 ```C#
-public MainWindow()
+public async void CheckForCachedToken() 
 {
-    InitializeComponent();
-
-    authContext = new AuthenticationContext(authority, new FileCache());
-
     // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.
     AuthenticationResult result = null;
     try
     {
-        result = authContext.AcquireToken(graphResourceId, clientId, redirectUri, PromptBehavior.Never);
+        result = await authContext.AcquireTokenAsync(graphResourceId, clientId, redirectUri, new PlatformParameters(PromptBehavior.Never));
     }
     catch (AdalException ex)
     {
@@ -156,7 +159,7 @@ public MainWindow()
 
 Поздравляем! Теперь у нас есть рабочее приложение .NET WPF, которое позволяет проверять подлинность пользователей, безопасно вызывать методы веб-интерфейсов API по протоколу OAuth 2.0 и получать основные сведения о пользователе. Если же вы этого еще не сделали, пришло время добавить в клиент нескольких пользователей. Запустите приложение DirectorySearcher и войдите как один из этих пользователей. Осуществите поиск других пользователей по их имени участника-пользователя. Закройте приложение и снова запустите его. Обратите внимание на то, что пользовательский сеанс остался без изменений. Выйдите и снова войдите от имени другого пользователя.
 
-Библиотека ADAL упрощает включение в приложение всех этих типичных функций работы с удостоверением. Он отвечает за всю грязную работу: управление кэшем, поддержку протокола OAuth, предоставление пользователю пользовательского интерфейса для входа, обновление истекших маркеров и многое другое. Все, что вам действительно нужно знать, — это вызов интерфейса API `authContext.AcquireToken(...)`.
+Библиотека ADAL упрощает включение в приложение всех этих типичных функций работы с удостоверением. Он отвечает за всю грязную работу: управление кэшем, поддержку протокола OAuth, предоставление пользователю пользовательского интерфейса для входа, обновление истекших маркеров и многое другое. Все, что вам действительно нужно знать, — это вызов интерфейса API `authContext.AcquireTokenAsync(...)`.
 
 Завершенный образец (без ваших настроек) вы можете загрузить [отсюда](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip). Теперь можно приступить к изучению других сценариев. Вы можете попробовать:
 
@@ -164,4 +167,4 @@ public MainWindow()
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Начало работы с соединителем GitHub
@@ -25,7 +25,7 @@ ms.author="deonhe"/>
 
 - [Приложения логики](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps.](http://powerapps.microsoft.com)  
-- [Потоки](http://flows.microsoft.com)  
+- [Поток](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
@@ -60,6 +60,8 @@ ms.author="deonhe"/>
 | ---|---|---|
 |токен|Да|Укажите учетные данные GitHub|
 Созданное подключение можно использовать для выполнения действий и прослушивания триггеров, описанных в этой статье.
+
+>[AZURE.INCLUDE [Шаги по созданию подключения к GitHub](../../includes/connectors-create-api-github.md)]
 
 >[AZURE.TIP] Это подключение можно использовать в других приложениях логики.
 
@@ -154,7 +156,7 @@ ms.author="deonhe"/>
 
 | Имя свойства | Тип данных | Обязательное |
 |---|---|---|
-|title|string|Да |
+|title|строка|Да |
 |body|строка|Да |
 |assignee|string|Да |
 
@@ -165,7 +167,7 @@ ms.author="deonhe"/>
 
 | Имя свойства | Тип данных | Обязательное |
 |---|---|---|
-|title|string|Да |
+|title|строка|Да |
 |body|строка|Да |
 |assignee|string|Да |
 |number|строка|Нет |
@@ -177,4 +179,4 @@ ms.author="deonhe"/>
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="05/17/2016" 
 	ms.author="nitinme"/>
 
 # Настройка кластеров HDInsight с помощью действия скрипта
 
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md)
+> [AZURE.IMPORTANT] Действия, описанные в этом документе, выполняются на классическом портале Azure. Для создания служб корпорация Майкрософт не рекомендует использовать классический портал Azure. Объяснение преимуществ портала Azure см. на [портале Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+>
+> В этом документе также содержатся сведения об использовании Azure PowerShell и пакета SDK для HDInsight .NET. Представленные фрагменты кода основаны на командах, использующих управление службами Azure (ASM) для работы с HDInsight, и поэтому __не рекомендуются__. Эти команды будут удалены с 1 января 2017 г.
+>
+>Версию этого документа, в которой используется портал Azure, а также фрагменты кода PowerShell и пакета SDK для HDInsight .NET, использующие Azure Resource Manager (ARM), см. в разделе [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md).
 
 В HDInsight есть параметр конфигурации **Действие сценария**, вызывающий пользовательские сценарии, с помощью которых можно настроить кластер в процессе подготовки. Эти сценарии можно использовать, чтобы устанавливать на нем дополнительное программное обеспечение или изменять конфигурацию приложений.
 
@@ -57,7 +59,7 @@ HDInsight предоставляет несколько скриптов для 
 **Установка Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. См. статью [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark].
 **Установка R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. См. статью [Установка и использование R в кластерах HDInsight][hdinsight-install-r].
 **Установка Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
-— **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
+— **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
 
 
 
@@ -86,7 +88,7 @@ HDInsight предоставляет несколько скриптов для 
   
 **Из командлетов Azure PowerShell**
 
-Используйте команды Azure PowerShell для HDInsight, чтобы выполнить одно или несколько действий сценария. Вы можете использовать командлет **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** для вызова пользовательских сценариев. Чтобы использовать эти командлеты, требуется установить и настроить Azure PowerShell. Информацию о настройке рабочей станции для запуска командлетов Azure PowerShell для HDInsight см. в статье [Как установить и настроить Azure PowerShell][powershell-install-configure].
+Используйте команды Azure PowerShell для HDInsight, чтобы выполнить одно или несколько действий сценария. Вы можете использовать командлет **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** для вызова пользовательских сценариев. Чтобы использовать эти командлеты, требуется установить и настроить Azure PowerShell. Информацию о настройке рабочей станции для запуска командлетов Azure PowerShell для HDInsight см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md).
 
 Используйте следующую команду Azure PowerShell для выполнения одного действия сценария при развертывании кластера HDInsight:
 
@@ -178,4 +180,4 @@ HDInsight предоставляет несколько скриптов для 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Этапы подготовки кластера"
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

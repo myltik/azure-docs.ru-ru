@@ -41,15 +41,15 @@
 ## Как включить расширение
 Расширение можно включить с помощью [портала Azure](https://ms.portal.azure.com/#), Azure PowerShell или сценариев интерфейса командной строки Azure.
 
-Чтобы просмотреть и настроить данные о состоянии и производительности непосредственно на портале Azure, выполните эти \[инструкции\]\(https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL-адрес блога Windows"/\).
+Чтобы просмотреть и настроить данные о состоянии и производительности непосредственно на портале Azure, выполните эти [инструкции](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL-адрес блога Windows"/).
 
 
-В данной статье основное внимание уделяется включению и настройке расширения с помощью команд интерфейса командной строки Azure. Они позволяют просматривать данные напрямую из таблицы хранилища.
+В данной статье основное внимание уделяется включению и настройке расширения с помощью команд интерфейса командной строки Azure. Они позволяют просматривать данные напрямую из таблицы хранилища. Обратите внимание, что описанные ниже методы конфигурации не будут работать на портале Azure. Чтобы просмотреть и настроить данные о системе и производительности непосредственно на портале Azure, этот модуль необходимо включить с помощью портала Azure, как упоминалось в предыдущем абзаце.
 
 
 ## Предварительные требования
 - Агент Linux для Microsoft Azure 2.0.6 или более поздней версии. Обратите внимание на то, что большинство образов в коллекции виртуальных машин Azure на базе Linux включает версию 2.0.6 или более позднюю. Узнать, какая версия установлена на виртуальной машине, вы можете с помощью команды **WAAgent -version**. Если на виртуальной машине используется версия до 2.0.6, обновите ее, следуя этим [инструкциям](https://github.com/Azure/WALinuxAgent "инструкции").
-- [Интерфейс командной строки Azure](../xplat-cli-install.md) Чтобы настроить среду интерфейса командной строки Azure, воспользуйтесь [этим руководством](../xplat-cli-install.md). После установки интерфейса командной строки Azure для доступа к соответствующим функциям вы можете использовать команду **azure** в интерфейсе командной строки \(Bash, терминал, командная строка\). Например, команда **azure vm extension set --help** позволяет получить подробную справку о работе с программой, команда **azure login** — войти в Azure, а команда **azure vm list** — получить список всех виртуальных машин, доступных в Azure.
+- [Интерфейс командной строки Azure](../xplat-cli-install.md) Чтобы настроить среду интерфейса командной строки Azure, воспользуйтесь [этим руководством](../xplat-cli-install.md). После установки интерфейса командной строки Azure для доступа к соответствующим функциям вы можете использовать команду **azure** в интерфейсе командной строки (Bash, терминал, командная строка). Например, команда **azure vm extension set --help** позволяет получить подробную справку о работе с программой, команда **azure login** — войти в Azure, а команда **azure vm list** — получить список всех виртуальных машин, доступных в Azure.
 - Учетная запись хранения для хранения данных. Для загрузки данных в хранилище вам потребуется имя предварительно созданной учетной записи хранения и ключ доступа к ней.
 
 
@@ -58,8 +58,8 @@
 ###  Сценарий 1. Включение расширения с набором данных по умолчанию
 В версии 2.0 и выше по умолчанию собираются следующие данные:
 
-- все данные Rsyslog \(включая системный журнал, журналы безопасности и приложений\);  
-- основной набор данных базовой системы \(весь набор данных перечислен в этом [документе](https://scx.codeplex.com/wikipage?title=xplatproviders)\). Если вы хотите включить дополнительные данные, выполните действия, описанные в сценариях 2 и 3.
+- все данные Rsyslog (включая системный журнал, журналы безопасности и приложений);  
+- основной набор данных базовой системы (весь набор данных перечислен в этом [документе](https://scx.codeplex.com/wikipage?title=xplatproviders)). Если вы хотите включить дополнительные данные, выполните действия, описанные в сценариях 2 и 3.
 
 Шаг 1. Создайте файл PrivateConfig.json со следующим содержимым:
 
@@ -68,21 +68,19 @@
      	"storageAccountKey":"the key of the account"
 	}
 
-Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**.
+Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
 
 ###   Сценарий 2. Настройка метрик мониторинга производительности  
 В этом разделе описывается настройка таблицы данных о состоянии и производительности.
 
-Шаг 1. Создайте файл с именем PrivateConfig.json и содержимым, представленным в приведенном ниже примере. Укажите, какие данные вы хотите собирать.
+Шаг 1. Создайте файл с именем PrivateConfig.json и содержимым, как описано в сценарии 1. Также создайте файл с именем PublicConfig.json; он будет использоваться в следующем примере. Укажите, какие данные вы хотите собирать.
 
 Список всех поддерживаемых поставщиков и переменных см. в этом [документе](https://scx.codeplex.com/wikipage?title=xplatproviders). Можно создать несколько запросов и сохранять данные в разные таблицы, добавив дополнительные запросы в сценарий.
 
 По умолчанию данные Rsyslog собираются всегда.
 
 	{
-     	"storageAccountName":"storage account to receive data",
-     	"storageAccountKey":"key of the account",
       	"perfCfg":[
            	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
            	}
@@ -90,17 +88,15 @@
 	}
 
 
-Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**.
+Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Сценарий 3. Передача файлов журнала
 В этом разделе описан порядок сбора и передачи определенных файлов журнала в учетную запись хранения. Необходимо указать путь к файлу журнала и имя таблицы для хранения журналов. Вы можете указать несколько файлов журналов, добавив в сценарий несколько записей для файлов или таблиц.
 
-Шаг 1. Создайте файл PrivateConfig.json со следующим содержимым:
+Шаг 1. Создайте файл с именем PrivateConfig.json и содержимым, как описано в сценарии 1. Создайте другой файл PublicConfig.json со следующим содержимым:
 
 	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"key of the account",
       	"fileCfg":[
            	{"file":"/var/log/mysql.err",
              "table":"mysqlerr"
@@ -109,21 +105,19 @@
 	}
 
 
-Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**.
+Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Сценарий 4. Отключение расширения монитора Linux
-Шаг 1. Создайте файл PrivateConfig.json со следующим содержимым:
+Шаг 1. Создайте файл с именем PrivateConfig.json и содержимым, как описано в сценарии 1. Создайте другой файл PublicConfig.json со следующим содержимым:
 
 	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account",
-     	“perfCfg”:[],
-     	“enableSyslog”:”False”
+     	"perfCfg":[],
+     	"enableSyslog":”False”
 	}
 
 
-Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**.
+Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ## Просмотр данных
@@ -143,4 +137,4 @@
 ## Известные проблемы
 - В версии 2.0 доступ к данным Rsyslog и файлам журнала, указанным клиентом, можно получить только с помощью сценариев.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

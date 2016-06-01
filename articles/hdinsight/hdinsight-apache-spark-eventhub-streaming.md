@@ -123,7 +123,7 @@
 
 5. Для приложения требуется два JAR-файла зависимостей:
 
-	* **JAR-файл для приема из концентратора событий**. Этот файл необходим для приема сообщений из концентратора событий в приложении Spark. Этот JAR-файл доступен в кластере Spark на платформе Linux в каталоге `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. Его можно скопировать на локальный компьютер с помощью приложения командной строки PSCP.
+	* **JAR-файл для приема из концентратора событий**. Этот файл необходим для приема сообщений из концентратора событий в приложении Spark. Этот JAR-файл доступен в кластере Spark на платформе Linux в каталоге `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. Его можно скопировать на локальный компьютер с помощью приложения командной строки PSCP. (Примечание. Некоторые экземпляры хранят этот файл в каталоге `/usr/hdp/2.4.1.0-327/spark/lib`.)
 
 			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
 
@@ -257,6 +257,8 @@
 
 **JAR**-файлы доступны в кластере HDInsight Spark в каталоге `/usr/hdp/current/spark-client/lib`. Файл **hive-site.xml** доступен в каталоге `/usr/hdp/current/spark-client/conf`.
 
+
+
 С помощью клиента [WinScp](http://winscp.net/eng/download.php) можно копировать эти файлы из кластера на локальный компьютер. Затем их можно копировать в учетную запись хранения, связанную с кластером, используя соответствующие инструменты. Дополнительные сведения об отправке файлов в учетную запись хранения см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
 
 Скопировав файлы в учетную запись хранения Azure, откройте командную строку, перейдите в каталог, где установлена программа cURL, и выполните следующую команду (введите соответствующие имя пользователя, пароль и имя кластера):
@@ -374,4 +376,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

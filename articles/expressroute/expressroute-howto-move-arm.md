@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="05/05/2016"
    ms.author="ganesr"/>
 
 
@@ -98,7 +98,7 @@
 
     get-azurededicatedcircuit
 
-Выходные данные должны содержать ключ службы. Теперь вы можете управлять ссылками на канал ExpressRoute. Следующие статьи содержат сведения об управлении ссылками на канал ExpressRoute:
+Выходные данные должны содержать ключ службы. Теперь вы можете управлять связями с каналом ExpressRoute с помощью стандартных команд классического развертывания для классических виртуальных сетей и стандартных команд ARM для виртуальных сетей ARM. Следующие статьи содержат сведения об управлении ссылками на канал ExpressRoute:
 
 - [Связывание виртуальных сетей с каналами ExpressRoute в модели развертывания диспетчера ресурсов](expressroute-howto-linkvnet-arm.md)
 - [Связывание виртуальных сетей с каналами ExpressRoute в классической модели развертывания](expressroute-howto-linkvnet-classic.md)
@@ -126,4 +126,4 @@
 - [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-arm.md)
 - [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

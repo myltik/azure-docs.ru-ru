@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Azure AD Connect: вопросы и ответы
@@ -68,4 +68,4 @@
 
 - Перейдите по этой ссылке, чтобы получить поддержку на портале Azure.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Создание кластера Service Fabric на портале Azure | Microsoft Azure"
+   pageTitle="Создание кластера Service Fabric на портале Azure | Microsoft Azure"
    description="Создание кластера Service Fabric на портале Azure."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -26,7 +26,7 @@
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 
-2. Щелкните **+ Создать**, чтобы добавить новый шаблон ресурсов. Найдите нужный шаблон в **Marketplace** в разделе **Все** — он называется **Кластер Service Fabric**.
+2. Щелкните **+ Создать**, чтобы добавить новый шаблон ресурсов. Найдите нужный шаблон в **Marketplace** в разделе **Все** — он называется **Кластер Service Fabric**.
 
     а. На верхнем уровне щелкните **Marketplace**.
 
@@ -69,13 +69,13 @@
 
 13.  Чтобы настроить тип узла, выполните описанные ниже действия.
 
-	а. Выберите имя для типа узла (от 1 до 12 буквенно-цифровых символов).
+	а. Выберите имя для типа узла (от 1 до 12 буквенно-цифровых символов).
 
 	b. Минимальный размер виртуальных машин для основного типа узла зависит от выбранного для кластера уровня устойчивости. Значение по умолчанию для уровня устойчивости — Bronze. Дополнительные сведения о том, как выбрать уровень надежности и устойчивости кластера Service Fabric, см. в этом [документе](service-fabric-cluster-capacity.md).
 
-	b. Выберите размер виртуальной машины и ценовую категорию. Категория по умолчанию — "Стандартный" (D4), но если вы планируете использовать этот кластер только для тестирования приложений, можно выбрать размер виртуальной машины D2 или меньше.
+	b. Выберите размер виртуальной машины и ценовую категорию. Категория по умолчанию — "Стандартный" (D4), но если вы планируете использовать этот кластер только для тестирования приложений, можно выбрать размер виртуальной машины D2 или меньше.
 
-	c. Минимальное количество виртуальных машин для основного типа узла зависит от выбранного для кластера уровня надежности. Значение по умолчанию для уровня надежности — Silver. Дополнительные сведения о том, как выбрать уровень надежности и устойчивости кластера Service Fabric, см. в этом [документе](service-fabric-cluster-reliability-and-durability.md).
+	c. Минимальное количество виртуальных машин для основного типа узла зависит от выбранного для кластера уровня надежности. Значение по умолчанию для уровня надежности — Silver. Дополнительные сведения о том, как выбрать уровень надежности и устойчивости кластера Service Fabric, см. в этом [документе](service-fabric-cluster-capacity.md).
 
 	c. Выберите количество виртуальных машин для типа узла. Количество виртуальных машин для типа узла можно увеличить или уменьшить позже, но минимальное количество виртуальных машин на основном узле зависит от выбранного уровня надежности. Для других типов узлов можно задать минимум 1 виртуальную машину.
 
@@ -86,7 +86,7 @@
 
 	а. Порты приложений можно найти в манифестах служб, которые входят в пакет приложения. В каждом из приложений откройте манифесты служб и запишите все входные конечные точки, с помощью которых приложения обмениваются данными с внешним миром.
 
-	b. Добавьте все порты, разделенные запятыми, в поле **Входные конечные точки приложения**. Конечная точка для клиентского TCP-подключения — 19000 по умолчанию, поэтому ее указывать не нужно. Например, для приложения WordCount из образца необходимо открыть порт 83. Его можно найти в файле servicemanifest.xml в пакете приложения (файлов servicemanifest.xml может быть несколько).
+	b. Добавьте все порты, разделенные запятыми, в поле **Входные конечные точки приложения**. Конечная точка для клиентского TCP-подключения — 19000 по умолчанию, поэтому ее указывать не нужно. Например, для приложения WordCount из образца необходимо открыть порт 83. Его можно найти в файле servicemanifest.xml в пакете приложения (файлов servicemanifest.xml может быть несколько).
 
     c. В большинстве примеров приложений используются порты 80 и 8081, поэтому их необходимо добавить, если вы планируете развертывать примеры в этом кластере. ![порты;][Ports]
 
@@ -127,9 +127,13 @@
 
 1. Щелкните **Обзор** и выберите **Кластеры Service Fabric**.
 
-2. Найдите нужный кластер и щелкните его. ![Снимок экрана: поиск кластера на портале.][BrowseCluster]
+2. Найдите нужный кластер и щелкните его.
 
-3. На панели мониторинга отобразятся подробные сведения о кластере, включая его общедоступный IP-адрес. Если навести указатель мыши на элемент **Общедоступный IP-адрес кластера**, отобразится буфер обмена, в который можно скопировать IP-адрес. ![Снимок экрана: сведения о кластере на панели мониторинга.][ClusterDashboard]
+	![Снимок экрана: поиск кластера на портале.][BrowseCluster]
+
+3. На панели мониторинга отобразятся подробные сведения о кластере, включая его общедоступный IP-адрес. Если навести указатель мыши на элемент **Общедоступный IP-адрес кластера**, отобразится буфер обмена, в который можно скопировать IP-адрес.
+
+	![Снимок экрана: сведения о кластере на панели мониторинга.][ClusterDashboard]
 
   В разделе **Монитор узла** колонки панели мониторинга кластера отображается количество работоспособных и неработоспособных виртуальных машин. Дополнительные сведения о состоянии работоспособности кластеров см. в статье [Общие сведения о наблюдении за работоспособностью системы в Service Fabric](service-fabric-health-introduction.md).
 
@@ -141,43 +145,40 @@
 
 ### Подключение к незащищенному кластеру
 
-    ```
-    powershell
-    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
-    ```
+```
+powershell
+Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
+```
 
 ### Безопасное подключение к кластеру
 
-    1. Run the following to set up the certificate on the machine that you are going to use to run the "Connect-serviceFabricCluster" PowerShell command.
+1. Выполните следующую команду, чтобы установить сертификат на компьютере, на котором вы собираетесь выполнять команду PowerShell Connect-serviceFabricCluster.
 
-        ```
-	powershell
-        Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-                -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-                -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-        ```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
 
-    2. Run the following PowerShell command to connect to a secure cluster. The certificate details are the same ones that you gave on the portal.
+2. Для подключения к защищенному кластеру выполните следующую команду PowerShell: Сертификат имеет те же данные, которые вы указали на портале.
 
-        ```
-	powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-                  -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+              -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+              -StoreLocation CurrentUser -StoreName My
+    ````
 
-        For example, the PowerShell command above should look similar to the following:
+    Например, приведенная выше команда PowerShell должна выглядеть следующим образом:
 
-        ```
-	powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-                  -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+              -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+              -StoreLocation CurrentUser -StoreName My
+    ```
 
 ### Развертывание приложения
 Установив подключение, выполните следующие команды для развертывания приложения, заменив указанные здесь пути соответствующими значениями на своем компьютере. В приведенном ниже примере показано развертывание примера приложения для подсчета слов:
@@ -212,9 +213,9 @@
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## Удаленное подключение к экземпляру из набора масштабирования виртуальных машин (VMSS) или узлу кластера
+## Удаленное подключение к экземпляру из набора масштабирования виртуальных машин или узлу кластера
 
-Каждый из типов NodeType, задаваемый в кластере, отражается на конфигурации VMSS. Дополнительные сведения см. в разделе [Связь между типами узлов Service Fabric и масштабируемыми наборами виртуальных машин](service-fabric-cluster-nodetypes.md).
+Каждый из типов NodeType, задаваемый в кластере, отражается на конфигурации масштабируемого набора ВМ. Дополнительные сведения см. в статье [Удаленное подключение к экземпляру масштабируемого набора ВМ](service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node).
 
 ## Дальнейшие действия
 
@@ -236,4 +237,4 @@
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

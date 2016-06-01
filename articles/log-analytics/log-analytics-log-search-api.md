@@ -1,6 +1,6 @@
 <properties
-	pageTitle="API поиска по журналам в Log Analytics | Microsoft Azure"
-	description="Данное руководство дает базовые знания о том, как использовать API поиска по службе Log Analytics в Operational Insights Suite (OMS) и содержит примеры использования команд."
+	pageTitle="API REST поиска по журналам в Log Analytics | Microsoft Azure"
+	description="Данное руководство дает базовые знания о том, как использовать API REST поиска по службе Log Analytics в Operational Insights Suite (OMS), и содержит примеры использования команд."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
@@ -17,21 +17,21 @@
 	ms.author="banders"/>
 
 
-# API поиска по журналам Log Analytics
+# API REST поиска по журналам Log Analytics
 
-Данное руководство дает базовые знания о том, как использовать API поиска по службе Log Analytics в Operational Insights Suite (OMS), и содержит примеры использования команд. В некоторых примерах в этой статье упоминается Operational Insights — это имя предыдущей версии Log Analytics.
+Данное руководство дает базовые знания о том, как использовать API REST поиска по службе Log Analytics в Operational Insights Suite (OMS), и содержит примеры использования команд. В некоторых примерах в этой статье упоминается Operational Insights — это имя предыдущей версии Log Analytics.
 
-## Обзор API поиска по журналу
+## Обзор API REST поиска по журналу
 
-Для поиска по службе Log Analytics используется API категории RESTful — к нему можно получить доступ с помощью API диспетчера ресурсов Azure. В этом документе вы найдете примеры, когда доступ к API осуществляется через [ARMClient](https://github.com/projectkudu/ARMClient) — инструмент командной строки с открытым исходным кодом, который упрощает вызов API диспетчера ресурсов Azure. Использование ARMClient и PowerShell — это один из множества вариантов получения доступа к API поиска по службе Log Analytics. С помощью этих средств можно использовать API диспетчера ресурсов Azure категории RESTful для осуществления вызовов рабочих областей OMS и выполнения команд поиска в них. API будет выдавать результаты поиска в формате JSON, позволяя программно использовать результаты поиска различными способами.
+Для поиска по службе Log Analytics используется API REST категории RESTful — к нему можно получить доступ с помощью API Azure Resource Manager. В этом документе вы найдете примеры, когда доступ к API осуществляется через [ARMClient](https://github.com/projectkudu/ARMClient) — инструмент командной строки с открытым исходным кодом, который упрощает вызов API диспетчера ресурсов Azure. Использование ARMClient и PowerShell — это один из множества вариантов получения доступа к API поиска по службе Log Analytics. Другой вариант — использовать модуль Azure PowerShell для Operational Insights, включающий командлеты для доступа к службе поиска. С помощью этих средств можно использовать API диспетчера ресурсов Azure категории RESTful для осуществления вызовов рабочих областей OMS и выполнения команд поиска в них. API будет выдавать результаты поиска в формате JSON, позволяя программно использовать результаты поиска различными способами.
 
 Диспетчер ресурсов Azure можно использовать через [Библиотеку для .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx), а также через интерфейс [API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Для получения дополнительных сведений просмотрите популярные веб-страницы.
 
-## Учебник по основам API поиска по службе Log Analytics
+## Учебник по основам API REST поиска по службе Log Analytics
 
 ### Чтобы использовать клиент ARM
 
-1. Установите [Chocolatey](https://chocolatey.org/), который является диспетчером машинных пакетов с открытым исходным кодом для Windows. Откройте окно командной строки от имени администратора, а затем выполните следующую команду:
+1. Установите [Chocolatey](https://chocolatey.org/), который является диспетчером пакетов с открытым исходным кодом для Windows. Откройте окно командной строки от имени администратора, а затем выполните следующую команду:
 
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
@@ -51,7 +51,7 @@
     armclient login
     ```
 
-    При успешном выполнении входа появится список всех подписок, привязанных к данной учетной записи. Например:
+    При успешном выполнении входа появится список всех подписок, привязанных к данной учетной записи:
 
     ```
     PS C:\Users\SampleUserName> armclient login
@@ -63,13 +63,13 @@
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
     ```
 
-2. Получение рабочих областей Operations Management Suite Workspaces. Например:
+2. Получение рабочих областей Operations Management Suite Workspaces:
 
     ```
     armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
 
-    При успешном вызове Get отобразятся все рабочие области, привязанные к подписке. Например:
+    При успешном вызове Get отобразятся все рабочие области, привязанные к подписке:
 
     ```
     {
@@ -87,18 +87,18 @@
        ]
     }
     ```
-3. Создание своей переменной поиска. Например:
+3. Создание своей переменной поиска:
 
     ```
     $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
-4. Поиск с помощью новой переменной поиска. Например:
+4. Поиск с помощью новой переменной поиска:
 
     ```
     armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
 
-## Примеры API поиска по службе Log Analytics
+## Примеры API REST поиска по службе Log Analytics
 На следующих примерах показано, как можно использовать API поиска.
 
 ### Поиск — Действие/Чтение
@@ -197,7 +197,7 @@
 	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
->[AZURE.NOTE] Если результаты поиска выдаются со статусом "Ожидание", данный API можно использовать для запроса обновленных результатов. Через 6 минут результат поиска удаляется из кэша и выдается статус Http Gone. Если по первому поисковому запросу сразу выдаются результаты со статусом "Успешно", результаты не добавляются в кэш, в результате чего при запросе этот API выдает статус Http Gone. Содержимое результатов Http 200 будет представлено в том же формате, что и у первоначального поискового запроса, но с обновленными значениями.
+>[AZURE.NOTE] Если результаты поиска выдаются со статусом "Ожидание", данный API можно использовать для запроса обновленных результатов. Через 6 минут результат поиска удаляется из кэша и выдается статус HTTP Gone. Если по первому поисковому запросу сразу выдаются результаты со статусом "Успешно", они не добавляются в кэш, в результате чего при запросе этот API выдает статус HTTP Gone. Содержимое результатов HTTP 200 будет представлено в том же формате, что и у первоначального поискового запроса, но с обновленными значениями.
 
 ### Сохраненные поисковые запросы — только REST
 
@@ -379,7 +379,7 @@ armclient get /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 
 Для того чтобы поиск классифицировался как группа компьютеров, определение сохраненного поискового запроса должно включать тег Group (Группа) со значением Computer (Компьютер).
 
-	$etag=get-date -f yyyy-MM-ddThh:mm:ss.msZ
+	$etag=Get-Date -Format yyyy-MM-ddThh:mm:ss.msZ
 	$groupName="My Computer Group"
 	$groupQuery = "Computer=srv* | Distinct Computer"
 	$groupCategory="My Computer Groups"
@@ -402,4 +402,4 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 - Узнайте больше о [запросах поиска по журналу](log-analytics-log-searches.md) для создания запросов с использованием настраиваемых полей в качестве условия.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

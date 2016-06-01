@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="05/13/2016"
 	ms.author="kgremban"/>
 
 # Управление доступом на основе ролей с помощью интерфейса REST API
@@ -23,7 +23,7 @@
 - [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
 - [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
 
-Функция управления доступом на основе ролей \(RBAC\) на портале Azure и в API Azure Resource Manager позволяет очень точно управлять доступом к подписке и ресурсам. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
+Функция управления доступом на основе ролей (RBAC) на портале Azure и в API Azure Resource Manager позволяет очень точно управлять доступом к подписке и ресурсам. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
 
 
 ## Вывод списка всех назначений ролей
@@ -34,9 +34,9 @@
 
 ### Запрос
 
-Используйте метод **GET** со следующим универсальным кодом ресурса \(URI\).
+Используйте метод **GET** со следующим универсальным кодом ресурса (URI).
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&filter={filter}
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
 
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
@@ -56,8 +56,8 @@
 | Условие | *{Filter}* | Замените |
 |-----------|------------|---------|
 | Вывод списка назначений ролей только для определенной области без учета внутренних областей | `atScope()` | |
-| Вывод списка назначений ролей только для определенного пользователя, группы или приложения | `principalId%20eq%20'{objectId}'` | Замените *{objectId}* значением ObjectId пользователя, группы или субъекта-службы Azure AD. Пример: `&filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'`. |
-| Вывод списка назначений ролей только для определенного пользователя, в том числе тех, которые назначены группам, в которые он входит | `assignedTo('{objectId}')` | Замените *{objectId}* значением ObjectId пользователя в Azure AD. Пример: `&filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')`. |
+| Вывод списка назначений ролей только для определенного пользователя, группы или приложения | `principalId%20eq%20'{objectId}'` | Замените *{objectId}* значением ObjectId пользователя, группы или субъекта-службы Azure AD. Например, `&$filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
+| Вывод списка назначений ролей только для определенного пользователя, в том числе тех, которые назначены группам, в которые он входит | `assignedTo('{objectId}')` | Замените *{objectId}* значением ObjectId пользователя в Azure AD. Например, `&$filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
 
 
 
@@ -96,7 +96,7 @@
 
 ### Запрос
 
-Используйте метод **GET** со следующим универсальным кодом ресурса \(URI\).
+Используйте метод **GET** со следующим универсальным кодом ресурса (URI).
 
 	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
@@ -144,7 +144,7 @@
 
 ### Запрос
 
-Используйте метод **PUT** со следующим универсальным кодом ресурса \(URI\).
+Используйте метод **PUT** со следующим универсальным кодом ресурса (URI).
 
 	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
@@ -177,7 +177,7 @@
 | Имя элемента | Обязательно | Тип | Описание |
 |------------------|----------|--------|-------------|
 | roleDefinitionId | Да | Строка | Идентификатор роли, которую необходимо назначить. Он указывается в формате `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}`. |
-| principalId | Да | Строка | ObjectId субъекта Azure AD \(пользователя, группы или субъекта-службы\), которому назначается роль. |
+| principalId | Да | Строка | ObjectId субъекта Azure AD (пользователя, группы или субъекта-службы), которому назначается роль. |
 
 ### Ответ
 
@@ -209,7 +209,7 @@
 
 ### Запрос
 
-Используйте метод **DELETE** со следующим универсальным кодом ресурса \(URI\).
+Используйте метод **DELETE** со следующим универсальным кодом ресурса (URI).
 
 	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
@@ -257,9 +257,9 @@
 
 ### Запрос
 
-Используйте метод **GET** со следующим универсальным кодом ресурса \(URI\).
+Используйте метод **GET** со следующим универсальным кодом ресурса (URI).
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&filter={filter}
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
 
 Чтобы настроить запрос, замените следующий текст в URI указанными значениями.
 
@@ -351,7 +351,7 @@
 
 ### Запрос
 
-Используйте метод **GET** со следующим универсальным кодом ресурса \(URI\).
+Используйте метод **GET** со следующим универсальным кодом ресурса (URI).
 
 	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
@@ -435,7 +435,7 @@
 
 ### Запрос
 
-Используйте метод **PUT** со следующим универсальным кодом ресурса \(URI\).
+Используйте метод **PUT** со следующим универсальным кодом ресурса (URI).
 
 	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
@@ -545,7 +545,7 @@
 
 ### Запрос
 
-Используйте метод **PUT** со следующим универсальным кодом ресурса \(URI\).
+Используйте метод **PUT** со следующим универсальным кодом ресурса (URI).
 
 	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
@@ -655,7 +655,7 @@
 
 ### Запрос
 
-Используйте метод **DELETE** со следующим универсальным кодом ресурса \(URI\).
+Используйте метод **DELETE** со следующим универсальным кодом ресурса (URI).
 
 	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
@@ -714,4 +714,4 @@
 
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -19,7 +19,8 @@
 # Как использовать кэш Redis для Azure
 
 > [AZURE.SELECTOR]
-- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [ASP.NET](cache-web-app-howto.md)
 - [Node.js](cache-nodejs-get-started.md)
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
@@ -47,43 +48,13 @@
 <a name="create-cache"></a>
 ## Создание кэша
 
-Чтобы создать кэш, войдите на [портал Azure][] и последовательно щелкните **Создать**, **Данные+хранилище** и **Кэш Redis**.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
->[AZURE.NOTE] Кэши можно создавать не только на портале Azure, но и с использованием шаблонов ARM, PowerShell или интерфейса командной строки Azure.
->
->-	Информацию о создании кэшей с помощью шаблонов ARM см. в статье [Создание кэша Redis с помощью шаблона](cache-redis-cache-arm-provision.md).
->-	Информацию о создании кэшей с помощью Azure PowerShell см. в статье [Управление кэшем Redis для Azure с помощью Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
->-	Информацию о создании кэшей с помощью интерфейса командной строки Azure см. в статье [Как создать кэш Redis для Azure и управлять им с помощью интерфейса командной строки Azure (Azure CLI)](cache-manage-cli.md).
+### Доступ к кэшу после его создания
 
-![Новый кэш][NewCacheMenu]
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
->[AZURE.NOTE] Если у вас нет учетной записи Azure, ее можно [бесплатно создать](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) всего за несколько минут.
-
-В колонке **Новый кэш Redis** выберите конфигурацию кэша.
-
-![Создание кэша][CacheCreate]
-
--	В поле **Имя DNS** введите имя кэша, которое будет использоваться для конечной точкой кэша. Имя кэша должно быть строкой длиной от 1 до 63 символов и содержать только цифры, буквы и символ `-`. Имя кэша не может начинаться или заканчиваться символом `-`. Также не допускается последовательное использование символов `-`.
--	В поле **Подписка** выберите подписку Azure, которую вы хотите использовать для кэша. Если у вашей учетной записи есть только одна подписка, она будет выбрана автоматически и раскрывающееся меню **Подписка** не появится.
--	В поле **Группа ресурсов** выберите или создайте группу ресурсов для кэша. За дополнительной информацией обратитесь к разделу [Использование групп ресурсов для управления ресурсами Azure][]. 
--	В поле поля **Расположение** укажите, где географически будет располагаться ваш кэш. Для оптимальной производительности Майкрософт настоятельно рекомендует размещать кэш в том же регионе, что и клиентское приложение кэша.
--	Используйте **Уровень цен** для выбора желаемого размера и компонентов кэша.
--	**Кластер Redis** позволяет создавать кэши размером более 53 ГБ и сегментировать данные по нескольким узлам Redis. Дополнительные сведения см. в статье [Настройка кластеризации для кэша Redis для Azure уровня Премиум](cache-how-to-premium-clustering.md).
--	**Функция сохраняемости Redis** дает возможность сохранять кэш в учетную запись хранения Azure. Инструкции по настройке сохраняемости см. в разделе [Настройка постоянного хранения для кэша Redis для Azure уровня Премиум](cache-how-to-premium-persistence.md).
--	**Виртуальная сеть** обеспечивает улучшенную защиту и изоляцию, предоставляя доступ к кэшу только тем клиентам, которые входят в указанную виртуальную сеть Azure. Вы можете использовать все возможности виртуальной сети, например подсети, политики контроля доступа и другие функции, для дальнейшего ограничения доступа к Redis. Дополнительные сведения см. в статье [Настройка поддержки виртуальной сети для кэша Redis для Azure уровня Премиум](cache-how-to-premium-vnet.md).
--	Чтобы указать учетную запись хранения для метрик кэша, щелкните **Диагностика**. Дополнительные сведения о настройке и просмотре метрик кэша см. в статье [Как отслеживать кэш Redis для Azure](cache-how-to-monitor.md).
-
-После задания настроек нового кэша щелкните **Создать**. Создание кэша может занять несколько минут. Для проверки состояния можно отслеживать прогресс на начальной панели. После создания новый кэш имеет состояние **Работает** и готов для использования со значениями по умолчанию.
-
-![Кэш создан][CacheCreated]
-
-После создания кэша он доступен в лезвии **Обзор**.
-
-![Лезвие "Обзор"][BrowseCaches]
-
-Щелкните **Кэши Redis**, чтобы просмотреть свои экземпляры кэша.
-
-![Кэши][Caches]
+Дополнительные сведения о настройке кэша см. в статье [Настройка кэша Redis для Azure](cache-configure.md).
 
 <a name="NuGet"></a>
 ## Настройка клиентов кэша
@@ -96,7 +67,7 @@
 
 ![Управление пакетами NuGet][NuGetMenu]
 
-Введите в поле поиска **StackExchange.Redis** или **StackExchange.Redis.StrongName**, выберите в результатах желаемую версию и щелкните **Установить**.
+Введите в поле поиска **StackExchange.Redis** или **StackExchange.Redis.StrongName**, выберите в результатах нужную версию и щелкните **Установить**.
 
 >[AZURE.NOTE] При желании использовать версию клиентской библиотеки **StackExchange.Redis** со строгими именами выберите **StackExchange.Redis.StrongName**, в противном случае выберите **StackExchange.Redis**.
 
@@ -153,11 +124,7 @@
 
 За дополнительной информацией по вариантам расширенных настроек соединения обратитесь к раз делу [Модель конфигурации StackExchange.Redis][].
 
-Конечная точка и ключи указаны в колонке **Кэш Redis** вашего экземпляра кэша.
-
-![Свойства кэша][CacheProperties]
-
-![Управление ключами][ManageKeys]
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 Создав подключение, верните ссылку на базу данных кэша Redis с помощью метода `ConnectionMultiplexer.GetDatabase`. Объект, возвращенный из метода `GetDatabase`, – это упрощенный передаваемый объект, не требующий сохранения.
 
@@ -265,9 +232,7 @@ Redis хранит большинство данных в строках Redis, 
 
   
 <!-- IMAGES -->
-[NewCacheMenu]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png
 
-[CacheCreate]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-create.png
 
 [StackExchangeNuget]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-stackexchange-redis.png
 
@@ -283,7 +248,7 @@ Redis хранит большинство данных в строках Redis, 
 
 [Caches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png
 
-[CacheCreated]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-created.png
+
 
 
 
@@ -291,7 +256,7 @@ Redis хранит большинство данных в строках Redis, 
    
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
-[Разработка на других языках для кэша Redis для Azure]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
 [Получение строки подключения Redis для Azure и ее использование с Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
 [Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
@@ -315,14 +280,14 @@ Redis хранит большинство данных в строках Redis, 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Кэш Redis. Цены]: http://www.windowsazure.com/pricing/details/cache/
-[портал Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 [Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
 
 [Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Использование групп ресурсов для управления ресурсами Azure]: http://azure.microsoft.com/documentation/articles/resource-group-overview/
+[Using Resource groups to manage your Azure resources]: http://azure.microsoft.com/documentation/articles/resource-group-overview/
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [документацией по клиенту кэша StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
@@ -334,4 +299,4 @@ Redis хранит большинство данных в строках Redis, 
 
 [Принципы работы строк приложений и подключения]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -119,7 +119,7 @@
 [Управление индексами columnstore в хранилище данных SQL Azure]: sql-data-warehouse-manage-columnstore-indexes.md
 [Управление статистикой в хранилище данных SQL]: sql-data-warehouse-develop-statistics.md
 [Мониторинг рабочей нагрузки с помощью динамических административных представлений]: sql-data-warehouse-manage-monitor.md
-[Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure]: data-factory-azure-sql-data-warehouse-connector.md
+[Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [Оптимизация транзакций для хранилища данных SQL]: sql-data-warehouse-develop-best-practices-transactions.md
 [приостановке]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
 [возобновлении]: sql-data-warehouse-overview-scalability.md#resume-compute-bk
@@ -157,4 +157,4 @@
 [форуме хранилища данных SQL Azure на сайте Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

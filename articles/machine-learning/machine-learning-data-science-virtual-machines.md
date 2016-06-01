@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="05/10/2016"
+	ms.author="xibingao;bradsev" />
 
 # Виртуальные машины для обработки и анализа данных в Azure
 
@@ -41,4 +41,4 @@
 > [AZURE.NOTE] За виртуальные машины Azure вы **платите только по факту использования**. Чтобы вам не выставляли счета за неиспользуемую виртуальную машину, она должна находиться в состоянии **Остановлена (освобождена)** на [классическом портале Azure](http://manage.windowsazure.com/). Пошаговые указания по отмене распределения памяти для виртуальной машины см. в разделе [Завершение работы и освобождение виртуальной машины при неиспользовании](machine-learning-data-science-setup-virtual-machine.md#shutdown).
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

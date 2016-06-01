@@ -19,9 +19,11 @@
 # Репликация виртуальных машин Hyper-V из облаков VMM в Azure с помощью PowerShell (классическая модель)
 
 > [AZURE.SELECTOR]
-- [Классический портал Azure](site-recovery-vmm-to-azure.md)
+- [Портал Azure](site-recovery-vmm-to-azure.md)
+- [PowerShell в режиме ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [Классический портал](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell — классическая модель](site-recovery-deploy-with-powershell.md)
-- [PowerShell — Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 ## Обзор
 
@@ -34,7 +36,7 @@
 Если у вас возникают проблемы, опубликуйте свои вопросы на [форуме по Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-> [AZURE.NOTE] В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания.
+> [AZURE.NOTE] В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания.
 
 
 
@@ -447,4 +449,4 @@ marsagentinstaller.exe /q /nu
 
 [Узнайте больше](https://msdn.microsoft.com/library/dn850420.aspx) о командлетах PowerShell для Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

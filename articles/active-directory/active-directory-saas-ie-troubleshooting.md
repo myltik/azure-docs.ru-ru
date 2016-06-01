@@ -3,7 +3,7 @@
     description="Как применить групповую политику для развертывания надстройки Internet Explorer для работы с порталом «Мои приложения»."
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="MarkusVi"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.author="markvi;liviodlc"/>
 
 #Устранение неполадок, связанных с расширением панели доступа для Internet Explorer
 
@@ -109,4 +109,4 @@
 - [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
 - [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Рекомендации по проектированию гибридных решений для идентификации Azure Active Directory ― определение требований к синхронизации каталога | Microsoft Azure"
+	pageTitle="Рекомендации по проектированию гибридных решений для идентификации Azure Active Directory ― определение требований к синхронизации каталога | Microsoft Azure"
 	description="Определите, какие требования необходимы для синхронизации всех локальных и облачных пользователей предприятия."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/23/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Определение требований к синхронизации каталога
@@ -68,4 +68,4 @@
 ## См. также
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -70,7 +70,7 @@
 	    logger.info('Running TodoItem.insert');
 	    
 	    // Define the template payload.
-	    var payload = '{"messageParam": context.item.text}'; 
+	    var payload = '{"messageParam":' + context.item.text + '}'; 
 	    
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
@@ -100,5 +100,3 @@
 	При вставке нового элемента todo отправляется уведомление шаблона, содержащее item.text.
 
 2. При редактировании этого файла на локальном компьютере повторно опубликуйте серверный проект.
-
-<!---HONumber=AcomDC_1223_2015-->

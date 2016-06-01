@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/06/2016" 
 	ms.author="rnagpal"/>
 
 # Пакет SDK для DocumentDB
@@ -35,6 +35,12 @@
 </table></br>
 
 ## Заметки о выпуске
+
+### <a name="1.7.1"/>[1\.7.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.1)
+  - Добавлена перегрузка метода ExecuteStoredProcedureAsync на основе универсального кода ресурса (URI), принимающего RequestOptions в качестве параметра.
+  
+### <a name="1.7.0"/>[1\.7.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.0)
+  - Добавлена поддержка срока жизни для документов.
 
 ### <a name="1.6.3"/>[1\.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
   - Исправлена ошибка в упаковке Nuget пакета SDK для .NET, связанная с его упаковкой в составе решения облачной службы.
@@ -93,9 +99,9 @@
   - Поставщик LINQ поддерживает OrderBy() или OrderByDescending().
   - IndexingPolicy поддерживает Order By. 
   
-		**Следует учесть: потенциальное изменение, нарушающее функциональность** 
+		**NB: Possible breaking change** 
   
-    	Если имеется существующий код, который предоставляет коллекции с пользовательской политикой индексирования, он должен быть обновлен и должен поддерживать новый класс IndexingPolicy. Если такой политики нет, это изменение на вас не влияет.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Новые классы HashPartitionResolver и RangePartitionResolver и интерфейс IPartitionResolver для поддержки секционирования данных.
@@ -127,6 +133,8 @@
  
 | Version (версия) | Дата выпуска | Дата вывода 
 | ---	  | ---	         | ---
+| [1\.7.1](#1.7.1) | 6 мая 2016 г. |---
+| [1\.7.0](#1.7.0) | 26 апреля 2016 г. |---
 | [1\.6.3](#1.6.3) | 8 апреля 2016 г. |---
 | [1\.6.2](#1.6.2) | 29 марта 2016 г. |---
 | [1\.5.3](#1.5.3) | 19 февраля 2016 г. |---
@@ -139,10 +147,10 @@
 | [1\.2.0](#1.2.0) | 6 июля 2015 г. |---
 | [1\.1.0](#1.1.0) | 30 апреля 2015 г. |---
 | [1\.0.0](#1.0.0) | 8 апреля 2015 г. |---
-| [0\.9.3-prelease](#0.9.x-preview) | 12 марта 2015 г. | 29 февраля 2016 г. 
-| [0\.9.2-prelease](#0.9.x-preview) | Январь 2015 г. | 29 февраля 2016 г. 
-| [0\.9.1-prelease](#0.9.x-preview) | 13 октября 2014 г. | 29 февраля 2016 г. 
-| [0\.9.0-prelease](#0.9.x-preview) | 21 августа 2014 г. | 29 февраля 2016 г.
+| [0\.9.3-prelease](#0.9.x-preview) | 12 марта 2015 г.| 29 февраля 2016 г.
+ | [0\.9.2-prelease](#0.9.x-preview) | Январь 2015 г. | 29 февраля 2016 г.
+  | [0\.9.1-prelease](#0.9.x-preview) | 13 октября 2014 г. | 29 февраля 2016 г.
+   | [0\.9.0-prelease](#0.9.x-preview) | 21 августа 2014 г. | 29 февраля 2016 г.
 
 ## Часто задаваемые вопросы
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -151,4 +159,4 @@
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

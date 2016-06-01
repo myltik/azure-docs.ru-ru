@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
@@ -66,25 +66,7 @@ CDN можно включить для кэширования содержимо
 
 > [AZURE.TIP] Если у вас уже есть профиль CDN для работы, перейдите к разделу [Шаг 3](#step-3-create-a-new-cdn-endpoint).
 
-**Создание нового профиля сети CDN**
-
-1. На [портале управления Azure](https://portal.azure.com) в верхней левой части щелкните **Создать**. В колонке **Новый** выберите **Носитель + CDN**, а затем **CDN**.
-
-    Появится колонка нового профиля сети CDN.
-
-    ![Новый профиль сети CDN][new-cdn-profile]
-
-2. Введите имя профиля сети CDN.
-
-3. Выберите значение для параметра **Ценовая категория** или используйте значение по умолчанию.
-
-4. Выберите или создайте **группу ресурсов**. Эта группа ресурсов не обязательно должна совпадать с группой ресурсов для вашей учетной записи хранения.
-
-5. Выберите **подписку** для этого профиля сети CDN. Для целей данного учебника это должна быть та же подписка, что и для учетной записи хранения.
-
-6. Выберите значение для параметра **Расположение**. Это расположение Azure, где будут храниться данные профиля сети CDN. Оно не влияет на расположение конечных точек сети CDN. Это расположение не должно совпадать с расположением учетной записи хранения.
-
-7. Нажмите кнопку **Создать**, чтобы создать новый профиль.
+[AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## Шаг 3. Создание новой конечной точки сети CDN
 
@@ -148,10 +130,9 @@ http://<*имя\_конечной\_точки*>.azureedge.net/<*общедост
 
 [create-new-storage-account]: ./media/cdn-create-a-storage-account-with-cdn/CDN_CreateNewStorageAcct.png
 
-[new-cdn-profile]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-profile.png
 [cdn-profile-settings]: ./media/cdn-create-a-storage-account-with-cdn/cdn-profile-settings.png
 [cdn-new-endpoint-button]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

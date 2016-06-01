@@ -19,9 +19,11 @@
 # Репликация виртуальных машин Hyper-V из облаков VMM в Azure с помощью PowerShell и Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Классический портал Azure](site-recovery-vmm-to-azure.md)
+- [Портал Azure](site-recovery-vmm-to-azure.md)
+- [PowerShell в режиме ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [Классический портал](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell — классическая модель](site-recovery-deploy-with-powershell.md)
-- [PowerShell — Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 
 ## Обзор
@@ -51,7 +53,7 @@
 ### Предварительные требования Azure
 
 - Вам потребуется учетная запись [Microsoft Azure](https://azure.microsoft.com/). Если у вас ее нет, воспользуйтесь [бесплатной учетной записью](https://azure.microsoft.com/free). Вы также можете ознакомиться с [расценками на использование диспетчера восстановления Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-- Для проверки репликации в подписку CSP вам потребуется подписка CSP. Дополнительные сведения о программе CSP см. в статье [Регистрация в программе CSP](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
+- Для проверки репликации в подписку CSP вам потребуется подписка CSP. Дополнительные сведения о программе CSP см. в статье [Как зарегистрироваться в программе CSP](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
 - Для хранения данных, реплицируемых в Azure, потребуется учетная запись хранения Azure вер. 2 (ARM). На учетной записи необходимо включить георепликацию. Она должна находиться в том же регионе, что и служба Azure Site Recovery, и быть связана с той же подпиской или с подпиской CSP. Дополнительные сведения о настройке службы хранилища Azure см. в разделе [Знакомство со службой хранилища Microsoft Azure](../storage/storage-introduction.md).
 - Нужно убедиться, что защищаемые виртуальные машины соответствуют [предварительным требованиям к виртуальным машинам Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
@@ -74,7 +76,7 @@
 
 - Серверы узлов Hyper-V должны работать под управлением Windows Server 2012 (или более поздних версий) с ролью Hyper-V и установленными последними обновлениями.
 - Если Hyper-V выполняется в кластере, учтите, что брокер кластера не создается автоматически при использовании кластера на основе статических IP-адресов. Вам потребуется настроить брокер кластера вручную. Для 
-- Инструкции см. в статье [Настройка брокера реплики Hyper-V](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
+- Инструкции см. в статье [Как настроить брокер реплики Hyper-V](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
 - Все кластеры или серверы узлов Hyper-V, для которых вы настраиваете управление защитой, должны быть включены в облако VMM.
 
 ### Предварительные требования сетевого сопоставления
@@ -121,7 +123,7 @@
 		Set-AzureRmContext –SubscriptionID <subscriptionId>
 
 
-## Шаг 2. Создание хранилища служб восстановления
+## Шаг 2. Создание хранилища служб восстановления 
 
 1. Если у вас еще нет группы ресурсов ARM, создайте ее.
 
@@ -131,19 +133,11 @@
 
 		$vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location 
 
-## Шаг 3. Создание ключа регистрации хранилища
+## Шаг 3. Настройка контекста для хранилища служб восстановления
 
-Создайте ключ регистрации в хранилище. После загрузки поставщика Azure Site Recovery и установки его на сервер VMM этот ключ используется для регистрации сервера VMM в хранилище.
+1.  Задайте контекст хранилища, выполнив указанную ниже команду.
 
-1.	Получите файл настроек хранилища и задайте контекст:
-	
-
-		Get-AzureRmRecoveryServicesVaultSettingsFile -Vault vaultname -Path #VaultSettingFilePath
-	
-	
-2.	Задайте контекст хранилища, выполнив следующие команды:
-	
-		Import-AzureRmSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath
+		Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## Шаг 4. Установка поставщика Azure Site Recovery
 
@@ -319,7 +313,7 @@
 
 ### Запуск незапланированной отработки отказа
 
-1. Запустите запланированную обработку отказа с помощью следующей команды:
+1. Запустите внеплановую обработку отказа с помощью следующей команды:
 		
 		$protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 
@@ -351,4 +345,4 @@
 
 [Узнайте больше](https://msdn.microsoft.com/library/dn850420.aspx) о командлетах PowerShell для Azure Site Recovery</a>.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

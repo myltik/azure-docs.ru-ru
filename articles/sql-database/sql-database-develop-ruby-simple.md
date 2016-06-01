@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Подключение к базе данных SQL с помощью Ruby"
+	pageTitle="Подключение к базе данных SQL с помощью Ruby | Microsoft Azure"
 	description="Позвольте примеру кода Ruby, который вы можете выполнить, подключиться к базе данных SQL Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -40,4 +40,4 @@
 
 [Эксперимент по подключению к SQL с помощью Ruby](http://msdn.microsoft.com/library/mt715797.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

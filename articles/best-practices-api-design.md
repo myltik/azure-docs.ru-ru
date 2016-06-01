@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,10 +19,7 @@
 
 # Руководство по проектированию API
 
-![](media/best-practices-api-design/pnp-logo.png)
-
-Некоторые разделы в этом руководстве находятся в процессе обсуждения и могут быть изменены в дальнейшем. Будем рады вашим отзывам!
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Обзор
 
@@ -522,4 +519,4 @@ Content-Length: ...
 - [Подробная инструкция по RESTful](http://restcookbook.com/) содержит общие сведения о создании API RESTful.
 - [Контрольный список веб-API](https://mathieu.fenniak.net/the-api-checklist/) содержит полезный список элементов, которые следует учесть при проектировании и реализации веб-API.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

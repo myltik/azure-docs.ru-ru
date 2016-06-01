@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -27,7 +27,7 @@
 
 |**Ресурс агента**|**Порты**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|порт 443|
+|*.ods.opinsights.azure.com|порт 443| 
 |*.oms.opinsights.azure.com|Порт 443|
 |ods.systemcenteradvisor.com|Порт 443|
 |*.blob.core.windows.net|Port 443|
@@ -97,7 +97,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 |**Ресурс агента**|**Порты**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|порт 443|
+|*.ods.opinsights.azure.com|порт 443| 
 |*.oms.opinsights.azure.com|Порт 443|
 |ods.systemcenteradvisor.com|Порт 443|
 |*.blob.core.windows.net/|Port 443|
@@ -106,10 +106,10 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 |**Ресурс сервера управления**|**Порты**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443|
-|service.systemcenteradvisor.com|Port 443|
-|scadvisor.accesscontrol.windows.net|Port 443|
-|scadvisorservice.accesscontrol.windows.net|Port 443|
+|*.ods.opinsights.azure.com|Port 443| 
+|service.systemcenteradvisor.com|Port 443| 
+|scadvisor.accesscontrol.windows.net|Port 443| 
+|scadvisorservice.accesscontrol.windows.net|Port 443| 
 |*.blob.core.windows.net|Порт 443|
 |data.systemcenteradvisor.com|Порт 443|
 |ods.systemcenteradvisor.com|Порт 443|
@@ -119,9 +119,9 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 |**Ресурс OMS и консоли Operations Manager**|**Порты**|
 |----|----|
-|*.systemcenteradvisor.com|порт 80 и 443|
+|*.systemcenteradvisor.com|порт 80 и 443| 
 |*.live.com|Порты 80 и 443|
-|*.microsoftonline.com|Порты 80 и 443|
+|*.microsoftonline.com|Порты 80 и 443| 
 |login.windows.net|Порт 80 и 443|
 
 
@@ -196,5 +196,4 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 - Чтобы добавить функции и реализовать сбор данных, [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md).
 - Подробная информация, которую собирают решения, описана в статье [о поиске по журналам](log-analytics-log-searches.md).
 
-<!---HONumber=AcomDC_0504_2016-->
-
+<!---HONumber=AcomDC_0525_2016-->

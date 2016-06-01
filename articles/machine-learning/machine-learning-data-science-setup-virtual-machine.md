@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="05/10/2016"
+	ms.author="xibingao;bradsev" />
 
 # Настройка виртуальной машины Azure как сервера IPython Notebook для расширенной аналитики
 
@@ -145,4 +145,4 @@ Chrome:
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!------HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

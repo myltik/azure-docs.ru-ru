@@ -1,26 +1,20 @@
-##TCP settings for Azure VMs
+##Параметры TCP для виртуальных машин Azure
 
-Azure VMs communicate with the public Internet by using [NAT][nat] (Network Address Translation). NAT devices assign a public IP address and port to an Azure VM, allowing that VM to establish a socket for communication with other devices. If packets stop flowing through that socket after a specific time, the NAT device kills the mapping, and the socket is free to be used by other VMs.
+В виртуальных машинах Azure для передачи данных через Интернет используется функция [преобразования сетевых адресов (NAT)][nat]. NAT-устройства назначают виртуальной машине Azure общедоступный IP-адрес и порт, позволяя тем самым устанавливать подключение к другим устройствам через сокет. Если через некоторое время передача пакетов через сокет останавливается, NAT-устройство прерывает сопоставление, и этот сокет может использоваться другими виртуальными машинами.
 
-This is a common NAT behavior, which can cause communication issues on TCP based applications that expect a socket to be maintained beyond a time-out period. There are two idle timeout settings to consider, for sessions in a *established connection* state:
+Это обычное поведение NAT-устройства, из-за которого возникают проблемы со связью в приложениях на основе протокола TCP, ожидающих, что проблема с сокетом будет решена в течение времени ожидания. Существует два параметра времени ожидания в режиме простоя для сеансов с *установленным подключением*.
 
-- **inbound** through the [Azure load balancer][azure-lb-timeout]. This timeout defaults to 4 minutes, and can be adjusted up to 30 minutes.
-- **outbound** using [SNAT][snat] (Source NAT). This timeout is set to 4 minutes, and cannot be adjusted.
+- **Входящее** через [Azure Load Balancer][azure-lb-timeout]. Время ожидания по умолчанию составляет 4 минуты. Максимально возможное значение, которое можно задать, — 30 минут.
+- **Исходящее** с помощью [исходящего преобразования сетевых адресов (SNAT)][snat]. Время ожидания составляет 4 минуты, и его не возможно изменить.
 
-To ensure connections are not lost beyond the timeout limit, you should make sure either your application keeps the session alive, or you can configure the underlying operating system to do so. The settings to be used are different for Linux and Windows systems, as shown below.
+Чтобы в течение времени ожидания подключения не были потеряны, необходимо настроить приложение так, чтобы оно поддерживало активность сеанса, или настроить для этого основную операционную систему. Параметры, используемые для настройки операционных систем Linux и Windows, отличаются.
 
-For [Linux][linux], you should change the kernel variables below.
-net.ipv4.tcp_keepalive_time = 120
-net.ipv4.tcp_keepalive_intvl = 30
-net.ipv4.tcp_keepalive_probes = 8
+Для [Linux][linux] следует изменить переменные ядра: net.ipv4.tcp\_keepalive\_time = 120; net.ipv4.tcp\_keepalive\_intvl = 30; net.ipv4.tcp\_keepalive\_probes = 8.
  
-For [Windows][windows], you should change the registry values below.
-KeepAliveInterval = 30
-KeepAliveTime = 120
-TcpMaxDataRetransmissions = 8
+А для [Windows][windows] следует изменить значения реестра: KeepAliveInterval = 30; KeepAliveTime = 120; TcpMaxDataRetransmissions = 8.
 
 
-The settings above ensure a keep alive packet is sent after 2 minutes (120 seconds) of idle time, and then sent every 30 seconds. And if 8 of those packets fail, the session is dropped.
+Указанные выше параметры поддерживают активность сеанса, отправляя первый пакет через 2 минуты (120 секунд) времени простоя, а дальше пакеты отправляются каждые 30 секунд. Если не удалось выполнить передачу 8 пакетов, сеанс прерывается.
 
 <!-- links -->
 [nat]: http://computer.howstuffworks.com/nat.htm

@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, контейнеры, микрослужбы, Mesos, Azure"/>
+   keywords="Docker, контейнеры, микрослужбы, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -34,12 +34,14 @@
 
 Теперь откройте оболочку и выполните следующую команду, где:
 
-**PORT** — это порт конечной точки, к которой требуется предоставить доступ. Для Swarm это порт 2375, а Для DC/OS используется порт 80. **USERNAME** — имя пользователя, указанное при развертывании кластера. **DNSPREFIX** — префикс DNS, указанный при развертывании кластера. **REGION** — регион, где расположена ваша группа ресурсов.
+**PORT** — это порт конечной точки, к которой требуется предоставить доступ. Для Swarm это порт 2375, а Для DC/OS используется порт 80. **USERNAME** — имя пользователя, указанное при развертывании кластера. **DNSPREFIX** — префикс DNS, указанный при развертывании кластера. **REGION** — регион, где расположена ваша группа ресурсов. **PATH\_TO\_PRIVATE\_KEY** [необязательно] — это путь к закрытому ключу, который соответствует открытому ключу, указанному во время создания кластера службы контейнеров. Используйте этот параметр с флагом -i.
 
 ```bash
 # ssh sample
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+
+ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
+> Для SSH-подключения используется порт 2200, а не стандартный 22.
 
 ## Туннель DC/OS
 
@@ -48,14 +50,14 @@ ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure
 ```bash
 # ssh sample
 
-ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Связанные с DC/OS конечные точки теперь доступны по такому адресу:
 
-- DC/OS — `http://localhost/`;
-- Marathon — `http://localhost/marathon`;
-- Mesos — `http://localhost/mesos`.
+- DC/OS: `http://localhost/`
+- Marathon: `http://localhost/marathon`
+- Mesos: `http://localhost/mesos`
 
 Аналогичным образом через этот туннель можно подключаться к интерфейсам REST API каждого приложения.
 
@@ -66,7 +68,7 @@ ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com 
 ```bash
 # ssh sample
 
-ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Теперь можно следующим образом задать переменную среды DOCKER\_HOST и дальше использовать интерфейс командной строки Docker в обычном режиме.
@@ -105,9 +107,9 @@ export DOCKER_HOST=:2375
 
 После настройки туннеля для DC/OS связанная конечная точка будет доступна по такому адресу:
 
-- DC/OS — `http://localhost/`;
-- Marathon — `http://localhost/marathon`;
-- Mesos — `http://localhost/mesos`.
+- DC/OS: `http://localhost/`
+- Marathon: `http://localhost/marathon`
+- Mesos: `http://localhost/mesos`
 
 После настройки туннеля для Docker Swarm доступ к кластеру Swarm можно получать через интерфейс командной строки Docker. Сначала вам нужно будет настроить переменную среды Windows с именем `DOCKER_HOST` (задайте для нее значение ` :2375`).
 
@@ -115,6 +117,6 @@ export DOCKER_HOST=:2375
 
 Развертывание контейнеров и управление ими с помощью DC/OS или Swarm.
 
-[Управление службой контейнеров Azure через REST API](./container-service-mesos-marathon-rest.md) [Управление службой контейнеров Azure с помощью Docker Swarm](./container-service-docker-swarm.md)
+[Управление контейнерами через REST API](container-service-mesos-marathon-rest.md) [Управление контейнерами с помощью Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

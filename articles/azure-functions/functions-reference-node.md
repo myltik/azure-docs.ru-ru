@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/06/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Справочник разработчика NodeJS по функциям Azure
@@ -138,10 +138,22 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 Версия Node сейчас зафиксирована в значении `5.9.1`. Мы работаем над тем, чтобы добавить поддержку дополнительных версий и настройки для этих версий.
 
-Вы можете включить пакеты в каталог вашей функции (с помощью `npm install`), а затем импортировать их в функцию обычным образом (с помощью `require('packagename')`).
+Чтобы добавить пакеты в функции, передайте файл *package.json* в папку функции, расположенную в файловой системе приложения-функции. Указания по передаче файла см. в разделе **Как обновить файлы приложения-функции** статьи [Справочник разработчика по функциям Azure](functions-reference.md#fileupdate).
+
+Кроме того, пакеты в функции можно добавить, выполнив команду `npm install` в интерфейсе командной строки SCM (Kudu) приложения-функции.
+
+1. Перейдите на страницу `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Щелкните **Консоль отладки > CMD**.
+
+3. Перейдите на страницу `D:\home\site\wwwroot<function_name>`.
+
+4. Запустите `npm install`.
+
+После установки пакетов их необходимо импортировать в функцию обычным образом (т. е. с помощью `require('packagename')`).
 
 ```javascript
-// Import the underescore.js library
+// Import the underscore.js library
 var _ = require('underscore');
 var version = process.version; // version === 'v5.9.1'
 
@@ -163,4 +175,4 @@ module.exports = function(context) {
 * [Справочник разработчика C# по функциям Azure](functions-reference-csharp.md)
 * [Триггеры и привязки в функциях Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->
