@@ -50,7 +50,7 @@
 
 Чтобы перенести сайт, выполните следующие действия:
 
-  1.  Войдите на [классический портал Azure].
+  1.  Войдите на [Классический портал Azure].
   2.  В регионе выберите мобильную службу для переноса.
   3.  Нажмите кнопку **Перенести в службу приложений**.
 
@@ -386,7 +386,7 @@
 [Автоматическое масштабирование]: ../app-service-web/web-sites-scale.md
 [службы приложений Azure]: ../app-service/app-service-value-prop-what-is.md
 [документации по развертыванию службы приложений Azure]: ../app-service-web/web-sites-deploy.md
-[классический портал Azure]: https://manage.windowsazure.com
+[Классический портал Azure]: https://manage.windowsazure.com
 [классическом портале Azure]: https://manage.windowsazure.com
 [портал Azure]: https://portal.azure.com
 [портала Azure]: https://portal.azure.com

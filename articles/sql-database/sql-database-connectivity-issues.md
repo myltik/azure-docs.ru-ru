@@ -558,6 +558,6 @@ public bool IsTransient(Exception ex)
 - [Пул подключений SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
-- [*Retrying* — это лицензированная общая библиотека Apache 2.0 для повторных попыток, написанная на языке **Python**, которая позволяет легко добавить режим повтора куда угодно.](https://pypi.python.org/pypi/retrying)
+- [*Retrying* — это лицензированная общая библиотека Apache 2.0 для повторных попыток, написанная на языке **Python**, которая позволяет легко добавить режим повтора куда угодно.](https://pypi.python.org/pypi/retrying)
 
 <!---HONumber=AcomDC_0518_2016-->
