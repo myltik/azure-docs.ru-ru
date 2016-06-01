@@ -127,9 +127,13 @@
 
 1. Щелкните **Обзор** и выберите **Кластеры Service Fabric**.
 
-2. Найдите нужный кластер и щелкните его. ![Снимок экрана: поиск кластера на портале.][BrowseCluster]
+2. Найдите нужный кластер и щелкните его.
 
-3. На панели мониторинга отобразятся подробные сведения о кластере, включая его общедоступный IP-адрес. Если навести указатель мыши на элемент **Общедоступный IP-адрес кластера**, отобразится буфер обмена, в который можно скопировать IP-адрес. ![Снимок экрана: сведения о кластере на панели мониторинга.][ClusterDashboard]
+	![Снимок экрана: поиск кластера на портале.][BrowseCluster]
+
+3. На панели мониторинга отобразятся подробные сведения о кластере, включая его общедоступный IP-адрес. Если навести указатель мыши на элемент **Общедоступный IP-адрес кластера**, отобразится буфер обмена, в который можно скопировать IP-адрес.
+
+	![Снимок экрана: сведения о кластере на панели мониторинга.][ClusterDashboard]
 
   В разделе **Монитор узла** колонки панели мониторинга кластера отображается количество работоспособных и неработоспособных виртуальных машин. Дополнительные сведения о состоянии работоспособности кластеров см. в статье [Общие сведения о наблюдении за работоспособностью системы в Service Fabric](service-fabric-health-introduction.md).
 
@@ -142,42 +146,39 @@
 ### Подключение к незащищенному кластеру
 
 ```
-    powershell
-    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
-    ```
+powershell
+Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
+```
 
 ### Безопасное подключение к кластеру
 
-    1. Выполните следующую команду, чтобы установить сертификат на компьютере, на котором вы собираетесь выполнять команду PowerShell Connect-serviceFabricCluster.
+1. Выполните следующую команду, чтобы установить сертификат на компьютере, на котором вы собираетесь выполнять команду PowerShell Connect-serviceFabricCluster.
 
-        ```
-	powershell
-        Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-                -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-                -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-        ```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
 
-    2. Для подключения к защищенному кластеру выполните следующую команду PowerShell: Сертификат имеет те же данные, которые вы указали на портале.
+2. Для подключения к защищенному кластеру выполните следующую команду PowerShell: Сертификат имеет те же данные, которые вы указали на портале.
 
-        ```
-	powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-                  -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+              -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+              -StoreLocation CurrentUser -StoreName My
+    ````
 
     Например, приведенная выше команда PowerShell должна выглядеть следующим образом:
 
-        ```
-	powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-                  -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+              -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+              -StoreLocation CurrentUser -StoreName My
+    ```
 
 ### Развертывание приложения
 Установив подключение, выполните следующие команды для развертывания приложения, заменив указанные здесь пути соответствующими значениями на своем компьютере. В приведенном ниже примере показано развертывание примера приложения для подсчета слов:
