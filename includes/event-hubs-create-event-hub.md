@@ -18,9 +18,11 @@
 
 	![][4]
 
-Теперь концентратор событий создан, и у вас есть строки подключения, необходимые для отправки и приема событий.
+Теперь концентратор событий создан, и у вас есть строки подключения, необходимые для отправки и приема событий. 
 
 [1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
 [2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
+
+
