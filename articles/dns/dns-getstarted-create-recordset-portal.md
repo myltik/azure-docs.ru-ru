@@ -64,4 +64,4 @@
 
 Дополнительные сведения об Azure DNS см. в статье [Обзор Azure DNS](dns-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!------HONumber=AcomDC_0518_2016-->
