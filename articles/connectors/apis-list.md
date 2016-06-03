@@ -29,7 +29,7 @@
 
 |Соединители||||
 |-----------|-----------|-----------|-----------|
-|[![Значок API][blobicon]<br/>**Большой двоичный<br/>объект Azure**][azureblobdoc]|[![Значок API][bingsearchicon]<br/>**Поиск Bing**][bingsearchdoc]|[![Значок API][boxicon]<br/>**Box**][boxDoc]|[![Значок API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|
+|[![Значок API][blobicon]<br/>**Большой двоичный объект Azure**][azureblobdoc]|[![Значок API][bingsearchicon]<br/>**Поиск Bing**][bingsearchdoc]|[![Значок API][boxicon]<br/>**Box**][boxDoc]|[![Значок API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|
 |[![Значок API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![Значок API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Значок API][ftpicon]<br/>**FTP**][ftpdoc]|[![Значок API][githubicon]<br/>**GitHub**][githubdoc]|
 [![Значок API][googledriveicon]<br/>**Диск Google**][googledrivedoc]|[![Значок API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Значок API][microsofttranslatoricon]<br/>**Переводчик**][microsofttranslatordoc]|[![Значок API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|
 |[![Значок API][office365icon]<br/>**Office 365**<br/>**Пользователи**][office365usersdoc]|[![Значок API][office365icon]<br/>**Office 365**<br/>**Видео**][office365videodoc]|[![Значок API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Значок API][onedriveicon]<br/>**OneDrive<br/>для бизнеса**][onedriveforbusinessdoc]|
