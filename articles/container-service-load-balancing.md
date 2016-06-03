@@ -25,7 +25,8 @@
 
 ## Предварительные требования
 
-[Разверните экземпляр службы контейнера Azure](container-service-deployment.md) с типом оркестратора DCOS. [Убедитесь, что клиент может подключиться к кластеру](container-service-connect.md)   [AZURE.INCLUDE [Установите интерфейс командной строки DC/OS]( ../../includes/container-service-install-dcos-cli-include.md)]
+[Разверните экземпляр службы контейнера Azure](container-service-deployment.md) с типом оркестратора DCOS. [Убедитесь, что клиент может подключиться к кластеру](container-service-connect.md)   
+[AZURE.INCLUDE [Установите интерфейс командной строки DC/OS](../../includes/container-service-install-dcos-cli-include.md)]
 
 
 ## Балансировка нагрузки.

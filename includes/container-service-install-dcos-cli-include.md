@@ -46,7 +46,3 @@ source ~/.bashrc
 dcos --help
 ```
 
-
-
-
-
