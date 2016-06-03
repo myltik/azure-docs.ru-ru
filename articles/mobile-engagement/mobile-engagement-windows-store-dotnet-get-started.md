@@ -207,4 +207,4 @@ Mobile Engagement позволяет взаимодействовать и св�
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0504_2016--->

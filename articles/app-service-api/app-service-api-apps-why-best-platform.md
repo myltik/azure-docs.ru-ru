@@ -63,4 +63,4 @@
 
 Чтобы задать вопросы о приложениях API, начните беседу на [форуме по приложениям API](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0511_2016--->
+<!---HONumber=AcomDC_0511_2016---->

@@ -184,4 +184,4 @@
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [портал Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0511_2016---->

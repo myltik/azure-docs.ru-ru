@@ -108,4 +108,4 @@
 <!-- URLs. -->
 [портал Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0413_2016--->
