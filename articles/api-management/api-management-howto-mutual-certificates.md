@@ -129,7 +129,7 @@
 
 [Объект сертификата REST API службы управления API Azure ]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью]: https://azure.microsoft.com/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1

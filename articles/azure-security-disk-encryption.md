@@ -91,7 +91,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 Дисковое шифрование Azure для виртуальных машин IaaS Windows и Linux предлагается в виде комплексного решения, которое включает расширение дискового шифрования для Windows, расширение дискового шифрования для Linux, командлеты PowerShell для дискового шифрования, командлеты CLI для дискового шифрования и шаблоны диспетчера ресурсов Azure для дискового шифрования. Решение дискового шифрования Azure поддерживается на виртуальных машинах IaaS под управлением ОС Windows или Linux. Дополнительные сведения о поддерживаемых операционных системах приведены ниже в разделе предварительных условий.
 
-****Примечание. ** Плата за шифрование дисков Azure для виртуальных машин не взимается.
+**Примечание.** Плата за шифрование дисков Azure для виртуальных машин не взимается.
 
 ### Предлагаемые преимущества
 
@@ -169,21 +169,21 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 	- Пример допустимого URL-адреса секрета:
 
-		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Пример допустимого URL-адреса KEK:
 
-		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Шифрование диска Azure не поддерживает указание номеров портов в URL-адресах секрета и KEK хранилища ключей. Ниже приведены примеры поддерживаемых URL-адресов хранилища ключей.
 
  	- Недопустимый URL-адрес хранилища ключей:
 
-		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Допустимый URL-адрес хранилища ключей:
 
-		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Чтобы использовать функцию дискового шифрования Azure, конфигурация конечной точки VM IaaS должна соответствовать следующим требованиям:
 

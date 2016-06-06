@@ -26,7 +26,7 @@
 
 Чтобы немедленно приступить к работе, ознакомьтесь с одним из следующих руководств:
 
-- [Добавление проверки подлинности в приложение iOS][iOS] (или в приложение [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] или [Cordova])
+- [Добавление проверки подлинности в приложение iOS][iOS] \(или в приложение [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] или [Cordova])
 - [Проверка подлинности пользователя для приложений API в службе приложений Azure][apia-user]
 - [Начало работы со службой приложений Azure (часть 2)][web-getstarted]
 

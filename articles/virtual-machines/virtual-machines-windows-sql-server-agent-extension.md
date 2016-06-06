@@ -25,7 +25,8 @@
 
 Расширение агента IaaS для SQL Server (SQLIaaSExtension) запускается на виртуальных машинах Azure для автоматизации задач администрирования. В этом разделе представлен обзор служб, поддерживаемых расширением, а также указания по установке, проверке состояния и удалению расширения.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания. При необходимости см. статью о классической модели развертывания — [Расширение агента IaaS для SQL Server (классическая модель)](virtual-machines-windows-classic-sql-server-agent-extension.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+Классическая модель развертывания. При необходимости см. статью о классической модели развертывания — [Расширение агента IaaS для SQL Server (классическая модель)](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 ## Поддерживаемые службы
 

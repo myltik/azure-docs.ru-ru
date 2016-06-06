@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Дополнительные сведения о проверке подлинности в Базе данных SQL см. в статье [Управление базами данных и именами пользователей в базе данных SQL Azure][]. Дополнительные сведения об использовании предварительной версии Azure AD для хранилища данных SQL см. в статье [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] (Подключение к хранилищу данных SQL с использованием проверки подлинности Azure Active Directory).
+Дополнительные сведения о проверке подлинности в Базе данных SQL см. в статье [Управление базами данных и именами пользователей в базе данных SQL Azure][]. Дополнительные сведения об использовании предварительной версии Azure AD для хранилища данных SQL см. в статье [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] \(Подключение к хранилищу данных SQL с использованием проверки подлинности Azure Active Directory).
 
 
 ## Авторизация
