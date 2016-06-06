@@ -126,7 +126,7 @@
 * [Публикация в веб-приложения из любого репозитория git/hg](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html).  
 
 ## Развертывание с помощью IDE
-Если вы уже используете [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) с [пакетом SDK для Azure](https://azure.microsoft.com/downloads/) или другим средством IDE, например [Xcode](https://developer.apple.com/xcode/) и [Eclipse](https://www.eclipse.org), развертывание в Azure можно провести непосредственно из IDE. Этот вариант идеально подходит для частных разработчиков.
+Если вы уже используете [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) с [пакетом SDK для Azure](https://azure.microsoft.com/downloads/) или другим средством IDE, например [Xcode](https://developer.apple.com/xcode/), [Eclipse](https://www.eclipse.org) и [IntelliJ IDEA](https://www.jetbrains.com/idea/), развертывание в Azure можно провести непосредственно из IDE. Этот вариант идеально подходит для частных разработчиков.
 
 Visual Studio поддерживает все три способа развертывания (с использованием FTP, Git и веб-развертывания) в зависимости от ваших предпочтений. В свою очередь, другие среды IDE можно развернуть в службе приложений, если в них предусмотрена интеграция с FTP или Git (см. раздел [Обзор способов развертывания](#overview)).
 
@@ -147,7 +147,7 @@ Visual Studio поддерживает все три способа развер
 - Интегрированный обозреватель Azure.
 - Развертывание по методу diff-only. 
 
-###<a name="vs"></a>Как выполнить развертывание напрямую из Visual Studio
+###<a name="vs"></a> Как выполнить развертывание напрямую из Visual Studio
 
 * [Начало работы с Azure и ASP.NET](web-sites-dotnet-get-started.md). Создание и развертывание простого веб-проекта ASP.NET MVC с помощью Visual Studio и веб-развертывания.
 * [Развертывание веб-заданий Azure с помощью Visual Studio](websites-dotnet-deploy-webjobs.md). Как настроить проекты консольных приложений для их развертывания как заданий WebJob.  
@@ -155,7 +155,15 @@ Visual Studio поддерживает все три способа развер
 * [Веб-развертывание ASP.NET с помощью Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Серия учебников из 12 частей, в которой рассматривается более полный список задач развертывания, чем в других ресурсах из этого списка. Некоторые функции развертывания Azure были добавлены уже после написания учебника, но отсутствующие данные приведены в примечаниях, добавленных позже.
 * [Развертывание веб-сайта ASP.NET в Azure с помощью Visual Studio 2012 непосредственно из репозитория Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Описание способов развертывания веб-проекта ASP.NET в Visual Studio с использованием подключаемого модуля Git для применения кода к Git и подключения Azure к репозиторию Git. При запуске Visual Studio 2013 поддержка Git доступна по умолчанию и не требует установки подключаемого модуля.
 
-## <a name="automate"></a>Автоматизация развертывания с помощью программ командной строки
+###<a name="aztk"></a> Развертывание с использованием наборов средств Azure для Eclipse и IntelliJ IDEA
+
+Корпорация Майкрософт позволяет развертывать веб-приложения в Azure непосредственно из Eclipse и IntelliJ, используя [средства Azure для Eclipse](../azure-toolkit-for-eclipse.md) и [средства Azure для IntelliJ](../azure-toolkit-for-intellij.md). В следующих учебниках описано, какие действия необходимо выполнить, чтобы развернуть простой пример веб-приложения Hello World в Azure с помощью IDE:
+
+*  [Создание веб-приложения Hello World для Azure в Eclipse](./app-service-web-eclipse-create-hello-world-web-app.md). В этом учебнике показано, как с помощью набора средств Azure для Eclipse создать и развернуть веб-приложение Hello World для Azure.
+*  [Создание веб-приложения Hello World для Azure в IntelliJ](./app-service-web-intellij-create-hello-world-web-app.md). В этом учебнике показано, как с помощью набора средств Azure для IntelliJ создать и развернуть веб-приложение Hello World для Azure.
+
+
+## <a name="automate"></a> Автоматизация развертывания с помощью программ командной строки
 
 * [Автоматизация развертывания с помощью MSBuild](#msbuild)
 * [Копирование файлов с помощью средств и сценариев FTP](#ftp)
@@ -226,4 +234,4 @@ Visual Studio поддерживает все три способа развер
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

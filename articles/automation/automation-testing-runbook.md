@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Тестирование модуля Runbook в службе автоматизации Azure"
+	pageTitle="Тестирование модуля Runbook в службе автоматизации Azure | Microsoft Azure"
 	description="Перед публикацией модуля Runbook в службе автоматизации Azure его можно протестировать и проверить, работает ли он должным образом. В этой статье описывается тестирование модулей Runbook и просмотр его выходных данных."
 	services="automation"
 	documentationCenter=""
 	authors="mgoedtel"
-	manager="stevenka"
+	manager="jwhit"
 	editor="tysonn" />
 <tags 
 	ms.service="automation"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/23/2016"
+	ms.date="05/24/2016"
 	ms.author="magoedte;bwren" />
 
 # Тестирование модуля Runbook в службе автоматизации Azure
@@ -27,32 +27,20 @@
 
 На портале Azure можно работать с любыми [типами модулей Runbook](automation-runbook-types.md).
 
-1. Откройте черновую версию модуля Runbook либо в [текстовом](automation-editing-a-runbook#Portal), либо в [графическом редакторе](automation-graphical-authoring-intro.md).
+1. Откройте черновую версию модуля Runbook либо в [текстовом](automation-editing-a-runbook.md#Portal), либо в [графическом редакторе](automation-graphical-authoring-intro.md).
 2. Нажмите кнопку **Тест**, чтобы открыть колонку «Тест».
 3. Если модуль Runbook имеет параметры, они отображаются в левой области, где можно указать значения для теста.
-4. Если вы хотите запустить тест в [гибридной рабочей роли Runbook](automation-hybrid), измените **Параметры запуска** на **Гибридную роль** и выберите имя целевой группы. В противном случае оставьте значение **Azure** по умолчанию, чтобы тест выполнялся в облаке.
+4. Если вы хотите запустить тест в [гибридной рабочей роли Runbook](automation-hybrid-runbook-worker.md), измените **Параметры запуска** на **Гибридную роль** и выберите имя целевой группы. В противном случае оставьте значение **Azure** по умолчанию, чтобы тест выполнялся в облаке.
 5. Нажмите кнопку **Запуск**, чтобы запустить тест.
 6. Если модуль Runbook является [модулем рабочего процесса PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) или [графическим](automation-runbook-types.md#graphical-runbooks), вы можете остановить или приостановить его в процессе тестирования с помощью кнопок под областью выходных данных. В случае приостановки модуль Runbook завершает действие, начатое до приостановки. Приостановленный модуль Runbook можно остановить или перезапустить.
 7. Проверьте выходные данные модуля Runbook в области выходных данных.
 
 
+## Дальнейшие действия
 
-## Тестирование модуля Runbook на портале Azure
+- Инструкции по созданию и импорту модуля Runbook см. в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md).
+- Дополнительные сведения о графической разработке см. в статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md).
+- Сведения о том, как начать работу с модулями Runbook рабочих процессов PowerShell, см. в статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
+- Дополнительные сведения о настройке модулей Runbook для возврата ошибок и сообщений о состоянии, включая рекомендации, см. в статье [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md).
 
-На портале Azure можно работать только с [модулями Runbook рабочих процессов PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
-
-
-1. [Откройте черновую версию модуля Runbook](automation-edit-textual-runbook.md#to-edit-a-runbook-with-the-azure-portal).
-2. Нажмите кнопку **Тест**, чтобы запустить тест. Если модуль Runbook имеет параметры, откроется диалоговое окно для указания значений, необходимых для проведения теста.
-6. Тестируемый модуль Runbook можно остановить или приостановить с помощью кнопок под областью выходных данных. В случае приостановки модуль Runbook завершает действие, начатое до приостановки. Приостановленный модуль Runbook можно остановить или перезапустить.
-7. Проверьте выходные данные модуля Runbook в области выходных данных.
-
-
-## Связанные статьи
-
-- [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md)
-- [Графические модули Runbook в службе автоматизации Azure](automation-graphical-authoring-intro.md)
-- [Изменение текстовых модулей Runbook в службе автоматизации Azure](automation-edit-textual-runbook.md)
-- [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
-
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

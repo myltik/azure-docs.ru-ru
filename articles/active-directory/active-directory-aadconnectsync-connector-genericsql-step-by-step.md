@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Синхронизация Azure AD Connect: пошаговое руководство по использованию универсального соединителя Generic SQL | Microsoft Azure"
+   pageTitle="Синхронизация Azure AD Connect: пошаговое руководство по использованию универсального соединителя Generic SQL | Microsoft Azure"
    description="В этом документе содержится пошаговое руководство по работе с простой системой отдела кадров с использованием универсального соединителя SQL."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/08/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Универсальный соединитель SQL: пошаговое руководство
@@ -36,7 +36,7 @@
 5. Нажмите кнопку **Готово**. ![ODBC 4](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc4.png)
 6. Теперь нужно настроить подключение. Введите понятное описание для источника данных и укажите имя сервера, где выполняется SQL Server. ![ODBC 5](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc5.png)
 7. Выберите способ проверки подлинности с помощью SQL. В этом случае используется проверка подлинности Windows. ![ODBC 6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc6.png)
-8. Укажите имя образца базы данных — **GSQLDEMO**. ![ODBC 7](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc7.png)
+8. Укажите имя образца базы данных — **GSQLDEMO**. ![ODBC 7](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc7.png)
 9. На этом экране оставьте настройки по умолчанию. Нажмите кнопку **Готово**. ![ODBC 8](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc8.png)
 10. Чтобы убедиться, что все работает правильно, нажмите кнопку **Проверить источник данных**. ![ODBC 9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc9.png)
 11. Убедитесь, что проверка прошла успешно. ![ODBC 10](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\odbc10.png)
@@ -50,7 +50,7 @@
 2. Найдите файл DSN, созданный в предыдущем разделе, и отправьте его на сервер. Укажите учетные данные для подключения к базе данных. ![Соединитель 2](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector2.png)
 3. В этом пошаговом руководстве мы упростим процесс и предположим, что существует два типа объектов: **User** и **Group**. ![Соединитель 3](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector3.png)
 4. При поиске атрибутов нам нужно, чтобы соединитель обнаружил их при просмотре таблицы. Поскольку **Users** является зарезервированным словом в SQL, его необходимо заключить в квадратные скобки []. ![Соединитель 4](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector4.png)
-5. Теперь нужно определить атрибут привязки и атрибут различаемого имени. Для **Users** мы будем использовать сочетание двух атрибутов — username и EmployeeID. Для **Group** мы будем использовать GroupName (не слишком реалистично для обычной жизни, но подойдет для данного пошагового руководства). ![Соединитель 5](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector5.png)
+5. Теперь нужно определить атрибут привязки и атрибут различаемого имени. Для **Users** мы будем использовать сочетание двух атрибутов — username и EmployeeID. Для **Group** мы будем использовать GroupName (не слишком реалистично для обычной жизни, но подойдет для данного пошагового руководства). ![Соединитель 5](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector5.png)
 6. В базе данных SQL могут быть обнаружены только некоторые типы атрибутов. В частности, нельзя обнаружить тип ссылочного атрибута. Для типа объекта Group необходимо изменить OwnerID и MemberID на ссылку. ![Соединитель 6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector6.png)
 7. Для атрибутов, выбранных как ссылочные атрибуты на предыдущем шаге, теперь требуется тип объекта, ссылкой на который они являются. В нашем случае это будет тип объекта User. ![Соединитель 7](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector7.png)
 8. На странице "Глобальные параметры" выберите **Предел** в качестве стратегии изменений. В поле формата даты и времени введите **гггг-ММ-дд ЧЧ:мм:сс**. ![Соединитель 8](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector8.png)
@@ -61,7 +61,7 @@
 
 1. В пользовательском интерфейсе диспетчера службы синхронизации выберите **Соединители** и щелкните **Настроить профили выполнения**. Щелкните **Создать профиль**. Мы начнем с профиля **Полный импорт**. ![Профиль выполнения 1](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile1.png)
 2. Выберите тип **Полный импорт (только демонстрация)**. ![Профиль выполнения 2](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile2.png)
-3. Выберите раздел — **OBJECT=User**. ![Профиль выполнения 3](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile3.png)
+3. Выберите раздел — **OBJECT=User**. ![Профиль выполнения 3](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile3.png)
 4. Выберите **Table** и введите **[USERS]**. Прокрутите вниз до раздела "Многозначный тип объекта" и введите данные, как показано ниже. Нажмите кнопку **Готово**, чтобы сохранить данные на этом шаге. ![Профиль выполнения 4а](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile4a.png) ![Профиль выполнения 4б](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile4b.png)  
 5. Выберите **Новый шаг**. На этот раз выберите **OBJECT=Group**. На последней странице используйте приведенные ниже настройки. Нажмите кнопку **Готово**. ![Профиль выполнения 5а](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile5a.png) ![Профиль выполнения 5б](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\runprofile5b.png)  
 6. Необязательно: если требуется, можно настроить дополнительные профили выполнения. В данном пошаговом руководстве используется только профиль "Полный импорт".
@@ -173,4 +173,4 @@ ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

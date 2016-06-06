@@ -13,13 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="05/23/2016" 
 	ms.author="spelluru"/>
 
 # Фабрика данных Azure — примеры
 
 ## Примеры на GitHub
 В [репозитории GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) предлагается несколько примеров, которые помогут вам быстро приступить к работе со службой фабрики данных Azure или настроить сценарии для использования в собственном приложении. Папка Samples\\JSON содержит фрагменты JSON для распространенных сценариев.
+
+| Образец | Описание |
+| :----- | :---------- | 
+| [Пошаговое руководство по ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) | Этот пример представляет собой сквозное руководство по обработке файлов журналов с помощью фабрики данных Azure для преобразования данных из файлов журналов в аналитические данные. <br/><br/> В этом руководстве конвейер фабрики данных собирает примеры журналов, обрабатывает и дополняет их эталонными данными из журналов, а также преобразует сведения, чтобы оценить эффективность недавно запущенной маркетинговой кампании. |
+| [Примеры JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) | В этой выборке представлены примеры кода JSON для распространенных сценариев. | 
+| [Пример загрузчика данных HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) | В этой выборке демонстрируется скачивание данных из конечной точки HTTP в хранилище BLOB-объектов Azure с помощью настраиваемого действия .NET. |
+| [Пример действия перекрестного домена приложения .NET](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Этот пример позволяет создать настраиваемое действие .NET, не ограниченное версиями сборок, которые используются средством запуска фабрики данных Azure (например, WindowsAzure.Storage версии 4.3.0, Newtonsoft.Json версии 6.0.x и т. д.). |
+| [Запуск сценария R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) | Этот пример включает пользовательское действие фабрики данных, которое можно использовать для вызова файла RScript.exe. Этот пример работает только с вашим собственным кластером HDInsight (не по требованию), в которое уже установлен R. |
+| [Вызов заданий Spark в кластере HDInsight Hadoop](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) | В этом примере показано, как использовать действие MapReduce для запуска программы Spark. Программа Spark просто копирует данные из одного контейнера BLOB-объектов Azure в другой. |
+| [Анализ Twitter с использованием действия пакетной оценки показателей машинного обучения Azure](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) | В этом примере показано, как использовать AzureMLBatchScoringActivity для вызова модели машинного обучения Azure, которая выполняет анализ мнений с помощью Twitter, оценку, прогноз и т. д. |
+| [Анализ Twitter с использованием настраиваемого действия](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | В этом примере показано, как использовать настраиваемое действие .NET для вызова модели машинного обучения Azure, которая выполняет анализ мнений с помощью Twitter, оценку, прогноз и т. д. |
+| [Параметризованные конвейеры для машинного обучения Azure](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) | Пример содержит полный код C# для развертывания N конвейеров для оценки и повторного обучения с различными параметрами регионов (список регионов берется из файла parameters.txt, включенного в этот пример). | 
+| [Обновление эталонных данных для заданий в службе Azure Stream Analytics](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) | В этом примере показано, как использовать фабрику данных Azure и службу Azure Stream Analytics для выполнения запросов с эталонными данными и настройки обновления эталонных данных по расписанию. |
+| [Гибридный конвейер с локальным кластером Hadoop Hortonworks](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) | В этом примере локальный кластер Hadoop используется как целевой объект для выполнения заданий в фабрике данных, аналогично другим объектам вычислений, таким как кластер Hadoop на основе HDInsight в облаке. |
+| [Средство преобразования JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) | Позволяет преобразовать JSON из версии до 2015-07-01-preview в последнюю доступную версию или в версию 2015-07-01-preview (по умолчанию). |  
+| [Пример входного файла U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) | Это пример файла, который используется действием U-SQL. | 
+
+
 
 ## Примеры на портале Azure
 Воспользуйтесь элементом **Примеры конвейеров** на домашней странице фабрики данных, чтобы развернуть примеры конвейеров и их связанные сущности (наборы данных и связанные службы) в фабрике данных.
@@ -99,4 +117,4 @@
 
 Подробные сведения об использовании Visual Studio для создания сущностей фабрики данных и их публикации в Azure см. в статье [Создание первой фабрики данных Azure с помощью Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

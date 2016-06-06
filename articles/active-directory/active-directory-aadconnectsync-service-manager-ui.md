@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 
 # Синхронизация Azure AD Connect: Synchronization Service Manager
 
-| [Операции](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Соединители](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) (Конструктор метавселенной) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) (Поиск в метавселенной) |
-| --- | --- | --- | --- |
+[Операции](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Соединители](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Конструктор метавселенной](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Поиск в метавселенной](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+--- | --- | --- | ---
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
 
@@ -35,4 +35,4 @@
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

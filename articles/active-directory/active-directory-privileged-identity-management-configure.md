@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="05/19/2016"
 	ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management
@@ -54,9 +54,9 @@
 5. Выберите **Управление привилегированными пользователями Azure AD**.
 6. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Создать**. Откроется панель мониторинга управления привилегированными пользователями.
 
-Если вы первый пользователь, использующий управление привилегированными пользователями Azure AD в каталоге, запустится [мастер защиты](active-directory-privileged-identity-management-security-wizard.md), который поможет вам выполнить первое назначение. После этого вы автоматически станете первым **администратором безопасности** каталога.
+Если вы первый пользователь, использующий управление привилегированными пользователями Azure AD в каталоге, запустится [мастер защиты](active-directory-privileged-identity-management-security-wizard.md), который поможет вам выполнить первое назначение. После этого вы автоматически станете первым **администратором безопасности** и **администратором привилегированных ролей** каталога.
 
-Использовать приложение PIM для управления правами доступа других администраторов может только администратор безопасности. Вы можете [предоставить другим пользователям возможность управлять PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
+Использовать приложение PIM для управления правами доступа других администраторов может только администратор привилегированных ролей. Вы можете [предоставить другим пользователям возможность управлять PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 ## Панель мониторинга Azure AD Privileged Identity Management
 
@@ -113,4 +113,4 @@
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/11/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # Развертывание оснастки консоли управления диспетчера моментальных снимков StorSimple (необязательно)
@@ -259,4 +259,4 @@
 
 - Чтобы узнать больше об использовании диспетчера моментальных снимков StorSimple см. статью [Использование диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

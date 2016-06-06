@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Замена контроллера EBOD на устройстве StorSimple | Microsoft Azure"
+   pageTitle="Замена контроллера EBOD на устройстве StorSimple | Microsoft Azure"
    description="Объясняется процесс снятия или замены одного или обоих контроллеров EBOD на устройстве StorSimple 8600."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/22/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Замена контроллера EBOD на устройстве StorSimple
@@ -40,7 +40,7 @@
 
 1. Откройте классический портал Azure.
 
-2. Откройте **Устройства** > **Обслуживание** > **Состояние оборудования** и убедитесь, что светодиодный индикатор для действующего модуля контроллера EBOD имеет зеленый цвет, а для неисправного — красный.
+2. Откройте **Устройства** > **Обслуживание** > **Состояние оборудования** и убедитесь, что светодиодный индикатор для действующего модуля контроллера EBOD имеет зеленый цвет, а для неисправного — красный.
 
 3. Найдите неисправный модуль контроллера EBOD на задней стороне устройства.
 
@@ -107,4 +107,4 @@
 
 Узнайте больше о [Замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -25,7 +25,8 @@
 
 Расширение агента IaaS для SQL Server (SQLIaaSAgent) запускается на виртуальных машинах Azure для автоматизации задач администрирования. В этом разделе представлен обзор служб, поддерживаемых расширением, а также указания по установке, проверке состояния и удалению расширения.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов. Чтобы просмотреть версию этой статьи для модели Resource Manager, см. статью [SQL Server Agent Extension for SQL Server VMs Resource Manager](virtual-machines-windows-sql-server-agent-extension.md) (Расширение агента IaaS для виртуальных машин SQL Server (Resource Manager)).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+Модель диспетчера ресурсов. Чтобы просмотреть версию этой статьи для модели Resource Manager, см. статью [SQL Server Agent Extension for SQL Server VMs Resource Manager](virtual-machines-windows-sql-server-agent-extension.md) (Расширение агента IaaS для виртуальных машин SQL Server (Resource Manager)).
 
 ## Поддерживаемые службы
 
@@ -41,21 +42,34 @@
 
 Требования для использования расширения агента IaaS для SQL Server на виртуальной машине:
 
-- гостевой агент виртуальной машины Azure (расширение BGInfo автоматически устанавливается на новых виртуальных машинах Azure);
-- Windows Server 2012, Windows Server 2012 R2 или более поздней версии;
-- SQL Server 2012, SQL Server 2014 или более поздней версии.
+**Операционная система**
 
-Требования для использования командлетов Powershell:
+- Windows Server 2012
+- Windows Server 2012 R2
 
-- Последняя версия Azure PowerShell [доступна здесь](../powershell-install-configure.md).
+**Версии SQL Server**
+
+- SQL Server 2012
+- SQL Server 2014
+- SQL Server 2016
+
+**Azure PowerShell**
+
+- [Скачайте и настройте последние команды Azure PowerShell](../powershell-install-configure.md)
+
+**Гостевой агент виртуальной машины**:
+
+- расширение BGInfo устанавливается на новых виртуальных машинах Azure автоматически.
 
 ## Установка
 
 Расширение агента IaaS для SQL Server автоматически устанавливается при подготовке одного из образов коллекции виртуальных машин SQL Server.
 
-При создании виртуальной машины Windows Server только для OС можно установить расширение вручную с помощью командлета PowerShell **Set-AzureVMSqlServerExtension**. Используйте команду, чтобы настроить одну из служб агента, например автоматическую установку исправлений. Виртуальная машина устанавливает агент, если он не установлен.
+При создании виртуальной машины Windows Server только для OС можно установить расширение вручную с помощью командлета PowerShell **Set-AzureVMSqlServerExtension**. Используйте команду, чтобы настроить одну из служб агента, например автоматическую установку исправлений. Виртуальная машина устанавливает агент, если он не установлен. Указания по использованию командлета PowerShell **Set-AzureVMSqlServerExtension** см. в отдельных подразделах раздела [Поддерживаемые службы](#supported-services) в этой статье.
 
->[AZURE.NOTE] Указания по использованию командлета PowerShell **Set-AzureVMSqlServerExtension** см. в отдельных подразделах раздела [Поддерживаемые службы](#supported-services) в этой статье.
+После обновления расширения агента IaaS SQL до последней версии виртуальную машину необходимо перезапустить.
+
+>[AZURE.NOTE] Если расширение агента IaaS SQL установлено на виртуальной машине вручную, для использования его функций и управления ими необходимо использовать команды PowerShell. В этом случае интерфейс портала недоступен.
 
 ## Состояние
 
@@ -83,4 +97,4 @@
 
 Подробные сведения о работе SQL Server на виртуальных машинах Azure см. в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

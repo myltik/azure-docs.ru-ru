@@ -8,6 +8,6 @@
 - Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
   - Для работы с таблицами службы хранилища Azure см. раздел [Приступая к работе с хранилищем таблиц Azure с помощью .NET](../articles/storage/storage-dotnet-how-to-use-tables.md).
   - Для работы с большими двоичными объектами службы хранилища Azure см. раздел [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](../articles/storage/storage-dotnet-how-to-use-blobs.md).
-  - О хранении реляционных данных см. в разделе [Как использовать базу данных SQL Azure в приложениях .NET](../articles/sql-database/sql-database-dotnet-how-to-use.md).
+  - Для хранения реляционных данных см. раздел [Подключение к базе данных SQL с помощью .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

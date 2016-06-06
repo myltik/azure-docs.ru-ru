@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/24/2016"
 	ms.author="anhoh"/>
 
 # Управление учетной записью DocumentDB
@@ -116,4 +116,4 @@ DocumentDB поддерживает четыре четко заданных и 
 
 Дополнительные сведения о DocumentDB можно найти в документации по Azure DocumentDB на сайте [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

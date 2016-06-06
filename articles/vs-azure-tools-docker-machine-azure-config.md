@@ -107,4 +107,4 @@ PS C:\> docker-machine ip MyDockerHost
 
 Сведения о разработке приложений .NET Core с помощью Visual Studio см. в разделе [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) (Инструменты Docker для Visual Studio).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

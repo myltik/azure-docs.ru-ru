@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Добавление API Поиска Bing в PowerApps или приложения логики | Microsoft Azure"
-	description="Обзор API Поиска Bing с параметрами интерфейса API REST"
-	services=""
+    pageTitle="Добавление соединителя Поиска Bing в PowerApps или приложения логики | Microsoft Azure"
+    description="Обзор соединителя Поиска Bing с параметрами интерфейса API REST"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,13 +15,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Начало работы с API Поиска Bing 
-Подключение к Поиску Bing позволяет искать новости, видео и многое другое. API поиска Bing можно использовать из:
+# Начало работы с соединителем Поиска Bing 
+Подключение к Поиску Bing позволяет искать новости, видео и многое другое. Соединитель Поиска Bing можно использовать из:
 
-- приложений логики; 
+- приложений логики. 
 - PowerApps.
 
 > [AZURE.SELECTOR]
@@ -33,9 +33,9 @@
 
 - формировать бизнес-процессы на основе данных, получаемых в результате поиска; 
 - использовать действия для поиска изображений, новостей и многого другого. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, можно найти видеоролик, а затем с помощью Twitter опубликовать его в веб-канале Twitter.
-- Добавьте API Поиска Bing в PowerApps Enterprise. После этого пользователи смогут использовать этот API в своих приложениях. 
+- Добавьте соединитель Поиска Bing в PowerApps Enterprise. После этого пользователи смогут использовать его в своих приложениях. 
 
-Сведения о добавлении API в PowerApps Enterprise см. в статье [Регистрация API в PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Сведения о добавлении соединителя в PowerApps Enterprise см. в статье [Регистрация соединителя в PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Сведения о добавлении операции в приложения логики см. в статье [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -46,7 +46,7 @@
 --- | ---
 None | <ul><li>Поиск в Интернете</li><li>Поиск видео</li><li>Поиск изображений</li><li>Поиск новостей</li><li>Поиск похожего</li><li>Поиск написания</li><li>Поиск по всем</li></ul>
 
-Все API-интерфейсы поддерживают данные в форматах JSON и XML.
+Все соединители поддерживают данные в форматах JSON и XML.
 
 
 ## Справочник по REST API Swagger
@@ -180,7 +180,7 @@ None | <ul><li>Поиск в Интернете</li><li>Поиск видео</l
 
 
 ### Поиск по всем    
-Извлекает все веб-сайты, видео, изображения и т. д. из Поиска Bing. ```GET: /CompositeSearch```
+Извлекает все веб-сайты, видео, изображения и т. д. из Поиска Bing. ```GET: /CompositeSearch```
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
@@ -298,4 +298,4 @@ None | <ul><li>Поиск в Интернете</li><li>Поиск видео</l
 
 Вы можете вернуться к [списку интерфейсов API](apis-list.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -24,10 +24,40 @@
 
 Есть несколько способов активации приложений логики из другого приложения. Вот некоторые из них:
 
-- [Использование веб-обработчиков](https://azure.microsoft.com/updates/webhooks-available-for-logic-apps/)
-- [Использование REST API](app-service-logic-http-endpoint.md)
+- [HTTP-запрос (POST)](app-service-logic-http-endpoint.md):
+- [Получение Webhook](app-service-logic-create-api-app.md)
+- [Опрос конечной точки](app-service-logic-create-api-app.md)
+
+### Сценарии
+
+- [Синхронный ответ на запрос приложений логики](app-service-logic-http-endpoint.md)
+
+## Типы содержимого, конверсии и преобразования
+
+[Язык определения рабочего процесса](http://aka.ms/logicappsdocs) для приложений логики содержит множество функций, позволяющих преобразовывать различные типы содержимого и работать с ними. Кроме того, модуль делает все возможное для того, чтобы в ходе рабочего процесса сохранить типы содержимого как потоки данных.
+
+- [Обработка типов содержимого](app-service-logic-content-type.md), таких как application/json, application/xml и plain/text
+- [Язык определения рабочего процесса](http://aka.ms/logicappsdocs)
+
+## Продолжительные действия
+
+- [Создание длительного действия](app-service-logic-create-api-app.md)
+
+## Пакеты и циклы
+
+- [SplitOn](app-service-logic-loops-and-scopes.md)
+- [ForEach](app-service-logic-loops-and-scopes.md)
+- [Until](app-service-logic-loops-and-scopes.md)
+
+## Интеграция с вложенными рабочими процессами и функциями Azure
+
+- [Интеграция функций Azure](app-service-logic-azure-functions.md)
+
+## HTTP, REST и SOAP
+
+ - [Вызов SOAP](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 
 Мы будем и дальше добавлять сценарии и примеры в этот документ. Сообщите нам в комментариях, какие примеры и сценарии вы хотите увидеть здесь.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

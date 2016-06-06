@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Управление кэшем Redis для Azure с использованием Azure PowerShell
@@ -112,7 +112,7 @@
 | Размер | Размер кэша. Допустимые значения: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 МБ, 1 ГБ, 2,5 ГБ, 6 ГБ, 13 ГБ, 26 ГБ, 53 ГБ | 1 ГБ |
 | ShardCount | Число сегментов, которые будут созданы при создании кэша уровня Premium с включенной кластеризацией. Допустимые значения: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU | Определяет SKU кэша. Допустимые значения: Basic, Standard, Premium | Standard |
-| RedisConfiguration | Определяет параметры конфигурации Redis для ключей maxmemory-delta, maxmemory-policy и notify-keyspace-events. Обратите внимание на то, что ключи maxmemory-delta и notify-keyspace-events доступны только для кэшей уровня Standard и Premium. | |
+| RedisConfiguration | Задает параметры конфигурации кластера Redis. Подробные сведения о каждом параметре представлены в таблице [Свойства RedisConfiguration](#redisconfiguration-properties). | |
 | EnableNonSslPort | Определяет, включен ли порт без SSL. | Ложь |
 | MaxMemoryPolicy | Этот параметр устарел, вместо него используется параметр RedisConfiguration. | |
 | StaticIP | При размещении кэша в виртуальной сети определяет уникальный IP-адрес подсети для кэша. Если IP-адрес не указан, он автоматически выбирается из подсети. | |
@@ -120,6 +120,23 @@
 | Виртуальная сеть | При размещении кэша в виртуальной сети определяет идентификатор ресурса виртуальной сети, в которой будет развернут кэш. | |
 | KeyType | Определяет, какой ключ доступа будет создаваться повторно при обновлении ключей доступа. Допустимые значения: Primary, Secondary | | | |
 
+
+### Свойства RedisConfiguration
+
+| Свойство | Описание | Ценовые категории |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------|---------------------|
+| rdb-backup-enabled | Указывает на то, включен ли параметр [Сохраняемость данных Redis](cache-how-to-premium-persistence.md). | Только "Премиум" |
+| rdb-storage-connection-string | Строка подключения к учетной записи хранения для параметра [Сохраняемость данных Redis](cache-how-to-premium-persistence.md). | Только "Премиум" |
+| rdb-backup-frequency | Указывает частоту резервного копирования для параметра [Сохраняемость данных Redis](cache-how-to-premium-persistence.md). | Только "Премиум" |
+| maxmemory-reserved | Определяет [объем памяти, зарезервированный](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) для процессов, не связанных с кэшем. | "Стандартный" и "Премиум" |
+| maxmemory-policy | Определяет [политику вытеснения](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) для кэша. | Все ценовые категории |
+| notify-keyspace-events | Настраивает [уведомления пространства ключей](cache-configure.md#keyspace-notifications-advanced-settings). | "Стандартный" и "Премиум" |
+| hash-max-ziplist-entries | Настраивает [оптимизацию памяти](http://redis.io/topics/memory-optimization) для небольших сводных данных. | "Стандартный" и "Премиум" |
+| hash-max-ziplist-value | Настраивает [оптимизацию памяти](http://redis.io/topics/memory-optimization) для небольших сводных данных. | "Стандартный" и "Премиум" |
+| set-max-intset-entries | Настраивает [оптимизацию памяти](http://redis.io/topics/memory-optimization) для небольших сводных данных. | "Стандартный" и "Премиум" |
+| zset-max-ziplist-entries | Настраивает [оптимизацию памяти](http://redis.io/topics/memory-optimization) для небольших сводных данных. | "Стандартный" и "Премиум" |
+| zset-max-ziplist-value | Настраивает [оптимизацию памяти](http://redis.io/topics/memory-optimization) для небольших сводных данных. | "Стандартный" и "Премиум" |
+| databases | Определяет количество баз данных. Это свойство можно настроить только в момент создания кэша. | "Стандартный" и "Премиум" |
 
 ## Создание кэша Redis
 
@@ -131,7 +148,7 @@
 
 Чтобы увидеть список доступных параметров свойства `New-AzureRmRedisCache` и их описания, выполните следующую команду:
 
-	PS C:\> Get-Help New-AzureRmRedisCache -detailed
+	PS SQLSERVER:> Get-Help New-AzureRmRedisCache -detailed
 	
 	NAME
 	    New-AzureRmRedisCache
@@ -139,14 +156,17 @@
 	SYNOPSIS
 	    Creates a new redis cache.
 	
+	
 	SYNTAX
 	    New-AzureRmRedisCache -Name <String> -ResourceGroupName <String> -Location <String> [-RedisVersion <String>]
 	    [-Size <String>] [-Sku <String>] [-MaxMemoryPolicy <String>] [-RedisConfiguration <Hashtable>] [-EnableNonSslPort
 	    <Boolean>] [-ShardCount <Integer>] [-VirtualNetwork <String>] [-Subnet <String>] [-StaticIP <String>]
 	    [<CommonParameters>]
 	
+	
 	DESCRIPTION
 	    The New-AzureRmRedisCache cmdlet creates a new redis cache.
+	
 	
 	PARAMETERS
 	    -Name <String>
@@ -174,21 +194,19 @@
 	
 	    -RedisConfiguration <Hashtable>
 	        All Redis Configuration Settings. Few possible keys: rdb-backup-enabled, rdb-storage-connection-string,
-	        rdb-backup-frequency, maxmemory-delta, maxmemory-policy, notify-keyspace-events, maxmemory-samples,
-	        slowlog-log-slower-than, slowlog-max-len, list-max-ziplist-entries, list-max-ziplist-value,
-	        hash-max-ziplist-entries, hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries,
-	        zset-max-ziplist-value etc.
+	        rdb-backup-frequency, maxmemory-reserved, maxmemory-policy, notify-keyspace-events, hash-max-ziplist-entries,
+	        hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries, zset-max-ziplist-value, databases.
 	
 	    -EnableNonSslPort <Boolean>
 	        EnableNonSslPort is used by Azure Redis Cache. If no value is provided, the default value is false and the
 	        non-SSL port will be disabled. Possible values are true and false.
-
+	
 	    -ShardCount <Integer>
 	        The number of shards to create on a Premium Cluster Cache.
 	
 	    -VirtualNetwork <String>
-	        The exact ARM resource ID of the virtual network to deploy the redis cache in. Example format:
-	        /subscriptions/{subid}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicNetwork/VirtualNetworks/{vnetName}
+	        The exact ARM resource ID of the virtual network to deploy the redis cache in. Example format: /subscriptions/{
+	        subid}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicNetwork/VirtualNetworks/{vnetName}
 	
 	    -Subnet <String>
 	        Required when deploying a redis cache inside an existing Azure Virtual Network.
@@ -212,9 +230,18 @@
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-Чтобы указать значения для параметра `RedisConfiuration`, включите их в фигурные скобки (`{}`) как пары "ключ-значение" типа `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. В следующем примере создается кэш уровня Standard размером 1 ГБ с политикой максимальной памяти `allkeys-random` и уведомлениями пространства ключей, настроенными с помощью `KEA`. Дополнительные сведения см. в разделах [Уведомления пространства ключей (дополнительные параметры)](cache-configure.md#keyspace-notifications-advanced-settings) и [Политика максимальной памяти и зарезервированная максимальная память](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
+Чтобы указать значения для параметра `RedisConfiguration`, включите их в фигурные скобки (`{}`) как пары "ключ-значение" типа `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. В следующем примере создается кэш уровня Standard размером 1 ГБ с политикой максимальной памяти `allkeys-random` и уведомлениями пространства ключей, настроенными с помощью `KEA`. Дополнительные сведения см. в разделах [Уведомления пространства ключей (дополнительные параметры)](cache-configure.md#keyspace-notifications-advanced-settings) и [Политика максимальной памяти и зарезервированная максимальная память](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
+
+<a name="databases"></a>
+## Настройка параметров баз данных в процессе создания кэша
+
+Параметр `databases` можно настроить только при создании кэша. В следующем примере создается кэш Premium P3 (26 ГБ) на 48 баз данных, использующих командлет [New AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
+
+	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
+
+Дополнительные сведения о свойстве `databases` см. в разделе [Конфигурация сервера Redis по умолчанию](cache-configure.md#default-redis-server-configuration). Дополнительные сведения о создании кэша с помощью командлета [New AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) см. в предыдущем разделе [Создание кэша Redis](#to-create-a-redis-cache).
 
 ## Обновление кэша Redis
 
@@ -257,11 +284,9 @@
 	        MaxMemoryPolicy. e.g. -RedisConfiguration @{"maxmemory-policy" = "allkeys-lru"}
 	
 	    -RedisConfiguration <Hashtable>
-	        All Redis Configuration Settings. Few possible keys: rdb-backup-enabled, rdb-storage-connection-string,
-	        rdb-backup-frequency, maxmemory-delta, maxmemory-policy, notify-keyspace-events, maxmemory-samples,
-	        slowlog-log-slower-than, slowlog-max-len, list-max-ziplist-entries, list-max-ziplist-value,
-	        hash-max-ziplist-entries, hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries,
-	        zset-max-ziplist-value etc.
+			All Redis Configuration Settings. Few possible keys: rdb-backup-enabled, rdb-storage-connection-string,
+			rdb-backup-frequency, maxmemory-reserved, maxmemory-policy, notify-keyspace-events, hash-max-ziplist-entries,
+			hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries, zset-max-ziplist-value.
 	
 	    -EnableNonSslPort <Boolean>
 	        EnableNonSslPort is used by Azure Redis Cache. The default value is null and no change will be made to the
@@ -289,9 +314,11 @@
 
 >[AZURE.NOTE]Масштабирование кэша с помощью PowerShell подчиняется тем же ограничениям и правилам, что и масштабирование кэша на портале Azure. Вы можете выполнить масштабирование до другой ценовой категории со следующими ограничениями.
 >
->-	Вы не можете выполнить масштабирование кэша до уровня **Премиум** или с уровня "Премиум" до другого уровня.
->-	Вы не можете выполнить масштабирование кэша с уровня **Стандартный** до уровня **Базовый**.
->-	Вы можете выполнить масштабирование кэша с уровня **Basic** до уровня **Standard**, но вам не удастся одновременно с этим изменить размер кэша. Если требуется изменить размер, можно выполнить последующую операцию масштабирования до нужного размера.
+>-	Перейти с более высокой ценовой категории на более низкую нельзя.
+>    -    Ценовую категорию кэша **Премиум** нельзя изменить на категорию **Базовый** или **Стандартный**.
+>    -    Ценовую категорию кэша **Стандартный** нельзя изменить на категорию **Базовый**.
+>-	Вы можете выполнить масштабирование кэша с уровня **Базовый** до уровня **Стандартный**, но вам не удастся одновременно с этим изменить размер кэша. Если требуется изменить размер, можно выполнить последующую операцию масштабирования до нужного размера.
+>-	Ценовую категорию кэша **Базовый** нельзя изменить сразу на уровень **Премиум**. Необходимо сначала перейти с категории **Базовый** на категорию **Стандартный**, а затем — с категории **Стандартный** на категорию **Премиум**.
 >-	Вам не удастся выполнить масштабирование с большего размера до размера **C0 (250 МБ)**.
 >
 >Дополнительные сведения см. в статье [Масштабирование кэша Redis для Azure](cache-how-to-scale.md).
@@ -609,4 +636,4 @@
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

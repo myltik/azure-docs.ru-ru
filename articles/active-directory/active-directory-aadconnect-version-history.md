@@ -24,11 +24,11 @@
 
 Далее приведен список связанных разделов.
 
-| Раздел | |
-| --------- | --------- |
-| Действия по переходу с Azure AD Connect | Различные методы [обновления предыдущей версии до последней версии](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect. |
-| Необходимые разрешения | Разрешения, необходимые для установки обновления, в разделе [Учетные записи и разрешения](active-directory-aadconnect-accounts-permissions.md#upgrade). |
-| Скачивание| [Загрузка Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+Раздел |  
+--------- | --------- |
+Действия по переходу с Azure AD Connect | Различные методы [обновления предыдущей версии до последней версии](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect.
+Необходимые разрешения | Разрешения, необходимые для установки обновления, в разделе [Учетные записи и разрешения](active-directory-aadconnect-accounts-permissions.md#upgrade).
+Скачивание| [Загрузка Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1\.1.180.0
 Дата выпуска: май 2016 г.
@@ -89,8 +89,8 @@
 
 **Функции, повышенные с предварительной версии до общедоступной версии:**
 
-- [Обратная запись устройства](active-directory-aadconnect-feature-device-writeback.md).
-- [Расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md).
+- [Обратная запись устройств](active-directory-aadconnect-feature-device-writeback.md)
+- [Расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 **Новые функции предварительной версии:**
 
@@ -284,4 +284,4 @@
 ## Дальнейшие действия
 Ознакомьтесь с дополнительными сведениями об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

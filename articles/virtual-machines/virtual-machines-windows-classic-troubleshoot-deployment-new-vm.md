@@ -13,7 +13,7 @@
   ms.workload="na"
   ms.tgt_pltfrm="vm-windows"
   ms.devlang="na"
-  ms.topic="article"
+  ms.topic="support-article"
   ms.date="05/06/2016"
   ms.author="cjiang"/>
 
@@ -81,4 +81,4 @@
 - Создайте виртуальную машину в этой виртуальной сети.
 - [Подключите существующую виртуальную сеть](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) к новой виртуальной сети. См. дополнительные сведения о [региональных виртуальных сетях](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Кроме того, вы можете [перенести виртуальную сеть на основе территориальной группы в региональную виртуальную сеть](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), а затем создать в ней виртуальную машину.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

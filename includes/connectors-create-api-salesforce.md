@@ -1,18 +1,15 @@
-### Prerequisites
+### Предварительные требования
 
-- A [Salesforce](https://salesforce.com) account  
+- Учетная запись [Salesforce](https://salesforce.com)  
 
 
-Before you can use your Salesforce account in a Logic app, you must authorize the Logic app to connect to your Salesforce account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Перед использованием учетной записи Salesforce в приложении логики необходимо авторизовать приложение логики для подключения к учетной записи Salesforce. Это легко сделать в приложении логики на портале Azure.
 
-Here are the steps to authorize your Logic app to connect to your Salesforce account:  
-1. To create a connection to Salesforce, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Salesforce* in the search box. Select the trigger or action you'll like to use:  
-![](./media/connectors-create-api-salesforce/salesforce-1.png)  
-2. If you haven't created any connections to Salesforce before, you'll get prompted to provide your Salesforce credentials. These credentials will be used to authorize your Logic app to connect to, and access your Salesforce account's data:  
-![](./media/connectors-create-api-salesforce/salesforce-2.png)  
-3. Provide your Salesforce user name and password to authorize your Logic app:  
- ![](./media/connectors-create-api-salesforce/salesforce-3.png)  
-4. Allow us to connect to Salesforce:  
-![](./media/connectors-create-api-salesforce/salesforce-4.png)  
-5. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-![](./media/connectors-create-api-salesforce/salesforce-5.png)  
+Ниже приведены указания по авторизации приложения логики для подключения к учетной записи Salesforce.
+1. Чтобы создать подключение к Salesforce, в конструкторе приложений логики в раскрывающемся списке выберите параметр **Показать управляемые API Microsoft**, а затем введите в поле поиска *Salesforce*. Выберите триггер или действие, которые хотите использовать: ![](./media/connectors-create-api-salesforce/salesforce-1.png)  
+2. Если вы ранее не создавали подключения к Salesforce, вам будет предложено ввести учетные данные Salesforce. Эти учетные данные будут использоваться для авторизации приложения логики, чтобы оно могло подключиться и получить доступ к данным вашей учетной записи Salesforce. ![](./media/connectors-create-api-salesforce/salesforce-2.png)  
+3. Укажите имя пользователя и пароль своей учетной записи Salesforce, чтобы авторизовать приложение логики: ![](./media/connectors-create-api-salesforce/salesforce-3.png)  
+4. Разрешите подключение к Salesforce: ![](./media/connectors-create-api-salesforce/salesforce-4.png)  
+5. Подключение создано, и теперь вы можете перейти к другим действиям в приложении логики: ![](./media/connectors-create-api-salesforce/salesforce-5.png)  
+
+<!---HONumber=AcomDC_0525_2016-->

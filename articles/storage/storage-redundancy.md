@@ -1,21 +1,20 @@
-
 <properties
-  pageTitle="Репликация службы хранилища Azure | Microsoft Azure"
-  description="Данные в учетной записи хранения Microsoft Azure реплицируются для обеспечения устойчивости и высокого уровня доступности. Варианты репликации включают локально избыточное хранилище (LRS), хранилище, избыточное в пределах зоны (ZRS), геоизбыточное хранилище (GRS) и геоизбыточное хранилище с доступом для чтения (RA-GRS)."
-  services="storage"
-  documentationCenter=""
-  authors="tamram"
-  manager="carmonm"
-  editor="tysonn"/>
+	pageTitle="Репликация службы хранилища Azure | Microsoft Azure"
+	description="Данные в учетной записи хранения Microsoft Azure реплицируются для обеспечения устойчивости и высокого уровня доступности. Варианты репликации включают локально избыточное хранилище (LRS), хранилище, избыточное в пределах зоны (ZRS), геоизбыточное хранилище (GRS) и геоизбыточное хранилище с доступом для чтения (RA-GRS)."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
-  ms.service="storage"
-  ms.workload="storage"
-  ms.tgt_pltfrm="na"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="02/17/2016"
-  ms.author="tamram"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/23/2016"
+	ms.author="tamram"/>
 
 # Репликация службы хранилища Azure
 
@@ -108,4 +107,4 @@
 - [Эмулятор хранения Microsoft Azure 3.1 с RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Документ SOSP — служба хранилища Azure: высокодоступная облачная служба хранилища со строгой согласованностью](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

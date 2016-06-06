@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="05/20/2016" 
 	ms.author="awills"/>
 
 
@@ -103,16 +103,16 @@
 
     requests 
     | top 10 by timestamp desc 
-    | project timestamp, 
-               timeOfDay = floor(timestamp % 1d, 1s), 
-               name, 
-               response = resultCode
+    | project  
+            name, 
+            response = resultCode,
+            timestamp, 
+            ['time of day'] = floor(timestamp % 1d, 1s)
 ```
 
 ![result](./media/app-insights-analytics-tour/270.png)
 
-В скалярном выражении:
-
+* [Имена столбцов](app-insights-analytics-reference.md#names) могут содержать пробелы или символы, если будут заключены в квадратные скобки: `['...']` или `["..."]`
 * `%` — обычный оператор остатка от деления. 
 * `1d` (т. е. цифра 1, а затем "d") — это литерал интервала времени, который означает один день. Вот еще несколько литералов интервала времени: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (псевдоним `bin`) округляет значение до ближайшего числа, кратного указанному базовому значению. Поэтому `floor(aTime, 1s)` округляет время до ближайшей секунды.
@@ -469,4 +469,4 @@
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Добавление API SMTP в приложения логики | Microsoft Azure"
-	description="Обзор API SMTP с параметрами REST API"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Добавление соединителя SMTP в приложения логики | Microsoft Azure"
+    description="Обзор соединителя SMTP с параметрами API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/19/2016"
    ms.author="mandia"/>
 
-# Приступая к работе с API SMTP
-Подключитесь к серверу SMTP для отправки электронной почты. API SMTP можно использовать из:
+# Начало работы с соединителем SMTP
+Подключитесь к серверу SMTP для отправки электронной почты. Соединитель SMTP можно использовать из таких компонентов, как:
 
 - приложений логики (рассмотренных в этом разделе);
 - PowerApps (см. [список подключений PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/), чтобы ознакомиться с полным перечнем).
@@ -33,22 +33,17 @@
 Сведения о добавлении операции в приложения логики см. в статье [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Триггеры и действия
-В API SMTP доступно следующее действие. Триггеры отсутствуют.
+В соединителе SMTP доступно следующее действие. Триггеры отсутствуют.
 
 |триггеры; | Действия|
 |--- | ---|
 |None | Отправка электронной почты|
 
-Все API поддерживают данные в форматах JSON и XML.
+Все соединители поддерживают данные в форматах JSON и XML.
 
 ## Создание подключения к SMTP
-При добавлении этого API в приложения логики введите указанные ниже значения:
 
-|Свойство| Обязательно|Описание|
-| ---|---|---|
-| Имя сервера SMTP | Да | Введите полное доменное имя (FQDN) или IP-адрес сервера SMTP.|
-| Имя пользователя |Да |Введите имя пользователя для подключения к серверу SMTP. |
-| Пароль | Да|Введите пароль для этого пользователя. |
+>[AZURE.INCLUDE [Шаги по созданию подключения к SMTP](../../includes/connectors-create-api-smtp.md)]
 
 После создания подключения укажите свойства SMTP, например значения полей "Кому" и "Копия". Эти свойства описаны далее в **справочнике по REST API**.
 
@@ -95,4 +90,4 @@
 ## Дальнейшие действия
 [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

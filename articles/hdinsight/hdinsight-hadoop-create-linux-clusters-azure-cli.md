@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="05/20/2016"
    	ms.author="larryfr"/>
 
 #Создание кластеров под управлением Linux в HDInsight с помощью Azure CLI
@@ -58,54 +58,51 @@ Azure CLI представляет собой кроссплатформенну
 
         azure config mode arm
 
-4. Создайте шаблон для кластера HDInsight. Вот некоторые основные примеры шаблонов:
+4. Создайте новую группу ресурсов. Она будет содержать кластер HDInsight и соответствующую учетную запись хранения.
 
-    * [Кластер под управлением Linux с использованием открытого ключа SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-publickey)
-    * [Кластер под управлением Linux с использованием пароля для учетной записи SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)
+        azure group create groupname location
+        
+    * Замените __groupname__ на уникальное имя для группы. 
+    * Замените __location__ на географический регион, в котором нужно создать группу. 
+    
+        Для получения списка допустимых расположений выполните команду `azure locations list`, а затем воспользуйтесь одним из расположений из столбца __Имя__.
 
-    Оба эти шаблона также создают учетную запись хранения Azure, которую HDInsight использует по умолчанию.
+5. Создайте учетную запись хранения. Она будет служить хранилищем по умолчанию для кластера HDInsight.
 
-    Вам потребуются файлы __azuredeploy.json__ и __azuredeploy.parameters.json__. Скопируйте эти файлы на локальный компьютер, прежде чем продолжить.
+        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage --access-tier hot storagename
+        
+     * Замените __groupname__ на имя группы, созданной на предыдущем этапе.
+     * Замените __location__ на расположение, которое использовалось на предыдущем этапе. 
+     * Замените __storagename__ на уникальное имя учетной записи хранения.
+     
+     > [AZURE.NOTE] Дополнительные сведения о параметрах, используемых в этой команде, используйте `azure storage account create -h`, чтобы открыть справку по этой команде.
 
-5. Откройте файл __azuredeploy.parameters.json__ в редакторе и укажите значения для элементов в разделе `parameters`.
+5. Извлеките ключ для доступа к учетной записи хранения.
 
-    * __location__: центр обработки данных, в котором будут созданы ресурсы. Список допустимых расположений см. в разделе `location` файла __azuredeploy.json__.
-    * __clusterName__: имя кластера HDInsight. Это имя должно быть уникальным, иначе произойдет сбой развертывания.
-    * __clusterStorageAccountName__: имя учетной записи хранения Azure, которая будет создана для кластера HDInsight. Это имя должно быть уникальным, иначе произойдет сбой развертывания.
-    * __clusterLoginPassword__: пароль администратора кластера. Пароль должен быть надежным, поскольку используется для доступа к веб-сайтам и службам REST в кластере.
-    * __sshUserName__: имя первого пользователя SSH, созданного для этого кластера. SSH будет использоваться для удаленного доступа к кластеру с использованием этой учетной записи.
-    * __sshPublicKey__: если вы используете шаблон, для которого требуется открытый ключ SSH, в эту строку необходимо добавить открытый ключ. Дополнительные сведения о создании открытых ключей и работе с ними см. в следующих статьях:
+        azure storage account keys list -g groupname storagename
+        
+    * Замените __groupname__ на имя группы ресурсов.
+    * Замените __storagename__ на имя учетной записи хранения.
+    
+    Из полученных данных сохраните значение __key__ для параметра __key1__.
 
-        * [Использование SSH с Hadoop под управлением Linux в HDInsight в Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+6. Создайте кластер HDInsight.
 
-    * __sshPassword__: если вы используете шаблон, для которого требуется пароль SSH, в эту строку необходимо добавить пароль.
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    Закончив настройку, сохраните и закройте файл.
+    * Замените __groupname__ на имя группы ресурсов.
+    * Замените __location__ на расположение, которое использовалось на предыдущем этапе.
+    * Замените __storagename__ на имя учетной записи хранения.
+    * Замените __storagekey__ на ключ, полученный при выполнении предыдущего шага. 
+    * Для параметра `--defaultStorageContainer` используйте то же имя, что и для кластера.
+    * Замените __admin__ и __httppassword__ на имя пользователя и пароль, которые хотите использовать для доступа к кластеру по протоколу HTTPS.
+    * Замените __sshuser__ и __sshuserpassword__ на имя пользователя и пароль, которые хотите использовать для доступа к кластеру по протоколу SSH.
 
-5. Для создания пустой группы ресурсов выполните указанную ниже команду. Замените __RESOURCEGROUPNAME__ именем, которое хотите использовать для этой группы. Вместо __LOCATION__ укажите центр обработки данных, в котором необходимо создать кластер HDInsight.
-
-        azure group create RESOURCEGROUPNAME LOCATION
-
-    > [AZURE.NOTE] Если имя расположения содержит пробелы, заключите его в кавычки. Например, "Юг центральных США".
-
-6. Чтобы создать начальное развертывание для этой группы ресурсов, выполните указанную ниже команду. Замените __PATHTOTEMPLATE__ путем к файлу шаблона __azuredeploy.json__. Замените __PATHTOPARAMETERSFILE__ на путь к файлу __azuredeploy.parameters.json__. Замените __RESOURCEGROUPNAME__ именем группы, созданной на предыдущем этапе.
-
-        azure group deployment create -f PATHTOTEMPLATE -e PATHTOPARAMETERSFILE -g RESOURCEGROUPNAME -n InitialDeployment
-
-    Когда вы подтвердите развертывание, должно отобразиться сообщение, похожее на следующее: `group deployment create command ok`.
-
-7. Развертывание может занять определенное время, примерно 15 минут. Чтобы просмотреть информацию о развертывании, выполните указанную ниже команду. Замените __RESOURCEGROUPNAME__ именем группы ресурсов, созданной на предыдущем этапе.
-
-        azure group log show -l RESOURCEGROUPNAME
-
-    После завершения развертывания в поле __Состояние__ отобразится значение __Успешно__. Если во время развертывания произойдет сбой, получить дополнительные сведения об этом сбое можно будет с помощью следующей команды:
-
-        azure group log show -l -v RESOURCEGROUPNAME
+    Создание кластера требует времени, обычно около 15 минут.
 
 ##Дальнейшие действия
 
-Теперь, когда вы успешно создали кластер HDInsight, обратитесь к следующим статьям, чтобы научиться работать с кластером:
+Теперь, когда вы успешно создали кластер HDInsight с помощью интерфейса командной строки Azure, обратитесь к следующим статьям, чтобы научиться работать с кластером:
 
 ###Кластеры Hadoop
 
@@ -124,4 +121,4 @@ Azure CLI представляет собой кроссплатформенну
 * [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Развертывание и мониторинг топологий со Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

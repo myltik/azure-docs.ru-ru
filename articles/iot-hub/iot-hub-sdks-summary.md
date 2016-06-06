@@ -82,10 +82,10 @@
 ["Интернет вещей" (IoT) .NET]: https://msdn.microsoft.com/library/mt488521.aspx
 [Пакет SDK для устройств Microsoft Azure IoT для C]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
 [Пакет SDK для устройств Microsoft Azure IoT для Java]: http://azure.github.io/azure-iot-sdks/java/device/api_reference/index.html
-[Пакет SDK для устройств Microsoft Azure IoT для Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.5/index.html
+[Пакет SDK для устройств Microsoft Azure IoT для Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.6/index.html
 [REST для центра IoT]: https://msdn.microsoft.com/library/mt548492.aspx
 [Пакет SDK для службы Microsoft Azure IoT для Java]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
-[Пакет SDK для службы Microsoft Azure IoT для Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.5/index.html
+[Пакет SDK для службы Microsoft Azure IoT для Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.8/index.html
 [Пакет SDK для шлюза IoT Azure]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

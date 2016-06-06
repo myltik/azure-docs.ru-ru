@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Устранение неполадок развернутых служб с помощью PowerShell | Microsoft Azure"
-   description="Описывается использование PowerShell для обнаружения и устранения проблем развертывания Resource Manager."
+   pageTitle="Просмотр операций развертывания с помощью PowerShell | Microsoft Azure"
+   description="Описывается использование Azure PowerShell для обнаружения проблем развертывания Resource Manager."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="03/21/2016"
+   ms.date="05/19/2016"
    ms.author="tomfitz"/>
 
-# Устранение неполадок развертываний групп ресурсов с помощью Azure PowerShell
+# Просмотр операций развертывания с помощью Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [Портал](resource-manager-troubleshoot-deployments-portal.md)
@@ -25,7 +25,7 @@
 - [Интерфейс командной строки Azure](resource-manager-troubleshoot-deployments-cli.md)
 - [ИНТЕРФЕЙС REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-Если вы получили ошибку при развертывании ресурсов в Azure, необходимо узнать, что пошло не так. Azure PowerShell предоставляет командлеты, которые позволяют находить ошибки и определять возможные действия по их исправлению.
+Если при развертывании ресурсов в Azure возникнет ошибка, вам потребуются дополнительные сведения о выполненных операциях развертывания. Azure PowerShell предоставляет командлеты, которые позволяют находить ошибки и определять возможные действия по их исправлению.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
@@ -144,4 +144,4 @@
 - Дополнительные сведения об использовании журналов аудита для отслеживания других типов действий см. в разделе [Операции аудита с помощью диспетчера ресурсов](resource-group-audit.md).
 - Чтобы проверить развернутую службу перед ее выполнением, см. раздел [Развертывание группы ресурсов с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

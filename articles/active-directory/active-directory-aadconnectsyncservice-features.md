@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell;markvi"/>
 
 # Функции службы синхронизации Azure AD Connect
@@ -33,23 +33,23 @@
 
 Следующие параметры можно настроить с помощью `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Комментарий |
-| --- | --- |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | Позволяет поместить атрибут, являющийся копией другого объекта, в карантин вместо того, чтобы прерывать весь процесс экспорта для этого объекта. |
-| [EnableSoftMatchOnUpn](#userprincipalname-soft-match) | Позволяет присоединять объекты по атрибуту userPrincipalName в дополнение к основному адресу SMTP. |
-| [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | Позволяет модулю синхронизации обновлять атрибут userPrincipalName для управляемых или лицензированных пользователей (не являющихся федеративными). |
+DirSyncFeature | Комментарий
+--- | ---
+ [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | Позволяет поместить атрибут, являющийся копией другого объекта, в карантин вместо того, чтобы прерывать весь процесс экспорта для этого объекта.
+[EnableSoftMatchOnUpn](#userprincipalname-soft-match) | Позволяет присоединять объекты по атрибуту userPrincipalName в дополнение к основному адресу SMTP.
+[SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | Позволяет модулю синхронизации обновлять атрибут userPrincipalName для управляемых или лицензированных пользователей (не являющихся федеративными).
 
 После включения функции отключить ее нельзя.
 
 Следующие параметры настраиваются службой Azure AD Connect и не могут изменяться командлетом `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Комментарий |
-| --- | --- |
-| DeviceWriteback | [Azure AD Connect: включение обратной записи устройств](active-directory-aadconnect-feature-device-writeback.md) |
-| DirectoryExtensions | [Синхронизация Azure AD Connect: расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md) |
-| PasswordSync | [Реализация синхронизации паролей с помощью службы Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md) |
-| UnifiedGroupWriteback | [Предварительная версия. Обратная запись групп](active-directory-aadconnect-feature-preview.md#group-writeback) |
-| UserWriteback | Сейчас не поддерживается. |
+DirSyncFeature | Комментарий
+--- | ---
+DeviceWriteback | [Azure AD Connect: включение обратной записи устройств](active-directory-aadconnect-feature-device-writeback.md)
+DirectoryExtensions | [Синхронизация Azure AD Connect: расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md)
+PasswordSync | [Реализация синхронизации паролей с помощью службы Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md)
+UnifiedGroupWriteback | [Предварительная версия. Обратная запись групп](active-directory-aadconnect-feature-preview.md#group-writeback)
+UserWriteback | Сейчас не поддерживается.
 
 ## Устойчивость повторяющихся атрибутов
 Чтобы избежать сбоя при подготовке объектов с повторяющимися именами участников-пользователей (UPN) или адресами прокси-сервера (proxyAddress), повторяющийся атрибут помещается в карантин, и при необходимости ему присваивается временное значение. После разрешения конфликта временное имя участника-пользователя (UPN) будет автоматически исправлено на соответствующее значение. Такой механизм можно включить отдельно для имени участника-пользователя (UPN) и адреса прокси-сервера (proxyAddress). Дополнительные сведения см. в разделе [Синхронизация удостоверений и устойчивость повторяющихся атрибутов](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
@@ -100,4 +100,4 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 - [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

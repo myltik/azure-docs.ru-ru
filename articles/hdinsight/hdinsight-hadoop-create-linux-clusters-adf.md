@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="jgao"/>
 
 # Создание кластеров Hadoop под управлением Linux в HDInsight по запросу с помощью фабрики данных Azure
@@ -136,9 +136,9 @@
         -type Standard_LRS `
         -Location $location 
 
-    $destStorageAccountKey = Get-AzureRmStorageAccountKey `
+    $destStorageAccountKey = (Get-AzureRmStorageAccountKey `
         -ResourceGroupName $resourceGroupName `
-        -Name $destStorageAccountName |  %{ $_.Key1 }
+        -Name $destStorageAccountName)[0].Value
 
     $sourceContext = New-AzureStorageContext `
         -StorageAccountName $sourceStorageAccountName `
@@ -438,4 +438,4 @@
 - [Документация по HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Документация по фабрике данных](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/24/2016"
 	ms.author="csand"/>
 
 
@@ -42,6 +42,6 @@
 
 Теперь, после знакомства с основами службы автоматизации Azure и способами ее использования для управления управлением API Azure, вы можете пройти по следующим ссылкам, чтобы узнать больше.
 
-* См. [учебник по началу работы](../automation/automation-first-runbook-graphical) со службой автоматизации Azure.
+* См. [учебник по началу работы](../automation/automation-first-runbook-graphical.md) со службой автоматизации Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

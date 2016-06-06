@@ -3,7 +3,7 @@
 	description="Напишите плагины, чтобы пакет SDK мог выполнять фильтрацию, выборку данных или добавление свойств к данным перед отправкой данных телеметрии на портал Application Insights." 
 	services="application-insights"
     documentationCenter="" 
-	authors="alancameronwills" 
+	authors="beckylino" 
 	manager="douge"/>
  
 <tags 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
-	ms.author="awills"/>
+	ms.date="05/19/2016" 
+	ms.author="borooji"/>
 
 # Выборка, фильтрация и предварительная обработка данных телеметрии в пакете SDK для Application Insights
 
@@ -30,13 +30,10 @@
 
 Перед началом работы:
 
-* Установите [пакет SDK Application Insights](app-insights-asp-net.md) в свое приложение. Вручную установите пакеты NuGet и выберите последнюю *предварительную* версию.
-* Попробуйте использовать [API Application Insights](app-insights-api-custom-events-metrics.md). 
+* Установите [пакет SDK Application Insights для ASP.NET версии 2](app-insights-asp-net.md) в свое приложение. 
 
 
 ## Выборка
-
-*Эта функция доступна в режиме бета-версии.*
 
 [Выборка](app-insights-sampling.md) — рекомендуемый способ сократить трафик при сохранении точной статистики. Фильтр выбирает связанные элементы, позволяя переходить между элементами диагностики. Счетчики событий настраиваются в обозревателе метрик, чтобы компенсировать отфильтрованные элементы.
 
@@ -92,7 +89,7 @@
 
 ### Создание обработчика данных телеметрии
 
-1. Обновите пакет SDK для Application Insights до последней версии (2.0.0-beta2 или более поздней версии). Щелкните правой кнопкой мыши проект в обозревателе решений Visual Studio и выберите "Управление пакетами NuGet". В диспетчере пакетов NuGet выберите **Включить предварительный выпуск** и выполните поиск по тексту "Microsoft.ApplicationInsights".
+1. Убедитесь, что в проекте используется пакет SDK Application Insights 2.0.0 или более поздней версии. Щелкните правой кнопкой мыши проект в обозревателе решений Visual Studio и выберите "Управление пакетами NuGet". В диспетчере пакетов NuGet выберите Microsoft.ApplicationInsights.Web.
 
 1. Чтобы создать фильтр, реализуйте обработчик ITelemetryProcessor. Это еще одна точка расширения, как и модуль телеметрии, инициализатор телеметрии или канал телеметрии.
 
@@ -240,6 +237,11 @@ public void Process(ITelemetry item)
 
 ```
 
+#### Неполадки диагностики зависимостей
+
+В [этом блоге](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) описывается проект по диагностике проблем зависимостей путем автоматического опрашивания зависимостей.
+
+
 <a name="add-properties"></a>
 ## Добавление свойств: ITelemetryInitializer
 
@@ -302,7 +304,7 @@ public void Process(ITelemetry item)
       </TelemetryInitializers>
     </ApplicationInsights>
 
-*Другой способ* — создать экземпляр инициализатора в коде, например в Global.aspx.cs.
+*Другой способ* — создать экземпляр инициализатора в коде, например в Global.aspx.cs.
 
 
 ```C#
@@ -419,4 +421,4 @@ public void Process(ITelemetry item)
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

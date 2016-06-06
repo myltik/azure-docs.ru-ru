@@ -13,7 +13,7 @@
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="04/20/2016"
 	ms.author="danlep"/>
 
@@ -234,4 +234,4 @@
 * Дополнительные сведения о работе с диспетчером ресурсов Azure с помощью Azure PowerShell см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](powershell-azure-resource-manager.md).
 * Дополнительные сведения о работе с Azure Resource Manager на портале Azure см. в статье [Развертывание ресурсов Azure и управление ими с помощью портала Azure](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

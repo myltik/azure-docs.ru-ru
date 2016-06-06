@@ -89,7 +89,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | state | Рекомендуется | Значение, включенное в запрос, которое также возвращается в ответе маркера. Это может быть строка любого контента. Как правило, с целью предотвращения подделки межсайтовых запросов используется генерируемое случайным образом уникальное значение. Этот параметр также включает информацию о состоянии пользователя в приложении перед созданием запроса на проверку подлинности (например, об открытой в тот момент странице). |
 | nonce | Обязательно | Значение, включенное в запрос и созданное приложением, которое войдет в состав полученного токена "id\_token" в качестве утверждения. Приложение может проверить это значение во избежание атак с использованием воспроизведения маркера. Это значение обычно представляет собой случайную уникальную строку, которую можно использовать для определения источника запроса. |
 | p | Обязательно | Политика, которая будет выполняться. Это имя политики, созданной в клиенте B2C. Оно должно начинаться с "b2c\_1\_". Дополнительные сведения о политиках см. в статье [Расширяемая платформа политик](active-directory-b2c-reference-policies.md). |
-| prompt | Необязательно | Требуемый тип взаимодействия с пользователем. На текущий момент единственное допустимое значение — "login", при котором пользователю приходится вводить учетные данные по запросу. Единый вход не сработает. |
+| prompt | Необязательно | Требуемый тип взаимодействия с пользователем. На текущий момент единственное допустимое значение — "login", при котором пользователю приходится вводить учетные данные по запросу. Единый вход не сработает. |
 
 На этом этапе пользователю будет предложено завершить рабочий процесс для политики. Для этого могут потребоваться ввод имени пользователя и пароля, вход с помощью удостоверения социальной сети, регистрация в каталоге или любые другие действия, определенные в политике.
 
@@ -158,7 +158,7 @@ Azure AD B2C содержит конечную точку метаданных O
 
 Дополнительные сведения об утверждениях в маркере идентификации можно найти в [Справочнике по маркерам Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
-После полной проверки маркера "id\_token" вы можете начать сеанс с пользователем и использовать утверждения в маркере "id\_token" для получения сведений о пользователе в приложении. Эти сведения можно использовать для отображения, записей, авторизации и т. д.
+После полной проверки маркера "id\_token" вы можете начать сеанс с пользователем и использовать утверждения в маркере "id\_token" для получения сведений о пользователе в приложении. Эти сведения можно использовать для отображения, записей, авторизации и т. д.
 
 ## Получение маркера
 Если вашему веб-приложению требуется только выполнять политики, вы можете пропустить следующие несколько разделов. Эти разделы применяются только к веб-приложениям, которым необходимо выполнять защищенные проверкой подлинности вызовы веб-API, также защищенные Azure AD B2C.
@@ -168,16 +168,10 @@ Azure AD B2C содержит конечную точку метаданных O
 ```
 POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 
-{
-	"grant_type": "authorization_code",
-	"client_id": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6",
-	"scope": "openid offline_access",
-	"code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
-	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
-	"client_secret": "<your-application-secret>"
-}
+grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
+
 ```
 
 | Параметр | Обязательный? | Описание |
@@ -247,16 +241,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 
-{
-	"grant_type": "refresh_token",
-	"client_id": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6",
-	"scope": "openid offline_access",
-	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
-	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
-	"client_secret": "<your-application-secret>"
-}
+grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
 | Параметр | Обязательно | Описание |
@@ -355,4 +342,4 @@ image goes here
 
 -->
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

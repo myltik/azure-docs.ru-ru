@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/25/2016"
 	ms.author="antonba"/>
 
 # Настройка VPN-подключений в службе управления API Azure
@@ -66,7 +66,7 @@
 ## <a name="related-content"> </a>Связанная информация
 
 
-* [Создание виртуальной сети с VPN-подключением типа «сеть — сеть» с помощью классического портала Azure][]
+* [Создание виртуальной сети с VPN-подключением типа «сеть — сеть» с помощью классического портала Azure][]
 * [Как использовать инспектор API для трассировки вызовов в службе управления API Azure][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
@@ -79,7 +79,7 @@
 
 [классическом портале Azure]: https://manage.windowsazure.com/
 
-[Создание виртуальной сети с VPN-подключением типа «сеть — сеть» с помощью классического портала Azure]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
+[Создание виртуальной сети с VPN-подключением типа «сеть — сеть» с помощью классического портала Azure]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Как использовать инспектор API для трассировки вызовов в службе управления API Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="douge" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Часто задаваемые вопросы о службе управления API Azure
@@ -137,4 +137,4 @@ IP-адрес (или адреса в случае развертывания в
 
 Да, см. шаблоны быстрого запуска в этом разделе [службы управления API Azure](http://aka.ms/apimtemplate) .
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

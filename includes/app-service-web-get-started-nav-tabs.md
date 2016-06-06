@@ -3,4 +3,6 @@
 - [Node.js](app-service-web-nodejs-get-started.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 - [Java](web-sites-java-get-started.md)
-- [Приложение Marketplace](web-sites-php-web-site-gallery.md)
+- [Приложение Marketplace](app-service-web-create-web-app-from-marketplace.md)
+
+<!---HONumber=AcomDC_0525_2016-->

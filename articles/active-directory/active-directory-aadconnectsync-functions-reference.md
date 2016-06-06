@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Служба синхронизации Azure AD Connect: справочник по функциям | Microsoft Azure"
-	description="Общие сведения о выражениях декларативной подготовки в Azure AD Connect Sync"
+	pageTitle="Служба синхронизации Azure AD Connect: справочник по функциям | Microsoft Azure"
+	description="Общие сведения о выражениях декларативной подготовки в Azure AD Connect Sync"
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
@@ -13,69 +13,62 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="05/23/2016"
+	ms.author="andkjell;markvi"/>
 
 
-# Синхронизация Azure AD Connect: справочник по функциям
+# Синхронизация Azure AD Connect: справочник по функциям
 
-
-В службе Azure Active Directory Sync функции используются для обработки значения атрибута во время синхронизации. Синтаксис функций выражается в следующем формате: `<output type> FunctionName(<input type> <position name>, ..)`
+В службе Azure AD Connect функции используются для обработки значения атрибута во время синхронизации. Синтаксис функций выражается в следующем формате: `<output type> FunctionName(<input type> <position name>, ..)`
 
 Если функция перегружена и принимает несколько вариантов синтаксиса, перечисляются все допустимые варианты синтаксиса. Функции являются строго типизированными и контролируют, чтобы переданный тип соответствовал задокументированному типу. Если тип не совпадает, выводится сообщение об ошибке.
 
 Типы выражаются с помощью следующего синтаксиса:
 
-- **bin** – двоичное значение
-- **bool** — логическое значение
-- **dt** — дата и время в формате UTC
-- **enum** — перечисление известных констант
-- **exp** — выражение, которое должно преобразовываться в логическое значение
-- **mvbin** — двоичное значение с несколькими значениями
-- **mvstr** — ссылка с несколькими значениями
-- **num** — числовое значение
-- **ref** — ссылка с одним значением
-- **str** — строка с одним значением
-- **var** — вариант (почти) любого другого типа
-- **void** — не возвращает значение
-
-
+- **bin** – двоичное значение
+- **bool** — логическое значение
+- **dt** — дата и время в формате UTC
+- **enum** — перечисление известных констант
+- **exp** — выражение, которое должно преобразовываться в логическое значение
+- **mvbin** — двоичное значение с несколькими значениями
+- **mvstr** — строка с несколькими значениями
+- **mvref** — ссылка с несколькими значениями
+- **num** — числовое значение
+- **ref** — ссылка с одним значением
+- **str** — строка с одним значением
+- **var** — вариант (почти) любого другого типа
+- **void** — не возвращает значение
 
 ## Справочник по функциям
 
-----------
-**Преобразование:**
-
-[CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [CGuid](#cguid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [ConvertFromBase64](#convertfrombase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertFromUTF8Hex](#convertfromutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [CNum](#cnum) &nbsp;&nbsp;&nbsp;&nbsp; [CRef](#cref) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [StringFromGuid](#StringFromGuid) &nbsp;&nbsp;&nbsp;&nbsp; [StringFromSid](#stringfromsid)
-
-**Дата/время:**
-
-[DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate)
-
-**Каталог**
-
-[DNComponent](#dncomponent) &nbsp;&nbsp;&nbsp;&nbsp; [DNComponentRev](#dncomponentrev) &nbsp;&nbsp;&nbsp;&nbsp; [EscapeDNComponent](#escapedncomponent)
-
-**Оценка:**
-
-[IsBitSet](#isbitset) &nbsp;&nbsp;&nbsp;&nbsp; [IsDate](#isdate) &nbsp;&nbsp;&nbsp;&nbsp; [IsEmpty](#isempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsGuid](#isguid) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsNumeric](#isnumeric) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring)
-
-**Математические функции:**
-
-[BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [BitOr](#bitor) &nbsp;&nbsp;&nbsp;&nbsp; [RandomNum](#randomnum)
-
-**Функции с несколькими значениями:**
-
-[Contains](#contains) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [ItemOrNull](#itemornull) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)
-
-**Функции программного потока:**
-
-[Error](#error) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
-
-
-**текст**
-
-[GUID](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [InStrRev](#instrrev) &nbsp;&nbsp;&nbsp;&nbsp; [LCase](#lcase) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Len](#len) &nbsp;&nbsp;&nbsp;&nbsp; [LTrim](#ltrim) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [PadLeft](#padleft) &nbsp;&nbsp;&nbsp;&nbsp; [PadRight](#padright) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [ReplaceChars](#replacechars) &nbsp;&nbsp;&nbsp;&nbsp; [Right](#right) &nbsp;&nbsp;&nbsp;&nbsp; [RTrim](rtrim) &nbsp;&nbsp;&nbsp;&nbsp; [Trim](#trim) &nbsp;&nbsp;&nbsp;&nbsp; [UCase](#ucase) &nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+Список функций | | | | |  
+--------- | --------- | --------- | --------- | --------- | ---------
+**Преобразование** |  
+[CBool](#cbool) | [CDate](#cdate) | [CGuid](#cguid) | [ConvertFromBase64](#convertfrombase64)
+[ConvertToBase64](#converttobase64) | [ConvertFromUTF8Hex](#convertfromutf8hex) | [ConvertToUTF8Hex](#converttoutf8hex) | [CNum](#cnum)
+[CRef](#cref) | [CStr](#cstr) | [StringFromGuid](#StringFromGuid) | [StringFromSid](#stringfromsid)
+**Date / Time** |  
+[DateAdd](#dateadd) | [DateFromNum](#datefromnum) | [FormatDateTime](#formatdatetime) | [Now](#now)
+[NumFromDate](#numfromdate) |  
+**Каталог** |  
+[DNComponent](#dncomponent) | [DNComponentRev](#dncomponentrev) | [EscapeDNComponent](#escapedncomponent)
+**Оценка** |  
+[IsBitSet](#isbitset) | [IsDate](#isdate) | [IsEmpty](#isempty) | [IsGuid](#isguid)
+[IsNull](#isnull) | [IsNullOrEmpty](#isnullorempty) | [IsNumeric](#isnumeric) | [IsPresent](#ispresent) |
+[IsString](#isstring) |  
+**Math** |  
+[BitAnd](#bitand) | [BitOr](#bitor) | [RandomNum](#randomnum)
+**Функции с несколькими значениями:** |  
+[Содержит](#contains) | [Count](#count) | [Элемент](#item) | [ItemOrNull](#itemornull)
+[Join](#join) | [RemoveDuplicates](#removeduplicates) | [разделение;](#split) |
+**Program Flow** |  
+[Ошибка](#error) | [IIF](#iif) | [Switch](#switch)
+**текст** |  
+[GUID](#guid) | [InStr](#instr) | [InStrRev](#instrrev) | [LCase](#lcase)
+[Left](#left) | [Len](#len) | [LTrim](#ltrim) | [Mid](#mid)
+[PadLeft](#padleft) | [PadRight](#padright) | [PCase](#pcase) | [Замените](#replace)
+[ReplaceChars](#replacechars) | [Right](#right) | [RTrim](#rtrim) | [Trim](#trim)
+[UCase](#ucase) | [Word](#word)
 
 ----------
 ### BitAnd
@@ -88,12 +81,12 @@
 
 **Примечания.** Эта функция преобразует оба параметра в двоичное представление и устанавливает для бита следующие значения:
 
-- 0 — если один или оба соответствующих бита в *маске* и *флаге* равны 0;
-- 1 — если оба соответствующих бита равны 1.
+- 0 — если один или оба соответствующих бита в *маске* и *флаге* равны 0;
+- 1 — если оба соответствующих бита равны 1.
 
 Другими словами, функция возвращает значение 0 всегда, за исключением случаев, когда соответствующие биты обоих параметров равны 1.
 
-**Пример.** `BitAnd(&HF, &HF7)` Возвращает 7, поскольку шестнадцатеричные "F" и "F7" преобразовываются в это значение.
+**Пример.** `BitAnd(&HF, &HF7)` Возвращает 7, так как шестнадцатеричные "F" и "F7" преобразовываются в это значение.
 
 ----------
 ### BitOr
@@ -262,7 +255,7 @@
 - value: количество единиц измерения, которое нужно добавить. Это значение может быть положительным (для получения дат в будущем) или отрицательным (для получения дат в прошлом).
 - date: значение DateTime, представляющее собой дату, к которой добавлен интервал.
 
-**Пример.** `DateAdd("m", 3, CDate("2001-01-01"))` Добавляет 3 месяца и возвращает значение DateTime "2001-04-01".
+**Пример.** `DateAdd("m", 3, CDate("2001-01-01"))` Добавляет три месяца и возвращает значение DateTime "2001-04-01".
 
 ----------
 ### DateFromNum
@@ -290,11 +283,11 @@
 
 **Описание.** Функция DNComponentRev возвращает значение указанного компонента различающегося имени начиная с правого края (с конца).
 
-**Синтаксис:** `str DNComponentRev(ref dn, num ComponentNumber)` `str DNComponentRev(ref dn, num ComponentNumber, enum Options)`
+**Синтаксис** `str DNComponentRev(ref dn, num ComponentNumber)` `str DNComponentRev(ref dn, num ComponentNumber, enum Options)`
 
 - dn: ссылочный атрибут для интерпретации.
 - ComponentNumber: компонент в различающемся имени для возврата.
-- Options: DC — игнорировать все компоненты с "dc=".
+- Options: DC — игнорировать все компоненты с "dc=".
 
 **Пример.** Если различающееся имя —"cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com", `DNComponentRev([dn],3)` `DNComponentRev([dn],1,"DC")` оба вернут "США".
 
@@ -330,9 +323,9 @@
 
 **Пример**
 
-`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")` Результат: "2007-12-25".
+`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")` выдает результат "2007-12-25".
 
-`FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")` Может вернуть результат "20140905081453.0Z".
+`FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")` может вернуть результат "20140905081453.0Z".
 
 ----------
 ### GUID
@@ -397,9 +390,9 @@
 
 **Синтаксис** `bool IsBitSet(num value, num flag)`
 
-- value: числовое значение, которое представляет собой evaluated.flag, т. е. числовое значение, которое имеет бит для вычисления.
+- value: числовое значение, которое представляет собой evaluated.flag, т. е. числовое значение, которое имеет бит для вычисления.
 
-**Пример.** `IsBitSet(&HF,4)` Возвращает значение True, поскольку для бита "4" задано шестнадцатеричное значение "F".
+**Пример.** `IsBitSet(&HF,4)` Возвращает значение True, так как для бита "4" задано шестнадцатеричное значение "F".
 
 ----------
 ### IsDate
@@ -448,7 +441,7 @@
 
 **Синтаксис** `bool IsNullOrEmpty(var Expression)`
 
-**Примечания.** Для атрибута это значение было бы True, если бы атрибут отсутствовал или присутствовал, но являлся пустой строкой.<br> Обратной функцией этой функции является IsPresent.
+**Примечания.** Для атрибута это значение было бы True, если бы атрибут отсутствовал или присутствовал, но являлся пустой строкой. <br> Обратной функцией этой функции является IsPresent.
 
 **Пример.** `IsNullOrEmpty([displayName])` Возвращает значение True, если атрибут не присутствует или является пустой строкой в CS или MV.
 
@@ -491,7 +484,7 @@
 - attribute: атрибут с несколькими значениями
 - index: индекс элемента в строке с несколькими значениями.
 
-**Примечания.** Функция Item используется вместе с функцией Contains, поскольку последняя функция возвращает индекс элементу в атрибуте с несколькими значениями.
+**Примечания.** Функция Item используется вместе с функцией Contains, так как последняя функция возвращает индекс элементу в атрибуте с несколькими значениями.
 
 Вызывает ошибку, если индекс выходит за допустимые пределы.
 
@@ -507,7 +500,7 @@
 - attribute: атрибут с несколькими значениями
 - index: индекс элемента в строке с несколькими значениями.
 
-**Примечания.** Функция ItemOrNull используется вместе с функцией Contains, поскольку последняя функция возвращает индекс элементу в атрибуте с несколькими значениями.
+**Примечания.** Функция ItemOrNull используется вместе с функцией Contains, так как последняя функция возвращает индекс элементу в атрибуте с несколькими значениями.
 
 Возвращает значение Null, если индекс выходит за допустимые пределы.
 
@@ -532,7 +525,7 @@
 
 **Синтаксис** `str LCase(str value)`
 
-**Пример.** `LCase("TeSt")` Возвращает значение "test".
+**Пример.** `LCase("TeSt")` Возвращает значение "Test".
 
 ----------
 ### Left
@@ -616,7 +609,7 @@
 ----------
 ### PadLeft
 
-**Описание.** Функция PadLeft функции заполняет строку слева до заданной длины с помощью предоставленного знака заполнения.
+**Описание.** Функция PadLeft заполняет строку слева до заданной длины с помощью предоставленного знака заполнения.
 
 **Синтаксис** `str PadLeft(str string, num length, str padCharacter)`
 
@@ -700,9 +693,9 @@
 
 **Примечания.** Функция распознает следующие специальные моникеры:
 
-- \\n — новая строка;
-- \\r — возврат каретки;
-- \\t – символ табуляции.
+- \\n — новая строка;
+- \\r — возврат каретки;
+- \\t – символ табуляции.
 
 **Пример.** `Replace([address],"\r\n",", ")` Заменяет CRLF запятой и пробелом, может привести к значению "One Microsoft Way, Redmond, WA, USA".
 
@@ -716,7 +709,7 @@
 - string: строка, в которой заменяются значения.
 - ReplacePattern: строка, содержащая словарь с символами для замены.
 
-Формат строки: {source1}: {target1}, {source2}: {target2}, {sourceN}, {targetN}, где source — это символ для поиска, а target — строка для замены.
+Формат строки: {source1}: {target1}, {source2}: {target2}, {sourceN}, {targetN}, где source — это символ для поиска, а target — строка для замены.
 
 **Примечания:**
 
@@ -764,7 +757,7 @@
 
 **Синтаксис** `str RTrim(str value)`
 
-**Пример.** `RTrim(" Test ")` Возвращает значение " Test".
+**Пример.** `RTrim(" Test ")` Возвращает значение "Test".
 
 ----------
 ### Разбить
@@ -805,7 +798,7 @@
 
 **Примечания.** Список аргументов функции Switch состоит из пар выражений и значений. Выражения вычисляются слева направо, и возвращается значение, связанное с первым выражением, которое получает значение True. Если части неправильно распределены по парам, возникает ошибка среды выполнения.
 
-Например, если expr1 имеет значение True, функция Switch возвращает value1. Если expr-1 имеет значение False, а expr-2 — True функция Switch возвращает значение value-2 и т. д.
+Например, если expr1 имеет значение True, функция Switch возвращает value1. Если expr-1 имеет значение False, а expr-2 — True функция Switch возвращает значение value-2 и т. д.
 
 Функция Switch возвращает Nothing при таких условиях:
 
@@ -863,7 +856,7 @@
 ## Дополнительные ресурсы
 
 * [Знакомство с выражениями декларативной подготовки.](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
-* [Azure AD Connect Sync: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
+* [Azure AD Connect Sync: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->
