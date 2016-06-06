@@ -163,6 +163,27 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
+## Переменные среды
+
+Чтобы получить значение переменной среды или значение параметра приложения, используйте свойство `process.env`, как показано в следующем примере кода:
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
+    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    
+    context.done();
+};
+
+function GetEnvironmentVariable(name)
+{
+    return name + ": " + process.env[name];
+}
+```
+
 ## Поддержка TypeScript и CoffeeScript
 
 Сейчас прямой поддержки автоматической компиляции TypeScript и CoffeeScript в среде выполнения нет, поэтому соответствующую обработку необходимо осуществлять вне среды выполнения во время развертывания.
@@ -175,4 +196,4 @@ module.exports = function(context) {
 * [Справочник разработчика C# по функциям Azure](functions-reference-csharp.md)
 * [Триггеры и привязки в функциях Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

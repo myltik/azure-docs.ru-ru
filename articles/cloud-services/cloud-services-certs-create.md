@@ -57,10 +57,15 @@
 
 ### Makecert.exe
 
-Эта программа устанавливается с Visual Studio 2013/2015. Это служебная программа консоли, которая позволяет создавать и устанавливать сертификаты. При запуске ярлыка **Командной строки разработчика для VS2015**, который создается при установке Visual Studio, появится командная строка, содержащая это средство в пути.
+Эта программа устарела и в данном документе не описывается. Дополнительные сведения см. в [этой статье MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
-    makecert -sky exchange -r -n "CN=[CertificateName]" -pe -a sha1 -len 2048 -ss My -sv [CertificateName].pvk [CertificateName].cer
+### PowerShell
 
+```
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
+$password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
 
 ### Internet Information Services (IIS)
 
@@ -80,4 +85,4 @@
 
 >[AZURE.NOTE] Портал Azure не использует сертификаты управления для доступа к API, обращаясь вместо этого к учетным записям пользователей.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

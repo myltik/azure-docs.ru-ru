@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 #Выполнение примеров Hadoop MapReduce в HDInsight на базе Windows
@@ -51,7 +51,7 @@
 
 ## <a name="hdinsight-sample-wordcount"></a>Статистика — Java 
 
-Чтобы отправить проект MapReduce, сначала нужно создать определение задания MapReduce. В определении задания укажите JAR-файл программы MapReduce и расположение JAR-файла, представляющее собой **wasb:///example/jars/hadoop-mapreduce-examples.jar**, имя класса и аргументы. Программа подсчета слов MapReduce принимает два аргумента: исходный файл, который будет использоваться для подсчета слов, и расположение для выходных данных.
+Чтобы отправить проект MapReduce, сначала нужно создать определение задания MapReduce. В определении задания укажите JAR-файл программы MapReduce и расположение JAR-файла, представляющее собой ****wasb:///example/jars/hadoop-mapreduce-examples.jar**, имя класса и аргументы. Программа подсчета слов MapReduce принимает два аргумента: исходный файл, который будет использоваться для подсчета слов, и расположение для выходных данных.
 
 Исходный код можно найти в [Приложении А](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -91,7 +91,7 @@
 		# Get the job output
 		$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
 		$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-		$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
+		$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
 		$defaultStorageContainer = $cluster.DefaultStorageContainer
 		
 		Get-AzureRmHDInsightJobOutput `
@@ -1000,4 +1000,4 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

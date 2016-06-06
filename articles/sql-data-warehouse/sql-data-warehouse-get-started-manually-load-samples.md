@@ -87,9 +87,9 @@ ORDER BY OrderDateKey;
 [переносу кода]: ./sql-data-warehouse-migrate-code.md
 [create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
 [установки bcp]: ./sql-data-warehouse-load-with-bcp.md
-[sqlcmd]: ./sql-data-warehouse-get-started-connect-query-sqlcmd.md
+[sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [примеры сценариев Adventure Works для хранилища данных SQL]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

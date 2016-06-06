@@ -404,7 +404,7 @@ DSVM уже поставляется с набором клиентских ср
 ![](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 
-В Visual Studio можно читать данные из хранилища BLOB-объектов, выполнять обработку данных, проектировать характеристики и выводить полученные данные в озеро данных Azure или хранилище BLOB-объектов Azure. Для ссылки на данные в хранилище BLOB-объектов используйте **wasb://**, для ссылки на данные в озере данных Azure используйте **swbhdfs://**.
+В Visual Studio можно читать данные из хранилища BLOB-объектов, выполнять обработку данных, проектировать характеристики и выводить полученные данные в озеро данных Azure или хранилище BLOB-объектов Azure. Для ссылки на данные в хранилище BLOB-объектов используйте ****wasb://**, для ссылки на данные в озере данных Azure используйте ****swbhdfs://**.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
@@ -845,7 +845,7 @@ Azure DocumentDB — это база данных NoSQL в облаке. Она
 1. Установите пакет SDK для DocumentDB Python (запустить ```pip install pydocumentdb``` из командной строки).
 1. Создайте учетную запись DocumentDB и базу данных DocumentDB на [портале Azure](https://portal.azure.com).
 1. Скачайте средство миграции DocumentDB [здесь](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) и извлеките нужный каталог.
-1. Импортируйте данные JSON (данные о вулканах), хранящиеся в [общедоступном BLOB-объекте](https://cahandson.blob.core.windows.net/samples/volcano.json), в DocumentDB с помощью следующих параметров команды в средство миграции (dtui.exe из каталога, где установлено средство миграции DocumentDB). Ввести указанные ниже параметры исходного и целевого расположений.
+1. Импортируйте данные JSON (данные о вулканах), хранящиеся в [общедоступном BLOB-объекте](https://cahandson.blob.core.windows.net/samples/volcano.json), в DocumentDB с помощью следующих параметров команды средства миграции (файл dtui.exe из каталога с установленным средством миграции DocumentDB). Ввести указанные ниже параметры исходного и целевого расположений.
 
 	/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
@@ -910,4 +910,4 @@ Azure DocumentDB — это база данных NoSQL в облаке. Она
 ## Сводка
 Это только часть задач, которые можно выполнить на виртуальной машине Майкрософт для обработки и анализа данных. На самом деле существует множество вещей, позволяющих сделать ее эффективной аналитической средой.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

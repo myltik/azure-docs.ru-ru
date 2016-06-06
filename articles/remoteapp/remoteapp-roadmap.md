@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="04/05/2016"
+    ms.date="05/20/2016"
     ms.author="elizapo" />
 
 # Новые возможности Azure RemoteApp
@@ -21,11 +21,9 @@
 
 |Функция|Апрель–июнь 2016 г.|Июль–сентябрь 2016 г.|
 |-----------|-------|-------|
-|Служба Azure RemoteApp доступна как на [классическом портале Azure](http://manage.windowsazure.com), так и на [портале Azure](https://portal.azure.com). |X | |
-|Универсальное приложение Windows 10 с распространяемой средой для Azure RemoteApp — предварительная версия|X| |
-|Возможность публикации отдельных приложений для определенных пользователей — **частная предварительная версия** ([отзывы](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
-|Распространяемый пакет MSI для клиента Windows ([отзывы](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/))| X| |
-|Клиент на основе HTML5 для Azure RemoteApp| |X|
+|Служба Azure RemoteApp доступна как на [классическом портале Azure](http://manage.windowsazure.com), так и на [портале Azure](https://portal.azure.com) — частная предварительная версия|X | |
+|Возможность публикации отдельных приложений для определенных пользователей — частная предварительная версия ([отзывы](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
+|Распространяемый пакет MSI для клиента Windows ([отзывы](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/)) — частная предварительная версия| X| |
 |Поддержка диспетчера ресурсов Azure (ARM)||X|
 |Поддержка ресурсов Azure версии 2| |X|
 |Поставщик облачных решений (CSP)||X|
@@ -35,6 +33,8 @@
 
 Другие улучшения, добавленные ранее в этом году
 
+- Клиент на основе HTML5 для Azure RemoteApp
+- Универсальное приложение Windows 10 с распространяемой средой для Azure RemoteApp — предварительная версия
 - Развертывание в виртуальной сети без присоединения к домену (подключение облачной коллекции к виртуальным машинам Azure)
 - Повторное использование существующей виртуальной сети для гибридной коллекции RemoteApp (также позволяет использовать ExpressRoute)
 - ExpressRoute
@@ -47,4 +47,4 @@
 - Доступность в австралийских центрах обработки данных
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0525_2016-->

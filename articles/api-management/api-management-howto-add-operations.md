@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="douge" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/19/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Добавление операций в API в Azure API Management
@@ -168,4 +168,4 @@
 [Как создать и опубликовать продукт]: api-management-howto-add-products.md
 [Кэширование результатов операции в Azure API Management]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

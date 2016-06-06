@@ -29,8 +29,8 @@
 
 Для приведенных ниже примеров команд PowerShell требуется уже созданная простая среда, основанная на приведенном выше сценарии. Чтобы выполнять команды в том виде, в котором они представлены в этом документе, сначала создайте тестовую среду, развернув [этот шаблон](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), нажмите **Deploy to Azure** (Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
 
-## Как создавать сетевую группу безопасности для подсети переднего плана
-Чтобы создать сетевую группу безопасности под названием *NSG-FrontEnd* по описанному выше сценарию, выполните указанные ниже действия.
+## Как создать группу безопасности сети для подсети переднего плана
+Чтобы создать группу безопасности сети *NSG-FrontEnd* по описанному выше сценарию, выполните указанные ниже действия:
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -135,10 +135,10 @@
 		  "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
 		}
 
-## Как создавать сетевую группу безопасности для внутренней подсети
-Чтобы создать сетевую группу безопасности под названием *NSG-BackEnd* по описанному выше сценарию, выполните следующие действия.
+## Как создать группу безопасности сети для внутренней подсети
+Чтобы создать сетевую группу безопасности под названием *NSG-BackEnd* по описанному выше сценарию, выполните следующие действия:
 
-1. Создайте правило безопасности, которое разрешает доступ из подсети переднего плана к порту 1433 (порту, используемому по умолчанию в SQL Server).
+1. Создайте правило безопасности, которое разрешает доступ из подсети переднего плана к порту 1433 (используемому по умолчанию в SQL Server).
 
 		$rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
@@ -154,7 +154,7 @@
 
 5. Добавьте созданные выше правила в новую группу безопасности сети под названием **NSG-BackEnd**.
 
-		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
+		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. Свяжите созданную выше группу безопасности сети с подсетью *BackEnd*.
@@ -182,4 +182,4 @@
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

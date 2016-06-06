@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="05/23/2016"
 	ms.author="emgerner"/>
 
 # Использование хранилища файлов Azure из Python
@@ -55,7 +55,7 @@
 	from azure.storage.file import ContentSettings
 	file_service.create_file_from_path(
         'myshare',
-				None, # We want to create this blob in the root directory, so we specify None for the directory_name
+        None, # We want to create this blob in the root directory, so we specify None for the directory_name
         'myfile',
         'sunset.png',
         content_settings=ContentSettings(content_type='image/png'))
@@ -95,9 +95,9 @@
 - [Центр по разработке для Python](/develop/python/)
 - [API-интерфейс REST служб хранилища Azure](http://msdn.microsoft.com/library/azure/dd179355)
 - [Блог рабочей группы службы хранилища Azure]
-- [пакет SDK для службы хранилища Microsoft Azure для Python]
+- [Пакет SDK для службы хранилища Microsoft Azure для Python]
 
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

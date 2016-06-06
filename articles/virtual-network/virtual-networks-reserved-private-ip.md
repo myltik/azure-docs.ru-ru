@@ -92,11 +92,11 @@
 
 ## Дальнейшие действия
 
-[Зарезервированный IP-адрес](virtual-networks-reserved-public-ip)
+[Зарезервированный IP-адрес](virtual-networks-reserved-public-ip.md)
 
-[Общедоступный IP-адрес уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip)
+[Общедоступный IP-адрес уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
 [API REST зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

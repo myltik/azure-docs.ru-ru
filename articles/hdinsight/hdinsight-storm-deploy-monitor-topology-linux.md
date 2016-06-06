@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="05/20/2016"
    ms.author="larryfr"/>
 
 # Развертывание топологий Apache Storm в HDInsight под управлением Linux и управление ими
@@ -46,7 +46,7 @@
 
 2. Запустите пример топологии, используя следующую команду:
 
-        storm jar storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology WordCount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology WordCount
 
     Эта команда запустит пример топологии WordCount в кластере. Он будет случайным образом формировать предложения и подсчитывать количество появлений каждого слова в предложениях.
 
@@ -145,7 +145,7 @@
 
 ### Базовый универсальный код ресурса
 
-Базовый универсальный код ресурса для интерфейса REST API в кластерах HDInsight под управлением Linux можно найти на головном узле по адресу **https://HEADNODEFQDN:8744/api/v1/**. Тем не менее доменное имя головного узла создается одновременно с кластером и не является статическим.
+Базовый универсальный код ресурса для интерфейса REST API в кластерах HDInsight под управлением Linux можно найти на головном узле по адресу ****https://HEADNODEFQDN:8744/api/v1/**. Тем не менее доменное имя головного узла создается одновременно с кластером и не является статическим.
 
 Полное доменное имя (FQDN) головного узла кластера можно получить несколькими способами.
 
@@ -170,4 +170,4 @@
 
 Другие примеры топологий Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -24,7 +24,7 @@
 - [PowerShell](sql-database-export-powershell.md)
 
 
-Эта статья содержит инструкции по архивации базы данных SQL Azure в BACPAC-файл, сохраняемый в хранилище BLOB-объектов Azure, с помощью PowerShell.
+В статье содержатся инструкции по архивации базы данных SQL Azure в BACPAC-файл, хранимый в хранилище BLOB-объектов Azure, с помощью PowerShell.
 
 Когда вам нужно создать архив базы данных SQL Azure, можно экспортировать схему базы данных и данные в BACPAC-файл. BACPAC-файл — это просто ZIP-файл с расширением BACPAC. BACPAC-файл можно сохранить в хранилище BLOB-объектов Azure или локальном хранилище, а затем импортировать обратно в базу данных SQL Azure или локальный экземпляр SQL Server.
 
@@ -151,4 +151,4 @@
 - [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
 - [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

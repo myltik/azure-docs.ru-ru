@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
+   ms.date="05/18/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Защита базы данных в хранилище данных SQL
@@ -33,9 +33,9 @@
 
 В процессе аутентификации предлагается подтвердить личность пользователя при подключении к базе данных. Сейчас хранилище данных SQL поддерживает проверку подлинности SQL с использованием имени пользователя и пароля, а также предварительную версию Azure Active Directory.
 
-При создании логического сервера для базы данных вы указали имя для входа "Администратор сервера" и пароль. Используя эти учетные данные, можно выполнить проверку подлинности для любой базы данных на этом сервере в качестве владельца базы данных (или "dbo").
+При создании логического сервера для базы данных вы указали имя для входа "Администратор сервера" и пароль. Используя эти учетные данные, можно выполнить проверку подлинности SQL Server для любой базы данных на этом сервере в качестве владельца базы данных (или dbo).
 
-Но рекомендуется, чтобы пользователи вашей организации использовали для аутентификации другую учетную запись. Это позволит ограничить разрешения, предоставляемые приложению, и снизить риски вредоносных действий в случае, если приложение уязвимо для атак путем внедрения кода SQL.
+Но рекомендуется, чтобы пользователи вашей организации использовали для проверки подлинности другую учетную запись. Это позволит ограничить разрешения, предоставляемые приложению, и снизить риски вредоносных действий в случае, если приложение уязвимо для атак путем внедрения кода SQL.
 
 Чтобы создать пользователя, прошедшего проверку SQL Server, подключитесь к базе данных **master** на сервере с именем администратора сервера и создайте новое имя входа на сервер.
 
@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Дополнительные сведения о проверке подлинности для работы с Базой данных SQL см. в статьях [Управление базами данных и именами входа в Базе данных SQL Azure][] и [Подключение к хранилищу данных SQL с использованием проверки подлинности Azure Active Directory][].
+Дополнительные сведения о проверке подлинности в Базе данных SQL см. в статье [Управление базами данных и именами пользователей в базе данных SQL Azure][]. Дополнительные сведения об использовании предварительной версии Azure AD для хранилища данных SQL см. в статье [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] (Подключение к хранилищу данных SQL с использованием проверки подлинности Azure Active Directory).
 
 
 ## Авторизация
@@ -101,12 +101,12 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 [Подключение к хранилищу данных SQL]: ./sql-data-warehouse-develop-connections.md
 [Приступая к работе с аудитом Базы данных SQL]: ./sql-data-warehouse-overview-auditing.md
 [Начало работы с прозрачным шифрованием данных (TDE)]: ./sql-data-warehouse-encryption-tde.md
-[Подключение к хранилищу данных SQL с использованием проверки подлинности Azure Active Directory]: ./sql-data-warehouse-aad-authentication.md
+[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-aad-authentication.md
 
 <!--MSDN references-->
 [Брандмауэр Базы данных SQL Azure]: https://msdn.microsoft.com/library/ee621782.aspx
 [роли базы данных]: https://msdn.microsoft.com/library/ms189121.aspx
-[Управление базами данных и именами входа в Базе данных SQL Azure]: https://msdn.microsoft.com/library/ee336235.aspx
+[Управление базами данных и именами пользователей в базе данных SQL Azure]: https://msdn.microsoft.com/library/ee336235.aspx
 [разрешений]: https://msdn.microsoft.com/library/ms191291.aspx
 [хранимые процедуры]: https://msdn.microsoft.com/library/ms190782.aspx
 [прозрачное шифрование данных]: https://go.microsoft.com/fwlink/?LinkId=526242
@@ -115,4 +115,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Контроль доступа на основе ролей на портале Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

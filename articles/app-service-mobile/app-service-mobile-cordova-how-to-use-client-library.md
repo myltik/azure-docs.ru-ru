@@ -3,8 +3,8 @@
 	description="Использование подключаемого модуля Apache Cordova для мобильных приложений Azure"
 	services="app-service\mobile"
 	documentationCenter="javascript"
-	authors="adrianhall"
-	manager="dwrede"
+	authors="ggailey777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/07/2016"
-	ms.author="adrianha"/>
+	ms.date="05/23/2016"
+	ms.author="ggailey"/>
 
 # Использование клиентской библиотеки Apache Cordova для мобильных приложений Azure
 
@@ -127,7 +127,7 @@ pushHandler.on('error', function (error) {
 [портал Azure]: https://portal.azure.com
 [Быстрый запуск мобильного приложения Azure]: app-service-mobile-cordova-get-started.md
 [Приступая к работе с проверкой подлинности]: app-service-mobile-cordova-get-started-users.md
-[Добавление проверки подлинности в приложение]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [подключаемого модуля Apache Cordova для мобильных приложений Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [первого приложения Apache Cordova]: http://cordova.apache.org/#getstarted
@@ -135,6 +135,6 @@ pushHandler.on('error', function (error) {
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[документации по объектам запросов]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

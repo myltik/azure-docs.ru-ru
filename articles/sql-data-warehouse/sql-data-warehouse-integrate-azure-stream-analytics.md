@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
-   ms.author="shivaniguptamsft;barbkess;sonyama"/>
+   ms.date="05/18/2016"
+   ms.author="shigu;barbkess;sonyama"/>
 
 # Работа со службой Azure Stream Analytics и хранилищем данных SQL
 
@@ -96,4 +96,4 @@ Azure Stream Analytics является полностью управляемо�
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

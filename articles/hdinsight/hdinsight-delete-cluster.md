@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/07/2016"
+ms.date="05/20/2016"
 ms.author="larryfr"/>
 
 #Как удалить кластер HDInsight
@@ -34,8 +34,6 @@ ms.author="larryfr"/>
 
 ##Azure PowerShell
 
-[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
 Введите следующую команду в командной строке PowerShell, чтобы удалить кластер.
 
     Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
@@ -44,12 +42,10 @@ ms.author="larryfr"/>
 
 ##Инфраструктура CLI Azure
 
-[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
-
 Введите следующую команду в командной строке, чтобы удалить кластер.
 
     azure hdinsight cluster delete CLUSTERNAME
     
 Замените __CLUSTERNAME__ именем кластера HDInsight.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/24/2016"
 	ms.author="ricksal"/>
 
 
@@ -57,9 +57,9 @@
 
 2. Добавьте следующий код в файл **build.gradle** уровня *Module app* внутри тега *dependencies*:
 
-		compile 'com.microsoft.azure:azure-mobile-android:3.1'
+		compile 'com.microsoft.azure:azure-mobile-android:3.1.0'
 
-	Сейчас последней версией является версия 3.1. Поддерживаемые версии перечислены [здесь](http://go.microsoft.com/fwlink/p/?LinkID=717034).
+	Сейчас последней версией является версия 3.1.0. Поддерживаемые версии перечислены [здесь](http://go.microsoft.com/fwlink/p/?LinkID=717034).
 
 ###<a name="enable-internet"></a>Включение разрешения INTERNET
 Для доступа к Azure вам нужно включить для приложения разрешение INTERNET. Если оно не включено, добавьте следующую строку кода в файл **AndroidManifest.xml**:
@@ -95,24 +95,24 @@
 
 Например, если она содержит столбец Integer priority, вы можете добавить это поле вместе с методами задания и считывания:
 
-		private Integer priority;
+	private Integer priority;
 
-	    /**
-	     * Returns the item priority
-	     */
-	    public Integer getPriority() {
-	        return mPriority;
-	    }
-
-	    /**
-	     * Sets the item priority
-	     *
-	     * @param priority
-	     *            priority to set
-	     */
-	    public final void setPriority(Integer priority) {
-	        mPriority = priority;
-	    }
+	/**
+	* Returns the item priority
+	*/
+	public Integer getPriority() {
+	return mPriority;
+	}
+	
+	/**
+	* Sets the item priority
+	*
+	* @param priority
+	*            priority to set
+	*/
+	public final void setPriority(Integer priority) {
+	mPriority = priority;
+	}
 
 Сведения о создании дополнительных таблиц в серверной части мобильных приложений см. в разделах [Практическое руководство. Определение контроллера таблиц](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (серверная часть .NET) или [Определение таблицы с помощью динамической схемы](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (серверная часть Node.js). Для серверной части Node.js можно использовать параметр **Простые таблицы** на [портале Azure].
 
@@ -121,8 +121,8 @@
 Следующий код создает объект **MobileServiceClient**, используемый для доступа к серверной части мобильного приложения. Этот код размещается в методе `onCreate` класса **Activity**, указанного в файле *AndroidManifest.xml* в качестве действия **MAIN** и категории **LAUNCHER**. В коде быстрого запуска он используется в файле **ToDoActivity.java**.
 
 		MobileServiceClient mClient = new MobileServiceClient(
-				"MobileAppUrl", // Replace with the above Site URL
-				this)
+			"MobileAppUrl", // Replace with the above Site URL
+			this)
 
 В приведенном выше коде замените `MobileAppUrl` URL-адресом серверной части мобильных приложений. Этот адрес можно найти в колонке серверной части мобильных приложений на [портале Azure](https://portal.azure.com/). Для компиляции кода в этой строке также нужно добавить следующую инструкцию **import**:
 
@@ -132,23 +132,23 @@
 
 Самый простой способ запросить или изменить данные в серверной части — воспользоваться *типизированной моделью программирования*, так как Java является строго типизированным языком (ниже будет рассмотрена *нетипизированная* модель). Эта модель обеспечивает простую сериализацию и десериализацию в формате JSON с помощью библиотеки [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) при передаче данных между объектами клиента и таблицами Azure SQL серверной части. В итоге разработчику не нужно ничего делать, платформа сама занимается обработкой.
 
-Для доступа к таблице сначала создайте объект [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835), вызвав метод **getTable** объекта [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html). У этого метода две перегрузки.
+Для доступа к таблице сначала создайте объект [MobileServiceTable](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html), вызвав метод **getTable** объекта [MobileServiceClient](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html). У этого метода две перегрузки.
 
 	public class MobileServiceClient {
 	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
 	    public <E> MobileServiceTable<E> getTable(String name, Class<E> clazz);
 	}
 
-В следующем коде *mClient* — это ссылка на объект MobileServiceClient.
+В следующем коде *mClient* — это ссылка на объект MobileServiceClient.
 
-[Первая перегрузка](http://go.microsoft.com/fwlink/p/?LinkId=296839) используется при быстром запуске, когда имя класса и имя таблицы одинаковы:
+[Первая перегрузка](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-) используется при быстром запуске, когда имя класса и имя таблицы одинаковы:
 
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
+	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
 
-[Вторая перегрузка](http://go.microsoft.com/fwlink/p/?LinkId=296840) используется, когда имя таблицы отличается от имени типа (первый параметр — это имя таблицы):
+[Вторая перегрузка](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-java.lang.Class-) используется, когда имя таблицы отличается от имени типа (первый параметр — это имя таблицы).
 
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
+	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 ###<a name="binding"></a>Привязка данных к пользовательскому интерфейсу
 
@@ -174,7 +174,6 @@
         android:layout_height="wrap_content"
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
-
 
 В приведенном выше коде атрибут *listitem* указывает идентификатор макета для отдельной строки в списке. Вот код, который определяет флажок и связанный с ним текст. Экземпляр создается один раз для каждого элемента в списке. В этом макете поле **id** не отображается. В более сложном макете указываются дополнительные поля на экране. Этот код находится в файле **row\_list\_to\_do.xml**.
 
@@ -259,9 +258,6 @@
 
 Теперь вы можете использовать привязку данных. В следующем коде показано, как получить элементы в таблице мобильной службы, очистить адаптер, а затем вызвать метод *add* для заполнения полученными элементами.
 
-
-**Подлежит уточнению**: проверить код!
-
     public void showAll(View view) {
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
             @Override
@@ -345,7 +341,7 @@
 				(startsWith("text", "PRI0").or().field("duration").gt(10))
 				.execute().get();
 
-Более подробное описание и примеры фильтрации см. в статье [Исследование возможностей модели запросов клиента мобильных служб Android](http://hashtagfail.com/post/46493261719/mobile-services-android-querying).
+Более подробное описание и примеры фильтрации см. в статье [Exploring the richness of the Mobile Services Android client query model](http://hashtagfail.com/post/46493261719/mobile-services-android-querying) (Исследование возможностей модели запросов клиента мобильных служб Android).
 
 ### <a name="sorting"></a>Практическое руководство. Сортировка возвращаемых данных
 
@@ -373,14 +369,14 @@
 
 ### <a name="selecting"></a>Практическое руководство. Выбор определенных столбцов
 
-В следующем фрагменте кода показано, как получить все элементы из таблицы *ToDoItems*, в которой отображаются только поля *complete* и *text*. *mToDoTable* — это ссылка на таблицу серверной части, созданную ранее.
+В следующем фрагменте кода показано, как получить все элементы из таблицы *ToDoItems*, в которой отображаются только поля *complete* и *text*. *mToDoTable* — это ссылка на таблицу серверной части, созданную ранее:
 
 	List<ToDoItemNarrow> result = mToDoTable.select("complete", "text").execute().get();
 
 
 Здесь параметры функции select являются строковыми именами столбцов таблицы, которые требуется вернуть.
 
-Метод **select** должен следовать за такими методами, как **where** и **orderBy**, если они используются. Затем можно вызывать методы разбивки на страницы, такие как **top**.
+Метод **select** должен следовать за такими методами, как **where** и **orderBy**, если они используются. Затем можно вызывать такие методы разбивки на страницы, как **top**.
 
 ### <a name="chaining"></a>Практическое руководство. Объединение методов запросов
 
@@ -616,7 +612,7 @@
 
 * Замените текст **INSERT-AUTHORITY-HERE** именем клиента, в котором подготовлено приложение. Используйте следующий формат: https://login.windows.net/contoso.onmicrosoft.com. Это значение можно скопировать на вкладке "Домен" в Azure Active Directory на [классическом портале Azure].
 
-* Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Это значение можно скопировать на портале в разделе **Настройки Azure Active Directory** на вкладке **Дополнительно**.
+* Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Это значение можно скопировать на портале в разделе **Параметры Azure Active Directory** на вкладке **Дополнительно**.
 
 * Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
 
@@ -682,7 +678,7 @@
 
 ## Практическое руководство. Добавление push-уведомлений в приложение
 
-Подробные сведения см. в [этом обзоре](notification-hubs-overview.md/#integration-with-app-service-mobile-apps), где описывается, как центры уведомлений Microsoft Azure поддерживают разные виды push-уведомлений.
+Подробные сведения см. в [этом обзоре](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps), где описывается, как центры уведомлений Microsoft Azure поддерживают разные виды push-уведомлений.
 
 В [этом руководстве](app-service-mobile-android-get-started-push.md) описывается, как настроить отправку push-уведомлений при каждой вставке записи.
 
@@ -841,4 +837,4 @@
 [Добавление проверки подлинности в приложение Android]: app-service-mobile-android-get-started-users.md
 [Приступая к работе с аутентификацией]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

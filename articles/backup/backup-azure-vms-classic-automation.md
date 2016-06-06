@@ -20,8 +20,8 @@
 # Развертывание резервной копии виртуальной машины Azure с помощью PowerShell и управление ею
 
 > [AZURE.SELECTOR]
-- [Развертывание виртуальной машины ARM с помощью PowerShell](backup-azure-vms-automation.md)
-- [Развертывание классической виртуальной машины с помощью PowerShell](backup-azure-vms-classic-automation.md)
+- [ARM](backup-azure-vms-automation.md)
+- [Классический](backup-azure-vms-classic-automation.md)
 
 В этой статье объясняется, как использовать Azure PowerShell для резервного копирования и восстановления виртуальных машин Azure IaaS.
 
@@ -342,4 +342,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Если вы хотите добавить в выходные данные отчета возможности построения диаграмм, см. сведения в статье [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) (Построение диаграмм с помощью PowerShell) в блоге TechNet.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

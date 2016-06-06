@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="article"
-    ms.date="04/21/2016"
+    ms.date="05/19/2016"
     ms.author="andkjell"/>
 
 # Топологии Azure AD Connect.
@@ -21,16 +21,16 @@
 
 Условные обозначения в статье:
 
-| Описание | Значок |
-|-----|-----|
-| Локальный лес Active Directory | ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)|
-| Active Directory с фильтрацией импорта | ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)|
-| Сервер синхронизации Azure AD Connect | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png)|
-| Промежуточный режим сервера синхронизации Azure AD Connect | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png)|
-| GALSync с FIM2010 или MIM2016 | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png)|
-| Сервер синхронизации Azure AD Connect, подробно |![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png)|
-| Каталог Azure AD |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)|
-| Неподдерживаемый сценарий | ![Не поддерживается](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
+Описание | Значок
+-----|-----
+Локальный лес Active Directory| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)
+Active Directory с фильтрацией импорта| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)
+Сервер синхронизации Azure AD Connect| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png)
+Промежуточный режим сервера синхронизации Azure AD Connect| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png)
+GALSync с FIM2010 или MIM2016| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png)
+Сервер синхронизации Azure AD Connect, подробно| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png)
+Каталог Azure AD |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)
+Неподдерживаемый сценарий | ![Не поддерживается](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
 
 
 ## Один лес, один каталог Azure AD
@@ -116,10 +116,10 @@
 ## Аспекты топологии в Office 365.
 Некоторые рабочие нагрузки Office 365 налагают ряд ограничений на поддерживаемые топологии. Если вы планируете использовать одну из них, изучите сведения о рабочей нагрузке в разделе с описанием поддерживаемых топологий.
 
-| Рабочая нагрузка | |
-| --------- | --------- |
-| Exchange Online |	Если есть несколько локальных организаций Exchange (сервер Exchange развернут для нескольких лесов), необходимо использовать Exchange 2013 с пакетом обновления 1 или более поздней версии. Больше можно узнать в статье [Гибридные развертывания в нескольких лесах Active Directory](https://technet.microsoft.com/ru-RU/library/jj873754.aspx) |
-| Skype для бизнеса | При использовании нескольких локальных лесов единственной поддерживаемой топологией является лес ресурсов учетной записи. Больше о поддерживаемых топологиях можно узнать в статье [Требования к среде Skype для бизнеса Server 2015](https://technet.microsoft.com/ru-RU/library/dn933910.aspx) |
+Рабочая нагрузка |  
+--------- | ---------
+Exchange Online | Если есть несколько локальных организаций Exchange (сервер Exchange развернут для нескольких лесов), необходимо использовать Exchange 2013 с пакетом обновления 1 или более поздней версии. Больше можно узнать в статье [Гибридные развертывания в нескольких лесах Active Directory](https://technet.microsoft.com/library/jj873754.aspx)
+Skype для бизнеса | При использовании нескольких локальных лесов единственной поддерживаемой топологией является лес ресурсов учетной записи. Больше о поддерживаемых топологиях можно узнать в статье [Требования к среде Skype для бизнеса Server 2015](https://technet.microsoft.com/library/dn933910.aspx)
 
 ## Промежуточный сервер.
 ![Промежуточный сервер](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -135,9 +135,9 @@ Azure AD Connect поддерживает установку второго се
 ## Множество каталогов Azure AD.
 Корпорация Майкрософт рекомендует использовать один каталог в Azure AD для всей организации. Если вы намерены создать несколько каталогов Azure AD, сначала прочитайте следующие статьи. В них рассматриваются типичные сценарии, которые позволят использовать один каталог.
 
-| Раздел | |
-| --------- | --------- |
-| Делегирование при помощи административных единиц | [Управление административными единицами в Azure AD](active-directory-administrative-units-management.md)
+Раздел |  
+--------- | ---------
+Делегирование при помощи административных единиц | [Управление административными единицами в Azure AD](active-directory-administrative-units-management.md)
 
 ![Несколько лесов, несколько каталогов](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -187,4 +187,4 @@ Azure AD Connect поддерживает установку второго се
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

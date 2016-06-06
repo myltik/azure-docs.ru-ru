@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Настройка группы доступности для классических виртуальных машин | Microsoft Azure"
-	description="Настройка группы доступности для новой или существующей виртуальной машины в классической модели развертывания с помощью классического портала Azure и Azure PowerShell."
+	description="Настройка группы доступности для новой или существующей виртуальной машины в классической модели развертывания с помощью портала Azure и Azure PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

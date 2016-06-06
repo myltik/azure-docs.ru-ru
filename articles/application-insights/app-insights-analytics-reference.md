@@ -22,28 +22,31 @@
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
-
 | | | | | 
 |---|---|---|---|---
-|[ago](#ago)|[dayofweek](#dayofweek)|[Предложение let](#let-clause)|[rand](#rand)|[sum](#sum)
-|[любой](#any)|[dcount](#dcount)|[Оператор limit](#limit-operator)|[range](#range)|[Оператор summarize](#summarize-operator)
-|[argmax](#argmax)|[Динамические объекты в предложениях let](#dynamic-objects-in-let-clauses)|[log](#log)|[Оператор range](#range-operator)|[Оператор take](#take-operator)
-|[argmin](#argmin)|[exp](#exp)|[makelist](#makelist)|[Оператор reduce](#reduce-operator)|[todatetime](#todatetime)
-|[Арифметические операторы](#arithmetic-operators)|[Оператор extend](#extend-operator)|[makeset](#makeset)|[Директива render](#render-directive)|[todouble](#todouble)
-|[Литералы массива и объекта](#array-and-object-literals)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
-|[arraylength](#arraylength)|[extractjson](#extractjson)|[min](#min)|[Предложение restrict](#restrict-clause)|[toint](#toint)
-|[avg](#avg)|[floor](#floor)|[Оператор mvexpand](#mvexpand-operator)|[Скалярные сравнения](#scalar-comparisons)|[tolong](#tolong)
-|[bin](#bin)|[getmonth](#getmonth)|[notempty](#notempty)|[Оператор sort](#sort-operator)|[tolower](#tolower)
-|[Логические литералы](#boolean-literals)|[gettype](#gettype)|[notnull](#notnull)|[split](#split)|[Оператор top](#top-operator)
-|[Логические операторы](#boolean-operators)|[getyear](#getyear)|[now](#now)|[sqrt](#sqrt)|[totimespan](#totimespan)
-|[buildschema](#buildschema)|[hash](#hash)|[Числовые литералы](#numeric-literals)|[startofmonth](#startofmonth)|[toupper](#toupper)
-|[Приведение типов](#casts)|[iff](#iff)|[Скрываемые строковые литералы](#obfuscated-string-literals)|[startofyear](#startofyear)|[treepath](#treepath)
-|[count](#count)|[isempty](#isempty)|[Оператор parse](#parse-operator)|[stdev](#stdev)|[Оператор union](#union-operator)
-|[Оператор count](#count-operator)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[strcat](#strcat)|[variance](#variance)
-|[countif](#countif)|[isnotnull](#isnotnull)|[percentile](#percentile)|[Сравнение строк](#string-comparisons)|[Оператор where](#where-operator)
-|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[Строковые литералы](#string-literals)
-|[Выражения для даты и времени](#date-and-time-expressions)|[Оператор join](#join-operator)|[Оператор project](#project-operator)|[strlen](#strlen)
-|[Литералы даты и времени](#date-and-time-literals)|[Выражения пути JSON](#json-path-expressions)|[Оператор project-away](#project-away-operator)|[substring](#substring)
+|[abs](#abs)|[dayofweek](#dayofweek)|[isnull](#isnull)|[rand](#rand)|[Оператор summarize](#summarize-operator)
+|[ago](#ago)|[dayofyear](#dayofyear)|[Оператор join](#join-operator)|[range](#range)|[Оператор take](#take-operator)
+|[любой](#any)|[dcount](#dcount)|[Выражения пути JSON](#json-path-expressions)|[Оператор range](#range-operator)|[todatetime](#todatetime)
+|[argmax](#argmax)|[dcountif](#dcountif)|[Предложение let](#let-clause)|[Оператор reduce](#reduce-operator)|[todouble](#todouble)
+|[argmin](#argmin)|[Динамические объекты в предложениях let](#dynamic-objects-in-let-clauses)|[Оператор limit](#limit-operator)|[Директива render](#render-directive)|[todynamic](#todynamic)
+|[Арифметические операторы](#arithmetic-operators)|[endofday](#endofday)|[log](#log)|[replace](#replace)|[toint](#toint)
+|[Литералы массива и объекта](#array-and-object-literals)|[endofmonth](#endofmonth)|[makelist](#makelist)|[Предложение restrict](#restrict-clause)|[tolong](#tolong)
+|[arraylength](#arraylength)|[endofweek](#endofweek)|[makeset](#makeset)|[Скалярные сравнения](#scalar-comparisons)|[tolower](#tolower)
+|[avg](#avg)|[endofyear](#endofyear)|[max](#max)|[Оператор sort](#sort-operator)|[Оператор top](#top-operator)
+|[bin](#bin)|[exp](#exp)|[min](#min)|[split](#split)|[top-nested op](#top-nested-operator)
+|[Логические литералы](#boolean-literals)|[Оператор extend](#extend-operator)|[Оператор mvexpand](#mvexpand-operator)|[sqrt](#sqrt)|[toscalar](#toscalar)
+|[Логические операторы](#boolean-operators)|[extract](#extract)|[notempty](#notempty)|[startofday](#startofday)|[totimespan](#totimespan)
+|[buildschema](#buildschema)|[extractjson](#extractjson)|[notnull](#notnull)|[startofmonth](#startofmonth)|[toupper](#toupper)
+|[Приведение типов](#casts)|[floor](#floor)|[now](#now)|[startofweek](#startofweek)|[treepath](#treepath)
+|[count](#count)|[getmonth](#getmonth)|[Числовые литералы](#numeric-literals)|[startofyear](#startofyear)|[Оператор union](#union-operator)
+|[Оператор count](#count-operator)|[gettype](#gettype)|[Скрываемые строковые литералы](#obfuscated-string-literals)|[stdev](#stdev)|[variance](#variance)
+|[countif](#countif)|[getyear](#getyear)|[Оператор parse](#parse-operator)|[strcat](#strcat)|[weekofyear](#weekofyear)
+|[countof](#countof)|[hash](#hash)|[parsejson](#parsejson)|[Сравнение строк](#string-comparisons)|[Оператор where](#where-operator)
+|[Выражения для даты и времени](#date-and-time-expressions)|[iff](#iff)|[percentile](#percentile)|[Строковые литералы](#string-literals)
+|[Литералы даты и времени](#date-and-time-literals)|[isempty](#isempty)|[percentiles](#percentiles)|[strlen](#strlen)
+|[datepart](#datepart)|[isnotempty](#isnotempty)|[Оператор project](#project-operator)|[substring](#substring)
+|[dayofmonth](#dayofmonth)|[isnotnull](#isnotnull)|[Оператор project-away](#project-away-operator)|[sum](#sum)
+
 
 
 ## Запросы и операторы
@@ -234,7 +237,7 @@ traces
 
     let name = (parameterName : type [, ...]) { plain_query }; query
 
-* *type* — `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
+* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
 * *plain\_query* — запрос без предложения let в начале.
 
 **Примеры**
@@ -328,7 +331,7 @@ traces
 Поддерживаются два режима развертывания контейнера свойств.
 
 * `bagexpansion=bag` — контейнеры свойств развертываются в контейнеры свойств с одной записью. Это значение по умолчанию.
-* `bagexpansion=array` — контейнеры свойств развертываются в структуры массива с двумя элементами `[`*key*`,`*value*`]`. Это позволяет единообразно обращаться к ключам и значениям (а также выполнять, например, подсчет различных значений в именах свойств). 
+* `bagexpansion=array` — контейнеры свойств развертываются в структуры массива с двумя элементами, `[`*key*`,`*value*`]`. Это позволяет единообразно обращаться к клавишам и значениям (а также выполнять, например, подсчет различных значений в именах свойств). 
 
 **Примеры**
 
@@ -686,6 +689,26 @@ Traces
 
 Выражение `top 5 by name` на первый взгляд эквивалентно `sort by name | take 5`. Но первое работает быстрее и в отличие от `take` всегда возвращает отсортированные результаты.
 
+### Вложенный оператор верхнего уровня
+
+    requests 
+    | top-nested 5 of name by count()  
+    , top-nested 3 of performanceBucket by count() 
+    , top-nested 3 of client_CountryOrRegion by count()
+    | render barchart 
+
+Формирует иерархические результаты, где каждый следующий уровень детализирует предыдущий. Это позволяет, например, выделить пять основных запросов, для каждого из них определить три основных категории производительности и для каждой из этих категорий установить, из каких трех стран поступает большинство запросов.
+
+**Синтаксис**
+
+   T | N вложенных СТОЛБЦОВ верхнего уровня путем АГРЕГАЦИИ [, ...]
+
+**Аргументы**
+
+* N:int — число строк для возвращения или передачи на следующий уровень. В запросе с тремя уровнями, где N — 5, 3 и 3, общее количество строк составит 45.
+* СТОЛБЕЦ — столбец для группирования данных путем агрегации. 
+* АГРЕГАЦИЯ — [статистическая функция](#aggregations) для применения к каждой группе строк. От результатов агрегации будет зависеть выбор верхних групп в представлении.
+
 
 ### Оператор union
 
@@ -701,7 +724,7 @@ Traces
 
 **Аргументы**
 
-* *Table1*, *Table2*…
+* *Table1*, *Table2* ...
  *  Имя таблицы, например `requests`, или таблицы, определенной в [предложении let](#let-clause).
  *  Или выражение запроса, например `(requests | where success=="True")`.
  *  Набор таблиц, указанных с помощью подстановочного знака. Например, `e*` сформирует объединение всех таблиц, определенных в предыдущих предложениях let, имена которых начинаются на e, вместе с таблицей exceptions.
@@ -982,6 +1005,26 @@ traces
 
 ![](./media/app-insights-analytics-reference/dcount.png)
 
+
+### dcountif
+
+    dcountif( Expression, Predicate [ ,  Accuracy ])
+
+Возвращает приблизительное количество уникальных значений для *Expr* строк в группе, для которой параметр *Predicate* имеет значение true. (Чтобы получить список уникальных значений, используйте [`makeset`](#makeset).)
+
+Приоритет между скоростью и точностью контролирует необязательный параметр *Accuracy*.
+
+ * `0` — наименее точное и самое быстрое вычисление.
+ * `1` — значение по умолчанию, при котором точность и время расчета сбалансированы; допускается ошибка около 0,8 %.
+ * `2` — наиболее точное и самое медленное вычисление; допускается ошибка около 0,4 %.
+
+**Пример**
+
+    pageViews 
+    | summarize cities=dcountif(client_City, client_City startswith "St") 
+      by client_CountryOrRegion
+
+
 ### makelist
 
     makelist(Expr [ ,  MaxListSize ] )
@@ -1096,7 +1139,7 @@ traces
 
 ## Скалярные значения
 
-[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
 Ниже приведены поддерживаемые типы.
 
@@ -1126,6 +1169,11 @@ traces
     tostring(42.5)
     todynamic("{a:10, b:20}")
 
+Проверьте, можно ли преобразовать строку в конкретный тип:
+
+    iff(notnull(todouble(customDimensions.myValue)),
+       ..., ...)
+
 ### Скалярные сравнения
 
 ||
@@ -1154,7 +1202,7 @@ traces
 ---|---
 `gettype("a")` |`"string" `
 `gettype(111)` |`"long" `
-`gettype(1==1)` |`"int8" (*) `
+`gettype(1==1)` |`"int8"`
 `gettype(now())` |`"datetime" `
 `gettype(1s)` |`"timespan" `
 `gettype(parsejson('1'))` |`"int" `
@@ -1164,8 +1212,7 @@ traces
 `gettype(123.45)` |`"real" `
 `gettype(guid(12e8b78d-55b4-46ae-b068-26d7a0080254))` |`"guid"` 
 `gettype(parsejson(''))` |`"null"`
-
-
+`gettype(1.2)==real` | `true`
 
 ### hash
 
@@ -1253,6 +1300,30 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
     T | summarize count(PossiblyNull)
 
+### toscalar
+
+Оценивает запрос или выражение и возвращает результат в виде одного значения. Эта функция пригодится для промежуточных вычислений, например, при расчете общего числа событий и использовании полученного значения как базового уровня.
+
+**Синтаксис**
+
+    toscalar(query)
+    toscalar(scalar)
+
+**Возвращает**
+
+Вычисленный аргумент. Если аргументом является таблица, возвращается первый столбец первой строки. (Рекомендуется упорядочить таблицу таким образом, чтобы у аргумента был только один столбец и одна строка.)
+
+**Пример**
+
+```AIQL
+
+    // Get the count of requests 5 days ago:
+    let baseline = toscalar(requests  
+        | where floor(timestamp, 1d) == floor(ago(5d),1d) | count);
+    // List the counts relative to that baseline:
+    requests | summarize daycount = count() by floor(timestamp, 1d)  
+    | extend relative = daycount - baseline
+```
 
 
 
@@ -1274,7 +1345,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 ## Числа
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Числовые литералы
 
@@ -1288,22 +1359,25 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | Добавить |
-| – | Вычитание |
-| * | Умножение |
-| / | Деление |
-| % | Остаток от деления |
-||
-|`<` | Меньше
-|`<=`|Меньше или равно
-|`>` |Больше
-|`>=`|Больше или равно
-|`<>`|Не равно
-|`!=`|Не равно
+| – | Вычитание || * | Умножение | | / | Деление | | % | Остаток от деления | || |`<` | Меньше |`<=`|Меньше или равно |`>` |Больше |`>=`|Больше или равно |`<>`|Не равно |`!=`|Не равно
 
 
+### abs
 
+**Синтаксис**
 
-### bin
+	abs(x)
+
+**Аргументы**
+
+* x — целое число, действительное или интервал времени
+
+**Возвращает**
+
+    iff(x>0, x, -x)
+
+<a name="bin"></a><a name="floor"></a>
+### bin, floor
 
 Округляет значения до целого, кратного указанному размеру группы. Часто используется в запросе [`summarize by`](#summarize-operator). При наличии разрозненного набора значений они будут сгруппированы в меньший набор определенных значений.
 
@@ -1312,6 +1386,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 **Синтаксис**
 
      bin(value, roundTo)
+     floor(value, roundTo)
 
 **Аргументы**
 
@@ -1339,6 +1414,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
     T | summarize Hits=count() by bin(Duration, 1s)
 ```
+
 ### exp
 
     exp(v)   // e raised to the power v
@@ -1421,7 +1497,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ## Дата и время
 
 
-[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)| [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
+[ago](#ago) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) |[datepart](#datepart) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth)| [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
 ### Литералы даты и времени
 
@@ -1492,6 +1568,39 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
     T | where timestamp > ago(1h)
 ```
 
+### datepart
+
+    datepart("Day", datetime(2015-12-14)) == 14
+
+Извлекает указанную часть даты как целое число.
+
+**Синтаксис**
+
+    datepart(part, datetime)
+
+**Аргументы**
+
+* `part:String` - {"Год", "Месяц", "День", "Час", "Минута", "Секунда", "Миллисекунда", "Микросекунда", "Наносекунда"}
+* `datetime`
+
+**Возвращает**
+
+Длинное число, представляющее указанную часть.
+
+
+### dayofmonth
+
+    dayofmonth(datetime("2016-05-15")) == 15 
+
+Порядковый номер дня в месяце.
+
+**Синтаксис**
+
+    dayofmonth(a_date)
+
+**Аргументы**
+
+* `a_date`: значение в формате `datetime`.
 
 
 ### dayofweek
@@ -1518,6 +1627,32 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 dayofweek(1947-11-29 10:00:05)  // time(6.00:00:00), indicating Saturday
 dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
 ```
+
+### dayofyear
+
+    dayofyear(datetime("2016-05-31")) == 152 
+    dayofyear(datetime("2016-01-01")) == 1 
+
+Порядковый номер дня в году.
+
+**Синтаксис**
+
+    dayofyear(a_date)
+
+**Аргументы**
+
+* `a_date`: значение в формате `datetime`.
+
+<a name="endofday"></a><a name="endofweek"></a><a name="endofmonth"></a><a name="endofyear"></a>
+### endofday, endofweek, endofmonth, endofyear
+
+    dt = datetime("2016-05-23 12:34")
+
+    endofday(dt) == 2016-05-23T23:59:59.999
+    endofweek(dt) == 2016-05-28T23:59:59.999 // Saturday
+    endofmonth(dt) == 2016-05-31T23:59:59.999 
+    endofyear(dt) == 2016-12-31T23:59:59.999 
+
 
 ### getmonth
 
@@ -1568,17 +1703,16 @@ dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
 T | where ... | extend Elapsed=now() - timestamp
 ```
 
-### startofmonth
+<a name="startofday"></a><a name="startofweek"></a><a name="startofmonth"></a><a name="startofyear"></a>
+### startofday, startofweek, startofmonth, startofyear
 
-    startofmonth(date)
+    date=datetime("2016-05-23 12:34:56")
 
-Начало месяца, содержащего дату.
+    startofday(date) == datetime("2016-05-23")
+    startofweek(date) == datetime("2016-05-22") // Sunday
+    startofmonth(date) == datetime("2016-05-01")
+    startofyear(date) == datetime("2016-01-01")
 
-### startofyear
-
-    startofyear(date)
-
-Начало года, содержащего дату.
 
 
 ### todatetime
@@ -1587,11 +1721,17 @@ T | where ... | extend Elapsed=now() - timestamp
 
      todatetime("2016-03-28")
      todatetime("03/28/2016")
-     todatetime("2016-03-28 14:34")
+     todatetime("2016-03-28 14:34:00")
      todatetime("03/28/2016 2:34pm")
      todatetime("2016-03-28T14:34.5Z")
-     todatetime(a[0])  // cast a dynamic type
-     todatetime(b.c)   // cast a dynamic type
+     todatetime(a[0]) 
+     todatetime(b.c) 
+
+Проверьте, является ли строка допустимой датой:
+
+     iff(notnull(todatetime(customDimensions.myDate)),
+         ..., ...)
+
 
 ### totimespan
 
@@ -1600,6 +1740,14 @@ T | where ... | extend Elapsed=now() - timestamp
     totimespan("21d")
     totimespan("21h")
     totimespan(request.duration)
+
+### weekofyear
+
+    weekofyear(datetime("2016-05-14")) == 21
+    weekofyear(datetime("2016-01-03")) == 1
+    weekofyear(datetime("2016-12-31")) == 53
+
+Целочисленный результат представляет номер недели по стандарту ISO 8601. Первым днем недели является воскресенье, а первой неделей года — неделя, на которую приходится первый четверг года. (Таким образом, последние дни года могут включать несколько дней первой недели следующего года, а первые дни года — несколько дней 52-й или 53-й недели года.)
 
 
 ## Строка
@@ -2233,4 +2381,4 @@ range(1, 8, 3)
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

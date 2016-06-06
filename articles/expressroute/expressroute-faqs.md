@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -248,4 +248,4 @@ ExpressRoute Premium — это набор функций, перечислен�
 ### Можно ли получить доступ к Dynamics AX через подключение ExpressRoute?
 Нет, это не поддерживается.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

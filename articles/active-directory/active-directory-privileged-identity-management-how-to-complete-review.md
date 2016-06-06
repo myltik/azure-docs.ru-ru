@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Как выполнить проверку безопасности в компоненте управления привилегированными пользователями Azure AD
 
 
-После [запуска функции проверки безопасности](active-directory-privileged-identity-management-how-to-start-security-review.md) администраторы безопасности могут проверить привилегированный доступ. Компонент управления привилегированными пользователями (PIM) Azure AD автоматически отправит пользователям электронное письмо с предложением проверить доступ. Если пользователь не получил электронное письмо, ему можно отправить [инструкции по выполнению проверки безопасности](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+После [запуска функции проверки безопасности](active-directory-privileged-identity-management-how-to-start-security-review.md) администраторы привилегированных ролей могут проверить привилегированный доступ. Компонент управления привилегированными пользователями (PIM) Azure AD автоматически отправит пользователям электронное письмо с предложением проверить доступ. Если пользователь не получил электронное письмо, ему можно отправить [инструкции по выполнению проверки безопасности](active-directory-privileged-identity-management-how-to-perform-security-review.md).
 
 После окончания периода проверки безопасности или после завершения всеми пользователями самостоятельной проверки выполните шаги, описанные в этой статье, для управления проверкой и просмотра результатов.
 
@@ -50,4 +50,4 @@
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 
@@ -29,20 +29,20 @@ Azure AD Connect является преемником DirSync и Azure AD Sync.
 
 ## График устаревания
 
-|Дата | Комментарий |
-| --- | --- |
-| 13 апреля 2016 г. | Windows Azure Active Directory Sync (DirSync) и Microsoft Azure Active Directory Sync (Azure AD Sync) объявлены устаревшими. |
-| 13 апреля 2017 г. | Прекращение поддержки. Пользователи не смогут обратиться в службу поддержки, пока не перейдут на Azure AD Connect. |
+Дата | Комментарий
+ --- | ---
+13 апреля 2016 г. | Windows Azure Active Directory Sync (DirSync) и Microsoft Azure Active Directory Sync (Azure AD Sync) объявлены устаревшими.
+13 апреля 2017 г. | Прекращение поддержки. Пользователи не смогут обратиться в службу поддержки, пока не перейдут на Azure AD Connect.
 
 ## Переход на Azure AD Connect
 Если вы пользуетесь DirSync, переход можно выполнить одним из двух способов: обновлением на месте и параллельным обновлением. Обновление на месте рекомендуется для большинства клиентов при наличии последней версии операционной системы и менее чем 50 000 объектов. В других случаях рекомендуется выполнять параллельное развертывание, при котором конфигурация DirSync переносится на новый сервер под управлением Azure AD Connect.
 
 Для пользователей Azure AD Sync рекомендуется обновление на месте. При желании вы можете параллельно установить новый сервер Azure AD Connect и перенести данные с сервера Azure AD Sync в Azure AD Connect.
 
-| Решение | Сценарий |
-| ----- | ----- |
-| [Обновление из DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Если есть уже работающий сервер DirSync.</li>
-| [Обновление из Azure AD Sync](active-directory-aadconnect-upgrade-previous-version.md)| <li>При переходе с Azure AD Sync.</li>
+Решение | Сценарий
+----- | -----
+[Обновление из DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Если есть уже работающий сервер DirSync.</li>
+[Обновление из Azure AD Sync](active-directory-aadconnect-upgrade-previous-version.md)| <li>При переходе с Azure AD Sync.</li>
 
 Обновление на месте для перехода с DirSync на Azure AD Connect демонстрируется в следующем видеоролике Channel 9:
 
@@ -61,4 +61,4 @@ Azure AD Connect является преемником DirSync и Azure AD Sync.
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

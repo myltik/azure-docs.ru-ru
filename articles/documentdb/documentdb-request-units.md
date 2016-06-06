@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/16/2016" 
 	ms.author="stbaro"/>
 
 #Единицы запросов в DocumentDB
@@ -178,6 +178,9 @@ DocumentDB обеспечивает высокую прогнозируемую 
 
 Дополнительные сведения о DocumentDB можно найти в [документации](https://azure.microsoft.com/documentation/services/documentdb/) по Azure DocumentDB.
 
+Инструкции по проверке масштабирования и производительности с помощью DocumentDB см. в [этой статье](documentdb-performance-testing.md).
+
+
 [1]: ./media/documentdb-request-units/queryexplorer.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/01/2016"
+   ms.date="05/18/2016"
    ms.author="larryfr"/>
 
 # Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)
@@ -26,17 +26,19 @@
 
 * Кластер Apache Storm в HDInsight. Чтобы создать кластер, ознакомьтесь с одной из следующих статей:
 
-    - [Кластер под управлением Linux](hdinsight-apache-storm-tutorial-get-started-linux.md). Прочтите эту статью, если вы хотите использовать SSH для работы с кластером на клиентах под управлением Linux, Unix, OS X или Windows.
+    - [Storm под управлением Linux в кластере HDInsigh](hdinsight-apache-storm-tutorial-get-started-linux.md). Прочтите эту статью, если вы хотите использовать SSH для работы с кластером на клиентах под управлением Linux, Unix, OS X или Windows.
 
-    - [Кластер под управлением Windows](hdinsight-apache-storm-tutorial-get-started.md). Прочтите эту статью, если вы хотите использовать PowerShell для работы с кластером на клиенте под управлением Windows.
+    - [Storm под управлением Windows в кластере HDInsigh](hdinsight-apache-storm-tutorial-get-started.md). Прочтите эту статью, если вы хотите использовать PowerShell для работы с кластером на клиенте под управлением Windows.
 
-    > [AZURE.NOTE] Единственное различие между этими типами кластеров заключается в способе отправки топологии в кластер: в первом случае используется SSH, во втором — веб-форма.
+    > [AZURE.NOTE] Действия, описанные в этом документе, относятся к использованию Storm в кластере HDInsigh версии 3.3 или более поздней. Эти кластеры предоставляют Storm 0.10.0 и Hadoop 2.7, которые сокращают количество действий, необходимых для работы этого примера.
+    >
+    > Версию этого примера, работающую со Storm 0.9.3 в кластере HDInsight 3.2, см. в версии [Storm 0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) репозитория примеров.
 
 * [Концентратор событий Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-* [Oracle Java Developer Kit (JDK) версии 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) или аналогичный, например [OpenJDK](http://openjdk.java.net/).
+* [Oracle Java Developer Kit (JDK) версии 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) или аналогичный, например [OpenJDK](http://openjdk.java.net/).
 
-* [Maven](https://maven.apache.org/download.cgi). Maven — это система сборки проектов Java.
+* [Maven](https://maven.apache.org/download.cgi). Maven — это система сборки проектов Java.
 
 * Текстовый редактор либо интегрированная среда разработки (IDE) Java.
 
@@ -48,7 +50,7 @@
 
     - [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-* SCP-клиент. Доступен во всех системах Linux, Unix и OS X. В клиентах Windows мы рекомендуем использовать PSCP-клиент, доступный для загрузки на [странице загрузки PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* SCP-клиент. Доступен во всех системах Linux, Unix и OS X. В клиентах Windows мы рекомендуем использовать PSCP-клиент, доступный для загрузки на [странице загрузки PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ##Общие сведения о примере
 
@@ -71,77 +73,64 @@
 ####Зависимость EventHubs Storm Spout
 
     <dependency>
-      <groupId>com.microsoft.eventhubs</groupId>
-      <artifactId>eventhubs-storm-spout</artifactId>
-      <version>0.9.3</version>
+      <groupId>org.apache.storm</groupId>
+      <artifactId>storm-eventhubs</artifactId>
+      <version>0.10.0</version>
     </dependency>
 
-Этот код добавляет зависимость для пакета eventhubs storm-spout, который содержит как воронку для чтения данных из концентратора событий, так и сито для записи в него.
+Этот код добавляет зависимость для пакета storm-eventhubs, который содержит как воронку для чтения данных из концентратора событий, так и сито для записи в него.
 
-> [AZURE.NOTE] Данный пакет недоступен в локальном репозитории Maven. Позднее он будет установлен вручную.
+> [AZURE.NOTE] Этот пакет доступен только для версии Storm 0.10.0 или более поздней. При использовании Storm 0.9.3 необходимо вручную установить пакет воронки, предоставленный корпорацией Майкрософт. Примеры работы со Storm 0.9.3 см. в ветви [Storm 0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) репозитория примеров.
 
 ####Компоненты HdfsBolt и WASB
 
 Для хранения данных в HDFS обычно используется HdfsBolt. Однако в кластерах HDInsight в качестве хранилища данных по умолчанию используется хранилище Azure (WASB), поэтому нам придется загрузить несколько компонентов, которые позволят HdfsBolt распознавать файловую систему WASB.
 
       <!--HdfsBolt stuff -->
-      <dependency>
+        <dependency>
         <groupId>org.apache.storm</groupId>
         <artifactId>storm-hdfs</artifactId>
         <exclusions>
-          <exclusion>
+            <exclusion>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
-          </exclusion>
-          <exclusion>
+            </exclusion>
+            <exclusion>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs</artifactId>
-          </exclusion>
+            </exclusion>
         </exclusions>
-        <version>0.9.3</version>
-      </dependency>
-      <!--
-     This is a temporary workaround to make HdfsBolt work with WASB through hadoop-azure project.
-     For now, we have to build hadoop-client, hadoop-hdfs and hadoop-azure from Hadoop trunk
-     (which defaults to 3.0.0-SNAPSHOT version). And push those jars and dependencies to local
-     mvn repo (take a look at push_lib_mvn.ps1).
+        <version>0.10.0</version>
+        </dependency>
+    <!--So HdfsBolt knows how to talk to WASB -->
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-client</artifactId>
+        <version>2.7.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-hdfs</artifactId>
+        <version>2.7.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-azure</artifactId>
+        <version>2.7.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-common</artifactId>
+        <version>2.7.1</version>
+        <exclusions>
+        <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+        </exclusions>
+    </dependency>
 
-     Once Hadoop 2.7 is released, we can just switch to that version.
-     Note that hadoop-azure is added to Hadoop on Hadoop 2.7.
-     -->
-     <dependency>
-       <groupId>org.apache.hadoop</groupId>
-       <artifactId>hadoop-client</artifactId>
-       <version>3.0.0-SNAPSHOT</version>
-     </dependency>
-     <dependency>
-       <groupId>org.apache.hadoop</groupId>
-       <artifactId>hadoop-hdfs</artifactId>
-       <version>3.0.0-SNAPSHOT</version>
-     </dependency>
-     <dependency>
-       <groupId>org.apache.hadoop</groupId>
-       <artifactId>hadoop-azure</artifactId>
-       <version>3.0.0-SNAPSHOT</version>
-     </dependency>
-     <dependency>
-       <groupId>org.apache.hadoop</groupId>
-       <artifactId>hadoop-common</artifactId>
-       <version>3.0.0-SNAPSHOT</version>
-       <exclusions>
-         <exclusion>
-           <groupId>org.slf4j</groupId>
-           <artifactId>slf4j-log4j12</artifactId>
-         </exclusion>
-       </exclusions>
-     </dependency>
-     <dependency>
-       <groupId>com.microsoft.windowsazure.storage</groupId>
-       <artifactId>microsoft-windowsazure-storage-sdk</artifactId>
-       <version>0.6.0</version>
-     </dependency>
-
-> [AZURE.NOTE] Необходимые для этого пакеты отсутствуют в репозитории Maven, поэтому мы позднее установим их вручную.
+> [AZURE.NOTE] При работе с более ранней версией HDInsight, например версией 3.2, эти компоненты необходимо регистрировать вручную. Примеры этого, а также пользовательские фрагменты кода, необходимые для более ранних кластеров HDInsight, можно найти в ветви [Storm 0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) репозитория примеров.
 
 ####maven-compiler-plugin
 
@@ -155,19 +144,21 @@
       </configuration>
     </plugin>
 
-Этот код сообщает Maven, что при сборке проекта необходимо обеспечить совместимость с версией Java 7, которая используется кластерами HDInsight.
+Этот код сообщает Maven, что при сборке проекта необходимо обеспечить совместимость с версией Java 7, которая используется кластерами HDInsight.
 
 ####maven-shade-plugin
 
+      <!-- build an uber jar -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <version>2.3</version>
         <configuration>
-          <!-- Keep us from getting a can't overwrite file error -->
           <transformers>
-            <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
-            </transformer>
+            <!-- Keep us from getting a can't overwrite file error -->
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer"/>
+            <!-- Keep us from getting errors when trying to use WASB from the storm-hdfs bolt -->
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
           </transformers>
           <!-- Keep us from getting a bad signature error -->
           <filters>
@@ -179,7 +170,7 @@
                     <exclude>META-INF/*.RSA</exclude>
                 </excludes>
             </filter>
-        </filters>
+          </filters>
         </configuration>
         <executions>
           <execution>
@@ -196,6 +187,8 @@
 * Переименования файлов лицензий для зависимостей. Если не переименовать эти файлы, при запуске в кластерах HDInsight под управлением Windows может возникнуть ошибка.
 
 * Исключения цифровой подписи. Если не исключить цифровую подпись, при запуске в кластере HDInsight может возникнуть ошибка.
+
+* Различные реализации одного и того же интерфейса должны быть объединены в одну запись. Если это не так, вы получите сообщения об ошибках, связанные с тем, что сит Storm-HDFS не понимает, как взаимодействовать с файловой системой WASB.
 
 ####exec-maven-plugin
 
@@ -249,9 +242,9 @@
 
 Во время установки Java и JDK на компьютере, где ведется разработка, могут быть установлены следующие переменные среды. Однако следует убедиться, что они существуют и что они содержат правильные значения для вашей системы.
 
-* **JAVA\_HOME** — эта переменная должна указывать на каталог, в который установлена среда выполнения Java (JRE). Например, в дистрибутиве Unix или Linux она должна иметь примерно такое значение: `/usr/lib/jvm/java-7-oracle` В Windows значение будет приблизительно таким: `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** — эта переменная должна указывать на каталог, в который установлена среда выполнения Java (JRE). Например, в дистрибутиве Unix или Linux она должна иметь примерно такое значение: `/usr/lib/jvm/java-7-oracle` В Windows значение будет приблизительно таким: `c:\Program Files (x86)\Java\jre1.7`
 
-* **PATH** — эта переменная должна содержать следующие пути:
+* **PATH** — эта переменная должна содержать следующие пути:
 
 	* **JAVA\_HOME** или эквивалентный путь;
 
@@ -295,29 +288,7 @@
 
 1. Загрузите проект [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) с сайта GitHub в виде ZIP-архива либо клонируйте проект локально с помощью [git](https://git-scm.com/).
 
-2. Установите пакеты, включенные в проект, в локальный репозиторий Maven, используя следующие команды. Это позволит использовать воронку и сито концентратора событий, а также HdfsBolt для записи в хранилище Azure (WASB).
-
-		mvn -q install:install-file -Dfile=lib/eventhubs/eventhubs-storm-spout-0.9.3-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9.3 -Dpackaging=jar
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-azure-3.0.0-SNAPSHOT.jar
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-client-3.0.0-SNAPSHOT.jar
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-hdfs-3.0.0-SNAPSHOT.jar
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-common-3.0.0-SNAPSHOT.jar -DpomFile=lib/hadoop/hadoop-common-3.0.0-SNAPSHOT.pom
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-project-dist-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-project-dist-3.0.0-SNAPSHOT.pom
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-project-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-project-3.0.0-SNAPSHOT.pom
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom
-
-	> [AZURE.NOTE] Если вы используете PowerShell, возможно, вам придется заключить параметры `-D` в кавычки. Например, `"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`.
-
-	Последние версии этих файлов можно найти на сайте https://github.com/hdinsight/hdinsight-storm-examples.
-
-3. Используйте следующую команду, чтобы собрать и упаковать проект:
+2. Используйте следующую команду, чтобы собрать и упаковать проект:
 
         mvn package
 
@@ -390,7 +361,7 @@ JAR-файл, созданный проектом, содержит две то�
         9a692795-e6aa-4946-98c1-2de381b37593,1857409996
         3c8d199b-0003-4a79-8d03-24e13bde7086,-1271260574
 
-    В первом столбце указан идентификатор устройства, а во втором — значение устройства.
+    В первом столбце указан идентификатор устройства, а во втором — значение устройства.
 
 4. Чтобы остановить топологии, используйте следующие команды:
 
@@ -415,7 +386,7 @@ JAR-файл, созданный проектом, содержит две то�
 
     Нажмите кнопку «Отправить», чтобы запустить топологию EventHubReader.
 
-6. Подождите несколько минут, пока топологии сгенерируют события и сохранят их в хранилище Azure, а затем перейдите на вкладку __Консоль запросов__ вверху страницы __Панель мониторинга Storm__.
+6. Подождите несколько минут, пока топологии сгенерируют события и сохранят их в хранилище Azure, а затем перейдите на вкладку __Консоль запросов Hadoop__ вверху страницы __Панель мониторинга Storm__.
 
 7. В __консоли запросов__ выберите __Редактор Hive__ и замените код по умолчанию `select * from hivesampletable` на следующий:
 
@@ -482,4 +453,4 @@ EventHubSpout периодически передает информацию о 
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->
