@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"
 />
 # Отправка запросов в индекс службы поиска Azure с помощью портала Azure
@@ -26,7 +26,7 @@
 
 Прежде чем приступать к выполнению инструкций из этого руководства, необходимо [создать индекс службы поиска Azure](search-what-is-an-index.md) и [заполнить его данными](search-what-is-data-import.md).
 
-## 1\. Перейдите к колонке службы поиска Azure.
+## 1\. Переход к колонке службы поиска Azure
 1. Щелкните "Все ресурсы" в меню слева на [портале Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 2. Выберите службу поиска Azure.
 
@@ -47,4 +47,4 @@
 
 ![](./media/search-explorer/search-bar.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

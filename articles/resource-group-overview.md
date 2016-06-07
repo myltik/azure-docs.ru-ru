@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="05/27/2016"
    ms.author="tomfitz"/>
 
 # Общие сведения о диспетчере ресурсов Azure
@@ -127,13 +127,13 @@
 
 ## Дальнейшие действия
 
-- Сведения о создании шаблонов см. в статье [Разработка шаблонов](resource-group-authoring-templates.md).
-- Инструкции по развертыванию созданных шаблонов см. в статье [Развертывание шаблонов](resource-group-template-deploy.md).
+- Простые вводные сведения о работе с шаблонами см. в статье [Экспорт шаблона Azure Resource Manager из существующих ресурсов](resource-manager-export-template.md).
+- Более подробные инструкции по созданию шаблона см. в статье [Пошаговое руководство по созданию шаблона Resource Manager](resource-manager-template-walkthrough.md).
 - Сведения о том, какие функции можно использовать в шаблоне, см. в статье [Функции шаблонов](resource-group-template-functions.md).
-- Рекомендации по разработке шаблонов см. в статье [Рекомендации по разработке шаблонов диспетчера ресурсов Azure](best-practices-resource-manager-design-templates.md).
+- Сведения об использовании Resource Manager в Visual Studio см. в статье [Создание и развертывание групп ресурсов Azure с помощью Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 Краткий обзор диспетчера ресурсов также представлен в этом видео:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

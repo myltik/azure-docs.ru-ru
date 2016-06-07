@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/16/2016"
+   	ms.date="06/01/2016"
    	ms.author="jgao"/>
 
 # Публикация приложений HDInsight в Azure Marketplace
@@ -63,6 +63,19 @@
 
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. См. пример из статьи [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) (Установка пользовательских приложений HDInsight).
+
+	>[AZURE.IMPORTANT] Имя скрипта установки приложения должно быть уникальным для определенного кластера и иметь следующий формат:
+	
+	>	name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+		
+	>Обратите внимание, что имя скрипта состоит из трех частей:
+		
+	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
+	>	2. A "-" for readability.
+	>	3. A unique string function with the application name as the parameter.
+
+	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+
 - Все необходимые скрипты.
 
 > [AZURE.NOTE] Файлы приложения (включая имеющиеся файлы веб-приложения) могут быть расположены в любой общедоступной конечной точке.
@@ -72,7 +85,7 @@
 Чтобы опубликовать приложение HDInsight:
 
 1. Войдите на [портал публикации Azure](https://publish.windowsazure.com/).
-2. Щелкните **Шаблоны решений**, чтобы создать шаблон решения.
+2. Щелкните **Solution templates** (Шаблоны решений), чтобы создать шаблон решения.
 3. Щелкните **Create Dev Center account and join the Azure program** (Создать учетную запись центра разработчиков и присоединиться к программе Azure), чтобы зарегистрировать свою компанию, если это еще не сделано. См. статью [Создание учетной записи разработчика Майкрософт](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 4. Щелкните **Define some Topologies to get Started** (Определить некоторые топологии и начать работу). Шаблон решения служит родительским элементом для всех своих топологий. В одном шаблоне предложений или решения можно определить сразу несколько топологий. Когда предложение переходит к стадии промежуточного развертывания, вместе с ним отправляются все его топологии. 
 5. Добавьте новую версию.
@@ -81,8 +94,8 @@
 
 ## Дальнейшие действия
 
-- [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) (Установка пользовательских приложений HDInsight) — узнайте, как развернуть в HDInsight приложение HDInsight с отмененной публикацией.
-- [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md) — узнайте, как использовать действие сценария для установки дополнительных приложений.
+- [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md) — узнайте, как развернуть в HDInsight приложение HDInsight с отмененной публикацией.
+- [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md) — узнайте, как использовать действие скрипта для установки дополнительных приложений.
 - [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) — узнайте, как вызывать шаблоны ARM для создания кластеров HDInsight.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

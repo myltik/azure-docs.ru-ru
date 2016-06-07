@@ -3,8 +3,7 @@
 	description="Что такое индекс в службе поиска Azure и как он используется?"
 	services="search"
 	documentationCenter=""
-authors="ashmaka"
-/>
+	authors="ashmaka"/>
 
 <tags
 	ms.service="search"
@@ -12,7 +11,7 @@ authors="ashmaka"
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="05/31/2016"
 	ms.author="ashmaka"/>
 
 # Создание индекса Поиска Azure
@@ -70,4 +69,4 @@ authors="ashmaka"
 
 Если требования к хранилищу данных со временем изменятся, можно увеличить или уменьшить емкость, добавляя или удаляя разделы. Дополнительные сведения см. в статьях [Управление службой поиска в Microsoft Azure](search-manage.md) и [Ограничения поиска Azure](search-limits-quotas-capacity.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

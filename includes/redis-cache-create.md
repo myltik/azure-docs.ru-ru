@@ -1,14 +1,14 @@
 Чтобы создать кэш, войдите на [портал Azure](https://portal.azure.com) и последовательно щелкните **Создать**, **Данные+хранилище** и **Кэш Redis**.
 
+>[AZURE.NOTE] Если у вас нет учетной записи Azure, ее можно [бесплатно создать](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) всего за несколько минут.
+
+![Новый кэш](media/redis-cache-create/redis-cache-new-cache-menu.png)
+
 >[AZURE.NOTE] Кэши можно создавать не только на портале Azure, но и с использованием шаблонов ARM, PowerShell или интерфейса командной строки Azure.
 >
 >-	Информацию о создании кэшей с помощью шаблонов ARM см. в статье [Создание кэша Redis с помощью шаблона](../articles/redis-cache/cache-redis-cache-arm-provision.md).
 >-	Информацию о создании кэшей с помощью Azure PowerShell см. в статье [Управление кэшем Redis для Azure с помощью Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
 >-	Информацию о создании кэшей с помощью интерфейса командной строки Azure см. в статье [Как создать кэш Redis для Azure и управлять им с помощью интерфейса командной строки Azure (Azure CLI)](../articles/redis-cache/cache-manage-cli.md).
-
-![Новый кэш](media/redis-cache-create/redis-cache-new-cache-menu.png)
-
->[AZURE.NOTE] Если у вас нет учетной записи Azure, ее можно [бесплатно создать](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) всего за несколько минут.
 
 В колонке **Новый кэш Redis** выберите конфигурацию кэша.
 
@@ -27,3 +27,4 @@
 
 ![Кэш создан](media/redis-cache-create/redis-cache-cache-created.png)
 
+<!---HONumber=AcomDC_0601_2016-->
