@@ -158,7 +158,7 @@ SAS учетной записи делегирует доступ к ресур�
 
 Сведения о ценах на репликацию учетной записи хранения см. на странице [Цены на хранилища Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Сведения об архитектуре, которая обеспечивает устойчивость службы хранилища Azure, см. в публикации блога [SOSP Paper — Windows Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Документ SOSP. Служба хранилища Microsoft Azure: высокодоступная облачная служба хранилища со строгой согласованностью).
+Сведения об архитектуре, которая обеспечивает устойчивость службы хранилища Azure, см. в публикации блога [SOSP Paper — Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Документ SOSP. Служба хранилища Microsoft Azure: высокодоступная облачная служба хранилища со строгой согласованностью).
 
 
 ## Перемещение данных в службу хранилища Azure и обратно
