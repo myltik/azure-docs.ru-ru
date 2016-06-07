@@ -14,18 +14,18 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="05/25/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Набор Azure IoT Suite
 
-Набор Microsoft Azure IoT — это решение уровня предприятия, которое позволяет быстро приступить к работе с помощью набора расширяемых, предварительно настроенных решений, реализующих типовые сценарии IoT, такие как [удаленное наблюдение][lnk-preconfigured-solutions] и [диагностическое обслуживание][lnk-predictive-maintenance]. Эти решения являются реализациями архитектуры решений IoT, описанной выше.
+Набор Microsoft Azure IoT — это решение уровня предприятия, которое позволяет быстро приступить к работе с помощью набора расширяемых, предварительно настроенных решений, реализующих типовые сценарии IoT, такие как [удаленное наблюдение][lnk-preconfigured-solutions] и [диагностическое обслуживание][lnk-predictive-maintenance]. Эти решения являются реализациями архитектуры решений IoT, описанной выше.
 
-Эти предварительно настроенные решения представляют собой полные, работающие, законченные решения, которые включают виртуальные устройства для начала работы, предварительно настроенные службы Azure, например [центр IoT Azure][], [концентраторы событий Azure][], [Azure Stream Analytics][], [машинное обучение Azure][] и [службу хранилища Azure][], а также консоли управления конкретными решениями. Предварительно настроенные решения содержат проверенный, готовый к работе код, который можно настраивать и расширять для реализации определенных сценариев IoT.
+Эти предварительно настроенные решения представляют собой полные работающие комплексные решения, которые включают имитированные устройства для начала работы, предварительно настроенные службы Azure, такие как [центр IoT Azure][], [концентраторы событий Azure][], [Azure Stream Analytics][], [служба машинного обучения Azure][] и [служба хранилища Azure][], а также консоли управления конкретными решениями. Предварительно настроенные решения содержат проверенный, готовый к работе код, который можно настраивать и расширять для реализации определенных сценариев IoT.
 
-Возможно, вас также интересует служба [центра IoT Azure][], которая использует многие из предварительно настроенных решений. [центра IoT Azure][] обеспечивает безопасный и надежный двунаправленный обмен данными между устройствами и облаком, которые используются в архитектуре предварительно настроенных решений.
+Возможно, вас также интересует служба [центра IoT Azure][], которая использует многие из предварительно настроенных решений. [Центр IoT Azure][] обеспечивает безопасный и надежный двунаправленный обмен данными между устройствами и облаком, которые используются в архитектуре предварительно настроенных решений.
 
 ## Дальнейшие действия
 
@@ -39,13 +39,13 @@
 [lnk-suite-overview]: iot-suite-overview.md
 [lnk-connecting]: iot-suite-connecting-devices.md
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
-[Центр Azure IoT]: https://azure.microsoft.com/services/iot-hub/
-[центр IoT Azure]: https://azure.microsoft.com/services/iot-hub/
-[центра IoT Azure]: https://azure.microsoft.com/services/iot-hub/
-[концентраторы событий Azure]: https://azure.microsoft.com/services/event-hubs/
-[Azure Stream Analytics]: https://azure.microsoft.com/services/stream-analytics/
-[машинное обучение Azure]: https://azure.microsoft.com/services/machine-learning/
-[службу хранилища Azure]: https://azure.microsoft.com/services/storage/
+[Центр Azure IoT]: https://azure.microsoft.com/documentation/services/iot-hub/
+[центр IoT Azure]: https://azure.microsoft.com/documentation/services/iot-hub/
+[центра IoT Azure]: https://azure.microsoft.com/documentation/services/iot-hub/
+[концентраторы событий Azure]: https://azure.microsoft.com/documentation/services/event-hubs/
+[Azure Stream Analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[служба машинного обучения Azure]: https://azure.microsoft.com/documentation/services/machine-learning/
+[служба хранилища Azure]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

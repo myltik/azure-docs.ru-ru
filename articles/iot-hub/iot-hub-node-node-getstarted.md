@@ -248,7 +248,7 @@
 2. В командной строке в папке **simulateddevice** выполните следующую команду, чтобы установить пакет **azure-iot-device-amqp**:
 
     ```
-    npm install azure-iot-device-amqp --save
+    npm install azure-iot-device azure-iot-device-amqp --save
     ```
 
 3. В текстовом редакторе создайте файл **SimulatedDevice.js** в папке **simulateddevice**.
@@ -367,4 +367,4 @@
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

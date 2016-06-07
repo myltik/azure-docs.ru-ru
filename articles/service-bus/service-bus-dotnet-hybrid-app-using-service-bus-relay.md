@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="10/07/2015"
+	ms.date="05/23/2016"
 	ms.author="sethm"/>
 
 # Создание локального или облачного гибридного приложения .NET с использованием ретранслятора служебной шины Azure
 
 ## Введение
 
-Разрабатывать гибридные облачные приложения в Microsoft Azure очень просто благодаря применению Visual Studio 2013 и бесплатного пакета SDK Azure для платформы .NET. Для работы с этот статьей опыт работы с платформой Azure не требуется. Менее чем за 30 минут вы получите приложение, которое использует несколько ресурсов Microsoft Azure и выполняется в облаке.
+В этой статье описывается, как создать облачное гибридное приложение с помощью Microsoft Azure и Visual Studio. В этом учебнике предполагается, что у вас нет опыта использования платформы Azure. Менее чем за 30 минут вы получите приложение, которое использует несколько ресурсов Microsoft Azure и выполняется в облаке.
 
 Вы узнаете:
 
@@ -35,11 +35,11 @@
 
 Архитекторы решений начинают использовать облако для упрощения реализации масштабирования и снижения эксплуатационных расходов. При этом они обнаруживают,что существующие активы служб, которые они хотели бы использовать в качестве стандартных блоков для своих решений, находятся за корпоративным брандмауэром, поэтому обращение к ним из облачного решения затруднено. Многие внутренние службы построены или размещены таким образом, который не позволяет легко предоставлять их на границе корпоративной сети.
 
-Ретранслятор служебной шины предназначен для случаев, когда существующие веб-службы Windows Communication Foundation (WCF) безопасно предоставляются для решений, находящихся вне периметра корпоративной сети, без внесения существенных изменений в инфраструктуру корпоративной сети. Такие службы ретранслятора служебной шины по-прежнему размещаются внутри существующей среды, однако они делегируют функции прослушивания входящих сеансов и запросов размещенной в облаке службе Service Bus. Служебная шина также защищает эти службы от несанкционированного доступа с помощью проверки подлинности [Подписи общего доступа](https://msdn.microsoft.com/library/dn170478.aspx) (SAS).
+Ретранслятор служебной шины предназначен для случаев, когда существующие веб-службы Windows Communication Foundation (WCF) безопасно предоставляются для решений, находящихся вне периметра корпоративной сети, без внесения существенных изменений в инфраструктуру корпоративной сети. Такие службы ретранслятора служебной шины по-прежнему размещаются внутри существующей среды, однако они делегируют функции прослушивания входящих сеансов и запросов размещенной в облаке службе Service Bus. Служебная шина также защищает эти службы от несанкционированного доступа с помощью проверки подлинности [Подписи общего доступа](service-bus-sas-overview.md) (SAS).
 
 ## Сценарий решений
 
-В этом учебнике будет создан веб-сайт ASP.NET MVC, который позволит просматривать список продуктов на странице складских запасов.
+В этом учебнике вы создадите веб-сайт ASP.NET, который позволит просматривать список продуктов на странице складских запасов.
 
 ![][0]
 
@@ -55,27 +55,17 @@
 
 1.  Установите пакет SDK Azure для .NET в разделе [Получить инструменты и SDK][].
 
-2. 	Щелкните **Установить пакет SDK** для используемой версии Visual Studio. В описанных в этом учебнике примерах используется Visual Studio 2013.
-
-	![][42]
+2. 	Щелкните **Установить пакет SDK** для используемой версии Visual Studio. На описанных в этом учебнике шагах используется Visual Studio 2015.
 
 4.  При появлении запроса на выполнение или сохранение файла установки нажмите **Выполнить**.
 
-    ![][2]
-
 5.  В **установщике веб-платформы** щелкните **Установить**, чтобы продолжить установку.
-
-    ![][3]
 
 6.  После завершения установки у вас будут все компоненты, необходимые для начала разработки приложения. В состав пакета SDK входят инструменты для эффективной разработки приложений Azure в Visual Studio. Если у вас не установлено приложение Visual Studio, будет автоматически установлена бесплатная версия Visual Studio Express.
 
-## Создание пространства имен службы
+## Создание пространства имен
 
 Чтобы начать использование функций служебной шины в Azure, необходимо сначала создать пространство имен службы. Пространство имен предоставляет контейнер для адресации ресурсов служебной шины в вашем приложении.
-
-Пространствами имен и сущностями обмена сообщениями служебной шины можно управлять с помощью [классического портала Azure][] или обозревателя сервера Visual Studio, но новые пространства имен можно создавать только на портале.
-
-### Чтобы создать пространство имен службы с помощью портала, сделайте следующее:
 
 1.  Войдите на [классический портал Azure][].
 
@@ -91,43 +81,41 @@
 
     > [AZURE.IMPORTANT] Выберите *тот же регион*, который собираетесь выбрать для развертывания приложения. Это обеспечит наилучшую производительность.
 
-6.	Оставьте в остальных полях диалогового окна значения по умолчанию (**Обмен сообщениями** и **Уровень Standard**), а затем установите флажок. Теперь система создает пространство имен и включает его. Вероятно, придется подождать несколько минут, пока система не выделит ресурсы для вашей учетной записи.
+6.	В остальных полях диалогового окна оставьте значения по умолчанию, а затем щелкните значок "ОК". Теперь система создаст пространство имен и включит его. Вероятно, придется подождать несколько минут, пока система не выделит ресурсы для вашей учетной записи.
 
-	![][38]
-
-Созданное пространство имен появится на классическом портале Azure, при этом его активация может занять некоторое время. Прежде чем продолжать, подождите, пока состояние не изменится на **Активное**.
+Созданное пространство имен появится на портале, хотя его активация может занять некоторое время. Прежде чем продолжать, подождите, пока состояние не изменится на **Активное**.
 
 ## Получение учетных данных управления по умолчанию для пространства имен
 
 Для выполнения операций управления для нового пространства имен, например для создания сущностей обмена сообщениями, необходимо получить учетные данные для пространства имен.
 
-1.  В главном окне щелкните имя созданного пространства имен службы.
+1.  В главном окне щелкните пространство имен службы, созданное на предыдущем шаге.
 
-	![][39]
-
-2.  Нажмите кнопку **Сведения о подключении**
-
-	![][40]
+2.  В нижней части страницы щелкните **Сведения о подключении**.
 
 3.  В области **Сведения о доступе к подключению** найдите строку подключения, которая содержит ключ SAS и имя ключа.
 
 	![][45]
 
-4.  Запишите эти учетные данные или скопируйте их в буфер обмена.
+4.  Скопируйте строку подключения и сохраните ее для дальнейшего использования в этом учебнике.
+
+5. На той же странице портала в ее верхней части выберите вкладку **Настройка**.
+
+6. Скопируйте значение первичного ключа для политики **RootManageSharedAccessKey** в буфер обмена или вставьте его в Блокнот. Этот ключ потребуется позже.
+
+	![][46]
 
 ## Создание локального сервера
 
 В первую очередь нужно создать (макетную) локальную систему каталогов продукции. Она будет довольно простой. Это выглядит как представление фактической локальной системы каталогов продукции в виде полнофункциональной службы, которую мы пытаемся интегрировать.
 
-Этот проект запускается как консольное приложение Visual Studio. Данный проект использует пакет NuGet служебной шины для включения библиотек и параметров настройки служебной шины. Расширение NuGet для Visual Studio упрощает установку и обновление библиотек и инструментов в Visual Studio и Visual Studio Express. Пакет NuGet для служебной шины является самым простым способом получить интерфейс API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины. Дополнительные сведения об использовании NuGet и пакета служебной шины см. в разделе [Использование пакета NuGet для служебной шины][].
+Этот проект запускается как консольное приложение Visual Studio и использует [пакет NuGet служебной шины Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) для включения библиотек и параметров конфигурации служебной шины.
 
 ### Создание проекта
 
-1.  Используя привилегии администратора, запустите Microsoft Visual Studio 2013 или Microsoft Visual Studio Express. Для запуска Visual Studio с привилегиями администратора щелкните правой кнопкой мыши **Microsoft Visual Studio 2013 (или Microsoft Visual Studio Express)** и выберите **Запуск от имени администратора**.
+1.  Запустите Microsoft Visual Studio, используя привилегии администратора. Чтобы запустить Visual Studio, используя привилегии администратора, щелкните правой кнопкой мыши значок программы **Visual Studio** и выберите пункт **Запуск от имени администратора**.
 
 2.  В меню **Файл** Visual Studio выберите **Создать**, а затем **Проект**.
-
-    ![][10]
 
 3.  В разделе **Visual C#** области **Установленные шаблоны** щелкните элемент **Консольное приложение**. В поле **Имя** введите имя **ProductsServer**:
 
@@ -135,19 +123,11 @@
 
 4.  Нажмите кнопку **ОК**, чтобы создать проект **ProductsServer**.
 
-5.  В окне "Обозреватель решений" щелкните правой кнопкой мыши элемент **ProductsServer** и выберите пункт **Свойства**.
-
-6.  Выберите расположенную слева вкладку **Приложение** и убедитесь, что в списке **Требуемая версия .NET Framework:** отображается **.NET Framework 4** или **.NET Framework 4.5**. Если такое значение отсутствует, выберите его в списке и нажмите кнопку **Да** в появившемся запросе о перезагрузке проекта.
-
-    ![][12]
-
 7.  Если диспетчер пакетов NuGet для Visual Studio уже установлен, пропустите следующий шаг. В противном случае посетите сайт [NuGet][] и щелкните элемент [Установить NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Следуйте инструкциям на экране для установки диспетчера пакетов NuGet, а затем перезапустите Visual Studio.
 
-7.  В обозревателе решений щелкните правой кнопкой мыши **Ссылки**, затем выберите команду **Управление пакетами NuGet**.
+7.  В обозревателе решений щелкните правой кнопкой мыши проект **ProductsServer** и выберите пункт **Manage NuGet Packages** (Управление пакетами NuGet).
 
-8.  В левом столбце диалогового окна **NuGet** щелкните элемент **В сети**.
-
-9. 	В правом столбце выберите поле **Поиск**, введите "**служебная шина**" и выберите элемент **Служебная шина Microsoft Azure**. Щелкните **Установить**, чтобы выполнить установку, а затем закройте это диалоговое окно.
+8.  Щелкните вкладку **Обзор** и выполните поиск `Microsoft Azure Service Bus`. Щелкните **Установить** и примите условия использования.
 
     ![][13]
 
@@ -155,142 +135,142 @@
 
 9.  Добавьте новый класс для контракта на свою продукцию. В окне "Обозреватель решений" щелкните правой кнопкой проект **ProductsServer**, а затем выберите **Добавить** и **Класс**.
 
-    ![][14]
-
 10. В поле **Имя** введите имя **ProductsContract.cs**. Нажмите кнопку **Добавить**.
 
 11. В **ProductsContract.cs** замените определение пространства имен на следующий код, определяющий контракт для службы.
 
-        namespace ProductsServer
-        {
-            using System.Collections.Generic;
-            using System.Runtime.Serialization;
-            using System.ServiceModel;
-
-            // Define the data contract for the service
-            [DataContract]
-            // Declare the serializable properties.
-            public class ProductData
-            {
-                [DataMember]
-                public string Id { get; set; }
-                [DataMember]
-                public string Name { get; set; }
-                [DataMember]
-                public string Quantity { get; set; }
-            }
-
-            // Define the service contract.
-            [ServiceContract]
-            interface IProducts
-            {
-                [OperationContract]
-                IList<ProductData> GetProducts();
-
-            }
-
-            interface IProductsChannel : IProducts, IClientChannel
-            {
-            }
-        }
+	```
+	namespace ProductsServer
+	{
+	    using System.Collections.Generic;
+	    using System.Runtime.Serialization;
+	    using System.ServiceModel;
+	
+	    // Define the data contract for the service
+	    [DataContract]
+	    // Declare the serializable properties.
+	    public class ProductData
+	    {
+	        [DataMember]
+	        public string Id { get; set; }
+	        [DataMember]
+	        public string Name { get; set; }
+	        [DataMember]
+	        public string Quantity { get; set; }
+	    }
+	
+	    // Define the service contract.
+	    [ServiceContract]
+	    interface IProducts
+	    {
+	        [OperationContract]
+	        IList<ProductData> GetProducts();
+	
+	    }
+	
+	    interface IProductsChannel : IProducts, IClientChannel
+	    {
+	    }
+	}
+	```
 
 12. В Program.cs замените определение пространства имен на следующий код, добавляющий службу профилей и узел для нее.
 
-        namespace ProductsServer
-        {
-            using System;
-            using System.Linq;
-            using System.Collections.Generic;
-            using System.ServiceModel;
+	```
+	namespace ProductsServer
+	{
+	    using System;
+	    using System.Linq;
+	    using System.Collections.Generic;
+	    using System.ServiceModel;
+	
+	    // Implement the IProducts interface.
+	    class ProductsService : IProducts
+	    {
+	
+	        // Populate array of products for display on website
+	        ProductData[] products =
+	            new []
+	                {
+	                    new ProductData{ Id = "1", Name = "Rock",
+	                                     Quantity = "1"},
+	                    new ProductData{ Id = "2", Name = "Paper",
+	                                     Quantity = "3"},
+	                    new ProductData{ Id = "3", Name = "Scissors",
+	                                     Quantity = "5"},
+	                    new ProductData{ Id = "4", Name = "Well",
+	                                     Quantity = "2500"},
+	                };
+	
+	        // Display a message in the service console application
+	        // when the list of products is retrieved.
+	        public IList<ProductData> GetProducts()
+	        {
+	            Console.WriteLine("GetProducts called.");
+	            return products;
+	        }
+	
+	    }
+	
+	    class Program
+	    {
+	        // Define the Main() function in the service application.
+	        static void Main(string[] args)
+	        {
+	            var sh = new ServiceHost(typeof(ProductsService));
+	            sh.Open();
+	
+	            Console.WriteLine("Press ENTER to close");
+	            Console.ReadLine();
+	
+	            sh.Close();
+	        }
+	    }
+	}
+	```
 
-            // Implement the IProducts interface.
-            class ProductsService : IProducts
-            {
+13. В окне "Обозреватель решений" дважды щелкните файл **App.config**, чтобы открыть его в редакторе Visual Studio. В нижней части элемента **&lt;system.ServiceModel&gt;** (но еще в элементе &lt;system.ServiceModel&gt;) добавьте следующий код XML. Не забудьте заменить *yourServiceNamespace* на имя пространства имен, а *yourKey* — на ключ SAS, полученный ранее на портале:
 
-                // Populate array of products for display on website.
-                ProductData[] products =
-                    new []
-                        {
-                            new ProductData{ Id = "1", Name = "Rock",
-                                             Quantity = "1"},
-                            new ProductData{ Id = "2", Name = "Paper",
-                                             Quantity = "3"},
-                            new ProductData{ Id = "3", Name = "Scissors",
-                                             Quantity = "5"},
-                            new ProductData{ Id = "4", Name = "Well",
-                                             Quantity = "2500"},
-                        };
+    ```
+    <system.serviceModel>
+	...
+      <services>
+         <service name="ProductsServer.ProductsService">
+           <endpoint address="sb://yourServiceNamespace.servicebus.windows.net/products" binding="netTcpRelayBinding" contract="ProductsServer.IProducts" behaviorConfiguration="products"/>
+         </service>
+      </services>
+      <behaviors>
+         <endpointBehaviors>
+           <behavior name="products">
+             <transportClientEndpointBehavior>
+                <tokenProvider>
+                   <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
+                </tokenProvider>
+             </transportClientEndpointBehavior>
+           </behavior>
+         </endpointBehaviors>
+      </behaviors>
+    </system.serviceModel>
+    ```
+14. В файле App.config в элементе **&lt;appSettings&gt;** замените значение строки подключения на значение, полученное ранее на портале. 
 
-                // Display a message in the service console application
-                // when the list of products is retrieved.
-                public IList<ProductData> GetProducts()
-                {
-                    Console.WriteLine("GetProducts called.");
-                    return products;
-                }
+	```
+	<appSettings>
+   	<!-- Service Bus specific app settings for messaging connections -->
+   	<add key="Microsoft.ServiceBus.ConnectionString"
+	       value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
+	</appSettings>
+	```
 
-            }
+14. Нажмите сочетание клавиш **CTRL+SHIFT+B** или в меню **Сборка** щелкните **Собрать решение**, чтобы создать приложение и проверить точность выполненной работы.
 
-            class Program
-            {
-                // Define the Main() function in the service application.
-                static void Main(string[] args)
-                {
-                    var sh = new ServiceHost(typeof(ProductsService));
-                    sh.Open();
-
-                    Console.WriteLine("Press ENTER to close");
-                    Console.ReadLine();
-
-                    sh.Close();
-                }
-            }
-        }
-
-13. В окне "Обозреватель решений" дважды щелкните файл **App.config**, 
-    чтобы открыть его в редакторе Visual Studio. Замените содержимое 
-    **&lt;system.ServiceModel&gt;** на приведенный ниже XML-код. Не забудьте 
-    заменить *yourServiceNamespace* именем пространства имен вашей 
-    службы, а *yourKey* — ключом SAS,
-    полученным ранее на классическом портале Azure.
-
-        <system.serviceModel>
-          <extensions>
-             <behaviorExtensions>
-                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=2.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-              </behaviorExtensions>
-              <bindingExtensions>
-                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-              </bindingExtensions>
-          </extensions>
-          <services>
-             <service name="ProductsServer.ProductsService">
-               <endpoint address="sb://yourServiceNamespace.servicebus.windows.net/products" binding="netTcpRelayBinding" contract="ProductsServer.IProducts"
-        behaviorConfiguration="products"/>
-             </service>
-          </services>
-          <behaviors>
-             <endpointBehaviors>
-               <behavior name="products">
-                 <transportClientEndpointBehavior>
-                    <tokenProvider>
-                       <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
-                    </tokenProvider>
-                 </transportClientEndpointBehavior>
-               </behavior>
-             </endpointBehaviors>
-          </behaviors>
-        </system.serviceModel>
-
-14. Нажмите клавишу F6 или щелкните элемент **Построить решение** в меню **Сборка**, чтобы построить приложение для проверки точности выполненной работы.
-
-## Создание приложения ASP.NET MVC
+## Создание приложения ASP.NET
 
 В этом разделе будет выполнено построение простого приложения ASP.NET, которое будет отображать данные, полученные из службы продукции.
 
 ### Создание проекта
 
-1.  Убедитесь, что система Visual Studio запущена с правами администратора. Если нет, то для запуска Visual Studio с привилегиями администратора щелкните правой кнопкой мыши **Microsoft Visual Studio 2013 (или Microsoft Visual Studio Express)** и выберите **Запуск от имени администратора**. Для работы эмулятора вычислений Microsoft Azure, который обсуждается далее в этой статье, требуется запустить Visual Studio с правами администратора.
+1.  Убедитесь, что система Visual Studio запущена с правами администратора.
 
 2.  В меню **Файл** Visual Studio выберите **Создать**, а затем **Проект**.
 
@@ -298,9 +278,23 @@
 
     ![][15]
 
-4.  В списке **Выбор шаблона** щелкните **MVC** и нажмите кнопку **ОК**.
+4.  В списке **Выбор шаблона** щелкните **MVC**.
+
+6.  Установите флажок **Host in the cloud** (Разместить в облаке).
 
     ![][16]
+
+5. Нажмите кнопку **Изменить аутентификацию**. В диалоговом окне **Изменить аутентификацию** щелкните **Без аутентификации** и нажмите кнопку **ОК**. В этом учебнике выполняется развертывание приложения, для которого не требуется имя пользователя.
+
+	![][18]
+
+6. 	В диалоговом окне **Новый проект ASP.NET** в разделе **Microsoft Azure** установите флажок **Разместить в облаке**, а в раскрывающемся списке ниже выберите пункт **Служба приложений**.
+
+	![][19]
+
+7. Нажмите кнопку **ОК**.
+
+8. Теперь необходимо настроить ресурсы Azure для нового веб-приложения. Выполните действия, описанные в разделе [Настройка ресурсов Azure для нового веб-приложения](../app-service-web/web-sites-dotnet-get-started.md#configure-azure-resources-for-a-new-web-app). Затем вернитесь к этому учебнику и перейдите к следующему шагу.
 
 5.  В обозревателе решений щелкните **Модели** правой кнопкой мыши, а затем последовательно щелкните **Добавить** и **Класс**. В поле **Имя** введите имя **Product.cs**. Нажмите кнопку **Добавить**.
 
@@ -310,43 +304,44 @@
 
 1.  В Visual Studio замените существующее определение пространства имен в файле на следующий код.
 
-        // Declare properties for the products inventory.
-        namespace ProductsWeb.Models
-        {
-            public class Product
-            {
-                public string Id { get; set; }
-                public string Name { get; set; }
-                public string Quantity { get; set; }
-            }
-        }
+	```
+	// Declare properties for the products inventory.
+ 	namespace ProductsWeb.Models
+	{
+    	public class Product
+    	{
+    	    public string Id { get; set; }
+    	    public string Name { get; set; }
+    	    public string Quantity { get; set; }
+    	}
+	}
+	```
 
-2.  В Visual Studio замените существующее определение пространства имен в файле HomeController.cs на следующий код.
+2.  В обозревателе решений разверните папку **Контроллеры** и дважды щелкните файл **HomeController.cs**, чтобы открыть его в Visual Studio.
 
-        namespace ProductsWeb.Controllers
-        {
-            using System.Collections.Generic;
-            using System.Web.Mvc;
-            using Models;
+3. В файле **HomeController.cs** замените имеющееся определение пространства имен следующим кодом.
 
-            public class HomeController : Controller
-            {
-                // Return a view of the products inventory.
-                public ActionResult Index(string Identifier, string ProductName)
-                {
-                    var products = new List<Product>
-                        {new Product {Id = Identifier, Name = ProductName}};
-                    return View(products);
-                }
+	```
+	namespace ProductsWeb.Controllers
+	{
+	    using System.Collections.Generic;
+	    using System.Web.Mvc;
+	    using Models;
+	
+	    public class HomeController : Controller
+	    {
+	        // Return a view of the products inventory.
+	        public ActionResult Index(string Identifier, string ProductName)
+	        {
+	            var products = new List<Product>
+	                {new Product {Id = Identifier, Name = ProductName}};
+	            return View(products);
+	        }
+	     }
+	}
+	```
 
-            }
-        }
-
-3.  В обозревателе решений разверните папку "Views\\Shared".
-
-    ![][18]
-
-4.  Дважды щелкните файл **\_Layout.cshtml**, чтобы открыть его в редакторе Visual Studio.
+3.  В обозревателе решений разверните папки "Представления\\Общие", а затем дважды щелкните файл **\_Layout.cshtml**, чтобы открыть его в редакторе Visual Studio.
 
 5.  Замените все вхождения элемента **Мое приложение MVC ASP.NET** текстом **Продукты LITWARE**.
 
@@ -354,45 +349,43 @@
 
 	![][41]
 
-7.  В обозревателе решений разверните папку "Views\\Home".
+7.  В обозревателе решений разверните папки Views\\Home "Представления\\Домашняя страница", а затем дважды щелкните файл **Index.cshtml**, чтобы открыть его в редакторе Visual Studio. Замените все содержимое файла следующим кодом.
 
-    ![][20]
+	```
+	@model IEnumerable<ProductsWeb.Models.Product>
+	
+	@{
+	 		ViewBag.Title = "Index";
+	}
+	
+	<h2>Prod Inventory</h2>
+	
+	<table>
+	  		<tr>
+	      		<th>
+	          		@Html.DisplayNameFor(model => model.Name)
+	      		</th>
+	              <th></th>
+	      		<th>
+	          		@Html.DisplayNameFor(model => model.Quantity)
+	      		</th>
+	  		</tr>
+	
+	@foreach (var item in Model) {
+	  		<tr>
+	      		<td>
+	          		@Html.DisplayFor(modelItem => item.Name)
+	      		</td>
+	      		<td>
+	          		@Html.DisplayFor(modelItem => item.Quantity)
+	      		</td>
+	  		</tr>
+	}
+	
+	</table>
+	```
 
-8.  Дважды щелкните файл **Index.cshtml**, чтобы открыть его в редакторе Visual Studio. Замените все содержимое файла следующим кодом.
-
-		@model IEnumerable<ProductsWeb.Models.Product>
-
-		@{
-    		ViewBag.Title = "Index";
-		}
-
-		<h2>Prod Inventory</h2>
-
-		<table>
-    		<tr>
-        		<th>
-            		@Html.DisplayNameFor(model => model.Name)
-        		</th>
-                <th></th>
-        		<th>
-            		@Html.DisplayNameFor(model => model.Quantity)
-        		</th>
-    		</tr>
-
-		@foreach (var item in Model) {
-    		<tr>
-        		<td>
-            		@Html.DisplayFor(modelItem => item.Name)
-        		</td>
-        		<td>
-            		@Html.DisplayFor(modelItem => item.Quantity)
-        		</td>
-    		</tr>
-		}
-
-		</table>
-
-9.  Чтобы проверить правильность работы на данный момент, можно нажать **F6** или **CTRL + SHIFT + B** для сборки проекта.
+9.  Чтобы проверить правильность работы на текущий момент, можно нажать клавиши **CTRL+SHIFT+B** для сборки проекта.
 
 
 ### Локальный запуск приложения
@@ -400,36 +393,18 @@
 Запустите приложение, чтобы убедиться, что оно работает.
 
 1.  Убедитесь, что **ProductsPortal** является активным проектом. В обозревателе решений щелкните правой кнопкой мыши имя проекта и выберите команду **Назначить запускаемым проектом**.
-2.  В **Visual Studio** нажмите клавишу F5.
+2.  В Visual Studio нажмите клавишу F5.
 3.  Приложение должно начать выполняться в браузере.
 
     ![][21]
 
-## Подготовка приложения к развертыванию в Azure
-
-Ваши приложения можно развернуть в [облачную службу][executionmodels] Azure или на [веб-сайт Azure][azureweb]. Дополнительные сведения о развертывании приложения на веб-сайте Azure содержатся в разделе [Развертывание веб-приложения ASP.NET на веб-сайте Azure](https://azure.microsoft.com/develop/net/tutorials/get-started/). Этот раздел содержит подробные инструкции по развертыванию приложения в облачной службе Azure.
-
-Чтобы развернуть приложение в облачной службе, необходимо добавить в решение проект развертывания проекта облачной службы. Проект развертывания содержит сведения о конфигурации, необходимые для правильного запуска приложения в облаке.
-
-1.  Чтобы обеспечить возможность развертывания приложения в облаке, щелкните правой кнопкой мыши проект **ProductsPortal** в обозревателе решений и выберите пункт **Преобразовать**, затем щелкните **Преобразовать в проект облачной службы Microsoft Azure**.
-
-    ![][22]
-
-2.  Чтобы протестировать приложение, нажмите клавишу F5.
-
-3.  Это приведет к запуску эмулятора вычислений Azure. Эмулятор среды выполнения приложений использует локальный компьютер для эмуляции вашего приложения, работающего в среде Azure. Чтобы убедиться, что эмулятор запущен, обратитесь к панели задач.
-
-       ![][23]
-
-4.  В браузере все еще будет отображаться локально работающее приложение, которое выглядит и функционирует точно так же, как оно работало при предыдущем запуске в качестве обычного приложения ASP.NET MVC 4.
-
 ## Объединение элементов
 
-Следующим шагом является подключение локального сервера продуктов к приложению ASP.NET MVC.
+Следующим шагом является подключение локального сервера продуктов к приложению ASP.NET.
 
-1.  В Visual Studio повторно откройте проект **ProductsPortal**, созданный в разделе "Создание приложения ASP.NET MVC".
+1.  В Visual Studio повторно откройте проект **ProductsPortal**, созданный в разделе "Создание приложения ASP.NET".
 
-2.  Аналогично шагу в разделе "Создание локального сервера" добавьте пакет NuGet в ссылки проекта. В обозревателе решений щелкните правой кнопкой мыши **Ссылки**, затем выберите команду **Управление пакетами NuGet**.
+2.  Аналогично шагу в разделе "Создание локального сервера" добавьте пакет NuGet в ссылки проекта. В обозревателе решений щелкните правой кнопкой мыши проект **ProductsPortal** и выберите пункт **Manage NuGet Packagest** (Управление пакетами NuGet).
 
 3.  Выполните поиск по фразе "служебная шина" и выберите элемент **Служебная шина Microsoft Azure**. Завершите установку и закройте это диалоговое окно.
 
@@ -439,116 +414,116 @@
 
 	![][24]
 
-6.  Теперь откройте файл **HomeController.cs** в редакторе Visual Studio и замените существующее определение пространства имен следующим кодом. Не забудьте заменить *yourServiceNamespace* на имя пространства имен вашей службы, а *yourKey* — на ключ SAS. Это позволит клиенту вызывать локальную службу, возвращая результат в вызов.
+6.  Теперь откройте файл **HomeController.cs** в редакторе Visual Studio и замените существующее определение пространства имен следующим кодом. Не забудьте заменить *yourServiceNamespace* на имя пространства имен вашей службы, а *yourKey* — на ключ SAS. Это позволит клиенту вызывать локальную службу, возвращая результат в вызов.
 
-            namespace ProductsWeb.Controllers
-            {
-                using System.Linq;
-                using System.ServiceModel;
-                using System.Web.Mvc;
-                using Microsoft.ServiceBus;
-                using Models;
-                using ProductsServer;
+	```
+	namespace ProductsWeb.Controllers
+	{
+	    using System.Linq;
+	    using System.ServiceModel;
+	    using System.Web.Mvc;
+	    using Microsoft.ServiceBus;
+	    using Models;
+	    using ProductsServer;
+	
+	    public class HomeController : Controller
+	    {
+	        // Declare the channel factory.
+	        static ChannelFactory<IProductsChannel> channelFactory;
+	
+	        static HomeController()
+	        {
+	            // Create shared access signature token credentials for authentication.
+	            channelFactory = new ChannelFactory<IProductsChannel>(new NetTcpRelayBinding(),
+	                "sb://yourServiceNamespace.servicebus.windows.net/products");
+	            channelFactory.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior {
+	                TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(
+	                    "RootManageSharedAccessKey", "yourKey") });
+	        }
+	
+	        public ActionResult Index()
+	        {
+	            using (IProductsChannel channel = channelFactory.CreateChannel())
+	            {
+	                // Return a view of the products inventory.
+	                return this.View(from prod in channel.GetProducts()
+	                                 select
+	                                     new Product { Id = prod.Id, Name = prod.Name,
+	                                         Quantity = prod.Quantity });
+	            }
+	        }
+	    }
+	}
+	```
 
-                public class HomeController : Controller
-                {
-                    // Declare the channel factory.
-                    static ChannelFactory<IProductsChannel> channelFactory;
-
-                    static HomeController()
-                    {
-                        // Create shared secret token credentials for authentication.
-                        channelFactory = new ChannelFactory<IProductsChannel>(new NetTcpRelayBinding(),
-                            "sb://yourServiceNamespace.servicebus.windows.net/products");
-                        channelFactory.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior {
-                            TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(
-                                "RootManageSharedAccessKey", "yourKey") });
-                    }
-
-                    public ActionResult Index()
-                    {
-                        using (IProductsChannel channel = channelFactory.CreateChannel())
-                        {
-                            // Return a view of the products inventory.
-                            return this.View(from prod in channel.GetProducts()
-                                             select
-                                                 new Product { Id = prod.Id, Name = prod.Name,
-                                                     Quantity = prod.Quantity });
-                        }
-                    }
-                }
-            }
-7.  В обозревателе решений щелкните правой кнопкой мыши решение **ProductsPortal** и выберите пункт **Добавит**, а затем щелкните **Существующий проект**.
+7.  В обозревателе решений щелкните правой кнопкой мыши решение **ProductsPortal** и выберите пункт **Добавить**, а затем щелкните **Existing Project** (Существующий проект).
 
 8.  Пройдите к проекту **ProductsServer**, а затем дважды щелкните файл решения **ProductsServer.csproj**, чтобы добавить его.
 
-9.  В обозревателе решений щелкните правой кнопкой мыши решение **ProductsPortal**, а затем выберите пункт **Свойства**.
+9.  Чтобы отобразить данные в **ProductsPortal**, проект **ProductsServer** должен быть запущен. В обозревателе решений щелкните правой кнопкой мыши решение **ProductsPortal**, а затем выберите пункт **Свойства**. Откроется диалоговое окно **Страницы свойств**.
 
-10. В левой части окна выберите **Запускаемый проект**. В правой части окна выберите **Несколько запускаемых проектов**. Убедитесь, что **ProductsServer**, **ProductsPortal.Azure** и **ProductsPortal** отображаются именно в таком порядке, при этом для **ProductsServer** и **ProductsPortal.Azure** назначено действие **Запуск**, а для **ProductsPortal** — действие **Нет**.
+10. В левой части окна выберите **Запускаемый проект**. В правой части окна выберите **Несколько запускаемых проектов**. Убедитесь, что **ProductsServer** и **ProductsPortal** отображаются в указанном порядке с назначенным действием **Запустить**.
 
       ![][25]
 
-11. В левой части диалогового окна **Свойства** щелкните элемент **ProjectDependencies**.
+11. В левой части диалогового окна **Свойства** щелкните **Зависимости проектов**.
 
-12. В списке **Проекты** щелкните элемент **ProductsServer**. Убедитесь, что флажок **ProductsPortal** не установлен, а флажок **ProductsPortal.Azure** установлен. Нажмите кнопку **ОК**.
+12. В списке **Проекты** щелкните элемент **ProductsServer**. Убедитесь, что флажок **ProductsPortal** **снят**.
+
+14. В списке **Проекты** щелкните элемент **ProductsPortal**. Убедитесь, что флажок **ProductsServer** установлен.
 
     ![][26]
 
+15. В диалоговом окне **Страницы свойств** нажмите кнопку **ОК**.
+
+## Локальный запуск проекта
+
+Чтобы проверить приложение в Visual Studio локально, нажмите клавишу **F5**. Первым должен запуститься локальный сервер (**ProductsServer**), а затем в окне браузера должно запуститься приложение **ProductsPortal**. На этот раз вы сможете проследить получение данных списка складских запасов продукции из локальной системы службы продукции.
+
+![][10]
+
+На странице **ProductsPortal** нажмите кнопку **Обновить**. При каждом обновлении страницы после вызова `GetProducts()` из **ProductsServer** на сервере приложения будет отображаться сообщение.
+
+## Развертывание проекта ProductsPortal в веб-приложении Azure
+
+Следующий шаг заключается в преобразовании интерфейсного сервера **ProductsPortal** в веб-приложение Azure. Сначала разверните проект **ProductsPortal**, выполнив шаги в разделе [Развертывание веб-проекта в веб-приложении Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). По завершении развертывания вернитесь к этому руководству и перейдите к следующему шагу.
+
+Скопируйте URL-адрес развернутого веб-приложения, так как он понадобится для выполнения следующего шага. Кроме того, этот URL-адрес можно найти в окне "Действие службы приложений Azure" в Visual Studio.
+
+![][9]
+   
+
+> [AZURE.NOTE] Если веб-проект **ProductsPortal** автоматически запустится после развертывания, в окне браузера может отобразиться сообщение об ошибке. Это ожидаемое поведение, которое значит, что приложение **ProductsServer** еще не запущено.
+
+### Настройка ProductsPortal в качестве веб-приложения
+
+Перед запуском приложения в облаке необходимо убедиться, что проект **ProductsPortal** в Visual Studio запускается как веб-приложение.
+
+1. В Visual Studio щелкните правой кнопкой мыши проект **ProjectsPortal** и выберите пункт **Свойства**.
+
+3. В столбце слева щелкните **Веб**.
+
+5. В разделе **Действие при запуске** нажмите кнопку **Открытие URL-адреса** и в текстовом поле введите URL-адрес ранее развернутого веб-приложения, например `http://productsportal1234567890.azurewebsites.net/`.
+
+	![][27]
+
+6. В меню **Файл** Visual Studio выберите пункт **Сохранить все**.
+
+7. В Visual Studio в меню "Сборка" щелкните **Перестроить решение**.
+
 ## Выполнение приложения
 
-1.  В меню **Файл** Visual Studio выберите пункт **Сохранить все**.
-
-2.  Нажмите клавишу F5, чтобы создать и запустить приложение. Первым должен запуститься локальный сервер (консольное приложение **ProductsServer**), затем приложение **ProductsWeb** должно запуститься в окне браузера, как показано на снимке экрана ниже. На этот раз вы сможете проследить получение данных списка складских запасов продукции из локальной системы службы продукции.
+2.  Нажмите клавишу F5, чтобы создать и запустить приложение. Первым должен запуститься локальный сервер (консольное приложение **ProductsServer**), затем в окне браузера должно запуститься приложение **ProductsPortal**, как показано на снимке экрана ниже. Обратите внимание, что в списке складских запасов продукции содержатся данные, полученные из локальной системы службы продукции, и они отображаются в веб-приложении. Проверьте URL-адрес, чтобы убедиться, что **ProductsPortal** запущен в облаке в качестве веб-приложения Azure. 
 
     ![][1]
 
-## Развертывание приложения в Azure
+	> [AZURE.IMPORTANT] Консольное приложение **ProductsServer** должно быть запущено и должно поддерживать возможность передачи данных в приложение **ProductsPortal**. Если в браузере отобразится сообщение об ошибке, подождите несколько секунд, пока **ProductsServer** загрузит и отобразит это сообщение. А затем нажмите кнопку **Обновить** в браузере.
 
-1.  В окне "Обозреватель решений" щелкните правой кнопкой мыши проект **ProductsPortal** и выберите пункт **Опубликовать в Microsoft Azure**.
+	![][37]
 
-2.  Возможно, понадобится выполнить регистрацию для просмотра всех подписок.
+3. Вернитесь к браузеру и на странице **ProductsPortal** нажмите кнопку **Обновить**. При каждом обновлении страницы после вызова `GetProducts()` из **ProductsServer** на сервере приложения будет отображаться сообщение.
 
-    Щелкните **Войти, чтобы просмотреть дополнительные подписки**.
-
-    ![][27]
-
-3.  Выполните выход с использованием своей учетной записи Майкрософт.
-
-8.  Нажмите кнопку **Далее**. Если подписка еще не содержит размещенные службы, вам будет предложено создать такую службу. Размещенная служба выступает в качестве контейнера для приложения в подписке Azure. Введите имя, идентифицирующее приложение, и выберите регион, для которого необходимо оптимизировать приложение. (Можно ожидать ускорения загрузки для пользователей, осуществляющих доступ из этой области.)
-
-9.  Выберите размещенную службу, в которую вы хотите опубликовать приложение. Для остальных параметров оставьте значения по умолчанию, как показано ниже. Нажмите кнопку **Далее**.
-
-    ![][33]
-
-10. На последней странице нажмите кнопку **Опубликовать** для запуска процесса развертывания.
-
-    ![][34]Это займет приблизительно 5–7 минут. Поскольку это первая публикация, Azure выполняет подготовку виртуальной машины (ВМ), повышает уровень безопасности, создает на виртуальной машине веб-роль для размещения приложения, развертывает код в этой веб-роли и, наконец, настраивает подсистему балансировки нагрузки и сетевые функции, чтобы приложение было доступно всем желающим.
-
-11. Во время выполнения публикации можно будет отслеживать операции в окне **Журнал действий Azure**, которое обычно прикреплено к нижней части экрана Visual Studio или Visual Web Developer.
-
-    ![][35]
-
-12. После развертывания веб-сайт можно просмотреть, щелкнув ссылку **URL-адрес веб-сайта** в окне мониторинга.
-
-    ![][36]
-
-    Правильная работа веб-сайта зависит от локального сервера, поэтому необходимо запустить приложение **ProductsServer** локально для этого веб-сайта. При выполнении запросов для облачного веб-сайта можно наблюдать поступление запросов в локальное консольное приложение, как указано в выходных данных "Вызванный GetProducts" на снимке экрана ниже.
-
-    ![][37]
-
-## Остановка и удаление приложения
-
-После развертывания приложения может потребоваться отключить его, чтобы можно было построить и развернуть другие приложения в рамках 750 свободных часов серверного времени в месяц (31 день в месяце).
-
-Для экземпляров веб-роли Azure выставляет счета за почасовое использование серверного времени. Время использования сервера отсчитывается с момента развертывания приложения, даже если экземпляры не запущены и пребывают в остановленном состоянии. Бесплатная учетная запись предоставляет 750 часов серверного времени в месяц (31 день в месяце) в виде выделенной виртуальной машины для размещения этих экземпляров веб-роли.
-
-Ниже показано, как остановить и удалить приложение.
-
-1.  Войдите на [классический портал Azure][], выберите пункт **Облачные службы**, а затем щелкните имя своей службы.
-
-2.  Выберите вкладку **Панель мониторинга**, а затем щелкните **Прервать**, чтобы временно остановить работу приложения. Его можно будет снова запустить, щелкнув элемент **Запуск**. Щелкните **Удалить**, чтобы полностью удалить приложение из Azure без возможности восстановления.
-
-	![][43]
+	![][38]
 
 ## Дальнейшие действия  
 
@@ -562,57 +537,37 @@
   [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
   [Получить инструменты и SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
-  [2]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png
-  [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
-
-
+  
   [классический портал Azure]: http://manage.windowsazure.com
-  [классического портала Azure]: http://manage.windowsazure.com
   [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
 
 
-
-  [Использование пакета NuGet для служебной шины]: https://msdn.microsoft.com/library/azure/dn741354.aspx
-  [10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
-  [12]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-3.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
-  [14]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-4.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
   [16]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-4.png
-  [17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.jpg
-  [18]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-10.jpg
+  [17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.png
+  [18]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-5.png
+  [19]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-6.png
+  [9]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-9.png
+  [10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App3.png
 
-  [20]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png
   [21]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App1.png
-  [22]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png
-  [23]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-22.png
   [24]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
   [25]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-13.png
   [26]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-14.png
-  [27]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-33.png
-
-
-  [30]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-36.png
-  [31]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-37.png
-  [32]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-38.png
-  [33]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-39.png
-  [34]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-40.png
-  [35]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-41.png
+  [27]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-8.png
+  
   [36]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
   [37]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
-  [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-27.png
-  [39]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-09.png
-  [40]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-06.png
+  [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
-  [42]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
+  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
 
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
-  [executionmodels]: ../cloud-services/cloud-services-choose-me.md
-  [azureweb]: ../app-service-web/app-service-web-overview.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -19,8 +19,10 @@
 # Подключение и создание запросов с помощью SQLCMD
 
 > [AZURE.SELECTOR]
-- [Visual Studio][]
-- [SQLCMD][]
+- [Visual Studio](sql-data-warehouse-get-started-connect.md)
+- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
+
 
 В этом пошаговом руководстве показано, как всего за несколько минут можно создать базу данных хранилища данных SQL Azure с помощью служебной программы sqlcmd.exe. В этом пошаговом руководстве описаны следующие операции.
 
@@ -34,7 +36,7 @@
 
 ## Получение полного имени сервера Azure SQL
 
-Для подключения к базе данных требуется полное имя сервера (***имя\_сервера**.database.windows.net*), содержащее базу данных, к которой необходимо подключиться.
+Для подключения к базе данных требуется полное имя сервера (****имя\_сервера**.database.windows.net*), содержащее базу данных, к которой необходимо подключиться.
 
 1. Перейдите на [портал Azure][].
 2. Перейдите к базе данных, к которой нужно подключиться.
@@ -48,7 +50,7 @@
 Чтобы подключиться к определенному экземпляру хранилища данных SQL с помощью sqlcmd, откройте командную строку и введите **sqlcmd** и строку подключения к базе данных хранилища данных SQL. В строке подключения необходимо указать следующие обязательные параметры:
 
 + **Server (-S):** сервер в виде `<`имя сервера`>`.database.windows.net
-+ **Database (-D):** имя базы данных.
++ **Database (-d):** имя базы данных.
 + **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
 + **Password (-P)** — пароль, связанный с пользователем.
 + **Enable Quoted Identifiers (-I)** — для подключения к экземпляру хранилища данных SQL необходимо включить заключенные в кавычки идентификаторы.
@@ -77,10 +79,10 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 
 Теперь, когда вы можете подключаться к базе данных и отправлять запросы, попробуйте [подключиться к PowerBI][].
 
-Сведения о том, как настроить в своей среде аутентификацию Windows, см. в статье [Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory][].
+Сведения о том, как настроить в своей среде аутентификацию Windows, см. в статье [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] (Подключение к хранилищу данных SQL с использованием проверки подлинности Azure Active Directory).
 
 <!--Articles-->
-[Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory]: ../sql-database/sql-database-aad-authentication.md
+[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
 [подключиться к PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
 [Visual Studio]: ./sql-data-warehouse-get-started-connect.md
 [SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
@@ -93,4 +95,4 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->
