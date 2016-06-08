@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/13/2016"
+   ms.date="05/18/2016"
    ms.author="SubramaR"/>
 
 # Service Fabric в Azure
 
 Сейчас доступна ограниченная предварительная версия Service Fabric для Linux, которая дает возможность создавать, развертывать высокодоступные приложения с высокой масштабируемостью и управлять ими в этой среде так же, как и в Windows. Кроме того, теперь высокоуровневые платформы Service Fabric (Reliable Services и Reliable Actors) могут создаваться на языке Java.
+
+> [AZURE.VIDEO service-fabric-linux-preview]
 
 ## Поддерживаемые операционные системы и языки программирования
 
@@ -32,10 +34,10 @@
 
 Если вы заинтересованы в участии в программе использования ограниченной предварительной версии, [заполните форму опроса](http://aka.ms/sflinuxsurvey), чтобы мы могли лучше понять ваш сценарий и требования. Период использования предварительной версии будет очень небольшим и со временем будет продлен.
 
-Обратите внимание, что Service Fabric в Linux концептуально не отличается от того, что доступно в Windows (за исключением особенностей ОС и поддержки языков программирования), поэтому вам подойдет большая часть нашей [имеющейся документации](http://aka.ms/servicefabricdocs), которая поможет ознакомиться с этой технологией.
+Обратите внимание, что Service Fabric в Linux принципиально не отличается от того, что доступно в Windows (за исключением особенностей ОС и поддержки языков программирования). Поэтому вам подойдет большая часть нашей [имеющейся документации](http://aka.ms/servicefabricdocs), которая поможет ознакомиться с этой технологией.
 
 ## Дальнейшие действия
 
-Ознакомление с платформами программирования [Reliable Actors](service-fabric-reliable-actors-introduction.md) и [Reliable Services](service-fabric-reliable-services-introduction.md).
+Ознакомьтесь с платформами программирования [Reliable Actors](service-fabric-reliable-actors-introduction.md) и [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

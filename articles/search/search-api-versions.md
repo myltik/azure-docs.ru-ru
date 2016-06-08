@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="03/08/2016"
+   ms.date="05/23/2016"
    ms.author="brjohnst"/>
 
 # Версии API в службе поиска Azure
@@ -69,4 +69,4 @@ API REST службы и API REST управления получают номе
 
 Общая доступность означает, что служба поиска Azure подчиняется соглашению об уровне обслуживания (SLA). Соглашение об уровне обслуживания см. в статье [Соглашения об уровне обслуживания для службы поиска Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

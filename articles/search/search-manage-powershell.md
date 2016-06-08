@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="03/08/2016" 
+	ms.date="05/23/2016" 
 	ms.author="seasa"/>
 
 # Управление службой поиска Azure с помощью PowerShell
@@ -27,7 +27,7 @@
 
 ## Предварительные требования
  
-- Необходимо установить Azure PowerShell 1.0 или более поздней версии. Инструкции см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+- Необходимо установить Azure PowerShell 1.0 или более поздней версии. Инструкции см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 - Вы должны войти в свою подписку Azure в PowerShell, как описано ниже.
 
 Сначала необходимо войти в Azure с помощью следующей команды.
@@ -103,6 +103,9 @@
 		-ResourceName $serviceName `
 		-ApiVersion 2015-08-19 `
 		-Action $queryKeyDescription).Key
+	
+	# View your query key
+	$queryKey
 
 	# Delete query key
 	Remove-AzureRmResource `
@@ -136,4 +139,4 @@
 
 - [Анализ трафика Поиска Azure](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

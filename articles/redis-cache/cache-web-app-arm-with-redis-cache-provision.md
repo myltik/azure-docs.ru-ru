@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/24/2016" 
 	ms.author="sdanie"/>
 
 # Создание веб-приложения и кэша Redis с помощью шаблона
@@ -43,7 +43,7 @@
 
 ## Переменные для имен
 
-В этом шаблоне для формирования имен ресурсов используются переменные. Для формирования значения на основе идентификатора группы ресурсов используется функция [uniqueString](../resource-group-template-functions/#uniquestring).
+В этом шаблоне для формирования имен ресурсов используются переменные. Значение на основе идентификатора группы ресурсов создается с помощью функции [uniqueString](../resource-group-template-functions.md#uniquestring).
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -132,4 +132,4 @@
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

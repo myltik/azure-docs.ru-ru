@@ -1,19 +1,19 @@
 <properties
    pageTitle="Приступая к работе с безопасностью Microsoft Azure | Microsoft Azure"
    description="В этой статье приведен обзор возможностей безопасности Microsoft Azure и общие рекомендации для организаций, которые переносят ресурсы в поставщик облака."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="05/23/2016"
    ms.author="yuridio"/>
 
 #Приступая к работе с безопасностью Microsoft Azure
@@ -241,4 +241,4 @@ Azure развертывает агенты управления (MA) и аге�
 
 [Блог Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0525_2016-->

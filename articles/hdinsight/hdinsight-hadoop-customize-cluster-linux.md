@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="05/25/2016"
 	ms.author="larryfr"/>
 
 # Настройка кластеров HDInsight под управлением Linux с помощью действия сценария
@@ -26,6 +26,14 @@
 ## Что такое действия скриптов
 
 Действие скрипта — это просто скрипт Bash, в который вы вводите URL-адрес и параметры, а он затем выполняется на узлах кластера HDInsight. Ниже приведены характеристики и возможности действий скриптов.
+
+* Они должны храниться в URI, доступном из кластера HDInsight. Возможные места хранения:
+
+    * Учетная запись хранения, которая служит основной или дополнительной учетной записью хранения для кластера HDInsight. При создании кластера HDInsight получает доступ к обоим видам учетных записей хранения, что позволяет использовать действия сценариев, которые не являются общедоступными.
+    
+    * Общедоступный URI, такой как BLOB-объект Azure, GitHub, OneDrive, Dropbox и т. д.
+    
+    Примеры URI для сценариев, хранящихся в контейнере BLOB-объектов (общедоступном), см. в разделе [Примеры сценариев с действиями сценариев](#example-script-action-scripts).
 
 * Могут быть ограничены __запуском только на узлах определенного типа__, например головных или рабочих.
 
@@ -96,8 +104,7 @@
 
 ## Пример действий сценария
 
-Действия сценария можно использовать с портала Azure, из Azure PowerShell, Azure CLI или пакета SDK .NET
- HDInsight. В HDInsight доступны скрипты для установки следующих компонентов в кластерах HDInsight.
+Действия сценария можно использовать с портала Azure, из Azure PowerShell, Azure CLI или пакета SDK .NET HDInsight. В HDInsight доступны скрипты для установки следующих компонентов в кластерах HDInsight.
 
 Имя | Скрипт
 ----- | -----
@@ -105,7 +112,7 @@
 **Установка R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. См. статью [Установка и использование R в кластерах HDInsight](hdinsight-hadoop-r-scripts-linux.md).
 **Установка Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md).
 **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install-linux.md).
-| **Предварительная загрузка библиотек Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. Ознакомьтесь с разделом [Добавление библиотек Hive во время создания кластера HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
+| **Предварительная загрузка библиотек Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. См. статью [Добавление библиотек Hive в кластеры HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## Использование действия скрипта при создании кластера
 
@@ -427,13 +434,11 @@
 
 1. На [портале Azure](https://portal.azure.com) выберите свой кластер HDInsight.
 
-2. В колонке кластера HDInsight выберите __Параметры__.
+2. В колонке кластера HDInsight выберите __Действия сценариев__.
 
-    ![Значок "Параметры"](./media/hdinsight-hadoop-customize-cluster-linux/settingsicon.png)
+    ![Элемент "Действия сценариев"](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
-3. В колонке "Параметры" выберите __Действия скрипта__.
-
-    ![Ссылка на действия скриптов](./media/hdinsight-hadoop-customize-cluster-linux/settings.png)
+    > [AZURE.NOTE] Также можно выбрать __Все параметры__, а затем __Действия сценариев__ в колонке "Параметры".
 
 4. В верхней части колонки "Действия скрипта" выберите __Отправить новое__.
 
@@ -685,4 +690,4 @@
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Этапы создания кластера"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

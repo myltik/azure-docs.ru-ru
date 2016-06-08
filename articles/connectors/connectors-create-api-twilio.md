@@ -1,10 +1,10 @@
 <properties
-pageTitle="Добавление API Twilio в приложения логики | Microsoft Azure"
-description="Обзор API Twilio с параметрами интерфейса API REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Добавление соединителя Twilio в приложения логики | Microsoft Azure"
+description="Обзор соединителя Twilio с параметрами API REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/12/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# Начало работы с API-интерфейсом Twilio
+# Начало работы с соединителем Twilio
 
 Подключитесь к Twilio для отправки и получения глобальных SMS-, MMS- и IP-сообщений.
 
@@ -31,16 +31,16 @@ ms.author="mandia"/>
 Сведения о добавлении операции в приложения логики см. в статье [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Триггеры и действия
-API Twilio позволяет выполнять следующие действия. Триггеры отсутствуют.
+Соединитель Twilio позволяет выполнять следующие действия. Триггеры отсутствуют.
 
 | триггеры; | Действия|
 | --- | --- |
 |None| <ul><li>Получение сообщения</li><li>Вывод списка сообщений</li><li>Отправка сообщения</li></ul>|
 
-Все API-интерфейсы поддерживают данные в форматах JSON и XML.
+Все соединители поддерживают данные в форматах JSON и XML.
 
 ## Создание подключения к Twilio
-При добавлении этого API в приложения логики введите указанные ниже значения Twilio:
+При добавлении этого соединителя в приложения логики введите указанные ниже значения Twilio:
 
 |Свойство| Обязательно|Описание|
 | ---|---|---|
@@ -248,4 +248,4 @@ API Twilio позволяет выполнять следующие действ
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

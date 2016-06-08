@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Руководство по базам данных SQL: создание базы данных SQL с помощью C# | Microsoft Azure"
+	pageTitle="Руководство по базам данных SQL: создание базы данных SQL с помощью C# | Microsoft Azure"
 	description="Используйте базы данных SQL для разработки приложений на основе SQL и C#. Создайте базу данных Azure SQL с помощью C# и библиотеки баз данных SQL для .NET."
 	keywords="учебник sql, sql и c#"   
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,19 +14,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="03/24/2016"
+   ms.date="05/26/2016"
    ms.author="sstein"/>
 
-# Руководство по базам данных SQL: создание базы данных SQL с помощью C# и библиотеки базы данных SQL для .NET
+# Руководство по базам данных SQL. Создание Базы данных SQL с помощью C# и библиотеки Базы данных SQL для .NET
 
-**Отдельная база данных**
 
 > [AZURE.SELECTOR]
 - [Портал Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Узнайте, как использовать команды C# для создания базы данных SQL Azure с помощью [библиотеки баз данных SQL Azure для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Вы познакомитесь с базами данных SQL на примере создания отдельной базы данных с помощью SQL и C#. Создание пулов эластичных баз данных описано в статье [Создание пула эластичных баз данных](sql-database-elastic-pool-create-portal.md). Код разбит на отдельные фрагменты для ясности, и пример консольного приложения объединяет все команды в нижней части этой статьи.
+Узнайте, как использовать команды C# для создания базы данных SQL Azure с помощью [библиотеки баз данных SQL Azure для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Вы познакомитесь с базами данных SQL на примере создания отдельной базы данных с помощью SQL и C#. Создание пулов эластичных баз данных описано в статье [Создание пула эластичных баз данных на портале Azure](sql-database-elastic-pool-create-portal.md). Код разбит на отдельные фрагменты для ясности, и пример консольного приложения объединяет все команды в нижней части этой статьи.
 
 Библиотека базы данных SQL Azure для .NET предоставляет API на основе [диспетчера ресурсов Azure](../resource-group-overview.md), который создает оболочку для [API REST базы данных SQL на основе диспетчера ресурсов](https://msdn.microsoft.com/library/azure/mt163571.aspx). Эта клиентская библиотека следует общему шаблону для клиентских библиотек на основе диспетчера ресурсов. Диспетчеру ресурсов необходимы группы ресурсов и проверка подлинности с помощью [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
@@ -44,10 +43,10 @@
 
 ## Установка необходимых библиотек
 
-Чтобы создать базу данных SQL с помощью C#, установите с помощью [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) следующие пакеты, которые содержат нужные библиотеки управления. Для этого в Visual Studio последовательно выберите элементы **Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**.
+Чтобы создать базу данных SQL с помощью C#, установите с помощью [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) указанные ниже пакеты, которые содержат нужные библиотеки управления. Для этого в Visual Studio последовательно выберите элементы **Инструменты** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**.
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
@@ -60,7 +59,7 @@
 Для создания нового приложения и его регистрации в правильном Active Directory сделайте следующие.
 
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com/).
-1. В левой части выберите службу **Active Directory**, а затем щелкните **имя** каталога для проверки подлинности приложения.
+1. Слева выберите службу **Active Directory**, а затем щелкните **имя** каталога, выбранного для проверки подлинности приложения.
 
     ![Руководство по базам данных SQL: настройка Azure Active Directory (AAD).][1]
 
@@ -80,7 +79,7 @@
 
     ![Ввод URL-адреса перенаправления для приложения SQL C#.][8]
 
-7. Чтобы завершить создание приложения, нажмите кнопку **Настроить** и скопируйте **идентификатор клиента** (позднее его нужно будет указать в коде).
+7. Чтобы завершить создание приложения, щелкните **Настроить** и скопируйте **идентификатор клиента** (позднее его нужно будет указать в коде).
 
     ![Ввод идентификатора клиента для приложения SQL C#.][9]
 
@@ -232,7 +231,7 @@
 
 
 
-Чтобы разрешить другим службам Azure доступ к серверу, добавьте правило брандмауэра и задайте для параметров StartIpAddress и EndIpAddress значение 0.0.0.0. Обратите внимание, что это правило разрешает доступ к серверу из *любой* подписки Azure.
+Чтобы разрешить другим службам Azure доступ к серверу, добавьте правило брандмауэра и задайте для параметров StartIpAddress и EndIpAddress значение 0.0.0.0. Обратите внимание, что это разрешает доступ к серверу трафику Azure от *любой* подписки Azure.
 
 
 ## Создание базы данных SQL с помощью C#
@@ -268,8 +267,8 @@
 
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -457,4 +456,4 @@
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

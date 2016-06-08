@@ -26,7 +26,7 @@
 
 Чтобы немедленно приступить к работе, ознакомьтесь с одним из следующих руководств:
 
-- [Добавление проверки подлинности в приложение iOS][iOS] (или в приложение [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] или [Cordova])
+- [Добавление проверки подлинности в приложение iOS][iOS] \(или в приложение [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] или [Cordova])
 - [Проверка подлинности пользователя для приложений API в службе приложений Azure][apia-user]
 - [Начало работы со службой приложений Azure (часть 2)][web-getstarted]
 
@@ -102,7 +102,7 @@
 
 Сведения из этих заголовков можно получить с помощью кода, написанного на любом языке или в любой платформе. Для приложений ASP.NET 4.6 автоматически настраивается класс **ClaimsPrincipal** с соответствующими значениями.
 
-Приложение может получить дополнительные сведения о пользователях, отправив запрос HTTP GET на конечную точку приложения `/.auth/me`. Если в запрос был включен допустимый маркер, будут возвращены полезные данные JSON со сведениями об используемом поставщике, маркером базового поставщика и другими данными пользователя. Пакеты SDK для серверной части мобильных приложений предоставляют вспомогательные методы для работы с этими данными Дополнительные сведения см. в статьях [Использование пакета SDK Node.js для мобильных приложений Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md/#howto-tables-getidentity) и [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md/#user-info).
+Приложение может получить дополнительные сведения о пользователях, отправив запрос HTTP GET на конечную точку приложения `/.auth/me`. Если в запрос был включен допустимый маркер, будут возвращены полезные данные JSON со сведениями об используемом поставщике, маркером базового поставщика и другими данными пользователя. Пакеты SDK для серверной части мобильных приложений предоставляют вспомогательные методы для работы с этими данными Дополнительные сведения см. в статьях [Как использовать пакет SDK Node.js для мобильных приложений Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) и [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
 ## Документация и дополнительные ресурсы
 
@@ -174,8 +174,8 @@
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 
-[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md/#adal
-[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md/#adal
-[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md/#adal
+[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
+[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
+[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

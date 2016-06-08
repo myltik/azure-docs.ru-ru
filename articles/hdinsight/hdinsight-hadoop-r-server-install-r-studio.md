@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="05/24/2016"
    ms.author="jeffstok"/>
 
 
@@ -27,7 +27,7 @@
 
 ## Предварительные требования
 
-* Кластер Azure HDInsight, на котором установлен R Server. Инструкции см. в разделе [Приступая к работе с R Server в кластерах HDInsight](hdinsight-hadoop-r-server-get-started.mdulet).
+* Кластер Azure HDInsight, на котором установлен R Server. Инструкции см. в разделе [Приступая к работе с R Server в кластерах HDInsight](hdinsight-hadoop-r-server-get-started.md).
 * Клиент SSH. В дистрибутивах Linux и Unix и Macintosh OS X команда `ssh` входит в состав операционной системы. Для Windows рекомендуем воспользоваться [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
 
 
@@ -36,7 +36,7 @@
 1. Определите граничный узел кластера. Ниже указано соглашение об именовании головных и граничных узлов для кластера HDInsight с R Server.
 
 	* Головной узел — `CLUSTERNAME-ssh.azurehdinsight.net`
-	* Граничный узел — `rserver.CLUSTERNAME.ssh.azurehdinsight.net` 
+	* Граничный узел — `r-server.CLUSTERNAME-ssh.azurehdinsight.net` 
 
 3. Подключитесь к граничному узлу кластера по протоколу SSH, используя шаблон именования выше.
  
@@ -75,7 +75,7 @@
 
 	* В клиенте Linux или Windows (используя [Cygwin](http://www.redhat.com/services/custom/cygwin/)) откройте сеанс терминала и введите следующую команду:
 
-			ssh -L localhost:8787:localhost:8787 USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
+			ssh -L localhost:8787:localhost:8787 USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
 			
 		Замените **ИМЯ\_ПОЛЬЗОВАТЕЛЯ** на имя пользователя SSH для кластера HDInsight, а **ИМЯ\_КЛАСТЕРА** — на имя кластера HDInsight
 
@@ -124,4 +124,4 @@
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

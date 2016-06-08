@@ -94,7 +94,7 @@
 	string Echo(string text);
 	```
 
-1. Сразу после определения интерфейса `IEchoContract` объявите канал, наследующий от интерфейсов `IEchoChannel` и `IClientChannel`:
+1. Сразу после определения интерфейса `IEchoContract` объявите канал, наследующий от интерфейсов `IEchoContract` и `IClientChannel`, как показано здесь:
 
 	```
     public interface IEchoChannel : IEchoContract, IClientChannel { }
@@ -783,4 +783,4 @@ namespace Microsoft.ServiceBus.Samples
 [5]: ./media/service-bus-relay-tutorial/set-projects.png
 [6]: ./media/service-bus-relay-tutorial/set-depend.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

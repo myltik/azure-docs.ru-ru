@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="05/19/2016"
 	ms.author="genemi"/>
 
 
@@ -54,6 +54,23 @@
 - [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
 [Здесь](sql-database-transact-sql-information.md) можно ознакомиться с небольшим набором функций, которые еще не поддерживаются в базе данных SQL.
+
+
+### Уровень совместимости 130
+
+
+> [AZURE.IMPORTANT] Начиная с **июня 2016 г.** *вновь* созданные базы данных в базе данных SQL Azure версии 12 имеют уровень совместимости не ниже 130; это соответствует уровню Microsoft SQL Server 2016 GА.
+> 
+> Конечно, можно использовать `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` при необходимости.
+> 
+> Для баз данных, созданных до июня 2016 г., уровень совместимости по умолчанию не изменяется. Также и уровень базы данных, измененный при обновлении с версии 11 до версии 12.
+
+
+
+Сведения о сравнении наиболее важных запросов для последнего и предыдущего уровня совместимости см. здесь:
+
+- [Повышение производительности запросов с использованием уровня совместимости 130 в базе данных SQL Azure](sql-database-compatibility-level-query-performance-130.md)
+
 
 
 ## Увеличенная производительность для категории Premium и новые уровни производительности
@@ -166,4 +183,4 @@
 
 [Дополнительные условия использования для предварительных версий Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

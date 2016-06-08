@@ -148,9 +148,12 @@ static const char* connectionString = "[device connection string]";
 
 Это решение содержит один проект: Однако следует отметить, что в этом решении установлено четыре пакета NuGet.
 
-  ![](media/iot-hub-device-sdk-c-intro/17-iothub-client-sample-amqp-githubpackages.PNG)
+- Microsoft.Azure.C.SharedUtility
+- Microsoft.Azure.IoTHub.AmqpTransport
+- Microsoft.Azure.IoTHub.IoTHubClient
+- Microsoft.Azure.uamqp
 
-Для работы с пакетом SDK всегда необходим пакет **Microsoft.Azure.C.SharedUtility**. Так как этот пример использует AMQP, вам также потребуются пакеты **Microsoft.Azure.uamqp** и **Microsoft.Azure.IoTHub.AmqpTransport** (для HTTP и MQTT есть эквивалентные пакеты). Поскольку в рассматриваемом примере используется библиотека **IoTHubClient**, вам также нужно включить в решение пакет **Microsoft.Azure.IoTHub.IoTHubClient**.
+Для работы с пакетом SDK всегда необходим пакет **Microsoft.Azure.C.SharedUtility**. Так как этот пример использует AMQP, вам также потребуются пакеты **Microsoft.Azure.uamqp** и **Microsoft.Azure.IoTHub.AmqpTransport** (для HTTP и MQTT есть эквивалентные пакеты). Так как в рассматриваемом примере используется библиотека **IoTHubClient**, вам также нужно включить в решение пакет **Microsoft.Azure.IoTHub.IoTHubClient**.
 
 Реализацию примера приложения вы можете найти в исходном файле **iothub\_client\_sample\_amqp.c**.
 
@@ -260,9 +263,13 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 Этот пример, как и предыдущий, включает несколько пакетов NuGet:
 
-  ![](media/iot-hub-device-sdk-c-intro/18-simplesample_amqp-githubpackages.PNG)
+- Microsoft.Azure.C.SharedUtility
+- Microsoft.Azure.IoTHub.AmqpTransport
+- Microsoft.Azure.IoTHub.IoTHubClient
+- Microsoft.Azure.IoTHub.Serializer
+- Microsoft.Azure.uamqp
 
-Большинство из них мы видели в предыдущем примере, но **Microsoft.Azure.IoTHub.Serializer** — это новый пакет. Наличие этого пакета обязательно, если используется библиотека **serializer**.
+Большинство из них мы видели в предыдущем примере, но **Microsoft.Azure.IoTHub.Serializer** — это новый пакет. Наличие этого пакета обязательно, если используется библиотека **serializer**.
 
 Реализацию примера приложения вы можете найти в файле **simplesample\_amqp.c**.
 
@@ -371,7 +378,7 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 }
 ```
 
-Второй параметр — это указатель на контекст пользователя. Такой же указатель мы передавали в **IoTHubClient\_SendEventAsync**. В данном случае контекстом является простой счетчик, но это может быть любой другой объект.
+Второй параметр — это указатель на контекст пользователя. Такой же указатель мы передавали в **IoTHubClient\_SendEventAsync**. В данном случае контекстом является простой счетчик, но это может быть любой другой объект.
 
 Это все, что касается отправки событий. Единственное, о чем осталось рассказать, — это получение сообщений.
 
@@ -460,8 +467,8 @@ serializer_deinit();
 
 ## Дальнейшие действия
 
-В этой статье описываются основы использования библиотек, включенных в **пакет SDK для устройств Azure IoT для C**. В ней содержатся сведения, которых будет достаточно для понимания содержимого пакета SDK и его архитектуры, а также для начала работы с примерами для Windows. В следующей статье также рассказывается о пакете SDK и приводятся [дополнительные сведения о библиотеке IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
+В этой статье описываются основы использования библиотек, включенных в **пакет SDK для устройств Azure IoT для C**. В ней содержатся сведения, которых будет достаточно для понимания содержимого пакета SDK и его архитектуры, а также для начала работы с примерами для Windows. В следующей статье также рассказывается о пакете SDK и приводятся [дополнительные сведения о библиотеке IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
 Чтобы узнать, как использовать возможности управления устройствами в **пакете SDK для устройств Azure IoT для C**, см. раздел [Знакомство с клиентской библиотекой управления устройствами для центра Azure IoT](iot-hub-device-management-library.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

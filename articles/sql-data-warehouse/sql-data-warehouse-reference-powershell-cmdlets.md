@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
+   ms.date="05/18/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL
 
-Многими задачами по администрированию хранилища данных SQL можно управлять с помощью командлетов Azure PowerShell или интерфейсов API REST. Ниже представлены некоторые примеры использования команд PowerShell для автоматизации обычных задач в хранилище данных SQL. Список API REST для автоматизации этих задач см. в статье [Операции для баз данных SQL Azure][].
+Многими задачами по администрированию хранилища данных SQL можно управлять с помощью командлетов Azure PowerShell или интерфейсов API REST. Ниже представлены некоторые примеры использования команд PowerShell для автоматизации обычных задач в хранилище данных SQL. Хорошие примеры использования REST приведены в статье [Задачи управления масштабируемостью для хранилища данных SQL Azure (REST)][].
 
-> [AZURE.NOTE]  Чтобы использовать Azure Powershell с хранилищем данных SQL, установите Azure PowerShell 1.0.3 или выше. Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с [установщика веб-платформы Майкрософт][]. Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell][].
+> [AZURE.NOTE]  Чтобы использовать Azure Powershell с хранилищем данных SQL, установите Azure PowerShell 1.0.3 или выше. Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с [установщика веб-платформы Майкрософт][]. Дополнительные сведения об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][].
 
 ## Приступая к работе с командлетами Azure PowerShell
 
@@ -87,15 +87,16 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 - [Restore from snapshot (Восстановление из моментального снимка)][]
 - [Geo-restore from snapshot (Геовосстановление из моментального снимка)][]
 
-Список всех задач, которые можно автоматизировать с помощью PowerShell, см. в статье [Командлеты базы данных SQL Azure][].
+Список всех задач, которые можно автоматизировать с помощью PowerShell, см. в статье [Командлеты базы данных SQL Azure][]. Список задач, которые можно автоматизировать с помощью REST, см. в статье [Операции для баз данных SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Как установить и настроить Azure PowerShell]: powershell-install-configure.md
-[Создание хранилища данных SQL с помощью Powershell]: sql-data-warehouse-get-started-provision-powershell.md
-[Restore from snapshot (Восстановление из моментального снимка)]: sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Geo-restore from snapshot (Геовосстановление из моментального снимка)]: sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
+[Установка и настройка Azure PowerShell]: ./powershell-install-configure.md
+[Создание хранилища данных SQL с помощью Powershell]: ./sql-data-warehouse-get-started-provision-powershell.md
+[Restore from snapshot (Восстановление из моментального снимка)]: ./sql-data-warehouse-backup-and-restore-from-snapshot.md
+[Geo-restore from snapshot (Геовосстановление из моментального снимка)]: ./sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
+[Задачи управления масштабируемостью для хранилища данных SQL Azure (REST)]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md
 
 <!--MSDN references-->
 [Командлеты базы данных SQL Azure]: https://msdn.microsoft.com/library/mt574084.aspx
@@ -106,7 +107,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
-[Resume-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619347.aspx
+[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 <!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
 [Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
@@ -115,4 +116,4 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 <!--Other Web references-->
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

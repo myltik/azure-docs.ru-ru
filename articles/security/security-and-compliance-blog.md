@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/20/2016"
    ms.author="terrylan"/>
 
 # Блог по безопасности и соответствию требованиям Azure
@@ -26,6 +26,18 @@
 
 Обязательно заглядывайте в блог группы по безопасности и обеспечению соответствия Azure, чтобы быть в курсе последних нововведений.
 
-**ПОСЛЕДНИЕ СТАТЬИ** (обновляется еженедельно).
+**Последние статьи** (в этот раздел каждую неделю будут добавляться ссылки на новые публикации):
 
-<!---HONumber=AcomDC_0518_2016-->
+[Azure Disk Encryption for Windows Virtual Machines reaches General Availability](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/20/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) (Шифрование дисков Azure для виртуальных машин Windows становится общедоступным) (20 мая 2016 г.)
+
+[Advances in Azure Security Center Threat Detection](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/17/advances-in-azure-security-center-threat-detection/) (Обнаружение угроз — новые возможности центра безопасности Azure) (17 мая 2016 г.)
+
+[Update on Operations Management Suite (OMS) Security](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/12/update-on-operations-management-suite-omssecurity/) (Обновление безопасности для пакета Operations Management Suite (OMS)) (12 мая 2016 г.)
+
+[Azure Services SSL/TLS cipher suite update and removal of RC4](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/26/azure-services-ssltls-cipher-suite-update-and-removal-of-rc4/) (Обновление комплекта шифров для служб Azure SSL/TLS и удаление RC4) (26 апреля 2016 г.)
+
+[Enabling Diagnostics Logging for Azure Antimalware](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/19/enabling-diagnostics-logging-for-azure-antimalware/) (Включение журнала диагностики для антивредоносных программ Azure) (19 апреля 2016 г.)
+
+[What does shared responsibility in the cloud mean?](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/18/what-does-shared-responsibility-in-the-cloud-mean/) (Что обозначает разделение ответственности в облаке?) (18 апреля 2016 г.)
+
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Настройка кластеризации для кэша Redis для Azure уровня Премиум
@@ -111,6 +111,9 @@
 ### Нужно ли вносить изменения в клиентское приложение, чтобы использовать кластеризацию?
 
 -	Если кластеризация включена, доступна только база данных 0. Если клиентское приложение использует несколько баз данных и пытается выполнить чтение или запись в базе данных, отличной от 0, порождается следующее исключение: `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+
+    Дополнительные сведения см. в [разделе спецификаций кластера Redis, посвященном реализованному подмножеству](http://redis.io/topics/cluster-spec#implemented-subset).
+
 -	При использовании клиента [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) необходимо установить версию 1.0.481 или более позднюю версию. Вы можете подключаться к кэшу с помощью тех же [конечных точек, портов и ключей](cache-configure.md#properties), которые используются для подключения к кэшу с отключенной кластеризацией. Единственное отличие заключается в том, что все операции чтения и записи должны выполняться в базе данных 0.
 	-	Требования других клиентов могут отличаться. См. раздел [Все ли клиенты Redis поддерживают кластеризацию?](#do-all-redis-clients-support-clustering)
 -	Если приложение использует несколько операций с ключом, объединенных в одну команду, все ключи должны быть расположены в одном сегменте. Выполнение этих действий описано в разделе [Распределение ключей в кластере](#how-are-keys-distributed-in-a-cluster).
@@ -137,7 +140,7 @@
 
 В настоящее время не все клиенты Redis поддерживают кластеризацию. Например, ее не поддерживает StackExchange.Redis. Дополнительные сведения о других клиентах см. в разделе [Эксперименты с кластером](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) [руководства по кластерам Redis](http://redis.io/topics/cluster-tutorial).
 
->[AZURE.NOTE] Если вы используете клиент [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), убедитесь, что у вас установлена версия 1.0.481 или более поздняя. Это необходимо для правильного выполнения кластеризации. При наличии проблем с исключениями перемещения ознакомьтесь с информацией об [исключениях переноса](#move-exceptions).
+>[AZURE.NOTE] Если вы используете клиент [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), убедитесь, что у вас установлена версия 1.0.481 или более поздняя. Это необходимо для правильного выполнения кластеризации. При проблемах с исключениями переноса см. [здесь](#move-exceptions).
 
 ### Как подключиться к кэшу, если кластеризация включена?
 
@@ -196,4 +199,4 @@
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

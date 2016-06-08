@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Управление базами данных SQL Azure с помощью классического портала Azure"
-	description="Использование классического портала Azure для управления реляционной базой данных в облаке."
+	pageTitle="Управление базами данных SQL Azure с помощью портала Azure"
+	description="Узнайте, как использовать портал Azure для управления реляционной базой данных в облаке."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="05/10/2016"
+	ms.date="05/20/2016"
 	ms.author="sstein"/>
 
 
@@ -74,4 +74,4 @@
 
 - [База данных SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->
