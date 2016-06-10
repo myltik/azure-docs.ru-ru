@@ -249,4 +249,4 @@
 
 Чтобы получить общие сведения об SQL Server на виртуальных машинах Azure, просмотрите видео [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Виртуальные машины Azure — лучшая платформа для SQL Server 2016).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0601_2016--->
