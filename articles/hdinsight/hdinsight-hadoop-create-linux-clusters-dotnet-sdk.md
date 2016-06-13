@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="05/27/2016"
    	ms.author="jgao"/>
 
 #Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET
@@ -167,7 +167,7 @@
 
 ## Использование начальной загрузки
 
-Дополнительную информацию см. в статье [Настройка кластеров HDInsight с помощью начальной загрузки](hdinsight-hadoop-customize-cluster-bootstrap).
+Дополнительную информацию см. в статье [Настройка кластеров HDInsight с помощью начальной загрузки](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 Измените пример в разделе [Создание кластеров](#create-clusters) для настройки параметра Hive.
 
@@ -348,7 +348,7 @@
 ###Кластеры HBase
 
 * [Начало работы с HBase в HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Разработка приложений Java для HBase в HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Разработка приложений Java для HBase в HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Кластеры Storm
 
@@ -371,4 +371,4 @@
 - [Выполнение заданий Sqoop в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [Запуск заданий Oozie в HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

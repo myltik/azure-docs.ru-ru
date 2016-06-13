@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/26/2016" 
 	ms.author="milangada;cenkdin;juliako"/>
 
 #Практическое руководство. Обновление служб мультимедиа после смены ключей доступа к хранилищу
@@ -41,41 +41,41 @@
 
 - Используйте API REST управления служб мультимедиа.
 
-В следующем примере кода показано, как создать запрос https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key для синхронизации указанного ключа к хранилищу данных со службами мультимедиа. В данном случае используется значение дополнительного ключа хранилища. Дополнительные сведения см. в статье [Практическое руководство. Использование REST API для управления службами мультимедиа](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+В следующем примере кода показано, как создать запрос https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key для синхронизации указанного ключа к хранилищу данных со службами мультимедиа. В данном случае используется значение дополнительного ключа хранилища. Дополнительные сведения см. в статье [Практическое руководство. Использование REST API для управления службами мультимедиа](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
-		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
-		{
-		    var clientCert = GetCertificate(CertThumbprint);
-		
-		    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("{0}/{1}/services/mediaservices/Accounts/{2}/StorageAccounts/{3}/Key",
-		        Endpoint, SubscriptionId, mediaServicesAccount, storageAccountName));
-		    request.Method = "PUT";
-		    request.ContentType = "application/json; charset=utf-8";
-		    request.Headers.Add("x-ms-version", "2011-10-01");
-		    request.Headers.Add("Accept-Encoding: gzip, deflate");
-		    request.ClientCertificates.Add(clientCert);
-		
-		
-		    using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-		    {
-		        streamWriter.Write(""");
-		        streamWriter.Write(storageAccountKey);
-		        streamWriter.Write(""");
-		        streamWriter.Flush();
-		    }
-		
-		    using (var response = (HttpWebResponse)request.GetResponse())
-		    {
-		        string jsonResponse;
-		        Stream receiveStream = response.GetResponseStream();
-		        Encoding encode = Encoding.GetEncoding("utf-8");
-		        if (receiveStream != null)
-		        {
-		            var readStream = new StreamReader(receiveStream, encode);
-		            jsonResponse = readStream.ReadToEnd();
-		        }
-		    }
-		}
+	public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
+	{
+	    var clientCert = GetCertificate(CertThumbprint);
+	
+	    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("{0}/{1}/services/mediaservices/Accounts/{2}/StorageAccounts/{3}/Key",
+	        Endpoint, SubscriptionId, mediaServicesAccount, storageAccountName));
+	    request.Method = "PUT";
+	    request.ContentType = "application/json; charset=utf-8";
+	    request.Headers.Add("x-ms-version", "2011-10-01");
+	    request.Headers.Add("Accept-Encoding: gzip, deflate");
+	    request.ClientCertificates.Add(clientCert);
+	
+	
+	    using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+	    {
+	        streamWriter.Write(""");
+	        streamWriter.Write(storageAccountKey);
+	        streamWriter.Write(""");
+	        streamWriter.Flush();
+	    }
+	
+	    using (var response = (HttpWebResponse)request.GetResponse())
+	    {
+	        string jsonResponse;
+	        Stream receiveStream = response.GetResponseStream();
+	        Encoding encode = Encoding.GetEncoding("utf-8");
+	        if (receiveStream != null)
+	        {
+	            var readStream = new StreamReader(receiveStream, encode);
+	            jsonResponse = readStream.ReadToEnd();
+	        }
+	    }
+	}
 
 После этого шага обновите существующие указатели (у которых есть зависимость от предыдущего ключа к хранилищу данных), как показано далее.
 
@@ -159,4 +159,4 @@
 
 Мы выражаем признательность тем, кто помог нам в составлении этого документа, — это Сенк Динджилоглу (Cenk Dingiloglu), Милан Гада (Milan Gada) и Сева Титов.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

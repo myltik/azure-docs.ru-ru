@@ -19,8 +19,6 @@
 
 # Настройка фермы SharePoint интрасети в гибридном облаке для тестирования
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
-
 В этом разделе описываются шаги по созданию гибридной облачной среды для тестирования фермы SharePoint интрасети, размещенной в Microsoft Azure. Это конфигурация, которая получается в результате.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
@@ -43,7 +41,7 @@
 2.	настройка компьютера с SQL Server (SQL1).
 3.	настройка сервера SharePoint (SP1).
 
-Для этой рабочей нагрузки требуется подписка Azure. Если у вас есть подписка MSDN или Visual Studio, см. раздел [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Для этой рабочей нагрузки требуется подписка Azure. Если у вас есть подписка MSDN или Visual Studio, ознакомьтесь с разделом [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Этап 1. Настройка гибридной облачной среды
 
@@ -53,7 +51,7 @@
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph1.png)
 
-> [AZURE.NOTE] На этапе 1 можно также настроить [смоделированную гибридную облачную среду для тестирования](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
+> [AZURE.NOTE] На этапе 1 можно также настроить [имитацию гибридной облачной среды для тестирования](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
  
 ## Этап 2. Настройка компьютера с SQL Server (SQL1)
 
@@ -224,4 +222,4 @@
 
 - [Настройка](https://technet.microsoft.com/library/ee836142.aspx) фермы SharePoint.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

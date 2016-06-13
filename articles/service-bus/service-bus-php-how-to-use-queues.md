@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="05/06/2016" 
+	ms.date="06/01/2016" 
 	ms.author="sethm"/>
 
 # Как использовать очереди служебной шины
@@ -48,7 +48,7 @@
 > [AZURE.NOTE] В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure с помощью Composer. При установке библиотек вручную или в качестве пакета PEAR необходимо использовать ссылку на файл автозагрузчика **WindowsAzure.php**.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
@@ -74,7 +74,7 @@ Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[D
 В приведенных здесь примерах строка подключения передается напрямую.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 
@@ -90,7 +90,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 В приведенном ниже примере показано, как создать экземпляр **ServiceBusRestProxy** и вызвать метод **ServiceBusRestProxy->createQueue** для создания очереди с именем `myqueue` в пространстве имен службы `MySBNamespace`:
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -122,7 +122,7 @@ catch(ServiceException $e){
 Чтобы отправить сообщение в очередь служебной шины, в приложении вызывается метод **ServiceBusRestProxy->sendQueueMessage**. В следующем примере кода показано, как отправить сообщение в очередь `myqueue`, созданную ранее в пространстве имен службы `MySBNamespace`.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -164,7 +164,7 @@ catch(ServiceException $e){
 В следующем примере показывается, как можно получать и обрабатывать сообщения с помощью режима **PeekLock** (не является режимом по умолчанию).
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -220,4 +220,4 @@ catch(ServiceException $e){
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

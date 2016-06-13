@@ -1,12 +1,10 @@
-Resource|Free|Basic (Preview)|S1|S2
+Ресурс|Бесплатно|Базовый (предварительная версия)|S1|S2
 ---|---|---|---|----
-Maximum services at each tier per subscription <sup>1</sup>|1 |12 |12  |1
-Maximum scale per tier <sup>2</sup>|N/A|3 SU (up to 3 replicas and 1 partition)|36 SU|36 SU  
+Максимальное число служб на каждом уровне на подписку<sup>1</sup>|1 |12 |12 |1
+Максимальный масштаб на уровень<sup>2</sup>|Недоступно|3 ЕП (3 реплики и 1 секция)|36 ЕП|36 ЕП  
 
-<sup>1</sup> Each service is provisioned at a given pricing tier, with limits on the number of services you can provision at each tier within a single Azure subscription. During the Preview period, tiers are available at an introductory rate of 50% off the full price.
+<sup>1</sup> Каждая служба подготавливается в рамках соответствующей ценовой категории с учетом ограничений на число служб, которые можно подготовить на каждом уровне в рамках одной подписки Azure. На этапе предварительной версии уровни доступны по начальной цене в размере 50 % от полной цены.
 
-<sup>2</sup> Scale out limits are defined in terms of Search Units (SU) per tier. Search units are the billable unit for either a **replica** or a **partition**. You need both for storage, indexing, and query operations. Visit [Scale resource levels for query and index workloads](../articles/search/search-capacity-planning.md) for valid combinations of replicas and partitions that stay under the maximum limit of 3 or 36 units, for **Basic** and **Standard** respectively. Because **Free** is based on shared resources used by multiple subscribers, scale out is not provided at this level.
+<sup>2</sup> Ограничения на масштабирование определяются с учетом единиц поиска (ЕП) на уровень. Единицы поиска — это тарифицируемые единицы для **реплики** или **секции**. Они необходимы для хранилища, индексирования и операций запроса. Допустимые сочетания реплик и секций, соответствующие максимальным ограничениям (3 и 36 единиц для уровней **Базовый** и **Стандартный**), см. в статье [Планирование емкости в поиске Azure](../articles/search/search-capacity-planning.md). Поскольку на уровне **Бесплатный** общие ресурсы используются несколькими подписчиками, горизонтальное масштабирование на этом уровне недоступно.
 
-
-
-
+<!---HONumber=AcomDC_0601_2016-->

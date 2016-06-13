@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-
+См. дополнительные сведения об использовании [командлетов Azure PowerShell на основе Azure Resource Manager для управления веб-приложениями](app-service-web-app-azure-resource-manager-powershell.md).
 
 ## Передача и привязка нового SSL-сертификата ##
 
@@ -68,7 +68,8 @@
 	Remove-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -Name www.contoso.com -DeleteCertificate $false
 
 ### Ссылки ###
+- [Команды Azure PowerShell на основе Azure Resource Manager для веб-приложений Azure](app-service-web-app-azure-resource-manager-powershell.md)
 - [Введение в среду службы приложения](app-service-app-service-environment-intro.md)
 - [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0601_2016-->

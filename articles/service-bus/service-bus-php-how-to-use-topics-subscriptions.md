@@ -75,7 +75,7 @@ Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[D
 В приведенных здесь примерах строка подключения передается напрямую.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 	
@@ -91,7 +91,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 В приведенном ниже примере показано, как создать экземпляр **ServiceBusRestProxy** и вызвать метод **ServiceBusRestProxy->createTopic** для создания раздела с именем `mytopic` в пространстве имен `MySBNamespace`.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -126,7 +126,7 @@ catch(ServiceException $e){
 Фильтр **MatchAll** является фильтром по умолчанию, используемым, если при создании новой подписки не указан фильтр. Если используется фильтр **MatchAll**, все сообщения, опубликованные в разделе, помещаются в виртуальную очередь подписки. В следующем примере создается подписка с именем "mysubscription", и используется фильтр по умолчанию **MatchAll**.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -191,7 +191,7 @@ $ruleResult = $serviceBusRestProxy->createRule("mytopic", "LowMessages", $ruleIn
 Чтобы отправить сообщение в раздел служебной шины, в приложении вызывается метод **ServiceBusRestProxy->sendTopicMessage**. В следующем примере кода показано, как отправить сообщение в раздел `mytopic`, созданный ранее в пространстве имен службы `MySBNamespace`.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -247,7 +247,7 @@ for($i = 0; $i < 5; $i++){
 В следующем примере показывается, как получать и обрабатывать сообщения с помощью режима **PeekLock** (не является режимом по умолчанию).
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -300,7 +300,7 @@ catch(ServiceException $e){
 Следующий пример показывает, как удалить раздел `mytopic` и его зарегистрированные подписки.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\ServiceBus\ServiceBusService;
 use WindowsAzure\ServiceBus\ServiceBusSettings;
@@ -338,4 +338,4 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 [require-once]: http://php.net/require_once
 [Квоты на служебную шину]: service-bus-quotas.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

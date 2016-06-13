@@ -13,36 +13,41 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="bradsev;weig"/>
+	ms.date="05/26/2016"
+	ms.author="bradsev;weig;gopitk"/>
 
 
 # Полное пошаговое руководство по масштабируемому анализу данных в озере данных Azure
 
 В этом пошаговом руководстве на примере набора данных о поездках и тарифах такси в Нью-Йорке показано, как использовать озеро данных Azure для выполнения задач по исследованию и двоичной классификации данных, чтобы спрогнозировать вероятность получения чаевых за поездку. Здесь подробно описаны шаги [анализа данных](http://aka.ms/datascienceprocess) — от получения данных для обучения модели и до развертывания веб-службы, которая публикует модель.
 
-**Аналитика озера данных Azure**
 
-[Озеро данных Microsoft Azure](https://azure.microsoft.com/solutions/data-lake/) предусматривает все необходимые возможности для аналитиков, упрощающие хранение данных любого размера, формата и скорости обработки и обеспечивающие высокую гибкость и экономичность обработки данных, углубленной аналитики и создания моделей машинного обучения. Плата взимается за задание, и только если данные обработаны фактически. Аналитика озера данных Azure предполагает использование U-SQL, языка, который объединяет декларативную природу SQL с выразительностью C#, чтобы позволить создавать масштабируемые распределенные запросы. Она позволяет обрабатывать неструктурированные данные, применяя схему для чтения, вставки пользовательской логики и определяемых пользователем функций, и предполагает возможности расширения, обеспечивающие точный контроль над выполнением в масштабе. Дополнительные сведения о принципах разработки U-SQL см. [в записи блога о Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+### Аналитика озера данных Azure
+
+[Озеро данных Microsoft Azure](https://azure.microsoft.com/solutions/data-lake/) предусматривает все необходимые возможности для аналитиков, упрощающие хранение данных любого размера, формата и скорости обработки и обеспечивающие высокую гибкость и экономичность обработки данных, углубленной аналитики и создания моделей машинного обучения. Плата взимается за задание, и только если данные обработаны фактически. Аналитика озера данных Azure предполагает использование U-SQL, языка, который объединяет декларативную природу SQL с выразительностью C#, чтобы позволить создавать масштабируемые распределенные запросы. Она позволяет обрабатывать неструктурированные данные, применяя схему для чтения, вставки пользовательской логики и определяемых пользователем функций (UDF), и предполагает возможности расширения, обеспечивающие точный контроль над выполнением в масштабе. Дополнительные сведения о принципах разработки U-SQL см. в [записи блога о Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 Аналитика озера данных — это также ключевая часть Cortana Analytics Suite. Она поддерживает работу с хранилищем данных SQL Azure, Power BI и фабрикой данных. Это создает всеобъемлющую облачную платформу для работы с большими данными и углубленной аналитики.
 
-Пошаговое руководство начинается с описания необходимых компонентов, а также ресурсов, которые требуются для выполнения задач с использованием Аналитики озера данных, лежащих в основе анализа данных. Затем здесь описаны шаги этого процесса, выполняемые с использованием U-SQL и Машинного обучения Azure, а также выполнение аналогичных задач на языке Python.
+Пошаговое руководство начинается с описания необходимых компонентов, а также ресурсов, которые требуются для выполнения задач с использованием Аналитики озера данных, лежащих в основе анализа данных. Затем здесь описаны шаги по обработке данных, выполняемые с использованием U-SQL. В конце статьи показано, как использовать Python и Hive со студией машинного обучения Azure для создания и развертывания прогнозных моделей.
 
 
-**U-SQL и Машинное обучение Azure**
+### U-SQL и Visual Studio
 
-В этом пошаговом руководстве используется Visual Studio, чтобы изменять сценарии U-SQL для обработки набора данных. Сценарии U-SQL, описанные в документе, приводятся в отдельном файле. Процесс включает в себя прием, исследование и выборку данных. Затем здесь показывается, как выполнить задание со сценарием U-SQL на портале Azure. Для данных в связанном кластере HDInsight создаются таблицы Hive, которые упрощают сборку и развертывание модели двоичной классификации в Студии машинного обучения Azure.
-
-
-**Python**
-
-В этом пошаговом руководстве также содержится раздел, в котором показано, как выполнить задачи обработки и анализа данных, используя Python, на примере набора данных о поездках в такси по Нью-Йорку и тарифах. Мы предоставили Jupyter Notebook со сценариями Python для каждого шага в этом процессе. Этот Notebook включает в себя код для некоторых дополнительных шагов проектирования признаков и создания моделей, например многоклассовой классификации и регрессии, в дополнение к модели двоичной классификации, описанной здесь. Задача регрессии: спрогнозировать сумму чаевых в зависимости от других признаков.
+В этом пошаговом руководстве рекомендуется использовать Visual Studio, чтобы изменять сценарии U-SQL для обработки набора данных. Сценарии U-SQL, описанные в документе, приводятся в отдельном файле. Процесс включает в себя прием, исследование и выборку данных. Также здесь показывается, как выполнить задание со сценарием U-SQL на портале Azure. Для данных в связанном кластере HDInsight создаются таблицы Hive, которые упрощают сборку и развертывание модели двоичной классификации в Студии машинного обучения Azure.
 
 
-**Сценарии**
+### Python
 
-В этом пошаговом руководстве описаны только основные шаги. Вы можете загрузить полный **сценарий U-SQL**, а также **Jupyter Notebook** из [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
+В этом пошаговом руководстве также содержится раздел, в котором показано, как создавать и развертывать прогнозную модель с помощью Python и студии машинного обучения Azure. Мы предоставили записную книжку Jupyter со сценариями Python для шагов в этом процессе. Этот Notebook включает в себя код для некоторых дополнительных шагов проектирования признаков и создания моделей, например многоклассовой классификации и регрессии, в дополнение к модели двоичной классификации, описанной здесь. Задача регрессии: спрогнозировать сумму чаевых в зависимости от других признаков.
+
+
+### Машинное обучение Azure
+Студия машинного обучения Azure используется для создания и развертывания прогнозных моделей. Для этого используется два подхода: первый — с помощью сценариев Python, а второй — с использованием таблиц Hive на кластере HDInsight (Hadoop).
+
+
+### Сценарии
+
+В этом пошаговом руководстве описаны только основные шаги. Можно скачать полный **сценарий U-SQL**, а также **записную книжку Jupyter** из [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
 
 ## Предварительные требования
@@ -59,8 +64,7 @@
 
 >[AZURE.NOTE] Чтобы использовать хранилище озера данных Azure и Аналитику озера данных Azure, необходимо получить утверждение, так как эти службы работают в рамках предварительной версии. Во время создания первого хранилища озера данных Azure или решения Аналитики озера данных Azure отобразится запрос на регистрацию. Чтобы зарегистрироваться, щелкните **Регистрация в предварительной версии**, прочтите соглашение и нажмите кнопку **ОК**. Вот так, к примеру, выглядит станица регистрации хранилища озера данных Azure:
 
- ![2](./media/machine-learning-data-science-process-data-lake-walkthough/ADLA-preview-signup.PNG)
- 
+ ![2](./media/machine-learning-data-science-process-data-lake-walkthrough/2-ADLA-preview-signup.PNG)
 
 
 ## Подготовка среды анализа данных для озера данных Azure
@@ -72,42 +76,44 @@
 - учетную запись Студии машинного обучения Azure;
 - средства озера данных Azure для Visual Studio (рекомендуется).
 
-Этот раздел содержит указания о том, как создать каждый из этих ресурсов. Обратите внимание, что хранилище озера данных Azure можно создать отдельно или вместе с Аналитикой озера данных Azure в качестве хранилища по умолчанию. Аналогичным образом можно создать и учетную запись хранения BLOB-объектов Azure: отдельно или в качестве хранилища по умолчанию во время создания кластера HDInsight на платформе Linux. Указания по созданию каждого из этих ресурсов приведены по отдельности ниже, но учетные записи хранения необязательно создавать отдельно.
+Этот раздел содержит указания о том, как создать каждый из этих ресурсов. Если для создания модели вы решили вместо Python использовать таблицы Hive с машинным обучением Azure, необходимо будет также подготовить кластер HDInsight (Hadoop). Этот альтернативный способ описан в соответствующем разделе ниже.
+
+>AZURE.NOTE **Хранилище озера данных Azure** можно создать отдельно или вместе с **аналитикой озера данных Azure** в качестве хранилища по умолчанию. Указания по созданию каждого из этих ресурсов приведены по отдельности ниже, но учетную запись хранения озера данных не требуется создавать отдельно.
 
 ### Создание хранилища озера данных Azure
 
-Создайте кластер хранилища озера данных Azure на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Обязательно настройте удостоверение кластера AAD в колонке **Источник данных** колонки **Необязательная конфигурация**, показанной здесь.
+Создайте хранилище озера данных Azure на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Обязательно настройте удостоверение кластера AAD в колонке **Источник данных** колонки **Необязательная конфигурация**, показанной здесь.
 
- ![3](./media/machine-learning-data-science-process-data-lake-walkthough/create_ADLS.PNG)
+ ![3](./media/machine-learning-data-science-process-data-lake-walkthrough/3-create-ADLS.PNG)
 
 
 ### Создание учетной записи Аналитики озера данных Azure
-Создайте учетную запись Аналитики озера данных Azure на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в статье [Руководство. Начало работы с Аналитикой озера данных Azure с помощью портала Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Создайте учетную запись аналитики озера данных Azure на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в статье [Учебник. Начало работы с аналитикой озера данных Azure с помощью портала Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
- ![4\.](./media/machine-learning-data-science-process-data-lake-walkthough/create_ADLA_new.PNG)
+ ![4\.](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 
 ### Создание учетной записи хранения BLOB-объектов Azure
 Создайте учетную запись хранения BLOB-объектов Azure на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в разделе "Создание учетной записи хранения" в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 	
- ![5](./media/machine-learning-data-science-process-data-lake-walkthough/Create_Azure_Blob.PNG)
+ ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
 
 ### Настройка учетной записи Студии машинного обучения Azure
-Войдите в Студию машинного обучения со страницы [Машинного обучения Azure](https://azure.microsoft.com/services/machine-learning/). Нажмите кнопку **Начните прямо сейчас** и выберите Free Workspace ("Бесплатная рабочая область") или Standard Workspace ("Стандартная рабочая область"). После этого в Студии машинного обучения Azure можно будет создавать эксперименты.
+Войдите в студию машинного обучения со страницы [Машинного обучения Azure](https://azure.microsoft.com/services/machine-learning/). Нажмите кнопку **Начните прямо сейчас** и выберите Free Workspace ("Бесплатная рабочая область") или Standard Workspace ("Стандартная рабочая область"). После этого в Студии машинного обучения Azure можно будет создавать эксперименты.
 
-### Установка средств озера данных Azure 
-Установите средства озера данных Azure в зависимости от своей версии Visual Studio со страницы [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504) (Средства озера данных Azure для Visual Studio).
+### Установка инструментов озера данных Azure [рекомендуется]
+Установите инструменты озера данных Azure в зависимости от своей версии Visual Studio со страницы [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504) (Инструменты озера данных Azure для Visual Studio).
 
- ![10](./media/machine-learning-data-science-process-data-lake-walkthough/install_ADL_tools_VS.PNG)
+ ![6](./media/machine-learning-data-science-process-data-lake-walkthrough/6-install-ADL-tools-VS.PNG)
 
 После успешного завершения установки откройте Visual Studio. Вы должны увидеть вкладку Data Lake ("Озеро данных") в меню вверху. Ресурсы Azure должны отобразиться на левой панели при входе в учетную запись Azure.
 
- ![11](./media/machine-learning-data-science-process-data-lake-walkthough/install_ADL_tools_VS_done.PNG)
+ ![7](./media/machine-learning-data-science-process-data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
 
 
 ## Набор данных "Поездки такси Нью-Йорка"
-Здесь мы использовали общедоступный набор данных [NYC Taxi Trips dataset](http://www.andresmh.com/nyctaxitrips/) (Поездки такси Нью-Йорка). Данные о поездках такси Нью-Йорка содержатся в сжатых CSV-файлах размером около 20 ГБ (примерно 48 ГБ в несжатом виде), которые включают в себя сведения о более 173 млн отдельных поездок и платежах за каждую поездку. В каждой записи о поездке содержатся данные о расположении пунктов посадки и высадки, а также времени, анонимизированный номер лицензии водителя и номер медальона (уникальный идентификатор такси). Данные включают в себя все поездки за 2013 год и предоставляются в виде следующих двух наборов данных за каждый месяц:
+Здесь мы использовали общедоступный набор данных [Поездки такси Нью-Йорка](http://www.andresmh.com/nyctaxitrips/). Данные о поездках такси Нью-Йорка содержатся в сжатых CSV-файлах размером около 20 ГБ (примерно 48 ГБ в несжатом виде), которые включают в себя сведения о более 173 млн отдельных поездок и платежах за каждую поездку. В каждой записи о поездке содержатся данные о расположении пунктов посадки и высадки, а также времени, анонимизированный номер лицензии водителя и номер медальона (уникальный идентификатор такси). Данные включают в себя все поездки за 2013 год и предоставляются в виде следующих двух наборов данных за каждый месяц:
 
  - CSV-файл trip\_data содержит подробную информацию о поездке, например число пассажиров, пункты отправления и назначения, продолжительность поездки и ее расстояние. Вот несколько примеров записей:
 
@@ -127,7 +133,7 @@
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-Уникальный ключ для соединения trip\_data и trip\_fare состоит из следующих трех полей: medallion, hack\_licence и pickup\_datetime. Необработанные файлы в формате CSV можно получать из общедоступных больших двоичных объектов хранилища Azure.
+Уникальный ключ для соединения trip\_data и trip\_fare состоит из следующих трех полей: medallion, hack\_licence и pickup\_datetime. Необработанные файлы в формате CSV можно получать из общедоступных больших двоичных объектов хранилища Azure. Сценарий U-SQL для этого объединения находится в разделе [Объединение таблиц trip и fare](#join).
 
 ## Обработка данных с использованием U-SQL
 
@@ -140,16 +146,15 @@
 - [Выборка данных](#sample)
 - [Выполнение заданий U-SQL](#run)
 
-Сценарии U-SQL, описанные в документе, приводятся в отдельном файле. Вы можете скачать полные **сценарии U-SQL** из [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
+Сценарии U-SQL, описанные в документе, приводятся в отдельном файле. Можно скачать полные **сценарии U-SQL** из [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-Чтобы выполнить сценарий SQL-U, откройте Visual Studio, последовательно выберите **Файл --> Создать--> Проект**, щелкните **U-SQL Project** (Проект U-SQL), укажите имя и сохраните проект в папке.
+Чтобы выполнить сценарий U-SQL, откройте Visual Studio, последовательно выберите **Файл --> Создать--> Проект**, щелкните **U-SQL Project** (Проект U-SQL), укажите имя и сохраните проект в папке.
 
-![12](./media/machine-learning-data-science-process-data-lake-walkthough/create_USQL_project.PNG)
+![8](./media/machine-learning-data-science-process-data-lake-walkthrough/8-create-USQL-project.PNG)
 
->[AZURE.NOTE] Если вы используете портал Azure вместо Visual Studio, чтобы выполнить сценарий U-SQL, перейдите к ресурсу Аналитика озера данных Azure и выполните шаги ниже, чтобы отправить запросы.
+>[AZURE.NOTE] Для выполнения сценариев U-SQL вместо Visual Studio можно использовать портал Azure. Можно перейти к ресурсу "Аналитика озера данных Azure" на портале и отправить запросы напрямую, как показано на следующем рисунке.
 
-
-![29](./media/machine-learning-data-science-process-data-lake-walkthough/portal_submit_job.PNG)
+![9](./media/machine-learning-data-science-process-data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Прием данных: чтение из общедоступного большого двоичного объекта
 
@@ -200,7 +205,7 @@
 
 	////output data to ADL
 	OUTPUT @trip   
-	TO "swebhdfs://cdsp.azuredatalakestore.net/nyctaxi_weig/demo_trip.csv"
+	TO "swebhdfs://data_lake_storage_name.azuredatalakestore.net/nyctaxi_folder/demo_trip.csv"
 	USING Outputters.Csv(); 
 
 	////Output data to blob
@@ -208,11 +213,11 @@
 	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_trip.csv"
 	USING Outputters.Csv();  
 
-Аналогичным образом можно выполнить чтение наборов данных о тарифах. Щелкните хранилище озера данных Azure правой кнопкой мыши и выберите **Портал Azure --> Обозреватель данных** или в среде Visual Studio используйте **проводник**, чтобы просмотреть данные:
+Аналогичным образом можно выполнить чтение наборов данных о тарифах. Щелкните хранилище озера данных Azure правой кнопкой мыши и выберите **Портал Azure --> Обозреватель данных** или в среде Visual Studio используйте **проводник**, чтобы просмотреть данные.
 
- ![13\.](./media/machine-learning-data-science-process-data-lake-walkthough/data_in_ADL_VS.PNG)
+ ![10](./media/machine-learning-data-science-process-data-lake-walkthrough/10-data-in-ADL-VS.PNG)
 
- ![14](./media/machine-learning-data-science-process-data-lake-walkthough/data_in_ADL.PNG)
+ ![11](./media/machine-learning-data-science-process-data-lake-walkthrough/11-data-in-ADL.PNG)
 
 
 ### <a name="quality"></a>Проверка качества данных
@@ -378,7 +383,7 @@
 
 	////output data to ADL
 	OUTPUT @model_data_full   
-	TO "swebhdfs://cdsp.azuredatalakestore.net/nyctaxi_weig/demo_ex_7_full_data.csv"
+	TO "swebhdfs://data_lake_storage_name.azuredatalakestore.net/nyctaxi_folder/demo_ex_7_full_data.csv"
 	USING Outputters.Csv(); 
 
 
@@ -436,7 +441,7 @@
 	USING Outputters.Csv(); 
 	////output data to ADL
 	OUTPUT @model_data_stratified_sample_1_1000   
-	TO "swebhdfs://cdsp.azuredatalakestore.net/nyctaxi_weig/demo_ex_9_stratified_1_1000.csv"
+	TO "swebhdfs://data_lake_storage_name.azuredatalakestore.net/nyctaxi_folder/demo_ex_9_stratified_1_1000.csv"
 	USING Outputters.Csv(); 
 
 
@@ -444,30 +449,35 @@
 
 Завершив редактировать сценарии U-SQL, вы можете отправить их на сервер, используя учетную запись Аналитики озера данных Azure. Выберите вкладку **Data Lake** (Озеро данных), щелкните **Submit Job** (Отправить задание), затем выберите свою учетную запись в поле **Analytics Account** (Учетная запись Аналитики), значение параметра **Parallelism** (Параллелизм) и нажмите кнопку **Submit** (Отправить).
 
- ![15](./media/machine-learning-data-science-process-data-lake-walkthough/submit_USQL.PNG)
+ ![12](./media/machine-learning-data-science-process-data-lake-walkthrough/12-submit-USQL.PNG)
 
 Если задание будет выполнено успешно, его состояние отобразится в Visual Studio для мониторинга. После завершения задания можно даже воспроизвести его выполнение и определить, на каких шагах возникают узкие места, чтобы повысить эффективность работы. Вы также можете перейти на портал Azure, чтобы проверить состояние заданий U-SQL.
 
- ![16](./media/machine-learning-data-science-process-data-lake-walkthough/USQL_running_v2.PNG)
+ ![13\.](./media/machine-learning-data-science-process-data-lake-walkthrough/13-USQL-running-v2.PNG)
 
 
- ![17](./media/machine-learning-data-science-process-data-lake-walkthough/USQL_jobs_portal.PNG)
+ ![14](./media/machine-learning-data-science-process-data-lake-walkthrough/14-USQL-jobs-portal.PNG)
 
 
 Теперь можно проверить выходные файлы в хранилище BLOB-объектов или на портале Azure. Данные стратифицированной выборки будут использоваться для моделирования на следующем шаге.
 
- ![18](./media/machine-learning-data-science-process-data-lake-walkthough/U-SQL-output-csv.PNG)
+ ![15](./media/machine-learning-data-science-process-data-lake-walkthrough/15-U-SQL-output-csv.PNG)
 
- ![19](./media/machine-learning-data-science-process-data-lake-walkthough/U-SQL-output-csv-portal.PNG)
+ ![16](./media/machine-learning-data-science-process-data-lake-walkthrough/16-U-SQL-output-csv-portal.PNG)
+
 
 ## Создание и развертывание моделей в Машинном обучении Azure
-Мы продемонстрируем два варианта извлечения данных в Машинное обучение Azure. Первый вариант предусматривает использование данных выборки, записанных в большой двоичный объект Azure (на шаге **Выборка данных** выше), и Python, чтобы создать модель и развернуть ее в Машинном обучении Azure. Второй вариант предполагает, что вы можете запросить данные озера данных Azure напрямую с помощью запроса Hive. При выборе такого варианта необходимо создать кластер HDInsight или использовать кластер HDInsight, который уже есть. Таблицы Hive кластера должны указывать на данные в хранилище озера данных Azure. Мы рассмотрим оба варианта ниже.
 
-### Вариант 1. Использование Python для создания и развертывания моделей машинного обучения
+Мы продемонстрируем два доступных варианта извлечения данных в машинное обучение Azure для создания и развертывания моделей.
 
-Давайте создадим и развернем модели машинного обучения, используя Python. Python можно использовать для чтения обработанных данных из хранилища BLOB-объектов Azure (сохраненных с помощью сценария U-SQL на шаге **Выборка данных** выше) и создания моделей. Создайте Jupyter Notebook на локальном компьютере или в Студии машинного обучения. В этом разделе будут показаны шаги только по моделированию и развертыванию. Jupyter Notebook содержит полный код для исследования и визуализации данных, проектирования признаков, моделирования и развертывания.
+- Первый вариант предусматривает использование данных выборки, записанных в большой двоичный объект Azure (на шаге **Выборка данных** выше), и Python, чтобы создать и развернуть модели из машинного обучения Azure. 
+- Второй вариант предполагает, что вы запрашиваете данные озера данных Azure напрямую с помощью запроса Hive. При выборе такого варианта необходимо создать новый кластер HDInsight или использовать кластер HDInsight, который уже есть. Таблицы Hive кластера должны указывать на данные о такси Нью-Йорка в хранилище озера данных Azure. Мы рассмотрим оба варианта ниже. 
 
-#### Импорт библиотек Python
+## Вариант 1. Использование Python для создания и развертывания моделей машинного обучения
+
+Для создания и развертывания моделей машинного обучения, используя Python, создайте записную книжки Jupyter на локальном компьютере или в студии машинного обучения Azure. Записная книжка Jupyter, которая доступна на сайте [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough), содержит полный код для исследования и визуализации данных, проектирования признаков, моделирования и развертывания. В этой статье показываются шаги только по моделированию и развертыванию.
+
+### Импорт библиотек Python
 
 Чтобы запустить пример Jupyter Notebook или файл сценария Python, необходимо установить следующие пакеты Python. Если вы используете службу Notebook Машинного обучения Azure, эти пакеты уже установлены.
 
@@ -492,7 +502,7 @@
 	from azureml import services
 
 
-#### Считывание данных из большого двоичного объекта
+### Считывание данных из большого двоичного объекта
 
 - Строка подключения   
 
@@ -509,7 +519,7 @@
 		t2 = time.time()
 		print(("It takes %s seconds to read in "+BLOBNAME) % (t2 - t1))
 
- ![29](./media/machine-learning-data-science-process-data-lake-walkthough/python_readin_csv.PNG)
+ ![17](./media/machine-learning-data-science-process-data-lake-walkthrough/17-python_readin_csv.PNG)
  
 - Добавьте имена столбцов и отделите столбцы:
 
@@ -528,7 +538,7 @@
 		for col in cols_2_float:
 		    df1[col] = df1[col].astype(float)
 
-#### Создание моделей машинного обучения
+### Создание моделей машинного обучения
 
 В этом разделе мы создадим модель двоичной классификации, чтобы спрогнозировать вероятность получения чаевых за поездку. В Jupyter Notebook можно найти две другие модели: многоклассовой классификации и регрессии.
 
@@ -556,7 +566,7 @@
 		print ('Coefficients: \n', logit_fit.coef_)
 		Y_train_pred = logit_fit.predict(X_train)
 
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/py_logit_coefficient.PNG)
+       ![c1](./media/machine-learning-data-science-process-data-lake-walkthrough/c1-py-logit-coefficient.PNG)
 
 - Оцените тестируемый набор данных:
 
@@ -578,17 +588,17 @@
 		print metrics.confusion_matrix(Y_train,Y_train_pred)
 		print metrics.confusion_matrix(Y_test,Y_test_pred)
 
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/py_logit_evaluation.PNG)
+       ![c2](./media/machine-learning-data-science-process-data-lake-walkthrough/c2-py-logit-evaluation.PNG)
 
 
  
-#### Создание API веб-службы и его использование в Python
+### Создание API веб-службы и его использование в Python
 
 После создания модель машинного обучения необходимо ввести в эксплуатацию. Здесь в качестве примера мы используем двоичную логистическую модель. Убедитесь, что на локальном компьютере установлена версия scikit-learn 0.15.1. Если вы используете службу Студии машинного обучения Microsoft Azure, этого делать не нужно.
 
-- Найдите учетные данные своей рабочей области в настройках Студии машинного обучения Microsoft Azure. В Студии машинного обучения Azure последовательно выберите **Параметры** --> **Имя** --> **Authorization Tokens** (Маркеры авторизации). 
+- Найдите учетные данные своей рабочей области в настройках Студии машинного обучения Microsoft Azure. В студии машинного обучения Azure последовательно выберите **Параметры** --> **Имя** --> **Authorization Tokens** (Маркеры авторизации). 
 
-	![](./media/machine-learning-data-science-process-data-lake-walkthough/workspace_id.PNG)
+	![c3](./media/machine-learning-data-science-process-data-lake-walkthrough/c3-workspace-id.PNG)
 
 
 		workspaceid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
@@ -621,29 +631,31 @@
 
 		NYCTAXIPredictor(1,2,1,0,0,0,0,0,1)
 
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/call_API.PNG)
-
-### Вариант 2. Создание и развертывание моделей прямо в Машинном обучении Azure
-
-Студию машинного обучения Azure можно использовать для чтения данных прямо из хранилища озера данных Azure, создания модели и ее развертывания. Чтобы обеспечить считывание данных прямо из хранилища озера данных в Машинном обучении Azure, необходимо создать таблицу Hive. Для этого необходимо подготовить отдельный кластер Azure HDInsight, а в нем создать таблицу Hive, указывающую на хранилище озера данных Azure. В следующих подразделах показано, как это сделать.
-
-#### Создание кластера HDInsight на платформе Linux
-Создайте кластер HDInsight (на платформе Linux) на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в разделе "Создание кластера Azure HDInsight с доступом к хранилищу озера данных Azure" в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
-
- ![6](./media/machine-learning-data-science-process-data-lake-walkthough/create_HDI_cluster.PNG)
-
-#### Создание таблицы Hive в HDInsight
-
-Теперь мы создадим таблицы Hive в кластере HDInsight, используя данные из хранилища озера данных Azure, сохраненные на предыдущем шаге. Таблицы Hive будут использоваться в Студии машинного обучения на следующем шаге. Перейдите к кластеру HDInsight, созданному в начале этого пошагового руководства. Последовательно выберите **Параметры** --> **Свойства** --> **Удостоверение кластера AAD** --> **ADLS Access** (Доступ ADLS), убедитесь, что учетная запись хранилища озера данных Azure добавлена в списке и есть права на чтение, запись и выполнение.
-
- ![20](./media/machine-learning-data-science-process-data-lake-walkthough/HDI_cluster_add_ADLS.PNG)
+       ![c4](./media/machine-learning-data-science-process-data-lake-walkthrough/c4-call-API.PNG)
 
 
-Щелкните **Панель мониторинга** рядом с кнопкой "Параметры", и откроется новое окно. Щелкните **Hive View** (Представление Hive) в правом верхнем углу страницы, и вы увидите **Query Editor** (Редактор запросов).
+## Вариант 2. Создание и развертывание моделей прямо в Машинном обучении Azure
 
- ![21](./media/machine-learning-data-science-process-data-lake-walkthough/HDI_dashboard.PNG)
+Студия машинного обучения Azure может считывать данные прямо из хранилища озера данных Azure, а затем использоваться для создания и развертывания моделей. Этот подход использует таблицу Hive, которая указывает на хранилище озера данных Azure. Для этого необходимо подготовить отдельный кластер Azure HDInsight, а в нем создать таблицу Hive. В следующих разделах показано, как это сделать.
 
- ![22](./media/machine-learning-data-science-process-data-lake-walkthough/Hive_Query_Editor_v2.PNG)
+### Создание кластера HDInsight на платформе Linux
+
+Создайте кластер HDInsight (на платформе Linux) на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в разделе **Создание кластера Azure HDInsight с доступом к хранилищу озера данных Azure** в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+ ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
+
+### Создание таблицы Hive в HDInsight
+
+Теперь мы создадим таблицы Hive, необходимые для студии машинного обучения Azure в кластере HDInsight, используя данные из хранилища озера данных Azure, сохраненные на предыдущем шаге. Перейдите на только что созданный кластер HDInsight. Последовательно выберите **Параметры** --> **Свойства** --> **Удостоверение кластера AAD** --> **ADLS Access** (Доступ ADLS), убедитесь, что учетная запись хранилища озера данных Azure добавлена в списке и есть права на чтение, запись и выполнение.
+
+ ![19](./media/machine-learning-data-science-process-data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
+
+
+Щелкните **Панель мониторинга** рядом с кнопкой **Параметры**, и откроется новое окно. Щелкните **Представление Hive** в правом верхнем углу страницы, и вы увидите **Редактор запросов**.
+
+ ![20](./media/machine-learning-data-science-process-data-lake-walkthrough/20-HDI-dashboard.PNG)
+
+ ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
 Вставьте следующие сценарии Hive, чтобы создать таблицу. Источник данных в хранилище озера данных Azure расположен по такому адресу: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
@@ -676,19 +688,20 @@
 	  rownum string
 	  )
 	ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\n'
-	LOCATION 'adl://cdsp.azuredatalakestore.net:443/nyctaxi_weig/demo_ex_9_stratified_1_1000_copy.csv';
+	LOCATION 'adl://data_lake_storage_name.azuredatalakestore.net:443/nyctaxi_folder/demo_ex_9_stratified_1_1000_copy.csv';
+
 
 После выполнения запроса отобразятся аналогичные результаты:
 
- ![23](./media/machine-learning-data-science-process-data-lake-walkthough/Hive_Query_results.PNG)
+ ![22](./media/machine-learning-data-science-process-data-lake-walkthrough/22-Hive-Query-results.PNG)
 
 
 
-#### Создание и развертывание моделей в Студии машинного обучения Azure
+### Создание и развертывание моделей в Студии машинного обучения Azure
 
-Теперь мы готовы перейти к построению и развертыванию модели в машинном обучении Azure. Данные можно использовать для прогнозирования на основе нашей выборки данных: двоичной классификации (поездка с чаевыми или без чаевых), многоклассовой классификации (tip\_class) и регрессии (tip\_amount). Здесь мы проиллюстрируем, как создать и развернуть модель двоичной классификации в Студии машинного обучения.
+Теперь все готово для создания и развертывания модели, с помощью которой можно спрогнозировать, будут ли выплачены чаевые за поездку, используя машинное обучение Azure. Данные стратифицированной выборки готовы к использованию в этой задаче двоичной классификации (поездка с чаевыми или без чаевых). Прогнозные модели, использующие многоклассовую классификацию (tip\_class) и регрессию (tip\_amount), также можно создавать и развертывать с помощью студии машинного обучения Azure, но здесь мы показываем только случай с использованием модели двоичной классификации.
 
-1. Загрузите данные в Машинное обучении Azure, используя модуль **чтения**, доступный в разделе **Data Input and Output** (Ввод и вывод данных). Дополнительные сведения см. на справочной странице [Reader module](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) (Модуль Reader).
+1. Загрузите данные в машинное обучение Azure, используя модуль **Reader**, доступный в разделе **Data Input and Output** (Ввод и вывод данных). Дополнительные сведения см. на справочной странице [Reader module](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) (Модуль Reader).
 2. Выберите значение **Hive Query** (Запрос Hive) для параметра **Источник данных** на панели **Свойства**.
 3. Вставьте следующий сценарий Hive в редактор **Hive database query** (Запрос к базе данных Hive):
 
@@ -696,30 +709,36 @@
 
 4. Введите универсальный код ресурса (URI) кластера HDInsight (его можно найти на портале Azure), учетные данные Hadoop, расположение выходных данных и имя контейнера, ключа или учетной записи хранения Azure.
 
- ![24](./media/machine-learning-data-science-process-data-lake-walkthough/reader_module_v3.PNG)
+ ![23](./media/machine-learning-data-science-process-data-lake-walkthrough/23-reader-module-v3.PNG)
 
 На рисунке ниже показан пример эксперимента по двоичной классификации, который связан с чтением данных из таблицы Hive.
 
- ![25](./media/machine-learning-data-science-process-data-lake-walkthough/AML_exp.PNG)
+ ![24](./media/machine-learning-data-science-process-data-lake-walkthrough/24-AML-exp.PNG)
 
 После создания эксперимента последовательно выберите **Set Up Web Service** (Настройка веб-службы) --> **Predictive Web Service** (Прогнозная веб-служба).
 
- ![26](./media/machine-learning-data-science-process-data-lake-walkthough/AML_exp_deploy.PNG)
+ ![25](./media/machine-learning-data-science-process-data-lake-walkthrough/25-AML-exp-deploy.PNG)
 
 Запустите автоматически созданный оценивающий эксперимент, а по его завершении нажмите кнопку **Deploy Web Service** (Развертывание веб-службы).
 
- ![27](./media/machine-learning-data-science-process-data-lake-walkthough/AML_exp_deploy_web.PNG)
+ ![26](./media/machine-learning-data-science-process-data-lake-walkthrough/26-AML-exp-deploy-web.PNG)
 
 Вскоре отобразится панель мониторинга веб-службы:
 
- ![28](./media/machine-learning-data-science-process-data-lake-walkthough/AML_web_api.PNG)
+ ![27](./media/machine-learning-data-science-process-data-lake-walkthrough/27-AML-web-api.PNG)
 
 
 ## Сводка
 
-Подытожим выполненное в рамках этого пошагового руководства:
+После завершения этого пошагового руководства у вас будет создана среда анализа данных для создания всеобъемлющих масштабируемых решений озера данных Azure. Эта среда использовалась для анализа большого набора данных, в отношении которого выполнены ключевые шаги по обработке данных — от получения данных и обучения модели до развертывания модели в качестве веб-службы. Язык U-SQL использовался для обработки, просмотра и выборки данных. Python и Hive использовались со студией машинного обучения Azure для создания и развертывания прогнозных моделей.
 
-- создана среда анализа данных для создания всеобъемлющих масштабируемых решений озера данных Azure;
-- в отношении большого набора выполнены ключевые шаги по обработке данных с использованием U-SQL и Python — от получения данных и обучения модели до развертывания модели в качестве веб-службы.
+## Что дальше?
 
-<!---HONumber=AcomDC_0525_2016-->
+Схема обучения для [аналитического процесса Cortana Analytics (CAP)](http://aka.ms/datascienceprocess) содержит ссылки на разделы, описывающие каждый шаг в процессе углубленной аналитики. Существует ряд пошаговых руководств, связанных с узлом **Полная реализация процесса анализа данных**, которые демонстрируют как использовать ресурсы и службы в различных сценариях прогнозной аналитики пакета Cortana Analytics Suite :
+
+- [Процесс Cortana Analytics в действии: использование хранилища данных SQL](machine-learning-data-science-process-sqldw-walkthrough.md)
+- [Процесс аналитики Кортаны в действии: использование кластеров HDInsight Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
+- [Процесс аналитики Кортаны в действии: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](machine-learning-data-science-spark-overview.md)
+
+<!---HONumber=AcomDC_0601_2016-->

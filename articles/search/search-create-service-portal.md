@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="05/31/2016"
 	ms.author="ashmaka"/>
 
 # Создание службы поиска Azure с помощью портала Azure
@@ -74,4 +74,4 @@
 ## Далее
 После подготовки службы поиска Azure вы сможете [определить индекс поиска Azure](search-what-is-an-index.md), чтобы отправить свои данные и осуществлять поиск по ним.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

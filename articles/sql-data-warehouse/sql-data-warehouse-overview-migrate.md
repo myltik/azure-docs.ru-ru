@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="barbkess;jrj;sonyama"/>
 
 # Перенос решения в хранилище данных SQL
@@ -52,4 +52,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

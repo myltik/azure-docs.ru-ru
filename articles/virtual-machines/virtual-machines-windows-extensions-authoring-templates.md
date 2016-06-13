@@ -19,8 +19,6 @@
 
 # Authoring Azure Resource Manager templates with Windows VM extensions
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 Выполните следующий командлет в Azure PowerShell:
@@ -52,4 +50,4 @@
 
 После разработки шаблон можно развернуть с помощью Azure PowerShell.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

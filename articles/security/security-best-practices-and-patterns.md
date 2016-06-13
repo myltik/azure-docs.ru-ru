@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/22/2016"
+   ms.date="05/25/2016"
    ms.author="terrylan"/>
 
 # Рекомендации и шаблоны для обеспечения безопасности в Azure
@@ -34,11 +34,11 @@ Azure — это безопасная платформа для создания
 
 Сейчас доступны следующие статьи с рекомендациями и шаблонами для обеспечения безопасности в Azure. Регулярно просматривайте эту страницу с обновляемым списком материалов по обеспечению безопасности в Azure.
 
-- [Рекомендации по обеспечению безопасности в сети Azure](../azure-security-network-security-best-practices.md)
+- [Рекомендации по обеспечению безопасности в сети Azure](azure-security-network-security-best-practices.md)
 - [Рекомендации по защите и шифрованию данных в Azure](azure-security-data-encryption-best-practices.md)
 - [Рекомендации по обеспечению безопасности за счет управления удостоверениями и контроля доступа Azure](azure-security-identity-management-best-practices.md)
 - [Рекомендации по обеспечению безопасности "Интернета вещей"](azure-security-iot-best-practices.md)
 - [Рекомендации по обновлению программного обеспечения в Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
 - [Облачные службы Microsoft Cloud и сетевая безопасность](../best-practices-network-security.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

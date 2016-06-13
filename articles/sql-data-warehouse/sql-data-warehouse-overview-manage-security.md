@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Дополнительные сведения о проверке подлинности в Базе данных SQL см. в статье [Управление базами данных и именами пользователей в базе данных SQL Azure][]. Дополнительные сведения об использовании предварительной версии Azure AD для хранилища данных SQL см. в статье [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] \(Подключение к хранилищу данных SQL с использованием проверки подлинности Azure Active Directory).
+Дополнительные сведения о проверке подлинности в Базе данных SQL см. в статье [Управление базами данных и именами пользователей в базе данных SQL Azure][]. Дополнительные сведения об использовании предварительной версии Azure AD для хранилища данных SQL см. в статье [Подключение к хранилищу данных SQL с использованием проверки подлинности Azure Active Directory][].
 
 
 ## Авторизация
@@ -101,7 +101,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 [Подключение к хранилищу данных SQL]: ./sql-data-warehouse-develop-connections.md
 [Приступая к работе с аудитом Базы данных SQL]: ./sql-data-warehouse-overview-auditing.md
 [Начало работы с прозрачным шифрованием данных (TDE)]: ./sql-data-warehouse-encryption-tde.md
-[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-aad-authentication.md
+[Подключение к хранилищу данных SQL с использованием проверки подлинности Azure Active Directory]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
 
 <!--MSDN references-->
 [Брандмауэр Базы данных SQL Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -115,4 +115,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Контроль доступа на основе ролей на портале Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/21/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Замена блока питания и охлаждения на устройстве StorSimple
@@ -155,4 +155,4 @@
 
 Узнайте подробнее о [замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0601_2016-->

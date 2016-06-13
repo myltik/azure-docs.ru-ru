@@ -25,13 +25,7 @@
 
 <br>
 
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
-
-
-
 В этой статье представлен пример конфигурации для настройки расширений виртуальной машины Azure для виртуальных машин Windows.
-
 
 Чтобы узнать больше об этих расширениях, см. статью [Обзор расширений виртуальных машин Azure](virtual-machines-windows-extensions-features.md).
 
@@ -371,4 +365,4 @@
 
 [Расширение Custom Script на виртуальной машине Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

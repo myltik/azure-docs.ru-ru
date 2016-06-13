@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="05/24/2016"
    ms.author="terrylan"/>
 
 # Общие сведения о безопасности при использовании виртуальных машин Azure
@@ -91,7 +91,7 @@ Azure предлагает антивредоносное ПО от таких �
 
 Подробнее.
 
-- [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0/file/150942/1/Azure%25)
+- [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 - [Azure Disk Encryption for Linux and Windows Virtual Machines](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/) (Шифрование дисков Azure для виртуальных машин IaaS под управлением Windows и Linux)
 - [Шифрование виртуальной машины Azure](../security-center/security-center-disk-encryption.md)
 
@@ -157,4 +157,4 @@ Site Recovery выполняет следующие задачи.
 - [Microsoft Trust Center: Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx) (Центр управления безопасностью корпорации Майкрософт: соответствие нормативным требованиям)
 - [Доверенное облако: безопасность, конфиденциальность и соответствие требованиям в Microsoft Azure](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -3,7 +3,7 @@
    description="Лучшие методики для сериализации данных и ее влияние на последовательные обновления приложений."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/14/2016"
-   ms.author="jesseb"/>
+   ms.author="vturecek"/>
 
 
 # Влияние сериализации данных на обновление приложений
@@ -65,6 +65,5 @@
 [Дополнительные разделы](service-fabric-application-upgrade-advanced.md) содержат сведения о работе с расширенными функциями при обновлении приложения.
 
 Сведения об устранении распространенных проблем при обновлении приложений см. в разделе [Устранение неполадок обновления приложения](service-fabric-application-upgrade-troubleshooting.md).
- 
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

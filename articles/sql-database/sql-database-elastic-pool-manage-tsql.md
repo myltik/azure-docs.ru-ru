@@ -3,18 +3,18 @@
     description="С помощью языка T-SQL можно создать базу данных SQL Azure в пуле эластичных БД либо переместить базу данных в пул или обратно." 
 	services="sql-database" 
     documentationCenter="" 
-    authors="sidneyh" 
+    authors="srinia" 
     manager="jhubbard" 
     editor=""/>
 
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="get-started-article"
+    ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/28/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # Мониторинг пула эластичных баз данных и управление им с помощью Transact-SQL  
 
@@ -31,7 +31,7 @@
 
 
 ## Создание новой базы данных внутри пула эластичных БД
-Используйте команду CREATE DATABASE с параметром SERVICE_OBJECTIVE.
+Используйте команду CREATE DATABASE с параметром SERVICE\_OBJECTIVE.
 
 	CREATE DATABASE db1 ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3M100] ));
 	-- Create a database named db1 in a pool named S3M100.
@@ -46,13 +46,13 @@
 	-- Move the database named db1 to a pool named P1M125  
 
 ## Перемещение базы данных в пул эластичных БД 
-Используйте команду ALTER DATABASE с инструкцией MODIFY и параметром SERVICE\_OBJECTIVE, для которого задано значение ELASTIC_POOL. Для параметра name задайте имя целевого пула.
+Используйте команду ALTER DATABASE с инструкцией MODIFY и параметром SERVICE\_OBJECTIVE, для которого задано значение ELASTIC\_POOL. Для параметра name задайте имя целевого пула.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
 	-- Move the database named db1 to a pool named S3100.
 
 ## Перемещение базы данных из пула эластичных БД
-Используйте команду ALTER DATABASE и задайте для параметра SERVICE_OBJECTIVE уровень производительности (S0, S1 и т. д.).
+Используйте команду ALTER DATABASE и задайте для параметра SERVICE\_OBJECTIVE уровень производительности (S0, S1 и т. д.).
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = 'S1');
 	-- Changes the database into a stand-alone database with the service objective S1.
@@ -84,4 +84,4 @@
 
 См. статью [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md). В ней описывается использование средств работы с эластичными базами данных для масштабирования, перемещения данных, выполнения запросов и создания транзакций.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="02/03/2016"
+   ms.date="05/21/2016"
    ms.author="rasquill"/>
 
 # Развертывание популярных платформ приложений с помощью шаблонов Azure Resource Manager
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-app-frameworks](../../includes/virtual-machines-common-app-frameworks.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

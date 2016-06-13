@@ -16,7 +16,7 @@
    ms.date="05/05/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Резервное копирование и восстановление базы данных в хранилище данных SQL Azure (PowerShell)
+# Архивация и восстановление базы данных в хранилище данных SQL Azure (PowerShell)
 
 > [AZURE.SELECTOR]
 - [Обзор](sql-data-warehouse-overview-manage-backup-and-restore.md)
@@ -37,16 +37,16 @@
 
 ## Перед началом работы
 
-### Проверьте ресурсы DTU базы данных SQL. 
-Поскольку восстановление хранилища данных SQL выполняется в новую базу данных на логическом сервере SQL Server, важно убедиться, что на используемом сервере имеется достаточно единиц DTU для новой базы данных. В этой записи блога вы можете узнать больше о том, [как просмотреть и увеличить квоту DTU][].
+### Проверьте ресурсы DTU Базы данных SQL. 
+Так как восстановление хранилища данных SQL выполняется в новую базу данных на логическом сервере SQL Server, важно убедиться, что на используемом сервере имеется достаточно единиц DTU для новой базы данных. В этой записи блога вы можете узнать больше о том, [как просмотреть и увеличить квоту DTU][].
 
 ### Установка PowerShell
 
-Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0 или более поздней версии. Чтобы узнать текущую версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить из [установщика веб-платформы Майкрософт][]. Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell][].
+Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0 или более поздней версии. Чтобы узнать версию, выполните командлет **Get-Module -Name Azure -ListAvailable**. Последнюю версию можно установить с [установщика веб-платформы Майкрософт][]. Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell][].
 
 ## Восстановление активной базы данных.
 
-Для восстановления базы данных из моментального снимка используйте командлет PowerShell [Restore-AzureRmSqlDatabase][].
+Для восстановления базы данных из моментального снимка используйте командлет [Restore-AzureRmSqlDatabase][].
 
 1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
@@ -56,7 +56,7 @@
 6. Восстановите базу данных в желаемой точке восстановления.
 7. Убедитесь, что восстановленная база данных подключена к сети.
 
-```Powershell
+```PowerShell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
@@ -69,7 +69,7 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 # List the last 10 database restore points
-((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
+((Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
 Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
@@ -103,7 +103,7 @@ $RestoredDatabase.status
 5. Восстановите удаленную базу данных.
 6. Убедитесь, что восстановленная база данных подключена к сети.
 
-```Powershell
+```PowerShell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
@@ -141,7 +141,7 @@ $RestoredDatabase.status
 5. Создайте запрос на восстановление базы данных.
 6. Проверьте состояние геовосстановленной базы данных.
 
-```Powershell
+```PowerShell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -193,4 +193,4 @@ $GeoRestoredDatabase.status
 [Azure Portal]: https://portal.azure.com/
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

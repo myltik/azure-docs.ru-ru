@@ -49,8 +49,6 @@
 
 Выражение schedule может быть [выражением CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression), содержащим 6 полей: {second}, {minute}, {hour}, {day}, {month} и {day of the week}. Во многих документах по выражениям CRON в сети отсутствует поле {second}. Поэтому если скопировать текст выражения в одном из них, понадобится добавить дополнительное поле.
 
-Выражение schedule также может иметь формат *чч:мм:сс*. Таким образом можно указать задержку между вызовами функции.
-
 Ниже приведены примеры выражений schedule.
 
 Активация через каждые 5 минут:
@@ -65,13 +63,6 @@
 ```json
 "schedule": "0 0 */2 * * *",
 "runOnStartup": true,
-```
-
-Активация через каждые 15 секунд:
-
-```json
-"schedule": "00:00:15",
-"runOnStartup": false,
 ```
 
 ## Пример кода C# для триггера таймера
@@ -89,4 +80,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->
