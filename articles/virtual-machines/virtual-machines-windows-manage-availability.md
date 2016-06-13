@@ -3,7 +3,7 @@
 	description="Описывается, как использовать несколько виртуальных машин для обеспечения высокой доступности приложения Windows в Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="kenazk"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+	ms.date="05/25/2016"
+	ms.author="cynthn"/>
 
 # Управление доступностью виртуальных машин
 
@@ -23,6 +23,12 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
+Инструкции по созданию и использованию групп доступности в классической модели развертывания см. в разделе [Как настроить группу доступности для виртуальных машин в классической модели развертывания](virtual-machines-windows-classic-configure-availability.md).
+
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+## Дальнейшие действия
+
+Чтобы больше узнать о балансировке нагрузки виртуальных машин, ознакомьтесь с разделом [Балансировка нагрузки виртуальных машин](virtual-machines-windows-load-balance.md).
+
+<!---HONumber=AcomDC_0601_2016-->

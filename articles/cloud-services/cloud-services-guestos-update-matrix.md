@@ -52,7 +52,7 @@
 ## Выпуски семейства 4
 **Windows Server 2012 R2**
 
-Поддерживает .NET 4.0, 4.5, 4.5.1, 4.5.2 (примечание 2)
+Поддерживает .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 >[AZURE.NOTE] Даты, отмеченные *, могут измениться
 
@@ -182,7 +182,7 @@
 ## Политика поддержки и вывода из эксплуатации гостевой ОС
 Политика поддержки и вывода из эксплуатации гостевой ОС описывается [здесь][retirepolicy].
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/ru-RU/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Параметры обновления гостевой ОС Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -203,4 +203,4 @@
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

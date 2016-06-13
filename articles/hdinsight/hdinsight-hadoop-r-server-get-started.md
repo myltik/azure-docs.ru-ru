@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/16/2016"
+   ms.date="05/27/2016"
    ms.author="jeffstok"
 />
 
@@ -110,13 +110,13 @@
 
 Подключиться к пограничному узлу R Server кластера HDInsight можно с помощью SSH.
 
-    ssh USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
+    ssh USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
     
-> [AZURE.NOTE] Адрес `RServer.CLUSTERNAME.ssh.azurehdinsight.net` также можно найти на портале Azure, выбрав кластер и щелкнув __Все параметры__ -> __Приложения__ -> __RServer__. Так можно отобразить информацию о конечной точке SSH для пограничного узла.
+> [AZURE.NOTE] Адрес `R-Server.CLUSTERNAME-ssh.azurehdinsight.net` также можно найти на портале Azure, выбрав кластер и последовательно щелкнув __Все параметры__, __Приложения__, __RServer__. Так можно отобразить информацию о конечной точке SSH для пограничного узла.
 >
 > ![Изображение конечной точки SSH для пограничного узла](./media/hdinsight-getting-started-with-r/sshendpoint.png)
     
-Если для защиты учетной записи SSH используется пароль, будет предложено ввести его. Если используется открытый ключ, может потребоваться использовать параметр `-i`, чтобы указать соответствующий закрытый ключ. Например, `ssh -i ~/.ssh/id_rsa USERNAME@RServer.CLUSTERNAME.ssh.azurehdinsight.net`.
+Если для защиты учетной записи SSH используется пароль, будет предложено ввести его. Если используется открытый ключ, может потребоваться использовать параметр `-i`, чтобы указать соответствующий закрытый ключ. Например, `ssh -i ~/.ssh/id_rsa USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net`.
     
 Дополнительная информация об использовании SSH с HDInsight на основе Linux приведена в следующих статьях:
 
@@ -353,4 +353,4 @@
 
 Общую информацию об использовании шаблонов ARM см. в разделе [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

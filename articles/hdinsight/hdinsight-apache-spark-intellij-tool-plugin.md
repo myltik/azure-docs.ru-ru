@@ -26,7 +26,7 @@
 * Для доступа к ресурсам кластера Azure HDInsight Spark.
 * Для разработки и локального запуска приложений Scala Spark.
 
-Чтобы приступить к работе, посмотрите видеоролик [здесь](https://mix.office.com/watch/1nqkqjt5xonza).
+Чтобы приступить к работе, посмотрите видео [здесь](https://mix.office.com/watch/1nqkqjt5xonza).
 
 >[AZURE.IMPORTANT] Это средство позволяет создавать и отправлять приложения только в кластер HDInsight Spark на Linux.
 
@@ -281,4 +281,4 @@
 
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

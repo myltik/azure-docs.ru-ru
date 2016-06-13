@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Расширение виртуальной машины AzureLogCollector | Microsoft Azure"
+   pageTitle="Расширение виртуальной машины AzureLogCollector | Microsoft Azure"
    description="Как использовать расширение виртуальной машины AzureLogCollector для сбора и переноса всех файлов журналов в единое расположение в хранилище Azure."
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="11/12/2015"
+   ms.date="05/26/2016"
    ms.author="rasquill"/>
 
 # Расширение AzureLogCollector
@@ -22,4 +22,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-log-collector-extension](../../includes/virtual-machines-common-log-collector-extension.md)]
 
-<!-----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -12,7 +12,7 @@
 
 ### Создание набора записей типа MX с одной записью
 
-Чтобы создать запись MX на вершине зоны (например, "contoso.com"), в этом примере мы используем имя набора записей "@". Так обычно и делается при создании записей MX.
+Чтобы создать запись MX на вершине зоны (в данном случае "contoso.com"), в этом примере мы используем имя набора записей "@". Так обычно и делается при создании записей MX.
 
 	$rs = New-AzureRmDnsRecordSet -Name "@" -RecordType MX -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
@@ -26,7 +26,7 @@
 
 ### Создание набора записей типа SRV с одной записью
 
-Если вы создаете запись SRV в корне зоны, в имени записи можно указать *\_service* и *\_protocol*. Нет необходимости включать в имя записи символы ".@".
+Если вы создаете запись SRV в корне зоны, просто укажите в имени записи *\_service* и *\_protocol*. Нет необходимости включать в имя записи символ "@".
 
 	$rs = New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
@@ -37,3 +37,5 @@
 	$rs = New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
+
+<!---HONumber=AcomDC_0601_2016-->

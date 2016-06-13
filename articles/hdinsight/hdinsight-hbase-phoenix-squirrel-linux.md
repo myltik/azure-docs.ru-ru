@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="05/27/2016"
    ms.author="jgao"/>
 
 # Использование Apache Phoenix с кластерами HBase под управлением Linux в HDinsight  
@@ -23,7 +23,7 @@
 >[AZURE.NOTE] Для получения информации о версии Phoenix в HDInsight см. раздел [Новые возможности версий кластера Hadoop, предоставляемых HDInsight][hdinsight-versions].
 
 ##Использование SQLLine
-[SQLLine](http://sqlline.sourceforge.net/) — это утилита командной строки для выполнения SQL.
+[SQLLine](http://sqlline.sourceforge.net/) — это утилита командной строки для выполнения SQL.
 
 ###Предварительные требования
 Перед использованием SQLLine необходимо иметь следующее:
@@ -43,7 +43,7 @@
 
 **Использование SQLLine**
 
-1. Подключитесь к кластеру с помощью SSH. Инструкции см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md) или [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows). Выбор статьи зависит от операционной системы клиентского компьютера.
+1. Подключитесь к кластеру с помощью SSH. Инструкции см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md) или [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md). Выбор статьи зависит от операционной системы клиентского компьютера.
 
 2. Из SSH выполните следующие команды для запуска SQLLine.
 
@@ -69,7 +69,7 @@
 ##Дальнейшие действия
 В этой статье вы изучили использование Apache Phoenix в HDInsight. Дополнительные сведения см. на следующих ресурсах:
 
-- [Обзор HDInsight HBase][hdinsight-hbase-overview]\: HBase — это NoSQL (нереляционная распределенная) база данных с открытым исходным кодом Apache, разработанная в рамках проекта Hadoop, которая обеспечивает произвольный доступ и строгую согласованность больших объемов неструктурированных и полуструктурированных данных.
+- [Обзор HDInsight HBase][hdinsight-hbase-overview]\: HBase — это NoSQL (нереляционная распределенная) база данных с открытым исходным кодом Apache, разработанная в рамках проекта Hadoop, которая обеспечивает произвольный доступ и строгую согласованность больших объемов неструктурированных и полуструктурированных данных.
 - [Подготовка кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet]\: благодаря интеграции виртуальной сети кластеры HBase могут быть развернуты в той же виртуальной сети, что и приложения, поэтому эти приложения могут напрямую обмениваться данными с HBase.
 - [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md): узнайте, как настроить репликацию HBase между двумя центрами обработки данных Azure. 
 - [Анализ мнений Twitter с помощью HBase в HDInsight][hbase-twitter-sentiment]\: узнайте, как выполнять [анализ мнений](http://en.wikipedia.org/wiki/Sentiment_analysis) в режиме реального времени на основе больших данных, используя HBase в кластере Hadoop в HDInsight.
@@ -95,4 +95,4 @@
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

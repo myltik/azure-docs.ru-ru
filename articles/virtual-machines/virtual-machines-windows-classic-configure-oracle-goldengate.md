@@ -2,7 +2,8 @@
 	pageTitle="Настройка Oracle GoldenGate на виртуальных машинах | Microsoft Azure"
 	description="Изучите учебник по установке и реализации Oracle GoldenGate на виртуальных машинах Azure с Windows Server для обеспечения высокого уровня доступности и аварийного восстановления."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-service-management"/>
 <tags
@@ -11,13 +12,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 
 #Настройка Oracle GoldenGate для Azure
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
 
 В этом учебнике показано, как настроить Oracle GoldenGate для среды виртуальных машин Azure, чтобы обеспечить высокий уровень доступности и аварийное восстановление. Учебник посвящен [двунаправленной репликации](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm) баз данных Oracle, не являющихся кластерами реальных приложений (RAC), и для него требуется, чтобы оба сайта были активны.
@@ -34,7 +33,7 @@ Oracle GoldenGate состоит из следующих основных ком
 
 - Скачать программное обеспечение Oracle GoldenGate с веб-сайта [Oracle](http://www.oracle.com/us/downloads/index.html). Необходимо выбрать Product Pack Oracle Fusion Middleware – Data Integration. Затем следует выбрать пакет Oracle GoldenGate on Oracle v11.2.1 Media Pack для Microsoft Windows x64 (64-разрядная версия) для базы данных Oracle 11g. После этого следует скачать Oracle GoldenGate V11.2.1.0.3 для Oracle 11g (64-разрядная версия) для Windows 2008 (64-разрядная версия).
 
-- Создать две виртуальные машины в Azure с помощью платформы, которая предоставляется образом Oracle Enterprise Edition в Windows Server. Информацию см. в статьях [Создание виртуальной машины Oracle Database 12c в Azure](#z3dc8d3c097cf414e9048f7a89c026f80) и [Виртуальные машины Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Убедиться, что эти виртуальные машины находятся в [одной облачной службе](virtual-machines-linux-load-balance.md) и [одной виртуальной сети](https://azure.microsoft.com/documentation/services/virtual-network/), чтобы они могли обращаться друг к другу посредством постоянного частного IP-адреса.
+- Создано две виртуальные машины в Azure с помощью Oracle Enterprise Edition в Windows Server. Убедиться, что эти виртуальные машины находятся в [одной облачной службе](virtual-machines-linux-load-balance.md) и [одной виртуальной сети](https://azure.microsoft.com/documentation/services/virtual-network/), чтобы они могли обращаться друг к другу посредством постоянного частного IP-адреса.
 
 - На классическом портале Azure присвоить виртуальным машинам имена: MachineGG1 для сайта A и MachineGG2 для сайта B.
 
@@ -602,4 +601,4 @@ Oracle GoldenGate состоит из следующих основных ком
 ##Дополнительные ресурсы
 [Образы виртуальных машин Oracle для Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

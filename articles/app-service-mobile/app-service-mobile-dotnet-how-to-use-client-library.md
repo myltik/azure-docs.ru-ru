@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="05/25/2016"
 	ms.author="glenga"/>
 
 # Использование управляемого клиента для мобильных приложений Azure
@@ -26,7 +26,7 @@
 
 ## Справочная документация
 
-Справочная документация по пакету SDK клиента находится здесь: [Справочник по клиенту .NET мобильных приложений Azure]. Несколько примеров клиентов доступны в [репозитории GitHub "Примеры для Azure"].
+Справочная документация по пакету SDK клиента находится здесь: [Azure Mobile Apps .NET client reference] (Клиент .NET мобильных служб Azure). Несколько примеров клиентов доступно в [репозитории GitHub Azure Samples] (Примеры для Azure).
 
 ##<a name="setup"></a>Настройка и необходимые компоненты
 
@@ -447,48 +447,142 @@
 
 Мобильные приложения поддерживают аутентификацию и авторизацию пользователей с помощью различных внешних поставщиков удостоверений: Facebook, Google, учетной записи Майкрософт, Twitter и Azure Active Directory. Можно задать разрешения таблиц, чтобы предоставить доступ к определенным операциям только пользователям, прошедшим проверку подлинности. Удостоверения пользователей, прошедших проверку подлинности, также можно применять для реализации правил авторизации в серверных скриптах. Дополнительные сведения см. в учебнике [Добавление проверки подлинности в приложение].
 
-Поддерживаются два потока проверки подлинности: _серверный_ и _клиентский_. Серверный поток обеспечивает самый простой способ проверки подлинности, так как он использует веб-интерфейс проверки подлинности. Клиентский поток обеспечивает более тесную интеграцию с возможностями устройства, так как использует пакеты SDK конкретного поставщика для конкретного устройства.
+Поддерживаются два потока проверки подлинности: _управляемый клиентом_ и _управляемый сервером_. Серверный поток обеспечивает самый простой способ проверки подлинности, так как он использует веб-интерфейс проверки подлинности. Клиентский поток обеспечивает более тесную интеграцию с возможностями устройства, так как использует пакеты SDK конкретного поставщика для конкретного устройства.
 
-В любом случае необходимо зарегистрировать приложение у поставщика удостоверений. Ваш поставщик удостоверений предоставит идентификатор клиента и секрет клиента. После этого необходимо настроить проверку подлинности или авторизацию службы приложений Azure с идентификатором и секретом клиента, предоставленными поставщиком удостоверений. Дополнительные сведения приведены в руководстве [Добавление проверки подлинности в приложение].
+>[AZURE.NOTE] Мы рекомендуем использовать в рабочих приложениях поток, управляемый клиентом.
 
-###<a name="serverflow"></a> Поток сервера
-После регистрации поставщика удостоверений вызовите метод MobileServiceCleint.[LoginAsync method] с указанием значения [MobileServiceAuthenticationProvider] своего поставщика. Например, следующий код запускает вход в систему через поток сервера с помощью Facebook.
+Чтобы настроить проверку подлинности, следует зарегистрировать приложение в одном или нескольких поставщиках удостоверений. Поставщик удостоверений создает для приложения идентификатор клиента и секрет клиента, которые задаются в серверной части, чтобы служба приложений Azure могла выполнять проверку подлинности и авторизацию с помощью этого поставщика удостоверений. Дополнительные сведения приведены в руководстве [Добавление проверки подлинности в приложение].
 
-	private MobileServiceUser user;
-	private async System.Threading.Tasks.Task Authenticate()
-	{
-		while (user == null)
-		{
-			string message;
-			try
-			{
-				user = await client
-					.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-				message =
-					string.Format("You are now logged in - {0}", user.UserId);
-			}
-			catch (InvalidOperationException)
-			{
-				message = "You must log in. Login Required";
-			}
+В этом разделе рассматриваются следующие вопросы.
 
-			var dialog = new MessageDialog(message);
-			dialog.Commands.Add(new UICommand("OK"));
-			await dialog.ShowAsync();
-		}
-	}
++ [Управляемая клиентом проверка подлинности](#client-flow).
++ [Управляемая сервером проверка подлинности](#serverflow).
++ [Кэширование маркера аутентификации](#caching)
 
-Если используется поставщик удостоверений, отличный от Facebook, измените значение [MobileServiceAuthenticationProvider] выше на значение для вашего поставщика.
+###<a name="client-flow"></a>Управляемая клиентом проверка подлинности
 
-В потоке сервера служба приложений Azure управляет потоком проверки подлинности OAuth 2.0, отображая страницу входа выбранного поставщика и создавая маркер проверки подлинности службы приложений после успешного соединения с поставщиком удостоверений. [Метод LoginAsync] возвращает объект [MobileServiceUser], в котором содержится как [UserId] авторизованного пользователя, так и [MobileServiceAuthenticationToken] в виде веб-маркера JSON (JWT). Этот маркер можно кэшировать и повторно использовать до истечения срока его действия. Дополнительные сведения см. в разделе [Кэширование маркера проверки подлинности](#caching).
+Приложение может самостоятельно связаться с поставщиком удостоверений и передать серверной части вашего приложения полученный маркер для проверки подлинности. Этот клиентский поток позволяет пользователям выполнять единый вход или получать дополнительные данные о пользователе от поставщика удостоверений. Этот подход предпочтительнее, чем использование серверного потока, так как он обеспечивает более естественный интерфейс входа для пользователя и позволяет выполнять дополнительную настройку.
 
-###<a name="client-flow"></a> Клиентский поток
+Доступны примеры организации некоторых клиентских потоков проверки подлинности.
 
-Приложение может также независимо связаться с поставщиком удостоверений и предоставить возвращаемый маркер службе приложений для проверки подлинности. Этот клиентский поток позволяет пользователям выполнять единый вход или получать дополнительные данные о пользователе от поставщика удостоверений.
++ [Библиотека проверки подлинности Active Directory](#adal)
++ [Facebook или Google](#client-facebook)
++ [Пакет Live SDK](#client-livesdk)
 
-####Однократный вход в систему с помощью маркера Google или Facebook
+#### <a name="adal"></a>Проверка подлинности пользователей с помощью библиотеки проверки подлинности Active Directory
 
-Упрощенная схема использования клиентского потока показана в этом фрагменте для Google или Facebook.
+Вы можете использовать библиотеку проверки подлинности Active Directory (ADAL) для управления входом пользователей из клиента с помощью Azure Active Directory.
+
+1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя инструкциям руководства [Настройка приложения службы приложений для использования службы входа Azure Active Directory]. Обязательно выполните дополнительный этап регистрации собственного клиентского приложения.
+
+2. Откройте проект в Visual Studio или Xamarin Studio и добавьте ссылку на пакет NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Включите в диапазон поиска предварительные версии.
+
+3. Добавьте в приложение код, соответствующий используемой платформе. Код находится ниже. В каждом коде выполните следующие замены.
+
+	* Замените строку **INSERT-AUTHORITY-HERE** именем клиента, в котором подготовлено приложение. Используйте следующий формат: https://login.windows.net/contoso.onmicrosoft.com. Это значение можно скопировать на вкладке "Домен" в Azure Active Directory на [классическом портале Azure].
+	
+	* Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Это значение можно скопировать на портале в разделе **Параметры Azure Active Directory** на вкладке **Дополнительно**.
+	
+	* Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, который вы скопировали из клиентского приложения.
+	
+	* Замените текст **INSERT-REDIRECT-URI-HERE** HTTPS-адресом конечной точки сайта для _проверки подлинности/авторизации/подтверждения_. Это значение должно быть аналогично _https://contoso.azurewebsites.net/.auth/login/done_.
+	
+	Ниже приведены колы для каждой платформы.
+	
+	**Windows:**
+	
+	    private MobileServiceUser user;
+	    private async Task AuthenticateAsync()
+	    {
+	        string authority = "INSERT-AUTHORITY-HERE";
+	        string resourceId = "INSERT-RESOURCE-ID-HERE";
+	        string clientId = "INSERT-CLIENT-ID-HERE";
+	        string redirectUri = "INSERT-REDIRECT-URI-HERE";
+	        while (user == null)
+	        {
+	            string message;
+	            try
+	            {
+	                AuthenticationContext ac = new AuthenticationContext(authority);
+	                AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, 
+						new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
+	                JObject payload = new JObject();
+	                payload["access_token"] = ar.AccessToken;
+	                user = await App.MobileService.LoginAsync(
+						MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	                message = string.Format("You are now logged in - {0}", user.UserId);
+	            }
+	            catch (InvalidOperationException)
+	            {
+	                message = "You must log in. Login Required";
+	            }
+	            var dialog = new MessageDialog(message);
+	            dialog.Commands.Add(new UICommand("OK"));
+	            await dialog.ShowAsync();
+	        }
+	    }
+	
+	**Xamarin.iOS**
+	
+	    private MobileServiceUser user;
+	    private async Task AuthenticateAsync(UIViewController view)
+	    {
+	        string authority = "INSERT-AUTHORITY-HERE";
+	        string resourceId = "INSERT-RESOURCE-ID-HERE";
+	        string clientId = "INSERT-CLIENT-ID-HERE";
+	        string redirectUri = "INSERT-REDIRECT-URI-HERE";
+	        try
+	        {
+	            AuthenticationContext ac = new AuthenticationContext(authority);
+	            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, 
+					new Uri(redirectUri), new PlatformParameters(view));
+	            JObject payload = new JObject();
+	            payload["access_token"] = ar.AccessToken;
+	            user = await client.LoginAsync(
+					MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	        }
+	        catch (Exception ex)
+	        {
+	            Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+	        }
+	    }
+	
+	**Xamarin.Android**
+	
+	    private MobileServiceUser user;
+	    private async Task AuthenticateAsync()
+	    {
+	        string authority = "INSERT-AUTHORITY-HERE";
+	        string resourceId = "INSERT-RESOURCE-ID-HERE";
+	        string clientId = "INSERT-CLIENT-ID-HERE";
+	        string redirectUri = "INSERT-REDIRECT-URI-HERE";
+	        try
+	        {
+	            AuthenticationContext ac = new AuthenticationContext(authority);
+	            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, 
+					new Uri(redirectUri), new PlatformParameters(this));
+	            JObject payload = new JObject();
+	            payload["access_token"] = ar.AccessToken;
+	            user = await client.LoginAsync(
+					MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	        }
+	        catch (Exception ex)
+	        {
+	            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+	            builder.SetMessage(ex.Message);
+	            builder.SetTitle("You must log in. Login Required");
+	            builder.Create().Show();
+	        }
+	    }
+	    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+	    {
+	        base.OnActivityResult(requestCode, resultCode, data);
+	        AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
+	    }
+
+####<a name="client-facebook"></a>Единый вход с помощью маркера Google или Facebook
+
+В этом фрагменте показан пример использования клиентского потока для Google или Facebook.
 
 	var token = new JObject();
 	// Replace access_token_value with actual value of your access token obtained
@@ -519,9 +613,9 @@
 		}
 	}
 
-####Однократный вход в систему с использованием учетной записи Майкрософт с помощью пакета Live SDK
+####<a name="client-livesdk"></a>Единый вход под учетной записью Майкрософт с помощью пакета Live SDK
 
-Чтобы иметь возможность проверять подлинность пользователей, необходимо зарегистрировать свое приложение в центре разработчиков учетных записей Майкрософт. Затем необходимо связать эту регистрацию с серверной частью мобильного приложения. Выполните действия в разделе [Регистрация приложения для входа с использованием учетной записи Майкрософт], чтобы зарегистрировать учетную запись Майкрософт и подключить ее к серверной части мобильного приложения. Если у вас есть версии приложения Магазина Windows и Windows Phone 8/Silverlight, сначала зарегистрируйте версию для Магазина Windows.
+Чтобы иметь возможность проверять подлинность пользователей, необходимо зарегистрировать свое приложение в центре разработчиков учетных записей Майкрософт. Затем необходимо связать эту регистрацию с серверной частью мобильного приложения. Выполните действия, описанные в разделе [Регистрация приложения для входа с использованием учетной записи Майкрософт], чтобы создать учетную запись Майкрософт и подключить ее к серверной части мобильного приложения. Если у вас есть версии приложения Магазина Windows и Windows Phone 8/Silverlight, сначала зарегистрируйте версию для Магазина Windows.
 
 Следующий код выполняет проверку подлинности с помощью пакета Live SDK и использует возвращенный маркер для входа в серверную часть мобильного приложения.
 
@@ -574,145 +668,83 @@
 
 Для получения дополнительной информации о [пакете SDK для Windows Live] обратитесь к документации.
 
+###<a name="serverflow"></a>Управляемая сервером проверка подлинности
+После регистрации поставщика удостоверений вызовите метод [LoginAsync] на [MobileServiceClient], передав ему значение [MobileServiceAuthenticationProvider], соответствующее вашему поставщику. Например, следующий код запускает вход в систему через поток сервера с помощью Facebook.
+
+	private MobileServiceUser user;
+	private async System.Threading.Tasks.Task Authenticate()
+	{
+		while (user == null)
+		{
+			string message;
+			try
+			{
+				user = await client
+					.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+				message =
+					string.Format("You are now logged in - {0}", user.UserId);
+			}
+			catch (InvalidOperationException)
+			{
+				message = "You must log in. Login Required";
+			}
+
+			var dialog = new MessageDialog(message);
+			dialog.Commands.Add(new UICommand("OK"));
+			await dialog.ShowAsync();
+		}
+	}
+
+Если используется поставщик удостоверений, отличный от Facebook, измените значение [MobileServiceAuthenticationProvider] выше на значение для вашего поставщика.
+
+В потоке сервера служба приложений Azure управляет потоком проверки подлинности OAuth 2.0, отображая страницу входа выбранного поставщика и создавая маркер проверки подлинности службы приложений после успешного соединения с поставщиком удостоверений. Метод [LoginAsync] возвращает объект [MobileServiceUser], в котором содержится как [UserId] авторизованного пользователя, так и [MobileServiceAuthenticationToken] в формате веб-маркера JSON (JWT). Этот маркер можно кэшировать и повторно использовать до истечения срока его действия. Дополнительные сведения см. в разделе [Кэширование маркера проверки подлинности](#caching).
+
 ###<a name="caching"></a>Кэширование маркера проверки подлинности
-В некоторых случаях вызова способа входа в систему можно избежать первого выполнения проверки подлинности пользователя. Чтобы кэшировать удостоверение текущего пользователя при первом входе в систему, в приложениях для Магазина Windows можно использовать класс [PasswordVault]. При каждом последующем входе будет проверяться, есть ли в кэше удостоверение пользователя. Если кэш пуст, пользователь будет перенаправлен на страницу входа в систему.
 
-	// After logging in
+В некоторых случаях после первой успешной проверки подлинности можно не выполнять вызов метода входа в систему. Для этого в клиентском потоке следует сохранить маркер проверки подлинности и даже маркер доступа, полученный от поставщика.
+
+Приложения из Магазина Windows и UWP могут использовать [PasswordVault] для сохранения текущего маркера проверки подлинности после успешного входа в систему:
+
+	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);		
+
 	PasswordVault vault = new PasswordVault();
-	vault.Add(new PasswordCredential("Facebook", user.UserId, user.MobileServiceAuthenticationToken));
+	vault.Add(new PasswordCredential("Facebook", client.currentUser.UserId, 
+		client.currentUser.MobileServiceAuthenticationToken));
 
-	// Log in
+Значение идентификатора пользователя (UserId) хранится в параметре UserName учетных данных. Маркер проверки подлинности хранится в параметре Password. При последующих запусках вы можете проверить, сохранились ли учетные данные в **PasswordVault**. В следующем примере используются сохраненные учетные данные, если они есть. В противном случае выполняется новая попытка пройти проверку подлинности в серверной части.
+
+	// Try to retrieve stored credentials.
 	var creds = vault.FindAllByResource("Facebook").FirstOrDefault();
 	if (creds != null)
 	{
-		user = new MobileServiceUser(creds.UserName);
-		user.MobileServiceAuthenticationToken = vault.Retrieve("Facebook", creds.UserName).Password;
+		// Create the current user from the stored credentials.
+		client.currentUser = new MobileServiceUser(creds.UserName);
+		client.currentUser.MobileServiceAuthenticationToken = 
+			vault.Retrieve("Facebook", creds.UserName).Password;
 	}
 	else
 	{
-		// Regular login flow
-		user = new MobileServiceuser( await client
-			.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
-		var token = new JObject();
-		// Replace access_token_value with actual value of your access token
-		token.Add("access_token", "access_token_value");
+		// Regular login flow and cache the token as shown above.
 	}
 
-	 // Log out
+При выходе пользователя из приложения необходимо удалить сохраненные учетные данные:
+
 	client.Logout();
-	vault.Remove(vault.Retrieve("Facebook", user.UserId));
+	vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
+
+Приложения Xamarin используют API-интерфейсы [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/) для безопасного хранения учетных данных в объекте **Account**. Пример использования этих API-интерфейсов см. в файле [AuthStore.cs](https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs), который включен в [пример совместного использования фотографий ContosoMoments](https://github.com/azure-appservice-samples/ContosoMoments/tree/dev).
+
+Если вы используете клиентский поток проверки подлинности, вы можете сохранить маркер доступа, полученный от поставщика, такого как Facebook или Twitter. Этот маркер можно использовать для запроса нового маркера проверки подлинности у серверной части:
+
+	var token = new JObject();
+	// Replace <your_access_token_value> with actual value of your access token
+	token.Add("access_token", "<your_access_token_value>");
+
+	// Authenticate using the access token.
+	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
 
-Для приложений для Windows Phone данные кэширования можно шифровать с помощью класса [ProtectedData] и сохранять конфиденциальные данные в отдельном хранилище.
-
--->
-
-### <a name="adal"></a> Аутентификация пользователей с помощью библиотеки аутентификации Active Directory
-
-Библиотеку проверки подлинности Active Directory (ADAL) можно использовать для входа пользователей в приложение с помощью Azure Active Directory. Этот подход является более предпочтительным, чем использование методов `loginAsync()`, так как он обеспечивает более удобный интерфейс входа для пользователя и позволяет выполнять дополнительную настройку.
-
-1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя указаниям в руководстве [Настройка приложения службы приложений для использования службы входа Azure Active Directory]. Обязательно выполните дополнительный этап регистрации собственного клиентского приложения.
-
-2. В Visual Studio или Xamarin Studio откройте проект и добавьте ссылку на пакет NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Во время поиска включите предварительные версии.
-
-3. Добавьте в приложение код, соответствующий используемой платформе. Код находится ниже. В каждом коде выполните следующие замены.
-
-* Замените **INSERT-AUTHORITY-HERE** именем клиента, в котором подготовлено приложение. Используйте следующий формат: https://login.windows.net/contoso.onmicrosoft.com. Это значение можно скопировать на вкладке "Домен" в Azure Active Directory на [классическом портале Azure].
-
-* Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Это значение можно скопировать на портале в разделе **Настройки Azure Active Directory** на вкладке **Дополнительно**.
-
-* Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
-
-* Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой сайта _/.auth/login/done_, используя схему HTTPS. Это значение должно быть аналогично _https://contoso.azurewebsites.net/.auth/login/done_.
-
-Ниже приведены колы для каждой платформы.
-
-**Windows:**
-
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
-        string authority = "INSERT-AUTHORITY-HERE";
-        string resourceId = "INSERT-RESOURCE-ID-HERE";
-        string clientId = "INSERT-CLIENT-ID-HERE";
-        string redirectUri = "INSERT-REDIRECT-URI-HERE";
-        while (user == null)
-        {
-            string message;
-            try
-            {
-                AuthenticationContext ac = new AuthenticationContext(authority);
-                AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
-                JObject payload = new JObject();
-                payload["access_token"] = ar.AccessToken;
-                user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-                message = string.Format("You are now logged in - {0}", user.UserId);
-            }
-            catch (InvalidOperationException)
-            {
-                message = "You must log in. Login Required";
-            }
-            var dialog = new MessageDialog(message);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
-        }
-    }
-
-**Xamarin.iOS**
-
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync(UIViewController view)
-    {
-        string authority = "INSERT-AUTHORITY-HERE";
-        string resourceId = "INSERT-RESOURCE-ID-HERE";
-        string clientId = "INSERT-CLIENT-ID-HERE";
-        string redirectUri = "INSERT-REDIRECT-URI-HERE";
-        try
-        {
-            AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(view));
-            JObject payload = new JObject();
-            payload["access_token"] = ar.AccessToken;
-            user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-        }
-        catch (Exception ex)
-        {
-            Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
-        }
-    }
-
-**Xamarin.Android**
-
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
-        string authority = "INSERT-AUTHORITY-HERE";
-        string resourceId = "INSERT-RESOURCE-ID-HERE";
-        string clientId = "INSERT-CLIENT-ID-HERE";
-        string redirectUri = "INSERT-REDIRECT-URI-HERE";
-        try
-        {
-            AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(this));
-            JObject payload = new JObject();
-            payload["access_token"] = ar.AccessToken;
-            user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-        }
-        catch (Exception ex)
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.SetMessage(ex.Message);
-            builder.SetTitle("You must log in. Login Required");
-            builder.Create().Show();
-        }
-    }
-    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-    {
-        base.OnActivityResult(requestCode, resultCode, data);
-        AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
-    }
-
-##<a name="pushnotifications"> Push-уведомления
+##<a name="pushnotifications">Push-уведомления
 
 Push-уведомления рассматриваются в следующих разделах:
 
@@ -720,7 +752,7 @@ Push-уведомления рассматриваются в следующих
 * [Получение SID пакета Магазина Windows](#package-sid)
 * [Регистрация с помощью межплатформенных шаблонов](#register-xplat)
 
-###<a name="register-for-push"></a> Практическое руководство. Регистрация для получения push-уведомлений
+###<a name="register-for-push"></a>Практическое руководство. Регистрация для получения push-уведомлений
 
 Клиент мобильных приложений позволяет выполнить регистрацию для получения push-уведомлений с помощью центров уведомлений Azure. При регистрации вы получаете маркер из службы push-уведомлений (PNS). Это значение необходимо указать при регистрации вместе со всеми тегами. Следующий код регистрирует ваше приложение Windows для получения push-уведомлений через службу уведомлений Windows (WNS):
 
@@ -735,7 +767,7 @@ Push-уведомления рассматриваются в следующих
 
 При отправке push-уведомлений в WNS необходимо получить SID пакета Магазина Windows (см. ниже). Обратите внимание, что в этом примере в регистрацию включены два тега. Дополнительные сведения о приложениях Windows, включая способ регистрации для выполнения регистраций шаблонов, см. в разделе [Добавление push-уведомлений в приложение].
 
-Обратите внимание, что запрос тегов от клиента не поддерживается. Запросы тегов автоматически отбрасываются из регистрации. Если вы хотите зарегистрировать устройство с тегами, создайте пользовательский интерфейс API, который использует API центров уведомлений для выполнения регистрации от вашего имени. [Вызовите пользовательский интерфейс API](#customapi) вместо метода `RegisterNativeAsync()`.
+Обратите внимание, что запрос тегов от клиента не поддерживается. Запросы тегов автоматически отбрасываются из регистрации. Если вы хотите зарегистрировать устройство с тегами, создайте пользовательский интерфейс API, который использует API центров уведомлений для выполнения регистрации от вашего имени. [Используйте пользовательский интерфейс API](#customapi) вместо метода `RegisterNativeAsync()`.
 
 ###<a name="package-sid"></a>Практическое руководство. Получение SID пакета Магазина Windows
 
@@ -792,13 +824,13 @@ Push-уведомления рассматриваются в следующих
 
 Обратите внимание, что все теги будут удалены для безопасности. В статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure] показано, как добавлять теги для установки устройства или шаблоны в пределах установки.
 
-Для отправки уведомлений с использованием этих зарегистрированных шаблонов обратитесь к разделу [Интерфейсы API центров уведомлений].
+Для отправки уведомлений с использованием этих зарегистрированных шаблонов изучите [справочники по API].
 
-##<a name="misc"></a> Разное
+##<a name="misc"></a>Разное
 
 ###<a name="errors"></a>Практическое руководство. Обработка ошибок
 
-При возникновении ошибки в серверной части пакет SDK клиента породит исключение `MobileServiceInvalidOperationException`. Следующий пример демонстрирует обработку исключения, возвращенного серверной частью:
+При возникновении ошибки в серверной части пакет SDK клиента создаст исключение `MobileServiceInvalidOperationException`. Следующий пример демонстрирует обработку исключения, возвращенного серверной частью:
 
 	private async void InsertTodoItem(TodoItem todoItem)
 	{
@@ -815,7 +847,7 @@ Push-уведомления рассматриваются в следующих
 		}
 	}
 
-Еще один пример работы с ошибками можно найти в разделе [Файлы примеров для мобильных приложений] — [LoggingHandler] представляет собой пример обработчика делегатов для ведения журналов запросов к серверной части (см. ниже). Это позволяет удобно отлаживать приложения Xamarin вместо использования Fiddler.
+Еще один пример работы с ошибками можно найти в разделе [Файлы примеров для мобильных приложений]. Пример [LoggingHandler] представляет собой делегат-обработчик ведения журналов (см. ниже) запросов к серверной части приложения. Это позволяет удобно отлаживать приложения Xamarin вместо использования Fiddler.
 
 ###<a name="headers"></a>Практическое руководство. Настройка заголовков запроса
 
@@ -876,7 +908,7 @@ Push-уведомления рассматриваются в следующих
 [Настройка приложения службы приложений для использования службы входа Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
-[Справочник по клиенту .NET мобильных приложений Azure]: https://msdn.microsoft.com/ru-RU/library/azure/mt419521(v=azure.10).aspx
+[Azure Mobile Apps .NET client reference]: https://msdn.microsoft.com/ru-RU/library/azure/mt419521(v=azure.10).aspx
 [MobileServiceClient]: https://msdn.microsoft.com/ru-RU/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 [MobileServiceCollection]: https://msdn.microsoft.com/ru-RU/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/ru-RU/library/azure/dn268408(v=azure.10).aspx
@@ -910,10 +942,10 @@ Push-уведомления рассматриваются в следующих
 [пакете SDK для Windows Live]: https://msdn.microsoft.com/ru-RU/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[Интерфейсы API центров уведомлений]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[справочники по API]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [Файлы примеров для мобильных приложений]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
-[репозитории GitHub "Примеры для Azure"]: https://github.com/Azure-Samples
+[репозитории GitHub Azure Samples]: https://github.com/Azure-Samples
 
 <!-- External URLs -->
 [JsonPropertyAttribute]: http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm
@@ -923,4 +955,4 @@ Push-уведомления рассматриваются в следующих
 [SymbolSource]: http://www.symbolsource.org/
 [инструкциям по SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

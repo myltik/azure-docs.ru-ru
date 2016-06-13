@@ -1,9 +1,11 @@
-Storage is constrained by disk space or the number of indexes or documents per service, whichever comes first.
+Возможности хранилища ограничиваются дисковым пространством, а также числом индексов или документов на одну службу.
 
-Resource|Free|Basic (Preview)|S1|S2
+Ресурс|Бесплатно|Базовый (предварительная версия)|S1|S2
 ---|---|---|---|----
-Disk space|50 MB |2 GB per service|25 GB per partition |100 GB per partition (up to a maximum of 1.2 TB per service)
-Document count|10,000 total|1 million per service|15 million per partition (up to 180 million documents per service)|60 million per partition (up to 720 million documents per service)
-Index count|3|5|50|200
-Indexer count|3|5|50|200
-Indexer Data Source count|3|5|50|200
+Дисковое пространство|50 MB |2 ГБ на службу|25 ГБ на один раздел |100 ГБ на секцию (максимум 1,2 ТБ на службу)
+Число документов|10 000 документов в целом|1 млн на службу|15 млн на секцию (до 180 млн документов на службу)|60 млн на секцию (до 720 млн документов на службу)
+Число индексов|3|5|50|200
+Число индексаторов|3|5|50|200
+Число источников данных индексатора|3|5|50|200
+
+<!---HONumber=AcomDC_0601_2016-->

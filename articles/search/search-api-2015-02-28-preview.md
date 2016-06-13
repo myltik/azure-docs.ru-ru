@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="05/18/2016"
+   ms.date="05/27/2016"
    ms.author="brjohnst"/>
 
 # API REST службы поиска Azure, версия 2015-02-28-Preview
@@ -1442,7 +1442,7 @@ ________________________________________
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "*",
-      "orderby": [ "lastRenovationDate desc" ]
+      "orderby": "lastRenovationDate desc"
     }
 
 2) Аспектный поиск: получение из индекса аспектов по категориям, оценкам, тегам, а также документов с базовым тарифом baseRate в определенных диапазонах.
@@ -1487,7 +1487,7 @@ ________________________________________
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hôtel",
-      "searchFields": [ "description_fr" ]
+      "searchFields": "description_fr"
     }
 
 6) Поиск в индексе по нескольким полям. Например, в одном индексе можно хранить и искать данные в нескольких доступных для поиска полях на разных языках. Если в одном документе есть описания на английском и французском, в результатах поиска можно вернуть любые или все документы по запросу:
@@ -1498,7 +1498,7 @@ ________________________________________
 	POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hotel",
-      "searchFields": [ "description", "description_fr" ]
+      "searchFields": "description, description_fr"
     }
 
 Обратите внимание на то, что запрос можно отправить только к одному индексу. Не создавайте отдельные индексы для каждого языка, если не планируете отправлять к ним запросы по отдельности.
@@ -1535,7 +1535,7 @@ ________________________________________
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "*",
-      "select": [ "hotelName", "description" ]
+      "select": "hotelName, description"
     }
 
 10) Поиск документов, соответствующих определенному выражению фильтра.
@@ -1567,7 +1567,7 @@ ________________________________________
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
-      "orderby": [ "geo.distance(location, geography'POINT(-122.12315 47.88121)')" ]
+      "orderby": "geo.distance(location, geography'POINT(-122.12315 47.88121)')"
     }
 
 13) Поиск в индексе с использованием профиля оценки geo, который содержит две функции оценки расстояния: в одной из них определен параметр currentLocation, в другой — параметр lastLocation.
@@ -1853,4 +1853,4 @@ URI запроса содержит параметр [index name] и [key], ко
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

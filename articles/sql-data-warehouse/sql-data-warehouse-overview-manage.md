@@ -39,7 +39,7 @@
 ### Портал Azure
 [Портал Azure][] — это веб-портал, где можно создавать, обновлять и удалять базы данных, а также отслеживать ресурсы базы данных. Это хороший инструмент для тех, кто только знакомится с Azure или управляет небольшим количеством баз данных хранилищ, а также для оперативного выполнения любой задачи по управлению.
 
-Начало работы с порталом Azure описывается в статье [Создание хранилища данных SQL (портал Azure)][].
+Начало работы с порталом Azure описывается в статье [Создание хранилища данных SQL][].
 
 ### SQL Server Data Tools в Visual Studio
 Средства [SQL Server Data Tools][] (SSDT) в Visual Studio предлагают возможности подключения, управления и разработки для баз данных. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), предлагаем обратить внимание на SSDT в составе Visual Studio.
@@ -116,7 +116,7 @@
 
 <!--Article references-->
 [Варианты избыточности хранилища Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
-[Создание хранилища данных SQL (портал Azure)]: sql-data-warehouse-get-started-provision.md
+[Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
 [Создание базы данных (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
 [Подключение к хранилищу данных SQL Azure с помощью Visual Studio]: sql-data-warehouse-get-started-connect.md
@@ -139,4 +139,4 @@
 <!--Other web references-->
 [Портал Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

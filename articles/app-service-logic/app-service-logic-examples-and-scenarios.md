@@ -32,16 +32,24 @@
 
 - [Синхронный ответ на запрос приложений логики](app-service-logic-http-endpoint.md)
 
+## Продолжительные действия
+
+- [Создание настраиваемого действия](app-service-logic-create-api-app.md)
+
+## Развертывание приложения логики и управление им
+
+- [Создание шаблона для развертывания приложения логики](app-service-logic-create-deploy-template.md)
+- [Диагностика неполадок с приложением логики](app-service-logic-diagnosing-failures.md)
+- [Развертывание приложения логики из Visual Studio](app-service-logic-deploy-from-vs.md)
+- [Отслеживание приложений логики](app-service-logic-monitor-your-logic-apps.md)
+
 ## Типы содержимого, конверсии и преобразования
 
 [Язык определения рабочего процесса](http://aka.ms/logicappsdocs) для приложений логики содержит множество функций, позволяющих преобразовывать различные типы содержимого и работать с ними. Кроме того, модуль делает все возможное для того, чтобы в ходе рабочего процесса сохранить типы содержимого как потоки данных.
 
 - [Обработка типов содержимого](app-service-logic-content-type.md), таких как application/json, application/xml и plain/text
+- [Создание определений рабочих процессов](app-service-logic-author-definitions.md)
 - [Язык определения рабочего процесса](http://aka.ms/logicappsdocs)
-
-## Продолжительные действия
-
-- [Создание длительного действия](app-service-logic-create-api-app.md)
 
 ## Пакеты и циклы
 
@@ -49,9 +57,13 @@
 - [ForEach](app-service-logic-loops-and-scopes.md)
 - [Until](app-service-logic-loops-and-scopes.md)
 
-## Интеграция с вложенными рабочими процессами и функциями Azure
+## Интеграция с функциями Azure
 
 - [Интеграция функций Azure](app-service-logic-azure-functions.md)
+
+### Сценарии
+
+- [Функция Azure как триггер служебной шины](app-service-logic-scenario-function-sb-trigger.md)
 
 ## HTTP, REST и SOAP
 
@@ -60,4 +72,4 @@
 
 Мы будем и дальше добавлять сценарии и примеры в этот документ. Сообщите нам в комментариях, какие примеры и сценарии вы хотите увидеть здесь.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

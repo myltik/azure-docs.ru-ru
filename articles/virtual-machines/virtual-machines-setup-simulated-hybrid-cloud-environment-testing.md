@@ -19,8 +19,6 @@
 
 # Создание имитации гибридной облачной среды для тестирования
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
-
 В этом разделе описываются шаги по созданию смоделированной гибридной облачной среды с помощью Microsoft Azure, в которой можно выполнять тестирование с использованием двух виртуальных сетей Azure. Эту конфигурацию можно использовать как альтернативу [настройке гибридной облачной среды для тестирования](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md), если у вас нет прямого подключения к Интернету и свободного общедоступного IP-адреса. Это конфигурация, которая получается в результате.
 
 ![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph4.png)
@@ -131,7 +129,7 @@
  
 ##Этап 3. Создание подключения между виртуальными сетями
 
-Сначала получите случайный, надежно зашифрованный 32-значный общий ключ у администратора сети или администратора безопасности. Или см. статью [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx), в которой описывается получение общего ключа.
+Сначала получите случайный, надежно зашифрованный 32-значный общий ключ у администратора сети или администратора безопасности. Вы также можете ознакомиться со статьей [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) (Создание случайной строки для предварительного ключа IPsec), в которой описывается получение предварительного ключа.
 
 Затем создайте VPN-подключение типа "сеть-сеть", используя следующие команды. Это может занять некоторое время.
 
@@ -213,6 +211,6 @@
 
 ## Дальнейшие действия
 
-- [Добавьте новую виртуальную машину](virtual-machines-windows-create-powershell.md) в подсеть TestVNET, например ВМ с Microsoft SQL Server.
+- [Добавьте новую виртуальную машину](virtual-machines-windows-create-powershell.md) в подсеть TestVNET, например виртуальную машину Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->
