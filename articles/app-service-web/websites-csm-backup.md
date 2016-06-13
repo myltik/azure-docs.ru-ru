@@ -44,9 +44,9 @@
 
 <a name="backup-on-demand"></a>
 ## Резервное копирование приложения по требованию
-Чтобы немедленно создать резервную копию приложения, отправьте запрос **POST** на адрес ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backup/**.
+Чтобы немедленно создать резервную копию приложения, отправьте запрос **POST** на адрес **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backup/**.
 
-Например, так выглядит URL-адрес для сайта из нашего примера: ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**.
+Например, так выглядит URL-адрес для сайта из нашего примера: **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**.
 
 В теле запроса нужно передать объект JSON и указать в нем учетную запись хранения, в которой будет сохранена резервная копия. Объект JSON должен иметь свойство с именем **storageAccountUrl**, которое содержит [URL-адрес SAS](../storage/storage-dotnet-shared-access-signature-part-1.md), предоставляющий доступ с правом на запись к контейнеру хранилища Azure. В этом контейнере будет создан большой двоичный объект для резервной копии. Если вы хотите создать резервную копию баз данных, в запрос следует включить список, содержащий имена, типы и строки подключения для каждой копируемой базы данных.
 
@@ -103,9 +103,9 @@
 Резервное копирование приложения можно запускать не только по требованию, но и автоматически по расписанию.
 
 ### Создание расписания автоматического резервного копирования
-Чтобы настроить расписание резервного копирования, отправьте запрос **PUT** на адрес ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup**.
+Чтобы настроить расписание резервного копирования, отправьте запрос **PUT** на адрес **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup**.
 
-Например, так выглядит URL-адрес для сайта из нашего примера: ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup**.
+Например, так выглядит URL-адрес для сайта из нашего примера: **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup**.
 
 Текст запроса должен содержать объект JSON, в котором указана конфигурация резервного копирования. Вот как выглядит запрос со всеми обязательными параметрами:
 
@@ -132,17 +132,17 @@
 Старые резервные копии будут автоматически удаляться из учетной записи хранилища. Вы можете изменить срок хранения резервных копий, установив параметр **retentionPeriodInDays**. Если вы хотите, чтобы независимо от срока хранения всегда была сохранена хотя бы одна резервная копия, установите для параметра **keepAtLeastOneBackup** значение true.
 
 ### Получение расписания автоматического резервного копирования
-Чтобы получить настройки резервного копирования приложения, отправьте запрос **POST** на URL-адрес ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup/list**.
+Чтобы получить настройки резервного копирования приложения, отправьте запрос **POST** на URL-адрес **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup/list**.
 
-URL-адрес для сайта из нашего примера: ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list**.
+URL-адрес для сайта из нашего примера: **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list**.
 
 <a name="get-backup-status"></a>
 ## Получение состояния резервного копирования
-В зависимости от размера приложения резервное копирование может занять некоторое время. Более того, процесс копирования может завершиться ошибкой, прекратиться по истечении времени ожидания или оказаться частично выполненным. Чтобы увидеть состояние всех резервных копий приложения, отправьте запрос **GET** на URL-адрес ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups**.
+В зависимости от размера приложения резервное копирование может занять некоторое время. Более того, процесс копирования может завершиться ошибкой, прекратиться по истечении времени ожидания или оказаться частично выполненным. Чтобы увидеть состояние всех резервных копий приложения, отправьте запрос **GET** на URL-адрес **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups**.
 
-Чтобы увидеть состояние конкретного процесса резервного копирования, отправьте запрос GET на URL-адрес ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
+Чтобы увидеть состояние конкретного процесса резервного копирования, отправьте запрос GET на URL-адрес **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
 
-Например, так выглядит URL-адрес для сайта из нашего примера: ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**.
+Например, так выглядит URL-адрес для сайта из нашего примера: **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**.
 
 Текст ответа будет содержать объект JSON следующего вида:
 
@@ -180,9 +180,9 @@ URL-адрес для сайта из нашего примера: ****https://m
 
 <a name="restore-app"></a>
 ## Восстановление приложения из резервной копии
-Если приложение было случайно удалено или вы хотите вернуться к предыдущей версии приложения, вы можете восстановить его из резервной копии. Чтобы запустить восстановление, отправьте запрос **POST** на URL-адрес ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/restore**.
+Если приложение было случайно удалено или вы хотите вернуться к предыдущей версии приложения, вы можете восстановить его из резервной копии. Чтобы запустить восстановление, отправьте запрос **POST** на URL-адрес **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/restore**.
 
-Например, так выглядит URL-адрес для сайта из нашего примера: ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore**.
+Например, так выглядит URL-адрес для сайта из нашего примера: **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore**.
 
 В тексте запроса отправьте объект JSON, который содержит свойства для операции восстановления. Вот пример, содержащий все обязательные свойства:
 
@@ -208,15 +208,15 @@ URL-адрес для сайта из нашего примера: ****https://m
 
 <a name="delete-app-backup"></a>
 ## Удаление резервной копии приложения
-Если вы хотите удалить резервную копию, отправьте запрос **DELETE** на URL-адрес ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
+Если вы хотите удалить резервную копию, отправьте запрос **DELETE** на URL-адрес **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
 
-Например, так выглядит URL-адрес для сайта из нашего примера: ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**.
+Например, так выглядит URL-адрес для сайта из нашего примера: **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**.
 
 <a name="manage-sas-url"></a>
 ## Управление URL-адресом SAS резервной копии
-Служба приложений Azure пытается удалить резервную копию из хранилища Azure, используя SAS URL-адрес, который был предоставлен при создании этой резервной копии. Если этот URL-адрес SAS уже недействителен, резервную копию не удастся удалить через REST API. Но вы можете обновить URL-адрес SAS, связанный с резервной копией, отправив запрос **POST** на URL-адрес ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/list**.
+Служба приложений Azure пытается удалить резервную копию из хранилища Azure, используя SAS URL-адрес, который был предоставлен при создании этой резервной копии. Если этот URL-адрес SAS уже недействителен, резервную копию не удастся удалить через REST API. Но вы можете обновить URL-адрес SAS, связанный с резервной копией, отправив запрос **POST** на URL-адрес **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/list**.
 
-Например, так выглядит URL-адрес для сайта из нашего примера: ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/list**.
+Например, так выглядит URL-адрес для сайта из нашего примера: **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/list**.
 
 В тексте запроса отправьте объект JSON, который содержит новый URL-адрес SAS. Ниже приведен пример.
 

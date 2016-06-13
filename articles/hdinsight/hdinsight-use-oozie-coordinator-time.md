@@ -211,7 +211,7 @@ Apache Oozie — это система рабочих процессов и ко
 	<tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции Hive INSERT OVERWRITE. Это та же папка, что и каталог для экспорта Sqoop (export-dir).</td></tr>
 	</table>
 
-	Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в [документации на Apache Oozie 4.0][apache-oozie-400] (для кластера HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] (для кластера HDInsight версии 2.1).
+	Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в [документации на Apache Oozie 4.0][apache-oozie-400] \(для кластера HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] \(для кластера HDInsight версии 2.1).
 
 2. Сохраните файл как **C:\\Tutorials\\UseOozie\\workflow.xml** в кодировке ANSI (ASCII). (Используйте Блокнот, если ваш текстовый редактор не предоставляет такую возможность.)
 
@@ -257,7 +257,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE] Кластер HDInsight версии 3.0 поддерживает только синтаксис **wasb://*. Прежний синтаксис **asv://* поддерживается в кластерах HDInsight 2.1 и 1.6, однако не поддерживается в кластерах HDInsight 3.0.
+> [AZURE.NOTE] Кластер HDInsight версии 3.0 поддерживает только синтаксис *wasb://*. Прежний синтаксис *asv://* поддерживается в кластерах HDInsight 2.1 и 1.6, однако не поддерживается в кластерах HDInsight 3.0.
 
 > [AZURE.NOTE] Путь wasb:// является виртуальным. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
 
@@ -378,7 +378,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 ##Запуск проекта Oozie
 
-В настоящее время Azure PowerShell не предоставляет командлеты для определения заданий Oozie. Вы можете использовать командлет **Invoke-RestMethod** для вызова веб-служб Oozie. API веб-служб Oozie представляет собой API HTTP REST JSON. Дополнительные сведения об API веб-служб Oozie см. в [документации на Apache Oozie 4.0][apache-oozie-400] (для кластера HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] (для кластера HDInsight версии 2.1).
+В настоящее время Azure PowerShell не предоставляет командлеты для определения заданий Oozie. Вы можете использовать командлет **Invoke-RestMethod** для вызова веб-служб Oozie. API веб-служб Oozie представляет собой API HTTP REST JSON. Дополнительные сведения об API веб-служб Oozie см. в [документации на Apache Oozie 4.0][apache-oozie-400] \(для кластера HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] \(для кластера HDInsight версии 2.1).
 
 **Отправка задания Oozie**
 

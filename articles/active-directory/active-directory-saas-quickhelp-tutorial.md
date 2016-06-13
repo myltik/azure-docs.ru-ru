@@ -148,7 +148,7 @@
 
     b. Чтобы передать скачанный файл метаданных Azure, нажмите кнопку **Browse** (Обзор), перейдите к файлу и щелкните **Upload Metadata** (Передать метаданные).
 
-    c. В текстовом поле **Email** (Электронный адрес) введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    c. В текстовом поле **Email** (Электронный адрес) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
     г) В текстовом поле **First Name** (Имя) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 

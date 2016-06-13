@@ -16,7 +16,8 @@
 
 #Руководство. Интеграция Azure Active Directory с Dropbox for Business
   
-Цель данного руководства — показать интеграцию Azure и Dropbox for Business. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+Цель данного руководства — показать интеграцию Azure и Dropbox for Business.
+Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   Действующая подписка на Azure
 -   Тестовый клиент в Dropbox for Business
@@ -150,11 +151,11 @@
 
 1. На странице интеграции приложения **Dropbox for Business** на классическом портале Azure щелкните **Настроить подготовку учетных записей пользователей**, чтобы открыть диалоговое окно **Настройка подготовки учетных записей пользователей**.
 
-2. На странице "Включить подготовку учетных записей пользователей для: Dropbox for Business" нажмите кнопку "Включить подготовку пользователей", чтобы открыть диалоговое окно Sign in to Dropbox to link with Windows Azure AD (Вход в Dropbox для установки связи с Microsoft Azure AD).
+2. На странице "Включить подготовку учетных записей пользователей для: Dropbox for Business" нажмите кнопку "Включить подготовку пользователей", чтобы открыть диалоговое окно Sign in to Dropbox to link with Microsoft Azure AD (Вход в Dropbox для установки связи с Microsoft Azure AD).
 
 	![Подготовка пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "Подготовка пользователей")
 
-3. В диалоговом окне **Sign in to Dropbox to link with Windows Azure AD** (Вход в Dropbox для установки связи с Microsoft Azure AD) войдите в клиент Dropbox for Business.
+3. В диалоговом окне **Sign in to Dropbox to link with Microsoft Azure AD** (Вход в Dropbox для установки связи с Microsoft Azure AD) войдите в клиент Dropbox for Business.
 
 	![Подготовка пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769518.png "Подготовка пользователей")
 
@@ -203,7 +204,8 @@
 ![Назначение пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "Назначение пользователей")
 
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Подробнее о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа.
+Подробнее о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 
 

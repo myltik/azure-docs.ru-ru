@@ -78,10 +78,10 @@
 
 Перед началом выполнения описанных ниже действий убедиться, что устройство Edison может подключаться к беспроводной сети. Чтобы настроить устройство Edison, его необходимо подключить к главному компьютеру. Intel предоставляет руководства по началу работы для следующих операционных систем:
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Начало работы с макетной платой Intel Edison на 64-разрядной версии Windows).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Начало работы с макетной платой Intel Edison на 32-разрядной версии Windows).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Начало работы с макетной платой Intel Edison на 64-разрядной версии Windows).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Начало работы с макетной платой Intel Edison на 32-разрядной версии Windows).
 - [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] (Начало работы с макетной платой Intel Edison на Mac OS X).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Начало работы с платой Intel® Edison на ОС Linux).
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Начало работы с платой Intel® Edison на ОС Linux).
 
 Чтобы настроить устройство Edison и ознакомиться с ним, выполните все шаги, описанные в этих статьях по началу работы, кроме последнего шага ("Выбор IDE"), который не требуется для данного учебника. В процессе настройки устройства Edison должны быть выполнены следующие действия:
 
@@ -369,7 +369,7 @@ pscp .\gatewaysdk.zip root@192.168.0.45:/home/root
 
 ## Отправка сообщений из облака на устройство
 
-Модуль BLE также поддерживает отправку инструкции из центра Azure IoT на устройство. Для отправки сообщений JSON, которые модуль шлюза BLE передает на устройство BLE, можно использовать [обозреватель устройств центра Azure IoT](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) или [IoT Hub Explorer] (https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer). Например, при использовании устройства Texas Instruments SensorTag можно отправлять из центра IoT на устройство следующие сообщения JSON.
+Модуль BLE также поддерживает отправку инструкции из центра Azure IoT на устройство. Для отправки сообщений JSON, которые модуль шлюза BLE передает на устройство BLE, можно использовать [обозреватель устройств центра Azure IoT](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) или [IoT Hub Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer). Например, при использовании устройства Texas Instruments SensorTag можно отправлять из центра IoT на устройство следующие сообщения JSON.
 
 - Сбросить все светодиодные индикаторы и звуковые сигналы (отключить их):
 
@@ -427,7 +427,7 @@ pscp .\gatewaysdk.zip root@192.168.0.45:/home/root
 
 ## Дальнейшие действия
 
-Дополнительные сведения см. в разделе [Azure IoT Gateway SDK][lnk-sdk] (Пакет SDK для шлюза Azure IoT).
+Дополнительные сведения см. в разделе [Azure IoT Gateway SDK][lnk-sdk] \(Пакет SDK для шлюза Azure IoT).
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
