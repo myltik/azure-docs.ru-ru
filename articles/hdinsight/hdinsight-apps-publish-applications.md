@@ -70,11 +70,11 @@
 		
 	>Обратите внимание, что имя скрипта состоит из трех частей:
 		
-	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
-	>	2. A "-" for readability.
-	>	3. A unique string function with the application name as the parameter.
+	>	1. Префикс имени, который состоит из имени приложения или имени, которое связано с приложением.
+	>	2. Дефис (-) для удобства чтения.
+	>	3. Уникальная строковая функция с именем приложения в качестве параметра.
 
-	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+	>	Например, в сохраненном списке действий скрипта приведенное выше имя будет выглядеть так: hue-install-v0-4wkahss55hlas. Пример полезных данных JSON см. здесь: [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
 
 - Все необходимые скрипты.
 
