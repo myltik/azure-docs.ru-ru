@@ -56,6 +56,6 @@
 - [Общие сведения об обмене сообщениями через служебную шину Azure уровня Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Основные сведения об обмене сообщениями через служебную шину](service-bus-messaging-overview.md)
 - [Обзор архитектуры служебной шины Azure](service-bus-fundamentals-hybrid-solutions.md)
-- [Как использовать очереди служебной шины](service-bus-dotnet-how-to-use-queues.md)
+- [Как использовать очереди служебной шины](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

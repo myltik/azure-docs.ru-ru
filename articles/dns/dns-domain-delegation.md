@@ -69,26 +69,50 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 Предположим, например, что вы приобретаете домен contoso.com и создаете зону с именем contoso.com в Azure DNS. Регистратор предоставляет вам как владельцу домена возможность настройки адресов серверов имен (то есть записи NS) для домена. Регистратор будет хранить эти записи NS в родительском домене, в данном случае это ".com". Клиенты по всему миру будут направляться в ваш домен в зоне Azure DNS при попытке разрешить DNS-записей в contoso.com.
 
-### Настройка делегирования
+### Поиск имен сервера имен
 
-Чтобы настроить делегирование, вам необходимо знать имена серверов имен для зоны. Служба Azure DNS выделяет серверы имен из пула при каждом создании зоны и сохраняет их в полномочным записях NS, которые автоматически создаются в вашей зоне. Таким образом, чтобы увидеть серверы имен, необходимо просто получить эти записи.
+Прежде чем делегировать зоны DNS в службу DNS Azure, сначала необходимо знать имена серверов имен зоны. Когда создается зона, служба DNS Azure выделяет серверы имен из пула.
 
-С помощью Azure PowerShell полномочные записи NS можно получить следующим образом. Обратите внимание, что имя записи @ используется для указания записей на вершине зоны. В этом примере зоне contoso.com назначены сервера имен ns1-04.azure-dns.com, ns2 04.azure DNS-сервера .net, ns3-04.azure-dns.org, и ns4-04.azure-dns.info.
+Узнать, какие серверы имен выделены для зоны, проще всего при помощи портала Azure. В этом примере зоне contoso.com назначены серверы имен ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org и ns4-01.azure-dns.info.
 
+ ![Сервер имен DNS](./media/dns-domain-delegation/viewzonens500.png)
 
-	$zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+Служба DNS Azure автоматически создает в вашей зоне заслуживающие доверия NS-записи, в которых указаны выделенные серверы имен. Чтобы увидеть серверы имен через Azure PowerShell или интерфейс командной строки Azure, необходимо просто получить эти записи.
+
+С помощью Azure PowerShell полномочные записи NS можно получить следующим образом. Обратите внимание, что имя записи @ используется для указания записей на вершине зоны.
+
+	PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
+	PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
-	ZoneName          : contoso.com
+	ZoneName          : contoso.net
 	ResourceGroupName : MyResourceGroup
 	Ttl               : 3600
 	Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
 	RecordType        : NS
-	Records           : {ns1-04.azure-dns.com, ns2-04.azure-dns.net, ns3-04.azure-dns.org,
-                     ns4-04.azure-dns.info}
+	Records           : {ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org,
+                        ns4-01.azure-dns.info}
 	Tags              : {}
 
+NS-записи, из которых можно узнать, какие серверы имен назначены вашей зоне, вы можете получить также при помощи кроссплатформенного интерфейса командной строки Azure.
+
+	C:\> azure network dns record-set show MyResourceGroup contoso.net @ NS
+	info:    Executing command network dns record-set show
+		+ Looking up the DNS Record Set "@" of type "NS"
+	data:    Id                              : /subscriptions/.../resourceGroups/MyResourceGroup/providers/Microsoft.Network/dnszones/contoso.net/NS/@
+	data:    Name                            : @
+	data:    Type                            : Microsoft.Network/dnszones/NS
+	data:    Location                        : global
+	data:    TTL                             : 172800
+	data:    NS records
+	data:        Name server domain name     : ns1-01.azure-dns.com.
+	data:        Name server domain name     : ns2-01.azure-dns.net.
+	data:        Name server domain name     : ns3-01.azure-dns.org.
+	data:        Name server domain name     : ns4-01.azure-dns.info.
+	data:
+	info:    network dns record-set show command OK
+
+### Настройка делегирования
 
 У каждого регистратора есть собственные средства управления DNS для изменения записей серверов имен домена. На странице управления DNS регистратора замените записи NS на созданные службой Azure DNS.
 
@@ -126,10 +150,9 @@ DNS-клиенты на ПК или мобильных устройствах о
 3. Выполните делегирование дочерней зоны. Для этого настройте записи сервера имен в родительской зоне, указывающей на дочернюю.
 
 
-
 ### Делегирование поддомена
 
-Этот процесс продемонстрирован в приведенном ниже примере PowerShell.
+Этот процесс продемонстрирован в приведенном ниже примере PowerShell. Эти же действия можно выполнить с помощью портала Azure или кроссплатформенного интерфейса командной строки Azure.
 
 #### Шаг 1. Создание родительской и дочерней зон
 
@@ -140,7 +163,7 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 #### Шаг 2. Получение записей NS
 
-После этого нужно получить заслуживающие доверия записи NS из дочерней зоны, как показано в следующем примере.
+После этого нужно получить заслуживающие доверия записи NS из дочерней зоны, как показано в следующем примере. В этих записях указаны серверы имен, выделенные дочерней зоне.
 
 	$child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
@@ -176,4 +199,4 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 [Управление зонами DNS](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -226,7 +226,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 [Фабрика данных]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Начало работы с фабрикой данных Azure с помощью редактора фабрики данных]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
 [Введение в службу фабрики данных Azure]: ../data-factory/data-factory-introduction.md
-[Load sample data into SQL Data Warehouse]: sql-data-warehouse-get-started-manually-load-samples.md
+[Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase;]: sql-data-warehouse-get-started-load-with-polybase.md
 [Учебник. Оценка эффективности маркетинговой кампании]: ../data-factory/data-factory-tutorial.md
@@ -240,4 +240,4 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 [портал Azure]: https://portal.azure.com
 [Загрузите демонстрационные данные]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

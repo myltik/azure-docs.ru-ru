@@ -13,57 +13,58 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="03/31/2016"
-	ms.author="cephalin;robmcm"/>
+	ms.date="06/01/2016"
+	ms.author="cephalin"/>
 
 # Начало работы с веб-приложениями Node.js в службе приложений Azure
 
 [AZURE.INCLUDE [вкладки](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-В этом руководстве описывается, как создать простое приложение [Node.js](http://nodejs.org), а затем развернуть его в [веб-приложении](app-service-web-overview.md) в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md) с помощью командной строки (cmd.exe или bash). Инструкции, приведенные в этом учебнике, применимы к любой операционной системе, на которой может работать Node.js.
+В данном руководстве показано, как создать простое приложение [Node.js][NODEJS] и развернуть его в [веб-приложении] в [службе приложений Azure] из среды командной строки, такой как cmd.exe или Bash. Инструкции, приведенные в этом учебнике, применимы к любой операционной системе, на которой может работать Node.js.
 
-<a name="prereq"/>
+<a name="prereq"></a>
 ## Предварительные требования
 
-- Node.js. Двоичные файлы установки доступны [здесь](https://nodejs.org/).
-- Yeoman. Инструкции по установке см. [здесь](http://yeoman.io/).
-- Git. Двоичные файлы установки доступны [здесь](http://www.git-scm.com/downloads).
-- Azure CLI. Инструкции по установке см. [здесь](../xplat-cli-install.md).
-- Учетная запись Microsoft Azure. Если у вас нет учетной записи, [зарегистрируйте бесплатную пробную версию](/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- **Node.js** ([щелкните здесь, чтобы установить][NODEJS])
+- **Bower** ([щелкните здесь, чтобы установить][BOWER])
+- **Yeoman** ([щелкните здесь, чтобы установить][YEOMAN])
+- **Git** ([щелкните здесь, чтобы установить][GIT])
+- **Azure CLI** ([щелкните здесь, чтобы установить][Azure CLI])
+- Учетная запись Microsoft Azure. Если у вас нет учетной записи, можно [подписаться на бесплатную пробную версию] или [активировать преимущества для подписчиков Visual Studio].
 
 ## Создание и развертывание простого веб-приложения Node.js
 
-1. Откройте любую программу командной строки и установите [генератор Express для Yeоman](https://github.com/petecoop/generator-express).
+1. Откройте любой терминал командной строки и установите [генератор Express для Yeоman].
 
         npm install -g generator-express
 
-2. Перейдите с помощью команды `CD` в рабочий каталог и создайте приложение Еxpress.
+2. Перейдите с помощью команды `CD` в рабочий каталог и создайте приложение Еxpress с использованием следующего синтаксиса:
 
         yo express
         
     Выберите следующие параметры при появлении запроса:
 
-    `? Would you like to create a new directory for your project?` **Yes** `? Enter directory name` **&lt;имя\_приложения>** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **None** `? Select a database to use:` **None** `? Select a build tool to use:` **Grunt**
+    `? Would you like to create a new directory for your project?` **Да** `? Enter directory name` **{имя\_приложения}** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **Нет** `? Select a database to use:` **Нет** `? Select a build tool to use:` **Grunt**
 
 3. Перейдите с помощью команды `CD` в корневой каталог нового приложения и запустите его, чтобы проверить его работоспособность в среде разработки.
 
         npm start
 
-    В браузере перейдите по адресу [http://localhost:3000](http://localhost:3000), чтобы проверить доступность домашней страницы Express. Убедившись в работоспособности приложения, остановите его с помощью команды `Ctrl-C`.
+    В браузере перейдите по адресу <http://localhost:3000>, чтобы проверить доступность домашней страницы Express. Убедившись в работоспособности приложения, остановите его с помощью команды `Ctrl-C`.
     
-1. Войдите в Azure (для этого вам понадобится [интерфейс командной строки Azure](#prereq)).
+1. Войдите в Azure (для этого вам понадобится инфраструктура [Azure CLI](#prereq)).
 
         azure login
 
     Следуйте указаниям, чтобы продолжить вход в браузере с помощью учетной записи Майкрософт в рамках вашей подписки Azure.
 
-2. Убедитесь, что вы по-прежнему в корневом каталоге приложения. Создайте ресурс приложения службы приложений Azure с уникальным именем приложения, используя приведенную ниже команду. URL-адрес веб-приложения будет таким: http://&lt;appname>.azurewebsites.net.
+2. Убедитесь, что вы по-прежнему находитесь в корневом каталоге приложения, а затем создайте ресурс приложения службы приложений в Azure с уникальным именем приложения (например, http://{appname}.azurewebsites.net) при помощи следующей команды:
 
-        azure site create --git <appname>
+        azure site create --git {appname}
 
     Следуйте указаниям, чтобы выбрать регион Azure для развертывания. Если вы еще не настроили учетные данные развертывания Git/FTP для своей подписки Azure, вам также будет предложено создать их.
 
-3. Откройте файл config/config.js и измените рабочий порт на `process.env.port`. Рабочий объект JSON должен выглядеть так:
+3. Откройте файл ./config/config.js в корневом каталоге приложения и измените рабочий порт на `process.env.port`. Свойство `production` объекта `config` должно выглядеть, как в следующем примере.
 
         production: {
             root: rootPath,
@@ -78,29 +79,29 @@
 4. Сохраните изменения, а затем разверните приложение в Azure с помощью команды git:
 
         git add .
-        git commit -m "<your commit message>"
+        git commit -m "{your commit message}"
         git push azure master
 
-    В генератор Express входит GITIGNORE-файл, поэтому команда `git push` не будет передавать данные в каталог node\_modules.
+    В генератор Express уже входит GITIGNORE-файл, поэтому команда `git push` не будет использовать пропускную способность при попытках отправки данных в каталог node\_modules/.
 
-5. Наконец, просто запустите живое приложение Azure в браузере:
+5. Наконец, запустите живое приложение Azure в браузере.
 
         azure site browse
 
     Теперь вы увидите веб-приложение Node.js, запущенное в службе приложений Azure в режиме реального времени.
     
-    ![](./media/app-service-web-nodejs-get-started/deployed-express-app.png)
+    ![Пример перехода к развернутому приложению.][deployed-express-app]
 
 ## Обновление веб-приложения Node.js
 
-Чтобы обновить веб-приложение Node.js, запущенное в службе приложений, просто запустите `git add`, `git commit` и `git push` так же, как и при первом развертывании.
+Чтобы обновить веб-приложение Node.js, запущенное в службе приложений, просто запустите `git add`, `git commit` и `git push` так же, как и при первом развертывании веб-приложения.
      
 ## Как служба приложений развертывает приложение Node.js
 
-Для запуска приложений Node.js служба приложений Azure использует [iisnode](https://github.com/tjanczuk/iisnode/wiki). Совместное использование Azure CLI и ядра Kudu (развертывание Git) упрощает разработку и развертывание приложений Node.js из командной строки.
+Для запуска приложений Node.js служба приложений Azure использует [iisnode]. Совместное использование Azure CLI и ядра Kudu (развертывание Git) упрощает разработку и развертывание приложений Node.js из командной строки.
 
 - Команда `azure site create --git` распознает общий шаблон Node.js (server.js или app.js) и создает файл iisnode.yml в корневом каталоге. Этот файл можно использовать для настройки iisnode.
-- С помощью команды `git push azure master` Kudu автоматизирует следующие задачи развертывания.
+- С помощью команды `git push azure master` Kudu автоматизирует следующие задачи развертывания:
 
     - Если файл package.json находится в корневой папке репозитория, выполните команду `npm install --production`.
     - Создайте файл Web.config для iisnode, который указывает на ваш сценарий запуска в файле package.json (например, server.js или app.js).
@@ -108,13 +109,13 @@
     
 ## Использование платформы Node.js
 
-Если для разработки приложений вы используете популярную платформу Node.js (например, [Sails.js](http://sailsjs.org/) или [MEAN.js](http://meanjs.org/)), вы можете развернуть их в службе приложений. Популярные платформы Node.js имеют свои особенности. Их связанные зависимости пакетов регулярно обновляются. Так как при этом служба приложений предоставляет доступ к журналам stdout и stderr, вы точно будете знать, что происходит с вашим приложением, чтобы вносить соответствующие изменения. Дополнительные сведения см. в разделе [Получение журналов stdout и stderr из iisnode](#iisnodelog).
+Если для разработки приложений вы используете популярную платформу Node.js (например, [Sails.js][SAILSJS] или [MEAN.js][MEANJS]), вы можете развернуть их в службе приложений. Популярные платформы Node.js имеют свои особенности. Их связанные зависимости пакетов регулярно обновляются. Так как при этом служба приложений предоставляет доступ к журналам stdout и stderr, вы точно будете знать, что происходит с вашим приложением, чтобы вносить соответствующие изменения. Дополнительные сведения см. в разделе [Получение журналов stdout и stderr из iisnode](#iisnodelog).
 
-Также ознакомьтесь с руководствами, в которых показано, как работать с конкретной платформой в службе приложений:
+В следующих руководствах показано, как работать с конкретной платформой в службе приложений:
 
-- [Развертывание веб-приложения Sails.js в службе приложений Azure](app-service-web-nodejs-sails.md)
-- [Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure](web-sites-nodejs-chat-app-socketio.md)
-- [Как использовать io.js с веб-приложениями службы приложений Azure](web-sites-nodejs-iojs.md)
+- [Развертывание веб-приложения Sails.js в службе приложений Azure]
+- [Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure]
+- [Как использовать io.js с веб-приложениями службы приложений Azure]
 
 ## Использование определенного модуля Node.js
 
@@ -130,12 +131,14 @@
 - Затем проверьте, указан ли в файле package.json элемент `"node": "..."` в объекте `engines`. Если элемент указан, используйте его.
 - Выберите версию Node.js по умолчанию.
 
-<a name="iisnodelog" />
+<a name="iisnodelog"></a>
 ## Получение журналов stdout и stderr из iisnode
 
-Для чтения журналов iisnode выполните следующие действия.
+Для чтения журналов iisnode выполните следующие действия:
 
-1. Откройте файл iisnode.yml с помощью интерфейса командной строки Azure.
+> [AZURE.NOTE] Не исключено, что после выполнения этих действий файлы журналов появятся, только когда произойдет ошибка.
+
+1. Откройте файл iisnode.yml, который предоставляет инфраструктура Azure CLI.
 
 2. Укажите следующие параметры:
 
@@ -147,27 +150,28 @@
 3. Сохраните изменения, а затем примените изменения в Azure с помощью следующих команд Git:
 
         git add .
-        git commit -m "<your commit message>"
+        git commit -m "{your commit message}"
         git push azure master
    
    Вы настроили iisnode. Далее показано, как получить доступ к этим журналам.
      
 4. В браузере откройте консоль отладки Kudu для своего приложения по адресу:
 
-        https://<appname>.scm.azurewebsites.net/DebugConsole 
+        https://{appname}.scm.azurewebsites.net/DebugConsole 
+
+    Обратите внимание, что этот URL-адрес отличается от URL-адреса веб-приложения тем, что к имени DNS добавляется *расширение SCM*. Если это не сделано, вы получите сообщение об ошибке 404.
 
 5. Перейдите в каталог D:\\home\\site\\wwwroot\\iisnode.
 
-    ![](./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png)
+    ![Переход в расположение файлов журнала iisnode.][iislog-kudu-console-find]
 
-6. Щелкните значок **Изменить** для журнала, который требуется прочитать. При необходимости также можно щелкнуть **Скачать** или **Удалить**.
+6. Щелкните значок **Изменить** для журнала, который вы хотите прочитать. При необходимости также можно щелкнуть **Скачать** или **Удалить**.
 
-    ![](./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png)
+    ![Открытие файла журнала iisnode.][iislog-kudu-console-open]
 
     Теперь вы можете просмотреть журнал для отладки развертывания службы приложений.
     
-    ![](./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png)
-
+    ![Анализ файла журнала iisnode.][iislog-kudu-console-read]
 
 ## Отладка приложения с помощью Node-Inspector
 
@@ -183,16 +187,16 @@
 3. Сохраните изменения, а затем примените изменения в Azure с помощью следующих команд Git:
 
         git add .
-        git commit -m "<your commit message>"
+        git commit -m "{your commit message}"
         git push azure master
    
 4. Теперь просто перейдите к файлу запуска приложения, добавив /debug к URL-адресу, указанному в скрипте запуска в вашем файле package.json. Например,
 
-        http://<appname>.azurewebsites.net/server.js/debug
+        http://{appname}.azurewebsites.net/server.js/debug
     
     или
     
-        http://<appname>.azurewebsites.net/app.js/debug
+        http://{appname}.azurewebsites.net/app.js/debug
 
 ## Дополнительные ресурсы
 
@@ -202,5 +206,33 @@
 - [Azure App Service Web Apps: Node.js (Веб-приложения службы приложений Azure: Node.js)](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
 - [Центр разработчиков Node.js.](/develop/nodejs/)
 - [Начало работы с веб-приложениями в службе приложений Azure](app-service-web-get-started.md)
+- [Exploring the Super Secret Kudu Debug Console] (Обзор сверхсекретной консоли для отладки Kudu)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!-- URL List -->
+
+[Azure CLI]: ../xplat-cli-install.md
+[службе приложений Azure]: ../app-service/app-service-value-prop-what-is.md
+[активировать преимущества для подписчиков Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[BOWER]: http://bower.io/
+[Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure]: ./web-sites-nodejs-chat-app-socketio.md
+[Развертывание веб-приложения Sails.js в службе приложений Azure]: ./app-service-web-nodejs-sails.md
+[Exploring the Super Secret Kudu Debug Console]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[генератор Express для Yeоman]: https://github.com/petecoop/generator-express
+[GIT]: http://www.git-scm.com/downloads
+[Как использовать io.js с веб-приложениями службы приложений Azure]: ./web-sites-nodejs-iojs.md
+[iisnode]: https://github.com/tjanczuk/iisnode/wiki
+[MEANJS]: http://meanjs.org/
+[NODEJS]: http://nodejs.org
+[SAILSJS]: http://sailsjs.org/
+[подписаться на бесплатную пробную версию]: http://go.microsoft.com/fwlink/?LinkId=623901
+[веб-приложении]: ./app-service-web-overview.md
+[YEOMAN]: http://yeoman.io/
+
+<!-- IMG List -->
+
+[deployed-express-app]: ./media/app-service-web-nodejs-get-started/deployed-express-app.png
+[iislog-kudu-console-find]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
+[iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
+[iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
+
+<!---HONumber=AcomDC_0608_2016-->

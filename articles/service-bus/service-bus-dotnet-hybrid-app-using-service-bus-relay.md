@@ -229,12 +229,7 @@
 	}
 	```
 
-13. В окне "Обозреватель решений" дважды щелкните файл **App.config**, 
-    чтобы открыть его в редакторе Visual Studio. В нижней части элемента 
-    **&lt;system.ServiceModel&gt;** (но еще в элементе &lt;system.ServiceModel&gt;) добавьте следующий код XML. Не забудьте 
-    заменить *yourServiceNamespace* на имя пространства
-    имен, а *yourKey* — на ключ SAS,
-     полученный ранее на портале:
+13. В окне "Обозреватель решений" дважды щелкните файл **App.config**, чтобы открыть его в редакторе Visual Studio. В нижней части элемента **&lt;system.ServiceModel&gt;** (но еще в элементе &lt;system.ServiceModel&gt;) добавьте следующий код XML. Не забудьте заменить *yourServiceNamespace* на имя пространства имен, а *yourKey* — на ключ SAS, полученный ранее на портале:
 
     ```
     <system.serviceModel>
@@ -419,7 +414,7 @@
 
 	![][24]
 
-6.  Теперь откройте файл **HomeController.cs** в редакторе Visual Studio и замените существующее определение пространства имен следующим кодом. Не забудьте заменить *yourServiceNamespace* на имя пространства имен вашей службы, а *yourKey* — на ключ SAS. Это позволит клиенту вызывать локальную службу, возвращая результат в вызов.
+6.  Теперь откройте файл **HomeController.cs** в редакторе Visual Studio и замените существующее определение пространства имен следующим кодом. Не забудьте заменить *yourServiceNamespace* на имя пространства имен вашей службы, а *yourKey* — на ключ SAS. Это позволит клиенту вызывать локальную службу, возвращая результат в вызов.
 
 	```
 	namespace ProductsWeb.Controllers
@@ -573,6 +568,6 @@
   [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
 
   [sbwacom]: /documentation/services/service-bus/
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->
