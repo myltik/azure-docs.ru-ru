@@ -132,9 +132,9 @@ FROM [dbo].[vTargetMail]
 <!--Article references-->
 [Студию машинного обучения Azure]: https://studio.azureml.net/
 [Введение в машинное обучение в Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[загрузить демонстрационные данные вручную]: sql-data-warehouse-get-started-manually-load-samples.md
+[загрузить демонстрационные данные вручную]: sql-data-warehouse-get-started-load-sample-databases.md
 [Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 [Машинное обучение Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

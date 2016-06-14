@@ -34,13 +34,15 @@
 
 ### Свойство диспетчера ресурсов Azure
 
-URL-адрес определения интерфейса API для приложения API также можно настроить с помощью инструментария диспетчера ресурсов Azure. Для этого используются Azure PowerShell, интерфейс командной строки или [обозреватель ресурсов](https://resources.azure.com/).
+URL-адрес определения API для приложения API можно также настроить с помощью [обозревателя ресурсов](https://resources.azure.com/) или [шаблонов диспетчера Azure Resource Manager](../resource-group-authoring-templates.md), используя такие средства командной строки, как [Azure PowerShell](../powershell-install-configure.md) и [интерфейс командной строки Azure](../xplat-cli-install.md).
 
-Задайте свойство `apiDefinition` для типа Microsoft.Web/sites/config ресурса <site name>/web. Например, в **обозревателе ресурсов** последовательно выберите пункты **Подписки > {ваша подписка} > Группы ресурсов > {Ваша группа ресурсов} > Поставщики > Microsoft.Web > Сайты > {Ваш сайт} > Конфигурации > Веб**. Отобразится свойство cors:
+В **обозревателе ресурсов** последовательно выберите пункты **Подписки > {ваша подписка} > Группы ресурсов > {ваша группа ресурсов} > Поставщики > Microsoft.Web > Сайты > {ваш сайт} > Конфигурации > Веб**. Отобразится свойство `apiDefinition`.
 
 		"apiDefinition": {
 		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
 		}
+
+Чтобы просмотреть пример шаблона Azure Resource Manager, который задает свойство `apiDefinition`, откройте [в образце приложения списка дел файл azuredeploy.json](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Найдите раздел шаблона, который выглядит, как показанный выше образец JSON.
 
 ### Значение по умолчанию
 
@@ -56,6 +58,6 @@ URL-адрес определения интерфейса API для прило
 
 Пошаговые инструкции по созданию, развертыванию и использованию приложений API см. в статье [Приступая к работе с приложениями API в службе приложений Azure](app-service-api-dotnet-get-started.md).
 
-Если вы используете управление API Azure с приложениями API, вы можете использовать метаданные Swagger для импорта API в управление API. Дополнительные сведения см. в разделе [Как импортировать определение API с операциями в Azure API Management](../api-management/api-management-howto-import-api.md).
+Если вы используете управление API Azure с приложениями API, вы можете использовать метаданные Swagger для импорта API в управление API. Дополнительные сведения см. в статье [Как импортировать определение API с операциями в Azure API Management](../api-management/api-management-howto-import-api.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

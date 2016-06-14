@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/09/2016"
+   ms.date="05/27/2016"
    ms.author="nitinme"/>
 
 # Сценарии работы с данными с использованием хранилища озера данных
@@ -132,6 +132,6 @@
 ![Визуализация данных в хранилище озера данных](./media/data-lake-store-data-scenarios/visualize-data.png "Визуализация данных в хранилище озера данных")
 
 * Сначала с помощью [фабрики данных Azure переместите данные из хранилища озера данных в хранилище данных SQL Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores).
-* После этого вы можете [интегрировать Power BI с хранилищем данных SQL Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi) для создания визуального представления данных.
+* После этого вы можете [интегрировать Power BI с хранилищем данных SQL Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) для создания визуального представления данных.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

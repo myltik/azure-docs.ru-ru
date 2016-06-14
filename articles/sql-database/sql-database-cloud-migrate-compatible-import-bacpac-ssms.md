@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/06/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Импорт из BACPAC-файла в Базу данных SQL с помощью SSMS
@@ -42,7 +42,7 @@
 
     ***Важно***. При импорте BACPAC-файла из хранилища BLOB-объектов используйте хранилище уровня "Стандартный". Импорт BACPAC-файла из хранилища уровня "Премиум" не поддерживается.
 
-4.	Укажите **Имя новой базы данных** для базы данных в Базе данных SQL Azure, установите параметры **Выпуск Базы данных SQL Microsoft Azure** \(уровень службы\), **Максимальный размер базы данных** и **Цель обслуживания** \(уровень производительности\).
+4.	Укажите **Имя новой базы данных** для базы данных в Базе данных SQL Azure, установите параметры **Выпуск Базы данных SQL Microsoft Azure** (уровень службы), **Максимальный размер базы данных** и **Цель обслуживания** (уровень производительности).
 
     ![Параметры базы данных](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)
 
@@ -52,4 +52,15 @@
 
 6.	На портале Azure просмотрите базу данных и ее свойства.
 
-<!---HONumber=AcomDC_0413_2016-->
+## Дальнейшие действия
+
+- [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+
+## Подробнее
+
+- [База данных SQL версии 12](sql-database-v12-whats-new.md).
+- [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).
+
+<!---HONumber=AcomDC_0601_2016-->

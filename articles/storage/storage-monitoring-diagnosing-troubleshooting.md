@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="05/27/2016"
 	ms.author="jahogg"/>
 
 # Мониторинг, диагностика и устранение неисправностей службы хранилища Microsoft Azure
@@ -263,7 +263,9 @@
 
 В приведенном ниже примере кода показано, как настроить пользовательское значение **ClientRequestId**, прикрепив объект **OperationContext** к запросу к службе хранилища. Кроме того, показано, как извлечь значение **ServerRequestId** из ответного сообщения.
 
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	//Parse the connection string for the storage account.
+    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
     // Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
@@ -926,4 +928,4 @@ Wireshark — это анализатор сетевых протоколов, 
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

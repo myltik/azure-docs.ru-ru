@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # Создание гибридной облачной среды для тестирования
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
  
 В этом разделе описываются шаги по созданию гибридной облачной среды с помощью Microsoft Azure для тестирования. Это конфигурация, которая получается в результате.
 
@@ -45,7 +43,7 @@
 4.	Создание VPN-подключения "сайт-сайт".
 5.	Настройка DC2. 
 
-Если у вас еще нет подписки Azure, вы можете зарегистрировать бесплатную учетную запись на странице [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/). Если у вас есть подписка MSDN или Visual Studio, см. раздел [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Если у вас еще нет подписки Azure, вы можете зарегистрировать бесплатную учетную запись на странице [бесплатной ознакомительной версии Azure](https://azure.microsoft.com/pricing/free-trial/). Если у вас есть подписка MSDN или Visual Studio, ознакомьтесь с разделом [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Виртуальные машины и шлюзы виртуальных сетей в Azure создают текущие расходы во время своей работы. Шлюз Azure VPN реализован как набор двух виртуальных машин Azure. Дополнительные сведения см.в статье [Цены на виртуальную сеть](https://azure.microsoft.com/pricing/details/virtual-network/). Чтобы сократить расходы на использование VPN-шлюза, создайте тестовую среду и как можно быстрее выполните необходимые тестирования и демонстрации.
 
@@ -189,7 +187,7 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 
 Запишите IP-адрес, отображенный в поле **IPAddress**. Он понадобится вам на этапе 4.
 
-Затем получите случайный надежно зашифрованный 32-значный общий ключ у администратора сети или администратора безопасности. Дополнительные сведения о получении общего ключа см. в статье [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) (Создание случайной строки для общего ключа IPsec).
+Затем получите случайный надежно зашифрованный 32-значный общий ключ у администратора сети или администратора безопасности. Вы также можете ознакомиться со статьей [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) (Создание случайной строки для предварительного ключа IPsec), в которой описывается получение предварительного ключа.
 
 Создайте в Azure VPN-подключение типа "сеть — сеть", используя следующие команды.
 
@@ -311,9 +309,9 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 
 Отметим, что виртуальная сеть TestVNET имеет собственный DNS-сервер(DC2). Необходимо настроить виртуальную сеть TestVNET для использования этого DNS-сервера.
 
-1.	На левой панели портала Azure щелкните значок виртуальных сетей, а затем выберите **TestVNET**.
+1.	В левой области портала Azure щелкните значок виртуальных сетей, а затем выберите **TestVNET**.
 2.	На вкладке **Параметры** щелкните **DNS-серверы**.
-3.	В поле **Основной DNS-сервер** введите **192.168.0.4**, чтобы заменить значение 10.0.0.4.
+3.	В поле **Основной DNS-сервер** введите **192.168.0.4**, чтобы заменить 10.0.0.4.
 4.	Щелкните Сохранить.
 
 После этого с помощью следующих команд в командной строке Azure PowerShell перезапустите DC2 для применения новой конфигурации DNS-сервера.
@@ -329,6 +327,6 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
  
 ## Дальнейшие действия
 
-- Настройка [фермы интрасети SharePoint ](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), [управляемого через Интернет бизнес-приложения](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) или [сервера синхронизации каталогов Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) в этой среде.
+- Настройка [фермы интрасети SharePoint ](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), [бизнес-приложения для Интернета](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) или [сервера синхронизации каталогов Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) в этой среде.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

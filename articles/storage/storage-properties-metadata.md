@@ -39,8 +39,8 @@
 В следующем примере кода будет создан контейнер, а значения некоторых свойств будут выведены в окно консоли.
 
     //Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 	
 	//Create the service client object for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -62,7 +62,7 @@
 
 Метаданные можно указать как одну или несколько пар "имя-значение" для BLOB-ресурса или ресурса контейнера. Чтобы задать метаданные, добавьте пары "имя-значение" в коллекцию **метаданные** для ресурса, затем вызовите метод **SetMetadata** для сохранения значений в службу.
 
-> [AZURE.NOTE]\: имя метаданных должно соответствовать соглашениям об именах для идентификаторов C#.
+> [AZURE.NOTE] Имя метаданных должно соответствовать соглашениям об именовании идентификаторов C#.
  
 В следующем примере кода задаются метаданные для контейнера. Одно значение задается с помощью метода коллекции **Add**. Другое значение задается с помощью неявного синтаксиса «ключ/значение». Можно использовать любой из способов.
 
@@ -97,4 +97,4 @@
 - [Справочные материалы клиентской библиотеки хранилища Azure для .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Клиентская библиотека хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

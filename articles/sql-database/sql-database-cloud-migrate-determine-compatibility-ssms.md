@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -16,11 +16,14 @@
    ms.date="03/14/2016"
    ms.author="carlrab"/>
 
-# Определение совместимости Базы данных SQL с помощью SSMS
+# Использование SQL Server Management Studio для определения совместимости базы данных SQL Azure перед миграцией
 
 > [AZURE.SELECTOR]
+- [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-- [SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md)
+- [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
+- [Помощник по обновлению](http://www.microsoft.com/download/details.aspx?id=48119)
+- [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
  
 В этой статье вы узнаете, как определить, подходит ли база данных SQL Server для миграции с помощью мастера экспорта приложений на уровне данных в среде SQL Server Management Studio.
 
@@ -43,7 +46,7 @@
 
 	![Параметры экспорта](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS03.png)
 
-6. Нажмите кнопку **Далее**, а затем — кнопку **Готово**. При наличии проблем совместимости базы данных они отобразятся, после того как мастер проверит схему.
+6. Нажмите кнопку **Далее**, а затем — кнопку **Готово**. При наличии проблем совместимости базы данных они отобразятся, после того как мастер проверит схему.
 
 	![Параметры экспорта](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
 
@@ -51,8 +54,17 @@
 
 8.	Если файл *. BACPAC успешно создан, то ваша база данных совместима с Базой данных SQL и вы готовы к миграции.
 
-## Дальнейшее действие: устранение проблем совместимости (если есть)
+## Дальнейшие действия
 
-[Устранение проблем совместимости базы данных](sql-database-cloud-migrate-fix-compatibility-issues.md) (если есть).
+- [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Устранение проблем совместимости при миграции базы данных](sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
+- [Перенос совместимой базы данных SQL Server в Базу данных SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-<!---HONumber=AcomDC_0316_2016-->
+## Подробнее
+
+- [База данных SQL версии 12](sql-database-v12-whats-new.md).
+- [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).
+
+<!---HONumber=AcomDC_0601_2016-->

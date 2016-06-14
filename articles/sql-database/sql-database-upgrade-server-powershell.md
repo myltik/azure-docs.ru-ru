@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -151,7 +151,7 @@
 
     # Starting the upgrade
     #
-    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool)
+    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -ServerVersion 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool)
 
 
 
@@ -184,7 +184,7 @@
 
 **Оповещения:** настройте оповещения на портале Azure, чтобы получать уведомления о приближении показателя потребления DTU для обновленной базы данных к заданному максимальному уровню. На портале Azure можно настроить оповещения базы данных для различных метрик производительности, например DTU, ЦП, ввода-вывода и журнала. Перейдите к своей базе данных и выберите **Правила оповещения** в колонке **Параметры**.
 
-Например, можно настроить оповещение в сообщении электронной почты об относительном потреблении DTU, если среднее относительное потребление DTU превышает 75 % за последние 5 минут. См. статью [Получение уведомлений об оповещениях](../azure-portal/insights-receive-alert-notifications.md), чтобы больше узнать о настройке уведомлений об оповещениях.
+Например, можно настроить оповещение в сообщении электронной почты об относительном потреблении DTU, если среднее относительное потребление DTU превышает 75 % за последние 5 минут. См. статью [Получение уведомлений об оповещениях](../azure-portal/insights-receive-alert-notifications.md), чтобы больше узнать о настройке уведомлений об оповещениях.
 
 
 
@@ -201,4 +201,4 @@
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="05/24/2016"
 	ms.author="anhoh"/>
 
 # Создание, изменение и выполнение SQL-запросов для DocumentDB с помощью обозревателя запросов 
@@ -79,4 +79,4 @@
 
 Узнайте больше о грамматике SQL в DocumentDB, которую поддерживает обозреватель запросов, прочитав статью [SQL-запросы и синтаксис SQL в DocumentDB](documentdb-sql-query.md), или распечатайте копию [памятки по DocumentDB SQL](documentdb-sql-query-cheat-sheet.md). Вы также можете поэкспериментировать на [площадке для запросов](https://www.documentdb.com/sql/demo), где запросы можно тестировать через Интернет с помощью примера набора данных.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -99,7 +99,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 <!--Article references-->
 [Подключение к хранилищу данных SQL]: sql-data-warehouse-develop-connections.md
-[Приступая к работе с аудитом Базы данных SQL]: sql-database-auditing-get-started.md
+[Приступая к работе с аудитом Базы данных SQL]: sql-database-auditing-overview.md
 
 <!--MSDN references-->
 [Брандмауэр Базы данных SQL Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -113,4 +113,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Контроль доступа на основе ролей на портале Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

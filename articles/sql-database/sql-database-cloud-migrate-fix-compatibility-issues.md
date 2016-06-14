@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/23/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
-# Устранение проблем совместимости базы данных SQL Server с помощью мастера миграции SQL Azure перед миграцией в базу данных SQL
-
-Существует несколько способов решения обнаруженных проблем совместимости исходной Базы данных SQL Server.
+# Устранение проблем совместимости базы данных SQL Server с помощью мастера миграции SQL Azure перед миграцией в базу данных SQL Azure
 
 > [AZURE.SELECTOR]
 - С помощью [мастера миграции SQL Azure (SAMW)](sql-database-cloud-migrate-fix-compatibility-issues.md)
 - Использование [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 - Использование [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+
+В этой статье вы узнаете, как найти и устранить проблемы совместимости базы данных SQL Server с помощью мастера миграции SQL Azure, прежде чем выполнить миграцию в базу данных SQL Azure.
 
 ## Использование мастера миграции SQL Azure
 
@@ -33,8 +33,16 @@
 
   > [AZURE.NOTE] Обратите внимание, что не все несовместимые схемы, которые способен обнаружить мастер, могут быть устранены с помощью встроенных средств преобразования. Если имеются несовместимые сценарии, которые не удается обработать, то о них будет сообщено как об ошибках. Такие сценарии будут внедрены в созданный сценарий с соответствующими комментариями. Если обнаружено много ошибок, используйте Visual Studio или SQL Server Management Studio для исправления каждой ошибки, которую невозможно исправить с помощью мастера миграции SQL Server.
 
-## Следующий шаг: выбор метода миграции и ее выполнение
+## Дальнейшие действия
 
-[Выберите метод миграции](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
+- [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Перенос совместимой базы данных SQL Server в Базу данных SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-<!---HONumber=AcomDC_0330_2016-->
+## Подробнее
+
+- [База данных SQL версии 12](sql-database-v12-whats-new.md).
+- [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).
+
+<!---HONumber=AcomDC_0601_2016-->

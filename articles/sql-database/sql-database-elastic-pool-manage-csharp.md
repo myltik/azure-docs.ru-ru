@@ -3,7 +3,7 @@
     description="Используйте методы разработки баз данных на C# для управлением пулом эластичных баз данных в Базе данных SQL Azure."
     services="sql-database"
     documentationCenter=""
-    authors="sidneyh"
+    authors="srinia"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/28/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # Мониторинг пула эластичных баз данных и управление им с помощью C&#x23; 
 
@@ -432,4 +432,4 @@
 - [Когда следует использовать пул эластичных баз данных?](sql-database-elastic-pool-guidance.md)
 - См. статью [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md). В ней описывается использование инструментов эластичных баз данных для масштабирования, перемещения данных, выполнения запросов и создания транзакций.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

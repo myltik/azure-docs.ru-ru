@@ -59,6 +59,7 @@
 - Параметры простой авторизации не клонируются
 - Расширение Kudu не клонируется
 - Правила TiP не клонируются
+- Содержимое базы данных не клонируется.
 
 
 ### Ссылки ###
@@ -72,4 +73,4 @@
 [1]: ./media/app-service-web-app-cloning-portal/CloningBlade.png
 [2]: ./media/app-service-web-app-cloning-portal/CloneSettings.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

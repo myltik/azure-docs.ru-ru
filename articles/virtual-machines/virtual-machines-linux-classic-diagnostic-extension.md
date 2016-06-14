@@ -63,10 +63,10 @@
 
 Шаг 1. Создайте файл PrivateConfig.json со следующим содержимым:
 
-	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account"
-	}
+    {
+        "storageAccountName" : "the storage account to receive data",
+        "storageAccountKey" : "the key of the account"
+    }
 
 Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
@@ -80,12 +80,15 @@
 
 По умолчанию данные Rsyslog собираются всегда.
 
-	{
-      	"perfCfg":[
-           	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
-           	}
-          ]
-	}
+    {
+      	"perfCfg":
+      	[
+      	    {
+      	        "query" : "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+      	        "table" : "LinuxMemory"
+      	    }
+      	]
+    }
 
 
 Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
@@ -96,27 +99,29 @@
 
 Шаг 1. Создайте файл с именем PrivateConfig.json и содержимым, как описано в сценарии 1. Создайте другой файл PublicConfig.json со следующим содержимым:
 
-	{
-      	"fileCfg":[
-           	{"file":"/var/log/mysql.err",
-             "table":"mysqlerr"
-           	}
-          ]
-	}
+    {
+        "fileCfg" : 
+        [
+            {
+                "file" : "/var/log/mysql.err",
+                "table" : "mysqlerr"
+             }
+        ]
+    }
 
 
 Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Сценарий 4. Запрет расширению на сбор журналов
-В этом разделе описывается, как запретить расширению собирать журналы. Обратите внимание, что процесс мониторинга агента останется запущенным и продолжит работу даже после выполнения этой перенастройки. Это значит, что на данный момент для полной остановки процесса мониторинга агента расширение необходимо удалить. Возможно, в дальнейшем будет добавлено свойство конфигурации, позволяющее отключить расширение (а также полностью остановить процесс мониторинга агента), не удаляя его полностью.
+В этом разделе описывается, как запретить расширению собирать журналы. Обратите внимание, что процесс мониторинга агента останется запущенным и продолжит работу даже после выполнения этой перенастройки. Если вы хотите полностью остановить процесс агента мониторинга, это можно сделать, отключив расширение. Команда отключения расширения: **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
 
 Шаг 1. Создайте файл с именем PrivateConfig.json и содержимым, как описано в сценарии 1. Создайте другой файл PublicConfig.json со следующим содержимым:
 
-	{
-     	"perfCfg":[],
-     	"enableSyslog":"false"
-	}
+    {
+        "perfCfg" : [],
+        "enableSyslog" : "false"
+    }
 
 
 Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
@@ -139,4 +144,4 @@
 ## Известные проблемы
 - В версии 2.0 доступ к данным Rsyslog и файлам журнала, указанным клиентом, можно получить только с помощью сценариев.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

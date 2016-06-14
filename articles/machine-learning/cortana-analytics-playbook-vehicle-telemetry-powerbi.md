@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/27/2016" 
 	ms.author="bradsev" />
 
 
@@ -83,8 +83,7 @@
 Загрузить приложение можно так:
 
 1.	Щелкните узел PowerBI в представлении схемы и на панели свойств перейдите по ссылке **Скачать приложение панели мониторинга в реальном времени**.![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard-new1.png)
-2.	Извлеките и сохраните приложение на локальном компьютере.
-![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/4-real-time-dashboard-application.png)
+2.	Извлеките и сохраните приложение на локальном компьютере. ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/4-real-time-dashboard-application.png)
 
 3.	Запустите приложение **RealtimeDashboardApp.exe**.
 4.	Укажите действительные учетные данные Power BI, войдите и нажмите кнопку **Принять**.
@@ -122,47 +121,37 @@
 
 ### 1\. Исправные автомобили
   
-Дважды щелкните элемент **Страница 1** и переименуйте его в «Исправные автомобили».
-![Подключенные автомобили — эксплуатируемые автомобили](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4a.png)
+Дважды щелкните элемент **Страница 1** и переименуйте его в «Исправные автомобили». ![Подключенные автомобили — эксплуатируемые автомобили](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4a.png)
 
 В разделе **Поля** выберите поле **VIN** и укажите тип визуализации **Карточка**.
 
-Будет создана карточка визуализации, как показано на рисунке.
-![Подключенные автомобили — выберите номер шасси](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4b.png)
+Будет создана карточка визуализации, как показано на рисунке. ![Подключенные автомобили — выберите номер шасси](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4b.png)
 
 Щелкните пустую область, чтобы добавить новую визуализацию.
 
-Выберите поля **Город** и **VIN**. Измените тип визуализации на **Карта**. Перетащите поле **VIN** в область значений. Перетащите поле **Город** из раздела «Поля» в область **Условные обозначения**.
-![Подключенные автомобили — визуализация «Карточка»](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4c.png)
+Выберите поля **Город** и **VIN**. Измените тип визуализации на **Карта**. Перетащите поле **VIN** в область значений. Перетащите поле **Город** из раздела «Поля» в область **Условные обозначения**. ![Подключенные автомобили — визуализация «Карточка»](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4c.png)
   
-В разделе **Визуализации** откройте раздел **Формат**, щелкните **Заголовок** и измените текст на **Исправные автомобили по городам**.
-![Подключенные автомобили — эксплуатируемые автомобили по городам](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4d.png)
+В разделе **Визуализации** откройте раздел **Формат**, щелкните **Заголовок** и измените текст на **Исправные автомобили по городам**. ![Подключенные автомобили — эксплуатируемые автомобили по городам](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4d.png)
 
-Визуализация будет выглядеть, как показано на рисунке.
-![Подключенные автомобили — итоговая визуализация](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4e.png)
+Визуализация будет выглядеть, как показано на рисунке. ![Подключенные автомобили — итоговая визуализация](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4e.png)
 
 Щелкните пустую область, чтобы добавить новую визуализацию.
 
 Выберите поля **Город** и **VIN**. Затем измените тип визуализации на **Гистограмма с группировкой**. Убедитесь, что поле **Город** размещено в области **Ось**, а **VIN** — в области **Значение**.
 
-Отсортируйте гистограмму по параметру **Количество VIN**.
-![Подключенные автомобили — количество номеров шасси](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4f.png)
+Отсортируйте гистограмму по параметру **Количество VIN**. ![Подключенные автомобили — количество номеров шасси](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4f.png)
 
 Измените **заголовок** гистограммы на **Исправные автомобили по городам**.
 
-В разделе **Формат** выберите **Цвета данных** и щелкните **Вкл.** для параметра **Показать все**.
-![Подключенные автомобили — отображение всех цветов данных](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4g.png)
+В разделе **Формат** выберите **Цвета данных** и щелкните **Вкл.** для параметра **Показать все**. ![Подключенные автомобили — отображение всех цветов данных](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4g.png)
 
-Измените цвет для каждого города, щелкнув цветной значок.
-![Подключенные автомобили — изменение цветов](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4h.png)
+Измените цвет для каждого города, щелкнув цветной значок. ![Подключенные автомобили — изменение цветов](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4h.png)
 
 Щелкните пустую область, чтобы добавить новую визуализацию.
 
-Выберите тип визуализации **Гистограмма с группировкой**, перетащите поле **Город** в область **Ось**, поле **Модель** — в область **Условные обозначения**, а поле **VIN** — в область **Значение**.
-![Подключенные автомобили — кластеризованная гистограмма](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4i.png) ![Подключенные автомобили — отрисовка](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4j.png)
+Выберите тип визуализации **Гистограмма с группировкой**, перетащите поле **Город** в область **Ось**, поле **Модель** — в область **Условные обозначения**, а поле **VIN** — в область **Значение**. ![Подключенные автомобили — кластеризованная гистограмма](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4i.png) ![Подключенные автомобили — отрисовка](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4j.png)
   
-Измените визуальное представление на странице, как показано на рисунке.
-![Подключенные автомобили — визуализации](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
+Измените визуальное представление на странице, как показано на рисунке. ![Подключенные автомобили — визуализации](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
 Отчет «Исправные автомобили» в реальном времени настроен. Вы можете создать следующий отчет в реальном времени или перейти к настройке панели мониторинга.
 
@@ -172,48 +161,38 @@
 
 ![Подключенные автомобили — автомобили, требующие обслуживания](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4l.png)
 
-Выберите поле **VIN** и измените тип визуализации на **Карточка**.
-![Подключенные автомобили — визуализация «Карточка номера шасси»](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4m.png)
+Выберите поле **VIN** и измените тип визуализации на **Карточка**. ![Подключенные автомобили — визуализация «Карточка номера шасси»](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4m.png)
 
 В наборе данных есть поле с именем MaintenanceLabel. Это поле может иметь значение 0 или 1. Оно задается моделью машинного обучения Azure, которая включена в решение и интегрирована с механизмом обработки в реальном времени. Значение 1 указывает, что автомобилю требуется обслуживание.
 
 Далее мы добавим фильтр **Уровень страницы**, чтобы отобразить данные об автомобилях, которым требуется обслуживание.
 
-1. Перетащите поле **MaintenanceLabel** в область **Фильтры уровня страницы**.
-![Подключенные автомобили — фильтры уровня страницы](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n1.png)  
+1. Перетащите поле **MaintenanceLabel** в область **Фильтры уровня страницы**. ![Подключенные автомобили — фильтры уровня страницы](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n1.png)  
 
-2. В нижней части раздела MaintenanceLabel щелкните меню **Базовая фильтрация**.
-![Подключенные автомобили — базовая фильтрация](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n2.png)
+2. В нижней части раздела MaintenanceLabel щелкните меню **Базовая фильтрация**. ![Подключенные автомобили — базовая фильтрация](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n2.png)
 
-3.  Задайте значение фильтра **1**.
-![Подключенные автомобили — значение фильтра](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n3.png)
+3.  Задайте значение фильтра **1**. ![Подключенные автомобили — значение фильтра](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n3.png)
 
 
 Щелкните пустую область, чтобы добавить новую визуализацию.
 
-Выберите тип визуализации **Гистограмма с группировкой**.
-![Подключенные автомобили — визуализация «Карточка номера шасси»](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4o.png) ![Подключенные автомобили — кластеризованная гистограмма](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4p.png)
+Выберите тип визуализации **Гистограмма с группировкой**. ![Подключенные автомобили — визуализация «Карточка номера шасси»](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4o.png) ![Подключенные автомобили — кластеризованная гистограмма](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4p.png)
 
 Перетащите поле **Модель** в область **Оси**, а поле **VIN** — в область **Значение**. Отсортируйте визуализацию по параметру **Количество VIN**. Измените **заголовок** гистограммы на **Автомобили, которым требуется обслуживание, по моделям**.
 
-Перетащите поля **VIN** в область **Насыщенность цвета** (раздел **Поля** ![Поля](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) на вкладке **Визуализация**).
-![Подключенные автомобили — насыщенность цвета](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)
+Перетащите поля **VIN** в область **Насыщенность цвета** (раздел **Поля** ![Поля](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) на вкладке **Визуализация**). ![Подключенные автомобили — насыщенность цвета](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)
 
-В разделе **Формат** измените отображаемые **Цвета данных**: для минимума укажите цвет **F2C812**, а для максимума — цвет **FF6300**.
-![Подключенные автомобили — изменения цвета](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4r.png) ![Подключенные автомобили — новые цвета визуализации](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4s.png)
+В разделе **Формат** измените отображаемые **Цвета данных**: для минимума укажите цвет **F2C812**, а для максимума — цвет **FF6300**. ![Подключенные автомобили — изменения цвета](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4r.png) ![Подключенные автомобили — новые цвета визуализации](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4s.png)
 
 Щелкните пустую область, чтобы добавить новую визуализацию.
 
-Выберите тип визуализации **Гистограмма с группировкой**. Затем перетащите поле **VIN** в область **Значение**, а поле **Город** — в область **Ось**. Отсортируйте гистограмму по параметру **Количество VIN**. Измените **заголовок** гистограммы на **Автомобили, требующие обслуживания, по городам**.
-![Подключенные автомобили — автомобили, требующие обслуживания, по городам](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4t.png)
+Выберите тип визуализации **Гистограмма с группировкой**. Затем перетащите поле **VIN** в область **Значение**, а поле **Город** — в область **Ось**. Отсортируйте гистограмму по параметру **Количество VIN**. Измените **заголовок** гистограммы на **Автомобили, требующие обслуживания, по городам**. ![Подключенные автомобили — автомобили, требующие обслуживания, по городам](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4t.png)
 
 Щелкните пустую область, чтобы добавить новую визуализацию.
 
-Выберите визуализацию **Многострочная карточка** из раздела «Визуализации». Затем перетащите поля **Модель** и **Номер шасси** в область **Поля**.
-![Подключенные автомобили — многострочная карточка](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4u.png)
+Выберите визуализацию **Многострочная карточка** из раздела «Визуализации». Затем перетащите поля **Модель** и **Номер шасси** в область **Поля**. ![Подключенные автомобили — многострочная карточка](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4u.png)
 
-Измените визуальное представление, чтобы итоговый отчет выглядел, как показано ниже.
-![Подключенные автомобили — многострочная карточка](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4v.png)
+Измените визуальное представление, чтобы итоговый отчет выглядел, как показано ниже. ![Подключенные автомобили — многострочная карточка](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4v.png)
 
 Отчет «Автомобили, которым требуется обслуживание» в реальном времени настроен. Вы можете создать следующий отчет в реальном времени или перейти к настройке панели мониторинга.
 
@@ -221,8 +200,7 @@
   
 Добавьте новый отчет, щелкнув ![Добавить](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4add.png), и переименуйте его в **Статистика работоспособности автомобилей**.
 
-Выберите тип визуализации **Датчик**. Затем перетащите поле **Скорость** в области **Значение, Минимальное значение, Максимальное значение**.
-![Подключенные автомобили — многострочная карточка](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4w.png)
+Выберите тип визуализации **Датчик**. Затем перетащите поле **Скорость** в области **Значение, Минимальное значение, Максимальное значение**. ![Подключенные автомобили — многострочная карточка](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4w.png)
 
 В области **Значение** для параметра **Скорость** измените агрегирование по умолчанию на **Среднее**.
 
@@ -324,8 +302,7 @@
 
 Примечание. Чтобы завершить выполнение и обработать данные за год, конвейеру пакетной обработки потребуется около 2 часов (после выполнения развертывания). Подождите, прежде чем переходить к последующим шагам.
 
-**Загрузка файла конструктора PowerBI**. • Подготовленный файл конструктора PowerBI включен в развертывание. • Щелкните узел PowerBI в представлении диаграммы и перейдите по ссылке «Загрузить файл конструктора PowerBI» на панели свойств.
-![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+**Загрузка файла конструктора PowerBI**. • Подготовленный файл конструктора PowerBI включен в развертывание. • Щелкните узел PowerBI в представлении диаграммы и перейдите по ссылке «Загрузить файл конструктора PowerBI» на панели свойств. ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
 
 • Сохраните файл на локальном компьютере.
 
@@ -388,40 +365,32 @@
  
 
 **На странице 3** закрепите следующее:
-1.	Количество VIN.
-![Подключенные автомобили PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png) 
+1.	Количество VIN. ![Подключенные автомобили PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png) 
 
-2.	Агрессивно управляемые автомобили по моделям — каскадная диаграмма.
-![Телеметрия автомобиля — закрепление диаграмм 4](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
+2.	Агрессивно управляемые автомобили по моделям — каскадная диаграмма. ![Телеметрия автомобиля — закрепление диаграмм 4](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
 
 **На странице 5** закрепите следующее:
-1.	Количество номеров шасси.
-![Телеметрия автомобиля — закрепление диаграмм 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)  
-2.	Автомобили с экономным расходом топлива по моделям: гистограмма с группировкой.
-![Телеметрия автомобиля — закрепление диаграмм 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
+1.	Количество номеров шасси. ![Телеметрия автомобиля — закрепление диаграмм 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)  
+2.	Автомобили с экономным расходом топлива по моделям: гистограмма с группировкой. ![Телеметрия автомобиля — закрепление диаграмм 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
 
 **Со страницы 4** закрепите следующее:
 
-1.	Количество номеров шасси.
-![Телеметрия автомобиля — закрепление диаграмм 7](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard7.png) 
+1.	Количество номеров шасси. ![Телеметрия автомобиля — закрепление диаграмм 7](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard7.png) 
 
-2.	Отозванные автомобили по городам, моделям: диаграмма «дерево».
-![Телеметрия автомобиля — закрепление диаграмм 8](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard8.png)
+2.	Отозванные автомобили по городам, моделям: диаграмма «дерево». ![Телеметрия автомобиля — закрепление диаграмм 8](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard8.png)
 
 **Со страницы 6** закрепите следующее:
 
-1.	Логотип компании Contoso Motors.
-![Телеметрия автомобиля — закрепление диаграмм 9](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard9.png)
+1.	Логотип компании Contoso Motors. ![Телеметрия автомобиля — закрепление диаграмм 9](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard9.png)
 
 **Упорядочение панели мониторинга**
 
 1.	Перейдите к панели мониторинга.
-2.	Наведите указатель на каждую диаграмму и переименуйте ее на основании наименований на приведенном ниже изображении панели мониторинга. Расположите диаграммы, как показано на экране панели мониторинга ниже.
-![Телеметрия автомобиля — упорядочение панели мониторинга 2](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard2.png) ![Телеметрия автомобилей PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard.png)
+2.	Наведите указатель на каждую диаграмму и переименуйте ее на основании наименований на приведенном ниже изображении панели мониторинга. Расположите диаграммы, как показано на экране панели мониторинга ниже. ![Телеметрия автомобиля — упорядочение панели мониторинга 2](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard2.png) ![Телеметрия автомобилей PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard.png)
 3. Если вы создали все отчеты, рассмотренные в этой статье, настроенная панель мониторинга будет выглядеть следующим образом. 
 
 ![Телеметрия автомобиля — упорядочение панели мониторинга 2](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
 
 Поздравляем! Вы создали отчеты и панель мониторинга для сбора данных о состоянии автомобилей и манере вождения (в том числе прогнозные данные и данные пакетной обработки) в режиме реального времени.
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,14 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Определение совместимости Базы данных SQL с помощью SqlPackage.exe
 
 > [AZURE.SELECTOR]
+- [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-- [SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md)
+- [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
+- [Помощник по обновлению](http://www.microsoft.com/download/details.aspx?id=48119)
+- [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
 
 В этой статье вы узнаете, как определить, подходит ли база данных SQL Server для миграции с помощью служебной программы командной строки [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx).
 
@@ -39,7 +42,7 @@
 	| < schema_name.table_name > | таблицы, для которых данные будут выведены в конечный файл |
 	| < output_file > | имя и расположение для выходного файла с ошибками, если таковые имеются |
 
-	Аргумент /p:TableName используется потому, что нужно проверить только совместимость базы данных для экспорта в базу данных SQL Azure версии 12, а не экспортировать данные из всех таблиц. К сожалению, аргумент экспорта для sqlpackage.exe не поддерживает извлечение без таблицы, поэтому нужно указать одну небольшую таблицу. Аргумент < output_file > будет содержать отчет об ошибках. Строка «> 2>&1» выводит как стандартные выходные данные, так и стандартные ошибки, полученные в результате выполнения команды в указанный выходной файл.
+	Аргумент /p:TableName используется потому, что нужно проверить только совместимость базы данных для экспорта в базу данных SQL Azure версии 12, а не экспортировать данные из всех таблиц. К сожалению, аргумент экспорта для sqlpackage.exe не поддерживает извлечение без таблицы, поэтому нужно указать одну небольшую таблицу. Аргумент < output_file > будет содержать отчет об ошибках. Строка «> 2>&1» выводит как стандартные выходные данные, так и стандартные ошибки, полученные в результате выполнения команды в указанный выходной файл.
 
 	![Экспорт приложения уровня данных из меню "Задачи"](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
@@ -47,8 +50,16 @@
 
 	![Экспорт приложения уровня данных из меню "Задачи"](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage02.png)
 
-## Дальнейшее действие: устранение проблем совместимости (если есть)
+## Дальнейшие действия
 
-[Устранение проблем совместимости базы данных](sql-database-cloud-migrate-fix-compatibility-issues.md) (если есть).
+- [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx) [последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Устранение проблем совместимости при миграции базы данных](sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
+- [Перенос совместимой базы данных SQL Server в Базу данных SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-<!---HONumber=AcomDC_0316_2016-->
+## Подробнее
+
+- [База данных SQL версии 12](sql-database-v12-whats-new.md).
+- [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).
+
+<!---HONumber=AcomDC_0601_2016-->

@@ -63,11 +63,11 @@
 
 Если в SQL Server 2016 вы используете функцию временной таблицы, база данных Stretch позволит вам перенести всю связанную таблицу с данными за прошедшие периоды или ее часть в низкозатратное хранилище в Azure. Дополнительные сведения см. в статье [Manage Retention of Historical Data in System-Versioned Temporal Tables](https://msdn.microsoft.com/library/mt637341.aspx).
 
-Запустите помощник по базе данных Stretch (функция SQL Server 2016), чтобы определить базы данных и таблицы, для которых можно включить функцию расширения. Дополнительные сведения см. в статье [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md). Дополнительные сведения о возможных ограничениях и критических препятствиях см. в статье [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md).
+Запустите помощник по базе данных Stretch (функция SQL Server 2016), чтобы определить базы данных и таблицы, для которых можно включить функцию расширения. Дополнительные сведения см. в статье [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md). Дополнительные сведения о возможных критических препятствиях см. в статье [Ограничения для базы данных Stretch](sql-server-stretch-database-limitations.md).
 
 ## <a name="FAQ"></a>Часто задаваемые вопросы о базе данных Stretch
 **Поддерживает ли база данных Stretch компонент &lt;имя компонента SQL Server&gt;?**
--   Список компонентов SQL Server, вызывающих несовместимость таблицы с базой данных Stretch, см. в статье [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md).
+-   Список компонентов SQL Server, вызывающих несовместимость таблицы с базой данных Stretch, см. в статье [Ограничения для базы данных Stretch](sql-server-stretch-database-limitations.md).
 
 -   Также вы можете загрузить помощник по обновлению SQL Server 2016 и запустить помощник по базе данных Stretch, чтобы определить базы данных и таблицы, для которых можно включить функцию расширения. Дополнительные сведения см. в статье [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md).
 
@@ -123,4 +123,4 @@
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

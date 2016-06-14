@@ -210,6 +210,8 @@
         config.iotHubName = hubName;
         config.iotHubSuffix = hubSuffix;
         config.protocol = HTTP_Protocol;
+        config.deviceSasToken = NULL;
+        config.protocolGatewayHostName = NULL;
         iotHubClientHandle = IoTHubClient_Create(&config);
         if (iotHubClientHandle == NULL)
         {
@@ -359,4 +361,4 @@
 
 [lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

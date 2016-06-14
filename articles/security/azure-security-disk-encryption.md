@@ -262,23 +262,23 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 1\. Перейдите на вкладку Active Directory, как показано ниже.
 
-![Дисковое шифрование Azure](./media/azure-security-disk-encryption\disk-encryption-fig3.JPG)
+![Дисковое шифрование Azure](./media/azure-security-disk-encryption/disk-encryption-fig3.JPG)
 
 2\. Нажмите кнопку «Добавить приложение» и введите имя приложения.
 
-![Дисковое шифрование Azure](./media/azure-security-disk-encryption\disk-encryption-fig4.JPG)
+![Дисковое шифрование Azure](./media/azure-security-disk-encryption/disk-encryption-fig4.JPG)
 
 3\. Нажмите кнопку со стрелкой и настройте свойства приложения, как показано ниже.
 
-![Дисковое шифрование Azure](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
+![Дисковое шифрование Azure](./media/azure-security-disk-encryption/disk-encryption-fig5.JPG)
 
 4\. Щелкните флажок в правом нижнем углу, чтобы завершить процесс. Отобразится страница конфигурации приложения. Обратите внимание, что в нижней части страницы есть идентификатор клиента Azure AD, как показано ниже.
 
-![Дисковое шифрование Azure](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
+![Дисковое шифрование Azure](./media/azure-security-disk-encryption/disk-encryption-fig6.JPG)
 
 5\. Сохраните секрет клиента Azure AD, щелкнув кнопку «Сохранить». Нажмите кнопку "Сохранить" и запишите секретный код из текстового поля ключа. Это и есть секрет клиента Azure AD. Секрет клиента Azure AD следует хранить с соблюдением мер предосторожности.
 
-![Дисковое шифрование Azure](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
+![Дисковое шифрование Azure](./media/azure-security-disk-encryption/disk-encryption-fig7.JPG)
 
 
 **Примечание.** Описанный выше процесс не поддерживается на портале.
@@ -845,4 +845,4 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 [Изучение возможностей дискового шифрования Azure с помощью Azure PowerShell — часть 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

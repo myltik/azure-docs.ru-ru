@@ -19,8 +19,6 @@
 
 # Команды Azure CLI в режиме Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-machines-command-line-tools.md).
-
 В этой статье приводится синтаксис и параметры команд интерфейса командной строки (CLI) Azure, которые обычно используется для создания ресурсов Azure и управления ими в модели развертывания Azure Resource Manager. Для доступа к этим командам следует запустить CLI в режиме Resource Manager (ARM). Это не полный справочник, и ваша версия CLI может отображать немного иные команды или параметры.
 
 Чтобы приступить к работе, сначала [установите Azure CLI](../xplat-cli-install.md) и [подключитесь к своей подписке Azure](../xplat-cli-connect.md) с помощью рабочей или учебной учетной записи или удостоверения учетной записи Майкрософт.
@@ -1798,7 +1796,7 @@
 
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
     
->[AZURE.TIP]Начиная с версии CLI 0.10, для некоторых популярных образов из Marketplace в качестве `image-urn` можно использовать короткий псевдоним, например UbuntuLTS или Win2012R2Datacenter. Чтобы просмотреть доступные параметры, выполните команду `azure help vm quick-create`. Кроме того, начиная с версии 0.10 команда `azure vm quick-create` по умолчанию использует хранилище класса Premium, если оно доступно для выбранного региона.
+>[AZURE.TIP]Начиная с версии CLI 0.10 для некоторых популярных образов из Marketplace в качестве `image-urn` можно использовать короткий псевдоним, например UbuntuLTS или Win2012R2Datacenter. Чтобы просмотреть доступные параметры, выполните команду `azure help vm quick-create`. Кроме того, начиная с версии 0.10 команда `azure vm quick-create` по умолчанию использует хранилище уровня "Премиум", если оно доступно для выбранного региона.
 
 **Список виртуальных машин в учетной записи**
 
@@ -1874,4 +1872,4 @@
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

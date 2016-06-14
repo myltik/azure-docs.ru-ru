@@ -3,7 +3,7 @@
 	description="Описывается, как использовать несколько виртуальных машин для обеспечения высокой доступности приложения Linux в Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="kenazk"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
-	ms.author="iainfou"/>
+	ms.date="05/25/2016"
+	ms.author="cynthn"/>
 
 # Управление доступностью виртуальных машин
 
@@ -23,6 +23,12 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
+Инструкции по созданию группы доступности с использованием интерфейса командной строки в модели развертывания с помощью Resource Manager см. в разделе [Azure Availset. Команды для управления группами доступности](../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets).
+
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+## Дальнейшие действия
+
+Чтобы больше узнать о балансировке нагрузки виртуальных машин, ознакомьтесь с разделом [Балансировка нагрузки виртуальных машин](virtual-machines-linux-load-balance.md).
+
+<!---HONumber=AcomDC_0601_2016-->

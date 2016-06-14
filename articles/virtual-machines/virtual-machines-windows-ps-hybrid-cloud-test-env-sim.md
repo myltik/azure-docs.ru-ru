@@ -19,8 +19,6 @@
 
 # Создание имитации гибридной облачной среды для тестирования
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
-
 В этом разделе описываются шаги по созданию смоделированной гибридной облачной среды с помощью Microsoft Azure, в которой можно выполнять тестирование с использованием двух виртуальных сетей Azure. Эту конфигурацию можно использовать как альтернативу [настройке гибридной облачной среды для тестирования](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md), если у вас нет прямого подключения к Интернету и свободного общедоступного IP-адреса. Это конфигурация, которая получается в результате.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
@@ -44,7 +42,7 @@
 3.	создание подключения типа «VNet-to-VNet».
 4.	Настройка DC2. 
 
-Если у вас еще нет подписки Azure, вы можете зарегистрироваться для получения бесплатной пробной версии на веб-сайте [Try Azure](https://azure.microsoft.com/pricing/free-trial/). Если у вас есть подписка MSDN или Visual Studio, см. раздел [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Если у вас еще нет подписки Azure, вы можете зарегистрироваться для получения бесплатной пробной версии на веб-сайте [Try Azure](https://azure.microsoft.com/pricing/free-trial/). Если у вас есть подписка MSDN или Visual Studio, ознакомьтесь с разделом [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Виртуальные машины и шлюзы виртуальных сетей в Azure создают текущие расходы во время своей работы. На эти затраты выставляется счет при использовании бесплатной пробной версии, подписки MSDN или платной подписки. Шлюз Azure VPN реализован как набор двух виртуальных машин Azure. Чтобы сократить расходы, создайте тестовую среду и как можно быстрее выполните необходимые тестирования и демонстрации.
 
@@ -131,7 +129,7 @@
  
 ##Этап 3. Создание подключения между виртуальными сетями
 
-Сначала получите случайный, надежно зашифрованный 32-значный общий ключ у администратора сети или администратора безопасности. Или см. статью [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx), в которой описывается получение общего ключа.
+Сначала получите случайный, надежно зашифрованный 32-значный общий ключ у администратора сети или администратора безопасности. Вы также можете ознакомиться со статьей [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) (Создание случайной строки для предварительного ключа IPsec), в которой описывается получение предварительного ключа.
 
 Затем создайте VPN-подключение типа "сеть-сеть", используя следующие команды. Это может занять некоторое время.
 
@@ -213,6 +211,6 @@
 
 ## Дальнейшие действия
 
-- Настройка [фермы интрасети SharePoint ](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), [веб бизнес-приложения](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) или [сервера синхронизации каталогов Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) в этой среде.
+- Настройка [фермы интрасети SharePoint ](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), [бизнес-приложения для Интернета](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) или [сервера синхронизации каталогов Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) в этой среде.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

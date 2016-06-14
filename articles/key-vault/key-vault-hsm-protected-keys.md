@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="05/31/2016"
 	ms.author="cabailey"/>
 #Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure
 
@@ -60,8 +60,8 @@ Thales e-Security — ведущий международный поставщи
 
 |Требование|Дополнительные сведения|
 |---|---|
-|Подписка на Azure|Для создания хранилища ключей Azure требуется подписка Azure: [зарегистрируйтесь для получения бесплатной пробной версии](../../../../pricing/free-trial).|
-|Хранилище ключей Azure, поддерживающее аппаратные модули безопасности|Дополнительные сведения об уровнях обслуживания и возможностях хранилища ключей Azure см. на веб-сайте [Цены на хранилище ключей Azure](../../../../pricing/details/key-vault/).|
+|Подписка на Azure|Для создания хранилища ключей Azure требуется подписка Azure: [зарегистрируйтесь для получения бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).|
+|Хранилище ключей Azure, поддерживающее аппаратные модули безопасности|Дополнительные сведения об уровнях обслуживания и возможностях хранилища ключей Azure см. на веб-сайте [Цены на хранилище ключей Azure](https://azure.microsoft.com/pricing/details/key-vault/).|
 |Аппаратный модуль безопасности Thales, смарт-карты и программное обеспечение поддержки|Вы должны иметь доступ к аппаратному модулю безопасности Thales и базовые знания о работе аппаратных модулей безопасности Thales. Список совместимых моделей или сведения о покупке аппаратного модуля безопасности, если у вас его нет, см. в статье [Аппаратный модуль безопасности Thales](https://www.thales-esecurity.com/msrms/buy).|
 |Следующее оборудование и программное обеспечение:<ol><li>Автономная рабочая станция x64 с операционной системой Windows не ниже Windows 7 и программным обеспечением Thales nShield версии не ниже 11.50.<br/><br/>Если рабочая станция выполняется на ОС Windows 7, [установите Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Рабочая станция, подключенная к Интернету, с операционной системой Windows не ниже Windows 7.</li><li>USB-накопитель или другое переносное устройство хранения, на котором имеется не менее 16 МБ свободного места.</li></ol>|По соображениям безопасности рекомендуется не подключать первую рабочую станцию к сети. Однако это не применяется принудительно программным путем.<br/><br/>Обратите внимание, что далее такая рабочая станция называется отключенной.</p></blockquote><br/>Кроме того, если ключ клиента предназначен для производственной сети, рекомендуется использовать вторую, отдельную рабочую станцию для скачивания набора средств и отправки ключа клиента. Но в целях тестирования можно использовать первую рабочую станцию.<br/><br/>Обратите внимание, что далее вторая рабочая станция называется рабочей станцией, подключенной к Интернету.</p></blockquote><br/>|
 
@@ -107,7 +107,7 @@ Thales e-Security — ведущий международный поставщи
 
 KeyVault-BYOK-Tools-UnitedStates.zip
 
-D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36
+305F44A78FEB750D1D478F6A0C345B097CD5551003302FA465C73D9497AB4A03
 
 ---
 
@@ -115,7 +115,7 @@ D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36
 
 KeyVault-BYOK-Tools-Europe.zip
 
-81DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3
+C73BB0628B91471CA7F9ADFCE247561C6016A5103EF1A315D49C3EA23AFC0B9C
 
 ---
 
@@ -123,7 +123,7 @@ KeyVault-BYOK-Tools-Europe.zip
 
 KeyVault-BYOK-Tools-AsiaPacific.zip
 
-0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E
+BE9A84B6C76661929F9FDAD627005D892B3B8F9F19F351220BB4F9C356694192
 
 ---
 
@@ -131,7 +131,7 @@ KeyVault-BYOK-Tools-AsiaPacific.zip
 
 KeyVault-BYOK-Tools-LatinAmerica.zip
 	
-B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48
+9E8EE11972DECE8F05CD898AF64C070C375B387CED716FDCB788544AE27D3D23
 
 ---
 
@@ -139,7 +139,7 @@ B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48
 
 KeyVault-BYOK-Tools-Japan.zip
 
-DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113
+E6B88C111D972A02ABA3325F8969C4E36FD7565C467E9D7107635E3DDA11A8B2
 
 ---
 
@@ -147,7 +147,7 @@ DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113
 
 KeyVault-BYOK-Tools-Australia.zip
 
-8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967
+7660D7A675506737857B14F527232BE51DC269746590A4E5AB7D50EDD220675D
 
 ---
 
@@ -155,7 +155,30 @@ KeyVault-BYOK-Tools-Australia.zip
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
-4DE9B33990099E4197ED67D786316F628E5218FC1EB0C24DCAD8A1851FD345B8
+53801A3043B0F8B4A50E8DC01A935C2BFE61F94EE027445B65C52C1ACC2B5E80
+
+---
+
+**Канада**
+
+KeyVault-BYOK-Tools-Canada.zip
+
+A42D9407B490E97693F8A5FA6B60DC1B06B1D1516EDAE7C9A71AA13E12CF1345
+
+---
+
+**Германия**
+
+KeyVault-BYOK-Tools-Germany.zip
+
+4795DA855E027B2CA8A2FF1E7AE6F03F772836C7255AFC68E576410BDD28B48E
+
+---
+**Индия**
+
+KeyVault-BYOK-Tools-India.zip
+
+26853511EB767A33CF6CD880E78588E9BBE04E619B17FBC77A6B00A5111E800C
 
 ---
 
@@ -194,7 +217,7 @@ KeyVault-BYOK-Tools-USGovCloud.zip
 
 1. Извлеките файлы из загруженного пакета в любую папку.
 2. Запустите файл vcredist\_x64.exe из этой папки.
-3. Следуйте инструкциям по установке компонентов среды выполнения Visual C++ для Visual Studio 2012.
+3. Следуйте инструкциям по установке компонентов среды выполнения Visual C++ для Visual Studio 2013.
 
 ##Шаг 3. Создание ключа
 
@@ -243,10 +266,18 @@ KeyVault-BYOK-Tools-USGovCloud.zip
 	- Для Австралии:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
-	- Для [Azure для государственных организаций](../../../../features/gov/), использующего экземпляр Azure для правительства США:
+	- Для [Azure для государственных организаций](https://azure.microsoft.com/features/gov/), использующего экземпляр Azure для правительства США:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
+	- Для Канады:
 
+			python verifykeypackage.py -k BYOK-KEK-pkg-CANADA-1 -w BYOK-SecurityWorld-pkg-CANADA-1
+	- Для Германии:
+
+			python verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
+	- Для Индии:
+
+			python verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
 	>[AZURE.TIP]Программное обеспечение Thales включает файл python, который находится в каталоге в %NFAST\_HOME%\\python\\bin.
 
 2.	Должен появиться следующий текст, показывающий, что проверка пройдена: **Результат: УСПЕШНО**.
@@ -305,9 +336,19 @@ KeyVault-BYOK-Tools-USGovCloud.zip
 - Для Австралии:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
-- Для [Azure для государственных организаций](../../../../features/gov/), использующего экземпляр Azure для правительства США:
+- Для [Azure для государственных организаций](https://azure.microsoft.com/features/gov/), использующего экземпляр Azure для правительства США:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1
+- Для Канады:
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-CANADA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-CANADA-1
+- Для Германии:
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1
+- Для Индии:
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
+
 
 При запуске этой команды замените *contosokey* тем же значением, которое вы указали при выполнении этапа **Шаг 3.3. Создание ключа** процедуры [Создание ключа](#step-3-generate-your-key).
 
@@ -349,9 +390,19 @@ KeyVault-BYOK-Tools-USGovCloud.zip
 - Для Австралии:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
-- Для [Azure для государственных организаций](../../../../features/gov/), использующего экземпляр Azure для правительства США:
+- Для [Azure для государственных организаций](https://azure.microsoft.com/features/gov/), использующего экземпляр Azure для правительства США:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- Для Канады:
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-CANADA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-CANADA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- Для Германии:
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- Для Индии:
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+
 
 При выполнении команды следуйте приведенным ниже инструкциям.
 
@@ -380,4 +431,4 @@ KeyVault-BYOK-Tools-USGovCloud.zip
 
 Теперь ключ, защищенный с помощью аппаратного модуля безопасности, можно использовать в хранилище ключей. Дополнительные сведения см. в разделе **Использование аппаратного модуля безопасности** руководства [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

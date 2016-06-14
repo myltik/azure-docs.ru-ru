@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/06/2016"
      ms.author="dobett"/>
 
 # Приступая к работе с центром Azure IoT с использованием Java
@@ -36,8 +36,8 @@
 
 В конце этого руководства у вас будет три консольных приложения Java:
 
-* **create-device-identity** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к виртуальному устройству;
-* **read-d2c-messages** — отображает данные телеметрии, отправляемые виртуальным устройством;
+* **create-device-identity** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к виртуальному устройству;
+* **read-d2c-messages** — отображает данные телеметрии, отправляемые виртуальным устройством;
 * **simulated-device**— подключается к центру IoT с созданным ранее удостоверением устройства и отправляет сообщения с частотой один раз в секунду с использованием протокола AMQPS.
 
 > [AZURE.NOTE] Статья [Пакеты SDK для центра IoT][lnk-hub-sdks] содержит сведения о разных пакетах SDK, которые можно использовать для создания приложений, которые будут запущены на устройствах и серверной части решения.
@@ -160,13 +160,13 @@
 
 2. В командной строке перейдите к новой папке read-d2c-messages.
 
-3. Откройте в текстовом редакторе файл pom.xml из папки read-d2c-messages и добавьте следующие зависимости в узел **dependency**. Это дает возможность использовать пакет eventhubs-client в приложении для считывания данных с конечной точки, совместимой с концентраторами событий.
+3. Откройте в текстовом редакторе файл pom.xml из папки read-d2c-messages и добавьте следующие зависимости в узел **dependency**. Это позволяет использовать пакет eventhubs-client в приложении для считывания данных с конечной точки, совместимой с концентраторами событий.
 
     ```
-    <dependency>
-      <groupId>com.microsoft.eventhubs.client</groupId>
-      <artifactId>eventhubs-client</artifactId>
-      <version>1.0</version>
+    <dependency> 
+        <groupId>com.microsoft.azure</groupId> 
+        <artifactId>azure-eventhubs</artifactId> 
+        <version>0.7.1</version> 
     </dependency>
     ```
 
@@ -178,104 +178,119 @@
 
     ```
     import java.io.IOException;
-    import com.microsoft.eventhubs.client.Constants;
-    import com.microsoft.eventhubs.client.EventHubClient;
-    import com.microsoft.eventhubs.client.EventHubEnqueueTimeFilter;
-    import com.microsoft.eventhubs.client.EventHubException;
-    import com.microsoft.eventhubs.client.EventHubMessage;
-    import com.microsoft.eventhubs.client.EventHubReceiver;
-    import com.microsoft.eventhubs.client.ConnectionStringBuilder;
+    import com.microsoft.azure.eventhubs.*;
+    import com.microsoft.azure.servicebus.*;
+    
+    import java.io.IOException;
+    import java.nio.charset.Charset;
+    import java.time.*;
+    import java.util.Collection;
+    import java.util.concurrent.ExecutionException;
+    import java.util.function.*;
+    import java.util.logging.*;
     ```
 
-7. Добавьте следующие переменные уровня класса в класс **App**:
+7. Добавьте следующие переменные уровня класса в класс **App**. Замените значения **{youriothubkey}**, **{youreventhubcompatiblenamespace}** и **{youreventhubcompatiblename}** значениями, записанными ранее. Значение заполнителя **{youreventhubcompatiblenamespace}** поступает из **конечной точки, совместимой с концентраторами событий**, отображаясь в формате **xyznamespace**. (Иначе говоря, удалите префикс **sb://** и суффикс **.servicebus.windows.net** из значения конечной точки, совместимой с концентраторами событий и полученной от портала.)
 
     ```
-    private static EventHubClient client;
+    private static String namespaceName = "{youreventhubcompatiblenamespace}";
+    private static String eventHubName = "{youreventhubcompatiblename}";
+    private static String sasKeyName = "iothubowner";
+    private static String sasKey = "{youriothubkey}";
     private static long now = System.currentTimeMillis();
     ```
 
-8. Добавьте следующий вложенный класс в класс **App**. Приложение создает два потока для выполнения **MessageReceiver**, чтобы читать сообщения из двух разделов в концентраторе событий:
+8. Добавьте следующий метод **receiveMessages** в класс **App**. Этот метод создает экземпляр **EventHubClient** для подключения к конечной точке, совместимой с концентраторами событий, а затем асинхронно создает экземпляр **PartitionReceiver** для чтения из секции концентратора событий. Он выполняет непрерывную циклическую обработку, выводя сведения о сообщении, пока приложение не завершит работу.
 
     ```
-    private static class MessageReceiver implements Runnable
+    private static EventHubClient receiveMessages(final String partitionId)
     {
-        public volatile boolean stopThread = false;
-        private String partitionId;
-    }
-    ```
-
-9. Добавьте следующий конструктор в класс **MessageReceiver**:
-
-    ```
-    public MessageReceiver(String partitionId) {
-        this.partitionId = partitionId;
-    }
-    ```
-
-10. Добавьте следующий метод **run** в метод **MessageReceiver**. Этот метод создает экземпляр **EventHubReceiver** для чтения из раздела концентратора событий. Он постоянно зациклен и выводит сведения о сообщении в консоль, если для параметра **stopThread** задано значение true.
-
-    ```
-    public void run() {
+      EventHubClient client = null;
       try {
-        EventHubReceiver receiver = client.getConsumerGroup(null).createReceiver(partitionId, new EventHubEnqueueTimeFilter(now), Constants.DefaultAmqpCredits);
-        System.out.println("** Created receiver on partition " + partitionId);
-        while (!stopThread) {
-          EventHubMessage message = EventHubMessage.parseAmqpMessage(receiver.receive(5000));
-          if(message != null) {
-            System.out.println("Received: (" + message.getOffset() + " | "
-                + message.getSequence() + " | " + message.getEnqueuedTimestamp()
-                + ") => " + message.getDataAsString());
+        ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
+        client = EventHubClient.createFromConnectionString(connStr.toString()).get();
+      }
+      catch(Exception e) {
+        System.out.println("Failed to create client: " + e.getMessage());
+        System.exit(1);
+      }
+      try {
+        client.createReceiver( 
+          EventHubClient.DEFAULT_CONSUMER_GROUP_NAME,  
+          partitionId,  
+          Instant.now()).thenAccept(new Consumer<PartitionReceiver>()
+        {
+          public void accept(PartitionReceiver receiver)
+          {
+            System.out.println("** Created receiver on partition " + partitionId);
+            try {
+              while (true) {
+                Iterable<EventData> receivedEvents = receiver.receive().get();
+                int batchSize = 0;
+                if (receivedEvents != null)
+                {
+                  for(EventData receivedEvent: receivedEvents)
+                  {
+                    System.out.println(String.format("Offset: %s, SeqNo: %s, EnqueueTime: %s", 
+                      receivedEvent.getSystemProperties().getOffset(), 
+                      receivedEvent.getSystemProperties().getSequenceNumber(), 
+                      receivedEvent.getSystemProperties().getEnqueuedTime()));
+                    System.out.println(String.format("| Device ID: %s", receivedEvent.getProperties().get("iothub-connection-device-id")));
+                    System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
+                      Charset.defaultCharset())));
+                    batchSize++;
+                  }
+                }
+                System.out.println(String.format("Partition: %s, ReceivedBatch Size: %s", partitionId,batchSize));
+              }
+            }
+            catch (Exception e)
+            {
+              System.out.println("Failed to receive messages: " + e.getMessage());
+            }
           }
-        }
-        receiver.close();
+        });
       }
-      catch(EventHubException e) {
-        System.out.println("Exception: " + e.getMessage());
+      catch (Exception e)
+      {
+        System.out.println("Failed to create receiver: " + e.getMessage());
       }
+      return client;
     }
     ```
 
-    > [AZURE.NOTE] Этот метод использует фильтр во время создания получателя, чтобы получатель читал только сообщения, отправленные в центр IoT после запуска получателя. Это удобно в тестовой среде, где можно увидеть текущий набор сообщений, но в рабочей среде код должен обрабатывать все сообщения. Дополнительные сведения см. в руководстве [Как обрабатывать сообщения, отправляемые с устройства в облако, с помощью центра IoT][lnk-process-d2c-tutorial].
+    > [AZURE.NOTE] Этот метод использует фильтр во время создания получателя, чтобы получатель читал только сообщения, отправленные в центр IoT после запуска получателя. Это удобно в тестовой среде, так как вы можете увидеть текущий набор сообщений. В рабочей же среде код должен обрабатывать все сообщения. Дополнительные сведения см. в статье [Учебник: как обрабатывать сообщения, отправляемые с устройства в облако, с помощью центра IoT][lnk-process-d2c-tutorial].
 
-11. Измените подпись метода **main**, чтобы включить исключения, показанные ниже:
+9. Измените подпись метода **main**, чтобы включить исключения, показанные ниже.
 
     ```
     public static void main( String[] args ) throws IOException
     ```
 
-12. В метод **main** в классе **App** добавьте следующий код. Этот код создает экземпляр **EventHubClient**, чтобы подключиться к конечной точке, совместимой с концентраторами событий, в центре IoT. Затем он создает два потока для чтения из двух разделов. Замените значения **{youriothubkey}**, **{youreventhubcompatiblenamespace}** и **{youreventhubcompatiblename}** значениями, записанными ранее. Значение заполнителя **{youreventhubcompatiblenamespace}** поступает из **конечной точки, совместимой с концентраторами событий**, отображаясь в формате **xxxxnamespace**. (Иначе говоря, удалите префикс ****sb://** и суффикс **.servicebus.windows.net** из значения конечной точки, совместимой с концентраторами событий, полученного от портала.)
+10. В метод **main** в классе **App** добавьте следующий код. Этот код создает два экземпляра **EventHubClient** и **PartitionReceiver**, позволяя закрыть приложение, когда обработка сообщений будет завершена.
 
     ```
-    String policyName = "iothubowner";
-    String policyKey = "{youriothubkey}";
-    String namespace = "{youreventhubcompatiblenamespace}";
-    String name = "{youreventhubcompatiblename}";
-    try {
-      ConnectionStringBuilder csb = new ConnectionStringBuilder(policyName, policyKey, namespace);
-      client = EventHubClient.create(csb.getConnectionString(), name);
-    }
-    catch(EventHubException e) {
-        System.out.println("Exception: " + e.getMessage());
-    }
-    
-    MessageReceiver mr0 = new MessageReceiver("0");
-    MessageReceiver mr1 = new MessageReceiver("1");
-    Thread t0 = new Thread(mr0);
-    Thread t1 = new Thread(mr1);
-    t0.start(); t1.start();
-
+    EventHubClient client0 = receiveMessages("0");
+    EventHubClient client1 = receiveMessages("1");
     System.out.println("Press ENTER to exit.");
     System.in.read();
-    mr0.stopThread = true;
-    mr1.stopThread = true;
-    client.close();
+    try
+    {
+      client0.closeSync();
+      client1.closeSync();
+      System.exit(0);
+    }
+    catch (ServiceBusException sbe)
+    {
+      System.exit(1);
+    }
     ```
 
-    > [AZURE.NOTE] Предполагается, что вы создали центр IoT на уровне F1 (Бесплатный). Бесплатный центр IoT содержит два раздела с именами 0 и 1. Если центр IoT создан с использованием одной из ценовых категорий, измените код, чтобы создать **MessageReceiver** для каждого раздела.
+    > [AZURE.NOTE] Предполагается, что вы создали центр IoT на уровне F1 (Бесплатный). Бесплатный центр IoT содержит два раздела с именами 0 и 1.
 
-13. Сохраните и закройте файл App.java.
+11. Сохраните и закройте файл App.java.
 
-14. Чтобы создать приложение **read-d2c-messages** с помощью Maven, выполните в командной строке в папке read-d2c-messages следующую команду:
+12. Чтобы создать приложение **read-d2c-messages** с помощью Maven, выполните в командной строке в папке read-d2c-messages следующую команду:
 
     ```
     mvn clean package -DskipTests
@@ -370,7 +385,7 @@
     }
     ```
 
-10. Добавьте следующий вложенный класс **MessageSender** в класс **App**. Метод **run** в этом классе создает пример данных телеметрии для отправки в центр IoT и ожидает подтверждения перед отправкой следующего сообщения:
+10. Добавьте следующий вложенный класс **MessageSender** в класс **App**. Метод **run** в этом классе создает пример данных телеметрии для отправки в центр IoT, ожидая подтверждения перед отправкой следующего сообщения:
 
     ```
     private static class MessageSender implements Runnable {
@@ -413,7 +428,7 @@
 
     Этот метод отправляет новое сообщение с устройства в облако через одну секунду после того, как центр IoT подтверждает получение предыдущего сообщения. Сообщение содержит объект сериализации JSON с deviceId и случайное число, что позволяет имитировать датчик скорости ветра.
 
-11. Замените метод **main** следующим кодом, который создает поток для отправки сообщений с устройства в облако в центр IoT:
+11. Замените метод **main** следующим кодом, который создает поток для отправки сообщений, относящихся к типу "с устройства в облако", в центр IoT:
 
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException {
@@ -442,10 +457,18 @@
 
 Теперь все готово к запуску приложений.
 
-1. В командной строке в папке read-d2c выполните следующую команду, чтобы начать мониторинг центра IoT:
+1. Чтобы начать мониторинг первой секции в центре IoT, в командной строке в папке read-d2c выполните следующую команду:
 
     ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"  -Dexec.args="0"
+    ```
+
+    ![][7]
+
+1. Чтобы начать мониторинг второй секции в центре IoT, в командной строке в папке read-d2c выполните следующую команду:
+
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"  -Dexec.args="1"
     ```
 
     ![][7]
@@ -458,7 +481,7 @@
 
     ![][8]
 
-3. На плитке **Использование** на [портале Azure][lnk-portal] отображается количество сообщений, отправленных в центр:
+3. На плитке **Использование** на [портале Azure][lnk-portal] отображается количество сообщений, отправленных в центр.
 
     ![][43]
 
@@ -492,4 +515,4 @@
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

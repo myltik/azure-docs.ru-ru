@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="06/02/2016"
     ms.author="magoedte;bwren"/>
 
 # Первый Runbook рабочего процесса PowerShell
 
-> [AZURE.SELECTOR] - [Graphical](automation-first-runbook-graphical.md) - [PowerShell Workflow](automation-first-runbook-textual.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md)
+> [AZURE.SELECTOR] - [Graphical](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)
 
 В данном учебнике описана процедура создания [Runbook рабочего процесса PowerShell](automation-runbook-types.md#powerShell-workflow-runbooks) в службе автоматизации Azure. Для начала мы протестируем и опубликуем простой модуль Runbook и расскажем, как отслеживать состояние его заданий. Затем мы изменим Runbook, настроив его на фактическое управление ресурсами Azure (в данном случае на запуск виртуальной машины Azure). Затем мы сделаем этот модуль Runbook еще надежнее, добавив параметры.
 
@@ -163,4 +163,4 @@
 -  Дополнительные сведения о типах модулей Runbook, их преимуществах и ограничениях см. в статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md).
 -	Дополнительные сведения о функции поддержки скриптов PowerShell см. в статье, посвященной [поддержке собственных скриптов PowerShell в службе автоматизации Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->
