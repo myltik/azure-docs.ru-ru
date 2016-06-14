@@ -141,7 +141,7 @@
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-Математические уравнения, с помощью которых рассчитывается расстояние между двумя координатами GPS, можно найти на сайте <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> (создатель веб-сайта — Петер Лапису (Peter Lapisu)). В Javascript на этом сайте функция `toRad()` имеет значение *lat\_or\_lon*pi/180*, преобразующее градусы в радианы. Здесь *lat\_or\_lon* — это широта или долгота. Так как в Hive нет функции `atan2`, но есть функция `atan`, функция `atan2` в приведенном выше запросе Hive реализована функцией `atan` с помощью определения из <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Википедии</a>.
+Математические уравнения, с помощью которых рассчитывается расстояние между двумя координатами GPS, можно найти на сайте <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> (создатель веб-сайта — Петер Лапису (Peter Lapisu)). В Javascript на этом сайте функция `toRad()` имеет значение *lat\_or\_lon*pi/180*, преобразующее градусы в радианы. Здесь *lat\_or\_lon* — это широта или долгота. Так как в Hive нет функции `atan2`, но есть функция `atan`, функция `atan2` в приведенном выше запросе Hive реализована функцией `atan` с помощью определения из <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Википедии</a>.
 
 ![Создание рабочей области](./media/machine-learning-data-science-create-features-hive/atan2new.png)
 
@@ -184,4 +184,4 @@
 
  
 
-<!---HONumber=AcomDC_0518_2016--->
+<!----HONumber=AcomDC_0518_2016--->
