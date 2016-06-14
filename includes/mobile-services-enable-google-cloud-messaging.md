@@ -12,7 +12,11 @@
    	![](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
 
 
-4. На панели мониторинга проекта в разделе **Mobile APIs** (API мобильных служб) выберите **Google Cloud Messaging** (Обмен сообщениями в облаке для Google) и на следующей странице щелкните **Enable** (Включить).
+4. На панели мониторинга проекта в разделе **Mobile APIs** (API мобильных служб) выберите **Google Cloud Messaging**, на следующей странице щелкните **Enable** (Включить) и примите условия предоставления услуг.
+
+	![Включение GCM](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
+
+	![Включение GCM](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png)
 
 5. На панели мониторинга проекта щелкните **Credentials** > **Create Credential** > **API Key** (Учетные данные > Создать учетные данные > Ключ API).
 
@@ -24,4 +28,4 @@
 
 	Этот ключ API службы Azure будут использовать для аутентификации в службе GCM и отправки push-уведомлений от имени вашего приложения.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

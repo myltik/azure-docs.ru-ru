@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="06/07/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Создание хранилища данных SQL с помощью Powershell
@@ -23,15 +23,15 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-### Предварительные требования
+## Предварительные требования
 Прежде чем приступить к работе, убедитесь, что у вас есть следующие необходимые компоненты.
 
-- Сервер Azure SQL Server V12 для размещения базы данных.
-- Имя группы ресурсов для SQL Server.
+- **Учетная запись Azure.** Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][] или [кредитов Azure MSDN][].
+- **Сервер SQL Azure версии 12.** См. разделы, посвященные [созданию логического сервера базы данных SQL с помощью портала Azure][] или [с помощью PowerShell][].
+- **Имя группы ресурсов.** Используйте ту же группу ресурсов, что и для сервера SQL Azure версии 12, или создайте новую группу ресурсов, следуя инструкциям из [этой статьи][].
+- **PowerShell версии 1.0.3 или выше.** Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][]. Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][].
 
-Дополнительные сведения о перечисленных выше требованиях см. в разделе **Настройка и создание сервера** статьи [Создание хранилища данных SQL][].
-
-> [AZURE.NOTE]  Чтобы использовать Azure Powershell с хранилищем данных SQL, установите Azure PowerShell 1.0.3 или выше. Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с [установщика веб-платформы Майкрософт][]. Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][].
+> [AZURE.NOTE] Создание хранилища данных SQL может привести к дополнительным расходам. Дополнительные сведения о ценах см. на странице [Цены на хранилище данных SQL][].
 
 ## Создание базы данных хранилища данных SQL
 1. Откройте Windows PowerShell.
@@ -47,7 +47,7 @@
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
 
-4.  Создайте базу данных. В этом примере новая база данных с именем mynewsqldw и целевым уровнем обслуживания DW400 будет создана на сервере с именем sqldwserver1, который находится в группе ресурсов с именем mywesteuroperesgp1. **ПРИМЕЧАНИЕ. Создание новой базы данных хранилища данных SQL может привести к дополнительным расходам. Дополнительные сведения о ценах см. на странице [Цены на хранилище данных SQL][].**
+4.  Создайте базу данных. В этом примере новая база данных с именем mynewsqldw и целевым уровнем обслуживания DW400 будет создана на сервере с именем sqldwserver1, который находится в группе ресурсов с именем mywesteuroperesgp1.
 
 	```Powershell
 	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
@@ -64,21 +64,26 @@
 Дополнительные сведения о параметрах см. в статье, посвященной [созданию базы данных (хранилище данных SQL Azure)][]. Справку по командам см. в статье [New-AzureRmSqlDatabase][].
 
 ## Дальнейшие действия
-После завершения подготовки хранилища данных SQL вы можете попробовать [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] или [переноса][].
+После завершения подготовки хранилища данных SQL вы можете попробовать [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] или [миграции][].
 
-Если вы хотите больше узнать о том, как программно управлять хранилищем данных SQL, см. нашу статью по [использованию командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL][].
+Если вы хотите больше узнать о том, как программно управлять хранилищем данных SQL, см. нашу статью [Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[переноса]: sql-data-warehouse-overview-migrate.md
+
+[миграции]: sql-data-warehouse-overview-migrate.md
 [разработки]: sql-data-warehouse-overview-develop.md
 [загрузки]: sql-data-warehouse-load-with-bcp.md
-[загрузить демонстрационные данные]: sql-data-warehouse-get-started-manually-load-samples.md
-[использованию командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL]: sql-data-warehouse-reference-powershell-cmdlets.md
-[firewall rules]: sql-database-configure-firewall-settings.md
+[загрузить демонстрационные данные]: sql-data-warehouse-get-started-load-sample-databases.md
+[Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL]: sql-data-warehouse-reference-powershell-cmdlets.md
+[firewall rules]: ../sql-database-configure-firewall-settings.md
+
 [Установка и настройка Azure PowerShell]: ../powershell/powershell-install-configure.md
-[Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
+[how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
+[созданию логического сервера базы данных SQL с помощью портала Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[с помощью PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[этой статьи]: ../azure-portal/resource-group-portal.md
 
 <!--MSDN references--> 
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
@@ -88,6 +93,7 @@
 <!--Other Web references-->
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 [Цены на хранилище данных SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
- 
+[бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[кредитов Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->
