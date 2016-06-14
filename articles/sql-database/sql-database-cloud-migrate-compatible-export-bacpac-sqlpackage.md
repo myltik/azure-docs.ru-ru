@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Экспорт базы данных SQL Server в BACPAC-файл с помощью SqlPackage
@@ -37,11 +37,19 @@
 
 	![Экспорт приложения уровня данных из меню "Задачи"](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
-## Следующий шаг: импорт из BACPAC-файла в Базу данных SQL
+## Дальнейшие действия
 
-- [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-- [Портал Azure](sql-database-import.md)
-- [PowerShell](sql-database-import-powershell.md)
+- [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Импорт BACPAC-файла в базу данных SQL Azure с помощью SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Импорт BACPAC-файла в базу данных SQL Azure с помощью SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+- [Импорт BACPAC-файла в базу данных SQL Azure с помощью портала Azure](sql-database-import.md)
+- [Импорт BACPAC-файла в базу данных SQL Azure с помощью PowerShell](sql-database-import-powershell.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+## Подробнее
+
+- [База данных SQL версии 12](sql-database-v12-whats-new.md).
+- [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).
+
+<!---HONumber=AcomDC_0601_2016-->

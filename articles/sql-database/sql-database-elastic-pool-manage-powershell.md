@@ -3,7 +3,7 @@
     description="Узнайте, как управлять пулом эластичных баз данных с помощью PowerShell."  
 	services="sql-database" 
     documentationCenter="" 
-    authors="stevestein" 
+    authors="srinia" 
     manager="jhubbard" 
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/10/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # Мониторинг пула эластичных баз данных и управление им с помощью PowerShell 
 
@@ -28,7 +28,7 @@
 
 Стандартные коды ошибок см. в статье [Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md).
 
-Значения для пулов можно найти в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Значения для пулов можно найти в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 ## Предварительные требования
 
@@ -44,7 +44,7 @@
 
 ## Изменение параметров производительности пула
 
-Если производительность недостаточна, можно изменить параметры пула в соответствии с ростом нагрузки. Используйте командлет [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx). Присвойте параметру -Dtu значение eDTU, выделяемых на пул. Возможные значения приведены в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Если производительность недостаточна, можно изменить параметры пула в соответствии с ростом нагрузки. Используйте командлет [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx). Присвойте параметру -Dtu значение eDTU, выделяемых на пул. Возможные значения приведены в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
@@ -103,14 +103,75 @@
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
+## Добавление оповещения в пул ресурсов
+
+Для ресурсов можно добавить правила генерации оповещений, чтобы отправлять по электронной почте уведомления или строки оповещения в [конечные точки URL-адресов](https://msdn.microsoft.com/library/mt718036.aspx), когда ресурс достигает заданного порогового значения использования. Используйте командлет Add-AzureRmMetricAlertRule.
+
+Этот пример добавляет оповещение, уведомляющее, когда потребление eDTU пула выходит за пределы определенного порогового значения.
+
+    # Set up your resource ID configurations
+    $subscriptionId = '<Azure subscription id>'      # Azure subscription ID
+    $location =  '<location'                         # Azure region
+    $resourceGroupName = '<resource group name>'     # Resource Group
+    $serverName = '<server name>'                    # server name
+    $poolName = '<elastic pool name>'                # pool name 
+
+    #$Target Resource ID
+    $ResourceID = '/subscriptions/' + $subscriptionId + '/resourceGroups/' +$resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/elasticpools/' + $poolName
+
+    # Create an email action
+    $actionEmail = New-AzureRmAlertRuleEmail -SendToServiceOwners -CustomEmail JohnDoe@contoso.com
+
+    # create a unique rule name
+    $alertName = $poolName + "- DTU consumption rule"
+
+    # Create an alert rule for DTU_consumption_percent
+    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail 
+
+## Добавление оповещений для всех баз данных в пуле
+
+Для всех баз данных в пуле эластичных БД можно добавить правила генерации оповещений, чтобы отправлять по электронной почте уведомления или строки оповещения в [конечные точки URL-адресов](https://msdn.microsoft.com/library/mt718036.aspx), когда ресурс достигает порогового значения использования, определенного в оповещении.
+
+Этот пример добавляет оповещение для каждой базы данных в пуле, которое уведомляет, когда потребление DTU этой базы данных превышает определенное пороговое значение.
+
+    # Set up your resource ID configurations
+    $subscriptionId = '<Azure subscription id>'      # Azure subscription ID
+    $location = '<location'                          # Azure region
+    $resourceGroupName = '<resource group name>'     # Resource Group
+    $serverName = '<server name>'                    # server name
+    $poolName = '<elastic pool name>'                # pool name 
+
+    # Get the list of databases in this pool.
+    $dbList = Get-AzureRmSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName
+
+    # Create an email action
+    $actionEmail = New-AzureRmAlertRuleEmail -SendToServiceOwners -CustomEmail JohnDoe@contoso.com
+
+    # Get resource usage metrics for a database in an elastic database for the specified time interval.
+    foreach ($db in $dbList)
+    {
+    $dbResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/databases/' + $db.DatabaseName
+
+    # create a unique rule name
+    $alertName = $db.DatabaseName + "- DTU consumption rule"
+
+    # Create an alert rule for DTU_consumption_percent
+    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail
+
+    # drop the alert rule
+    #Remove-AzureRmAlertRule -ResourceGroup $resourceGroupName -Name $alertName
+    } 
+
+
+
 ## Сбор и отслеживание данных об использовании ресурсов для нескольких пулов в подписке
 
-Если в вашей подписке много баз данных, отдельно отслеживать каждый пул эластичных баз данных становится затруднительно. Вместо этого с помощью командлетов PowerShell базы данных SQL и запросов T-SQL можно собирать данные об использовании ресурсов по нескольким пулам и базам данных. Это упрощает мониторинг и анализ использования ресурсов. В репозитории примеров для SQL Server на GitHub вы найдете [пример реализации](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) набора скриптов PowerShell вместе с документацией по назначению и методам использования этого набора.
+Если в вашей подписке много баз данных, отдельно отслеживать каждый пул эластичных баз данных становится затруднительно. Вместо этого с помощью командлетов PowerShell базы данных SQL и запросов T-SQL можно собирать данные об использовании ресурсов по нескольким пулам и базам данных. Это упрощает мониторинг и анализ использования ресурсов. В репозитории примеров для SQL Server на сайте GitHub вы найдете [пример реализации](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) набора сценариев PowerShell вместе с документацией по назначению и методам использования этого набора.
 
 Чтобы использовать этот пример реализации, выполните перечисленные ниже действия.
 
 
-1. Загрузите [скрипты и документацию](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools).
+1. Скачайте [сценарии и документацию](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools).
 2. Измените скрипты, указав параметры своей среды. Укажите один или несколько серверов, на которых размещаются пулы эластичных баз данных.
 3. Укажите базу данных телеметрии, где будут храниться собранные метрики. 
 4. Укажите лимит времени на выполнение скриптов.
@@ -208,7 +269,7 @@
 
 ## Дальнейшие действия
 
-- Изучите статью [Обзор заданий обработки эластичных баз данных](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение скриптов T-SQL для любого количества баз данных в пуле.
-- См. статью [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md). В ней описывается использование средств эластичных баз данных для развертывания, перемещения данных, выполнения запросов и создания транзакций.
+- [Создание заданий обработки эластичных баз данных](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение сценариев T-SQL для любого количества баз данных в пуле.
+- См. статью [Развертывание с помощью Базы данных SQL Azure](sql-database-elastic-scale-introduction.md). В ней описывается использование инструментов эластичной базы данных для развертывания, перемещения данных, выполнения запросов и создания транзакций.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

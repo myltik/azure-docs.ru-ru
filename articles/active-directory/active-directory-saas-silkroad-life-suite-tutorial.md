@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -34,7 +34,7 @@
 - подписка на SilkRoad Life Suite с поддержкой единого входа.
 
 
-> [AZURE.NOTE]Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
@@ -88,7 +88,7 @@
 5. Войдите на сайт компании SilkRoad от имени администратора. 
 
 
-    > [AZURE.NOTE]Чтобы получить доступ к приложению SilkRoad Life Suite Authentication для настройки федерации с Microsoft Azure AD, обратитесь в службу поддержки компании SilkRoad или к представителю отдела обслуживания клиентов компании SilkRoad.
+    > [AZURE.NOTE] Чтобы получить доступ к приложению SilkRoad Life Suite Authentication для настройки федерации с Microsoft Azure AD, обратитесь в службу поддержки компании SilkRoad или к представителю отдела обслуживания клиентов компании SilkRoad.
 
 
 6. В разделе **Поставщик услуг** щелкните **Сведения о федерации**. <br><br>![Единый вход в Azure AD][10] <br>
@@ -271,4 +271,4 @@
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0601_2016-->

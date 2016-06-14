@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Обзор SQL Server на виртуальных машинах | Microsoft Azure"
-	description="Начало работы с базами данных SQL Server в облаке на виртуальных машинах Azure. Модель инфраструктуры как услуги (IaaS) позволяет запускать рабочие нагрузки SQL Server в Azure."
+	pageTitle="Приступая к работе с SQL Server в виртуальных машинах Azure | Microsoft Azure"
+	description="Переместите рабочие нагрузки локальной базы данных SQL Server в облако с использованием виртуальных машин Azure. Быстро приступите к работе с помощью предварительно настроенных образов виртуальных машин SQL."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="rothja"
@@ -11,85 +11,83 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/25/2016"
+	ms.date="06/03/2016"
 	ms.author="jroth"/>
 
-# Общие сведения об SQL Server на виртуальных машинах Azure
+# Приступая к работе с SQL Server в виртуальных машинах Azure
 
-[SQL Server на виртуальных машинах Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) позволяет разместить в облаке базы данных SQL Server. Например, вы можете перенести локальную базу данных на виртуальную машину Azure, на которой установлены Windows Server 2012 R2 и SQL Server 2014 Enterprise edition. Но существует и множество других сценариев, например конфигурация с несколькими компьютерами, которая обеспечит высокий уровень доступности, или гибридные архитектуры с подключением к локальным сетям.
+В этой статье рассматриваются варианты запуска SQL Server в виртуальных машинах Azure, а также приведены рекомендации и ресурсы для начала работы.
 
-Подробный обзор см. в этом видео:
+Возможно, вы администратор базы данных, которому необходимо переместить локальные рабочие нагрузки SQL Server в облако, или разработчик, рассматривающий использование возможностей реляционной базы данных SQL Server для приложения Azure. Какие же преимущества предоставляет выполнение рабочих нагрузок SQL Server в виртуальных машинах Azure? В приведенном ниже видео рассматриваются преимущества и представлен технический обзор.
 
 > [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
 
-## Предложения для SQL
+## Оценка преимуществ
 
-Выполнение SQL Server на виртуальной машине Azure — один из вариантов хранения реляционных данных в Azure. Полный список вариантов представлен в следующей таблице.
+Прежде чем начать, следует оценить преимущества использования SQL Server в виртуальных машинах Azure.
 
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Предложение для SQL | Описание |
-|---:|---|---|
-|![SQL Server на виртуальных машинах Azure](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png)|[SQL Server на виртуальных машинах Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/)|Запустите SQL Server на виртуальных машинах Azure. Вы сможете напрямую управлять виртуальной машиной и запустить базу данных на коммерческой версии SQL Server. |
-|![База данных SQL](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png)|[База данных SQL](https://azure.microsoft.com/services/sql-database/)|Используйте службу базы данных SQL, чтобы обращаться к базе данных и масштабировать ее, не отвлекаясь на управление базовой инфраструктурой.|
-|![Хранилище данных SQL](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|[Хранилище данных SQL](https://azure.microsoft.com/services/sql-data-warehouse/)|Используйте хранилище данных SQL Azure для обработки больших объемов реляционных и нереляционных данных. Масштабируемые возможности хранения данных предоставляются как служба.|
-|![База данных SQL Server Stretch](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|[База данных SQL Server Stretch](https://azure.microsoft.com/services/sql-server-stretch-database/)|Динамически объединяйте локальные данные транзакций с базой данных Microsoft SQL Server 2016, размещенной в Azure.|
+При перемещении других рабочих нагрузок в Azure (например, корпоративных приложений) целесообразно также переместить все зависимые базы данных SQL Server в Azure, чтобы повысить производительность. Однако размещение нагрузок SQL Server в виртуальных машинах Azure предоставляет и другие преимущества. Например, вы автоматически получаете доступ ко множеству центров обработки данных, что позволяет обеспечить глобальное присутствие и аварийное восстановление. Полный список сценариев и преимуществ можно найти на странице [SQL Server на виртуальных машинах](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
->[AZURE.NOTE] Подробное сравнение см. в статье [Вы можете выбрать компонент SQL Server в облаке: база данных SQL Azure (PaaS) или SQL Server на виртуальных машинах Azure (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
+> [AZURE.NOTE] При оценке использования SQL Server в виртуальных машинах Azure следует также рассмотреть другие варианты хранилищ и служб SQL Azure, в том числе [базу данных SQL](../sql-database/sql-database-technical-overview.md), [хранилище данных SQL](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) и [базу данных SQL Server Stretch] (../sql -server-stretch-database/sql-server-stretch-database-overview.md). Подробное сравнение см. в статье [Вы можете выбрать компонент SQL Server в облаке: база данных SQL Azure (PaaS) или SQL Server на виртуальных машинах Azure (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
-## Развертывание виртуальной машины SQL Server
+Решив выполнять рабочие нагрузки SQL Server в виртуальных машинах Azure, следует определиться, будете ли вы использовать образ виртуальной машины, включающий затраты на лицензирование SQL Server. Можно также использовать собственную лицензию (BYOL) и платить только за виртуальную машину. Эти варианты описаны в следующих двух разделах.
 
-Для создания виртуальной машины SQL Server в Azure сначала необходимо получить подписку на платформу Azure. Приобрести подписку Azure можно в разделе [Варианты приобретения](https://azure.microsoft.com/pricing/purchase-options/). Чтобы попробовать ее бесплатно, зайдите на страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
+## Вариант 1. Развертывание виртуальной машины SQL (лицензирование по поминутному тарифу)
+Следующая таблица содержит матрицу доступных образов SQL Server в коллекции виртуальных машин. Выберите необходимые версию, выпуск и операционную систему и щелкните соответствующую ссылку, чтобы начать создание виртуальной машины SQL. Все образы включают [затраты на лицензирование SQL Server](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-После получения подписки самый простой способ развернуть виртуальную машину SQL Server в Azure — [подготовить образ из коллекции виртуальных машин SQL Server в Azure](virtual-machines-windows-portal-sql-server-provision.md). Эти образы содержат лицензии на использование SQL Server, стоимость которых включена в цену виртуальной машины.
-
-Имеются две модели для создания виртуальных машин Azure и управления ими: классическая и диспетчер ресурсов. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Подробнее об этих моделях можно узнать в статье [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](../resource-manager-deployment-model.md). В каждой статье будет явно указана целевая модель, за исключением таких статей, которые применимы и для классической модели, и для Resource Manager (например, эта статья).
-
-## Выберите образ виртуальной машины SQL
-Следующая таблица содержит матрицу доступных образов SQL Server в коллекции виртуальных машин. Щелкните одну из ссылок в таблице в зависимости от версии, выпуска и операционной системы. Нажмите кнопку **Создать виртуальную машину** на странице Marketplace.
+Пошаговое руководство приведено в статье [Подготовка виртуальной машины SQL Server на портале Azure](virtual-machines-windows-portal-sql-server-provision.md). Просмотрите также статью [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-performance.md), в которой объясняется, как выбрать соответствующий размер машины и другие функции, доступные при подготовке.
 
 |Версия SQL Server|операционная система|Выпуск SQL Server|
 |---|---|---|
-|**SQL Server 2016 RC**|Windows Server 2012 R2|[Оценка](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rc3evaluationwindowsserver2012r2/)|
-|**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1webwindowsserver2012r2/), [Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1expresswindowsserver2012r2/)|
-|**SQL Server 2014**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/)|
-|**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012r2/)|
-|**SQL Server 2012 SP2**|Windows Server 2012|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/), [Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2expresswindowsserver2012/)|
-|**SQL Server 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3enterprisewindowsserver2008r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3standardwindowsserver2008r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3webwindowsserver2008r2/)|
-|**SQL Server 2008 R2 SP3**|Windows Server 2012|[Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3expresswindowsserver2012/)|
+|**SQL Server 2016**|Windows Server 2012 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMEnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMStandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMWebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2016RTMExpressWindowsServer2012R2)|
+|**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP1EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP1StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP1WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP1ExpressWindowsServer2012R2)|
+|**SQL Server 2014**|Windows Server 2012 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014WebWindowsServer2012R2)|
+|**SQL Server 2012 SP3**|Windows Server 2012 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3ExpressWindowsServer2012R2)|
+|**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2WebWindowsServer2012R2)|
+|**SQL Server 2012 SP2**|Windows Server 2012|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2EnterpriseWindowsServer2012), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2StandardWindowsServer2012), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2WebWindowsServer2012), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP2ExpressWindowsServer2012)|
+|**SQL Server 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2)|
+|**SQL Server 2008 R2 SP3**|Windows Server 2012|[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012)|
 
->[AZURE.NOTE] Программа по улучшению качества программного обеспечения (CEIP) включена по умолчанию. При необходимости вы можете настроить или отключить CEIP после подготовки виртуальной машины. Подключитесь к виртуальной машине с удаленного рабочего стола и запустите **службу отчетов об ошибках и использовании SQL Server**.
+## Вариант 2. Развертывание виртуальной машины SQL (BYOL)
+Еще один вариант — использование собственной лицензии (BYOL). В этом сценарии вы платите только за виртуальную машину и не несете расходы на лицензирование SQL Server. Если вы хотите использовать собственную лицензию, воспользуйтесь приведенной ниже матрицей версий, выпусков SQL Server и операционных систем. На портале имена образов начинаются с префикса **{BYOL}**.
 
-Нужна помощь при создании виртуальной машины SQL? Подробное пошаговое руководство см. в [учебнике по подготовке](virtual-machines-windows-portal-sql-server-provision.md).
+> [AZURE.IMPORTANT] Чтобы использовать образы виртуальных машин BYOL, требуется соглашение Enterprise и возможность [перемещения лицензий в рамках программы Software Assurance в Azure](https://azure.microsoft.com/pricing/license-mobility/). Вам также потребуется действительная лицензия для версии или выпуска SQL Server, которые необходимо использовать. [Соответствующие сведения, касающиеся BYOL, необходимо предоставить корпорации Майкрософт](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) в течение **10** дней после подготовки виртуальной машины.
 
-Наряду с использованием этих предварительно настроенных образов можно [создать виртуальную машину Azure](virtual-machines-windows-hero-tutorial.md) без предустановленного SQL Server. Можно установить любой экземпляр SQL Server с действующей лицензией. Перенесите лицензию в Azure для запуска SQL Server в виртуальной машине Azure, воспользовавшись инструкциями из статьи [Перемещение лицензий в рамках программы Software Assurance в Azure](https://azure.microsoft.com/pricing/license-mobility/). В этом случае вы оплачиваете только [затраты](https://azure.microsoft.com/pricing/details/virtual-machines/) на вычислительные ресурсы и ресурсы хранения Azure, связанные с виртуальной машиной.
+Следуйте рекомендациям в [руководстве по подготовке](virtual-machines-windows-portal-sql-server-provision.md), но используйте один из приведенных ниже вариантов образов **BYOL**. Просмотрите также статью [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-performance.md), в которой объясняется, как выбрать соответствующий размер машины и другие функции, доступные при подготовке.
 
-Чтобы определить наиболее подходящие параметры виртуальных машин для образа SQL Server, см. сведения в статье [Рекомендации по оптимизации производительности виртуальных машин SQL Server](virtual-machines-windows-sql-performance.md). Для рабочих нагрузок в производственной среде минимальный рекомендуемый размер виртуальной машины SQL Server Enterprise — **DS3**. **DS2** — минимальный рекомендуемый размер виртуальной машины для рабочих нагрузок на сервере Standard.
+|Версия SQL Server|операционная система|Выпуск SQL Server|
+|---|---|---|
+|**SQL Server 2016**|Windows Server 2012 R2|[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016RTMStandardWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016RTMStandardWindowsServer2012R2)|
+|**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1StandardWindowsServer2012R2)|
+|**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3StandardWindowsServer2012R2)|
 
-## Перенос данных
+## Управление виртуальной машиной SQL
+После подготовки виртуальной машины SQL Server вы можете выполнить несколько дополнительных задач по управлению. В некоторых аспектах настройка и управление SQL Server ничем не отличаются от аналогичных процедур в локальной среде. Однако некоторые задачи являются характерными для Azure. В следующих разделах рассматриваются некоторые из этих задач и приведены ссылки на дополнительные сведения.
 
-После запуска виртуальной машины SQL Server может потребоваться перенести существующие базы данных на нее. Список вариантов и руководство по миграции баз данных см. в статье [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-windows-migrate-sql.md).
+### Перенос данных
 
-## высокую доступность;
+Если у вас есть база данных, вам необходимо будет переместить ее в новую виртуальную машину SQL. Список вариантов и руководство по миграции баз данных см. в статье [Миграция базы данных SQL Server в экземпляр SQL Server на виртуальной машине Azure](virtual-machines-windows-migrate-sql.md).
 
-Если требуется высокий уровень доступности, вам помогут группы доступности SQL Server. Это подразумевает использование нескольких виртуальных машин Azure в виртуальной сети. На портале Azure есть шаблон, который настраивает эту конфигурацию. Подробнее см. в статье [Настройка группы доступности AlwaysOn на виртуальных машинах диспетчера ресурсов Azure с помощью графического пользовательского интерфейса ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
+### Настройка высокой доступности
 
-Если вы хотите вручную настроить группу доступности и связанный прослушиватель, см. статью [Настройка групп доступности AlwaysOn в виртуальной машине Azure (графический пользовательский интерфейс)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Если требуется высокий уровень доступности, вам помогут группы доступности SQL Server. Это подразумевает использование нескольких виртуальных машин Azure в виртуальной сети. На портале Azure есть шаблон, который настраивает эту конфигурацию. Дополнительные сведения см. в статье [Настройка группы доступности AlwaysOn на виртуальных машинах диспетчера ресурсов Azure с помощью графического пользовательского интерфейса](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). Если вы хотите вручную настроить группу доступности и связанный прослушиватель, см. сведения в статье [Настройка групп доступности AlwaysOn в виртуальной машине Azure (графический пользовательский интерфейс)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 Дополнительные рекомендации по обеспечению высокого уровня доступности см. в разделе [Высокий уровень доступности и аварийное восстановление для SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
-## Архивация и восстановление
-Для локальных баз данных Azure может действовать как дополнительный центр обработки данных для хранения файлов резервных копий SQL Server. Обзор параметров резервного копирования и восстановления см. в статье [Резервное копирование и восстановление для SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-backup-recovery.md).
+### Резервное копирование данных
+Резервные копии баз данных следует хранить непосредственно в Azure с помощью хранилища BLOB-объектов. Дополнительные сведения см. в статье [Использование хранилища Azure для резервного копирования и восстановления SQL Server](../sql-database/storage-use-storage-sql-server-backup-restore.md). Это подходит не только для виртуальных машин SQL, но и для локальных баз данных SQL Server. Обзор параметров резервного копирования и восстановления см. в статье [Резервное копирование и восстановление для SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-backup-recovery.md).
 
-[Резервное копирование SQL Server на URL-адрес](https://msdn.microsoft.com/library/dn435916.aspx) сохраняет файлы резервных копий Azure в хранилище больших двоичных объектов. [Управляемое резервное копирование SQL Server](https://msdn.microsoft.com/library/dn449496.aspx) позволяет планировать резервное копирование и хранение данных в Azure. Эти службы могут использоваться с локальными экземплярами SQL Server или SQL Server на виртуальных машинах Azure. Виртуальные машины Azure могут также использовать преимущества [автоматического резервного копирования](virtual-machines-windows-classic-sql-automated-backup.md) и [автоматического обновления путем частичной замены](virtual-machines-windows-classic-sql-automated-patching.md) для SQL Server.
+Виртуальные машины Azure могут также использовать преимущества [автоматического резервного копирования](virtual-machines-windows-sql-automated-backup.md) и [автоматического обновления путем частичной замены](virtual-machines-windows-sql-automated-patching.md) для SQL Server.
+
+### Программа улучшения качества программного обеспечения (CEIP)
+Программа по улучшению качества программного обеспечения (CEIP) включена по умолчанию. Это рассматривается как задача управления, только если вы хотите отключить эту программу после подготовки. Вы можете настроить или отключить программу CEIP, подключившись к виртуальной машине с помощью удаленного рабочего стола. Затем запустите служебную программу **Служба отчетов об ошибках и использовании SQL Server**. Следуйте инструкциям в окнах этой программы, чтобы отключить создание отчетов.
 
 ## Дальнейшие действия
+[Ознакомьтесь со схемой обучения](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) по использованию SQL Server в виртуальных машинах Azure.
 
-Во-первых, [создайте собственную виртуальную машину SQL Server на портале Azure](virtual-machines-windows-portal-sql-server-provision.md).
+У вас остались вопросы? Сначала ознакомьтесь со статьей [Часто задаваемые вопросы об SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-faq.md). Чтобы получить поддержку от корпорации Майкрософт и сообщества, вы также можете оставить комментарий под любой статьей о виртуальных машинах SQL.
 
-Затем просмотрите [рекомендации по повышению производительности](virtual-machines-windows-sql-performance.md) и [методы переноса](virtual-machines-windows-migrate-sql.md), которые помогут перенести рабочие нагрузки SQL Server на виртуальные машины Azure.
-
-У вас остались вопросы об SQL Server на виртуальных машинах Azure? Во-первых, обратитесь к статье [Часто задаваемые вопросы об SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-faq.md). Чтобы получить поддержку от корпорации Майкрософт и сообщества, вы также можете оставить комментарий под любой статьей о виртуальных машинах SQL.
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

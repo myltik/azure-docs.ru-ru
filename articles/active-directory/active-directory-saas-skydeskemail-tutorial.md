@@ -25,7 +25,7 @@
 
 - С помощью Azure AD вы можете контролировать доступ к Skydesk Email.
 - Вы можете включить автоматический вход пользователей в Skydesk Email (единый вход) с использованием учетной записи Azure AD.
-- Вы можете управлять учетными записями централизованно — через классический портал Azure Active Directory.
+- Вы можете управлять учетными записями централизованно — через классический портал Azure Active Directory.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
@@ -325,4 +325,4 @@
 [204]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

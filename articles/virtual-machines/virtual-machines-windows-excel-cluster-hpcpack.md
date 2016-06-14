@@ -1,6 +1,6 @@
 <properties
  pageTitle="Кластер пакета HPC для Excel и SOA | Microsoft Azure"
- description="Начало работы с кластером пакета HPC в Azure для запуска крупномасштабных рабочих нагрузок Excel и SOA"
+ description="Приступая к работе с крупномасштабными рабочими нагрузками Excel и SOA в кластере пакета HPC в Azure"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="02/19/2016"
+ ms.date="05/25/2016"
  ms.author="danlep"/>
 
 # Начало работы с кластером пакета HPC в Azure для запуска рабочих нагрузок Excel и SOA
@@ -382,4 +382,4 @@ binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.U
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

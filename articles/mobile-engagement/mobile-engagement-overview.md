@@ -45,12 +45,10 @@ Azure Mobile Engagement помогает издателям приложений
 
 ###Дальнейшие действия
 
-[Создание приложения Azure Mobile Engagement](mobile-engagement-create.md)
-
 [Рекомендации и ход работы по созданию Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
-[Учебник по началу работы (для маркетологов)](mobile-engagement-define-your-mobile-engagement-strategy.md)
+[Приступая к работе](/documentation/services/mobile-engagement/)
 
-[Учебник по началу работы (для разработчиков)](/documentation/services/mobile-engagement/)
+[Демонстрационное приложение Azure Mobile Engagement](https://aka.ms/azmedemoapps)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

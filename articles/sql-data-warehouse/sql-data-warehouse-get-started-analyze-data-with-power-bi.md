@@ -104,10 +104,10 @@
 [переносить готовые решения]: ./sql-data-warehouse-overview-migrate.md
 [разрабатывать хранилища данных]: ./sql-data-warehouse-overview-develop.md
 [загружать данные]: ./sql-data-warehouse-overview-load.md
-[загрузить демонстрационные данные вручную]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[загрузить демонстрационные данные вручную]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [портал Azure]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

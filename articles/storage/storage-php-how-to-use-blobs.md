@@ -3,8 +3,8 @@
 	description="Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure."
 	documentationCenter="php"
 	services="storage"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="allclark"
+	manager="douge"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-    ms.date="04/29/2016"
-	ms.author="robmcm"/>
+    	ms.date="06/01/2016"
+	ms.author="allclark;yaqiyang"/>
 
 # Использование хранилища больших двоичных объектов из PHP
 
@@ -49,9 +49,9 @@
 
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder**.
 
-> [AZURE.NOTE] В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. При установке библиотек вручную или в качестве пакета PEAR необходимо добавить ссылку на файл автозагрузчика `WindowsAzure.php`.
+> [AZURE.NOTE] В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. Если вы установили эти библиотеки вручную, необходимо добавить ссылку на файл автозагрузчика `WindowsAzure.php`.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
@@ -79,7 +79,7 @@
 
 В приведенных здесь примерах строка подключения передается напрямую.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 
@@ -94,9 +94,9 @@
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Blob\Models\CreateContainerOptions;
-	use WindowsAzure\Blob\Models\PublicAccessType;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
+	use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -147,10 +147,10 @@
 
 Чтобы передать файл в виде BLOB-объекта, используйте метод **BlobRestProxy->createBlockBlob**. Эта операция создает большой двоичный объект, если он еще не существует, или заменяет его, если он существует. В примере кода предполагается, что контейнер уже был создан и использует [fopen][fopen] для открытия файла в виде потока.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -178,10 +178,10 @@
 
 Чтобы получить список BLOB-объектов в контейнере, используйте метод **BlobRestProxy->listBlobs** с циклом **foreach** для перебора результатов. Следующий код выводит имя каждого большого двоичного объекта в контейнере и соответствующий URI в браузере.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -211,10 +211,10 @@
 
 Чтобы загрузить BLOB-объект, вызовите метод **BlobRestProxy->getBlob**, затем вызовите метод **getContentStream** для результирующего объекта **GetBlobResult**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -240,10 +240,10 @@
 
 Чтобы удалить BLOB-объект, передайте имя контейнера и имя BLOB-объекта в **BlobRestProxy->deleteBlob**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -266,10 +266,10 @@
 
 Наконец, чтобы удалить контейнер BLOB-объектов, передайте имя контейнера в **BlobRestProxy->deleteContainer**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -308,4 +308,4 @@
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

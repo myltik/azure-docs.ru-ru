@@ -185,4 +185,4 @@ while(receive)
 - [Примеры кода концентраторов событий](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0420_2016--->

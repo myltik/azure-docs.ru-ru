@@ -41,7 +41,7 @@
 - запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
 - Создайте **секрет приложения** типа **Пароль** и скопируйте его.
 - Добавьте **веб-платформу** для своего приложения.
-- Введите правильный **универсальный код ресурса (URI) перенаправления**. URI перенаправления сообщает Azure AD, куда следует направлять ответы проверки подлинности. Значение по умолчанию в этом руководстве — `https://localhost:44326/`.
+- Введите правильный **универсальный код ресурса (URI) перенаправления**. URI перенаправления сообщает Azure AD, куда следует направлять ответы проверки подлинности. Значение по умолчанию в этом руководстве — `https://localhost:44326/`.
 
 
 ## Установка OWIN
@@ -57,9 +57,9 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoList-WebApp
 Теперь настройте ПО промежуточного слоя OWIN для использования [протокола аутентификации OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).
 
 -	Откройте файл `web.config` в корне проекта `TodoList-WebApp` и введите значения конфигурации приложения в разделе `<appSettings>`.
-    -	`ida:ClientId` — это **идентификатор приложения**, присвоенный приложению на портале регистрации.
+    -	`ida:ClientId` — это **идентификатор приложения**, присвоенный приложению на портале регистрации.
 	- `ida:ClientSecret`— это **секрет приложения**, созданный на портале регистрации.
-    -	`ida:RedirectUri` — это **универсальный код ресурса (URI) перенаправления**, который вы указали на портале.
+    -	`ida:RedirectUri` — это **универсальный код ресурса (URI) перенаправления**, который вы указали на портале.
 - Откройте файл `web.config` в корневом каталоге проекта `TodoList-Service` и замените `ida:Audience` на **идентификатор приложения**, указанный выше.
 
 
@@ -109,7 +109,9 @@ public void ConfigureAuth(IAppBuilder app)
 
 - Сначала установите предварительную версию ADAL:
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` И добавьте еще одну инструкцию`using` в файл `App_Start\Startup.Auth.cs` для ADAL. Теперь добавьте новый метод, обработчик событий `OnAuthorizationCodeReceived`. Этот обработчик будет обращаться к ADAL для получения маркера доступа к API списка дел и сохранять этот маркер в кэше маркеров ADAL для последующего использования.
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
+- Добавьте еще один оператор `using` в файл `App_Start\Startup.Auth.cs` для ADAL.
+- Теперь добавьте новый метод `OnAuthorizationCodeReceived` обработчика событий. Этот обработчик будет обращаться к ADAL для получения маркера доступа к API списка дел и сохранять этот маркер в кэше маркеров ADAL для последующего использования.
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -191,6 +193,12 @@ catch (AdalException ee)
 
 ## Дальнейшие действия
 
-Дополнительные ресурсы: - [Руководство разработчика для версии 2.0](active-directory-appmodel-v2-overview.md) - [StackOverflow: тег adal](http://stackoverflow.com/questions/tagged/adal)
+Дополнительные ресурсы:
+- [Руководство разработчика версии 2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Тег StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_0224_2016-->
+## Получение обновлений системы безопасности для наших продуктов
+
+Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
+
+<!---HONumber=AcomDC_0601_2016-->

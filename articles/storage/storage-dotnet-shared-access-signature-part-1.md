@@ -158,8 +158,8 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
     static string GetAccountSASToken()
     {
         // To create the account SAS, you need to use your shared key credentials. Modify for your account.
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
         // Create a new access policy for the account.
         SharedAccessAccountPolicy policy = new SharedAccessAccountPolicy()
@@ -181,8 +181,8 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
     {
         // In this case, we have access to the shared key credentials, so we'll use them
         // to get the Blob service endpoint.
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
         // Create new storage credentials using the SAS token.
@@ -226,8 +226,8 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
 В следующем примере кода показано создание хранимой политики доступа для контейнера и последующее создание SAS службы для этого контейнера. Затем SAS можно передавать клиентам, чтобы предоставить им разрешения на чтение и запись в контейнере. Измените код, чтобы использовать имя своей учетной записи:
 
     // Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -310,7 +310,7 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
 
 ## Дальнейшие действия ##
 
-- [Подписанные URL-адреса. Часть 2: создание и использование подписанного URL-адреса в службе BLOB-объектов](storage-dotnet-shared-access-signature-part-2.md)
+- Подписанные URL-адреса. Часть 2: создание и использование подписанного URL-адреса в службе BLOB-объектов
 - [Приступая к работе с хранилищем файлов Azure в Windows](storage-dotnet-how-to-use-files.md)
 - [Управление анонимным доступом на чтение к контейнерам и большим двоичным объектам](storage-manage-access-to-resources.md)
 - [Делегирование доступа с помощью подписанного URL-адреса](http://msdn.microsoft.com/library/azure/ee395415.aspx)
@@ -318,4 +318,4 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

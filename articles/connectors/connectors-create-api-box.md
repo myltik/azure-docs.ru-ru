@@ -262,4 +262,4 @@ Box предоставляет следующие триггеры и дейст
 
 [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!----HONumber=AcomDC_0525_2016-->

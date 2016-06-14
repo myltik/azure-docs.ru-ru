@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,10 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Миграция базы данных SQL Server в Базу данных SQL с помощью мастера развертывания базы данных в Базу данных Microsoft Azure
+
+
+> [AZURE.SELECTOR]
+- [Мастер миграции SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [Экспорт в BACPAC-файл](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Импорт из BACPAC-файла](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Репликация транзакций](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
 Мастер развертывания базы данных в базу данных Microsoft Azure в среде SQL Server Management Studio переносит [совместимую базу данных SQL Server](sql-database-cloud-migrate.md) непосредственно на сервер Базы данных SQL Azure.
 
@@ -50,8 +57,15 @@
 7.	В обозревателе объектов подключитесь к перенесенной базе данных на сервере базы данных SQL Azure.
 8.	На портале Azure просмотрите базу данных и ее свойства.
 
-## Дальнейшее действие: устранение проблем совместимости (если есть)
+## Дальнейшие действия
 
-[Устранение проблем совместимости базы данных](sql-database-cloud-migrate-fix-compatibility-issues.md) (если есть).
+- [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+## Подробнее
+
+- [База данных SQL версии 12](sql-database-v12-whats-new.md).
+- [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).
+
+<!---HONumber=AcomDC_0601_2016-->

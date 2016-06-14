@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="06/07/2016"
 	ms.author="nitinme"/>
 
 
-# Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark (предварительная версия)
+# Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark
 
 Узнайте, как создать кластер Apache Spark в HDInsight и выполнять интерактивные запросы Spark SQL в кластере Spark с помощью записной книжки [Jupyter](https://jupyter.org).
 
@@ -38,16 +38,18 @@
     
 	-  на компьютере под управлением Windows — [Использование SSH с кластерами HDInsight (Hadoop) под управлением Linux в Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
+>[AZURE.NOTE] В этой статье описано, как с помощью шаблона ARM создать кластер Spark, использующий [службы хранилища Azure в качестве хранилища кластера](hdinsight-hadoop-use-blob-storage.md). Кроме того, вы можете создать кластер Spark, использующий [хранилище озера данных Azure](../data-lake-store/data-lake-store-overview.md) в качестве дополнительного хранилища (в придачу к BLOB-объектам Azure, которые служат основными хранилищами). Инструкции см. в статье [Создание кластера HDInsight с хранилищем озера данных](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
 
 ## Создание кластера Spark
 
-В этом разделе мы создадим кластер HDInsight версии 3.3 (Spark версии 1.5.1) с помощью шаблона Azure ARM. Дополнительную информацию о различных версиях HDInsight и их соглашениях об уровне обслуживания см. в статье [Версии компонентов НDInsight](hdinsight-component-versioning.md). Другие способы создания кластера см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+В этом разделе мы создадим кластер HDInsight версии 3.4 (Spark версии 1.6.1) с помощью шаблона Azure ARM. Дополнительную информацию о различных версиях HDInsight и их соглашениях об уровне обслуживания см. в статье [Версии компонентов НDInsight](hdinsight-component-versioning.md). Другие способы создания кластера см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Щелкните следующие изображение, чтобы открыть шаблон ARM на портале Azure.         
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Шаблон ARM хранится в общедоступном контейнере BLOB-объектов: **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*.
+    Шаблон ARM хранится в общедоступном контейнере BLOB-объектов **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*.
    
 2. В колонке "Параметры" заполните следующие поля:
 
@@ -135,7 +137,7 @@
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Поскольку вы используете ядро PySpark, вы можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы только что создали с помощью волшебного слова `%%sql`. Дополнительные сведения о волшебном слове `%%sql`, а также о других волшебных словах, доступных в ядре PySpark, см. в статье [Ядра, доступные для использования записными книжками Jupyter с кластерами Spark в HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Так как вы используете ядро PySpark, вы можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы только что создали с помощью волшебного слова `%%sql`. Дополнительные сведения о волшебном слове `%%sql`, а также других волшебных словах, доступных в ядре PySpark, см. в статье [Ядра, доступные для использования записными книжками Jupyter с кластерами Spark в HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
@@ -183,17 +185,21 @@
 
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
+* [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Управление ресурсами
 
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-### Известные проблемы
-
-* [Известные проблемы Apache Spark в Azure HDInsight (Linux)](hdinsight-apache-spark-known-issues.md)
+* [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -206,4 +212,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,29 +1,29 @@
 <properties 
-   pageTitle="Руководство по обмену сообщениями через посредника служебной шины на основе REST | Microsoft Azure"
-   description="Руководство по обмену сообщениями через посредника на основе REST"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Руководство по обмену сообщениями через посредника служебной шины на основе REST | Microsoft Azure"
+    description="Руководство по обмену сообщениями через посредника на основе REST"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/15/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/03/2016"
+    ms.author="sethm" />
 
 # Руководство по обмену сообщениями через посредника служебной шины на основе REST
 
-В этом руководстве показано, как создать базовую службу очередей служебной шины Azure и разделов и подписок на основе REST.
+В этом руководстве показано, как создать базовую очередь служебной шины Azure и раздел или подписку на основе REST.
 
 ## Шаг 1. Создание пространства имен
 
 Сначала необходимо создать пространство имен службы и получить ключ [подписи общего доступа](service-bus-sas-overview.md) (SAS). Пространство имен службы определяет границы каждого приложения, предоставляемого через Service Bus. Ключ SAS автоматически создается системой при создании пространства имен службы. Сочетание пространства имен и ключа совместного доступа к подписи предоставляет учетные данные, на основе которых служба Service Bus осуществляет проверку подлинности и дает доступ к приложению.
 
-### Создание пространства имен и получение общего секретного ключа
+### Создание пространства имен и получение ключа SAS
 
 1. Чтобы создать пространство имен службы, перейдите на [классический портал Azure][]. В левой части щелкните **Служебная шина** и нажмите кнопку **Создать**. Введите имя для пространства имен, а затем щелкните значок с изображением флажка.
 
@@ -186,17 +186,19 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
-    // Create the URI of the new queue, note that this uses the HTTPS schemestring queueAddress = baseAddress + queueName;
+    // Create the URI of the new queue, note that this uses the HTTPS scheme
+    string queueAddress = baseAddress + queueName;
     WebClient webClient = new WebClient();
     webClient.Headers[HttpRequestHeader.Authorization] = token;
 
     Console.WriteLine("\nCreating queue {0}", queueAddress);
-    // Prepare the body of the create queue requestvar putData = @"<entry xmlns=""http://www.w3.org/2005/Atom"">
-                                  <title type=""text"">" + queueName + @"</title>
-                                  <content type=""application/xml"">
-                                    <QueueDescription xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"" />
-                                  </content>
-                                </entry>";
+    // Prepare the body of the create queue request
+    var putData = @"<entry xmlns=""http://www.w3.org/2005/Atom"">
+                          <title type=""text"">" + queueName + @"</title>
+                          <content type=""application/xml"">
+                            <QueueDescription xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"" />
+                          </content>
+                        </entry>";
 
     byte[] response = webClient.UploadData(queueAddress, "PUT", Encoding.UTF8.GetBytes(putData));
     return Encoding.UTF8.GetString(response);
@@ -634,4 +636,4 @@ namespace Microsoft.ServiceBus.Samples
 [классический портал Azure]: http://manage.windowsazure.com
 [классического портала Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

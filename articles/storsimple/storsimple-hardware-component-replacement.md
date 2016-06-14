@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/26/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Замена компонентов оборудования StorSimple
@@ -142,4 +142,4 @@
 
 Перед заменой компонентов оборудования StorSimple ознакомьтесь со всеми [мерами предосторожности](storsimple-safety.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0601_2016-->

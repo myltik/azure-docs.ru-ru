@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="05/31/2016"
 	ms.author="spelluru"/>
 
 # Связанные службы вычислений
@@ -339,4 +339,4 @@ sessionid | Идентификатор сеанса из сеанса автор
 
 Связанная служба SQL Azure создается и применяется к [действию хранимой процедуры](data-factory-stored-proc-activity.md) для вызова хранимой процедуры из конвейера фабрики данных. Дополнительную информацию об этой связанной службе см. в статье [Соединитель SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

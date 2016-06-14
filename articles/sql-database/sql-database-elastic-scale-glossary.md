@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/25/2016" 
-    ms.author="ddove;sidneyh"/>
+    ms.date="05/27/2016" 
+    ms.author="ddove"/>
 
 # Глоссарий по средствам работы с эластичными базами данных
 В связи со [средствами работы с эластичными базами данных SQL Azure](sql-database-elastic-scale-introduction.md) применяются следующие термины. Для управления [картами сегментов](sql-database-elastic-scale-shard-map-management.md) используются такие инструменты, как [клиентская библиотека](sql-database-elastic-database-client-library.md), [средство разбиения и слияния](sql-database-elastic-scale-overview-split-and-merge.md), [пулы эластичных баз данных](sql-database-elastic-pool.md) и [запросы](sql-database-elastic-query-overview.md).
@@ -90,4 +90,4 @@
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="05/27/2016"
 	ms.author="tamram"/>
 
 # Создание моментального снимка BLOB-объекта
@@ -66,7 +66,9 @@
 Данный пример кода C# создает новый моментальный снимок и записывает абсолютный URI для первичного расположения.
 
     //Create the blob service client object.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
     //Get a reference to a container.
@@ -80,6 +82,8 @@
     //Create a snapshot of the blob and write out its primary URI.
     CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
     Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
+
+
 
 ## Общая информация о том, как моментальные снимки увеличивают плату
 
@@ -125,4 +129,4 @@
 
 ![Ресурсы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -52,8 +52,8 @@
 - [Очереди, разделы и подписки служебной шины](service-bus-queues-topics-subscriptions.md)
 - [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Архитектура служебной шины](service-bus-architecture.md)
-- [Использование очередей служебной шины](service-bus-dotnet-how-to-use-queues.md)
+- [Использование очередей служебной шины](service-bus-dotnet-get-started-with-queues.md)
 - [Использование разделов служебной шины](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

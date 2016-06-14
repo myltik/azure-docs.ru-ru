@@ -29,12 +29,12 @@
 
 |Соединители||||
 |-----------|-----------|-----------|-----------|
-|[![Значок API][blobicon]<br/>**Большой двоичный объект Azure**][azureblobdoc]|[![Значок API][boxicon]<br/>**Box**][boxDoc]|[![Значок API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Значок API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
+|[![Значок API][blobicon]<br/>**Большой<br/>двоичный<br/>объект Azure**][azureblobdoc]|[![Значок API][boxicon]<br/>**Box**][boxDoc]|[![Значок API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Значок API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![Значок API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Значок API][ftpicon]<br/>**FTP**][ftpdoc]|[![Значок API][githubicon]<br/>**GitHub**][githubdoc]|[![Значок API][googledriveicon]<br/>**Диск Google**][googledrivedoc]|
 |[![Значок API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Значок API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Значок API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Значок API][office365icon]<br/>**Office 365**<br/>**Пользователи**][office365usersdoc]|
 |[![Значок API][office365icon]<br/>**Office 365**<br/>**Видео**][office365videodoc]|[![Значок API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Значок API][onedriveicon]<br/>**OneDrive<br/>для бизнеса**][onedriveforbusinessdoc]|[![Значок API][outlookicon]<br/>**Outlook**][outlookdoc]|
 |[![Значок API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Значок API][rssicon]<br/>**RSS**][rssdoc]|[![Значок API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Значок API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
-|[![Значок API][servicebusicon]<br/>**Служебная шина**][servicebusdoc]|[![Значок API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Значок API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Значок API][slackicon]<br/>**Slack**<br/>][slackdoc]|
+|[![Значок API][servicebusicon]<br/>**Служебная<br/>шина**][servicebusdoc]|[![Значок API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Значок API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Значок API][slackicon]<br/>**Slack**<br/>][slackdoc]|
 |[![Значок API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Значок API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Значок API][trelloicon]<br/>**Trello**][trellodoc]|[![Значок API][twilioicon]<br/>**Twilio**][twiliodoc]|
 |[![Значок API][twittericon]<br/>**Twitter**][twitterdoc]|[![Значок API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Значок API][yammericon]<br/>**Yammer**][yammerdoc] | |
 

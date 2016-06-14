@@ -26,6 +26,9 @@
 3. Выполните поиск в Интернете по запросу "ConfigurationManager" и нажмите кнопку **Установить**, чтобы установить Azure Configuration Manager.
 
 >[AZURE.NOTE] Клиентская библиотека службы хранилища также доступна в [пакете Azure SDK для .NET](https://azure.microsoft.com/downloads/). Но мы рекомендуем также установить клиентскую библиотеку службы хранилища из NuGet, чтобы всегда иметь ее последнюю версию.
+>
+>Зависимости ODataLib в клиентской библиотеке хранилища для .NET разрешаются через пакеты ODataLib (версии 5.0.2 и выше), доступные через NuGet, а не через службы данных WCF. Библиотеки ODataLib можно загрузить напрямую или указать на них ссылку в проекте через NuGet. К специальным пакетам ODataLib, используемым клиентскими библиотеками хранения, относятся [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) и [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). Хотя эти библиотеки используются классами хранилища таблиц Azure, они являются обязательными зависимостями для программирования с использованием клиентской библиотеки хранения.
+
 
 ### Определение целевой среды
 
@@ -65,4 +68,4 @@
 
 	<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

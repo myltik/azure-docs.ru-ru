@@ -3,7 +3,7 @@
    description="Используйте Visual Studio для создания, разработки, упаковки, развертывания и отладки приложений и служб Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/02/2016"
-   ms.author="jesseb"/>
+   ms.author="seanmck"/>
 
 # Использование Visual Studio для упрощения создания приложениями Service Fabric и управления ими
 
@@ -97,4 +97,4 @@
 [preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0601_2016-->

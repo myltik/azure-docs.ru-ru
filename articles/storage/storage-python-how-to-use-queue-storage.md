@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="05/31/2016"
 	ms.author="emgerner"/>
 
 # Использование хранилища очередей из Python
@@ -54,7 +54,7 @@
 
 	messages = queue_service.peek_messages('taskqueue')
 	for message in messages:
-		print(message.message_text)
+		print(message.content)
 
 
 ## Практическое руководство. Удаление следующего сообщения из очереди
@@ -68,7 +68,7 @@
 
 Способ извлечения сообщения из очереди можно настроить двумя способами. Во-первых, можно получить пакет сообщений (до 32 сообщений). Во-вторых, можно задать более длительное или короткое время ожидания видимости, чтобы предоставить коду больше или меньше времени на полную обработку каждого сообщения. В следующем примере кода метод **get\_messages** используется для получения 16 сообщений за один вызов. Затем он обрабатывает каждое сообщение с помощью цикла for. Он также задает время ожидания невидимости 5 минут для каждого сообщения.
 
-	messages = queue_service.get_messages('taskqueue', numofmessages=16, visibilitytimeout=5*60)
+	messages = queue_service.get_messages('taskqueue', num_messages=16, visibility_timeout=5*60)
 	for message in messages:
 		print(message.content)
 		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)		
@@ -107,4 +107,4 @@
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

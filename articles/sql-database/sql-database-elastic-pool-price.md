@@ -3,15 +3,15 @@
 	description="Сведения о ценах на пулы эластичных баз данных."
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="srinia"
 	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/11/2016"
-	ms.author="sidneyh"
+	ms.date="05/27/2016"
+	ms.author="srinia"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -27,7 +27,7 @@
 
 
 - Цена пула эластичных БД основывается на количестве eDTU пула. Стоимость пула эластичных БД не зависит от числа эластичных баз данных в нем и их использования.
-- Цена вычисляется по формуле: \(количество eDTU пула\) x \(цена за единицу eDTU\).
+- Цена вычисляется по формуле: (количество eDTU пула) x (цена за единицу eDTU).
 
 Цена за единицу eDTU для пула эластичных БД выше, чем цена за единицу eDTU для автономной базы данных того же уровня служб. Подробнее об этом можно узнать в статье [Стоимость использования Базы данных SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -41,4 +41,4 @@
 - [Параметры и производительность баз данных SQL: возможности разных уровней службы](sql-database-service-tiers.md)
 - [Сценарий PowerShell для идентификации баз данных, подходящих для пула эластичных баз данных](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

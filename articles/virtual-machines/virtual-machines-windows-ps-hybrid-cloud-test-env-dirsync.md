@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
  
 В этом разделе описываются шаги по созданию гибридной облачной среды для тестирования синхронизации каталогов (DirSync) Office 365 с синхронизацией пароля, размещенного в Microsoft Azure. Это конфигурация, которая получается в результате.
 
@@ -181,4 +179,4 @@
 
 - Развертывание этой рабочей нагрузки [в рабочей среде](http://technet.microsoft.com/library/dn635310.aspx).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->
