@@ -69,7 +69,8 @@
 | **Пакетная служба (REST)** | [MSDN][batch_rest] | Недоступно | [MSDN][batch_rest] |
 | **Пакетная служба (.NET)** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Пакетная служба Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | | **Batch Java** (preview) | [github.io][api_java] | [Maven snapshot repo][api_java_jar] | - |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
+| **Batch Java** (preview) | [github.io][api_java] | [Maven snapshot repo][api_java_jar] | - |
 
 ### Управление ресурсами пакетной службы
 
