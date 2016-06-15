@@ -30,9 +30,11 @@ Administration | Использование фабрики данных Azure д
 Автоматизация | Обновление статьи о [создании кластера Storm и выполнении примеров Storm Starter](hdinsight-apache-storm-tutorial-get-started-linux.md) для использования шаблона ARM | 1 | [Завершено](hdinsight-apache-storm-tutorial-get-started-linux.md#create-a-storm-cluster) | [@mumian](https://github.com/mumian) | -
 Автоматизация | Обновление статьи об [использовании Sqoop с кластером HDInsight с помощью SSH](hdinsight-use-sqoop-mac-linux.md) для использования шаблона ARM| 1 | [Завершено](hdinsight-use-sqoop.md#create-cluster-and-sql-database) | [@mumian](https://github.com/mumian) | -
 Автоматизация | Обновление статьи об [анализе данных датчиков с помощью кластеров Apache Storm](hdinsight-storm-sensor-data-analysis.md) для использования шаблона ARM| 2 | На рассмотрении | [@mumian](https://github.com/mumian) | -
-Хранилище | Статья с описанием режимов хранения WASB и Storeas озера данных | 2 | На рассмотрении | [@mumian](https://github.com/mumian) | - Производительность | Рекомендации по настройке производительности для приложений MapReduce | 1 | На рассмотрении | [@blackmist](https://github.com/blackmist)| -
+Хранилище | Статья с описанием режимов хранения WASB и Storeas озера данных | 2 | На рассмотрении | [@mumian](https://github.com/mumian) | - 
+Производительность | Рекомендации по настройке производительности для приложений MapReduce | 1 | На рассмотрении | [@blackmist](https://github.com/blackmist)| -
 Производительность | Рекомендации по настройке производительности для кластеров Spark |1 | На рассмотрении | [@nitinme](https://github.com/nitinme) | -
-Разработка | Примеры Curl и REST API при использовании Sqoop | 2 | [Завершено](hdinsight-hadoop-use-sqoop-curl.md) | [@mumian](https://github.com/mumian) | Йон Кеннерли (Jon Kennerly) | Разработка | [Неинтерактивная проверка подлинности в приложении .NET для HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |2| [Завершено](hdinsight-create-non-interactive-authentication-dotnet-applications.md) | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
+Разработка | Примеры Curl и REST API при использовании Sqoop | 2 | [Завершено](hdinsight-hadoop-use-sqoop-curl.md) | [@mumian](https://github.com/mumian) | Йон Кеннерли (Jon Kennerly) | 
+Разработка | [Неинтерактивная проверка подлинности в приложении .NET для HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |2| [Завершено](hdinsight-create-non-interactive-authentication-dotnet-applications.md) | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
 ## Предоставление обратной связи по списку запланированной документации
