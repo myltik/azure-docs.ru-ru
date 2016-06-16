@@ -69,4 +69,4 @@
 ## Дальнейшие действия
 Дополнительные сведения о связях между подписками и каталогами см. в разделе [Как подписки Azure связаны с Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0608_2016--->
