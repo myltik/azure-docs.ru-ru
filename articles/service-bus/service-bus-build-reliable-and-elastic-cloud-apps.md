@@ -29,7 +29,7 @@
  
 ## Создание
 
-- [Как использовать очереди служебной шины](service-bus-dotnet-how-to-use-queues.md) 
+- [Как использовать очереди служебной шины](service-bus-dotnet-get-started-with-queues.md) 
 - [Недоставленные сообщения в управляемом обмене сообщениями служебной шины (запись в блоге от 21 октября 2011 года)](http://geekswithblogs.net/asmith/articles/147398.aspx) 
 - [Рекомендации по изолированию приложений служебной шины в целях предотвращения сбоев и аварий](service-bus-outages-disasters.md)
 - [Управляемый обмен сообщениями: образец ответа на запрос](https://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) 
@@ -46,4 +46,4 @@
 - [Облачные службы](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -20,8 +20,7 @@
 
 В этом документе демонстрируется создание характеристик для данных, которые хранятся в контейнере больших двоичных объектов Azure, с помощью пакета Python [Pandas](http://pandas.pydata.org/). После описания загрузки данных в кадр данных Panda в нем показано создание категориальных характеристик с использованием сценариев Pyrhon со значениями индикатора и характеристиками группирования.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Это **меню** содержит ссылки на разделы, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]Это **меню** содержит ссылки на разделы, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Предварительные требования
@@ -130,11 +129,11 @@
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Теперь вы можете считывать данные из большого двоичного объекта с помощью модуля [считывателя](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) Студии машинного обучения Azure (см. рисунок ниже).
+3. Теперь данные можно считывать из большого двоичного объекта с помощью модуля [Импорт данных](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) Студии машинного обучения Azure (см. рисунок ниже).
  
 ![большой двоичный объект считывателя](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

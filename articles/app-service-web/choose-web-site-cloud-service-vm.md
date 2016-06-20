@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="06/06/2016"
 	ms.author="tdykstra"/>
 
 # Сравнение службы приложений Azure, виртуальных машин, Service Fabric и облачных служб
@@ -198,4 +198,4 @@ Service Fabric будет хорошим выбором, если вы созд�
   [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
   [служба хранилища]: http://www.windowsazure.com/documentation/services/storage/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

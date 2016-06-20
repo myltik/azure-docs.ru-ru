@@ -22,8 +22,7 @@
 
 В этом документе показано, как создавать характеристики для данных, которые хранятся в виртуальной машине SQL Server в Azure, и помогают алгоритмам эффективнее обучаться. Это можно сделать с помощью SQL или с использованием языка программирования, например Python. Здесь показаны оба варианта.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Это **меню** содержит ссылки на разделы, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]Это **меню** содержит ссылки на разделы, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 > [AZURE.NOTE] Для практического примера можно использовать [Набор данных о такси Нью-Йорка](http://www.andresmh.com/nyctaxitrips/) и статью IPNB под названием [Структурирование данных Нью-Йорка с помощью IPython Notebook и SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb), содержащую полное пошаговое руководство.
 
@@ -102,7 +101,7 @@
 
 ###<a name="sql-aml"></a>Подключение к службе машинного обучения Azure
 
-Новую созданную характеристику можно добавить в виде столбца в существующую таблицу или сохранить в новой таблице и объединить с существующей таблицей для машинного обучения. Вы можете создать характеристики и открыть доступ к ним, если они уже созданы, с помощью модуля [считывателя](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) в Azure ML, как показано ниже:
+Новую созданную характеристику можно добавить в виде столбца в существующую таблицу или сохранить в новой таблице и объединить с существующей таблицей для машинного обучения. Вы можете создать признаки и открыть доступ к ним, если они уже созданы, с помощью модуля [Импорт данных](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) в Машинном обучении Azure, как показано ниже.
 
 ![считыватели azureml](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
@@ -125,4 +124,4 @@
 
  
 
-<!---HONumber=AcomDC_0518_2016--->
+<!---HONumber=AcomDC_0608_2016-->

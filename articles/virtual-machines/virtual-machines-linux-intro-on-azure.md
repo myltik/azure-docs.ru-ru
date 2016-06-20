@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/27/2016"
 	ms.author="szark"/>
 
 #Введение в Linux в Azure
@@ -69,7 +69,7 @@ Azure предоставляет фильтр входящих пакетов, �
  - [Включение пользовательских данных в виртуальную машину Azure](virtual-machines-windows-classic-inject-custom-data.md)
  - [Пользовательские данные и cloud-init в Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
  - [Создание разделов подкачки Azure с помощью cloud-init](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [Использование CoreOS в Azure](virtual-machines-linux-classic-coreos-howto.md)
+ - [Использование CoreOS в Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
 ## Запись образа виртуальной машины
@@ -98,4 +98,4 @@ Azure предоставляет возможность записи состо�
 
  - **Также см. статью** [Настройка программного RAID-массива в Linux](virtual-machines-linux-configure-raid.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="04/19/2016"
+	ms.date="06/03/2016"
 	ms.author="marsma" />
 
 # Подготовка вычислительных узлов Linux в пулах пакетной службы Azure
 
 Пакетная служба Azure позволяет выполнять параллельные вычислительные рабочие нагрузки на виртуальных машинах Linux и Windows. В этой статье описывается создание пулов вычислительных узлов Linux в пакетной службе с помощью клиентских библиотек [Python][py_batch_package] и [.NET][api_net] для пакетной службы.
 
-> [AZURE.NOTE] Поддержка Linux в пакетной службе в настоящее время находится в статусе предварительной версии. Некоторые аспекты описанной здесь функции могут быть изменены до выхода общедоступной версии. [Пакеты приложений](batch-application-packages.md) и [задачи с несколькими экземплярами](batch-mpi.md) **в настоящее время не поддерживаются** на вычислительных узлах Linux.
+> [AZURE.NOTE] Поддержка Linux в пакетной службе в настоящее время находится в статусе предварительной версии. Некоторые аспекты описанной здесь функции могут быть изменены до выхода общедоступной версии. [Пакеты приложений](batch-application-packages.md) **в настоящее время не поддерживаются** на вычислительных узлах Linux.
 
 ## Конфигурация виртуальной машины
 
@@ -28,11 +28,11 @@
 
 Параметр **Cloud Services Configuration** (Конфигурация облачных служб) предоставляет *только* вычислительные узлы Windows. Доступные размеры вычислительных узлов перечислены в статье [Размеры для облачных служб](../cloud-services/cloud-services-sizes-specs.md), а доступные операционные системы — в статье [Таблица совместимости выпусков гостевых ОС Azure и пакетов SDK](../cloud-services/cloud-services-guestos-update-matrix.md). При создании пула, содержащего узлы облачных служб, необходимо указать только размер узла и его "семейство ОС", которые можно найти в этих статьях. При создании пулов вычислительных узлов Windows чаще всего используются облачные службы.
 
-Параметр **Конфигурация виртуальной машины** предоставляет образы Windows и Linux для вычислительных узлов. Доступные размеры вычислительных узлов перечислены в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) и [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). При создании пула, содержащего узлы конфигурации виртуальных машин, необходимо указать не только размер узлов, но и **ссылку на образ виртуальной машины** и **номер SKU агента узла** пакетной службы для установки на узлах.
+Параметр **Конфигурация виртуальной машины** предоставляет образы Windows и Linux для вычислительных узлов. Доступные размеры вычислительных узлов перечислены в статьях [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) и [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). При создании пула, содержащего узлы конфигурации виртуальных машин, необходимо указать не только размер узлов, но и **ссылку на образ виртуальной машины** и **номер SKU агента узла** пакетной службы для установки на узлах.
 
 ### Ссылка на образ виртуальной машины
 
-Пакетная служба скрыто использует [наборы для масштабирования виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) для предоставления вычислительных узлов Linux, а образы операционных систем для этих виртуальных машин предоставляются [магазином Marketplace виртуальных машин Azure][vm_marketplace]. При настройке ссылки на образ виртуальной машины задаются свойства образа виртуальной машины из Marketplace. Приведенные ниже свойства являются обязательными при создании ссылки на образ виртуальной машины.
+Пакетная служба скрыто использует [наборы для масштабирования виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) для предоставления вычислительных узлов Linux, а образы операционных систем для этих виртуальных машин предоставляются [магазином виртуальных машин Azure Marketplace][vm_marketplace]. При настройке ссылки на образ виртуальной машины задаются свойства образа виртуальной машины из Marketplace. Приведенные ниже свойства являются обязательными при создании ссылки на образ виртуальной машины.
 
 | **Свойства ссылки на образ** | **Пример** |
 | ----------------- | ------------------------ |
@@ -186,7 +186,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
-Несмотря на то что в приведенном выше фрагменте используется метод [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] для динамического перечисления и выбора поддерживаемых сочетаний образа и номера SKU агента узла (рекомендуемый), можно также настроить объект [ImageReference][net_imagereference] явным образом:
+Несмотря на то, что в приведенном выше фрагменте используется метод [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] для динамического перечисления и выбора поддерживаемых сочетаний образа и номера SKU агента узла (рекомендуемый), можно также настроить объект [ImageReference][net_imagereference] явным образом:
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -210,11 +210,13 @@ ImageReference imageReference = new ImageReference(
 | Canonical | UbuntuServer | 14\.04.3-LTS | последних | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14\.04.4-LTS | последних | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 15\.10 | последних | batch.node.debian 8 |
+| Canonical | UbuntuServer | 16\.04.0-LTS | последних | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | последних | batch.node.debian 8 |
 | OpenLogic | CentOS | 7\.0 | последних | batch.node.centos 7 |
 | OpenLogic | CentOS | 7\.1. | последних | batch.node.centos 7 |
 | OpenLogic | CentOS | 7,2 | последних | batch.node.centos 7 |
-| Oracle | Oracle-Linux-7 | OL70 | последних | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7\.1. | последних | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7\.0 | последних | batch.node.centos 7 |
 | SUSE | SLES | 12 | последних | batch.node.opensuse 42.1 |
 | SUSE | SLES | 12-SP1 | последних | batch.node.opensuse 42.1 |
 | SUSE | SLES-HPC | 12 | последних | batch.node.opensuse 42.1 |
@@ -283,9 +285,13 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 ## Дальнейшие действия
 
+### Учебник по пакетной службе (Python)
+
+Более подробные инструкции по работе с пакетной службой с использованием Python см. в учебнике [Приступая к работе с клиентом Python пакетной службы Azure](batch-python-tutorial.md). Сопутствующий ему [пример кода][github_samples_pyclient] включает в себя вспомогательную функцию `get_vm_config_for_distro`, которая предоставляет другой метод получения конфигурации виртуальной машины.
+
 ### Примеры кода Python для пакетной службы
 
-Ознакомьтесь с [примерами кода Python][github_samples_py] в репозитории [azure-batch-samples][github_samples] на портале GitHub для нескольких скриптов, в которых показано, как выполнять распространенные пакетные операции, такие как создание пула, задания и задачи, и многое другое. В файле [README][github_py_readme], прилагаемом к примерам кода Python, содержатся подробные сведения об установке необходимых пакетов.
+Ознакомьтесь с другими [примерами кода Python][github_samples_py] в репозитории [azure-batch-samples][github_samples] на портале GitHub для нескольких сценариев, в которых показано, как выполнять распространенные пакетные операции, такие как создание пула, задания и задачи, и многое другое. В файле [README][github_py_readme], прилагаемом к примерам кода Python, содержатся подробные сведения об установке необходимых пакетов.
 
 ### Форум по Пакетной службе
 
@@ -299,6 +305,7 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
+[github_samples_pyclient]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/python_tutorial_client.py
 [portal]: https://portal.azure.com
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_computenodeuser]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.aspx
@@ -320,4 +327,4 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "Общая схема: пакеты приложений"
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

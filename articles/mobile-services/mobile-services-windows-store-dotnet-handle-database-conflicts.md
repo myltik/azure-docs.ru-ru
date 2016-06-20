@@ -128,9 +128,9 @@
 	> [AZURE.NOTE] При использовании нетипизированных таблиц включите оптимистичный параллелизм, добавив флаг "Версия" в системные свойства таблицы.
 	>
 	>`````
-	//Enable optimistic concurrency by retrieving __version
-todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
-`````
+	>//Enable optimistic concurrency by retrieving __version
+	>todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
+	>`````
 
 
 2. После добавления свойства `Version` к классу `TodoItem` приложение во время обновления будет получать уведомления об исключении `MobileServicePreconditionFailedException`, если запись изменилась с момента последнего запроса. Это исключение включает последнюю версию элемента с сервера. В файле MainPage.cs для общего проекта добавьте следующий код, чтобы обрабатывать исключение в методе `UpdateToDoItem()`.
@@ -369,4 +369,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Системные свойства]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0608_2016-->

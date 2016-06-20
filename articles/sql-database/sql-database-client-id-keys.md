@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/15/2016"
+   ms.date="06/06/2016"
    ms.author="sstein"/>
 
 # Получение идентификатора клиента и ключа для доступа к базе данных SQL из кода
@@ -136,7 +136,7 @@
 ## Пример консольного приложения
 
 
-Получите нужную библиотеку управления, установив с помощью [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) следующие пакеты, которые содержат нужные библиотеки управления. Для этого в Visual Studio последовательно выберите элементы **Инструменты** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**:
+Получите нужную библиотеку управления, установив с помощью [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) следующие пакеты, которые содержат нужные библиотеки управления. Для этого в Visual Studio последовательно выберите элементы **Инструменты** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**:
 
 
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
@@ -250,4 +250,4 @@
 [13]: ./media/sql-database-client-id-keys/key-duration.png
 [14]: ./media/sql-database-client-id-keys/web-secrets.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

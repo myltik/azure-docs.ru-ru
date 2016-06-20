@@ -19,7 +19,7 @@
 # Управление вычислительными ресурсами в хранилище данных SQL Azure (REST)
 
 > [AZURE.SELECTOR]
-- [Обзор](sql-data-warehouse-overview-manage-compute.md)
+- [Обзор](sql-data-warehouse-manage-compute-overview.md)
 - [Портал](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -34,7 +34,7 @@
 - Приостановка работы вычислительных ресурсов
 - Возобновление работы вычислительных ресурсов
 
-Дополнительные сведения см. в [обзоре управления вычислительными ресурсами][].
+Дополнительные сведения см. в разделе [Manage compute power in Azure SQL Data Warehouse (Overview)][] (Обзор управления вычислительной мощностью в хранилище данных SQL Azure).
 
 <a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
@@ -89,8 +89,7 @@ POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/
 
 <!--Article references-->
 [Средства управления]: ./sql-data-warehouse-overview-manage.md
-[Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
-[обзоре управления вычислительными ресурсами]: ./sql-data-warehouse-overview-manage-compute.md
+[Manage compute power in Azure SQL Data Warehouse (Overview)]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [приостановки базы данных]: https://msdn.microsoft.com/library/azure/mt718817.aspx
@@ -101,4 +100,4 @@ POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

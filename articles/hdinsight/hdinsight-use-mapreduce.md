@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="06/06/2016"
    ms.author="larryfr"/>
 
 # Использование MapReduce в Hadoop в HDInsight
@@ -66,13 +66,13 @@ Hadoop MapReduce — это программная платформа для н
 
 Поскольку хранилище BLOB-объектов Azure является хранилищем по умолчанию для HDInsight, вы также можете обратиться к файлу, используя путь **/example/data/gutenberg/davinci.txt**
 
-> [AZURE.NOTE] Предыдущий синтаксис **wasb:///** используется для обращения к файлам, которые хранятся в контейнере хранилища по умолчанию для вашего кластера HDInsight. Если вы указали дополнительные учетные записи хранения при подготовке кластера и хотите обращаться к файлам из этих учетных записей, это можно сделать, указав имя контейнера и адрес учетной записи хранения. Например, **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
+> [AZURE.NOTE] Предыдущий синтаксис ****wasb:///** используется для обращения к файлам, которые хранятся в контейнере хранилища по умолчанию для вашего кластера HDInsight. Если вы указали дополнительные учетные записи хранения при подготовке кластера и хотите обращаться к файлам из этих учетных записей, это можно сделать, указав имя контейнера и адрес учетной записи хранения. Например, ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
 
 ##<a id="job"></a>Сведения о примере MapReduce
 
-Задание MapReduce, используемое в данном примере, находится в файле **wasb://example/jars/hadoop-mapreduce-examples.jar**, и предоставляется с кластером HDInsight. Это задание является примером операции подсчета строк, которая будет выполняться в файле **davinci.txt**.
+Задание MapReduce, используемое в данном примере, находится в файле ****wasb://example/jars/hadoop-mapreduce-examples.jar**, и предоставляется с кластером HDInsight. Это задание является примером операции подсчета строк, которая будет выполняться в файле **davinci.txt**.
 
-> [AZURE.NOTE] В кластерах HDInsight 2.1 файл находится по этому адресу: **wasb:///example/jars/hadoop-examples.jar**.
+> [AZURE.NOTE] В кластерах HDInsight 2.1 файл находится по этому адресу: ****wasb:///example/jars/hadoop-examples.jar**.
 
 Для справки ниже приведен код Java задания MapReduce для счетчика слов:
 
@@ -188,4 +188,4 @@ HDInsight может запускать задания HiveQL с помощью 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

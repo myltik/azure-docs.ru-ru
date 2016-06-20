@@ -22,7 +22,7 @@
 ## Быстрые команды
 Для создания группы безопасности сети и правил потребуется [Azure CLI](../xplat-cli-install.md) в режиме Resource Manager (`azure config mode arm`).
 
-Создайте группу безопасности сети, как показано ниже, указав собственные имена и расположение.
+Создайте группу безопасности сети, указав собственные имена и расположение.
 
 ```
 azure network nsg create --resource-group TestRG --name TestNSG --location westus
@@ -61,4 +61,4 @@ azure network vnet subnet set --resource-group TestRG --name TestSubnet --networ
 - [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
 - [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

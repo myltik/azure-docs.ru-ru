@@ -1,6 +1,6 @@
 <properties
    pageTitle="Создание кластеров HDInsight с хранилищем озера данных с помощью Azure PowerShell | Azure"
-   description="Создание кластеров HDInsight Hadoop для работы с озером данных Azure с помощью Azure PowerShell."
+   description="Создание кластеров HDInsight для работы с озером данных Azure с помощью Azure PowerShell"
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="06/03/2016"
    ms.author="nitinme"/>
 
 # Создание кластера HDInsight с хранилищем озера данных с помощью Azure PowerShell
@@ -25,7 +25,7 @@
 
 Узнайте, как с помощью Azure PowerShell настроить кластер HDInsight (Hadoop, HBase или Storm) с доступом к хранилищу озера данных Azure. Важные сведения, которые следует учитывать при работе с данным выпуском.
 
-* **В кластерах Hadoop и Storm (Windows и Linux)** хранилище озера данных может использоваться только как дополнительная учетная запись хранения. Учетной записью хранения по умолчанию для таких кластеров по-прежнему будут BLOB-объекты хранилища Azure (WASB).
+* **В кластерах Spark (Linux) и Hadoop/Storm (Windows и Linux)** хранилище озера данных может использоваться только как дополнительная учетная запись хранения. Учетной записью хранения по умолчанию для таких кластеров по-прежнему будут BLOB-объекты хранилища Azure (WASB).
 
 * **Для кластеров HBase (Windows и Linux)** хранилище озера данных можно использовать как хранилище по умолчанию или дополнительное хранилище.
 
@@ -380,4 +380,4 @@
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

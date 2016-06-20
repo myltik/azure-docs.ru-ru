@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # Разработка приложений с использованием микрослужб
 Разработчики программного обеспечения до сих пор считают необходимым разбивать приложения на составные части. Это основная парадигма объектного ориентирования, абстракций программного обеспечения и компонентизации. Сейчас такое разделение принимает форму классов и интерфейсов между общими библиотеками и уровнями технологий. Как правило, это происходит в рамках многоуровневого подхода, предполагающим наличие серверного хранилища, бизнес-логики среднего уровня и внешнего пользовательского интерфейса. За последние несколько лет *изменилось* только то, что разработчики стали создавать распределенные приложения для облака, управляемого организацией.
@@ -143,9 +143,9 @@ Service Fabric предусматривает два масштабных реш
 
 * Дополнительная информация
 	* [Общие сведения о Service Fabric](service-fabric-overview.md)
-    * [Микрослужбы: революция в области приложений на основе облака](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [Микрослужбы: революция в области приложений на основе облака](https://azure.microsoft.com/ru-RU/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

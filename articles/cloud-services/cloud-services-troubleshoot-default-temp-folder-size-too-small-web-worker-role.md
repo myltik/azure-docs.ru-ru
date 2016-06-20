@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="05/26/2016"
+   ms.date="06/03/2016"
    ms.author="v-six" />
 
 # Недостаточный размер стандартной папки TEMP для рабочей роли или веб-роли облачной службы
@@ -22,11 +22,7 @@
 
 >[AZURE.NOTE] Это относится только к использованию веб-ролей и рабочих ролей в пакете SDK для Azure версий 1.0–1.4.
 
-## Обращение в службу поддержки клиентов Azure
-
-Если в любой момент при изучении этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](https://azure.microsoft.com/support/forums/).
-
-Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [веб-сайт поддержки Azure](http://azure.microsoft.com/support/options/) и щелкните **Получить поддержку**. Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](http://azure.microsoft.com/support/faq/).
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Почему мне не хватает свободного места?
 
@@ -79,8 +75,8 @@ namespace WorkerRole1
 
 См. блог, в котором описывается, [как увеличить размер временной папки ASP.NET веб-ролей Azure](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
 
-Просмотрите дополнительные [статьи об устранении неполадок](..\?tag=top-support-issue&service=cloud-services) в облачных службах.
+Просмотрите дополнительные [статьи об устранении неполадок](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) в облачных службах.
 
 Чтобы узнать, как устранять неполадки ролей облачной службы с помощью диагностических данных компьютеров Azure PaaS, изучите [серию статей в блоге Кевина Уильямсона](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

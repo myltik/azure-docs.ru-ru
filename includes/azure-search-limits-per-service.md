@@ -1,14 +1,16 @@
-Storage is constrained by disk space or by a hard limit on the *maximum number* of indexes or documents, whichever comes first. 
+Возможности хранилища ограничиваются дисковым пространством или аппаратным ограничением *максимального количества* индексов или документов (в зависимости от того, какое из ограничений достигается первым).
 
-Resource|Free|Basic|S1|S2|S3 <br/>(Preview)|S3 HD <br/>(Preview)
+Ресурс|Бесплатно|базовая;|S1|S2|S3 <br/>(предварительная версия)|S3 HD <br/>(предварительная версия)
 ---|---|---|---|----|---|----
-Service Level Agreement (SLA)|No <sup>1</sup> |Yes |Yes  |Yes |No <sup>1</sup> |No <sup>1</sup> 
-Storage per service|50 MB |2 GB|300 GB|1.2 TB|2.4 TB|200 GB
-Partitions per service|N/A|1|12|12|12|1
-Partition size|N/A|2 GB|25 GB|100 GB|200 GB |200 GB
-Replicas|N/A|1|12|12|12|12
-Maximum Indexes|3|5|50|200|200|1000
-Maximum Documents|10,000|1 million|180 million per service, 15 million per partition |720 million documents per service, 60 million per partition|1.4 billion documents per service, 120 million per partition|200 million per service, 1 million per index
-Estimated queries per second (QPS)|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
+Соглашение об уровне обслуживания (SLA):|Нет <sup>1</sup> |Да |Да |Да |Нет <sup>1</sup> |Нет <sup>1</sup> 
+Объем хранилища для службы|50 MB |2 ГБ|300 ГБ|1,2 ТБ|2,4 ТБ|200 ГБ
+Количество секций для службы|Недоступно|1|12|12|12|1
+Размер секции|Недоступно|2 ГБ|25 ГБ|100 ГБ|200 ГБ |200 ГБ
+Реплики|Недоступно|1|12|12|12|12
+Максимальное число индексов|3|5|50|200|200|1000
+Максимальное число документов|10 000|1 млн|180 млн на службу, 15 млн на секцию |720 млн документов на службу, 60 млн на секцию|1,4 млрд млн документов на службу, 120 млн на секцию|200 млн на службу, 1 млн на секцию
+Оценочное число запросов в секунду (QPS)|Недоступно|~3 на реплику|~15 на реплику|~60 на реплику|Больше 60 на реплику|Больше 60 на реплику
 
-<sup>1</sup> Free and Preview SKUs do not come with SLAs. SLAs are enforced once a SKU becomes generally available.
+<sup>1</sup> Для SKU уровня "Бесплатный" и предварительной версии соглашения об уровне обслуживания не предусмотрены. Соглашения об уровне обслуживания вступят в силу после выпуска общедоступной версии SKU.
+
+<!---HONumber=AcomDC_0608_2016-->

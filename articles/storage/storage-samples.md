@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Примеры для службы хранилища Azure | Microsoft Azure"
-   description="Просмотрите, загрузите и запустите образцы кода и приложений для хранилища Azure. Воспользуйтесь примерами для начала работы с BLOB-объектами, очередями, таблицами и файлами с помощью клиентских библиотек хранилища .NET, Java, Node.js и C++."
-   services="storage"
-   documentationCenter="na"
-   authors="tamram"
-   manager="na"
-   editor="tysonn" />
+	pageTitle="Примеры для службы хранилища Azure | Microsoft Azure"
+	description="Просмотрите, загрузите и запустите образцы кода и приложений для хранилища Azure. Воспользуйтесь примерами для начала работы с BLOB-объектами, очередями, таблицами и файлами с помощью клиентских библиотек хранилища .NET, Java, Node.js и C++."
+	services="storage"
+	documentationCenter="na"
+	authors="tamram"
+	manager="na"
+	editor="tysonn" />
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage"
-   ms.date="02/21/2016"
-   ms.author="tamram" />
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage"
+	ms.date="06/01/2016"
+	ms.author="tamram" />
 
 # Примеры для службы хранилища Azure
 
@@ -24,16 +24,21 @@
 
 [Пример библиотеки кода Azure](https://azure.microsoft.com/documentation/samples/?service=storage) включает примеры для хранилища Azure, которые можно загрузить и запустить локально. Пример библиотеки кода содержит пример кода в формате ZIP. Кроме того, можно просмотреть и клонировать репозиторий GitHub для каждого примера.
 
+## Приступая к работе: примеры
+
+* [Начните работать с хранилищем Azure за пять минут](storage-getting-started-guide.md)
+* [Краткие руководства по Visual Studio для службы хранилища Azure](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
+
 ## Примеры для .NET
 
 Для просмотра примеров .NET загрузите [Клиентскую библиотеку хранилища .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) на NuGet. Клиентская библиотека хранилища .NET также доступна в [пакете Azure SDK для .NET](https://azure.microsoft.com/downloads/).
 
-* [Начните работать с хранилищем Azure за пять минут](storage-getting-started-guide.md)
-* [Управление параллелизмом с помощью службы хранилища Azure: пример приложения](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
-* [Начало работы с BLOB-объектами](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataBlobStorage)
-* [Начало работы с таблицами](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
-* [Начало работы с очередями](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataStorageQueue)
-* [Начало работы с файлами](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage)
+* [Приступая к работе со службой BLOB-объектов Azure в .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+* [Приступая к работе со службой очередей Azure в .NET](https://azure.microsoft.com/documentation/samples/storage-queue-dotnet-getting-started/)
+* [Приступая к работе со службой таблиц Azure в .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
+* [Приступая к работе со службой файлов Azure в .NET](https://azure.microsoft.com/documentation/samples/storage-file-dotnet-getting-started/)
+* [Веб-приложение фотоальбома для хранилища BLOB-объектов Azure](https://azure.microsoft.com/documentation/samples/storage-blobs-dotnet-webapp/)
+* [Управление параллелизмом с помощью службы хранилища Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
 
 ## Примеры для Java
 
@@ -85,4 +90,4 @@
 - [Исходный код для клиентской библиотеки хранилища C++](https://github.com/Azure/azure-storage-cpp)
 - [Справочник по клиентской библиотеке C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

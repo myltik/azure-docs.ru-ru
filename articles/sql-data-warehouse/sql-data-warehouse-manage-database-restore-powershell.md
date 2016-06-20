@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/01/2016"
+   ms.author="elfish;barbkess;sonyama;kevin"/>
 
 # Архивация и восстановление базы данных в хранилище данных SQL Azure (PowerShell)
 
@@ -30,7 +30,6 @@
 
 - Восстановление активной базы данных.
 - Восстановление удаленной базы данных.
-- Восстановление недоступной базы данных из другого географического региона Azure
 
 [AZURE.INCLUDE [Политика хранения резервных копий хранилища данных SQL](../../includes/sql-data-warehouse-backup-retention-policy.md)]
 
@@ -42,7 +41,7 @@
 
 ### Установка PowerShell
 
-Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0 или более поздней версии. Чтобы узнать текущую версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить из [установщика веб-платформы Майкрософт][]. Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell][].
+Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0 или более поздней версии. Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][]. Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][].
 
 ## Восстановление активной базы данных.
 
@@ -90,7 +89,7 @@ $RestoredDatabase.status
 
 >[AZURE.NOTE] Если вашим сервером является foo.database.windows.net, в приведенных выше командлетах PowerShell в качестве -ServerName используйте значение "foo".
 
-Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных][].
+Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной Базы данных SQL Azure][].
 
 ## Восстановление удаленной базы данных.
 
@@ -128,57 +127,18 @@ $RestoredDatabase.status
 
 >[AZURE.NOTE] Если вашим сервером является foo.database.windows.net, в приведенных выше командлетах PowerShell в качестве -ServerName используйте значение "foo".
 
-Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных][].
-
-## Восстановление из географического региона Azure
-
-Для восстановления базы данных используйте командлет [Restore-AzureRmSqlDatabase][].
-
-1. Откройте Windows PowerShell.
-2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
-3. Выберите подписку, содержащую базу данных, которую надо восстановить.
-4. Получите базу данных, которую требуется восстановить.
-5. Создайте запрос на восстановление базы данных.
-6. Проверьте состояние геовосстановленной базы данных.
-
-```Powershell
-
-Login-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
-
-# Get the database you want to recover
-$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
-
-# Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
-
-# Verify that the geo-restored database is online
-$GeoRestoredDatabase.status
-
-```
-
-### Настройка базы данных после выполнения географического восстановления
-Далее приведен контрольный список задач, который можно использовать для подготовки восстановленной базы данных к использованию в рабочей среде.
-
-1. **Обновление строк подключения**. Убедитесь, что строки подключения клиентских средств указывают на только что восстановленную базу данных.
-2. **Изменение правил брандмауэра**. Проверьте правила брандмауэра на целевом сервере и убедитесь в том, что в них разрешены подключения клиентских компьютеров или Azure к серверу и только что восстановленной базе данных.
-3. **Проверка имен для входа на сервер и пользователей базы данных**. Проверьте существование всех имен для входа, используемых вашим приложением, на сервере, на котором размещена восстановленная база данных. Повторно создайте отсутствующие имена для входа и предоставьте им соответствующие разрешения на работу с восстановленной базой данных. 
-4. **Включение аудита**. Если для доступа к базе данных требуется аудит, то после восстановления базы данных его необходимо включить.
-
-Восстановленная база данных будет поддерживать прозрачное шифрование данных, если исходная база данных поддерживает прозрачное шифрование данных.
-
+Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной Базы данных SQL Azure][].
 
 ## Дальнейшие действия
-Дополнительные сведения см. в статьях [Непрерывность бизнес-процессов в базе данных SQL Azure][] и [Management overview][] \(Обзор управления).
+Дополнительные сведения см. в [обзоре обеспечения непрерывности бизнес-процессов в базе данных SQL Azure][] и [обзоре управления][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Непрерывность бизнес-процессов в базе данных SQL Azure]: sql-database-business-continuity.md
-[Финализация восстановленной базы данных]: sql-database-recovered-finalize.md
-[Как установить и настроить Azure PowerShell]: powershell-install-configure.md
-[Management overview]: sql-data-warehouse-overview-manage.md
+[обзоре обеспечения непрерывности бизнес-процессов в базе данных SQL Azure]: sql-database-business-continuity.md
+[Финализация восстановленной Базы данных SQL Azure]: sql-database-recovered-finalize.md
+[Установка и настройка Azure PowerShell]: powershell-install-configure.md
+[обзоре управления]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -194,4 +154,4 @@ $GeoRestoredDatabase.status
 [Azure Portal]: https://portal.azure.com/
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

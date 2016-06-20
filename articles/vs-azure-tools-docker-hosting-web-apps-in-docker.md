@@ -3,7 +3,7 @@
    description="Узнайте, как использовать средства Visual Studio для Docker для публикации веб-приложения ASP.NET 5 в контейнере Docker, работающем на виртуальной машине узла Docker в Azure"   
    services="visual-studio-online"
    documentationCenter=".net"
-   authors="tomarcher"
+   authors="allclark"
    manager="douge"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/08/2016"
-   ms.author="tarcher"/>
+   ms.date="06/08/2016"
+   ms.author="allclark"/>
 
 # Развертывание контейнера ASP.NET на удаленном узле Docker
 
@@ -57,13 +57,13 @@ Docker — это облегченная платформа контейнеро
 
     1.  Перейдите на [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885). 
     
-    1.  Выберите **Виртуальные машины**.
+    1.  Выберите **ВИРТУАЛЬНЫЕ МАШИНЫ**.
     
     1.  Выберите свою виртуальную машину узла Docker.
     
-    1.  Перейдите на вкладку **Конечные точки**.
+    1.  Перейдите на вкладку **КОНЕЧНЫЕ ТОЧКИ**.
     
-    1.  Нажмите кнопку **Добавить** внизу страницы.
+    1.  Нажмите кнопку **ДОБАВИТЬ** (в нижней части страницы).
     
     1.  Следуйте инструкциям для предоставления порта 80, который используется скриптом развертывания по умолчанию.
 
@@ -83,7 +83,7 @@ Docker — это облегченная платформа контейнеро
 
 1.  Измените целевой объект для запуска на **Docker**.
 
-1.  Щелкните значок **Docker**, чтобы скомпилировать и запустить приложение.
+1.  Щелкните значок **Docker**, чтобы выполнить сборку и запустить приложение.
 
 ![Запуск приложения][2]
 
@@ -96,4 +96,4 @@ Docker — это облегченная платформа контейнеро
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

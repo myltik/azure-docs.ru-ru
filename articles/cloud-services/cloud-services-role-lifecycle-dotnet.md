@@ -12,12 +12,12 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="05/02/2016" 
+ms.date="06/07/2016" 
 ms.author="adegeo"/>
 
 # Адаптируйте жизненный цикл веб-роли или рабочей роли в .NET
 
-Создавая рабочую роль, вы расширяете класс [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx), который предоставляет вам методы переопределения, которые позволяют реагировать на события жизненного цикла. Этот класс необязателен для веб-роли и чаще всего используется для реагирования на события жизненного цикла.
+Создавая рабочую роль, вы расширяете класс [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx), который предоставляет вам методы переопределения, которые позволяют реагировать на события жизненного цикла. Этот класс необязателен для веб-ролей, поэтому его следует использовать для реагирования на события жизненного цикла.
 
 ## Расширение класса RoleEntryPoint
 
@@ -80,4 +80,4 @@ public override bool OnStart()
 ## Дальнейшие действия
 Узнайте, как [создать пакет облачной службы](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="05/31/2016"
 	ms.author="tamram"/>
 
 
@@ -38,7 +38,7 @@
 
 В Visual Studio создайте новое консольное приложение Windows и назовите его **GenerateSharedAccessSignatures**. Добавьте ссылки на **Microsoft.WindowsAzure.Configuration.dll** и **Microsoft.WindowsAzure.Storage.dll**, используя один из следующих подходов:
 
-- 	Если нужно установить пакет NuGet, сначала установите [расширение диспетчера пакетов NuGet для Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). В Visual Studio выберите **Проект | Управление пакетами NuGet**, выполните в Интернете поиск значения **Хранилище Azure** и следуйте инструкциям по установке.
+- 	Если вы хотите установить пакет NuGet, сначала установите [клиент NuGet](https://docs.nuget.org/consume/installing-nuget). В Visual Studio выберите **Проект | Управление пакетами NuGet**, выполните в Интернете поиск значения **Хранилище Azure** и следуйте инструкциям по установке.
 - 	Можно также найти нужные сборки в установленных файлах пакета SDK Azure и добавить ссылки на них.
 
 Добавьте в начало файла Program.cs следующие инструкции **using**:
@@ -554,4 +554,4 @@
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

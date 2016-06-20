@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 # Создание веб-приложения Hello World для Azure в Eclipse
@@ -193,18 +193,33 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения см. по следующим ссылкам:
+Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
 
-* [Центр разработчика Java]
-* [Обзор веб-приложений]
+- [Набор средств Azure для Eclipse]
+  - [Установка набора средств Azure для Eclipse]
+  - *Создание веб-приложения Hello World для Azure в Eclipse (в этой статье)*
+  - [Новые возможности набора средств Azure для Eclipse]
+- [Набор средств Azure для IntelliJ]
+  - [Установка набора средств Azure для IntelliJ]
+  - [Создание веб-приложения Hello World для Azure в IntelliJ]
+
+Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
+
+Дополнительные сведения о создании веб-приложений Azure см. в разделе [Обзор веб-приложений].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
+[Набор средств Azure для Eclipse]: ../azure-toolkit-for-eclipse.md
 [средств Azure для Eclipse]: ../azure-toolkit-for-eclipse.md
+[Набор средств Azure для IntelliJ]: ../azure-toolkit-for-intellij.md
+[Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Установка набора средств Azure для Eclipse]: ../azure-toolkit-for-eclipse-installation.md
-[Центр разработчика Java]: https://azure.microsoft.com/develop/java/
+[Установка набора средств Azure для IntelliJ]: ../azure-toolkit-for-intellij-installation.md
+[Новые возможности набора средств Azure для Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
+
+[центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 [Обзор веб-приложений]: ./app-service-web-overview.md
 
 <!-- IMG List -->
@@ -225,4 +240,4 @@
 [14]: ./media/app-service-web-eclipse-create-hello-world-web-app/14-publishDropdownButton.png
 [15]: ./media/app-service-web-eclipse-create-hello-world-web-app/15-New-Azure-Web-Container.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

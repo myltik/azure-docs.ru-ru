@@ -38,7 +38,7 @@ azure group show TestRG --json | jq '.'
 Создание учетной записи хранения
 
 ```bash
-azure storage account create -g TestRG -l westeurope --type GRS computeteststore
+azure storage account create -g TestRG -l westeurope --kind Storage --sku-name GRS computeteststore
 ```
 
 Проверка хранилища с помощью средства синтаксического анализа JSON
@@ -259,7 +259,7 @@ info:    group create command OK
 azure storage account create \  
 --location westeurope \
 --resource-group TestRG \
---type GRS \
+--kind Storage --sku-name GRS \
 computeteststore
 ```
 
@@ -1234,4 +1234,4 @@ info:    vm show command OK
 
 Теперь вы готовы работать с несколькими сетевыми компонентами и виртуальными машинами.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

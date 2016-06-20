@@ -276,7 +276,7 @@
 [virtual-machines-azure-resource-manager-architecture]: virtual-machines-azure-resource-manager-architecture.md
 [virtual-machines-windows-tutorial]: virtual-machines-windows-hero-tutorial.md
 [virtual-networks-create-vnet-arm-pportal]: virtual-networks-create-vnet-arm-pportal.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-create-powershell.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-ps-create.md
 [virtual-machines-linux-tutorial]: virtual-machines-linux-quick-create-cli.md
 
 [msdn-set-azurermvmaemextension]: https://msdn.microsoft.com/library/azure/mt670598.aspx
@@ -442,7 +442,7 @@ ___
 После завершения работы мастера виртуальная машина будет развернута в выбранной группе ресурсов.
 
 #### Создание виртуальной машины с помощью шаблона
-Развертывание можно также создать с помощью одного из шаблонов SAP, опубликованных в [каталоге azure-quickstart-templates на сайте GitHub][azure-quickstart-templates-github]. Кроме того, можно создать виртуальную машину вручную с помощью [портала][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] или [интерфейса командной строки Azure][virtual-machines-linux-tutorial].
+Развертывание можно также создать с помощью одного из шаблонов SAP, опубликованных в [каталоге azure-quickstart-templates на сайте GitHub][azure-quickstart-templates-github]. Кроме того, можно создать виртуальную машину вручную с помощью [портала][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] или [Azure CLI][virtual-machines-linux-tutorial].
 
 * [Шаблон двухуровневой конфигурации (только одна виртуальная машина)][sap-templates-2-tier-marketplace-image]. Этот шаблон используется, если нужно создать двухуровневую систему с использованием только одной виртуальной машины.
 * [Шаблон трехуровневой конфигурации (несколько виртуальных машин)][sap-templates-3-tier-marketplace-image]. Этот шаблон используется, если нужно создать трехуровневую систему с использованием нескольких виртуальных машин.
@@ -554,7 +554,7 @@ ___
 >
 > ![Linux][Logo_Linux] Linux
 >
-> <https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/>
+> <https://azure.microsoft.com/ru-RU/documentation/articles/virtual-machines-linux-agent-user-guide/>
 
 ___
 
@@ -779,7 +779,7 @@ sudo service waagent restart
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Интерфейс командной строки Azure для виртуальных машин Linux
 Выполните шаги, указанные в [этой статье][install-extension-cli], чтобы установить расширение для расширенного мониторинга Azure для SAP на виртуальной машине Linux с ноутбука или настольного компьютера с ОС Linux.
 
- [comment]: <> (MSSedusch TODO check if link is still valid)
+ [комментарий]: <> (пользователь MSSedusch, TODO: проверить, работает ли ссылка).
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Проверки и устранение неполадок при комплексной настройке мониторинга для SAP в Azure
 Развернув виртуальную машину Azure и настроив соответствующую инфраструктуру мониторинга Azure, проверьте, работают ли все компоненты расширенного мониторинга Azure должным образом.
@@ -938,4 +938,4 @@ Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <vir
 
 Если при устранении неполадок с использованием примечания SAP [1999351] проблема не исчезла, повторно запустите сценарий конфигурации Set-AzureRmVMAEMExtension, как описано в разделе [Расширенный мониторинг Azure для SAP: настройка расширения][deployment-guide-4.5]. Необходимо подождать час, так как счетчики аналитики или диагностики хранилищ не могут быть созданы сразу после включения. Если проблема не исчезла, откройте сообщение о поддержке клиентов SAP в компоненте BC-OP-NT-AZR для виртуальной машины Windows или BC-OP-LNX-AZR для виртуальной машины Linux.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

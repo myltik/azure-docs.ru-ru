@@ -158,7 +158,7 @@
 
 ### <a name="ingest"></a>Прием данных: чтение из общедоступного большого двоичного объекта
 
-Данные большого двоичного объекта Azure расположены по адресу **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, и их можно извлечь, используя **Extractors.Csv()**. В следующих сценариях подставьте имена своих контейнера и учетной записи хранения для container_name@blob_storage_account_name в адресе wasb. Так как у имен файлов одинаковый формат, чтобы выполнить чтение всех 12 файлов поездок, можно использовать **trip\_data\_{*}.csv**.
+Данные большого двоичного объекта Azure расположены по адресу ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, и их можно извлечь, используя **Extractors.Csv()**. В следующих сценариях подставьте имена своих контейнера и учетной записи хранения для container_name@blob_storage_account_name в адресе wasb. Так как у имен файлов одинаковый формат, чтобы выполнить чтение всех 12 файлов поездок, можно использовать **trip\_data\_{*}.csv**.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-В первой строке есть заголовки, поэтому их необходимо удалить и изменить типы столбцов на соответствующие. Обработанные данные можно сохранить в хранилище озера данных Azure по пути **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ или в учетной записи хранения BLOB-объектов Azure по пути **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+В первой строке есть заголовки, поэтому их необходимо удалить и изменить типы столбцов на соответствующие. Обработанные данные можно сохранить в хранилище озера данных Azure по пути ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ или в учетной записи хранения BLOB-объектов Azure по пути ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 	// change data types
 	@trip =
@@ -658,7 +658,7 @@
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-Вставьте следующие сценарии Hive, чтобы создать таблицу. Источник данных в хранилище озера данных Azure расположен по такому адресу: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+Вставьте следующие сценарии Hive, чтобы создать таблицу. Источник данных в хранилище озера данных Azure расположен по такому адресу: ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(
@@ -701,7 +701,7 @@
 
 Теперь все готово для создания и развертывания модели, с помощью которой можно спрогнозировать, будут ли выплачены чаевые за поездку, используя машинное обучение Azure. Данные стратифицированной выборки готовы к использованию в этой задаче двоичной классификации (поездка с чаевыми или без чаевых). Прогнозные модели, использующие многоклассовую классификацию (tip\_class) и регрессию (tip\_amount), также можно создавать и развертывать с помощью студии машинного обучения Azure, но здесь мы показываем только случай с использованием модели двоичной классификации.
 
-1. Загрузите данные в машинное обучение Azure, используя модуль **Reader**, доступный в разделе **Data Input and Output** (Ввод и вывод данных). Дополнительные сведения см. на справочной странице [Reader module](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) (Модуль Reader).
+1. Загрузите данные в Машинное обучение Azure, используя модуль **Импорт данных**, доступный в разделе **Data Input and Output** (Ввод и вывод данных). Дополнительные сведения см. на странице справки [Import Data module](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) (Модуль "Импорт данных").
 2. Выберите значение **Hive Query** (Запрос Hive) для параметра **Источник данных** на панели **Свойства**.
 3. Вставьте следующий сценарий Hive в редактор **Hive database query** (Запрос к базе данных Hive):
 
@@ -741,4 +741,4 @@
 - [Процесс аналитики Кортаны в действии: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

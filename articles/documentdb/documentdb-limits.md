@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Ограничения и квоты DocumentDB| Microsoft Azure" 
-	description="Узнайте об ограничениях и квотах, установленных для DocumentDB. Изучите квоты на использование служб базы данных SQL Azure."
-	keywords="Квоты, база данных, documentdb, azure, Microsoft azure"
+	pageTitle="Квоты по умолчанию для DocumentDB | Microsoft Azure" 
+	description="Узнайте о квотах, выделяемых по умолчанию в DocumentDB."
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -14,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
+	ms.date="05/27/2016" 
 	ms.author="arramac"/>
 
 
-# Ограничения и квоты DocumentDB
+# Квоты по умолчанию для DocumentDB
 
-В таблице ниже перечислены ограничения и квоты, действующие для DocumentDB.
+В следующей таблице описаны квоты по умолчанию на ресурсы DocumentDB.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
 Квоты, перечисленные со звездочкой (*), [могут быть изменены при обращении в службу поддержки Azure](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

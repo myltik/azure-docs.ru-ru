@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Отсоединение диска от виртуальной машины Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
-
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
-## Дополнительные ресурсы
+## Дальнейшие действия
+Узнать больше об использовании виртуальной машины Linux можно в следующих статьях.
 
-[Подключение диска данных к виртуальной машине Linux](virtual-machines-linux-classic-attach-disk.md)
+- [Подключение диска данных к виртуальной машине Linux](virtual-machines-linux-classic-attach-disk.md)
 
-[Управление службами Azure с помощью интерфейса командной строки Azure](../virtual-machines-command-line-tools.md)
+- [Команды Azure CLI в режиме управления службами Azure (ASM)](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

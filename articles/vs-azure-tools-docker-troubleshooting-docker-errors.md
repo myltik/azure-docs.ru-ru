@@ -3,7 +3,7 @@
    description="Устранение неполадок, которые возникают при использовании Visual Studio для создания и развертывания веб-приложений в Docker в Windows с помощью Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="allclark"
    manager="douge"
    editor="" />
 <tags
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/15/2016"
-   ms.author="tarcher" />
+   ms.date="06/08/2016"
+   ms.author="allclark" />
 
 # Устранение неполадок при разработке в Visual Studio Docker
 
@@ -22,6 +22,7 @@
 ##Не удалось настроить файл Program.cs для поддержки Docker
 
 При добавлении поддержки Docker в класс WebHostBuilder() требуется добавить `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))`. Если функцию Main() файла Program.cs или новый класс WebHostBuilder не удается найти, отображается соответствующее предупреждение. Чтобы сервер Kestrel мог прослушивать входящий трафик за пределами узла localhost при запуске в контейнере Docker, требуется добавить .UseUrls(). После завершения типичный код будет выглядеть следующим образом:
+
 ```
 public class Program
 {
@@ -39,31 +40,41 @@ public class Program
     }
 }
 ```
+
 UseUrls() настроил WebHost на прослушивание входящего URL-трафика. [Инструменты Docker для Visual Studio](http://aka.ms/DockerToolsForVS) настроят переменную среды в режиме dockerfile.debug/release следующим образом:
+
 ```
 # Configure the listening port to 80
 ENV ASPNETCORE_SERVER.URLS http://*:80
 ```
+
 ## Не работает сопоставление тома
 Чтобы работали функции редактирования и обновления, для совместного использования исходного кода проекта в папке .app в контейнере настроено сопоставление тома. Когда файлы изменяются на хост-компьютере, каталог контейнеров /app использует тот же каталог. В файле docker-compose.debug.yml сопоставление тома включается следующей конфигурацией:
+
 ```
     volumes:
       - ..:/app
 ```
+
 Чтобы проверить, работает ли сопоставление тома, попробуйте следующую команду:
 
 **В ОС Windows**
+
 ```
 docker run -it -v /c/Users/Public:/wormhole busybox
 cd wormhole
 / # ls
 ```
+
 Вы должны увидеть список каталогов из папки Users/Public. Если файлы не отображаются и папка /c/Users/Public не пустая, значит сопоставление тома настроено неправильно.
+
 ```
 bin       etc       proc      sys       usr       wormhole
 dev       home      root      tmp       var
 ```
+
 Измените каталог на wormhole, чтобы просмотреть содержимое каталога `/c/Users/Public`:
+
 ```
 / # cd wormhole/
 /wormhole # ls
@@ -72,6 +83,7 @@ Desktop          Host             NuGet.Config     a.txt
 Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
+
 **Примечание.** *При работе с виртуальными машинами Linux файловая система контейнера учитывает регистр.*
 
 Если не удается просмотреть содержимое, выполните следующие действия:
@@ -92,10 +104,10 @@ Documents        Libraries        Pictures         desktop.ini
 
 При использовании обозревателя Microsoft Edge сайт может не открываться из-за того, что Edge считает IP-адрес небезопасным. В этом случае выполните указанные ниже действия.
 1. В поле "Выполнить" операционной системы Windows введите `Internet Options`.
-2. Нажмите появившийся пункт **Свойства браузера**. 
+2. Выберите появившийся пункт **Свойства браузера**. 
 2. Откройте вкладку **Безопасность**.
 3. Выберите зону **Местная интрасеть**.
-4. Нажмите кнопку **Сайты**. 
+4. Выберите **Сайты**. 
 5. Добавьте IP-адрес виртуальной машины (в данном случае узел Docker) в список. 
 6. Обновите страницу в Edge — сайт заработает. 
 7. Дополнительные сведения об этой проблеме см. в записи [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Microsoft Edge не видит или не открывает локальные веб-сайты в VirtualBox) в блоге Скотта Хансельмана (Scott Hanselman). 
@@ -107,7 +119,8 @@ Documents        Libraries        Pictures         desktop.ini
 
 Возможно, при выполнении `docker-compose-up` возникла ошибка. Чтобы увидеть ошибку, выполните следующие действия:
 
-1. Откройте файл `Properties\launchSettings.json`. Найдите запись Docker.
+1. Откройте файл `Properties\launchSettings.json`.
+1. Найдите запись Docker.
 1. Найдите строку, которая начинается следующим образом:
 
     "commandLineArgs": "-ExecutionPolicy RemoteSigned …"
@@ -116,4 +129,4 @@ Documents        Libraries        Pictures         desktop.ini
 
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

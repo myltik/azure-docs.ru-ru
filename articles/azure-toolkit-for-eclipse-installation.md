@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
@@ -36,7 +36,7 @@
 
     ![Установка набора средств Azure для Eclipse][01]
 
-1. В диалоговом окне **Available Software** (Доступное программное обеспечение) в текстовом поле **Work with** (Работа с) введите **http://dl.microsoft.com/eclipse** и нажмите клавишу **ВВОД**.
+1. В диалоговом окне **Available Software** (Доступное программное обеспечение) в текстовом поле **Work with** (Работа с) введите ****http://dl.microsoft.com/eclipse** и нажмите клавишу **ВВОД**.
 
 1. В области **Name** (Имя) установите флажок **Azure Toolkit for Eclipse** (Набор средств Azure для Eclipse) и снимите флажок **Contact all update sites during install to find required software** (Проверить все сайты обновления во время установки для поиска требуемого ПО). Экран должен выглядеть следующим образом:
 
@@ -74,20 +74,28 @@
 
 ## См. также
 
-[Набор средств Azure для Eclipse]
+Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
 
-[Создание веб-приложения Hello World для Azure в Eclipse]
+- [Набор средств Azure для Eclipse]
+  - *Установка набора средств Azure для Eclipse (в этой статье)*
+  - [Создание веб-приложения Hello World для Azure в Eclipse]
+  - [Новые возможности набора средств Azure для Eclipse]
+- [Набор средств Azure для IntelliJ]
+  - [Установка набора средств Azure для IntelliJ]
+  - [Создание веб-приложения Hello World для Azure в IntelliJ]
 
-[Новые возможности набора средств Azure для Eclipse]
-
-Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure].
+Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
 
 <!-- URL List -->
 
 [Набор средств Azure для Eclipse]: ./azure-toolkit-for-eclipse.md
-[центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
+[Набор средств Azure для IntelliJ]: ./azure-toolkit-for-intellij.md
 [Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Установка набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [Новые возможности набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+
+[центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 
 <!-- IMG List -->
 
@@ -98,4 +106,4 @@
 [05]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-05.png
 [06]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="06/03/2016"
 	ms.author="v-shysun"/>
 
 # Перенос баз данных между серверами, между подписками, в службу Azure и из нее
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 ##Перенос базы данных на другой сервер в пределах одной подписки
 - На [портале Azure](https://portal.azure.com) щелкните пункт **Базы данных SQL**, выберите базу данных из списка и нажмите кнопку **Копировать**. Дополнительные сведения см. в статье [Копирование базы данных SQL Azure](sql-database-copy.md).
 
@@ -29,4 +31,4 @@
 ## Создание копии базы данных для использования за пределами Azure
 - [Экспортируйте файл BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

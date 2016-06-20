@@ -24,11 +24,13 @@
 
 Эта статья содержит сведения о различных выпусках и последних обновлениях набора средств Azure для Eclipse.
 
+> [AZURE.NOTE] Также имеется набор средств Azure для интегрированной среды разработки IntelliJ. Дополнительные сведения см. в разделе [Azure Toolkit for IntelliJ] (Набор средств Azure для IntelliJ).
+
 ### 12 апреля 2016 г.
 
 Набор средств Azure для Eclipse, выпущенный в апреле 2016 г., включает следующие улучшения:
 
-* **Поддержка пакета SDK Azure версии 2.9.0**. Последняя версия пакета SDK Azure теперь является минимальным необходимым условием для установки набора средств Azure для Eclipse.
+* **Поддержка пакета SDK Azure версии 2.9.0**. Последняя версия пакета SDK Azure теперь является минимальным необходимым условием для установки набора средств Azure для Eclipse.
 * **Различные улучшения удобства использования, быстродействия и производительности, связанные с поддержкой веб-приложений Azure**. Некоторая оптимизация взаимодействия набора средств с Azure привела к улучшению быстродействия пользовательского интерфейса.
 * **Возможность удалить существующий контейнер веб-приложения в Azure из Eclipse**. Набор средств Azure для Eclipse теперь позволяет удалить существующий веб-контейнер Azure, не выходя из Eclipse.
 
@@ -297,22 +299,32 @@
 
 ## См. также ##
 
-[Набор средств Azure для Eclipse]
+Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
 
-[Установка набора средств Azure для Eclipse]
-
-[Создание приложения Hello World для Azure в Eclipse]
+- [Набор средств Azure для Eclipse]
+  - [Установка набора средств Azure для Eclipse]
+  - [Создание веб-приложения Hello World для Azure в Eclipse]
+  - *Новые возможности набора средств Azure для Eclipse (в этой статье)*
+- [Набор средств Azure для IntelliJ]
+  - [Установка набора средств Azure для IntelliJ]
+  - [Создание веб-приложения Hello World для Azure в IntelliJ]
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
 
 <!-- URL List -->
 
+[Набор средств Azure для Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
+[набор средств Azure для IntelliJ]: ./azure-toolkit-for-intellij.md
+[Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Установка набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+
 [веб-странице Zulu OpenJDK на сайте Azul Systems]: http://go.microsoft.com/fwlink/?LinkId=402457
 [центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Конечные точки службы Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Список учетных записей хранения Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[набор средств Azure для IntelliJ]: https://plugins.jetbrains.com/plugin/8053
 [Свойства компонентов]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
 [Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Отладка приложения Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
@@ -343,4 +355,4 @@
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

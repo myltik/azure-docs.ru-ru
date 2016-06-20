@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="06/07/2016"
    ms.author="kyliel"/>
 
 # Создание и отправка виртуального жесткого диска FreeBSD в Azure
@@ -27,7 +27,7 @@
 ##Предварительные требования##
 В данной статье предполагается, что у вас есть следующие элементы:
 
-- **Подписка Azure ** — если у вас ее нет, то можно создать учетную запись, что займет всего лишь несколько минут. При наличии подписки MSDN см. статью [Преимущество Azure для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). В противном случае см. статью о том, как [создать бесплатную пробную учетную запись](https://azure.microsoft.com/pricing/free-trial/).  
+- **Подписка Azure ** — если у вас ее нет, то можно создать учетную запись, что займет всего лишь несколько минут. При наличии подписки MSDN см. статью [Преимущество Azure для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). В противном случае см. статью о том, как [создать бесплатную пробную учетную запись](https://azure.microsoft.com/pricing/free-trial/).  
 
 - **Средства Azure PowerShell.** У вас уже установлен модуль Microsoft Azure PowerShell, настроенный на использование вашей подписки. Информацию о скачивании модуля см. в разделе [Загрузки Azure](https://azure.microsoft.com/downloads/). Учебник по установке и настройке модуля вы найдете здесь. Для передачи VHD-файла вы будете использовать командлет из раздела [Загрузки Azure](https://azure.microsoft.com/downloads/).
 
@@ -68,39 +68,57 @@
 
 		# pkg install sudo
 
-5. Необходимые условия для агента Azure
+5. **Необходимые условия для агента Azure**
 
-    5\.1. **Установка python**
-
-		# pkg install python27
-		# ln -s /usr/local/bin/python2.7 /usr/bin/python
-
-    5\.2. **Установка wget**
-
-		# pkg install wget
+		# pkg install python27  
+		# pkg install Py27-setuptools27   
+		# ln -s /usr/local/bin/python2.7 /usr/bin/python   
+		# pkg install git 
 
 6. **Установка агента Azure**
 
-    Последний выпуск агента Azure всегда можно найти на сайте [github](https://github.com/Azure/WALinuxAgent/releases). В версии 2.0.10 и более поздних официально поддерживается FreeBSD 10 и последующих версий. Последняя версия агента Azure для FreeBSD — 2.0.16.
+    Последний выпуск агента Azure всегда можно найти на сайте [github](https://github.com/Azure/WALinuxAgent/releases). Версия 2.0.10 и более поздние версии официально поддерживают FreeBSD 10 и 10.1, а версия 2.1.4 официально поддерживает FreeBSD 10.2 и более поздние версии.
 
-		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
-		# mv waagent /usr/sbin
-		# chmod 755 /usr/sbin/waagent
-		# /usr/sbin/waagent -install
+		# git clone https://github.com/Azure/WALinuxAgent.git  
+		# cd WALinuxAgent  
+		# git tag  
+		…
+		WALinuxAgent-2.0.16
+		…
+		v2.1.4
+		v2.1.4.rc0
+		v2.1.4.rc1
+   
+    В качестве примера версии 2.0 будем использовать версию 2.0.16.
+    
+		# git checkout WALinuxAgent-2.0.16
+		# python setup.py install  
+		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
 
-    **Внимание**! После установки убедитесь, что компонент запущен.
+    А в качестве примера версии 2.1 воспользуемся версией 2.1.4.
+    
+		# git checkout v2.1.4
+		# python setup.py install  
+		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
+		# ln -sf /usr/local/sbin/waagent2.0 /usr/sbin/waagent2.0
+   
+    **Важно**. После установки следует дважды проверить версию и работоспособность.
 
+		# waagent -version
+		WALinuxAgent-2.1.4 running on freebsd 10.3
+		Python: 2.7.11
 		# service –e | grep waagent
 		/etc/rc.d/waagent
 		# cat /var/log/waagent.log
 
-    Теперь вы можете **завершить работу** виртуальной машины. Вы также можете выполнить шаг 7 до завершения работы, но это необязательно.
+7. **Отзыв**
 
-7. Отзыв не является обязательным. Он служит для очистки системы для повторной подготовки к работе.
+    Он служит для очистки системы для повторной подготовки к работе. Приведенная ниже команда также удаляет последнюю подготовленную учетную запись пользователя и связанные с ней данные.
 
-    Приведенная ниже команда также удаляет последнюю подготовленную учетную запись пользователя и связанные с ней данные.
-
-		# waagent –deprovision+user
+		# echo "y" |  /usr/local/sbin/waagent -deprovision+user  
+		# echo  'waagent_enable="YES"' >> /etc/rc.conf
+    
+    Теперь вы можете **завершить работу** виртуальной машины.
 
 ## Шаг 2. Создание учетной записи хранения в Azure ##
 
@@ -177,7 +195,7 @@
 
    Дополнительную информацию см. в разделе [Начало работы с командлетами Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)
 
-   Дополнительную информацию об установке и настройке PowerShell см. в статье [Как установить и настроить Microsoft Azure PowerShell](../install-configure-powershell.md).
+   Дополнительную информацию об установке и настройке PowerShell см. в статье [Как установить и настроить Microsoft Azure PowerShell](../powershell-install-configure.md).
 
 ## Шаг 4. Загрузка файла VHD ##
 
@@ -209,4 +227,4 @@
 
 	![образ FreeBSD в Azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

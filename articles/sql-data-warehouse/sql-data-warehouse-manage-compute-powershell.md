@@ -19,7 +19,7 @@
 # Управление вычислительными ресурсами в хранилище данных SQL Azure (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Обзор](sql-data-warehouse-overview-manage-compute.md)
+- [Обзор](sql-data-warehouse-manage-compute-overview.md)
 - [Портал](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -34,7 +34,7 @@
 - Приостановка работы вычислительных ресурсов
 - Возобновление работы вычислительных ресурсов
 
-Дополнительные сведения см. в [обзоре управления вычислительными ресурсами][].
+Дополнительные сведения см. в разделе [Manage compute power in Azure SQL Data Warehouse (Overview)][] (Обзор управления вычислительной мощностью в хранилище данных SQL Azure).
 
 
 ## Перед началом работы
@@ -124,7 +124,7 @@ $resultDatabase
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Средства управления]: ./sql-data-warehouse-overview-manage.md
-[Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
+
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -136,4 +136,4 @@ $resultDatabase
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

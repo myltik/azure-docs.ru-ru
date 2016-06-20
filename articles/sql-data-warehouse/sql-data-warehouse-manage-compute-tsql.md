@@ -19,7 +19,7 @@
 # Управление вычислительными ресурсами в хранилище данных SQL (T-SQL)
 
 > [AZURE.SELECTOR]
-- [Обзор](sql-data-warehouse-overview-manage-compute.md)
+- [Обзор](sql-data-warehouse-manage-compute-overview.md)
 - [Портал](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -35,7 +35,7 @@
 
 Чтобы приостановить или возобновить базу данных, выберите один из других параметров платформы в верхней части этой статьи.
 
-Дополнительные сведения см. в [обзоре управления вычислительными ресурсами][].
+Дополнительные сведения об этом см. в разделе [Manage compute power in Azure SQL Data Warehouse (Overview)][] (Обзор управления вычислительной мощностью в хранилище данных SQL Azure).
 
 <a name="current-dwu-bk"></a>
 
@@ -86,7 +86,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Средства управления]: ./sql-data-warehouse-overview-manage.md
-[обзоре управления вычислительными ресурсами]: ./sql-data-warehouse-overview-manage-compute-power.md
+[Manage compute power in Azure SQL Data Warehouse (Overview)]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -97,4 +97,4 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->
