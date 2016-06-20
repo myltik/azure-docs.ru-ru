@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="mausher;jrj;barbkess;sonyama"/>
+   ms.date="06/06/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Временные таблицы в хранилище данных SQL
 Временные таблицы очень удобны при обработке данных — особенно во время преобразования, где промежуточные результаты являются временными. В хранилище данных SQL временные таблицы существуют на уровне сеанса. Однако они все равно определяются как локальные временные таблицы, но в отличие от таблиц SQL Server к ним можно обращаться откуда угодно внутри сеанса.
@@ -248,10 +248,10 @@ DROP TABLE #stats_ddl;
 <!--Image references-->
 
 <!--Article references-->
-[Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
+[Общие сведения о разработке]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="06/04/2016" 
 	ms.author="heidist"/>
 
 # Использование профилей оценки в службе поиска Azure
@@ -47,7 +47,7 @@
 
 1. После извлечения файлов откройте решение в среде Visual Studio, чтобы изменить файл конфигурации.
 1. В обозревателе решений дважды щелкните файл **app.config**. Этот файл указывает конечную точку службы и `api-key`, используемый для проверки подлинности запроса. Эти значения можно получить на классическом портале.
-1. Перейдите на [классический портал Azure](https://portal.azure.com).
+1. Войдите на [портал Azure](https://portal.azure.com).
 1. Перейдите к панели мониторинга службы поиска Azure.
 1. Щелкните плитку **Свойства**, чтобы скопировать URL-адрес службы.
 1. Щелкните плитку **Ключи**, чтобы скопировать `api-key`.
@@ -126,4 +126,4 @@
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

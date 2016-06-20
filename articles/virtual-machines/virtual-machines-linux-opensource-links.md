@@ -68,8 +68,7 @@
 - [Практическое руководство. Установка и запуск MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
 
 ### CoreOS
-- [Практическое руководство. Использование CoreOS в Azure](virtual-machines-linux-classic-coreos-howto.md)
-- [Практическое руководство. Начало работы с Fleet и Docker на CoreOS в Azure](virtual-machines-linux-classic-coreos-fleet-get-started.md)
+- [Практическое руководство. Использование CoreOS в Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
 ## Планирование
@@ -127,7 +126,7 @@
 
 
 ## Общие ссылки
-Ниже представлены ссылки на блоги Microsoft, документы Technet и внешние веб-сайты, а не на статьи Azure, которые приведены выше. Так как и платформа Azure, и мир вычислений с открытым исходным кодом активно развиваются, можно с большой вероятностью утверждать, что эти ссылки устарели, *хотя* мы стараемся постоянно добавлять новые разделы и удалять неактуальные. Если мы что-то упустили, напишите об этом в комментариях или направьте запрос на получение в наш [репозиторий Github](https://github.com/Azure/azure-content/).
+Ниже представлены ссылки на блоги Microsoft, документы Technet и внешние веб-сайты, а не на статьи Azure, которые приведены выше. Так как и платформа Azure, и мир вычислений с открытым кодом активно развиваются, можно с большой вероятностью утверждать, что эти ссылки устарели, *хотя* мы стараемся постоянно добавлять новые разделы и удалять неактуальные. Если мы что-то упустили, напишите об этом в комментариях или направьте запрос на получение в наш [репозиторий Github](https://github.com/Azure/azure-content/).
 
 - [Запуск ASP.NET 5 в Linux с помощью контейнеров Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 - [Развертывание образа виртуальной машины CentOS из OpenLogic](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
@@ -193,4 +192,4 @@
 
 - [Подключаемый модуль Packer для Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

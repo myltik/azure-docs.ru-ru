@@ -15,12 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="06/07/2016"
 	ms.author="genemi"/>
 
 
 # Расширенные события в Базе данных SQL
 
+[AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 В этом разделе объясняется, чем расширенные события в Базе данных SQL Azure отличается от расширенных событий в Microsoft SQL Server.
 
@@ -36,6 +37,12 @@
 > [AZURE.NOTE] На октябрь 2015 года функция сеанса расширенных событий активирована в Базе данных SQL на уровне предварительной версии. Дата выхода общедоступной версии пока не установлена.
 >
 > Сообщения о выходе общедоступных версий публикуются на странице [Обновления служб](https://azure.microsoft.com/updates/?service=sql-database) Azure.
+
+
+Дополнительные сведения о расширенных событиях для базы данных SQL Azure и Microsoft SQL Server доступны в следующих разделах.
+
+- [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx) (Краткое руководство по расширенным событиям в SQL Server)
+- [Расширенные события](http://msdn.microsoft.com/library/bb630282.aspx)
 
 
 ## Предварительные требования
@@ -269,4 +276,4 @@ API [трассировки событий для Windows (ETW)](http://msdn.mic
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

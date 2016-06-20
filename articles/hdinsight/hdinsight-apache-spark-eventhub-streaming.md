@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="06/07/2016" 
 	ms.author="nitinme"/>
 
 
-# Потоковая передача Spark. Обработка событий из концентраторов событий Azure с помощью Apache Spark в HDInsight на платформе Linux (предварительная версия)
+# Потоковая передача Spark. Обработка событий из концентраторов событий Azure с помощью кластера Apache Spark в HDInsight на платформе Linux
 
 Потоковая передача Spark расширяет возможности основного API Spark по созданию масштабируемых, отказоустойчивых приложений для обработки потоковых данных с высокой пропускной способностью. Данные могут поступать из множества источников. В этой статье для приема данных используются концентраторы событий Azure. Концентраторы событий — это высокомасштабируемая система приема, которая может принимать миллионы событий в секунду
 
@@ -112,39 +112,46 @@
 
 	![Представление проекта](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
 	
-4. Откройте узел pom.xml, чтобы убедиться, что используется правильная версия Spark. В узле <properties> найдите фрагмент кода ниже и проверьте версию Spark.
+4. Откройте узел **pom.xml**, чтобы убедиться, что используется правильная версия Spark. В узле <properties> найдите фрагмент кода ниже и проверьте версию Spark.
 
 		<scala.version>2.10.4</scala.version>
     	<scala.compat.version>2.10.4</scala.compat.version>
     	<scala.binary.version>2.10</scala.binary.version>
-    	<spark.version>1.5.1</spark.version>
+    	<spark.version>1.6.1</spark.version>
 
 	Убедитесь, что для параметра **spark.version** указано значение **1.5.1**.
 
 5. Для приложения требуется два JAR-файла зависимостей:
 
-	* **JAR-файл для приема из концентратора событий**. Этот файл необходим для приема сообщений из концентратора событий в приложении Spark. Этот JAR-файл доступен в кластере Spark на платформе Linux в каталоге `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. Его можно скопировать на локальный компьютер с помощью приложения командной строки PSCP. (Примечание. Некоторые экземпляры хранят этот файл в каталоге `/usr/hdp/2.4.1.0-327/spark/lib`.)
+	* **JAR-файл для приема из концентратора событий**. Этот файл необходим для приема сообщений из концентратора событий в приложении Spark. Чтобы добавить этот JAR-файл, измените файл **pom.xml**, добавив следующий код под элементом `<repositories>..</repositories>`. Если элемент `<repositories>` не существует, создайте его на том же уровне, на котором расположен `<properties>`.
 
-			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
+			  <repository>
+			  	<id>spark-eventhubs</id>
+			  	<url>https://raw.github.com/hdinsight/spark-eventhubs/maven-repo/</url>
+			  	<snapshots>
+					<enabled>true</enabled>
+					<updatePolicy>always</updatePolicy>
+			  	</snapshots>
+			  </repository>
+			
 
-		В результате выполнения команды выше JAR-файл будет скопирован из кластера Spark на локальный компьютер.
+		Добавьте следующий код под `<dependencies>`.
 
-	* **JAR-файл драйвера JDBC**. Этот файл необходим для записи сообщений, полученных из концентратора событий, в базу данных SQL Azure. Этот JAR-файл версии 4.1 или более поздней можно скачать [здесь](https://msdn.microsoft.com/ru-RU/sqlserver/aa937724.aspx).
-	
+			<dependency>
+			  <groupId>com.microsoft.azure</groupId>
+			  <artifactId>spark-streaming-eventhubs_2.10</artifactId>
+			  <version>1.0.0</version>
+			</dependency> 
 
-		Добавьте ссылку на эти JAR-файлы в библиотеке проекта. Выполните следующие действия:
+	* **JAR-файл драйвера JDBC**. Этот файл необходим для записи сообщений, полученных из концентратора событий, в базу данных SQL Azure. Этот JAR-файл версии 4.1 или более поздней можно скачать [здесь](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Добавьте ссылку на этот JAR-файл в библиотеке проекта. Выполните следующие действия:
 
 		1. В окне IntelliJ IDEA, где открыто приложение, щелкните **File** («Файл»), выберите **Project Structure** («Структура проекта») и щелкните **Libraries** («Библиотеки»). 
+		
+		2. Щелкните значок "Добавить" (![добавление значка](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), выберите **Java** и перейдите в папку, куда вы скачали JAR-файл драйвера JDBC. Следуйте инструкциям, чтобы добавить JAR-файл в библиотеку проектов.
 
 			![добавление отсутствующих зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Добавление отсутствующих JAR-файлов зависимостей")
 
-			Щелкните значок «Добавить» (![добавление значка](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), выберите **Java** и перейдите в папку, куда вы скачали JAR-файл для приема из концентратора событий. Следуйте инструкциям, чтобы добавить JAR-файл в библиотеку проектов.
-
-		1. Повторите предыдущий шаг, чтобы добавить в библиотеку проекта JAR-файл драйвера JDBC.
-	
-			![добавление отсутствующих зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Добавление отсутствующих JAR-файлов зависимостей")
-
-		1. Нажмите кнопку **Применить**.
+		3. Нажмите кнопку **Применить**.
 
 6. Создайте выходной JAR-файл. Выполните следующие действия:
 	1. В диалоговом окне **Project Structure** («Структура проекта») выберите **Artifacts** («Артефакты») и щелкните знак плюса. Во всплывающем диалоговом окне щелкните **JAR**, а затем выберите **From modules with dependencies** («На основе модулей с зависимостями»).
@@ -167,11 +174,11 @@
 
 		Установите флажок **Build on make** («Сборка на основе созданного»), чтобы JAR-файл создавался при каждом создании и обновлении проекта. Нажмите кнопку **Применить**, а затем **ОК**.
 
-	1. На вкладке **макета выходных данных** под полем Available Elements («Доступные элементы») есть два JAR-файла зависимостей, ранее добавленные в библиотеку проекта. Их необходимо добавить на вкладку макета выходных данных. Щелкните каждый JAR-файл правой кнопкой мыши и выберите пункт **Extract Into Output Root** («Извлечь в корень выходных данных»).
+	1. На вкладке **Output Layout** (Макет выходных данных) под полем **Доступные элементы** отображается JAR-файл SQL JDBC, ранее добавленный в библиотеку проекта. Его необходимо добавить на вкладку **Output Layout** (Макет выходных данных). Щелкните JAR-файл правой кнопкой мыши и выберите пункт **Extract Into Output Root** (Извлечь в корень выходных данных).
 
 		![Извлечение JAR-файла зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/extract-dependency-jar.png)
 
-		Повторите этот шаг и для других JAR-файлов зависимостей. Вкладка **макета выходных данных** теперь должна выглядеть следующим образом:
+		Вкладка **макета выходных данных** теперь должна выглядеть следующим образом:
 
 		![Вкладка окончательных выходных данных](./media/hdinsight-apache-spark-eventhub-streaming/final-output-tab.png)
 
@@ -179,7 +186,7 @@
 
 	1. В строке меню щелкните **Build** («Сборка») и выберите **Make Project** («Создать проект»). Кроме того, можно щелкнуть **Build Artifacts** («Сборка артефактов»), чтобы создать JAR-файл. Выходной JAR-файл будет создан в разделе **\\out\\artifacts**.
 
-		![Создание JAR-файла](./media/hdinsight-apache-spark-create-standalone-application/output.png)
+		![Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/output.png)
 
 ## Удаленный запуск приложений с помощью Livy в кластере Spark
 
@@ -312,7 +319,7 @@
 
 	{ "file":"wasb:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureSQLTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--sql-server-fqdn", "<database-server-name>.database.windows.net", "--sql-database-name", "mysparkdatabase", "--database-username", "sparkdbadmin", "--database-password", "<put-password-here>", "--event-sql-table", "EventContent" ], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
-Чтобы убедиться, что приложение выполняется успешно, подключитесь к базе данных SQL Azure с помощью SQL Server Management Studio. Соответствующие инструкции см. в статье [Подключение к базе данных SQL с помощью SQL Server Management Studio](sql-database/sql-database-connect-query-ssms). После подключения к базе данных можно перейти в таблицу **EventContent**, созданную с помощью приложения потоковой передачи. Для получения данных из таблицы используется быстрый запрос. Выполните следующий запрос:
+Чтобы убедиться, что приложение выполняется успешно, подключитесь к базе данных SQL Azure с помощью SQL Server Management Studio. Соответствующие инструкции см. в статье [Подключение к базе данных SQL с помощью SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md). После подключения к базе данных можно перейти в таблицу **EventContent**, созданную с помощью приложения потоковой передачи. Для получения данных из таблицы используется быстрый запрос. Выполните следующий запрос:
 
 	SELECT * FROM EventCount
 
@@ -357,13 +364,21 @@
 
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely on HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA)
+
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
+* [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
 ### Управление ресурсами
 
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -376,4 +391,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

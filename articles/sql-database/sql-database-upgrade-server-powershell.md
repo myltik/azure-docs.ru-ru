@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"/>
 
 # Обновление базы данных SQL Azure до версии 12 с помощью PowerShell
@@ -47,7 +47,7 @@
 ## Подготовка к обновлению
 
 - **Обновление всех баз данных Web и Business**: см. раздел [Обновление всех баз данных Web и Business](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) ниже или воспользуйтесь [PowerShell для обновления баз данных и сервера](sql-database-upgrade-server-powershell.md).
-- **Обзор и приостановка георепликации**: если ваша база данных SQL настроена для георепликации, необходимо задокументировать ее текущую конфигурацию и [остановить георепликацию](sql-database-geo-replication-portal.md#remove-secondary-database). После завершения обновления потребуется перенастроить свою базу данных для георепликации.
+- **Обзор и приостановка георепликации**: если ваша база данных SQL настроена для георепликации, то необходимо задокументировать ее текущую конфигурацию и [остановить георепликацию](sql-database-geo-replication-portal.md#remove-secondary-database). После завершения обновления потребуется перенастроить базу данных для георепликации.
 - **Откройте следующие порты, если у вас есть клиенты на виртуальной машине Azure**: если клиентская программа подключается к базе данных SQL версии 12, а клиент работает на виртуальной машине Azure, необходимо открыть на ней диапазоны портов 11 000–11 999 и 14 000–14 999. Дополнительные сведения см. в разделе [Порты для базы данных SQL версии 12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
@@ -201,4 +201,4 @@
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание кластеров HDInsight Hadoop с хранилищем озера данных Azure с помощью портала | Azure"
-   description="Создание кластеров HDInsight Hadoop для работы с хранилищем озера данных Azure с помощью портала Azure"
+   pageTitle="Создание кластеров HDInsight с хранилищем озера данных Azure с помощью портала | Azure"
+   description="Создание кластеров HDInsight для работы с хранилищем озера данных Azure с помощью портала Azure"
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="06/03/2016"
    ms.author="nitinme"/>
 
 # Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure
@@ -23,15 +23,15 @@
 - [PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Узнайте, как с помощью портала Azure создать кластер HDInsight (Hadoop, HBase или Storm) с доступом к хранилищу озера данных Azure. Важные сведения, которые следует учитывать при работе с данным выпуском.
+Узнайте, как с помощью портала Azure создать кластер HDInsight (Hadoop, HBase, Spark или Storm) с доступом к хранилищу озера данных Azure. Важные сведения, которые следует учитывать при работе с данным выпуском.
 
-* **В кластерах Hadoop (Windows и Linux)** хранилище озера данных может использоваться только как дополнительная учетная запись хранения. Учетной записью хранения по умолчанию для таких кластеров по-прежнему будут BLOB-объекты хранилища Azure (WASB).
+* **В кластерах Spark (Linux) и Hadoop (Windows и Linux)** хранилище озера данных может использоваться только как дополнительная учетная запись хранения. Учетной записью хранения по умолчанию для таких кластеров по-прежнему будут BLOB-объекты хранилища Azure (WASB).
 
 * **В кластерах Storm (Windows и Linux)** хранилище озера данных может использоваться для записи данных из топологии Storm. Хранилище озера данных также может использоваться для хранения справочных данных, которые затем можно будет прочитать с помощью топологии Storm. Дополнительные сведения см. в разделе [Использование хранилища озера данных в топологии Storm](#use-data-lake-store-in-a-storm-topology).
 
 * **Для кластеров HBase (Windows и Linux)** хранилище озера данных можно использовать как хранилище по умолчанию или дополнительное хранилище. Дополнительные сведения см. в разделе [Использование хранилища озера данных с кластерами HBase](#use-data-lake-store-with-hbase-clusters).
 
-> [AZURE.NOTE] Создание кластеров HDInsight с доступом к хранилищу озера данных доступно только при использовании HDInsight версии 3.2 (как для Windows, так и для Linux).
+> [AZURE.NOTE] Создание кластеров HDInsight с доступом к хранилищу озера данных доступно только при использовании HDInsight версии 3.2 и 3.4 (для кластеров Hadoop, HBase и Storm, как для Windows, так и для Linux). Для кластеров Spark в ОС Linux этот параметр доступен только для кластеров HDInsight 3.4.
 
 
 ## Предварительные требования
@@ -258,4 +258,4 @@
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

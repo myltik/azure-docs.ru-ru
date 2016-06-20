@@ -336,7 +336,12 @@ sessionid | Идентификатор сеанса из сеанса автор
  
 
 ## Связанная служба SQL Azure
-
 Связанная служба SQL Azure создается и применяется к [действию хранимой процедуры](data-factory-stored-proc-activity.md) для вызова хранимой процедуры из конвейера фабрики данных. Дополнительную информацию об этой связанной службе см. в статье [Соединитель SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
-<!---HONumber=AcomDC_0601_2016-->
+## Связанная служба хранилища данных SQL Azure
+Связанная служба хранилища данных SQL Azure создается и применяется к [действию хранимой процедуры](data-factory-stored-proc-activity.md) для вызова хранимой процедуры из конвейера фабрики данных. Дополнительные сведения об этой связанной службе см. в статье [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#azure-sql-data-warehouse-linked-service-properties) (Соединитель хранилища данных SQL Azure).
+
+## Связанная служба SQL Server
+Связанная служба SQL Server создается и применяется к [действию хранимой процедуры](data-factory-stored-proc-activity.md) для вызова хранимой процедуры из конвейера фабрики данных. Дополнительные сведения об этой связанной службе см. в статье [SQL Server connector](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) (Соединитель SQL Server).
+
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="06/01/2016"
    ms.author="barbkess;sonyama"/>
 
 # Управление вычислительными ресурсами в хранилище данных SQL Azure (обзор)
 
 > [AZURE.SELECTOR]
-- [Обзор](sql-data-warehouse-overview-manage-compute.md)
+- [Обзор](sql-data-warehouse-manage-compute-overview.md)
 - [Портал](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -128,19 +128,20 @@ DWU распределяются в блоки по 100 единиц, но не 
 
 <!--Article references-->
 
-[Масштабирование вычислительных ресурсов с помощью портала Azure]: ./sql-data-warehouse-manage-compute-tasks-portal.md#task-1-scale-performance
-[Масштабирование вычислительных ресурсов с помощью PowerShell]: ./sql-data-warehouse-manage-compute-tasks-powershell.md#task-1-scale-performance
-[Масштабирование вычислительных ресурсов с помощью REST API]: ./sql-data-warehouse-manage-compute-tasks-rest-api.md#task-1-scale-performance
-[Масштабирование вычислительных ресурсов с помощью TSQL]: ./sql-data-warehouse-manage-compute-tasks-tsql.md
+[Масштабирование вычислительных ресурсов с помощью портала Azure]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-bk
+[Масштабирование вычислительных ресурсов с помощью PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
+[Масштабирование вычислительных ресурсов с помощью REST API]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
+[Масштабирование вычислительных ресурсов с помощью TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
 
 [ограничениях емкости]: ./sql-data-warehouse-service-capacity-limits.md
 
-[Приостановка работы вычислительных ресурсов с помощью портала Azure]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-2-pause-compute
-[Приостановка работы вычислительных ресурсов с помощью PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-2-pause-compute
-[Приостановка работы вычислительных ресурсов с помощью API REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-2-pause-compute
-[Возобновление работы вычислительных ресурсов с помощью портала Azure]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-3-resume-compute
-[Возобновление работы вычислительных ресурсов с помощью PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
-[Возобновление работы вычислительных ресурсов с помощью API REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
+[Приостановка работы вычислительных ресурсов с помощью портала Azure]: ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk
+[Приостановка работы вычислительных ресурсов с помощью PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
+[Приостановка работы вычислительных ресурсов с помощью API REST]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
+
+[Возобновление работы вычислительных ресурсов с помощью портала Azure]: ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
+[Возобновление работы вычислительных ресурсов с помощью PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
+[Возобновление работы вычислительных ресурсов с помощью API REST]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
 
 [модель параллелизма;]: sql-data-warehouse-develop-concurrency.md
 [создание таблиц;]: sql-data-warehouse-develop-table-design.md
@@ -157,4 +158,4 @@ DWU распределяются в блоки по 100 единиц, но не 
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

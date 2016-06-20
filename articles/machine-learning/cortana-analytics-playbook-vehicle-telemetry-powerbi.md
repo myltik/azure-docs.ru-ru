@@ -302,13 +302,16 @@
 
 Примечание. Чтобы завершить выполнение и обработать данные за год, конвейеру пакетной обработки потребуется около 2 часов (после выполнения развертывания). Подождите, прежде чем переходить к последующим шагам.
 
-**Загрузка файла конструктора PowerBI**. • Подготовленный файл конструктора PowerBI включен в развертывание. • Щелкните узел PowerBI в представлении диаграммы и перейдите по ссылке «Загрузить файл конструктора PowerBI» на панели свойств. ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+**Скачайте файл конструктора PowerBI**.
+-	Предварительно настроенный файл конструктора PowerBI входит в состав развертывания.
+-	Щелкните узел PowerBI в представлении схемы и в области свойств щелкните ссылку "Download the PowerBI designer" (Скачать файл конструктора PowerBI).![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
 
-• Сохраните файл на локальном компьютере.
+-	Сохраните файл на локальном компьютере.
 
-**Настройка отчетов PowerBI**. • Откройте файл конструктора VehicleTelemetryAnalytics - Desktop Report.pbix с помощью PowerBI Desktop. Установите PowerBI Desktop (если вы еще не сделали это) с помощью [установщика PowerBI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+**Настройка отчетов PowerBI**
+-	Откройте файл конструктора VehicleTelemetryAnalytics - Desktop Report.pbix с помощью PowerBI Desktop. Установите PowerBI Desktop (если вы еще не сделали это) с помощью [установщика PowerBI Desktop](http://www.microsoft.com/download/details.aspx?id=45331). 
 
-• Щелкните **Изменить запросы**.
+-	Щелкните **Изменить запросы**.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/10-edit-powerbi-query.png)
 
@@ -364,12 +367,12 @@
 ![Подключенные автомобили PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard2.png)
  
 
-**На странице 3** закрепите следующее:
+**На странице 3** закрепите следующее.
 1.	Количество VIN. ![Подключенные автомобили PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png) 
 
 2.	Агрессивно управляемые автомобили по моделям — каскадная диаграмма. ![Телеметрия автомобиля — закрепление диаграмм 4](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
 
-**На странице 5** закрепите следующее:
+**На странице 5** закрепите следующее.
 1.	Количество номеров шасси. ![Телеметрия автомобиля — закрепление диаграмм 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)  
 2.	Автомобили с экономным расходом топлива по моделям: гистограмма с группировкой. ![Телеметрия автомобиля — закрепление диаграмм 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
 
@@ -393,4 +396,4 @@
 
 Поздравляем! Вы создали отчеты и панель мониторинга для сбора данных о состоянии автомобилей и манере вождения (в том числе прогнозные данные и данные пакетной обработки) в режиме реального времени.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="06/01/2016"
    ms.author="terrylan"/>
 
 # Центр безопасности Azure: часто задаваемые вопросы
@@ -113,8 +113,6 @@ Microsoft Security Response Center (MSRC) проводит выборочный 
 ### Какие типы виртуальных машин будут поддерживаться?
 Поддерживаются виртуальные машины, созданные с помощью [модели развертывания Resource Manager и классической модели развертывания](../azure-classic-rm.md), включая виртуальные машины, входящие в кластеры Azure Service Fabric.
 
-Рекомендации в разделе "Контроль доступа" сейчас касаются только виртуальных машин, созданных с помощью классической модели развертывания. Группы безопасности сети в настоящее время работают только с виртуальными машинами, созданными с помощью диспетчера ресурсов.
-
 Поддерживаемые виртуальные машины Windows:
 
 - Windows Server 2008 R2
@@ -124,9 +122,9 @@ Microsoft Security Response Center (MSRC) проводит выборочный 
 Поддерживаемые виртуальные машины Linux:
 
 - Ubuntu версии 12.04, 14.04, 15.10, 16.04.
-- Debian версии 7.0, 8.0.
-- CentOS версии 6.0, 7.0.
-- Red Hat Enterprise Linux (RHEL) версии 6, 7.
-- SUSE Linux Enterprise Server (SLES) версии 11, 12.
+- Debian версии 7, 8.
+- CentOS версии 6.*, 7.*.
+- Red Hat Enterprise Linux (RHEL) версии 6.*, 7.*.
+- SUSE Linux Enterprise Server (SLES) версии 11.*, 12.*.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Предварительная версия Azure Active B2C: вход в веб-приложения с помощью OpenID Connect
@@ -342,4 +342,4 @@ image goes here
 
 -->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

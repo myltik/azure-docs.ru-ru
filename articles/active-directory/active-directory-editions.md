@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/07/2016"
 	ms.author="markvi"/>
 
 # Выпуски Azure Active Directory
@@ -454,6 +454,20 @@ Azure Active Directory — это служба, которая предоста
 | | | ![Проверка][12]| |
 
 
+#### Enterprise State Roaming.
+
+**Тип:** присоединение к Azure Active Directory — только функции Windows 10.
+
+
+**Доступность.**
+
+| Free Edition| Basic Edition| Premium Edition| Только приложения Office 365 |
+| :-: | :-: | :-: | :-: |
+| | | ![Проверка][12]| |
+
+**Дополнительные сведения:**
+
+- [Enterprise State Roaming.](active-directory-windows-enterprise-state-roaming-overview.md)
 
 
 ## Функции предварительной версии Azure AD
@@ -465,7 +479,6 @@ Azure Active Directory — это служба, которая предоста
 - [административные единицы;](active-directory-administrative-units-management.md)
 - управление привилегированными пользователями;
 - [интеграция приложений по управлению персоналом.](active-directory-saas-workday-inbound-tutorial.md)
-- [Enterprise State Roaming.](active-directory-windows-enterprise-state-roaming-overview.md)
 - [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
 
 
@@ -482,4 +495,4 @@ Azure Active Directory — это служба, которая предоста
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

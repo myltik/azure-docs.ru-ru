@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="06/03/2016"
+   ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Перенос кода SQL в хранилище данных SQL
 
@@ -80,7 +80,7 @@
 
 Рекурсивные CTE в хранилище данных SQL не поддерживаются. Перенос рекурсивных CTE может быть частично завершен, и оптимальным решением станет разделение этой процедуры на несколько этапов. Обычно используется цикл для заполнения временной таблицы по мере выполнения рекурсивных промежуточных запросов. После заполнения временной таблицы можно возвратить данные как единый результирующий набор. Похожий подход использовался для решения `GROUP BY WITH CUBE` в статье [Группировка по параметрам в хранилище данных SQL][].
 
-### Системные функции
+## Системные функции
 
 Ряд системных функций также не поддерживаются. Ниже приводится список некоторых системных функций, которые могут быть полезны в хранилище данных.
 
@@ -103,34 +103,35 @@ AND     request_id IN
                     (   SELECT TOP 1    request_id
                         FROM            sys.dm_pdw_exec_requests
                         WHERE           session_id = SESSION_ID()
+                        AND             resource_class IS NOT NULL
                         ORDER BY end_time DESC
                     )
 ;
 ```
 
 ## Дальнейшие действия
-Рекомендации по разработке кода см. в разделе [Общие сведения о разработке][].
+Полный список всех поддерживаемых инструкций T-SQL приведен в [разделах о Transact-SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[соединение ANSI join при обновлении]: sql-data-warehouse-develop-ctas.md
-[соединение ANSI join при удалении]: sql-data-warehouse-develop-ctas.md
-[инструкция merge]: sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: sql-data-warehouse-develop-temporary-tables.md
+[соединение ANSI join при обновлении]: ./sql-data-warehouse-develop-ctas.md
+[соединение ANSI join при удалении]: ./sql-data-warehouse-develop-ctas.md
+[инструкция merge]: ./sql-data-warehouse-develop-ctas.md
+[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[разделах о Transact-SQL]: ./sql-data-warehouse-reference-tsql-statements.md
 
-[курсоры]: sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: sql-data-warehouse-develop-ctas.md
-[Группировка по параметрам в хранилище данных SQL]: sql-data-warehouse-develop-group-by-options.md
-[предложение группирования group by с операторами rollup, cube или grouping]: sql-data-warehouse-develop-group-by-options.md
-[уровни вложения больше 8]: sql-data-warehouse-develop-transactions.md
-[обновление через представления]: sql-data-warehouse-develop-views.md
-[использование инструкции select для назначения переменных]: sql-data-warehouse-develop-variable-assignment.md
-[отсутствует тип данных MAX для динамических строк SQL]: sql-data-warehouse-develop-dynamic-sql.md
-[Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
+[курсоры]: ./sql-data-warehouse-develop-loops.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[Группировка по параметрам в хранилище данных SQL]: ./sql-data-warehouse-develop-group-by-options.md
+[предложение группирования group by с операторами rollup, cube или grouping]: ./sql-data-warehouse-develop-group-by-options.md
+[уровни вложения больше 8]: ./sql-data-warehouse-develop-transactions.md
+[обновление через представления]: ./sql-data-warehouse-develop-views.md
+[использование инструкции select для назначения переменных]: ./sql-data-warehouse-develop-variable-assignment.md
+[отсутствует тип данных MAX для динамических строк SQL]: ./sql-data-warehouse-develop-dynamic-sql.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

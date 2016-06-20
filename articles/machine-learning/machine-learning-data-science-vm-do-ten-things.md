@@ -198,7 +198,7 @@
 
 DSVM позволяет не только создавать аналитическое решение локально на виртуальной машине, но и предоставляет доступ к службам в облаке Azure корпорации Майкрософт. Azure предоставляет несколько вычислительных служб, служб хранения данных и служб аналитики данных, а также ряд других служб, которые можно администрировать и к которым можно обращаться с DSVM.
 
-Для администрирования подписки и облачных ресурсов Azure можно воспользоваться браузером и перейти на [портал Azure](portal.azure.com). Кроме того, Azure PowerShell позволяет осуществлять администрирование подписки и ресурсов Azure с помощью сценариев. Azure PowerShell можно запустить с помощью ярлыка на рабочем столе или выбрать в меню "Пуск" компонент "Microsoft Azure PowerShell". Дополнительные сведения об администрировании подписки и ресурсов Azure с помощью сценариев Windows PowerShell см. в [документации к Microsoft Azure PowerShell](../powershell-azure-resource-manager.md).
+Для администрирования подписки и облачных ресурсов Azure можно воспользоваться браузером и перейти на [портал Azure](https://portal.azure.com). Кроме того, Azure PowerShell позволяет осуществлять администрирование подписки и ресурсов Azure с помощью сценариев. Azure PowerShell можно запустить с помощью ярлыка на рабочем столе или выбрать в меню "Пуск" компонент "Microsoft Azure PowerShell". Дополнительные сведения об администрировании подписки и ресурсов Azure с помощью сценариев Windows PowerShell см. в [документации к Microsoft Azure PowerShell](../powershell-azure-resource-manager.md).
 
 
 ## 5\. Увеличение объема хранилища за счет общей файловой системы
@@ -268,7 +268,7 @@ DSVM уже поставляется с набором клиентских ср
 
 **Предварительные требования**
 
-- **Создайте учетную запись хранения BLOB-объектов Azure на [портале Azure](http://portal.azure.com).**
+- **Создайте учетную запись хранения BLOB-объектов Azure на [портале Azure](https://portal.azure.com).**
 
 ![Create\_Azure\_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -287,7 +287,7 @@ DSVM уже поставляется с набором клиентских ср
 
 	AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
-Замените **C:\\myfolder** путем к расположению, где хранится файл, **mystorageaccount** — именем учетной записи хранилища BLOB-объектов, **mycontainer** — именем контейнера, а значение в поле **Ключ учетной записи хранения** замените ключом доступа к хранилищу BLOB-объектов. Ваши учетные данные учетной записи хранения находятся на [портале Azure](http://portal.azure.com).
+Замените **C:\\myfolder** путем к расположению, где хранится файл, **mystorageaccount** — именем учетной записи хранилища BLOB-объектов, **mycontainer** — именем контейнера, а значение в поле **Ключ учетной записи хранения** замените ключом доступа к хранилищу BLOB-объектов. Ваши учетные данные учетной записи хранения находятся на [портале Azure](https://portal.azure.com).
 
 ![StorageAccountCredential\_v2](./media/machine-learning-data-science-vm-do-ten-things/StorageAccountCredential_v2.png)
 
@@ -318,7 +318,7 @@ DSVM уже поставляется с набором клиентских ср
 
 **Чтение данных из BLOB-объекта Azure: модуль чтения AML**
 
-Для чтения данных из большого двоичного объекта в студии машинного обучения можно использовать **модуль чтения**.
+Для чтения данных из большого двоичного объекта в Студии машинного обучения можно использовать модуль **Импорт данных**.
 
 
 ![AML\_ReaderBlob\_Module\_v3](./media/machine-learning-data-science-vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
@@ -379,7 +379,7 @@ DSVM уже поставляется с набором клиентских ср
 
 **Предварительные требования**
 
-- Создайте аналитику озера данных Azure на [портале Azure](http://portal.azure.com).
+- Создайте аналитику озера данных Azure на [портале Azure](https://portal.azure.com).
 
 ![Azure\_Data\_Lake\_Create\_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
@@ -474,7 +474,7 @@ Azure HDInsight является управляемой службой Apache Ha
 
 **Предварительные требования**
 
-- Создайте учетную запись хранения BLOB-объектов Azure на [портале Azure](http://portal.azure.com). Она используется для хранения данных кластеров HDInsight.
+- Создайте учетную запись хранения BLOB-объектов Azure на [портале Azure](https://portal.azure.com). Она используется для хранения данных кластеров HDInsight.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -910,4 +910,4 @@ Azure DocumentDB — это база данных NoSQL в облаке. Она
 ## Сводка
 Это только часть задач, которые можно выполнить на виртуальной машине Майкрософт для обработки и анализа данных. На самом деле существует множество вещей, позволяющих сделать ее эффективной аналитической средой.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

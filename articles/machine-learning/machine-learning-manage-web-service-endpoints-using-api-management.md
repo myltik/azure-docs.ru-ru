@@ -162,15 +162,15 @@ This is a good day | 1 1 2 2 0 0 2 1
 
 ![simple-feature-hashing-experiment](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-Разверните списки **Преобразование данных** и **Работа с данными** и перетащите элемент **Столбцы проекта** в свой эксперимент. Соедините элемент **Обзоры книг на Amazon** с элементом **Столбцы проекта**.
+Разверните списки **Преобразование данных** и **Manipulation** (Работа с данными) и перетащите элемент **Выбор столбцов в наборе данных** в свой эксперимент. Соедините элемент **Обзоры книг на Amazon** с элементом **Выбор столбцов в наборе данных**.
 
-![project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
+![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
 
-Последовательно щелкните **Столбцы проекта**, **Запустить селектор столбцов**, а затем выберите **Col2**. Чтобы изменения вступили в силу, щелкните значок флажка.
+Последовательно щелкните **Выбор столбцов в наборе данных**, **Запустить средство выбора столбцов**, а затем выберите **Col2**. Чтобы изменения вступили в силу, щелкните значок флажка.
 
 ![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png)
 
-Разверните список **Аналитика текста** и перетащите элемент **Хеширование признаков** в свой эксперимент. Соедините элемент **Столбцы проекта** с элементом **Хеширование признаков**.
+Разверните список **Аналитика текста** и перетащите элемент **Хеширование признаков** в свой эксперимент. Соедините элемент **Выбор столбцов в наборе данных** с элементом **Хэширование признаков**.
 
 ![connect-project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
@@ -384,4 +384,4 @@ This is a good day | 1 1 2 2 0 0 2 1
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

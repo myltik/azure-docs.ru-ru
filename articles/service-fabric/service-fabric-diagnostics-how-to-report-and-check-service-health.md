@@ -3,8 +3,8 @@
    description="Узнайте, как отправлять отчеты о работоспособности из кода службы и проверять работоспособность службы с использованием средств наблюдения Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="punewa"
-   manager="timlt"
+   authors="toddabel"
+   manager="mfussell"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/18/2016"
+   ms.date="06/07/2016"
    ms.author="toddabel"/>
 
 # Проверка работоспособности службы и оповещение о проблемах
@@ -30,7 +30,7 @@
 ## Предварительные требования
 Должны быть установлены следующие компоненты:
 
-   * Visual Studio 2015
+   * Visual Studio 2015
    * Пакет SDK для Service Fabric
 
 ## Создание безопасного локального кластера для разработки
@@ -86,7 +86,7 @@
     ```
     Мы сообщаем о работоспособности реплики, так как сообщение приходит от службы с отслеживанием состояния. Параметр `HealthInformation` содержит сведения о сообщенной в отчете проблеме с работоспособностью.
 
-    Для службы без отслеживания состояния используйте следующий код:
+    Если была создана служба без отслеживания состояния, используйте следующий код.
 
     ```csharp
     if (!result.HasValue)
@@ -156,4 +156,4 @@ activationContext.ReportApplicationHealth(healthInformation);
 ## Дальнейшие действия
 [Подробный обзор работоспособности в Service Fabric](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

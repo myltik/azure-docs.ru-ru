@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Подключение диска данных к виртуальной машине Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов. См. статью о том, как [присоединить диск данных, используя модель развертывания с помощью Resource Manager](virtual-machines-linux-add-disk.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов. Кроме того, вы можете [подключить диск данных, используя модель развертывания с помощью Resource Manager](virtual-machines-linux-add-disk.md).
 
 К виртуальным машинам Azure можно присоединять пустые диски и диски с данными. В обоих случаях диски — это VHD-файлы, которые размещаются в учетной записи хранения Azure. Как и при добавлении диска к машине Linux, после присоединения диск нужно инициализировать и отформатировать, чтобы подготовить его к использованию. В этой статье подробно описывается присоединение пустых дисков и дисков с данными к виртуальным машинам, а также рассматривается, как затем инициализировать и отформатировать новый диск.
 
@@ -160,15 +160,17 @@
 
 >[AZURE.NOTE] Последующее удаление диска данных без редактирования fstab может привести к тому, что виртуальная машина не загрузится. Если это происходит часто, то большинство дистрибутивов предоставляют варианты `nofail` и/или `nobootwait` fstab, которые позволяют системе загружаться, даже если диск не подключится во время загрузки. Дополнительные сведения об этих параметрах можно найти в документации по вашему дистрибутиву.
 
-## Дополнительные ресурсы
-[Вход в виртуальную машину под управлением ОС Linux][Logon]
+## Дальнейшие действия
+Узнать больше об использовании виртуальной машины Linux можно в следующих статьях.
 
-[Отсоединение диска от виртуальной машины Linux](virtual-machines-linux-classic-detach-disk.md)
+- [Вход в виртуальную машину под управлением ОС Linux][Logon]
 
-[Управление службами Azure с помощью интерфейса командной строки Azure](../virtual-machines-command-line-tools.md)
+- [Отсоединение диска от виртуальной машины Linux](virtual-machines-linux-classic-detach-disk.md)
+
+- [Команды Azure CLI в режиме управления службами Azure (ASM)](../virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

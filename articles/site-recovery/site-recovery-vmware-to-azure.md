@@ -154,7 +154,7 @@ Site Recovery на портале Azure обеспечивает множест�
 ## Создание хранилища служб восстановления
 
 1. Войдите на [портал Azure](https://portal.azure.com).
-2. Последовательно выберите пункты **Создать** > **Гибридная интеграция** > **Службы восстановления**. Кроме того, можно щелкнуть **Обзор** > **Хранилища служб восстановления** > **Добавить**.
+2. Щелкните **Создать** > **Управление** > **Backup and Site Recovery** (Служба архивации и Site Recovery (OMS)). В качестве альтернативы можно щелкнуть **Обзор** > **Хранилище служб восстановления** > **Добавить**.
 
 	![Новое хранилище](./media/site-recovery-vmware-to-azure/new-vault3.png)
 
@@ -533,8 +533,7 @@ Site Recovery предоставляет планировщик ресурсов
 Исходная операционная система | Файл установки службы Mobility Service
 --- | ---
 Windows Server (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
-SUSE Linux Enterprise Server 11 SP3 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (только 64-разрядная версия) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -832,4 +831,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

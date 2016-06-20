@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/19/2016"
+   ms.date="05/31/2016"
    ms.author="mbaldwin"/>
 
 
@@ -97,4 +97,4 @@
 > 
 > Приложите логотип приложения (PNG-файл, 150 x 122 пикселя, сплошной цвет фона):
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

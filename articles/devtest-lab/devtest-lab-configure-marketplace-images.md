@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Настройка параметров образа Azure Marketplace в лаборатории
@@ -26,13 +26,13 @@
 
 1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Выберите **Обзор**, а затем в списке выберите **Лаборатории для разработки и тестирования**.
+1. Щелкните **Обзор**, а затем из списка выберите **DevTest Labs**.
 
-1. В списке лабораторий найдите нужную лабораторию.
+1. Из списка лабораторий выберите нужную лабораторию.
 
 1. Появится колонка **Параметры** для выбранной лаборатории.
 
-1. В колонке **Параметры** выберите **Образы Marketplace**
+1. В колонке **Параметры** лаборатории выберите **Marketplace images** (Образы Marketplace).
 
 	![Настройка способов использования образов Azure Marketplace](./media/devtest-lab-configure-marketplace-images/lab-settings-marketplace-images.png)
 
@@ -54,4 +54,4 @@
 
 После настройки разрешения образов Azure Marketplace при создании виртуальной машины необходимо [добавить виртуальную машину в лабораторию](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

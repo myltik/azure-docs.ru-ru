@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -23,6 +23,8 @@
 В набор средств Azure для Eclipse входят шаблоны и функциональные возможности для простого создания, разработки, тестирования и развертывания приложений Azure с помощью среды разработки Eclipse. Это проект с открытым кодом, исходный код которого доступен по лицензии MIT на сайте проекта:
 
 * <https://github.com/microsoft/azure-tools-for-java>
+
+> [AZURE.NOTE] Также имеется набор средств Azure для интегрированной среды разработки IntelliJ. Дополнительные сведения см. в разделе [Azure Toolkit for IntelliJ] \(Набор средств Azure для IntelliJ).
 
 ## Приступая к работе с набором средств Azure для Eclipse
 
@@ -54,25 +56,41 @@
 
 ## См. также
 
+Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
+
+- *Набор средств Azure для Eclipse (в этой статье)*
+  - [Установка набора средств Azure для Eclipse]
+  - [Создание веб-приложения Hello World для Azure в Eclipse]
+  - [Новые возможности набора средств Azure для Eclipse]
+- [Набор средств Azure для IntelliJ]
+  - [Установка набора средств Azure для IntelliJ]
+  - [Создание веб-приложения Hello World для Azure в IntelliJ]
+
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
 
 <!-- URL List -->
 
+[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
+[Набор средств Azure для IntelliJ]: ./azure-toolkit-for-intellij.md
+[Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Установка набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Установка набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Новые возможности набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
+
 [Свойства проекта Azure]: ./azure-toolkit-for-eclipse-azure-project-properties.md
 [Свойства роли Azure]: ./azure-toolkit-for-eclipse-azure-role-properties.md
 [Конечные точки службы Azure]: ./azure-toolkit-for-eclipse-azure-service-endpoints.md
 [Список учетных записей хранения Azure]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
 [Создание облачной службы Hello World для Azure в Eclipse]: ./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
-[Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Отладка приложений Azure в Eclipse]: ./azure-toolkit-for-eclipse-debugging-azure-applications.md
 [Развертывание крупных систем]: ./azure-toolkit-for-eclipse-deploying-large-deployments.md
 [Отображение в Eclipse содержимого Javadoc для пакета библиотек Azure для Java]: ./azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
 [Включение удаленного доступа для развертываний Azure в Eclipse]: ./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
-[Установка набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Включение сходства сеанса]: ./azure-toolkit-for-eclipse-enable-session-affinity.md
-[Новые возможности набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 
 <!-- [How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539 -->
 <!-- [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542 -->
@@ -82,4 +100,4 @@
 <!-- [SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549 -->
 <!-- [Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551 -->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->
