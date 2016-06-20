@@ -123,7 +123,9 @@
 
 1. Щелкните **Обзор** и выберите **Кластеры Service Fabric**.
 
-2. Найдите нужный кластер и щелкните его. ![Снимок экрана: поиск кластера на портале.][BrowseCluster]
+2. Найдите нужный кластер и щелкните его.
+
+	![Снимок экрана: поиск кластера на портале.][BrowseCluster]
 
 3. На панели мониторинга отобразятся подробные сведения о кластере, включая его общедоступный IP-адрес. Если навести указатель мыши на элемент **Cluster Public IP Address** (Общедоступный IP-адрес кластера), отобразится буфер обмена, в который можно скопировать IP-адрес. ![Снимок экрана: сведения о кластере на панели мониторинга.][ClusterDashboard]
 
@@ -137,7 +139,8 @@
 
 ### Подключение к незащищенному кластеру
 
-```powershell
+```
+powershell
 Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
 ```
 
@@ -176,7 +179,8 @@ Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAlive
 
 1. Скопируйте пакет в кластер, к которому вы подключились ранее.
 
-    ```powershell
+    ```
+    powershell
     $applicationPath = "C:\VS2015\WordCount\WordCount\pkg\Debug"
     ```
 
@@ -185,13 +189,15 @@ Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAlive
     ```
 2. Зарегистрируйте свой тип приложения в Service Fabric.
 
-    ```powershell
+    ```
+    powershell
     Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
     ```
 
 3. Создайте новый экземпляр только что зарегистрированного типа приложения.
 
-    ```powershell
+    ```
+    powershell
     New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
     ```
 

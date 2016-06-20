@@ -158,7 +158,7 @@
 
 ### <a name="ingest"></a>Прием данных: чтение из общедоступного большого двоичного объекта
 
-Данные большого двоичного объекта Azure расположены по адресу ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, и их можно извлечь, используя **Extractors.Csv()**. В следующих сценариях подставьте имена своих контейнера и учетной записи хранения для container_name@blob_storage_account_name в адресе wasb. Так как у имен файлов одинаковый формат, чтобы выполнить чтение всех 12 файлов поездок, можно использовать **trip\_data\_{*}.csv**.
+Данные большого двоичного объекта Azure расположены по адресу **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, и их можно извлечь, используя **Extractors.Csv()**. В следующих сценариях подставьте имена своих контейнера и учетной записи хранения для container_name@blob_storage_account_name в адресе wasb. Так как у имен файлов одинаковый формат, чтобы выполнить чтение всех 12 файлов поездок, можно использовать **trip\_data\_{*}.csv**.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-В первой строке есть заголовки, поэтому их необходимо удалить и изменить типы столбцов на соответствующие. Обработанные данные можно сохранить в хранилище озера данных Azure по пути ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ или в учетной записи хранения BLOB-объектов Azure по пути ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+В первой строке есть заголовки, поэтому их необходимо удалить и изменить типы столбцов на соответствующие. Обработанные данные можно сохранить в хранилище озера данных Azure по пути **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ или в учетной записи хранения BLOB-объектов Azure по пути **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 	// change data types
 	@trip =
@@ -658,7 +658,7 @@
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-Вставьте следующие сценарии Hive, чтобы создать таблицу. Источник данных в хранилище озера данных Azure расположен по такому адресу: ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+Вставьте следующие сценарии Hive, чтобы создать таблицу. Источник данных в хранилище озера данных Azure расположен по такому адресу: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(

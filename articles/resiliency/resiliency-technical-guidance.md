@@ -54,7 +54,7 @@
 ###[Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)
 В этой статье описываются возможности высокого уровня доступности при использовании инфраструктуры как услуги (IaaS) для размещения служб базы данных. Здесь описываются такие функциональные возможности, как группы доступности AlwaysOn, зеркальное отображение базы данных, доставка журналов, а также резервное копирование и восстановление. Обратите внимание, что в этом же разделе имеется несколько руководств по использованию приведенных методик.
 
-###[Best Practices for Designing Large-Scale Services on Windows Azure (Рекомендации по разработке крупномасштабных служб на базе Microsoft Azure)](https://azure.microsoft.com//blog/best-practices-for-designing-large-scale-services-on-windows-azure/)
+###[Best Practices for Designing Large-Scale Services on Microsoft Azure (Рекомендации по разработке крупномасштабных служб на базе Microsoft Azure)](https://azure.microsoft.com//blog/best-practices-for-designing-large-scale-services-on-windows-azure/)
 Эта статья посвящена разработке высокомасштабируемых облачных архитектур. Многие из методик повышения масштабируемости позволяют повысить также и доступность. Кроме того, если при повышении нагрузи масштабирование вашего приложения не выполняется, вопрос масштабируемости превращается в проблему доступности.
 
 ###[Резервное копирование и восстановление SQL Server в виртуальных машинах Azure](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md)

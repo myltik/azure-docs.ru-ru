@@ -387,7 +387,7 @@ XUF99EW9OIQOMV7Q7 | Семейный седан
 
 Щелкните [здесь](http://go.microsoft.com/fwlink/?LinkId=717078), чтобы скачать решение Visual Studio RealtimeDashboardApp для настройки.
 
-****Чтобы запустить приложение панели мониторинга в реальном времени:**
+**Чтобы запустить приложение панели мониторинга в реальном времени:**
 
 1.	Щелкните узел PowerBI в представлении схемы и на панели свойств перейдите по ссылке "Скачать приложение панели мониторинга в реальном времени". ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Рис. 17. Указания по настройке панели мониторинга Power BI*
 2.	Извлеките его и сохраните локально. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Рис. 18. Папка RealtimeDashboardApp*

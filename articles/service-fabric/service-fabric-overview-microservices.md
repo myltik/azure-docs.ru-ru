@@ -143,7 +143,7 @@ Service Fabric предусматривает два масштабных реш
 
 * Дополнительная информация
 	* [Общие сведения о Service Fabric](service-fabric-overview.md)
-    * [Микрослужбы: революция в области приложений на основе облака](https://azure.microsoft.com/ru-RU/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [Микрослужбы: революция в области приложений на основе облака](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

@@ -497,7 +497,12 @@
 
 | Имена доменов | порты; | Описание |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | Прослушивание ретранслятора служебной шины через TCP (порт 443 требуется для получения маркера Access Control) | | *.servicebus.windows.net | 9350–9354, 5671 | Дополнительное прослушивание ретранслятора служебной шины через TCP | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 443, 80 | Прослушивание ретранслятора служебной шины через TCP (порт 443 требуется для получения маркера Access Control) | 
+| *.servicebus.windows.net | 9350–9354, 5671 | Дополнительное прослушивание ретранслятора служебной шины через TCP | 
+| *.core.windows.net | 443 | HTTPS | 
+| *.clouddatahub.net | 443 | HTTPS | 
+| graph.windows.net | 443 | HTTPS | 
+| login.windows.net | 443 | HTTPS | 
 
 Эти исходящие порты, как правило, включены на уровне брандмауэра Windows. В противном случае домены и порты можно соответствующим образом настроить на компьютере шлюза.
 

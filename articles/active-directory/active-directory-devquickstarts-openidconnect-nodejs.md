@@ -286,12 +286,12 @@ app.get('/logout', function(req, res){
 
 ```JavaScript
 
-// Simple route middleware to ensure user is authenticated. (Section 4)
+// Простое ПО промежуточного слоя для маршрутизации, позволяющее пользователю пройти проверку подлинности. (Раздел 4)
 
-//   Use this route middleware on any resource that needs to be protected.  If
-//   the request is authenticated (typically via a persistent login session),
-//   the request will proceed.  Otherwise, the user will be redirected to the
-//   login page.
+//   Используйте это ПО промежуточного слоя маршрутизации для всех ресурсов, которые необходимо защитить.  Если
+//   запрос пройдет проверку подлинности (обычно с помощью постоянного сеанса входа),
+//   запрос будет продолжен. В противном случае, пользователь будет перенаправлен на
+//   страницу входа.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')

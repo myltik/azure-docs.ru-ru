@@ -34,7 +34,7 @@
 - Приостановка работы вычислительных ресурсов
 - Возобновление работы вычислительных ресурсов
 
-Дополнительные сведения см. в разделе [Manage compute power in Azure SQL Data Warehouse (Overview)][] (Обзор управления вычислительной мощностью в хранилище данных SQL Azure).
+Дополнительные сведения см. в разделе [Manage compute power in Azure SQL Data Warehouse (Overview)][] \(Обзор управления вычислительной мощностью в хранилище данных SQL Azure).
 
 <a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 

@@ -133,7 +133,7 @@
 - В брандмауэре Windows или другом локальном брандмауэре есть правило для исходящего трафика, блокирующее трафик удаленных рабочих столов.
 - Программное обеспечение для обнаружения атак и мониторинга сети на виртуальной машине Azure блокирует подключения к удаленным рабочим столам.
 
-Для виртуальных машин, созданных по классической модели развертывания, можно использовать удаленный сеанс Azure PowerShell на виртуальной машине Azure. Сначала потребуется установить сертификат для облачной службы, в которой размещена виртуальная машина. Откройте страницу [Configure Secure Remote PowerShell Access to Windows Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) (Настройка защищенного удаленного доступа PowerShell к виртуальным машинам Azure) и скачайте файл сценария **InstallWinRMCertAzureVM.ps1** на локальный компьютер.
+Для виртуальных машин, созданных по классической модели развертывания, можно использовать удаленный сеанс Azure PowerShell на виртуальной машине Azure. Сначала потребуется установить сертификат для облачной службы, в которой размещена виртуальная машина. Откройте страницу [Configure Secure Remote PowerShell Access to Microsoft Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) (Настройка защищенного удаленного доступа PowerShell к виртуальным машинам Azure) и скачайте файл сценария **InstallWinRMCertAzureVM.ps1** на локальный компьютер.
 
 Затем установите Azure PowerShell, если еще не сделали этого. См. статью [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
