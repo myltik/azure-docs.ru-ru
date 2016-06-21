@@ -4,7 +4,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="резервные копии; резервное копирование;"/>
 
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Подготовка среды для резервного копирования виртуальных машин Azure
 
 > [AZURE.SELECTOR]
-- [Подготовка к архивации виртуальных машин ARM](backup-azure-arm-vms-prepare.md)
-- [Подготовка к архивации виртуальных машин Azure](backup-azure-vms-prepare.md)
+- [Модель Resource Manager](backup-azure-arm-vms-prepare.md)
+- [Классическая модель](backup-azure-vms-prepare.md)
 
 Прежде чем можно будет выполнять резервное копирование виртуальной машины Azure, необходимо обеспечить выполнение трех условий:
 
@@ -133,11 +133,11 @@
      ```
     Откроется окно Internet Explorer.
 3. Последовательно выберите "Сервис -> Свойства обозревателя -> Подключения -> Настройка сети".
-4. Проверьте параметры прокси-сервера для системной учетной записи. Задайте IP-адрес прокси-сервера и порт. 
+4. Проверьте параметры прокси-сервера для системной учетной записи. Задайте IP-адрес прокси-сервера и порт.
 5. Закройте Internet Explorer.
 
 В результате для компьютера будет настроен прокси-сервер, который будет использоваться для любого исходящего трафика HTTP или HTTPS.
-   
+
 Если вы настроили прокси-сервер из текущей учетной записи пользователя, а не учетной записи Local System, используйте следующий сценарий для применения к SYSTEMACCOUNT:
 
 ```
@@ -151,7 +151,7 @@
 
 >[AZURE.NOTE] Если в журнале прокси-сервера отобразится сообщение "407 — Требуется проверка подлинности прокси", проверьте правильность настройки проверки подлинности.
 
-######Для компьютеров Linux 
+######Для компьютеров Linux
 
 Добавьте следующую строку в файл ```/etc/environment```:
 
@@ -160,7 +160,7 @@ http_proxy=http://<proxy IP>:<proxy port>
 ```
 
 Добавьте следующие строки в файл ```/etc/waagent.conf```:
-   
+
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
@@ -238,4 +238,4 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 - [Планирование инфраструктуры резервного копирования виртуальных машин в Azure](backup-azure-vms-introduction.md)
 - [Управление резервными копиями виртуальной машины](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

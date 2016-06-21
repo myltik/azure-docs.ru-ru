@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="06/02/2016"
 	ms.author="robb"/>
 
 
@@ -56,6 +56,7 @@
 - [Настройка диагностики Azure в приложении облачных служб](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
 Более подробные сведения см. в статьях:
+
 - [Использование диагностики Azure с Application Insights для облачных служб](./application-insights/app-insights-cloudservices.md)
 - [Трассировка потока в приложении облачных служб с помощью системы диагностики Azure](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 - [Использование PowerShell для настройки диагностики в облачных службах](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
@@ -66,6 +67,7 @@
 - [Настройка диагностики Azure на виртуальной машине Azure](./virtual-machines-dotnet-diagnostics.md)
 
 Более подробные сведения см. в статьях:
+
 - [Использование PowerShell для настройки диагностики на виртуальных машинах Azure](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
 - [Создание виртуальной машины Windows с мониторингом и диагностикой с использованием шаблона диспетчера ресурсов Azure](./virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
@@ -79,4 +81,4 @@
 - Узнайте, как [направлять данные диагностики Azure в Application Insights](./azure-diagnostics-configure-applicationinsights.md).
 - Если возникнут проблемы с запуском диагностики или поиском данных в таблицах хранилища Azure, см. статью [Устранение неполадок системы диагностики Azure](./azure-diagnostics-troubleshooting.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

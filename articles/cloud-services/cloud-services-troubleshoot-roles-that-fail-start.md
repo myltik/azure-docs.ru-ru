@@ -13,18 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="05/26/2016"
+   ms.date="06/03/2016"
    ms.author="v-six" />
 
 # Устранение неполадок, если роли облачной службы не запускаются
 
 Ниже приведены некоторые распространенные проблемы и решения на случай, если роли облачной службы Azure не запускаются.
 
-## Обращение в службу поддержки клиентов Azure
-
-Если в любой момент при изучении этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](https://azure.microsoft.com/support/forums/).
-
-Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [веб-сайт поддержки Azure](http://azure.microsoft.com/support/options/) и щелкните **Получить поддержку**. Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](http://azure.microsoft.com/support/faq/).
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Отсутствующие DLL-библиотеки и зависимости
 
@@ -123,13 +119,13 @@
 
 ## Диагностика неполадок с помощью IntelliTrace
 
-Для рабочих ролей и веб-ролей, которые используют платформу .NET Framework 4, можно использовать функцию [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), доступную в [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs).
+Для рабочих ролей и веб-ролей, которые используют платформу .NET Framework 4, можно использовать функцию [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), доступную в [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs).
 
 Чтобы развернуть службу с активной функцией IntelliTrace, выполните следующие действия.
 
 1. Убедитесь, что установлен пакет SDK для Azure версии 1.3 или более поздней.
 
-2. Разверните решение с помощью Visual Studio. Во время развертывания установите флажок **Включить IntelliTrace для ролей .NET 4**.
+2. Разверните решение с помощью Visual Studio. Во время развертывания установите флажок **Включить IntelliTrace для ролей .NET 4**.
 
 3. После запуска экземпляра откройте **обозреватель сервера**.
 
@@ -159,12 +155,12 @@
 
 5. Повторно разверните облачную службу.
 
-Убедившись, что все ошибки исправлены, вы можете развернуть службу, не устанавливая флажок **Включить IntelliTrace для ролей .NET 4**.
+Убедившись, что все ошибки исправлены, вы можете развернуть службу, не устанавливая флажок **Включить IntelliTrace для ролей .NET 4**.
 
 ## Дальнейшие действия
 
-Просмотрите дополнительные [статьи об устранении неполадок](..\?tag=top-support-issue&service=cloud-services) в облачных службах.
+Просмотрите дополнительные [статьи об устранении неполадок](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) в облачных службах.
 
 Чтобы узнать, как устранять неполадки ролей облачной службы с помощью диагностических данных компьютеров Azure PaaS, см. [серию статей в блоге Кевина Уильямсона](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

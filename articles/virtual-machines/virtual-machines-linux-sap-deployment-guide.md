@@ -276,7 +276,7 @@
 [virtual-machines-azure-resource-manager-architecture]: virtual-machines-azure-resource-manager-architecture.md
 [virtual-machines-windows-tutorial]: virtual-machines-windows-hero-tutorial.md
 [virtual-networks-create-vnet-arm-pportal]: virtual-networks-create-vnet-arm-pportal.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-create-powershell.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-ps-create.md
 [virtual-machines-linux-tutorial]: virtual-machines-linux-quick-create-cli.md
 
 [msdn-set-azurermvmaemextension]: https://msdn.microsoft.com/library/azure/mt670598.aspx
@@ -442,7 +442,7 @@ ___
 После завершения работы мастера виртуальная машина будет развернута в выбранной группе ресурсов.
 
 #### Создание виртуальной машины с помощью шаблона
-Развертывание можно также создать с помощью одного из шаблонов SAP, опубликованных в [каталоге azure-quickstart-templates на сайте GitHub][azure-quickstart-templates-github]. Кроме того, можно создать виртуальную машину вручную с помощью [портала][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] или [интерфейса командной строки Azure][virtual-machines-linux-tutorial].
+Развертывание можно также создать с помощью одного из шаблонов SAP, опубликованных в [каталоге azure-quickstart-templates на сайте GitHub][azure-quickstart-templates-github]. Кроме того, можно создать виртуальную машину вручную с помощью [портала][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] или [Azure CLI][virtual-machines-linux-tutorial].
 
 * [Шаблон двухуровневой конфигурации (только одна виртуальная машина)][sap-templates-2-tier-marketplace-image]. Этот шаблон используется, если нужно создать двухуровневую систему с использованием только одной виртуальной машины.
 * [Шаблон трехуровневой конфигурации (несколько виртуальных машин)][sap-templates-3-tier-marketplace-image]. Этот шаблон используется, если нужно создать трехуровневую систему с использованием нескольких виртуальных машин.
@@ -779,7 +779,7 @@ sudo service waagent restart
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Интерфейс командной строки Azure для виртуальных машин Linux
 Выполните шаги, указанные в [этой статье][install-extension-cli], чтобы установить расширение для расширенного мониторинга Azure для SAP на виртуальной машине Linux с ноутбука или настольного компьютера с ОС Linux.
 
- [comment]: <> (MSSedusch TODO check if link is still valid)
+ [comment]: <> (пользователь MSSedusch, TODO: проверить, работает ли ссылка).
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Проверки и устранение неполадок при комплексной настройке мониторинга для SAP в Azure
 Развернув виртуальную машину Azure и настроив соответствующую инфраструктуру мониторинга Azure, проверьте, работают ли все компоненты расширенного мониторинга Azure должным образом.
@@ -794,7 +794,7 @@ sudo service waagent restart
 
 * Откройте командную строку Windows и перейдите в папку установки расширения мониторинга Azure для SAP: C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\`<version`>\\drop.
 
-Часть версии в приведенном выше пути к расширению мониторинга может отличаться. Если в папке установки отображается несколько папок версий расширения мониторинга, проверьте конфигурацию службы Windows AzureEnhancedMonitoring и перейдите в папку, указанную в поле "Путь к исполняемому объекту".
+Часть версии в приведенном выше пути к расширению мониторинга может отличаться. Если в папке установки отображается несколько папок версий расширения мониторинга, проверьте конфигурацию службы Microsoft AzureEnhancedMonitoring и перейдите в папку, указанную в поле "Путь к исполняемому объекту".
  
 ![Свойства службы, в которой выполняется расширение для расширенного мониторинга Azure для SAP][deployment-guide-figure-1000]
 
@@ -883,7 +883,7 @@ Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <vir
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Инфраструктура мониторинга Azure для SAP: дальнейшее устранение неполадок
 
 #### ![Windows][Logo_Windows] Счетчики производительности Azure не отображаются
-Сбор показателей производительности в Azure выполняет служба Windows AzureEnhancedMonitoring. Если служба установлена неправильно или не запущена на виртуальной машине, сбор метрик производительности невозможен.
+Сбор показателей производительности в Azure выполняет служба Microsoft AzureEnhancedMonitoring. Если служба установлена неправильно или не запущена на виртуальной машине, сбор метрик производительности невозможен.
 
 ##### Каталог установки расширения для расширенного мониторинга Azure пустой 
 
@@ -896,7 +896,7 @@ Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <vir
 ##### Служба для расширенного мониторинга Azure не существует 
 
 ###### Проблема
-Служба Windows AzureEnhancedMonitoring не существует. В результате выполнения azperlib.exe отображается ошибка, как показано на [рисунке ниже][deployment-guide-figure-14].
+Служба Microsoft AzureEnhancedMonitoring не существует. В результате выполнения azperlib.exe отображается ошибка, как показано на [рисунке ниже][deployment-guide-figure-14].
  
 ![Выполнение файла azperflib.exe, в результате которого указано, что служба расширения для расширенного мониторинга Azure для SAP не запущена][deployment-guide-figure-1400] <a name="figure-14"></a>
 
@@ -908,13 +908,13 @@ Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <vir
 ##### Служба для расширенного мониторинга Azure существует, но не запускается 
 
 ###### Проблема
-Служба Windows AzureEnhancedMonitoring существует и включена, но не запускается. Дополнительные сведения см. в журнале событий приложений.
+Служба Microsoft AzureEnhancedMonitoring существует и включена, но не запускается. Дополнительные сведения см. в журнале событий приложений.
 
 ###### Решение
 Недопустимая конфигурация. Включите расширение мониторинга Azure для SAP повторно, как описано в разделе [Расширенный мониторинг Azure для SAP: настройка расширения][deployment-guide-4.5].
 
 #### ![Windows][Logo_Windows] Отсутствуют некоторые счетчики производительности Azure
-Сбор показателей производительности в Azure выполняет служба Windows AzureEnhancedMonitoring, которая получает данные из нескольких источников. Некоторые данные конфигурации собираются локально, метрики производительности считываются из системы диагностики Azure, а счетчики хранилища используются из журналов на уровне подписки в хранилище.
+Сбор показателей производительности в Azure выполняет служба Microsoft AzureEnhancedMonitoring, которая получает данные из нескольких источников. Некоторые данные конфигурации собираются локально, метрики производительности считываются из системы диагностики Azure, а счетчики хранилища используются из журналов на уровне подписки в хранилище.
 
 Если после устранения неполадок с использованием примечания SAP [1999351] проблемы не исчезли, повторно запустите сценарий конфигурации Set-AzureRmVMAEMExtension. Необходимо подождать час, так как счетчики аналитики или диагностики хранилищ не могут быть созданы сразу после включения. Если проблема не исчезла, откройте сообщение о поддержке клиентов SAP в компоненте BC-OP-NT-AZR.
 
@@ -938,4 +938,4 @@ Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <vir
 
 Если при устранении неполадок с использованием примечания SAP [1999351] проблема не исчезла, повторно запустите сценарий конфигурации Set-AzureRmVMAEMExtension, как описано в разделе [Расширенный мониторинг Azure для SAP: настройка расширения][deployment-guide-4.5]. Необходимо подождать час, так как счетчики аналитики или диагностики хранилищ не могут быть созданы сразу после включения. Если проблема не исчезла, откройте сообщение о поддержке клиентов SAP в компоненте BC-OP-NT-AZR для виртуальной машины Windows или BC-OP-LNX-AZR для виртуальной машины Linux.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

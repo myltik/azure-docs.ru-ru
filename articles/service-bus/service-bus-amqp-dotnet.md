@@ -171,7 +171,7 @@ API-интерфейсы .NET предоставляют несколько па
 - [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]
 - [Протокол AMQP служебной шины для Windows Server]
 
-  [Как использовать очереди служебной шины]: service-bus-dotnet-how-to-use-queues.md
+  [Как использовать очереди служебной шины]: service-bus-dotnet-get-started-with-queues.md
   [DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession;]: https://msdn.microsoft.com/library/azure/jj657638.aspx
@@ -203,4 +203,4 @@ API-интерфейсы .NET предоставляют несколько па
 [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

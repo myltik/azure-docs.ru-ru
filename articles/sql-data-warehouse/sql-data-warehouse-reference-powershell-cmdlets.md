@@ -18,7 +18,7 @@
 
 # Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL
 
-Многими задачами по администрированию хранилища данных SQL можно управлять с помощью командлетов Azure PowerShell или интерфейсов API REST. Ниже представлены некоторые примеры использования команд PowerShell для автоматизации обычных задач в хранилище данных SQL. Хорошие примеры использования REST приведены в статье [Задачи управления масштабируемостью для хранилища данных SQL Azure (REST)][].
+Многими задачами по администрированию хранилища данных SQL можно управлять с помощью командлетов Azure PowerShell или интерфейсов API REST. Ниже представлены некоторые примеры использования команд PowerShell для автоматизации обычных задач в хранилище данных SQL. Хорошие примеры использования REST приведены в разделе [Управление вычислительными ресурсами в хранилище данных SQL Azure (REST)][].
 
 > [AZURE.NOTE]  Чтобы использовать Azure Powershell с хранилищем данных SQL, установите Azure PowerShell 1.0.3 или выше. Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с [установщика веб-платформы Майкрософт][]. Дополнительные сведения об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][].
 
@@ -84,22 +84,20 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 Дополнительные примеры PowerShell см. в указанных далее документах.
 
 - [Создание хранилища данных SQL с помощью Powershell][]
-- [Restore from snapshot (Восстановление из моментального снимка)][]
-- [Geo-restore from snapshot (Геовосстановление из моментального снимка)][]
+- [Восстановление базы данных][]
 
-Список всех задач, которые можно автоматизировать с помощью PowerShell, см. в статье [Командлеты базы данных SQL Azure][]. Список задач, которые можно автоматизировать с помощью REST, см. в статье [Операции для баз данных SQL Azure][].
+Список всех задач, которые можно автоматизировать с помощью PowerShell, см. в разделе [Azure SQL Database Cmdlets][] \(Командлеты базы данных SQL Azure). Список задач, которые можно автоматизировать с помощью REST, см. в статье [Операции для баз данных SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Установка и настройка Azure PowerShell]: ./powershell-install-configure.md
 [Создание хранилища данных SQL с помощью Powershell]: ./sql-data-warehouse-get-started-provision-powershell.md
-[Restore from snapshot (Восстановление из моментального снимка)]: ./sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Geo-restore from snapshot (Геовосстановление из моментального снимка)]: ./sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
-[Задачи управления масштабируемостью для хранилища данных SQL Azure (REST)]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md
+[Восстановление базы данных]: ./sql-data-warehouse-manage-database-restore-powershell.md
+[Управление вычислительными ресурсами в хранилище данных SQL Azure (REST)]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
-[Командлеты базы данных SQL Azure]: https://msdn.microsoft.com/library/mt574084.aspx
+[Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
 [Операции для баз данных SQL Azure]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
 [Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
@@ -116,4 +114,4 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 <!--Other Web references-->
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

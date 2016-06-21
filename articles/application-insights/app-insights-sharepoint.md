@@ -18,8 +18,6 @@
 # Мониторинг сайта SharePoint с помощью Application Insights
 
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
 Visual Studio Application Insights позволяет отслеживать доступность, производительность и использование приложений. В этой статье вы узнаете, как настроить эту службу для сайта SharePoint.
 
 
@@ -175,4 +173,4 @@ function onRequestFail(sender, args) {
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

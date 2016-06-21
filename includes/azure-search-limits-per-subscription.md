@@ -1,22 +1,20 @@
-You can create multiple services within a subscription, each one provisioned at a specific tier, limited only by the number of services allowed at each tier within a single Azure subscription. Maximum services per tier are noted below. As indicated, you could create up to 12 services at the Basic tier and another 12 services at the S1 tier within the same subscription. 
+В подписке можно создать несколько служб, подготовив их на определенном уровне. При этом ограничивается только число служб, допустимое на каждом из уровней в рамках одной подписки Azure. Максимальное число служб на уровне указано ниже. Согласно приведенным данным, можно создать до 12 служб на уровне "Базовый" и еще 12 на уровне S1 в пределах одной подписки.
 
-Other tiers are one per subscription. You can contact Azure Support if you need more than one S2, S3, or S3 HD per subscription.
+Другие уровни позволяют использовать в подписке только одну службу. Если требуется использовать несколько уровней S2, S3 или S3 HD в подписке, вы можете обратиться в службу поддержки Azure.
 
-Resource|Free|Basic|S1|S2|S3 <sup>1</sup> <br/>(Preview) |S3 HD <sup>1</sup> <br/>(Preview) 
+Ресурс|Бесплатно|базовая;|S1|S2|S3 <sup>1</sup> <br/>(предварительная версия) |S3 HD <sup>1</sup> <br/>(предварительная версия) 
 ---|---|---|---|----|---|----
-Maximum services |1 |12 |12  |1 |1 |1 
-Maximum scale in SU <sup>2</sup>|N/A <sup>3</sup>|3 SU <sup>4</sup> |36 SU|36 SU|36 SU|12 SU <sup>5</sup>
+Максимальное число служб |1 |12 |12 |1 |1 |1 
+Максимальный масштаб в единицах поиска <sup>2</sup>|Недоступно <sup>3</sup>|3 ЕП <sup>4</sup> |36 ЕП|36 ЕП|36 ЕП|12 ЕП <sup>5</sup>
 
-<sup>1</sup> **Preview** tiers are billed at an introductory rate of 50% off the full price. Prior to general availability (GA) tiers are introduced as a Preview feature. During Preview, there is no service level agreement (SLA). See [Choose a SKU or tier for Azure Search](../articles/search/search-sku-tier.md) for more information about tiers.
+<sup>1</sup> Уровни на этапе **предварительной версии** доступны по льготной цене в размере 50 % от полной цены. До выпуска общедоступных версий предлагаются предварительные версии уровней. На этапе предварительной версии соглашение об уровне обслуживания не действует. Дополнительные сведения см. в разделе [Выбор SKU или уровня для службы поиска Azure](../articles/search/search-sku-tier.md).
 
-<sup>2</sup> **Search units (SU)** are billable units per service, allocated as either a **replica** or a **partition**. You need both resource types for storage, indexing, and query operations. See [Scale resource levels for query and index workloads](../articles/search/search-capacity-planning.md) for valid combinations that stay under the maximum limits. 
+<sup>2</sup> **Единицы поиска (ЕП)** — это оплачиваемые единицы, выделяемые каждой службе в виде **реплик** или **секций**. Оба этих типа ресурсов необходимы для хранения данных, индексирования и операций запроса. В разделе [Планирование емкости в поиске Azure](../articles/search/search-capacity-planning.md) описаны допустимые сочетания, которые не превышают максимальные ограничения.
 
-<sup>3</sup> **Free** is based on shared resources used by multiple subscribers. At this tier, there are no dedicated resources for an individual subscriber. For this reason, scalability is not supported.
+<sup>3</sup> Уровень **Бесплатный** основан на общих ресурсах, используемых несколькими подписчиками. На этом уровне ресурсы не выделяются для отдельного подписчика. По этой причине масштабируемость не поддерживается.
 
-<sup>4</sup> **Basic** has one fixed partition. SUs are used to allocate replicas for scaling query workloads.
+<sup>4</sup> Уровень **Базовый** предоставляет одну фиксированную секцию. Единицы поиска используются для выделения реплик, обеспечивающих масштабирование рабочих нагрузок запросов.
 
-<sup>5</sup> **S3 HD** is based on the same hardware as S3, but in a configuration that's optimized for a large number of smaller indexes. It has 1 very large partition instead of 12 smaller partitions, and it has a maximum of 12 replicas, similar to S3.
+<sup>5</sup> Уровень **S3 HD** основан на том же оборудовании, что и S3, но с конфигурацией, которая оптимизирована для большого числа небольших индексов. В нем есть 1 очень большая секция, а не 12 секций меньшего размера, и он может содержать до 12 реплик, как и уровень S3.
 
-
-
-
+<!---HONumber=AcomDC_0608_2016-->

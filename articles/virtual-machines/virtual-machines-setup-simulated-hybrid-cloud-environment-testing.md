@@ -211,6 +211,6 @@
 
 ## Дальнейшие действия
 
-- [Добавьте новую виртуальную машину](virtual-machines-windows-create-powershell.md) в подсеть TestVNET, например виртуальную машину Microsoft SQL Server.
+- [Добавьте новую виртуальную машину](virtual-machines-windows-ps-create.md) в подсеть TestVNET, например виртуальную машину Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

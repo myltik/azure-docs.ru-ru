@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # Создание веб-приложения Hello World для Azure в IntelliJ
@@ -96,49 +96,49 @@
 
   1. Введите **метку DNS** для вашего контейнера веб-приложения. Она образует метку листа DNS для URL-адреса узла веб-приложения в Azure. Примечание. Имя должно быть доступным и соответствовать требованиям к именованию веб-приложений Azure.
 
-  1. В раскрывающемся меню **Веб-контейнер** выберите соответствующее программное обеспечение для вашего приложения.
+  1. В раскрывающемся меню **Web Container** (Веб-контейнер) выберите соответствующее программное обеспечение для вашего приложения.
 
         Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
 
-  1. В раскрывающемся меню **Подписка** выберите подписку, которую хотите использовать для этого развертывания.
+  1. В раскрывающемся меню **Subscription** (Подписка) выберите подписку, которую хотите использовать для этого развертывания.
 
-  1. В раскрывающемся меню **Группа ресурсов** выберите группу ресурсов, с которой хотите связать свое веб-приложение.
+  1. В раскрывающемся меню **Resource Group** (Группа ресурсов) выберите группу ресурсов, с которой хотите связать свое веб-приложение.
 
         Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
 
         You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
-      * Нажмите кнопку **Создать**.
+      * Нажмите кнопку **New...** (Создать...).
 
-      * Откроется диалоговое окно **Новая группа ресурсов**:
+      * Откроется диалоговое окно **New Resource Group** (Новая группа ресурсов):
 
             ![][12]
 
-      * В текстовом поле **Имя** укажите имя для новой группы ресурсов.
+      * В текстовом поле **Name** (Имя) укажите имя для новой группы ресурсов.
 
-      * В раскрывающемся меню **Регион** выберите расположение центра обработки данных Azure для группы ресурсов.
+      * В раскрывающемся меню **Region** (Регион) выберите расположение центра обработки данных Azure для группы ресурсов.
 
       * Нажмите кнопку **ОК**.
 
-  1. В раскрывающемся меню **План службы приложений** перечислены планы службы приложений, связанные с выбранной группой ресурсов.
+  1. В раскрывающемся меню **App Service Plan** (План службы приложений) перечислены планы службы приложений, связанные с выбранной группой ресурсов.
 
         Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
 
         You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
-      * Нажмите кнопку **Создать**.
+      * Нажмите кнопку **New...** (Создать...).
 
-      * Откроется диалоговое окно **Новый план службы приложений**:
+      * Откроется диалоговое окно **New App Service Plan** (Новый план службы приложений):
 
             ![][13]
 
-      * В текстовом поле **Имя** укажите имя для нового плана службы приложений.
+      * В текстовом поле **Name** (Имя) укажите имя для нового плана службы приложений.
 
-      * В раскрывающемся меню **Расположение** выберите расположение центра обработки данных Azure для плана.
+      * В раскрывающемся меню **Location** (Расположение) выберите расположение центра обработки данных Azure для плана.
 
-      * В раскрывающемся меню **Ценовая категория** выберите соответствующую ценовую категорию для плана. Для тестирования можно выбрать **Бесплатный**.
+      * В раскрывающемся меню **Pricing Tier** (Ценовая категория) выберите соответствующую ценовую категорию для плана. Для тестирования можно выбрать **Free** (Бесплатный).
 
-      * В раскрывающемся меню **Размер экземпляра** выберите соответствующий размер экземпляра для плана. Для тестирования можно выбрать **Маленький**.
+      * В раскрывающемся меню **Instance Size** (Размер экземпляра) выберите соответствующий размер экземпляра для плана. Для тестирования можно выбрать **Small** (Маленький).
 
   1. После завершения всех описанных выше действий диалоговое окно "Новый контейнер веб-приложения" должно выглядеть примерно так, как показано ниже:
 
@@ -215,18 +215,33 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения см. по следующим ссылкам:
+Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
 
-* [Центр разработчика Java]
-* [Обзор веб-приложений]
+- [Набор средств Azure для Eclipse]
+  - [Установка набора средств Azure для Eclipse]
+  - [Создание веб-приложения Hello World для Azure в Eclipse]
+  - [Новые возможности набора средств Azure для Eclipse]
+- [Набор средств Azure для IntelliJ]
+  - [Установка набора средств Azure для IntelliJ]
+  - *Создание веб-приложения Hello World для Azure в IntelliJ (в этой статье)*
+
+Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
+
+Дополнительные сведения о создании веб-приложений Azure см. в разделе [Обзор веб-приложений].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
+[Набор средств Azure для Eclipse]: ../azure-toolkit-for-eclipse.md
+[Набор средств Azure для IntelliJ]: ../azure-toolkit-for-intellij.md
 [средств Azure для IntelliJ]: ../azure-toolkit-for-intellij.md
+[Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Установка набора средств Azure для Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Установка набора средств Azure для IntelliJ]: ../azure-toolkit-for-intellij-installation.md
-[Центр разработчика Java]: https://azure.microsoft.com/develop/java/
+[Новые возможности набора средств Azure для Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
+
+[центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 [Обзор веб-приложений]: ./app-service-web-overview.md
 
 <!-- IMG List -->
@@ -251,4 +266,4 @@
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

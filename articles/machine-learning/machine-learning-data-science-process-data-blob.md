@@ -180,7 +180,7 @@
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Теперь вы можете считывать данные из большого двоичного объекта с помощью модуля [считывателя][reader] Студии машинного обучения Azure (см. рисунок ниже).
+3. Теперь данные можно считывать из большого двоичного объекта с помощью модуля [Импорт данных][import-data] Студии машинного обучения Azure (см. рисунок ниже).
  
 ![большой двоичный объект считывателя][1]
 
@@ -188,7 +188,7 @@
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

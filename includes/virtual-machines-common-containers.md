@@ -97,7 +97,7 @@ Azure предлагает отличные облачные решения на
 
 На этом этапе любой архитектор, разработчик, производственный или ИТ-специалист может подумать, что можно ВСЕ это автоматизировать — ведь это НАСТОЯЩИЙ «ЦОД как служба».
 
-И это действительно так. Во множестве систем, многие из которых, вероятно, уже используются, можно управлять группами виртуальных машин Azure и внедрять пользовательский код с помощью сценариев, в частности [CustomScriptingExtension для Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) или [CustomScriptingExtension для Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Вы можете автоматизировать развертывание Azure (и, возможно, уже делаете это) с помощью сценариев PowerShell или интерфейса командной строки Azure [следующим образом](../articles/virtual-machines/virtual-machines-windows-create-powershell.md).
+И это действительно так. Во множестве систем, многие из которых, вероятно, уже используются, можно управлять группами виртуальных машин Azure и внедрять пользовательский код с помощью сценариев, в частности [CustomScriptingExtension для Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) или [CustomScriptingExtension для Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Вы можете автоматизировать развертывание Azure (и, возможно, уже делаете это) с помощью сценариев PowerShell или интерфейса командной строки Azure [следующим образом](../articles/virtual-machines/virtual-machines-windows-ps-create.md).
 
 Эти возможности часто затем переносятся в такие инструменты, как [Puppet](https://puppetlabs.com/) и [Chef](https://www.chef.io/), для автоматизации создания и настройки виртуальных машин при масштабировании. (Ссылки на использование этих инструментов в Azure см. [здесь](#tools-for-working-with-containers).)
 
@@ -122,7 +122,7 @@ Azure предлагает отличные облачные решения на
 
 [Deis](http://deis.io/overview/) является проектом с открытым исходным кодом класса "Платформа как услуга" (PaaS), который упрощает развертывание приложений и управление ими на собственных серверах. Deis собран на основе Docker и CoreOS для предоставления упрощенной PaaS и рабочего процесса в стиле Heroku. Вы можете легко [создать 3-узловую группу виртуальных машин Azure и установить Deis](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md) в Azure, а затем [установить приложение Hello World Go](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
-[CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md) — это оптимизированный по размеру дистрибутив Linux с поддержкой Docker, собственной системой контейнеров [rkt](https://github.com/coreos/rkt) и инструментом управления группами контейнеров под названием [fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md).
+[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html) — это оптимизированный по размеру дистрибутив Linux с поддержкой Docker, собственной системой контейнеров [rkt](https://github.com/coreos/rkt) и инструментом управления группами контейнеров под названием [fleet](https://coreos.com/using-coreos/clustering/).
 
 Ubuntu — другой популярный дистрибутив Linux, который очень хорошо поддерживает Docker и при этом также поддерживает [кластеры Linux (LXC)](https://help.ubuntu.com/lts/serverguide/lxc.html).
 
@@ -174,11 +174,11 @@ Docker в Microsoft Azure:
 
 Дистрибутивы Linux и примеры для Azure:
 
-- [CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md)
+- [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 настройка, управление кластером и оркестрация контейнеров:
 
-- [Fleet в CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md)
+- [Fleet в CoreOS](https://coreos.com/using-coreos/clustering/)
 
 -	Deis
 	- [Создание 3-узловой виртуальной машины Azure, установка Deis и запуск приложения Hello World Go](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md)
@@ -216,4 +216,4 @@ Docker в Microsoft Azure:
 [микрослужбы]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

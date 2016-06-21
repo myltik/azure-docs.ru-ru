@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/04/2015"
+   ms.date="05/31/2016"
    ms.author="mbaldwin"/>
 
 # Устранение неполадок: элемент Active Directory отсутствует или недоступен
@@ -40,7 +40,7 @@
 
     ИЛИ
 
-* У клиента Azure есть хотя бы один поставщик Azure Multi-Factor Authentication. Дополнительную информацию см. в разделе [Управление поставщиками Azure Multi-Factor Authentication](multi-factor-authentication-get-started-cloud.md/creating-an-azure-multi-factor-auth-provider).
+* У клиента Azure есть хотя бы один поставщик Azure Multi-Factor Authentication. Дополнительную информацию см. в разделе [Управление поставщиками Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 Чтобы создать пространство имен контроля доступа или поставщик Multi-Factor Authentication, щелкните **+Создать** > **Службы приложений** > **Active Directory**.
 
@@ -54,4 +54,4 @@
 
 ![Снимок экрана: Active Directory недоступен](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0608_2016-->

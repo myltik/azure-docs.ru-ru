@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Протоколы проверки подлинности Active Directory
@@ -37,4 +37,4 @@
 - [Устранение неполадок протоколов проверки подлинности](active-directory-error-handling.md): узнайте, как интерпретировать и устранять наиболее распространенные ошибки при использовании OAuth 2.0 и Azure AD.
 - [Советы и рекомендации по OAuth 2.0 в Azure AD](active-directory-oauth-best-practices.md): ознакомьтесь с рекомендациями по использованию OAuth 2.0 в Azure AD, чтобы избежать распространенных проблем.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

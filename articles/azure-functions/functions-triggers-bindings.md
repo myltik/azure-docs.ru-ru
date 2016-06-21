@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="05/27/2016"
 	ms.author="chrande"/>
 
 # Справочник разработчика по триггерам и привязкам в Функциях Azure
@@ -29,6 +29,7 @@
 * [Триггеры и привязки службы хранилища Azure (для очередей, больших двоичных объектов, таблиц)](functions-bindings-storage.md)
 * [Триггеры и привязки служебной шины Azure (очереди, разделы)](functions-bindings-service-bus.md)
 * [Привязки Azure DocumentDB](functions-bindings-documentdb.md)
+* [Привязки концентратора событий Azure](functions-bindings-event-hubs.md)
 * [Привязки мобильных приложений Azure](functions-bindings-mobile-apps.md)
 * [Выходная привязка для центра уведомлений Azure](functions-bindings-notification-hubs.md)
 
@@ -39,4 +40,4 @@
 * [Тестирование функции](functions-test-a-function.md)
 * [Масштабирование функции](functions-scale.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

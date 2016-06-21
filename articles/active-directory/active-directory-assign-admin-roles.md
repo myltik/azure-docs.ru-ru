@@ -28,7 +28,11 @@
 
 - **Глобальный администратор**: имеет доступ ко всем административным функциям. Пользователь, зарегистрировавший учетную запись Azure, становится глобальным администратором. Только глобальные администраторы могут назначать другие административные роли. В компании может быть несколько глобальных администраторов.
 
+	> [AZURE.NOTE] В API Microsoft Graph, API Azure AD Graph и Azure AD PowerShell эта роль определяется как "Администратор организации".
+
 - **Администратор паролей**: сбрасывает пароли, управляет запросами на обслуживание и отслеживает работоспособность службы. Администраторы паролей могут сбрасывать пароли только для пользователей и других администраторов паролей.
+
+	> [AZURE.NOTE] В API Microsoft Graph, API Azure AD Graph и Azure AD PowerShell эта роль определяется как "Администратор службы поддержки".
 
 - **Администратор службы**: управляет запросами на обслуживание и отслеживает работоспособность службы.
 
@@ -92,9 +96,9 @@
 
 - Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator.md).
 
-- Чтобы подробнее узнать о том, как осуществляется доступ к ресурсам в Microsoft Azure, обратитесь к статье [Основные сведения о доступе к ресурсам в Azure](active-directory-understanding-resource-access.md).
+- Дополнительные сведения о том, как осуществляется доступ к ресурсам в Microsoft Azure, см. в статье [Основные сведения о доступе к ресурсам в Azure](active-directory-understanding-resource-access.md).
 
-- Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в разделе [Как подписки Azure связаны с Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
+- Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в статье [Связь между подписками Azure и Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 - [Управление пользователями](active-directory-create-users.md)
 
@@ -102,4 +106,4 @@
 
 - [Управление группами](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

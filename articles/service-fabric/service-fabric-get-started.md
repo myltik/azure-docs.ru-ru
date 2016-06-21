@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/18/2016"
+   ms.date="06/15/2016"
    ms.author="ryanwi"/>
 
 # Подготовка среды разработки
@@ -34,7 +34,7 @@
 
 Установщик веб-платформы предлагает три конфигурации для разработки в Service Fabric:
 
-- [Установка среды выполнения Service Fabric, пакета SDK и средств для Visual Studio 2015][full-bundle-vs2015]
+- [Установка среды выполнения Service Fabric, пакета SDK и средств для Visual Studio 2015 c обновлением 2][full-bundle-vs2015]
 - [Установка среды выполнения Service Fabric, пакета SDK и средств для предварительной версии Visual Studio 2015][full-bundle-dev15]
 - [Установка только среды выполнения Service Fabric и пакета SDK (без средств для Visual Studio)][core-sdk]
 
@@ -59,9 +59,9 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Страница кампании Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Ссылка VS 2015 WebPI"
-[full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Ссылка Dev15 WebPI"
-[core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Ссылка Core SDK WebPI"
+[full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015-2_1 "Ссылка VS 2015 WebPI"
+[full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15-2_1 "Ссылка Dev15 WebPI"
+[core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK_2_1 "Ссылка Core SDK WebPI"
 [powershell5-download]: https://www.microsoft.com/ru-RU/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

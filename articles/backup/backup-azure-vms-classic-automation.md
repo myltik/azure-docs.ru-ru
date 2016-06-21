@@ -342,4 +342,8 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Если вы хотите добавить в выходные данные отчета возможности построения диаграмм, см. сведения в статье [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) (Построение диаграмм с помощью PowerShell) в блоге TechNet.
 
-<!---HONumber=AcomDC_0525_2016-->
+## Дальнейшие действия
+
+Если вы предпочитаете использовать PowerShell для взаимодействия с ресурсами Azure, см. статью о защите Windows Server с помощью PowerShell: [Развертывание службы архивации для Windows Server и управление ею](./backup-client-automation-classic.md). Есть другая статья, посвященная тому, как использовать PowerShell для управления службой архивации DPM: [Развертывание службы архивации для DPM и управление ею](./backup-dpm-automation-classic.md). Обе эти статьи имеют две версии — для развертывания с помощью Resource Manager и для классической модели развертывания.
+
+<!---HONumber=AcomDC_0608_2016-->

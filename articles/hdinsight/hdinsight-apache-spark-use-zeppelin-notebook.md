@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
 
-# Использование записной книжки Zeppelin с кластером Spark в HDInsight Linux (предварительная версия)
+# Использование записных книжек Zeppelin с кластером Apache Spark в HDInsight на платформе Linux
 
-Узнайте, как устанавливать записные книжки Zeppelin в кластеры Spark и использовать эти записные книжки.
+Узнайте, как устанавливать записные книжки Zeppelin в кластеры Apache Spark и использовать эти записные книжки для выполнения заданий Spark.
 
 > [AZURE.IMPORTANT] Записная книжка Zeppelin для кластера HDInsight Spark представлена только для демонстрации применения Zeppelin в среде Azure HDInsight Spark. Если вы хотите использовать записные книжки для работы с HDInsight Spark записных книжек, рекомендуем выбрать вместо Zeppelin записные книжки Jupyter. Записные книжки Jupyter также включают различные варианты ядра (такие как Scala) и постоянно совершенствуются. Инструкции по использованию записных книжек Jupyter с кластером HDInsight Spark см. в разделе [Выполнение запросов Spark SQL с помощью записной книжки Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
 
 **Предварительные требования:**
 
 * Прежде чем приступать к изучению этого учебника, необходимо оформить подписку Azure. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Кластер Apache Spark. Инструкции см. в разделе [Создание кластеров Apache Spark в Azure HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Кластер Apache Spark. Инструкции см. в разделе [Создание кластеров Apache Spark в Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Клиент SSH. В дистрибутивах Linux и Unix и Macintosh OS X команда `ssh` входит в состав операционной системы. Для Windows рекомендуем воспользоваться [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 	> [AZURE.NOTE] Если вы планируете использовать клиент SSH, отличный от `ssh` или PuTTY, обратитесь к документации своего клиента за информацией о настройке туннеля SSH.
@@ -37,9 +37,9 @@
 
 	> [AZURE.WARNING] Без такого подключаемого модуля, как FoxyProxy, все запросы, сделанные через браузер, могут направляться через туннель. Это может привести к замедлению загрузки веб-страниц в браузере.
 
-## Установка записной книжки Zeppelin в процессе создания кластера
+## Установка Zeppelin в кластер Spark
 
-Записную книжку Zeppelin в кластере Spark можно установить с помощью действия сценария. Действие сценария использует пользовательские скрипты для установки компонентов в кластере, которые по умолчанию недоступны. Можно использовать пользовательский сценарий для установки Zeppelin с портала Azure, воспользовавшись пакетом SDK для HDInsight .NET или Azure PowerShell.
+Записную книжку Zeppelin в кластере Spark можно установить с помощью действия сценария. Действие сценария использует пользовательские скрипты для установки компонентов в кластере, которые по умолчанию недоступны. Можно использовать пользовательский сценарий для установки Zeppelin с портала Azure, воспользовавшись пакетом SDK для HDInsight .NET или Azure PowerShell. Этот сценарий можно использовать для установки Zeppelin при создании кластера или после его подготовки и запуска. Сведения о том, как это сделать, можно получить, воспользовавшись ссылками в следующих разделах.
 
 ### Использование портала Azure
 
@@ -325,11 +325,19 @@
 
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely on HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA)
+
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
+* [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Управление ресурсами
 
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -342,4 +350,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

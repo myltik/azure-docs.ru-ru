@@ -89,6 +89,6 @@ while(true)
 Дополнительные сведения об очередях служебной шины см. в следующих статьях:
 
 - [Сравнение службы очередей Azure и службы очередей служебной шины](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- Использование [очередей служебной шины](service-bus-dotnet-how-to-use-queues.md)
+- Как использовать [очереди служебной шины](service-bus-dotnet-get-started-with-queues.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

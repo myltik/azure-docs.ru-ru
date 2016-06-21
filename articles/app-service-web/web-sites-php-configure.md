@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="robmcm"/>
 
 #Настройка PHP в веб-приложениях службы приложений Azure
@@ -160,14 +160,34 @@
 
 	![Сохранение параметров конфигурации][save-button]
 
+<a name="composer" />
+## Практическое руководство. Включение автоматизации Composer в Azure
+
+По умолчанию служба приложений не выполняет никаких действий с файлом composer.json, если он есть в проекте PHP. Если используется [развертывание Git](app-service-web-php-get-started.md), чтобы включить обработку composer.json во время операции `git push`, активируйте расширение Composer.
+
+>[AZURE.NOTE] [Здесь](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip) вы можете отдать свой голос за первоклассную поддержку Composer в службе приложений!
+
+1. На [портале Azure](https://portal.azure.com) в колонке вашего веб-приложения PHP щелкните **Tools** (Инструменты) > **Расширения**.
+
+    ![Колонка параметров портала Azure для включения автоматизации Composer в Azure](./media/web-sites-php-configure/composer-extension-settings.png)
+
+2. Щелкните **Добавить**, а затем — **Composer**.
+
+    ![Добавление расширения Composer для включения автоматизации Composer в Azure](./media/web-sites-php-configure/composer-extension-add.png)
+    
+3. Нажмите кнопку **ОК**, чтобы принять условия использования. Нажмите кнопку **ОК** еще раз, чтобы добавить расширение.
+
+    В колонке **Установленные расширения** появится расширение Composer. ![Принятие условий использования для включения автоматизации Composer в Azure](./media/web-sites-php-configure/composer-extension-view.png)
+    
+4. Теперь выполните операции `git add`, `git commit` и `git push`, как в предыдущем разделе. Вы увидите, что расширение Composer устанавливает зависимости, определенные в файле composer.json.
+
+    ![Развертывание Git с помощью автоматизации Composer в Azure](./media/web-sites-php-configure/composer-extension-success.png)
+
 ## Дальнейшие действия
 
 Дополнительную информацию можно найти в [Центре разработчика PHP](/develop/php/).
 
 >[AZURE.NOTE] Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
-
-## Изменения
-* Руководство по переходу от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [бесплатную пробную версию]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
@@ -188,4 +208,4 @@
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->
