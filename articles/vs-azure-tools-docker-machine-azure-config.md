@@ -3,7 +3,7 @@
    description="Описывается использование машины Docker для создания узлов Docker в Azure."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="SteveLas"
+   authors="allclark"
    manager="douge"
    editor="" />
 <tags
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/16/2016"
-   ms.author="stevelas" />
+   ms.date="06/08/2016"
+   ms.author="allclark;stevelas" />
 
 # Создание узлов Docker в Azure с помощью машины Docker
 
@@ -27,14 +27,13 @@
 
 Создавайте виртуальные машины узла Docker в Azure с помощью команды `docker-machine create`, используя драйвер `azure`.
 
-Для драйвера Azure потребуется ваш идентификатор подписки. Для получения подписки Azure можно воспользоваться [интерфейсом командной строки Azure](xplat-cli-install.md) или [порталом Azure](https:/portal.azure.com).
+Для драйвера Azure потребуется ваш идентификатор подписки. Для получения подписки Azure можно воспользоваться [интерфейсом командной строки Azure](xplat-cli-install.md) или [порталом Azure](https://portal.azure.com).
 
 **Использование портала Azure**
 - Выберите подписки из левой области навигации и скопируйте в идентификатор подписки.
 
 **Использование Azure CLI**
 - Введите ```azure account list``` и скопируйте идентификатор подписки.
-
 
 Чтобы просмотреть параметры и их значения по умолчанию, введите `docker-machine create --driver azure`. Также можно ознакомиться с [документацией по драйверу Docker Azure](https://docs.docker.com/machine/drivers/azure/).
 
@@ -47,11 +46,13 @@ docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_
 ## Выбор узла Docker с помощью машины Docker
 Когда в машине Docker есть запись для узла, можно установить узел по умолчанию при выполнении команд Docker.
 ##с использованием PowerShell.
+
 ```powershell
 docker-machine env MyDockerHost | Invoke-Expression 
 ```
 
 ##Использование Bash
+
 ```bash
 eval $(docker-machine env MyDockerHost)
 ```
@@ -95,6 +96,7 @@ d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago  
 ```
 
 Введите `docker-machine ip <VM name>`, чтобы узнать IP-адрес, который вводится в браузере:
+
 ```
 PS C:\> docker-machine ip MyDockerHost
 191.237.46.90
@@ -107,4 +109,4 @@ PS C:\> docker-machine ip MyDockerHost
 
 Сведения о разработке приложений .NET Core с помощью Visual Studio см. в разделе [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) (Инструменты Docker для Visual Studio).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

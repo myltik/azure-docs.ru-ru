@@ -100,4 +100,4 @@
 - [Финализация восстановленной Базы данных SQL Azure](sql-database-recovered-finalize.md)
 - [Часто задаваемые вопросы о непрерывности бизнес-процессов и аварийном восстановлении в базах данных SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

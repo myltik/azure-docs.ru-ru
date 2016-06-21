@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Типы конечной точки версии 2.0
@@ -38,7 +38,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 <!-- TODO: Need a page for libraries to link to -->
 
 ## веб-приложений:
-Для веб-приложений (.NET, PHP, Java, Ruby, Python, Node и т. д.), доступных через браузер, поддерживается вход пользователей с помощью [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). В OpenID Connect веб-приложение получает `id_token`, токен безопасности, который проверяет удостоверение пользователя и предоставляет сведения о пользователе в форме утверждений:
+Для веб-приложений (.NET, PHP, Java, Ruby, Python, Node и т. д.), доступных через браузер, поддерживается вход пользователей с помощью [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). В OpenID Connect веб-приложение получает `id_token`, токен безопасности, который проверяет удостоверение пользователя и предоставляет сведения о пользователе в форме утверждений:
 
 ```
 // Partial raw id_token
@@ -86,7 +86,7 @@ Accept: application/json
 
 Дополнительные сведения о кодах авторизации, маркерах обновления, а также подробные инструкции о получении маркеров доступа см. в описании [протокола OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
-Чтобы узнать, как защитить веб-API с помощью маркеров доступа OAuth 2.0, изучите примеры кода веб-API в разделе [Приступая к работе](active-directory-appmodel-v2-overview.md#getting-started).
+Чтобы узнать, как защитить веб-API с помощью маркеров доступа OAuth 2.0, изучите примеры кода веб-API в разделе [Приступая к работе](active-directory-appmodel-v2-overview.md#getting-started).
 
 
 ## Мобильные и собственные приложения
@@ -97,7 +97,7 @@ Accept: application/json
 ![Изображение собственного приложения Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
 ## Одностраничные приложения (Javascript)
-Многие современные приложения применяют одностраничный интерфейсный модуль (SPA), написанный в основном на Javascript и часто использующий такие платформы, как AngularJS, Ember.js, Durandal и т. д. Конечная точка Azure AD версии 2.0 поддерживает эти приложения с помощью [неявного потока OAuth 2.0](active-directory-v2-protocols-implicit.md).
+Многие современные приложения применяют одностраничный интерфейсный модуль (SPA), написанный в основном на Javascript и часто использующий такие платформы, как AngularJS, Ember.js, Durandal и т. д. Конечная точка Azure AD версии 2.0 поддерживает эти приложения с помощью [неявного потока OAuth 2.0](active-directory-v2-protocols-implicit.md).
 
 В этом потоке приложение получает маркеры из конечной точки авторизации версии 2.0 напрямую без обмена данными между внутренним и другим сервером. Это позволяет разместить всю логику проверки подлинности и обработки сеансов в клиенте Javascript без дополнительных перенаправлений страниц.
 
@@ -118,4 +118,4 @@ Accept: application/json
 
 Сценарий связанных веб-API может поддерживаться с помощью предоставления учетных данных носителя маркера JWT OAuth 2.0 или [потока "On-Behalf-Of"](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Однако поток "On-Behalf-Of" еще не реализован в конечной точке версии 2.0. Чтобы увидеть его в общедоступной службе Azure AD, изучите [пример кода "On-Behalf-Of" на GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

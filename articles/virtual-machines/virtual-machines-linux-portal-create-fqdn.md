@@ -14,11 +14,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/04/2016"
+   ms.date="06/07/2016"
    ms.author="iainfou"/>
 
 # Создание полного доменного имени на портале Azure
+При создании виртуальной машины на [портале Azure](https://portal.azure.com) с применением модели развертывания с помощью Resource Manager для нее автоматически создается ресурс общедоступного IP-адреса. Этот IP-адрес можно использовать для удаленного доступа к этой виртуальной машине. Несмотря на то, что портал не создает [полное доменное имя](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) по умолчанию, это будет очень легко сделать после создания виртуальной машины. В этой статье показан процесс создания DNS-имени или полного доменного имени.
 
 [AZURE.INCLUDE [virtual-machines-common-portal-create-fqdn](../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-<!---HONumber=AcomDC_0406_2016-->
+Теперь вы можете удаленно подключиться к виртуальной машине с помощью DNS-имени, например `ssh adminuser@testdnslabel.centralus.cloudapp.azure.com`.
+
+## Дальнейшие действия
+Теперь, когда у виртуальной машины имеется общедоступный IP-адрес и DNS-имя, можно развернуть общие программные платформы или службы, например nginx, MongoDB, Docker и т. д.
+
+Вы можете также прочитать дополнительные сведения об [использовании Resource Manager](../resource-group-overview.md), чтобы получить советы по созданию развернутых служб Azure.
+
+<!---HONumber=AcomDC_0608_2016-->

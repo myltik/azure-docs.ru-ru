@@ -81,6 +81,6 @@ using (scope = new TransactionScope())
 - [пример автоматической пересылки](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AutoForward)
 - [Пример выполнения атомарных транзакций с помощью служебной шины](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
 - [Сравнение службы очередей Azure и службы очередей служебной шины](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [Как использовать очереди служебной шины](service-bus-dotnet-how-to-use-queues.md)
+- [Как использовать очереди служебной шины](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

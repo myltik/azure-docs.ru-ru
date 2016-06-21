@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
 # Управление кластерами Hadoop в HDInsight с помощью Azure PowerShell
@@ -60,10 +60,15 @@ Azure PowerShell — это полнофункциональная среда с
 	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##Удаление кластеров
+
 Используйте следующую команду для удаления кластера:
 
 	Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
+Можно также удалить кластер, удалив группу ресурсов, которая содержит этот кластер. Обратите внимание, это приведет к удалению всех ресурсов в группе, включая учетную запись хранения по умолчанию.
+
+	Remove-AzureRmResourceGroup -Name <Resource Group Name>
+			
 ##Масштабирование кластеров
 Масштабирование кластера позволяет изменить количество рабочих узлов в кластере, который работает под управлением Azure HDInsight. При этом не требуется повторно создавать кластер.
 
@@ -234,4 +239,4 @@ Azure PowerShell — это полнофункциональная среда с
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

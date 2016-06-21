@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/21/2016"
+   ms.date="05/31/2016"
    ms.author="magoedte;bwren" />
 
 # Дочерние модули Runbook в службе автоматизации Azure
@@ -30,9 +30,19 @@
 
 Параметры дочернего модуля Runbook со встроенным вызовом могут иметь любой тип данных, включая сложные объекты. Кроме того, отсутствует [сериализация JSON](automation-starting-a-runbook.md#runbook-parameters), как при запуске Runbook с помощью портала управления Azure или командлета Start-AzureRmAutomationRunbook.
 
+
 ### Типы Runbook
 
-Вам не удастся использовать [Runbook рабочего процесса PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) или [графический Runbook](automation-runbook-types.md#graphical-runbooks) в качестве дочернего элемента в [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks) с помощью встроенного выполнения. Аналогично, вам не удастся использовать компонент Runbook PowerShell в качестве дочернего элемента с помощью встроенного выполнения в графическом компоненте icalrunbook или в компоненте Runbook рабочего процесса PowerShell. Runbook PowerShell могут использовать в качестве дочерних элементов только другие PowerShell. Графические Runbook и Runbook рабочего процесса PowerShell могут использовать друг друга в качестве дочерних Runbook.
+Какие типы могут вызывать друг друга?
+
+- [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks)и [графические модули Runbook](automation-runbook-types.md#graphical-runbooks) могут вызывать друг друга с помощью встроенного вызова (на основе PowerShell).
+- [Runbook рабочего процесса PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) и графические модули Runbook рабочего процесса PowerShell могут вызывать друг друга с помощью встроенного вызова (на основе рабочих процессов PowerShell).
+- Типы PowerShell и типы рабочего процесса PowerShell не могут вызывать друг друга с помощью встроенного вызова и должны использовать командлет Start-AzureRmAutomationRunbook.
+	
+Когда имеет значение порядок публикации?
+
+- Порядок публикации модулей Runbook имеет значение только для модулей Runbook рабочего процесса PowerShell и графических модулей Runbook рабочего процесса PowerShell.
+
 
 При вызове графического Runbook и Runbook рабочего процесса PowerShell с помощью встроенного выполнения просто используйте имя необходимого Runbook. При вызове дочернего Runbook PowerShell необходимо перед его именем использовать сочетание символов *.\*, чтобы указать, что сценарий находится в локальном каталоге.
 
@@ -84,4 +94,4 @@
 - [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md)
 - [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

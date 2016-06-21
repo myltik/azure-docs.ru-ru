@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/25/2016" 
+	ms.date="06/08/2016" 
 	ms.author="awills"/>
 
 
@@ -31,8 +31,7 @@
 Существуют и другие статьи, к которым можно обратиться, если вас интересуют такие темы, как:
 
 * [инструментирование веб-приложения во время выполнения](app-insights-monitor-performance-live-website-now.md);
-* [ASP.NET Core](app-insights-asp-net-core.md);
-* [облачные службы Azure](app-insights-cloudservices.md).
+* [облачные службы Azure.](app-insights-cloudservices.md)
 
 ## <a name="ide"></a> 1. Добавление пакета SDK для Application Insights
 
@@ -51,6 +50,7 @@
 
 ![Выберите пункт Add Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
+* Если же это проект ASP.NET Core, [выполните эти указания, чтобы исправить несколько строк кода](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs). 
 
 
 
@@ -88,7 +88,7 @@
 
 На портале откроется представление данных телеметрии из приложения: ![](./media/app-insights-asp-net/66.png)
 
-* Отдельные события появляются в области **поиска** (1). Данные сначала отображаются здесь (и в динамическом потоке). Выберите любое событие, чтобы просмотреть его свойства. 
+* Отдельные события появляются в области **поиска** (1). Данные сначала отображаются здесь (и в [динамическом потоке метрик](app-insights-metrics-explorer.md#live-metrics-stream)). Выберите любое событие, чтобы просмотреть его свойства. 
 * Сводные показатели отображаются на диаграммах (2). Через пару минут данные появятся здесь. Щелкните любую диаграмму, чтобы открыть колонку с более подробной информацией.
 
 [Дополнительные сведения об использовании Application Insights на портале Azure](app-insights-dashboards.md).
@@ -105,7 +105,7 @@ Application Insights отправляет данные телеметрии из
 2. Создает ресурс Application Insights на [портале Azure](https://portal.azure.com/). Здесь будут отображаться ваши данные. Команда извлекает *ключ инструментирования*, идентифицирующий ресурс.
 3. Вставляет ключ инструментирования в `ApplicationInsights.config`, чтобы пакет SDK мог отправлять данные телеметрии на портал.
 
-При необходимости вы можете [выполнить эти действия вручную](app-insights-asp-net-manual.md).
+При необходимости вы можете выполнить эти действия вручную для проекта [ASP.NET 4](app-insights-asp-net-manual.md) или [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 
 ## Что дальше?
@@ -113,7 +113,7 @@ Application Insights отправляет данные телеметрии из
 | | 
 |---|---
 |**[Работа с Application Insights в Visual Studio](app-insights-visual-studio.md)**<br/>Отладка с помощью телеметрии, поиск по журналу диагностики, детализация кода.|![Visual Studio](./media/app-insights-asp-net/61.png)
-|**[Работа с порталом Application Insights](app-insights-dashboards.md)**<br/>Панели мониторинга, мощные средства диагностики и анализа, оповещения, карта динамических зависимостей приложения, а также экспорт телеметрии. |![Visual Studio](./media/app-insights-asp-net/62.png)
+|**[Работа с порталом Application Insights](app-insights-dashboards.md)**<br/>Панели мониторинга, эффективные средства диагностики и анализа, оповещения, карта динамических зависимостей приложения, а также экспорт телеметрии. |![Visual Studio](./media/app-insights-asp-net/62.png)
 |**[Добавление дополнительных данных](app-insights-asp-net-more.md)**<br/>Мониторинг использования, доступности, зависимостей и исключений. Интеграция трассировок из платформ ведения журналов. Написание пользовательской телеметрии. | ![Visual Studio](./media/app-insights-asp-net/64.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

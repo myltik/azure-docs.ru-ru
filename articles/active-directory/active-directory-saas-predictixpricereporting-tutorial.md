@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -62,7 +62,7 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	![Active Directory][1]
+	![Приложения][1]
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
@@ -79,10 +79,11 @@
 
 6. В поле поиска введите **Predictix Price Reporting**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_01.png)
+	![Приложения](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_01.png)
+
 7. В области результатов выберите **Predictix Price Reporting** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
-
+	![Приложения](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_02.png)
 
 ##  Настройка и проверка единого входа в Azure AD
 В этом разделе описана настройка и проверка единого входа Azure AD в Predictix Price Reporting с использованием тестового пользователя Britta Simon.
@@ -118,11 +119,11 @@
 
 	![Настройка единого входа](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_04.png)
 
-    а. В текстовом поле **URL-адрес входа** введите URL-адрес, применяемый пользователями для входа в приложение Predictix Price Reporting, по следующей схеме: **https://\<Название организации-pricing>.predictix.com/sso/request**.
+    а. В текстовом поле **URL-адрес входа** введите URL-адрес, применяемый пользователями для входа в приложение Predictix Price Reporting, по следующей схеме: `https://<company name-pricing>.predictix.com/sso/request`.
 	
 	b. Нажмите кнопку **Далее**.
  
-4. На странице **Настройка единого входа в Predictix Price Reporting** выполните указанные ниже действия.
+4. На странице **Настройка единого входа в Predictix Price Reporting** выполните следующие действия.
 
 	![Настройка единого входа](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_05.png)
 
@@ -164,15 +165,15 @@
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3. Чтобы отобразить список пользователей, в верхнем меню выберите **Пользователи**.
+3. Чтобы вывести на экран список пользователей, щелкните **Пользователи** в меню вверху.
 
 	![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_03.png)
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу щелкните **Добавить пользователя**.
+4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
 	![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_04.png)
 
-5. На странице с диалоговым окном **Тип учетной записи пользователя** выполните указанные ниже действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_05.png)
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_05.png)
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
@@ -180,7 +181,7 @@
 
     c. Нажмите кнопку **Далее**.
 
-6.  На странице с диалоговым окном **Профиль пользователя** выполните указанные ниже действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_06.png)
+6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_06.png)
 
     а. В текстовом поле **Имя** введите **Britta**.
 
@@ -192,11 +193,11 @@
 
     д. Нажмите кнопку **Далее**.
 
-7. На диалоговой странице **Получение временного пароля** нажмите кнопку **Создать**.
+7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
 	![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_07.png)
 
-8. На диалоговой странице **Получение временного пароля** выполните следующие действия.
+8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
 	![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_08.png)
 
@@ -219,7 +220,7 @@
 
 **Чтобы назначить пользователя Britta Simon приложению Predictix Price Reporting, выполните указанные ниже действия.**
 
-1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
+1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в меню вверху.
 
 	![Назначение пользователя][201]
 
@@ -269,4 +270,4 @@
 [204]: ./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

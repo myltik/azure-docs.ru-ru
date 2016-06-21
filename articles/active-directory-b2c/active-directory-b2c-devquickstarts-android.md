@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # Предварительная версия Azure AD B2C: вызов веб-API из приложения Android
@@ -975,4 +975,4 @@ CookieSyncManager.getInstance().sync();
 ```
 [Дополнительные сведения о файлах cookie](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

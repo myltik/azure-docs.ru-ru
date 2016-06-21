@@ -63,4 +63,4 @@
 - [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
 - [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

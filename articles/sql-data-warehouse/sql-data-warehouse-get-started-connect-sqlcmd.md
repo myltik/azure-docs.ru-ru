@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Начало работы. Подключение к хранилищу данных Azure SQL | Microsoft Azure"
-   description="Начало работы. Подключение к хранилищу данных SQL и выполнение запросов."
+   pageTitle="Выполнение запросов с использованием SQLCMD | Microsoft Azure"
+   description="Отправка запросов к хранилищу данных с использованием SQLCMD."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,86 +13,77 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/16/2016"
+   ms.date="06/09/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
-# Подключение и создание запросов с помощью SQLCMD
+# Выполнение запросов с использованием SQLCMD
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
-- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
+- [Power BI][]
+- [Машинное обучение Azure][]
+- [SQLCMD][]
 
-
-В этом пошаговом руководстве показано, как всего за несколько минут можно создать базу данных хранилища данных SQL Azure с помощью служебной программы sqlcmd.exe. В этом пошаговом руководстве описаны следующие операции.
-
-+ Установка необходимого программного обеспечения.
-+ Подключение к базе данных, содержащей образец базы данных AdventureWorksDW.
-+ Выполнение запроса к образцу базы данных.  
+В этом руководстве показано, как отправлять запросы к хранилищу данных SQL Azure, используя служебную программу sqlcmd.exe.
 
 ## Предварительные требования
 
 + Чтобы скачать [sqlcmd.exe][], перейдите на страницу [Microsoft Command Line Utilities 11 для SQL Server][].
 
-## Получение полного имени сервера Azure SQL
+## Подключение
 
-Для подключения к базе данных требуется полное имя сервера (****имя\_сервера**.database.windows.net*), содержащее базу данных, к которой необходимо подключиться.
-
-1. Перейдите на [портал Azure][].
-2. Перейдите к базе данных, к которой нужно подключиться.
-3. Найдите полное имя сервера (мы будем использовать его на следующих этапах).
-
-![][1]
-
-
-## Подключение к хранилищу данных SQL с помощью sqlcmd
-
-Чтобы подключиться к определенному экземпляру хранилища данных SQL с помощью sqlcmd, откройте командную строку и введите **sqlcmd** и строку подключения к базе данных хранилища данных SQL. В строке подключения необходимо указать следующие обязательные параметры:
+Чтобы начать использовать sqlcmd, откройте командную строку и введите **sqlcmd** и строку подключения к базе данных хранилища данных SQL. В строке подключения необходимо указать следующие обязательные параметры:
 
 + **Server (-S):** сервер в виде `<`имя сервера`>`.database.windows.net
-+ **Database (-d):** имя базы данных.
-+ **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
-+ **Password (-P)** — пароль, связанный с пользователем.
-+ **Enable Quoted Identifiers (-I)** — для подключения к экземпляру хранилища данных SQL необходимо включить заключенные в кавычки идентификаторы.
++ **Database (-d)**. Имя базы данных.
++ **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
++ **Password (-P)** — пароль, связанный с пользователем.
++ **Enable Quoted Identifiers (-I)** — для подключения к экземпляру хранилища данных SQL необходимо включить заключенные в кавычки идентификаторы.
 
-Таким образом, для подключения к экземпляру хранилища данных SQL нужно ввести следующее:
+Например, строка подключения может выглядеть так:
 
 ```sql
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-## Запуск образцов запросов
+> [AZURE.NOTE] Параметр -I, который включает заключенные в кавычки идентификаторы, требуется для подключения к хранилищу данных SQL.
 
-После подключения можно подавать любые поддерживаемые инструкции Transact-SQL для экземпляра.
+## Запрос
+
+После подключения можно подавать любые поддерживаемые инструкции Transact-SQL для экземпляра. В этом примере запросы отправляются в интерактивном режиме.
 
 ```sql
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
 
-Дополнительные сведения о sqlcmd см. в [документации по sqlcmd][sqlcmd.exe].
+В следующих примерах показано, как выполнить запросы в пакетном режиме, используя параметр -Q или передав SQL программе sqlcmd.
 
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+```
+
+```sql
+C:\>"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+```
 
 ## Дальнейшие действия
 
-Теперь, когда вы можете подключаться к базе данных и отправлять запросы, попробуйте [подключиться к PowerBI][].
-
-Сведения о том, как настроить в своей среде аутентификацию Windows, см. в статье [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] (Подключение к хранилищу данных SQL с использованием проверки подлинности Azure Active Directory).
+Сведения обо всех параметрах sqlcmd см. в [документации по sqlcmd][sqlcmd.exe].
 
 <!--Articles-->
-[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
-[подключиться к PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
+[connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
 [Visual Studio]: ./sql-data-warehouse-get-started-connect.md
+[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Машинное обучение Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 [SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other-->
 [sqlcmd.exe]: https://msdn.microsoft.com/ru-RU/library/ms162773.aspx
 [Microsoft Command Line Utilities 11 для SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
-[портал Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1880,13 +1880,15 @@ info:   vm shutdown command OK
 + **-d** или **--description** &lt;описание>: описание учетной записи хранения.
 + **-l** или **--location** &lt;имя>: географический регион, в котором необходимо создать учетную запись хранения.
 + **-a** или **--affinity-group** &lt;имя>: территориальная группа, с которой необходимо сопоставить учетную запись хранения.
-+ **--type**: тип создаваемой учетной записи (либо хранилище класса Standard с возможностью настройки избыточности (LRS/ZRS/GRS/RAGRS), либо хранилище класса Premium (PLRS)).
++ **--kind**: тип учетной записи (служба хранилища или большой двоичный объект хранилища). 
++ **--sku-name**: указывает тип создаваемой учетной записи (либо хранилище класса Standard с возможностью настройки избыточности (LRS/ZRS/GRS/RAGRS), либо хранилище класса Premium (PLRS)).
++ **--access-tier**: указывает уровень хранилища (горячий или холодный).
 
 **storage account set [параметры] <name>**
 
 Эта команда обновляет указанную учетную запись хранения.
 
-	~$ azure storage account set mybasestorage --type GRS
+	~$ azure storage account set mybasestorage --kind Storage --sku-name GRS
 	info:    Executing command storage account set
 	+ Updating storage account
 	info:    storage account set command OK
@@ -1896,7 +1898,8 @@ info:   vm shutdown command OK
 + **-e** или **--label** &lt;метка>: метка для учетной записи хранения.
 + **-d** или **--description** &lt;описание>: описание учетной записи хранения.
 + **-l** или **--location** &lt;имя>: географический регион, в котором необходимо создать учетную запись хранения.
-+ **--type**: новый тип учетной записи (либо хранилище класса Standard с возможностью настройки избыточности (LRS/ZRS/GRS/RAGRS), либо хранилище класса Premium (PLRS)).
++ **--sku-name**: указывает новый тип учетной записи (либо хранилище класса Standard с возможностью настройки избыточности (LRS/ZRS/GRS/RAGRS), либо хранилище класса Premium (PLRS)).
++ **--access-tier**: указывает уровень хранилища (горячий или холодный).
 
 **storage account delete [параметры] <name>**
 
@@ -2350,4 +2353,4 @@ info:   vm shutdown command OK
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

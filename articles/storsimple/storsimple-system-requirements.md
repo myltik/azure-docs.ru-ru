@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/10/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli"/>
 
 # Программное обеспечение StorSimple, высокий уровень доступности и требования к сети
@@ -85,7 +85,7 @@
 | Шаблон URL-адреса | Компонент или функция | IP-адреса устройств |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Служба диспетчера StorSimple,<br>служба контроля доступа,<br>служебная шина Azure| Сетевые интерфейсы с поддержкой облака |
-|`http://*.backup.windowsazure.com`|Регистрация устройства| Только DATA 0|
+|`https://*.backup.windowsazure.com`|Регистрация устройства| Только DATA 0|
 |`http://crl.microsoft.com/pki/*` |Отзыв сертификатов |Сетевые интерфейсы с поддержкой облака |
 | `https://*.core.windows.net/*` | Учетные записи хранения Azure и мониторинг | Сетевые интерфейсы с поддержкой облака |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Серверы Центра обновления Майкрософт<br> | Только статические IP-адреса контроллеров |
@@ -127,11 +127,11 @@
 
 	| Сетевой интерфейс | Поддержка облака включена | Поддержка облака отключена, со шлюзом |
 	|-----|---------------|---------------------------|
-	| Данные 0 | 1 | - |
-	| Данные 1 | 2 | 20 |
-	| Данные 2 | 3 | 30 |
-	| Данные 3 | 4 | 40 |
-	| Данные 4 | 5 | 50 |
+	| Данные 0 | 1 | - | 
+	| Данные 1 | 2 | 20 | 
+	| Данные 2 | 3 | 30 | 
+	| Данные 3 | 4 | 40 | 
+	| Данные 4 | 5 | 50 | 
 	| Данные 5 | 6 | 60 |
 
 
@@ -280,4 +280,4 @@
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

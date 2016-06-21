@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="06/07/2016"
    ms.author="cherylmc"/>
 
 # Вопросы и ответы по ExpressRoute
@@ -248,4 +248,4 @@ ExpressRoute Premium — это набор функций, перечислен�
 ### Можно ли получить доступ к Dynamics AX через подключение ExpressRoute?
 Нет, это не поддерживается.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

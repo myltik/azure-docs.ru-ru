@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016"  
+	ms.date="06/06/2016"  
 	ms.author="xpouyat"/>
 
 #Лицензирование пакета для портирования клиента бесперебойной потоковой передачи Microsoft® Smooth Streaming
 
 ##Обзор
 
-Пакет для портирования клиента бесперебойной потоковой передачи Microsoft Smooth Streaming \(далее для краткости называется **SSPK**\) представляет собой реализацию клиента Smooth Streaming. Он оптимизирован так, чтобы помочь производителям встроенных устройств, операторам кабельной и мобильной связи, производителям мобильных устройств, разработчикам программного обеспечения и поставщикам решений создавать продукты и услуги, включающие адаптивную потоковую передачу содержимого в формате Smooth Streaming. Клиент SSPK не зависит от оборудования и платформы. Лицензиат может легко портировать его на любое устройство и любую платформу.
+Пакет для портирования клиента бесперебойной потоковой передачи Microsoft Smooth Streaming (далее для краткости называется **SSPK**) представляет собой реализацию клиента Smooth Streaming. Он оптимизирован так, чтобы помочь производителям встроенных устройств, операторам кабельной и мобильной связи, производителям мобильных устройств, разработчикам программного обеспечения и поставщикам решений создавать продукты и услуги, включающие адаптивную потоковую передачу содержимого в формате Smooth Streaming. Клиент SSPK не зависит от оборудования и платформы. Лицензиат может легко портировать его на любое устройство и любую платформу.
 
 Ниже вы видите схему архитектуры высокого уровня. Поле IIS Smooth Streaming Porting Kit здесь обозначает клиента Smooth Streaming, который предоставляет корпорация Майкрософт. Этот клиент содержит всю основную логику для воспроизведения контента Smooth Streaming. Партнеры затем портируют его на конкретное устройство или платформу, создавая соответствующие интерфейсы.
 
@@ -35,12 +35,12 @@
   - добавлены возможности синтаксического и эвристического анализа, логика буферизации и другие функции.
 - API-интерфейсы приложения проигрывателя. 
   -	Программные интерфейсы для взаимодействия с приложением мультимедиапроигрывателя.
-- Интерфейс слоя платформенных абстракций \(PAL\). 
-  -	Программные интерфейсы для взаимодействия с операционной системой \(потоки, сокеты\).
-- Интерфейс слоя аппаратных абстракций \(HAL\). 
-  -	Программные интерфейсы для взаимодействия с аппаратным оборудованием аудио- и видеодекодеров \(декодирование, отрисовка\).
-- Интерфейс управления цифровыми правами \(DRM\). 
-  -	Программные интерфейсы для обработки ограничений DRM через уровень абстракции DRM \(DAL\).
+- Интерфейс слоя платформенных абстракций (PAL). 
+  -	Программные интерфейсы для взаимодействия с операционной системой (потоки, сокеты).
+- Интерфейс слоя аппаратных абстракций (HAL). 
+  -	Программные интерфейсы для взаимодействия с аппаратным оборудованием аудио- и видеодекодеров (декодирование, отрисовка).
+- Интерфейс управления цифровыми правами (DRM). 
+  -	Программные интерфейсы для обработки ограничений DRM через уровень абстракции DRM (DAL).
   -	Пакет для портирования Microsoft PlayReady поставляется отдельно, но интегрируется через этот интерфейс. Дополнительные сведения о лицензировании устройств Microsoft PlayReady приводятся [здесь](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
 - Примеры реализации 
   -	Пример реализации PAL для Linux
@@ -89,22 +89,18 @@
 - Albis Technologies Ltd.
 - Alticast Corporation
 - Amazon Digital Services, Inc.
-- Amlogic, Co., Ltd.
 - AVC Multimedia Software Co., Ltd.
 - EchoStar Purchasing Corporation
 - Enseo, Inc.
 - Fluendo S.A.
-- Guangdong OPPO Mobile Telecommunications Corp., Ltd.
 - HANDAN BroadInfoCom Co., Ltd.
 - Infomir GMBH
-- Inside Secure
 - Irdeto USA Inc.
 - Liberty Global Services BV
 - MediaTek Inc.
 - MStar Co, Ltd
 - Nintendo Co., Ltd.
 - OpenTV, Inc.
-- Research In Motion Limited
 - Saffron Digital Limited
 - Sichuan Changhong Electric Co., Ltd
 - SoftAtHome
@@ -131,7 +127,6 @@
 - Filmflex Movies Limited
 - Fluendo S.A.
 - Gibson Innovations Limited
-- Guangdong OPPO Mobile Telecommunications Corp., Ltd.
 - HANDAN BroadInfoCom Co., Ltd.
 - Hisense International Co., Ltd
 - Homecast Co.,Ltd
@@ -141,10 +136,8 @@
 - KDDI Corporation
 - Nintendo Co., Ltd.
 - Orange SA
-- PIXELA Corporation
 - Saffron Digital Limited
 - Sagemcom Broadband SAS
-- Sharp Corporation
 - Shenzhen Coship Electronics CO., LTD
 - Shenzhen Jiuzhou Electric Co.,Ltd
 - Shenzhen Skyworth Digital Technology Co., Ltd
@@ -152,10 +145,10 @@
 - Sky Deutschland Fernsehen GmbH & Co. KG
 - SmarDTV S.A.
 - SoftAtHome
-- TCL Overseas Marketing \(Macao Commercial Offshore\) Limited
+- TCL Overseas Marketing (Macao Commercial Offshore) Limited
 - Technicolor Delivery Technologies, SAS
 - Toshiba Lifestyle Products & Services Corporation
-- Virgin Media Limited
+- Universal Media Corporation /Slovakia/ s.r.o.
 - VIZIO, Inc.
 - Wistron Corporation
 - ZTE Corporation
@@ -168,4 +161,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

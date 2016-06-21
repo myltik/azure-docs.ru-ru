@@ -22,7 +22,7 @@
 
 При маршрутизации на основе URL-адресов к шлюзу приложений применяется новый тип правил. Шлюз приложений имеет 2 типа правил: основной и PathBasedRouting. Основной тип правил обеспечивает циклическое обслуживание пулов тыловых серверов, а PathBasedRouting наряду с циклическим распространением при выборе пула тыловых серверов учитывает также шаблон URL-адреса запроса.
 
->[AZURE.IMPORTANT] PathPattern: список шаблонов пути для сопоставления. Каждый шаблон должен начинаться с косой черты (/); символ * может быть только в конце после косой черты. Строка, передаваемая для сопоставления пути, не должна содержать никакого текста после первого символа ? или # — эти символы не допускаются.
+>[AZURE.IMPORTANT] PathPattern: список шаблонов пути для сопоставления. Каждый шаблон должен начинаться с косой черты (/); символ * может быть только в конце. Примеры допустимых значений: xyz, /xyz* или /xyz/*. Строка, передаваемая для сопоставления пути, не должна содержать никакого текста после первого символа ? или # — эти символы не допускаются.
 
 ## Сценарий
 В следующем примере шлюз приложений обслуживает трафик веб-сайта contoso.com с помощью двух пулов тыловых серверов: пула серверов для видео и пула серверов для изображений.
@@ -194,6 +194,6 @@ IP-адрес будет назначен шлюзу приложений при
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
 
 ## Получение шлюза приложений
-	$getgw =  Get-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $rgname
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

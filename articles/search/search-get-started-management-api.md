@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="06/08/2016" 
 	ms.author="heidist"/>
 
 # Приступая к работе с Azure Search Management REST API
@@ -38,7 +38,7 @@ Azure Search management REST API является программной аль�
 
 Этот учебник основан на консольном приложении, построенном на языке C#, которое можно отредактировать и запустить в Visual Studio 2012 или 2013
 
-Клиентское приложение можно найти на сайте Codeplex в разделе [Azure Search Management API Demo](https://github.com/Azure-Samples/search-dotnet-management-api/).
+Клиентское приложение можно найти на сайте Github в разделе [Azure Search .NET Management API Demo](https://github.com/Azure-Samples/search-dotnet-management-api/) (Демонстрационная версия API управления .NET для Поиска Azure).
 
 
 ##Настройка приложения
@@ -208,4 +208,4 @@ Azure Search management REST API является программной аль�
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

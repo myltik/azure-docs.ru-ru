@@ -19,8 +19,6 @@
 
 # Устранение неполадок расширения виртуальной машины Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Просмотр состояния расширения
@@ -72,4 +70,4 @@ Azure CLI:
 
 После удаления расширения шаблон можно выполнить повторно, чтобы запустить скрипты на виртуальной машине.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -22,7 +22,7 @@
 ## Быстрые команды
 Для создания группы безопасности сети и правил ACL потребуется [последняя версия Azure PowerShell](../powershell-install-configure.md). Эти действия также можно [выполнить с помощью портала Azure](virtual-machines-windows-nsg-quickstart-portal.md).
 
-Сначала нужно создать правило, пропускающее трафик HTTP через TCP-порт 80, как показано ниже, введя собственное имя и описание.
+Сначала нужно создать правило, пропускающее трафик HTTP через TCP-порт 80, введя собственное имя и описание.
 
 ```
 $httprule = New-AzureRmNetworkSecurityRuleConfig -Name http-rule -Description "Allow HTTP" `
@@ -38,13 +38,13 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westu
     -Name "TestNSG" -SecurityRules $httprule
 ```
 
-Теперь давайте назначим вашу группу безопасности сети в подсеть. Сначала выберите виртуальную сеть следующим образом.
+Теперь давайте назначим подсети вашу группу безопасности сети. Сначала выберите виртуальную сеть.
 
 ```
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 ```
 
-Свяжите группу безопасности сети с подсетью, как показано ниже.
+Свяжите группу безопасности сети с подсетью.
 
 ```
 Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name TestSubnet `
@@ -72,4 +72,4 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 - [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
 - [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->
