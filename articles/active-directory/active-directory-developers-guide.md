@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/02/2016"
+   ms.date="06/06/2016"
    ms.author="mbaldwin"/>
 
 
@@ -97,17 +97,19 @@ Azure Active Directory является платформой для управл
 
 - [Области разрешений API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes). Области разрешений OAuth 2.0, которые используются для управления доступом приложения к данным каталога в клиенте.
 
-### Протоколы проверки подлинности
+### Протоколы аутентификации и авторизации
 
-- [Azure Active Directory authentication protocols](active-directory-protocols.md) (Протоколы проверки подлинности Azure Active Directory): сведения о различных протоколах проверки подлинности и авторизации, поддерживаемых в Azure Active Directory.
+- [Протоколы проверки подлинности и авторизации Active Directory](active-directory-protocols.md). Перейдите по ссылке, чтобы узнать о различных протоколах проверки подлинности и авторизации, поддерживаемых в Azure Active Directory.
+
+- [Протокол OAuth 2.0. Предоставление кода авторизации](active-directory-protocols-oauth-code.md). Протокол OAuth 2.0 позволяет предоставлять доступ к веб-приложениям и веб-интерфейсам API в клиенте Azure Active Directory с помощью кода авторизации.
+
+- [Протокол OAuth 2.0. Неявное предоставление авторизации](active-directory-dev-understanding-oauth2-implicit-grant.md). Перейдите по ссылке, чтобы узнать о процессе неявного предоставления авторизации и его совместимости с вашим приложением.
+
+- [Протокол OpenID Connect 1.0. Вход и проверка подлинности](active-directory-protocols-openid-connect-code.md). Протокол OpenID Connect 1.0 расширяет OAuth 2.0, позволяя использовать его в качестве протокола проверки подлинности. Клиентское приложение может получать id\_token, чтобы управлять процессом входа в систему или расширять поток кода авторизации для получения кода авторизации и id\_token.
 
 - [Справочник по протоколу SAML 2.0](active-directory-saml-protocol-reference.md): протокол SAML 2.0 позволяет приложениям предоставлять пользователям единый вход.
 
-- [Справочник по протоколу OAuth 2.0](active-directory-protocols-oauth-code.md). Протокол OAuth 2.0 позволяет предоставлять доступ к веб-приложениям и интерфейсам веб-API в клиенте Azure Active Directory.
-
-- [Справочник по протоколу OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md): протокол OpenID Connect 1.0 расширяет OAuth 2.0, позволяя использовать его как протокол проверки подлинности.
-
-- [Протокол WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory поддерживает протокол WS-Federation 1.2, как указано в спецификации федерации веб-служб версии 1.2.
+- [Протокол WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html). Azure Active Directory поддерживает протокол WS-Federation 1.2, как указано в спецификации федерации веб-служб версии 1.2.
 
 - [Поддерживаемые маркеры и типы утверждений](active-directory-token-and-claims.md). В этом руководстве вы найдете основные сведения об утверждениях в маркерах SAML 2.0 и веб-маркерах JSON (JWT).
 
@@ -139,4 +141,4 @@ Azure Active Directory является платформой для управл
 
 - [Azure Active Directory в Твиттере](https://twitter.com/azuread). Объявления Azure Active Directory длиной не более 140 знаков.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

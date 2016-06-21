@@ -36,8 +36,8 @@
 
 В конце этого руководства у вас будет три консольных приложения Java:
 
-* **create-device-identity** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к виртуальному устройству;
-* **read-d2c-messages** — отображает данные телеметрии, отправляемые виртуальным устройством;
+* **create-device-identity** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к виртуальному устройству;
+* **read-d2c-messages** — отображает данные телеметрии, отправляемые виртуальным устройством;
 * **simulated-device**— подключается к центру IoT с созданным ранее удостоверением устройства и отправляет сообщения с частотой один раз в секунду с использованием протокола AMQPS.
 
 > [AZURE.NOTE] Статья [Пакеты SDK для центра IoT][lnk-hub-sdks] содержит сведения о разных пакетах SDK, которые можно использовать для создания приложений, которые будут запущены на устройствах и серверной части решения.
@@ -95,10 +95,10 @@
     import java.net.URISyntaxException;
     ```
 
-7. Добавьте следующие переменные уровня класса в класс **App**, заменив **{yourhubname}** и **{yourhubkey}** значениями, записанными ранее:
+7. Добавьте следующие переменные уровня класса в класс **App**, заменив **{yourhostname}** и **{yourhubkey}** значениями, записанными ранее.
 
     ```
-    private static final String connectionString = "HostName={yourhubname}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
+    private static final String connectionString = "HostName={yourhostname};SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
     private static final String deviceId = "javadevice";
     
     ```
@@ -190,25 +190,20 @@
     import java.util.logging.*;
     ```
 
-7. Добавьте следующие переменные уровня класса в класс **App**. Замените значения **{youriothubkey}**, **{youreventhubcompatiblenamespace}** и **{youreventhubcompatiblename}** значениями, записанными ранее. Значение заполнителя **{youreventhubcompatiblenamespace}** поступает из **конечной точки, совместимой с концентраторами событий**, отображаясь в формате **xyznamespace**. (Иначе говоря, удалите префикс **sb://** и суффикс **.servicebus.windows.net** из значения конечной точки, совместимой с концентраторами событий и полученной от портала.)
+7. Добавьте следующие переменные уровня класса в класс **App**. Замените значения **{youriothubkey}**, **{youreventhubcompatibleendpoint}** и **{youreventhubcompatiblename}** значениями, записанными ранее.
 
     ```
-    private static String namespaceName = "{youreventhubcompatiblenamespace}";
-    private static String eventHubName = "{youreventhubcompatiblename}";
-    private static String sasKeyName = "iothubowner";
-    private static String sasKey = "{youriothubkey}";
-    private static long now = System.currentTimeMillis();
+    private static String connStr = "Endpoint={youreventhubcompatibleendpoint};EntityPath={youreventhubcompatiblename};SharedAccessKeyName=iothubowner;SharedAccessKey={youriothubkey}";
     ```
 
-8. Добавьте следующий метод **receiveMessages** в класс **App**. Этот метод создает экземпляр **EventHubClient** для подключения к конечной точке, совместимой с концентраторами событий, а затем асинхронно создает экземпляр **PartitionReceiver** для чтения из секции концентратора событий. Он выполняет непрерывную циклическую обработку, выводя сведения о сообщении, пока приложение не завершит работу.
+8. Добавьте следующий метод **receiveMessages** в класс **App**. Этот метод создает экземпляр **EventHubClient**, чтобы подключиться к конечной точке, совместимой с концентраторами событий, а затем асинхронно создает экземпляр **PartitionReceiver** для чтения из секции концентратора событий. Он выполняет непрерывную циклическую обработку, выводя сведения о сообщении, пока приложение не завершит работу.
 
     ```
     private static EventHubClient receiveMessages(final String partitionId)
     {
       EventHubClient client = null;
       try {
-        ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
-        client = EventHubClient.createFromConnectionString(connStr.toString()).get();
+        client = EventHubClient.createFromConnectionStringSync(connStr);
       }
       catch(Exception e) {
         System.out.println("Failed to create client: " + e.getMessage());
@@ -225,7 +220,7 @@
             System.out.println("** Created receiver on partition " + partitionId);
             try {
               while (true) {
-                Iterable<EventData> receivedEvents = receiver.receive().get();
+                Iterable<EventData> receivedEvents = receiver.receive(100).get();
                 int batchSize = 0;
                 if (receivedEvents != null)
                 {
@@ -259,15 +254,15 @@
     }
     ```
 
-    > [AZURE.NOTE] Этот метод использует фильтр во время создания получателя, чтобы получатель читал только сообщения, отправленные в центр IoT после запуска получателя. Это удобно в тестовой среде, так как вы можете увидеть текущий набор сообщений. В рабочей же среде код должен обрабатывать все сообщения. Дополнительные сведения см. в статье [Учебник: как обрабатывать сообщения, отправляемые с устройства в облако, с помощью центра IoT][lnk-process-d2c-tutorial].
+    > [AZURE.NOTE] Этот метод использует фильтр во время создания получателя, чтобы получатель читал только сообщения, отправленные в центр IoT после запуска получателя. Это удобно в тестовой среде, так как вы можете увидеть текущий набор сообщений. В рабочей же среде код должен обрабатывать все сообщения. Дополнительные сведения см. в руководстве [Как обрабатывать сообщения, отправляемые с устройства в облако, с помощью центра IoT][lnk-process-d2c-tutorial].
 
-9. Измените подпись метода **main**, чтобы включить исключения, показанные ниже.
+9. Измените подпись метода **main**, чтобы добавить исключения, показанные ниже.
 
     ```
     public static void main( String[] args ) throws IOException
     ```
 
-10. В метод **main** в классе **App** добавьте следующий код. Этот код создает два экземпляра **EventHubClient** и **PartitionReceiver**, позволяя закрыть приложение, когда обработка сообщений будет завершена.
+10. В метод **main** в классе **App** добавьте следующий код. Этот код создает два экземпляра, **EventHubClient** и **PartitionReceiver**, позволяя закрыть приложение, когда обработка сообщений будет завершена.
 
     ```
     EventHubClient client0 = receiveMessages("0");
@@ -344,7 +339,7 @@
     import com.google.gson.Gson;
     ```
 
-7. Добавьте следующие переменные уровня класса в класс **App**, заменив **{youriothubname}** именем центра IoT, а **{yourdeviceid}** и **{yourdevicekey}** — значениями для устройства, сгенерированными в разделе *Создание удостоверения устройства*:
+7. Добавьте следующие переменные уровня класса в класс **App**, заменив **{youriothubname}** именем центра IoT, а **{yourdeviceid}** и **{yourdevicekey}** — значениями для устройства, сформированными при работе с разделом *Создание удостоверения устройства*.
 
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
@@ -354,7 +349,7 @@
 
     При создании экземпляра объекта **DeviceClient** в этом примере приложения используется переменная **protocol**. Для взаимодействия с центром IoT можно использовать протокол HTTPS или AMQPS.
 
-8. Добавьте следующий вложенный класс **TelemetryDataPoint** в класс **App**, чтобы указать данные телеметрии, которые устройство отправляет в центр IoT:
+8. Добавьте следующий вложенный класс **TelemetryDataPoint** в класс **App**, чтобы указать данные телеметрии, которые устройство отправляет в центр IoT.
 
     ```
     private static class TelemetryDataPoint {
@@ -428,7 +423,7 @@
 
     Этот метод отправляет новое сообщение с устройства в облако через одну секунду после того, как центр IoT подтверждает получение предыдущего сообщения. Сообщение содержит объект сериализации JSON с deviceId и случайное число, что позволяет имитировать датчик скорости ветра.
 
-11. Замените метод **main** следующим кодом, который создает поток для отправки сообщений, относящихся к типу "с устройства в облако", в центр IoT:
+11. Замените метод **main** следующим кодом, который создает поток для отправки сообщений с устройства в облако в центр IoT.
 
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException {
@@ -515,4 +510,4 @@
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

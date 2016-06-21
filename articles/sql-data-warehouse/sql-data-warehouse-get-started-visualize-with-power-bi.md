@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/11/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Визуализация данных с помощью Power BI
@@ -21,16 +21,18 @@
 > [AZURE.SELECTOR]
 - [Power BI][]
 - [Машинное обучение Azure][]
+- [SQLCMD][] 
 
 В этом руководстве показано, как использовать Power BI для подключения к хранилищу данных SQL и создания нескольких базовых визуализаций.
 
-> [AZURE.NOTE] Для работы с этим руководством необходима база данных хранилища данных SQL, в которую предварительно загружена демонстрационная база данных AdventureWorksDW. В статье [Создание хранилища данных SQL](sql-data-warehouse-get-started-provision.md) показано, как создать такую базу данных.
->
-> Если база данных хранилища данных SQL уже существует, но не содержит демонстрационных данных, вы можете [загрузить демонстрационные данные вручную][].
-
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
-## Подключение к AdventureWorksDW
+## Предварительные требования
+
+Для работы с этим руководством необходима база данных хранилища данных SQL, в которую предварительно загружен образец базы данных AdventureWorksDW. При создании хранилища данных SQL можно создать пустую базу данных или базу данных, содержащую образец данных AdventureWorks, либо восстановить резервную копию другой базы данных. Сведения о том, как создать хранилище данных SQL, используя загруженный образец данных, см. в разделе [Создание хранилища данных SQL][]. Если база данных хранилища данных SQL уже существует, но не содержит образцы данных, вы можете [загрузить образцы данных вручную][].
+
+
+## Подключение к базе данных
 
 Чтобы открыть Power BI и подключиться к базе данных AdventureWorksDW, выполните следующие действия.
 
@@ -51,13 +53,13 @@
 
     ![Power BI: вход][4]
 
-1. Войдя в службу Power BI и щелкните набор данных AdventureWorksDW в колонке слева. Откроется база данных.
+7. Войдя в службу Power BI и щелкните набор данных AdventureWorksDW в колонке слева. Откроется база данных.
 
     ![Power BI: открытие AdventureWorksDW][5]
 
 
 
-## Создание отчета Power BI для анализа демонстрационных данных
+## Создание отчета
 
 Теперь вы готовы к использованию Power BI для анализа демонстрационных данных AdventureWorksDW. Для выполнения анализа в AdventureWorksDW предусмотрено представление с именем AggregateSales. Это представление содержит несколько основных метрик для анализа продаж компании.
 
@@ -88,7 +90,7 @@
 Ход выполнения можно сохранить в любой момент, выбрав в меню **Файл** пункт **Сохранить**.
 
 ## Дальнейшие действия
-Теперь, когда вы разобрались с образцом данных, узнайте, как [разрабатывать хранилища данных][], [загружать данные][] и [переносить готовые решения][]. Или см. [веб-сайт Power BI][].
+Теперь, когда вы разобрались с образцом данных, узнайте, как [разрабатывать хранилища данных][], [загружать данные][] и [переносить готовые решения][]. Вы также можете ознакомиться с [веб-сайтом Power BI][].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -108,14 +110,16 @@
 [переносить готовые решения]: ./sql-data-warehouse-overview-migrate.md
 [разрабатывать хранилища данных]: ./sql-data-warehouse-overview-develop.md
 [загружать данные]: ./sql-data-warehouse-overview-load.md
-[загрузить демонстрационные данные вручную]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[загрузить образцы данных вручную]: ./sql-data-warehouse-load-sample-databases.md
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 [Машинное обучение Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[Создание хранилища данных SQL]: ./sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
 [портал Azure]: https://portal.azure.com/
-[веб-сайт Power BI]: http://www.powerbi.com/
+[веб-сайтом Power BI]: http://www.powerbi.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->
