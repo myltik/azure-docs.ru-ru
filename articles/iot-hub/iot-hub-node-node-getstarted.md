@@ -36,15 +36,15 @@
 
 С помощью этого руководства вы создадите три консольных приложения Node.js:
 
-* **CreateDeviceIdentity.js** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к виртуальному устройству;
-* **ReadDeviceToCloudMessages.js** — отображает данные телеметрии, отправленные виртуальным устройством;
-* **SimulatedDevice.js** — подключается к центру IoT с созданным ранее удостоверением устройства и отправляет сообщения с частотой один раз в секунду с использованием протокола AMQPS.
+* **CreateDeviceIdentity.js** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к виртуальному устройству;
+* **ReadDeviceToCloudMessages.js** — отображает данные телеметрии, отправленные виртуальным устройством;
+* **SimulatedDevice.js** — подключается к центру IoT с созданным ранее удостоверением устройства и отправляет сообщения с частотой один раз в секунду с использованием протокола AMQPS.
 
 > [AZURE.NOTE] Статья [Пакеты SDK для центра IoT][lnk-hub-sdks] содержит сведения о разных пакетах SDK, которые можно использовать для создания приложений, которые будут запущены на устройствах и серверной части решения.
 
 Для работы с этим руководством требуется:
 
-+ Node.js 0.12.x или более поздней версии. <br/> В статье о [подготовке среды разработки][lnk-dev-setup] описывается, как установить Node.js для работы с этим руководством в ОС Windows или Linux.
++ Node.js 0.12.x или более поздней версии. <br/> В статье о [подготовке среды разработки][lnk-dev-setup] описывается, как установить Node.js для работы с этим руководством в ОС Windows или Linux.
 
 + Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][lnk-free-trial].
 
@@ -358,7 +358,7 @@
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
@@ -367,4 +367,4 @@
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

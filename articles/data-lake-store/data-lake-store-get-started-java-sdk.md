@@ -95,7 +95,17 @@
 	        <dependency>
 	            <groupId>com.microsoft.azure</groupId>
 	            <artifactId>azure-client-authentication</artifactId>
-	            <version>1.0.0-SNAPSHOT</version>
+	            <version>1.0.0-20160513.000802-24</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.azure</groupId>
+	            <artifactId>azure-client-runtime</artifactId>
+	            <version>1.0.0-20160513.000812-28</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.rest</groupId>
+	            <artifactId>client-runtime</artifactId>
+	            <version>1.0.0-20160513.000825-29</version>
 	        </dependency>
 	        <dependency>
 	            <groupId>com.microsoft.azure</groupId>
@@ -310,4 +320,4 @@
 - [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

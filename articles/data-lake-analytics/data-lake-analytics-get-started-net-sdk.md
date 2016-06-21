@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Учебник. Начало работы с аналитикой озера данных Azure с помощью пакета SDK .NET
@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
-Узнайте, как использовать пакет SDK Azure .NET для создания учетных записей аналитики озера данных Azure, определения заданий аналитики озера данных в [U-SQL](data-lake-analytics-u-sql-get-started.md) и отправки заданий в учетные записи аналитики озера данных. Дополнительные сведения об аналитике озера данных см. в статье [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
+Узнайте, как использовать пакет SDK для Azure .NET для создания учетных записей аналитики озера данных Azure, определения заданий аналитики озера данных в [U-SQL](data-lake-analytics-u-sql-get-started.md) и отправки заданий в учетные записи аналитики озера данных. Дополнительные сведения об аналитике озера данных см. в статье [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
 
 В этом учебнике вам предстоит разработать консольное приложение C#, содержащее скрипт U-SQL, который считывает файл с разделителями-табуляциями (TSV) и преобразует его в файл с разделителями-запятыми (CSV). Для навигации по учебнику с помощью других поддерживаемых средств используйте вкладки в верхней части этого раздела.
 
@@ -45,7 +45,7 @@
 
 1. Откройте Visual Studio.
 2. Создайте консольное приложение на C#.
-3. Откройте консоль управления пакетами Nuget и выполните следующие команды:
+3. Откройте консоль управления пакетами NuGet и выполните следующие команды:
 
         Install-Package Microsoft.Azure.Management.DataLake.Analytics -Pre
         Install-Package Microsoft.Azure.Management.DataLake.Store -Pre
@@ -53,7 +53,7 @@
         Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
         Install-Package WindowsAzure.Storage
 
-4. Добавьте в проект новый файл с именем **SampleUSQLScript.txt**, а затем вставьте в него следующий скрипт U-SQL. Задания аналитики озера данных записываются на языке U-SQL. Дополнительные сведения о языке U-SQL см. в статье [Начало работы с языком U-SQL](data-lake-analytics-u-sql-get-started.md) и в [Справочнике по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+4. Добавьте в проект новый файл с именем **SampleUSQLScript.txt**, а затем вставьте в него следующий скрипт U-SQL. Задания аналитики озера данных пишутся на языке U-SQL. Дополнительные сведения о языке U-SQL см. в статье [Начало работы с языком U-SQL](data-lake-analytics-u-sql-get-started.md) и в [Справочнике по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
         @searchlog =
             EXTRACT UserId          int,
@@ -129,7 +129,7 @@
                     
                     // Authenticate the user
                     // For more information about applications and instructions on how to get a client ID, see: 
-                    //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+                    //   https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-create-service-principal-portal/
                     var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
                         "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REDIRECT-URI>")); // TODO: Replace bracketed values.
                     
@@ -182,7 +182,7 @@
                 // Authenticate the user with AAD through an interactive popup.
                 // You need to have an application registered with AAD in order to authenticate.
                 //   For more information and instructions on how to register your application with AAD, see: 
-                //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+                //   https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
                 {
                     var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -196,7 +196,7 @@
                 // Authenticate the application with AAD through the application's secret key.
                 // You need to have an application registered with AAD in order to authenticate.
                 //   For more information and instructions on how to register your application with AAD, see: 
-                //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+                //   https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
                 {
                     var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -360,4 +360,4 @@
 - Задачи управления описываются в статье [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
 - Общие сведения об аналитике озера данных см. в статье [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

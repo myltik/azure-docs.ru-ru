@@ -172,6 +172,7 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 ## Дальнейшие действия
 
-[Дополнительные сведения о конечных HTTP-точках Mesos](http://mesos.apache.org/documentation/latest/endpoints/). [Дополнительные сведения о REST API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
+- [См. дополнительные сведения о конечных HTTP-точках Mesos](http://mesos.apache.org/documentation/latest/endpoints/).
+- [См. дополнительные сведения о REST API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

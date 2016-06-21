@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="05/31/2016" 
+	ms.date="06/09/2016" 
 	ms.author="sdanie"/>
 
 # Как использовать кэш Redis для Azure
@@ -30,8 +30,8 @@
 Доступны указанные ниже уровни кэша Redis для Microsoft Azure.
 
 -	**Basic** — один узел. Множество размеров вплоть до 53 ГБ.
--	**Standard** — два узла: основной и реплика. Множество размеров вплоть до 53 ГБ. СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ 99,9 %.
--	**Премиум** — два узла (основной и реплика), включающие до 10 сегментов. Несколько размеров от 6 до 530 ГБ (если вам необходим больший размер, свяжитесь с нами). Все функции уровня «Стандартный», а также дополнительные функции, включая поддержку [кластера Redis](cache-how-to-premium-clustering.md), [сохраняемости Redis](cache-how-to-premium-persistence.md) и [виртуальной сети Azure](cache-how-to-premium-vnet.md). СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ 99,9 %.
+-	**Standard** — два узла: основной и реплика. Множество размеров вплоть до 53 ГБ. СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ 99,9 %.
+-	**Премиум** — два узла (основной и реплика), включающие до 10 сегментов. Несколько размеров от 6 до 530 ГБ (если вам необходим больший размер, свяжитесь с нами). Все функции уровня «Стандартный», а также дополнительные функции, включая поддержку [кластера Redis](cache-how-to-premium-clustering.md), [сохраняемости Redis](cache-how-to-premium-persistence.md) и [виртуальной сети Azure](cache-how-to-premium-vnet.md). СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ 99,9 %.
 
 Каждый уровень отличается доступными возможностями и ценой. Дополнительные сведения о ценах см. на странице [Кэш Redis. Цены][].
 
@@ -59,21 +59,7 @@
 <a name="NuGet"></a>
 ## Настройка клиентов кэша
 
-Экземпляр кэша на базе кэша Redis для Azure доступен из любого приложения Azure. Приложения .NET, разработанные в Visual Studio, могут использовать клиент **StackExchange.Redis**, который конфигурируется с помощью пакета NuGet, упрощающего настройку клиентских приложений кэша.
-
->[AZURE.NOTE] Дополнительные сведения см. на странице [StackExchange.Redis][] на github и в [документации по клиенту кэша StackExchange.Redis][].
-
-Чтобы настроить клиентское приложение в Visual Studio, используя пакет StackExchange.Redis из NuGet, щелкните правой кнопкой мыши **обозреватель решений** и выберите **Управление пакетами NuGet**.
-
-![Управление пакетами NuGet][NuGetMenu]
-
-Введите в поле поиска **StackExchange.Redis** или **StackExchange.Redis.StrongName**, выберите в результатах нужную версию и щелкните **Установить**.
-
->[AZURE.NOTE] При желании использовать версию клиентской библиотеки **StackExchange.Redis** со строгими именами выберите **StackExchange.Redis.StrongName**, в противном случае выберите **StackExchange.Redis**.
-
-![Пакет NuGet StackExchange.Redis][StackExchangeNuget]
-
-Пакет NuGet загружает и добавляет необходимые ссылки на сборки в клиентском приложении для доступа к кэшу Azure Redis из клиента кэша StackExchange.Redis.
+[AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 После настройки проекта клиента для кэширования можно использовать методы, описанные в следующих разделах, для работы с кэшем.
 
@@ -291,7 +277,6 @@ Redis хранит большинство данных в строках Redis, 
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [документацией по клиенту кэша StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
-[документации по клиенту кэша StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
 [статью о типах данных redis]: http://redis.io/topics/data-types
@@ -299,4 +284,4 @@ Redis хранит большинство данных в строках Redis, 
 
 [Принципы работы строк приложений и подключения]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

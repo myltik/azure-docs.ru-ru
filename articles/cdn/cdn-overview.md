@@ -68,10 +68,11 @@
 | [Расширенные HTTP-отчеты.](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Статистика в режиме реального времени.](cdn-real-time-stats.md) | | | **&#x2713;** |
 
+>[AZURE.TIP] Хотите добавить в Azure CDN новую функцию? [Отправьте нам отзыв](https://feedback.azure.com/forums/169397-cdn)!
 
 ## Дальнейшие действия
 
-Начать работу с сетью CDN вам поможет статья [Использование Azure CDN](./cdn-create-new-endpoint.md).
+Чтобы начать работу с сетью CDN, см. сведения в статье [Использование Azure CDN](./cdn-create-new-endpoint.md).
 
 Если вы являетесь действующим клиентом CDN, то сможете управлять своими конечными точками CDN с помощью [портала Microsoft Azure](https://portal.azure.com).
 
@@ -79,6 +80,4 @@
 
 Сведения о ценах см. на странице [Сведения о ценах на использование сети доставки содержимого (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-Хотите добавить в Azure CDN новую функцию? [Отправьте нам отзыв!](https://feedback.azure.com/forums/169397-cdn)
-
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

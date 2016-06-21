@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/16/2016"
+   	ms.date="06/13/2016"
    	ms.author="jgao"/>
 
 # Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux
@@ -23,7 +23,7 @@
 - [На основе Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [На основе Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 
-Узнайте, как создавать кластеры [Hadoop](http://hadoop.apache.org/) в HDInsight под управлением Linux и запускать задания Hive в HDInsight. [Apache Hive](https://hive.apache.org/) — это самый популярный компонент экосистемы Hadoop. Сейчас служба HDInsight поставляется в комплекте с 4 разными типами кластеров: [Hadoop](hdinsight-hadoop-introduction), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) и [Storm](hdinsight-storm-overview.md). Каждый тип кластера поддерживает свой набор компонентов. Все 4 типа кластеров поддерживают инфраструктуру Hive. Для получения информации о поддерживаемых компонентах в HDInsight см. статью [Новые возможности в версиях кластеров Hadoop, предоставляемых в HDInsight](hdinsight-component-versioning.md).
+Узнайте, как создавать кластеры [Hadoop](http://hadoop.apache.org/) в HDInsight под управлением Linux и запускать задания Hive в HDInsight. [Apache Hive](https://hive.apache.org/) — это самый популярный компонент экосистемы Hadoop. Сейчас служба HDInsight поставляется в комплекте с 4 разными типами кластеров: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) и [Storm](hdinsight-storm-overview.md). Каждый тип кластера поддерживает свой набор компонентов. Все 4 типа кластеров поддерживают инфраструктуру Hive. Для получения информации о поддерживаемых компонентах в HDInsight см. статью [Новые возможности в версиях кластеров Hadoop, предоставляемых в HDInsight](hdinsight-component-versioning.md).
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -35,11 +35,11 @@
 
 ## Создание кластера
 
-Большинство заданий Hadoop — пакетные. Вы создаете кластер, выполняете несколько заданий, а затем удаляете его. В этом разделе мы создадим в HDInsight кластер Hadoop под управлением Linux, используя [шаблон Azure ARM](../resource-group-template-deploy.md). Полностью настраиваемый шаблон ARM упрощает создание ресурсов Azure, таких как HDInsight. Знакомство с шаблонами Azure ARM не является обязательным условием для работы с этим руководством. Сведения о других способах создания кластеров, а также о свойствах, используемых в этом руководстве, см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Шаблон ARM, используемый в этом руководстве, находится в общедоступном контейнере BLOB-объектов, [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json).
+Большинство заданий Hadoop — пакетные. Вы создаете кластер, выполняете несколько заданий, а затем удаляете его. В этом разделе мы создадим в HDInsight кластер Hadoop под управлением Linux, используя [шаблон Azure ARM](../resource-group-template-deploy.md). Полностью настраиваемый шаблон ARM упрощает создание ресурсов Azure, таких как HDInsight. Знакомство с шаблонами Azure ARM не является обязательным условием для работы с этим руководством. Сведения о других способах создания кластеров, а также о свойствах, используемых в этом руководстве, см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Шаблон ARM, используемый в этом руководстве, находится в общедоступном контейнере BLOB-объектов, [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json).
 
 1. Щелкните следующее изображение, чтобы войти в Azure и открыть шаблон ARM на портале Azure. 
 
-	<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. В колонке **Параметры** заполните следующие поля.
 
@@ -56,7 +56,7 @@
 3. Чтобы сохранить параметры, нажмите кнопку **ОК**.
 4. В колонке **Настраиваемое развертывание** введите **имя новой группы ресурсов**, чтобы создать группу ресурсов. Группа ресурсов — это контейнер, в который входит кластер, зависимая учетная запись хранения и т. д. Расположение группы ресурсов может отличаться от расположения кластера.
 5. Щелкните **Условия использования**, а затем нажмите кнопку **Создать**.
-6. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Создать**. Вы увидите новый элемент под названием **Развертывание для развертывания шаблона**. Процесс создания кластера занимает около 20 минут. 
+6. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Создать**. Вы увидите новый элемент под названием **Развертывание для развертывания шаблона**. Процесс создания кластера занимает около 20 минут. 
 7.  После создания кластера заголовок элемента меняется на имя группы ресурсов, которое вы указали. Портал автоматически открывает две колонки с кластером и параметрами кластера. 
 
     ![Параметры кластера при начале работы с HDInsight под управлением Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png).
@@ -68,7 +68,7 @@
 [Apache Hive](hdinsight-use-hive.md) — это самый популярный компонент службы HDInsight. Существует множество способов выполнения заданий Hive в HDInsight. В этом руководстве для выполнения некоторых заданий Hive вы будете использовать представление Hive Ambari из портала. Другие способы отправки заданий Hive описаны в статье [Использование Hive в HDInsight](hdinsight-use-hive.md).
 
 1. Чтобы открыть Ambari, перейдите по ссылке **https://&lt;ClusterName>.azurehdinsight.net**, где &lt;ClusterName> — это кластер, который вы создали в предыдущем разделе.
-2. Введите имя пользователя Hadoop и пароль, указанные в предыдущем разделе. Имя пользователя по умолчанию — **admin**.
+2. Введите имя пользователя Hadoop и пароль, указанные в предыдущем разделе. Имя пользователя по умолчанию — **admin**.
 3. Откройте **представление Hive**, как показано на снимке экрана ниже:
 
     ![Выбор представлений Ambari](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
@@ -161,4 +161,4 @@
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

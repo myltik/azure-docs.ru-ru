@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/07/2016"
+    ms.date="06/09/2016"
     ms.author="magoedte"/>
 
 # Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени
@@ -159,7 +159,7 @@ AzureRunAsConnection|Ресурс-контейнер подключений, к�
     # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
     $ConnectionAssetName = "AzureRunAsConnection"
     Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
-    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId.SubscriptionId}
+    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
     New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
     ```
 <br>
@@ -242,4 +242,4 @@ AzureRunAsConnection|Ресурс-контейнер подключений, к�
 - Дополнительные сведения о субъектах-службах см. в статье [Объекты приложений и объекты субъектов-служб](../active-directory/active-directory-application-objects.md).
 - Дополнительные сведения об управлении доступом на основе ролей в службе автоматизации Azure см. в [этой статье](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

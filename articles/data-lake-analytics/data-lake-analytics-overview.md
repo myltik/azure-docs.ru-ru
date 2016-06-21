@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Обзор аналитики озера данных Microsoft Azure
@@ -77,4 +77,4 @@
     - [Отправить запрос на функцию](http://aka.ms/adlafeedback)
     - [Получить помощь на форумах](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->
