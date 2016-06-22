@@ -52,7 +52,7 @@
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 
- *Description*, *InstanceCount* и *GatewaySize* — необязательные параметры.
+ *Description*, *InstanceCount* и *GatewaySize* — необязательные параметры.
 
 
 Чтобы проверить создание шлюза, используйте командлет **Get-AzureApplicationGateway**.
@@ -223,4 +223,4 @@
 
 Указания по настройке шлюза приложений для использования с ILB см. в статье [Создание шлюза приложений с внутренним балансировщиком нагрузки (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!----HONumber=AcomDC_0608_2016-->
