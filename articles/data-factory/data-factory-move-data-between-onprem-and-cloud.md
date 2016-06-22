@@ -344,7 +344,7 @@
 	- В разделе действий есть только действие, для параметра **type** которого задано значение **Copy**.
 	- для параметра действия **input** установлено значение **EmpOnPremSQLTable**, а для **output** — **OutputBlobTable**;
 	- В разделе **transformation** в качестве **типа источника** задано значение **SqlSource**, а в качестве **типа приемника** — **BlobSink**.
-- для свойства **sqlReaderQuery** типа **SqlSource** задан вид SQL-запроса **select * from emp**.
+	- для свойства **sqlReaderQuery** типа **SqlSource** задан вид SQL-запроса **select * from emp**.
 
 	Замените значение свойства **start** текущей датой, а значение свойства **end** — датой следующего дня. Даты начала и окончания должны быть в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2014-10-14T16:32:41Z. Время **окончания** указывать не обязательно, однако в этом примере мы будем его использовать.
 	
@@ -689,4 +689,4 @@
 	
 	Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!----HONumber=AcomDC_0608_2016-->

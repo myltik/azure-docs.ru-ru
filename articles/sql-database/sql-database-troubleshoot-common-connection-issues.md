@@ -20,7 +20,8 @@
 
 При сбоях подключения к базе данных SQL Azure отображаются [сообщения об ошибке](sql-database-develop-error-messages.md). Эта статья представляет собой объединенный раздел, который поможет в устранении неполадок подключения к базе данных SQL Azure. В ней описываются [распространенные причины](#cause) проблем подключения, рекомендуется [инструмент устранения неполадок](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues), который поможет выявить проблему, и приводятся пошаговые инструкции по устранению [временных ошибок](#troubleshoot-transient-errors) и [постоянных или повторяющихся ошибок](#troubleshoot-the-persistent-errors). Наконец, в ней перечислены [все соответствующие статьи о проблемах подключения к базе данных SQL Azure](#all-topics-for-azure-sql-database-connection-problems).
 
-Если у вас возникли проблемы с подключением, попробуйте устранить неполадки с помощью описанных в этой статье методов.[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+Если у вас возникли проблемы с подключением, попробуйте устранить неполадки с помощью описанных в этой статье методов.
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Причина:
 
@@ -100,4 +101,4 @@
 - [Схема обучения использованию базы данных SQL Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database).
 - [Схема обучения использованию функций и инструментов эластичной базы данных](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale). 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!----HONumber=AcomDC_0608_2016-->

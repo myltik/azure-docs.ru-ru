@@ -79,7 +79,7 @@
 
 1. Откройте окно **Обозреватель серверов** в Visual Studio.
 
-2. Щелкните правой кнопкой мыши узел **Azure** и выберите **Подключиться к Microsoft Azure**. 
+2. Щелкните правой кнопкой мыши узел **Azure** и выберите **Подключиться к Microsoft Azure**.  
 ![Подключение к Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Выполните вход с использованием учетных данных Azure.
@@ -823,4 +823,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 Дополнительные сведения см. в статье [Документация по веб-заданиям Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!----HONumber=AcomDC_0608_2016-->
