@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="LuisBosquez"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="genemi"/>
 
 
@@ -48,4 +48,8 @@
 
 Дополнительную информацию см. в [Центре разработчика Java](/develop/java/).
 
-<!---HONumber=AcomDC_0504_2016-->
+## Дополнительные ресурсы
+
+Сведения о распространенных шаблонах архитектуры данных для мультитенантных приложений базы данных SaaS см. в статье [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+<!---HONumber=AcomDC_0615_2016-->

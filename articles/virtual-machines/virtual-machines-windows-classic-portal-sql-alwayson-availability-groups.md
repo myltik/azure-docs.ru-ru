@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Настройка групп доступности AlwaysOn (графический интерфейс пользователя) | Microsoft Azure"
+	pageTitle="Настройка группы доступности AlwaysOn на виртуальной машине Azure в классической модели"
 	description="Создание группы доступности AlwaysOn на виртуальных машинах Azure. В этом учебнике в основном используется пользовательский интерфейс и инструменты, а не сценарии."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -13,23 +13,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
-# Настройка групп доступности AlwaysOn на виртуальной машине Azure (графический пользовательский интерфейс)
+# Настройка группы доступности AlwaysOn на виртуальной машине Azure в классической модели
 
 > [AZURE.SELECTOR]
-- [Портал](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Resource Manager: автоматически](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: вручную](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Классическая модель: пользовательский интерфейс](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Классическая модель: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Модель диспетчера ресурсов.
 
 
 В этом комплексном руководстве показано, как реализовывать группы доступности с помощью AlwaysOn SQL Server на виртуальных машинах Azure.
-
->[AZURE.NOTE] На портале управления Azure есть новое средство настройки коллекций для групп доступности AlwaysOn с прослушивателем. Оно автоматически настраивает все необходимые параметры для групп доступности AlwaysOn. Дополнительную информацию см. в записи блога [SQL Server Always On Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx) (Предложение AlwaysOn SQL Server в коллекции классического портала Microsoft Azure). Инструкции по использованию PowerShell см. в руководстве по тому же сценарию в статье [Настройка групп доступности AlwaysOn в виртуальной машине Azure (графический пользовательский интерфейс)](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md).
 
 Когда вы завершите, решение SQL Server Always On в Azure будет состоять из следующих элементов:
 
@@ -227,7 +227,7 @@
 
 1. Выберите "Использовать следующие адреса DNS-серверов" и укажите **10.10.2.4** в поле **Основной DNS-сервер**.
 
-1. **10.10.2.4** — это адрес, назначенный виртуальной машине в подсети 10.10.2.0/24 в виртуальной сети Azure. Речь идет о виртуальной машине **ContosoDC**. Для проверки IP-адреса **ContosoDC** используйте команду **nslookup contosodc** в соответствующем запросе, как показано ниже.
+1. **10.10.2.4** — это адрес, назначенный виртуальной машине в подсети 10.10.2.0/24 в виртуальной сети Azure. Речь идет о виртуальной машине **ContosoDC**. Для проверки IP-адреса **ContosoDC** используйте команду **nslookup contosodc** в соответствующем запросе, как показано ниже.
 
 	![Поиск IP-адреса для контроллера домена с помощью NSLOОКUP](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC664954.jpg)
 
@@ -519,7 +519,7 @@
 
 	![Мастер создания групп доступности, выбор начальной синхронизации данных](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665529.gif)
 
-1. На странице **Проверка** нажмите кнопку **Далее**. Страница должна иметь примерно такой вид: Появится предупреждение о конфигурации прослушивателя группы доступности, так как он еще не настроен. Вы можете пропустить это предупреждение, поскольку процедура настройки прослушивателя не описана в этом учебнике. После завершения работы с этим руководством можно настроить прослушиватель — см. статью [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+1. На странице **Проверка** нажмите кнопку **Далее**. Страница должна иметь примерно такой вид: Появится предупреждение о конфигурации прослушивателя группы доступности, так как он еще не настроен. Вы можете пропустить это предупреждение, поскольку процедура настройки прослушивателя не описана в этом учебнике. Чтобы после завершения работы с этим учебником настроить прослушиватель, ознакомьтесь с разделом [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 	![Мастер создания групп доступности, проверка](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665530.gif)
 
@@ -531,7 +531,7 @@
 
 	![Отображение панели мониторинга группы доступности](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665532.gif)
 
-1. **Панель мониторинга AlwaysOn** должна выглядеть примерно следующим образом: Вы увидите реплики, режим отработки отказа для каждой из них и состояние синхронизации.
+1. **Панель мониторинга AlwaysOn** должна выглядеть примерно следующим образом. Вы увидите реплики, режим отработки отказа для каждой из них и состояние синхронизации.
 
 	![Панель мониторинга группы доступности](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665533.gif)
 
@@ -548,4 +548,4 @@
 
 Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

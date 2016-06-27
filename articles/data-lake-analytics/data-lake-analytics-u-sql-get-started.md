@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Учебник. Приступая к работе с языком U-SQL для аналитики озера данных Azure
@@ -317,7 +317,7 @@ U-SQL позволяет использовать данные в контекс
         FROM "/Samples/Data/SearchLog.tsv"
     USING Extractors.Tsv();
     
-Следующий сценарий демонстрирует использование определенного представления:
+Следующий сценарий демонстрирует использование определенного представления.
 
     @res =
         SELECT
@@ -409,7 +409,7 @@ U-SQL позволяет использовать данные в контекс
 
 - [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
 - [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-- [Использование функций окна U-SQL для заданий аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
+- [Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
 - [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## Сообщите нам свое мнение
@@ -419,4 +419,4 @@ U-SQL позволяет использовать данные в контекс
 - [Получить помощь на форумах](http://aka.ms/adlaforums)
 - [Отправить отзыв о U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="06/13/2016"
 	ms.author="tomfitz"/>
 
 # Операции аудита с помощью диспетчера ресурсов
@@ -21,7 +21,7 @@
 С помощью журналов аудита можно определить:
 
 - какие операции были выполнены для ресурсов в вашей подписке;
-- кто инициировал операцию \(при этом для операций, инициированных серверной службой, имя вызывающего пользователя не возвращается\);
+- кто инициировал операцию (при этом для операций, инициированных серверной службой, имя вызывающего пользователя не возвращается);
 - когда была выполнена операция;
 - состояние операции;
 - значения других свойств, которые могут помочь в изучении операции.
@@ -108,11 +108,11 @@
 
 2. Вы можете отфильтровать результаты с помощью служебной программы JSON, например [jq](http://stedolan.github.io/jq/download/). В следующем примере показано, как найти операции, связанные с обновлением файла веб-конфигурации.
 
-        azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == \"Update web sites config\")"
+        azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == "Update web sites config")"
 
 3. Вы можете найти действия для конкретного пользователя.
 
-        azure group log show ExampleGroup --json | jq ".[] | select(.caller==\"someone@contoso.com\")"
+        azure group log show ExampleGroup --json | jq ".[] | select(.caller=="someone@contoso.com")"
 
 ## Просмотр журналов аудита с помощью API REST
 
@@ -125,4 +125,4 @@
 - Сведения о командах для устранения неполадок развертывания см. в статье [Устранение неполадок развертывания группы ресурсов в Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Дополнительные сведения о предотвращении удаления ресурса для всех пользователей см. в статье [Блокировка ресурсов с Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -263,7 +263,7 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 Используйте этот метод, если вы вошли в ОС Windows, используя учетные данные домена, для которого не настроена федерация с Azure. Или если используете проверку подлинности Azure AD с помощью Azure AD на основе исходного домена или домена клиента.
 
 1. Запустите Management Studio или Data Tools и в диалоговом окне **Подключение к серверу** (или **Подключиться к компоненту Database Engine**) в поле **Проверка подлинности** выберите пункт **Проверка пароля Active Directory**.
-2. В поле **Имя пользователя** введите свое имя пользователя Azure Active Directory в формате ****username@domain.com**. Это должна быть учетная запись из Azure Active Directory или учетная запись из федерации домена с Azure Active Directory.
+2. В поле **Имя пользователя** введите свое имя пользователя Azure Active Directory в формате **username@domain.com**. Это должна быть учетная запись из Azure Active Directory или учетная запись из федерации домена с Azure Active Directory.
 3. В поле **Пароль** введите пароль пользователя для учетной записи Azure Active Directory или учетной записи федеративного домена. ![Выбор проверки пароля Active Directory][12]
 
 4. Нажмите кнопку **Параметры**, и на странице **Свойства подключения** в поле **Подключение к базе данных** введите имя пользовательской базы данных для подключения.
@@ -367,4 +367,4 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

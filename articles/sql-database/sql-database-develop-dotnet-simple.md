@@ -37,4 +37,8 @@
 * [Подтверждение концепции подключения к SQL с использованием ADO.NET](https://msdn.microsoft.com/library/mt718320.aspx)
 * [Отказоустойчивое подключение к SQL с помощью ADO.NET](https://msdn.microsoft.com/library/mt703195.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+## Дополнительные ресурсы
+
+Сведения о распространенных шаблонах архитектуры данных для мультитенантных приложений базы данных SaaS см. в статье [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+<!---HONumber=AcomDC_0615_2016-->

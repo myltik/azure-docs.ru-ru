@@ -145,4 +145,4 @@
 
 [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

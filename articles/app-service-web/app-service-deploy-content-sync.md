@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Синхронизация содержимого из папки в облаке в службы приложений Azure"
+	pageTitle="Синхронизация содержимого из папки в облаке со службами приложений Azure"
 	description="Узнайте, как развертывать приложение в службе приложений Azure с помощью синхронизации содержимого из папки в облаке."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
-# Синхронизация содержимого из папки в облаке в службы приложений Azure
+# Синхронизация содержимого из папки в облаке со службами приложений Azure
 
-Одним из вариантов развертывания в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) является синхронизация содержимого из популярных облачных служб хранилища, например Dropbox и OneDrive.
+В этом учебнике показано, как выполнить развертывание в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714), синхронизируя содержимое из популярных облачных служб хранилища, например Dropbox и OneDrive.
 
 ## <a name="overview"></a>Обзор развертывания синхронизации содержимого
 
@@ -41,4 +41,4 @@
  
 Дополнительные сведения о развертывании Dropbox можно найти в разделе [Deploy from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

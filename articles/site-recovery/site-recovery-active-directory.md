@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/10/2016"
+	ms.date="06/13/2016"
 	ms.author="pratshar"/>
 
 # Защита Active Directory и DNS с Azure Site Recovery
@@ -121,4 +121,4 @@ Site Recovery — это служба Azure, которая обеспечива
 
 Для получения дополнительных сведений о защите корпоративных приложений с Azure Site Recovery прочтите статью [Какие рабочие нагрузки можно защитить?](../site-recovery/site-recovery-workload.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

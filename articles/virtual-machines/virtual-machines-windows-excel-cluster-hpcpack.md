@@ -46,7 +46,7 @@
 ### Использование шаблона быстрого запуска
 Шаблон быстрого запуска Azure позволяет быстро и без проблем развернуть кластер пакета HPC на портале Azure. Открыв шаблон на портале предварительной версии, вы увидите простой пользовательский интерфейс, где вводятся параметры кластера. Для этого выполните следующие действия.
 
->[AZURE.TIP]При необходимости используйте [шаблон Azure Markeplace](https://ms.portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn), который создает аналогичный кластер специально для рабочих нагрузок Excel. Действия немного отличаются от следующих.
+>[AZURE.TIP]При необходимости используйте [шаблон Azure Markeplace](https://portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn), который создает аналогичный кластер специально для рабочих нагрузок Excel. Действия немного отличаются от следующих.
 
 1.  Посетите [страницу шаблона создания кластера HPC на сайте GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). При необходимости просмотрите сведения о шаблоне и исходном коде.
 
@@ -382,4 +382,4 @@ binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.U
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

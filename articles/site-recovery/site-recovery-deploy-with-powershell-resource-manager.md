@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="03/16/2016"
+	ms.date="06/13/2016"
 	ms.author="bsiva"/>
 
 # Репликация между локальными виртуальными машинами Hyper-V и Azure с помощью PowerShell и Azure Resource Manager
@@ -47,7 +47,7 @@ Azure PowerShell — это модуль, предоставляющий ком�
 
 Убедитесь, что выполнены следующие предварительные требования.
 
-- Учетная запись [Microsoft Azure](https://azure.microsoft.com/). Начните с [бесплатной пробной версии](pricing/free-trial/). Также вы можете ознакомиться с [расценками на использование менеджера Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Учетная запись [Microsoft Azure](https://azure.microsoft.com/). Начните с [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/). Также вы можете ознакомиться с [расценками на использование менеджера Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Azure PowerShell 1.0. Сведения об этом выпуске и его установке см. в разделе [Azure PowerShell 1.0](https://azure.microsoft.com/).
 - Модули [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) и [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/). Последние версии этих модулей можно получить из [коллекции PowerShell](https://www.powershellgallery.com/).
 
@@ -261,4 +261,9 @@ Azure PowerShell — это модуль, предоставляющий ком�
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0518_2016-->
+
+##Дальнейшие действия
+
+[Узнайте больше](https://msdn.microsoft.com/library/azure/mt637930.aspx) о командлетах PowerShell диспетчера Azure Resource Manager для службы Azure Site Recovery.
+
+<!---HONumber=AcomDC_0615_2016-->

@@ -86,9 +86,9 @@
 	        "linkedServiceName": "MyAzureMLLinkedService",
             "typeProperties":
             {
-                "webServiceInput": "DecisionTreeInputBlob ",
+                "webServiceInput": "DecisionTreeInputBlob",
                 "webServiceOutputs": {
-                    "output1": "DecisionTreeResultBlob "
+                    "output1": "DecisionTreeResultBlob"
                 }                
             },
 	        "policy": {
@@ -242,9 +242,9 @@
 		        "linkedServiceName": "MyAzureMLLinkedService",
                 "typeProperties":
                 {
-                    "webServiceInput": "DecisionTreeInputBlob ",
+                    "webServiceInput": "DecisionTreeInputBlob",
                     "webServiceOutputs": {
-                        "output1": "DecisionTreeResultBlob "
+                        "output1": "DecisionTreeResultBlob"
                     }                
                 },
 		        "policy": {
@@ -772,4 +772,4 @@
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

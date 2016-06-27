@@ -40,4 +40,8 @@
 
 [Эксперимент по подключению к SQL с помощью Ruby](http://msdn.microsoft.com/library/mt715797.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+## Дополнительные ресурсы
+
+Сведения о распространенных шаблонах архитектуры данных для мультитенантных приложений базы данных SaaS см. в статье [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+<!---HONumber=AcomDC_0615_2016-->

@@ -2,16 +2,16 @@
 	pageTitle="Пример решения IoT Azure MyDriving: сборка | Microsoft Azure"
 	description="Выполните сборку приложения, которое демонстрирует пример проектирования системы IoT с помощью Microsoft Azure, включая Stream Analytics, машинное обучение и концентраторы событий."
 	services=""
-    documentationCenter=""
-    suite="iot-suite"
+    documentationCenter=".net"
+    suite=""
 	authors="alancameronwills"
 	manager="douge"/>
 
 <tags
-	ms.service="iot-suite"
+	ms.service="multiple"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
 	ms.author="awills"/>
@@ -438,7 +438,7 @@ Application Insights будет отправлять оповещения по �
 
 Дополнительные сведения см. в следующих статьях:
 
--   Сводка по [квотам и ограничениям на службы Azure](../azure-subscription-service-limits/#iot-hub-limits).
+-   Сводка по [квотам и ограничениям службы Azure](../azure-subscription-service-limits.md#iot-hub-limits).
 
 -   [Калькулятор стоимости](https://azure.microsoft.com/pricing/calculator/) Azure.
 
@@ -462,4 +462,4 @@ Application Insights будет отправлять оповещения по �
 
 Рекомендуется ознакомиться со [справочным руководством по MyDriving](http://aka.ms/mydrivingdocs), в котором содержится подробное описание архитектуры системы и ее компонентов.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

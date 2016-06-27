@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Восстановление базы данных в хранилище данных SQL Azure (PowerShell) | Microsoft Azure"
-   description="Задачи PowerShell для восстановления работающей, удаленной или недоступной базы данных в хранилище данных SQL Azure."
+   pageTitle="Восстановление хранилища данных SQL Azure (PowerShell) | Microsoft Azure"
+   description="Задачи PowerShell для восстановления хранилища данных SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -13,38 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/11/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Архивация и восстановление базы данных в хранилище данных SQL Azure (PowerShell)
+# Восстановление хранилища данных SQL Azure (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Обзор](sql-data-warehouse-overview-manage-database-restore.md)
-- [Портал](sql-data-warehouse-manage-database-restore-portal.md)
-- [PowerShell](sql-data-warehouse-manage-database-restore-powershell.md)
-- [REST](sql-data-warehouse-manage-database-restore-rest-api.md)
+- [Обзор][]
+- [Портал][]
+- [PowerShell][]
+- [REST][]
 
-Задачи PowerShell для восстановления работающей, удаленной или недоступной базы данных в хранилище данных SQL.
-
-Задачи раздела
-
-- Восстановление активной базы данных.
-- Восстановление удаленной базы данных.
-- Восстановление недоступной базы данных из другого географического региона Azure
-
-[AZURE.INCLUDE [Политика хранения резервных копий хранилища данных SQL](../../includes/sql-data-warehouse-backup-retention-policy.md)]
-
+Из этой статьи вы узнаете, как восстановить хранилище данных SQL Azure с помощью PowerShell.
 
 ## Перед началом работы
 
 ### Проверьте ресурсы DTU Базы данных SQL. 
-Так как восстановление хранилища данных SQL выполняется в новую базу данных на логическом сервере SQL Server, важно убедиться, что на используемом сервере имеется достаточно единиц DTU для новой базы данных. В этой записи блога вы можете узнать больше о том, [как просмотреть и увеличить квоту DTU][].
+
+Каждое хранилище данных SQL размещается на логическом сервере SQL Server. Этот логический сервер имеет предельную емкость, измеряемую в DTU. Перед восстановлением хранилища данных SQL важно убедиться, что логический сервер SQL Server, на котором размещена база данных, имеет достаточное количество DTU для восстанавливаемой базы данных. В этой записи блога вы можете узнать больше о том, [как просмотреть и увеличить квоту DTU][].
 
 ### Установка PowerShell
 
-Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0 или более поздней версии. Чтобы узнать текущую версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с [установщика веб-платформы Майкрософт][]. Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Как установить и настроить Azure PowerShell][].
+Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0 или более поздней версии. Чтобы узнать текущую версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с [установщика веб-платформы Майкрософт][]. Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][].
 
-## Восстановление активной базы данных.
+## Восстановление активной или приостановленной базы данных
 
 Для восстановления базы данных из моментального снимка используйте командлет PowerShell [Restore-AzureRmSqlDatabase][].
 
@@ -88,8 +80,6 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] Если вашим сервером является foo.database.windows.net, в приведенных выше командлетах PowerShell в качестве -ServerName используйте значение "foo".
-
 Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных][].
 
 ## Восстановление удаленной базы данных.
@@ -126,9 +116,7 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] Если вашим сервером является foo.database.windows.net, в приведенных выше командлетах PowerShell в качестве -ServerName используйте значение "foo".
-
-Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных][].
+Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных SQL Azure][].
 
 ## Восстановление из географического региона Azure
 
@@ -159,6 +147,7 @@ $GeoRestoredDatabase.status
 ```
 
 ### Настройка базы данных после выполнения географического восстановления
+
 Далее приведен контрольный список задач, который можно использовать для подготовки восстановленной базы данных к использованию в рабочей среде.
 
 1. **Обновление строк подключения**. Убедитесь, что строки подключения клиентских средств указывают на только что восстановленную базу данных.
@@ -170,21 +159,21 @@ $GeoRestoredDatabase.status
 
 
 ## Дальнейшие действия
-Дополнительные сведения см. в статьях [Непрерывность бизнес-процессов в базе данных SQL Azure][] и [Management overview][] \(Обзор управления).
+Дополнительные сведения о функциях обеспечения непрерывности бизнес-процессов в выпусках Базы данных SQL Azure см. в статье [Непрерывность бизнес-процессов в базе данных SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Непрерывность бизнес-процессов в базе данных SQL Azure]: sql-database-business-continuity.md
 [Финализация восстановленной базы данных]: sql-database-recovered-finalize.md
-[Как установить и настроить Azure PowerShell]: powershell-install-configure.md
-[Management overview]: sql-data-warehouse-overview-manage.md
+[Финализация восстановленной базы данных SQL Azure]: sql-database-recovered-finalize.md
+[Установка и настройка Azure PowerShell]: powershell-install-configure.md
+[Обзор]: ./sql-data-warehouse-restore-database-overview.md
+[Портал]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
-[Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
-[Database operation status]: https://msdn.microsoft.com/library/azure/dn720371.aspx
-[Get restorable dropped database]: https://msdn.microsoft.com/library/azure/dn509574.aspx
-[List restorable dropped databases]: https://msdn.microsoft.com/library/azure/dn509562.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
 <!--Blog references-->
@@ -194,4 +183,4 @@ $GeoRestoredDatabase.status
 [Azure Portal]: https://portal.azure.com/
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

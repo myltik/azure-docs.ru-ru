@@ -1,6 +1,6 @@
-## Parameter file
+## Файл параметров
 
-If you use a parameter file to pass the parameter values to your template during deployment, you'll need to create a JSON file with a format similar to the following example.
+Если вы используете файл параметров для передачи значений параметров в шаблон во время развертывания, необходимо создать JSON-файл с форматом, как в следующем примере.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -26,4 +26,6 @@ If you use a parameter file to pass the parameter values to your template during
        }
     }
 
-The size of the parameter file cannot be more than 64 KB.
+Размер файла параметров не может быть более 64 КБ.
+
+<!---HONumber=AcomDC_0615_2016-->

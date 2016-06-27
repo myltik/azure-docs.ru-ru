@@ -1,10 +1,10 @@
 <properties
    pageTitle="Рекомендации и шаблоны для обеспечения безопасности в Azure | Microsoft Azure"
-   description="В этой статье обсуждаются рекомендации по обеспечению безопасности и способы защиты развертываний Azure."
-   services="security"
+   description="В статье содержатся общие сведения о рекомендациях и шаблонах для обеспечения безопасности в Azure и проверенный список рекомендаций по безопасности при работе с различными ресурсами Azure."
+   services="azure-security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,10 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/25/2016"
+   ms.date="06/14/2016"
    ms.author="terrylan"/>
 
 # Рекомендации и шаблоны для обеспечения безопасности в Azure
+
+Сейчас доступны следующие статьи с рекомендациями и шаблонами для обеспечения безопасности в Azure. Регулярно просматривайте эту страницу с обновляемым списком материалов по обеспечению безопасности в Azure.
+
+- [Рекомендации по обеспечению безопасности в сети Azure](azure-security-network-security-best-practices.md)
+- [Рекомендации по защите и шифрованию данных в Azure](azure-security-data-encryption-best-practices.md)
+- [Рекомендации по обеспечению безопасности за счет управления удостоверениями и контроля доступа Azure](azure-security-identity-management-best-practices.md)
+- [Рекомендации по обеспечению безопасности "Интернета вещей"](azure-security-iot-best-practices.md)
+- [Рекомендации по обновлению программного обеспечения в Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
+- [Облачные службы Microsoft Cloud и сетевая безопасность](../best-practices-network-security.md)
+- [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md) (Реализация защищенной гибридной сетевой архитектуры в Azure)
 
 Azure — это безопасная платформа для создания пользовательских решений. Кроме того, для защиты создаваемых в Azure решений мы дополнительно предоставляем разные службы и технологии. Так как доступно множество параметров, многие пользователи интересуются способами защиты развертываний Azure, рекомендуемыми специалистами Майкрософт.
 
@@ -32,13 +42,6 @@ Azure — это безопасная платформа для создания
 - возможные альтернативы рекомендации;
 - как научиться применять эту рекомендацию.
 
-Сейчас доступны следующие статьи с рекомендациями и шаблонами для обеспечения безопасности в Azure. Регулярно просматривайте эту страницу с обновляемым списком материалов по обеспечению безопасности в Azure.
+Мы надеемся в скором времени добавить еще много статей со сведениями и рекомендациями об архитектуре безопасности Azure. Если вы хотите увидеть статьи на те или иные темы, сообщите нам об этом в дискуссионном разделе в нижней части этой страницы.
 
-- [Рекомендации по обеспечению безопасности в сети Azure](azure-security-network-security-best-practices.md)
-- [Рекомендации по защите и шифрованию данных в Azure](azure-security-data-encryption-best-practices.md)
-- [Рекомендации по обеспечению безопасности за счет управления удостоверениями и контроля доступа Azure](azure-security-identity-management-best-practices.md)
-- [Рекомендации по обеспечению безопасности "Интернета вещей"](azure-security-iot-best-practices.md)
-- [Рекомендации по обновлению программного обеспечения в Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
-- [Облачные службы Microsoft Cloud и сетевая безопасность](../best-practices-network-security.md)
-
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

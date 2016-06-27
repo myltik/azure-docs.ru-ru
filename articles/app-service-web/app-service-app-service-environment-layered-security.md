@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/14/2016" 
 	ms.author="stefsch"/>
 
 # Реализация многоуровневой архитектуры безопасности со средами службы приложений
@@ -33,7 +33,7 @@
 В остальной части этого раздела описаны шаги по настройке группы безопасности сети в подсети, содержащей apiase.
 
 ## Определение поведения сети ##
-Чтобы узнать требуемые правила сетевой безопасности, вам необходимо определить, какие клиенты сети смогут обращаться к среде службы приложений, содержащей приложение API, а какие — будут заблокированы.
+Чтобы узнать требуемые правила сетевой безопасности, вам необходимо определить, какие клиенты сети смогут обращаться к среде службы приложений, содержащей приложение API, а какие — будут заблокированы.
 
 [Группы безопасности сети (NSG)][NetworkSecurityGroups] применяются к подсетям, в которых также развертываются среды службы приложений. Поэтому содержащиеся в NSG правила применяются ко **всем** приложениям, выполняющимся в среде службы приложений. Использование приведенного в этой статье примера архитектуры предполагает следующее. После того как группа безопасности сети будет применена к подсети, содержащей apiase, все приложения, выполняющиеся в среде службы приложений apiase, будут защищены этим же набором правил безопасности.
 
@@ -89,6 +89,8 @@
 
 
 ## Дополнительные ссылки и сведения ##
+Все статьи и практические руководства, посвященные средам службы приложений, доступны в [файле сведений для сред службы приложений](../app-service/app-service-app-service-environments-readme.md).
+
 Настройка [групп безопасности сети][NetworkSecurityGroupsClassic] в классических виртуальных сетях.
 
 Основные сведения об [исходящих IP-адресах][NetworkArchitecture] и средах службы приложений.
@@ -103,10 +105,10 @@
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [NetworkArchitecture]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
 [NetworkSecurityGroupsClassic]: https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps/
-[InboundTraffic]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
+[InboundTraffic]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]: ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -101,4 +101,8 @@ Docker Swarm предоставляет собственные функции к
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0525_2016-->
+Создание приложений с помощью службы контейнеров Azure
+
+> [https://channel9.msdn.com/Events/Build/2016/B822]
+
+<!---HONumber=AcomDC_0615_2016-->

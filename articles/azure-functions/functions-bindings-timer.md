@@ -26,14 +26,13 @@
 
 ## Файл function.JSON для триггера с таймером
 
-Файл *function.json* содержит выражение schedule и параметр, который указывает, следует ли активировать функцию немедленно.
+Файл *function.json* содержит выражение schedule.
 
 ```json
 {
   "bindings": [
     {
       "schedule": "0 * * * * *",
-      "runOnStartup": true,
       "name": "myTimer",
       "type": "timerTrigger",
       "direction": "in"
@@ -54,15 +53,13 @@
 Активация через каждые 5 минут:
 
 ```json
-"schedule": "0 */5 * * * *",
-"runOnStartup": false,
+"schedule": "0 */5 * * * *"
 ```
 
-Немедленная активация, а затем через каждые два часа:
+Активация через каждые 2 часа.
 
 ```json
 "schedule": "0 0 */2 * * *",
-"runOnStartup": true,
 ```
 
 ## Пример кода C# для триггера таймера
@@ -80,4 +77,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

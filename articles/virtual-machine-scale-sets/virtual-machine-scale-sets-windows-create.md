@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/10/2016"
 	ms.author="davidmu"/>
 
 # Создание набора масштабирования виртуальных машин Windows с помощью Azure PowerShell
@@ -84,7 +84,7 @@
 
 ### Учетная запись хранения
 
-Для хранения связанных дисков виртуальным машинам, создаваемым в наборе масштабирования, требуется учетная запись хранения.
+Учетная запись хранения используется виртуальной машиной для хранения диска операционной системы и диагностических данных, используемых для масштабирования. По возможности рекомендуется иметь учетную запись хранения для каждой виртуальной машины, созданной в наборе масштабирования. Если это невозможно, планируйте не более 20 виртуальных машин на учетную запись хранения. Пример в этой статье демонстрирует создание трех учетных записей хранения для трех виртуальных машин в наборе масштабирования.
 
 1. Замените значение **saName** именем, которое вы хотите использовать для учетной записи хранения, а затем создайте переменную: 
 
@@ -127,6 +127,8 @@
         Tags                : {}
         Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
 
+5. Повторите шаги 1–4, чтобы создать три учетных записи хранения, например myst1, myst2 и myst3.
+
 ### Виртуальная сеть
 
 Виртуальная сеть обязательна для виртуальных машин в наборе масштабирования.
@@ -153,7 +155,7 @@
 
 Перед тем как создавать сетевой интерфейс, необходимо создать общедоступный IP-адрес.
 
-1. Замените значение **$domName** именем домена, которое хотите использовать с общедоступным IP-адресом, а затем создайте переменную:  
+1. Замените значение **$domName** именем домена, которое хотите использовать с общедоступным IP-адресом, а затем создайте переменную.  
 
         $domName = "domain name label"
         
@@ -205,7 +207,7 @@
 
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
         
-    В этом примере показано создание набора масштабирования с тремя виртуальными машинами. Дополнительные сведения о возможностях наборов масштабирования см. в статье [Обзор наборов для масштабирования виртуальных машин](virtual-machine-scale-sets-overview.md). Этот шаг также включает задание размера (параметр SkuName) виртуальных машин в наборе. Чтобы подобрать размер в соответствии со своими потребностями, обратитесь к статье [Размеры виртуальных машин](..\virtual-machines\virtual-machines-windows-sizes.md).
+    В этом примере показано создание набора масштабирования с тремя виртуальными машинами. Дополнительные сведения о возможностях наборов масштабирования см. в [обзоре наборов масштабирования виртуальных машин](virtual-machine-scale-sets-overview.md). Этот шаг также включает задание размера (параметр SkuName) виртуальных машин в наборе. Чтобы подобрать размер в соответствии со своими потребностями, обратитесь к статье [Размеры виртуальных машин](../virtual-machines/virtual-machines-windows-sizes.md).
     
 4. Добавьте конфигурацию сетевого интерфейса в конфигурацию набора масштабирования:
         
@@ -226,15 +228,15 @@
 
 #### Профиль операционной системы
 
-1. Замените значение **$computerName** префиксом имени компьютера, а затем создайте переменную: 
+1. Замените значение **$computerName** префиксом имени компьютера, который вы хотите использовать, а затем создайте переменную. 
 
         $computerName = "computer name prefix"
         
-2. Замените значение **$adminName** именем учетной записи администратора на виртуальных машинах, а затем создайте переменную:
+2. Замените значение **$adminName** именем учетной записи администратора на виртуальных машинах, а затем создайте переменную.
 
         $adminName = "administrator account name"
         
-3. Замените значение **$adminPassword** паролем учетной записи, а затем создайте переменную:
+3. Замените значение **$adminPassword** паролем учетной записи, а затем создайте переменную.
 
         $adminPassword = "password for administrator accounts"
         
@@ -244,7 +246,7 @@
 
 #### Профиль хранилища
 
-1. Замените значение **$storageProfile** именем, которое вы хотите использовать для профиля хранилища, а затем создайте переменную:  
+1. Замените значение **$storageProfile** именем, которое вы хотите использовать для профиля хранилища, а затем создайте переменную.  
 
         $storeProfile = "storage profile name"
         
@@ -254,21 +256,21 @@
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
         
-    Сведения о других образах см. в статье [Просмотр и выбор образов виртуальных машин Azure с помощью Windows PowerShell и Azure CLI](..\virtual-machines\virtual-machines-windows-cli-ps-findimage.md).
+    Сведения о других образах см. в разделе [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
         
-3. Замените значение **$vhdContainer** путем к папке, в которой хранятся виртуальные жесткие диски, например https://mystorage.blob.core.windows.net/vhds, а затем создайте переменную:
+3. Замените значение **$vhdContainer** списком путей к расположениям, в которых хранятся виртуальные жесткие диски, например https://mystorage.blob.core.windows.net/vhds, а затем создайте переменную.
        
-        $vhdContainer = "URI of storage container"
+        $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
         
 4. Создайте профиль хранилища:
 
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainer -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### Набор масштабирования виртуальных машин
 
 Наконец, мы можем создать набор масштабирования.
 
-1. Замените значение **$vmssName** именем набора масштабирования виртуальных машин, а затем создайте переменную:
+1. Замените значение **$vmssName** именем набора масштабирования виртуальных машин, а затем создайте переменную.
 
         $vmssName = "scale set name"
         
@@ -295,10 +297,15 @@
 Для изучения созданного набора масштабирования виртуальных машин используйте указанные ниже ресурсы.
 
 - Портал Azure — с помощью портала можно получить ограниченный объем сведений.
-- [Обозреватель ресурсов Azure](https://resources.azure.com/) — это лучшее средство для просмотра текущего состояния набора масштабирования.
+- [Обозреватель ресурсов Azure](https://resources.azure.com/) — это лучший инструмент для просмотра текущего состояния набора масштабирования.
 - Azure PowerShell — используйте следующую команду, чтобы получить сведения:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
+        Or 
+        
+        Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
 
 ## Дальнейшие действия
 
@@ -306,4 +313,4 @@
 - Вы можете настроить автоматическое масштабирование набора масштабирования с помощью сведений в статье [Автоматическое масштабирование и наборы масштабирования виртуальных машин](virtual-machine-scale-sets-autoscale-overview.md).
 - Дополнительные сведения о вертикальном масштабировании см. в статье [Вертикальное автомасштабирование масштабируемых наборов виртуальных машин](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

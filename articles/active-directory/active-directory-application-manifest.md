@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/26/2016"
+   ms.date="06/06/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Основные сведения о манифесте приложения Azure Active Directory
@@ -37,9 +37,9 @@
 - **Объявление ролей приложения (appRoles)**, предоставляемых приложением. Свойство appRoles сущности приложения является коллекцией типа [AppRole][APPLICATION-ENTITY-APP-ROLE]. Пример реализации см. в статье [Контроль доступа на основе ролей в облачных приложениях с помощью Azure AD][RBAC-CLOUD-APPS-AZUREAD].
 - **Объявление известных клиентских приложений (knownClientApplications)**, которые позволяют логически привязать согласие приложений указанного клиента к ресурсу или веб-API.
 - **Отправка в Azure AD запроса на выдачу утверждения о членстве в группах** пользователю, выполнившему вход (groupMembershipClaims). ПРИМЕЧАНИЕ. Вы можете настроить дополнительную выдачу утверждений о ролях пользователя в каталоге. Пример реализации см. в статье [Авторизация в облачных приложениях с помощью групп AD][AAD-GROUPS-FOR-AUTHORIZATION].
-- **Включение поддержки потоков неявного доступа OAuth 2.0 (oauth2AllowImplicitFlow) в приложении**. Этот тип потоков доступа используется на страницах со встроенным JavaScript или в одностраничных приложениях (SPA).
+- **Включение поддержки потоков неявного доступа OAuth 2.0 (oauth2AllowImplicitFlow) в приложении**. Этот тип потоков доступа используется на страницах со встроенным JavaScript или в одностраничных приложениях (SPA). Дополнительные сведения о неявном предоставлении авторизации см. в статье [Общие сведения о неявном потоке предоставления OAuth2 в Azure Active Directory (AD)][IMPLICIT-GRANT].
 - **Разрешение использовать сертификаты X509 в качестве секретного ключа (keyCredentials)**. Примеры реализации см. в статьях [Создание приложений служб и управляющих программ в Office 365][O365-SERVICE-DAEMON-APPS] и [Руководство разработчика по аутентификации с помощью API диспетчера ресурсов Azure][DEV-GUIDE-TO-AUTH-WITH-ARM].
-- **Добавление нового URI идентификатора приложения (identifierURIs)**. URI идентификаторов приложения используются для уникальной идентификации приложения в рамках заданного клиента Azure AD (или нескольких клиентов Azure AD в соответствующих сценариях с определением через проверенный пользовательский домен). Они используются при запросе разрешений или получения маркера доступа для приложения ресурсов. Обновление этого элемента выполняется одновременно с обновлением коллекции servicePrincipalNames соответствующего субъекта-службы, которая находится в домашнем клиента приложения.
+- **Добавление нового URI идентификатора приложения ** (identifierURIs). URI идентификаторов приложения используются для уникальной идентификации приложения в рамках заданного клиента Azure AD (или нескольких клиентов Azure AD в соответствующих сценариях с определением через проверенный пользовательский домен). Они используются при запросе разрешений или получения маркера доступа для приложения ресурсов. Обновление этого элемента выполняется одновременно с обновлением коллекции servicePrincipalNames соответствующего субъекта-службы, которая находится в домашнем клиента приложения.
 
 Манифест приложения также позволяет отслеживать состояние регистрации вашего приложения. Так как он доступен в формате JSON, представление файла можно добавить в систему управления версиями вместе с исходным кодом вашего приложения.
 
@@ -141,9 +141,10 @@
 [AZURE-CLASSIC-PORTAL]: https://manage.windowsazure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
+[IMPLICIT-GRANT]: active-directory-dev-understanding-oauth2-implicit-grant.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

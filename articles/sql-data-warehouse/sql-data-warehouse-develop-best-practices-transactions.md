@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/13/2016"
    ms.author="jrj;barbkess"/>
 
 # Оптимизация транзакций для хранилища данных SQL
@@ -420,7 +420,7 @@ END
 - [Секционирование таблиц][]
 - [Параллелизм][]
 - [CTAS;][]
-- [Переименование в хранилище данных SQL][]
+- [RENAME (Transact-SQL)][]
 
 <!--Image references-->
 
@@ -433,10 +433,10 @@ END
 [параллелизме]: sql-data-warehouse-develop-concurrency.md
 [CTAS]: sql-data-warehouse-develop-ctas.md
 [CTAS;]: sql-data-warehouse-develop-ctas.md
-[RENAME OBJECT]: sql-data-warehouse-develop-rename.md
-[Переименование в хранилище данных SQL]: sql-data-warehouse-develop-rename.md
+
 
 <!--MSDN references-->
-[alter index]: https://msdn.microsoft.com/ru-RU/library/ms188388.aspx
+[alter index]: https://msdn.microsoft.com/library/ms188388.aspx
+[RENAME (Transact-SQL)]: https://msdn.microsoft.com/library/mt631611.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

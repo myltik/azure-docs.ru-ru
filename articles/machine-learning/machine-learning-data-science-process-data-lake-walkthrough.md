@@ -82,19 +82,19 @@
 
 ### Создание хранилища озера данных Azure
 
-Создайте хранилище озера данных Azure на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Обязательно настройте удостоверение кластера AAD в колонке **Источник данных** колонки **Необязательная конфигурация**, показанной здесь.
+Создайте хранилище озера данных Azure на [портале Azure](http://portal.azure.com). Дополнительные сведения см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Обязательно настройте удостоверение кластера AAD в колонке **Источник данных** колонки **Необязательная конфигурация**, показанной здесь.
 
  ![3](./media/machine-learning-data-science-process-data-lake-walkthrough/3-create-ADLS.PNG)
 
 
 ### Создание учетной записи Аналитики озера данных Azure
-Создайте учетную запись аналитики озера данных Azure на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в статье [Учебник. Начало работы с аналитикой озера данных Azure с помощью портала Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Создайте учетную запись аналитики озера данных Azure на [портале Azure](http://portal.azure.com). Дополнительные сведения см. в статье [Учебник. Начало работы с аналитикой озера данных Azure с помощью портала Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
  ![4\.](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 
 ### Создание учетной записи хранения BLOB-объектов Azure
-Создайте учетную запись хранения BLOB-объектов Azure на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в разделе "Создание учетной записи хранения" в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
+Создайте учетную запись хранилища BLOB-объектов Azure на [портале Azure](http://portal.azure.com). Дополнительные сведения см. в разделе "Создание учетной записи хранения" в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 	
  ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -640,7 +640,7 @@
 
 ### Создание кластера HDInsight на платформе Linux
 
-Создайте кластер HDInsight (на платформе Linux) на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в разделе **Создание кластера Azure HDInsight с доступом к хранилищу озера данных Azure** в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Создайте кластер HDInsight (на платформе Linux) на [портале Azure](http://portal.azure.com). Дополнительные сведения см. в разделе **Создание кластера Azure HDInsight с доступом к хранилищу озера данных Azure** в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
@@ -741,4 +741,4 @@
 - [Процесс аналитики Кортаны в действии: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

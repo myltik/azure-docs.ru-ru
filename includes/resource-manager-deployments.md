@@ -1,17 +1,19 @@
-Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+Шаблон может быть локальным файлом или внешним файл, доступным по универсальному коду ресурса (URI). Если шаблон находится в учетной записи хранения, то во время развертывания можно ограничить доступ к шаблону и предоставить маркер подписанного URL-адреса (SAS).
 
-## Incremental and complete deployments
+## Добавочные и полные развертывания
 
-By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
+По умолчанию диспетчер ресурсов обрабатывает развертывания как добавочные обновления в группе ресурсов. В рамках добавочного развертывания диспетчер ресурсов выполняет следующие задачи:
 
-- **leaves unchanged** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **оставляет без изменения** ресурсы, которые существуют в группе ресурсов, но не указаны в шаблоне;
+- **добавляет** ресурсы, которые указаны в шаблоне, но отсутствуют в группе ресурсов; 
+- **не выполняет повторную подготовку** ресурсов, которые существуют в группе ресурсов в том же состоянии, в котором они определены в шаблоне.
 
-With complete deployment, Resource Manager:
+В рамках полного развертывания диспетчер ресурсов выполняет следующие задачи:
 
-- **deletes** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **удаляет** ресурсы, которые существуют в группе ресурсов, но не указаны в шаблоне;
+- **добавляет** ресурсы, которые указаны в шаблоне, но отсутствуют в группе ресурсов; 
+- **не выполняет повторную подготовку** ресурсов, которые существуют в группе ресурсов в том же состоянии, в котором они определены в шаблоне.
  
-You specify the type of deployment through the **Mode** property.
+Тип развертывания указывается в свойстве **Режим**.
+
+<!---HONumber=AcomDC_0615_2016-->

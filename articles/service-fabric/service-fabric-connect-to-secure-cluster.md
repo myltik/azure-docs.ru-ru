@@ -37,6 +37,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
 
+<a id="connectsecurecluster"></a>
 ## Подключение к защищенному кластеру с помощью PowerShell
 
 Для подключения к защищенному кластеру выполните следующую команду PowerShell: Сведения о сертификате должны соответствовать сертификату на узлах кластера.
@@ -60,7 +61,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 ```
 
 ## Подключение к защищенному кластеру с помощью интерфейсов API FabricClient
-Ниже приведен [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). У узлов в кластере, общее имя или DNS-имя которых в сети SAN отображается в [свойстве RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx), заданном для [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx), должны быть действительные сертификаты. Это обеспечивает взаимную аутентификацию между клиентом и узлом кластера.
+Ниже мы привели [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). У узлов в кластере, общее имя или DNS-имя которых в сети SAN отображается в [свойстве RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx), заданном для [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx), должны быть действительные сертификаты. Это обеспечивает взаимную аутентификацию между клиентом и узлом кластера.
 
 ```csharp
 string thumb = "C179E609BBF0B227844342535142306F3913D6ED";
@@ -108,4 +109,4 @@ static X509Credentials GetCredentials(string thumb, string name)
 - [Общие сведения о модели работоспособности в Service Fabric](service-fabric-health-introduction.md)
 - [Безопасность приложений и запуск от имени](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

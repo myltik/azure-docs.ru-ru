@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="05/19/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Просмотр операций развертывания с помощью API REST Azure Resource Manager (диспетчера ресурсов Azure)
@@ -28,6 +28,8 @@
 Если при развертывании ресурсов в Azure возникнет ошибка, вам потребуются дополнительные сведения о выполненных операциях развертывания. REST API предоставляет операции, которые позволяют находить ошибки и определять возможные действия по их исправлению.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
+
+Некоторых ошибок можно избежать, проверив шаблон и инфраструктуру перед развертыванием. Вы также можете добавлять в журнал дополнительные сведения о запросах и ответах во время развертывания, которые позже могут быть полезны при устранении неполадок. Чтобы узнать о проверке и добавлении в журнал сведений о запросах и ответах, ознакомьтесь с разделом [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](resource-group-template-deploy-rest.md).
 
 ## Устранение неполадок с API REST
 
@@ -58,7 +60,7 @@
 
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
 
-    В ответе обратите особое внимание на элементы **provisioningState**, **correlationId** и **error**. **CorrelationId** используется для отслеживания связанных событий и может быть полезен при взаимодействии с технической поддержкой для устранения проблемы.
+    В ответе обратите особое внимание на элементы **provisioningState**, **correlationId** и **error**. **CorrelationId** используется для отслеживания связанных событий и может быть полезен при взаимодействии со службой технической поддержки для устранения проблемы.
     
         { 
           ...
@@ -77,7 +79,7 @@
 
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
 
-    Ответ будет содержать сведения о запросе и (или) ответе в зависимости от того, что было указано в свойстве **debugSetting** во время развертывания.
+    Ответ будет содержать сведения о запросе и (или) ответе, в зависимости от того, что было указано в свойстве **debugSetting** во время развертывания.
     
         {
           ...
@@ -110,7 +112,7 @@
 ## Дальнейшие действия
 
 - Сведения об устранении некоторых ошибок развертывания см. в разделе [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Чтобы узнать об использовании журналов аудита для отслеживания других типов действий, см. раздел [Операции аудита с помощью диспетчера ресурсов](resource-group-audit.md).
-- Чтобы проверить развернутую службу перед ее выполнением, см. раздел [Развертывание группы ресурсов с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
+- Дополнительные сведения об использовании журналов аудита для отслеживания других типов действий см. в разделе [Операции аудита с помощью диспетчера ресурсов](resource-group-audit.md).
+- Чтобы проверить развернутую службу перед ее выполнением, см. раздел [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

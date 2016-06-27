@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/20/2016"
+   	ms.date="06/13/2016"
    	ms.author="larryfr"/>
 
 #Создание кластеров под управлением Linux в HDInsight с помощью Azure CLI
@@ -36,7 +36,7 @@ Azure CLI представляет собой кроссплатформенну
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- __Интерфейс командной строки Azure__.
+- __Интерфейс командной строки Azure__. Действия, описанные в этом документе, проверены с помощью Azure CLI версии 0.10.1.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -69,7 +69,7 @@ Azure CLI представляет собой кроссплатформенну
 
 5. Создайте учетную запись хранения. Она будет служить хранилищем по умолчанию для кластера HDInsight.
 
-        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage --access-tier hot storagename
+        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
      * Замените __groupname__ на имя группы, созданной на предыдущем этапе.
      * Замените __location__ на расположение, которое использовалось на предыдущем этапе. 
@@ -88,7 +88,7 @@ Azure CLI представляет собой кроссплатформенну
 
 6. Создайте кластер HDInsight.
 
-        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
     * Замените __groupname__ на имя группы ресурсов.
     * Замените __location__ на расположение, которое использовалось на предыдущем этапе.
@@ -121,4 +121,4 @@ Azure CLI представляет собой кроссплатформенну
 * [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Развертывание и мониторинг топологий со Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

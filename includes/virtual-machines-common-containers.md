@@ -114,7 +114,7 @@ Azure предлагает отличные облачные решения на
 
 Существует несколько популярных систем, которые позволяют развертывать целые группы виртуальных машин и устанавливать Docker (или другие узлы контейнеров Linux) в виде автоматизируемой группы. Прямые ссылки см. в разделе [контейнеров и инструментов](#containers-and-vm-technologies) ниже. Существует несколько систем, которые в большей или меньшей степени позволяют сделать это, и этот список не является исчерпывающим. В зависимости от доступных навыков и сценариев, они могут быть или не быть полезными.
 
-У Docker есть собственный набор инструментов для создания виртуальной машины ([docker-machine](../articles/virtual-machines/virtual-machines-linux-classic-docker-machine.md)) и инструмент управления кластерами контейнеров Docker с балансировкой нагрузки ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). Кроме того, расширение [Docker для виртуальных машин Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) по умолчанию поддерживает [`docker-compose`](https://docs.docker.com/compose/), который позволяет развертывать настроенные контейнеры приложений в нескольких контейнерах.
+У Docker есть собственный набор инструментов для создания виртуальной машины ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)) и инструмент управления кластерами контейнеров Docker с балансировкой нагрузки ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). Кроме того, расширение [Docker для виртуальных машин Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) по умолчанию поддерживает [`docker-compose`](https://docs.docker.com/compose/), который позволяет развертывать настроенные контейнеры приложений в нескольких контейнерах.
 
 Вы также можете попробовать ОС [Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/) от Mesosphere. DCOS основана на проекте с открытым исходным кодом [mesos](http://mesos.apache.org/) для ядра распределенных систем, который позволяет реализовать центр обработки данных как одну адресуемую службу. DCOS оснащена встроенными пакетами для нескольких важных систем, таких как [Spark](http://spark.apache.org/) и [Kafka](http://kafka.apache.org/) (и др.), а также встроенными службами, такими как [Marathon](https://mesosphere.github.io/marathon/) (система управления контейнерами) и [Chronos](https://mesosphere.github.io/chronos/) (распределенный планировщик). Mesos создан с учетом уроков, полученных при развитии Twitter, AirBnb и других веб-масштабируемых компаний.
 
@@ -165,7 +165,7 @@ Docker в Microsoft Azure:
 - [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md)
 - [Использование расширения виртуальных машин Docker на портале Azure](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md)
 - [Как быстро приступить к работе с Docker в Azure Marketplace](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md)
-- [Использование docker-machine в Azure](../articles/virtual-machines/virtual-machines-linux-classic-docker-machine.md)
+- [Использование docker-machine в Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)
 - [Как использовать Docker со Swarm в Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)
 - [Начало работы с решениями Docker и Compose в Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
 - [Использование шаблона группы ресурсов Azure для быстрого создания узла Docker в Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
@@ -216,4 +216,4 @@ Docker в Microsoft Azure:
 [микрослужбы]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

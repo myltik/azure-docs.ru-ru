@@ -3,8 +3,8 @@
     description="В этой статье показано, как интегрировать оповещения виртуальной машины Azure с модулями Runbook службы автоматизации Azure и автоматически устранять проблемы"
     services="automation"
     documentationCenter=""
-    authors="csand-msft"
-    manager="stevenka"
+    authors="mgoedtel"
+    manager="jwhit"
     editor="tysonn" />    
 <tags
     ms.service="automation"
@@ -12,10 +12,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="04/24/2016"
+    ms.date="06/14/2016"
     ms.author="csand;magoedte" />
 
-# Решение службы автоматизации Azure: обработка оповещений виртуальной машины Azure
+# Сценарий службы автоматизации Azure: обработка оповещений виртуальной машины Azure
 
 Для службы автоматизации Azure и виртуальных машин Azure доступна новая функция, которая позволяет настроить оповещения виртуальных машин для запуска модулей Runbook службы автоматизации. Эта новая возможность позволяет автоматически выполнять стандартное исправление в ответ на оповещения виртуальных машин, например перезапускать или останавливать виртуальную машину.
 
@@ -172,4 +172,4 @@ if ($WebhookData)
 - Сведения о том, как начать работу с модулями Runbook рабочих процессов PowerShell, см. в статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
 - Дополнительные сведения о типах модулей Runbook, их преимуществах и ограничениях см. в статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

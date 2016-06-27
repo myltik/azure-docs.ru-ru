@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Учебник. Приступая к работе с аналитикой озера данных Azure с помощью пакета SDK для Java
@@ -38,7 +38,7 @@
 
 Ниже приведен фрагмент кода для **неинтерактивной** аутентификации, в ходе которой приложение указывает собственные учетные данные.
 
-Для работы с этим руководством вам потребуется предоставить приложению разрешение на создание ресурсов в Azure. Для целей этого руководства **настоятельно рекомендуем** предоставить приложению разрешения участника в новой неиспользованной пустой группе ресурсов в подписке Azure.
+Для работы с этим руководством вам потребуется предоставить приложению разрешение на создание ресурсов в Azure. Для целей этого учебника **настоятельно рекомендуем** предоставить приложению разрешения участника приложения в новой, неиспользованной и пустой группе ресурсов в подписке Azure.
 
 ## Создание приложения Java
 
@@ -75,7 +75,17 @@
 	        <dependency>
 	            <groupId>com.microsoft.azure</groupId>
 	            <artifactId>azure-client-authentication</artifactId>
-	            <version>1.0.0-SNAPSHOT</version>
+	            <version>1.0.0-20160513.000802-24</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.azure</groupId>
+	            <artifactId>azure-client-runtime</artifactId>
+	            <version>1.0.0-20160513.000812-28</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.rest</groupId>
+	            <artifactId>client-runtime</artifactId>
+	            <version>1.0.0-20160513.000825-29</version>
 	        </dependency>
 	        <dependency>
 	            <groupId>com.microsoft.azure</groupId>
@@ -95,7 +105,9 @@
 5. Откройте файл **Main.java** и замените существующий блок кода следующим кодом. Кроме того, задайте значения параметров, вызываемых во фрагменте кода, например **localFolderPath**, **\_adlaAccountName**, **\_adlsAccountName**, **\_resourceGroupName**, и замените заполнители **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** и **SUBSCRIPTION-ID** соответствующими значениями.
 
 	Этот код обрабатывает создание учетных записей хранилища озера данных и аналитики озера данных, создание файлов в хранилище, выполнение задания, получения состояния задания, скачивание выходных данных задания и, наконец, удаление учетной записи.
- 
+
+>[AZURE.NOTE] В настоящее время существует известная проблема со службой озера данных Azure. Если работа примера приложения прерывается или возникает ошибка, может потребоваться вручную удалить учетные записи хранилища данных озера и аналитики озера данных, создаваемые сценарием. Если вы еще не работали с порталом, то приступить к работе вам поможет руководство [по управлению аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
+
 
 		package com.company;
 
@@ -255,6 +267,8 @@
 		        adlaParameters.setName(_adlaAccountName);
 		        adlaParameters.setProperties(adlaProperties);
 		
+				/* If this line generates an error message like "The deep update for property 'DataLakeStoreAccounts' is not supported", please delete the ADLS and ADLA accounts via the portal and re-run your script. */
+ 
 		        _adlaClient.getAccountOperations().create(_resourceGroupName, _adlaAccountName, adlaParameters);
 		    }
 		
@@ -389,4 +403,4 @@
 - Задачи управления описываются в статье [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
 - Общие сведения об аналитике озера данных см. в статье [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->
