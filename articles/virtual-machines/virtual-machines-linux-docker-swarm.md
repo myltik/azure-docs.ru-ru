@@ -19,7 +19,7 @@
 
 # Как использовать Docker со Swarm
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Модель диспетчера ресурсов.
 
 
 В этом разделе описан простой способ использования [Docker](https://www.docker.com/) со [Swarm](https://github.com/docker/swarm) для создания в Azure кластера, управляемого Swarm. Мы создадим четыре виртуальные машины Azure, одна из которых будет выполнять роль диспетчера Swarm, а остальные три — роль части кластера узлов Docker. Выполнив все необходимые действия, вы сможете использовать Swarm для просмотра кластера, а затем — использовать в нем Docker. Кроме того, при вызовах CLI Azure в этом разделе используется режим управления службами (asm).

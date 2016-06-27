@@ -26,7 +26,7 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Модель диспетчера ресурсов.
 
 
 В этом комплексном руководстве показано, как реализовывать группы доступности с помощью AlwaysOn SQL Server на виртуальных машинах Azure.
@@ -227,7 +227,7 @@
 
 1. Выберите "Использовать следующие адреса DNS-серверов" и укажите **10.10.2.4** в поле **Основной DNS-сервер**.
 
-1. **10.10.2.4** — это адрес, назначенный виртуальной машине в подсети 10.10.2.0/24 в виртуальной сети Azure. Речь идет о виртуальной машине **ContosoDC**. Для проверки IP-адреса **ContosoDC** используйте команду **nslookup contosodc** в соответствующем запросе, как показано ниже.
+1. **10.10.2.4** — это адрес, назначенный виртуальной машине в подсети 10.10.2.0/24 в виртуальной сети Azure. Речь идет о виртуальной машине **ContosoDC**. Для проверки IP-адреса **ContosoDC** используйте команду **nslookup contosodc** в соответствующем запросе, как показано ниже.
 
 	![Поиск IP-адреса для контроллера домена с помощью NSLOОКUP](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC664954.jpg)
 

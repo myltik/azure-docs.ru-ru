@@ -23,7 +23,7 @@
 
 В этой статье перечислена вся документация, необходимая для создания виртуальных машин Linux с помощью классической модели развертывания и управления ими.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Модель диспетчера ресурсов.
 
 ## Начало работы
 - [Общая информация о Linux в Azure](virtual-machines-linux-intro-on-azure.md)

@@ -88,7 +88,8 @@
 
 1. На [портале Azure](https://portal.azure.com/) перейдите к своей учетной записи DocumentDB. 
 2. На панели **Основное** в колонке **Учетная запись DocumentDB** щелкните **Ключи**.
-3. В колонке **Ключи** нажмите кнопку **Копировать** справа от того ключа, который требуется скопировать. ![Просмотр и копирование ключа доступа на портале Azure, колонка «Ключи»](./media/documentdb-manage-account/copykeys.png)
+3. В колонке **Ключи** нажмите кнопку **Копировать** справа от того ключа, который требуется скопировать. 
+![Просмотр и копирование ключа доступа на портале Azure, колонка «Ключи»](./media/documentdb-manage-account/copykeys.png)
 
 ### Повторное создание ключей доступа
 
@@ -136,7 +137,7 @@
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/ru-RU/regions/#services
-[offers]: https://azure.microsoft.com/ru-RU/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0615_2016-->

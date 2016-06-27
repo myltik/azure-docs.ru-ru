@@ -79,7 +79,7 @@
 
 >[AZURE.NOTE] Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
-[службы приложений Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-changes-existing-services/
+[службы приложений Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [портале Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/ru-RU/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git

@@ -19,7 +19,7 @@
 
 # Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Модель диспетчера ресурсов.
 
 
 
@@ -89,7 +89,7 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 
 `docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
-Где *&lt;vm-name-you-used&gt;* — имя виртуальной машины, которое было использовано при вызове к `azure vm docker create`. Вы должны увидеть вывод, похожий на пример ниже, который указывает, что виртуальная машина узла Docker в Azure работает и ожидает ваших команд.
+Где *&lt;vm-name-you-used&gt;* — имя виртуальной машины, которое было использовано при вызове к `azure vm docker create`. Вы должны увидеть вывод, похожий на пример ниже, который указывает, что виртуальная машина узла Docker в Azure работает и ожидает ваших команд.
 
 Теперь можно попытаться подключиться с помощью клиента Docker, чтобы получить информацию (в некоторых экземплярах клиента Docker, например в ОС Mac, может потребоваться использовать `sudo`):
 

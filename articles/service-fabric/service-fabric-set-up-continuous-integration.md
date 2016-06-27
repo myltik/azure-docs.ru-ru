@@ -194,7 +194,7 @@
 
 1.	Скачайте архив agent.zip. Для этого:
 
-    а. Перейдите к командному проекту, например ****https://[your-VSTS-account-name].visualstudio.com**.
+    а. Перейдите к командному проекту, например **https://[your-VSTS-account-name].visualstudio.com**.
 
     b. Щелкните значок шестеренки в правом верхнем углу экрана.
 
@@ -401,7 +401,7 @@
     |Имя файла сценария|Нажмите кнопку **…** и перейдите к каталогу **Сценарии** в проекте приложения. Выберите `Deploy-FabricApplication.ps1`.|
     |Аргументы|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
->[AZURE.NOTE] XML-файл рабочего профиля публикации проще всего создать в Visual Studio, как показано в этой статье: https://azure.microsoft.com/ru-RU/documentation/articles/service-fabric-publish-app-remote-cluster
+>[AZURE.NOTE] XML-файл рабочего профиля публикации проще всего создать в Visual Studio, как показано в этой статье: https://azure.microsoft.com/documentation/articles/service-fabric-publish-app-remote-cluster
 
 >[AZURE.NOTE] Если вы хотите включить поддержку развертывания приложения в кластере путем перезаписи существующего приложения вместо его обновления, добавьте следующий аргумент Powershell: -OverwriteBehavior SameAppTypeAndVersion. Кроме того, проследите, чтобы в выбранном профиле публикации не была включена поддержка обновления. Если поддержка обновления включена, перед установкой новой сборки сначала будут удалены все существующие типы ApplicationType.
 
