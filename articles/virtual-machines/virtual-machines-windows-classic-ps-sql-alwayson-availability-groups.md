@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Настройка групп доступности Always On в виртуальной машине Azure | Microsoft Azure"
+	pageTitle="Настройка группы доступности AlwaysOn на виртуальной машине Azure с помощью PowerShell"
 	description="В этом руководстве используются ресурсы, созданные в классической модели развертывания, а также применяется PowerShell для создания группы доступности Always On в Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -13,14 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
-# Настройка групп доступности Always On на виртуальной машине Azure с помощью PowerShell
+# Настройка группы доступности AlwaysOn на виртуальной машине Azure с помощью PowerShell
 
 > [AZURE.SELECTOR]
-- [Портал](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Resource Manager: автоматически](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: вручную](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Классическая модель: пользовательский интерфейс](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Классическая модель: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
@@ -534,7 +536,7 @@
 		$svc2.Start();
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. Скачайте файл **CreateAzureFailoverCluster.ps1** из раздела [Создание кластера WSFC для групп доступности Always On на виртуальной машине Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) в локальный рабочий каталог. Этот скрипт поможет создать рабочий WSFC-кластер. Важные сведения о взаимодействии кластера WSFC с сетью Azure см. в статье [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-high-availability-dr.md).
+1. Скачайте файл **CreateAzureFailoverCluster.ps1** из раздела [Create WSFC Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Создание кластера WSFC для групп доступности Always On на виртуальной машине Azure) в локальный рабочий каталог. Этот скрипт поможет создать рабочий WSFC-кластер. Важные сведения о взаимодействии кластера WSFC с сетью Azure см. в статье [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
 1. Измените рабочий каталог и создайте WSFC-каталог с помощью загруженного скрипта.
 
@@ -629,4 +631,4 @@
 
 Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

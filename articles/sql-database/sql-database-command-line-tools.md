@@ -106,4 +106,4 @@
 
 - [Командлеты Базы данных SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

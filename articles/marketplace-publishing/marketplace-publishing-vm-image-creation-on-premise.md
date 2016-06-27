@@ -25,7 +25,7 @@
 ### Поиск URL-адреса BLOB-объектов
 Чтобы загрузить VHD, найдите URL-адрес большого двоичного объекта диска ОС.
 
-Найдите URL-адрес большого двоичного объекта на новом [портале Microsoft Azure](https://ms.portal.azure.com):
+Найдите URL-адрес большого двоичного объекта на новом [портале Microsoft Azure](https://portal.azure.com):
 
 1.	Последовательно выберите пункты **Обзор** > **Виртуальные машины** и щелкните развернутую виртуальную машину.
 2.	В разделе **Настройка** выберите плитку **Диски**, после чего откроется колонка "Диски".
@@ -42,8 +42,8 @@
   ![рисунок](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
 
 ### Загрузка VHD
-Если URL-адрес большого двоичного объекта известен, вы можете загрузить VHD с помощью [портала Azure](http://manage.windowsazure.com/) или PowerShell.  
-> [AZURE.NOTE] На момент составления данного руководства новый портал Microsoft Azure еще не содержит функцию загрузки VHD.  
+Если URL-адрес большого двоичного объекта известен, вы можете загрузить VHD с помощью [портала Azure](http://manage.windowsazure.com/) или PowerShell.
+> [AZURE.NOTE] На момент составления данного руководства новый портал Microsoft Azure еще не содержит функцию загрузки VHD.
 
 **Загрузка VHD ОС через действующий [портал управления Azure](http://manage.windowsazure.com/)**
 
@@ -138,4 +138,4 @@
 - [Создание образа виртуальной машины для Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Настройка Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

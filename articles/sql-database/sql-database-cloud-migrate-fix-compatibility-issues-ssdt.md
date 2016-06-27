@@ -91,10 +91,10 @@ SQL Server Data Tools для Visual Studio (SSDT) позволяет импор�
 - [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [Последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## Подробнее
+## Дополнительные ресурсы
 
-- [База данных SQL версии 12](sql-database-v12-whats-new.md).
+- [База данных SQL версии 12.](sql-database-v12-whats-new.md)
 - [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

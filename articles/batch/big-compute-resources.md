@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="04/29/2016"
+   ms.date="06/08/2016"
    ms.author="danlep"/>
 
 # Большие вычисления в Azure: технические ресурсы для пакетных и высокопроизводительных вычислений (HPC)
@@ -34,11 +34,11 @@
 
 * [Документация](https://azure.microsoft.com/documentation/services/batch/)
 
-* Справочник по API [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) и [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
+* Справочник по API [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/), [Java](http://azure.github.io/azure-sdk-for-java/) и [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
 
 * Справочник по [библиотеке .NET для управления пакетной службой](https://msdn.microsoft.com/library/mt463120.aspx)
 
-* [Учебник: начало работы с библиотекой пакетной службы Azure для .NET](batch-dotnet-get-started.md)
+* Учебники: начало работы с [библиотекой пакетной службы Azure для .NET](batch-dotnet-get-started.md) и [клиентом Python пакетной службы](batch-python-tutorial.md)
 
 * [Форум по Пакетной службе](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=azurebatch)
 
@@ -122,7 +122,7 @@ HPC Pack — это бесплатное решение HPC корпораци
 
 ## Проекты архитектуры
 
-* PDF-файл [Оркестрация данных и высокопроизводительных вычислений с помощью пакетной службы Azure и фабрики данных Azure](http://go.microsoft.com/fwlink/?linkid=717686) и [статья](../data-factory/data-factory-data-processing-using-batch.md)
+* PDF-файл [Управление данными и высокопроизводительными вычислениями с помощью пакетной службы и фабрики данных Azure](http://go.microsoft.com/fwlink/?linkid=717686) и [статья](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## Отраслевые решения
 
@@ -157,4 +157,4 @@ HPC Pack — это бесплатное решение HPC корпораци
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](https://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

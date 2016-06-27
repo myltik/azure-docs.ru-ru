@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/03/2016"
+   ms.date="06/14/2016"
    ms.author="ryanwi"/>
 
 # Развертывание приложения
@@ -30,7 +30,9 @@
 
 Отправка пакета приложения означает, что он помещается в расположение, доступное внутренним компонентам Service Fabric. Для выполнения отправки можно использовать PowerShell. Перед выполнением команд PowerShell, описанных в этой статье, нужно подключиться к кластеру Service Fabric с помощью команды **Connect-ServiceFabricCluster**.
 
-Предположим, у вас имеется папка *MyApplicationType*, содержащая необходимый манифест приложения, манифесты служб и пакеты данных, конфигурации и кода. Команда **Copy-ServiceFabricApplicationPackage** служит для отправки пакета. Например:
+Предположим, у вас имеется папка *MyApplicationType*, содержащая необходимый манифест приложения, манифесты служб и пакеты данных, конфигурации и кода. Команда **Copy-ServiceFabricApplicationPackage** служит для отправки пакета в хранилище образов кластера. Командлет **Get-ImageStoreConnectionStringFromClusterManifest**, являющийся частью модуля PowerShell пакета SDK Service Fabric, позволяет получить строку подключения хранилища образов. Чтобы импортировать модуль SDK, запустите *Import-Module "$ENV:ProgramFiles\\Microsoft SDKs\\Service Fabric\\Tools\\PSModule\\ServiceFabricSDK\\ServiceFabricSDK.psm1"*.
+
+В данном примере передается пакет.
 
 ~~~
 PS D:\temp> dir
@@ -175,12 +177,6 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-<!--
-## Next steps
-
-TODO [Upgrade applications][11]
--->
-
 ## Устранение неполадок
 
 ### Команда Copy-ServiceFabricApplicationPackage запрашивает строку ImageStoreConnectionString
@@ -225,4 +221,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

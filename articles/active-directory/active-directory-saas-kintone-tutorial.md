@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="03/16/2016" 
+    ms.date="06/09/2016" 
     ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с Kintone
@@ -76,7 +76,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785873.png "Настройка единого входа")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в Kintone** введите свой URL-адрес, используя следующий шаблон *https://company.kintone.com*", а затем нажмите кнопку **Далее**.
+3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в Kintone** введите свой URL-адрес, используя следующий шаблон **https://company.kintone.com*", а затем нажмите кнопку **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-kintone-tutorial/IC785875.png "Настройка URL-адреса приложения")
 
@@ -159,10 +159,10 @@
 
     ![Назначить пользователей](./media/active-directory-saas-kintone-tutorial/IC785891.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-kintone-tutorial/IC767830.png "Да")
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

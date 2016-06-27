@@ -112,9 +112,9 @@
 
 7. Запустите сеанс Windows PowerShell на устройстве, введя следующую команду:
 
-     `Enter-pssession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
+     `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
 
-     >[AZURE.NOTE] Чтобы создать сеанс Windows PowerShell для виртуального устройства StorSimple, добавьте параметр `–port` и укажите общий порт, настроенный для удаленного взаимодействия с виртуальным устройством StorSimple.
+     >[AZURE.NOTE] Чтобы создать сеанс Windows PowerShell для виртуального устройства StorSimple, добавьте параметр `–Port` и укажите общий порт, настроенный для удаленного взаимодействия с виртуальным устройством StorSimple.
 
      На этом этапе у вас должен быть активный удаленный сеанс Windows PowerShell с устройством.
 
@@ -172,7 +172,7 @@
 
      `Get-HcsSystem`
 
-    Убедитесь, что значение поля **RemoteManagementMode** равно **Https Enabled**. На следующем рисунке показаны эти параметры в PuTTY.
+    Убедитесь, что в поле **RemoteManagementMode** задано значение **HttpsEnabled**. На следующем рисунке показаны эти параметры в PuTTY.
 
      ![Последовательный HTTPS включен](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
 
@@ -250,15 +250,15 @@
 
 3. Создайте новые учетные данные, введя:
 
-     `$cred = new-object pscredential @("<IP of target device>\SSAdmin", (convertto-securestring -force -asplaintext "<Device Administrator Password>"))`
+     `$cred = New-Object pscredential @("<IP of target device>\SSAdmin", (ConvertTo-SecureString -Force -AsPlainText "<Device Administrator Password>"))`
 
     Где <*IP of target device*> — IP-адрес данных 0 устройства, например, **10.126.173.90**, как показано на предыдущем рисунке файла hosts. Также укажите пароль администратора для вашего устройства.
 
 4. Создайте сеанс, набрав:
 
-     `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
+     `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
 
-    В качестве CN-имени в командлете предоставьте <*серийный номер целевого устройства*>. Этот серийный номер был сопоставлен с IP-адресом DATA 0 в файле hosts на удаленном узле. Пример — **SHX0991003G44MT**, как показано на следующем рисунке.
+    В качестве параметра -ComputerName в командлете предоставьте <*серийный номер целевого устройства*>. Этот серийный номер был сопоставлен с IP-адресом DATA 0 в файле hosts на удаленном узле. Пример — **SHX0991003G44MT**, как показано на следующем рисунке.
 
 5. Тип:
 
@@ -274,4 +274,4 @@
 
 - Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0615_2016-->

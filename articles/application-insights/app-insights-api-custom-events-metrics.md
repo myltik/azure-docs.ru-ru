@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="API Application Insights для пользовательских событий и метрик" 
+	pageTitle="API Application Insights для пользовательских событий и метрик | Microsoft Azure" 
 	description="Вставьте несколько строк кода в устройство или классическое приложение, на веб-страницу или в службу, чтобы отслеживать использование приложения и диагностировать проблемы." 
 	services="application-insights"
     documentationCenter="" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/07/2016" 
 	ms.author="awills"/>
 
 # API Application Insights для пользовательских событий и метрик 
@@ -366,7 +366,9 @@
         @if (Request.IsAuthenticated)
         {
             <script>
-                appInsights.setAuthenticatedUserContext("@User.Identity.Name".replace(/[,;=| ]+/g, "_"));
+                appInsights.setAuthenticatedUserContext("@User.Identity.Name
+                   .Replace("\", "\\")"
+                   .replace(/[,;=| ]+/g, "_"));
             </script>
         }
 
@@ -748,4 +750,4 @@
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

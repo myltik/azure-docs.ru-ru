@@ -65,15 +65,6 @@
 
 Ниже приведены некоторые известные проблемы, связанные с записными книжками Jupyter.
 
-### Невозможно скачать записные книжки Jupyter в формате IPYNB
-
-Если вы используете последнюю версию записных книжек Jupyter для HDInsight Spark и пытаетесь скачать копию записной книжки как **IPYNB**-файл из пользовательского интерфейса записной книжки Jupyter, может возникать внутренняя ошибка сервера.
-
-**Устранение.**
-
-1.	Загрузка записной книжки в любом другом формате, кроме IPYNB (например TXT), будет успешной.  
-2.	Если вам требуется IPYNB-файл, можно скачать его из контейнера кластера в вашей учетной записи хранения по пути **/HdiNotebooks**. Это касается только последней версии записных книжек Jupyter для HDInsight, которая поддерживает резервное копирование записной книжки в учетной записи хранения. С другой стороны, в предыдущих версиях записных книжек Jupyter для HDInsight Spark данной проблемы не существует.
-
 
 ### Записные книжки со знаками не из набора ASCII в именах файлов
 
@@ -113,10 +104,6 @@
 
 2. Перезапустите записную книжку, которую вы пытались запустить. Теперь ресурсов должно быть достаточно для создания сеанса.
 
-### Возвращение к контрольной точке может завершиться ошибкой
-
-Можно создать контрольные точки в записных книжках Jupyter на случай, если возникнет необходимость вернуться к более ранней версии записной книжки. Тем не менее, если текущее состояние записных книжек содержит SQL-запрос с автоматической визуализацией, возврат к ранее сохраненной контрольной точке может привести к ошибке.
-
 ##См. также
 
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
@@ -143,7 +130,7 @@
 
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely on HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely on HDInsight Spark Linux cluster (Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -159,4 +146,4 @@
 
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

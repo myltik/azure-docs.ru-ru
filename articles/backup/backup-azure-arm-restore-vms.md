@@ -34,7 +34,7 @@
 
 ## Восстановление из точки восстановления
 
-1. Войдите на [портал Azure](http://ms.portal.azure.com/).
+1. Войдите на [портал Azure](http://portal.azure.com/).
 
 2. В меню Azure щелкните элемент **Обзор**, а затем введите в поле текст **службы восстановления**, чтобы отобразить список ресурсов. Список служб будет отображаться в соответствии с вводимым текстом. Когда вы увидите пункт **Хранилища служб восстановления**, щелкните его.
 
@@ -157,7 +157,7 @@
 
 2. Создайте конфигурацию виртуальной машины для сценариев с использованием балансировщика нагрузки, нескольких сетевых адаптеров или зарезервированных IP-адресов с помощью командлетов PowerShell. Затем создайте с помощью этой конфигурации виртуальную машину с нужными параметрами.
 	- Создайте виртуальную машину в облачной службе с [внутренним балансировщиком нагрузки](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
-	- Создайте виртуальную машину для подключения к [внутреннему балансировщику нагрузки для Интернета](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
+	- Создайте виртуальную машину для подключения к [внутреннему балансировщику нагрузки для Интернета](https://azure.microsoft.com/ru-RU/documentation/articles/load-balancer-internet-getstarted/).
 	- Создайте виртуальную машину с [несколькими сетевыми адаптерами](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
 	- Создайте виртуальную машину с [несколькими зарезервированными IP-адресами](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
 
@@ -167,4 +167,4 @@
 - [Устранение ошибок](backup-azure-vms-troubleshoot.md#restore)
 - [Управление виртуальными машинами](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

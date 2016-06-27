@@ -49,7 +49,7 @@
 
 Ниже приведены шаги по созданию экземпляра виртуальной машины Майкрософт для обработки и анализа данных.
 
-1.	Перейдите к списку виртуальных машин на [портале Azure](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+1.	Перейдите к списку виртуальных машин на [портале Azure](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2.	 В нижней части страницы нажмите кнопку **Создать**. Откроется мастер.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 В следующих разделах приведены **входные данные** для всех **5 шагов** мастера (номера см. справа на рисунке выше) по созданию виртуальной машины Майкрософт для обработки и анализа данных. Ниже приведено описание входных данных, необходимых для настройки на каждом из шагов.
 
@@ -147,4 +147,4 @@
 * Узнайте, как систематически создавать комплексные аналитические решения, в разделе [Обработка и анализ данных](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Посетите страницу [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com), чтобы найти примеры машинного обучения и анализа данных с использованием Cortana Intelligence Suite. Мы также добавили значок на рабочий стол и элемент в меню "Пуск" на виртуальной машине для быстрого доступа. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -58,7 +58,7 @@
 - [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](virtual-machines-linux-classic-cli-use-docker.md)
 - [Использование расширения виртуальных машин Docker на портале Azure](virtual-machines-linux-classic-portal-use-docker.md)
 - [Как быстро приступить к работе с Docker в Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
-- [Использование docker-machine в Azure](virtual-machines-linux-classic-docker-machine.md)
+- [Использование docker-machine в Azure](virtual-machines-linux-docker-machine.md)
 
 ### Ubuntu
 - [Практическое руководство. Кластеры MySQL](virtual-machines-linux-classic-mysql-cluster.md)
@@ -192,4 +192,4 @@
 
 - [Подключаемый модуль Packer для Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

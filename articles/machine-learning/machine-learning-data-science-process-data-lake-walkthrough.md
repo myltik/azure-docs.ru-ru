@@ -82,19 +82,19 @@
 
 ### Создание хранилища озера данных Azure
 
-Создайте хранилище озера данных Azure на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Обязательно настройте удостоверение кластера AAD в колонке **Источник данных** колонки **Необязательная конфигурация**, показанной здесь.
+Создайте хранилище озера данных Azure на [портале Azure](http://portal.azure.com). Дополнительные сведения см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Обязательно настройте удостоверение кластера AAD в колонке **Источник данных** колонки **Необязательная конфигурация**, показанной здесь.
 
  ![3](./media/machine-learning-data-science-process-data-lake-walkthrough/3-create-ADLS.PNG)
 
 
 ### Создание учетной записи Аналитики озера данных Azure
-Создайте учетную запись аналитики озера данных Azure на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в статье [Учебник. Начало работы с аналитикой озера данных Azure с помощью портала Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Создайте учетную запись аналитики озера данных Azure на [портале Azure](http://portal.azure.com). Дополнительные сведения см. в статье [Учебник. Начало работы с аналитикой озера данных Azure с помощью портала Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
  ![4\.](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 
 ### Создание учетной записи хранения BLOB-объектов Azure
-Создайте учетную запись хранения BLOB-объектов Azure на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в разделе "Создание учетной записи хранения" в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
+Создайте учетную запись хранилища BLOB-объектов Azure на [портале Azure](http://portal.azure.com). Дополнительные сведения см. в разделе "Создание учетной записи хранения" в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 	
  ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -158,7 +158,7 @@
 
 ### <a name="ingest"></a>Прием данных: чтение из общедоступного большого двоичного объекта
 
-Данные большого двоичного объекта Azure расположены по адресу **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, и их можно извлечь, используя **Extractors.Csv()**. В следующих сценариях подставьте имена своих контейнера и учетной записи хранения для container_name@blob_storage_account_name в адресе wasb. Так как у имен файлов одинаковый формат, чтобы выполнить чтение всех 12 файлов поездок, можно использовать **trip\_data\_{*}.csv**.
+Данные большого двоичного объекта Azure расположены по адресу ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, и их можно извлечь, используя **Extractors.Csv()**. В следующих сценариях подставьте имена своих контейнера и учетной записи хранения для container_name@blob_storage_account_name в адресе wasb. Так как у имен файлов одинаковый формат, чтобы выполнить чтение всех 12 файлов поездок, можно использовать **trip\_data\_{*}.csv**.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-В первой строке есть заголовки, поэтому их необходимо удалить и изменить типы столбцов на соответствующие. Обработанные данные можно сохранить в хранилище озера данных Azure по пути **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ или в учетной записи хранения BLOB-объектов Azure по пути **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+В первой строке есть заголовки, поэтому их необходимо удалить и изменить типы столбцов на соответствующие. Обработанные данные можно сохранить в хранилище озера данных Azure по пути ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ или в учетной записи хранения BLOB-объектов Azure по пути ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 	// change data types
 	@trip =
@@ -640,7 +640,7 @@
 
 ### Создание кластера HDInsight на платформе Linux
 
-Создайте кластер HDInsight (на платформе Linux) на [портале Azure](http://ms.portal.azure.com). Дополнительные сведения см. в разделе **Создание кластера Azure HDInsight с доступом к хранилищу озера данных Azure** в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Создайте кластер HDInsight (на платформе Linux) на [портале Azure](http://portal.azure.com). Дополнительные сведения см. в разделе **Создание кластера Azure HDInsight с доступом к хранилищу озера данных Azure** в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
@@ -658,7 +658,7 @@
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-Вставьте следующие сценарии Hive, чтобы создать таблицу. Источник данных в хранилище озера данных Azure расположен по такому адресу: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+Вставьте следующие сценарии Hive, чтобы создать таблицу. Источник данных в хранилище озера данных Azure расположен по такому адресу: ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(
@@ -741,4 +741,4 @@
 - [Процесс аналитики Кортаны в действии: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -62,7 +62,6 @@
 [метки;]: sql-data-warehouse-develop-label.md
 [циклы;]: sql-data-warehouse-develop-loops.md
 [сведение данных;]: sql-data-warehouse-develop-pivot-unpivot.md
-[переименование объектов;]: sql-data-warehouse-develop-rename.md
 [статистика.]: sql-data-warehouse-develop-statistics.md
 [хранимые процедуры;]: sql-data-warehouse-develop-stored-procedures.md
 [проектирование таблиц;]: sql-data-warehouse-develop-table-design.md
@@ -76,7 +75,8 @@
 [Справочник по Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
+[переименование объектов;]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

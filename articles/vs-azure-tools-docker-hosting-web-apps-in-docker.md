@@ -24,7 +24,7 @@ Docker — это облегченная платформа контейнеро
 ## 1\. Предварительные требования
 Для работы с этим учебником необходимо выполнить следующие действия:
 
-- Создать виртуальную машину для узла Docker в Azure, как описано в статье [Использование машины Docker с Azure](./virtual-machines/virtual-machines-linux-classic-docker-machine.md).
+- Создать виртуальную машину для узла Docker в Azure, как описано в статье [Использование машины Docker с Azure](./virtual-machines/virtual-machines-linux-docker-machine.md).
 - Установить [Visual Studio 2015](https://www.visualstudio.com/ru-RU/downloads/download-visual-studio-vs.aspx).
 - Установить [Средства Visual Studio 2015 для Docker — предварительная версия](http://aka.ms/DockerToolsForVS).
 
@@ -96,4 +96,4 @@ Docker — это облегченная платформа контейнеро
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Использование каталога U-SQL
@@ -73,7 +73,7 @@
 - U-SQL и разработка
     - [Начало работы с языком U-SQL в аналитике озера данных Azure](data-lake-analytics-u-sql-get-started.md)
     - [Использование функций окна U-SQL для заданий аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
-    - [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных](data-lake-analtyics-u-sql-user-defined-operators.md)
+    - [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных](data-lake-Analytics-u-sql-user-defined-operators.md)
 
 - управления
     - [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-use-portal.md)
@@ -84,4 +84,4 @@
     - [Использование интерактивных учебников по аналитике озера данных Azure](data-lake-analytics-use-interactive-tutorials.md)
     - [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

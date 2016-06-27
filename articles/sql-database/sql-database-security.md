@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/25/2016"
+   ms.date="06/09/2016"
    ms.author="thmullan;jackr"/>
 
 
@@ -85,10 +85,6 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 База данных SQL Azure может помочь защитить ваши данные путем их шифрования, когда они находятся на хранении или хранятся в файлах базы данных и в ее резервных копиях, с помощью [прозрачного шифрования данных](http://go.microsoft.com/fwlink/?LinkId=526242). Для шифрования базы данных подключитесь к ней в качестве владельца базы данных и выполните следующую команду:
 
 ```
-CREATE DATABASE ENCRYPTION KEY
-   WITH ALGORITHM = AES_256
-   ENCRYPTION BY SERVER CERTIFICATE ##MS_TdeCertificate##;
-
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -108,4 +104,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 Помимо обозначенных выше функций и возможностей, которые могут помочь обеспечить соответствие вашего приложения различным требованиям безопасности, в отношении Базы данных SQL Azure регулярно проводится аудит, а сама база данных сертифицирована в соответствии с рядом стандартов. Дополнительные сведения см. в [Центре управления безопасностью Microsoft Azure](https://azure.microsoft.com/support/trust-center/), где представлен актуальный список [сертификатов соответствия Базы данных SQL](https://azure.microsoft.com/support/trust-center/services/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

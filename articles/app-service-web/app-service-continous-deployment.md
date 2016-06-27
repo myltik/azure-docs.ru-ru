@@ -3,7 +3,7 @@
 	description="Узнайте, как включить непрерывное развертывание в службе приложений Azure."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # Непрерывное развертывание в службе приложений Azure
 
-[Служба приложений Azure] интегрируется с BitBucket, GitHub и Visual Studio Team Services (VSTS), что обеспечивает непрерывное развертывание, когда Azure извлекает последние обновления из проекта, опубликованные в одной из этих служб. Непрерывное развертывание очень удобно для проектов, которые часто обновляются несколькими участниками.
+В этом учебнике показано, как настраивать рабочий процесс непрерывного развертывания для приложения [службы приложений Azure]. Служба приложений Azure интегрируется с BitBucket, GitHub и Visual Studio Team Services (VSTS), что обеспечивает непрерывное развертывание, когда Azure извлекает последние обновления из проекта, опубликованные в одной из этих служб. Непрерывное развертывание очень удобно для проектов, которые часто обновляются несколькими участниками.
 
 ## <a name="overview"></a>Включение непрерывного развертывания
 
@@ -30,6 +30,8 @@
 
 	![](./media/app-service-continous-deployment/cd_options.png)
 	
+    > [AZURE.NOTE] Чтобы настроить учетную запись VSTS для развертывания службы приложений, см. этот [учебник](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+    
 3. Пройдите авторизацию.
 
 4. В колонке **Источник развертывания** выберите проект и филиал, откуда будет проводиться развертывание. Закончив, нажмите кнопку **OK**.
@@ -50,7 +52,7 @@
 
 Операции по передаче решения Visual Studio в службу приложений будут такими же, как в [предыдущем разделе](#overview), если вы настроите решение и репозиторий следующим образом.
 
--	С помощью управления версиями в Visual Studio создайте файл `.gitignore`, как на рисунке ниже, или вручную добавьте в корневую папку репозитория файл `.gitignore` с содержимым, аналогичным [примеру .gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore). 
+-	С помощью управления версиями в Visual Studio создайте файл `.gitignore`, как на рисунке ниже, или вручную добавьте в корневую папку репозитория файл `.gitignore` с содержимым, аналогичным [примеру GITIGNORE](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore). 
 
     ![](./media/app-service-continous-deployment/VS_source_control.png)
  
@@ -62,7 +64,7 @@
 
 Чтобы отключить непрерывное развертывание, выполните следующие действия.
 
-1. В колонке приложения на [портале Azure] выберите **Параметры > Источник развертывания**. Щелкните **Отключиться** в колонке **Развертывание**.
+1. В колонке приложения на [портале Azure] выберите **Параметры > Источник развертывания**. В колонке **Развертывания** щелкните **Отключить**.
 
     ![](./media/app-service-continous-deployment/cd_disconnect.png)
 
@@ -77,11 +79,11 @@
 
 >[AZURE.NOTE] Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
-[Служба приложений Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-changes-existing-services/
+[службы приложений Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-changes-existing-services/
 [портале Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/ru-RU/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Использование PowerShell для Azure]: ../articles/install-configure-powershell.md
+[Использование PowerShell для Azure]: ../articles/powershell-install-configure.md
 [Средства командной строки Azure для Mac и Linux]: ../articles/xplat-cli-install.md
 [Документация по Git]: http://git-scm.com/documentation
 
@@ -90,4 +92,4 @@
 [Приступая к работе с VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

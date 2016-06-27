@@ -22,7 +22,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Безопасность в начале работы](sql-database-get-started-security.md)
+- [Учебник по началу работы](sql-database-get-started-security.md)
 - [Предоставление доступа](sql-database-manage-logins.md)
 
 
@@ -137,24 +137,25 @@ GRANT ALTER ANY USER TO Mary;
 Существует более 100 разрешений, которые можно по отдельности предоставлять или отменять в базе данных SQL. Многие эти разрешения являются частью других разрешений. Например, разрешение `UPDATE` на схеме включает разрешение `UPDATE` для каждой таблицы в этой схеме. Как и в большинстве систем разрешений, отмена разрешения переопределяет предоставление. Так как некоторые разрешения включены в другие разрешения и их достаточно много, необходимо внимательно изучить их, чтобы спроектировать соответствующую систему разрешений, которая будет надежно защищать базу данных. Изучите список разрешений на странице [Permissions (Database Engine)](https://msdn.microsoft.com/library/ms191291.aspx) (разрешения для ядра СУБД) и ознакомьтесь с [графическим представлением](http://go.microsoft.com/fwlink/?LinkId=229142) разрешений.
 
 
-### Подробнее
+## Дальнейшие действия
+
+[Защита Базы данных SQL](sql-database-security.md)
+
+[Creating a Table (Tutorial) (Руководство: создание таблицы)](https://msdn.microsoft.com/library/ms365315.aspx)
+
+[Inserting and Updating Data in a Table (Tutorial) (Руководство: вставка и обновление данных в таблице)](https://msdn.microsoft.com/library/ms365309.aspx)
+
+[Reading the Data in a Table (Tutorial) (Руководство: чтение данных из таблицы)](https://msdn.microsoft.com/library/ms365310.aspx)
+
+[Creating views and stored procedures (Создание представлений и хранимых процедур)](https://msdn.microsoft.com/library/ms365311.aspx)
+
+[Granting Access to a Database Object (Предоставление доступа к объекту базы данных)](https://msdn.microsoft.com/library/ms365327.aspx)
+
+
+## Дополнительные ресурсы
 
 [Защита Базы данных SQL](sql-database-security.md)
 
 [Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных Azure SQL](https://msdn.microsoft.com/library/bb510589.aspx)
 
-## Дальнейшие действия
-
-[Защита Базы данных SQL](sql-database-security.md)
-
-[Creating a Table (Tutorial)](https://msdn.microsoft.com/library/ms365315.aspx) (Руководство: создание таблицы)
-
-[Inserting and Updating Data in a Table (Tutorial)](https://msdn.microsoft.com/library/ms365309.aspx) (Руководство: вставка и обновление данных в таблице)
-
-[Reading the Data in a Table (Tutorial)](https://msdn.microsoft.com/library/ms365310.aspx) (Руководство: чтение данных из таблицы)
-
-[Creating views and stored procedures](https://msdn.microsoft.com/library/ms365311.aspx) (Создание представлений и хранимых процедур)
-
-[Granting Access to a Database Object](https://msdn.microsoft.com/library/ms365327.aspx) (Предоставление доступа к объекту базы данных)
-
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

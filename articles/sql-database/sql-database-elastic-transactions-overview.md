@@ -151,11 +151,11 @@ Azure включает несколько предложений для разм
 * Поддерживаются только базы данных, которые принадлежат к базе данных SQL Azure версии 12.
 * Транзакции между службами WCF не поддерживаются. Например, если у вас есть метод службы WCF, выполняющий транзакцию, включение вызова в область транзакции завершится ошибкой с исключением [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
-## Подробнее
+## Дополнительные ресурсы
 
 Еще не оценили преимущества транзакций эластичной базы данных для приложений Azure? См. [схему документации](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Все возникшие вопросы задавайте на [форуме по базам данных SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted), а запросы новых функций оставляйте на [форуме отзывов и предложений по базам данных SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

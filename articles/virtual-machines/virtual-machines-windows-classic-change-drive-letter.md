@@ -31,8 +31,8 @@
 
 Сначала необходимо подключить диск данных к виртуальной машине.
 
-- Чтобы использовать портал, см. раздел [How to attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md).
-- Чтобы использовать классический портал, см. в раздел [Attach a data disk to a Windows virtual machine created with the classic deployment model](virtual-machines-windows-classic-attach-disk.md). 
+- Сведения об использовании портала см. в разделе [How to attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md).
+- Сведения об использовании классического портала см. в разделе [Attach a data disk to a Windows virtual machine created with the classic deployment model](virtual-machines-windows-classic-attach-disk.md). 
 
 
 ## Временное перемещение файла pagefile.sys на диск C
@@ -111,4 +111,4 @@
 ## Дальнейшие действия
 - Можно увеличить объем хранилища, доступный виртуальной машине, [подключив дополнительный диск данных](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

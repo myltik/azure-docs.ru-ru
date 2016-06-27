@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="06/13/2016"
    ms.author="barbkess;sonyama"/>
 
 # Управление вычислительными ресурсами в хранилище данных SQL Azure (PowerShell)
@@ -34,14 +34,14 @@
 - Приостановка работы вычислительных ресурсов
 - Возобновление работы вычислительных ресурсов
 
-Дополнительные сведения см. в разделе [Manage compute power in Azure SQL Data Warehouse (Overview)][] \(Обзор управления вычислительной мощностью в хранилище данных SQL Azure).
+Дополнительные сведения см. в разделе [Manage compute power in Azure SQL Data Warehouse (Overview)][] (Обзор управления вычислительной мощностью в хранилище данных SQL Azure).
 
 
 ## Перед началом работы
 
 ### Установка последней версии Azure PowerShell
 
-> [AZURE.NOTE]  Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0.3 или более поздней версии. Чтобы узнать текущую версию, выполните команду **Get-Module -ListAvailable -Name Azure**. Установить последнюю версию можно на странице [Установщик веб-платформы Майкрософт][]. Дополнительные сведения см. в статье [Установка и настройка служб Azure PowerShell][].
+> [AZURE.NOTE]  Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0.3 или более поздней версии. Чтобы узнать текущую версию, выполните команду **Get-Module -ListAvailable -Name Azure**. Установить последнюю версию можно на странице [Установщик веб-платформы Майкрософт][]. Дополнительные сведения см. в разделе [Установка и настройка Azure PowerShell][].
 
 ### Приступая к работе с командлетами Azure PowerShell
 
@@ -124,16 +124,15 @@ $resultDatabase
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Средства управления]: ./sql-data-warehouse-overview-manage.md
-
+[Установка и настройка Azure PowerShell]: ./powershell-install-configure.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 
-
 <!--Other Web references-->
-
+[Установщик веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

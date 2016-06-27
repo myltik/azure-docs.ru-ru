@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="06/10/2016"
 	ms.author="piyushjo" />
 
 # Демонстрационное приложение Azure Mobile Engagement
@@ -37,7 +37,7 @@
 - **Демонстрационное приложение Windows Universal**:
 
 	- загрузка приложения из [магазина Windows](https://www.microsoft.com/ru-RU/store/apps/azure-mobile-engagement/9nblggh4qmh2).
-	- Приложение было разработано как универсальное приложение для Windows 10. Исходный код доступен на [GitHub](https://github.com/Azure/azure-mobile-engagement-app-ios).
+	- Приложение было разработано как универсальное приложение для Windows 10. Исходный код доступен на сайте [GitHub](https://github.com/Azure/azure-mobile-engagement-app-windows).
 
 - **Демонстрационное приложение iOS**:
 
@@ -185,4 +185,4 @@
 [32]: ./media/mobile-engagement-demo-apps/notification-poll.png
 [33]: ./media/mobile-engagement-demo-apps/notification-data-push.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

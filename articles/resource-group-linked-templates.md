@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Связанные шаблоны в Azure Resource Manager | Microsoft Azure"
+   pageTitle="Связанные шаблоны в Resource Manager | Microsoft Azure"
    description="Описывает, как использовать связанные шаблоны в шаблоне диспетчера ресурсов Azure для создания решения модульных шаблонов. Показывает, как передавать значения параметров, указывать файл параметров и динамически создаваемые URL-адреса."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/08/2016"
    ms.author="tomfitz"/>
 
 # Использование связанных шаблонов в диспетчере ресурсов Azure
@@ -51,6 +51,29 @@
         "contentVersion": "1.0.0.0",
     }
 
+Хотя связанный шаблон должны быть доступен извне, он не должен быть общедоступным. Можно добавить шаблон в частную учетную запись хранения, доступную только ее владельцу, а затем создать маркер подписанного URL-адреса (SAS), чтобы обеспечить доступ к шаблону во время развертывания. Этот маркер SAS добавляется в универсальный код ресурса (URI) связанного шаблона. Действия по настройке шаблона в учетной записи хранения и созданию маркера SAS описаны в разделах [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](resource-group-template-deploy.md) или [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure CLI](resource-group-template-deploy-cli.md).
+
+В следующем примере показан родительский шаблон, связанный с другим шаблоном. Для доступа к вложенному шаблону используется маркер SAS, который передается в качестве параметра.
+
+    "parameters": {
+        "sasToken": { "type": "securestring" }
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-01-01",
+            "name": "nestedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+              "mode": "incremental",
+              "templateLink": {
+                "uri": "[concat('https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json', parameters('sasToken'))]",
+                "contentVersion": "1.0.0.0"
+              }
+            }
+        }
+    ],
+
+Несмотря на то, что маркер передается в защищенной строке, универсальный код ресурса (URI) связанного шаблона, включающий в себя маркер SAS, добавляется в журнал операций развертывания для данной группы ресурсов. Чтобы снизить риск раскрытия, задайте срок действия маркера.
 
 ## Создание связи с файлом параметров
 
@@ -75,7 +98,7 @@
       } 
     ] 
 
-Значение URI для связанного параметра файла не может быть локальным файлом и должно содержать **http** или **https**.
+Значением универсального кода ресурса (URI) для связанного файла параметров не может быть локальный файл, оно должно содержать **http** или **https**. Разумеется, доступ к файлу параметров также можно ограничить с помощью маркера SAS.
 
 ## Использование переменных для связывания шаблонов
 
@@ -102,18 +125,78 @@
         }
     }
 
-Вы также можете получить базовый URL-адрес текущего шаблона с помощью функции [deployment()](../resource-group-template-functions/#deployment), а затем использовать его для получения URL-адресов других шаблонов в том же расположении. Это полезно в ситуации, когда место расположения шаблонов меняется (например, в связи с изменением версии) либо вы не хотите указывать непосредственные URL-адреса в файле шаблона.
+Вы также можете получить базовый URL-адрес текущего шаблона с помощью функции [deployment()](resource-group-template-functions.md#deployment), а затем использовать его для получения URL-адресов других шаблонов в том же расположении. Это полезно в ситуации, когда место расположения шаблонов меняется (например, в связи с изменением версии) либо вы не хотите указывать непосредственные URL-адреса в файле шаблона.
 
     "variables": {
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
     }
 
-## Передача значений из связанного шаблона
+## Полный пример
 
-Если вам необходимо передать значение из связанного шаблона в основной шаблон, можно создать значение в разделе **outputs** связанного шаблона. Пример см. в статье [Совместное использование состояния в шаблонах диспетчера ресурсов Azure](best-practices-resource-manager-state.md).
+В следующих примерах шаблонов показано упрощенное размещение связанных шаблонов, чтобы проиллюстрировать некоторые основные понятия, используемые в этой статье. Предполагается, что шаблоны были добавлены в один контейнер в учетной записи хранения, для которой отключен общий доступ. Связанный шаблон передает значение обратно в основной шаблон в разделе **outputs**.
+
+Состав файла **Parent.json** приведен ниже.
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "containerSasToken": { "type": "string" }
+      },
+      "resources": [
+        {
+          "apiVersion": "2015-01-01",
+          "name": "nestedTemplate",
+          "type": "Microsoft.Resources/deployments",
+          "properties": {
+            "mode": "incremental",
+            "templateLink": {
+              "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+              "contentVersion": "1.0.0.0"
+            }
+          }
+        }
+      ],
+      "outputs": {
+        "result": {
+          "type": "object",
+          "value": "[reference('nestedTemplate').outputs.result]"
+        }
+      }
+    }
+
+Состав файла **helloworld.json** следующий.
+
+    {
+	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {},
+	  "variables": {},
+	  "resources": [],
+	  "outputs": {
+		"result": {
+			"value": "Hello World",
+			"type" : "string"
+		}
+	  }
+    }
+    
+В PowerShell происходит получение маркера для контейнера и развертывание шаблонов с помощью следующей команды.
+
+    Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
+    $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
+    New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
+
+В интерфейсе командной строки Azure (Azure CLI) происходит получение маркера для контейнера и развертывание шаблонов с помощью следующего кода. В настоящее время необходимо указывать имя развертывания, если вы используете универсальный код ресурса (URI) шаблоны, который содержит маркер SAS.
+
+    expiretime=$(date -I'minutes' --date "+30 minutes")  
+    azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
+    azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
+
+Будет предложено предоставить маркер SAS как параметр. К маркеру нужно добавить префикс **?**.
 
 ## Дальнейшие действия
-- Чтобы узнать об определении порядка развертывания ресурсов, см. раздел [Определение зависимостей в шаблонах диспетчера ресурсов Azure](resource-group-define-dependencies.md).
-- Чтобы узнать, как определить один ресурс, но создать несколько его экземпляров, см. раздел [Создание нескольких экземпляров ресурсов в диспетчере ресурсов Azure](resource-group-create-multiple.md).
+- Чтобы узнать об определении порядка развертывания ресурсов, ознакомьтесь с разделом [Определение зависимостей в шаблонах диспетчера ресурсов Azure](resource-group-define-dependencies.md).
+- Чтобы узнать, как определить один ресурс, но создать несколько его экземпляров, ознакомьтесь с разделом [Создание нескольких экземпляров ресурсов в диспетчере ресурсов Azure](resource-group-create-multiple.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

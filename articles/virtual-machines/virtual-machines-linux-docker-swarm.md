@@ -1,4 +1,3 @@
-
 <properties
    pageTitle="Приступая к использованию Docker с поддержкой Swarm в Azure"
    description="В этой статье описано создание группы виртуальных машин с расширением Docker для виртуальных машин и использование Swarm для создания кластера Docker."
@@ -25,7 +24,7 @@
 
 В этом разделе описан простой способ использования [Docker](https://www.docker.com/) со [Swarm](https://github.com/docker/swarm) для создания в Azure кластера, управляемого Swarm. Мы создадим четыре виртуальные машины Azure, одна из которых будет выполнять роль диспетчера Swarm, а остальные три — роль части кластера узлов Docker. Выполнив все необходимые действия, вы сможете использовать Swarm для просмотра кластера, а затем — использовать в нем Docker. Кроме того, при вызовах CLI Azure в этом разделе используется режим управления службами (asm).
 
-> [AZURE.NOTE] Для демонстрации одновременной и при этом независимой работы разных инструментов в этом разделе используется Docker со Swarm и интерфейс командной строки Azure, в котором *не* задействуется **docker-machine**. В команде **docker-machine** используются параметры **--swarm**, с помощью которых **ее** можно использовать, чтобы добавить узлы непосредственно в Swarm. С примером можно ознакомиться в документации по [docker-machine](https://github.com/docker/machine). Если у вас нет **docker-machine**, запущенной одновременно с виртуальными машинами Azure, см. статью [Использование docker-machine в Azure](virtual-machines-linux-classic-docker-machine.md).
+> [AZURE.NOTE] Для демонстрации одновременной и при этом независимой работы разных инструментов в этом разделе используется Docker со Swarm и интерфейс командной строки Azure, в котором *не* задействуется **docker-machine**. В команде **docker-machine** используются параметры **--swarm**, с помощью которых **ее** можно использовать, чтобы добавить узлы непосредственно в Swarm. С примером можно ознакомиться в документации по [docker-machine](https://github.com/docker/machine). Если у вас нет **docker-machine**, запущенной одновременно с виртуальными машинами Azure, см. статью [Использование docker-machine в Azure](virtual-machines-linux-docker-machine.md).
 
 ## Создание узлов Docker с Виртуальными машинами Azure
 
@@ -135,7 +134,7 @@
 
 <!-- links -->
 
-[docker-machine-azure]: virtual-machines-linux-classic-docker-machine.md
+[docker-machine-azure]: virtual-machines-linux-docker-machine.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Справочные материалы по аналитике в Application Insights" 
+	pageTitle="Справочные материалы по аналитике в Application Insights | Microsoft Azure" 
 	description="Справочные материалы по регулярным выражениям в аналитике — мощном инструменте поиска Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -20,33 +20,22 @@
 [Аналитика](app-insights-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
-
 ## Индекс
 
-|Запросы и операторы|Агрегаты|Скалярные значения|Числа|Дата и время|Строка|Массивы, объекты и динамические типы
-|---|---|---|---|---|---|---
-|[count](#count-operator)|[любой](#any)|[Логические литералы](#boolean-literals)|[Арифметические операторы](#arithmetic-operators)|[Выражения для даты и времени](#date-and-time-expressions)|[Идентификаторы GUID](#guids)|[Литералы массива и объекта](#array-and-object-literals)
-|[extend](#extend-operator)|[argmax](#argmax)|[Логические операторы](#boolean-operators)|[Числовые литералы](#numeric-literals)|[Литералы даты и времени](#date-and-time-literals)|[Скрываемые строковые литералы](#obfuscated-string-literals)|[Функции динамического объекта](#dynamic-object-functions)
-|[join](#join-operator)|[argmin](#argmin)|[Приведение типов](#casts)|[abs](#abs)|[ago](#ago)|[Строковые литералы](#string-literals)|[Динамические объекты в предложениях let](#dynamic-objects-in-let-clauses)
-|[Предложение let](#let-clause)|[avg](#avg)|[Скалярные сравнения](#scalar-comparisons)|[bin](#bin)|[datepart](#datepart)|[Сравнение строк](#string-comparisons)|[Выражения пути JSON](#json-path-expressions)
-|[limit](#limit-operator)|[buildschema](#buildschema)|[gettype](#gettype)|[exp](#exp)|[dayofmonth](#dayofmonth)|[countof](#countof)|[Имена](#names)
-|[mvexpand](#mvexpand-operator)|[count](#count)|[hash](#hash)|[floor](#floor)|[dayofweek](#dayofweek)|[extract](#extract)|[arraylength](#arraylength)
-|[parse](#parse-operator)|[countif](#countif)|[iff](#iff)|[log](#log)|[dayofyear](#dayofyear)|[isempty](#isempty)|[extractjson](#extractjson)
-|[project](#project-operator)|[dcount](#dcount)|[isnotnull](#isnotnull)|[rand](#rand)|[endofday](#endofday)|[isnotempty](#isnotempty)|[parsejson](#parsejson)
-|[project-away](#project-away-operator)|[dcountif](#dcountif)|[isnull](#isnull)|[sqrt](#sqrt)|[endofmonth](#endofmonth)|[notempty](#notempty)|[range](#range)
-|[range](#range-operator)|[makelist](#makelist)|[notnull](#notnull)|[todouble](#todouble)|[endofweek](#endofweek)|[replace](#replace)|[todynamic](#todynamic)
-|[reduce](#reduce-operator)|[makeset](#makeset)|[toscalar](#toscalar)|[toint](#toint)|[endofyear](#endofyear)|[split](#split)|[treepath](#treepath)
-|[Директива render](#render-directive)|[max](#max)||[tolong](#tolong)|[getmonth](#getmonth)|[strcat](#strcat)|
-|[Предложение restrict](#restrict-clause)|[min](#min)|||[getyear](#getyear)|[strlen](#strlen)|
-|[sort](#sort-operator)|[percentile](#percentile)|||[now](#now)|[substring](#substring)|
-|[summarize](#summarize-operator)|[percentiles](#percentiles)|||[startofday](#startofday)|[tolower](#tolower)|
-|[take](#take-operator)|[stdev](#stdev)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
-|[top](#top-operator)|[sum](#sum)|||[startofweek](#startofweek)||
-|[top-nested](#top-nested-operator)|[variance](#variance)|||[startofyear](#startofyear)||
-|[union](#union-operator)||||[todatetime](#todatetime)||
-|[где:](#where-operator)||||[totimespan](#totimespan)||
-|||||[weekofyear](#weekofyear)||
+**Запросы и операторы** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [let clause](#let-clause) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+
+**Агрегаты** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
+
+**Скалярные значения** [Логические литералы](#boolean-literals) | [Логические операторы](#boolean-operators) | [Приведение типов](#casts) | [Скалярные сравнения](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
+
+**Числовые значения** [Арифметические операторы](#arithmetic-operators) | [Числовые литералы](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+
+**Дата и время** [Выражения для даты и времени](#date-and-time-expressions) | [Литералы даты и времени](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
+
+**Строка** [Идентификаторы GUID](#guids) | [Скрываемые строковые литералы](#obfuscated-string-literals) | [Строковые литералы](#string-literals) | [Сравнение строк](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+
+**Массивы, объекты и динамические типы** [Литералы массива и объекта](#array-and-object-literals) | [Функции динамического объекта](#dynamic-object-functions) | [Динамические объекты в предложениях let](#dynamic-objects-in-let-clauses) | [Выражения пути JSON](#json-path-expressions) | [Имена](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+
 
 
 
@@ -79,7 +68,7 @@ requests // The request table starts this pipeline.
     req(city) | count
 ```
 
-> В следующих примерах запросов символ `T` обозначает предыдущий конвейер или исходную таблицу.
+> В следующих примерах запросов знак `T` обозначает предыдущий конвейер или исходную таблицу.
 > 
 
 ### Оператор count
@@ -120,7 +109,7 @@ requests | count
 **Аргументы**
 
 * *T* — входная таблица.
-* *ColumnName* — имена столбцов, которые будут добавлены. [Имена](#names) зависят от регистра и могут содержать буквы и цифры, а также символы подчеркивания (\_). Используйте `['...']` или `["..."]`, чтобы заключать в кавычки ключевые слова или имена с другими символами.
+* *ColumnName* — имена столбцов, которые будут добавлены. [Имена](#names) зависят от регистра и могут содержать буквы и цифры, а также знаки нижнего подчеркивания (\_). Используйте `['...']` или `["..."]`, чтобы заключать в кавычки ключевые слова или имена с другими знаками.
 * *Expression* — операции над значениями существующих столбцов.
 
 **Результаты**
@@ -351,7 +340,7 @@ traces
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
-    T | parse kind="relaxed"
+    T | parse kind=relaxed
           "I got no socks for my birthday when I was 63 years old" 
     with * "got" counter:long " " present "for" * "was" year:long * 
 
@@ -369,7 +358,7 @@ traces
 
 * `T` — входная таблица.
 * `kind`: 
- * `simple` (по умолчанию) — строки `Match`. являются простыми строками.
+ * `simple` (по умолчанию) — строки `Match` являются простыми строками.
  * `relaxed` — если текст не анализируется как тип столбца, для столбца задается значение NULL и анализ продолжается. 
  * `regex` — строки `Match` являются регулярными выражениями.
 * `Text` — это столбец или другое выражение, результатом вычисления или преобразования которого является строка.
@@ -485,7 +474,7 @@ resource | Срез | lock | release | Предыдущее время
 **Аргументы**
 
 * *T* — входная таблица.
-* *ColumnName* — имя столбца, который будет отображен в выходных данных. Если аргумент *Expression* отсутствует, столбец с таким именем должен присутствовать во входных данных. [Имена](#names) зависят от регистра и могут содержать буквы и цифры, а также символы подчеркивания (\_). Используйте `['...']` или `["..."]`, чтобы заключать в кавычки ключевые слова или имена с другими символами.
+* *ColumnName* — имя столбца, который будет отображен в выходных данных. Если аргумент *Expression* отсутствует, столбец с таким именем должен присутствовать во входных данных. [Имена](#names) зависят от регистра и могут содержать буквы и цифры, а также знаки нижнего подчеркивания (\_). Используйте `['...']` или `["..."]`, чтобы заключать в кавычки ключевые слова или имена с другими знаками.
 * *Expression* — необязательное скалярное выражение, указывающее на входные столбцы. 
 
     Можно получить новый вычисляемый столбец с именем существующего столбца во входных данных.
@@ -676,11 +665,11 @@ Traces
 
 **Аргументы**
 
-* *Column* — необязательное имя итогового столбца. По умолчанию это имя, получаемое из выражения. [Имена](#names) зависят от регистра и могут содержать буквы и цифры, а также символы подчеркивания (\_). Используйте `['...']` или `["..."]`, чтобы заключать в кавычки ключевые слова или имена с другими символами.
+* *Column* — необязательное имя итогового столбца. По умолчанию это имя, получаемое из выражения. [Имена](#names) зависят от регистра и могут содержать буквы и цифры, а также знаки нижнего подчеркивания (\_). Используйте `['...']` или `["..."]`, чтобы заключать в кавычки ключевые слова или имена с другими знаками.
 * *Aggregation* — вызов статистической функции, например `count()` или `avg()`, с именами столбцов в качестве аргументов. См. сведения о [статистических функциях](#aggregations).
 * *GroupExpression* — операция со значениями столбцов, которая возвращает набор уникальных значений. Обычно это имя столбца, который уже содержит ограниченный набор значений, либо функция `bin()` с числовым или временным столбцом в качестве аргумента. 
 
-Если указать числовое или временное выражение без `bin()`, служба анализа автоматически применит его с интервалом `1h` для временных значений и интервалом `1.0` для числовых.
+Если указать числовое или временное выражение без `bin()`, аналитика автоматически применит его с интервалом `1h` для временных значений и интервалом `1.0` для числовых.
 
 Если выражение *GroupExpression* не указано, вся таблица будет суммирована в одну выходную строку.
 
@@ -743,7 +732,7 @@ Traces
 
 * N:int — число строк для возвращения или передачи на следующий уровень. В запросе с тремя уровнями, где N — 5, 3 и 3, общее количество строк составит 45.
 * СТОЛБЕЦ — столбец для группирования данных путем агрегации. 
-* Агрегация — [статистическая функция](#aggregations) для применения к каждой группе строк. От результатов агрегации будет зависеть выбор верхних групп в представлении.
+* АГРЕГАТ — [статистическая функция](#aggregations) для применения к каждой группе строк. От результатов агрегации будет зависеть выбор верхних групп в представлении.
 
 
 ### Оператор union
@@ -1101,16 +1090,24 @@ traces
 **Совет**. Эта функция возвращает только минимальный или максимальный результат, например наибольшую или наименьшую цену. Если вам нужны и другие столбцы этой строки, например имя поставщика с наименьшей ценой, используйте [argmin или argmax](#argmin-argmax).
 
 
-<a name="percentile"></a> <a name="percentiles"></a>
-### percentile, percentiles
+<a name="percentile"></a> <a name="percentiles"></a> <a name="percentilew"></a> <a name="percentilesw"></a>
+### percentile, percentiles, percentilew, percentilesw
 
     percentile(Expression, Percentile)
 
 Возвращает оценку выражения *Expression* для группы по указанному процентилю. Точность зависит от плотности заполнения области процентиля.
     
-    percentiles(Expression, Percentile1 [ , Percentile2 ] )
+    percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
 Похожа на `percentile()`, но вычисляет количество значений процентилей (это быстрее, чем отдельно вычислять каждый процентиль).
+
+    percentilew(Expression, WeightExpression, Percentile)
+
+Взвешенный процентиль. Используется для предварительно статистически обработанных данных. `WeightExpression` представляет собой целое число, указывающее, сколько исходных строк представляется каждой сводной строкой.
+
+    percentilesw(Expression, WeightExpression, Percentile1, [, Percentile2 ...])
+
+Похожа на `percentilew()`, но вычисляет количество значений процентилей.
 
 **Примеры**
 
@@ -1135,7 +1132,6 @@ traces
 
 Результаты показывают, что для запроса /Events/Index 5 % запросов были выполнены за 2,44 с, половина запросов — за 3,52 с, а 5 % — более чем за 6,85 с.
 
-
 Вычисление множественной статистики:
 
     requests 
@@ -1145,7 +1141,43 @@ traces
         percentiles(Duration, 5, 50, 95)
       by name
 
-##### Ошибка оценки в процентилях
+#### Взвешенные процентили
+
+Используйте функции взвешенных процентилей в случаях, когда данные были предварительно статистически обработаны.
+
+Предположим, приложение выполняет тысячи операций в секунду, и вы хотите знать их значение задержки. Простым решением было бы создать запрос Application Insights или пользовательское событие для каждой операции. Это создаст большой объем трафика, несмотря на то, что для его уменьшения будет задействована адаптивная выборка. Но можно реализовать и лучшее решение: написать в приложении код для статистической обработки данных перед их отправкой в Application Insights. Агрегатные сводки будут отправляться через равные интервалы, снижая скорость передачи данных, возможно, до нескольких точек в минуту.
+
+Код принимает поток измерений задержки в миллисекундах. Например:
+    
+     { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
+
+Выполняется подсчет измерений в следующих ячейках: `{ 10, 20, 30, 40, 50, 100 }`
+
+Периодически выполняются вызовы TrackEvent, по одному для каждого контейнера, при этом в каждом вызове применяются пользовательские измерения:
+
+    foreach (var latency in bins.Keys)
+    { telemetry.TrackEvent("latency", null, 
+         new Dictionary<string, double>
+         ({"latency", latency}, {"opCount", bins[latency]}}); }
+
+В аналитике каждая такая группа событий отображается следующим образом:
+
+`opCount` | `latency`| значение
+---|---|---
+8 | 10 | = 8 операций в ячейке с задержкой 10 мс
+6 | 20 | = 6 операций в ячейке с задержкой 20 мс
+3 | 30 | = 3 операции в ячейке с задержкой 30 мс
+1 | 40 | = 1 операция в ячейке с задержкой 40 мс
+
+Чтобы получить точное представление об исходном распределении показателей задержки событий, используется `percentilesw`:
+
+    customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
+
+Результаты будут такими же, как при использовании обычных `percentiles` на исходном наборе измерений.
+
+> [AZURE.NOTE] Взвешенные процентили не применяются к [данным выборки](app-insights-sampling.md), где каждая строка выборки представляет собой случайную выборку исходных строк, а не ячейку. Функции обычных процентилей подходят для данных выборки.
+
+#### Ошибка оценки в процентилях
 
 Статистическая оценка процентилей предоставляет приблизительное значение с помощью [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf).
 
@@ -1394,17 +1426,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | Добавить |
-| – | Вычитание |
-| * | Умножение | 
-| / | Деление | 
-| % | Остаток от деления | 
-|| 
-|`<` | Меньше 
-|`<=`|Меньше или равно 
-|`>` |Больше 
-|`>=`|Больше или равно 
-|`<>`|Не равно 
-|`!=`|Не равно
+| – | Вычитание || * | Умножение | | / | Деление | | % | Остаток от деления | || |`<` | Меньше |`<=`|Меньше или равно |`>` |Больше |`>=`|Больше или равно |`<>`|Не равно |`!=`|Не равно
 
 
 ### abs
@@ -1436,7 +1458,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 **Аргументы**
 
 * *value* — число, дата или интервал времени. 
-* *roundTo* — размер группы. Число, дата или интервал времени, на который делится *value*. 
+* *roundTo* — размер ячейки. Число, дата или интервал времени, на который делится *value*. 
 
 **Возвращает**
 
@@ -1470,7 +1492,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 ### floor
 
-Псевдоним [`bin()`](#bin).
+Псевдоним для [`bin()`](#bin).
 
 
 ### log
@@ -1551,8 +1573,8 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 **datetime**|
 `datetime("2015-12-31 23:59:59.9")`<br/>`datetime("2015-12-31")`|Время всегда выражается в формате UTC. Если дата не указана, то имеется в виду время для сегодняшнего дня.
 `now()`|Текущее время.
-`now(`-*timespan*`)`|`now()-`*timespan*
-`ago(`*timespan*`)`|`now()-`*timespan*
+`now(`-*интервал времени*`)`|`now()-`*интервал времени*
+`ago(`*интервал времени*`)`|`now()-`*интервал времени*
 **интервал времени**|
 `2d`|2 дня
 `1.5h`|1,5 часа 
@@ -1999,7 +2021,7 @@ range x from 1 to 5 step 1
 | 1 | Число равно: 1,000000 | Число было равно: 1,000000|
 | 2 | Число равно: 2,000000 | Число было равно: 2,000000|
 | 3 | Число равно: 3,000000 | Число было равно: 3,000000|
-| 4 | Число равно: 4,000000 | Число было равно: 4,000000|
+| 4\. | Число равно: 4,000000 | Число было равно: 4,000000|
 | 5 | Число равно: 5,000000 | Число было равно: 5,000000|
  
 
@@ -2019,7 +2041,7 @@ range x from 1 to 5 step 1
 
 * *source* — исходная строка, которая будет разделена в соответствии с указанным разделителем.
 * *delimiter* — разделитель, который будет использоваться для разделения исходной строки.
-* *requestedIndex* — необязательный индекс типа `int` со стартовым значением 0. Если указан, возвращаемый массив строк будет содержать запрошенную подстроку, если она существует. 
+* *requestedIndex* — необязательный индекс типа `int`, начинающийся с нуля. Если указан, возвращаемый массив строк будет содержать запрошенную подстроку, если она существует. 
 
 **Возвращает**
 
@@ -2113,7 +2135,7 @@ substring("ABCD", 0, 2)       // AB
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Используйте `arraylength` и другие функции службы анализа (но не .length).
+* Используйте `arraylength` и другие функции аналитики (но не .length).
 
 **Приведение**. Иногда необходимо привести тип элемента, который можно извлечь из объекта, так как его тип может отличаться. Например, для `summarize...to` необходим конкретный тип:
 
@@ -2426,4 +2448,4 @@ range(1, 8, 3)
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

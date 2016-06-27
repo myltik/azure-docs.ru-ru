@@ -233,7 +233,7 @@ end
 ```
 
 
-Чтобы создать версию предыдущего скрипта T-SQL для ostress.exe на диске (\_ondisk), просто измените оба вхождения подстроки *\_inmem* на *\_ondisk* . Эти замены влияют на имена таблиц и хранимых процедур.
+Чтобы создать версию предыдущего скрипта T-SQL для ostress.exe на диске (\_ondisk), просто измените оба вхождения подстроки*\_inmem* на *\_ondisk*. Эти замены влияют на имена таблиц и хранимых процедур.
 
 
 ### Установка служебных программ RML и ostress
@@ -537,4 +537,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - [Мониторинг хранилища In-Memory](sql-database-in-memory-oltp-monitoring.md) для компонента In-Memory OLTP.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

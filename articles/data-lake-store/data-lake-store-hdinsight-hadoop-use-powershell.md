@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/03/2016"
+   ms.date="06/10/2016"
    ms.author="nitinme"/>
 
 # Создание кластера HDInsight с хранилищем озера данных с помощью Azure PowerShell
@@ -29,7 +29,7 @@
 
 * **Для кластеров HBase (Windows и Linux)** хранилище озера данных можно использовать как хранилище по умолчанию или дополнительное хранилище.
 
-> [AZURE.NOTE] Создание кластеров HDInsight с доступом к хранилищу озера данных доступно только при использовании HDInsight версии 3.2 (как для Windows, так и для Linux).
+> [AZURE.NOTE] Создание кластеров HDInsight с доступом к хранилищу озера данных доступно только при использовании HDInsight версии 3.2 и 3.4 (для кластеров Hadoop, HBase и Storm, как для Windows, так и для Linux). Для кластеров Spark в ОС Linux этот параметр доступен только для кластеров HDInsight 3.4.
 
 
 В этой статье мы подготовим кластер Hadoop, в котором хранилище озера данных будет дополнительным хранилищем.
@@ -380,4 +380,4 @@
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

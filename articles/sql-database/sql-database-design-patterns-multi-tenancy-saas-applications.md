@@ -150,13 +150,17 @@
 
 Сведения о том, как преобразовать существующие базы данных, чтобы использовать эти инструменты, см. в статье [Перенос существующих баз данных для масштабирования](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Сведения о том, как создать пул, см. в [руководстве](sql-database-elastic-pool-create-portal.md).
+Сведения о том, как создать пул, см. в статье [Создание пула эластичных баз данных на портале Azure](sql-database-elastic-pool-create-portal.md).
 
-## Подробнее
+Сведения о том, как отслеживать пул эластичных баз данных и управлять им, см. в статье [Мониторинг пула эластичных баз данных и управление им на портале Azure](sql-database-elastic-pool-manage-portal.md).
 
-[Что такое пул эластичных баз данных Azure](sql-database-elastic-pool.md)
+## Дополнительные ресурсы
 
-[Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md)
+- [Что такое пул эластичных баз данных Azure](sql-database-elastic-pool.md)
+- [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md)
+- [Мультитенантные приложения со средствами эластичных баз данных и безопасностью на уровне строк](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+- [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md) (Проверка подлинности в мультитенантных приложениях с помощью Azure AD и OpenID Connect)
+- [Сведения о приложении Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## Вопросы и запросы на функции
 
@@ -172,4 +176,4 @@
 
 	
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

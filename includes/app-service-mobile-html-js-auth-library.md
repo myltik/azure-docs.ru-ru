@@ -58,11 +58,13 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 ###<a name="auth-getinfo"></a>Практическое руководство. Получение сведений о пользователе, прошедшем аутентификацию
 
-Сведения о аутентификации текущего пользователя можно получить из конечной точки `/.auth/me` с помощью метода AJAX. Например, чтобы использовать API выборки:
+Сведения о аутентификации текущего пользователя можно получить из конечной точки `/.auth/me` с помощью метода AJAX. Обязательно настройте заголовок `X-ZUMO-AUTH` для маркера аутентификации. Маркер аутентификации хранится в `client.currentUser.mobileServiceAuthenticationToken`. Например, чтобы использовать API выборки:
 
 ```
 var url = client.applicationUrl + '/.auth/me';
-fetch(url)
+var headers = new Headers();
+headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken);
+fetch(url, { headers: headers })
     .then(function (data) {
         return data.json()
     }).then(function (user) {
@@ -70,6 +72,6 @@ fetch(url)
     });
 ```
 
-Для получения информации можно также использовать jQuery или другой API AJAX. Данные будут получены в виде объекта JSON.
+Компонент выборки предоставляется в виде пакета npm или для скачивания браузером из CDNJS. Для получения информации можно также использовать jQuery или другой API AJAX. Данные будут получены в виде объекта JSON.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

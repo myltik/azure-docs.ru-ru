@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sql-database"
-   ms.date="03/28/2016"
+   ms.date="06/15/2016"
    ms.author="carlrab"/>
 
 #Приступая к работе с временными таблицами в базе данных SQL Azure
@@ -99,7 +99,7 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ````
 
-##Шаг 2. Регулярный запуск рабочей нагрузки
+##Шаг 2. Регулярный запуск рабочей нагрузки
 
 Главным преимуществом временных таблиц является то, что для отслеживания изменений вам не нужно каким-либо образом изменять или настраивать веб-сайт. После создания временных таблиц в них прозрачно сохраняются предыдущие версии строк каждый раз, когда вы вносите изменения в данные.
 
@@ -195,4 +195,4 @@ ALTER TABLE dbo.WebsiteUserInfo
 
 Дополнительные сведения о временных таблицах см. в [документации MSDN](https://msdn.microsoft.com/library/dn935015.aspx). Посетите сайт Channel 9, чтобы услышать [историю успешного внедрения временных решений реальным клиентом](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) и посмотреть [наглядную демонстрацию временных решений](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->
