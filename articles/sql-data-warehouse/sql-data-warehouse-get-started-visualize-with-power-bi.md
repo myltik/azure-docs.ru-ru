@@ -13,15 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/11/2016"
+   ms.date="06/16/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Визуализация данных с помощью Power BI
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Машинное обучение Azure][]
-- [SQLCMD][] 
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
 В этом руководстве показано, как использовать Power BI для подключения к хранилищу данных SQL и создания нескольких базовых визуализаций.
 
@@ -29,10 +30,12 @@
 
 ## Предварительные требования
 
-Для работы с этим руководством необходима база данных хранилища данных SQL, в которую предварительно загружен образец базы данных AdventureWorksDW. При создании хранилища данных SQL можно создать пустую базу данных или базу данных, содержащую образец данных AdventureWorks, либо восстановить резервную копию другой базы данных. Сведения о том, как создать хранилище данных SQL, используя загруженный образец данных, см. в разделе [Создание хранилища данных SQL][]. Если база данных хранилища данных SQL уже существует, но не содержит образцы данных, вы можете [загрузить образцы данных вручную][].
+Для выполнения этих действий необходимо иметь следующее:
+
+- Хранилище данных SQL, в которое предварительно загружена база данных AdventureWorksDW. Чтобы сделать это, ознакомьтесь со статьей [Создание хранилища данных SQL Azure][] и выберите загрузку демонстрационных данных. Если хранилище данных уже существует, но не содержит демонстрационные данные, вы можете [загрузить их вручную][].
 
 
-## Подключение к базе данных
+## 1\. Подключение к базе данных
 
 Чтобы открыть Power BI и подключиться к базе данных AdventureWorksDW, выполните следующие действия.
 
@@ -59,7 +62,7 @@
 
 
 
-## Создание отчета
+## 2\. Создание отчета
 
 Теперь вы готовы к использованию Power BI для анализа демонстрационных данных AdventureWorksDW. Для выполнения анализа в AdventureWorksDW предусмотрено представление с именем AggregateSales. Это представление содержит несколько основных метрик для анализа продаж компании.
 
@@ -93,33 +96,29 @@
 Теперь, когда вы разобрались с образцом данных, узнайте, как [разрабатывать хранилища данных][], [загружать данные][] и [переносить готовые решения][]. Вы также можете ознакомиться с [веб-сайтом Power BI][].
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
-[2]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
-[3]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
-[4]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
-[5]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
-[6]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
-[7]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
-[8]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
-[9]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
-[10]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
-[11]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
-[12]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
+[1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
+[2]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
+[3]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
+[4]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
+[5]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
+[6]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
+[7]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
+[8]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
+[9]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
+[10]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
+[11]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
+[12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[переносить готовые решения]: ./sql-data-warehouse-overview-migrate.md
-[разрабатывать хранилища данных]: ./sql-data-warehouse-overview-develop.md
-[загружать данные]: ./sql-data-warehouse-overview-load.md
-[загрузить образцы данных вручную]: ./sql-data-warehouse-load-sample-databases.md
-[connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
-[Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Машинное обучение Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
-[Создание хранилища данных SQL]: ./sql-data-warehouse-get-started-provision.md
+[переносить готовые решения]: sql-data-warehouse-overview-migrate.md
+[разрабатывать хранилища данных]: sql-data-warehouse-overview-develop.md
+[загружать данные]: sql-data-warehouse-overview-load.md
+[загрузить их вручную]: sql-data-warehouse-load-sample-databases.md
+[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[Создание хранилища данных SQL Azure]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
 [портал Azure]: https://portal.azure.com/
 [веб-сайтом Power BI]: http://www.powerbi.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

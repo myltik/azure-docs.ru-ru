@@ -56,13 +56,13 @@ Azure AD Connect Health для синхронизации отслеживает
 
 В следующем видео представлен обзор Azure AD Connect Health для синхронизации:
 
-[Azure Active Directory Connect Health: Monitoring the sync engine (Azure Active Directory Connect Health: мониторинг модуля синхронизации)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Health-Monitoring-the-sync-engine)
+>[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
 
 ## Приступая к работе с Azure AD Connect Health
 Начать работу с Azure AD Connect Health очень просто. Для этого сделайте вот что.
 
-1. [Приобретите Azure AD Premium](active-directory-get-started-premium) или [получите пробную версию](https://azure.microsoft.com/trial/get-started-active-directory/).
+1. [Приобретите Azure AD Premium](active-directory-get-started-premium.md) или [получите пробную версию](https://azure.microsoft.com/trial/get-started-active-directory/).
 
 2. [Скачайте и установите агенты Azure AD Connect Health](#download-and-install-azure-ad-connect-health-agent) на серверах удостоверений.
 
@@ -80,7 +80,7 @@ Azure AD Connect Health для синхронизации отслеживает
 
 
 ## Портал Azure AD Connect Health
-На портале Azure AD Connect Health можно просматривать оповещения и аналитические данные по использованию, а также отслеживать производительность. Страница https://aka.ms/aadconnecthealth перенаправит вас в главную колонку Azure AD Connect Health. Ее можно считать окном. В главной колонке отображается элемент быстрого запуска, раздел со службами Azure AD Connect Health и дополнительные параметры конфигурации. На снимке экрана ниже приводится краткое описание каждого из них. После развертывания агентов также будут отображаться идентификаторы служб, отслеживаемых в Azure AD Connect Health.
+На портале Azure AD Connect Health можно просматривать оповещения и аналитические данные по использованию, а также отслеживать производительность. Страница https://aka.ms/aadconnecthealth перенаправит вас в главную колонку Azure AD Connect Health. Ее можно считать окном. В главной колонке отображается элемент быстрого запуска, раздел со службами Azure AD Connect Health и дополнительные параметры конфигурации. На снимке экрана ниже приводится краткое описание каждого из них. После развертывания агентов служба работоспособности автоматически определит службы, отслеживаемые в Azure AD Connect Health.
 
 ![Портал Azure AD Connect Health](./media/active-directory-aadconnect-health/portal2.png)
 
@@ -106,4 +106,4 @@ Azure AD Connect Health для синхронизации отслеживает
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0622_2016-->

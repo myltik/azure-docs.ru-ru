@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/08/2016" 
+	ms.date="06/21/2016" 
 	ms.author="awills"/>
 
 
@@ -107,6 +107,13 @@ Application Insights отправляет данные телеметрии из
 
 При необходимости вы можете выполнить эти действия вручную для проекта [ASP.NET 4](app-insights-asp-net-manual.md) или [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
+## Обновление до будущих версий пакета SDK
+
+Чтобы выполнить обновление до [нового выпуска пакета SDK](app-insights-release-notes-dotnet.md), еще раз откройте диспетчер пакетов NuGet и выполните фильтрацию по установленным пакетам. Выберите элемент Microsoft.ApplicationInsights.Web, а затем — элемент "Обновление".
+
+Если были выполнены какие-либо настройки файла ApplicationInsights.config, то, прежде чем выполнять обновление, сохраните его копию, а затем объедините изменения в новой версии.
+
+
 
 ## Что дальше?
 
@@ -116,4 +123,4 @@ Application Insights отправляет данные телеметрии из
 |**[Работа с порталом Application Insights](app-insights-dashboards.md)**<br/>Панели мониторинга, эффективные средства диагностики и анализа, оповещения, карта динамических зависимостей приложения, а также экспорт телеметрии. |![Visual Studio](./media/app-insights-asp-net/62.png)
 |**[Добавление дополнительных данных](app-insights-asp-net-more.md)**<br/>Мониторинг использования, доступности, зависимостей и исключений. Интеграция трассировок из платформ ведения журналов. Написание пользовательской телеметрии. | ![Visual Studio](./media/app-insights-asp-net/64.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

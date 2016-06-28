@@ -28,14 +28,13 @@
 
 Чтобы пройти этот учебник, требуется:
 
-+ Microsoft Visual Studio 2013 или более поздняя версия либо Microsoft Visual Studio Express для Windows. В примерах в этой статье используется Visual Studio 2015.
++ [Microsoft Visual Studio](http://visualstudio.com)
 
-+ Активная учетная запись Azure. <br/>Если ее нет, бесплатную учетную запись можно создать всего за несколько минут. Дополнительные сведения см. на странице [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
++ Активная учетная запись Azure. <br/>Если ее нет, бесплатную учетную запись можно создать всего за несколько минут. Подробные сведения см. на странице [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
-
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
@@ -95,4 +94,4 @@
 [Решение для обмена сообщениями в очереди]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0518_2016--->
+<!---HONumber=AcomDC_0622_2016-->
