@@ -33,34 +33,36 @@
 
 1. Получите список доступных расположений, где можно создавать ресурсы.
 
-	    Get-AzureLocation | sort Name | Select Name
+	    Get-AzureRmLocation | sort Location | Select Location
         
     Вы увидите нечто вроде этого:
     
-        Name
-        ----
-        Australia East
-        Australia Southeast
-        Brazil South
-        Central India
-        Central US
-        East Asia
-        East US
-        East US 2
-        Japan East
-        Japan West
-        North Central US
-        North Europe
-        South Central US
-        South India
-        Southeast Asia
-        West Europe
-        West India
-        West US
+        Location
+        --------
+        australiaeast
+        australiasoutheast
+        brazilsouth
+        canadacentral
+        canadaeast
+        centralindia
+        centralus
+        eastasia
+        eastus
+        eastus2
+        japaneast
+        japanwest
+        northcentralus
+        northeurope
+        southcentralus
+        southeastasia
+        southindia
+        westeurope
+        westindia
+        westus
 
 2. Замените значение **$locName** расположением в списке. Создайте переменную.
 
-        $locName = "Central US"
+        $locName = "centralus"
         
 3. Замените значение **$rgName** именем новой группы ресурсов. Создайте переменную и группу ресурсов.
 
@@ -74,13 +76,13 @@
 1. Замените значение **$stName** именем учетной записи хранения. Проверьте имя на уникальность.
 
         $stName = "mystorage1"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    Если команда возвращает значение **False**, предложенное имя является уникальным в пределах Azure. Имя учетной записи хранения должно содержать от 3 до 24 символов и состоять только из цифр и строчных букв.
+    Если команда возвращает значение **True**, предложенное имя является уникальным в пределах Azure. Имя учетной записи хранения должно содержать от 3 до 24 символов и состоять только из цифр и строчных букв.
     
 2. Теперь выполните команду создания учетной записи хранения.
     
-        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 ## Шаг 4. Создание виртуальной сети
 
@@ -170,4 +172,4 @@
 - Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
 - Используйте преимущества шаблонов для создания виртуальной машины, ориентируясь на сведения в статье [Создание виртуальной машины Windows с использованием шаблона Resource Manager](virtual-machines-windows-ps-template.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="06/20/2016"
 	ms.author="awills"/>
 
 # Аналитики для приложений Windows Phone и приложений Магазина
 
 Корпорация Майкрософт предоставляет два решения DevOps для мобильных устройств. Это [HockeyApp](http://hockeyapp.net/) для анализа на клиенте, а также [Application Insights](app-insights-overview.md) для анализа на сервере.
 
-[HockeyApp](http://hockeyapp.net/) — это наше решение DevOps для приложений, используемых на мобильных устройствах под управлением iOS, OS X, Android или Windows, а также для межплатформенных приложений на платформах Xamarin, Cordova и Unity. Это решение позволяет передавать сборки тест-инженерам, собирать данные о сбоях, а также получать метрики и отзывы пользователей. Решение интегрируется с Visual Studio Team Services, поддерживая простые развертывания и интеграцию с рабочими элементами.
+[HockeyApp](http://hockeyapp.net/) — это наше решение DevOps для приложений, используемых на мобильных устройствах под управлением iOS, OS X, Android или Windows, а также для межплатформенных приложений на платформах Xamarin, Cordova и Unity. Это решение позволяет передавать сборки тест-инженерам, собирать данные о сбоях, а также получать метрики и отзывы пользователей. Решение интегрируется с Visual Studio Team Services, поддерживая простые развертывания и интеграцию с рабочими элементами.
 
 Справочные ресурсы:
 
@@ -33,8 +33,8 @@
 
 Вы также можете использовать [Application Insights для классических приложений для Windows](app-insights-windows-desktop.md).
 
-> [AZURE.NOTE] 15 июня 2016 года будет остановлено отображение данных в Application Insights для приложений iOS, Android, Магазина Windows и Windows Phone.
-> 
-> [Дополнительные сведения об этом изменении](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
+> [AZURE.NOTE] Скоро вы сможете использовать [аналитику Application Insights](app-insights-analytics.md) и [непрерывный экспорт](app-insights-export-telemetry.md) с данными телеметрии, отправляемыми из пакета SDK HockeyApp.
+>
+> [Дополнительные сведения об этом изменении.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

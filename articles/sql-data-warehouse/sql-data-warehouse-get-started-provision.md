@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Создание хранилища данных SQL Azure
@@ -62,10 +62,10 @@
 
 ## Дальнейшие действия
 
-Теперь, когда создано хранилище данных SQL, вы можете [подключиться](./sql-data-warehouse-get-started-connect.md) и приступить к выполнению запросов.
+Теперь, когда создано хранилище данных SQL, вы можете [подключиться](./sql-data-warehouse-connect-overview.md) и приступить к выполнению запросов.
 
 Общие сведения о загрузке см. в статье [Загрузка данных в хранилище данных SQL](./sql-data-warehouse-overview-load.md).
 
 Если вы пытаетесь перенести существующую базу данных в хранилище данных SQL, см. статью [Общие сведения о миграции](./sql-data-warehouse-overview-migrate.md) или используйте [служебную программу миграции](./sql-data-warehouse-migrate-migration-utility.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->
