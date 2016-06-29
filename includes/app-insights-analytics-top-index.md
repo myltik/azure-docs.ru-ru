@@ -1,7 +1,8 @@
 > [AZURE.SELECTOR]
 - [Обзор](../articles/application-insights/app-insights-analytics.md)
-- [Знакомство с аналитикой](../articles/application-insights/app-insights-analytics-tour.md)
-- [Использование аналитики](../articles/application-insights/app-insights-analytics-using.md)
+- [Обзор](../articles/application-insights/app-insights-analytics-tour.md)
+- [Если использовать метод](../articles/application-insights/app-insights-analytics-using.md)
 - [Справочник по языку](../articles/application-insights/app-insights-analytics-reference.md)
+- [Устранение неполадок](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

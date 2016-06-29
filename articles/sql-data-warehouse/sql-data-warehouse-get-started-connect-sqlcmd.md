@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Выполнение запросов с использованием SQLCMD | Microsoft Azure"
-   description="Отправка запросов к хранилищу данных с использованием SQLCMD."
+   pageTitle="Запросы к хранилищу данных SQL Azure (sqlcmd) | Microsoft Azure"
+   description="Выполнение запросов к хранилищу данных SQL Azure с помощью служебной программы командной строки sqlcmd."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,23 +13,26 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/09/2016"
+   ms.date="06/16/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
-# Выполнение запросов с использованием SQLCMD
+# Запросы к хранилищу данных SQL Azure (sqlcmd)
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Машинное обучение Azure][]
-- [SQLCMD][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-В этом руководстве показано, как отправлять запросы к хранилищу данных SQL Azure, используя служебную программу sqlcmd.exe.
+В этом пошаговом руководстве показано, как создавать запросы к хранилищу данных SQL Azure с помощью служебной программы командной строки sqlcmd.
 
 ## Предварительные требования
 
-+ Чтобы скачать [sqlcmd.exe][], перейдите на страницу [Microsoft Command Line Utilities 11 для SQL Server][].
+Для выполнения этих действий необходимо иметь следующее:
 
-## Подключение
+-  Файл [sqlcmd.exe][]. Чтобы скачать его, перейдите на страницу [Microsoft Command Line Utilities 11 для SQL Server][].
+
+## 1\. Подключение
 
 Чтобы начать использовать sqlcmd, откройте командную строку и введите **sqlcmd** и строку подключения к базе данных хранилища данных SQL. В строке подключения необходимо указать следующие обязательные параметры:
 
@@ -47,7 +50,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 
 > [AZURE.NOTE] Параметр -I, который включает заключенные в кавычки идентификаторы, требуется для подключения к хранилищу данных SQL.
 
-## Запрос
+## 2\. Запрос
 
 После подключения можно подавать любые поддерживаемые инструкции Transact-SQL для экземпляра. В этом примере запросы отправляются в интерактивном режиме.
 
@@ -73,17 +76,14 @@ C:\>"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d A
 Сведения обо всех параметрах sqlcmd см. в [документации по sqlcmd][sqlcmd.exe].
 
 <!--Articles-->
-[connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
-[Visual Studio]: ./sql-data-warehouse-get-started-connect.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Машинное обучение Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[connecting with PowerBI]: sql-data-warehouse-integrate-power-bi.md
+
 
 <!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/ru-RU/library/ms162773.aspx
+[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
 [Microsoft Command Line Utilities 11 для SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

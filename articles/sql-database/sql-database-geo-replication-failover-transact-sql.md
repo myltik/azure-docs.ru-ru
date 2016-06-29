@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Портал Azure](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
 В этой статье объясняется, как запустить отработку отказа в базе данных-получателе SQL Azure с помощью Transact-SQL. Информацию о настройке георепликации для баз данных SQL Azure см. в [этой статье](sql-database-geo-replication-transact-sql.md).
@@ -98,4 +98,4 @@
 - [База данных SQL — документация](https://azure.microsoft.com/services/sql-database/)
 - [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

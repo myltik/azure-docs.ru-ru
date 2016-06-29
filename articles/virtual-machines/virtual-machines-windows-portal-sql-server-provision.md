@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/08/2016"
+	ms.date="06/21/2016"
 	ms.author="jroth" />
 
 # Подготовка виртуальной машины SQL Server на портале Azure
@@ -251,4 +251,6 @@
 
 Чтобы получить общие сведения об SQL Server на виртуальных машинах Azure, просмотрите видео [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Виртуальные машины Azure — лучшая платформа для SQL Server 2016).
 
-<!---HONumber=AcomDC_0608_2016-->
+[Ознакомьтесь со схемой обучения](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) по использованию SQL Server на виртуальных машинах Azure.
+
+<!---HONumber=AcomDC_0622_2016-->

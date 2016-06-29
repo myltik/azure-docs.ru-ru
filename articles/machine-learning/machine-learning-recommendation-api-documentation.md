@@ -48,7 +48,6 @@
 - Максимальное количество элементов в каталоге равно 100 000.
 - Максимальное количество поддерживаемых точек использования — около 5 000 000. По мере поступления новых точек будут удаляться самые старые.
 - Максимальный размер данных, которые можно отправить в POST (например, импорт данных каталога, импорт данных по использованию), составляет 200 МБ.
-- Число транзакций в секунду для неактивной сборки модели рекомендаций — около 2. Для активной сборки модели рекомендаций это значение может достигать 20 транзакций в секунду.
 - Максимальное число элементов, которое можно запрашивать при получении рекомендаций — 150.
 
 ##3\. Интерфейсы API: общие сведения
@@ -104,7 +103,7 @@
 Код состояния HTTP: 200
 
 - `feed/entry/content/properties/id` — содержит идентификатор модели.
- **Примечание**. В идентификаторе модели учитывается регистр.
+**Примечание**. В идентификаторе модели учитывается регистр.
 
 OData XML
 
@@ -282,7 +281,7 @@ OData XML
 |	id | Уникальный идентификатор модели (с учетом регистра) |
 |	apiVersion | 1\.0 |
 |||
-| Текст запроса | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Обратите внимание на то, что XML-теги Description и ActiveBuildId необязательны. Если вы не хотите задавать Description или ActiveBuildId, удалите весь тег.|
+| Текст запроса | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Обратите внимание на то, что теги XML Description и ActiveBuildId необязательны. Если вы не хотите задавать Description или ActiveBuildId, удалите весь тег.|
 
 **Ответ**.
 
@@ -804,7 +803,7 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 ##7\. Бизнес-правила модели
 
 Поддерживаются следующие типы правил:
-- Правило <strong>Blocklist</strong> позволяет воспользоваться списком элементов, которые не должны возвращаться среди рекомендованных результатов. 
+- Правило <strong>Blocklist</strong> позволяет предоставить список элементов, которые не должны возвращаться среди рекомендованных результатов. 
 
 - Правило <strong>FeatureBlockList</strong> позволяет блокировать элементы на основании значений его компонентов.
 
@@ -894,15 +893,16 @@ OData XML
 <ins>Всякий раз, когда для бизнес-правил указывается идентификатор элемента, обязательно используйте внешний идентификатор этого элемента (используемый в файле каталога).</ins><br> 
 <ins>Для добавления правила BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
 <ins>Для добавления правила FeatureBlockList:</ins><br> 
-<br>
+<br> 
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
-Для добавления правила Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> 
+Для добавления правила Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br>
 <ins>Для добавления правила WhiteList:</ins><br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
 <ins>Для добавления правила FeatureWhiteList:</ins><br> 
 <br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
 Для добавления правила PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+
 
 **Ответ**.
 
@@ -1007,8 +1007,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	Уникальный идентификатор модели |
 | filename | Текстовый идентификатор каталога.<br>Допускаются только буквы (A–Z, a–z), цифры (0–9), дефисы (-) и символы подчеркивания (\_).<br>Максимальная длина: 50. |
-| apiVersion | 1.0 |
-|||
+| apiVersion | 1.0 | 
+||| 
 | Текст запроса | Пример (с функциями):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
@@ -1168,10 +1168,10 @@ OData XML
 
 - `feed/entry/content/properties/InternalId` — внутренний идентификатор элемента каталога, созданный API рекомендаций Машинного обучения Azure.
 - `feed/entry/content/properties/Name` — имя элемента каталога.
-- `feed/entry/content/properties/Rating` — (зарезервировано для будущего использования)
-- `feed/entry/content/properties/Reasoning` — (зарезервировано для будущего использования)
-- `feed/entry/content/properties/Metadata` — (зарезервировано для будущего использования)
-- `feed/entry/content/properties/FormattedRating` — (зарезервировано для будущего использования)
+- `feed/entry/content/properties/Rating` — (зарезервировано для будущего использования).
+- `feed/entry/content/properties/Reasoning` — (зарезервировано для будущего использования).
+- `feed/entry/content/properties/Metadata` — (зарезервировано для будущего использования).
+- `feed/entry/content/properties/FormattedRating` — (зарезервировано для будущего использования).
 
 OData XML
 
@@ -1213,7 +1213,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	Уникальный идентификатор модели |
 | filename | Текстовый идентификатор каталога.<br>Допустимы только буквы (A–Z, a–z), цифры (0–9), дефисы (-) и символы подчеркивания (_).<br>Максимальная длина: 50. |
-| apiVersion | 1.0 |
+| apiVersion | 1.0 | 
 |||
 | Текст запроса | Данные об использовании. Формат:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Имя</th><th>Обязательный</th><th>Тип</th><th>Описание</th></tr><tr><td>Идентификатор пользователя</td><td>Да</td><td>[A–z], [a–z], [0–9], [_] &#40;символ подчеркивания&#41;, [-] &#40;дефис&#41;<br> Максимальная длина: 255.</td><td> Уникальный идентификатор пользователя.</td></tr><tr><td>Идентификатор элемента</td><td>Да</td><td>[A–z], [a–z], [0–9], [&#95;] &#40;символ подчеркивания&#41;, [-] &#40;дефис&#41;<br> Максимальная длина: 50.</td><td>Уникальный идентификатор элемента.</td></tr><tr><td>Время</td><td>Нет</td><td>Дата в формате: ГГГГ/ММ/ДДTЧЧ:ММ:СС (например, 2013/06/20T10:00:00).</td><td>Время данных.</td></tr><tr><td>Событие</td><td>Нет. Если этот параметр указан, необходимо также указать дату.</td><td>Одно из следующих значений:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Максимальный размер файла: 200 МБ.<br><br>Пример:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
@@ -1828,7 +1828,7 @@ OData
 - Получить рейтинги характеристик, вызвав API [Получение информации о характеристиках](#101-get-features-info-for-last-rank-build).
 - Настроить сборку рекомендаций со следующими параметрами:
 	- `useFeatureInModel` — установите значение True.
-	- `ModelingFeatureList` — присвойте разделенный запятыми список характеристик с рейтингом не менее 2,0 (в соответствии с рейтингами, полученными в предыдущем шаге).
+	- `ModelingFeatureList` — присвойте разделенный запятыми список характеристик с рейтингом не менее 2,0 (в соответствии с рейтингами, полученными на предыдущем шаге).
 	- `AllowColdItemPlacement` — установите значение True.
 	- Дополнительно можно присвоить параметру `EnableFeatureCorrelation` значение True, а параметру `ReasoningFeatureList` — список характеристик, которые нужно использовать в качестве объяснений (обычно это тот же список, который используется при моделировании, или его часть).
 - Запустите сборку рекомендаций с настроенными параметрами.
@@ -1909,7 +1909,7 @@ OData
 | userDescription | Текстовый идентификатор каталога. Обратите внимание: при использовании пробелов их необходимо заменить сочетанием символов %20 См. пример выше.<br>Максимальная длина: 50 |
 | apiVersion | 1\.0 |
 |||
-| Текст запроса | Если оставить это поле пустым, сборка будет выполняться с параметрами по умолчанию.<br><br>Если требуется задать параметры сборки, отправьте параметры в формате XML в текст запроса, как в примере ниже. (Описание параметров см. в разделе "Параметры сборки".)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+| Текст запроса | Если оставить это поле пустым, сборка будет выполняться с параметрами по умолчанию.<br><br>Если требуется задать параметры сборки, укажите параметры в формате XML в тексте запроса, как в примере ниже. (Описание параметров см. в разделе "Параметры сборки".)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Ответ**.
 
@@ -1985,7 +1985,7 @@ OData XML
 | buildType | Тип вызываемой сборки: <br/> – Recommendation — для сборки рекомендаций; <br> – Ranking — для сборки рейтингов; <br/> – Fbt — для сборки FBT.
 | apiVersion | 1\.0 |
 |||
-| Текст запроса | Если оставить это поле пустым, сборка будет выполняться с параметрами по умолчанию.<br><br>Если требуется задать параметры сборки, отправьте их в формате XML в текст запроса, как в примере ниже. (Описание и полный список параметров см. в разделе "Параметры сборки".)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+| Текст запроса | Если оставить это поле пустым, сборка будет выполняться с параметрами по умолчанию.<br><br>Если требуется задать параметры сборки, укажите их в формате XML в тексте запроса, как в примере ниже. (Описание и полный список параметров см. в разделе "Параметры сборки".)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Ответ**.
 
@@ -2472,7 +2472,7 @@ OData XML
 |:--------			|:--------								|
 | modelId | Уникальный идентификатор модели |
 | itemIds | Разделенный запятыми список элементов, для которых предоставляются рекомендации. <br>Если активная сборка имеет тип FBT, можно отправить только один элемент. <br>Максимальная длина: 1024 |
-| numberOfResults | Требуемое число результатов <br>Максимум: 150 |
+| numberOfResults | Требуемое число результатов. <br>Максимум: 150. |
 | includeMetatadata | Для использования в будущем, всегда имеет значение false |
 | apiVersion | 1\.0 |
 
@@ -2485,7 +2485,7 @@ OData XML
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
 - `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
-- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например объяснения).
+- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Приведенный ниже пример ответа содержит 10 рекомендованных элементов.
 
@@ -2652,7 +2652,7 @@ OData XML
 |:--------			|:--------								|
 | modelId | Уникальный идентификатор модели |
 | itemIds | Разделенный запятыми список элементов, для которых предоставляются рекомендации. <br>Если активная сборка имеет тип FBT, можно отправить только один элемент. <br>Максимальная длина: 1024 |
-| numberOfResults | Требуемое число результатов <br>Максимум: 150 |
+| numberOfResults | Требуемое число результатов. <br>Максимум: 150. |
 | includeMetatadata | Для использования в будущем, всегда имеет значение false
 | buildId | Идентификатор сборки, используемый для этого запроса рекомендаций. |
 | apiVersion | 1\.0 |
@@ -2666,7 +2666,7 @@ OData XML
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
 - `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
-- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например объяснения).
+- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Пример ответа см. в подразделе 12.1.
 
@@ -2682,7 +2682,7 @@ OData XML
 |:--------			|:--------								|
 | modelId | Уникальный идентификатор модели |
 | itemId | Элемент, для которого создаются рекомендации. <br>Максимальная длина: 1024 |
-| numberOfResults | Требуемое число результатов <br>Максимум: 150 |
+| numberOfResults | Требуемое число результатов. <br>Максимум: 150. |
 | minimalScore | Минимальный рейтинг, который должен иметь набор часто встречающихся элементов для включения в возвращаемые результаты |
 | includeMetatadata | Для использования в будущем, всегда имеет значение false |
 | apiVersion | 1\.0 |
@@ -2698,7 +2698,7 @@ OData XML
 - `Feed\entry\content\properties\Id2` — имя второго рекомендованного элемента (необязательно).
 - `Feed\entry\content\properties\Name2` — имя второго элемента (необязательно).
 - `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
-- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например объяснения).
+- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Приведенный ниже пример ответа содержит 3 рекомендованных набора элементов.
 
@@ -2773,7 +2773,7 @@ OData XML
 |:--------			|:--------								|
 | modelId | Уникальный идентификатор модели |
 | itemId | Элемент, для которого создаются рекомендации. <br>Максимальная длина: 1024 |
-| numberOfResults | Требуемое число результатов <br>Максимум: 150 |
+| numberOfResults | Требуемое число результатов. <br>Максимум: 150. |
 | minimalScore | Минимальный рейтинг, который должен иметь набор часто встречающихся элементов для включения в возвращаемые результаты |
 | includeMetatadata | Для использования в будущем, всегда имеет значение false |
 | buildId | Идентификатор сборки, используемый для этого запроса рекомендаций. |
@@ -2790,7 +2790,7 @@ OData XML
 - `Feed\entry\content\properties\Id2` — имя второго рекомендованного элемента (необязательно).
 - `Feed\entry\content\properties\Name2` — имя второго элемента (необязательно).
 - `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
-- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например объяснения).
+- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Пример ответа см. в подразделе 12.3.
 
@@ -2825,7 +2825,7 @@ API вернет список прогнозируемых элементов н
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
 - `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
-- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например объяснения).
+- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Пример ответа см. в подразделе 12.1.
 
@@ -2862,7 +2862,7 @@ API вернет список прогнозируемых элементов н
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
 - `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
-- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например объяснения).
+- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Пример ответа см. в подразделе 12.1.
 
@@ -2897,7 +2897,7 @@ API вернет список прогнозируемых элементов н
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
 - `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
-- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например объяснения).
+- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Пример ответа см. в подразделе 12.1.
 
@@ -2935,7 +2935,7 @@ API вернет список прогнозируемых элементов н
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
 - `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
-- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например объяснения).
+- `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Пример ответа см. в подразделе 12.1.
 
@@ -2967,8 +2967,8 @@ API вернет список прогнозируемых элементов н
 Ответ включает одну запись для каждого рекомендованного элемента. Каждая запись содержит следующие данные:
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
-- `Feed\entry\content\properties\Rating` — недоступно
-- `Feed\entry\content\properties\Reasoning` — недоступно
+- `Feed\entry\content\properties\Rating` — недоступно.
+- `Feed\entry\content\properties\Reasoning` — недоступно.
 
 OData XML
 
@@ -3103,4 +3103,4 @@ OData XML
 © Корпорация Майкрософт (Microsoft Corporation), 2015 г. Все права защищены.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

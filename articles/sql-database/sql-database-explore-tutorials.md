@@ -105,7 +105,7 @@
 
 ##Разработка
 
-В следующих учебниках вы узнаете о [подключении клиентов к базе данных SQL Azure](sql-database-connect-central-recommendations.md) и использовании [библиотек подключений](sql-database-libraries.md).
+В следующих учебниках вы узнаете о [разработке базы данных SQL](sql-database-develop-overview.md) и использовании [библиотек подключений](sql-database-libraries.md).
 
 | Учебник | Описание |
 |---|---|---|
@@ -180,4 +180,4 @@
 
 [Изучение кратких руководств по решениям базы данных SQL Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

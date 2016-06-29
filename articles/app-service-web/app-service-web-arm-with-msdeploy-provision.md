@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/31/2016"
 	ms.author="john.dehavilland"/>
 
 # Развертывание веб-приложения с использованием MSDeploy, пользовательского имени узла и SSL-сертификата
@@ -197,4 +197,4 @@
 
 Теперь приложение развернуто, и вы можете перейти к нему по адресу https://www.yourcustomdomain.com.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

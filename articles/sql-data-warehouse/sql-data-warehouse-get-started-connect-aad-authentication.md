@@ -14,14 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.date="06/09/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Подключение к хранилищу данных SQL с использованием проверки подлинности Azure Active Directory
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 - [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 
@@ -55,7 +54,7 @@
 Основное различие между использованием проверки подлинности Azure Active Directory с базой данных SQL Azure и хранилищем данных SQL Azure состоит в том, что для подключения к хранилищу данных SQL вы должны использовать SQL Server Data Tools вместо SQL Server Management Studio. Для хранилища данных SQL требуется версия SQL Server Data Tools для Visual Studio 2015, выпущенная в апреле 2016 г. (14.0.60311.1) или более поздняя. Сейчас пользователи Azure Active Directory не отображаются в обозревателе объектов SSDT. В качестве обходного пути сведения о пользователях можно просмотреть в файле [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
   
 ## Дальнейшие действия 
-- Выполните подробные инструкции. Процедуры настройки и использования проверки подлинности Azure Active Directory практически идентичны для базы данных SQL Azure и хранилища данных SQL Azure. Выполните процедуру, описанную в разделе [Подключение к Базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
+- Выполните подробные инструкции. Процедуры настройки и использования проверки подлинности Azure Active Directory практически идентичны для базы данных SQL Azure и хранилища данных SQL Azure. Выполните действия, описанные в разделе [Подключение к Базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
 - Создайте пользовательские роли базы данных и назначьте их пользователям. Затем предоставьте ролям управляемые разрешения. Дополнительные сведения см. в разделе [Приступая к работе с разрешениями Database Engine](https://msdn.microsoft.com/library/mt667986.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

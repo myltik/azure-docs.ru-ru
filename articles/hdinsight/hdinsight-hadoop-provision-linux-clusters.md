@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/02/2016"
+   	ms.date="06/09/2016"
    	ms.author="jgao"/>
 
 
@@ -242,18 +242,29 @@ Azure HDInsight предлагает облачные решения для ра
     | -------------------------- | --------------------------- |
     | Конфигурация «сеть — сеть» позволяет подключить несколько ресурсов центра обработки данных к виртуальной сети Azure с использованием аппаратного обеспечения VPN или службы маршрутизации и удаленного доступа.<br />![Диаграмма конфигурации соединения "сервер-сервер"](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | Конфигурация «точка — сеть» позволяет подключить конкретный ресурс к виртуальной сети Azure с использованием программного обеспечения VPN.<br />![Диаграмма конфигурации соединения "клиент-сервер"](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
+Для кластеров на базе Windows требуется виртуальная сеть версии 1 (классическая), а для кластеров на базе Linux — версии 2 (диспетчер ресурсов Azure). Если у вас несоответствующий тип сети, она будет бесполезна при создании кластера.
+
 Дополнительные сведения об использовании HDInsight в виртуальной сети, включая требования к конфигурации виртуальной сети, см. в статье [Расширение возможностей HDInsight с помощью виртуальной сети Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Настройка кластеров HDInsight (служба начальной загрузки)
 
 В некоторых случаях требуется изменить файлы конфигурации.
 
+- clusterIdentity.xml
 - core-site.xml
+- gateway.xml
+- hbase-env.xml
+- hbase-site.xml
 - hdfs-site.xml
-- mapred-site.xml
-- yarn-site.xml
+- hive-env.xml
 - hive-site.xml
+- mapred-site
 - oozie-site.xml
+- oozie-env.xml
+- storm-site.xml
+- tez-site.xml
+- webhcat-site.xml
+- yarn-site.xml
 
 Чтобы изменения сохранялись в течение всего времени существования кластера, можно применить настройки кластера HDInsight во время создания кластера или воспользоваться Ambari в кластерах под управлением Linux. Дополнительную информацию см. в статье [Настройка кластеров HDInsight с помощью начальной загрузки](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
@@ -283,4 +294,4 @@ Azure HDInsight предлагает облачные решения для ра
 | [Пакет SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Шаблоны ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

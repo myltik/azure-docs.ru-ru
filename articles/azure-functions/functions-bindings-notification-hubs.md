@@ -131,7 +131,7 @@
 	  }
 	}
 
-Дополнительные сведения об отправке файла project.json см. в статье [Отправка файла project.json](http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions).
+Дополнительные сведения об отправке файла project.json см. в статье [Отправка файла project.json](functions-reference.md#fileupdate).
 
 Пример кода:
 
@@ -155,4 +155,4 @@
 
 [AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

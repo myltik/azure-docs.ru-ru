@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Аналитика — мощный инструмент поиска Application Insights" 
+	pageTitle="Аналитика — эффективный инструмент поиска Application Insights | Microsoft Azure" 
 	description="Обзор аналитики — мощного инструмента поиска Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -21,7 +21,6 @@
 
 [Аналитика](app-insights-analytics.md) — это эффективный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
  
 Типичный запрос содержит *исходную* таблицу и ряд *операторов*, разделенных `|`.
@@ -69,7 +68,7 @@
 ## Подключение к данным Application Insights
 
 
-Откройте аналитику в [колонке "Обзор"](app-insights-dashboards.md) вашего приложения в Application Insights.
+Откройте аналитику в [колонке "Обзор"](app-insights-dashboards.md) приложения в Application Insights.
 
 ![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics/001.png)
 
@@ -82,4 +81,4 @@
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -38,6 +38,8 @@
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
 
+Если при запуске этого командлета отображается сообщение **The sync command or cmdlet is not available** (Команда синхронизации или командлет недоступны), то модуль PowerShell не загружается. Это может произойти при запуске Azure AD Connect на контроллере домена или на сервере с более высокими уровнями ограничений PowerShell, чем предусмотрено параметрами по умолчанию. Если отображается это сообщение об ошибке, выполните команду `Import-Module ADSync`, чтобы сделать командлет доступным.
+
 - **AllowedSyncCycleInterval**. Максимальная частота синхронизации в Azure AD. Более частная синхронизация не поддерживается.
 - **CurrentlyEffectiveSyncCycleInterval**. Действующее на данный момент расписание. Если значение этого параметра не совпадает с параметром AllowedSyncInterval, оно будет таким же, как у параметра CustomizedSyncInterval (если он задан). Изменения параметра CustomizedSyncCycleInterval вступают в силу после следующего цикла синхронизации.
 - **CustomizedSyncCycleInterval**. Этот параметр позволяет настроить планировщик таким образом, чтобы синхронизация выполнялась чаще или реже, чем каждые 30 минут. На представленном выше снимке экрана планировщик настроен на ежечасное выполнение. Если значение этого параметра меньше, чем значение параметра AllowedSyncInterval, будет использоваться последний.
@@ -142,4 +144,4 @@ Get-ADSyncConnectorRunStatus
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/03/2016"
+   ms.date="06/10/2016"
    ms.author="nitinme"/>
 
 # Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure
@@ -229,6 +229,91 @@
 
 	С помощью команды `hdfs dfs -put` вы можете отправить в хранилище озера данных некоторые файлы, а затем с помощью команды `hdfs dfs -ls` проверить, успешно ли они передались.
 
+## Использование хранилища озера данных с кластером Spark
+
+В этом разделе описывается, как использовать записную книжку Jupyter с кластерами HDInsight Spark для выполнения задания, которое считывает данные из учетной записи хранилища озера данных, связанной с кластером HDInsight Spark, вместо учетной записи большого двоичного объекта службы хранилища Azure по умолчанию.
+
+1. Скопируйте некоторые примеры данных из учетной записи хранения по умолчанию (WASB), связанной с кластером Spark, в учетную запись хранилища озера данных Azure, связанную с кластером. Для этого можно использовать [инструмент ADLCopy](http://aka.ms/downloadadlcopy). Скачайте и установите этот инструмент с помощью следующей ссылки.
+
+2. Откройте командную строку и перейдите в каталог, в который установлено средство AdlCopy, обычно `%HOMEPATH%\Documents\adlcopy`.
+
+3. Выполните следующую команду, чтобы скопировать заданный большой двоичный объект из контейнера-источника в хранилище озера данных:
+
+		AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
+
+	В целях этого учебника скопируйте пример файла данных **HVAC.csv**, расположенный в папке **/HdiSamples/HdiSamples/SensorSampleData/hvac/**, в учетную запись хранилища озера данных Azure. Фрагмент кода должен иметь следующий вид.
+
+		AdlCopy /Source https://mydatastore.blob.core.windows.net/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv /dest swebhdfs://mydatalakestore.azuredatalakestore.net/hvac/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+
+	>[AZURE.WARNING] Убедитесь, что имена файлов и пути указаны в правильном регистре.
+
+4. Вам будет предложено ввести учетные данные для подписки Azure, в которой расположена учетная запись хранилища озера данных. Вы увидите результат, аналогичный приведенному ниже:
+
+		Initializing Copy.
+		Copy Started.
+		100% data copied.
+		Copy Completed. 1 file copied.
+
+	Файл данных (**HVAC.csv**) будет скопирован в папку **/hvac** в учетной записи хранилища данных озера.
+
+4. На начальной панели [портала Azure](https://portal.azure.com/) щелкните элемент кластера Spark (если он закреплен на начальной панели). Кроме того, вы можете перейти к кластеру, выбрав пункты **Просмотреть все** и **Кластеры HDInsight**.
+
+2. В колонке кластера Spark щелкните **Быстрые ссылки**, затем в колонке **Панель мониторинга кластера** выберите **Jupyter Notebook**. При появлении запроса введите учетные данные администратора для кластера.
+
+	> [AZURE.NOTE] Также можно открыть Jupyter Notebook для своего кластера, открыв следующий URL-адрес в браузере. Замените __CLUSTERNAME__ именем кластера.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+
+2. Создайте новую записную книжку. Щелкните **Создать**, а затем выберите **PySpark**.
+
+	![Создание новой записной книжки Jupyter](./media/data-lake-store-hdinsight-hadoop-use-portal/hdispark.note.jupyter.createnotebook.png "Создание новой записной книжки Jupyter")
+
+3. Будет создана и открыта записная книжка с именем **Untitled.pynb**.
+
+4. Так как записная книжка была создана с помощью ядра PySpark, задавать контексты явно необязательно. Контексты Spark и Hive будут созданы автоматически при выполнении первой ячейки кода. Можно начать с импорта различных типов, необходимых для этого сценария. Для этого вставьте следующий фрагмент кода в ячейку и нажмите клавиши **SHIFT+ВВОД**.
+
+		from pyspark.sql.types import *
+		
+	При каждом запуске задания в Jupyter в заголовке окна веб-браузера будет отображаться состояние **(Занято)**, а также название записной книжки. Кроме того, рядом с надписью **PySpark** в верхнем правом углу окна будет показан закрашенный кружок. После завершения задания этот значок изменится на кружок без заливки.
+
+	 ![Состояние задания записной книжки Jupyter](./media/data-lake-store-hdinsight-hadoop-use-portal/hdispark.jupyter.job.status.png "Состояние задания записной книжки Jupyter")
+
+4. Загрузите пример данных во временную таблицу с помощью файла **HVAC.csv**, скопированного в учетную запись хранилища озера данных. Получить доступ к данным в учетной записи хранилища озера данных можно с помощью следующего шаблона URL-адреса.
+
+		adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
+
+	Вставьте приведенный ниже код в пустую ячейку, замените **MYDATALAKESTORE** именем учетной записи хранилища озера данных и нажмите клавиши **SHIFT+ВВОД**. Этот пример кода регистрирует данные во временной таблице с именем **hvac**.
+
+		# Load the data
+		hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/hvac/HVAC.csv")
+		
+		# Create the schema
+		hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+		
+		# Parse the data in hvacText
+		hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
+		
+		# Create a data frame
+		hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
+		
+		# Register the data fram as a table to run queries against
+		hvacdf.registerTempTable("hvac")
+
+5. Так как вы используете ядро PySpark, то можете отправить SQL-запрос непосредственно к временной таблице **hvac**, которую вы только что создали с помощью магической команды `%%sql`. Дополнительные сведения о магической команде `%%sql`, а также других магических командах, доступных в ядре PySpark, приведены в разделе [Ядра, доступные в записных книжках Jupyter с кластерами Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+		
+		%%sql
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
+
+5. После успешного выполнения задания по умолчанию будет показаны следующие табличные данные.
+
+ 	![Табличные выходные данные для результата запроса](./media/data-lake-store-hdinsight-hadoop-use-portal/tabular.output.png "Табличные выходные данные для результата запроса")
+
+	Результаты также можно просмотреть и в других визуализациях. Например, диаграмма областей для тех же выходных данных будет выглядеть следующим образом.
+
+	![Диаграмма областей для результата запроса](./media/data-lake-store-hdinsight-hadoop-use-portal/area.output.png "Диаграмма областей для результата запроса")
+
+
+6. Завершив работу с приложением, следует закрыть записную книжку, чтобы освободить ресурсы. Для этого в записной книжке в меню **Файл** выберите пункт **Закрыть и остановить**. Это завершит работу записной книжки и закроет ее.
 
 ## Использование хранилища озера данных в топологии Storm
 
@@ -258,4 +343,4 @@
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

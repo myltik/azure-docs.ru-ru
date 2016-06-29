@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
@@ -71,7 +71,7 @@ To see if you can create a new storage account, in the Classic Portal, go to **S
 
 После удаления файлов cookie перезапустите браузер и перейдите на страницу [Машинного обучения Microsoft Azure](https://studio.azureml.net). Когда появится запрос имени пользователя и пароля, введите данные учетной записи Майкрософт, которая была указана в качестве владельца рабочей области.
 
-Наша цель — сделать работу с машинным обучением как можно более удобной. Публикуйте свои комментарии и описывайте проблемы на [форуме по Машинному обучению Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning), чтобы мы смогли эффективнее помочь вам.
+Наша цель — сделать работу с машинным обучением как можно более удобной. Публикуйте свои комментарии и описывайте проблемы на [форуме по Машинному обучению Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning), чтобы мы смогли эффективнее помочь вам.
 
 [screen1]: media/machine-learning-troubleshooting-creating-ml-workspace/screen1.png
 [screen2]: media/machine-learning-troubleshooting-creating-ml-workspace/screen2.png
@@ -80,4 +80,4 @@ To see if you can create a new storage account, in the Classic Portal, go to **S
 [screen5]: media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

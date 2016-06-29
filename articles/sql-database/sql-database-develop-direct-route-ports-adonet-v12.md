@@ -112,7 +112,7 @@
 - [Список версий протокола TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
 
-- [Подключение к базе данных SQL: ссылки, рекомендации и советы по разработке](sql-database-connect-central-recommendations.md)
+- [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md)
 
 
 - [Брандмауэр базы данных SQL Azure](sql-database-firewall-configure.md)
@@ -120,4 +120,4 @@
 
 - [Практическое руководство. Настройка параметров брандмауэра для Базы данных SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="06/06/2016"
 	ms.author="cephalin"/>
 
 # Включение ведения журнала диагностики для веб-приложений в службе приложений Azure
@@ -270,4 +270,4 @@ Tid|Идентификатор потока, который вызвал это 
 * Информацию о смене старого портала на новый см. в [справочнике по навигации на портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -87,7 +87,7 @@ Micosoft Azure Marketplace поддерживает методы проверк�
 
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
-|	modelName |	Допускаются только буквы (A–Z, a–z), цифры (0–9), дефисы (-) и символы подчеркивания (\_).<br>Максимальная длина: 20. |
+|	modelName	|	Допускаются только буквы (A–Z, a–z), цифры (0–9), дефисы (-) и символы подчеркивания (\_).<br>Максимальная длина: 20. |
 | apiVersion | 1.0 |
 |||
 | Текст запроса | НЕТ |
@@ -136,7 +136,7 @@ OData XML
 
 | Метод HTTP | URI |
 |:--------|:--------|
-|ПУБЛИКАЦИЯ     |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Пример:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|ПУБЛИКАЦИЯ |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Пример:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
@@ -296,8 +296,9 @@ OData XML
 		</Event>
 
 - Пример события Purchase:
+
 		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
- 		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
 		<SessionId>11112222</SessionId>
 		<EventData>
 		<EventData>
@@ -338,7 +339,7 @@ OData XML
 
 | Метод HTTP | URI |
 |:--------|:--------|
-|ПУБЛИКАЦИЯ     |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Пример:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|ПУБЛИКАЦИЯ |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Пример:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
 
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
@@ -689,7 +690,7 @@ OData XML
 | id | Уникальный идентификатор модели (с учетом регистра) |
 | apiVersion | 1\.0 |
 |||
-| Текст запроса | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br> Обратите внимание на то, что XML-теги Description и ActiveBuildId необязательны. Если вы не хотите задавать Description или ActiveBuildId, удалите весь тег. |
+| Текст запроса | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Обратите внимание на то, что теги XML Description и ActiveBuildId необязательны. Если вы не хотите задавать Description или ActiveBuildId, удалите весь тег. |
 
 **Ответ**.
 
@@ -713,4 +714,4 @@ OData XML
 © Корпорация Майкрософт, 2014. Все права защищены.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

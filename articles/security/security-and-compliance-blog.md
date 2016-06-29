@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="06/08/2016"
    ms.author="terrylan"/>
 
 # Блог по безопасности и соответствию требованиям Azure
@@ -28,6 +28,14 @@
 
 **Последние статьи** (в этот раздел каждую неделю будут добавляться ссылки на новые публикации):
 
+[Azure Infrastructure Security Book Coming Soon](https://blogs.msdn.microsoft.com/azuresecurity/2016/06/06/azure-infrastructure-security-book-coming-soon/) (Книга по безопасности инфраструктуры Azure выйдет в ближайшее время) (6 июня 2016 г.)
+
+[Insights on Container Security with Azure Container Service (ACS)](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/26/insights-on-container-security-with-azure-container-service-acs/) (Аналитический обзор безопасности контейнеров в службе контейнеров Azure (ACS)) (26 мая 2016 г.)
+
+[Azure Security Information Site on Azure.com](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/24/azure-security-information-site-on-azure-com/) (Сайт со сведениями о безопасности Azure на Azure.com) (24 мая 2016 г.)
+
+[Improve Security by Migrating from Azure Service Management to Azure Resource Management](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/24/improve-security-by-migrating-from-azure-service-management-to-azure-resource-management/) (Повышения уровня безопасности благодаря переходу от управления службами Azure к управлению ресурсами Azure) (24 мая 2016 г.)
+
 [Azure Disk Encryption for Windows Virtual Machines reaches General Availability](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/20/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) (Шифрование дисков Azure для виртуальных машин Windows становится общедоступным) (20 мая 2016 г.)
 
 [Advances in Azure Security Center Threat Detection](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/17/advances-in-azure-security-center-threat-detection/) (Обнаружение угроз — новые возможности центра безопасности Azure) (17 мая 2016 г.)
@@ -38,6 +46,6 @@
 
 [Enabling Diagnostics Logging for Azure Antimalware](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/19/enabling-diagnostics-logging-for-azure-antimalware/) (Включение журнала диагностики для антивредоносных программ Azure) (19 апреля 2016 г.)
 
-[What does shared responsibility in the cloud mean?](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/18/what-does-shared-responsibility-in-the-cloud-mean/) (Что обозначает разделение ответственности в облаке?) (18 апреля 2016 г.)
+[What does shared responsibility in the cloud mean? (Что обозначает разделение ответственности в облаке?)](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/18/what-does-shared-responsibility-in-the-cloud-mean/) (18 апреля 2016 г.)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

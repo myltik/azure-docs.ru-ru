@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="06/10/2016"
    ms.author="joaoma" />
 
 # Отключение и включение конечной точки диспетчера трафика
@@ -44,4 +44,4 @@
 
 [Рекомендации по безопасности для диспетчера трафика](traffic-manager-performance-considerations.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -3,7 +3,7 @@
  description="Общие сведения об управлении устройствами в центре IoT Azure: ";двойники"; устройств, запросы устройств и задания устройств"
  services="iot-hub"
  documentationCenter=""
- authors="ellenfosborne"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Общие сведения об управлении устройствами с помощью центра IoT Azure (предварительная версия)
 
@@ -24,7 +24,7 @@
 
 1.  **"Двойник" устройства:** представление физического устройства в центре IoT.
 
-2.  **Запросы устройства**: позволяют находить "двойники" устройств и составлять общую картину таких "двойников". Например, можно найти все "двойники" устройств с встроенным ПО версии 1.0.
+2.  **Запросы устройств**: позволяют находить "двойники" устройств и получать общее представление о нескольких "двойниках" устройств. Например, можно выполнить запрос, чтобы найти все "двойники" устройств с встроенным ПО версии 1.0.
 
 3.  **Задания устройств**: действия, выполняемые на одном или нескольких физических устройствах, такие как обновление встроенного ПО, перезагрузка и сброс параметров к значениям по умолчанию.
 
@@ -105,15 +105,7 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения о возможностях управления устройствами центра IoT Azure можно просмотреть в руководствах:
-
-- [Приступая к работе с функцией управления устройствами центра IoT Azure][lnk-get-started]
-
-- [How to use the device twin (Использование "двойника" устройства)][lnk-tutorial-twin]
-
-- [How to find device twins using queries (Поиск "двойников" устройств с использованием запросов)][lnk-tutorial-queries]
-
-- [Учебник по использованию заданий устройства для обновления встроенного ПО устройства (предварительная версия)][lnk-tutorial-jobs]
+Чтобы продолжить изучение функций управления устройствами центра IoT Azure, ознакомьтесь с учебником [Приступая к работе с функцией управления устройствами центра IoT Azure][lnk-get-started].
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png
@@ -124,9 +116,7 @@
 [lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

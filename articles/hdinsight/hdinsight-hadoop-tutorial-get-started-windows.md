@@ -57,7 +57,7 @@
 
 **Создание кластера Hadoop**
 
-1. Войдите на [портал Azure](https://ms.portal.azure.com/).
+1. Войдите на [портал Azure](https://portal.azure.com/).
 2. Щелкните **Создать**, **Анализ данных**, а затем — **HDInsight**. На портале откроется колонка **Новый кластер HDInsight**.
 
     ![Создание кластера на портале Azure](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Создание кластера на портале Azure")
@@ -97,7 +97,7 @@
 
 **Выполнение задания Hive с панели мониторинга кластера**
 
-1. Войдите на [портал Azure](https://ms.portal.azure.com/).
+1. Войдите на [портал Azure](https://portal.azure.com/).
 2. Нажмите кнопку **Просмотреть все**, а затем щелкните **Кластеры HDInsight**. Вы увидите список кластеров, включая кластер, который вы только что создали (см. предыдущий раздел).
 3. Щелкните имя кластера, в котором необходимо запустить задание Hive, а затем нажмите кнопку **Панель мониторинга** в верхней части колонки.
 4. В новой вкладке браузера откроется веб-страница. Введите учетную запись и пароль пользователя Hadoop. Имя по умолчанию — **admin**; пароль тот же, который вы ввели при подготовке кластера.
@@ -222,7 +222,7 @@
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://ms.portal.azure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
@@ -255,4 +255,4 @@
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

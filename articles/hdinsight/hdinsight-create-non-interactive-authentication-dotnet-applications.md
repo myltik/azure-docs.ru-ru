@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2016"
+	ms.date="06/13/2016"
 	ms.author="jgao"/>
 
 # Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности
@@ -82,14 +82,14 @@
 3.	Выберите группу ресурсов с кластером HDInsight, где позднее будет выполняться ваш запрос Hive. Если имеется слишком много групп ресурсов, можно использовать фильтр.
 4.	В колонке кластера щелкните **Доступ**.
 
-    ![значок облака и молнии = быстрый запуск](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)
+    ![значок облака и молнии = быстрый запуск](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)
 5.	В колонке **Пользователи** щелкните **Добавить**.
 6.	Следуйте инструкциям, чтобы добавить роль **Владелец** в приложение AD, созданное в предыдущей процедуре. После успешного выполнения этой процедуры приложение должно появиться в колонке "Пользователи" с ролью "Владелец".
 
 
 ##Разработка клиентского приложения HDInsight
 
-Создайте консольное приложение C# .NET, следуя инструкциям в статье [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically/#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Затем замените метод GetTokenCloudCredentials на следующий код:
+Создайте консольное приложение C# .NET, следуя инструкциям в статье [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Затем замените метод GetTokenCloudCredentials на следующий код:
 
     public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
     {
@@ -122,4 +122,4 @@
 - [Проверка подлинности субъекта-службы в Azure Resource Manager](../resource-group-authenticate-service-principal.md)
 - [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

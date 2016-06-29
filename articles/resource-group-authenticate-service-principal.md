@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Создание приложения Active Directory для доступа к ресурсам с помощью Azure PowerShell
@@ -115,7 +115,7 @@
 
 В этом разделе вы выполните действия по созданию приложения AD с сертификатом.
 
-1. Создать самозаверяющий сертификат.
+1. Создать самозаверяющий сертификат. Если используется Windows 10 или Windows Server 2016 Technical Preview выполните следующую команду. 
 
         $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
@@ -126,6 +126,12 @@
         Thumbprint                                Subject
         ----------                                -------
         724213129BD2B950BB3F64FAB0C877E9348B16E9  CN=exampleapp
+
+     Если у вас не используется Windows 10 или Windows Server 2016 Technical Preview, скачайте сценарий PowerShell [генератора самозаверяющих сертификатов](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6). Выполните следующие команды для создания сертификата.
+     
+        Import-Module -Name c:\New-SelfSignedCertificateEx.ps1
+        New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+        $cert = Get-ChildItem -Path cert:\CurrentUser\My* -DnsName exampleapp
 
 2. Получите из сертификата значение ключа.
 
@@ -203,10 +209,10 @@
 
 ## Дальнейшие действия
   
-- Примеры проверки подлинности для .NET см. в статье [Пакет SDK .NET для Azure Resource Manager](resource-manager-net-sdk.md).
-- Примеры проверки подлинности для Java см. в статье [Пакет SDK Java для Azure Resource Manager](resource-manager-java-sdk.md). 
-- Примеры проверки подлинности для Python см. в статье [Resource Management Authentication for Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Проверка подлинности для управления ресурсами с использованием Python).
-- Примеры проверки подлинности для REST см. в статье [API-интерфейсы REST Resource Manager](resource-manager-rest-api.md).
+- Примеры аутентификации для .NET см. в статье [Пакет SDK .Net для диспетчера ресурсов Azure](resource-manager-net-sdk.md).
+- Примеры аутентификации для Java см. в статье [Пакет SDK Java для диспетчера ресурсов Azure](resource-manager-java-sdk.md). 
+- Примеры аутентификации для Python см. в статье [Resource Management Authentication](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Аутентификация для управления ресурсами).
+- Примеры аутентификации для REST см. в статье [API-интерфейсы REST диспетчера ресурсов](resource-manager-rest-api.md).
 - Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [руководстве разработчика по авторизации с помощью API Azure Resource Manager](resource-manager-api-authentication.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -21,12 +21,11 @@
 
 
 > [AZURE.SELECTOR]
+- [Обзор](sql-database-point-in-time-restore.md)
 - [Портал Azure](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-powershell.md)
 
-В этой статье объясняется, как восстановить базу данных до момента времени в прошлом с помощью портала Azure.
-
-[**Восстановление до точки во времени**](sql-database-point-in-time-restore.md) — это возможность самообслуживания, которая позволяет восстановить базу данных из автоматических резервных копий, которые создаются для всех баз данных, до любого момента времени за период хранения базы данных. Дополнительные сведения об автоматических резервных копиях и периодах хранения см. в статье [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL](sql-database-business-continuity.md).
+В этой статье объясняется, как восстановить базу данных до момента времени в прошлом (на основании [сделанных автоматических резервных копий базы данных SQL](sql-database-automated-backups.md)) с помощью портала Azure.
 
 ## Выбор базы данных для восстановления до момента времени в прошлом
 
@@ -47,13 +46,16 @@
 ## Дальнейшие действия
 
 - [Финализация восстановленной Базы данных SQL Azure](sql-database-recovered-finalize.md)
-- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
-
-
+- [Восстановление состояния системы в определенной временной точке](sql-database-point-in-time-restore.md)
+- [Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) (Создание и обновление базы данных)
+- [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md)
 
 ## Дополнительные ресурсы
 
+- [Восстановление удаленной базы данных.](sql-database-restore-deleted-database.md)
 - [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Геовосстановление](sql-database-geo-restore.md)
+- [Активная георепликация](sql-database-geo-replication-overview.md)
+- [Проектирование приложений для аварийного восстановления в облаке](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->
