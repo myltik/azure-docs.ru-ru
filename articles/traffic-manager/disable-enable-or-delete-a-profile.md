@@ -6,13 +6,10 @@
    authors="joaoma"
    manager="carmonm"
    editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/22/2016"
+<tags  ms.service="traffic-manager" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services"
+   
+   ms.date="06/10/2016"
+
    ms.author="joaoma" />
 
 # Включение, отключение или удаление профиля
@@ -54,4 +51,4 @@
 
 [Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

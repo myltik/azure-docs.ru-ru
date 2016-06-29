@@ -843,7 +843,7 @@ sudo service waagent restart
             * Должна отобразиться одна запись, аналогичная python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py -daemon.
     * Убедитесь, что расширение мониторинга Azure установлено и запущено.
         * Выполните sudo ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/.
-    * Должно отобразиться содержимое каталога расширения для расширенного мониторинга Azure.
+            * Должно отобразиться содержимое каталога расширения для расширенного мониторинга Azure.
         * Выполните ps -ax | grep AzureEnhanced.
             * Должна отобразиться одна запись, аналогичная python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon.
 * Установите агент SAP Host Agent, как описано в примечании SAP 1031096, и проверьте вывод операции saposcol.
@@ -938,4 +938,4 @@ Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <vir
 
 Если при устранении неполадок с использованием примечания SAP [1999351] проблема не исчезла, повторно запустите сценарий конфигурации Set-AzureRmVMAEMExtension, как описано в разделе [Расширенный мониторинг Azure для SAP: настройка расширения][deployment-guide-4.5]. Необходимо подождать час, так как счетчики аналитики или диагностики хранилищ не могут быть созданы сразу после включения. Если проблема не исчезла, откройте сообщение о поддержке клиентов SAP в компоненте BC-OP-NT-AZR для виртуальной машины Windows или BC-OP-LNX-AZR для виртуальной машины Linux.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!----HONumber=AcomDC_0608_2016-->

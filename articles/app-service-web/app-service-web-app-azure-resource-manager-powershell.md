@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/14/2016"
 	ms.author="aelnably"/>
 
 # Управление веб-приложениями Azure с помощью PowerShell на основе Azure Resource Manager#
@@ -42,11 +42,22 @@
 
     New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
 
+### Создание плана службы приложений в среде служб приложений ###
+Чтобы создать план службы приложений в среде службы приложений, вы можете использовать уже известную вам команду **New-AzureRmAppServicePlan** с дополнительными параметрами. Эти параметры определяют имя среды службы приложений и имя группы ресурсов, к которой она принадлежит.
+
+Пример использования этого командлета:
+
+    New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -AseName constosoASE -AseResourceGroupName contosoASERG -Tier Premium -WorkerSize Large -NumberofWorkers 10
+
+Дополнительные сведения о среде службы приложений см. в статье [Введение в среду службы приложений](app-service-app-service-environment-intro.md).
+
 ### Получение списка существующих планов службы приложений ###
 
 Чтобы получить полный список существующих планов службы приложений, используйте командлет **Get-AzureRmAppServicePlan**.
 
-Чтобы получить список всех планов службы приложений в конкретной подписке, используйте **Get-AzureRmAppServicePlan**.
+Чтобы получить список всех планов службы приложений в конкретной подписке, используйте следующую команду:
+
+    Get-AzureRmAppServicePlan
 
 Чтобы получить список всех планов службы приложений для определенной группы ресурсов, используйте такую команду:
 
@@ -200,8 +211,8 @@
 
 ### Дальнейшие действия ###
 - Сведения о поддержке PowerShell в Azure Resource Manager см. в статье [Использование Azure PowerShell с Azure Resource Manager](../powershell-azure-resource-manager.md).
-- Чтобы начать работу со средами службы приложений, см. статью [Введение в среду службы приложений](app-service-app-service-environment-intro.md).
+- Сведения о средах службы приложений см. в статье [Введение в среду службы приложений](app-service-app-service-environment-intro.md).
 - Сведения об управлении SSL-сертификатами службы приложений с помощью PowerShell см. в статье [Привязка SSL-сертификатов с помощью PowerShell](app-service-web-app-powershell-ssl-binding.md).
 - Полный список командлетов PowerShell на основе Azure Resource Manager, которые можно использовать для управления веб-приложениями, см. [здесь](https://msdn.microsoft.com/library/mt619237.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

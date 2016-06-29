@@ -1,6 +1,6 @@
 <properties
    pageTitle="Анализ данных с помощью машинного обучения Azure | Microsoft Azure"
-   description="Учебник по использованию машинного обучения Azure с хранилищем данных SQL Azure для разработки решений."
+   description="Создание прогнозной модели машинного обучения с помощью машинного обучения Azure и данных из хранилища данных SQL Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="shivaniguptamsft"
@@ -13,30 +13,29 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/09/2016"
+   ms.date="06/16/2016"
    ms.author="shigu;barbkess;sonyama"/>
 
 # Анализ данных с помощью машинного обучения Azure
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Машинное обучение Azure][]
-- [SQLCMD][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-В этом учебнике показано, как построить прогнозную модель машинного обучения с помощью машинного обучения Azure и данных хранилища данных SQL Azure. В этом руководстве мы создадим кампанию целевого маркетинга для Adventure Works (магазин велосипедов). Для этого мы предскажем, есть ли вероятность того, что клиент купит велосипед.
+В этом руководстве показано, как построить прогнозную модель машинного обучения с помощью машинного обучения Azure и данных из хранилища данных SQL Azure. В частности, мы создадим кампанию целевого маркетинга для Adventure Works (магазин велосипедов). Для этого мы составим прогноз вероятности того, что клиент купит велосипед.
 
 > [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
 
+
 ## Предварительные требования
-Для выполнения инструкций, приведенных в этом учебнике, вам понадобится следующее:
+Для выполнения этих действий необходимо иметь следующее:
 
-- хранилище данных SQL и образец базы данных AdventureWorksDW.
+- Хранилище данных SQL, в которое предварительно загружены демонстрационные данные AdventureWorksDW. Чтобы сделать это, ознакомьтесь со статьей [Создание хранилища данных SQL Azure][] и выберите загрузку демонстрационных данных. Если хранилище данных уже существует, но не содержит демонстрационные данные, вы можете [загрузить их вручную][].
 
-В статье [Создание хранилища данных SQL][] показано, как подготовить базу данных с образцами данных. Если база данных хранилища данных SQL уже существует, но не содержит демонстрационные данные, вы можете [загрузить демонстрационные данные вручную][].
-
-
-## Шаг 1. Получение данных
-Мы получим данные из представления dbo.vTargetMail базы данных AdventureWorksDW.
+## 1\. Получение данных
+Данные содержатся в представлении dbo.vTargetMail базы данных AdventureWorksDW. Чтобы считать эти данные, сделайте следующее.
 
 1. Войдите в [Студию машинного обучения Azure][] и щелкните «Мои эксперименты».
 2. Щелкните **+СОЗДАТЬ** и выберите **Пустой эксперимент**.
@@ -71,8 +70,8 @@ FROM [dbo].[vTargetMail]
 Когда эксперимент будет завершен, щелкните порт вывода в нижней части модуля чтения и выберите **Отобразить**, чтобы просмотреть импортированные данные.![Просмотр импортированных данных][3]
 
 
-## Шаг 2. Очистка данных
-Мы удалим некоторые столбцы, которые не являются значимыми для этой модели.
+## 2\. Очистка данных
+Чтобы очистить данные, мы удалим некоторые столбцы, которые не являются значимыми для этой модели. Для этого:
 
 1. Перетащите на холст модуль **Столбцы проекта**.
 2. Щелкните на панели свойств **Запустить средство выбора столбцов**, чтобы указать столбцы, которые вы хотите удалить.![Столбцы проекта][4]
@@ -80,7 +79,7 @@ FROM [dbo].[vTargetMail]
 3. Исключите два столбца: CustomerAlternateKey и GeographyKey. ![Удаление ненужных столбцов][5]
 
 
-## Шаг 3. Сборка модели
+## 3\. Построение модели
 Мы выполним разбивку данных в соотношении 80 к 20: 80 % для подготовки модели машинного обучения и 20 % для проверки модели. Для этой задачи бинарной классификации будут использоваться двухклассовые алгоритмы.
 
 1. Перетащите модуль **разбивки** на холст.
@@ -92,7 +91,7 @@ FROM [dbo].[vTargetMail]
 5. Выберите столбец **BikeBuyer** в качестве прогнозируемого. ![Выбор столбца для прогнозирования][8]
 
 
-## Шаг 4. Оценка модели
+## 4\. Оценка модели
 Теперь мы протестируем эффективность модели с использованием тестовых данных. Мы сравним наш алгоритм выбора с другими алгоритмами и посмотрим, какой работает лучше.
 
 1. Перетащите на холст модуль **Оценка модели**. Первый входной набор данных: обученная модель. Второй входной набор данных: тестовые данные.![Оценка модели][9]
@@ -116,27 +115,24 @@ FROM [dbo].[vTargetMail]
 Дополнительные сведения о создании прогнозных моделей машинного обучения см. в статье [Введение в машинное обучение в Azure][].
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
 
 
 <!--Article references-->
 [Студию машинного обучения Azure]: https://studio.azureml.net/
 [Введение в машинное обучение в Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[загрузить демонстрационные данные вручную]: sql-data-warehouse-get-started-load-sample-databases.md
-[Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Машинное обучение Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[загрузить их вручную]: sql-data-warehouse-get-started-load-sample-databases.md
+[Создание хранилища данных SQL Azure]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

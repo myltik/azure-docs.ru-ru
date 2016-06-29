@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обзор аналитики в Application Insights" 
+	pageTitle="Обзор аналитики в Application Insights | Microsoft Azure" 
 	description="Короткие примеры всех основных запросов в аналитике, мощном инструменте поиска Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -22,8 +22,6 @@
 
 [Аналитика](app-insights-analytics.md) — это эффективный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
-
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
  
 Давайте рассмотрим некоторые основные запросы, которые помогут вам начать работу с системой.
 
@@ -247,7 +245,7 @@
 Обратите внимание, что хотя мы не сортировали результаты по времени (как видно в окне таблицы), дата и время на диаграмме всегда отображаются в правильном порядке.
 
 
-## Оператор [Where](app-insights-analytics-reference.md#where-operator): фильтрация по условию
+## Оператор [where](app-insights-analytics-reference.md#where-operator): фильтрация по условию
 
 Если вы настроили мониторинг Application Insights для [клиентской](app-insights-javascript.md) и серверной сторон приложения, некоторые данные телеметрии в базу данных поступают из браузеров.
 
@@ -455,7 +453,7 @@
 
 
 
-## Оператор [Let](app-insights-analytics-reference.md#let-clause): присвоение результата переменной
+## Оператор [let](app-insights-analytics-reference.md#let-clause): присвоение результата переменной
 
 С помощью оператора [let](./app-insights-analytics-syntax.md#let-statements) можно разделить части предыдущего выражения. Результаты не изменились:
 
@@ -474,4 +472,4 @@
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

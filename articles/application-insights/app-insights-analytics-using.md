@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование аналитики — эффективного инструмента поиска Application Insights" 
+	pageTitle="Использование аналитики — эффективного инструмента поиска Application Insights | Microsoft Azure" 
 	description="Использование аналитики — эффективного инструмента поиска по журналу диагностики Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -23,7 +23,6 @@
 
 [Аналитика](app-insights-analytics.md) — это эффективный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
 ## Открытие аналитики
 
@@ -83,7 +82,7 @@
 
 ## Экспорт в Power BI
 
-1. Поместите курсор в запрос, а затем выберите **Экспорт в Power BI**.
+1. Поместите курсор в запрос, а затем выберите **Export to Power BI** (Экспорт в Power BI).
 
     ![](./media/app-insights-analytics-using/240.png)
 
@@ -91,7 +90,7 @@
 
 3. Скопируйте скрипт на языке M в расширенный редактор запросов Power BI Desktop.
  * Откройте экспортированный файл.
- * В Power BI Desktop выберите **"Получить данные", "Пустой запрос", "Расширенный редактор"** и вставьте этот скрипт на языке M.
+ * В Power BI Desktop выберите **"Получить данные", "Пустой запрос", "Расширенный редактор"** и вставьте этот сценарий на языке M.
 
     ![](./media/app-insights-analytics-using/250.png)
 
@@ -104,4 +103,4 @@
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

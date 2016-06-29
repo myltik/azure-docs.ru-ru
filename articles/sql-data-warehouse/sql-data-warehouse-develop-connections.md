@@ -155,10 +155,10 @@ WHERE   s.[session_id] <> SESSION_ID()
 <!--Azure.com references-->
 [подключении и запросах]: ./sql-data-warehouse-get-started-connect.md
 [разработке таблиц]: ./sql-data-warehouse-develop-table-design.md
-[Защита базы данных в хранилище данных SQL]: ./sql-data-warehouse-overview-security.md
+[Защита базы данных в хранилище данных SQL]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

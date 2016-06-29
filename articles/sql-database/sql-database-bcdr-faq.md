@@ -3,7 +3,7 @@
    description="Ответы на самые распространенные вопросы клиентов о встроенных и дополнительных возможностях обеспечения непрерывности бизнес-процессов и аварийном восстановлении при использовании базы данных SQL Azure." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="04/25/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Непрерывность бизнес-процессов: вопросы и ответы
 
@@ -54,4 +54,4 @@
 
 Чтобы получить последние сведения о времени и задержке последней репликации, а также другие сведения о канале репликации, используйте динамическое административное представление [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

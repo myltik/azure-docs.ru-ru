@@ -49,10 +49,10 @@
 
 Вы можете получить [бесплатную подписку Azure](https://azure.microsoft.com/get-started/) и [создать первую Базу данных SQL Azure](sql-database-get-started.md).
 
-## Подробнее
+## Дополнительные ресурсы
 
 Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
  
 Вы можете ознакомиться с [техническим обзором Базы данных SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

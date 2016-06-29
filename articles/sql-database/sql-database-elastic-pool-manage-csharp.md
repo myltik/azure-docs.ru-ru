@@ -173,7 +173,7 @@
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
 
             // Open the portal so we can see our operations in action
-            string portalPage = @"https://ms.portal.azure.com/#resource/subscriptions/"
+            string portalPage = @"https://portal.azure.com/#resource/subscriptions/"
                 + subscriptionId
                 + @"/resourceGroups/"
                 + resourceGroupName
@@ -432,4 +432,4 @@
 - [Когда следует использовать пул эластичных баз данных?](sql-database-elastic-pool-guidance.md)
 - См. статью [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md). В ней описывается использование инструментов эластичных баз данных для масштабирования, перемещения данных, выполнения запросов и создания транзакций.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

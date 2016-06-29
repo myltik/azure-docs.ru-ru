@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,16 +19,10 @@
 
 # Восстановление удаленной базы данных SQL Azure на портале Azure
 
-
 > [AZURE.SELECTOR]
+- [Обзор](sql-database-restore-deleted-database.md)
 - [Портал Azure](sql-database-restore-deleted-database-portal.md)
 - [PowerShell](sql-database-restore-deleted-database-powershell.md)
-
-В этой статье показано, как восстановить удаленную базу данных SQL Azure.
-
-Если база данных удалена, База данных SQL Azure позволяет восстановить ее на момент удаления. База данных SQL Azure хранит резервную копию удаленной базы данных в течение срока хранения.
-
-Срок хранения удаленной базы данных определяется в зависимости от уровня службы базы данных во время ее существования или от количества дней, в течение которых существовала база данных. Выбирается меньшее значение. Подробнее о хранении баз данных можно прочесть в статье [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL](sql-database-business-continuity.md).
 
 ## Выбор базы данных для восстановления 
 
@@ -37,7 +31,7 @@
 1.	Откройте [портал Azure](https://portal.azure.com).
 2.  В левой части экрана выберите **Обзор** > **Серверы SQL**.
 3.  Перейдите к серверу с базой данных, которую требуется восстановить после удаления, и выберите сервер.
-4.  Прокрутите вниз до раздела **Операции** колонки сервера и выберите **Удаленные базы данных**: ![Восстановление базы данных SQL Azure](./media/sql-database-restore-deleted-database-portal/restore-deleted-trashbin.png)
+4.  Прокрутите вниз до раздела **Операции** колонки сервера и выберите **Удаленные базы данных**. ![Восстановление базы данных SQL Azure](./media/sql-database-restore-deleted-database-portal/restore-deleted-trashbin.png)
 5.  Выберите удаленную базу данных, которую хотите восстановить.
 6.  Укажите имя базы данных и нажмите кнопку "ОК".
 
@@ -46,13 +40,17 @@
 ## Дальнейшие действия
 
 - [Финализация восстановленной Базы данных SQL Azure](sql-database-recovered-finalize.md)
-- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
-
-
+- [Восстановление удаленной базы данных.](sql-database-restore-deleted-database.md)
+- [Восстановление удаленной базы данных SQL Azure с помощью PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) (Создание и обновление базы данных)
+- [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md)
 
 ## Дополнительные ресурсы
 
+- [Восстановление состояния системы в определенной временной точке](sql-database-point-in-time-restore.md)
 - [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Геовосстановление](sql-database-geo-restore.md)
+- [Активная георепликация](sql-database-geo-replication-overview.md)
+- [Проектирование приложений для аварийного восстановления в облаке](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

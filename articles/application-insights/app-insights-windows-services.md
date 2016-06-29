@@ -127,7 +127,7 @@
 
 Вернитесь в колонку вашего приложения на портале Azure.
 
-В окне потока в реальном времени будут отображаться первые события.
+Первые события будут отображаться в [динамическом потоке метрик](app-insights-metrics-explorer.md#live-metrics-stream).
 
 
 ## Канал сохраняемости 
@@ -256,4 +256,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

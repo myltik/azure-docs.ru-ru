@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/14/2016"
+	ms.date="06/21/2016"
 	ms.author="carlrab"/>
 
 # Вы можете выбрать компонент SQL Server в облаке: база данных SQL Azure (PaaS) или SQL Server на виртуальных машинах Azure (IaaS)
@@ -154,5 +154,6 @@
 - Чтобы приступить к работе с базой данных SQL, см. статью [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](sql-database-get-started.md).
 - См. страницу с [ценами на базы данных SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 - Чтобы приступить к работе с SQL Server в виртуальной машине Azure, см. статью [Подготовка виртуальной машины с SQL Server на портале Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md).
+- См. страницу [SQL Server на виртуальных машинах Azure: схема обучения](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

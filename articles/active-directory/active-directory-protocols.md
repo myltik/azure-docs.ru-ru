@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/06/2016"
 	ms.author="priyamo"/>
 
 # Протоколы проверки подлинности Active Directory
@@ -22,7 +22,8 @@
 
 В этом цикле статей мы рассмотрим поддерживаемые протоколы и способы их реализации в Azure AD. Мы приведем примеры запросов и ответов. Так как интеграция выполняется непосредственно с использованием протоколов, инструкции в этих статьях преимущественно не зависят от языка.
 
-- [OAuth 2.0 в Azure AD](active-directory-protocols-oauth-code.md): сведения о потоке предоставления кода авторизации OAuth2.0 и о его реализации в Azure AD.
+- [OAuth 2.0 authorization code grant](active-directory-protocols-oauth-code.md) (Предоставление кода авторизации OAuth 2.0): сведения о процессе предоставления "кода авторизации" OAuth2.0 и его реализации в Azure AD.
+- [OAuth 2.0 implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md) (Неявное предоставление авторизации OAuth 2.0): сведения о процессе неявного предоставления авторизации OAuth 2.0 и его совместимости с вашим приложением.
 - [Open ID Connect 1.0](active-directory-protocols-openid-connect-code.md): сведения об использовании протокола проверки подлинности OpenID Connect в Azure AD.
 - [Справочник по протоколу SAML](active-directory-saml-protocol-reference.md): сведения об использовании протокола SAML для поддержки [единого входа](active-directory-single-sign-on-protocol-reference.md) и [единого выхода](active-directory-single-sign-out-protocol-reference.md) в Azure AD.
 
@@ -31,10 +32,10 @@
 
 В этих статьях вы найдете дополнительную информацию, которая поможет вам не только эффективно устранять неполадки с приложениями Azure AD, но и узнать больше об Azure AD.
 
-- [Метаданные федерации](active-directory-federation-metadata.md): узнайте, как находить и интерпретировать документы метаданных, создаваемые Azure AD.
-- [Поддерживаемые типы маркеров и утверждений](active-directory-token-and-claims.md): сведения о различных утверждениях в маркерах, издаваемых Azure AD.
-- [Откат ключа подписи в Azure AD](active-directory-signing-key-rollover.md): узнайте об откате ключа подписи Azure AD и о том, как обновить ключ для самых распространенных сценариев приложений.
-- [Устранение неполадок протоколов проверки подлинности](active-directory-error-handling.md): узнайте, как интерпретировать и устранять наиболее распространенные ошибки при использовании OAuth 2.0 и Azure AD.
+- [Метаданные федерации](active-directory-federation-metadata.md): сведения о том, как находить и интерпретировать документы метаданных, создаваемые Azure AD.
+- [Поддерживаемые токены и типы утверждений](active-directory-token-and-claims.md): сведения о различных утверждениях в токенах, издаваемых Azure AD.
+- [Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md) (Смена ключей подписывания в Azure AD): сведения о смене ключей подписывания в Azure AD и о том, как обновлять ключи для самых распространенных сценариев приложений.
+- [Troubleshooting Authentication Protocols](active-directory-error-handling.md) (Устранение неполадок протоколов проверки подлинности): сведения об интерпретировании и устранении наиболее распространенных ошибок при использовании OAuth 2.0 и Azure AD.
 - [Советы и рекомендации по OAuth 2.0 в Azure AD](active-directory-oauth-best-practices.md): ознакомьтесь с рекомендациями по использованию OAuth 2.0 в Azure AD, чтобы избежать распространенных проблем.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

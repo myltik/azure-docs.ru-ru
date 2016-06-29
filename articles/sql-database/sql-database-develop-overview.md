@@ -59,7 +59,9 @@
 ## Сегментирование данных с помощью эластичного масштабирования
 Эластичное масштабирование упрощает горизонтальное масштабирование.
 
+[Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL]
+* (./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Маршрутизация, зависящая от данных](sql-database-elastic-scale-data-dependent-routing.md)
 * [Начало работы с эластичным масштабированием базы данных SQL Azure (предварительная версия)](sql-database-elastic-scale-get-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

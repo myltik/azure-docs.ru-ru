@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Как получить техническую поддержку от команды разработчиков Application Insights" 
+	pageTitle="Как получить техническую поддержку от команды разработчиков Application Insights | Microsoft Azure" 
 	description="В случае необходимости специальной поддержки от команды разработчиков Application Insights, можно отправить сведения для получения поддержки следующим образом." 
 	services="application-insights" 
     documentationCenter=""
@@ -42,7 +42,7 @@
 
 1. На [портале Application Insights](https://portal.azure.com) щелкните смайлик в правом верхнем углу.  
 
-    ![изображение](./media/app-insights-get-dev-support/01.png)
+    ![Кнопка обратной связи](./media/app-insights-get-dev-support/01.png)
 
 2. В поле для комментария обязательно укажите **AppInsights** в первой строке, а ниже включите следующие сведения:
 
@@ -51,17 +51,16 @@
     AppInsights   
     ikey: <instrumentation key>   
     sdk: <SDK that you are using, including name and version>  
-    email: <email address that we should use to contact you. This is the most important field>  
     issue: <please describe the problem you are having>
 
     ```   
 
-    ![изображение](./media/app-insights-get-dev-support/02.png)
+    ![Диалоговое окно обратной связи](./media/app-insights-get-dev-support/02.png)
 
 3. Установите флажок, указывающий, что вы разрешаете отправлять вам сообщения по электронной почте.
 
-    ![изображение](./media/app-insights-get-dev-support/03.png)
+    ![Раздел отправки](./media/app-insights-get-dev-support/03.png)
 
 Инженер из команды Application Insights свяжется с вами в ближайшее время. Так как эта услуга предусматривает наилучший возможный уровень исполнения, формальное соглашение об уровне обслуживания не предоставляется на этом этапе.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

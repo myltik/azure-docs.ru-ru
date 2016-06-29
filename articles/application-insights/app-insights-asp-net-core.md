@@ -60,4 +60,4 @@ Visual Studio Application Insights позволяет отслеживать д�
 
 [Чтение кода и дополнительные наработки](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

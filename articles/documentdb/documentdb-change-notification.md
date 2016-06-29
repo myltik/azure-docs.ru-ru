@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="03/17/2016" 
+    ms.date="06/14/2016" 
     ms.author="b-hoedid"/>
 
 # Уведомления о новых или измененных ресурсах DocumentDB с использованием приложений логики
@@ -1156,4 +1156,4 @@ EmailTo | Адрес электронной почты, на который бу
 
 Дополнительные сведения о DocumentDB см. на странице [схемы обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

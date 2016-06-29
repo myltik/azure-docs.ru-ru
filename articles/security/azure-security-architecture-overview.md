@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Общие сведения об архитектуре безопасности | Microsoft Azure"
+   pageTitle="Обзор архитектуры безопасности | Microsoft Azure"
    description="Статья представляет собой обзор архитектуры безопасности Azure и содержит список статей на эту тему."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="06/14/2016"
    ms.author="yurid"/>
 
 # Обзор архитектуры безопасности
@@ -24,6 +24,6 @@
 
 - [Data Classification for Cloud Readiness](azure-security-data-classification.md) (Классификация данных для обеспечения готовности к переходу на облачные технологии)
 - [Архитектура приложений в Microsoft Azure](security-application-architecture-on-azure.md)
-- [Рекомендации и шаблоны для обеспечения безопасности в Azure](azure-security-best-practices-and-patterns.md)
+- [Рекомендации и шаблоны для обеспечения безопасности в Azure](security-best-practices-and-patterns.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->
