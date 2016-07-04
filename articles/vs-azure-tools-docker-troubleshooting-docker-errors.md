@@ -1,7 +1,7 @@
 <properties
    pageTitle="Устранение неполадок клиента Docker в Windows с помощью Visual Studio | Microsoft Azure"
    description="Устранение неполадок, которые возникают при использовании Visual Studio для создания и развертывания веб-приложений в Docker в Windows с помощью Visual Studio."
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
@@ -21,7 +21,7 @@
 
 ##Не удалось настроить файл Program.cs для поддержки Docker
 
-При добавлении поддержки Docker в класс WebHostBuilder() требуется добавить `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))`. Если функцию Main() файла Program.cs или новый класс WebHostBuilder не удается найти, отображается соответствующее предупреждение. Чтобы сервер Kestrel мог прослушивать входящий трафик за пределами узла localhost при запуске в контейнере Docker, требуется добавить .UseUrls(). После завершения типичный код будет выглядеть следующим образом:
+При добавлении поддержки Docker в класс WebHostBuilder() требуется добавить `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))`. Если функцию `Main()` файла Program.cs или новый класс WebHostBuilder не удается найти, отображается соответствующее предупреждение. Чтобы сервер Kestrel мог прослушивать входящий трафик за пределами узла localhost при запуске в контейнере Docker, требуется добавить `.UseUrls()`. После завершения типичный код будет выглядеть следующим образом:
 
 ```
 public class Program
@@ -29,7 +29,7 @@ public class Program
     public static void Main(string[] args)
     {
         var host = new WebHostBuilder()
-            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS") ?? String.Empty)
+            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_URLS") ?? String.Empty)
             .UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory() ?? "")
             .UseIISIntegration()
@@ -52,8 +52,8 @@ ENV ASPNETCORE_SERVER.URLS http://*:80
 Чтобы работали функции редактирования и обновления, для совместного использования исходного кода проекта в папке .app в контейнере настроено сопоставление тома. Когда файлы изменяются на хост-компьютере, каталог контейнеров /app использует тот же каталог. В файле docker-compose.debug.yml сопоставление тома включается следующей конфигурацией:
 
 ```
-    volumes:
-      - ..:/app
+volumes:
+    - ..:/app
 ```
 
 Чтобы проверить, работает ли сопоставление тома, попробуйте следующую команду:
@@ -61,8 +61,7 @@ ENV ASPNETCORE_SERVER.URLS http://*:80
 **В ОС Windows**
 
 ```
-docker run -it -v /c/Users/Public:/wormhole busybox
-cd wormhole
+a
 / # ls
 ```
 
@@ -84,33 +83,36 @@ Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
 
-**Примечание.** *При работе с виртуальными машинами Linux файловая система контейнера учитывает регистр.*
+**Примечание**. *При работе с виртуальными машинами Linux в файловой системе контейнера учитывается регистр.*
 
 Если не удается просмотреть содержимое, выполните следующие действия:
 
 **Бета-версия Docker для Windows**
 - Убедитесь, что классическое приложение Docker для Windows запущено. Для этого найдите значок c изображением кита в области уведомлений и убедитесь, что он имеет белый цвет и работает.
-- Убедитесь, что сопоставление тома настроено, щелкнув правой кнопкой мыши значок c изображением кита в области уведомлений и выбрав в параметрах пункт **Manage shared drives…** (Управление общими дисками).
+- Убедитесь, что сопоставление тома настроено, щелкнув правой кнопкой мыши значок c изображением кита в области уведомлений и выбрав в параметрах пункт **Manage shared drives…** (Управление общими дисками...).
 
 **Панель элементов Docker Toolbox с VirtualBox**
 
-По умолчанию VirtualBox предоставляет совместный доступ к `C:\Users` как к `c:/Users`. По возможности переместите свой проект на уровень ниже этого каталога. Или добавьте его в [общие папки](https://www.virtualbox.org/manual/ch04.html#sharedfolders) VirtualBox вручную.
+По умолчанию VirtualBox предоставляет совместный доступ к `C:\Users` как к `c:/Users`. По возможности переместите свой проект на уровень ниже этого каталога. Можно также добавить его в [общие папки](https://www.virtualbox.org/manual/ch04.html#sharedfolders) VirtualBox вручную.
 	
 ##Сборка: не удалось создать образ. Ошибка проверки TLS-подключения: узел не работает
 
-- Убедитесь, что узел Docker по умолчанию работает. См. статью [Настройка клиента Docker](./vs-azure-tools-docker-setup.md).
+- Убедитесь, что узел Docker по умолчанию работает. См. статью о [настройке клиента Docker](./vs-azure-tools-docker-setup.md).
 
 ##Назначение Microsoft Edge браузером по умолчанию
 
 При использовании обозревателя Microsoft Edge сайт может не открываться из-за того, что Edge считает IP-адрес небезопасным. В этом случае выполните указанные ниже действия.
-1. В поле "Выполнить" операционной системы Windows введите `Internet Options`.
-2. Выберите появившийся пункт **Свойства браузера**. 
-2. Откройте вкладку **Безопасность**.
-3. Выберите зону **Местная интрасеть**.
-4. Выберите **Сайты**. 
-5. Добавьте IP-адрес виртуальной машины (в данном случае узел Docker) в список. 
-6. Обновите страницу в Edge — сайт заработает. 
-7. Дополнительные сведения об этой проблеме см. в записи [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Microsoft Edge не видит или не открывает локальные веб-сайты в VirtualBox) в блоге Скотта Хансельмана (Scott Hanselman). 
+
+1. Выберите **Свойства браузера**.
+    - В Windows 10 в поле "Выполнить" можно ввести `Internet Options`.
+    - В обозревателе Internet Explorer можно перейти в меню **Параметры** и выбрать пункт **Свойства браузера**. 
+1. Выберите появившийся пункт **Свойства браузера**. 
+1. Откройте вкладку **Безопасность**.
+1. Выберите зону **Местная интрасеть**.
+1. Выберите **Сайты**. 
+1. Добавьте IP-адрес виртуальной машины (в данном случае узел Docker) в список. 
+1. Обновите страницу в Edge — сайт заработает. 
+1. Дополнительные сведения об этой проблеме см. в записи [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Microsoft Edge не видит или не открывает локальные веб-сайты в VirtualBox) в блоге Скотта Хансельмана (Scott Hanselman). 
 
 ##Устранение неполадок, версия 0.15 или более ранняя
 
@@ -123,10 +125,14 @@ Documents        Libraries        Pictures         desktop.ini
 1. Найдите запись Docker.
 1. Найдите строку, которая начинается следующим образом:
 
-    "commandLineArgs": "-ExecutionPolicy RemoteSigned …"
+    ```
+    "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
+    ```
 	
-1. Добавьте параметр `-noexit`, чтобы строка имела следующий вид. Таким образом, PowerShell останется открытым, и вы сможете увидеть ошибку.
+1. Добавьте параметр `-noexit`, чтобы строка имела следующий вид: Таким образом, PowerShell останется открытым, и вы сможете увидеть ошибку.
 
-	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …"
+    ```
+	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
+    ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

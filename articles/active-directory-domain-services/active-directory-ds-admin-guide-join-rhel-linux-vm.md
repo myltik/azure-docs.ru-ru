@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="06/20/2016"
 	ms.author="maheshu"/>
 
 # Присоединение виртуальной машины Red Hat Enterprise Linux 7 к управляемому домену
@@ -111,7 +111,7 @@
 
 4. **Установите kerberos:** в окне терминала PuTTY введите следующую команду.
 
-    sudo yum install krb5-workstation krb5-libs krb5-auth-dialog
+    sudo yum install krb5-workstation krb5-libs
 
 	![Установка kerberos](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-kerberos.png)
 
@@ -177,4 +177,4 @@
 - [Installing Kerberos](https://access.redhat.com/documentation/ru-RU/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html) (Установка Kerberos)
 - [Red Hat Enterprise Linux 7: Windows Integration Guide](https://access.redhat.com/documentation/ru-RU/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html) (Red Hat Enterprise Linux 7: руководство по интеграции Windows)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

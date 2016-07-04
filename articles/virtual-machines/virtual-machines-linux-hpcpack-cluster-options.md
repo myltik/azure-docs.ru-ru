@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="04/29/2016"
+ ms.date="06/17/2016"
  ms.author="danlep"/>
 
 # Возможности создания кластера высокопроизводительных вычислений (HPC) в Azure и управления им с помощью пакета Microsoft HPC
@@ -31,18 +31,12 @@ ms.service="virtual-machines-linux"
 
 * (Marketplace) [Кластер пакета HPC для рабочих нагрузок Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
 
-* (Краткое руководство) [Создание кластера HPC с вычислительными узлами Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-
-
-### Образы виртуальных машин Azure
-
-* [Пакет HPC на Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
-
+* (Краткое руководство) [Создание кластера HPC с вычислительными узлами Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-linux-cn)
 
 
 ### Сценарий развертывания PowerShell
 
-* [Создание кластера HPC с помощью сценария развертывания IaaS пакета HPC](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)
+* [Создание кластера HPC Linux с помощью сценария развертывания IaaS пакета HPC](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)
 
 ### Учебники
 
@@ -65,4 +59,4 @@ ms.service="virtual-machines-linux"
 
 * [Настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-classic-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

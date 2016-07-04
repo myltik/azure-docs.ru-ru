@@ -131,7 +131,7 @@
 
 | Имя псевдонима | Описание |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Поддерживаемые типы ресурса: Microsoft.Compute/virtualMachines, <br /> Microsoft.Storage/storageAccounts, <br /> Microsoft.Scheduler/jobcollections, <br /> Microsoft.DocumentDB/databaseAccounts, <br /> Microsoft.Cache/Redis, <br /> Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Поддерживаемые типы ресурса: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | Поддерживаемый тип ресурса — Microsoft.Cache/Redis. |
 | {resourceType}/sku.capacity | Поддерживаемый тип ресурса — Microsoft.Cache/Redis. |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -140,9 +140,15 @@
 | Microsoft.Compute/virtualMachines/imageVersion | |
 | Microsoft.Cache/Redis/enableNonSslPort | |
 | Microsoft.Cache/Redis/shardCount | |
+| Microsoft.SQL/servers/version | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveId | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveName | |
+| Microsoft.SQL/servers/databases/edition | |
+| Microsoft.SQL/servers/databases/elasticPoolName | |
+| Microsoft.SQL/servers/elasticPools/dtu | |
+| Microsoft.SQL/servers/elasticPools/edition | |
 
-
-Дополнительные сведения о действиях см. в статье [RBAC. Встроенные роли](active-directory/role-based-access-built-in-roles.md). В настоящее время политика работает только для запросов PUT.
+В настоящее время политика работает только для запросов PUT.
 
 ## Результат
 Политика поддерживает три типа результата — **deny**, **audit** и **append**.
@@ -462,4 +468,4 @@
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

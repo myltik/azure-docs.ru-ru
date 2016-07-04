@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="06/16/2016" 
 	ms.author="sdanie"/>
 
 # Масштабирование кэша Redis для Azure
@@ -85,7 +85,7 @@
 
 ### Масштабирование с помощью MAML
 
-Чтобы выполнить масштабирование экземпляров кэша Redis для Azure с помощью [библиотек управления Microsoft Azure (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), вызовите метод `IRedisOperations.CreateOrUpdate` и передайте ему новый размер `RedisProperties.SKU.Capacity`.
+Чтобы масштабировать экземпляры кэша Redis для Azure с помощью [библиотек управления Microsoft Azure (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), вызовите метод `IRedisOperations.CreateOrUpdate` и передайте ему новый размер `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
@@ -199,4 +199,4 @@
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

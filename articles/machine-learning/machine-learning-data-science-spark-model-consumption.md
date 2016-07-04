@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="deguhath;bradsev" />
 
 # Оценка моделей машинного обучения, созданных с помощью Spark 
@@ -120,7 +120,7 @@ datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 В этом разделе содержится код, предназначенный для выполнения задач приема данных, которые нужно смоделировать. С помощью этого кода можно считать файлы в формате TCV (выборку с примерно 0,1 % исходного набора данных о поездках в такси по Нью-Йорку и тарифами), форматировать данные, а затем создавать очищенные фреймы данных.
 
-Файлы с данными о поездках в такси по Нью-Йорку и тарифах были объединены с помощью процедуры, описанной в статье [The Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md) (Процесс аналитики Кортаны в действии: использование кластеров HDInsight Hadoop).
+Файлы с данными о поездках в такси по Нью-Йорку и тарифах были объединены с помощью процедуры, описанной в статье [Процесс обработки и анализа данных группы на практике: использование кластеров HDInsight Hadoop](machine-learning-data-science-process-hive-walkthrough.md).
 
 	# INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -385,7 +385,7 @@ datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 	#LOAD LIBRARIES​
 	from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 	
-	# LOAD MODEL AND SCORE USING **SCALED VARIABLES **
+	# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
 	savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
 	predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
 	
@@ -610,4 +610,4 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_
 
 **Перекрестная проверка и очистка гиперпараметров**. Сведения об обучении моделей с помощью перекрестной проверки и очистки гиперпараметров см. в статье [Расширенное исследование и моделирование данных в Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

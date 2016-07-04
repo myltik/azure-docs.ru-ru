@@ -1,31 +1,31 @@
 <properties 
-   pageTitle="Проверка подлинности подписанного URL-адреса с помощью служебной шины | Microsoft Azure"
-   description="Сведения о проверке подлинности SAS с помощью служебной шины."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Проверка подлинности подписанного URL-адреса с помощью служебной шины | Microsoft Azure"
+    description="Сведения о проверке подлинности SAS с помощью служебной шины."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/22/2016"
+    ms.author="sethm" />
 
 # Проверка подлинности подписи при общем доступе с помощью служебной шины
 
 Проверка подлинности [подписанного URL-адреса (SAS)](service-bus-sas-overview.md) позволяет проверить подлинность приложений в служебной шине с помощью ключа доступа, настроенного в пространстве имен, или сущности сообщения (очереди или раздела), с которой связаны определенные права. Этот ключ можно использовать для создания маркера SAS, который клиенты могут использовать при проверке подлинности в служебной шине.
 
-Поддержка проверки подлинности SAS включена в пакет Azure SDK версии 2.0 и выше. Дополнительные сведения о проверке подлинности с помощью служебной шины см. в статье [Проверка подлинности и авторизация с помощью служебной шины](service-bus-authentication-and-authorization.md).
+Поддержка проверки подлинности SAS включена в пакет Azure SDK версии 2.0 и выше. Дополнительные сведения о проверке подлинности с помощью служебной шины см. в статье [Проверка подлинности и авторизация с помощью служебной шины](service-bus-authentication-and-authorization.md).
 
 ## Основные понятия
 
 Проверка подлинности SAS в служебной шине предусматривает настройку соответствующих прав для криптографического ключа в ресурсе служебной шины. Клиенты запрашивают доступ к ресурсам служебной шины, предоставляя маркер SAS. В маркере указывается URI ресурса, к которому требуется доступ, и срок действия. Маркер подписывается настроенным ключом.
 
-Вы можете настраивать правила авторизации подписанного URL-адреса для [ретрансляторов](service-bus-fundamentals-hybrid-solutions.md#relays), [очередей](service-bus-fundamentals-hybrid-solutions.md#queues), [разделов](service-bus-fundamentals-hybrid-solutions.md#topics) и [концентраторов событий](https://azure.microsoft.com/documentation/services/event-hubs/) служебной шины.
+Вы можете настраивать правила авторизации подписанного URL-адреса для [ретрансляторов](service-bus-fundamentals-hybrid-solutions.md#relays), [очередей](service-bus-fundamentals-hybrid-solutions.md#queues), [разделов](service-bus-fundamentals-hybrid-solutions.md#topics) и [концентраторов событий](service-bus-fundamentals-hybrid-solutions.md#event-hubs) служебной шины.
 
 При проверке подлинности SAS используются следующие элементы.
 
@@ -35,13 +35,13 @@
 
 ## Настройка проверки подлинности подписанного URL-адреса
 
-Вы можете настроить правило [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) в пространствах имен, очередях или разделах служебной шины. Настройка правила [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) для подписки служебной шины в настоящее время не поддерживается. Тем не менее, чтобы получить безопасный доступ к подпискам, вы можете использовать правила, настроенные для пространств имен или разделов. Рабочий пример, иллюстрирующий эту процедуру, см. в примере [Использование проверки подлинности подписанного URL-адреса (SAS) для доступа к подпискам служебной шины](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c).
+Вы можете настроить правило [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) в пространствах имен, очередях или разделах служебной шины. Настройка правила [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) для подписки служебной шины в настоящее время не поддерживается. Тем не менее, чтобы получить безопасный доступ к подпискам, вы можете использовать правила, настроенные для пространств имен или разделов. Рабочий пример, иллюстрирующий эту процедуру, см. в примере [Использование проверки подлинности подписанного URL-адреса (SAS) для доступа к подпискам служебной шины](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
-В пространстве имен, очереди или разделе служебной шины можно настроить до 12 таких правил. Правила, настроенные для пространства имен служебной шины, применяются ко всем сущностям в этом пространстве.
+В пространстве имен, очереди или разделе служебной шины можно настроить до 12 таких правил. Правила, настроенные для пространства имен служебной шины, применяются ко всем сущностям в этом пространстве.
 
 ![SAS](./media/service-bus-shared-access-signature-authentication/IC676272.gif)
 
-На рисунке видно, что правила авторизации *manageRuleNS*, *sendRuleNS* и *listenRuleNS* применяются к очереди Q1 и разделу T1. Правила *listenRuleQ* и *sendRuleQ* применяются только к очереди Q1, а *sendRuleT* — только к разделу T1.
+На рисунке видно, что правила авторизации *manageRuleNS*, *sendRuleNS* и *listenRuleNS* применяются к очереди Q1 и разделу T1. Правила *listenRuleQ* и *sendRuleQ* применяются только к очереди Q1, а *sendRuleT* — только к разделу T1.
 
 Основные параметры правила [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx).
 
@@ -52,7 +52,7 @@
 |*SecondaryKey*|256-битный вторичный ключ в кодировке Base64 для подписи и проверки маркера SAS.|
 |*AccessRights*|Список прав доступа, предоставляемых правилом авторизации. Эти права могут быть любым набором прав на прослушивание, отправку и управление.|
 
-Когда пространство имен служебной шины подготовлено, по умолчанию создается правило [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx), в котором параметру **RootManageSharedAccessKey** присваивается значение [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx). Также для концентраторов уведомлений настраиваются два объекта [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx): один с правами на прослушивание, отправку и управление, а второй — только с правами на прослушивание.
+Когда пространство имен служебной шины подготовлено, по умолчанию создается правило [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx), в котором параметру **RootManageSharedAccessKey** присваивается значение [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx).
 
 ## Повторное создание и отзыв ключей из правил авторизации общего доступа
 
@@ -74,11 +74,11 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 StringToSign = <resourceURI> + "\n" + expiry;
 ```
 
-Обратите внимание, что для этой операции вам следует использовать зашифрованный URI ресурса. URI ресурса — это полный URI ресурса служебной шины, к которому запрашивается доступ. Например, `http://<namespace>.servicebus.windows.net/<entityPath>` или `sb://<namespace>.servicebus.windows.net/<entityPath>`. Вся строка будет выглядеть так: `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`.
+Обратите внимание, что для этой операции вам следует использовать зашифрованный URI ресурса. URI ресурса — это полный URI ресурса служебной шины, к которому запрашивается доступ. Например, `http://<namespace>.servicebus.windows.net/<entityPath>` или `sb://<namespace>.servicebus.windows.net/<entityPath>`. Вся строка будет выглядеть так: `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`.
 
-Срок действия исчисляется в количестве секунд с момента начала эры Unix, т. е. с 00:00:00 1 января 1970 г. (в формате UTC).
+Срок действия исчисляется в количестве секунд с момента начала эры Unix, т. е. с 00:00:00 1 января 1970 г. (в формате UTC).
 
-Правило авторизации общего доступа, используемое для подписи, необходимо настроить для сущности, указанной данным URI или одной из ее иерархических родительских сущностей. Например, в предыдущем примере это — `http://contoso.servicebus.windows.net/contosoTopics/T1` или `http://contoso.servicebus.windows.net`.
+Правило авторизации общего доступа, используемое для подписи, необходимо настроить для сущности, указанной данным URI или одной из ее иерархических родительских сущностей. Например, в предыдущем примере это — `http://contoso.servicebus.windows.net/contosoTopics/T1` или `http://contoso.servicebus.windows.net`.
 
 Маркер SAS действителен для всех ресурсов по адресу `<resourceURI>`, используемому в строке для подписи.
 
@@ -94,7 +94,7 @@ StringToSign = <resourceURI> + "\n" + expiry;
 
 ## Доступ к правилам авторизации общего доступа в пространстве имен
 
-Операции с корнем пространства имен служебной шины требуют проверки подлинности сертификата. Вам нужно передать сертификат управления для своей подписки Azure. Чтобы передать сертификат управления, нажмите кнопку **Параметры** на левой панели [классического портала Azure][]. Дополнительные сведения о сертификатах управления Azure см. в разделе [Общие сведения о сертификатах Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
+Операции с корнем пространства имен служебной шины требуют проверки подлинности сертификата. Вам нужно передать сертификат управления для своей подписки Azure. Чтобы передать сертификат управления, нажмите кнопку **Параметры** на левой панели [классического портала Azure][]. Дополнительные сведения о сертификатах управления Azure см. в [обзоре сертификатов Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 Конечная точка для доступа к правилам авторизации общего доступа в пространстве имен служебной шины выглядит следующим образом:
 
@@ -254,8 +254,8 @@ sendClient.Send(helloMessage);
 
 Более подробные сведения об использовании SAS в служебной шине см. в статье [Подписанные URL-адреса](service-bus-sas-overview.md).
 
-Дополнительные сведения о проверке подлинности при доступе к служебной шине см. в статье [Проверка подлинности и авторизация в служебной шине](service-bus-authentication-and-authorization.md).
+Дополнительные сведения об аутентификации при доступе к служебной шине см. в статье [Аутентификация и авторизация в служебной шине](service-bus-authentication-and-authorization.md).
 
 [классического портала Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

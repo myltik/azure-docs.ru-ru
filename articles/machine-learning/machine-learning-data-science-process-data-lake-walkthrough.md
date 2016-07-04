@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;weig;gopitk"/>
 
 
@@ -734,11 +734,11 @@
 
 ## Что дальше?
 
-Схема обучения для [аналитического процесса Cortana Analytics (CAP)](http://aka.ms/datascienceprocess) содержит ссылки на разделы, описывающие каждый шаг в процессе углубленной аналитики. Существует ряд пошаговых руководств, связанных с узлом **Полная реализация процесса анализа данных**, которые демонстрируют как использовать ресурсы и службы в различных сценариях прогнозной аналитики пакета Cortana Analytics Suite :
+Схема обучения для [процесса обработки и анализа данных группы (TDSP)](http://aka.ms/datascienceprocess) содержит ссылки на разделы, описывающие каждый шаг в процессе расширенной аналитики. Существует ряд пошаговых руководств, упорядоченных на странице [Пошаговые руководства по процессу обработки и анализа данных](data-science-process-walkthroughs.md), которые демонстрируют, как использовать ресурсы и службы в различных сценариях прогнозной аналитики.
 
-- [Процесс Cortana Analytics в действии: использование хранилища данных SQL](machine-learning-data-science-process-sqldw-walkthrough.md)
-- [Процесс аналитики Кортаны в действии: использование кластеров HDInsight Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
-- [Процесс аналитики Кортаны в действии: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [Процесс обработки и анализа данных группы на практике: использование хранилища данных SQL](machine-learning-data-science-process-sqldw-walkthrough.md)
+- [Процесс обработки и анализа данных группы на практике: использование кластеров HDInsight Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
+- [Процесс обработки и анализа данных группы на практике: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

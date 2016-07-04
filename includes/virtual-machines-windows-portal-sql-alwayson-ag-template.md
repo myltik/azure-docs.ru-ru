@@ -1,2 +1,4 @@
-This tutorial walks you through building the solution from the Azure portal. If you are interested in creating this solution from a template, choose the appropriate template from [Microsoft Azure GitHub templates](http://github.com/Azure/azure-quickstart-templates). The [Create an availability group with SQL Server 2014 replica virtual machines](http://github.com/Azure/azure-quickstart-templates/tree/master/sqlvm-alwayson-cluster) template creates the same solution as this tutorial. 
+В этом учебнике описывается создание решения с помощью портале Azure. Если вы хотите создать это решение на основе шаблона, выберите его из [шаблонов Microsoft Azure на сайте GitHub](http://github.com/Azure/azure-quickstart-templates). Шаблон [создания группы доступности с репликами виртуальной машины SQL Server 2014](http://github.com/Azure/azure-quickstart-templates/tree/master/sqlvm-alwayson-cluster) позволяет создать такое же решение, что в этом учебнике.
  
+
+<!---HONumber=AcomDC_0622_2016-->

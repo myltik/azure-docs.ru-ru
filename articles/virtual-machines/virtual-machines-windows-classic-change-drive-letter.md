@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # Использование диска D в качестве диска данных в виртуальной машине Windows 
@@ -23,7 +23,7 @@
 
 Если изменить размер виртуальной машины или выполнить команду **Остановить (освободить)**, виртуальная машина может быть перемещена в новый гипервизор. Запланированное или незапланированное событие технического обслуживания также может вызвать такое перемещение. В этом случае временному диску будет назначена первая доступная буква диска. Если у вас есть приложение, которому требуется именно диск D, необходимо выполнить приведенные ниже действия, чтобы временно переместить файл pagefile.sys, подключить новый диск данных и назначить ему букву D, и затем переместить файл pagefile.sys обратно на временный диск. После завершения Azure не заберет обратно диск D, если виртуальная машина будет перемещена в другой гипервизор.
 
-Дополнительные сведения об использовании временного диска в Azure см. в статье [Understanding the temporary drive on Microsoft Azure Virtual Machines(Общие сведения о временном диске на виртуальных машинах Microsoft Azure)](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
+Дополнительные сведения об использовании временного диска в Azure см. в статье [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -31,8 +31,8 @@
 
 Сначала необходимо подключить диск данных к виртуальной машине.
 
-- Сведения об использовании портала см. в разделе [Подключение диска данных к виртуальной машине Windows на портале Azure](virtual-machines-windows-attach-disk-portal.md).
-- Сведения об использовании классического портала см. в разделе [Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания](virtual-machines-windows-classic-attach-disk.md). 
+- Сведения об использовании портала см. в разделе [How to attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md).
+- Сведения об использовании классического портала см. в разделе [Attach a data disk to a Windows virtual machine created with the classic deployment model](virtual-machines-windows-classic-attach-disk.md). 
 
 
 ## Временное перемещение файла pagefile.sys на диск C
@@ -111,4 +111,4 @@
 ## Дальнейшие действия
 - Можно увеличить объем хранилища, доступный виртуальной машине, [подключив дополнительный диск данных](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

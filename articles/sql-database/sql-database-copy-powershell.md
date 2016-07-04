@@ -21,20 +21,12 @@
 
 
 > [AZURE.SELECTOR]
-- [Портал Azure](sql-database-copy.md)
+- [Обзор](sql-database-copy.md)
+- [Портал Azure](sql-database-copy-portal.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-
-
-Ниже показано, как скопировать Базу данных SQL Azure с помощью PowerShell. Операция копирования базы данных копирует Базу данных SQL в новую базу данных с помощью командлета [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx). Такая копия представляет собой моментальный снимок базы данных, созданный на том же или на другом сервере.
-
-> [AZURE.NOTE] База данных SQL Azure автоматически [создает и обслуживает резервные копии](sql-database-automated-backups.md) для каждой пользовательской базы данных, которую можно восстановить.
-
-Скопированная база данных становится полностью работоспособной и не зависит от оригинала. На момент завершения копирования новая база данных будет транзакционно согласована с исходной базой данных. Уровень службы и производительности (ценовая категория) скопированная база данных наследует у оригинала. После завершения копирования копия становится полностью работоспособной и независимой. Именами входа, пользователями и разрешениями можно управлять независимо.
-
-
-При копировании базы данных на тот же логический сервер можно использовать для обеих баз данных одинаковые имена входа. Субъект безопасности, используемый для копирования базы данных, становится владельцем новой базы данных (DBO). В копируемую базу данных копируются все пользователи, их разрешения и идентификаторы безопасности (SID).
+Ниже показано, как скопировать базу данных SQL с помощью PowerShell на тот же сервер или на другой сервер. Для операции копирования базы данных используется командлет [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx).
 
 
 Для работы с этой статьей необходимо следующее:
@@ -87,6 +79,10 @@
 
     Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
 
+## Разрешение имен для входа
+
+Сведения о разрешении имен для входа после завершения операции копирования см. в разделе [Копирование базы данных SQL Azure с помощью Transact-SQL](sql-database-copy-transact-sql.md#resolve-logins-after-the-copy-operation-completes).
+
 
 ## Пример сценария PowerShell
 
@@ -115,14 +111,18 @@
 
 ## Дальнейшие действия
 
-- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
-- [Экспорт базы данных в BACPAC](sql-database-export-powershell.md)
+- В разделе [Копирование Базы данных SQL Azure](sql-database-copy.md) доступны общие сведения о копировании базы данных SQL Azure.
+- В разделе [Копирование базы данных SQL Azure помощью портала Azure](sql-database-copy-portal.md) рассматривается копирование базы данных с помощью портала Azure.
+- В разделе [Копирование базы данных SQL Azure с помощью Transact-SQL](sql-database-copy-transact-sql.md) рассматривается копирование базы данных с помощью Transact-SQL.
+- В разделе [Как управлять безопасностью базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md) описывается управление пользователями и именами для входа при копировании базы данных на другой логический сервер.
 
 
 ## Дополнительные ресурсы
 
+- [Управление именами для входа](sql-database-manage-logins.md)
+- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
+- [Экспорт базы данных в BACPAC](sql-database-export.md)
 - [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
 - [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

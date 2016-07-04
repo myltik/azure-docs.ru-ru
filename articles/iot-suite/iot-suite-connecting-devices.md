@@ -311,6 +311,7 @@
     ```
     
     Для справки ниже приведен пример сообщения **DeviceInfo**, которое отправляется в центр IoT при запуске устройства:
+
     ```
     {
       "ObjectType":"DeviceInfo",
@@ -329,11 +330,13 @@
     ```
     
     Для справки ниже приведен пример сообщения **Telemetry**, которое отправляется в центр IoT:
+
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
     
     Для справки ниже приведен пример **команды**, получаемой из центра IoT:
+    
     ```
     {
       "Name":"SetHumidity",
@@ -361,4 +364,4 @@
 
 [lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->
