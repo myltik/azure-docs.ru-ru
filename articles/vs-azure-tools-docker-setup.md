@@ -1,7 +1,7 @@
 <properties
    pageTitle="Настройка узла Docker с помощью VirtualBox | Microsoft Azure"
    description="Пошаговые инструкции по настройке экземпляра Docker по умолчанию с помощью машины Docker и VirtualBox."
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
@@ -37,23 +37,29 @@
  
 1. Убедитесь в том, что экземпляр по умолчанию настроен и выполняется. (Должен быть запущен экземпляр с именем default.
 
-		docker-machine ls 
+    ```PowerShell
+	docker-machine ls 
+    ```
 		
-	![][0]
+	![Вывод: docker-machine ls][0]
  
 1. Задайте экземпляр по умолчанию в качестве текущего узла и настройте оболочку.
 
-        docker-machine env default | Invoke-Expression
+    ```PowerShell
+    docker-machine env default | Invoke-Expression
+    ```
 
 1. Отобразите активные контейнеры Docker. Список должен быть пустым.
 
-		docker ps
+    ```PowerShell
+	docker ps
+    ```
 
-	![][1]
+	![Вывод: docker ps][1]
  
-> [AZURE.NOTE] Каждый раз, когда перезагружается компьютер разработки, необходимо перезапускать локальный узел Docker. Для этого выполните в командной строке следующую команду: `docker-machine start default`
+> [AZURE.NOTE] Каждый раз, когда перезагружается компьютер разработки, необходимо перезапускать локальный узел Docker. Для этого выполните в командной строке следующую команду: `docker-machine start default`.
 
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

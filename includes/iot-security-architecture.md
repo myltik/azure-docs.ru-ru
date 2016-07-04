@@ -247,8 +247,7 @@
 Дополнительные сведения см. в следующих статьях:
 
 - [SDL Threat Modeling Tool (Средство моделирования рисков SDL)](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
-
 - [Microsoft Azure IoT reference architecture (Эталонная архитектура Microsoft Azure IoT)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -70,7 +70,7 @@
 
     ![Параметры отправки сообщений с устройства в облако][img-eventhubcompatible]
 
-> [AZURE.NOTE] Если для пакета SDK требуется указать **имя узла** или **пространство имен**, удалите схему из **конечной точки, совместимой с концентраторами событий**. Например, если конечная точка, совместимая с концентраторами событий, — **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, **именем узла** будет **iothub-ns-myiothub-1234.servicebus.windows.net**, а **пространством имен** — **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Если для пакета SDK требуется указать **имя узла** или **пространство имен**, удалите схему из **конечной точки, совместимой с концентраторами событий**. Например, если конечная точка, совместимая с концентраторами событий, — ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, **именем узла** будет **iothub-ns-myiothub-1234.servicebus.windows.net**, а **пространством имен** — **iothub-ns-myiothub-1234**.
 
 Затем можно использовать любую политику безопасности общего доступа с разрешениями **ServiceConnect**, которые позволяют подключаться к указанному концентратору событий.
 
@@ -491,7 +491,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 
 #### Уведомление центра IoT о завершении отправки файла
 
-Устройство отвечает за отправку файла в хранилище при помощи пакетов SDK службы хранилища Azure. По завершении передачи устройство отправляет запрос POST в центр IoT по адресу `{iot hub}.azure-devices.net/devices/{deviceId}/messages/files/notifications/{correlationId}`, используя идентификатор корреляции, полученный из первоначального запроса GET.
+Устройство отвечает за отправку файла в хранилище при помощи пакетов SDK службы хранилища Azure. По завершении передачи устройство отправляет запрос POST в центр IoT по адресу `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications/{correlationId}`, используя идентификатор корреляции, полученный из первоначального запроса GET.
 
 #### Уведомления об отправке файлов
 
@@ -624,4 +624,4 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

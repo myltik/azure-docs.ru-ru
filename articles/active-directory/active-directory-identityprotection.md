@@ -5,7 +5,7 @@
 	keywords="защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/17/2016"
 	ms.author="markvi"/>
 
 #Защита идентификации Azure Active Directory 
@@ -97,8 +97,7 @@
 | Попытки входа с инфицированных устройств | Попытки входа с возможно инфицированных устройств |
 | Попытки входа с анонимных IP-адресов | Попытки входа из неизвестных источников |
 | Попытки входа с IP-адресов с подозрительными действиями |	Попытки входа с IP-адресов с подозрительными действиями |
-| Попытки входа из неизвестных расположений | — | 
-| События блокировки (кроме общедоступной предварительной версии) | — |
+| Попытки входа из неизвестных расположений | — | | События блокировки (кроме общедоступной предварительной версии) | — |
 
 У следующих отчетов Azure AD об аномальных действиях нет соответствующих событий риска в службе защиты идентификации Azure AD, и, следовательно, они не будут доступны в этой службе. Эти отчеты по-прежнему будут доступны на портале управления Azure, но в скором будущем они станут устаревшими, так как их заменяют события риска в рамках защиты идентификации:
 
@@ -409,5 +408,6 @@ Azure Multi-factor Authentication — это метод проверки иде
  - [Процессы защиты идентификации Azure Active Directory](active-directory-identityprotection-flows.md)
  - [Тренировочное задание по защите идентификации Azure Active Directory](active-directory-identityprotection-playbook.md)
  - [Глоссарий по защите идентификации Azure Active Directory](active-directory-identityprotection-glossary.md)
+ - [Начало работы с защитой идентификации Azure Active Directory и Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

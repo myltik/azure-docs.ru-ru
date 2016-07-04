@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/17/2016"
 	ms.author="larryfr"/>
 
 
-# Использование Oozie с Hadoop для определения и запуска рабочих процессов в HDInsight под управлением Linux (Предварительный обзор)
+# Использование Oozie с Hadoop для определения и запуска рабочих процессов в HDInsight под управлением Linux
 
 [AZURE.INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
@@ -64,9 +64,9 @@ Apache Oozie — это система рабочих процессов и ко
 
 ##Создайте рабочий каталог
 
-Ресурсы, необходимые для выполнения задания, должны находиться в том же каталоге. В этом примере используются **wasb:///tutorials/useoozie**. Для создания этого каталога и каталога данных, в котором будет размещаться новая таблица Hive, созданная этим рабочим процессом, воспользуйтесь следующей командой:
+Ресурсы, необходимые для выполнения задания, должны находиться в том же каталоге. В этом примере используются ****wasb:///tutorials/useoozie**. Для создания этого каталога и каталога данных, в котором будет размещаться новая таблица Hive, созданная этим рабочим процессом, воспользуйтесь следующей командой:
 
-	hadoop fs -mkdir -p /tutorials/useoozie/data
+	hdfs dfs -mkdir -p /tutorials/useoozie/data
 
 > [AZURE.NOTE] Параметр `-p` означает, что будут созданы все промежуточные каталоги для указанного пути, если их не существует. Каталог **данных** будет использован для хранения данных, используемых сценарием **useooziewf.hql**.
 
@@ -80,7 +80,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 Поскольку этот рабочий процесс использует Sqoop для экспорта данных в базу данных SQL, необходимо предоставить копию драйвера JDBC, используемого для обращения к базе данных SQL. Используйте следующую команду для копирования драйвера в рабочий каталог:
 
-	hadoop fs -copyFromLocal /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /tutorials/useoozie/sqljdbc4.jar
+	hdfs dfs -copyFromLocal /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
 Если рабочий процесс использует другие ресурсы, например JAR-файл, содержащий приложение MapReduce, необходимо также добавить эти ресурсы.
 
@@ -114,9 +114,9 @@ Apache Oozie — это система рабочих процессов и ко
 
 2. Нажмите Ctrl-X, чтобы закрыть редактор. При появлении запроса нажмите **Y** для сохранения файла, затем нажмите **Enter** для использования имени файла **useooziewf.hql**.
 
-3. Для копирования **useooziewf.hql** в **wasb:///tutorials/useoozie/useooziewf.hql** выполните следующие команды:
+3. Для копирования **useooziewf.hql** в ****wasb:///tutorials/useoozie/useooziewf.hql** выполните следующие команды:
 
-		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
+		hdfs dfs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
 	Эти команды сохраняют файл **useooziewf.hql** в учетной записи хранилища Azure, связанной с данным кластером. Файл в учетной записи сохранится даже после удаления кластера. Это позволяет сэкономить деньги, удалив неиспользуемые кластеры и при этом сохранив задания и рабочие процессы.
 
@@ -130,56 +130,56 @@ Apache Oozie — это система рабочих процессов и ко
 
 1. После открытия редактора nano введите следующее в качестве содержимого файла:
 
-		<workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
-		  <start to = "RunHiveScript"/>
-		  <action name="RunHiveScript">
-		    <hive xmlns="uri:oozie:hive-action:0.2">
-		      <job-tracker>${jobTracker}</job-tracker>
-		      <name-node>${nameNode}</name-node>
-		      <configuration>
-		        <property>
-		          <name>mapred.job.queue.name</name>
-		          <value>${queueName}</value>
-		        </property>
-		      </configuration>
-		      <script>${hiveScript}</script>
-		      <param>hiveTableName=${hiveTableName}</param>
-		      <param>hiveDataFolder=${hiveDataFolder}</param>
-		    </hive>
-		    <ok to="RunSqoopExport"/>
-		    <error to="fail"/>
-		  </action>
-		  <action name="RunSqoopExport">
-		    <sqoop xmlns="uri:oozie:sqoop-action:0.2">
-		      <job-tracker>${jobTracker}</job-tracker>
-		      <name-node>${nameNode}</name-node>
-		      <configuration>
-		        <property>
-		          <name>mapred.compress.map.output</name>
-		          <value>true</value>
-		        </property>
-		      </configuration>
-		      <arg>export</arg>
-		      <arg>--connect</arg>
-		      <arg>${sqlDatabaseConnectionString}</arg>
-		      <arg>--table</arg>
-		      <arg>${sqlDatabaseTableName}</arg>
-		      <arg>--export-dir</arg>
-		      <arg>${hiveDataFolder}</arg>
-		      <arg>-m</arg>
-		      <arg>1</arg>
-		      <arg>--input-fields-terminated-by</arg>
-		      <arg>"\t"</arg>
-		      <archive>sqljdbc4.jar</archive>
-		      </sqoop>
-		    <ok to="end"/>
-		    <error to="fail"/>
-		  </action>
-		  <kill name="fail">
-		    <message>Job failed, error message[${wf:errorMessage(wf:lastErrorNode())}] </message>
-		  </kill>
-		  <end name="end"/>
-		</workflow-app>
+        <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
+            <start to = "RunHiveScript"/>
+            <action name="RunHiveScript">
+            <hive xmlns="uri:oozie:hive-action:0.2">
+                <job-tracker>${jobTracker}</job-tracker>
+                <name-node>${nameNode}</name-node>
+                <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+                </configuration>
+                <script>${hiveScript}</script>
+                <param>hiveTableName=${hiveTableName}</param>
+                <param>hiveDataFolder=${hiveDataFolder}</param>
+            </hive>
+            <ok to="RunSqoopExport"/>
+            <error to="fail"/>
+            </action>
+            <action name="RunSqoopExport">
+            <sqoop xmlns="uri:oozie:sqoop-action:0.2">
+                <job-tracker>${jobTracker}</job-tracker>
+                <name-node>${nameNode}</name-node>
+                <configuration>
+                <property>
+                    <name>mapred.compress.map.output</name>
+                    <value>true</value>
+                </property>
+                </configuration>
+                <arg>export</arg>
+                <arg>--connect</arg>
+                <arg>${sqlDatabaseConnectionString}</arg>
+                <arg>--table</arg>
+                <arg>${sqlDatabaseTableName}</arg>
+                <arg>--export-dir</arg>
+                <arg>${hiveDataFolder}</arg>
+                <arg>-m</arg>
+                <arg>1</arg>
+                <arg>--input-fields-terminated-by</arg>
+                <arg>"\t"</arg>
+                <archive>sqljdbc41.jar</archive>
+                </sqoop>
+            <ok to="end"/>
+            <error to="fail"/>
+            </action>
+            <kill name="fail">
+            <message>Job failed, error message[${wf:errorMessage(wf:lastErrorNode())}] </message>
+            </kill>
+            <end name="end"/>
+        </workflow-app>
 
 	В рабочем процессе определены два действия:
 
@@ -195,40 +195,13 @@ Apache Oozie — это система рабочих процессов и ко
 
 2. Нажмите Ctrl-X, затем **Y** и **Enter** для сохранения файла.
 
-3. Скопируйте файл **workflow.xml** в **wasb:///tutorials/useoozie/workflow.xml** с помощью следующей команды:
+3. Скопируйте файл **workflow.xml** в ****wasb:///tutorials/useoozie/workflow.xml** с помощью следующей команды:
 
-		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
+		hdfs dfs -copyFromLocal workflow.xml /tutorials/useoozie/workflow.xml
 
 ##Создание базы данных
 
-Для создания базы данных SQL Azure, в которую будут экспортированы данные, выполните следующие действия.
-
-> [AZURE.IMPORTANT] Перед выполнением этих действий необходимо выполнить действия, описанные в разделе [Установка и настройка консоли Azure](../xplat-cli-install.md). Установку консоли и последующие действия для создания базы данных можно выполнить в кластере HDInsight или на локальной рабочей станции.
-
-1. Для создания нового сервера баз данных SQL Azure используйте следующую команду:
-
-        azure sql server create <adminLogin> <adminPassword> <region>
-
-    Например, `azure sql server create admin password "West US"`.
-
-    По завершении работы команды появится ответ, аналогичный приведенному ниже:
-
-        info:    Executing command sql server create
-        + Creating SQL Server
-        data:    Server Name i1qwc540ts
-        info:    sql server create command OK
-
-    > [AZURE.IMPORTANT] Обратите внимание на имя сервера, возвращаемое этой командой (**i1qwc540ts** в примере выше). Это краткое имя созданного сервера базы данных SQL. Полное доменное имя (FQDN) — **&lt;shortname&gt;.database.windows.net**. В приведенном выше примере полным доменным именем будет **i1qwc540ts.database.windows.net**.
-
-2. Для создания базы данных **oozietest** на сервере базы данных SQL выполните следующую команду:
-
-        azure sql db create [options] <serverName> oozietest <adminLogin> <adminPassword>
-
-    После ее завершения появится сообщение «ОК».
-
-	> [AZURE.NOTE] Если появится ошибка об отсутствии доступа, может потребоваться добавить IP-адрес системы в файрволл базы данных SQL с помощью следующей команды:
-    >
-    > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+Следуйте инструкциям из [руководства по созданию базы данных SQL](../sql-database/sql-database-get-started.md), чтобы создать базу данных. При создании задайте для базы данных имя __oozietest__. Запишите также используемое имя сервера базы данных, так как оно понадобится при работе со следующим разделом.
 
 ###Создание таблицы
 
@@ -240,7 +213,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 4. После установки FreeTDS используйте следующую команду для подключения к созданному серверу базы данных SQL:
 
-        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
+        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
 
     Должен появиться результат, аналогичный приведенному ниже.
 
@@ -286,7 +259,7 @@ Apache Oozie — это система рабочих процессов и ко
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Сохраните значение **wasb://mycontainer@mystorageaccount.blob.core.windows.net**, так как оно будет использоваться в последующих шагах.
+	Сохраните значение ****wasb://mycontainer@mystorageaccount.blob.core.windows.net**, так как оно будет использоваться в последующих шагах.
 
 2. Воспользуйтесь следующей командой для получения полного имени домена головного узла кластера: Оно будет использовано для адреса кластера в JobTracker. Позже он будет использован в файле конфигурации.
 
@@ -363,7 +336,7 @@ Apache Oozie — это система рабочих процессов и ко
 		  </property>
 		</configuration>
 
-	* Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
+	* Замените все вхождения ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
 
 	> [AZURE.WARNING] В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasb:///) приведет к сбою при запуске задания RunHiveScript.
 
@@ -394,7 +367,7 @@ Apache Oozie — это система рабочих процессов и ко
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	Часть **http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** — это URL-адрес, который используется в команде Oozie.
+	Часть ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** — это URL-адрес, который используется в команде Oozie.
 
 2. Используйте следующую команду для создания переменной среды для URL-адреса, чтобы не вводить его в каждой команде:
 
@@ -481,7 +454,7 @@ Oozie REST API позволяет создавать собственные ут
 
 1. Создайте туннель SSH для кластера HDInsight. Дополнительные сведения о том, как это сделать, можно узнать в статье [Использование туннелирования SSH для доступа к веб-интерфейсу Ambari, ResourceManager, JobHistory, NameNode, Oozie и другим веб-интерфейсам](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. После создания туннеля откройте веб-интерфейс Ambari в браузере. Универсальный код ресурса (URI) веб-сайта Ambari: **https://CLUSTERNAME.azurehdinsight.net**. Замените **CLUSTERNAME** именем своего кластера HDInsight под управлением Linux.
+2. После создания туннеля откройте веб-интерфейс Ambari в браузере. Универсальный код ресурса (URI) веб-сайта Ambari: ****https://CLUSTERNAME.azurehdinsight.net**. Замените **CLUSTERNAME** именем своего кластера HDInsight под управлением Linux.
 
 3. В левой части страницы выберите **Oozie**, затем **Quick Links** и, наконец, **Oozie Web UI**.
 
@@ -658,13 +631,13 @@ Oozie REST API позволяет создавать собственные ут
 
 Например, для задания в этом документе необходимо выполнить следующие действия:
 
-1. Скопируйте файл sqljdbc4.jar в каталог /tutorials/useoozie:
+1. Скопируйте файл sqljdbc4.1.jar в каталог /tutorials/useoozie:
 
-		 hadoop fs -copyFromLocal /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /tutorials/useoozie/sqljdbc4.jar
+		 hadoop fs -copyFromLocal /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
 
 2. Измените файл workflow.xml, добавив следующие строки над `</sqoop>`:
 
-		<archive>sqljdbc4.jar</archive>
+		<archive>sqljdbc41.jar</archive>
 
 ##Дальнейшие действия
 Из этого руководства вы узнали, как задать рабочий процесс Oozie и как запустить задание Oozie. Дополнительные сведения о работе с HDInsight приведены в следующих статьях:
@@ -722,4 +695,4 @@ Oozie REST API позволяет создавать собственные ут
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

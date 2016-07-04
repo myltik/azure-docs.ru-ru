@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;weig;gopitk"/>
 
 
@@ -158,7 +158,7 @@
 
 ### <a name="ingest"></a>Прием данных: чтение из общедоступного большого двоичного объекта
 
-Данные большого двоичного объекта Azure расположены по адресу **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, и их можно извлечь, используя **Extractors.Csv()**. В следующих сценариях подставьте имена своих контейнера и учетной записи хранения для container_name@blob_storage_account_name в адресе wasb. Так как у имен файлов одинаковый формат, чтобы выполнить чтение всех 12 файлов поездок, можно использовать **trip\_data\_{*}.csv**.
+Данные большого двоичного объекта Azure расположены по адресу ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, и их можно извлечь, используя **Extractors.Csv()**. В следующих сценариях подставьте имена своих контейнера и учетной записи хранения для container_name@blob_storage_account_name в адресе wasb. Так как у имен файлов одинаковый формат, чтобы выполнить чтение всех 12 файлов поездок, можно использовать **trip\_data\_{*}.csv**.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-В первой строке есть заголовки, поэтому их необходимо удалить и изменить типы столбцов на соответствующие. Обработанные данные можно сохранить в хранилище озера данных Azure по пути **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ или в учетной записи хранения BLOB-объектов Azure по пути **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+В первой строке есть заголовки, поэтому их необходимо удалить и изменить типы столбцов на соответствующие. Обработанные данные можно сохранить в хранилище озера данных Azure по пути ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ или в учетной записи хранения BLOB-объектов Azure по пути ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 	// change data types
 	@trip =
@@ -658,7 +658,7 @@
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-Вставьте следующие сценарии Hive, чтобы создать таблицу. Источник данных в хранилище озера данных Azure расположен по такому адресу: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+Вставьте следующие сценарии Hive, чтобы создать таблицу. Источник данных в хранилище озера данных Azure расположен по такому адресу: ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(
@@ -734,11 +734,11 @@
 
 ## Что дальше?
 
-Схема обучения для [аналитического процесса Cortana Analytics (CAP)](http://aka.ms/datascienceprocess) содержит ссылки на разделы, описывающие каждый шаг в процессе углубленной аналитики. Существует ряд пошаговых руководств, связанных с узлом **Полная реализация процесса анализа данных**, которые демонстрируют как использовать ресурсы и службы в различных сценариях прогнозной аналитики пакета Cortana Analytics Suite :
+Схема обучения для [процесса обработки и анализа данных группы (TDSP)](http://aka.ms/datascienceprocess) содержит ссылки на разделы, описывающие каждый шаг в процессе расширенной аналитики. Существует ряд пошаговых руководств, упорядоченных на странице [Пошаговые руководства по процессу обработки и анализа данных](data-science-process-walkthroughs.md), которые демонстрируют, как использовать ресурсы и службы в различных сценариях прогнозной аналитики.
 
-- [Процесс Cortana Analytics в действии: использование хранилища данных SQL](machine-learning-data-science-process-sqldw-walkthrough.md)
-- [Процесс аналитики Кортаны в действии: использование кластеров HDInsight Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
-- [Процесс аналитики Кортаны в действии: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [Процесс обработки и анализа данных группы на практике: использование хранилища данных SQL](machine-learning-data-science-process-sqldw-walkthrough.md)
+- [Процесс обработки и анализа данных группы на практике: использование кластеров HDInsight Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
+- [Процесс обработки и анализа данных группы на практике: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

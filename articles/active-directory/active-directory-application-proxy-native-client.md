@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # Включение собственных клиентских приложений для взаимодействия с приложениями прокси
-
-> [AZURE.NOTE] Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
 
 Прокси приложений Azure Active Directory часто используется для публикации приложений браузера, например SharePoint, Outlook Web Access и пользовательских бизнес-приложений. Он также может использоваться для публикации собственных клиентских приложений, отличающихся от веб-приложений тем, что они устанавливаются на устройстве. Это реализуется с помощью выданных маркеров Azure AD, отправляемых в стандартные заголовки HTTP авторизации.
 
@@ -77,7 +75,7 @@
 
 ![Снимок экрана страницы настройки нового нативного приложения](./media/active-directory-application-proxy-native-client/new_native_app.png)
 
-Дополнительные сведения о потоке нативного приложения см. в разделе [Из нативного приложения к веб-интерфейсу API](active-directory-authentication-scenarios.md#native-application-to-web-api).
+Дополнительные сведения о потоке собственного приложения см. в разделе [Из нативного приложения к веб-интерфейсу API](active-directory-authentication-scenarios.md#native-application-to-web-api).
 
 
 ## См. также
@@ -87,6 +85,6 @@
 - [Работа с приложениями, поддерживающими утверждения](active-directory-application-proxy-claims-aware-apps.md)
 - [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
 
-Последние новости и обновления см. в блоге, посвященном [прокси приложений](http://blogs.technet.com/b/applicationproxyblog/).
+Последние новости и обновления см. в [блоге о прокси приложения](http://blogs.technet.com/b/applicationproxyblog/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

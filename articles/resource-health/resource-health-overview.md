@@ -3,7 +3,7 @@
    description="Обзор службы работоспособности ресурсов Azure"
    services="Resource health"
    documentationCenter="dev-center-name"
-   authors="bernardm"
+   authors="BernardoAMunoz"
    manager=""
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="Supportability"
    ms.date="06/01/2016"
-   ms.author="bernardm"/>
+   ms.author="BernardoAMunoz"/>
 
 # Обзор службы работоспособности ресурсов Azure
 
@@ -59,22 +59,28 @@
 ![Плитка работоспособности ресурсов](./media/resource-health-overview/resourceHealthTile.png)
 
 ### API работоспособности ресурсов
-Помимо портала Azure для запроса службы работоспособности ресурсов можно также использовать интерфейс API. Этот API поддерживает вызовы для получения состояния всех ресурсов в подписке, всех ресурсов в группе ресурсов или конкретного ресурса.
+Помимо портала Azure для запроса службы работоспособности ресурсов можно также использовать ряд интерфейсов API. С помощью доступных API пользователи могут запрашивать текущее состояние работоспособности всех ресурсов в подписке, всех ресурсов в группе ресурсов или конкретного ресурса.
 
-Прежде чем использовать API для запроса состояния работоспособности ресурса, необходимо зарегистрировать подписку в службе путем отправки запроса POST по следующему URL-адресу:
+Еще один API позволяет пользователям запрашивать исторические данные работоспособности одного ресурса. Результатом вызова является коллекция состояний работоспособности ресурса за последние 14 дней. Если ресурс был подвержен объявленному сбою, состояние работоспособности будет содержать аннотацию serviceImpactingEvents с более подробными сведениями об этом сбое.
 
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
+Прежде чем использовать API для запроса состояния работоспособности ресурса, необходимо зарегистрировать подписку в службе путем отправки запроса POST по следующему URL-адресу.
+ 
+        //Register the subscription with the Resource health resource provider
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
         
 Ниже приведены примеры вызова API работоспособности ресурсов
 
         // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET the health of a single resource:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/<ResourceProvider>/<ResourceType>/<ResourceName>/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        
+        //GET the historical health of a single resource:
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
 
 
 ## Что означает состояние работоспособности ресурса?
@@ -111,7 +117,7 @@
 ![Состояние работоспособности ресурса неизвестное.](./media/resource-health-overview/unknown.png)
 
 ## События, влияющие на службы
-Если на работу ресурса может повлиять текущее событие, влияющее на службы, в верхней части колонки работоспособности ресурсов отобразится соответствующий баннер. Если щелкнуть этот баннер, откроется колонка событий аудита, где можно получить дополнительные сведения о простое.
+Если на работу ресурса может повлиять текущее событие, влияющее на службы, в верхней части колонки работоспособности ресурсов отобразится соответствующий баннер. Если щелкнуть этот баннер, откроется колонка "События аудита", содержащая дополнительные сведения о простое.
 
 ![На работоспособность ресурса могло повлиять событие прерывания службы](./media/resource-health-overview/serviceImpactingEvent.png)
 
@@ -126,4 +132,4 @@
 ## Отзыв
 Мы всегда рады вашим отзывам и предложениям! Отправляйте нам свои [предложения](https://feedback.azure.com/forums/266794-support-feedback). Кроме того, с нами можно связаться через [Twitter](https://twitter.com/azuresupport) или [форумы MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

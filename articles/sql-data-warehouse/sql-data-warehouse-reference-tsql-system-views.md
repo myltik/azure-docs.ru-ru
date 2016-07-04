@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="06/17/2016"
    ms.author="barbkess;sonyama"/>
 
 # Системные представления
@@ -128,7 +128,7 @@
 
 ## Динамические административные представления SQL Server, доступные в хранилище данных SQL
 
-Хранилище данных SQL включает многие динамические административные представления (DMV) SQL Server. При обращении к таким представлениям в хранилище данных SQL сообщается состояние базы данных SQL, на которой работают распределения.
+Хранилище данных SQL включает многие динамические административные представления (DMV) SQL Server. При обращении к таким представлениям в хранилище данных SQL сообщается состояние базы данных SQL, в которой выполняются распределения.
 
 Поскольку хранилище данных SQL основано на технологии MPP корпорации Майкрософт, и в хранилище данных SQL, и в параллельных хранилищах данных (PDW) аналитической платформы используются одни и те же системные представления.
 
@@ -198,7 +198,7 @@
 | sys.dm\_pdw\_nodes\_tran\_session\_transactions | [sys.dm\_tran\_session\_transactions](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm\_pdw\_nodes\_tran\_top\_version\_generators | [sys.dm\_tran\_top\_version\_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-## Список динамических административных представлений SQL Server 2016 PolyBase, доступных в хранилище данных SQL
+## Список динамических административных представлений SQL Server 2016 PolyBase, доступных в хранилище данных SQL
 
 - [sys.dm\_exec\_compute\_node\_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 - [sys.dm\_exec\_compute\_node\_status](http://msdn.microsoft.com/library/mt146382.aspx)
@@ -236,4 +236,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

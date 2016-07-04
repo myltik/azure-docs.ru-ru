@@ -1,7 +1,7 @@
 <properties
    pageTitle="Создание узлов Docker в Azure с помощью машины Docker | Microsoft Azure"
    description="Описывается использование машины Docker для создания узлов Docker в Azure."
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
@@ -109,4 +109,4 @@ PS C:\> docker-machine ip MyDockerHost
 
 Сведения о разработке приложений .NET Core с помощью Visual Studio см. в разделе [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) (Инструменты Docker для Visual Studio).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

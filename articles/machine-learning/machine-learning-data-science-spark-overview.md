@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev" />
 
 # Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight
@@ -107,7 +107,7 @@
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-Для доступа к записным книжкам Jupyter также можно перейти по ссылке ***https://CLUSTERNAME.azurehdinsight.net/jupyter***. Просто замените фрагмент CLUSTERNAME в URL-адресе на имя собственного кластера. Для доступа к записным книжкам необходим пароль к учетной записи администратора.
+Для доступа к записным книжкам Jupyter также можно перейти по ссылке ******https://CLUSTERNAME.azurehdinsight.net/jupyter***. Просто замените фрагмент CLUSTERNAME в URL-адресе на имя собственного кластера. Для доступа к записным книжкам необходим пароль к учетной записи администратора.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
@@ -145,4 +145,4 @@
 
 **Перекрестная проверка и очистка гиперпараметров**. Сведения об обучении моделей с помощью перекрестной проверки и очистки гиперпараметров см. в статье [Расширенное исследование и моделирование данных в Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

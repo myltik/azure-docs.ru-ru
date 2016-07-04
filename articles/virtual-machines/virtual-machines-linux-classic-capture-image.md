@@ -14,14 +14,13 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="06/14/2016"
 	ms.author="iainfou"/>
 
 
 # Запись классической виртуальной машины Linux в виде образа
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image.md).
-
 
 В этой статье показано, как записать виртуальную машину Azure под управлением Linux, чтобы использовать ее в качестве образа при создании других виртуальных машин. Данный образ виртуальной машины включает в себя диск операционной системы и прочие диски данных, присоединенные к виртуальной машине. Он не включает в себя сетевую конфигурацию, поэтому ее необходимо настроить при создании других виртуальных машин из образа.
 
@@ -34,7 +33,7 @@ Azure хранит образ в папке **Образы**. В этой пап
 
 ## Запись виртуальной машины
 
-1. Подключитесь к виртуальной машине с помощью SSH-клиента по своему усмотрению. Дополнительную информацию см. в разделе [Как войти в виртуальную машину под управлением Linux][].
+1. [Подключитесь к виртуальной машине](virtual-machines-linux-classic-log-on.md) с помощью SSH-клиента по своему усмотрению.
 
 2. В окне SSH введите следующую команду. Обратите внимание, что выходные данные `waagent` могут незначительно отличаться в зависимости от версии этой служебной программы:
 
@@ -55,7 +54,6 @@ Azure хранит образ в папке **Образы**. В этой пап
 3. Чтобы продолжить, введите **y**. Чтобы предотвратить появление запроса на подтверждение, добавьте параметр `-force`.
 
 4. Введите **Exit**, чтобы закрыть SSH-клиент.
-
 
 	>[AZURE.NOTE] Далее предполагается, что вы уже [установили Azure CLI](../xplat-cli-install.md) на клиентском компьютере. Также все эти действия можно выполнить на [классическом портале Azure][].
 
@@ -93,10 +91,9 @@ Azure хранит образ в папке **Образы**. В этой пап
 
 [классического портала Azure]: http://manage.windowsazure.com
 [классическом портале Azure]: http://manage.windowsazure.com
-[Как войти в виртуальную машину под управлением Linux]: virtual-machines-linux-classic-log-on.md
 [Об образах виртуальной машины в Azure]: virtual-machines-linux-classic-about-images.md
 [Как создать настраиваемую виртуальную машину]: virtual-machines-linux-classic-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Создание виртуальной машины Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

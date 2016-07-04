@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/21/2016" 
 	ms.author="stefsch"/>
 
 # Безопасное подключение к серверным ресурсам из среды службы приложений #
@@ -34,9 +34,7 @@
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Требования к DNS и исходящим подключениям ##
-Обратите внимание, что для правильной работы среды службы приложений требуется исходящий глобальный доступ к службе хранилища Azure, а также подключение к базе данных SQL в том же регионе Azure. Если исходящий доступ к Интернету заблокирован в виртуальной сети, среды службы приложений не смогут получить доступ к этим конечным точкам Azure.
-
-Клиент может также иметь пользовательские DNS-серверы в виртуальной сети. Среды служб приложений должны быть в состоянии разрешать адреса конечных точек Azure для имен *.database.windows.net, *.file.core.windows.net и *.blob.core.windows.net.
+Для надлежащего функционирования среды службы приложений требуется исходящий доступ к различным конечным точкам. Полный список внешних конечных точек, используемых в ASE, приведен в разделе "Необходимое сетевое подключение" статьи [Сведения о конфигурации сети для сред службы приложений с ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity).
 
 Также рекомендуется настроить пользовательские DNS-серверы в виртуальной сети заранее, т. е. до создания среды службы приложений. Если конфигурация виртуальной сети DNS изменяется во время создания среды службы приложений, это приведет к сбою процесса создания среды службы приложений. Если на другой стороне VPN-шлюза имеется пользовательский DNS-сервер и он недоступен, создать среду службы приложений не удастся.
 
@@ -88,6 +86,7 @@
 
 
 ## Приступая к работе
+Все статьи и практические руководства, посвященные средам службы приложений, доступны в [файле сведений для сред службы приложений](../app-service/app-service-app-service-environments-readme.md).
 
 Чтобы начать работу со средами службы приложений, см. статью [Введение в среду службы приложений][IntroToAppServiceEnvironment]
 
@@ -116,4 +115,4 @@
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

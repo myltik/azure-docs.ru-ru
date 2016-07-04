@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="06/21/2016"
 	ms.author="fboylu" />
 
 # Сборник тренировочных заданий для шаблона решения Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических и других компаниях
@@ -346,4 +346,4 @@
 
 Дополнительные сведения о каждом из компонентов архитектуры см. в документации [Azure](https://azure.microsoft.com/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

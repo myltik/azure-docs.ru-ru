@@ -5,14 +5,14 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="sethm" />
 
 # Создание приложений, использующих разделы и подписки служебной шины
@@ -47,7 +47,7 @@
 
 ## Покажите мне код
 
-В статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md) описаны регистрация учетной записи служебной шины и создание пространства имен службы. Чтобы использовать пространство имен служебной шины, приложение должно ссылаться на сборку служебной шины, а именно Microsoft.ServiceBus.dll. Самым простым способом сослаться на зависимости служебной шины является установка [пакета Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) служебной шины. Эта сборка также доступна в составе пакета SDK Azure. Ее можно загрузить на [странице загрузки пакета SDK Azure](https://azure.microsoft.com/downloads/).
+В статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md) описаны регистрация учетной записи Azure и создание пространства имен службы. Чтобы использовать пространство имен служебной шины, приложение должно ссылаться на сборку служебной шины, а именно Microsoft.ServiceBus.dll. Самым простым способом сослаться на зависимости служебной шины является установка [пакета Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) служебной шины. Эта сборка также доступна в составе пакета SDK Azure. Ее можно загрузить на [странице загрузки пакета SDK Azure](https://azure.microsoft.com/downloads/).
 
 ### Создание раздела и подписок
 
@@ -150,4 +150,4 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 Сведения об использовании очередей в сценарии розничных точек продаж см. в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

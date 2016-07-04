@@ -13,8 +13,8 @@
   ms.workload="na"
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
-  ms.topic="support-article"
-  ms.date="05/06/2016"
+  ms.topic="article"
+  ms.date="06/20/2016"
   ms.author="cjiang"/>
 
 # Устранение неполадок в классическом развертывании во время создания виртуальной машины Linux в Azure
@@ -81,4 +81,7 @@
 - Создайте виртуальную машину в этой виртуальной сети.
 - [Подключите существующую виртуальную сеть](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) к новой виртуальной сети. См. дополнительные сведения о [региональных виртуальных сетях](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Кроме того, вы можете [перенести виртуальную сеть на основе территориальной группы в региональную виртуальную сеть](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), а затем создать в ней виртуальную машину.
 
-<!---HONumber=AcomDC_0525_2016-->
+## Дальнейшие действия
+При возникновении проблем во время запуска остановленной виртуальной машины Linux или в случае изменения размера существующей виртуальной машины Linux в Azure см. раздел [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md).
+
+<!---HONumber=AcomDC_0622_2016-->
