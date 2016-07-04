@@ -21,7 +21,7 @@
 
 ## WinRM в управлении службами Azure или Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания
 
 * Общие сведения об Azure Resource Manager см. в этой [статье](../resource-group-overview.md).
 * Сведения о различиях между управлением службами Azure и Azure Resource Manager см. в этой [статье](../resource-manager-deployment-model.md).

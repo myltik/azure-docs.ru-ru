@@ -41,7 +41,7 @@
 
 ![SAS](./media/service-bus-shared-access-signature-authentication/IC676272.gif)
 
-На рисунке видно, что правила авторизации *manageRuleNS*, *sendRuleNS* и *listenRuleNS* применяются к очереди Q1 и разделу T1. Правила *listenRuleQ* и *sendRuleQ* применяются только к очереди Q1, а *sendRuleT* — только к разделу T1.
+На рисунке видно, что правила авторизации *manageRuleNS*, *sendRuleNS* и *listenRuleNS* применяются к очереди Q1 и разделу T1. Правила *listenRuleQ* и *sendRuleQ* применяются только к очереди Q1, а *sendRuleT* — только к разделу T1.
 
 Основные параметры правила [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx).
 

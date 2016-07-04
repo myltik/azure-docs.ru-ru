@@ -20,7 +20,7 @@
 # Создание приложения для аварийного восстановления облака с использованием активной георепликации в базе данных SQL
 
 
-> [AZURE.NOTE] [Active Geo-Replication]Раздел (sql-database-geo-replication-overview.md) теперь доступен для всех баз данных и всех уровней.
+> [AZURE.NOTE] Раздел [Active Geo-Replication](sql-database-geo-replication-overview.md) теперь доступен для всех баз данных и всех уровней.
 
 
 

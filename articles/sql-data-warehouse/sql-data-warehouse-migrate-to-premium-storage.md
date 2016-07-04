@@ -153,6 +153,6 @@
 
 
 <!--Other Web references-->
-[хранилища класса Premium, обеспечивающего более предсказуемую производительность]: https://azure.microsoft.com/ru-RU/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[хранилища класса Premium, обеспечивающего более предсказуемую производительность]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 
 <!---HONumber=AcomDC_0622_2016-->

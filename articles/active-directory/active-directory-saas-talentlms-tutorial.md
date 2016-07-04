@@ -106,10 +106,10 @@
 
     4.  На странице диалогового окна **Configure single sign-on at TalentLMS** (Настройка единого входа в TalentLMS) классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **Remote sign-in URL** (URL-адрес удаленного входа).
     5.  На странице диалогового окна **Configure single sign-on at TalentLMS** (Настройка единого входа в TalentLMS) классического портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **Remote sign-out URL** (URL-адрес удаленного выхода).
-    6.  В текстовое поле **TargetedID** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-7.  В текстовое поле **Имя** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-8.  В текстовое поле **Фамилия** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-9.  В текстовое поле **Адрес электронной почты** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    6.  В текстовое поле **TargetedID** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+7.  В текстовое поле **Имя** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+8.  В текстовое поле **Фамилия** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+9.  В текстовое поле **Адрес электронной почты** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 10. Щелкните **Сохранить**.
 
 9.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.

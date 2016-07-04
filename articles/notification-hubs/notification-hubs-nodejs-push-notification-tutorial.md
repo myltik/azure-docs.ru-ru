@@ -141,9 +141,9 @@
 Объект **MpnsService** предоставляет метод **send**, который может использоваться для отправки push-уведомлений в приложения Windows Phone. Метод **Отправить** принимает следующие параметры:
 
 * **Tags** — идентификатор тега. Если тег отсутствует, уведомления будут отправляться всем клиентам.
-* **Payload** — полезные данные XML сообщения.
+* **Payload** — полезные данные XML сообщения.
 * **TargetName** — `toast` для всплывающих уведомлений и `token` для уведомлений на элементах.
-* **NotificationClass** — приоритет уведомления. Допустимые значения см. в разделе **HTTP Header Elements** (Элементы заголовка HTTP) документа [Push notifications from a server](http://msdn.microsoft.com/library/hh221551.aspx) (Push-уведомления от сервера).
+* **NotificationClass** — приоритет уведомления. Допустимые значения см. в разделе **HTTP Header Elements** (Элементы заголовка HTTP) документа [Push notifications from a server](http://msdn.microsoft.com/library/hh221551.aspx) (Push-уведомления от сервера).
 * **Options** — необязательные заголовки запроса.
 * **Callback** — функция обратного вызова.
 
