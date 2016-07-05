@@ -72,9 +72,7 @@
 
     Если в списке веб-сайтов есть любой из следующих URL-адресов, убедитесь, чтобы и остальные адреса также были включены:
 
-    * https://login.microsoftonline.com
-    * https://login.windows.net
-    * https://analytics.applicationinsights.io 
+    https://analytics.applicationinsights.io<br/> https://login.microsoftonline.com<br/> https://login.windows.net
 
 
 ## 404\... Ресурс не найден
@@ -90,8 +88,8 @@
 
 У вас нет разрешения на открытие этого приложения в аналитике.
 
-* Вы получили ссылку от другого пользователя? Попросите, чтобы вас внесли в [читатели или участники этой группы ресурсов](app-insights-resources-roles-access-control.md).
-* Вы сохранили ссылку, используя другие учетные данные? Откройте [портал Azure](https://portal.azure.com), выполните выход, а затем повторно откройте эту ссылку и введите правильные учетные данные.
+* Вы получили ссылку от другого пользователя? Попросите, чтобы вас внесли в список [читателей или участников этой группы ресурсов](app-insights-resources-roles-access-control.md).
+* Вы сохранили ссылку, используя другие учетные данные? Откройте [портал Azure](https://portal.azure.com), выполните выход, а затем повторно щелкните эту ссылку и введите правильные учетные данные.
 
 ## 403\... Хранилище HTML5
 
@@ -126,4 +124,4 @@
  
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
- 	ms.date="05/03/2016" 
+ 	ms.date="06/16/2016" 
 	ms.author="juliako"/>
 
 #Использование динамического шифрования AES-128 и службы доставки ключей
@@ -527,10 +527,19 @@
 		            Uri keyAcquisitionUri = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.BaselineHttp);
 		
 		            string envelopeEncryptionIV = Convert.ToBase64String(GetRandomBuffer(16));
-		
+		    
+		            // When configuring delivery policy, you can choose to associate it
+		            // with a key acquisition URL that has a KID appended or
+		            // or a key acquisition URL that does not have a KID appended  
+		            // in which case a content key can be reused. 
+
+		            // EnvelopeKeyAcquisitionUrl:  contains a key ID in the key URL.
+		            // EnvelopeBaseKeyAcquisitionUrl:  the URL does not contains a key ID
+
 		            // The following policy configuration specifies: 
-		            //   key url that will have KID=<Guid> appended to the envelope and
-		            //   the Initialization Vector (IV) to use for the envelope encryption.
+		            // key url that will have KID=<Guid> appended to the envelope and
+		            // the Initialization Vector (IV) to use for the envelope encryption.
+		            
 		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		            {
@@ -621,4 +630,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

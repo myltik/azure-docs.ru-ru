@@ -3,7 +3,7 @@
 
 При использовании мобильных приложений обратитесь к учебнику [Добавление push-уведомлений для мобильных приложений](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) и выберите платформу в верхней части страницы.
 
-Если вы хотите использовать Java или PHP, см. раздел [Использование концентраторов уведомлений из Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). Уведомления можно отправлять из любого серверного компонента с помощью [интерфейса REST центров уведомлений](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+Если вы хотите использовать Java или PHP, см. раздел [Использование концентраторов уведомлений из Java/PHP](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md). Уведомления можно отправлять из любого серверного компонента с помощью [интерфейса REST центров уведомлений](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
 Пропустите шаги 1–3, если консольное приложение для отправки уведомлений было создано при завершении раздела [Приступая к работе с центрами уведомлений][get-started].
 
@@ -70,7 +70,7 @@
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
+[get-started]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Use Notification Hubs to send notifications to users]: ../articles/tutorial-notify-users-mobileservices.md
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
@@ -78,4 +78,4 @@
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

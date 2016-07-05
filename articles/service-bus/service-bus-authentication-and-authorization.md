@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Проверка подлинности и авторизация в служебной шин | Microsoft Azure"
-   description="Общие сведения о проверке подлинности подписанного URL-адреса (SAS)."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Проверка подлинности и авторизация в служебной шин | Microsoft Azure"
+    description="Общие сведения о проверке подлинности подписанного URL-адреса (SAS)."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/22/2016"
+    ms.author="sethm" />
 
 # Аутентификация и авторизация в служебной шине
 
@@ -41,7 +41,7 @@ SAS предпочтительнее, чем ACS, так как представ
 
 Чтобы получить доступ к сущности, клиенту требуется маркер SAS, созданный с помощью определенного правила [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). Маркер SAS создается с помощью хэш-функции HMAC-SHA256 строки ресурса, состоящей из URI ресурса, к которому запрашивается доступ, и срока действия с криптографическим ключом, связанным с правилом авторизации.
 
-Поддержка проверки подлинности SAS для служебной шины включена в пакет Azure SDK для .NET 2.0 и более поздних версий. SAS включает в себя поддержку правила [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). Все интерфейсы API, которые принимают строку подключения в качестве параметра, поддерживают строки подключения SAS.
+Поддержка проверки подлинности SAS для служебной шины включена в пакет Azure SDK для .NET 2.0 и более поздних версий. SAS включает в себя поддержку правила [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). Все интерфейсы API, которые принимают строку подключения в качестве параметра, поддерживают строки подключения SAS.
 
 ## Проверка подлинности ACS
 
@@ -57,20 +57,20 @@ New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 ```
 
-Например, если вы создаете пространство имен служебной шины с именем **contoso.servicebus.windows.net**, сопутствующее пространство имен ACS **contoso-sb.accesscontrol.windows.net** подготавливается автоматически. Для всех пространств имен, созданных до августа 2014 г., также создано сопутствующее пространство имен ACS.
+Например, если вы создаете пространство имен служебной шины с именем **contoso.servicebus.windows.net**, сопутствующее пространство имен ACS **contoso-sb.accesscontrol.windows.net** подготавливается автоматически. Для всех пространств имен, созданных до августа 2014 г., также создано сопутствующее пространство имен ACS.
 
 По умолчанию владелец учетной записи службы (учетная запись со всеми правами) подготавливается в этом сопутствующем пространстве имен ACS. Для точного управления любой сущностью служебной шины с помощью ACS следует настроить соответствующие отношения доверия. Можно настроить дополнительные удостоверения службы для управления доступом к сущностям служебной шины.
 
 Чтобы получить доступ к сущности, клиент запрашивает маркер SWT из ACS с соответствующими утверждениями, предоставляя свои учетные данные. Затем маркер SWT необходимо отправить в служебную шину как часть запроса. Это позволит авторизовать клиента для получения доступа к сущности.
 
-Поддержка проверки подлинности ACS для служебной шины включена в пакет Azure SDK для .NET 2.0 и более поздних версий. Эта проверка подлинности включает поддержку [SharedSecretTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.sharedsecrettokenprovider.aspx). Все интерфейсы API, которые принимают строку подключения в качестве параметра, поддерживают строки подключения ACS.
+Поддержка проверки подлинности ACS для служебной шины включена в пакет Azure SDK для .NET 2.0 и более поздних версий. Эта проверка подлинности включает поддержку [SharedSecretTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.sharedsecrettokenprovider.aspx). Все интерфейсы API, которые принимают строку подключения в качестве параметра, поддерживают строки подключения ACS.
 
 ## Дальнейшие действия
 
-Дополнительные сведения о SAS см. в статье [Проверка подлинности подписанного URL-адреса в служебной шине](service-bus-shared-access-signature-authentication.md).
+Дополнительные сведения о SAS см. в статье [Проверка подлинности подписи при общем доступе с помощью служебной шины](service-bus-shared-access-signature-authentication.md).
 
 Более подробные сведения об использовании SAS в служебной шине см. в статье [Подписанные URL-адреса](service-bus-sas-overview.md).
 
 Дополнительные сведения о маркерах ACS см. в статье [Запрос маркера из ACS через протокол OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

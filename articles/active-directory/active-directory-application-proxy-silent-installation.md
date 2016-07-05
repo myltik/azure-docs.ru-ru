@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # Автоматическая установка соединителя прокси приложения Azure AD
-
-> [AZURE.NOTE] Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
 
 Необходимо иметь возможность отправки сценария установки на несколько серверов Windows или на серверы Windows, на которых отключен пользовательский интерфейс. Этот раздел описывает создание сценария Windows PowerShell, позволяющего реализовать автоматическую установку, а также устанавливающего и регистрирующего соединитель прокси приложения Azure AD.
 
@@ -132,6 +130,6 @@
 - [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
 - [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
 
-Последние новости и обновления см. в блоге, посвященном [прокси приложений](http://blogs.technet.com/b/applicationproxyblog/).
+Последние новости и обновления см. в [блоге о прокси приложения](http://blogs.technet.com/b/applicationproxyblog/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

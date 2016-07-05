@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="06/15/2016"
    ms.author="tomfitz"/>
 
 # Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью диспетчера ресурсов Azure
 
-В этой статье объясняется, как устранить некоторые распространенные ошибки, которые могут возникнуть при развертывании ресурсов в Azure. Надеюсь, вы уже видели информативные сообщения о возникающих ошибках. Если вы не видели таких сообщений или хотите узнать больше о причинах сбоя развертывания, сначала ознакомьтесь со статьей [Устранение неполадок развертываний групп ресурсов с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md), а затем вернитесь к этой статье, чтобы узнать, как устранить ошибку.
+В этой статье объясняется, как устранить некоторые распространенные ошибки, которые могут возникнуть при развертывании ресурсов в Azure. Если вам необходима дополнительная информация о причинах сбоя развертывания, сначала ознакомьтесь со статьей [Просмотр операций развертывания с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md), а затем вернитесь к этой статье, чтобы узнать, как устранить ошибку.
 
 ## Недопустимый шаблон или ресурс
 
@@ -31,9 +31,9 @@
 
 В зависимости от места, в котором отсутствует символ в шаблоне, появится сообщение о недопустимом шаблоне или ресурсе. Кроме того, сообщение об ошибке может указывать на то, что в процессе развертывания не удалось обработать выражение языка шаблона. При получении сообщения об ошибке такого типа тщательно проверьте синтаксис выражения.
 
-## Имя ресурса уже существует
+## Имя ресурса уже существует или используется другим ресурсом
 
-Для некоторых ресурсов, особенно учетных записей хранения, серверов баз данных и веб-сайтов, необходимо указать имя ресурса, которое будет уникальным в Azure. Уникальное имя можно создать, используя соглашение об именовании и результат функции [uniqueString](resource-group-template-functions.md#uniquestring).
+Для некоторых ресурсов, особенно для учетных записей хранения, серверов баз данных и веб-сайтов, необходимо указывать имя ресурса, которое будет уникальным в Azure. Уникальное имя можно создать, используя соглашение об именовании и результат функции [uniqueString](resource-group-template-functions.md#uniquestring).
  
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
     "type": "Microsoft.Storage/storageAccounts", 
@@ -52,60 +52,73 @@ Resource Manager оптимизирует развертывание, созда
       ...
     }
 
-## Расположение недоступно для ресурса
+## Не удалось найти элемент copy в объекте
 
-При указании расположения для ресурса необходимо использовать одно из расположений, которые поддерживают ресурс. Перед указанием расположения ресурса используйте одну из следующих команд, чтобы убедиться, что это расположение поддерживает тип ресурса.
+Эта ошибка возникает в случае применения элемента **copy** к части шаблона, который не поддерживает этот элемент. Элемент copy можно применять только к типу ресурса. Нельзя применять элемент copy к свойству в типе ресурса. Например, его можно применить к виртуальной машине, но не к дискам операционной системы виртуальной машины. В некоторых случаях можно преобразовывать дочерние ресурсы в родительские для создания цикла копирования. Дополнительные сведения об использовании элемента copy см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md).
+
+## Номер SKU недоступен
+
+При развертывании ресурса (как правило, виртуальной машины) могут появиться код ошибки и сообщение об ошибке:
+
+    Code: SkuNotAvailable
+    Message: The requested tier for resource '<resource>' is currently not available in location '<location>' for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
+
+Эта ошибка возникает, когда выбранный номер SKU ресурса (например, размер виртуальной машины) недоступен для указанного расположения. Существует два способа решения этой проблемы.
+
+1.	Войдите на портал и добавьте новый ресурс с помощью пользовательского интерфейса. Когда значения будут заданы, вы увидите доступные номера SKU для этого ресурса. 
+
+    ![доступные номера sku](./media/resource-manager-common-deployment-errors/view-sku.png)
+
+2.	Если вам не удастся найти подходящий номер SKU в этом или альтернативном регионе, который соответствует потребностям вашей компании, обратитесь в [службу поддержки Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+
+## Зарегистрированные поставщики не найдены
+
+При развертывании ресурсов вы можете получить следующий код ошибки и сообщение об ошибке:
+
+    Dode: NoRegisteredProviderFound
+    Message: No registered resource provider found for location '<location>' and API version '<api-version>' for type '<resource-type>'.
+
+Эта ошибка возникает по одной из следующих причин.
+
+1. Расположение не поддерживается для выбранного типа ресурса.
+2. Версия API не поддерживается для выбранного типа ресурса.
+3. Для подписки не зарегистрирован поставщик ресурсов.
+
+В сообщении об ошибке должны быть указаны поддерживаемые расположения и версии API. Вы можете изменить шаблон, используя одно из предложенных значений. Большинство поставщиков, но не все, регистрируются автоматически порталом Azure или интерфейсом командной строки, который вы используете. Если ранее вы не использовали конкретный поставщик ресурсов, возможно, потребуется зарегистрировать такой поставщик. C помощью приведенных ниже команд вы можете получить дополнительную информацию о поставщиках ресурсов.
 
 ### PowerShell
 
-Чтобы получить список поддерживаемых типов и расположений для конкретного поставщика ресурсов, используйте командлет **Get-AzureRmResourceProvider**.
+Чтобы просмотреть состояние регистрации, используйте командлет **Get-AzureRmResourceProvider**.
 
-    Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+    Get-AzureRmResourceProvider -ListAvailable
 
-Вы получите список типов ресурсов для этого поставщика ресурсов.
+Чтобы зарегистрировать поставщик, используйте командлет **Register-AzureRmResourceProvider** и укажите имя поставщика ресурсов, который необходимо зарегистрировать.
 
-    ProviderNamespace RegistrationState ResourceTypes               Locations
-    ----------------- ----------------- -------------               ---------
-    Microsoft.Web     Registered        {sites/extensions}          {Brazil South, ...
-    Microsoft.Web     Registered        {sites/slots/extensions}    {Brazil South, ...
-    Microsoft.Web     Registered        {sites/instances}           {Brazil South, ...
-    ...
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 
-Выбрать расположения для определенного типа ресурсов можно с помощью следующего кода:
+Чтобы получить поддерживаемые расположения для определенного типа ресурсов, используйте следующую команду:
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 
-Он вернет поддерживаемые расположения:
+Чтобы получить поддерживаемые версии API для определенного типа ресурсов, используйте следующую команду:
 
-    Brazil South
-    East Asia
-    East US
-    Japan East
-    Japan West
-    North Central US
-    North Europe
-    South Central US
-    West Europe
-    West US
-    Southeast Asia
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 
 ### Инфраструктура CLI Azure
 
-В интерфейсе командной строки Azure можно использовать команду **azure location list**. Так как список расположений может быть длинным и включать множество поставщиков, с помощью предлагаемых средств можно изучить поставщики и расположения, прежде чем использовать расположение, которое еще не доступно. Следующий сценарий использует средство **jq** для поиска расположений, в которых доступен поставщик ресурсов для виртуальных машин Azure.
+Чтобы узнать, зарегистрирован ли поставщик, используйте команду `azure provider list`.
 
-    azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
+    azure provider list
+        
+Чтобы зарегистрировать поставщик ресурсов, используйте команду `azure provider register` и укажите *пространство имен*, которое следует зарегистрировать.
+
+    azure provider register Microsoft.Cdn
+
+Чтобы просмотреть поддерживаемые расположения и версии API для поставщика ресурсов, используйте следующую команду:
+
+    azure provider show -n Microsoft.Compute --json > compute.json
     
-Он вернет поддерживаемые расположения:
-    
-    {
-      "name": "Microsoft.Compute/virtualMachines",
-      "location": "East US,East US 2,West US,Central US,South Central US,North Europe,West Europe,East Asia,Southeast Asia,Japan East,Japan West"
-    }
-
-### Интерфейс REST API
-
-Для API-интерфейса REST см. [Получение сведений о поставщике ресурсов](https://msdn.microsoft.com/library/azure/dn790534.aspx).
-
 ## Превышена квота
 
 Кроме того, при развертывании могут возникнуть проблемы при достижении квоты, которая может задаваться для группы ресурсов, подписок, учетных записей и других областей. Например, в подписке может быть настроено ограничение количества ядер для определенного региона. При попытке развертывания виртуальной машины с большим количеством ядер, чем разрешено, вы получите сообщение о том, что квота превышена. Полные сведения о квотах см. в статье [Подписка Azure, границы, квоты и ограничения службы](azure-subscription-service-limits.md).
@@ -129,7 +142,7 @@ Resource Manager оптимизирует развертывание, созда
     serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
 
-В PowerShell можно использовать командлет **Get-AzureRmVMUsage**.
+Также можно использовать командлет PowerShell **Get-AzureRmVMUsage**.
 
     Get-AzureRmVMUsage
     
@@ -154,78 +167,39 @@ Resource Manager оптимизирует развертывание, созда
 
 Эта ошибка может возникнуть во время развертывания, если учетная запись или субъект-служба, пытающиеся развернуть ресурсы, не имеют доступа на выполнение этих действий. Azure Active Directory позволяет вам или вашему администратору управлять удостоверениями, которые могут получать доступ к тем или иным ресурсам. Например, если учетной записи назначена роль "Читатель", такая учетная запись не сможет создавать ресурсы. В таком случае появится сообщение об ошибке авторизации.
 
-Дополнительные сведения о контроле доступа на основе ролей см. в статье [Контроль доступа на основе ролей Azure Active Directory](./active-directory/role-based-access-control-configure.md).
+Дополнительные сведения об управлении доступом на основе ролей см. в статье [Использование назначений ролей для управления доступом к ресурсам Azure Active Directory](./active-directory/role-based-access-control-configure.md).
 
 Помимо управления доступом на основе ролей, действия по развертыванию можно ограничить, применив к подписке политики. С помощью политик администратор может обеспечить выполнение соглашений на всех ресурсах, развернутых в подписке. Например, администратор может указать, что для того или иного типа ресурса следует указывать определенное значение тега. Если требования политики не будут выполнены, во время развертывания возникнет ошибка. Дополнительные сведения о политиках см. в статье [Применение политик для управления ресурсами и контроля доступа](resource-manager-policy.md).
 
-## Проверка регистрации поставщика ресурсов
+## Устранение неполадок на виртуальных машинах 
 
-Ресурсами управляют поставщики ресурсов, и для использования конкретного поставщика его необходимо зарегистрировать в учетной записи или подписке. Большинство поставщиков, но не все, регистрируются автоматически порталом Azure или интерфейсом командной строки, который вы используете.
+| Ошибка | Статьи |
+| -------- | ----------- |
+| Ошибки расширений пользовательских скриптов | [Устранение неполадок расширений для виртуальных машин Windows](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />или<br />[Устранение неполадок расширения виртуальной машины Linux](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) | 
+| Ошибки при подготовке образа операционной системы | [Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Windows в Azure](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />или<br />[Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Linux в Azure](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) | 
+| Ошибки выделения ресурсов | [Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин Windows в Azure](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />или<br />[Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин Linux в Azure](./virtual-machines/virtual-machines-linux-allocation-failure.md) | 
+| Ошибки Secure Shell (SSH) при попытке подключения | [Устранение неполадок с подключением Secure Shell к виртуальной машине Azure под управлением Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) | 
+| Ошибки при подключении к приложению, выполняющемуся на виртуальной машине | [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md) (Windows)<br />или<br />[Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) (Linux) | 
+| Ошибки при подключении к удаленному рабочему столу | [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) | 
+| Ошибки подключения, устраняемые путем повторного развертывания | [Повторное развертывание виртуальной машины на новом узле Azure](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) | 
+| Ошибки облачной службы | [Устранение неполадок, которые могут возникнуть при развертывании облачной службы](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) | 
 
-### PowerShell
+## Устранение неполадок в других службах 
 
-Чтобы просмотреть состояние регистрации, используйте командлет **Get-AzureRmResourceProvider**.
+Следующая таблица не является полным списком статей по устранению неполадок в Azure. Она посвящена проблемам, связанным с развертыванием или настройкой ресурсов. Если вам нужна помощь в устранении неполадок во время выполнения, см. документацию для соответствующей службы Azure.
 
-    Get-AzureRmResourceProvider -ListAvailable
-
-Он возвращает имена всех доступных поставщиков ресурсов и состояние регистрации:
-
-    ProviderNamespace               RegistrationState ResourceTypes
-    -----------------               ----------------- -------------
-    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
-    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
-    Microsoft.Batch                 Registered        {batchAccounts}
-
-Чтобы зарегистрировать поставщик, используйте командлет **Register-AzureRmResourceProvider** и укажите имя поставщика ресурсов, который необходимо зарегистрировать.
-
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
-
-Появится запрос на подтверждение регистрации, а затем отобразится состояние.
-
-    Confirm
-    Are you sure you want to register the provider 'Microsoft.Cdn'
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
-
-    ProviderNamespace RegistrationState ResourceTypes
-    ----------------- ----------------- -------------
-    Microsoft.Cdn     Registering       {profiles, profiles/endpoints,...
-
-### Инфраструктура CLI Azure
-
-Чтобы узнать, зарегистрирован ли поставщик для использования, выполните в CLI Azure команду `azure provider list` (приведен сокращенный пример вывода).
-
-    azure provider list
-        
-Она возвращает имена всех доступных поставщиков ресурсов и состояние регистрации:
-        
-    info:    Executing command provider list
-    + Getting ARM registered providers
-    data:    Namespace                        Registered
-    data:    -------------------------------  -------------
-    data:    Microsoft.Compute                Registered
-    data:    Microsoft.Network                Registered  
-    data:    Microsoft.Storage                Registered
-    data:    microsoft.visualstudio           Registered
-    ...
-    info:    provider list command OK
-
-Чтобы зарегистрировать поставщик ресурсов, используйте команду `azure provider register` и укажите *пространство имен*, которое следует зарегистрировать.
-
-    azure provider register Microsoft.Cdn
-
-### Интерфейс REST API
-
-Для получения состояния регистрации см. [Получение сведений о поставщике ресурсов](https://msdn.microsoft.com/library/azure/dn790534.aspx).
-
-Для регистрации поставщика см. [Регистрация подписки с поставщиком ресурсов](https://msdn.microsoft.com/library/azure/dn790548.aspx).
-
-## Ошибки расширений пользовательских скриптов
-
-Если при развертывании виртуальной машины возникнет ошибка с расширением пользовательского скрипта, см. статью [Troubleshooting Azure Windows VM extension failures](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md) (Устранение неполадок расширений виртуальных машин Windows в Azure) или [Устранение неполадок расширения виртуальной машины Linux](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
-
-## Сбои при подготовке и выделении виртуальной машины
-
-Если в процессе развертывания виртуальной машины возникает ошибка, связанная с подготовкой образа виртуальной машины или выделением, см. статьи [Устранение неполадок при создании виртуальной машины](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md) и [Устранение неполадок выделения ресурсов](./virtual-machines/virtual-machines-windows-allocation-failure.md).
+| служба | Статья |
+| -------- | -------- |
+| Автоматизация | [Советы по устранению неполадок при возникновении типичных ошибок в службе автоматизации Azure](./automation/automation-troubleshooting-automation-errors.md) | 
+| Azure Stack | [Microsoft Azure Stack troubleshooting](./azure-stack/azure-stack-troubleshooting.md) (Устранение неполадок, связанных с Microsoft Azure Stack) | 
+| Azure Stack | [Web Apps Resource Provider - Known Issues and Troubleshooting](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) (Поставщик ресурсов веб-приложений. Известные проблемы и их решение) | 
+| Фабрика данных | [Устранение неполадок фабрики данных](./data-factory/data-factory-troubleshoot.md) | 
+| Service Fabric | [Устранение распространенных проблем при развертывании служб в Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) | 
+| Site Recovery | [Мониторинг и устранение неполадок защиты виртуальных машин и физических серверов](./site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
+| Хранилище | [Наблюдение, диагностика и устранение неисправностей хранилища Microsoft Azure](./storage/storage-monitoring-diagnosing-troubleshooting.md) |
+| StorSimple | [Устранение неполадок в развертывании устройства StorSimple](./storsimple/storsimple-troubleshoot-deployment.md) | 
+| База данных SQL | [Устранение неполадок подключения к базе данных SQL Azure](./sql-database/sql-database-troubleshoot-common-connection-issues.md) | 
+| Хранилище данных SQL | [Устранение неполадок хранилища данных SQL Azure](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) | 
 
 ## Как понять, что развертывание готово 
 
@@ -235,9 +209,7 @@ Azure Resource Manager сообщает об успешном выполнени
 
 ## Дальнейшие действия
 
-- Сведения об аудите действий см. в статье [Операции аудита с помощью Resource Manager](resource-group-audit.md).
-- Дополнительные сведения об определении ошибок во время развертывания см. в статье [Просмотр операций развертывания](resource-manager-troubleshoot-deployments-portal.md).
-- Устранение ошибок протокола удаленного рабочего стола на виртуальной машине под управлением Windows рассматривается в статье [Устранение неполадок подключений удаленного рабочего стола](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
-- Устранение ошибок Secure Shell на виртуальной машине под управлением Linux рассматривается в статье [Устранение неполадок подключений Secure Shell](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+- Сведения о действиях аудита см. в статье [Операции аудита с помощью Resource Manager](resource-group-audit.md).
+- Дополнительные сведения об определении ошибок во время развертывания см. в статье [Просмотр операций развертывания с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

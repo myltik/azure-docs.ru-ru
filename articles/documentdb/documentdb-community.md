@@ -13,16 +13,12 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="05/09/2016"
+  ms.date="06/21/2016"
   ms.author="andrl"/>
 
 # Портал сообщества
 
-<hr/>
-
 ## В центре внимания сообщества
-
-<hr/>
 
 Пора показать ваш проект миру! Расскажите нам о проекте, в котором используете DocumentDB, и мы поможем вам поделиться своими находками со всем миром. Чтобы отправить проект, напишите нам по адресу [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
@@ -71,37 +67,27 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 Ознакомьтесь с ним на сайтах [Github](https://github.com/yokawasa/fluent-plugin-documentdb) и [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
 
-<br/><br/>
-
 *Узнайте о других проектах DocumentDB с открытым исходным кодом на сайте [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
-
-<br/><br/>
-
-<hr/>
 
 ## Новости, блоги и статьи
 
-<hr/>
-
 Чтобы оставаться в курсе последних новостей о DocumentDB, читайте [наш блог](https://azure.microsoft.com/blog/tag/documentdb/).
-
-<br/>
 
 **Записи участников сообщества:**
 
-* [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/). *Матиас Куарантаас (Matias Quarantaas)*
+* [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) (Создание социальных сетей с помощью DocumentDB). *Матиас Куарантаас (Matias Quarantaas)*
 
-* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/). *Эрик Лангленд (Eric Langland)*
+* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) (UWP, службы приложений Azure и DocumentDB: приложение для обмена фотографиями). *Эрик Лэнгленд (Eric Langland)*
 
-* [**Notifications for new or changed DocumentDB resources using Logic Apps**](documentdb-change-notification.md). *Говард Эдидин (Howard Edidin)*
+* [**Уведомления о новых или измененных ресурсах DocumentDB с использованием приложений логики**](documentdb-change-notification.md). *Ховард Эдидин (Howard Edidin)*
 
-* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/). *Йоичи Кавасаки (Yoichi Kawasaki)*
+* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) (Сбор журналов в Azure DocumentDB с помощью подключаемого модуля fluent-plugin-documentdb). *Йоичи Кавасаки (Yoichi Kawasaki)*
 
-* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/). *Питер Маннехалт (Peter Mannerhult)*
+* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) (Новый взгляд на DocumentDB часть 1 и 2. Теория). *Питер Маннехалт (Peter Mannerhult)*
 
-* [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/). *Джордж Сааде (George Saadeh)*
+* [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) (Преимущества и недостатки Azure DocumentDB). *Джордж Сааде (George Saadeh)*
 
-* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/). *Роберт Шелдон (Robert Sheldon)*
+* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) (Написание сценариев на стороне сервера в Azure DocumentDB). *Роберт Шелдон (Robert Sheldon)*
 
 * [**DocumentDB в качестве приемника данных для Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) — *Ян Хентшель (Jan Hentschel)*
 
@@ -131,24 +117,16 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 * [**Azure DocumentDB. Восстановление из резервной копии на конкретный момент времени**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) — *Хуан Карлос Санчез (Juan Carlos Sanchez)*
 
-<br/><br/>
-
 *У вас есть запись в блоге, пример кода или интересный материал, которым вы хотите поделиться? [Сообщите нам об этом](mailto:askdocdb@microsoft.com)!*
 
-<br/><br/>
-
-<hr/>
-
 ## События и записи
-
-<hr/>
 
 ### Недавно прошедшие и предстоящие мероприятия
 
 | Название мероприятия | Докладчик | Расположение | Дата | Хэш-тег |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Эндрю Лю (Andrew Liu) | Лондон, Великобритания | 12 мая 2016 г. | Недоступно |
-| [Meetup: ONETUG - Orlando .NET User Group](http://www.meetup.com/ONETUG/events/230797164/) | Сантош Хари (Santosh Hari) | Орландо, штат Флорида (США) | 12 мая 2016 г. | [#ONETUG](https://twitter.com/search?q=%23onetug&src=typd) |
+| [Integration and IoT](http://www.btug.be/events) (Интеграция и IoT) | Элдерт Грутенбур (Eldert Grootenboer) | Контих, Бельгия | 30 июня 2016 г. | Недоступно |
+
 
 *Вы являетесь докладчиком или организуете мероприятие? [Мы можем помочь!](mailto:askdocdb@microsoft.com) Узнайте как.*
 
@@ -156,8 +134,10 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 | Название мероприятия | Докладчик | Расположение | Дата | Записи |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
-| [SQLBits XV](https://sqlbits.com/) | Эндрю Лю (Andrew Liu), Аравинд Рамачандран (Aravind Ramachandran) | Ливерпуль, Великобритания | 4–7 мая 2016 г. | Недоступно
-| [Meetup: NYC .NET Developers Group](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Леонард Лоубел (Leonard Lobel) | Нью-Йорк, штат Нью-Йорк | 21 апреля 2016 г. | Недоступно |
+| [Do Logic Apps support error handling?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/?event_date=2016-06-20) (Поддерживают ли приложения логики обработку ошибок?) | Ховард С. Эдидин (Howard S. Edidin) | Веб-трансляция | 20 июня 2016 г. | Недоступно |
+| [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/)| Эндрю Лю (Andrew Liu) | Лондон, Великобритания | 12 мая 2016 г. | Недоступно
+|[Meetup: ONETUG - Orlando .NET User Group](http://www.meetup.com/ONETUG/events/230797164/)| Сантош Хари (Santosh Hari)| Орландо, штат Флорида (США)| 12 мая 2016 г.| Недоступно 
+| [SQLBits XV](https://sqlbits.com/) | Эндрю Лю (Andrew Liu), Аравинд Рамачандран (Aravind Ramachandran) | Ливерпуль, Великобритания | 4–7 мая 2016 г. | Недоступно| [Meetup: NYC .NET Developers Group](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Леонард Лоубел (Leonard Lobel) | Нью-Йорк, штат Нью-Йорк | 21 апреля 2016 г. | Недоступно |
 | [Integration User Group](http://www.integrationusergroup.com/#) | Ховард Эдидин (Howard Edidin) | Вебинар | 25 апреля 2016 г. | Недоступно |
 | [Глобальный учебный курс по Azure — Южная Калифорния](http://xprs.imcreator.com/free/vishalishere/gab2016) | Леонард Лоубел (Leonard Lobel) | Ориндж, штат Калифорния | 16 апреля 2016 г. | Недоступно |
 | [Глобальный учебный курс по Azure — Редмонд](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | Дэвид Мекоген (David Makogon) | Редмонд, штат Вашингтон | 16 апреля 2016 г. | Недоступно |
@@ -174,7 +154,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 | [SQL Saturday № 430 — София, 2015](http://www.sqlsaturday.com/430/Sessions/Details.aspx?sid=36090) | Леонард Лоубел (Leonard Lobel) | София, Болгария | 10 октября 2015 г. | Недоступно |
 | [SQL Saturday № 444 — Канзас-Сити, 2015](http://www.sqlsaturday.com/444/Sessions/Details.aspx?sid=38576) | Джефф Ренц (Jeff Renz) | Канзас-Сити, штат Миссури | 3 октября 2015 г. | Недоступно |
 | [SQL Saturday № 429 — Порту, 2015](http://www.sqlsaturday.com/429/Sessions/Details.aspx?sid=36089) | Леонард Лоубел (Leonard Lobel) | Порту, Португалия | 3 октября 2015 г. | Недоступно |
-| [AzureCon](https://azure.microsoft.com/azurecon/) | Дэвид Мекоген (David Makogon), Райан Кроукур (Ryan Crawcour), Джон Макинтайр (John Macintyre) | Виртуальное мероприятие | 29 сентября 2015 г. | [Платформы данных и аналитики Azure](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[Работа с данными NoSQL в DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
+| [AzureCon](https://azure.microsoft.com/azurecon/) | Дэвид Мекоген (David Makogon), Райан Кроукур (Ryan Crawcour), Джон Макинтайр (John Macintyre) | Виртуальное мероприятие | 29 сентября 2015 г. | [Azure data and analytics platform](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207) (Платформы данных и аналитики Azure) [Working with NoSQL Data in DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) (Работа с данными NoSQL в DocumentDB) |
 | [SQL Saturday № 434 — Нидерланды, 2015](http://www.sqlsaturday.com/434/Sessions/Details.aspx?sid=36413) | Леонард Лоубел (Leonard Lobel) | Утрехт, Нидерланды | 26 сентября 2015 г. | [Введение в Azure DocumentDB](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
 | [SQL Saturday № 441 — Денвер, 2015](http://www.sqlsaturday.com/441/Sessions/Details.aspx?sid=39191) | Джефф Ренц (Jeff Renz) | Денвер, штат Колорадо | 19 сентября, 2015 г. | Недоступно |
 | [Meetup: San Francisco Bay Area Azure Developers](http://www.meetup.com/bayazure/events/223943785/) | Эндрю Лю (Andrew Liu) | Сан-Франциско, Калифорния | 15 сентября 2015 г. | Недоступно |
@@ -189,7 +169,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 | [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Алан Митчелл | Лондон, Великобритания | 19 мая 2015 г. | Недоступно |
 | [DevIntersection](https://devintersection.com/) | Эндрю Лю (Andrew Liu) | Скоттсдейл, штат Аризона | 18–21 мая 2015 г. | Недоступно |
 | [Meetup: Seattle Web App Developers Group](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | Эндрю Лю (Andrew Liu) | Сиэтл, Вайоминг | 14 мая 2015 г. | Недоступно |
-| [Ignite](http://ignite.microsoft.com/) | Эндрю Хо (Andrew Hoh), Джон Макинтайр (John Macintyre) | Чикаго, Иллинойс | 4–8 мая 2015 г. | [Избранное видео по DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB и Azure HDInsight: эффективный альянс (видео)](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
+| [Ignite](http://ignite.microsoft.com/) | Эндрю Хо (Andrew Hoh), Джон Макинтайр (John Macintyre) | Чикаго, Иллинойс | 4–8 мая 2015 г. | [Видео SELECT Latest FROM DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/) (ВЫБОР последнего из DocumentDB) [Видео DocumentDB and Azure HDInsight: Better Together](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) (DocumentDB и Azure HDInsight: эффективный альянс) |
 | [Build 2015](http://www.buildwindows.com/) | Райан Кроукур (Ryan Crawcour) | Сан-Франциско, Калифорния | 29 апреля – 1 мая 2015 г. | [Покоряйте новые горизонты со службой NoSQL Azure: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Глобальный учебный курс по Azure 2015 — Испания](http://azurebootcamp.es/) | Луис Руис Павон (Luis Ruiz Pavon), Роберто Гонсалес (Roberto Gonzalez) | Мадрид, Испания | 25 апреля 2015 г. | [#DEAN DocumentDB + Express + AngularJS + NodeJS в Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
 | [Meetup: Azure Usergroup Denmark](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | Кристиан Холм Диджет (Christian Holm Diget) | Копенгаген, Дания | 16 апреля, 2015 г. | Недоступно |
@@ -230,24 +210,15 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 | Партнер по обучению | Описание |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Виртуальная академия Майкрософт**](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Виртуальная академия Майкрософт предоставляет возможность обучения у специалистов, которые участвуют в создании Azure DocumentDB. |
-| [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>Pluralsight — основной партнер корпорации Майкрософт по обучению Azure. Если вы являетесь подписчиком MSDN, воспользуйтесь своими преимуществами для доступа к курсу обучения Microsoft Azure. |
-| [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>OpsGility предоставляет углубленное техническое обучение по Microsoft Azure. Пройдите обучение под руководством инструктора на месте или с квалифицированными преподавателями удаленно. |
-
-<br/><br/>
-
-<hr/>
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Сайт Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554) предоставляет возможность обучения у специалистов, которые участвуют в создании Azure DocumentDB. |
+| [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) — основной партнер корпорации Майкрософт по обучению Azure. Если вы являетесь подписчиком MSDN, воспользуйтесь своими преимуществами для доступа к курсу обучения Microsoft Azure. |
+| [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**Opsgility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) обеспечивает серьезную техническую подготовку по Microsoft Azure. Пройдите обучение под руководством инструктора на месте или с квалифицированными преподавателями удаленно. |
 
 ## Обсуждение
-
-<hr/>
-
 
 ### Twitter
 
 Читайте нас в Twitter [@DocumentDB](https://twitter.com/DocumentDB) и следите за обсуждениями по хэштегу [#DocumentDB](https://twitter.com/hashtag/DocumentDB).
-
-<br/><br/>
 
 ### Интернет-форумы
 
@@ -256,24 +227,13 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 | [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) | Сайт вопросов и ответов от программистов для программистов, работающих с любыми языками. Наш тег — [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb). |
 | [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655) | Сайт со справочными материалами по компонентам и службам Microsoft Azure, таким как веб-сайты, DocumentDB и пр. |
 
-<br/><br/>
-
-<hr/>
-
 ## Связаться с командой
 
-| | |
-| -------------------------------------------------------- | --- |
-|![Группа](./media/documentdb-community/documentdb-team.png) | Требуется техническая помощь? Есть вопросы? Сомневаетесь, подходит ли вам NoSQL?<br/><br/>Вы можете [запланировать беседу один на один непосредственно с представителем команды разработчиков DocumentDB](http://www.askdocdb.com/).<br/><br/>Также вы можете отправить нам [электронное письмо](mailto:askdocdb@microsoft.com) или твит по адресу [@DocumentDB](https://twitter.com/DocumentDB). |
+![Группа](./media/documentdb-community/documentdb-team.png)
 
-
-<br/><br/>
-
-<hr/>
+Требуется техническая помощь? Есть вопросы? Сомневаетесь, подходит ли вам решение NoSQL? Вы можете [запланировать беседу один на один непосредственно с представителем команды разработчиков DocumentDB](http://www.askdocdb.com/). Вы также можете отправить нам [электронное письмо](mailto:askdocdb@microsoft.com) или твит по адресу [@DocumentDB](https://twitter.com/DocumentDB).
 
 ## Проекты с открытым исходным кодом
-
-<hr/>
 
 Следующие проекты активно разрабатываются командой Azure DocumentDB совместно с представителями сообщества разработчиков.
 
@@ -293,19 +253,19 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 | Соединитель Hadoop | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Инструмент переноса данных | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Центр загрузки Майкрософт](http://www.microsoft.com/ru-RU/download/details.aspx?id=46436) |
 
-<hr/>
-
 ## Мастера DocumentDB
 
-<hr/>
-
 Мастера DocumentDB — это специалисты, продемонстрировавшие исключительную готовность помогать другим эффективно использовать Azure DocumentDB. Они делятся своей увлеченностью, знаниями и опытом с широкой общественностью и командой DocumentDB.
-
-| | | | |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [![Алан Митчелл](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Алан Митчелл (Allan Mitchell)](https://twitter.com/allansqlis) | [![Джен Стиррап](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Джен Стиррап](https://twitter.com/jenstirrup) | [![Ленни Лоубел](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Ленни Лоубел (Lenni Lobel)](https://twitter.com/lennilobel) | [![Михаил Матеев](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Михаил Матеев (Mihail Mateev)](https://twitter.com/mihailmateev)|
-| [![Ларри Маккероне (Larry Maccherone)](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) <br/> [Ларри Маккероне (Larry Maccherone)](https://twitter.com/lmaccherone) | [![Ховард Эдидин (Howard Edidin)](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) <br/> [Ховард Эдидин (Howard Edidin)](https://twitter.com/hsedidin)
+      
+                                                                                                                                                                                                                                                                                                           Wizard | Picture 
+ --- | --- 
+ [Алан Митчелл](https://twitter.com/allansqlis) | [![Алан Митчелл](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) 
+ [Джен Стиррап](https://twitter.com/jenstirrup) | [![Джен Стиррап](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup)            
+ [Ленни Лоубел](https://twitter.com/lennilobel) | [![Ленни Лоубел](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) |          
+ [Михаил Матеев](https://twitter.com/mihailmateev) | [![Михаил Матеев](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) |
+ [Ларри Маккероне (Larry Maccherone)](https://twitter.com/lmaccherone) | [![Ларри Маккероне (Larry Maccherone)](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) 
+ [Ховард Эдидин (Howard Edidin)](https://twitter.com/hsedidin) | [![Ховард Эдидин (Howard Edidin)](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) 
 
 Хотите стать мастером DocumentDB? Несмотря на то, что критериев для отбора мастеров DocumentDB не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, как, например, StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

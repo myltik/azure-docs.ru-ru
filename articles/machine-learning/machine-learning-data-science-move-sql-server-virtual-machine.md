@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;bradsev" />
 
 # Перемещение данных в SQL Server на виртуальной машине Azure
 
-В этой статье описаны варианты перемещения данных из неструктурированных файлов (в формате CSV или TSV) или с локального сервера SQL Server на сервер SQL Server на виртуальной машине Azure. Эти задачи перемещения данных в облако являются частью процесса аналитики Cortana, предоставляемого Azure.
+В этой статье описаны варианты перемещения данных из неструктурированных файлов (в формате CSV или TSV) или с локального сервера SQL Server на сервер SQL Server на виртуальной машине Azure. Эти задачи перемещения данных в облако являются этапом процесса обработки и анализа данных группы.
 
 Описание вариантов перемещения данных в базу данных SQL Azure для машинного обучения см. в разделе [Перемещение данных в базу данных SQL Azure для машинного обучения Azure](machine-learning-data-science-move-sql-azure.md).
 
-**Меню** ниже содержит ссылки на разделы, описывающие прием данных в других целевых средах, где они могут храниться и обрабатываться процессом Cortana Analytics (CAPS).
+Приведенное ниже **меню** содержит ссылки на разделы, описывающие прием данных в других целевых средах, где они могут храниться и обрабатываться процессом обработки и анализа данных группы (TDSP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -224,4 +224,4 @@ SQL Server поддерживает:
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

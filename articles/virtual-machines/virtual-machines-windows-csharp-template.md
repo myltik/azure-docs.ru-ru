@@ -39,9 +39,9 @@
 
 1. Получите список доступных расположений, где можно создавать ресурсы.
 
-	    Get-AzureLocation | sort Name | Select Name
-
-2. Замените значение **$locName** расположением из списка, например **Центральная часть США**. Создайте переменную.
+	    Get-AzureRmLocation | sort Location | Select Location
+        
+2. Замените значение **$locName** расположением из списка, например **centralus**. Создайте переменную.
 
         $locName = "location name"
         
@@ -65,13 +65,13 @@
 1. Замените значение $stName именем учетной записи хранения (только строчные буквы и цифры). Проверьте имя на уникальность.
 
         $stName = "storage account name"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    Если команда возвращает значение **False**, предложенное имя является уникальным.
+    Если команда возвращает значение **True**, предложенное имя является уникальным.
     
 2. Теперь выполните эту команду для создания учетной записи хранения.
     
-        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 3. Замените значение {blob-storage-endpoint} значением конечной точки хранилища BLOB-объектов в вашей учетной записи. Замените свойство {storage-account-name} именем вашей учетной записи хранения. Замените значение {primary-storage-key} значением первичного ключа доступа. Выполните эти команды для создания контейнера, в котором будут храниться файлы. Значения конечной точки и ключа можно получить на портале Azure.
 
@@ -497,4 +497,4 @@
 - При возникновении проблем с развертыванием ознакомьтесь со статьей [Устранение неполадок развертываний групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
 - Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами с помощью диспетчера ресурсов Azure и PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

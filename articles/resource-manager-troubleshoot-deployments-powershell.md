@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="05/19/2016"
+   ms.date="06/14/2016"
    ms.author="tomfitz"/>
 
 # Просмотр операций развертывания с помощью Azure PowerShell
@@ -25,11 +25,89 @@
 - [Интерфейс командной строки Azure](resource-manager-troubleshoot-deployments-cli.md)
 - [ИНТЕРФЕЙС REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-Если при развертывании ресурсов в Azure возникнет ошибка, вам потребуются дополнительные сведения о выполненных операциях развертывания. Azure PowerShell предоставляет командлеты, которые позволяют находить ошибки и определять возможные действия по их исправлению.
+Вы можете просматривать операции развертывания с помощью Azure PowerShell. Чаще всего необходимость просмотреть операции возникает, если во время развертывания произошла ошибка. Таким образом, эта статья посвящена просмотру операций, которые завершились с ошибкой. PowerShell предоставляет командлеты, которые позволяют находить ошибки и определять возможные действия по их исправлению.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
 Некоторых ошибок можно избежать, проверив шаблон и инфраструктуру перед развертыванием. Вы также можете добавлять в журнал дополнительные сведения о запросах и ответах во время развертывания, которые позже могут быть полезны при устранении неполадок. Чтобы узнать о проверке и добавлении в журнал сведений о запросах и ответах, ознакомьтесь с разделом [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](resource-group-template-deploy.md).
+
+## Использование операций развертывания для устранения неполадок
+
+1. Общее состояние развернутой службы можно получить с помощью команды **Get-AzureRmResourceGroupDeployment**. Вы можете отфильтровать результаты, чтобы отобразить только те развертывания, которые завершились сбоем.
+
+        Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+        
+    Будет выведен список развертываний, завершившихся сбоем, в следующем формате:
+        
+        DeploymentName          : Microsoft.Template
+        ResourceGroupName       : ExampleGroup
+        ProvisioningState       : Failed
+        Timestamp               : 6/14/2016 9:55:21 PM
+        Mode                    : Incremental
+        TemplateLink            :
+        Parameters              :
+                    Name                Type                 Value
+                    ===============     ===================  ==========
+                    storageAccountName  String               tfstorage9855
+                    adminUsername       String               tfadmin
+                    adminPassword       SecureString
+                    dnsNameforLBIP      String               dns
+                    vmNamePrefix        String               myVM
+                    imagePublisher      String               MicrosoftWindowsServer
+                    imageOffer          String               WindowsServer
+                    imageSKU            String               2012-R2-Datacenter
+                    lbName              String               myLB
+                    nicNamePrefix       String               nic
+                    publicIPAddressName String               myPublicIP
+                    vnetName            String               myVNET
+                    vmSize              String               Standard_D1
+
+        Outputs                 :
+        DeploymentDebugLogLevel :
+
+2. Каждое развертывание обычно состоит из нескольких операций, каждая из которых представляет шаг процесса развертывания. Чтобы определить, что пошло не так при развертывании, обычно требуется просмотреть сведения об операциях развертывания. Состояние операций можно просмотреть с помощью команды **Get AzureRmResourceGroupDeploymentOperation**.
+
+        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName Microsoft.Template
+        
+    Эта команда возвращает несколько операций, каждая из которых представлена в следующем формате:
+        
+        Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
+        OperationId    : A3EB2DA598E0A780
+        Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2016-06-14T21:55:15.0156208Z;
+                         duration=PT23.0227078S; trackingId=11d376e8-5d6d-4da8-847e-6f23c6443fbf;
+                         serviceRequestId=0196828d-8559-4bf6-b6b8-8b9057cb0e23; statusCode=OK; targetResource=}
+        PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
+                         serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
+
+3. Чтобы получить дополнительные сведения о завершившихся сбоем операциях, получите свойства для операций с состоянием **Failed**.
+
+        (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+        
+    В результате будут возвращены все завершившиеся сбоем операции. Каждая из них будет представлена в следующем формате:
+        
+        provisioningOperation : Create
+        provisioningState     : Failed
+        timestamp             : 2016-06-14T21:54:55.1468068Z
+        duration              : PT3.1449887S
+        trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
+        serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
+        statusCode            : BadRequest
+        statusMessage         : @{error=}
+        targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
+                                Microsoft.Network/publicIPAddresses/myPublicIP;
+                                resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
+
+    Запишите идентификатор отслеживания какой-либо операции. Он понадобится вам на следующем шаге, чтобы рассмотреть конкретную операцию.
+
+4. Чтобы получить сообщение о состоянии конкретной завершившейся сбоем операции, используйте следующую команду:
+
+        ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+        
+    Возвращаемые данные:
+        
+        code           message                                                                        details
+        ----           -------                                                                        -------
+        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 
 ## Использование журналов аудита для устранения неполадок
 
@@ -41,9 +119,9 @@
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
 
-    Можно указать определенный интервал времени. В следующем примере мы будем искать завершившиеся сбоем действия за последние 14 дней.
+    Можно указать определенный интервал времени. В следующем примере мы будем искать завершившиеся сбоем действия за последний день.
 
-        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-1) -Status Failed
       
     Или же можно задать точное время начала и завершения для поиска завершившихся сбоем действий.
 
@@ -51,99 +129,32 @@
 
 2. Если эта команда возвращает слишком много записей и свойств, вы можете ограничить диапазон просмотра свойством **Properties**. Мы также включим параметр **DetailedOutput**, чтобы просмотреть сообщения об ошибках.
 
-        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-1) -DetailedOutput).Properties
         
     Будут выведены свойства записей журнала в следующем формате:
         
         Content
         -------
-        {}
-        {[statusCode, Conflict], [statusMessage, {"Code":"Conflict","Message":"Website with given name mysite already exists...
-        {[statusCode, Conflict], [serviceRequestId, ], [statusMessage, {"Code":"Conflict","Message":"Website with given name...
+        {} 
+        {[statusCode, BadRequest], [statusMessage, {"error":{"code":"DnsRecordInUse","message":"DNS record dns.westus.clouda...
+        {[statusCode, BadRequest], [serviceRequestId, a426f689-5d5a-448d-a2f0-9784d14c900a], [statusMessage, {"error":{"code...
 
-3. Можно уточнить результаты, просмотрев сообщение о состоянии для конкретной записи.
+3. На основании этих результатов рассмотрим второй элемент. Можно уточнить результаты, просмотрев сообщение о состоянии для этой записи.
 
-        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+        ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput -StartTime (Get-Date).AddDays(-1)).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
         
-    Будет выведено сообщение о состоянии в следующем формате:
+    Возвращаемые данные:
         
-        Code       : Conflict
-        Message    : Website with given name mysite already exists.
-        Target     :
-        Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
-        Innererror :
+        code           message                                                                        details
+        ----           -------                                                                        -------
+        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 
 
-## Использование операций развертывания для устранения неполадок
-
-1. Общее состояние развернутой службы можно получить с помощью команды **Get-AzureRmResourceGroupDeployment**. Вы можете отфильтровать результаты, чтобы отобразить только те развертывания, которые завершились сбоем.
-
-        Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
-        
-    Будет выведен список развертываний, завершившихся сбоем, в следующем формате:
-        
-        DeploymentName    : ExampleDeployment
-        ResourceGroupName : ExampleGroup
-        ProvisioningState : Failed
-        Timestamp         : 8/27/2015 8:03:34 PM
-        Mode              : Incremental
-        TemplateLink      :
-        Parameters        :
-        Name             Type                       Value
-        ===============  =========================  ==========
-        siteName         String                     ExampleSite
-        hostingPlanName  String                     ExamplePlan
-        siteLocation     String                     West US
-        sku              String                     Free
-        workerSize       String                     0
-        
-        Outputs           :
-
-2. Каждое развертывание обычно состоит из нескольких операций, каждая из которых представляет шаг процесса развертывания. Чтобы определить, что пошло не так при развертывании, обычно требуется просмотреть сведения об операциях развертывания. Состояние операций можно просмотреть с помощью команды **Get AzureRmResourceGroupDeploymentOperation**.
-
-        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
-        
-    Будут выведены операции в следующем формате:
-        
-        Id          : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/ExampleDeployment/operations/8518B32868A437C8
-        OperationId : 8518B32868A437C8
-        Properties  : @{ProvisioningOperation=Create; ProvisioningState=Failed; Timestamp=2016-03-16T20:05:37.2638161Z;
-                      Duration=PT2.8834832S; TrackingId=192fbfbf-a2e2-40d6-b31d-890861f78ed3; StatusCode=Conflict;
-                      StatusMessage=; TargetResource=}
-
-3. Чтобы получить дополнительные сведения об операции, необходимо извлечь объект **Properties**.
-
-        (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties
-        
-    Будут выведены свойства операции в следующем формате:
-        
-        ProvisioningOperation : Create
-        ProvisioningState     : Failed
-        Timestamp             : 2016-03-16T20:05:37.2638161Z
-        Duration              : PT2.8834832S
-        TrackingId            : 192fbfbf-a2e2-40d6-b31d-890861f78ed3
-        StatusCode            : Conflict
-        StatusMessage         : @{Code=Conflict; Message=Website with given name mysite already exists.; Target=;
-        Details=System.Object[]; Innererror=}
-        TargetResource        : @{Id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
-        Microsoft.Web/Sites/mysite; ResourceType=Microsoft.Web/Sites; ResourceName=mysite}
-
-4. Чтобы сосредоточиться на сообщении о состоянии завершившихся сбоем операций, используйте следующую команду.
-
-        ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage
-        
-    Будет выведено сообщение о состоянии в следующем формате:
-        
-        Code       : Conflict
-        Message    : Website with given name mysite already exists.
-        Target     :
-        Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
-        Innererror :
 
 ## Дальнейшие действия
 
-- Сведения об устранении некоторых ошибок развертывания см. в разделе [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Дополнительные сведения об использовании журналов аудита для отслеживания других типов действий см. в разделе [Операции аудита с помощью диспетчера ресурсов](resource-group-audit.md).
-- Чтобы проверить развернутую службу перед ее выполнением, ознакомьтесь с разделом [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](resource-group-template-deploy.md).
+- Сведения об устранении некоторых ошибок развертывания см. в статье [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- Дополнительные сведения об использовании журналов аудита для отслеживания других типов действий см. в разделе [Операции аудита с помощью Resource Manager](resource-group-audit.md).
+- Чтобы проверить развернутую службу перед ее выполнением, см. раздел [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

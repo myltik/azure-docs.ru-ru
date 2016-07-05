@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/27/2016"
+    ms.date="06/22/2016"
     ms.author="srinia"/>
 
 # Мониторинг пула эластичных баз данных и управление им с помощью PowerShell 
@@ -107,6 +107,8 @@
 
 Для ресурсов можно добавить правила генерации оповещений, чтобы отправлять по электронной почте уведомления или строки оповещения в [конечные точки URL-адресов](https://msdn.microsoft.com/library/mt718036.aspx), когда ресурс достигает заданного порогового значения использования. Используйте командлет Add-AzureRmMetricAlertRule.
 
+> [AZURE.IMPORTANT]В данных мониторинга использования ресурсов в пулах эластичных БД присутствует задержка порядка 20 минут. Настройка периода менее 30 минут для оповещений о пулах эластичных БД в данный момент не поддерживается. Какие-либо оповещения, заданные для пулов эластичных БД, с периодом (параметр -WindowSize в API PowerShell) менее 30 минут, могут быть не активированы. Убедитесь, что все оповещения, определяемые для пулов эластичных БД, используют период (WindowSize) не менее 30 минут.
+
 Этот пример добавляет оповещение, уведомляющее, когда потребление eDTU пула выходит за пределы определенного порогового значения.
 
     # Set up your resource ID configurations
@@ -126,11 +128,13 @@
     $alertName = $poolName + "- DTU consumption rule"
 
     # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail 
+    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail 
 
 ## Добавление оповещений для всех баз данных в пуле
 
 Для всех баз данных в пуле эластичных БД можно добавить правила генерации оповещений, чтобы отправлять по электронной почте уведомления или строки оповещения в [конечные точки URL-адресов](https://msdn.microsoft.com/library/mt718036.aspx), когда ресурс достигает порогового значения использования, определенного в оповещении.
+
+> [AZURE.IMPORTANT] В данных мониторинга использования ресурсов в пулах эластичных БД присутствует задержка порядка 20 минут. Настройка периода менее 30 минут для оповещений о пулах эластичных БД в данный момент не поддерживается. Какие-либо оповещения, заданные для пулов эластичных БД, с периодом (параметр -WindowSize в API PowerShell) менее 30 минут, могут быть не активированы. Убедитесь, что все оповещения, определяемые для пулов эластичных БД, используют период (WindowSize) не менее 30 минут.
 
 Этот пример добавляет оповещение для каждой базы данных в пуле, которое уведомляет, когда потребление DTU этой базы данных превышает определенное пороговое значение.
 
@@ -156,7 +160,7 @@
     $alertName = $db.DatabaseName + "- DTU consumption rule"
 
     # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail
+    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail
 
     # drop the alert rule
     #Remove-AzureRmAlertRule -ResourceGroup $resourceGroupName -Name $alertName
@@ -270,6 +274,6 @@
 ## Дальнейшие действия
 
 - [Создание заданий обработки эластичных баз данных](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение сценариев T-SQL для любого количества баз данных в пуле.
-- См. статью [Развертывание с помощью Базы данных SQL Azure](sql-database-elastic-scale-introduction.md). В ней описывается использование инструментов эластичной базы данных для развертывания, перемещения данных, выполнения запросов и создания транзакций.
+- Ознакомьтесь с разделом [Развертывание с помощью Базы данных SQL Azure](sql-database-elastic-scale-introduction.md). В нем описывается использование инструментов эластичной базы данных для развертывания, перемещения данных, выполнения запросов и создания транзакций.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

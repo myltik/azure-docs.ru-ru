@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/17/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Загрузка образца данных в хранилище данных SQL
 
-Следующим шагом после [создания экземпляра базы данных хранилища данных SQL][create a SQL Data Warehouse database instance] является создание и загрузка нескольких таблиц. Примеры сценариев Adventure Works, разработанные нами для хранилища данных SQL, можно использовать в целях создания и загрузки таблиц для вымышленной компании Adventure Works. Эти сценарии используют sqlcmd для выполнения SQL и bcp для загрузки данных. Если вы еще не установили эти средства, воспользуйтесь следующими ссылками для [установки bcp][] и [sqlcmd][].
+Выполните эти простые действия для загрузки примера базы данных Adventure Works и выполнения запроса к ней. Эти сценарии сначала используют sqlcmd для выполнения инструкций SQL, что приведет к созданию таблиц и представлений. После создания таблицы сценарии используют bcp для загрузки данных. Если вы еще не установили sqlcmd и bcp, воспользуйтесь следующими ссылками для [установки bcp][] и [sqlcmd][].
 
-Выполните эти простые действия для загрузки образца базы данных образца Adventure Works в хранилище данных SQL...
+##Загрузка примера данных
 
-1. Скачайте [примеры сценариев Adventure Works для хранилища данных SQL][].
+1. Скачайте ZIP-файл с [примерами сценариев Adventure Works для хранилища данных SQL][].
 
 2. Извлеките файлы из скачанного ZIP-файла в каталог на локальном компьютере.
 
@@ -43,7 +43,7 @@
 	* собирает статистику по каждому столбцу для каждой таблицы Adventure Works.
 
 
-##Запрос демонстрационных данных
+##Запрос части данных для примера
 
 После загрузки некоторых демонстрационных данных в хранилище данных SQL можно быстро выполнить несколько запросов. Для выполнения запроса подключитесь к недавно созданной базе данных Adventure Works в хранилище данных SQL Azure с помощью Visual Studio и SSDT, как описано в документе о [подключении][].
 
@@ -85,11 +85,10 @@ ORDER BY OrderDateKey;
 [загрузку]: ./sql-data-warehouse-overview-load.md
 [подключении]: ./sql-data-warehouse-get-started-connect.md
 [переносу кода]: ./sql-data-warehouse-migrate-code.md
-[create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
 [установки bcp]: ./sql-data-warehouse-load-with-bcp.md
 [sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
-[примеры сценариев Adventure Works для хранилища данных SQL]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
+[примерами сценариев Adventure Works для хранилища данных SQL]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

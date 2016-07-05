@@ -20,9 +20,9 @@
 
 Чтобы настроить растяжение базы данных для таблицы, выберите **Растяжение | Включить** для таблицы в SQL Server Management Studio. После этого откроется мастер **Включение растяжения для таблицы**. Кроме того, с помощью Transact-SQL вы можете включить базу данных Stretch для существующей таблицы или создать новую таблицу с поддержкой базы данных Stretch.
 
--   Если исторические данные хранятся в отдельной таблице, можно выполнить миграцию всей таблицы.
+-   Если "холодные" данные хранятся в отдельной таблице, можно перенести всю таблицу.
 
--   Если таблица содержит как исторические, так и текущие данные, можно указать предикат фильтра для выбора строк для миграции.
+-   Если таблица содержит как "горячие" (активные), так и "холодные" данные, можно указать предикат фильтра, чтобы выбрать строки для переноса.
 
 **Предварительные требования**. Если при выборе **Растяжение | Включить** для таблицы вы не включили базу данных Stretch для базы данных, то мастер сначала настроит базу данных для базы данных Stretch. В этом случае следуйте указаниям в разделе [Начало работы с запуска мастера "Включение базы данных Stretch"](sql-server-stretch-database-wizard.md) вместо действий, описанных в этом разделе.
 
@@ -65,7 +65,7 @@
 ### Параметры
 При выполнении CREATE TABLE или ALTER TABLE для включения базы данных Stretch для таблицы используйте следующие параметры.
 
--   При необходимости, если таблица содержит как исторические, так и текущие данные, добавьте предложение `FILTER_PREDICATE = <predicate>`, чтобы указать предикат фильтра для выбора строк для переноса. Предикат должен вызывать встроенную функцию табличных значений. Дополнительные сведения см. в статье [Select rows to migrate by using a filter predicate](sql-server-stretch-database-predicate-function.md) (Выбор строк для переноса с помощью предиката фильтра). Если не указать предикат фильтра, будет выполнена миграция всей таблицы.
+-   При необходимости, если таблица содержит как "горячие", так и "холодные" данные, добавьте предложение `FILTER_PREDICATE = <predicate>`, чтобы указать предикат для выбора строк для переноса. Предикат должен вызывать встроенную функцию табличных значений. Дополнительные сведения см. в статье [Select rows to migrate by using a filter predicate](sql-server-stretch-database-predicate-function.md) (Выбор строк для переноса с помощью предиката фильтра). Если не указать предикат фильтра, будет выполнена миграция всей таблицы.
 
     >   [AZURE.NOTE] Если указать предикат фильтра, который работает неэффективно, миграция данных также будет выполняться неэффективно. При растяжении базы данных предикат фильтра применяется к таблице с помощью оператора CROSS APPLY.
 
@@ -77,16 +77,22 @@
 Ниже приведен пример, при котором немедленно начинается миграция всей таблицы.
 
 ```tsql
-ALTER TABLE <table name>
-    SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
+USE <Stretch-enabled database name>;
+GO
+ALTER TABLE <table name>  
+    SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;  
+GO
 ```
 Ниже приведен пример, который переносит только те строки, которые идентифицируются встроенной функцией с табличным значением `dbo.fn_stretchpredicate`, при этом перенос данных откладывается. Дополнительные сведения о предикате фильтра см. в статье [Select rows to migrate by using a filter predicate](sql-server-stretch-database-predicate-function.md) (Выбор строк для переноса с помощью предиката фильтра).
 
 ```tsql
-ALTER TABLE <table name>
-    SET ( REMOTE_DATA_ARCHIVE = ON (
-        FILTER_PREDICATE = dbo.fn_stretchpredicate(date),
-        MIGRATION_STATE = PAUSED ) );
+USE <Stretch-enabled database name>;
+GO
+ALTER TABLE <table name>  
+    SET ( REMOTE_DATA_ARCHIVE = ON (  
+        FILTER_PREDICATE = dbo.fn_stretchpredicate(),  
+        MIGRATION_STATE = PAUSED ) ) ;  
+ GO
 ```
 
 Дополнительные сведения см. в разделе [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
@@ -97,16 +103,25 @@ ALTER TABLE <table name>
 Ниже приведен пример, при котором немедленно начинается миграция всей таблицы.
 
 ```tsql
-CREATE TABLE <table name> ...
-    WITH ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
+USE <Stretch-enabled database name>;
+GO
+CREATE TABLE <table name>
+    ( ... )  
+    WITH ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;  
+GO
 ```
+
 Ниже приведен пример, который переносит только те строки, которые идентифицируются встроенной функцией с табличным значением `dbo.fn_stretchpredicate`, при этом перенос данных откладывается. Дополнительные сведения о предикате фильтра см. в статье [Select rows to migrate by using a filter predicate](sql-server-stretch-database-predicate-function.md) (Выбор строк для переноса с помощью предиката фильтра).
 
 ```tsql
-CREATE TABLE <table name> ...
-    WITH ( REMOTE_DATA_ARCHIVE = ON (
-        FILTER_PREDICATE = dbo.fn_stretchpredicate(date),
-        MIGRATION_STATE = PAUSED ) );
+USE <Stretch-enabled database name>;
+GO
+CREATE TABLE <table name>
+    ( ... )  
+    WITH ( REMOTE_DATA_ARCHIVE = ON (  
+        FILTER_PREDICATE = dbo.fn_stretchpredicate(),  
+        MIGRATION_STATE = PAUSED ) ) ;  
+GO  
 ```
 
 Дополнительные сведения см. в разделе [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx).
@@ -118,4 +133,4 @@ CREATE TABLE <table name> ...
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

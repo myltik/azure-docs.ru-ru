@@ -13,42 +13,92 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="06/21/2016"
    ms.author="navale;tomfitz;"/>
 
 # Пакет SDK .Net для диспетчера ресурсов Azure  
-Пакеты SDK предварительной версии для диспетчера ресурсов Azure (ARM) доступны для нескольких языков и платформ. Каждая из этих языковых реализаций доступна в экосистеме диспетчеров пакетов и на сайте GitHub.
+Пакеты SDK для Azure Resource Manager доступны для нескольких языков и платформ. Каждая из этих языковых реализаций доступна в экосистеме диспетчеров пакетов и на сайте GitHub.
 
 Код в каждом из этих пакетов SDK генерируется из [спецификаций RESTful API Azure](https://github.com/azure/azure-rest-api-specs). Эти спецификации с открытым исходным кодом основаны на спецификации Swagger v2. Код пакета SDK создается в проекте с открытым исходным кодом, который называется [AutoRest](https://github.com/azure/autorest). AutoRest преобразует эти спецификации RESTful API в клиентские библиотеки на нескольких языках. Если требуется изменить какие-либо аспекты созданного кода в пакетах SDK, можно воспользоваться открытым, бесплатным, поддерживающим распространенный формат спецификации API набором средств для создания пакетов SDK.
 
-Пакет SDK Azure для .NET предоставляется как набор пакетов NuGet, который позволяет вызывать большинство API-интерфейсов, предлагаемых диспетчером ресурсов Azure. Если в пакете SDK отсутствуют необходимые функциональные возможности, пакет SDK можно легко объединить с обычными вызовами REST API ARM в фоновом режиме.
+[Пакет SDK Azure для .NET](https://azure.microsoft.com/downloads/) предоставляется как набор пакетов NuGet, который позволяет вызывать большинство API-интерфейсов, предлагаемых Azure Resource Manager. Если в пакете SDK отсутствуют необходимые функциональные возможности, пакет SDK можно легко объединить с обычными вызовами REST API ARM в фоновом режиме.
 
 В этом документе отсутствует описание всех аспектов, связанных с пакетом SDK Azure для .NET, API-интерфейсами ARM Azure или Visual Studio. Он создавался как руководство по быстрому началу работы.
 
 Полный доступный для скачивания пример проекта, из которого были взяты все приведенные ниже фрагменты кода, можно найти [здесь](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net).
 
+## Установка пакетов Nuget
+
+Для выполнения примеров, приведенных в этой статье, требуются два пакета NuGet (в дополнение к пакету Azure SDK для .NET). В Visual Studio щелкните правой кнопкой мыши проект и выберите пункт **Управление пакетами NuGet**.
+
+1. Найдите пакет **Microsoft.IdentityModel.Clients.ActiveDirectory** и установите его последнюю стабильную версию.
+2. Найдите пакет **Microsoft.Azure.Management.ResourceManager** и выберите **Включить предварительные выпуски**. Установите последнюю предварительную версию (например, 1.1.2-preview).
+
 ## Аутентификация
-Проверку подлинности для ARM обрабатывает Azure Active Directory (AD). Чтобы подключиться к любому API, сначала необходимо пройти проверку подлинности в Azure AD для получения маркера проверки подлинности, который можно передать в каждый запрос. Чтобы получить этот маркер, нужно создать приложение Azure AD и субъект-службу, которая будет использоваться для входа. Пошаговые инструкции см. в разделе [Создание приложения Azure AD и субъекта-службы](resource-group-create-service-principal-portal.md).
+Проверка подлинности для Resource Manager осуществляется с помощью Azure Active Directory (AD). Чтобы подключиться к любому API, сначала необходимо пройти проверку подлинности в Azure AD для получения маркера проверки подлинности, который можно передать в каждый запрос. Чтобы получить этот маркер, нужно создать приложение Azure AD и субъект-службу, которая будет использоваться для входа. Пошаговые инструкции приведены в статьях: [Создание приложения Active Directory для доступа к ресурсам с помощью Azure PowerShell](resource-group-authenticate-service-principal.md), [Создание приложения Active Directory для доступа к ресурсам с помощью Azure CLI](resource-group-authenticate-service-principal-cli.md) и [Создание приложения Active Directory с доступом к ресурсам с помощью портала](resource-group-create-service-principal-portal.md). Воспользуйтесь одной из них.
 
 После создания субъекта-службы у вас должны быть указанные ниже значения:
-* Идентификатор клиента (GUID)
-* Секрет клиента (строка)
-* Идентификатор клиента (GUID) или имя домена (строка)
+
+- идентификатор клиента или приложения (GUID);
+- секрет клиента или пароль (строка);
+- Идентификатор клиента (GUID) или имя домена (строка)
 
 ### Получение маркера доступа из кода
 Маркер проверки подлинности можно легко получить с помощью приведенных ниже строк кода, передавая только идентификатор клиента Azure AD, код клиента приложения Azure AD и секрет клиента приложения Azure AD. Сохраните маркер для нескольких запросов, поскольку по умолчанию он является действительным в течение 1 часа.
 
 ```csharp
-private static AuthenticationResult GetAccessToken(string tenantId, string clientId, string clientSecret)
+private static async Task<AuthenticationResult> GetAccessTokenAsync(string tenantId, string clientId, string clientSecret)
 {
     Console.WriteLine("Aquiring Access Token from Azure AD");
     AuthenticationContext authContext = new AuthenticationContext
         ("https://login.windows.net/" /* AAD URI */
-            + $"{tenantId}.onmicrosoft.com" /* Tenant ID or AAD domain */);
+            + $"{tenantId}" /* Tenant ID */);
 
     var credential = new ClientCredential(clientId, clientSecret);
 
-    AuthenticationResult token = authContext.AcquireToken("https://management.azure.com/", credential);
+    var token = await authContext.AcquireTokenAsync("https://management.azure.com/", credential);
+
+    Console.WriteLine($"Token: {token.AccessToken}");
+    return token;
+}
+```
+
+Вместо идентификатора клиента для входа можно использовать домен Active Directory, как показано ниже. При таком подходе требуется изменить подпись метода и добавить в нее имя домена вместо идентификатора клиента.
+
+```csharp
+AuthenticationContext authContext = new AuthenticationContext
+    ("https://login.windows.net/" /* AAD URI */
+    + $"{domain}.onmicrosoft.com");
+```
+
+Вы можете получить маркер доступа для приложения Active Directory, использующего сертификат для проверки подлинности:
+
+```csharp
+private static async Task<AuthenticationResult> GetAccessTokenFromCertAsync(string tenantId, string clientId, string certName)
+{
+    Console.WriteLine("Aquiring Access Token from Azure AD");
+    AuthenticationContext authContext = new AuthenticationContext
+        ("https://login.windows.net/" /* AAD URI */
+        + $"{tenantId}" /* Tenant ID or AAD domain */);
+
+    X509Certificate2 cert = null;
+    X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+
+    try
+    {
+        store.Open(OpenFlags.ReadOnly);
+        var certCollection = store.Certificates;
+        var certs = certCollection.Find(X509FindType.FindBySubjectName, certName, false);
+        cert = certs[0];
+    }
+    finally
+    {
+        store.Close();
+    }
+
+    var certCredential = new ClientAssertionCertificate(clientId, cert);
+
+    var token = await authContext.AcquireTokenAsync("https://management.azure.com/", certCredential);
 
     Console.WriteLine($"Token: {token.AccessToken}");
     return token;
@@ -88,7 +138,7 @@ async private static Task<List<string>> GetSubscriptionsAsync(string token)
 }
 ```
 
-Обратите внимание, что мы получаем из Azure ответ JSON, из которого затем извлекаются идентификаторы подписок с целью возврата списка идентификаторов. Все последующие вызовы к API-интерфейсам Azure ARM в этой документации используют только один идентификатор подписки Azure, поэтому если ваше приложение связано с несколькими подписками, просто выберите нужную из них и передавайте в качестве параметра.
+Обратите внимание, что мы получаем из Azure ответ JSON, из которого затем извлекаются идентификаторы подписок с целью возврата списка идентификаторов. Все последующие вызовы к API-интерфейсам Azure Resource Manager в этой документации используют только один идентификатор подписки Azure, поэтому если ваше приложение связано с несколькими подписками, просто выберите нужную из них и передавайте в качестве параметра.
 
 С этого момента каждый вызов к API-интерфейсам Azure будет использовать пакет SDK Azure SDK для .NET, поэтому код будет немного отличаться.
 
@@ -99,8 +149,14 @@ async private static Task<List<string>> GetSubscriptionsAsync(string token)
 var credentials = new TokenCredentials(token);
 ```
 
+Если у вас установлена более ранняя версия пакета NuGet Resource Manager (с именем **Microsoft.Azure.Management.Resources**), необходимо использовать следующий код:
+
+```csharp
+var credentials = new TokenCloudCredentials(subscriptionId, token.AccessToken);
+```
+
 ## Создание группы ресурсов
-Все действия в Azure сконцентрированы вокруг группы ресурсов, поэтому давайте начнем с создания такой группы. Общие ресурсы и группы ресурсов обрабатывает *ResourceManagementClient*, и как и для любого из следующих более специализированных клиентов управления, которые мы будем использовать, необходимо указать учетные данные, а также идентификатор подписки, чтобы определить необходимую для работы подписку.
+Все действия в Azure сконцентрированы вокруг группы ресурсов, поэтому давайте начнем с создания такой группы. Общие ресурсы и группы ресурсов обрабатывает *ResourceManagementClient*, и чтобы определить необходимую для работы подписку, необходимо, как и для любого из следующих более специализированных клиентов управления, которые мы будем использовать, указать учетные данные, а также идентификатор подписки.
 
 ```csharp
 private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location)
@@ -274,7 +330,7 @@ private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredent
 ```
 
 ### Использование развертывания на основе шаблона
-Прочтите и выполните подробные инструкции о развертывании шаблона из учебника [Развертывание ресурсов Azure с использованием библиотек .NET и шаблона](./virtual-machines/virtual-machines-windows-csharp-template.md).
+Прочтите и выполните подробные инструкции по развертыванию шаблона из руководства о [развертывании ресурсов Azure с использованием библиотек .NET и шаблона](./virtual-machines/virtual-machines-windows-csharp-template.md).
 
 Если кратко, развертывание шаблона гораздо проще подготовки ресурсов вручную. В примере кода ниже показано, как это сделать путем указания на URI, где находится шаблон и файл параметров.
 
@@ -298,4 +354,4 @@ private static async Task<DeploymentExtended> CreateTemplatedDeployment(TokenCre
  
    
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

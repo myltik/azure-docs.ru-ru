@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="sql-database"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="06/16/2016"
 	ms.author="tobiast"/>
 
 # Подключение к базе данных SQL с помощью .NET (C#)
@@ -37,8 +37,16 @@
 * [Подтверждение концепции подключения к SQL с использованием ADO.NET](https://msdn.microsoft.com/library/mt718320.aspx)
 * [Отказоустойчивое подключение к SQL с помощью ADO.NET](https://msdn.microsoft.com/library/mt703195.aspx)
 
-## Дополнительные ресурсы
+## Дальнейшие действия
 
-Сведения о распространенных шаблонах архитектуры данных для мультитенантных приложений базы данных SaaS см. в статье [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* [Создание приложения ASP.NET MVC с проверкой подлинности и базой данных SQL и развертывание службы приложений Azure](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)
+* [Сборка службы с использованием существующей базы данных SQL на внутреннем сервере мобильных служб .NET](../mobile-services/mobile-services-dotnet-backend-use-existing-sql-database.md)
+* Ознакомьтесь с разделом [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md).
+* Получите дополнительные сведения о [драйвере Microsoft ADO.Net для SQL Server](https://msdn.microsoft.com/library/mt657768.aspx).
 
-<!---HONumber=AcomDC_0615_2016-->
+## Дополнительные ресурсы 
+
+* [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
+
+<!---HONumber=AcomDC_0622_2016-->

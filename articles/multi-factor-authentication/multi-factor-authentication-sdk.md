@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="06/16/2016" 
 	ms.author="billmath"/>
 
 # Построение Multi-Factor Authentication в пользовательских приложениях (SDK)
+
+> [AZURE.IMPORTANT]  Если вы хотите скачать пакет SDK, необходимо создать поставщик Azure Multi-Factor Authentication, даже если у вас уже есть лицензии Azure MFA, AAD Premium или EMS. Если вы создаете поставщик Azure Multi-Factor Authentication для этой цели и у вас уже есть лицензии, поставщик нужно создать с использованием модели лицензий **для каждого пользователя**, а затем привязать его к каталогу, который содержит лицензии Azure MFA, Azure AD Premium или EMS. В таком случае с вас не будет взиматься плата, пока количество уникальных пользователей пакета SDK не превысит количество лицензий, которыми вы владеете.
 
 Пакет средств разработки программного обеспечения (SDK) для Azure Multi-Factor Authentication позволяет встроить процедуру проверки телефонного вызова и текстового сообщения прямо в процессы входа или обработки транзакции приложений в клиенте Azure AD.
 
@@ -33,7 +35,7 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 
 ## Загрузка пакета SDK для Azure Multi-Factor Authentication 
 
-Существует два разных способа загрузки пакета SDK для Azure Multi-Factor Authentication. Оба выполняются через портал Azure. Первый способ — это управление поставщиком многофакторной проверки подлинности напрямую. Второй — через параметры службы. Для второго варианта требуется поставщик Multi-Factor Authentication или лицензия Azure MFA, Azure AD Premium или Enterprise Mobility Suite.
+Для скачивания пакета SDK для Azure Multi-Factor Authentication требуется [поставщик Azure Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md). Для этого нужна полная версия подписки Azure, даже если у вас уже есть лицензии Azure MFA, AAD Premium или Enterprise Mobility Suite. Чтобы скачать пакет SDK, необходимо перейти на портал управления Multi-Factor Authentication непосредственно с помощью поставщика Multi-Factor Authentication или щелкнув ссылку **Перейти на портал** на странице параметров службы MFA.
 
 
 ### Загрузка пакета SDK для Azure Multi-Factor Authentication с портала Azure
@@ -191,4 +193,4 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 	    }
 	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

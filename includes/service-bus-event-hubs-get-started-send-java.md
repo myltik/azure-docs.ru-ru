@@ -6,7 +6,7 @@
 <dependency>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-eventhubs</artifactId>
-	<version>0.6.9</version>
+	<version>0.7.2</version>
 </dependency>
 ```
  
@@ -33,7 +33,7 @@ public class Send
 	{
 ```
 
-Замените имя пространства имен и концентратора событий значениями, использованными при создании концентратора событий. `sasKeyName` и `sasKey` соответствуют имени и ключу правила Send, созданного ранее. С помощью этой информации можно создать строку подключения.
+Замените имя пространства имен и концентратора событий значениями, использованными при создании концентратора событий.
 
 ``` Java
 	final String namespaceName = "----ServiceBusNamespaceName-----";
@@ -56,3 +56,5 @@ public class Send
 }
 
 ``` 
+
+<!---HONumber=AcomDC_0622_2016-->

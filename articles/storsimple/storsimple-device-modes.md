@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Изменение режима устройства StorSimple | Microsoft Azure"
+   pageTitle="Изменение режима устройства StorSimple | Microsoft Azure"
    description="В статье описываются режимы устройства StorSimple и объясняется, как изменить режим устройства StorSimple с помощью Windows PowerShell."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="06/17/2016"
    ms.author="alkohli" />
 
 # Переключение режима устройства StorSimple
@@ -98,4 +98,4 @@
 
 Узнайте, как [применить обновления нормального режима и режима обслуживания](storsimple-update-device.md) к своему устройству StorSimple.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

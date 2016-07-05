@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/25/2016"
+    ms.date="06/22/2016"
     ms.author="adegeo"/>
 
 # Подключение ролей облачных служб Azure к контроллеру личного домена AD, размещенному в Azure
 
-Сначала настройте виртуальную сеть (VNET) в Azure. Затем добавьте контроллер домена Active Directory (размещенный на виртуальной машине Azure) к виртуальной сети. Следующим шагом добавьте существующие облачные роли служб в заранее созданную виртуальную сеть и последовательно подключите их к контроллеру домена.
+Сначала настройте виртуальную сеть в Azure. Затем добавьте к ней контроллер домена Active Directory (размещенный на виртуальной машине Azure). После этого добавьте имеющиеся облачные роли служб в заранее созданную виртуальную сеть и последовательно подключите их к контроллеру домена.
 
 Прежде чем начать, пара моментов, которые стоит запомнить:
 
@@ -110,7 +110,7 @@ Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-
     </Dns>
     <!--optional-->
 
-    <!--VNET settings-->
+    <!--VNet settings-->
     <VirtualNetworkSite name="[virtual-network-name]" />
     <AddressAssignments>
         <InstanceAddress roleName="[role-name]">
@@ -119,7 +119,7 @@ Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-
         </Subnets>
         </InstanceAddress>
     </AddressAssignments>
-    <!--VNET settings-->
+    <!--VNet settings-->
 
     </NetworkConfiguration>
 </ServiceConfiguration>
@@ -156,4 +156,4 @@ help New-AzureServiceADDomainExtensionConfig
 
 Так же хотелось бы получить от вас отзыв по поводу того, будет ли полезным расширение, которое повышает уровень виртуальной машины до контроллера домена. Если думаете, что будет, дайте нам знать в разделе комментариев.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->
