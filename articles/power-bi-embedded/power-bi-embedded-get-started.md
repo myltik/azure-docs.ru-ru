@@ -3,7 +3,7 @@
    description="Power BI Embedded, добавление интерактивных отчетов Power BI в приложение бизнес-аналитики"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,12 +13,12 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/24/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Начало работы с Microsoft Power BI Embedded (предварительная версия)
 
-**Microsoft Power BI Embedded** — это служба Azure, которая позволяет разработчикам приложений добавлять интерактивные отчеты Power BI в свои приложения. **Power BI Embedded** работает с существующими приложениями. Для ее использования не нужно изменять ни сами приложения, ни способ входа пользователей.
+**Power BI Embedded** — это служба Azure, которая позволяет разработчикам приложений добавлять интерактивные отчеты Power BI в свои приложения. **Power BI Embedded** работает с существующими приложениями. Для ее использования не нужно изменять ни сами приложения, ни способ входа пользователей.
 
 Дополнительные сведения о Power BI Embedded см. в статье [Что такое Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md).
 
@@ -107,4 +107,4 @@
 - [Power BI Desktop;](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Цены на Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/04/2016"
+	ms.date="06/27/2016"
 	ms.author="jgao"/>
 
 
@@ -34,16 +34,16 @@
 Перед началом работы с этим учебником необходимо иметь следующее:
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Secure Shell (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
+- [Secure Shell (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md).
 - [curl](http://curl.haxx.se/download.html).
 
 ## Создание кластера HBase
 
 Следующая процедура предполагает использование шаблона Azure ARM для создания кластера HBase. Описание параметров, используемых в процедуре, и других методов создания кластеров см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Щелкните следующие изображение, чтобы открыть шаблон ARM на портале Azure. Шаблон ARM расположен в общедоступном контейнере больших двоичных объектов. 
+1. Щелкните следующие изображение, чтобы открыть шаблон ARM на портале Azure. Шаблон ARM расположен в общедоступном контейнере больших двоичных объектов.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. В колонке **Параметры** заполните следующие поля.
 
@@ -61,7 +61,7 @@
 6. Щелкните **Создать**. Процесс создания кластера занимает около 20 минут.
 
 
->[AZURE.NOTE] После удаления кластера HBase можно создать другой кластер HBase, использовав тот же контейнер BLOB-объектов по умолчанию. Таблицы HBase, созданные в исходном кластере, получит новый кластер.
+>[AZURE.NOTE] После удаления кластера HBase можно создать другой кластер HBase, использовав тот же контейнер BLOB-объектов по умолчанию. Таблицы HBase, созданные в исходном кластере, получит новый кластер. Перед удалением кластера рекомендуется отключить таблицы HBase, чтобы предотвратить несогласованности.
 
 ## Создание таблиц и вставка данных
 
@@ -111,12 +111,14 @@
 
 		exit
 
+
+
 **Для массовой загрузки данных в таблицу контактов HBase**
 
 HBase включает несколько методов загрузки данных в таблицы. Для получения дополнительных сведений обратитесь к разделу [Массовая загрузка](http://hbase.apache.org/book.html#arch.bulk.load).
 
 
-Пример файла данных был отправлен в открытый контейнер BLOB-объекта **wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*. Файл данных содержит:
+Пример файла данных был отправлен в открытый контейнер BLOB-объекта *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*. Файл данных содержит:
 
 	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
 	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
@@ -152,7 +154,7 @@ HBase включает несколько методов загрузки дан
 1. Откройте **PuTTY** и подключитесь к кластеру. См. инструкции в приведенной выше процедуре.
 2. Откройте оболочку Hive.
 
-	hive
+	   hive
 3. Выполните приведенный ниже сценарий HiveQL, чтобы создать таблицу Hive, сопоставляемую с таблицей HBase. Перед выполнением этого оператора убедитесь, что вы создали упомянутый в этом учебнике пример таблицы с помощью оболочки HBase.
 
 		CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -174,34 +176,59 @@ HBase включает несколько методов загрузки дан
 
 1. Используйте следующую команду в командной строке, чтобы проверить возможность подключения к кластеру HDInsight:
 
-		curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+		curl -u <UserName>:<Password> \
+		-G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
 
 	Вы должны получить ответ, аналогичный показанному ниже:
 
-    {"status":"ok","version":"v1"}
+		{"status":"ok","version":"v1"}
 
-  Ниже приведены параметры, используемые в этой команде:
+	Ниже приведены параметры, используемые в этой команде.
 
-    * **-u** - The user name and password used to authenticate the request.
-    * **-G** - Indicates that this is a GET request.
+	* **-u** — имя пользователя и пароль, используемый для аутентификации запроса.
+	* **-G** — указывает, что это запрос GET.
 
 2. Для получения списка существующих таблиц HBase используйте следующую команду:
 
-		curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+		curl -u <UserName>:<Password> \
+		-G https://<ClusterName>.azurehdinsight.net/hbaserest/
 
 3. Для создания новой таблицы HBase с двумя семействами столбцов используйте следующую команду:
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{"@name":"test","ColumnSchema":[{"name":"Personal"},{"name":"Office"}]}"
+		curl -u <UserName>:<Password> \
+		-X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
+		-H "Accept: application/json" \
+		-H "Content-Type: application/json" \
+		-d "{"@name":"Contact1","ColumnSchema":[{"name":"Personal"},{"name":"Office"}]}" \
+		-v
 
 	Схема предоставляется в формате JSON.
 
 4. Чтобы вставить какие-либо данные, используйте следующую команду:
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{"Row":{"key":"1000","Cell":{"column":"Personal:Name", "$":"John Dole"}}}"
+		curl -u <UserName>:<Password> \
+		-X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
+		-H "Accept: application/json" \
+		-H "Content-Type: application/json" \
+		-d "{"Row":{"key":"MTAwMA==","Cell":{"column":"UGVyc29uYWw6TmFtZQ==", "$":"Sm9obiBEb2xl"}}}" \
+		-v
+
+	Необходимо закодировать значения, указанные в параметре -d, используя кодировку base64. В примере:
+
+	- MTAwMA==: 1000;
+	- UGVyc29uYWw6TmFtZQ==: Peronsal:Name;
+	- Sm9obiBEb2xl: John Dole.
+
+	[false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) позволяет вставить несколько (пакетных) значений.
 
 5. Для получения строки используйте следующую команду:
 
-		curl -u <UserName>:<Password> -v -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" -H "Accept: application/json"
+		curl -u <UserName>:<Password> \
+		-X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
+		-H "Accept: application/json" \
+		-v
+
+Дополнительные сведения см. в [справочнике по Apache HBase](https://hbase.apache.org/book.html#_rest).
 
 ## Проверка состояния кластера
 
@@ -211,7 +238,7 @@ SSH может также использоваться для туннелиро
 
 **Создание сеанса туннелирования SSH **
 
-1. Откройте **PuTTY**.  
+1. Откройте **PuTTY**.
 2. Если при создании учетной записи пользователя вы указали ключ SSH, выполните следующий шаг, чтобы выбрать закрытый ключ, который будет использоваться при проверке подлинности в кластере.
 
 	В разделе **Категория** последовательно разверните **Подключение**, **SSH** и выберите **Аутентификация**. Наконец, нажмите кнопку **Обзор** и выберите PPK-файл, содержащий закрытый ключ.
@@ -220,7 +247,7 @@ SSH может также использоваться для туннелиро
 4. На экране "Основные параметры вашего сеанса PuTTY" введите следующие значения:
 
 	- **Имя узла**: адрес SSH вашего сервера HDInsight в поле «Имя узла» (или «IP-адрес»). Адрес SSH — это имя кластера с суффиксом **-ssh.azurehdinsight.net**. Например, *mycluster-ssh.azurehdinsight.net*.
-	- **Порт**: 22. Порт SSH в головном узле 0 — 22.  
+	- **Порт**: 22. Порт SSH в головном узле 0 — 22.
 5. В разделе **Категория** в левой части диалогового окна последовательно разверните узлы **Подключение** и **SSH**, а затем щелкните **Туннели**.
 6. Введите следующую информацию в форме "Параметры, управляющие перенаправлением портов SSH":
 
@@ -232,7 +259,7 @@ SSH может также использоваться для туннелиро
 
 **Поиск FQDN для Zookeeper с помощью Ambari**
 
-1. Перейдите по адресу https://<ClusterName>.azurehdinsight.net/.
+1. Перейдите по адресу https://<имя\_кластера>.azurehdinsight.net/.
 2. Дважды введите данные учетной записи кластера пользователя.
 3. В меню слева выберите пункт **Zookeeper**.
 4. Щелкните одну из трех ссылок **Сервер Zookeeper** в списке «Сводка».
@@ -252,15 +279,18 @@ SSH может также использоваться для туннелиро
 	- **SOCKS v5**: (выбрано).
 	- **Remote DNS** (Удаленный DNS): (выбрано).
 7. Нажмите кнопку **Сохранить**, чтобы сохранить изменения.
-8. Перейдите по адресу http://<TheFQDN of a ZooKeeper>:60010/master-status.
+8. Перейдите по адресу http://&lt;Theполное\_доменное\_имя\_ZooKeeper>:60010/master-status.
 
 В высокодоступном кластере вы найдете ссылку на текущий активный главный узел HBase, где размещается веб-интерфейс.
 
 ##Удаление кластера
 
+Перед удалением кластера рекомендуется отключить таблицы HBase, чтобы предотвратить несогласованности.
+
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Дальнейшие действия
+
 Из этого руководства по HBase для HDInsight вы узнали, как создать кластер HBase, а также как создавать таблицы и просматривать данные в них из оболочки HBase. Вы также узнали, как использовать Hive для запроса данных из таблиц HBase и как использовать интерфейсы REST API на C# для HBase для создания таблицы HBase и извлечения данных из таблицы.
 
 Дополнительные сведения см. на следующих ресурсах:
@@ -295,4 +325,4 @@ SSH может также использоваться для туннелиро
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

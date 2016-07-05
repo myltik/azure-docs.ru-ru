@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Единый интерфейс Office 365 на всех устройствах c Azure RemoteApp | Microsoft Azure"
+   pageTitle="Единый интерфейс Office 365 на всех устройствах c Azure RemoteApp | Microsoft Azure"
    description="Узнайте, как опубликовать приложение Office 365 для своих пользователей с помощью Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/05/2016"
+   ms.date="06/27/2016"
    ms.author="guscatal;elizapo"/>
 
 
@@ -63,4 +63,4 @@
 
 ![PowerPoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
 
-<!---HONumber=AcomDC_0406_2016--->
+<!---HONumber=AcomDC_0629_2016-->

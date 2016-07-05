@@ -3,7 +3,7 @@
    description="Microsoft Power BI Embedded (предварительная версия) — базовый код для интеграции отчета в приложение, сведения о выполнении проверки подлинности с помощью маркера приложения Power BI Embedded, а также информация о получении отчетов"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Внедрение отчета Power BI с помощью IFrame
 В этой статье приведен базовый код для использования REST API **Power BI Embedded**, маркеры приложения, IFrame и код JavaScript, с помощью которых можно интегрировать или внедрить отчет в приложение.
@@ -228,4 +228,4 @@ $filter=Store/Chain%20eq%20'Lindseys'
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [Get Reports (Получение отчета)](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

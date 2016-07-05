@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/01/2016"
+   	ms.date="06/28/2016"
    	ms.author="jgao"/>
 
 # Публикация приложений HDInsight в Azure Marketplace
@@ -64,17 +64,17 @@
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. См. пример из статьи [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) (Установка пользовательских приложений HDInsight).
 
-	>[AZURE.IMPORTANT] Имя скрипта установки приложения должно быть уникальным для определенного кластера и иметь следующий формат:
+	>[AZURE.IMPORTANT] Имя скрипта установки приложения должно быть уникальным для определенного кластера и иметь следующий формат: Кроме того, любые действия скриптов установки и удаления должны быть идемпотентными. Это значит, что скрипты можно вызывать повторно с тем же результатом.
 	
 	>	name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
 		
 	>Обратите внимание, что имя скрипта состоит из трех частей:
 		
-	>	1. Префикс имени, который состоит из имени приложения или имени, которое связано с приложением.
-	>	2. Дефис (-) для удобства чтения.
-	>	3. Уникальная строковая функция с именем приложения в качестве параметра.
+	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
+	>	2. A "-" for readability.
+	>	3. A unique string function with the application name as the parameter.
 
-	>	Например, в сохраненном списке действий скрипта приведенное выше имя будет выглядеть так: hue-install-v0-4wkahss55hlas. Пример полезных данных JSON см. здесь: [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
 
 - Все необходимые скрипты.
 
@@ -98,4 +98,4 @@
 - [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md) — узнайте, как использовать действие скрипта для установки дополнительных приложений.
 - [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) — узнайте, как вызывать шаблоны ARM для создания кластеров HDInsight.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->
