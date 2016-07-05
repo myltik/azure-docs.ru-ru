@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/16/2016"
+     ms.date="06/23/2016"
      ms.author="dobett"/>
 
 # Приступая к работе с центром Azure IoT с использованием Java
@@ -38,17 +38,17 @@
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Наконец, в колонке "Центр IoT" щелкните **Параметры**, а затем в колонке **Параметры** щелкните **Сообщения**. В колонке **Сообщения** запишите значения полей **Event Hub-compatible name** (Имя, совместимое с концентраторами событий) и **Event Hub-compatible endpoint** (Конечная точка, совместимая с концентраторами событий). Эти значения понадобятся при создании приложения **read-d2c-messages**.
+Наконец, запишите значение в поле **Первичный ключ**, в колонке "Центр IoT" щелкните **Параметры**, а затем в колонке **Параметры** щелкните **Сообщения**. В колонке **Сообщения** запишите значения полей **Имя, совместимое с концентратором событий** и **Конечная точка, совместимая с концентратором событий**. Эти три значения понадобятся при создании приложения **read-d2c-messages**.
 
 ![][6]
 
-Вы создали центр IoT, и у вас есть все необходимое для выполнения оставшейся части этого руководства: имя узла центра IoT, строка подключения к центру IoT, имя и конечная точка, совместимые с концентраторами событий.
+Вы создали центр IoT, и у вас есть все необходимое для выполнения оставшейся части этого руководства: имя узла центра IoT, строка подключения к центру IoT, первичный ключ центра IoT, имя и конечная точка, совместимые с концентратором событий.
 
 ## Создание удостоверения устройства
 
 В этом разделе вам предстоит написать консольное приложение Java, которое создает новое удостоверение устройства в реестре удостоверений в центре IoT. Устройство может подключиться к центру IoT, только если в реестре удостоверений устройств есть соответствующая запись. Более подробную информацию см. в разделе **Реестр удостоверений устройств** [руководства разработчика по центру IoT][lnk-devguide-identity]. При запуске этого консольного приложения создается уникальный идентификатор устройства и ключ, с помощью которых выполняется идентификация во время отправки сообщений из устройства в облако для центра IoT.
 
-1. Создайте новую пустую папку с именем iot-java-get-started. В папке iot-java-get-started создайте проект Maven с именем **create-device-identity**, используя следующую команду в командной строке: Обратите внимание: это одна длинная команда.
+1. Создайте новую пустую папку с именем iot-java-get-started. В папке iot-java-get-started создайте проект Maven с именем **create-device-identity**, используя следующую команду в командной строке. Обратите внимание: это одна длинная команда.
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=create-device-identity -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -62,7 +62,7 @@
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.7</version>
     </dependency>
     ```
     
@@ -70,7 +70,7 @@
 
 5. Откройте в текстовом редакторе файл create-device-identity\\src\\main\\java\\com\\mycompany\\app\\App.jav.
 
-6. Добавьте в файл следующие инструкции **import**:
+6. Добавьте в файл следующие инструкции **import**.
 
     ```
     import com.microsoft.azure.iot.service.exceptions.IotHubException;
@@ -81,10 +81,10 @@
     import java.net.URISyntaxException;
     ```
 
-7. Добавьте следующие переменные уровня класса в класс **App**, заменив **{yourhostname}** и **{yourhubkey}** значениями, записанными ранее.
+7. Добавьте следующие переменные уровня класса в класс **App**, заменив **{yourhubconnectionstring}** значениями, записанными ранее:
 
     ```
-    private static final String connectionString = "HostName={yourhostname};SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
+    private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "javadevice";
     
     ```
@@ -295,7 +295,7 @@
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.8</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -317,12 +317,12 @@
     import com.microsoft.azure.iothub.IotHubStatusCode;
     import com.microsoft.azure.iothub.IotHubEventCallback;
     import com.microsoft.azure.iothub.IotHubMessageResult;
+    import com.google.gson.Gson;
     import java.io.IOException;
     import java.net.URISyntaxException;
-    import java.security.InvalidKeyException;
     import java.util.Random;
-    import javax.naming.SizeLimitExceededException;
-    import com.google.gson.Gson;
+    import java.util.concurrent.Executors;
+    import java.util.concurrent.ExecutorService;
     ```
 
 7. Добавьте следующие переменные уровня класса в класс **App**, заменив **{youriothubname}** именем центра IoT, а **{yourdeviceid}** и **{yourdevicekey}** — значениями для устройства, сформированными при работе с разделом *Создание удостоверения устройства*:
@@ -330,7 +330,8 @@
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
     private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
-    private static boolean stopThread = false;
+    private static String deviceId = "{yourdeviceid}";
+    private static DeviceClient client;
     ```
 
     При создании экземпляра объекта **DeviceClient** в этом примере приложения используется переменная **protocol**. Для взаимодействия с центром IoT можно использовать протокол HTTPS или AMQPS.
@@ -355,7 +356,7 @@
     private static class EventCallback implements IotHubEventCallback
     {
       public void execute(IotHubStatusCode status, Object context) {
-        System.out.println("IoT Hub responded to message with status " + status.name());
+        System.out.println("IoT Hub responded to message with status: " + status.name());
       
         if (context != null) {
           synchronized (context) {
@@ -371,37 +372,33 @@
     ```
     private static class MessageSender implements Runnable {
       public volatile boolean stopThread = false;
-
+      
       public void run()  {
         try {
           double avgWindSpeed = 10; // m/s
           Random rand = new Random();
-          DeviceClient client;
-          client = new DeviceClient(connString, protocol);
-          client.open();
-        
+          
           while (!stopThread) {
             double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
             TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
-            telemetryDataPoint.deviceId = "myFirstDevice";
+            telemetryDataPoint.deviceId = deviceId;
             telemetryDataPoint.windSpeed = currentWindSpeed;
-      
+            
             String msgStr = telemetryDataPoint.serialize();
             Message msg = new Message(msgStr);
-            System.out.println(msgStr);
-        
+            System.out.println("Sending: " + msgStr);
+            
             Object lockobj = new Object();
             EventCallback callback = new EventCallback();
             client.sendEventAsync(msg, callback, lockobj);
-    
+            
             synchronized (lockobj) {
               lockobj.wait();
             }
             Thread.sleep(1000);
           }
-          client.close();
-        } catch (Exception e) {
-          e.printStackTrace();
+        } catch (InterruptedException e) {
+          System.out.println("Finished.");
         }
       }
     }
@@ -413,14 +410,18 @@
 
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException {
-    
-      MessageSender ms0 = new MessageSender();
-      Thread t0 = new Thread(ms0);
-      t0.start(); 
-    
+      client = new DeviceClient(connString, protocol);
+      client.open();
+
+      MessageSender sender = new MessageSender();
+
+      ExecutorService executor = Executors.newFixedThreadPool(1);
+      executor.execute(sender);
+
       System.out.println("Press ENTER to exit.");
       System.in.read();
-      ms0.stopThread = true;
+      executor.shutdownNow();
+      client.close();
     }
     ```
 
@@ -441,15 +442,7 @@
 1. Чтобы начать мониторинг первой секции в центре IoT, в командной строке в папке read-d2c выполните следующую команду:
 
     ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"  -Dexec.args="0"
-    ```
-
-    ![][7]
-
-1. Чтобы начать мониторинг второй секции в центре IoT, в командной строке в папке read-d2c выполните следующую команду:
-
-    ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"  -Dexec.args="1"
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
     ![][7]
@@ -462,7 +455,7 @@
 
     ![][8]
 
-3. На плитке **Использование** на [портале Azure][lnk-portal] отображается количество сообщений, отправленных в центр.
+3. На плитке **Использование** на [портале Azure][lnk-portal] отображается количество сообщений, отправленных в центр:
 
     ![][43]
 
@@ -478,7 +471,7 @@
 [6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-java-java-getstarted/runapp1.png
 [8]: ./media/iot-hub-java-java-getstarted/runapp2.png
-[43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
+[43]: ./media/iot-hub-java-java-getstarted/usage.png
 
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
@@ -488,7 +481,7 @@
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+[lnk-c2d-tutorial]: iot-hub-java-java-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
@@ -496,4 +489,4 @@
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

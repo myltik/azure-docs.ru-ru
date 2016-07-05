@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/16/2016" 
+	ms.date="06/29/2016" 
 	ms.author="billmath"/>
 
 
@@ -46,7 +46,7 @@
 	2. **Каталог** — клиент Azure Active Directory, с которым связан поставщик Multi-Factor Authentication. Обратите внимание на такие моменты:
 		- Каталог Azure AD не требуется для создания поставщика Multi-Factor Authentication. Если вы планируете использовать только сервер Azure Multi-Factor Authentication или пакет SDK, это поле можно оставить пустым.
 		- Чтобы пользоваться преимуществами расширенных функций, необходимо связать поставщик Azure MFA с каталогом Azure AD.
-		- Средства синхронизации Azure AD Connect, AAD Sync или DirSync требуются только при синхронизации локальной среды Active Directory с каталогом Azure AD. Если вы используете только один несинхронизированный каталог Azure AD: ![Создание поставщика MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)	
-5. После нажатия кнопки "Создать" будет создан поставщик Multi-Factor Authentication и появится сообщение **Поставщик Multi-Factor Authentication успешно создан**. Нажмите кнопку **ОК**. ![Создание поставщика MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)	
+		- Средства синхронизации Azure AD Connect, AAD Sync или DirSync требуются только при синхронизации локальной среды Active Directory с каталогом Azure AD. Если вы используете только один несинхронизированный каталог Azure AD, синхронизация не требуется. ![Создание поставщика MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
+5. После нажатия кнопки "Создать" будет создан поставщик Multi-Factor Authentication и появится сообщение **Поставщик Multi-Factor Authentication успешно создан**. Нажмите кнопку **ОК**. ![Создание поставщика MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

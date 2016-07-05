@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Настройка присоединения к Azure AD в организации
@@ -32,9 +32,9 @@
 3. На вкладке **Каталог** выберите требуемый каталог.
 4. Перейдите на вкладку **Настройка**.
 5. Откройте раздел **Устройства**.
-6. На вкладке **устройства** задайте указанные ниже настройки.  
+6. На вкладке **устройства** задайте указанные ниже настройки.
    * **Максимальное количество устройств на пользователя**: выберите максимальное количество устройств, которое пользователь может иметь в Azure AD. По достижении этой квоты пользователь больше не сможет добавлять дополнительные устройства до тех пор, пока не будут удалены одно или несколько существующих устройств.
-   * **Требовать многофакторной проверки подлинности для присоединения устройств**: укажите, следует ли пользователям предоставлять второй фактор проверки подлинности для присоединения устройства к Azure AD. Дополнительные сведения о Azure Multi-Factor Authentication см. в разделе [Приступая к работе с Azure Multi-Factor Authentication в облаке](multi-factor-authentication-get-started-cloud/).
+   * **Требовать многофакторной проверки подлинности для присоединения устройств**: укажите, следует ли пользователям предоставлять второй фактор проверки подлинности для присоединения устройства к Azure AD. Дополнительные сведения об Azure Multi-Factor Authentication см. в статье [Приступая к работе с Azure Multi-Factor Authentication в облаке](..\multi-factor-authentication\multi-factor-authentication-get-started-cloud.md).
    * **Пользователи, которые могут присоединять устройства к Azure AD**: выберите пользователей и группы, которым разрешено присоединять устройства к Azure AD.
    * **Дополнительные администраторы присоединенных к Azure AD устройств**: в Azure AD Premium или Enterprise Mobility Suite (EMS) можно выбрать, каким пользователям предоставляются права локального администратора на устройстве. По умолчанию права локального администратора предоставляются глобальным администраторам и владельцам устройств.
 
@@ -49,10 +49,10 @@
 - Добавление пользователями рабочих или учебных учетных записей Windows на личные устройства.
 
 ## Дополнительная информация
-* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
-* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->
