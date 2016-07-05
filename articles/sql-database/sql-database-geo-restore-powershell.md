@@ -12,17 +12,17 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="05/10/2016"
+    ms.workload="sqldb-bcdr" 
+    ms.date="06/17/2016"
     ms.author="sstein"/>
 
 # Восстановление базы данных SQL Azure из геоизбыточной резервной копии с помощью PowerShell
+
 
 > [AZURE.SELECTOR]
 - [Обзор](sql-database-geo-restore.md)
 - [Портал Azure](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
-
 
 В этой статье показано, как восстановить базу данных на новый сервер с помощью геовосстановления и PowerShell.
 
@@ -51,13 +51,13 @@
 
 ## Дальнейшие действия
 
-- [Финализация восстановленной Базы данных SQL Azure](sql-database-recovered-finalize.md)
-- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
+- Подробные инструкции по восстановлению базы данных SQL Azure с помощью портала Azure из геоизбыточной резервной копии см. в разделе [Геовосстановление базы данных SQL Azure из геоизбыточной резервной копии с помощью портала Azure](sql-database-geo-restore-portal.md).
+- Дополнительные подробные сведения о восстановлении базы данных SQL Azure из геоизбыточной резервной копии см. в разделе[Восстановление базы данных SQL Azure из геоизбыточной резервной копии с помощью PowerShell](sql-database-geo-restore.md).
+- Подробное обсуждение восстановления после сбоя см. в разделе [Восстановление базы данных SQL Azure или переход на базу данных-получатель при отказе](sql-database-disaster-recovery.md).
 
 
 ## Дополнительные ресурсы
 
-- [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Сценарии обеспечения непрерывности бизнес-процессов](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

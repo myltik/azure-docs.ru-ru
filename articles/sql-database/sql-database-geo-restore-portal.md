@@ -10,9 +10,9 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="06/17/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -41,14 +41,12 @@
 
 ## Дальнейшие действия
 
-- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
-- [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
-
+- Подробные инструкции по восстановлению базы данных SQL Azure с помощью портала Azure из геоизбыточной резервной копии см. в разделе [Геовосстановление базы данных SQL Azure из геоизбыточной резервной копии с помощью портала Azure](sql-database-geo-restore-portal.md).
+- Дополнительные подробные сведения о восстановлении базы данных SQL Azure из геоизбыточной резервной копии см. в разделе[Восстановление базы данных SQL Azure из геоизбыточной резервной копии с помощью PowerShell](sql-database-geo-restore.md).
+- Подробное обсуждение восстановления после сбоя см. в разделе [Восстановление базы данных SQL Azure или переход на базу данных-получатель при отказе](sql-database-disaster-recovery.md).
 
 ## Дополнительные ресурсы
 
-- [Геовосстановление](sql-database-geo-restore.md)
-- [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Сценарии обеспечения непрерывности бизнес-процессов](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

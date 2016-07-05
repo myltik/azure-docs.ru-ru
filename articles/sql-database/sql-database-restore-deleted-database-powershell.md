@@ -12,7 +12,7 @@
 	ms.devlang="NA"
 	ms.date="06/09/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -49,18 +49,17 @@
 
 ## Дальнейшие действия
 
-- [Финализация восстановленной Базы данных SQL Azure](sql-database-recovered-finalize.md)
-- [Восстановление удаленной базы данных.](sql-database-restore-deleted-database.md)
-- [Восстановление удаленной базы данных SQL Azure на портале Azure](sql-database-restore-deleted-database-portal.md)
-- [Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) (Создание и обновление базы данных)
-- [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md)
+- Подробные инструкции по восстановлению удаленной базы данных с помощью портала Azure см. в разделе [Восстановление удаленной базы данных SQL Azure на портале Azure](sql-database-restore-deleted-database-portal.md).
+- Чтобы узнать, как восстановить удаленную базу данных с помощью REST API, [ознакомьтесь с данной процедурой](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- Подробные сведения о восстановлении удаленной базы данных см. в разделе [Восстановление удаленной базы данных](sql-database-restore-deleted-database.md).
+- Подробные сведения об автоматически создаваемых резервных копиях базы данных SQL Azure см. в разделе [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md).
 
 ## Дополнительные ресурсы
 
-- [Восстановление состояния системы в определенной временной точке](sql-database-point-in-time-restore.md)
+- [Восстановление до точки во времени](sql-database-point-in-time-restore.md)
 - [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
 - [Геовосстановление](sql-database-geo-restore.md)
 - [Активная георепликация](sql-database-geo-replication-overview.md)
 - [Проектирование приложений для аварийного восстановления в облаке](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

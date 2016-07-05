@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Создание набора масштабирования виртуальных машин | Microsoft Azure"
-	description="Создание набора масштабирования виртуальных машин с помощью Powershell"
+	description="Создание набора масштабирования виртуальных машин с помощью PowerShell"
 	services="virtual-machine-scale-sets"
     documentationCenter=""
 	authors="davidmu1"
@@ -248,7 +248,7 @@
 
 1. Замените значение **$storageProfile** именем, которое вы хотите использовать для профиля хранилища, а затем создайте переменную.  
 
-        $storeProfile = "storage profile name"
+        $storageProfile = "storage profile name"
         
 2. Создайте переменные, которые определяют используемый образ:
       
@@ -264,7 +264,7 @@
         
 4. Создайте профиль хранилища:
 
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### Набор масштабирования виртуальных машин
 
@@ -313,4 +313,4 @@
 - Вы можете настроить автоматическое масштабирование набора масштабирования с помощью сведений в статье [Автоматическое масштабирование и наборы масштабирования виртуальных машин](virtual-machine-scale-sets-autoscale-overview.md).
 - Дополнительные сведения о вертикальном масштабировании см. в статье [Вертикальное автомасштабирование масштабируемых наборов виртуальных машин](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

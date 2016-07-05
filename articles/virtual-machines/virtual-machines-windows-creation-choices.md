@@ -27,21 +27,24 @@
 
 [Создание виртуальной машины под управлением Windows на портале](virtual-machines-windows-hero-tutorial.md)
 
-## Azure PowerShell
-
-Если вы предпочитаете работать в командной строке, можно использовать Azure PowerShell.
-
-- [Создание виртуальной машины Windows с помощью PowerShell](virtual-machines-windows-ps-create.md)
-- [Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов](virtual-machines-windows-ps-template.md)
-
 ## Шаблон
 
 Для виртуальных машин требуется сочетание ресурсов (таких как группы доступности и учетные записи хранения). Вместо развертывания и управления каждым ресурсом по отдельности можно создать шаблон Azure Resource Manager, который развертывает и подготавливает все ресурсы в ходе одной скоординированной операции.
 
 - [Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов](virtual-machines-windows-ps-template.md)
 
+
+## Azure PowerShell
+
+Если вы предпочитаете работать в командной строке, можно использовать Azure PowerShell.
+
+- [Создание виртуальной машины Windows с помощью PowerShell](virtual-machines-windows-ps-create.md)
+
+
 ## Visual Studio
 
-[Развертывание ресурсов Azure с помощью библиотек компонентов Compute, Network и Storage для .NET](virtual-machines-windows-csharp.md)
+Используйте Visual Studio для создания и развертывания виртуальных машин, а также для управления ими, с помощью инструментов Azure для Visual Studio и пакета SDK Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+[Инструменты Azure для Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
+
+<!---HONumber=AcomDC_0622_2016-->

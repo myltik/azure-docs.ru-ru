@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="deguhath;bradsev" />
 
 # Расширенное исследование и моделирование данных с помощью Spark 
@@ -1164,7 +1164,7 @@ R-sqr = 0.733445485802
 
 Приведенный в этом разделе код предназначен для обучения, анализа и сохранения модели увеличивающихся деревьев принятия решений, с помощью которой можно спрогнозировать суму чаевых за поездку в такси по Нью-Йорку.
 
-****Обучение и анализ**
+**Обучение и анализ**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1496,4 +1496,4 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression\_2016-
 
 **Использование модели**. Дополнительные сведения об оценке и анализе моделей классификации и регрессии, созданных в этой статье, см. в разделе [Оценка моделей машинного обучения, созданных с помощью Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

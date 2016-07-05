@@ -3,7 +3,7 @@
 	description="В учебнике по использованию Azure IoT Hub для управления устройствами описывается, как использовать запросы для поиска ";двойников"; устройств."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="ellenfosborne"
+	authors="juanjperez"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Учебник. Поиск "двойников" устройств с помощью запросов на C# (предварительная версия)
 
@@ -221,4 +221,4 @@ var foundDevices = await registryManager.QueryDevicesAsync(new[] { "bacon" }, 10
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 [lnk-query-expression-guide]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/node/service/devdoc/query_expression_requirements.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

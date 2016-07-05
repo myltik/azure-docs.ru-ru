@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/14/2016"
+   ms.date="06/21/2016"
    ms.author="chackdan"/>
 
 
@@ -36,11 +36,19 @@ Azure Service Fabric позволяет создавать кластеры Serv
 |**Имя файла**|**Краткое описание**|
 |-----------------------|--------------------------|
 |MicrosoftAzureServiceFabric.cab|CAB-файл, содержащий двоичные файлы, которые будут развернуты на каждом компьютере в кластере.|
-|ClusterConfig.JSON|Файл конфигурации кластера, который содержит все параметры кластера, в том числе сведения о каждом компьютере, который является частью кластера.|
+|ClusterConfig.Unsecure.DevCluster.JSON|Пример файла конфигурации кластера, который содержит все параметры незащищенного кластера разработки с тремя узлами и одной виртуальной машиной или компьютером,в том числе сведения о каждом узле, который является частью кластера. |
+|ClusterConfig.Unsecure.MultiMachine.JSON|Пример файла конфигурации кластера, который содержит все параметры кластера, в том числе сведения о каждом компьютере, который является частью незащищенного кластера с несколькими виртуальными машинами или компьютерами.|
+|ClusterConfig.Windows.DevCluster.JSON|Пример файла конфигурации кластера, который содержит все параметры защищенного кластера разработки с тремя узлами и одной виртуальной машиной или компьютером,в том числе сведения о каждом узле, который является частью кластера. Этот кластер защищен с помощью [удостоверений Windows](https://msdn.microsoft.com/library/ff649396.aspx).|
+|ClusterConfig.Windows.MultiMachine.JSON|Пример файла конфигурации кластера, который содержит все параметры защищенного кластера, в том числе сведения о каждом компьютере, который является частью незащищенного кластера с несколькими виртуальными машинами или компьютерами. Этот кластер защищен с помощью [удостоверений Windows](https://msdn.microsoft.com/library/ff649396.aspx).|
+|ClusterConfig.x509.DevCluster.JSON|Пример файла конфигурации кластера, который содержит все параметры защищенного кластера разработки с тремя узлами и одной виртуальной машиной или компьютером,в том числе сведения о каждом узле, который является частью кластера. Этот кластер защищен с помощью сертификатов x.509 для Windows.|
+|ClusterConfig.x509.MultiMachine.JSON|Пример файла конфигурации кластера, который содержит все параметры защищенного кластера, в том числе сведения о каждом компьютере, который является частью незащищенного кластера с несколькими виртуальными машинами или компьютерами. Этот кластер защищен с помощью сертификатов x.509.|
 |EULA.txt|Условия лицензии на использование изолированного пакета Microsoft Azure Service Fabric. [Щелкните здесь](http://go.microsoft.com/fwlink/?LinkID=733084), если хотите скачать копию лицензионного соглашения.|
 |Readme.txt|Ссылка на заметки о выпуске и инструкции по стандартной установке. На этой странице вы найдете лишь небольшой набор инструкций.|
 |CreateServiceFabricCluster.ps1|Сценарий PowerShell, который создает кластер, используя параметры в файле ClusterConfig.JSON.|
 |RemoveServiceFabricCluster.ps1|Сценарий PowerShell для удаления кластера с использованием параметров в файле ClusterConfig.JSON.|
+|AddNode.ps1|Сценарий PowerShell для добавления узла в существующий кластер.|
+|RemoveNode.ps1|Сценарий PowerShell для удаления узла из кластера.|
+
 
 ## Планирование и подготовка развертывания кластера
 Перед созданием кластера нужно выполнить следующие действия.
@@ -105,19 +113,47 @@ Azure Service Fabric позволяет создавать кластеры Serv
 Этот сценарий может выполняться на любом компьютере, у которого есть доступ администратора ко всем компьютерам, перечисленным в качестве узлов в файле конфигурации кластера. Компьютер, на котором выполняется этот сценарий, может и не входить в кластер.
 
 ```
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.JSON -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
 
+>[AZURE.NOTE] Журналы развертывания доступны локально на виртуальной машине или компьютере, на котором был выполнен сценарий PowerShell CreateServiceFabricCluster. Он будет доступен во вложенной папке DeploymentTraces, которая расположена в папке, где была выполнена команда PowerShell.
+
+## Добавление узлов в кластер Service Fabric 
+
+1. Подготовьте виртуальную машину или компьютер, который необходимо добавить в кластер (см. шаг 2 в разделе "Планирование и подготовка развертывания кластера" выше). 
+2. Подумайте, в какой домен сбоя и домен обновления нужно добавить эту виртуальную машину или компьютер.
+3. [Скачайте изолированный пакет для Service Fabric для Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) и извлеките его содержимое на виртуальную машину или компьютер, который планируете добавить в кластер. 
+4. Откройте командную строку PowerShell с правами администратора и перейдите к расположению распакованную пакета.
+5. Запустите файл AddNode.PS1.
+
+```
+.\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.52:19000 -UpgradeDomain UD1 -FaultDomain FD1
+```
+
+## Удаление узлов из кластера Service Fabric 
+
+1. С помощью служб терминалов подключитесь к виртуальной машине или компьютеру, который нужно удалить из кластера.
+2. Откройте командную строку PowerShell с правами администратора и перейдите к расположению распакованную пакета.
+5. Запустите файл RemoveNode.PS1.
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
+```
+
+## Удаление кластера Service Fabric 
+1. С помощью служб терминалов подключитесь к виртуальной машине или компьютеру, входящему в кластер.
+2. Откройте командную строку PowerShell с правами администратора и перейдите к расположению распакованную пакета.
+5. Запустите файл RemoveNode.PS1.
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
+```
+
+
 ## Дальнейшие действия
-
-После создания кластер необходимо защитить.
-- [Безопасность кластера](service-fabric-cluster-security.md)
-
-Прочтите следующие статьи, чтобы приступить к разработке и развертыванию приложений.
+- [Сценарии защиты кластера Service Fabric](service-fabric-cluster-security.md)
 - [Пакет SDK для Service Fabric и начало работы](service-fabric-get-started.md)
 - [Управление приложениями Service Fabric в Visual Studio](service-fabric-manage-application-in-visual-studio.md)
-
-Узнайте больше о кластерах Azure и изолированных кластерах.
 - [Разворачивайте приложения Service Fabric везде на Windows Server или Linux](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

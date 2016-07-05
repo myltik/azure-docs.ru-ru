@@ -10,9 +10,9 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/09/2016"
+	ms.date="06/17/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -45,17 +45,13 @@
 
 ## Дальнейшие действия
 
-- [Финализация восстановленной Базы данных SQL Azure](sql-database-recovered-finalize.md)
-- [Восстановление состояния системы в определенной временной точке](sql-database-point-in-time-restore.md)
-- [Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) (Создание и обновление базы данных)
-- [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md)
+- Подробные инструкции по восстановлению до точки во времени с помощью PowerShell см. в разделе [Восстановление базы данных SQL Azure до точки во времени с помощью PowerShell](sql-database-point-in-time-restore-powershell.md).
+- Чтобы узнать о восстановлении до точки во времени с помощью REST API, ознакомьтесь с [данным способом восстановления](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- Общие сведения о восстановлении до точки во времени см. в разделе [Обзор. Функция восстановления до точки во времени в Базе данных SQL](sql-database-point-in-time-restore.md).
+- Восстановление после ошибки пользователя или приложения подробно рассматривается в разделе [Восстановление базы данных SQL Azure после ошибки пользователя](sql-database-user-error-recovery.md).
 
 ## Дополнительные ресурсы
 
-- [Восстановление удаленной базы данных.](sql-database-restore-deleted-database.md)
-- [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [Геовосстановление](sql-database-geo-restore.md)
-- [Активная георепликация](sql-database-geo-replication-overview.md)
-- [Проектирование приложений для аварийного восстановления в облаке](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Сценарии обеспечения непрерывности бизнес-процессов](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

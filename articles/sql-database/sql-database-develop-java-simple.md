@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="06/16/2016"
 	ms.author="lbosq"/>
 
 
@@ -46,10 +46,13 @@
 
 ## Дальнейшие действия
 
-Дополнительную информацию см. в [Центре разработчика Java](/develop/java/).
+* Посетите [Центр разработчиков для Java](/develop/java/).
+* Ознакомьтесь с разделом [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md).
+* Получите дополнительные сведения о драйвере [Microsoft JDBC Driver для SQL Server](https://msdn.microsoft.com/library/mt484311.aspx).
 
-## Дополнительные ресурсы
+## Дополнительные ресурсы 
 
-Сведения о распространенных шаблонах архитектуры данных для мультитенантных приложений базы данных SaaS см. в статье [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

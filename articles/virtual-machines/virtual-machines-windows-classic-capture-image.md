@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 #Запись образа виртуальной машины Azure Windows, созданной с использованием классической модели развертывания.
@@ -90,4 +90,4 @@ Azure хранит образ в папке **Мои образы**. Здесь 
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

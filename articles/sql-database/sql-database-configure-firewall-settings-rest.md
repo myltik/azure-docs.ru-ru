@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Практическое руководство. Настройка брандмауэра базы данных SQL Azure | Microsoft Azure"
+	pageTitle="Настройка правил брандмауэра уровня сервера базы данных SQL Azure с помощью REST API | Microsoft Azure"
 	description="Сведения о настройке брандмауэра для IP-адресов, через которые осуществляется доступ к базам данных SQL Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/09/2016"
+	ms.date="06/15/2016"
 	ms.author="sstein"/>
 
 
-# Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью REST API
+#  Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью REST API
 
 
 > [AZURE.SELECTOR]
@@ -65,7 +65,20 @@
  
 ## Дальнейшие действия
 
-Учебник по созданию базы данных см. в разделе [Создание первой базы данных SQL Azure](sql-database-get-started.md). Дополнительные сведения о подключении к Базе данных SQL Azure из приложений с открытым исходным кодом или приложений сторонних производителей см. в разделе [Рекомендации по подключению к Базе данных SQL Azure программными средствами](https://msdn.microsoft.com/library/azure/ee336282.aspx). Общие сведения о переходе к базам данных см. в разделе [Управление базами данных и учетными записями в Базе данных SQL Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Практическое руководство по использованию Transact-SQL для создания правил брандмауэра уровня сервера и уровня базы данных см. в разделе [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью TSQL](sql-database-configure-firewall-settings-tsql.md).
+
+Практические руководства по созданию правил брандмауэра уровня сервера с помощью других методов см. в следующих разделах.
+
+- [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью PowerShell](sql-database-configure-firewall-settings.md)
+- [Настройка правил брандмауэра уровня сервера базы данных SQL с помощью PowerShell](sql-database-configure-firewall-settings-powershell.md)
+
+Учебник по созданию базы данных SQL доступен в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](sql-database-get-started.md). Дополнительные сведения о подключении к базе данных SQL Azure из приложений с открытым кодом или приложений сторонних производителей см. в статье [Библиотеки подключений для Базы данных SQL и SQL Server](https://msdn.microsoft.com/library/azure/ee336282.aspx). Общие сведения о навигации по базам данных см. в статье [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+
+
+## Дополнительные ресурсы
+
+- [Защита базы данных](sql-database-security.md)
+- [Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных Azure SQL](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
@@ -74,4 +87,4 @@
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

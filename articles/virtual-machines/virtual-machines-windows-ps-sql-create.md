@@ -33,7 +33,7 @@
 Для работы с этим руководством вам потребуется:
 
 - Учетная запись Azure и подписка (еще до начала). Если у вас ее нет, зарегистрируйтесь, чтобы [воспользоваться бесплатной пробной версией](https://azure.microsoft.com/pricing/free-trial/).
-- [Azure PowerShell](../powershell-install-configure.md) 1.0.0 или более поздней версии (в этом руководстве использовалась версия 1.0.4).
+- [Azure PowerShell](../powershell-install-configure.md) 1.4.0 или более поздней версии (в этом учебнике использовалась версия 1.5.0).
     - Чтобы получить сведения о версии, выполните команду **Get-Module Azure -ListAvailable**.
 
 ## Настройка подписки
@@ -69,7 +69,7 @@
 Измените их соответствующим образом, а затем выполните командлет ниже, чтобы инициализировать эти переменные. Обратите внимание, что в этом примере используется [хранилище уровня "Премиум"](../storage/storage-premium-storage.md), которое рекомендуется для рабочих нагрузок в рабочей среде. Дополнительные сведения об этом руководстве, а также другие рекомендации см. в статье [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-performance.md).
 
     $StorageName = $ResourceGroupName + "storage"
-    $StorageType = "Premium_LRS"
+    $StorageSku = "Premium_LRS"
 
 ### Свойства сети
 
@@ -125,11 +125,11 @@
 
 ## Создайте учетную запись хранения.
 
-Виртуальной машине требуются ресурсы хранения для диска операционной системы, а также файлов данных и журналов SQL Server. Для упрощения мы создадим один диск для всех ресурсов. Позже можно будет подключить дополнительные диски, выполнив командлет [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx), чтобы поместить файлы данных и журналов SQL Server на выделенные диски. Мы выполним командлет [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx), чтобы создать учетную запись хранения в новой группе ресурсов. При этом имя учетной записи хранения, имя хранилища и расположение определяются в переменных, инициализированных ранее.
+Виртуальной машине требуются ресурсы хранения для диска операционной системы, а также файлов данных и журналов SQL Server. Для упрощения мы создадим один диск для всех ресурсов. Позже можно будет подключить дополнительные диски, выполнив командлет [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx), чтобы поместить файлы данных и журналов SQL Server на выделенные диски. Мы выполним командлет [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx), чтобы создать стандартную учетную запись хранения в новой группе ресурсов. При этом имя учетной записи хранения, номер SKU хранилища и расположение определяются в переменных, инициализированных ранее.
 
 Выполните следующий командлет, чтобы создать учетную запись хранения.
 
-    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -Type $StorageType -Location $Location
+    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -SkuName $StorageSku -Kind "Storage" -Location $Location
 
 ## Создание сетевых ресурсов
 
@@ -258,7 +258,7 @@
     $ResourceGroupName = "sqlvm1"
     ## Storage
     $StorageName = $ResourceGroupName + "storage"
-    $StorageType = "Premium_LRS"
+    $StorageSku = "Premium_LRS"
 
     ## Network
     $InterfaceName = $ResourceGroupName + "ServerInterface"
@@ -285,7 +285,7 @@
     New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 
     # Storage
-    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -Type $StorageType -Location $Location
+    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -SkuName $StorageSku -Kind "Storage" -Location $Location
 
     # Network
     $SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
@@ -310,4 +310,4 @@
 ## Дальнейшие действия
 После создания виртуальной машины вы можете подключиться к ней, используя протокол удаленного рабочего и настроив подключение. Дополнительные сведения см. в статье [Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)](virtual-machines-windows-sql-connect.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

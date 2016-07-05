@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="06/22/2016" 
 	ms.author="sdanie"/>
 
 # Настройка кластеризации для кэша Redis для Azure уровня Премиум
@@ -36,13 +36,9 @@
 В Azure кластер Redis предоставляется в виде модели основного экземпляра и реплики. У каждого сегмента есть пара основного экземпляра и реплики. Репликацией управляет служба кэша Redis для Azure.
 
 ## Кластеризация
-Кластер включается во время создания кэша в колонке **Новый кэш Redis**. Для создания кэша войдите на [портал Azure](https://portal.azure.com), щелкните **Создать** > **Данные+хранилище** > **Кэш Redis**.
+Кластер включается во время создания кэша в колонке **Новый кэш Redis**.
 
-![Создание кэша Redis][redis-cache-new-cache-menu]
-
-Чтобы настроить кластер, сначала выберите один из кэшей категории **Премиум** в колонке **Выбор ценовой категории**.
-
-![Выберите ценовую категорию][redis-cache-premium-pricing-tier]
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 Кластер настраивается в колонке **Кластер Redis**.
 
@@ -57,31 +53,6 @@
 После создания кэша вы подключаетесь к нему и пользуетесь им как некластеризованным кэшем, и Redis будет распространять данные по сегментам кэша. Если диагностика [включена](cache-how-to-monitor.md#enable-cache-diagnostics), метрики собираются отдельно для каждого сегмента и [отображаются](cache-how-to-monitor.md) в колонке кэша Redis.
 
 Пример кода по работе с кластеризацией клиента StackExchange.Redis см. в разделе [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) примера [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
-
-<a name="move-exceptions"></a>
-
->[AZURE.IMPORTANT] Подключаясь к кэшу Redis для Azure с включенной кластеризацией и использованием функции StackExchange.Redis, вы можете столкнуться с проблемой и получить исключения `MOVE`. Это связано с тем, что клиент кэша StackExchange.Redis собирает информацию об узлах в кластере кэша в течение короткого интервала. Исключения могут возникать, если вы подключаетесь к кэшу впервые и осуществляете вызовы в кэш, прежде чем клиент закончит собирать информацию. Самый простой способ решения этой проблемы в приложении — после подключения к кэшу подождать одну секунду, прежде чем осуществлять вызовы в кэш. Для этого добавьте параметр `Thread.Sleep(1000)`, как показано в приведенном ниже примере кода. Обратите внимание, что параметр `Thread.Sleep(1000)` применяется только при первом подключении к кэшу. Дополнительные сведения см. в разделе [StackExchange.Redis.RedisServerException — MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). Решение этой проблемы разрабатывается. Все обновления будут публиковаться здесь. **Обновление**: эта проблема устранена в последней сборкеStackExchange.Redis, [prerelease 1.1.572-alpha](https://www.nuget.org/packages/StackExchange.Redis/1.1.572-alpha). См. последнюю сборку на [странице StackExchange.Redis портала NuGet](https://www.nuget.org/packages/StackExchange.Redis/).
-
-
-	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-	{
-        // Connect to the Redis cache for the first time
-	    var connection =  ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-
-		// Wait for 1 second
-		Thread.Sleep(1000);
-
-		// Return the connected ConnectionMultiplexer
-		return connection;
-	});
-	
-	public static ConnectionMultiplexer Connection
-	{
-	    get
-	    {
-	        return lazyConnection.Value;
-	    }
-	}
 
 <a name="cluster-size"></a>
 ## Изменение размера кластера на работающем кэше категории "Премиум"
@@ -107,6 +78,7 @@
 -	[Можно ли настроить кластеризацию для ранее созданного кэша?](#can-i-configure-clustering-for-a-previously-created-cache)
 -	[Можно ли настроить кластеризацию для кэша уровней Базовый и Стандартный?](#can-i-configure-clustering-for-a-basic-or-standard-cache)
 -	[Можно ли использовать кластеризацию с поставщиками состояний сеансов и кэширования выходных данных ASP.NET Redis?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
+-	[При использовании StackExchange.Redis и кластеризации порождаются исключения MOVE. Что делать?](#i-am-getting-move-exceptions-whru-RUing-stackexchangeredis-and-clustering-what-should-i-do)
 
 ### Нужно ли вносить изменения в клиентское приложение, чтобы использовать кластеризацию?
 
@@ -140,7 +112,7 @@
 
 В настоящее время не все клиенты Redis поддерживают кластеризацию. Например, ее не поддерживает StackExchange.Redis. Дополнительные сведения о других клиентах см. в разделе [Эксперименты с кластером](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) [руководства по кластерам Redis](http://redis.io/topics/cluster-tutorial).
 
->[AZURE.NOTE] Если вы используете клиент [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), убедитесь, что у вас установлена версия 1.0.481 или более поздняя. Это необходимо для правильного выполнения кластеризации. При проблемах с исключениями переноса см. [здесь](#move-exceptions).
+>[AZURE.NOTE] Если вы используете клиент [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), убедитесь, что у вас установлена версия 1.0.481 или более поздняя. Это необходимо для правильного выполнения кластеризации. При проблемах с исключениями MOVE ознакомьтесь с дополнительными сведениями [здесь](#move-exceptions).
 
 ### Как подключиться к кэшу, если кластеризация включена?
 
@@ -170,8 +142,13 @@
 
 ### Можно ли использовать кластеризацию с поставщиками состояний сеансов и кэширования выходных данных ASP.NET Redis?
 
--	**Поставщик кэша вывода Redis** — изменения не требуются.
--	**Поставщик состояний сеансов Redis** — для кластеризации необходимо использовать [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 или более поздней версии. В противном случае будет выдано исключение. Это критическое изменение. Дополнительные сведения см. в статье [Подробные сведения о критических изменениях в версии 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+-	**Поставщик кэша вывода Redis** — изменения не требуются.
+-	**Поставщик состояний сеансов Redis** — для кластеризации необходимо использовать [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 или более поздней версии. В противном случае будет выдано исключение. Это критическое изменение. Дополнительные сведения см. в статье [Подробные сведения о критических изменениях в версии 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+
+<a name="move-exceptions"></a>
+### При использовании StackExchange.Redis и кластеризации порождаются исключения MOVE. Что делать?
+
+Если вы используете StackExchange.Redis и получаете исключения `MOVE` при использовании кластеризации, убедитесь, что вы используете [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) или более позднюю версию. Инструкции по настройке приложений .NET для использования StackExchange.Redis см. в разделе [Настройка клиентов кэша](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 ## Дальнейшие действия
 Узнайте, как использовать расширенные функции кэша.
@@ -181,22 +158,10 @@
   
 <!-- IMAGES -->
 
-[redis-cache-new-cache-menu]: ./media/cache-how-to-premium-clustering/redis-cache-new-cache-menu.png
-
-[redis-cache-premium-pricing-tier]: ./media/cache-how-to-premium-clustering/redis-cache-premium-pricing-tier.png
-
-[NewCacheMenu]: ./media/cache-how-to-premium-clustering/redis-cache-new-cache-menu.png
-
-[CacheCreate]: ./media/cache-how-to-premium-clustering/redis-cache-cache-create.png
-
-[redis-cache-premium-pricing-group]: ./media/cache-how-to-premium-clustering/redis-cache-premium-pricing-group.png
-
-[redis-cache-premium-features]: ./media/cache-how-to-premium-clustering/redis-cache-premium-features.png
-
 [redis-cache-clustering]: ./media/cache-how-to-premium-clustering/redis-cache-clustering.png
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,13 +12,18 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="06/09/2016"
+    ms.workload="sqldb-bcdr" 
+    ms.date="06/17/2016"
     ms.author="sstein"/>
 
 # Восстановление базы данных SQL Azure до точки во времени с помощью PowerShell
 
-В этой статье объясняется, как восстановить базу данных до момента времени в прошлом (на основании [сделанных автоматических резервных копий базы данных SQL](sql-database-automated-backups.md)) с помощью PowerShell.
+> [AZURE.SELECTOR]
+- [Обзор](sql-database-point-in-time-restore.md)
+- [Портал Azure](sql-database-point-in-time-restore-portal.md)
+- [PowerShell](sql-database-point-in-time-restore-powershell.md)
+
+В этой статье объясняется, как восстановить базу данных до точки времени в прошлом из [созданных автоматических резервных копий базы данных SQL](sql-database-automated-backups.md) с помощью PowerShell.
 
 [AZURE.INCLUDE [Запуск сеанса PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -45,18 +50,13 @@
 
 ## Дальнейшие действия
 
-- [Финализация восстановленной Базы данных SQL Azure](sql-database-recovered-finalize.md)
-- [Восстановление состояния системы в определенной временной точке](sql-database-point-in-time-restore.md)
-- [Восстановление базы данных SQL Azure до момента времени в прошлом с помощью портала Azure](sql-database-point-in-time-restore-portal.md)
-- [Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) (Создание и обновление базы данных)
-- [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md)
+- Подробные инструкции по восстановлению до точки во времени с помощью портала Azure см. в разделе [Восстановление базы данных SQL Azure до точки во времени с помощью портала Azure](sql-database-point-in-time-restore-portal.md).
+- Чтобы узнать о восстановлении до точки во времени с помощью REST API, ознакомьтесь с [данным способом восстановления](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- Общие сведения о восстановлении до точки во времени см. в разделе [Обзор. Функция восстановления до точки во времени в Базе данных SQL](sql-database-point-in-time-restore.md).
+- Восстановление после ошибки пользователя или приложения подробно рассматривается в разделе [Восстановление базы данных SQL Azure после ошибки пользователя](sql-database-user-error-recovery.md).
 
 ## Дополнительные ресурсы
 
-- [Восстановление удаленной базы данных.](sql-database-restore-deleted-database.md)
-- [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [Геовосстановление](sql-database-geo-restore.md)
-- [Активная георепликация](sql-database-geo-replication-overview.md)
-- [Проектирование приложений для аварийного восстановления в облаке](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Сценарии обеспечения непрерывности бизнес-процессов](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

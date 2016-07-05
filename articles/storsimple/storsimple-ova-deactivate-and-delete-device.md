@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/08/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Отключение и удаление виртуального массива StorSimple
@@ -101,4 +101,4 @@
 
 - Подробнее об управлении устройством с помощью службы диспетчера StorSimple см. в статье [Use the StorSimple Manager service to administer your StorSimple Virtual Array (preview)](storsimple-ova-manager-service-administration.md) (Использование службы диспетчера StorSimple для администрирования виртуального массива StorSimple (предварительная версия)). 
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0622_2016-->

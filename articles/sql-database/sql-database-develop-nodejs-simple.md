@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/16/2016"
 	ms.author="meetb"/>
 
 # Подключение к базе данных SQL с помощью Node.js
@@ -38,8 +38,14 @@
 
 [Эксперимент по подключению к SQL с использованием Node.js](https://msdn.microsoft.com/library/mt715784.aspx)
 
-## Дополнительные ресурсы
+## Дальнейшие действия
 
-Сведения о распространенных шаблонах архитектуры данных для мультитенантных приложений базы данных SaaS см. в статье [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* Ознакомьтесь с разделом [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md).
+* Получите дополнительные сведения о [драйвере Microsoft Node.js для SQL Server](https://msdn.microsoft.com/library/mt652093.aspx).
 
-<!---HONumber=AcomDC_0615_2016-->
+## Дополнительные ресурсы 
+
+* [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
+
+<!---HONumber=AcomDC_0622_2016-->
