@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/26/2016"
+	ms.date="06/27/2016"
 	ms.author="billmath;andkjell"/>
 
 # Приступая к работе с Azure AD Connect с использованием стандартных параметров
@@ -28,7 +28,7 @@
 
 1. Войдите с правами локального администратора на сервер, на котором требуется установить Azure AD Connect. Это должен быть сервер, который нужно сделать сервером синхронизации.
 2. Перейдите к файлу **AzureADConnect.msi** и дважды щелкните его.
-3. На экране приветствия установите флажок, подтверждающий ваше согласие с условиями лицензионного соглашения, и нажмите кнопку **Продолжить**.  
+3. На экране приветствия установите флажок, подтверждающий ваше согласие с условиями лицензионного соглашения, и нажмите кнопку **Продолжить**.
 4. На экране «Стандартные параметры» щелкните **Использовать стандартные параметры**. ![Приветствие мастера установки Azure AD Connect.](./media/active-directory-aadconnect-get-started-express/express.png)
 5. На экране "Подключение к Azure AD" введите имя пользователя и пароль глобального администратора Azure AD. Нажмите кнопку **Далее**. ![Подключение к Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Если вы получаете сообщение об ошибке и испытываете проблемы с подключением, см. статью [Устранение неполадок подключения в Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. На экране "Подключение к AD DS" введите имя пользователя и пароль учетной записи администратора предприятия. Вы можете ввести часть домена в формате NetBios или полное доменное имя, т. е. FABRIKAM\\administrator или fabrikam.com\\administrator. Нажмите кнопку **Далее**. ![Подключение к AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
@@ -63,4 +63,4 @@
 Обновление из DirSync | [Обновление из средства синхронизации Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 Учетные записи, используемые для установки | [Дополнительная информация об учетных записях и разрешениях Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
 
-<!---HONumber=AcomDC_0601_2016--->
+<!---HONumber=AcomDC_0629_2016-->
