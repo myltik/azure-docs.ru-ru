@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="06/29/2016"
    ms.author="ganesr"/>
 
 # Создание и изменение маршрутизации для канала ExpressRoute
@@ -35,7 +35,7 @@
 
 ## Предварительные требования для настройки
 
-- Вам потребуются последние модули Azure PowerShell версии 1.0 или более поздней. 
+- Вам потребуются последние модули Azure PowerShell версии 1.0 или более поздней.
 - Прежде чем приступать к настройке, обязательно изучите [предварительные требования](expressroute-prerequisites.md), [требования к маршрутизации](expressroute-routing.md) и [рабочие процессы](expressroute-workflows.md).
 - Вам потребуется активный канал ExpressRoute. Приступая к работе, [создайте канал ExpressRoute](expressroute-howto-circuit-arm.md); он должен быть затем включен на стороне поставщика услуг подключения. Для выполнения описанных ниже командлетов канал ExpressRoute должен быть подготовлен и включен.
 
@@ -403,4 +403,4 @@
 
 -  Подробнее о работе с виртуальными сетями см. в разделе [Обзор виртуальных сетей](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

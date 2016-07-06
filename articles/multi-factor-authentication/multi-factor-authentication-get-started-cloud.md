@@ -30,7 +30,7 @@
 
 
 - [Зарегистрируйтесь, чтобы оформить подписку Azure](https://azure.microsoft.com/pricing/free-trial/). Если у вас еще нет подписки Azure, вам необходимо зарегистрироваться для ее оформления. Если вы только начинаете работать с Azure Multi-Factor Authentication (MFA), используйте пробную подписку.
-2. [Создайте поставщик Azure Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) и назначьте его своему каталогу или [пользователям лицензии](multi-factor-authentication-get-started-assign-licenses.md). 
+2. [Создайте поставщик Azure Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) и назначьте его своему каталогу или [пользователям лицензии](multi-factor-authentication-get-started-assign-licenses.md).
 
 > [AZURE.NOTE]  Лицензии доступны пользователям, у которых есть Azure MFA, Azure AD Premium или Enterprise Mobility Suite (EMS). MFA входит в состав Azure AD Premium и EMS. Если у вас есть необходимые лицензии, вам не нужно создавать поставщик проверки подлинности.
 		
@@ -57,12 +57,12 @@
 
 ## Автоматизация включения многофакторной проверки подлинности с помощью PowerShell
 
-Чтобы изменить [состояние](multi-factor-authentication-whats-next.md) с помощью [Azure AD PowerShell](powershell-install-configuremd), можно использовать команды ниже. Для параметра `$st.State` можно задать одно из следующих состояний:
+Чтобы изменить [состояние](multi-factor-authentication-whats-next.md) с помощью [Azure AD PowerShell](../powershell-install-configure.md), можно использовать команды, приведенные ниже. Для параметра `$st.State` можно задать одно из следующих состояний:
 
 
 - Включено
 - Принудительно
-- Отключено  
+- Отключено
 
 > [AZURE.IMPORTANT]  Имейте в виду, что при непосредственном изменении состояния с "Отключено" на "Принудительно" устаревшие клиенты проверки подлинности перестанут работать, так как пользователь не прошел регистрацию многофакторной проверки подлинности и не получил [пароль приложения](multi-factor-authentication-whats-next.md#app-passwords). Если вы используете устаревший клиент проверки подлинности и вам требуются пароли приложения, рекомендуется переключаться с состояния "Отключено" на состояние "Включено". Это позволит пользователям пройти регистрацию и получить пароли.
 		
@@ -90,4 +90,4 @@
 ## Дальнейшие действия
 Теперь, когда многофакторная проверка подлинности в облаке настроена, можно настроить и выполнить развертывание. См. статью [Настройка Azure Multi-Factor Authentication.]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

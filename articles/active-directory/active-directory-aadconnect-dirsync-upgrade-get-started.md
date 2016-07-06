@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/31/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: обновление DirSync
@@ -79,7 +79,7 @@ Azure AD Connect является преемником Microsoft Azure Active Di
 1. Запустите установщик Azure AD Connect (MSI).
 2. Просмотрите и примите условия лицензионного соглашения и заявления о конфиденциальности. ![Вас приветствует Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
 3. Нажмите кнопку "Далее" для анализа существующей установки DirSync. ![Анализ существующей установки службы синхронизации каталогов](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Analyze.png)
-4. По завершении анализа вы получите рекомендации по дальнейшим действиям.  
+4. По завершении анализа вы получите рекомендации по дальнейшим действиям.
     - При использовании SQL Server Express и наличии менее 50 000 объектов отображается следующий экран: ![Анализ завершен, все готово для обновления DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png).
     - При использовании полной версии SQL Server для DirSync вы увидите эту страницу: ![Анализ завершен, все готово для обновления DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)Здесь отображаются сведения о существующей базе данных SQL Server, используемой DirSync. При необходимости внесите соответствующие изменения. Нажмите кнопку **Далее**, чтобы продолжить установку.
     - При наличии более 50 000 объектов отображается следующий экран: ![Анализ завершен, все готово для обновления DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)Чтобы продолжить обновление на месте, установите флажок рядом с сообщением **Продолжить обновление DirSync на этом компьютере.**. Чтобы вместо этого реализовать [параллельное развертывание](#parallel-deployment), экспортируйте параметры конфигурации DirSync и переместите их на новый сервер.
@@ -202,4 +202,4 @@ Azure AD Connect теперь является активным сервером
 Установка с помощью настроенных параметров | [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 Учетные записи, используемые для установки | [Дополнительная информация об учетных записях и разрешениях Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

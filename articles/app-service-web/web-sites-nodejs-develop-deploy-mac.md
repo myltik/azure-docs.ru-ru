@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Создание веб-приложения Node.js в службе приложений Azure
@@ -22,8 +22,8 @@
 - [.Net](web-sites-dotnet-get-started.md)
 - [Node.js](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [PHP — Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP — FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
 В этом учебнике показано, как создать простое приложение [Node.js](http://nodejs.org) и развернуть его в [веб-приложение](app-service-web-overview.md) в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md) с помощью [Git](http://git-scm.com). Инструкции, приведенные в этом учебнике, применимы к любой операционной системе, на которой может работать Node.js.
@@ -225,4 +225,4 @@ Node.js предоставляет обширную экосистему мод�
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0629_2016-->
