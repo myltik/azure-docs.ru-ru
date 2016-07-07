@@ -78,7 +78,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Настройка единого входа")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в ThousandEyes** введите URL-адрес, используемый пользователями для входа в приложение ThousandEyes (например, **https://app.thousandeyes.com/login/sso*"), и нажмите кнопку **Далее**.
+3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в ThousandEyes** введите URL-адрес, используемый пользователями для входа в приложение ThousandEyes (например, *https://app.thousandeyes.com/login/sso*"), и нажмите кнопку **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Настройка URL-адреса приложения")
 
