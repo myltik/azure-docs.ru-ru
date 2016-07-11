@@ -25,7 +25,8 @@
 
 В этом разделе показано, как подключиться к экземпляру SQL Server, выполняемому на виртуальной машине Azure. Сначала рассматриваются некоторые [общие сценарии подключения](#connection-scenarios), а затем предоставляются [подробные инструкции по настройке подключений SQL Server на виртуальной машине Azure](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания. Версию этой статьи для классической модели развертывания см. в разделе [Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)](virtual-machines-windows-classic-sql-connect.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]  
+Классическая модель развертывания. Версию этой статьи для классической модели развертывания см. в разделе [Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)](virtual-machines-windows-classic-sql-connect.md).
 
 Если вы предпочитаете полное пошаговое руководство по подготовке и подключению, то см. статью [Подготовка виртуальной машины SQL Server на портале Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -97,4 +98,4 @@
 
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0629_2016--->
