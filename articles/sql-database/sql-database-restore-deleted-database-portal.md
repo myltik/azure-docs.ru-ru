@@ -20,17 +20,15 @@
 # Восстановление удаленной базы данных SQL Azure на портале Azure
 
 > [AZURE.SELECTOR]
-- [Обзор](sql-database-restore-deleted-database.md)
-- [Портал Azure](sql-database-restore-deleted-database-portal.md)
-- [PowerShell](sql-database-restore-deleted-database-powershell.md)
-
+- [Обзор](sql-database-recovery-using-backups.md)
+- [Восстановление удаленной базы данных: PowerShell](sql-database-restore-deleted-database-powershell.md)
 
 ## Выбор базы данных для восстановления 
 
 Чтобы восстановить базу данных на портале Azure, выполните следующие действия.
 
 1.	Откройте [портал Azure](https://portal.azure.com).
-2.  В левой части экрана выберите **Обзор** > **Серверы SQL**.
+2.  В левой части экрана выберите **ОБЗОР** > **Серверы SQL**.
 3.  Перейдите к серверу с базой данных, которую требуется восстановить после удаления, и выберите сервер.
 4.  Прокрутите вниз до раздела **Операции** колонки сервера и выберите **Удаленные базы данных**. ![Восстановление базы данных SQL Azure](./media/sql-database-restore-deleted-database-portal/restore-deleted-trashbin.png)
 5.  Выберите удаленную базу данных, которую хотите восстановить.
@@ -38,19 +36,14 @@
 
     ![Восстановление базы данных SQL Azure](./media/sql-database-restore-deleted-database-portal/restore-deleted.png)
 
+
 ## Дальнейшие действия
 
-- Подробные инструкции по восстановлению удаленной базы данных с помощью PowerShell см. в разделе [Восстановление удаленной базы данных SQL Azure с помощью PowerShell](sql-database-restore-deleted-database-powershell.md).
-- Чтобы узнать, как восстановить удаленную базу данных с помощью REST API, [ознакомьтесь с данной процедурой](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-- Подробные сведения о восстановлении удаленной базы данных см. в разделе [Восстановление удаленной базы данных](sql-database-restore-deleted-database.md).
-- Подробные сведения об автоматически создаваемых резервных копиях базы данных SQL Azure см. в разделе [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md).
+- Об обеспечении непрерывности бизнес-процессов можно узнать в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
+- Чтобы узнать об автоматически создаваемых резервных копиях базы данных SQL Azure, ознакомьтесь с разделом [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md).
+- Чтобы изучить сценарии проектирования и восстановления непрерывности бизнес-процессов, ознакомьтесь со [сценариями обеспечения непрерывности](sql-database-business-continuity-scenarios.md).
+- Чтобы узнать об использовании создаваемых автоматически резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md).
+- Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md).
+- Чтобы узнать об использовании создаваемых автоматически резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md).
 
-## Дополнительные ресурсы
-
-- [Восстановление до точки во времени](sql-database-point-in-time-restore.md)
-- [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [Геовосстановление](sql-database-geo-restore.md)
-- [Активная георепликация](sql-database-geo-replication-overview.md)
-- [Проектирование приложений для аварийного восстановления в облаке](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

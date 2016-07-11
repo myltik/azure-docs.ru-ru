@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание приложения AD с помощью интерфейса командной строки Azure | Microsoft Azure"
-   description="Описывает, как использовать командную строку Azure для создания приложения Active Directory и предоставления ему доступа к ресурсам с управлением доступом на основе ролей. В статье показано, как выполнять проверку подлинности приложения с помощью пароля или сертификата."
+   pageTitle="Создание субъекта-службы с помощью интерфейса командной строки Azure | Microsoft Azure"
+   description="Использование командной строки Azure для создания приложения Active Directory и субъекта-службы с последующим предоставлением доступа к ресурсам с управлением доступом на основе ролей. В статье показано, как выполнять проверку подлинности приложения с помощью пароля или сертификата."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,7 +16,7 @@
    ms.date="05/26/2016"
    ms.author="tomfitz"/>
 
-# Создание приложения Active Directory для доступа к ресурсам с помощью Azure CLI
+# Использование интерфейса командной строки Azure для создания субъекта-службы и доступа к ресурсам
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
@@ -149,7 +149,7 @@
 В сценарии вы передадите три значения, которые нужны для входа от имени субъекта-службы. Вам потребуются следующие значения.
 
 - Идентификатор приложения
-- Идентификатор клиента 
+- Идентификатор клиента
 - Отпечаток сертификата
 
 Вы уже получили идентификатор приложения и отпечаток сертификата на предыдущих этапах. Но если вам потребуется получить эти значения позднее, вы можете использовать для этого приведенные ниже команды. Там же есть команда для получения идентификатора клиента.
@@ -183,10 +183,10 @@
 ## Дальнейшие действия
   
 - Примеры проверки подлинности для .NET см. в статье [Пакет SDK .NET для Azure Resource Manager](resource-manager-net-sdk.md).
-- Примеры проверки подлинности для Java см. в статье [Пакет SDK Java для Azure Resource Manager](resource-manager-java-sdk.md). 
+- Примеры проверки подлинности для Java см. в статье [Пакет SDK Java для Azure Resource Manager](resource-manager-java-sdk.md).
 - Примеры проверки подлинности для Python см. в статье [Resource Management Authentication for Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Проверка подлинности для управления ресурсами с использованием Python).
 - Примеры проверки подлинности для REST см. в статье [API-интерфейсы REST Resource Manager](resource-manager-rest-api.md).
 - Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [руководстве разработчика по авторизации с помощью API Azure Resource Manager](resource-manager-api-authentication.md).
-- Дополнительные сведения об использовании сертификатов и интерфейса командной строки Azure см. в статье [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) (Проверка подлинности в субъекте-службе Azure из командной строки Linux с использованием сертификатов). 
+- Дополнительные сведения об использовании сертификатов и интерфейса командной строки Azure см. в статье [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) (Проверка подлинности в субъекте-службе Azure из командной строки Linux с использованием сертификатов).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

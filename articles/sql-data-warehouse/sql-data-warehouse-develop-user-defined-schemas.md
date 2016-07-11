@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Определяемые пользователем схемы в хранилище данных SQL
@@ -45,7 +45,7 @@
 
 ### Примеры:
 
-1. Реализация определяемых пользователем схем на основе имен баз данных
+Реализация определяемых пользователем схем на основе имен баз данных
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -63,7 +63,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-2. Сохраните прежние имена схем, добавляя их в начало имени таблицы. Используйте схемы для создания границы рабочих нагрузок.
+Сохраните прежние имена схем, добавляя их в начало имени таблицы. Используйте схемы для создания границы рабочих нагрузок.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -81,7 +81,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 );
 ```
 
-3. Сохранение прежних имен схем с помощью представлений
+Сохранение прежних имен схем с помощью представлений
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -122,4 +122,4 @@ FROM	[edw].customer
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

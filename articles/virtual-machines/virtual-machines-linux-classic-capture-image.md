@@ -20,7 +20,7 @@
 
 # Запись классической виртуальной машины Linux в виде образа
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](virtual-machines-linux-capture-image.md).
 
 В этой статье показано, как записать виртуальную машину Azure под управлением Linux, чтобы использовать ее в качестве образа при создании других виртуальных машин. Данный образ виртуальной машины включает в себя диск операционной системы и прочие диски данных, присоединенные к виртуальной машине. Он не включает в себя сетевую конфигурацию, поэтому ее необходимо настроить при создании других виртуальных машин из образа.
 
@@ -33,7 +33,7 @@ Azure хранит образ в папке **Образы**. В этой пап
 
 ## Запись виртуальной машины
 
-1. [Подключитесь к виртуальной машине](virtual-machines-linux-classic-log-on.md) с помощью SSH-клиента по своему усмотрению.
+1. [Подключитесь к виртуальной машине](virtual-machines-linux-classic-log-on.md) с помощью выбранного клиента SSH.
 
 2. В окне SSH введите следующую команду. Обратите внимание, что выходные данные `waagent` могут незначительно отличаться в зависимости от версии этой служебной программы:
 
@@ -96,4 +96,4 @@ Azure хранит образ в папке **Образы**. В этой пап
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Создание виртуальной машины Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

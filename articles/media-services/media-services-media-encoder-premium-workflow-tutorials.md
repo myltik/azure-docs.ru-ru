@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016"  
+	ms.date="06/22/2016"  
 	ms.author="xstof;xpouyat;juliako"/>
 
 #Руководства по расширенному рабочему процессу кодировщика мультимедиа
@@ -27,7 +27,7 @@
 В этой статье содержатся следующие разделы.
 
 - [Кодирование MXF в файл MP4 с одной скоростью](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
-	- [Запуск нового рабочего процесса](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new) 
+	- [Запуск нового рабочего процесса](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
 	- [Добавление входного файла мультимедиа](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_file_input)
 	- [Проверка потоков мультимедиа](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_streams)
 	- [Добавление видеокодировщика для создания файла MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
@@ -77,7 +77,7 @@
 
 - основной исходный файл;
 - XML-файл списка клипов;
-- выходной файл и ресурс-контейнер.  
+- выходной файл и ресурс-контейнер.
 
 ![Новый рабочий процесс кодирования](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-transcode-blueprint.png)
 
@@ -986,4 +986,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

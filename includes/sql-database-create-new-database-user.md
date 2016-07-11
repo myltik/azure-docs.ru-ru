@@ -17,7 +17,8 @@
 3. В окне запроса измените и выполните следующую инструкцию Transact-SQL, чтобы создать пользователя в базе данных.
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
+    ```
 
      ![SQL Server Management Studio: подключение к серверу базы данных SQL](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -23,7 +23,7 @@
 
 Частные IP-адреса используются для обмена данными в виртуальной сети Azure (VNet), облачной службе или вашей локальной сети (если для расширения сети за счет Azure используется VPN-шлюз или канал ExpressRoute).
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия для модели развертывания с помощью Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 ## Общедоступные IP-адреса
 Общедоступные IP-адреса позволяют ресурсам Azure подключаться к Интернету и другим общедоступным службам Azure, таким как [кэш Redis для Azure](https://azure.microsoft.com/services/cache/), [концентраторы событий Azure](https://azure.microsoft.com/services/event-hubs/), [базы данных SQL](../sql-database/sql-database-technical-overview.md) и [служба хранилища Azure](../storage/storage-introduction.md).
@@ -164,6 +164,6 @@
 ||Внутренний балансировщик нагрузки (ILB)|Назначается ILB (динамический или статический)|Назначается конфигурации клиентской части ILB (динамический или статический)|
 
 ## Дальнейшие действия
-- См. статью [Как задать статический частный IP-адрес (классический) на портале предварительной версии](virtual-networks-static-private-ip-classic-pportal.md).
+- См. статью [Настройка статического частного (классического) IP-адреса в портале Azure](virtual-networks-static-private-ip-classic-pportal.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

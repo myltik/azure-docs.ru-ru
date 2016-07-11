@@ -3,7 +3,7 @@
    description="Power BI Embedded, сведения о маркерах приложений для проверки подлинности и авторизации"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Сведения о потоке маркеров приложений в Power BI Embedded
 
@@ -56,4 +56,4 @@
 - [Типичные сценарии использования Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Приступая к работе с предварительной версией Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

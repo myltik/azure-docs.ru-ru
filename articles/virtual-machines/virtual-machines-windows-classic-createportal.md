@@ -19,7 +19,7 @@
 
 # Создание настраиваемой виртуальной машины под управлением Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-createportal](../../includes/virtual-machines-common-classic-createportal.md)]
 
@@ -30,4 +30,4 @@
 
 Вы также можете [создать настраиваемую виртуальную машину под управлением Linux](virtual-machines-linux-classic-createportal.md) с помощью классического портала.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

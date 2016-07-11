@@ -580,7 +580,7 @@
 <a name="classic"></a>
 ## Управление экземплярами кэша Redis для Azure с использованием классической модели развертывания PowerShell
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](cache-howto-manage-redis-cache-powershell.md), описанной в начале этой статьи.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](cache-howto-manage-redis-cache-powershell.md), описанной в начале этой статьи.
 
 Следующий скрипт демонстрирует создание, обновление и удаление кэша Redis для Azure с использованием классической модели развертывания.
 		
@@ -636,4 +636,4 @@
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

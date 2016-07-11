@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure
@@ -26,7 +26,7 @@ Socket.IO обеспечивает связь в режиме реального
 
 Для этого проекта мы будем использовать пример разговора из [репозитория GitHub Socket.IO]. Выполните следующие действия, чтобы скачать пример и добавить его в ранее созданный проект.
 
-1.  Загрузите выпуск проекта Socket.IO [в архиве ZIP или GZ] \(в данном документе использована версия 1.3.5).
+1.  Загрузите выпуск проекта Socket.IO [в архиве ZIP или GZ] (в данном документе использована версия 1.3.5).
 
 1.  Извлеките архив и скопируйте каталог **examples\\chat** в новое место. Например, **\\node\\chat**.
 
@@ -292,4 +292,4 @@ Socket.IO обеспечивает связь в режиме реального
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

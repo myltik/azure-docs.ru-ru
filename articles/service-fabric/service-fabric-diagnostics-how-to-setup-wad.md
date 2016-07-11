@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="06/24/2016"
    ms.author="toddabel"/>
 
 
@@ -192,5 +192,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 
 ## Связанные статьи
 * [Узнайте, как собирать данные счетчиков производительности или журналы, используя расширения системы диагностики.](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [Service Fabric Solution in Log Analytics](../log-analytics/log-analytics-service-fabric.md) (Решение Service Fabric в Log Analytics)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

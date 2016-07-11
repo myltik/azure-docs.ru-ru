@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Начало работы с проверкой подлинности для мобильных приложений в приложении Xamarin.Forms"
+	pageTitle="Начало работы с проверкой подлинности для мобильных приложений в приложении Xamarin.Forms | Microsoft Azure"
 	description="Узнайте, как использовать мобильные приложения для проверки подлинности пользователей приложения Xamarin Forms с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/16/2016"
 	ms.author="wesmc"/>
 
 # Добавление проверки подлинности в приложение Xamarin.iOS
@@ -24,7 +24,11 @@
 
 В этом разделе показано, как выполнить проверку подлинности пользователей мобильного приложения службы приложений из клиентского приложения. В этом учебнике вы добавите проверку подлинности в проект краткого руководства Xamarin.Forms, используя поставщик удостоверений, поддерживаемый службой приложений. После успешной проверки подлинности и авторизации мобильным приложением отображается значение идентификатора пользователя, и вы сможете получить доступ к ограниченным табличным данным.
 
-Сначала необходимо изучить учебник [Создание приложения Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md). Если вы не используете скачанный проект быстрого запуска сервера, в проект необходимо добавить пакет расширений для аутентификации. Дополнительную информацию о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+##Предварительные требования
+
+Для продуктивной работы с этим руководством мы рекомендуем сначала изучить руководство [Создание приложения Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md). Завершив работу, вы получите проект Xamarin.Forms — кроссплатформенное приложение TodoList.
+
+Если вы не используете скачанный проект быстрого запуска сервера, в проект необходимо добавить пакет расширений для аутентификации. Дополнительную информацию о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##Регистрация приложения для проверки подлинности и настройка служб приложений
 
@@ -37,11 +41,14 @@
 
 ##Добавление проверки подлинности в переносимую библиотеку классов
 
-Для отображения интерфейса входа и данных кэша мобильные приложения используют метод `MobileServiceClient.LoginAsync`, относящийся к конкретной платформе. Чтобы пройти проверку подлинности в проекте Xamarin Forms, следует определить интерфейс `IAuthenticate` в переносимой библиотеке классов. Каждая поддерживаемая платформа будет реализовывать этот интерфейс в проекте для конкретной платформы.
+В мобильных приложениях используется метод расширения [LoginAsync] в [MobileServiceClient] для входа пользователя в систему с применением проверки подлинности в службе приложений. В этом примере используется управляемый сервером поток проверки подлинности, который отображает интерфейс входа поставщика в приложение. Дополнительные сведения см. в статье [Управляемая сервером проверка подлинности](app-service-mobile-dotnet-how-to-use-client-library.md#serverflow). Чтобы пользователям было удобнее работать с вашим рабочим приложением, попробуйте использовать [управляемую клиентом проверку подлинности](app-service-mobile-dotnet-how-to-use-client-library.md#clientflow).
 
-Также понадобится обновить пользовательский интерфейс, определенный в переносимой библиотеке классов, добавив кнопку входа. Пользователь должен нажать эту кнопку для проверки подлинности после запуска приложения.
+Чтобы пройти проверку подлинности в проекте Xamarin Forms, следует определить интерфейс **IAuthenticate** в переносимой библиотеке классов для приложения. Необходимо также обновить пользовательский интерфейс, указанный в переносимой библиотеке классов, добавив кнопку **Вход**, которую пользователь нажимает для выполнения проверки подлинности. После успешной проверки подлинности данные загружаются из серверной части мобильного приложения.
 
-1. В Visual Studio или Xamarin Studio откройте файл App.cs в **переносимом** проекте. Добавьте в файл следующий оператор `using`.
+Необходимо реализовать интерфейс **IAuthenticate** для каждой платформы, поддерживаемой приложением.
+
+
+1. В Visual Studio или Xamarin Studio откройте файл App.cs в проекте, в имени которого содержится слово **Переносимый**, а именно в проекте переносимой библиотеки классов, а потом добавьте следующий оператор `using`:
 
 		using System.Threading.Tasks;
 
@@ -50,373 +57,302 @@
 	    public interface IAuthenticate
 	    {
 	        Task<bool> Authenticate();
-	    };
+	    }
 
-3. В файл App.cs добавьте следующие статические элементы для инициализации интерфейса с реализацией, относящейся к конкретной платформе.
+3. В файле App.cs добавьте приведенные ниже статические элементы в класс **App**, чтобы инициализировать интерфейс с реализацией, относящейся к конкретной платформе.
 
-		public class App : Application
-		{
+	    public static IAuthenticate Authenticator { get; private set; }
 
-	        public static IAuthenticate Authenticator { get; private set; }
+        public static void Init(IAuthenticate authenticator)
+        {
+            Authenticator = authenticator;
+        }
 
-	        public static void Init(IAuthenticate authenticator)
-	        {
-	            Authenticator = authenticator;
-	        }
+4. Откройте файл TodoList.xaml в проекте переносимой библиотеки классов и добавьте следующий элемент **Button** к элементу макета *buttonsPanel* после имеющейся кнопки:
 
-			...
+      	<Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30" 
+			Clicked="loginButton_Clicked"/>
 
+	Эта кнопка запускает управляемую сервером проверку подлинности с помощью серверной части мобильного приложения.
 
-4. Откройте файл TodoList.xaml.cs в **переносимом** проекте. Добавьте следующий флаг к классу `TodoList`, чтобы показать, прошел ли пользователь проверку подлинности.
+5. Откройте файл TodoList.xaml.cs в проекте переносимой библиотеки классов и добавьте в класс `TodoList` следующее поле:
 
+		// Track whether the user has authenticated. 
         bool authenticated = false;
 
 
-5. В файле TodoList.xaml.cs обновите метод `OnAppearing`, чтобы после прохождения пользователем проверки подлинности только обновлять элементы.
+6. Замените метод **OnAppearing** следующим кодом:
 
+	    protected override async void OnAppearing()
+	    {
+	        base.OnAppearing();
+	
+	        // Refresh items only when authenticated.
+	        if (authenticated == true)
+	        {
+	            // Set syncItems to true in order to synchronize the data 
+	            // on startup when running in offline mode.
+	            await RefreshItems(true, syncItems: false);
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
+				// Hide the Sign-in button.
+                this.loginButton.IsVisible = false;
+	        }
+	    }
 
-            // Set syncItems to true in order to synchronize the data on startup when running in offline mode
-            if (authenticated == true)
-                await RefreshItems(true, syncItems: false);
-        }
+	Таким образом данные будут обновляться из службы только после проверки подлинности пользователя.
 
-6. В файле TodoList.xaml.cs в верхней части конструктора для класса `TodoList` определите следующую кнопку входа и щелкните обработчик.
-
-        public TodoList()
-        {
-            InitializeComponent();
-
-            manager = TodoItemManager.DefaultManager;
-
-            var loginButton = new Button
-            {
-                Text = "Login",
-                TextColor = Xamarin.Forms.Color.Black,
-                BackgroundColor = Xamarin.Forms.Color.Lime,
-            };
-            loginButton.Clicked += loginButton_Clicked;
-
-            Xamarin.Forms.StackLayout bp = buttonsPanel as StackLayout;
-            Xamarin.Forms.StackLayout bpParentStack = bp.Parent.Parent as StackLayout;
-
-            bpParentStack.Padding = new Xamarin.Forms.Thickness(10, 30, 10, 20);
-            bp.Orientation = StackOrientation.Vertical;
-            bp.Children.Add(loginButton);
-
-			...
-
-7. В файле TodoList.xaml.cs добавьте следующий обработчик для события нажатия кнопки входа.
+7. Добавьте следующий обработчик событий **Clicked** в класс **TodoList**:
 
         async void loginButton_Clicked(object sender, EventArgs e)
         {
             if (App.Authenticator != null)
                 authenticated = await App.Authenticator.Authenticate();
 
-            // Set syncItems to true in order to synchronize the data on startup when running in offline mode
+            // Set syncItems to true to synchronize the data on startup when offline is enabled.
             if (authenticated == true)
                 await RefreshItems(true, syncItems: false);
         }
-
 
 8. Сохраните изменения и создайте проект переносимой библиотеки классов, убедившись в отсутствии ошибок.
 
 
 ##Добавление проверки подлинности в приложение Android
 
-В этом разделе вы добавите проверку подлинности для проекта droid. Пропустите этот раздел, если вы не работаете с устройствами Android.
+В этом разделе показано, как реализовать интерфейс **IAuthenticate** в проекте приложения Android. Пропустите этот раздел, если вы не пользуетесь устройствами Android.
 
 1. В Visual Studio или Xamarin Studio щелкните правой кнопкой мыши проект **droid** и выберите пункт **Назначить запускаемым проектом**.
 
-2. Запустите приложение в отладчике, чтобы убедиться в том, что после его запуска возникает необработанное исключение с кодом состояния 401 (Неавторизованный доступ). Это происходит потому, что доступ на серверной стороне предоставлен только авторизованным пользователям.
+2. Нажмите клавишу F5, чтобы запустить проект в отладчике. После запуска приложения должно появиться необработанное исключение с кодом состояния 401 ("Не санкционировано"). Оно возникает потому, что доступ на серверной стороне предоставлен только авторизованным пользователям.
 
-3. Затем в проекте droid откройте файл MainActivity.cs и добавьте следующий оператор `using`.
+3. Откройте файл MainActivity.cs в проекте Android и добавьте следующие операторы `using`:
 
 		using Microsoft.WindowsAzure.MobileServices;
 		using System.Threading.Tasks;
 
-4. Обновите класс `MainActivity` для реализации интерфейса `IAuthenticate`.
+4. Обновите класс **MainActivity**, как показано ниже, чтобы реализовать интерфейс **IAuthenticate**.
 
 		public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 
 
-5. Обновите класс `MainActivity`, добавив показанные ниже поле `MobileServiceUser` и метод `Authenticate`, для поддержки интерфейса `IAuthenticate`.
+5. Обновите класс **MainActivity**, добавив поле **MobileServiceUser** и метод **Authenticate**, который необходим для интерфейса **IAuthenticate**, как показано ниже.
 
-	Если вместо Facebook вы хотите использовать другого поставщика `MobileServiceAuthenticationProvider`, внесите соответствующее изменение.
-
-		// Define a authenticated user.
-		private MobileServiceUser user;
+        // Define a authenticated user.
+        private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
         {
             var success = false;
+            var message = string.Empty;
             try
             {
                 // Sign in with Facebook login using a server-managed flow.
                 user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(this,
                     MobileServiceAuthenticationProvider.Facebook);
-                CreateAndShowDialog(string.Format("you are now logged in - {0}",
-                    user.UserId), "Logged in!");
-
-                success = true;
+                if (user != null)
+                {
+                    message = string.Format("you are now signed-in as {0}.",
+                        user.UserId);
+                    success = true;
+                }
             }
             catch (Exception ex)
             {
-                CreateAndShowDialog(ex.Message, "Authentication failed");
+                message = ex.Message;
             }
+
+            // Display the success or failure message.
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.SetMessage(message);
+            builder.SetTitle("Sign-in result");
+            builder.Create().Show();
+
             return success;
         }
 
-        private void CreateAndShowDialog(String message, String title)
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-            builder.SetMessage(message);
-            builder.SetTitle(title);
-            builder.Create().Show();
-        }
+	Если используется поставщик удостоверений, отличный от Facebook, выберите другое значение [MobileServiceAuthenticationProvider].
 
+6. Добавьте следующий код в метод **OnCreate** в классе **MainActivity** перед вызовом метода `LoadApplication()`:
 
-6. Обновите метод `OnCreate` класса `MainActivity` для инициализации средства проверки подлинности перед загрузкой приложения.
-
+        // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
 
-        LoadApplication(new App());
+	Это гарантирует, что средство аутентификации инициализируется перед загрузкой приложения.
 
-
-
-7. Перестройте приложение и запустите его. Выполните вход, используя выбранный поставщик проверки подлинности, и убедитесь, что у вас есть доступ к таблице в качестве прошедшего проверку пользователя.
-
-
+7. Повторно выполните сборку и запустите приложение. Потом выполните вход, используя выбранный поставщик проверки подлинности, и убедитесь, что у вас есть доступ к данным в качестве прошедшего аутентификацию пользователя.
 
 ##Добавление проверки подлинности в приложение iOS
 
-В этом разделе вы добавите проверку подлинности для проекта iOS. Пропустите этот раздел, если вы не работаете с устройствами iOS.
+В этом разделе показано, как реализовать интерфейс **IAuthenticate** в проекте приложения iOS. Пропустите этот раздел, если вы не пользуетесь устройствами iOS.
 
 1. В Visual Studio или Xamarin Studio щелкните правой кнопкой мыши проект **iOS** и выберите пункт **Назначить запускаемым проектом**.
 
-2. Запустите приложение в отладчике, чтобы убедиться в том, что после его запуска возникает необработанное исключение с кодом состояния 401 (Неавторизованный доступ). Это происходит потому, что доступ на серверной стороне предоставлен только авторизованным пользователям.
+2. Нажмите клавишу F5, чтобы запустить проект в отладчике. После запуска приложения должно появиться необработанное исключение с кодом состояния 401 ("Не санкционировано"). Оно возникает потому, что доступ на серверной стороне предоставлен только авторизованным пользователям.
 
-3. Затем в проекте iOS откройте файл AppDelegate.cs и добавьте следующий оператор `using`.
+4. Затем в проекте iOS откройте файл AppDelegate.cs и добавьте следующие операторы `using`:
 
 		using Microsoft.WindowsAzure.MobileServices;
 		using System.Threading.Tasks;
 
-4. Обновите класс `AppDelegate` для реализации интерфейса `IAuthenticate`.
+4. Обновите класс **AppDelegate**, как показано ниже, чтобы реализовать интерфейс **IAuthenticate**.
 
 		public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 
+5. Обновите класс **AppDelegate**, добавив поле **MobileServiceUser** и метод **Authenticate**, который необходим для интерфейса **IAuthenticate**, как показано ниже.
 
-5. Обновите класс `AppDelegate`, добавив показанные ниже поле `MobileServiceUser` и метод `Authenticate`, для поддержки интерфейса `IAuthenticate`.
-
-	Если вместо Facebook вы хотите использовать другого поставщика `MobileServiceAuthenticationProvider`, внесите соответствующее изменение.
-
-		// Define a authenticated user.
-		private MobileServiceUser user;
+        // Define a authenticated user.
+        private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
         {
             var success = false;
+            var message = string.Empty;
             try
             {
                 // Sign in with Facebook login using a server-managed flow.
                 if (user == null)
                 {
-                    user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,
+                    user = await TodoItemManager.DefaultManager.CurrentClient
+                        .LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,
                         MobileServiceAuthenticationProvider.Facebook);
                     if (user != null)
                     {
-                        UIAlertView avAlert = new UIAlertView("Authentication", "You are now logged in " + user.UserId, null, "OK", null);
-                        avAlert.Show();
+                        message = string.Format("You are now signed-in as {0}.", user.UserId);
+                        success = true;                        
                     }
-                }
-
-                success = true;
+                }        
             }
             catch (Exception ex)
             {
-                UIAlertView avAlert = new UIAlertView("Authentication failed", ex.Message, null, "OK", null);
-                avAlert.Show();
+               message = ex.Message;
             }
+
+            // Display the success or failure message.
+            UIAlertView avAlert = new UIAlertView("Sign-in result", message, null, "OK", null);
+            avAlert.Show();         
+
             return success;
         }
 
-6. Обновите метод `FinishedLaunching` класса `AppDelegate` для инициализации средства проверки подлинности перед загрузкой приложения.
+	Если используется поставщик удостоверений, отличный от Facebook, выберите другое значение [MobileServiceAuthenticationProvider].
+
+6. Добавьте следующую строку кода в метод **FinishedLaunching** перед вызовом метода `LoadApplication()`:
 
         App.Init(this);
 
-		LoadApplication (new App ());
+	Это гарантирует, что средство аутентификации инициализируется перед загрузкой приложения.
+
+7. Повторно выполните сборку и запустите приложение. Потом выполните вход, используя выбранный поставщик проверки подлинности, и убедитесь, что у вас есть доступ к данным в качестве прошедшего аутентификацию пользователя.
 
 
+##Добавление проверки подлинности в проекты приложений Windows
 
-7. Перестройте приложение и запустите его. Выполните вход, используя выбранный поставщик проверки подлинности, и убедитесь, что у вас есть доступ к таблице в качестве прошедшего проверку пользователя.
+В этом разделе показано, как реализовать интерфейс **IAuthenticate** в проектах приложений Windows 8.1 и Windows Phone 8.1. Эти действия применимы для любых проектов универсальной платформы Windows (UWP). Пропустите этот раздел, если вы не пользуетесь устройствами Windows.
 
+1. В Visual Studio щелкните правой кнопкой мыши проект **WinApp** или **WinPhone81** и выберите пункт **Назначить запускаемым проектом**.
 
+2. Нажмите клавишу F5, чтобы запустить проект в отладчике. После запуска приложения должно появиться необработанное исключение с кодом состояния 401 ("Не санкционировано"). Оно возникает потому, что доступ на серверной стороне предоставлен только авторизованным пользователям.
 
-
-##Добавление проверки подлинности в приложение Windows
-
-В этом разделе вы добавите проверку подлинности для проекта WinApp. Пропустите этот раздел, если вы не работаете с устройствами Windows.
-
-1. В Visual Studio щелкните правой кнопкой мыши проект **WinApp** и выберите пункт **Назначить запускаемым проектом**.
-
-2. Запустите приложение в отладчике, чтобы убедиться в том, что после его запуска возникает необработанное исключение с кодом состояния 401 (Неавторизованный доступ). Это происходит потому, что доступ на серверной стороне предоставлен только авторизованным пользователям.
-
-3. Затем в проекте WinApp откройте файл MainPage.xaml.cs и добавьте следующий оператор `using`. Вместо <*Your portable class library namespace*> укажите пространство имен для переносимой библиотеки классов.
+3. Затем откройте файл MainPage.xaml.cs проекта приложения Windows и добавьте следующие операторы `using`:
 
 		using Microsoft.WindowsAzure.MobileServices;
 		using System.Threading.Tasks;
-		using <Your portable class library namespace>;
+		using Windows.UI.Popups;
+		using <your_Portable_Class_Library_namespace>;
 
-4. Обновите класс `MainPage` для реализации интерфейса `IAuthenticate`.
+	Вместо `<your_Portable_Class_Library_namespace>` укажите пространство имен для переносимой библиотеки классов.
+
+4. Обновите класс **MainPage**, как показано ниже, чтобы реализовать интерфейс **IAuthenticate**.
 
 	    public sealed partial class MainPage : IAuthenticate
 
 
-5. Обновите класс `MainPage`, добавив показанные ниже поле `MobileServiceUser` и метод `Authenticate`, для поддержки интерфейса `IAuthenticate`.
-
-	Если вместо Facebook вы хотите использовать другого поставщика `MobileServiceAuthenticationProvider`, внесите соответствующее изменение.
+5. Обновите класс **MainPage**, добавив поле **MobileServiceUser** и метод **Authenticate**, который необходим для интерфейса **IAuthenticate**, как показано ниже.
 
         // Define a authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
         {
+            string message = string.Empty;
             var success = false;
+
             try
             {
                 // Sign in with Facebook login using a server-managed flow.
                 if (user == null)
                 {
-                    user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-					if (user != null)
-					{
-	                    var messageDialog = new Windows.UI.Popups.MessageDialog(
-								string.Format("you are now logged in - {0}", user.UserId), "Authentication");
-	                    messageDialog.ShowAsync();
-					}
+                    user = await TodoItemManager.DefaultManager.CurrentClient
+                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                    if (user != null)
+                    {
+						success = true;
+                        message = string.Format("You are now signed-in as {0}.", user.UserId);
+                    }
                 }
-
-                success = true;
+                
             }
             catch (Exception ex)
             {
-                var messageDialog = new Windows.UI.Popups.MessageDialog(ex.Message, "Authentication Failed");
-                messageDialog.ShowAsync();
+                message = string.Format("Authentication Failed: {0}", ex.Message);
             }
+
+			// Display the success or failure message.
+            await new MessageDialog(message, "Sign-in result").ShowAsync();
+
             return success;
         }
 
-6. Обновите конструктор для класса `MainPage` для инициализации средства проверки подлинности перед загрузкой приложения. Вместо <*Your portable class library namespace*> укажите пространство имен для переносимой библиотеки классов.
 
-        public MainPage()
-        {
-            this.InitializeComponent();
+	Если используется поставщик удостоверений, отличный от Facebook, выберите другое значение [MobileServiceAuthenticationProvider].
 
-            <Your portable class library namespace>.App.Init(this);
+6. Добавьте следующую строку кода в конструктор для класса **MainPage** перед вызовом метода `LoadApplication()`:
 
-            LoadApplication(new <Your portable class library namespace>.App());
-        }
+        // Initialize the authenticator before loading the app.
+        <your_Portable_Class_Library_namespace>.App.Init(this);
+ 
+    Вместо `<your_Portable_Class_Library_namespace>` укажите пространство имен для переносимой библиотеки классов. Если это проект WinApp, переходите к шагу 8. Следующий шаг применяется только к проекту WinPhone81, где необходимо выполнить обратный вызов входа в систему.
 
-
-
-7. Перестройте приложение и запустите его. Выполните вход, используя выбранный поставщик проверки подлинности, и убедитесь, что у вас есть доступ к таблице в качестве прошедшего проверку пользователя.
-
-
-##Добавление проверки подлинности в приложение Windows Phone 8.1
-
-В этом разделе вы добавите проверку подлинности для проекта WinPhone81. Пропустите этот раздел, если вы не работаете с устройствами Windows Phone 8.1.
-
-1. В Visual Studio щелкните правой кнопкой мыши проект **WinPhone81** и выберите пункт **Назначить запускаемым проектом**.
-
-2. Запустите приложение в отладчике, чтобы убедиться в том, что после его запуска возникает необработанное исключение с кодом состояния 401 (Неавторизованный доступ). Это происходит потому, что доступ на серверной стороне предоставлен только авторизованным пользователям.
-
-
-3. Затем в проекте WinPhone81 откройте файл MainPage.xaml.cs и добавьте следующий оператор `using`. Вместо <*Your portable class library namespace*> укажите пространство имен для переносимой библиотеки классов.
+7. (Необязательный шаг.) В проекте приложения **WinPhone81** откройте файл App.xaml.cs и добавьте следующие операторы `using`:
 
 		using Microsoft.WindowsAzure.MobileServices;
-		using System.Threading.Tasks;
-		using <Your portable class library namespace>;
+		using <your_Portable_Class_Library_namespace>;
 
-4. Обновите класс `MainPage` для реализации интерфейса `IAuthenticate`.
+	Вместо `<your_Portable_Class_Library_namespace>` укажите пространство имен для переносимой библиотеки классов.
 
-	    public sealed partial class MainPage : IAuthenticate
-
-
-5. Обновите класс `MainPage`, добавив показанные ниже поле `MobileServiceUser` и метод `Authenticate`, для поддержки интерфейса `IAuthenticate`.
-
-	Если вместо Facebook вы хотите использовать другого поставщика `MobileServiceAuthenticationProvider`, внесите соответствующее изменение.
-
-        // Define a authenticated user.
-        private MobileServiceUser user;
-
-        public async Task<bool> Authenticate()
-        {
-            var success = false;
-            try
-            {
-                // Sign in with Facebook login using a server-managed flow.
-                if (user == null)
-                {
-                    user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-					if (user != null)
-					{
-	                    var messageDialog = new Windows.UI.Popups.MessageDialog(
-								string.Format("you are now logged in - {0}", user.UserId), "Authentication");
-	                    messageDialog.ShowAsync();
-					}
-                }
-
-                success = true;
-            }
-            catch (Exception ex)
-            {
-                var messageDialog = new Windows.UI.Popups.MessageDialog(ex.Message, "Authentication Failed");
-                messageDialog.ShowAsync();
-            }
-            return success;
-        }
-
-6. Обновите конструктор для класса `MainPage` для инициализации средства проверки подлинности перед загрузкой приложения. Вместо <*Your portable class library namespace*> укажите пространство имен для переносимой библиотеки классов.
-
-        public MainPage()
-        {
-            this.InitializeComponent();
-
-            this.NavigationCacheMode = NavigationCacheMode.Required;
-
-            <Your portable class library namespace>.App.Init(this);
-
-            LoadApplication(new <Your portable class library namespace>.App());
-        }
-
-7. В Windows Phone необходимо выполнить процедуру входа. Откройте файл App.xaml.cs и добавьте следующий оператор `using` и код в обработчик `OnActivated` в классе `App`.
-
-	```
-		using Microsoft.WindowsAzure.MobileServices;
-	```
+8.  Добавьте переопределение метода **OnActivated** в класс **App**:
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
 		    base.OnActivated(args);
 
+			// We just need to handle activation that occurs after web authentication. 
 		    if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
 		    {
+				// Get the client and call the LoginComplete method to complete authentication.
 		        var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
 		        client.LoginComplete(args as WebAuthenticationBrokerContinuationEventArgs);
 		    }
 		}
 
+	Если переопределение метода уже присутствует, просто добавьте условный код из приведенного выше фрагмента.
 
+7. Повторно выполните сборку и запустите приложение. Потом выполните вход, используя выбранный поставщик проверки подлинности, и убедитесь, что у вас есть доступ к данным в качестве прошедшего аутентификацию пользователя.
 
-8. Перестройте приложение и запустите его. Выполните вход, используя выбранный поставщик проверки подлинности, и убедитесь, что у вас есть доступ к таблице в качестве прошедшего проверку пользователя.
+##Дальнейшие действия
+
+Вы прошли этот учебник по обычной проверке подлинности и теперь можете перейти к одному из следующих учебников:
+
++ [Добавление push-уведомлений в приложение](app-service-mobile-xamarin-forms-get-started-push.md). Узнайте, как добавить поддержку push-уведомлений в приложение и настроить в серверной части мобильного приложения использование центров уведомлений Azure для отправки push-уведомлений.
+
++ [Включение автономной синхронизации для приложения](app-service-mobile-xamarin-forms-get-started-offline-data.md). Узнайте, как добавить поддержку автономной работы приложения с помощью серверной части мобильного приложения. Автономная синхронизация позволяет конечным пользователям взаимодействовать с мобильным приложением (просматривать, добавлять или изменять данные) даже при отсутствии подключения к сети.
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+[LoginAsync]: https://msdn.microsoft.com/library/azure/dn268341(v=azure.10).aspx
+[MobileServiceClient]: https://msdn.microsoft.com/library/azure/JJ553674(v=azure.10).aspx
+[MobileServiceAuthenticationProvider]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

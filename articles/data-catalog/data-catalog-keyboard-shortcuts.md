@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="03/31/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
 # Сочетания клавиш для каталога данных Azure
@@ -92,4 +92,4 @@
 |Переключить меню **Открыть в**. | ALT+O
 |Изучить контейнер, если ресурс является контейнером. | ALT+L
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

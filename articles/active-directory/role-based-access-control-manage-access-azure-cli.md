@@ -23,7 +23,7 @@
 - [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
 - [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
 
-Функция управления доступом на основе ролей \(RBAC\) на портале Azure и в API Azure Resource Manager позволяет очень точно управлять доступом к подписке и ресурсам. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
+Функция управления доступом на основе ролей (RBAC) на портале Azure и в API Azure Resource Manager позволяет очень точно управлять доступом к подписке и ресурсам. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
 
 Чтобы использовать Azure CLI для управления RBAC, вам понадобится:
 
@@ -62,7 +62,7 @@
 
 ###	Вывод списка назначений ролей для пользователя, включая назначения для групп пользователя
 
-В следующем примере показаны назначения ролей, предоставленные пользователю \**sameert@aaddemo.com*. Сюда входят роли, непосредственно назначенные пользователю, а также роли, унаследованные от группы.
+В следующем примере показаны назначения ролей, предоставленные пользователю *sameert@aaddemo.com*. Сюда входят роли, непосредственно назначенные пользователю, а также роли, унаследованные от группы.
 
 ![Снимок экрана: командная строка RBAC Azure — список назначений ролей Azure по пользователям](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -74,7 +74,7 @@
 ###	Назначение роли для группы в области действия подписки
 Для назначения роли для группы в области действия подписки воспользуйтесь командой:
 
-	azure role assignment create --objId  <group's object id> --role <name of role> --scope <subscription/subscription id>
+	azure role assignment create --objectId  <group's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 В следующем примере роль *Читатель* назначается *Команде Кристины Кох* в области действия *подписки*.
 
@@ -83,7 +83,7 @@
 ###	Назначение роли для приложения в области действия подписки
 Для назначения роли для приложения в области действия подписки воспользуйтесь командой:
 
-    azure role assignment create --objId  <applications's object id> --role <name of role> --scope <subscription/subscription id>
+    azure role assignment create --objectId  <applications's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 Следующий пример предоставляет роль *Участник* приложению *Azure AD* в выбранной подписке.
 
@@ -92,16 +92,16 @@
 ###	Назначение роли пользователю в области действия группы ресурсов
 Для назначения роли пользователю в области действия группы ресурсов воспользуйтесь командой:
 
-	azure role assignment create --signInName  <user's email address> --roleName <name of role in quotes> --resourceGroup <resource group name>
+	azure role assignment create --signInName  <user's email address> --subscription <subscription> --roleName <name of role in quotes> --resourceGroup <resource group name>
 
-Следующий пример предоставляет роль *Участник виртуальной машины* пользователю \**samert@aaddemo.com* в области действия группы ресурсов *Pharma-Sales-ProjectForcast*.
+Следующий пример предоставляет роль *Участник виртуальной машины* пользователю *samert@aaddemo.com* в области действия группы ресурсов *Pharma-Sales-ProjectForcast*.
 
 ![Снимок экрана: командная строка RBAC Azure — создание назначений ролей Azure по пользователям](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
 ###	Назначение роли для группы в области действия ресурса
 Для назначения роли для группы в области действия ресурса воспользуйтесь командой:
 
-    azure role assignment create --objId  <group id> --roleName <name of role in quotes> --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
+    azure role assignment create --objectId  <group id> --subscription <subscription> --roleName <name of role in quotes> --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
 
 Следующий пример предоставляет роль *Участник виртуальной машины* группе *Azure AD* в *подсети*.
 
@@ -110,9 +110,9 @@
 ##	Запрет доступа
 Чтобы удалить назначение роли, воспользуйтесь командой:
 
-    azure role assignment delete --objId <object id to from which to remove role> --roleName <role name>
+    azure role assignment delete --objectId <object id to from which to remove role> --roleName <role name>
 
-Следующий пример удаляет назначение роли *Участник виртуальной машины* пользователя \**sammert@aaddemo.com* в группе ресурсов *Pharma-Sales-ProjectForcast*. После этого выполняется удаление назначения ролей из группы в подписке.
+Следующий пример удаляет назначение роли *Участник виртуальной машины* пользователя *sammert@aaddemo.com* в группе ресурсов *Pharma-Sales-ProjectForcast*. После этого выполняется удаление назначения ролей из группы в подписке.
 
 ![Снимок экрана: командная строка RBAC Azure — удаление назначений ролей Azure](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
@@ -129,7 +129,7 @@
 
 Чтобы изменить настраиваемую роль, используйте команду `azure role show` для получения определения роли. Затем внесите необходимые изменения в определение роли. Наконец, с помощью `azure role set` сохраните измененное определение роли.
 
-В следующем примере в раздел **Actions** добавляется операция Microsoft.Insights/diagnosticSettings/\*, а в раздел **AssignableScopes** настраиваемой роли "Оператор виртуальной машины" — подписка Azure.
+В следующем примере в раздел **Actions** добавляется операция Microsoft.Insights/diagnosticSettings/*, а в раздел **AssignableScopes** настраиваемой роли "Оператор виртуальной машины" — подписка Azure.
 
 ![Снимок экрана: JSON — изменение определения пользовательской роли](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
 
@@ -162,4 +162,4 @@
 ## Разделы о RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="06/24/2016" 
 	ms.author="genemi"/>
 
 
@@ -292,7 +292,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 &nbsp;
 
 
-> [AZURE.WARNING] Значение ключа SAS, созданное предыдущим сценарием PowerShell, может начинаться с вопросительного знака ("?"). При использовании ключа SAS в приведенном ниже сценарии T-SQL нужно этот вопросительный знак удалить.
+> [AZURE.WARNING] Значение ключа SAS, созданное предыдущим сценарием PowerShell, может начинаться с вопросительного знака ("?"). При использовании ключа SAS в приведенном ниже сценарии T-SQL *этот вопросительный знак нужно удалить*. В противном случае система безопасности может заблокировать ваши действия.
 
 
 &nbsp;
@@ -512,9 +512,9 @@ GO
 ## Выходные данные
 
 
-После того как сценарий Transact-SQL будет выполнен, щелкните ячейку под заголовком столбца **event\_data\_XML**. Один из элементов **<event>** содержит оператор UPDATE.
+После того как сценарий Transact-SQL будет выполнен, щелкните ячейку под заголовком столбца **event\_data\_XML**. Один из отображенных элементов **<event>** содержит инструкцию UPDATE.
 
-Вот один из элементов **<event>**, сформированных в процессе тестирования:
+Ниже приведен один из элементов **<event>**, сформированных в процессе тестирования.
 
 
 &nbsp;
@@ -559,9 +559,17 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 </event>
 ```
 
+&nbsp;
 
 
+В приведенном выше сценарии Transact-SQL для чтения event\_file была использована следующая системная функция.
 
+- [sys.fn\_xe\_file\_target\_read\_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+
+
+Описание дополнительных параметров для просмотра данных из расширенных событий доступно в следующей статье.
+
+- [Advanced Viewing of Target Data from Extended Events in SQL Server](http://msdn.microsoft.com/library/mt752502.aspx) (Дополнительные параметры просмотра целевых данных из расширенных событий в SQL Server)
 
 &nbsp;
 
@@ -585,20 +593,15 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 ## Дополнительные сведения
 
 
-Основная статья о расширенных событиях в Базе данных SQL Azure:
-
-- [Расширенные события в Базе данных SQL](sql-database-xevent-db-diff-from-svr.md) — основная статья о расширенных событиях в базе данных SQL Azure.
- - В ней сравниваются аспекты расширенных событий в Базе данных SQL Azure и на Microsoft SQL Server.
-
-
-- [Код целевого кольцевого буфера для расширенных событий в Базе данных SQL](sql-database-xevent-code-ring-buffer.md) — статья содержит пример сходного кода, который, однако, подходит скорее для беглого тестирования, чем для решения более объемных задач.
-
-
 Дополнительные сведения об учетных записях и контейнерах в службе хранилища Azure см. в следующих статьях:
 
 - [Использование хранилища BLOB-объектов из .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 - [Именование контейнеров, больших двоичных объектов и метаданных и ссылка на них](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Работа с корневым контейнером](http://msdn.microsoft.com/library/azure/ee395424.aspx)
+- [Урок 1. Создание хранимой политики доступа и подписанного URL-адреса для контейнера Azure](http://msdn.microsoft.com/library/dn466430.aspx)
+    - [Урок 2. Создание учетных данных SQL Server с использованием подписанного URL-адреса](http://msdn.microsoft.com/library/dn466435.aspx)
+
+
 
 
 <!--
@@ -607,4 +610,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

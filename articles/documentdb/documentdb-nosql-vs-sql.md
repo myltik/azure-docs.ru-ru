@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="03/28/2016"
+	ms.date="06/24/2016"
 	ms.author="mimig"/>
 
 # Базы данных NoSQL и SQL
@@ -130,4 +130,4 @@ Azure предоставляет четыре полностью управля�
     - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
     - [SQL Server на виртуальных машинах Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

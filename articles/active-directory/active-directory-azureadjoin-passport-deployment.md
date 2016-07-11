@@ -5,7 +5,7 @@
 	documentationCenter=""
 	keywords="настройка Microsoft Passport, развертывание Microsoft Passport for Work"
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
@@ -26,15 +26,15 @@
 ## Развертывание System Center Configuration Manager (ознакомительная техническая версия 1509)
 Для развертывания сертификатов пользователей на основе ключей Microsoft Passport необходимо следующее.
 
-- **System Center Configuration Manager (ознакомительная техническая версия 1509)**. Дополнительные сведения см. в разделе [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) и [блоге рабочей группы по System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
+- **System Center Configuration Manager (ознакомительная техническая версия 1509)**. Дополнительные сведения см. в разделе [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) и [блоге рабочей группы по System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
 - **Инфраструктура открытых ключей (PKI)**. Для поддержки использования сертификатов пользователей службой Microsoft Passport for Work необходима инфраструктура PKI. Если у вас отсутствует инфраструктура PKI или вы не хотите использовать ее для сертификатов пользователей, выполните указанные ниже действия.
- - **Развертывание контроллера домена**. Выполните развертывание нового контроллера домена с установленной сборкой 10551 (или более поздней версии) Windows Server 2016 и выполните процедуру по [установке реплики контроллера домена в существующем домене](https://technet.microsoft.com/library/jj574134.aspx) или [установке нового леса Active Directory при создании новой среды](https://technet.microsoft.com/library/jj574166). (Образы ISO доступны для скачивания на странице [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
+ - **Развертывание контроллера домена**. Выполните развертывание нового контроллера домена с установленной сборкой 10551 (или более поздней версии) Windows Server 2016 и выполните процедуру по [установке реплики контроллера домена в существующем домене](https://technet.microsoft.com/library/jj574134.aspx) или [установке нового леса Active Directory при создании новой среды](https://technet.microsoft.com/library/jj574166). (Образы ISO доступны для скачивания на странице [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
 
 ## Настройка Microsoft Passport for Work с помощью групповой политики в Active Directory
 
  Групповую политику в Active Directory Windows Server можно использовать для настройки присоединенных к домену устройств Windows 10 для подготовки учетных данных Microsoft Passport при входе пользователя в систему Windows.
 
-1. 	Откройте диспетчер серверов и выберите **Инструменты** > **Управление групповой политикой**.
+1. 	Откройте диспетчер серверов и выберите **Инструменты** > **Управление групповой политикой**.
 2.	В разделе "Управление групповой политикой" перейдите к узлу, соответствующему домену, для которого необходимо включить присоединение к Azure AD.
 3.	Щелкните правой кнопкой мыши элемент **Объекты групповой политики** и выберите пункт **Создать**. Укажите имя объекта групповой политики, например "Включение Microsoft Passport". Нажмите кнопку **ОК**.
 4.	Щелкните правой кнопкой мыши новый объект групповой политики и выберите пункт **Изменить**.
@@ -52,7 +52,7 @@
     powershell.exe -ExecutionPolicy Bypass -NoLogo -NoProfile -Command "& {New-ItemProperty "HKLM:\Software\Policies\Microsoft\PassportForWork" -Name "Enabled" -Value 1 -PropertyType "DWord" -Force}"
 
 ## Настройка профиля сертификата для использования сертификата Passport for Work в Configuration Manager
-Для использования входа на основе сертификата Passport for Work или Microsoft Hello настройте профиль сертификата (**Активы и соответствие** > **Параметры соответствия** > **Доступ к ресурсам компании** > **Профили сертификатов**). Выберите шаблон с EKU входа со смарт-картой.
+Для использования входа на основе сертификата Passport for Work или Microsoft Hello настройте профиль сертификата (**Активы и соответствие** > **Параметры соответствия** > **Доступ к ресурсам компании** > **Профили сертификатов**). Выберите шаблон с EKU входа со смарт-картой.
 
 ## Настройка запланированной задачи для запроса оценки сертификата
 Эта запланированная задача является краткосрочным исправлением. Администраторы должны создать запланированную задачу, ожидающую создание контейнера Passport for Work и запрашивающую оценку сертификата. Запланированная задача запускается при включении контейнера Passport for Work. Задача сокращает задержки при настройке контейнера и ПИН-кода и их доступности для использования при следующем входе в систему.
@@ -109,14 +109,14 @@
       </Actions>
     </Task>
 
- Где ScopeId\_73F3BB5E-5EDC-4928-87BD-4E75EB4BBC34/ConfigurationPolicy\_db89c51e-1d1b-4a17-8e42-a5459b742ccd — это идентификатор для профиля сертификата, созданного в процедуре "Настройка профиля сертификата для использования сертификата регистрации Passport for Work в Configuration Manager". После ИД области идет номер версии — 8.
+ Где ScopeId\_73F3BB5E-5EDC-4928-87BD-4E75EB4BBC34/ConfigurationPolicy\_db89c51e-1d1b-4a17-8e42-a5459b742ccd — это идентификатор для профиля сертификата, созданного в процедуре "Настройка профиля сертификата для использования сертификата регистрации Passport for Work в Configuration Manager". После ИД области идет номер версии — 8.
 
 ## Дополнительная информация
-* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
 * [Проверка подлинности удостоверений без использования паролей с помощью службы Microsoft Passport](active-directory-azureadjoin-passport.md)
-* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #<a id="monitormediaservicesaccount"></a>Мониторинг учетной записи служб мультимедиа
@@ -26,7 +26,7 @@
 
 ##<a id="configuremonitoring"></a>Практическое руководство: мониторинг учетной записи служб мультимедиа
 
-1. На [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=256666) щелкните **Службы мультимедиа**, а затем щелкните имя учетной записи служб мультимедиа, чтобы открыть панель мониторинга. 
+1. На [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=256666) щелкните **Службы мультимедиа**, а затем щелкните имя учетной записи служб мультимедиа, чтобы открыть панель мониторинга.
 
 	![MediaServices\_Dashboard][dashboard]
 
@@ -62,7 +62,7 @@
 
 ##Отзывы
 
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]рабочий процесс для потоковой передачи по запросу](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)] рабочий процесс для потоковой передачи по запросу](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 <!-- Images -->
@@ -71,4 +71,4 @@
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

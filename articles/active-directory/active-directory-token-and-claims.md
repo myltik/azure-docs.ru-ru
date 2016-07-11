@@ -13,12 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="06/23/2016"
    ms.author="mbaldwin"/>
 
 # Поддерживаемые токены и типы утверждений
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 Этот раздел поможет вам лучше разобраться и научиться анализировать утверждения в создаваемых службой Azure Active Directory (Azure AD) токенах SAML 2.0 и JSON Web Tokens (JWT).
 
@@ -414,4 +412,4 @@ Tenant ID — неизменяемый идентификатор без воз�
 
 [Протоколы аутентификации Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

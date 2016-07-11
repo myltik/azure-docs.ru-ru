@@ -23,7 +23,7 @@
 ## Установка 
 Чтобы служба фабрики данных Azure могла подключаться к локальной базе данных Oracle, необходимо установить следующие компоненты.
 
-- Шлюз управления данными на том же компьютере, на котором размещена база данных, или на отдельном компьютере во избежание конкуренции за ресурсы. Шлюз управления данными — это программное обеспечение, которое обеспечивает безопасное и управляемое подключение локальных источников данных к облачным службам. Сведения о шлюзе управления данными см. в статье [Перемещение данных между локальными источниками и облаком](data-factory-move-data-between-onprem-and-cloud.md). 
+- Шлюз управления данными на том же компьютере, на котором размещена база данных, или на отдельном компьютере во избежание конкуренции за ресурсы. Шлюз управления данными — это программное обеспечение, которое обеспечивает безопасное и управляемое подключение локальных источников данных к облачным службам. Сведения о шлюзе управления данными см. в статье [Перемещение данных между локальными источниками и облаком](data-factory-move-data-between-onprem-and-cloud.md).
 - Поставщик данных Oracle для .NET. Входит в состав [компонентов доступа к данным Oracle для Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Установите соответствующую версию (32- или 64- разрядную) на главном компьютере, на котором установлен шлюз. [Поставщик данных Oracle для .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) может обращаться к Oracle Database 10g версии 2 или более поздней версии.
 
 > [AZURE.NOTE] Советы по устранению неполадок, связанных с шлюзом или подключением, см. в разделе [Устранение неполадок шлюза](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
@@ -35,7 +35,7 @@
 
 1.	Связанная служба типа [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
 2.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	Входной [набор данных](data-factory-create-datasets.md) типа [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties). 
+3.	Входной [набор данных](data-factory-create-datasets.md) типа [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties).
 4.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) в качестве источника и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) в качестве приемника.
 
@@ -224,7 +224,7 @@
 1.	Связанная служба типа [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
 2.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	Входной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	Выходной [набор данных](data-factory-create-datasets.md) типа [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties). 
+4.	Выходной [набор данных](data-factory-create-datasets.md) типа [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties).
 5.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) в качестве источника и [OracleSink](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) в качестве приемника.
 
 В примере данные из хранилища BLOB-объектов каждый час копируются в таблицу в локальной базе данных Oracle. Дополнительные сведения о различных свойствах, используемых в примере, см. в документации, ссылки на которую приведены в разделах после примеров.
@@ -432,8 +432,8 @@ oracleReaderQuery | Используйте пользовательский за
 
 Свойство | Описание | Допустимые значения | Обязательно
 -------- | ----------- | -------------- | --------
-writeBatchTimeout | Время ожидания до выполнения операции пакетной вставки, пока не завершится срок ее действия. | (Единица — интервал времени) Пример: 00:30:00 (30 минут). | Нет
-writeBatchSize | Вставляет данные в таблицу SQL, когда размер буфера достигает значения writeBatchSize. Целое число. | (Единица — количество строк). | Нет (значение по умолчанию — 10 000)  
+writeBatchTimeout | Время ожидания до выполнения операции пакетной вставки, пока не завершится срок ее действия. | интервал времени<br/><br/> Пример: 00:30:00 (30 минут). | Нет
+writeBatchSize | Вставляет данные в таблицу SQL, когда размер буфера достигает значения writeBatchSize. | Число | Нет (значение по умолчанию — 10 000).  
 sqlWriterCleanupScript | Указанный пользователем запрос на выполнение действия копирования, позволяющий убедиться в том, что данные конкретного среза будут очищены. | Инструкция запроса. | Нет
 sliceIdentifierColumnName | Указываемое пользователем имя столбца, в которое действие копирования добавляет автоматически созданный идентификатор среза. Этот идентификатор используется для очистки данных конкретного среза при повторном запуске. | Имя столбца с типом данных binary(32). | Нет
 
@@ -477,21 +477,21 @@ XML | Строка
 
 ## Советы по устранению неполадок
 
-**Проблема.** Появится следующее **сообщение об ошибке**: Действие копирования обнаружило недопустимые параметры: "UnknownParameterName". Подробное сообщение: Не удалось найти запрошенный .Net Framework Data Provider. Возможно, он не установлен.
+**Проблема.** Появится следующее **сообщение об ошибке**: Действие копирования обнаружило недопустимые параметры: UnknownParameterName. Подробное сообщение: "Не удалось найти запрошенный .Net Framework Data Provider." Возможно, он не установлен.
 
 **Возможные причины**
 
 1. Поставщик данных .NET Framework для Oracle не был установлен.
-2. Поставщик данных .NET Framework для Oracle был установлен в .NET Framework 2.0 и не найден в папках .NET Framework 4.0. 
+2. Поставщик данных .NET Framework для Oracle был установлен в .NET Framework 2.0 и не найден в папках .NET Framework 4.0.
 
 **Решение**
 
-1. Если поставщик данных .NET для Oracle не установлен, [установите](http://www.oracle.com/technetwork/topics/dotnet/downloads/) его и повторите сценарий. 
-2. Если сообщение об ошибке появляется даже после установки поставщика, выполните следующие действия. 
-	1. Откройте файл конфигурации .NET 2.0 из папки: <system disk> \\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
-	2. Найдите **поставщик данных Oracle для .NET** и запись, аналогичную следующей, в разделе **system.data** -> **DbProviderFactories**: <add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
-2.	Скопируйте эту запись в файл конфигурации компьютера в следующей папке v4.0: <system disk>\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config, измените версию на 4.xxx.x.x.
-3.	Установите файл <ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll в глобальный кэш сборок (GAC), выполнив команду «gacutil /i [путь\_к\_поставщику]».
+1. Если поставщик данных .NET для Oracle не установлен, [установите](http://www.oracle.com/technetwork/topics/dotnet/downloads/) его и повторите сценарий.
+2. Если сообщение об ошибке появляется даже после установки поставщика, выполните следующие действия.
+	1. Откройте файл конфигурации .NET 2.0 из папки: <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
+	2. Выполните поиск по запросу **Oracle Data Provider for .NET**. Вы должны будете найти запись, похожую на эту: **system.data** -> **DbProviderFactories**: “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
+2.	Скопируйте эту запись в файл конфигурации компьютера в следующей папке v4.0: <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config, and change the version to 4.xxx.x.x.
+3.	Установите файл <ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll в глобальный кэш сборок (GAC), выполнив команду gacutil /i [provider path].
 
 
 
@@ -501,4 +501,4 @@ XML | Строка
 ## Производительность и настройка  
 См. статью [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

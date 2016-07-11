@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/14/2016"
+   ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
 # Введение в надежные коллекции в службах с отслеживанием состояния Azure Service Fabric
@@ -119,10 +119,11 @@ API надежных коллекций являются развитием API 
 ## Дальнейшие действия
 
 - [Краткое руководство по надежным службам Reliable Services](service-fabric-reliable-services-quick-start.md)
+- [Уведомления Reliable Services](service-fabric-reliable-services-notifications.md)
 - [Архивация и восстановление (аварийное восстановление) надежных служб](service-fabric-reliable-services-backup-restore.md)
 - [Конфигурация диспетчера надежных состояний](service-fabric-reliable-services-configuration.md)
 - [Приступая к работе со службами веб-API Service Fabric](service-fabric-reliable-services-communication-webapi.md)
 - [Дополнительные возможности использования модели программирования надежных служб](service-fabric-reliable-services-advanced-usage.md)
 - [Справочник разработчика по надежным коллекциям](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

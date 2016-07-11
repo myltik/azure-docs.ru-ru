@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Настройка устройства с Windows 10 для работы с Azure AD с помощью меню «Параметры» | Microsoft Azure"
+	pageTitle="Настройка устройства с Windows 10 для работы с Azure AD с помощью меню «Параметры» | Microsoft Azure"
 	description="Сведения о том, как пользователи могут присоединиться к Azure AD, используя меню ";Параметры";."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
-# Настройка устройства с Windows 10 для работы с Azure AD с помощью меню «Параметры»
+# Настройка устройства с Windows 10 для работы с Azure AD с помощью меню «Параметры»
 Если вы уже используете Windows 7 или Windows 8, и система на вашем компьютере или устройстве была обновлена до Windows 10, его можно присоединить к Azure Active Directory (Azure AD) через меню "Параметры".
 
 ## Присоединение к Azure AD с помощью меню "Параметры"
@@ -37,9 +37,9 @@
 
 
 ## Дополнительная информация
-* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 * [Проверка подлинности удостоверений без использования паролей с помощью службы Microsoft Passport](active-directory-azureadjoin-passport.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

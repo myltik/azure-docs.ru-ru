@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 # Политики условного доступа к службам Office 365 с устройств
 
@@ -44,4 +44,4 @@
 
 Ответ. В настоящее время условный доступ к службам Office 365 применяется только для полнофункциональных приложений на устройствах. Мы планируем расширить политику условного доступа, распространив ее на пользователей, обращающихся к службам с помощью браузеров.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

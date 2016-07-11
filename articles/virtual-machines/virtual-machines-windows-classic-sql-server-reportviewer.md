@@ -18,7 +18,7 @@
 
 # Использование ReportViewer для веб-сайта, размещенного в Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Вы можете создать веб-сайт Microsoft Azure с элементом управления ReportViewer Visual Studio, который отображает отчет, хранящийся на виртуальной машине Microsoft Azure. Элемент управления ReportViewer представляет собой веб-приложение, создаваемое с помощью шаблона веб-приложения ASP.NET.
@@ -83,7 +83,7 @@
 
 1. Загрузите и установите распространяемый пакет Microsoft Report Viewer 2012 Runtime, следуя приведенным выше инструкциям.
 
-1. Создайте каталог <language> в проекте и скопируйте в него файлы сборок соответствующих ресурсов. Необходимо скопировать следующие файлы сборок ресурсов: **Microsoft.ReportViewer.Webforms.Resources.dll** и **Microsoft.ReportViewer.Common.Resources.dll**. Выберите файлы сборок ресурсов и на панели "Свойства" задайте для параметра **Копировать в выходной каталог** значение "**Копировать всегда**".
+1. Создайте каталог <название\_языка> в проекте и скопируйте в него файлы сборок соответствующих ресурсов. Необходимо скопировать следующие файлы сборок ресурсов: **Microsoft.ReportViewer.Webforms.Resources.dll** и **Microsoft.ReportViewer.Common.Resources.dll**. Выберите файлы сборок ресурсов и в области "Свойства" задайте для параметра **Копировать в выходной каталог** значение **Всегда копировать**.
 
 1. Настройте Culture и UI Culture для веб-проекта. Дополнительные сведения о настройке Culture и UI Culture для веб-страницы ASP.NET см. в статье [Практическое руководство. Установка значений Culture и UICulture для глобализации веб-страниц ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
 
@@ -109,4 +109,4 @@
 
 [Элемент управления средства просмотра отчетов Reporting Services и серверы отчетов на основе виртуальных машин Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="06/27/2016"
 	ms.author="rasquill"/>
 
 
@@ -23,7 +23,7 @@
 
 В этой статье перечислена вся документация, необходимая для создания виртуальных машин Linux с помощью классической модели развертывания и управления ими.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Начало работы
 - [Общая информация о Linux в Azure](virtual-machines-linux-intro-on-azure.md)
@@ -57,7 +57,6 @@
 ### Docker
 - [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](virtual-machines-linux-classic-cli-use-docker.md)
 - [Использование расширения виртуальных машин Docker на портале Azure](virtual-machines-linux-classic-portal-use-docker.md)
-- [Как быстро приступить к работе с Docker в Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
 - [Использование docker-machine в Azure](virtual-machines-linux-docker-machine.md)
 
 ### Ubuntu
@@ -113,8 +112,8 @@
 
 ## Устранение неполадок
 - [Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](virtual-machines-linux-troubleshoot-ssh-connection.md)
-- [Устранение неполадок в классическом развертывании во время создания виртуальной машины Linux в Azure](virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md)  
-- [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md) 
+- [Устранение неполадок в классическом развертывании во время создания виртуальной машины Linux в Azure](virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md)
+- [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
 
 
 ## Справочные материалы
@@ -188,8 +187,6 @@
 - [Блог. Как сделать Powershell DSC для Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
 - [Github. DSC клиента Docker](https://github.com/anweiss/DockerClientDSC)
 
-- [Ubuntu Juju](https://juju.ubuntu.com/docs/config-azure.html)
-
 - [Подключаемый модуль Packer для Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -27,7 +27,7 @@
 - клиенты могут управлять разрешениями базы данных с помощью внешних групп (AAD);
 - возможность исключить хранение паролей с помощью встроенной проверки подлинности Windows и других видов проверки подлинности, поддерживаемых Azure Active Directory;
 - при проверке подлинности Azure Active Directory используются данные пользователей автономной базы данных для проверки подлинности удостоверений на уровне базы данных.
-- Azure Active Directory поддерживает проверку подлинности на основе маркера для приложений, подключающихся к базе данных SQL.
+- Azure Active Directory поддерживает аутентификацию на основе маркеров для приложений, подключающихся к базе данных SQL.
 - Azure Active Directory поддерживает проверку подлинности с использованием ADFS (федерация доменов) или собственную проверку подлинности с помощью имени пользователя и пароля для локального каталога Azure Active Directory без синхронизации домена.
 
 > [AZURE.IMPORTANT] Проверка подлинности Azure Active Directory — это функция, работающая в режиме предварительной версии. Ее использование регулируется условиями предварительной версии, указанными в лицензионном соглашении (например, в соглашении Enterprise, соглашении для Microsoft Azure или соглашении Microsoft Online Subscription), а также любыми применимыми условиями, которые можно найти на странице [Дополнительные условия использования предварительных версий Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -336,12 +336,12 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 ### 7\.3. Подключение с помощью маркера Azure AD
 Этот метод проверки подлинности позволяет службам среднего уровня подключаться к базе данных SQL Azure или хранилищу данных SQL Azure путем получения маркера из Azure Active Directory (AAD). Он используется для реализации сложных сценариев, включая проверку подлинности на основе сертификатов. Для работы с проверкой подлинности маркера Azure AD необходимо выполнить четыре основных шага.
 
-1. Зарегистрируйте приложение в Azure Active Directory и получите идентификатор клиента для кода. 
+1. Зарегистрируйте приложение в Azure Active Directory и получите идентификатор клиента для кода.
 2. Создайте пользователя базы данных, представляющего приложение. (Выполнено ранее на шаге 6.)
 3. Создайте сертификат на клиентском компьютере, где будет выполняться приложение.
 4. Добавьте сертификат в качестве ключа для вашего приложения.
 
-Дополнительные сведения см. в блоге [о безопасности SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/).
+Дополнительные сведения см. в [блоге о безопасности SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/).
 
 ## См. также
 
@@ -367,4 +367,4 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

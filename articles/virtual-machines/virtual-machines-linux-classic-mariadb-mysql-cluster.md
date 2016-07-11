@@ -19,7 +19,7 @@
 
 # Кластер MariaDB (MySQL) — учебник по Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 > [AZURE.NOTE]  Кластер MariaDB Enterprise теперь доступен в Azure Marketplace. Новое предложение автоматически разворачивает кластер MariaDB Galera на ARM. Воспользуйтесь новым предложением от https://azure.microsoft.com/ru-RU/marketplace/partners/mariadb/cluster-maxscale/
 
@@ -52,7 +52,7 @@
 
 		azure network vnet create --address-space 10.0.0.0 --cidr 8 --subnet-name mariadb --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --affinity-group mariadbcluster mariadbvnet
 
-3. Создайте учетную запись хранилища для размещения всех дисков. Обратите внимание, что в одной учетной записи хранилища не рекомендуется размещать более 40 интенсивно используемых дисков, чтобы избежать превышения ограничения в 20 000 операций ввода-вывода в секунду для учетной записи хранилища. В этом случае выполняется намного меньше операций, поэтому все данные будут храниться в одной учетной записи для упрощения описания.
+3. Создайте учетную запись хранилища для размещения всех дисков. Обратите внимание, что в одной учетной записи хранилища не рекомендуется размещать более 40 интенсивно используемых дисков, чтобы избежать превышения ограничения в 20 000 операций ввода-вывода в секунду для учетной записи хранилища. В этом случае выполняется намного меньше операций, поэтому все данные будут храниться в одной учетной записи для упрощения описания.
 
 		azure storage account create mariadbstorage --label mariadbstorage --affinity-group mariadbcluster
 
@@ -65,7 +65,7 @@
 
 		azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-os.vhd"  --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926 azureuser
 
-5. Присоедините 4 диска данных по 500 ГБ к виртуальной машине для использования в SSH конфигурации RAID
+5. Присоедините 4 диска данных по 500 ГБ к виртуальной машине для использования в SSH конфигурации RAID
 
 		FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-data-%d.vhd
 
@@ -211,7 +211,7 @@
 
 	- Внесите изменения в раздел **[mariadb]** и добавьте следующие данные.
 
-	> [AZURE.NOTE] Мы рекомендуем, чтобы значение **innodb\_buffer\_pool\_size** составляло 70 % от памяти виртуальной машины. Здесь задано значение 2,45 ГБ для виртуальной машины Azure средней емкости с 3,5 ГБ ОЗУ.
+	> [AZURE.NOTE] Мы рекомендуем, чтобы значение **innodb\_buffer\_pool\_size** составляло 70 % от памяти виртуальной машины. Здесь задано значение 2,45 ГБ для виртуальной машины Azure средней емкости с 3,5 ГБ ОЗУ.
 
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -227,7 +227,7 @@
         chkconfig mysql off
 		waagent -deprovision
 
-11. Запишите виртуальную машину с помощью портала. (В настоящее время [проблема № 1268 со средствами CLI Azure] состоит в том, что в образы, созданные средствами CLI Azure, не записываются на подключенные диски данных.)
+11. Запишите виртуальную машину с помощью портала. (В настоящее время [проблема № 1268 со средствами CLI Azure] состоит в том, что в образы, созданные средствами CLI Azure, не записываются на подключенные диски данных.)
 
 	- Завершите работу машины на портале.
     - Щелкните «Записать» и укажите имя образа **mariadb-galera-image** и его описание, а также установите флажок «Я запустил (-а) waagent». ![Запись виртуальной машины](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png) ![Запись виртуальной машины](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
@@ -371,7 +371,7 @@
 [создать ключ SSH для проверки подлинности]: http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [стратегии оптимизации производительности]: virtual-machines-linux-optimize-mysql-perf.md
 [оптимизации и тестирования производительности MySQL на виртуальных машинах Azure Linux]: virtual-machines-linux-optimize-mysql-perf.md
-[проблема № 1268 со средствами CLI Azure]: https://github.com/Azure/azure-xplat-cli/issues/1268
+[проблема № 1268 со средствами CLI Azure]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [другим способом кластеризации MySQL в ОС Linux]: virtual-machines-linux-mysql-cluster.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

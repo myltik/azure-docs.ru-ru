@@ -24,7 +24,7 @@
 
 ## Справочная документация
 
-Справочная документация по пакету SDK для клиента iOS находится здесь: [Справочник по клиенту iOS мобильных приложений Azure](http://azure.github.io/azure-mobile-services/iOS/v3/).
+Справочная документация по пакету SDK для клиента iOS находится здесь: [Справочник по клиенту iOS мобильных приложений Azure](http://azure.github.io/azure-mobile-apps-ios-client/).
 
 ##<a name="Setup"></a>Настройка и необходимые компоненты
 
@@ -525,7 +525,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 * Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
 
-* Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой сайта _/.auth/login/done_, используя схему HTTPS. Это значение должно быть аналогично _https://contoso.azurewebsites.net/.auth/login/done_.
+* Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой сайта _/.auth/login/done_, используя схему HTTPS. Это значение должно быть аналогично https://contoso.azurewebsites.net/.auth/login/done_.
 
 **Objective-C**:
 
@@ -792,4 +792,4 @@ if (error.code == MSErrorPreconditionFailed) {
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->
