@@ -60,7 +60,7 @@
 Когда сценарий завершает работу, он выдает оценочное число единиц eDTU, необходимых для пула эластичных баз данных, чтобы содержать все рассматриваемые базы данных на целевом сервере. Это оценочное число eDTU может использоваться для создания и настройки пула. После создания пула и перемещения баз данных в него следует внимательно следить за пулом в течение нескольких дней и при необходимости вносить изменения в конфигурацию eDTU пула. См. статью [Мониторинг, управление и выбор размера пула эластичных баз данных](sql-database-elastic-pool-manage-portal.md).
 
 
-   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)
+   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]
     
     param (
 	[Parameter(Mandatory=$true)][string]$AzureSubscriptionName, # Azure Subscription name - can be found on the Azure portal: https://portal.azure.com/
@@ -266,4 +266,4 @@
 
         
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

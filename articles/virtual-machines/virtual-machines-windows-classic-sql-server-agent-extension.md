@@ -25,8 +25,7 @@
 
 Расширение агента IaaS для SQL Server (SQLIaaSAgent) запускается на виртуальных машинах Azure для автоматизации задач администрирования. В этом разделе представлен обзор служб, поддерживаемых расширением, а также указания по установке, проверке состояния и удалению расширения.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-Модель диспетчера ресурсов. Чтобы просмотреть версию этой статьи для модели Resource Manager, см. статью [SQL Server Agent Extension for SQL Server VMs Resource Manager](virtual-machines-windows-sql-server-agent-extension.md) (Расширение агента IaaS для виртуальных машин SQL Server (Resource Manager)).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Чтобы просмотреть версию этой статьи для модели Resource Manager, см. статью [SQL Server Agent Extension for SQL Server VMs Resource Manager](virtual-machines-windows-sql-server-agent-extension.md) (Расширение агента IaaS для виртуальных машин SQL Server (Resource Manager)).
 
 ## Поддерживаемые службы
 
@@ -97,4 +96,4 @@
 
 Подробные сведения о работе SQL Server на виртуальных машинах Azure см. в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

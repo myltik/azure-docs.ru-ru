@@ -22,7 +22,7 @@
 
 В этой статье перечислена вся документация, необходимая для создания виртуальных машин Windows с помощью классической модели развертывания и управления ими.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ## Обзор
@@ -75,7 +75,7 @@
 
 [Создание настраиваемой виртуальной машины под управлением Windows](virtual-machines-windows-classic-createportal.md)
 
-[Capture an image of an Azure Windows virtual machine created with the classic deployment model (Запись образа виртуальной машины Microsoft Azure, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-capture-image.md)
+[Capture an image of an Azure Windows virtual machine created with the classic deployment model (Запись образа виртуальной машины Windows Azure, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-capture-image.md)
 
 [Create and upload a Windows Server VHD to Azure (Создание и передача виртуального жесткого диска Windows Server в Azure)](virtual-machines-windows-classic-createupload-vhd.md)
 
@@ -162,7 +162,7 @@
 
 [MySQL](virtual-machines-windows-classic-mysql-2008r2.md)
 
-[Oracle](virtual-machines-windows-classic-oracle.md)
+[Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
 
 [SAP](virtual-machines-windows-classic-sap-get-started.md)
 
@@ -192,4 +192,4 @@
 
 [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

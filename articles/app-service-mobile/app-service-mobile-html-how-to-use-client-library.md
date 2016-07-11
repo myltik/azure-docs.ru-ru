@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="06/29/2016"
 	ms.author="adrianha;ricksal"/>
 
 # Как использовать клиентскую библиотеку JavaScript для мобильных приложений Azure
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-В данном руководстве показано, как реализовать типичные сценарии с использованием последней версии [пакета SDK JavaScript для мобильных приложений Azure]. Если вы не знакомы с мобильными приложениями Azure, сначала изучите статью [Быстрый запуск мобильного приложения Azure], чтобы создать серверную часть и таблицу. В этом руководстве мы рассмотрим использование мобильного внутреннего сервера в веб-приложениях HTML и JavaScript.
+В этом руководстве показано, как реализовать типичные сценарии с использованием последней версии [пакета SDK JavaScript для мобильных приложений Azure]. Если вы не знакомы с мобильными приложениями Azure, сначала изучите статью [Быстрый запуск мобильного приложения Azure], чтобы создать серверную часть и таблицу. В этом руководстве мы рассмотрим использование мобильного внутреннего сервера в веб-приложениях HTML и JavaScript.
 
 ##<a name="Setup"></a>Настройка и необходимые компоненты
 
@@ -57,60 +57,37 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-##<a name="register-for-push"></a>Практическое руководство. Регистрация для получения push-уведомлений
+###<a name="configure-external-redirect-urls"></a>Практическое руководство. Настройка службы мобильных приложений для внешних URL-адресов перенаправления.
 
-Для обработки push-уведомлений установите [phonegap-plugin-push]. Его можно легко добавить с помощью команды `cordova plugin add` в командной строке или установщика подключаемых модулей Git в Visual Studio. Следующий код в приложении Apache Cordova регистрирует устройство для получения push-уведомлений:
+Некоторые типы JavaScript приложений используют возможность замыкания на себя для обработки потоков пользовательского интерфейса OAuth. Это происходит, например, при локальном запуске службы, использовании динамической перезагрузки на платформе Ionic Framework либо перенаправлении к службе приложений для проверки подлинности. Это может вызвать проблемы, так как по умолчанию проверка подлинности службы приложений настроена только для доступа из серверной части мобильного приложения.
 
-```
-var pushOptions = {
-    android: {
-        senderId: '<from-gcm-console>'
-    },
-    ios: {
-        alert: true,
-        badge: true,
-        sound: true
-    },
-    windows: {
-    }
-};
-pushHandler = PushNotification.init(pushOptions);
+Следуйте инструкциям ниже, чтобы изменить параметры службы приложений для включения проверки подлинности из localhost.
 
-pushHandler.on('registration', function (data) {
-    registrationId = data.registrationId;
-    // For cross-platform, you can use the device plugin to determine the device
-    // Best is to use device.platform
-    var name = 'gcm'; // For android - default
-    if (device.platform.toLowerCase() === 'ios')
-        name = 'apns';
-    if (device.platform.toLowerCase().substring(0, 3) === 'win')
-        name = 'wns';
-    client.push.register(name, registrationId);
-});
+1. Войдите на [портал Azure], перейдите к внутреннему серверу мобильного приложения, щелкните **Средства** > **Обозреватель ресурсов** > **Перейти**, чтобы открыть новое окно обозревателя ресурсов для серверной части мобильного приложения (сайт).
 
-pushHandler.on('notification', function (data) {
-    // data is an object and is whatever is sent by the PNS - check the format
-    // for your particular PNS
-});
+2. Разверните узел **config** своего приложения, затем последовательно щелкните **authsettings** > **Изменить**, найдите элемент **allowedExternalRedirectUrls**, который должен иметь значение null, и замените его следующим значением:
 
-pushHandler.on('error', function (error) {
-    // Handle errors
-});
-```
+         "allowedExternalRedirectUrls": [
+             "http://localhost:3000",
+             "https://localhost:3000"
+         ],
 
-Для отправки push-уведомления с сервера используется пакет SDK для центров уведомлений. Не следует отправлять push-уведомление непосредственно из клиентов, так как это может использоваться для проведения атак типа "отказ в обслуживании" на центры уведомлений или PNS.
+    Замените URL-адреса в массиве URL-адресами службы. В данном примере — это `http://localhost:3000` для локального образца службы Node.js. Можно также использовать адрес `http://localhost:4400` для службы Ripple или для других URL-адресов, в зависимости от настроек приложения.
+    
+3. В верхней части страницы щелкните **Чтение/запись**, затем нажмите кнопку **Разместить**, чтобы сохранить изменения.
+
+    Вам по-прежнему необходимо добавить URL-адреса замыкания на себя в настройках белого списка CORS.
+
+4. На [портале Azure] в серверной части мобильного приложения, щелкните **Все параметры** > **CORS**, добавьте в белый список URL-адреса замыкания на себя, а затем нажмите кнопку **Сохранить**.
+
+После обновления серверной части мобильного приложения вы сможете использовать новые URL-адреса замыкания на себя в приложении.
 
 <!-- URLs. -->
 [Быстрый запуск мобильного приложения Azure]: app-service-mobile-cordova-get-started.md
 [Приступая к работе с проверкой подлинности]: app-service-mobile-cordova-get-started-users.md
-[Добавление проверки подлинности в приложение]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[your first Apache Cordova app]: http://cordova.apache.org/#getstarted
-[phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
-[phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
-[cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
-[cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[документации по объектам запросов]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
+[пакета SDK JavaScript для мобильных приложений Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
+[Query object documentation]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

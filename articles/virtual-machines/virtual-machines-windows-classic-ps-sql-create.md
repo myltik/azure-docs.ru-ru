@@ -22,8 +22,7 @@
 
 В данной статье описаны шаги по созданию виртуальной машины SQL Server в Azure с помощью командлетов PowerShell.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-Модель диспетчера ресурсов. Дополнительные сведения об использовании классической модели развертывания см. в статье [Подготовка виртуальной машины SQL Server к работе с помощью Azure PowerShell (в Resource Manager)](virtual-machines-windows-ps-sql-create.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Дополнительные сведения об использовании классической модели развертывания см. в статье [Подготовка виртуальной машины SQL Server к работе с помощью Azure PowerShell (в Resource Manager)](virtual-machines-windows-ps-sql-create.md).
 
 ## Установка и настройка PowerShell
 
@@ -65,7 +64,7 @@
 
 		(Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
-	>[AZURE.NOTE] Если требуется создать новую учетную запись хранения, сначала создайте имя учетной записи в строчном регистре командой New-AzureStorageAccount, как в следующем примере: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**.
+	>[AZURE.NOTE] Если требуется создать новую учетную запись хранения, сначала создайте имя учетной записи в строчном регистре, выполнив команду New-AzureStorageAccount, как в показано следующем примере: **New-AzureStorageAccount -StorageAccountName "<имя\_учетной\_записи\_хранения>" -Location $dcLocation**.
 
 1. Назначьте имя целевой учетной записи хранения переменной **$staccount**. Затем установите текущую учетную запись хранения и подписку с помощью **Set-AzureSubscription**.
 
@@ -173,4 +172,4 @@
 
 В дополнение к этим ресурсам рекомендуем ознакомиться с [другими статьями, связанными с запуском SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0518_2016--->
+<!---HONumber=AcomDC_0629_2016-->

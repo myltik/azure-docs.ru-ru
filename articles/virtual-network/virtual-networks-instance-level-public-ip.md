@@ -18,7 +18,7 @@
 # Общие сведения об общедоступных IP-адресах уровня экземпляра
 Общедоступный IP-адрес уровня экземпляра (ILPIP) — это общедоступный IP-адрес, который можно назначить непосредственно виртуальной машине или экземпляру роли, а не облачной службе, в которой они находятся. Он не заменяет виртуальный IP-адрес, назначенный облачной службе. а представляет собой дополнительный IP-адрес, с помощью которого можно подключаться непосредственно к виртуальной машине или экземпляру роли.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 Убедитесь, что вы понимаете как работают в Azure [IP-адреса](virtual-network-ip-addresses-overview-classic.md).
 
@@ -31,7 +31,7 @@
 При создании облачной службы в среде Azure автоматически создаются соответствующие A-записи DNS, благодаря которым к службе можно обращаться по полному доменному имени вместо ее фактического виртуального IP-адреса. То же самое выполняется и для ILPIP-адресов, благодаря чему к виртуальным машинам и экземплярам ролей можно обращаться по полному доменному имени, не указывая ILPIP-адрес. Например, при создании облачной службы с именем *contosoadservice* вы настраиваете веб-роль с именем *contosoweb* с двумя экземплярами, а служба Azure регистрирует следующие записи A для экземпляров:
 
 - contosoweb\_IN\_0.contosoadservice.cloudapp.net;
-- contosoweb\_IN\_1.contosoadservice.cloudapp.net. 
+- contosoweb\_IN\_1.contosoadservice.cloudapp.net.
 
 >[AZURE.NOTE] Каждой виртуальной машине или экземпляру роли можно назначить только один ILPIP-адрес. В одной подписке разрешается использовать до пяти ILPIP-адресов. В настоящее время ILPIP-адреса не поддерживаются для виртуальных машин с несколькими сетевыми адаптерами.
 
@@ -126,7 +126,7 @@
 
 - Чтобы узнать, как IP-адрес работает в классической модели развертывания, см. статью [IP-адреса в Azure (классическая модель развертывания)](virtual-network-ip-addresses-overview-classic.md).
 
-- См. дополнительные сведения о [зарезервированных IP-адресах](../virtual-networks-reserved-public-ip).
+- См. дополнительные сведения о [зарезервированных IP-адресах](virtual-networks-reserved-public-ip.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

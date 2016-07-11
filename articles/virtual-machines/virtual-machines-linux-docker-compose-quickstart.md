@@ -23,14 +23,13 @@
 
 В этой статье показано, как быстро настроить блог WordPress с серверной базой данных SQL MariaDB на виртуальной машине Ubuntu, однако решение Compose можно использовать для настройки и более сложных приложений.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql).
 
-
-Если вы не знакомы с решением Docker и контейнерами, посмотрите это [видео о решении Docker](https://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
+Если вы не знакомы с решением Docker и контейнерами, см. [доску по Docker](https://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
 
 ## Шаг 1. Настройка виртуальной машины Linux как узла Docker
 
-Чтобы создать виртуальную машину Linux и настроить ее как узел Docker, можно использовать различные процедуры Azure и образы или шаблоны Resource Manager, доступные в Azure Markeplace. Например, в разделе [Использование расширения виртуальной машины Docker для развертывания среды](virtual-machines-linux-dockerextension.md) описана процедура быстрого создания виртуальной машины Ubuntu с расширением виртуальной машины Docker с помощью [шаблона быстрого запуска](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). При использовании этого расширения Docker виртуальная машина настраивается как узел Docker и компонент Compose устанавливается автоматически. Приведенный в этой статье пример демонстрирует применение [интерфейса командной строки Azure для Mac, Linux и Windows](../xplat-cli-install.md) (Azure CLI) в режиме Resource Manager для создания виртуальной машины.
+Чтобы создать виртуальную машину Linux и настроить ее как узел Docker, можно использовать различные процедуры Azure и образы или шаблоны Resource Manager, доступные в Azure Markeplace. Например, в разделе [Использование расширения виртуальной машины Docker для развертывания среды](virtual-machines-linux-dockerextension.md) описана процедура быстрого создания виртуальной машины Ubuntu с расширением виртуальной машины Docker с помощью [шаблона быстрого запуска](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). При использовании этого расширения Docker виртуальная машина настраивается как узел Docker и компонент Compose устанавливается автоматически. Приведенный в этой статье пример демонстрирует применение [интерфейса командной строки Azure (Azure CLI) для Mac, Linux и Windows](../xplat-cli-install.md) в режиме Resource Manager для создания виртуальной машины.
 
 ## Шаг 2. Проверка установки Compose
 
@@ -49,7 +48,7 @@ $ docker-compose --version
 
 ## Шаг 3. Создание файла конфигурации docker-compose.yml
 
-Теперь необходимо создать файл `docker-compose.yml` (простой текстовый файл конфигурации), определяющий контейнеры Docker для запуска на виртуальной машине. В файле указывается образ для выполнения в каждом контейнере (или сборка из Dockerfile), необходимые переменные и зависимости среды, порты, ссылки между контейнерами и другие данные. Дополнительные сведения о синтаксисе файла приведены в [справке по файлу Compose](http://docs.docker.com/compose/yml/).
+Теперь необходимо создать файл `docker-compose.yml` (простой текстовый файл конфигурации), определяющий контейнеры Docker для запуска на виртуальной машине. В файле указывается образ для выполнения в каждом контейнере (или сборка из Dockerfile), необходимые переменные и зависимости среды, порты, ссылки между контейнерами и другие данные. Дополнительные сведения о синтаксисе YML-файла приведены в [справке по файлу Compose](http://docs.docker.com/compose/yml/).
 
 Создайте рабочий каталог на своей виртуальной машине и с помощью текстового редактора создайте файл `docker-compose.yml`. Приведем простой пример для подтверждения концепции. Скопируйте следующий текст в файл. Эта конфигурация обеспечивает установку WordPress (системы для управления блогами и содержимым с открытым исходным кодом) и связанной серверной базы данных SQL MariaDB с использованием образов из [реестра DockerHub](https://registry.hub.docker.com/_/wordpress/).
 
@@ -114,4 +113,4 @@ ess_1              apache2-for ...                       /tcp
 
 [wordpress_start]: ./media/virtual-machines-linux-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

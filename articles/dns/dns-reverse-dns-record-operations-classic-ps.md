@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Как управлять обратными записями DNS служб с помощью PowerShell в классической модели развертывания | Microsoft Azure"
-   description="Как управлять обратными записями DNS или записями типа PTR для служб Azure с помощью PowerShell в классической модели развертывания."
+   description="Как управлять обратными записями DNS или записями типа PTR для служб Azure с помощью PowerShell в классической модели развертывания. "
    services="DNS"
    documentationCenter="na"
    authors="s-malone"
@@ -19,11 +19,7 @@
 
 # Как управлять обратными записями DNS для служб (классическая модель) с помощью PowerShell
 
-[AZURE.INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
-<BR>
-[AZURE.INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
-<BR>
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](dns-reverse-dns-record-operations-ps.md).
+[AZURE.INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)] <BR> [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](dns-reverse-dns-record-operations-ps.md).
 
 ## Проверка обратных записей DNS
 Чтобы гарантировать, что третья сторона не сможет создать сопоставление обратных записей DNS с вашими доменами DNS, Azure позволяет создавать только обратные записи DNS, для которых выполняется одно из следующих условий:
@@ -55,4 +51,4 @@
 
 [AZURE.INCLUDE [ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ](../../includes/dns-reverse-dns-record-operations-faq-asm-include.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

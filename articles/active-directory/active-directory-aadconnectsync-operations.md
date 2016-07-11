@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/02/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell"/>
 
 # Службы синхронизации Azure AD Connect: рабочие задачи и рекомендации
@@ -116,4 +116,4 @@
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

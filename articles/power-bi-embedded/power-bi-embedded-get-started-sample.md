@@ -3,7 +3,7 @@
    description="Power BI Embedded, использование пакета SDK для добавления интерактивных отчетов Power BI в приложение бизнес-аналитики"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Приступая к работе с примером Microsoft Power BI Embedded
 
@@ -194,7 +194,7 @@ ActionResult Reports()
     }
 
 
-Задача<ActionResult> Report(string reportId)
+Task<ActionResult> Report(string reportId)
 
     public async Task<ActionResult> Report(string reportId)
     {
@@ -242,4 +242,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Приступая к работе с предварительной версией Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Сведения о потоке маркеров приложений в Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

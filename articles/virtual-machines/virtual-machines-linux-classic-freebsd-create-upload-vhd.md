@@ -21,13 +21,13 @@
 
 В этой статье показано, как создать и передать виртуальный жесткий диск с операционной системой FreeBSD, чтобы использовать его в качестве образа для создания виртуальной машины в Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ##Предварительные требования##
 В данной статье предполагается, что у вас есть следующие элементы:
 
-- **Подписка Azure ** — если у вас ее нет, то можно создать учетную запись, что займет всего лишь несколько минут. При наличии подписки MSDN см. статью [Преимущество Azure для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). В противном случае см. статью о том, как [создать бесплатную пробную учетную запись](https://azure.microsoft.com/pricing/free-trial/).  
+- **Подписка Azure ** — если у вас ее нет, то можно создать учетную запись, что займет всего лишь несколько минут. При наличии подписки MSDN см. статью [Преимущество Azure для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). В противном случае см. статью о том, как [создать бесплатную пробную учетную запись](https://azure.microsoft.com/pricing/free-trial/).
 
 - **Средства Azure PowerShell.** У вас уже установлен модуль Microsoft Azure PowerShell, настроенный на использование вашей подписки. Информацию о скачивании модуля см. в разделе [Загрузки Azure](https://azure.microsoft.com/downloads/). Учебник по установке и настройке модуля вы найдете здесь. Для передачи VHD-файла вы будете использовать командлет из раздела [Загрузки Azure](https://azure.microsoft.com/downloads/).
 
@@ -227,4 +227,4 @@
 
 	![образ FreeBSD в Azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

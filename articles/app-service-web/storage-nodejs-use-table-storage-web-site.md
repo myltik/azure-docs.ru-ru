@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Веб-приложение Node.js, использующее службу таблиц Azure
@@ -72,7 +72,7 @@
 
 ### Установка модуля Express и формирование шаблонов
 
-1. Из командной строки создайте новый каталог **tasklist** и перейдите в него.  
+1. Из командной строки создайте новый каталог **tasklist** и перейдите в него.
 
 2. Введите следующую команду для установки модуля Express.
 
@@ -497,7 +497,7 @@
 	Эта команда запускает браузер и открывает страницу загрузки. Если будет предложено, войдите с учетной записью, которая связана с вашей подпиской Azure.
 
 	<!-- ![The download page][download-publishing-settings] -->
-	
+
 	Скачивание файла должно начаться автоматически. Если этого не произошло, можно щелкнуть ссылку в начале страницы, чтобы скачать файл вручную. Сохраните файл и запомните путь к нему.
 
 2. Введите следующую команду, чтобы импортировать параметры.
@@ -545,7 +545,7 @@
 		STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
-Замените **<storage account name>** именем учетной записи хранения, которую вы создали ранее, а **<storage access key>** — первичным ключом доступа к учетной записи хранения. (Используйте те же значения, что и в файле config.json, который создали ранее.)
+Замените **<storage account name>** именем учетной записи, которую создали ранее, а **<storage access key>** — первичным ключом доступа к своей учетной записи хранения. (Используйте те же значения, что и в файле config.json, который создали ранее.)
 
 Переменные среды также можно задать на [портале Azure](https://portal.azure.com/):
 
@@ -613,7 +613,7 @@
 [удаленный репозиторий Git]: http://git-scm.com/docs/git-remote
 
 [Создание веб-приложения Node.js в Azure с MongoDB на виртуальной машине]: web-sites-nodejs-store-data-mongodb.md
-[Интерфейс командной строки Azure]: ../xplat-cli-install.md
+[интерфейс командной строки Azure]: ../xplat-cli-install.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -639,4 +639,4 @@
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,55 +1,56 @@
-## Preparation
+## Подготовка
 
-Before we can write CDN management code, we need to do some preparation.  The first thing we're going to do is create a resource group to contain the CDN profile we create in this tutorial.  We will then setup Azure Active Directory to provide authentication for our application.  After that's done, we'll apply permissions to the resource group so that only authorized users from our Azure AD tenant can interact with our CDN profile.
+Прежде чем можно будет создавать код управления CDN, необходимо выполнить определенную подготовку. В первую очередь следует создать группу ресурсов для профиля CDN, который мы создадим в этом учебнике. Затем мы настроим Azure Active Directory, чтобы обеспечить аутентификацию нашего приложения. После этого мы применим разрешения для группы ресурсов, чтобы только авторизованные пользователи могли с помощью клиента Azure AD взаимодействовать с профилем CDN.
 
-### Creating the resource group
+### Создание группы ресурсов
 
-1. Log into the [Azure Portal](https://portal.azure.com).
+1. Войдите на [портал Azure](https://portal.azure.com).
 
-2. Click the **New** button in the upper left, and then **Management**, and **Resource Group**.
+2. Нажмите кнопку **Создать** в верхнем левом углу, затем щелкните **Управление** и **Группа ресурсов**.
 	
-	![Creating a new resource group](./media/cdn-app-dev-prep/cdn-new-rg-1.png)
+	![Создание новой группы ресурсов](./media/cdn-app-dev-prep/cdn-new-rg-1.png)
 
-3. Call your resource group *CdnConsoleTutorial*.  Select your subscription and choose a location near you.  If you wish, you may click the **Pin to dashboard** checkbox to pin the resource group to the dashboard in the portal.  This will make it easier to find later.  After you've made your selections, click **Create**.
+3. Назовите группу ресурсов *CdnConsoleTutorial*. Выберите свою подписку и ближайшее расположение. При необходимости можно установить флажок **Закрепить на панели мониторинга**, чтобы закрепить группу ресурсов на панели мониторинга на портале. Так ее будет проще найти. Выбрав необходимые параметры, нажмите кнопку **Создать**.
 
-	![Naming the resource group](./media/cdn-app-dev-prep/cdn-new-rg-2.png)
+	![Присвоение имени группе ресурсов](./media/cdn-app-dev-prep/cdn-new-rg-2.png)
 
-4. After the resource group is created, if you didn't pin it to your dashboard, you can find it by clicking **Browse**, then **Resource Groups**.  Click the resource group to open it.  Make a note of your **Subscription ID**.  We'll need it later.
+4. Если вы не закрепили созданную группу ресурсов на панели мониторинга, то ее можно найти, щелкнув **Обзор** > **Группы ресурсов**. Щелкните группу ресурсов, чтобы открыть ее. Запишите **идентификатор подписки**. Он понадобится нам позднее.
 
-	 ![Naming the resource group](./media/cdn-app-dev-prep/cdn-subscription-id.png)
+	 ![Присвоение имени группе ресурсов](./media/cdn-app-dev-prep/cdn-subscription-id.png)
 
-### Creating the Azure AD application
+### Создание приложения Azure AD
 
-There are two approaches to app authentication with Azure Active Directory: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, we instead grant the permissions to the service principal.  Service principals are generally used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.
+Существует два подхода к аутентификации приложения с помощью Azure Active Directory: использование отдельных пользователей или субъекта-службы. Субъект-служба аналогичен учетной записи службы в Windows. Вместо того, чтобы предоставить разрешения на взаимодействие с профилями CDN определенному пользователю, мы предоставляем их субъекту-службе. Субъекты-службы обычно используются для автоматических, неинтерактивных процессов. Несмотря на то, что в этом учебнике создается интерактивное приложение консоли, мы будем использовать субъект-службу.
 
-Creating a service principal consists of several steps, including creating an Azure Active Directory application.  To do this, we're going to [follow this tutorial](../articles/resource-group-create-service-principal-portal.md).
+Создание субъекта-службы состоит из нескольких шагов, включая создание приложения Azure Active Directory. Для этого воспользуемся [инструкциями данного учебника](../articles/resource-group-create-service-principal-portal.md).
 
-> [AZURE.IMPORTANT] Be sure to follow all the steps in the [linked tutorial](../articles/resource-group-create-service-principal-portal.md).  It is *extremely important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **tenant domain name** (commonly a *.onmicrosoft.com* domain unless you've specified a custom domain), **client ID**, and **client authentication key**, as we will need these later.  Be very careful to guard your **client ID** and **client authentication key**, as these credentials can be used by anyone to execute operations as the service principal. 
+> [AZURE.IMPORTANT] Обязательно выполните все шаги [связанного учебника](../articles/resource-group-create-service-principal-portal.md). *Крайне важно* выполнить все в точности, как описано. Обязательно запишите **код клиента**, **доменное имя клиента** (обычно это домен *.onmicrosoft.com*, если не был выбран личный домен), **идентификатор клиента** и **ключ аутентификации клиента**, так как они понадобятся позже. Следует очень ответственно отнестись к защите **идентификатора клиента** и **ключа аутентификации**, так как с помощью этих учетных данных любой пользователь может выполнять операции в качестве субъекта-службы.
 > 	
-> When you get to the step named [Configure multi-tenant application](../articles/resource-group-create-service-principal-portal.md#configure-multi-tenant-application), select **No**.
+> На шаге [Настройка мультитенантного приложения](../articles/resource-group-create-service-principal-portal.md#configure-multi-tenant-application) выберите **Нет**.
 > 
-> When you get to the step [Assign application to role](../articles/resource-group-create-service-principal-portal.md#assign-application-to-role), use the resource group we created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
+> На шаге [Назначение роли приложению](../articles/resource-group-create-service-principal-portal.md#assign-application-to-role) укажите группу ресурсов *CdnConsoleTutorial*, созданную ранее, но вместо роли **Читатель** назначьте роль **CDN Profile Contributor** (Участник профиля CDN). Назначив приложению роль **CDN Profile Contributor** (Участник профиля CDN) для группы ресурсов, вернитесь к данному учебнику.
 
-Once you've created your service principal and assigned the **CDN Profile Contributor** role, the **Users** blade for your resource group should look similar to this.
+После создания субъекта-службы и назначения роли **CDN Profile Contributor** (Участник профиля CDN) колонка **Пользователи** вашей группы ресурсов должна иметь следующий вид.
 
-![Users blade](./media/cdn-app-dev-prep/cdn-service-principal.png)
+![Колонка "Пользователи"](./media/cdn-app-dev-prep/cdn-service-principal.png)
 
 
-### Interactive user authentication
+### Интерактивная аутентификация пользователей
 
-If, instead of a service principal, you'd rather have interactive individual user authentication, the process is very similar to that for a service principal.  In fact, you will need to follow the same procedure, but make a few minor changes.
+Если вместо субъекта-службы требуется настроить интерактивную аутентификацию отдельных пользователей, то необходимые действия будут похожи на настройку субъекта-службы. На самом деле потребуется выполнить ту же самую процедуру, но с незначительными изменениями.
 
->[AZURE.IMPORTANT] Only follow these next steps if you are choosing to use individual user authentication instead of a service principal.
+>[AZURE.IMPORTANT] Выполните следующие шаги, только если решили использовать аутентификацию отдельных пользователей, а не субъект-службу.
 
-1. When creating your application, instead of **Web App**, choose **Native application**. 
+1. При создании приложения вместо **Веб-приложение** выберите **Native application** (Собственное приложение).
 	
-	![Native application](./media/cdn-app-dev-prep/cdn-native-application.png)
+	![Собственное приложение](./media/cdn-app-dev-prep/cdn-native-application.png)
 	
-2. On the next page, you will be prompted for a **redirect URI**.  The URI won't be validated, but remember what you entered.  You'll need it later. 
+2. На следующей странице вам будет предложено ввести **универсальный код ресурса (URI) перенаправления**. Универсальный код ресурса (URI) не будет проверяться, но запомните, что вы ввели. Он понадобится вам позднее.
 
-3. There is no need to create a **client authentication key**.
+3. Нет необходимости создавать **ключ аутентификации клиента**.
 
-4. Instead of assigning a service principal to the **CDN Profile Contributor** role, we're going to assign individual users or groups.  In this example, you can see that I've assigned  *CDN Demo User* to the **CDN Profile Contributor** role.  
+4. Вместо того, чтобы назначить роль **CDN Profile Contributor** (Участник роли CDN) участнику-службе, мы назначим ее отдельным пользователям или группам. В этом примере можно видеть, что пользователю *CDN Demo User* назначена роль **CDN Profile Contributor** (Участник роли CDN).
 	
-	![Individual user access](./media/cdn-app-dev-prep/cdn-aad-user.png)
+	![Индивидуальный доступ пользователей](./media/cdn-app-dev-prep/cdn-aad-user.png)
 
+<!---HONumber=AcomDC_0629_2016-->

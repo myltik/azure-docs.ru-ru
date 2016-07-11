@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="04/07/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
 # Источники данных профиля данных
@@ -91,4 +91,4 @@
 -	[Как регистрировать источники данных](data-catalog-how-to-register.md)
 -	[Начало работы с каталогом данных Azure](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Перемещение данных в таблицу SQL Azure и из нее с помощью фабрики данных Azure
@@ -29,8 +29,8 @@
 
 1.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (используется для таблиц и больших двоичных объектов).
 2.	Входной [набор данных](data-factory-create-datasets.md) типа [AzureTable](#azure-table-dataset-type-properties).
-3.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
-3.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [AzureTableSource](#azure-table-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
+3.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+3.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [AzureTableSource](#azure-table-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 В примере ниже данные из стандартной секции таблицы Azure копируются в большой двоичный объект каждый час. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
@@ -190,8 +190,8 @@
 
 1.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (используется для таблиц и больших двоичных объектов).
 3.	Входной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureTable](#azure-table-dataset-type-properties). 
-4.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, которое использует [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) и [AzureTableSink](#azure-table-copy-activity-type-properties). 
+4.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureTable](#azure-table-dataset-type-properties).
+4.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, которое использует [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) и [AzureTableSink](#azure-table-copy-activity-type-properties).
 
 
 В этом примере данные, относящиеся к одному временному ряду, копируются из BLOB-объекта Azure в таблицу в базе данных таблиц Azure каждый час. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
@@ -360,7 +360,7 @@
 
 | Свойство | Описание | Обязательно |
 | -------- | ----------- | -------- |
-| tableName | Имя таблицы в экземпляре базы данных таблиц Azure, на которое ссылается связанная служба. | Да
+| tableName | Имя таблицы в экземпляре базы данных таблиц Azure, на которое ссылается связанная служба. | Да. Если tableName указывается без azureTableSourceQuery, все записи из таблицы копируются в целевое расположение. Если azureTableSourceQuery указывается, записи из таблицы, удовлетворяющие запросу, копируются в целевое расположение. |
 
 ### Схема фабрики данных
 Для хранилищ данных без схемы, таких как таблица Azure, служба фабрики данных определяет схему одним из следующих способов.
@@ -380,7 +380,7 @@
 
 Свойство | Описание | Допустимые значения | Обязательно
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Используйте пользовательский запрос для чтения данных. | Строка запроса таблицы Azure. См. примеры ниже. | Нет
+azureTableSourceQuery | Используйте пользовательский запрос для чтения данных. | Строка запроса таблицы Azure. См. примеры ниже. | Нет. Если tableName указывается без azureTableSourceQuery, все записи из таблицы копируются в целевое расположение. Если azureTableSourceQuery указывается, записи из таблицы, удовлетворяющие запросу, копируются в целевое расположение.  
 azureTableSourceIgnoreTableNotFound | Указывает, игнорируются ли исключения таблицы. | TRUE<br/>FALSE | Нет |
 
 ### Примеры azureTableSourceQuery
@@ -403,8 +403,8 @@ azureTableDefaultPartitionKeyValue | Значение ключа раздела 
 azureTablePartitionKeyName | Задаваемое пользователем имя столбца, значения которого используются в качестве ключа раздела. Если не указано, в качестве ключа раздела используется AzureTableDefaultPartitionKeyValue. | Имя столбца. | Нет |
 azureTableRowKeyName | Задаваемое пользователем имя столбца, значения которого используются в качестве ключа строки. Если имя не указано, используйте для каждой строки идентификатор GUID. | Имя столбца. | Нет  
 azureTableInsertType | Режим для вставки данных в таблицу Azure. <br/><br/> Это свойство контролирует, будут ли заменены или объединены значения в существующих строках в выходной таблице с совпадающими ключами разделов и строк. <br/><br/> Сведения о действии этих параметров (merge и replace) см. в разделах [Insert or Merge Entity (Вставка или слияние сущностей)](https://msdn.microsoft.com/library/azure/hh452241.aspx) и [Insert or Replace Entity (Вставка или замена сущностей)](https://msdn.microsoft.com/library/azure/hh452242.aspx). <br/><br> Обратите внимание, что этот параметр применяется на уровне строк, а не на уровне таблицы, и ни один из параметров не приведет к удалению строк в выходной таблице, которые отсутствуют во входных данных. | merge (по умолчанию) <br/> replace | Нет 
-writeBatchSize | Вставка данных в таблицу Azure при достижении writeBatchSize или writeBatchTimeout. | Целое число от 1 до 100 (единица = количество строк) | Нет (значение по умолчанию — 100) 
-writeBatchTimeout | Вставка данных в таблицу Azure при достижении writeBatchSize или writeBatchTimeout | Значение — промежуток времени. Пример: 00:20:00 (20 минут). | Нет (по умолчанию используется время ожидания, стандартное для клиента хранения — 90 секунд)
+writeBatchSize | Вставка данных в таблицу Azure при достижении writeBatchSize или writeBatchTimeout. | Число | Нет (значение по умолчанию — 10 000). 
+writeBatchTimeout | Вставка данных в таблицу Azure при достижении writeBatchSize или writeBatchTimeout | Интервал времени<br/><br/>Пример: 00:20:00 (20 минут). | Нет (по умолчанию используется время ожидания, стандартное для клиента хранения — 90 секунд)
 
 ### azureTablePartitionKeyName
 Для того чтобы вы могли использовать целевой столбец как azureTablePartitionKeyName, необходимо сопоставить исходный столбец с целевым столбцом с помощью JSON свойства translator.
@@ -527,6 +527,6 @@ lastlogindate | Edm.DateTime
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Производительность и настройка  
-См. статью [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и разные способы оптимизации этого процесса.
+См. [руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в котором описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

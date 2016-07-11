@@ -22,7 +22,7 @@
 
 [MySQL](http://www.mysql.com) является популярной базой данных SQL с открытым исходным кодом. В этом учебнике демонстрируются установка и запуск версии сообщества MySQL 5.6.23 в качестве сервера MySQL на виртуальной машине под управлением Windows Server 2012 R2. Инструкции по установке MySQL в Linux см. в разделе [Как установить MySQL в Azure](virtual-machines-linux-mysql-install.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Создание виртуальной машины под управлением Windows Server 2012 R2
 
@@ -61,7 +61,7 @@
 
 	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AccountsRoles_Filled.png)
 
-12.	На странице **Windows Service** (Служба Windows) укажите изменения параметров по умолчанию, позволяющие запустить сервер MySQL в качестве службы Windows, и нажмите кнопку **Next** (Далее).
+12.	На странице **Windows Service** (Служба Windows) укажите изменения параметров по умолчанию, позволяющие запустить сервер MySQL в качестве службы Windows, и нажмите кнопку **Next ** (Далее).
 
 	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_WindowsService.png)
 
@@ -126,4 +126,4 @@
 
 Дополнительные сведения о запуске MySQL см. в [документации по MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

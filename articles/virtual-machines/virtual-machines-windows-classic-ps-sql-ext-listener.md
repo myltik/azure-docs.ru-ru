@@ -24,7 +24,7 @@
 
 В этом разделе показано, как настроить прослушиватель для группы доступности AlwaysOn, доступный через Интернет. Такую настройку можно выполнить, связав **общедоступный виртуальный IP-адрес (VIP)** облачной службы с прослушивателем.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 В группе доступности могут быть реплики, доступные только локально или только в Azure. В гибридных конфигурациях возможны оба способа доступа одновременно. Реплики в Azure могут находиться в одном или нескольких регионах (при использовании нескольких виртуальных сетей). В приведенных ниже указаниях предполагается, что вы уже [настроили группу доступности](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md), но еще не настроили прослушиватель.
@@ -122,7 +122,7 @@
 
 	sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-В отличие от предыдущего примера здесь потребуется проверка подлинности SQL. Это связано с тем, что вызывающий объект не может использовать проверку подлинности Windows через Интернет. Дополнительные сведения см. в публикации блога [AlwaysOn Availability Group in Microsoft Azure VM: Client Connectivity Scenarios](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx) (Группы доступности AlwaysOn на виртуальной машине Azure: сценарии клиентских подключений). При использовании проверки подлинности SQL учетные данные для входа на обоих репликах должны совпадать. Дополнительные сведения об устранении неполадок с учетными данными, возникающих при использовании групп доступности, см. в статье [Сопоставление учетных записей или использование пользователей автономных баз данных SQL для подключения к другим репликам и сопоставления баз данных доступности](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+В отличие от предыдущего примера здесь потребуется проверка подлинности SQL. Это связано с тем, что вызывающий объект не может использовать проверку подлинности Windows через Интернет. Дополнительные сведения см. в публикации блога [AlwaysOn Availability Group in Windows Azure VM: Client Connectivity Scenarios](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx) (Группы доступности AlwaysOn на виртуальной машине Azure: сценарии клиентских подключений). При использовании проверки подлинности SQL учетные данные для входа на обоих репликах должны совпадать. Дополнительные сведения об устранении неполадок с учетными данными, возникающих при использовании групп доступности, см. в статье [Сопоставление учетных записей или использование пользователей автономных баз данных SQL для подключения к другим репликам и сопоставления баз данных доступности](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 Если реплики AlwaysOn размещены в разных подсетях, клиенты должны указывать **MultisubnetFailover=True** в строке подключения. В результате будут выполняться попытки параллельного подключения к репликам в разных подсетях. Обратите внимание, что этот сценарий включает развертывание межрегиональной группы доступности AlwaysOn.
 
@@ -130,4 +130,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

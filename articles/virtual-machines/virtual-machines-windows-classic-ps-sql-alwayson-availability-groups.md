@@ -26,8 +26,7 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Модель диспетчера ресурсов.
-
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Виртуальные машины Azure позволяют администраторам баз данных сократить затраты при реализации более высокого уровня доступности системы SQL Server. В этом руководстве описано, как реализовать группу доступности с помощью сквозного соединения SQL Server Always On в среде Azure. Когда вы завершите, решение SQL Server Always On в Azure будет состоять из следующих элементов:
 
@@ -563,7 +562,7 @@
 		net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
 		icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
 
-1. Создайте базу данных в **ContosoSQL1** с именем **MyDB1**, сделайте полную резервную копию и резервную копию журналов, а затем восстановите их на виртуальной машине **ContosoSQL2** с параметром **WITH NORECOVERY**.
+1. Создайте базу данных в **ContosoSQL1** с именем **MyDB1**, создайте полную резервную копию и резервную копию журналов, а затем восстановите их на виртуальной машине **ContosoSQL2** с параметром **WITH NORECOVERY**.
 
 		Invoke-SqlCmd -Query "CREATE database $db"
 		Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
@@ -631,4 +630,4 @@
 
 Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -29,10 +29,10 @@
 
 		msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
 
-	`VSX64RemoteDebuggerPath` — путь к папке, содержащей msvsmon.exe и инструменты удаленной отладки для Visual Studio.
+	`VSX64RemoteDebuggerPath` — путь к папке, содержащей msvsmon.exe и инструменты удаленной отладки для Visual Studio. `RemoteDebuggerConnectorVersion` — это версия пакета Azure SDK в облачной службе. Она должна соответствовать версии, установленной с Visual Studio.
 
 5. Опубликуйте в целевой облачной службе с помощью пакета и файла .cscfg, созданного на предыдущем шаге.
-6. Импортируйте сертификат (файл .pfx) на машину, на которой имеется Visual Studio с установленным пакетом Azure SDK для .NET.
+6. Импортируйте сертификат (файл .pfx) на машину, на которой имеется Visual Studio с установленным пакетом Azure SDK для .NET. Импортировать в хранилище сертификатов `CurrentUser\My` обязательно, иначе вы не сможете присоединить отладчик в Visual Studio.
 
 ## Включение удаленной отладки для виртуальных машин
 
@@ -42,7 +42,7 @@
 4. Установите Azure Powershell (0.7.4 или более поздней версии), как описано в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 5. Выполните следующий скрипт, чтобы включить расширение RemoteDebug. Замените пути и персональные данные на свои собственные (например, имя своей подписки, имя службы и отпечаток).
 
-	>[AZURE.NOTE] Этот сценарий настроен для Visual Studio 2015. Если вы используете Visual Studio 2013, измените присваивания `$referenceName` и `$extensionName` ниже, чтобы использовать `RemoteDebugVS2013` (вместо `RemoteDebugVS2015`).
+	>[AZURE.NOTE] Этот сценарий настроен для Visual Studio 2015. Если вы используете Visual Studio 2013, измените назначения `$referenceName` и `$extensionName` ниже, чтобы использовать `RemoteDebugVS2013` (вместо `RemoteDebugVS2015`).
 
 	<pre>
 	Add-AzureAccount
@@ -91,4 +91,4 @@
 
 6. Импортируйте сертификат (.pfx) на машину, на которой имеется Visual Studio с установленным пакетом Azure SDK для .NET.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

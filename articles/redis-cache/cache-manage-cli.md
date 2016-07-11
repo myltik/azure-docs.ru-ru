@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="06/28/2016" 
 	ms.author="sdanie"/>
 
 # Как создать кэш Redis для Azure и управлять им с помощью интерфейса командной строки Azure (Azure CLI)
@@ -271,4 +271,4 @@
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

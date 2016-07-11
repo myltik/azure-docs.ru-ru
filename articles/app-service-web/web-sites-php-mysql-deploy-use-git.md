@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
-#Создание веб-приложения PHP-MySQL в службе приложений Azure и развертывание с помощью Git
+# Создание веб-приложения PHP-MySQL в службе приложений Azure и развертывание с помощью Git
 
 В этом учебнике описывается, как создать веб-приложение PHP-MySQL и развернуть его в [службе приложений](http://go.microsoft.com/fwlink/?LinkId=529714) с помощью Git. Вы будете использовать [PHP][install-php], средство командной строки MySQL (которое входит в состав [MySQL][install-mysql]) и [Git][install-git], установленный на компьютере. Инструкции, приведенные в этом учебнике, применимы к любой операционной системе, включая Windows, Mac и Linux. По завершении работы с этим учебником у вас будет работающее в Azure веб-приложение PHP-MySQL.
 
 Вы узнаете:
 
-* Как создать веб-приложение и базу данных MySQL с помощью [портала Azure](https://portal.azure.com). Поскольку модуль PHP включен в [веб-приложениях службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714) по умолчанию, никаких дополнительных действий для выполнения кода PHP не требуется.
+* Как создать веб-приложение и базу данных MySQL с помощью [портала Azure][management-portal]. Поскольку модуль PHP включен в [веб-приложениях службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714) по умолчанию, никаких дополнительных действий для выполнения кода PHP не требуется.
 * Как опубликовать и повторно опубликовать свое приложение в Azure с помощью Git.
 * Как включить расширение Composer для автоматизации задач Composer при каждой операции `git push`.
 
@@ -31,12 +31,12 @@
 
 ![Веб-сайт Azure на PHP][running-app]
 
-##Настройка среды разработки
+## Настройка среды разработки
 
 При работе с этим руководством предполагается, что на компьютере установлены [PHP][install-php], интерфейс командной стройки MySQL (входит в состав [MySQL][install-mysql]) и [Git][install-git].
 
-
-##<a id="create-web-site-and-set-up-git"></a>Создание веб-приложения и настройка публикации через Git
+<a id="create-web-site-and-set-up-git"></a>
+## Создание веб-приложения и настройка публикации через Git
 
 Чтобы создать веб-приложение и базу данных MySQL, выполните следующие действия.
 
@@ -75,7 +75,7 @@
 	![Создание учетных данных для публикации][credentials]
 
 
-##Получение информации об удаленном подключении к MySQL
+## Получение информации об удаленном подключении к MySQL
 
 Чтобы подключиться к базе данных MySQL, которая работает в веб-приложениях, вам потребуются сведения о подключении. Чтобы получить сведения о подключении к MySQL, выполните следующие действия.
 
@@ -91,7 +91,7 @@
 
     ![Запись свойств][note-properties]
 
-##Локальное создание и тестирование приложения
+## Локальное создание и тестирование приложения
 
 Теперь, когда у вас есть созданное веб-приложение, вы можете разработать свое приложение локально и после тестирования развернуть его.
 
@@ -209,7 +209,7 @@
 Теперь можно перейти к **http://localhost:8000/** для тестирования приложения.
 
 
-##Публикация приложения
+## Публикация приложения
 
 Протестировав приложение локально, вы можете опубликовать его в веб-приложениях с помощью Git. Необходимо инициализировать локальный репозиторий Git и опубликовать свое приложение.
 
@@ -236,7 +236,7 @@
 
 Опубликовав приложение, вы сможете вносить в него изменения и публиковать их с помощью Git.
 
-##Публикация изменений в приложении
+## Публикация изменений в приложении
 
 Чтобы опубликовать изменения в приложении, выполните следующие действия.
 
@@ -257,45 +257,47 @@
 
 >[AZURE.NOTE] Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
-<a name="composer">
+<a name="composer"></a>
 ## Включение расширения Composer для автоматизации задач Composer
 
 По умолчанию процесс развертывания git в службе приложений не выполняет никаких действий с файлом composer.json, если он есть в проект PHP. Чтобы включить обработку composer.json во время операции `git push`, активируйте расширение Composer.
 
-1. На [портале Azure](https://portal.azure.com) в колонке веб-приложения PHP щелкните **Средства** > **Расширения**.
+1. На [портале Azure][management-portal] в колонке веб-приложения PHP щелкните **Инструменты** > **Расширения**.
 
-    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png)
+    ![Параметры расширения Composer][composer-extension-settings]
 
 2. Щелкните **Добавить**, а затем — **Composer**.
 
-    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png)
+    ![Добавление расширения Composer][composer-extension-add]
     
-3. Щелкните **ОК**, чтобы принять условия использования. Щелкните **ОК** еще раз, чтобы добавить расширение.
+3. Нажмите кнопку **ОК**, чтобы принять условия использования. Нажмите кнопку **ОК** еще раз, чтобы добавить расширение.
 
-    В колонке **Установленные расширения** появится расширение Composer. ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    В колонке **Установленные расширения** появится расширение Composer. ![Просмотр расширения Composer][composer-extension-view]
     
 4. Теперь выполните операции `git add`, `git commit` и `git push`, как в предыдущем разделе. Вы увидите, что расширение Composer устанавливает зависимости, определенные в файле composer.json.
 
-    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png)
+    ![Добавленное расширение Composer][composer-extension-success]
 
 ## Дальнейшие действия
 
-Дополнительные сведения можно найти в [Центре разработчика PHP](/develop/php/).
+Дополнительную информацию можно найти в [Центре разработчика PHP](/develop/php/).
 
-## Изменения
-* Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+<!-- URL List -->
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
 [install-Drivers]: http://www.microsoft.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 [install-mysql]: http://dev.mysql.com/downloads/mysql/
-
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
+[management-portal]: https://portal.azure.com
+[sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
+
+<!-- IMG List -->
+
 [running-app]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
 [new-website]: ./media/web-sites-php-mysql-deploy-use-git/new_website2.png
 [custom-create]: ./media/web-sites-php-mysql-deploy-use-git/create_web_mysql.png
-[website-details]: ./media/web-sites-php-mysql-deploy-use-git/website_details.jpg
 [new-mysql-db]: ./media/web-sites-php-mysql-deploy-use-git/create_db.png
 [go-to-webapp]: ./media/web-sites-php-mysql-deploy-use-git/select_webapp.png
 [setup-git-publishing]: ./media/web-sites-php-mysql-deploy-use-git/setup_git_publishing.png
@@ -311,10 +313,10 @@
 [git-instructions]: ./media/web-sites-php-mysql-deploy-use-git/git-instructions.png
 [git-change-push]: ./media/web-sites-php-mysql-deploy-use-git/php-git-change-push.png
 [git-initial-push]: ./media/web-sites-php-mysql-deploy-use-git/php-git-initial-push.png
-[deployments-list]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png
-[connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
-[management-portal]: https://portal.azure.com
-[sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
- 
 
-<!---HONumber=AcomDC_0504_2016-->
+[composer-extension-settings]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png
+[composer-extension-add]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png
+[composer-extension-view]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png
+[composer-extension-success]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png
+
+<!---HONumber=AcomDC_0629_2016-->

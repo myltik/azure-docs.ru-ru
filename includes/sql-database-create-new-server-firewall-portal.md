@@ -46,3 +46,5 @@ articles/sql-database/sql-database-configure-firewall-settings
      ![новый брандмауэр сервера](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
 
 	>[AZURE.IMPORTANT] Ваш IP-адрес клиента, скорее всего, будет периодически меняться; в таком случае вы не сможете получить доступ к серверу, пока не создадите новое правило брандмауэра. Вы можете узнать свой IP-адрес с помощью службы [Bing](http://www.bing.com/search?q=my%20ip%20address). Затем добавьте один IP-адрес или диапазон IP-адресов. Подробные сведения см. в статье [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal).
+
+<!---HONumber=AcomDC_0629_2016-->

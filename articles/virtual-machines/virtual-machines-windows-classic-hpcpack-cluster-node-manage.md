@@ -20,7 +20,7 @@ ms.service="virtual-machines-windows"
 
 Если вы создали кластер пакета HPC на виртуальных машинах Azure, вам может потребоваться простой способ добавления, удаления, запуска (подготовки) или остановки (отзыва) нескольких виртуальных машин вычислительных узлов в кластере. Для выполнения этих задач запустите сценарии Azure PowerShell, которые установлены на виртуальной машине головного узла. Эти сценарии позволяют контролировать количество и доступность ресурсов кластера пакета HPC, а также затраты на них.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ## Предварительные требования
@@ -179,4 +179,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * Если вам требуется возможность автоматического увеличения или уменьшения числа узлов кластера в соответствии с текущей рабочей нагрузкой заданий и задач в кластере, см. статью [Автоматическое масштабирование вычислительных ресурсов Azure в кластере пакета HPC согласно рабочей нагрузке кластера](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

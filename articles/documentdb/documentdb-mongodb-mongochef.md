@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 # Использование MongoChef с учетной записью DocumentDB с поддержкой протокола MongoDB
@@ -28,11 +28,15 @@
 
 Чтобы добавить в диспетчер подключений MongoChef учетную запись DocumentDB с поддержкой протокола MongoDB, сделайте следующее.
 
-1. Щелкните **Подключиться**, чтобы открыть диспетчер подключений, и нажмите кнопку **Новое подключение**.
+1. Извлеките сведения о подключении DocumentDB с поддержкой протокола MongoDB. См. инструкции [здесь](documentdb-connect-mongodb-account.md).
+
+	![Снимок экрана, колонка строки подключения](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+
+2. Щелкните **Подключиться**, чтобы открыть диспетчер подключений, и нажмите кнопку **Новое подключение**.
 
 	![Снимок экрана диспетчера подключений MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
 	
-2. В окне **Новое подключение** на вкладке **Сервер** введите полное доменное имя учетной записи DocumentDB с поддержкой протокола MongoDB и порт для подключения.
+2. В окне **Новое подключение** на вкладке **Сервер** введите узел (полное доменное имя) учетной записи DocumentDB с поддержкой протокола MongoDB и порт для подключения.
 	
 	![Снимок экрана диспетчера подключений MongoChef, вкладка серверов](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 
@@ -128,4 +132,4 @@
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

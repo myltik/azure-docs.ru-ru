@@ -20,7 +20,7 @@
 
 Выполните сценарий PowerShell развертывания пакета HPC в IaaS на клиентском компьютере, чтобы развернуть полный кластер HPC для рабочих нагрузок Windows в службах инфраструктуры Azure (IaaS). Если вы хотите развернуть кластер пакета HPC в Azure для рабочих нагрузок Linux, см. раздел о [создании кластера HPC Linux с помощью сценария развертывания пакета HPC в IaaS](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -273,4 +273,4 @@
 
 * Вы также можете использовать шаблон диспетчера ресурсов Azure для развертывания HPC-кластера. Примеры см. в разделах [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) и [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

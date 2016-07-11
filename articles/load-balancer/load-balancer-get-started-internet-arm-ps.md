@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета, используя классическую модель развертывания](load-balancer-get-started-internet-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета, используя классическую модель развертывания](load-balancer-get-started-internet-classic-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -35,7 +35,7 @@
 
 Чтобы развернуть балансировщик нагрузки, необходимо создать и настроить следующие объекты:
 
-- Конфигурация IP-адресов клиентской части. Содержит общедоступные IP-адреса для входящего сетевого трафика. 
+- Конфигурация IP-адресов клиентской части. Содержит общедоступные IP-адреса для входящего сетевого трафика.
 
 - Пул внутренних адресов. Содержит сетевые интерфейсы (сетевые карты) для получения виртуальными машинами трафика от балансировщика нагрузки.
 
@@ -54,7 +54,7 @@
 
 ### Шаг 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 Вам будет предложено пройти проверку подлинности с вашими учетными данными.<BR>
 
@@ -62,20 +62,20 @@
 
 Проверка подписок для учетной записи
 
-		PS C:\> Get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 ### Шаг 3. 
 
 Выберите, какие подписки Azure будут использоваться. <BR>
 
-		PS C:\> Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
+		Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
 
 ### Шаг 4.
 
 Создайте группу ресурсов (пропустите этот шаг, если вы используете существующую группу).
 
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 
 ## Создание виртуальной сети и общедоступного IP-адреса для пула IP-адресов клиентской части
@@ -181,7 +181,7 @@
 Проверьте сетевые адаптеры.
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 Ожидаемые выходные данные:
 
@@ -248,7 +248,7 @@
 
 Загрузите в переменную конфигурацию серверной части.
 
-	PS C:\> $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+	$backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
 
 #### Шаг 3. 
 
@@ -260,13 +260,13 @@
 
 Измените конфигурацию серверной части в сетевом интерфейсе.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### Шаг 5 
 
 Сохраните объект сетевого интерфейса.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 После того как сетевой интерфейс будет добавлен в пул серверной части балансировщика нагрузки, он начнет получать сетевой трафик согласно правилам балансировки нагрузки для соответствующего ресурса балансировщика.
 
@@ -308,4 +308,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Автоматическая архивация SQL Server на виртуальных машинах Azure (классическая модель) | Microsoft Azure"
-	description="Описание функции автоматической архивации для SQL Server на виртуальных машинах Azure с использованием модели развертывания Resource Manager."
+	description="Описание функции автоматической архивации для SQL Server на виртуальных машинах Azure с использованием модели развертывания Resource Manager. "
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -24,8 +24,7 @@
 
 Служба автоматической архивации автоматически настраивает [управляемое резервное копирование на портал Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) для всех существующих и новых баз данных на виртуальной машине Azure c SQL Server 2014 Standard или Enterprise. Это позволяет настроить регулярную архивацию базы данных с использованием надежного хранилища больших двоичных объектов Azure. Автоматическая архивация зависит от [Расширения агента IaaS для SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-Модель диспетчера ресурсов. Версию этой статьи для диспетчера ресурсов см. в разделе [Автоматическая архивация SQL Server на виртуальных машинах Azure (диспетчер ресурсов)](virtual-machines-windows-sql-automated-backup.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Версию этой статьи для диспетчера ресурсов см. в разделе [Автоматическая архивация SQL Server на виртуальных машинах Azure (диспетчер ресурсов)](virtual-machines-windows-sql-automated-backup.md).
 
 ## Предварительные требования
 
@@ -117,4 +116,4 @@
 
 Подробные сведения о запуске SQL Server на виртуальных машинах Azure см. в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

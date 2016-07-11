@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell"/>
 
 # Azure AD Connect: специальные рекомендации для экземпляров
@@ -65,4 +65,4 @@ Azure AD Connect не сможет автоматически определят
 ## Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

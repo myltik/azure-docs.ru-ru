@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Схема шаблона секретного кода хранилища ключей
@@ -41,7 +41,7 @@
 | Имя | Значение |
 | ---- | ---- | 
 | type | Перечисление.<br />Обязательное значение.<br />**secrets** (при развертывании в качестве дочернего ресурса хранилища ключей) или<br /> **Microsoft.KeyVault/vaults/secrets** (при развертывании в качестве ресурса верхнего уровня)<br /><br />Тип создаваемого ресурса. |
-| версия\_API | Перечисление.<br />Обязательное значение.<br />**2015-06-01** или **2014-12-19-preview**<br /><br />Версия API, которая будет использована для создания ресурса. | 
+| версия\_API | Перечисление.<br />Обязательное значение.<br />**2015-06-01** или **2014-12-19-preview**<br /><br />Версия API, которая будет использоваться для создания ресурса. | 
 | name | Строка.<br />Обязательное значение.<br />Одно слово при развертывании в качестве дочернего ресурса хранилища ключей либо значение в формате **{имя-ключа-хранилища}/{имя-секрета}** при развертывании в качестве ресурса верхнего уровня ресурсов для добавления в существующее хранилище ключей.<br /><br />Имя создаваемого секрета. |
 | properties | Объект.<br />Обязательное значение.<br />[Объект свойств.](#properties)<br /><br />Объект, который указывает значение создаваемого секрета. |
 | Свойство dependsOn | Массив.<br />Необязательное значение.<br />Разделенный запятыми список имен или уникальных идентификаторов ресурсов.<br /><br />Коллекция ресурсов, от которых зависит эта связь. Если хранилище ключей разворачивается в том же шаблоне, включите в этот элемент имя хранилища ключей, чтобы оно было развернуто первым. |
@@ -51,7 +51,7 @@
 
 | Имя | Значение |
 | ---- | ---- | 
-| value | Строка.<br />Обязательное значение.<br /><br />Секретное значение для хранения в хранилище ключей. Для передачи значения этого свойства используйте параметр типа **securestring**. |
+| value | Строка.<br />Обязательное значение.<br /><br />Значение секрета для хранения в хранилище ключей. Для передачи значения этого свойства используйте параметр типа **securestring**. |
 
 	
 ## Примеры
@@ -71,13 +71,13 @@
             "tenantId": {
                 "type": "string",
                 "metadata": {
-                   "description": "Tenant Id for the subscription and use assigned access to the vault. Available from the Get-AzureRMSubscription PowerShell cmdlet"
+                   "description": "Tenant ID for the subscription and use assigned access to the vault. Available from the Get-AzureRmSubscription PowerShell cmdlet"
                 }
             },
             "objectId": {
                 "type": "string",
                 "metadata": {
-                    "description": "Object Id of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRMADUser or the Get-AzureRMADServicePrincipal cmdlets"
+                    "description": "Object ID of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRmADUser or the Get-AzureRmADServicePrincipal cmdlets"
                 }
             },
             "keysPermissions": {
@@ -227,4 +227,4 @@
 - Общие сведения о хранилищах ключей см. в разделе [Приступая к работе с хранилищем ключей Azure](./key-vault/key-vault-get-started.md).
 - Пример ссылки на секретный код хранилища ключей при развертывании шаблонов см. в статье [ Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->
