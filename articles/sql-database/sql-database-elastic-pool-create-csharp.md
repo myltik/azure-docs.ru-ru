@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="05/27/2016"
+    ms.date="07/05/2016"
     ms.author="srinia"/>
 
 # Создание пула эластичных баз данных с помощью C&#x23;
@@ -28,9 +28,7 @@
 
 Стандартные коды ошибок см. в статье [Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md).
 
-Сейчас пулы эластичных баз данных предоставляются в виде предварительной версии, которая доступна только с серверами Базы данных SQL версии 12. Если у вас есть сервер базы данных SQL версии 11, с помощью PowerShell вы можете в один шаг [обновить его до версии 12 и создать пул](sql-database-upgrade-server-portal.md).
-
-В примерах используется [библиотека базы данных SQL для .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), поэтому вам нужно ее установить. Для этого в Visual Studio выполните следующую команду в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**).
+В приведенных ниже примерах используется [библиотека базы данных SQL для .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), поэтому, прежде чем продолжить, установите эту библиотеку, если она еще не установлена. Для этого в Visual Studio выполните следующую команду в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**).
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
@@ -74,7 +72,7 @@
 
     var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
 
-Сведения о перемещении существующей базы данных в пул см. в разделе [Перемещение базы данных в пул эластичных БД](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
+Сведения о перемещении имеющейся базы данных в пул см. в разделе [Перемещение базы данных в пул эластичных БД](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
 
 ## Пример. Создание пула с помощью C&#x23
 
@@ -87,7 +85,7 @@
     Install-Package Microsoft.Azure.Management.Resources –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Создайте консольное приложение и замените содержимое файла Program.cs приведенным ниже. Сведения о том, как получить идентификатор клиента и другие значения, см. в статье [Получение идентификатора клиента и ключа для доступа к базе данных SQL из кода](sql-database-client-id-keys.md). Используйте командлет [Get AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx), чтобы получить значение subscriptionId.
+Создайте консольное приложение и замените содержимое файла Program.cs приведенным ниже. Сведения о том, как получить идентификатор клиента и другие значения, см. в статье [Получение идентификатора клиента и ключа для доступа к базе данных SQL из кода](sql-database-client-id-keys.md). Используйте командлет [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx), чтобы получить значение subscriptionId.
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -243,12 +241,12 @@
 ## Дальнейшие действия
 
 - [Управление пулом.](sql-database-elastic-pool-manage-csharp.md)
-- [Обзор заданий обработки эластичных баз данных](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение сценариев T-SQL для любого количества эластичных баз данных в пуле.
-- [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md). Использование средств эластичных баз данных для масштабирования.
+- [Обзор заданий обработки эластичных баз данных](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение скриптов T-SQL для любого количества эластичных баз данных в пуле.
+- [Развертывание с помощью Базы данных SQL Azure](sql-database-elastic-scale-introduction.md). Использование средств эластичных баз данных для масштабирования.
 
 ## Дополнительные ресурсы
 
 - [База данных SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

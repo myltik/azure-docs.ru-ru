@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -182,22 +182,22 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 Используйте функцию **queryout** командной строки bcp, чтобы экспортировать результаты запроса, а не всю таблицу.
 
 ## Дальнейшие действия
-Общие сведения о загрузке см. в разделе [Загрузка данных в хранилище данных SQL][]. Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][]. Дополнительные сведения о создании таблицы в хранилище данных SQL см. в статье [Проектирование таблиц в хранилище данных SQL][] или [CREATE TABLE syntax][] \(Синтаксис инструкции CREATE TABLE).
+Общие сведения о загрузке см. в разделе [Загрузка данных в хранилище данных SQL][]. Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][]. Дополнительные сведения о создании таблицы в хранилище данных SQL см. в статьях, посвященных [таблицам в хранилище данных SQL][] и [синтаксису инструкции CREATE TABLE][].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Загрузка данных в хранилище данных SQL]: sql-data-warehouse-overview-load.md
-[Общие сведения о разработке для хранилища данных SQL]: sql-data-warehouse-overview-develop.md
-[Проектирование таблиц в хранилище данных SQL]: sql-data-warehouse-develop-table-design.md
-[управлении статистикой]: sql-data-warehouse-develop-statistics.md
+[Загрузка данных в хранилище данных SQL]: ./sql-data-warehouse-overview-load.md
+[Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
+[таблицам в хранилище данных SQL]: ./sql-data-warehouse-tables-overview.md
+[управлении статистикой]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+[синтаксису инструкции CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Центре загрузки Майкрософт]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

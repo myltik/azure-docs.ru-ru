@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/07/2016"
+   ms.date="07/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Создание хранилища данных SQL с помощью Powershell
@@ -55,7 +55,7 @@
 
 Список параметров, необходимых для этого командлета:
 
-- **RequestedServiceObjectiveName**: объем запрашиваемых единиц DWU в формате DWXXX. DWU представляет выделение ресурсов ЦП и памяти. Каждое значение DWU представляет линейное увеличение в этих ресурсах. В настоящее время поддерживаются следующие значения: 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000.
+- **RequestedServiceObjectiveName**: количество запрашиваемых единиц [DWU][]. Поддерживаемые значения: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500 и DW2000.
 - **DatabaseName**: имя создаваемого хранилища данных SQL.
 - **ServerName**: имя сервера, который используется для создания (должен быть версии 12).
 - **ResourceGroupName**: используемая группа ресурсов. Чтобы найти доступные группы ресурсов, входящие в вашу подписку, используйте командлет Get-AzureResource.
@@ -66,17 +66,17 @@
 ## Дальнейшие действия
 После завершения подготовки хранилища данных SQL вы можете попробовать [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] или [миграции][].
 
-Если вы хотите больше узнать о том, как программно управлять хранилищем данных SQL, см. нашу статью [Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL][].
+Если вы хотите больше узнать о том, как программно управлять хранилищем данных SQL, см. статью [Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-
-[миграции]: sql-data-warehouse-overview-migrate.md
-[разработки]: sql-data-warehouse-overview-develop.md
-[загрузки]: sql-data-warehouse-load-with-bcp.md
-[загрузить демонстрационные данные]: sql-data-warehouse-get-started-load-sample-databases.md
-[Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL]: sql-data-warehouse-reference-powershell-cmdlets.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[миграции]: ./sql-data-warehouse-overview-migrate.md
+[разработки]: ./sql-data-warehouse-overview-develop.md
+[загрузки]: ./sql-data-warehouse-load-with-bcp.md
+[загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
 [Установка и настройка Azure PowerShell]: ../powershell/powershell-install-configure.md
@@ -96,4 +96,4 @@
 [бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [кредитов Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

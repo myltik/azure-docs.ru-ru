@@ -25,9 +25,13 @@
 
 - Если удалить группу ресурсов на [портале Azure][lnk-azure-portal], будут удалены только ресурсы в этой группе. Вам также придется удалить приложение Azure Active Directory, связанное с предварительно настроенным решением, на [классическом портале Azure][lnk-classic-portal].
 
+### Сколько экземпляров центров IoT можно подготовить в рамках одной подписки? 
+
+Десять. Вы можете [направить запрос в службу поддержки Azure][link-azuresupportticket], чтобы увеличить это количество, но по умолчанию в рамках одной подписки можно подготовить только десять экземпляров центров IoT, как описано в разделе [об ограничениях подписки Azure][link-azuresublimits]. Так как каждое предварительно настроенное решение подготавливает новый центр IoT, в рамках одной подписки можно подготовить до десяти таких решений.
+
 ### Сколько экземпляров DocumentDB можно подготовить в рамках одной подписки?
 
-Пятьдесят. Вы можете [направить запрос в службу поддержки Azure][link-azuresupportticket], чтобы увеличить это количество, но по умолчанию в рамках одной подписки можно подготовить только пятьдесят экземпляров DocumentDB. Иными словами, используя одну подписку, вы можете подготовить не более пяти предварительно настроенных решений для удаленного мониторинга.
+Пятьдесят. Вы можете [направить запрос в службу поддержки Azure][link-azuresupportticket], чтобы увеличить это количество, но по умолчанию в рамках одной подписки можно подготовить только пятьдесят экземпляров DocumentDB.
 
 ### Сколько бесплатных API-интерфейсов Карт Bing можно подготовить в рамках одной подписки?
 
@@ -39,7 +43,7 @@
  2. Щелкните "Все параметры" и "Управление ключами".
  3. Вы увидите два ключа: MasterKey и QueryKey. Скопируйте значение ключа QueryKey.
 
-     > [AZURE.NOTE] У вас нет учетной записи Bing Maps API for Enterprise? Создайте ее на [портале Azure][lnk-azure-portal], щелкнув "+Создать". Затем найдите Bing Maps API for Enterprise и следуйте подсказкам по созданию.
+     > [AZURE.NOTE] У вас нет учетной записи Bing Maps API for Enterprise? Создайте ее на [портале Azure][lnk-azure-portal], щелкнув "+ Создать". Затем найдите Bing Maps API for Enterprise и следуйте подсказкам по созданию.
 
 2. Разверните последний фрагмент кода из архива [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
 
@@ -59,6 +63,7 @@
 См. запись блога Эрика Голпа (Eric Golpe) [Пошаговое руководство по удалению клиента Azure AD][lnk-delete-aad-tennant].
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[link-azuresublimits]: https://azure.microsoft.com/ru-RU/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
@@ -67,4 +72,4 @@
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

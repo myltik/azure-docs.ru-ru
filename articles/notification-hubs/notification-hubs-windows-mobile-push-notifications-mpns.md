@@ -5,8 +5,8 @@
 	documentationCenter="windows"
     keywords="push-уведомление, push-уведомление, push-уведомление windows phone"
 	authors="wesmc7777"
-	manager="dwrede"
-	editor="dwrede"/>
+	manager="erikre"
+	editor="erikre"/>
 
 <tags
 	ms.service="notification-hubs"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/10/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Отправка push-уведомлений в приложения Windows Phone с помощью центров уведомлений Azure
@@ -219,4 +219,4 @@ Push-уведомления можно отправлять с помощью ц
 [каталоге уведомлений на плитке]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Центр уведомлений: учебник для Windows Phone Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

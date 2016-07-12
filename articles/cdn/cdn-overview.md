@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/06/2016"
+	ms.date="07/05/2016"
 	ms.author="casoper"/>
 
 # Общие сведения о сети доставки содержимого(CDN) Azure
@@ -78,6 +78,8 @@
 
 Чтобы увидеть сеть CDN в действии, просмотрите [видео с конференции Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
+Узнайте об автоматизации Azure CDN с помощью платформ [.NET](./cdn-app-dev-net.md) или [Node.js](./cdn-app-dev-node.md).
+
 Сведения о ценах см. на странице [Сведения о ценах на использование сети доставки содержимого (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->
