@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 # Начало работы с веб-приложениями Node.js в службе приложений Azure
@@ -179,7 +179,7 @@
 
 Включить Node-Inspector можно так.
 
-1. Откройте файл iisnode.yml в корневой папке репозитория и укажите следующие параметры: 
+1. Откройте файл iisnode.yml в корневой папке репозитория и укажите следующие параметры:
 
         debuggingEnabled: true
         debuggerExtensionDll: iisnode-inspector.dll
@@ -201,12 +201,13 @@
 ## Дополнительные ресурсы
 
 - [Указание версии Node.js в приложении Azure](../nodejs-specify-node-version-azure-apps.md)
+- [Рекомендации и руководство по устранению неполадок приложений Node.js в Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 - [Отладка веб-приложения Node.js в службе приложений Azure](web-sites-nodejs-debug.md)
 - [Использование модулей Node.js с приложениями Azure](../nodejs-use-node-modules-azure-apps.md)
 - [Azure App Service Web Apps: Node.js (Веб-приложения службы приложений Azure: Node.js)](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
 - [Центр разработчиков Node.js.](/develop/nodejs/)
 - [Начало работы с веб-приложениями в службе приложений Azure](app-service-web-get-started.md)
-- [Exploring the Super Secret Kudu Debug Console] (Обзор сверхсекретной консоли для отладки Kudu)
+- [Exploring the Super Secret Kudu Debug Console (Обзор сверхсекретной консоли для отладки Kudu)]
 
 <!-- URL List -->
 
@@ -216,7 +217,7 @@
 [BOWER]: http://bower.io/
 [Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure]: ./web-sites-nodejs-chat-app-socketio.md
 [Развертывание веб-приложения Sails.js в службе приложений Azure]: ./app-service-web-nodejs-sails.md
-[Exploring the Super Secret Kudu Debug Console]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Exploring the Super Secret Kudu Debug Console (Обзор сверхсекретной консоли для отладки Kudu)]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [генератор Express для Yeоman]: https://github.com/petecoop/generator-express
 [GIT]: http://www.git-scm.com/downloads
 [Как использовать io.js с веб-приложениями службы приложений Azure]: ./web-sites-nodejs-iojs.md
@@ -235,4 +236,4 @@
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

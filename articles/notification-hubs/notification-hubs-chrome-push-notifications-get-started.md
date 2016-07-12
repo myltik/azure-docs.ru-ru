@@ -5,7 +5,7 @@
     keywords="мобильные push-уведомления, push-уведомления, push-уведомление, push-уведомления Chrome"
 	documentationCenter=""
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="03/21/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Отправка push-уведомлений в приложения Chrome с помощью Центров уведомлений Azure
@@ -477,4 +477,4 @@
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

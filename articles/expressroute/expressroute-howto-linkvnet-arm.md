@@ -34,9 +34,9 @@
 
 - Вам потребуется последняя версия модулей Azure PowerShell (минимум 1.0). Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 - Прежде чем приступить к настройке, необходимо изучить [предварительные требования](expressroute-prerequisites.md), [требования к маршрутизации](expressroute-routing.md) и [рабочие процессы](expressroute-workflows.md).
-- Вам потребуется активный канал ExpressRoute. 
-	- Следуйте инструкциям, чтобы [создать канал ExpressRoute](expressroute-howto-circuit-arm.md) и включить его на стороне поставщика услуг подключения. 
-	- Убедитесь, что для вашего канала настроен частный пиринг Azure. Инструкции по маршрутизации см. в статье [Настройка маршрутизации](expressroute-howto-routing-arm.md). 
+- Вам потребуется активный канал ExpressRoute.
+	- Следуйте инструкциям, чтобы [создать канал ExpressRoute](expressroute-howto-circuit-arm.md) и включить его на стороне поставщика услуг подключения.
+	- Убедитесь, что для вашего канала настроен частный пиринг Azure. Инструкции по маршрутизации см. в статье [Настройка маршрутизации](expressroute-howto-routing-arm.md).
 	- Для создания сквозного подключения обязательно настройте частный пиринг Azure, а также пиринг BGP между вашей сетью и сетью Майкрософт.
 	- Вам необходимо создать и полностью подготовить виртуальную сеть и шлюз виртуальной сети. Следуйте инструкциям по созданию [VPN-шлюза](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), но обязательно используйте `-GatewayType ExpressRoute`.
 
@@ -75,10 +75,10 @@
 В следующем фрагменте показано создание разрешения с помощью командлета.
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
-	Set-AzureRmExpressRouteCircuit -Circuit $circuit
+	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 		
 
 Ответ будет содержать ключ и состояние разрешения.
@@ -97,7 +97,7 @@
 Владелец канала может просмотреть все разрешения, выданные для определенного канала, выполнив следующий командлет.
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit
+	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 	
 
 #### Добавление разрешений
@@ -105,11 +105,11 @@
 Владелец канала может добавлять разрешения с помощью следующего командлета.
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization2"
-	Set-AzureRmExpressRouteCircuit -Circuit $circuit
+	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 	
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit
+	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 	
 #### Удаление разрешений
@@ -117,7 +117,7 @@
 Владелец канала может отзывать (удалять) разрешения, выданные пользователю, с помощью следующего командлета.
 
 	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
-	Set-AzureRmExpressRouteCircuit -Circuit $circuit	
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit	
 
 ### Действия пользователя канала
 
@@ -138,4 +138,4 @@
 
 Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

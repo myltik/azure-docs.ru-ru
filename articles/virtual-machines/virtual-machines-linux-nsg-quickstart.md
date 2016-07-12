@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Разрешение внешнего доступа к виртуальной машине Linux | Microsoft Azure"
+   pageTitle="Открытие портов или конечных точек для виртуальной машины Linux | Microsoft Azure"
    description="Узнайте, как открыть порт или создать конечную точку, которая обеспечивает внешний доступ к виртуальной машине Linux, используя модель развертывания с помощью Resource Manager и Azure CLI."
    services="virtual-machines-linux"
    documentationCenter=""
@@ -16,8 +16,8 @@
    ms.date="05/24/2016"
    ms.author="iainfou"/>
 
-# Разрешение внешнего доступа к виртуальной машине
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+# Открытие портов и конечных точек
+Чтобы открыть порт или создать конечную точку в Azure, создайте фильтр сети, который разрешает трафик для выбранного порта в подсети или сетевого интерфейса виртуальной машины. Эти фильтры, контролирующие как входящий, так и исходящий трафик, помещаются в группу безопасности сети и присоединяются к ресурсу, который будет получать трафик. Давайте используем распространенный пример веб-трафика через порт 80.
 
 ## Быстрые команды
 Для создания группы безопасности сети и правил потребуется [Azure CLI](../xplat-cli-install.md) в режиме Resource Manager (`azure config mode arm`).
@@ -61,4 +61,4 @@ azure network vnet subnet set --resource-group TestRG --name TestSubnet --networ
 - [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
 - [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

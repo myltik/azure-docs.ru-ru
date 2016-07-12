@@ -14,14 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/20/2016" 
+	ms.date="06/27/2016" 
 	ms.author="larryfr"/>
 
 #Использование Python с Hive и Pig в HDInsight
 
 Hive и Pig отлично подходят для работы с данными в HDInsight, но в некоторых случаях вам может понадобиться язык программирования более общего назначения. Как Hive, так и Pig позволяют вам создавать пользовательские функции (UDF) с использованием различных языков программирования. В этой статье вы узнаете, как использовать пользовательские функции на Python из Hive и Pig.
-
-> [AZURE.NOTE] Действия, указанные в данной статье, относятся к кластерам HDInsight версий 2.1, 3.0, 3.1 и 3.2.
 
 ##Требования
 
@@ -29,7 +27,7 @@ Hive и Pig отлично подходят для работы с данным�
 
 * Текстовый редактор
 
-    > [AZURE.IMPORTANT] Если вы используете сервер HDInsight под управлением Linux, но создаете файлы Python на клиенте Windows, следует использовать редактор, который использует символ LF в качестве конца строки. Если вы не уверены, использует ли редактор символы LF или CRLF, см. раздел [Устранение неполадок](#troubleshooting) с описанием действий по удалению символов CR с помощью служебных программ в кластере HDInsight.
+    > [AZURE.IMPORTANT] Если вы используете сервер HDInsight под управлением Linux, но создаете файлы Python на клиенте Windows, следует использовать редактор, который использует символ LF в качестве конца строки. Если вы не уверены, использует ли редактор символы LF или CRLF, см. раздел [Устранение неполадок](#troubleshooting), в котором описано, как удалять символы CR с помощью служебных программ в кластере HDInsight.
     
 ##<a name="python"></a>Python в HDInsight
 
@@ -176,8 +174,8 @@ Hive и Pig отлично подходят для работы с данным�
 
 4. В сеансе SSH добавьте переданные ранее файлы Python в хранилище WASB для кластера.
 
-		hadoop fs -copyFromLocal streaming.py /streaming.py
-		hadoop fs -copyFromLocal jython.py /jython.py
+		hdfs dfs -put streaming.py /streaming.py
+		hdfs dfs -put jython.py /jython.py
 
 После передачи файлов выполните следующие действия для выполнения заданий Hive и Pig.
 
@@ -189,7 +187,7 @@ Hive и Pig отлично подходят для работы с данным�
 
 		add file wasb:///streaming.py;
 		SELECT TRANSFORM (clientid, devicemake, devicemodel)
-		  USING ' pythonstreaming.py' AS
+		  USING 'python streaming.py' AS
 		  (clientid string, phoneLabel string, phoneHash string)
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
@@ -308,13 +306,13 @@ Hive и Pig отлично подходят для работы с данным�
         -HttpCredential $creds
     # Uncomment the following to see stderr output
     # Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $job.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
-        -HttpCredential $creds `
-        -DisplayOutputType StandardError
+    #   -Clustername $clusterName `
+    #   -JobId $job.JobId `
+    #   -DefaultContainer $container `
+    #   -DefaultStorageAccountName $storageAccountName `
+    #   -DefaultStorageAccountKey $storageAccountKey `
+    #   -HttpCredential $creds `
+    #   -DisplayOutputType StandardError
 	Write-Host "Display the standard output ..." -ForegroundColor Green
 	Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
@@ -446,4 +444,4 @@ Pig|/PigPython/stderr<p>/PigPython/stdout
 
 * [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

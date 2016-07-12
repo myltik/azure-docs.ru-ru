@@ -102,11 +102,11 @@
 
 4. Последовательно выберите **File** (Файл), **Settings** (Параметры), **Build** (Сборка), **Execution** (Выполнение), **Deployment** (Развертывание). Выберите **Build Tools** (Средства сборки), **Maven**, **Importing** (Импорт). Затем установите флажок **Import Maven projects automatically** (Импортировать проекты Maven автоматически).
 
-5. Откройте файл **Main.java** и замените существующий блок кода следующим кодом. Кроме того, задайте значения параметров, вызываемых во фрагменте кода, например **localFolderPath**, **\_adlaAccountName**, **\_adlsAccountName**, **\_resourceGroupName**, и замените заполнители **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** и **SUBSCRIPTION-ID** соответствующими значениями.
+5. Откройте файл **Main.java** и замените существующий блок кода следующим кодом. Кроме того, задайте значения параметров, вызываемых во фрагменте кода, например **localFolderPath**, **\_adlaAccountName**, **\_adlsAccountName** и **\_resourceGroupName**, а затем замените заполнители **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** и **SUBSCRIPTION-ID** соответствующими значениями.
 
 	Этот код обрабатывает создание учетных записей хранилища озера данных и аналитики озера данных, создание файлов в хранилище, выполнение задания, получения состояния задания, скачивание выходных данных задания и, наконец, удаление учетной записи.
 
->[AZURE.NOTE] В настоящее время существует известная проблема со службой озера данных Azure. Если работа примера приложения прерывается или возникает ошибка, может потребоваться вручную удалить учетные записи хранилища данных озера и аналитики озера данных, создаваемые сценарием. Если вы еще не работали с порталом, то приступить к работе вам поможет руководство [по управлению аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
+	>[AZURE.NOTE] В настоящее время существует известная проблема со службой озера данных Azure. Если работа примера приложения прерывается или возникает ошибка, может потребоваться вручную удалить учетные записи хранилища данных озера и аналитики озера данных, создаваемые сценарием. Если вы еще не работали с порталом, приступить к работе вам поможет руководство [по управлению аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
 
 
 		package com.company;
@@ -180,7 +180,10 @@
 		        WaitForNewline("Accounts displayed.", "Creating files.");
 		
 		        // Create a file in Data Lake Store: input1.csv
-		        CreateFile("/input1.csv", "123,abc", true);
+		        // TODO: these change order in the next patch
+		        byte[] bytesContents = "123,abc".getBytes();
+		        _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, "/input1.csv", bytesContents, true);
+		
 		        WaitForNewline("File created.", "Submitting a job.");
 		
 		        // Submit a job to Data Lake Analytics
@@ -203,10 +206,11 @@
 		        WaitForNewline("File deleted.", "Deleting account.");
 		
 		        // Delete account
-		        DeleteAccounts();
+		        _adlsClient.getAccountOperations().delete(_resourceGroupName, _adlsAccountName);
+		        _adlaClient.getAccountOperations().delete(_resourceGroupName, _adlaAccountName);
 		        WaitForNewline("Account deleted.", "DONE.");
-			}
-	
+		    }
+		
 		    //Set up clients
 		    public static void SetupClients(ServiceClientCredentials creds)
 		    {
@@ -224,18 +228,14 @@
 		    {
 		        if (nextAction == null)
 		            nextAction = "";
+		
+		        System.out.println(reason + "\r\nPress ENTER to continue...");
+		        try{System.in.read();}
+		        catch(Exception e){}
+		
 		        if (!nextAction.isEmpty())
 		        {
-		            System.out.println(reason + "\r\nPress ENTER to continue...");
-		            try{System.in.read();}
-		            catch(Exception e){}
 		            System.out.println(nextAction);
-		        }
-		        else
-		        {
-		            System.out.println(reason + "\r\nPress ENTER to continue...");
-		            try{System.in.read();}
-		            catch(Exception e){}
 		        }
 		    }
 		
@@ -244,7 +244,6 @@
 		        // Create ADLS account
 		        DataLakeStoreAccount adlsParameters = new DataLakeStoreAccount();
 		        adlsParameters.setLocation(_location);
-		
 		
 		        _adlsClient.getAccountOperations().create(_resourceGroupName, _adlsAccountName, adlsParameters);
 		
@@ -267,48 +266,20 @@
 		        adlaParameters.setName(_adlaAccountName);
 		        adlaParameters.setProperties(adlaProperties);
 		
-				/* If this line generates an error message like "The deep update for property 'DataLakeStoreAccounts' is not supported", please delete the ADLS and ADLA accounts via the portal and re-run your script. */
- 
+		            /* If this line generates an error message like "The deep update for property 'DataLakeStoreAccounts' is not supported", please delete the ADLS and ADLA accounts via the portal and re-run your script. */
+		
 		        _adlaClient.getAccountOperations().create(_resourceGroupName, _adlaAccountName, adlaParameters);
 		    }
 		
-		    // Create file
-		    public static void CreateFile(String path) throws IOException, CloudException {
-		        _adlsFileSystemClient.getFileSystemOperations().create(path, _adlsAccountName);
-		    }
-		
-		    // Create file with contents
+		    //todo: this changes in the next version of the API
 		    public static void CreateFile(String path, String contents, boolean force) throws IOException, CloudException {
 		        byte[] bytesContents = contents.getBytes();
 		
-		        _adlsFileSystemClient.getFileSystemOperations().create(path, _adlsAccountName, bytesContents, force);
+		        _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, path, bytesContents, force);
 		    }
 		
-		    // Append to file
-		    public static void AppendToFile(String path, String contents) throws IOException, CloudException {
-		        byte[] bytesContents = contents.getBytes();
-		
-		        _adlsFileSystemClient.getFileSystemOperations().append(path, _adlsAccountName, bytesContents);
-		    }
-		
-		    // Concatenate files
-		    public static void ConcatenateFiles(List<String> srcFilePaths, String destFilePath) throws IOException, CloudException {
-		        _adlsFileSystemClient.getFileSystemOperations().concat(destFilePath, _adlsAccountName, srcFilePaths);
-		    }
-		
-		    // Delete concatenated file
 		    public static void DeleteFile(String filePath) throws IOException, CloudException {
 		        _adlsFileSystemClient.getFileSystemOperations().delete(filePath, _adlsAccountName);
-		    }
-		
-		    // Get file or directory info
-		    public static FileStatusProperties GetItemInfo(String path) throws IOException, CloudException {
-		        return _adlsFileSystemClient.getFileSystemOperations().getFileStatus(path, _adlsAccountName).getBody().getFileStatus();
-		    }
-		
-		    // List files and directories
-		    public static List<FileStatusProperties> ListItems(String directoryPath) throws IOException, CloudException {
-		        return _adlsFileSystemClient.getFileSystemOperations().listFileStatus(directoryPath, _adlsAccountName).getBody().getFileStatuses().getFileStatus();
 		    }
 		
 		    // Download file
@@ -356,13 +327,6 @@
 		        return jobId;
 		    }
 		
-		    // Submit a U-SQL job by providing a path to the script
-		    public static UUID SubmitJobByPath(String scriptPath, String jobName) throws IOException, CloudException {
-		        byte[] scriptFileContents = Files.readAllBytes(Paths.get(scriptPath));
-		        String script = new String(scriptFileContents, Charset.defaultCharset());
-		        return SubmitJobByScript(script, jobName);
-		    }
-		
 		    // Wait for job completion
 		    public static JobResult WaitForJob(UUID jobId) throws IOException, CloudException {
 		        JobInformation jobInfo = _adlaJobClient.getJobOperations().get(_adlaAccountName, jobId).getBody();
@@ -378,17 +342,6 @@
 		        JobInformation jobInfo = _adlaJobClient.getJobOperations().get(_adlaAccountName, jobId).getBody();
 		        return jobInfo.getState().toValue();
 		    }
-		
-		    // List jobs
-		    public static List<JobInformation> ListJobs() throws IOException, CloudException {
-		        return _adlaJobClient.getJobOperations().list(_adlaAccountName).getBody();
-		    }
-		
-		    // Delete accounts
-		    public static void DeleteAccounts() throws InterruptedException, CloudException, IOException {
-		        _adlsClient.getAccountOperations().delete(_resourceGroupName, _adlsAccountName);
-		        _adlaClient.getAccountOperations().delete(_resourceGroupName, _adlaAccountName);
-		    }
 		}
 
 6. Следуйте инструкциям на экране для запуска и завершения приложения.
@@ -399,8 +352,8 @@
 - Для просмотра учебника с помощью других средств используйте вкладки-селекторы в верхней части страницы.
 - Более сложный запрос можно посмотреть в статье [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md).
 - Чтобы приступить к разработке приложений U-SQL, ознакомьтесь со статьей [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- Сведения о языке U-SQL см. в статье [Учебник. Приступая к работе с языком U-SQL для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md) и в [справочнике по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+- Сведения о языке U-SQL см. в [руководству по началу работы с языком U-SQL для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md) и [справочнике по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 - Задачи управления описываются в статье [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
 - Общие сведения об аналитике озера данных см. в статье [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

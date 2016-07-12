@@ -25,13 +25,15 @@
 
 Сейчас фабрика данных поддерживает перемещение данных из DB2 в другие хранилища данных, но не наоборот.
 
+> [AZURE.NOTE] В настоящее время этот соединитель DB2 поддерживает DB2 для LUW (Linux, UNIX, Windows). Чтобы скопировать данные из DB2 для z/OS и DB2 для AS/400, попробуйте использовать универсальный соединитель ODBC и установите соответствующий драйвер ODBC на компьютер шлюза. Например, для приема данных из DB2 для AS/400 используйте драйвер iSeries Access ODBC. Чтобы настроить действие копирования, см. инструкции в статье [Перемещение данных из хранилищ данных ODBC с помощью фабрики данных Azure](data-factory-odbc-connector.md).
+
 ## Установка 
 
 Чтобы подключить шлюз управления данными к базе данных DB2, необходимо установить [драйвер сервера данных IBM DB2](http://go.microsoft.com/fwlink/p/?LinkID=274911) на тот же компьютер, что и шлюз управления данными.
 
 Компания IBM выявила ряд проблем, связанных с установкой драйвера сервера данных IBM DB2 на Windows 8. При возникновении этих проблем потребуется выполнить дополнительные действия. Дополнительные сведения об установке драйвера сервера данных IBM DB2 на Windows 8 см. по адресу [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
 
-> [AZURE.NOTE] Советы по устранению неполадок, связанных с шлюзом или подключением, см. в разделе [Устранение неполадок шлюза](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+> [AZURE.NOTE] Советы по устранению неполадок, связанных со шлюзом или подключением, см. в разделе [Устранение неполадок со шлюзом](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
 
 
 ## Пример копирования данных из DB2 в хранилище BLOB-объектов Azure
@@ -41,10 +43,10 @@
 Образец состоит из следующих сущностей фабрики данных.
 
 1.	Связанная служба типа [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties).
-2.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+2.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	Входной [набор данных](data-factory-create-datasets.md) типа [RelationalTable](data-factory-onprem-db2-connector.md#db2-dataset-type-properties).
-4.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
-5.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
+4.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+5.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 В примере данные из результата выполнения запроса к базе данных DB2 каждый час копируются в BLOB-объект. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
@@ -324,4 +326,4 @@ Char | Строка
 ## Производительность и настройка  
 См. [руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в котором описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

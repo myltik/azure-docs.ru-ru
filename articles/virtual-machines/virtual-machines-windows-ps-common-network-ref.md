@@ -44,4 +44,4 @@
 - Использование созданного сетевого интерфейса при [создании виртуальной машины](virtual-machines-windows-ps-create.md).
 - Узнайте, как можно [создать виртуальную машину с несколькими сетевыми интерфейсами](../virtual-network/virtual-networks-multiple-nics.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

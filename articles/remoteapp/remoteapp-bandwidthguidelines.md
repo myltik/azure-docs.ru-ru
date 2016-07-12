@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/31/2016" 
+    ms.date="06/27/2016" 
     ms.author="elizapo" />
     
 # Пропускная способность сети Azure RemoteApp — общие рекомендации (если невозможно провести свои тесты)
@@ -43,4 +43,4 @@
 
 - [Azure RemoteApp — тест использования пропускной способности сети в рамках распространенных сценариев](remoteapp-bandwidthtests.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

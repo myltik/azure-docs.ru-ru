@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Вызов программ Spark из фабрики данных
@@ -102,9 +102,9 @@
 
 Как вы видите, действие MapReduce настроено для вызова **spark-adf-job-bin.jar** в контейнере **libs** в службе хранилища Azure (указанной в файле StorageLinkedService.json). Исходный код для этой программы находится в папке Spark-ADF/src/main/java/com/adf/spark. Он вызывает spark-submit и запускает задания Spark.
 
-Эта программа MapReduce (spark-adf-job-bin.jar), выполняемая в кластере HDInsight Spark, вызывает программу Spark **sparkdemoapp\_2.10 1.0.jar** и передает аргументы, полученные через действие MapReduce (показанное в приведенном выше коде JSON), в программу Spark. Программа **sparkdemoapp\_2.10 1.0.jar** содержит исходный код Scala, копирующий данные из одного контейнера BLOB-объектов Azure в другой. Этот jar-файл с демонстрационным приложением можно заменить любым другим jar-файлом, содержащим любое задание, которое вы пытаетесь запустить с помощью Spark.
+Эта программа MapReduce (spark-adf-job-bin.jar), выполняемая в кластере HDInsight Spark, вызывает программу Spark **sparkdemoapp_2.10-1.0.jar** и передает аргументы, полученные через действие MapReduce (показанное в приведенном выше коде JSON), в программу Spark. Программа **sparkdemoapp_2.10-1.0.jar** содержит исходный код Scala, копирующий данные из одного контейнера BLOB-объектов Azure в другой. Этот jar-файл с демонстрационным приложением можно заменить любым другим jar-файлом, содержащим любое задание, которое вы пытаетесь запустить с помощью Spark.
 
-Подведем итоги. **Действие MapReduce** вызывает программу MapReduce **spark-adf-job-bin.jar**, которая вызывает программу Spark **sparkdemoapp\_2.10-1.0.jar**. Чтобы запустить собственную программу Spark, замените sparkdemoapp\_2.10-1.0.jar на свою программу.
+Подведем итоги. **Действие MapReduce** вызывает программу MapReduce **spark-adf-job-bin.jar**, которая вызывает программу Spark **sparkdemoapp_2.10-1.0.jar**. Чтобы запустить собственную программу Spark, замените sparkdemoapp_2.10-1.0.jar своей программой.
 
 > [AZURE.NOTE] При таком вызове программ Spark с помощью действия MapReduce необходимо использовать собственный кластер Spark HDInsight. Использование кластера HDInsight по требованию не поддерживается.
 
@@ -116,4 +116,4 @@
 - [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md)
 - [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

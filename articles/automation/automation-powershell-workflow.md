@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="06/24/2016"
    ms.author="bwren" />
 
 # Изучение рабочего процесса Windows PowerShell
@@ -239,12 +239,41 @@ InlineScript использует описанный ниже синтаксис
 		Write-Output "All files copied."
 	}
 
+Учетные данные пользователя не сохраняются после вызова действия [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) или после вызова последней контрольной точки. Поэтому для учетных данных необходимо указать значение null, а затем извлечь их снова из хранилища ресурсов после вызова **Suspend-Workflow** или контрольной точки. Иначе может появиться следующее сообщение об ошибке: *Невозможно возобновить задание рабочего процесса, поскольку не удалось полностью сохранить постоянные данные или сохраненные постоянные данные повреждены. Необходимо перезапустить рабочий процесс.*
+
+Следующий код показывает, как это сделать в модулях Runbook рабочих процессов PowerShell.
+
+       
+    workflow CreateTestVms
+    {
+       $Cred = Get-AzureAutomationCredential -Name "MyCredential"
+       $null = Add-AzureRmAccount -Credential $Cred
+
+       $VmsToCreate = Get-AzureAutomationVariable -Name "VmsToCreate"
+
+       foreach ($VmName in $VmsToCreate)
+         {
+          # Do work first to create the VM (code not shown)
+        
+          # Now add the VM
+          New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
+
+          # Checkpoint so that VM creation is not repeated if workflow suspends
+          $Cred = $null
+          Checkpoint-Workflow
+          $Cred = Get-AzureAutomationCredential -Name "MyCredential"
+          $null = Add-AzureRmAccount -Credential $Cred
+         }
+     } 
+
+
+Это не обязательно делать, если вы проходите проверку подлинности с помощью учетной записи запуска от имени, настроенной с помощью субъекта-службы.
 
 Дополнительные сведения о контрольных точках см. в разделе [Добавление контрольных точек в рабочем процессе скрипта](http://technet.microsoft.com/library/jj574114.aspx).
 
 
 ## Дальнейшие действия
 
-- Сведения о том, как начать работу с модулями Runbook рабочих процессов PowerShell, см. в статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md). 
+- Чтобы начать работу с модулями Runbook рабочих процессов PowerShell, см. инструкции в статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

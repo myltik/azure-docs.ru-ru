@@ -17,13 +17,13 @@
    ms.date="02/02/2016"
    ms.author="telmos" />
 
-#Развертывание виртуальных машин с несколькими сетевыми картами с использованием PowerShell \(классическая модель\)
+#Развертывание виртуальных машин с несколькими сетевыми картами с использованием PowerShell (классическая модель)
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model]\(virtual-network-deploy-multinic-arm-ps.md\).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](virtual-network-deploy-multinic-arm-ps.md).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -40,7 +40,7 @@
 Внутренние виртуальные машины зависят от создания ресурсов, перечисленных ниже.
 
 - **Внутренняя подсеть**. Чтобы разделить трафик, серверы базы данных будут входить в отдельную подсеть. Приведенный ниже сценарий предполагает наличие этой подсети в виртуальной сети с именем *WTestVnet*.
-- **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя \(SSD\), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
+- **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя (SSD), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
 - **Группа доступности**. Все серверы баз данных будут добавлены в одну группу доступности, чтобы гарантировать, что как минимум одна из виртуальных машин будет запущена и доступна во время обслуживания.
 
 ### Шаг 1. Запуск сценария
@@ -171,4 +171,4 @@
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

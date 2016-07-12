@@ -3,7 +3,7 @@
    description="Задачи портала Azure для восстановления хранилища данных SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
-   ms.author="elfish;barbkess;sonyama;nicw"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess;nicw"/>
 
 # Восстановление хранилища данных SQL Azure (портал)
 
@@ -92,7 +92,7 @@
 8. Нажмите кнопку **ОК**.
 9. Начнется процесс восстановления базы данных, который можно отслеживать с помощью **уведомлений**.
 
->[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных SQL Azure][].
+>[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной Базы данных SQL Azure][].
 
 
 ## Дальнейшие действия
@@ -116,4 +116,4 @@
 <!--Other Web references-->
 [портал Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

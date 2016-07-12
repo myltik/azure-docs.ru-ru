@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell"/>
 
 
@@ -33,4 +33,4 @@
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

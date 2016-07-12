@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="07/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Создание базы данных хранилища данных SQL с помощью Transact-SQL (TSQL)
@@ -52,15 +52,13 @@ CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400',
 sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-Параметры **MAXSIZE** и **SERVICE\_OBJECTIVE** задают максимальное место на диске, которое может использовать база данных, и вычислительные ресурсы, выделяемые экземпляру хранилища данных. Целевая служба по сути представляет собой выделенные ресурсы ЦП и памяти, которые масштабируются линейно в зависимости от размера DWU.
-
-Значение параметра MAXSIZE может составлять от 250 ГБ до 240 ТБ. Значение параметра SERVICE\_OBJECTIVE задается в диапазоне от DW100 до DW2000. Полный список всех допустимых значений параметров MAXSIZE и SERVICE\_OBJECTIVE см. в документации MSDN для инструкции [CREATE DATABASE][]. Параметры MAXSIZE и SERVICE\_OBJECTIVE также можно изменить с помощью команды T-SQL [ALTER DATABASE][]. При изменении параметра SERVICE\_OBJECTIVE следует соблюдать осторожность, так как это приводит к перезапуску служб, при котором отменяются все текущие запросы. При изменении параметра MAXSIZE службы не перезапускаются, так как это всего лишь простая операция с метаданными.
+Значение параметра `MAXSIZE` может составлять от 250 ГБ до 240 ТБ. Значение параметра `SERVICE_OBJECTIVE` задается в диапазоне от DW100 до DW2000 единиц [DWU][]. Список всех допустимых значений см. в документации MSDN об инструкции [CREATE DATABASE][]. Параметры MAXSIZE и SERVICE\_OBJECTIVE также можно изменить с помощью команды T-SQL [ALTER DATABASE][]. При изменении параметра SERVICE\_OBJECTIVE следует соблюдать осторожность, так как это приводит к перезапуску служб, при котором отменяются все текущие запросы. При изменении параметра MAXSIZE службы не перезапускаются, так как это всего лишь простая операция с метаданными.
 
 ## Дальнейшие действия
 После завершения подготовки хранилища данных SQL вы можете [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] или [переноса][].
 
 <!--Article references-->
-
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [how to create a SQL Data Warehouse from the Azure portal]: ./sql-data-warehouse-get-started-provision.md
 [Подключение к хранилищу данных SQL с помощью Visual Studio]: ./sql-data-warehouse-get-started-connect.md
 [переноса]: ./sql-data-warehouse-overview-migrate.md
@@ -82,4 +80,4 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 [бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [кредитов Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

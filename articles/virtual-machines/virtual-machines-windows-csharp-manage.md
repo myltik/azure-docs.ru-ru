@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/17/2016"
+	ms.date="06/24/2016"
 	ms.author="davidmu"/>
 
 # Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C#  
+
+Этой статье показаны задачи управления виртуальными машинами, в том числе как запуск, остановка и обновление.
 
 Для выполнения задач из этой статьи необходимо следующее:
 
@@ -63,28 +65,24 @@
     
 3. Добавьте этот метод в класс Program, чтобы получить маркер, необходимый для создания учетных данных.
 
-	    private static string GetAuthorizationHeader()
+	    private static async Task<AuthenticationResult> GetAccessTokenAsync()
 	    {
-          ClientCredential cc = new ClientCredential("{application-id}", "{password}");
+          var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
           var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-
           if (result == null)
           {
-            throw new InvalidOperationException("Failed to obtain the JWT token");
+            throw new InvalidOperationException("Could not get the token");
           }
-
-          string token = result.Result.AccessToken;
-
           return token;
         }
 	
-    Замените {application-id} записанным ранее идентификатором приложения, {password} — паролем, заданным вами для приложения AD, и {tenant-id} — идентификатором клиента для своей подписки.
+    Замените {client-id} идентификатором приложения Azure Active Directory, {client-secret} — ключом доступа приложения AD, а {tenant-id} — кодом клиента своей подписки. Чтобы узнать идентификатор клиента, выполните команду Get-AzureRmSubscription. Ключ доступа можно узнать на портале Azure.
     
 4. Чтобы создать учетные данные, добавьте следующий код в метод Main в файле Program.cs:
 
-        var token = GetAuthorizationHeader();
-        var credential = new TokenCredentials(token);
+        var token = GetAccessTokenAsync();
+        var credential = new TokenCredentials(token.Result.AccessToken);
 
 5. Сохраните файл Program.cs.
 
@@ -92,7 +90,7 @@
 
 1. Добавьте следующий метод в класс Program в созданном ранее проекте:
 
-        public static void GetVirtualMachine(
+        public static async void GetVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
@@ -100,9 +98,9 @@
         {
           Console.WriteLine("Getting information about the virtual machine...");
 
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          var vmResult = computeManagementClient.VirtualMachines.Get(
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          var vmResult = await computeManagementClient.VirtualMachines.GetAsync(
             groupName, 
             vmName, 
             InstanceViewTypes.InstanceView);
@@ -174,11 +172,12 @@
             Console.WriteLine("  level: " + istat.Level);
             Console.WriteLine("  displayStatus: " + istat.DisplayStatus);
           }
+          
         }
 
 2. Для вызова только что добавленного метода добавьте этот код в метод Main:
 
-        GetVirtualMachine(
+        GetVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -259,21 +258,21 @@
 
 2. Добавьте следующий метод в класс Program:
 
-        public static void StartVirtualMachine(
+        public static async void StartVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
           string subscriptionId)
         {
           Console.WriteLine("Starting the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          computeManagementClient.VirtualMachines.Start(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.StartAsync(groupName, vmName);
         }
 
 3. Для вызова только что добавленного метода добавьте этот код в метод Main:
 
-        StartVirtualMachine(
+        StartVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -295,16 +294,16 @@
 
 2. Добавьте следующий метод в класс Program:
 
-        public static void StopVirtualMachine(
+        public static void StopVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
           string subscriptionId)
         {
           Console.WriteLine("Stopping the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          computeManagementClient.VirtualMachines.PowerOff(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.PowerOffAsync(groupName, vmName);
         }
 
 	Если вы хотите освободить виртуальную машину, измените вызов PowerOff на следующий:
@@ -313,7 +312,7 @@
 
 3. Для вызова только что добавленного метода добавьте этот код в метод Main:
 
-        StopVirtualMachine(
+        StopVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -333,21 +332,21 @@
 
 2. Добавьте следующий метод в класс Program:
 
-        public static void RestartVirtualMachine(
+        public static async void RestartVirtualMachineAsync(
           TokenCredentials credential,
           string groupName,
           string vmName,
           string subscriptionId)
         {
           Console.WriteLine("Restarting the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          computeManagementClient.VirtualMachines.Restart(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.RestartAsync(groupName, vmName);
         }
 
 3. Для вызова только что добавленного метода добавьте этот код в метод Main:
 
-        RestartVirtualMachine(
+        RestartVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -365,21 +364,21 @@
 
 2. Добавьте следующий метод в класс Program:
 
-        public static void DeleteVirtualMachine(
+        public static async void DeleteVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
           string subscriptionId)
         {
           Console.WriteLine("Deleting the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          computeManagementClient.VirtualMachines.Delete(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.DeleteAsync(groupName, vmName);
         }
 
 3. Для вызова только что добавленного метода добавьте этот код в метод Main:
 
-        DeleteVirtualMachine(
+        DeleteVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -399,23 +398,23 @@
 
 2. Добавьте следующий метод в класс Program:
 
-        public static void UpdateVirtualMachine(
+        public static async void UpdateVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
           string subscriptionId)
         {
           Console.WriteLine("Updating the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          var vmResult = computeManagementClient.VirtualMachines.Get(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          var vmResult = await computeManagementClient.VirtualMachines.GetAsync(groupName, vmName);
           vmResult.HardwareProfile.VmSize = "Standard_A1";
-          computeManagementClient.VirtualMachines.CreateOrUpdate(groupName, vmName, vmResult);
+          await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
         }
 
 3. Для вызова только что добавленного метода добавьте этот код в метод Main:
 
-        UpdateVirtualMachine(
+        UpdateVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -431,6 +430,6 @@
     
 ## Дальнейшие действия
 
-При наличии проблем с развертыванием обратитесь к статье [Устранение неполадок развертываний для групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
+При наличии проблем с развертыванием ознакомьтесь с [устранением неполадок развертывания групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

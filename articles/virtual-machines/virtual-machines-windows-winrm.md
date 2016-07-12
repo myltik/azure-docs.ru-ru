@@ -50,7 +50,7 @@ New-AzureRmKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Lo
 ```
 $certificateName = "somename"
 
-$thumbprint = (New-SelfSignedCertificate -DnsName "$certificateName" -CertStoreLocation Cert:\CurrentUser\My -KeySpec KeyExchange).Thumbprint
+$thumbprint = (New-SelfSignedCertificate -DnsName $certificateName -CertStoreLocation Cert:\CurrentUser\My -KeySpec KeyExchange).Thumbprint
 
 $cert = (Get-ChildItem -Path cert:\CurrentUser\My\$thumbprint)
 
@@ -65,7 +65,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $
 
 ```
 $fileName = "<Path to the .pfx file>"
-$fileContentBytes = get-content $fileName -Encoding Byte
+$fileContentBytes = Get-Content $fileName -Encoding Byte
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 
 $jsonObject = @"
@@ -80,7 +80,7 @@ $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
 $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
 
 $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
-Set-AzureRmKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
+Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
 ## Шаг 4. Получение URL-адреса для самозаверяющего сертификата в хранилище ключей
@@ -149,7 +149,7 @@ Set-AzureRmKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -Secre
 	$vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
 	$credential = Get-Credential
 	$secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
-	$vm = Set-AzureRmVMOperatingSystem -VM $vm  -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
+	$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
 	$sourceVaultId = (Get-AzureRmKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
 	$CertificateStore = "My"
 	$vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
@@ -165,4 +165,4 @@ Set-AzureRmKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -Secre
 
     Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

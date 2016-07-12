@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Доменные службы Azure AD *(предварительная версия)* — включение доменных служб Azure AD
@@ -94,4 +94,4 @@
 ## Задача 4. Обновление настроек DNS для виртуальной сети Azure
 Следующая задача — [обновление параметров DNS для виртуальной сети Azure](active-directory-ds-getting-started-dns.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

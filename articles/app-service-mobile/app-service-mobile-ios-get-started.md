@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="04/19/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 #Создание приложения iOS
@@ -29,7 +29,7 @@
 Для работы с этим учебником требуется:
 
 * [Активная учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/).
-* ПК с [Visual Studio Community 2013] или более поздней версии. 
+* ПК с [Visual Studio Community 2013] или более поздней версии.
 * Компьютер Mac с Xcode 7.3 или более поздней версии.
 
 ## Шаг 1. Создание серверной части мобильного приложения Azure
@@ -52,4 +52,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

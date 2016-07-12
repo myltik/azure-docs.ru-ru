@@ -2,7 +2,7 @@
 	pageTitle="Концентраторы уведомлений Azure"
 	description="Узнайте, как использовать push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET."
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="hero-article"
-	ms.date="02/11/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 
@@ -171,4 +171,4 @@ Push-уведомления являются одним из наиболее в
   [портале Azure]: https://portal.azure.com
   [здесь]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/09/2016" 
+	ms.date="06/24/2016" 
 	ms.author="sethm"/>
 
 
@@ -102,4 +102,4 @@ AMQP 1.0 разрабатывался с 2008 г. активной группо�
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0629_2016-->

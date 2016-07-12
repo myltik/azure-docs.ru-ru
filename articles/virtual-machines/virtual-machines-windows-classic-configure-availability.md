@@ -19,8 +19,8 @@
 
 # Как настроить группу доступности для виртуальных машин в классической модели развертывания
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов. Группы доступности можно также настраивать в развертываниях диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Группы доступности можно также настраивать в развертываниях диспетчера ресурсов.
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

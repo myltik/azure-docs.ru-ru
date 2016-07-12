@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -56,7 +56,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] Дополнительные сведения о создании таблицы в хранилище данных SQL и параметрах, доступных в предложении WITH, см. в статьях, посвященных [проектированию таблиц в хранилище данных SQL][] и [синтаксису инструкции CREATE TABLE][].
+>[AZURE.NOTE] Дополнительные сведения о создании таблицы в хранилище данных SQL и параметрах, доступных в предложении WITH, см. в статьях, посвященных [таблицам в хранилище данных SQL][] и [синтаксису инструкции CREATE TABLE][].
 
 ### Шаг 2. Создание файла источника данных
 
@@ -159,10 +159,10 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 
 <!--Article references-->
 
-[Загрузка данных в хранилище данных SQL]: sql-data-warehouse-overview-load.md
-[Общие сведения о разработке для хранилища данных SQL]: sql-data-warehouse-overview-develop.md
-[проектированию таблиц в хранилище данных SQL]: sql-data-warehouse-develop-table-design.md
-[Статистика]: sql-data-warehouse-develop-statistics.md
+[Загрузка данных в хранилище данных SQL]: ./sql-data-warehouse-overview-load.md
+[Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
+[таблицам в хранилище данных SQL]: ./sql-data-warehouse-tables-overview.md
+[Статистика]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -171,4 +171,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Центре загрузки Майкрософт]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

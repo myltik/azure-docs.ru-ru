@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Проектные решения и методики программирования для хранилища данных SQL
@@ -42,8 +42,6 @@
 - [временные таблицы;][]
 - [динамический SQL;][]
 - [циклы;][]
-- [переименование объектов;][]
-- [сведение данных;][]
 - [группировка по параметрам;][]
 - [присваивание значения переменной.][]
 
@@ -61,7 +59,6 @@
 [ключи хэш-распределения;]: sql-data-warehouse-develop-hash-distribution-key.md
 [метки;]: sql-data-warehouse-develop-label.md
 [циклы;]: sql-data-warehouse-develop-loops.md
-[сведение данных;]: sql-data-warehouse-develop-pivot-unpivot.md
 [статистика.]: sql-data-warehouse-develop-statistics.md
 [хранимые процедуры;]: sql-data-warehouse-develop-stored-procedures.md
 [проектирование таблиц;]: sql-data-warehouse-develop-table-design.md
@@ -75,8 +72,8 @@
 [Справочник по Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-[переименование объектов;]: https://msdn.microsoft.com/library/mt631611.aspx
+[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

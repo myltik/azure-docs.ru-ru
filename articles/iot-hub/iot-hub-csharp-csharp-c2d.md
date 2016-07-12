@@ -13,36 +13,159 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/03/2016"
+     ms.date="06/23/2016"
      ms.author="elioda"/>
 
-# Учебник: как отправлять сообщения из облака на устройства с помощью центра IoT | Microsoft Azure
+# Учебник: как отправлять сообщения из облака на устройства с помощью центра IoT и .Net
+
+[AZURE.INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## Введение
 
 Центр Azure IoT — полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств IoT и серверной частью приложения. В учебнике [Приступая к работе с центром IoT] показано, как создать центр IoT, подготовить в нем удостоверение устройства и написать код виртуального устройства, которое отправляет сообщения с устройства в облако.
 
-Этот учебник основан на разделе [Приступая к работе с центра IoT]. В нем показано, как отправить сообщение из облака на одно устройство, как запросить подтверждение доставки (*отзыв*) из центра IoT и получить его от серверной части облачного приложения.
+Это руководство является логическим продолжением статьи [Приступая к работе с центром Azure IoT с использованием Java]. В нем показано, как отправить сообщение из облака на одно устройство, а также запросить подтверждение доставки (*отзыв*) из центра IoT и получить его от серверной части облачного приложения.
 
 Дополнительные сведения о сообщениях, отправляемых с облака на устройство, можно найти в [Руководстве разработчика по центру IoT][IoT Hub Developer Guide - C2D].
 
 К завершению этого учебника вы запустите два консольных приложения Windows.
 
 * **SimulatedDevice**, измененную версию приложения, созданного в учебнике [Приступая к работе с центром IoT]. Это приложение подключается к центру IoT и получает сообщения с облака на устройство.
-* **SendCloudToDevice**, которое отправляет сообщение с облака в виртуальное устройство с помощью центра IoT и затем получает подтверждение его доставки.
+* **SendCloudToDevice**, которое отправляет сообщение с облака на виртуальное устройство с помощью центра IoT, а затем получает подтверждение о его доставке.
 
-> [AZURE.NOTE] Для центра IoT существуют пакеты SDK для многих платформ устройств и языков (включая C, Java и Javascript). Эти пакеты работают на основе пакетов SDK для устройств Azure IoT. Пошаговые инструкции по подключению устройства к коду, приведенному в этом учебнике, и к центру Azure IoT в целом см. в [Центре разработчика для Azure IoT].
+> [AZURE.NOTE] Для центра IoT существуют пакеты SDK для многих платформ устройств и языков (включая C, Java и Javascript). Эти пакеты работают на основе пакетов SDK для устройств Azure IoT. Пошаговые инструкции по связыванию устройства с кодом из этого руководства, а также по подключению к центру Azure IoT см. в [центре разработчика для Azure IoT].
 
 Для работы с этим руководством требуется:
 
 + Microsoft Visual Studio 2015;
 
-+ Активная учетная запись Azure. <br/>Если у вас нет учетной записи, вы можете создать бесплатную учетную запись всего за несколько минут. Подробные сведения см. на странице [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
++ Активная учетная запись Azure. (Если ее нет, можно создать бесплатную пробную версию учетной записи всего за несколько минут. Дополнительные сведения см. на странице [Бесплатная пробная версия Azure][lnk-free-trial].)
 
-[AZURE.INCLUDE [iot-hub-c2d-device-csharp](../../includes/iot-hub-c2d-device-csharp.md)]
+## Получение сообщений на виртуальном устройстве
 
+В этом разделе вы измените приложение виртуального устройства, созданное в разделе [Приступая к работе с центром IoT], для получения сообщений из облака в устройство от центра IoT.
 
-[AZURE.INCLUDE [iot-hub-c2d-cloud-csharp](../../includes/iot-hub-c2d-cloud-csharp.md)]
+1. В Visual Studio в проекте **SimulatedDevice** добавьте в класс **Program** следующий метод:
+
+        private static async void ReceiveC2dAsync()
+        {
+            Console.WriteLine("\nReceiving cloud to device messages from service");
+            while (true)
+            {
+                Message receivedMessage = await deviceClient.ReceiveAsync();
+                if (receivedMessage == null) continue;
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Received message: {0}", Encoding.ASCII.GetString(receivedMessage.GetBytes()));
+                Console.ResetColor();
+
+                await deviceClient.CompleteAsync(receivedMessage);
+            }
+        }
+
+    Метод `ReceiveAsync` асинхронно возвращает полученное сообщение, когда устройство его получило. Он возвращает значение *NULL* после истечения заданного времени ожидания (в этом примере используется значение по умолчанию, равное одной минуте). В этом случае необходимо, чтобы код продолжил ожидать новые сообщения. По этой причине присутствует строка `if (receivedMessage == null) continue`.
+
+    Вызов `CompleteAsync()` уведомляет центр IoT об успешной обработке сообщения. Можно спокойно удалить сообщение из очереди устройства. Если что-то помешает приложению устройства завершить обработку сообщения, центр IoT доставит его снова. Поэтому важно, чтобы логика обработки сообщений в приложении устройства была *идемпотентной*. Это обеспечит одинаковый результат при многократном получении одного и того же сообщения. Приложение может также временно отказаться от сообщения. Тогда центр IoT будет хранить сообщение в очереди для последующей обработки. Или приложение может отклонить сообщение, и тогда оно будет окончательно удалено из очереди. Дополнительную информацию о жизненном цикле сообщений, передаваемых из облака на устройство, см. в [руководстве разработчика для центра IoT][IoT Hub Developer Guide - C2D].
+
+    > [AZURE.NOTE] При использовании HTTP/1 вместо AMQP в качестве транспорта немедленно возвращается метод `ReceiveAsync`. Схема сообщений, передаваемых из облака на устройство с помощью HTTP/1, может использоваться для периодически подключаемых устройствах, которые редко проверяют наличие новых сообщений (реже, чем раз в 25 минут). Передача большего количества получений HTTP/1 приводит к регулированию запросов в центре IoT. Дополнительную информацию о различиях между поддержкой AMQP и HTTP/1, а также регулировании центра IoT см. в [руководстве разработчика для центра IoT][IoT Hub Developer Guide - C2D].
+
+2. Добавьте в метод **Main** непосредственно перед строкой `Console.ReadLine()` следующий метод:
+
+        ReceiveC2dAsync();
+
+> [AZURE.NOTE] Для упрощения в этом учебнике не реализуются какие-либо политики повтора. В рабочем коде следует реализовать политики повтора (например, экспоненциальную задержку), как указано в статье MSDN [Transient Fault Handling] (Обработка временного сбоя).
+
+## Отправка сообщения, передаваемого из облака на устройство, из серверной части приложений
+
+В этом разделе вам предстоит написать консольное приложение для Windows, которое отправляет сообщения, передаваемые из облака на устройство, в имитацию приложения устройства.
+
+1. В текущем решении Visual Studio создайте новый проект классического приложения Visual C# с помощью шаблона проекта **Консольное приложение**. Присвойте проекту имя **SendCloudToDevice**.
+
+    ![Новый проект в Visual Studio][20]
+
+2. В обозревателе решений щелкните правой кнопкой мыши решение и выберите пункт **Управление пакетами NuGet для решения...**.
+
+	Откроется окно **Управление пакетами NuGet**.
+
+3. Выполните поиск `Microsoft Azure Devices` и щелкните **Установить**, после чего примите условия использования.
+
+	После этого будут выполнены скачивание, установка и добавление ссылки на [пакет NuGet пакета SDK служб в Azure IoT].
+
+4. Добавьте следующий оператор `using` в начало файла **Program.cs**.
+
+		using Microsoft.Azure.Devices;
+
+5. Добавьте следующие поля в класс **Program**. Замените значение заполнителя строкой подключения центра IoT из раздела [Приступая к работе с центром IoT]\:
+
+		static ServiceClient serviceClient;
+        static string connectionString = "{iot hub connection string}";
+
+6. Добавьте следующий метод в класс **Program**.
+
+		private async static Task SendCloudToDeviceMessageAsync()
+        {
+            var commandMessage = new Message(Encoding.ASCII.GetBytes("Cloud to device message."));
+            await serviceClient.SendAsync("myFirstDevice", commandMessage);
+        }
+
+	Этот метод отправляет на устройство с идентификатором `myFirstDevice` новое сообщение, передаваемое из облака на устройство. Измените этот параметр соответствующим образом, если вы использовали значение, отличное от указанного в разделе [Приступая к работе с центром IoT].
+
+7. Наконец, добавьте следующие строки в метод **Main**:
+
+        Console.WriteLine("Send Cloud-to-Device message\n");
+        serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
+
+        Console.WriteLine("Press any key to send a C2D message.");
+        Console.ReadLine();
+        SendCloudToDeviceMessageAsync().Wait();
+        Console.ReadLine();
+
+8. В Visual Studio щелкните правой кнопкой мыши свое решение и выберите пункт **Назначить запускаемые проекты**. Выберите **Несколько запускаемых проектов**, а затем выберите действие **Запуск** для **ProcessDeviceToCloudMessages**, **SimulatedDevice** и **SendCloudToDevice**.
+
+9.  Нажмите клавишу **F5**. Должны запуститься все три приложения. Выберите окна **SendCloudToDevice** и нажмите клавишу **ВВОД**. Имитация приложения должна получить сообщение.
+
+    ![Приложение получает сообщение][21]
+
+## Получение подтверждений доставки
+Для каждого сообщения, передаваемого из облака на устройство, в центре IoT можно запросить подтверждения доставки (или истечения срока действия). Это позволяет серверной части облака легко передавать данные в логику повторных попыток или компенсаций. Дополнительную информацию о подтверждениях при передаче из облака на устройство см. в [руководстве разработчика для центра IoT][IoT Hub Developer Guide - C2D].
+
+В этом разделе вы измените приложение **SendCloudToDevice**, чтобы оно запрашивало подтверждение и получало его из центра IoT.
+
+1. В Visual Studio в проекте **SendCloudToDevice** добавьте в класс **Program** следующий метод:
+   
+        private async static void ReceiveFeedbackAsync()
+        {
+            var feedbackReceiver = serviceClient.GetFeedbackReceiver();
+
+            Console.WriteLine("\nReceiving c2d feedback from service");
+            while (true)
+            {
+                var feedbackBatch = await feedbackReceiver.ReceiveAsync();
+                if (feedbackBatch == null) continue;
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Received feedback: {0}", string.Join(", ", feedbackBatch.Records.Select(f => f.StatusCode)));
+                Console.ResetColor();
+
+                await feedbackReceiver.CompleteAsync(feedbackBatch);
+            }
+        }
+
+    Обратите внимание, что шаблон получения здесь аналогичен шаблону, использовавшемуся для получения сообщений из облака на устройство из приложения устройства.
+
+2. Добавьте следующий метод в метод **Main** непосредственно после строки `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)`:
+
+        ReceiveFeedbackAsync();
+
+3. Чтобы запросить подтверждение доставки сообщения из облака на устройство, необходимо указать свойство в методе **SendCloudToDeviceMessageAsync**. Добавьте следующую строку сразу после строки `var commandMessage = new Message(...);`:
+
+        commandMessage.Ack = DeliveryAcknowledgement.Full;
+
+4.  Запустите приложения, нажав клавишу **F5**. Должны запуститься все три приложения. Выберите окна **SendCloudToDevice** и нажмите клавишу **ВВОД**. Виртуальное приложение должно получить сообщение, а через несколько секунд ваше приложение **SendCloudToDevice** должно получить сообщение о подтверждении.
+
+    ![Приложение получает сообщение][22]
+
+> [AZURE.NOTE] Для упрощения в этом учебнике не реализуются какие-либо политики повтора. В рабочем коде следует реализовать политики повтора (например, экспоненциальную задержку), как указано в статье MSDN [Transient Fault Handling] (Обработка временного сбоя).
 
 ## Дальнейшие действия
 
@@ -56,31 +179,32 @@
 * [Обзор центра IoT]
 * [Руководство разработчика по центру IoT]
 * [Руководство по центру IoT]
-* [Поддерживаемые платформы устройств и языки][Supported devices]
+* [Поддерживаемые платформы устройств и языки]
 * [Центр разработчика IoT Azure]
 
-<!-- Images. -->
+<!-- Images -->
+[20]: ./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png
+[21]: ./media/iot-hub-csharp-csharp-c2d/sendc2d1.png
+[22]: ./media/iot-hub-csharp-csharp-c2d/sendc2d2.png
 
 <!-- Links -->
 
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[пакет NuGet пакета SDK служб в Azure IoT]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
-[Azure portal]: https://portal.azure.com/
-
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Обработка сообщений, отправляемых с устройств в облако]: iot-hub-csharp-csharp-process-d2c.md
 [Передача файлов с устройств]: iot-hub-csharp-csharp-file-upload.md
 
 [Обзор центра IoT]: iot-hub-what-is-iot-hub.md
 [Руководство по центру IoT]: iot-hub-guidance.md
 [Руководство разработчика по центру IoT]: iot-hub-devguide.md
-[IoT Hub Supported Devices]: iot-hub-supported-devices.md
-[Приступая к работе с центра IoT]: iot-hub-csharp-csharp-getstarted.md
+[Поддерживаемые платформы устройств и языки]: iot-hub-supported-devices.md
+[Приступая к работе с центром Azure IoT с использованием Java]: iot-hub-csharp-csharp-getstarted.md
 [Приступая к работе с центром IoT]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Центр разработчика IoT Azure]: http://www.azure.com/develop/iot
-[Центре разработчика для Azure IoT]: http://www.azure.com/develop/iot
+[центре разработчика для Azure IoT]: http://www.azure.com/develop/iot
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

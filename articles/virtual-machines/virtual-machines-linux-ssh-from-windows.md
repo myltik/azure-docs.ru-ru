@@ -56,10 +56,10 @@ description="Узнайте, как создавать и использоват
 
 [В этом разделе](#What-SSH-and-key-creation-programs-do-you-need) перечислено несколько служебных программ, которые включают `ssh-keygen` и `openssl` для Windows. Ниже приведены несколько примеров.
 
-###Использование GitHub для Windows###
+###Использование Git для Windows###
 
-1.	Скачайте и установите GitHub для Windows из следующего расположения: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
-2.	Запустите Git Bash из меню "Пуск > Все приложения > GitHub".
+1.	Скачайте и установите Git для Windows из следующего расположения: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
+2.	Запустите Git Bash из меню "Пуск > Все приложения > Git Shell".
 
 > [AZURE.NOTE] При выполнении указанных команд `openssl` может возникнуть следующая ошибка.
 
@@ -166,4 +166,4 @@ description="Узнайте, как создавать и использоват
 5.	Щелкните **Открыть**, чтобы подключится к виртуальной машине.
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

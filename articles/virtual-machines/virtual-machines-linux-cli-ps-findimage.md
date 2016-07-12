@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Просмотр и выбор образов виртуальных машин Linux | Microsoft Azure"
+   pageTitle="Выбор образов виртуальных машин Linux с помощью Azure CLI | Microsoft Azure"
    description="Узнайте, как определить издателя, предложение и SKU для образов при создании виртуальной машины Linux с помощью развертывания посредством диспетчера ресурсов."
    services="virtual-machines-linux"
    documentationCenter=""
@@ -18,7 +18,7 @@
    ms.date="06/06/2016"
    ms.author="rasquill"/>
 
-# Просмотр и выбор образов виртуальных машин Linux в Azure с помощью интерфейса командной строки или оболочки PowerShell
+# Выбор образов виртуальных машин Linux с помощью интерфейса командной строки Azure (Azure CLI)
 
 В этой статье описывается, как найти сведения об издателях, предложениях, номерах SKU и версиях для каждого расположения, в котором может выполняться развертывание. Возьмите за пример некоторые часто используемые образы виртуальных машин Linux:
 
@@ -38,4 +38,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

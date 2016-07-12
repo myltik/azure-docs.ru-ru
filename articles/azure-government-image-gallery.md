@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Коллекция образов Azure Government" 
-   description="В этой статье приводится обзор коллекции образов Azure Government, а также содержатся образы." 
-   services="Azure-Government" 
-   documentationCenter="" 
-   authors="joharve2" 
-   manager="chrisnie" 
+<properties
+   pageTitle="Коллекция образов Azure Government| Microsoft Azure"
+   description="В этой статье приводится обзор коллекции образов Azure Government, а также содержатся образы."
+   services="Azure-Government"
+   documentationCenter=""
+   authors="joharve2"
+   manager="chrisnie"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="azure-government" 
+   ms.workload="azure-government"
    ms.date="06/01/2016"
    ms.author="brendalee"/>
 
@@ -118,7 +118,7 @@ Visual Studio|Visual Studio Enterprise 2015, обновление 2 с паке�
 
 Приведенные ниже ресурсы предлагают дополнительную информацию о развертывании из коллекции образов или создании собственных виртуальных жестких дисков. См. <a href="../azure-government-developer-guide">Руководство разработчика Azure Government</a>, в котором содержится информация о программных различиях в конечных точках при работе с Azure Government.
 
-###Другие ресурсы: 
+###Другие ресурсы:
 
 - [Развертывание виртуальной машиныWindows](virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
@@ -141,4 +141,4 @@ Visual Studio|Visual Studio Enterprise 2015, обновление 2 с паке�
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

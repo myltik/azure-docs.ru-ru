@@ -3,7 +3,7 @@
    description="Задачи PowerShell для восстановления хранилища данных SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Восстановление хранилища данных SQL Azure (PowerShell)
 
@@ -95,7 +95,6 @@ $RestoredDatabase.status
 6. Убедитесь, что восстановленная база данных подключена к сети.
 
 ```Powershell
-
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
@@ -114,7 +113,6 @@ $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –D
 
 # Verify the status of restored database
 $RestoredDatabase.status
-
 ```
 
 >[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных SQL Azure][].
@@ -132,7 +130,6 @@ $RestoredDatabase.status
 6. Проверьте состояние геовосстановленной базы данных.
 
 ```Powershell
-
 Login-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
@@ -145,7 +142,6 @@ $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGrou
 
 # Verify that the geo-restored database is online
 $GeoRestoredDatabase.status
-
 ```
 
 >[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных SQL Azure][].
@@ -179,4 +175,4 @@ $GeoRestoredDatabase.status
 [Azure Portal]: https://portal.azure.com/
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -79,7 +79,7 @@
   Если в запросе есть параметр, один из способов создать уникальное имя запроса — включить в него значение параметра. Например, при фильтрации по userid имя запроса может быть следующим (в C#):
 
 		await todoTable.PullAsync("todoItems" + userid, 
-			syncTable.Where(u => u.UserId = userid));
+			syncTable.Where(u => u.UserId == userid));
 
   Если вы хотите явно отказаться от добавочной синхронизации, передайте `null` в качестве идентификатора запроса. В этом случае при каждом вызове `PullAsync` будут извлекаться все записи, что может снижать уровень производительности.
 
@@ -104,4 +104,4 @@
 [Xamarin Android: включение автономной синхронизации]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: включение автономной синхронизации]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

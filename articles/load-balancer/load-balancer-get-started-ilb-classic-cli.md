@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](load-balancer-get-started-ilb-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](load-balancer-get-started-ilb-arm-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -62,7 +62,7 @@
 Это распространенный сценарий, где у вас есть виртуальные машины SQL в серверной части, использующие внутренний балансировщик нагрузки, чтобы гарантировать, что серверы базы данных не будут предоставляться напрямую, используя общедоступный IP-адрес.
 
 
-### Шаг 1 
+### Шаг 1 
 
 Создайте набор внутренних балансировщиков нагрузки с помощью `azure network service internal-load-balancer add`.
 
@@ -87,7 +87,7 @@
 	info:    service internal-load-balancer list command OK
 
 
-## Шаг 2 
+## Шаг 2 
 
 Настройте набор внутренних балансировщиков нагрузки при добавлении первой конечной точки. В этом шаге нужно связать конечную точку, виртуальную машину и порт пробы с набором внутренних балансировщиков нагрузки.
 
@@ -98,7 +98,7 @@
 **-k** — порт на локальной виртуальной машине<BR> **-t** — порт пробы<BR> **-r** — протокол пробы<BR> **-e** — интервал пробы в секундах<BR> **-f** — интервал времени ожидания в секундах <BR> **-i** — имя внутреннего балансировщика нагрузки <BR>
 
 
-## Шаг 3. 
+## Шаг 3. 
 
 Проверьте конфигурацию балансировщика нагрузки с помощью `azure vm show` *имя виртуальной машины*
 
@@ -179,4 +179,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

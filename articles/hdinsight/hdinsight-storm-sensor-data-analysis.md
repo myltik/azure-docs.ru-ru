@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Анализ полученных с датчиков данных с помощью Apache Storm и HBase | Microsoft Azure"
+   pageTitle="Анализ полученных с датчиков данных с помощью Apache Storm и HBase | Microsoft Azure"
    description="В этой статье вы узнаете, как подключить к Apache Storm к виртуальной сети. Используйте Storm с HBase для обработки данных датчиков из концентратора событий и их визуализации с помощью D3.js."
    services="hdinsight"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="06/28/2016"
    ms.author="larryfr"/>
 
 # Анализ полученных с датчиков данных с использованием Apache Storm, концентратора событий и базы данных HBase в службе HDInsight (Hadoop)
 
 Узнайте, как с помощью Apache Storm в службе HDInsight можно обрабатывать данные, отправленные с датчиков в концентратор событий Azure, и визуализировать эти данные с помощью D3.js. В этом документе также описывается, как с помощью виртуальной сети Azure соединить кластеры Storm в HDInsight и HBase в HDInsight и хранить данные из топологии в базе данных HBase.
 
-> [AZURE.NOTE] Информация, представленная в данном документе, основана на использовании кластера Storm под управлением Windows в HDInsigh. Сведения о работе с концентратором событий Azure из кластера Storm под управлением Linux в HDInsight можно найти в разделе [Обработка событий из концентраторов событий Azure с помощью Storm в HDInsight](hdinsight-storm-develop-java-event-hub-topology.md).
+> [AZURE.NOTE] Инструкциями в этом документе предусматривается использование кластера Storm под управлением Windows в HDInsight версии 3.2. Сведения о работе с концентратором событий Azure из кластера Storm под управлением Linux в HDInsight можно найти в разделе [Обработка событий из концентраторов событий Azure с помощью Storm в HDInsight](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## Предварительные требования
 
@@ -30,7 +30,7 @@
 
 * [Node.js](http://nodejs.org/) (используется для веб-сайта панели мониторинга, а также для отправки данных с датчиков в концентратор событий)
 
-* [Java и пакет JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java и пакет JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 * [Maven](http://maven.apache.org/what-is-maven.html)
 
@@ -93,7 +93,7 @@
 
 В этом примере концентратор событий выступает в роли источника данных. Чтобы создать новый концентратор Event Hub, выполните следующие действия.
 
-1. На [классическом портале Azure](https://manage.windowsazure.com) выберите **СОЗДАТЬ > Служебная шина > Концентратор событий > Настраиваемое создание**.
+1. На [классическом портале Azure](https://manage.windowsazure.com) выберите **"Создать".| Service Bus | Event Hub | Custom Create**.
 
 2. В диалоговом окне **Добавление нового концентратора событий** укажите параметры **Имя концентратора событий** и **Регион** (регион, в котором будет создан концентратор), а затем создайте новое пространство имен или выберите существующее. Затем щелкните стрелку для продолжения.
 
@@ -196,7 +196,7 @@
 
 		Server listening at port 3000
 
-2. Откройте веб-браузер и введите в адресной строке ****http://localhost:3000/**. Вы должны увидеть страницу, аналогичную показанной ниже:
+2. Откройте веб-браузер и введите в адресной строке **http://localhost:3000/**. Вы должны увидеть страницу, аналогичную показанной ниже:
 
 	![веб-панель мониторинга](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
 
@@ -292,7 +292,7 @@
 
 1. Перейдите на [классический портал Azure](https://manage.windowsazure.com).
 
-2. В нижней части страницы щелкните **+Создать** > **Сетевые службы** > **Виртуальная сеть** > **Быстрое создание**.
+2. В нижней части страницы щелкните **+Создать** > **Сетевые службы** > **Виртуальная сеть** > **Быстрое создание**.
 
 3. Введите или выберите следующие значения:
 
@@ -372,7 +372,7 @@
 
 	«Сито» HBase будет использовать эти сведения для обмена данными с кластером HBase.
 
-1. Откройте файл **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts** в текстовом редакторе и раскомментируйте следующие строки (удалите `//` в начале строк). После внесения этих изменений сохраните файл.
+1. Откройте в текстовом редакторе файл **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts** и раскомментируйте следующие строки (удалите `//` в начале строк). После внесения этих изменений сохраните файл.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -419,7 +419,7 @@
 
 * Дополнительные сведения о библиотеке Socket.io см. на сайте [socket.io](http://socket.io/).
 
-* Дополнительные сведения о D3.js см. в статье [D3.js — документы, управляемые данными](http://d3js.org/).
+* Дополнительные сведения о D3.js см. в статье [D3.js — документы, управляемые данными](http://d3js.org/).
 
 * Сведения о создании топологий на Java см. в статье [Разработка топологий Java для Apache Storm в HDInsight](hdinsight-storm-develop-java-topology.md).
 
@@ -427,4 +427,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

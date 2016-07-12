@@ -17,16 +17,16 @@
 	ms.date="04/08/2016"
 	ms.author="jroth"/>
 
-# Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure \(классическая модель\)
+# Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure (классическая модель)
 
 > [AZURE.SELECTOR]
 - [Диспетчер ресурсов](virtual-machines-windows-ps-sql-keyvault.md)
 - [Классический](virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 ## Обзор
-Существует несколько функций шифрования SQL Server, например [прозрачное шифрование данных \(TDE\)](https://msdn.microsoft.com/library/bb934049.aspx), [шифрование на уровне столбцов \(CLE\)](https://msdn.microsoft.com/library/ms173744.aspx) и [шифрование резервной копии](https://msdn.microsoft.com/library/dn449489.aspx). Эти формы шифрования требуют хранить используемые для шифрования ключи и управлять ими. Хранилище ключей Azure \(AKV\) предназначено для повышения безопасности и управления этими ключами в расположении высокой надежности и безопасности. [Соединитель SQL Server](http://www.microsoft.com/download/details.aspx?id=45344) позволяет SQL Server использовать эти ключи из хранилища ключей Azure.
+Существует несколько функций шифрования SQL Server, например [прозрачное шифрование данных (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [шифрование на уровне столбцов (CLE)](https://msdn.microsoft.com/library/ms173744.aspx) и [шифрование резервной копии](https://msdn.microsoft.com/library/dn449489.aspx). Эти формы шифрования требуют хранить используемые для шифрования ключи и управлять ими. Хранилище ключей Azure (AKV) предназначено для повышения безопасности и управления этими ключами в расположении высокой надежности и безопасности. [Соединитель SQL Server](http://www.microsoft.com/download/details.aspx?id=45344) позволяет SQL Server использовать эти ключи из хранилища ключей Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Если вы используете SQL Server с локальными машинами, выполните [шаги для доступа к хранилищу ключей Azure с локального компьютера под управлением SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). Однако в случае SQL Server на виртуальных машинах Azure можно сэкономить время, воспользовавшись функцией *интеграции хранилища ключей Azure*. С помощью нескольких командлетов Azure PowerShell для включения этой функции можно автоматизировать настройки, необходимые виртуальной машине SQL для доступа к вашему хранилищу ключей.
 
@@ -70,4 +70,4 @@
 
 [AZURE.INCLUDE [Интеграция AKV: дальнейшие действия](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 #Настройка личного доменного имени для веб-приложения в службе приложений Azure, использующей диспетчер трафика
@@ -55,6 +55,8 @@
 
 5. Несмотря на особенности каждого регистратора, как правило, вы сопоставляете *свое* доменное имя (например **contoso.com**) *с* доменным именем диспетчера трафика ((**contoso.trafficmanager.net**), которое используется в вашем веб-приложении.
 
+> [AZURE.NOTE] Кроме того, если запись уже используется и вам нужно заблаговременно привязать к ней свое приложение, сопоставьте **awverify.contoso.com** с **contoso.trafficmanager.net**.
+
 6. По завершении добавления или изменения записей DNS у своего регистратора сохраните эти изменения.
 
 <a name="enabledomain"></a>
@@ -66,4 +68,4 @@
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

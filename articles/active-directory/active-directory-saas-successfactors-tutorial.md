@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="06/29/2016" 
     ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с SuccessFactors
@@ -39,7 +39,7 @@
 
 ###Чтобы включить интеграцию приложений для SuccessFactors, выполните следующие действия:
 
-1.  На портале управления Azure в левой области навигации нажмите **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-successfactors-tutorial/IC700993.png "Active Directory")
 
@@ -71,9 +71,9 @@
   
 Чтобы настроить единый вход, необходимо обратиться к группе поддержки SuccessFactors.
 
-###Чтобы настроить единый вход, выполните следующие действия:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На странице интеграции с приложением **SuccessFactors** портала Azure AD щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  На классическом портале Azure на странице интеграции с приложением **SuccessFactors** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-successfactors-tutorial/IC791138.png "Настройка единого входа")
 
@@ -85,13 +85,13 @@
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Настройка URL-адреса приложения")
 
-    1.  В текстовом поле **URL-адрес для входа в SuccessFactors** введите URL-адрес, используемый пользователями для входа в приложение SuccessFactors \(например, *https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*\).
-	2.  В текстовом поле **URL-адрес ответа SuccessFactors** введите **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+    1.  В текстовое поле **URL-адрес для входа в SuccessFactors** введите URL-адрес, используемый пользователями для входа в приложение SuccessFactors (например, "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
+    2.  В текстовом поле **URL-адрес ответа SuccessFactors** введите **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
-        >[AZURE.NOTE]Это только временный заполнитель.  
-        >Фактическое значение можно получить у группы поддержки SuccessFactors.  
-        >Далее в этом учебнике вы найдете указания по обращению к группе поддержки SuccessFactors.  
-        >В контексте этого диалога вы получите фактический URL-адрес ответа SuccessFactors.
+        >[AZURE.NOTE] Это только временный заполнитель.
+	 Фактическое значение можно получить у группы поддержки SuccessFactors.  
+	 Далее в этом учебнике вы найдете указания по обращению к группе поддержки SuccessFactors.  
+	 В контексте этого диалога вы получите фактический URL-адрес ответа SuccessFactors.
 
 4.  Для скачивания сертификата на странице **Настройка единого входа в SuccessFactors** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на своем компьютере.
 
@@ -107,7 +107,7 @@
 
     Группа поддержки Successfactors отправит правильный **URL-адрес ответа Successfactors**, необходимый для диалогового окна **Настройка URL-адреса приложения**.
 
-6.  На портале Azure AD выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+6.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-successfactors-tutorial/IC791142.png "Настройка единого входа")
 
@@ -124,7 +124,7 @@
 
 ###Чтобы назначить пользователей SuccessFactors, выполните следующие действия:
 
-1.  На портале Azure AD создайте тестовую учетную запись.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
 2.  На странице интеграции с приложением **SuccessFactors** нажмите кнопку **Назначить пользователей**.
 
@@ -136,4 +136,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

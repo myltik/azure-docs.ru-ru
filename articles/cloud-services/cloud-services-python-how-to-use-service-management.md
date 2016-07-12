@@ -3,7 +3,7 @@
 	description="Узнайте, как программными средствами Python реализовать общие задачи управления службами."
 	services="cloud-services"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="lmazuel"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="11/03/2015"
-	ms.author="huvalo"/>
+	ms.date="06/22/2016"
+	ms.author="lmazuel"/>
 
 # Использование управления службами в Python
 
@@ -433,6 +433,6 @@ API управления службой обеспечивает програм�
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[облачной службой]: https://azure.microsoft.com/documentation/services/cloud-services/
+[облачной службой]: https://azure.microsoft.com/ru-RU/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

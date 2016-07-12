@@ -27,7 +27,7 @@
 
 <!-- HHTML comment in to break between the selector and the note in the include below-->
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-windows-hero-tutorial.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия для модели развертывания с помощью Resource Manager](virtual-machines-windows-hero-tutorial.md).
 
 В этом учебнике показано, как просто создать виртуальную машину Azure под управлением Windows на классическом портале Azure. Мы будем использовать в качестве примера образ Windows Server, но это лишь один из многих образов, предлагаемых в Azure. Обратите внимание, что доступные образы зависят от подписки. Например, подписчикам MSDN могут быть доступны образы рабочих столов Windows.
 
@@ -52,8 +52,8 @@
 
 ## Дальнейшие действия
 
-- Войдите в виртуальную машину. Инструкции см. в статье [Вход в виртуальную машину под управлением Windows Server](virtual-machines-windows-classic-connect-logon.md).
+- Войдите в виртуальную машину. Инструкции см. в статье [Вход в виртуальную машину под управлением Windows с помощью классического портала Azure](virtual-machines-windows-classic-connect-logon.md).
 
 - Подключите диск для хранения данных. Можно присоединять пустые диски и диски с данными. Инструкции см. в статье [Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания](virtual-machines-windows-classic-attach-disk.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -19,7 +19,7 @@
 
 #Развертывание приложения LAMP с помощью расширения Azure CustomScript для Linux##
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Расширение Microsoft Azure CustomScript для Linux позволяет использовать для настройки виртуальных машин произвольный код, написанный на одном из языков сценариев, которые поддерживаются виртуальной машиной (например, Python и Bash). Это обеспечивает гибкую автоматизацию развертывания приложения на нескольких виртуальных машинах.
@@ -96,7 +96,7 @@
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-После запуска расширения CustomScript вы сможете перейти к созданной PHP-странице и проверить данные. PHP-страница для примера в этой статье — **http://lamp-vm.cloudapp.net/phpinfo.php*.
+После запуска расширения CustomScript вы сможете перейти к созданной PHP-странице и проверить данные. PHP-страница для примера в этой статье — *http://lamp-vm.cloudapp.net/phpinfo.php*.
 
 ## Дополнительные ресурсы
 
@@ -110,4 +110,4 @@
 
 [Linux и вычисления с открытым кодом в Azure](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

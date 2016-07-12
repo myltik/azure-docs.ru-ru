@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Вызов программы MapReduce из фабрики данных
@@ -31,7 +31,7 @@
 1. В поле **тип** для **действия** задайте значение **HDInsightActivity**.
 3. Укажите имя класса для свойства **className**.
 4. Укажите путь к JAR-файлу, включив в него имя файла для свойства **jarFilePath**.
-5. Укажите связанную службу, которая обращается к хранилищу больших двоичных объектов Azure, содержащему JAR-файл для свойства **jarLinkedService**.   
+5. Укажите связанную службу, которая обращается к хранилищу больших двоичных объектов Azure, содержащему JAR-файл для свойства **jarLinkedService**.
 6. Укажите необходимые аргументы для программы MapReduce в разделе **аргументы**. Во время выполнения вы увидите несколько дополнительных аргументов (например, mapreduce.job.tags) платформы MapReduce. Чтобы отличать свои аргументы от аргументов MapReduce, вы можете использовать параметр и значение в качестве аргументов, как показано в следующем примере (-s, --input, --output и т. д — параметры, за которыми сразу следуют их значения).
 
 		{
@@ -215,8 +215,8 @@ linkedServiceName (имя связанной службы) | Указывает 
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 
-[adfgetstarted]: data-factory-get-started.md
-[adfgetstartedmonitoring]: data-factory-get-started.md#monitor-pipelines
+[adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[adfgetstartedmonitoring]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
@@ -228,4 +228,4 @@ linkedServiceName (имя связанной службы) | Указывает 
 - [Вызов программ Spark](data-factory-spark.md)
 - [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

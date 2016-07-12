@@ -19,7 +19,7 @@
 
 # Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 
@@ -176,4 +176,4 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
  
 [Приступая к работе с решениями Docker и Compose для определения и запуска многоконтейнерного приложения на виртуальной машине Azure]: virtual-machines-linux-docker-compose-quickstart.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -19,7 +19,7 @@
 
 # Создание настраиваемой виртуальной машины Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 В этом разделе описано создание настраиваемой виртуальной машины с помощью Azure CLI и классической модели развертывания. Мы будем использовать образ Linux из раздела **ОБРАЗЫ** в Azure. Интерфейс командной строки Azure позволяет настраивать, помимо прочих, следующие параметры:
 
@@ -35,4 +35,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!----HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

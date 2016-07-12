@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="06/27/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -51,6 +51,8 @@
 **Операции и пользовательский интерфейс** |
 [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) | Описание пользовательского интерфейса Synchronization Service Manager, включая вкладки [Операции](active-directory-aadconnectsync-service-manager-ui-operations.md), [Соединители](active-directory-aadconnectsync-service-manager-ui-connectors.md), [Конструктор метавселенной](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) и [Поиск в метавселенной](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
 [Службы синхронизации Azure AD Connect: рабочие задачи и рекомендации](active-directory-aadconnectsync-operations.md) | Описание рабочих задач, например аварийного восстановления.
+**Практическое руководство.** |
+[Сброс учетной записи Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md) | Как сбросить учетные данные учетной записи службы, используемые для подключения службы синхронизации Azure AD Connect к Azure AD.
 **Дополнительные сведения и ссылки** |
 [Порты](active-directory-aadconnect-ports.md) | Список портов, которые необходимо открыть между модулем синхронизации, локальными каталогами и Azure AD.
 [Службы синхронизации Azure AD Connect: атрибуты, синхронизируемые с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md) | Список всех атрибутов, которые синхронизируются между локальной средой AD и Azure AD.
@@ -60,4 +62,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

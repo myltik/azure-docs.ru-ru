@@ -80,7 +80,7 @@
 
 	b. В текстовом поле **Workday Reply URL** (URL-адрес ответа Workday) введите URL-адрес ответа Workday в следующем формате: `https://impl.workday.com/<tenant>/login-saml.htmld`.
 
-	>[AZURE.NOTE] URL-адрес ответа должен включать поддомен (например, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Можно использовать что-то вроде **http://www.myworkday.com*, но **http://myworkday.com* нельзя.
+	>[AZURE.NOTE] URL-адрес ответа должен включать поддомен (например, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Можно использовать что-то вроде *http://www.myworkday.com*, но *http://myworkday.com* нельзя.
  
 4.  Для скачивания сертификата на странице **Настройка единого входа в Workday** нажмите кнопку **Скачать сертификат** и сохраните файл сертификата на своем компьютере.
 

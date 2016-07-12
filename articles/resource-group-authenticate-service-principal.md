@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание приложения AD с помощью PowerShell | Microsoft Azure"
-   description="Описывает, как использовать Azure PowerShell для создания приложения Active Directory и предоставления ему доступа к ресурсам с управлением доступом на основе ролей. В статье показано, как выполнять проверку подлинности приложения с помощью пароля или сертификата."
+   pageTitle="Создание субъекта-службы Azure с помощью Azure PowerShell | Microsoft Azure"
+   description="Использование Azure PowerShell для создания приложения Active Directory и субъекта-службы с последующим предоставлением доступа к ресурсам с управлением доступом на основе ролей. В статье показано, как выполнять проверку подлинности приложения с помощью пароля или сертификата."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,7 +16,7 @@
    ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
-# Создание приложения Active Directory для доступа к ресурсам с помощью Azure PowerShell
+# Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
@@ -115,7 +115,7 @@
 
 В этом разделе вы выполните действия по созданию приложения AD с сертификатом.
 
-1. Создать самозаверяющий сертификат. Если используется Windows 10 или Windows Server 2016 Technical Preview выполните следующую команду. 
+1. Создать самозаверяющий сертификат. Если используется Windows 10 или Windows Server 2016 Technical Preview выполните следующую команду.
 
         $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
@@ -176,7 +176,7 @@
 В сценарии вы передадите три значения, которые нужны для входа от имени субъекта-службы. Вам потребуются следующие значения.
 
 - Идентификатор приложения
-- Идентификатор клиента 
+- Идентификатор клиента
 - Отпечаток сертификата
 
 Вы уже получили идентификатор приложения и отпечаток сертификата на предыдущих этапах. Но если вам потребуется получить эти значения позднее, вы можете использовать для этого приведенные ниже команды. Там же есть команда для получения идентификатора клиента.
@@ -210,9 +210,9 @@
 ## Дальнейшие действия
   
 - Примеры аутентификации для .NET см. в статье [Пакет SDK .Net для диспетчера ресурсов Azure](resource-manager-net-sdk.md).
-- Примеры аутентификации для Java см. в статье [Пакет SDK Java для диспетчера ресурсов Azure](resource-manager-java-sdk.md). 
+- Примеры аутентификации для Java см. в статье [Пакет SDK Java для диспетчера ресурсов Azure](resource-manager-java-sdk.md).
 - Примеры аутентификации для Python см. в статье [Resource Management Authentication](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Аутентификация для управления ресурсами).
 - Примеры аутентификации для REST см. в статье [API-интерфейсы REST диспетчера ресурсов](resource-manager-rest-api.md).
 - Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [руководстве разработчика по авторизации с помощью API Azure Resource Manager](resource-manager-api-authentication.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->
