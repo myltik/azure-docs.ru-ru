@@ -35,7 +35,7 @@
 
 - **Оптимизация DevOps**. Настраивайте [непрерывную интеграцию и развертывание](../app-service-web/app-service-continous-deployment.md) в Visual Studio Team Services, GitHub или BitBucket. Повышайте уровень обновлений с помощью [тестовых и промежуточных сред](../app-service-web/web-sites-staged-publishing.md). Выполняйте [тестирование A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Управляйте приложениями в службе приложений с помощью оболочки [Azure PowerShell](../powershell-install-configure.md) или [кроссплатформенного интерфейса командной строки (CLI)](../xplat-cli-install.md).
  
-- **Высокодоступное глобальное масштабирование**. [Увеличивайте](../app-service/app-service-scale.md) или [уменьшайте](../azure-portal/insights-how-to-scale.md) размер вручную или автоматически. Храните приложения в любом месте глобальной инфраструктуры центра обработки данных. При этом [соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/app-service/) гарантирует высокую доступность.
+- **Высокодоступное глобальное масштабирование**. [Увеличивайте](../app-service-web/web-sites-scale.md) либо [уменьшайте](../azure-portal/insights-how-to-scale.md) размер вручную или автоматически. Храните приложения в любом месте глобальной инфраструктуры центра обработки данных. При этом [соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/app-service/) гарантирует высокую доступность.
 
 - **Подключение к платформам SaaS и локальным данным**. На выбор доступно более 50 [соединителей](../connectors/apis-list.md) для корпоративных систем (например, SAP, Siebel и Oracle), служб SaaS (например, Salesforce и Office 365) и популярных интернет-служб (например, Facebook и Twitter). Получайте доступ к локальным данным с помощью [гибридных подключений](../biztalk-services/integration-hybrid-connection-overview.md) и [виртуальных сетей Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 
@@ -80,4 +80,4 @@
 * [Создание приложения API](../app-service-api/app-service-api-dotnet-get-started.md)
 * [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

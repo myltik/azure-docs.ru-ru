@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -103,13 +103,13 @@
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
 
-1. Выполните следующую команду, чтобы передать файл: Укажите URL-адрес конечной точки службы BLOB-объектов для <blob service endpoint URL> и ключ учетной записи хранилища Azure для <azure_storage_account_key>.
+1. Выполните следующую команду, чтобы передать файл: Укажите URL-адрес конечной точки службы BLOB-объектов вместо <blob service endpoint URL> и ключ учетной записи хранилища Azure вместо <azure\_storage\_account\_key>.
 
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-См. также статью [Приступая к работе со служебной программой командной строки AzCopy][].
+См. также статью [Приступая к работе со служебной программой командной строки AzCopy][latest version of AzCopy].
 
 ### E. Просмотр содержимого контейнера хранилища BLOB-объектов
 
@@ -256,13 +256,11 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 
 
 <!--Article references-->
-[PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-get-started-load-with-polybase.md
-[Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[solution partners]: sql-data-warehouse-solution-partners.md
-[development overview]: sql-data-warehouse-overview-develop.md
-[Управление статистикой в хранилище данных SQL]: sql-data-warehouse-develop-statistics.md
-[Руководство по PolyBase]: sql-data-warehouse-load-polybase-guide.md
-[Приступая к работе со служебной программой командной строки AzCopy]: ../storage/storage-use-azcopy.md
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Управление статистикой в хранилище данных SQL]: ./sql-data-warehouse-tables-statistics.md
+[Руководство по PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
+[latest version of AzCopy]: ../storage/storage-use-azcopy.md
 [последнюю версию AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
@@ -287,4 +285,4 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [Создание учетных данных для базы данных (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

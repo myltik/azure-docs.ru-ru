@@ -2,7 +2,7 @@
 	pageTitle="Концентраторы уведомлений Azure"
 	description="Узнайте, как использовать push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET."
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="hero-article"
-	ms.date="02/11/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 
@@ -118,7 +118,7 @@ Push-уведомления являются одним из наиболее в
 
 ##Интеграция с мобильными приложениями службы приложений
 
-Для упрощения и унификации взаимодействия между службами Azure [мобильные приложения службы приложений] располагают встроенной поддержкой push-уведомлений с помощью концентраторов уведомлений. [мобильные приложения службы приложений] — это доступная по всему миру высокомасштабируемая платформа разработки мобильных приложений, предназначенная для корпоративных разработчиков и системных интеграторов и расширяющая возможности разработки мобильных приложений.
+Для упрощения и унификации взаимодействия между службами Azure [мобильные приложения службы приложений] располагают встроенной поддержкой push-уведомлений с помощью концентраторов уведомлений. [Мобильные приложения службы приложений] — это доступная по всему миру высокомасштабируемая платформа разработки мобильных приложений, предназначенная для корпоративных разработчиков и системных интеграторов и расширяющая возможности разработки мобильных приложений.
 
 Разработчики мобильных приложений могут использовать концентраторы уведомлений в следующем рабочем процессе.
 
@@ -166,9 +166,9 @@ Push-уведомления являются одним из наиболее в
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  [мобильные приложения службы приложений]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
+  [мобильные приложения службы приложений]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-mobile-value-prop/
   [шаблонов]: notification-hubs-templates.md
   [портале Azure]: https://portal.azure.com
   [здесь]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

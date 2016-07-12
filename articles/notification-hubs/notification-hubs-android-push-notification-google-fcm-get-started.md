@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Отправка push-уведомлений в приложения Android с помощью центров уведомлений Azure | Microsoft Azure"
-	description="Из этого учебника вы узнаете, как использовать Центры уведомлений Azure для отправки push-уведомлений на устройства Android."
+	pageTitle="Отправка push-уведомлений в приложения Android с помощью центров уведомлений Azure и Firebase Cloud Messaging | Microsoft Azure"
+	description="Из этого руководства вы узнаете, как использовать центры уведомлений Azure и Firebase Cloud Messaging для отправки push-уведомлений на устройства Android."
 	services="notification-hubs"
 	documentationCenter="android"
-	keywords="push-уведомления, push-уведомление, push-уведомление android"
+	keywords="push-уведомления, push-уведомление, push-уведомление android, FCM, Firebase Cloud Messaging"
 	authors="wesmc7777"
 	manager="erikre"
 	editor=""/>
@@ -22,53 +22,57 @@
 
 ##Обзор
 
-> [AZURE.IMPORTANT] В этой статье описывается отправка push-уведомлений с помощью Google Cloud Messaging (GCM). Если вы используете Google Firebase Cloud Messaging (GCM), см. статью [Sending push notifications to Android with Azure Notification Hubs and FCM](notification-hubs-android-push-notification-google-fcm-get-started.md) (Отправка push-уведомлений в приложения Android с помощью центров уведомлений Azure и FCM).
+> [AZURE.IMPORTANT] В этой статье описывается отправка push-уведомлений с помощью Google Firebase Cloud Messaging (FCM). Если вы используете Google Cloud Messaging (GCM), см. статью [Отправка push-уведомлений в приложения Android с помощью центров уведомлений Azure](notification-hubs-android-push-notification-google-gcm-get-started.md).
 
-В этом учебнике показано, как использовать Центры уведомлений Azure для отправки push-уведомлений в приложение на платформе Android. Вы создадите пустое приложение Android, которое получает push-уведомления с помощью Google Cloud Messaging (GCM).
+В этом руководстве показано, как использовать центры уведомлений Azure и Firebase Cloud Messaging для отправки push-уведомлений в приложение на платформе Android. Вы создадите пустое приложение Android, которое получает push-уведомления с помощью Firebase Cloud Messaging.
+
+
 
 [AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-Полный код для этого руководства можно скачать на сайте [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
+Полный код для этого руководства можно скачать на сайте [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase).
 
 
 ##Предварительные требования
 
 > [AZURE.IMPORTANT] Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
 
-Кроме упомянутой выше действующей учетной записи Azure, для работы с этим руководством вам понадобится последняя версия [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
+- Кроме упомянутой выше действующей учетной записи Azure, для работы с этим руководством вам понадобится последняя версия [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
+- Android версии 2.3 или более поздней.
+- Репозиторий Google версии 27 или более поздней.
+- Службы Google Play версии 9.0.2 или более поздней.
+- Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными Центрам уведомлений для приложений Android.
 
-Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными Центрам уведомлений для приложений Android.
 
-##Создание проекта с поддержкой Google Cloud Messaging
+##Создание проекта Android Studio
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+1. В Android Studio создайте новый проект Android Studio.
+
+   	![Android Studio — новый проект](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
+
+2. Выберите форм-фактор **Phone and Tablet** (Телефон и планшет) и минимальную версию пакета SDK (с помощью параметра **Minimum SDK**), которые нужно поддерживать. Нажмите кнопку **Далее**.
+
+   	![Android Studio — рабочий процесс создания проекта](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
+
+3. Выберите для основного действия значение **Empty Activity** (Пустое действие), нажмите кнопку **Next** (Далее), а затем — **Finish** (Готово).
+
+
+##Создание проекта с поддержкой Firebase Cloud Messaging
+
+[AZURE.INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 
 ##Настройка нового центра уведомлений
 
-
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
+&emsp;&emsp;6. В колонке **Параметры** центра уведомлений щелкните **Службы уведомлений** и **Google (GCM)**. Введите ключ сервера FCM, скопированный ранее из [консоли Firebase](https://firebase.google.com/console/), и нажмите кнопку **Сохранить**.
 
-&emsp;&emsp;6. В колонке **Параметры** щелкните **Службы уведомлений** и **Google (GCM)**. Введите ключ API и щелкните **Сохранить**.
+&emsp;&emsp;![Центры уведомлений Azure — Google (GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
 
-&emsp;&emsp;![Центры уведомлений Azure — Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
-
-Теперь центр уведомлений настроен для работы с GCM, а у вас есть строки подключения, с помощью которых вы можете зарегистрировать приложение для получения и отправки push-уведомлений.
+Теперь центр уведомлений настроен для работы с Firebase Cloud Messaging, а у вас есть строки подключения, с помощью которых вы можете зарегистрировать приложение для получения и отправки push-уведомлений.
 
 ##<a id="connecting-app"></a>Подключение приложения к центру уведомлений
-
-###Создание нового проекта Android
-
-1. В Android Studio создайте новый проект Android Studio.
-
-   	![Android Studio — новый проект][13]
-
-2. Выберите форм-фактор **Phone and Tablet** (Телефон и планшет) и минимальную версию пакета SDK (с помощью параметра **Minimum SDK**), которые нужно поддерживать. Нажмите кнопку **Далее**.
-
-   	![Android Studio — рабочий процесс создания проекта][14]
-
-3. Выберите для основного действия значение **Empty Activity** (Пустое действие), нажмите кнопку **Next** (Далее), а затем — **Finish** (Готово).
 
 ###Добавление служб Google Play в проект
 
@@ -93,23 +97,24 @@
 ### Обновление файла AndroidManifest.xml
 
 
-1. Чтобы обеспечить поддержку GCM, нужно реализовать службу прослушивания идентификаторов экземпляра в своем коде. Таким образом можно [получать маркеры регистрации](https://developers.google.com/cloud-messaging/android/client#sample-register) с помощью [API идентификаторов экземпляра Google](https://developers.google.com/instance-id/). В этом руководстве мы назовем класс `MyInstanceIDService`.
+1. Чтобы обеспечить поддержку FCM, нужно реализовать службу прослушивания идентификаторов экземпляра в своем коде. Таким образом можно [получать маркеры регистрации](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) с помощью [API идентификаторов экземпляра Google Firebase](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId). В этом руководстве мы назовем класс `MyInstanceIDService`.
  
-	Добавьте приведенное ниже определение службы внутри тега `<application>` в файле AndroidManifest.xml. Замените заполнитель `<your package>` фактическим именем своего пакета, отображенным в верхней части файла `AndroidManifest.xml`.
+	Добавьте приведенное ниже определение службы внутри тега `<application>` в файле AndroidManifest.xml.
 
-		<service android:name="<your package>.MyInstanceIDService" android:exported="false">
-		    <intent-filter>
-		        <action android:name="com.google.android.gms.iid.InstanceID"/>
-		    </intent-filter>
-		</service>
+        <service android:name=".MyInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
 
 
-2. Получив маркер регистрации в GCM из API идентификаторов экземпляра, мы будем использовать его для [регистрации в центре уведомлений Azure](notification-hubs-push-notification-registration-management.md). Мы обеспечим поддержку этой регистрации в фоновом режиме с помощью службы `IntentService` с именем `RegistrationIntentService`. Кроме того, эта служба будет отвечать за [обновление маркера регистрации в GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
+
+2. Получив маркер регистрации в FCM из API идентификатора экземпляра Firebase, мы будем использовать его для [регистрации в центре уведомлений Azure](notification-hubs-push-notification-registration-management.md). Мы обеспечим поддержку этой регистрации в фоновом режиме с помощью службы `IntentService` с именем `RegistrationIntentService`. Кроме того, эта служба будет отвечать за обновление маркера регистрации в FCM.
  
-	Добавьте определение службы ниже внутри тега `<application>` в файле AndroidManifest.xml. Замените заполнитель `<your package>` фактическим именем своего пакета, отображенным в верхней части файла `AndroidManifest.xml`.
+	Добавьте приведенное ниже определение службы внутри тега `<application>` в файле AndroidManifest.xml.
 
         <service
-            android:name="<your package>.RegistrationIntentService"
+            android:name=".RegistrationIntentService"
             android:exported="false">
         </service>
 
@@ -127,17 +132,13 @@
 
 
 
-4. Добавьте следующие разрешения, связанные с GCM, под тегом `</application>`. Обязательно замените `<your package>` именем пакета, отображенным в верхней части файла `AndroidManifest.xml`.
+4. Добавьте следующие разрешения, связанные с FCM, под тегом `</application>`. Обязательно замените `<your package>` именем пакета, отображенным в верхней части файла `AndroidManifest.xml`.
 
-	Дополнительные сведения об этих разрешениях см. в статье [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/android/client#manifest) (Настройка клиентского приложения GCM для Android).
+	Дополнительные сведения об этих разрешениях см. в статье [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/android/client#manifest) (Настройка клиентского приложения GCM для Android) и [Migrate a GCM Client App for Android to Firebase Cloud Messaging](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#remove_the_permissions_required_by_gcm) (Перенос клиентского приложения GCM для Android в Firebase Cloud Messaging).
 
 		<uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-		<uses-permission android:name="android.permission.WAKE_LOCK"/>
 		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
-		<permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-		<uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
 
 
 ### Добавление кода
@@ -145,10 +146,10 @@
 
 1. В представлении проекта разверните узел **app** > **src** > **main** > **java**. Щелкните правой кнопкой мыши папку пакета в **java**, щелкните **New** (Создать) и выберите **Java Class** (Класс Java). Добавьте новый класс с именем `NotificationSettings`.
 
-	![Android Studio — новый класс Java][6]
+	![Android Studio — новый класс Java](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hub-android-new-class.png)
 
 	Обязательно обновите эти три заполнителя в следующем коде для класса `NotificationSettings`:
-	* **SenderId**: укажите номер проекта, полученный ранее в [консоли Google Cloud](http://cloud.google.com/console).
+	* **SenderId**: идентификатор отправителя, полученный ранее на вкладке **Cloud Messaging** параметров проекта в [консоли Firebase](https://firebase.google.com/console/).
 	* **HubListenConnectionString**: укажите для центра строку подключения **DefaultListenAccessSignature**. Эту строку подключения можно скопировать, щелкнув **Политики доступа** в колонке **Параметры** центра на [портале Azure].
 	* **HubName**: используйте имя центра уведомлений, которое отображается на [портале Azure] в колонке центра.
 
@@ -162,21 +163,21 @@
 
 2. Добавьте еще один новый класс с именем `MyInstanceIDService`, используя приведенные выше шаги. Таким образом мы выполним реализацию службы прослушивания идентификаторов экземпляра.
 
-	Код для этого класса будет вызывать службу `IntentService`, чтобы [обновить маркер GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) в фоновом режиме.
+	Код для этого класса будет вызывать службу `IntentService`, чтобы [обновить маркер FCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) в фоновом режиме.
 
 		import android.content.Intent;
 		import android.util.Log;
-		import com.google.android.gms.iid.InstanceIDListenerService;
+		import com.google.firebase.iid.FirebaseInstanceIdService;
 		
 		
-		public class MyInstanceIDService extends InstanceIDListenerService {
+		public class MyInstanceIDService extends FirebaseInstanceIdService {
 		
 		    private static final String TAG = "MyInstanceIDService";
 		
 		    @Override
 		    public void onTokenRefresh() {
 		
-		        Log.i(TAG, "Refreshing GCM Registration Token");
+		        Log.d(TAG, "Refreshing GCM Registration Token");
 		
 		        Intent intent = new Intent(this, RegistrationIntentService.class);
 		        startService(intent);
@@ -184,7 +185,7 @@
 		};
 
 
-3. Добавьте еще один новый класс в проект `RegistrationIntentService`. Таким образом мы выполним реализацию службы `IntentService`, которая будет [обновлять маркер GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) и [выполнять регистрацию в центре уведомлений](notification-hubs-push-notification-registration-management.md).
+3. Добавьте еще один новый класс в проект `RegistrationIntentService`. Таким образом мы выполним реализацию службы `IntentService`, которая будет [обновлять маркер FCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) и [выполнять регистрацию в центре уведомлений](notification-hubs-push-notification-registration-management.md).
 
 	Используйте для этого класса следующий код:
 
@@ -192,10 +193,8 @@
 		import android.content.Intent;
 		import android.content.SharedPreferences;
 		import android.preference.PreferenceManager;
-		import android.util.Log;
-		
-		import com.google.android.gms.gcm.GoogleCloudMessaging;
-		import com.google.android.gms.iid.InstanceID;
+		import android.util.Log;		
+		import com.google.firebase.iid.FirebaseInstanceId;
 		import com.microsoft.windowsazure.messaging.NotificationHub;
 		
 		public class RegistrationIntentService extends IntentService {
@@ -209,39 +208,62 @@
 		    }
 		
 		    @Override
-		    protected void onHandleIntent(Intent intent) {		
+		    protected void onHandleIntent(Intent intent) {
+		
 		        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		        String resultString = null;
 		        String regID = null;
+		        String storedToken = null;
 		
 		        try {
-		            InstanceID instanceID = InstanceID.getInstance(this);
-		            String token = instanceID.getToken(NotificationSettings.SenderId,
-		                    GoogleCloudMessaging.INSTANCE_ID_SCOPE);		
-		            Log.i(TAG, "Got GCM Registration Token: " + token);
+		            String FCM_token = FirebaseInstanceId.getInstance().getToken();
+		            Log.d(TAG, "FCM Registration Token: " + FCM_token);
 		
 		            // Storing the registration id that indicates whether the generated token has been
 		            // sent to your server. If it is not stored, send the token to your server,
 		            // otherwise your server should have already received the token.
-		            if ((regID=sharedPreferences.getString("registrationID", null)) == null) {		
+		            if (((regID=sharedPreferences.getString("registrationID", null)) == null)){
+		
 		                NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
 		                        NotificationSettings.HubListenConnectionString, this);
-		                Log.i(TAG, "Attempting to register with NH using token : " + token);
-
-		                regID = hub.register(token).getRegistrationId();
-
+		                Log.d(TAG, "Attempting a new registration with NH using FCM token : " + FCM_token);
+		                regID = hub.register(FCM_token).getRegistrationId();
+		
 		                // If you want to use tags...
-						// Refer to : https://azure.microsoft.com/ru-RU/documentation/articles/notification-hubs-routing-tag-expressions/
+		                // Refer to : https://azure.microsoft.com/ru-RU/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
-
-		                resultString = "Registered Successfully - RegId : " + regID;
-		                Log.i(TAG, resultString);		
+		
+		                resultString = "New NH Registration Successfully - RegId : " + regID;
+		                Log.d(TAG, resultString);
+		
 		                sharedPreferences.edit().putString("registrationID", regID ).apply();
-		            } else {
+		                sharedPreferences.edit().putString("FCMtoken", FCM_token ).apply();
+		            }
+		
+		            // Check if the token may have been compromised and needs refreshing.
+		            else if ((storedToken=sharedPreferences.getString("FCMtoken", "")) != FCM_token) {
+		
+		                NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
+		                        NotificationSettings.HubListenConnectionString, this);
+		                Log.d(TAG, "NH Registration refreshing with token : " + FCM_token);
+		                regID = hub.register(FCM_token).getRegistrationId();
+		
+		                // If you want to use tags...
+		                // Refer to : https://azure.microsoft.com/ru-RU/documentation/articles/notification-hubs-routing-tag-expressions/
+		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
+		
+		                resultString = "New NH Registration Successfully - RegId : " + regID;
+		                Log.d(TAG, resultString);
+		
+		                sharedPreferences.edit().putString("registrationID", regID ).apply();
+		                sharedPreferences.edit().putString("FCMtoken", FCM_token ).apply();
+		            }
+		
+		            else {
 		                resultString = "Previously Registered Successfully - RegId : " + regID;
 		            }
 		        } catch (Exception e) {
-		            Log.e(TAG, resultString="Failed to complete token refresh", e);
+		            Log.e(TAG, resultString="Failed to complete registration", e);
 		            // If an exception happens while fetching the new token or updating our registration data
 		            // on a third-party server, this ensures that we'll attempt the update at a later time.
 		        }
@@ -259,8 +281,8 @@
 
 		import com.google.android.gms.common.ConnectionResult;
 		import com.google.android.gms.common.GoogleApiAvailability;
-		import com.google.android.gms.gcm.*;
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
+		import android.content.Intent;
 		import android.util.Log;
 		import android.widget.TextView;
 		import android.widget.Toast;
@@ -269,7 +291,7 @@
 
 	    public static MainActivity mainActivity;
     	public static Boolean isVisible = false;	
-		private GoogleCloudMessaging gcm;
+	    private static final String TAG = "MainActivity";
 	    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
 6. В классе `MainActivity` добавьте следующий метод проверки доступности служб Google Play:
@@ -297,14 +319,12 @@
 	    }
 
 
-7. В классе `MainActivity` добавьте следующий код, который будет проверять службы Google Play, прежде чем вызывать службу `IntentService`. Это позволит получить маркер регистрации в GCM и выполнить регистрацию в центре уведомлений.
+7. В классе `MainActivity` добавьте следующий код, который будет проверять службы Google Play, прежде чем вызывать службу `IntentService`. Это позволит получить маркер регистрации в FCM и выполнить регистрацию в центре уведомлений.
 
 	    public void registerWithNotificationHubs()
 	    {
-	        Log.i(TAG, " Registering with Notification Hubs");
-	
 	        if (checkPlayServices()) {
-	            // Start IntentService to register this application with GCM.
+	            // Start IntentService to register this application with FCM.
 	            Intent intent = new Intent(this, RegistrationIntentService.class);
 	            startService(intent);
 	        }
@@ -374,6 +394,8 @@
 		import android.app.PendingIntent;
 		import android.content.Context;
 		import android.content.Intent;
+		import android.media.RingtoneManager;
+		import android.net.Uri;
 		import android.os.Bundle;
 		import android.support.v4.app.NotificationCompat;
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
@@ -426,12 +448,15 @@
 
 
 14. В Android Studio в строке меню щелкните **Build** (Сборка) > **Rebuild Project** (Повторить сборку проекта), чтобы убедиться в отсутствии ошибок.
+15. Запустите приложение на устройстве и убедитесь, что регистрация в центре уведомлений успешно выполнена.
+
+	> [AZURE.NOTE] Сбой регистрации может произойти при первом запуске до вызова метода `onTokenRefresh()` службы идентификаторов экземпляра. Чтобы заново начать регистрацию в центре уведомлений, обновите страницу.
 
 ##Отправка push-уведомлений
 
-Проверить получение push-уведомлений в приложении можно путем их отправки с [портала Azure] (см. раздел **Устранение неполадок** в колонке центра, как показано ниже).
+Чтобы проверить получение push-уведомлений в приложении, отправьте уведомление с [портала Azure] (найдите раздел **Устранение неполадок** в колонке центра, как показано ниже).
 
-![Центры уведомлений Azure — тестовая отправка](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
+![Центры уведомлений Azure — тестовая отправка](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
@@ -673,15 +698,15 @@
 
 1. Запустите приложение и убедитесь, что для успешной регистрации сообщается идентификатор регистрации.
 
-   	![Тестирование на устройстве Android — регистрация канала][18]
+   	![Тестирование на устройстве Android — регистрация канала](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-registered.png)
 
 2. Введите сообщение уведомления для отправки на все устройства Android, которые зарегистрированы в центре.
 
-   	![Тестирование на устройстве Android — отправка сообщения][19]
+   	![Тестирование на устройстве Android — отправка сообщения](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-set-message.png)
 
 3. Нажмите кнопку **Send Notification** (Отправить уведомление). На всех устройствах с запущенным приложением будет показан экземпляр `AlertDialog` с push-уведомлением. На устройствах, на которых приложение не запущено, но которые были ранее зарегистрированы для приема push-уведомлений, полученное уведомление будет добавлено в диспетчер уведомлений Android. Уведомления можно просматривать, проводя пальцем вниз от левого верхнего угла.
 
-   	![Тестирование на устройстве Android — уведомления][21]
+   	![Тестирование на устройстве Android — уведомления](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
 
 ##Дальнейшие действия
 
@@ -692,28 +717,7 @@
 Дополнительные сведения о центрах уведомлений см. в статье [Общие сведения о концентраторах уведомлений].
 
 <!-- Images. -->
-[6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
 
-[12]: ./media/notification-hubs-android-get-started/notification-hub-connection-strings.png
-
-[13]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-new-project.png
-[14]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-choose-form-factor.png
-[15]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png
-[16]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app5.png
-[17]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app6.png
-
-[18]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-registered.png
-[19]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-set-message.png
-
-[20]: ./media/notification-hubs-android-get-started/notification-hub-create-console-app.png
-[21]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-received-message.png
-[22]: ./media/notification-hubs-android-get-started/notification-hub-scheduler1.png
-[23]: ./media/notification-hubs-android-get-started/notification-hub-scheduler2.png
-[29]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
-
-[30]: ./media/notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png
-
-[31]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-add-ui.png
 
 
 <!-- URLs. -->

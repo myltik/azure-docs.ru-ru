@@ -43,7 +43,7 @@
 
 1. Щелкните следующие изображение, чтобы открыть шаблон ARM на портале Azure. Шаблон ARM расположен в общедоступном контейнере больших двоичных объектов.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. В колонке **Параметры** заполните следующие поля.
 
@@ -61,7 +61,7 @@
 6. Щелкните **Создать**. Процесс создания кластера занимает около 20 минут.
 
 
->[AZURE.NOTE] После удаления кластера HBase можно создать другой кластер HBase, использовав тот же контейнер BLOB-объектов по умолчанию. Таблицы HBase, созданные в исходном кластере, получит новый кластер. Перед удалением кластера рекомендуется отключить таблицы HBase, чтобы предотвратить несогласованности.
+>[AZURE.NOTE] После удаления кластера HBase можно создать другой кластер HBase, использовав тот же контейнер BLOB-объектов по умолчанию. Таблицы HBase, созданные в исходном кластере, получит новый кластер. Перед удалением кластера рекомендуется отключить таблицы HBase, чтобы избежать несогласованности.
 
 ## Создание таблиц и вставка данных
 
@@ -285,7 +285,7 @@ SSH может также использоваться для туннелиро
 
 ##Удаление кластера
 
-Перед удалением кластера рекомендуется отключить таблицы HBase, чтобы предотвратить несогласованности.
+Перед удалением кластера рекомендуется отключить таблицы HBase, чтобы избежать несогласованности.
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -325,4 +325,4 @@ SSH может также использоваться для туннелиро
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

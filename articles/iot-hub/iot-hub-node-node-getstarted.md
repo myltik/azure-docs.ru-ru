@@ -76,7 +76,7 @@
 
     ```
     var device = new iothub.Device(null);
-    device.deviceId = 'myFirstDevice';
+    device.deviceId = 'myFirstNodeDevice';
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);
@@ -201,10 +201,10 @@
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Добавьте переменную **connectionString**, чтобы создать с ее помощью клиент устройства. Замените значения **{youriothubname}** именем центра IoT, а **{yourdeviceid}** и **{yourdevicekey}** — значениями для устройства, сформированными при работе с разделом *Создание удостоверения устройства*:
+5. Добавьте переменную **connectionString**, чтобы создать с ее помощью клиент устройства. Замените значение **{youriothubname}** именем центра IoT, а **{yourdevicekey}** — значением ключа устройства, сформированным при работе с разделом *Создание удостоверения устройства*.
 
     ```
-    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
     
     var client = clientFromConnectionString(connectionString);
     ```
@@ -220,7 +220,7 @@
     }
     ```
 
-7. Создайте обратный вызов и используйте функцию **setInterval**, чтобы отправлять новое сообщение в центр IoT каждую секунду:
+7. Создайте обратный вызов и используйте функцию **setInterval**, чтобы отправлять новое сообщение в центр IoT каждую секунду.
 
     ```
     var connectCallback = function (err) {
@@ -232,11 +232,11 @@
         // Create a message and send it to the IoT Hub every second
         setInterval(function(){
             var windSpeed = 10 + (Math.random() * 4);
-            var data = JSON.stringify({ deviceId: 'mydevice', windSpeed: windSpeed });
+            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', windSpeed: windSpeed });
             var message = new Message(data);
             console.log("Sending message: " + message.getData());
             client.sendEvent(message, printResultFor('send'));
-        }, 2000);
+        }, 1000);
       }
     };
     ```
@@ -306,4 +306,4 @@
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -17,7 +17,7 @@
 	ms.date="05/31/2016"
 	ms.author="deonhe"/>
 
-# Список управляемых соединителей
+# Список соединителей
 
 >[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview. Чтобы узнать версию схемы 2014-12-01-preview, щелкните [Список соединителей](../app-service-logic/app-service-logic-connectors-list.md).
 
@@ -25,20 +25,28 @@
 
 > [AZURE.NOTE] Если вы хотите опробовать мобильные приложения, не создавая учетную запись Azure, перейдите на [эту страницу](https://tryappservice.azure.com/?appservice=logic). Там вы сможете быстро создать в службе приложений простое приложение логики для кратковременного использования. Никаких кредитных карт и обязательств.
 
+## Стандартные соединители
+
 Выберите значок и узнайте, как быстро задействовать соединители для создания приложений, которые вызывают эти службы. Эти соединители можно использовать для создания приложений логики, приложений PowerApps и потоков.
 
 |Соединители||||
 |-----------|-----------|-----------|-----------|
-|[![Значок API][blobicon]<br/>**Большой<br/>двоичный<br/>объект Azure**][azureblobdoc]|[![Значок API][boxicon]<br/>**Box**][boxDoc]|[![Значок API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Значок API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
+|[![Значок API][blobicon]<br/>**Большой двоичный объект Azure**][azureblobdoc]|[![Значок API][boxicon]<br/>**Box**][boxDoc]|[![Значок API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Значок API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![Значок API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Значок API][ftpicon]<br/>**FTP**][ftpdoc]|[![Значок API][githubicon]<br/>**GitHub**][githubdoc]|[![Значок API][googledriveicon]<br/>**Диск Google**][googledrivedoc]|
 |[![Значок API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Значок API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Значок API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Значок API][office365icon]<br/>**Office 365**<br/>**Пользователи**][office365usersdoc]|
 |[![Значок API][office365icon]<br/>**Office 365**<br/>**Видео**][office365videodoc]|[![Значок API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Значок API][onedriveicon]<br/>**OneDrive<br/>для бизнеса**][onedriveforbusinessdoc]|[![Значок API][outlookicon]<br/>**Outlook**][outlookdoc]|
 |[![Значок API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Значок API][rssicon]<br/>**RSS**][rssdoc]|[![Значок API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Значок API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
-|[![Значок API][servicebusicon]<br/>**Служебная<br/>шина**][servicebusdoc]|[![Значок API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Значок API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Значок API][slackicon]<br/>**Slack**<br/>][slackdoc]|
+|[![Значок API][servicebusicon]<br/>**Служебная шина**][servicebusdoc]|[![Значок API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Значок API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Значок API][slackicon]<br/>**Slack**<br/>][slackdoc]|
 |[![Значок API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Значок API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Значок API][trelloicon]<br/>**Trello**][trellodoc]|[![Значок API][twilioicon]<br/>**Twilio**][twiliodoc]|
 |[![Значок API][twittericon]<br/>**Twitter**][twitterdoc]|[![Значок API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Значок API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
-> [AZURE.NOTE] Если вы создавали приложения логики с помощью схемы 2014-12-01-preview, вы заметите, что в списке нет соединителей для корпоративной интеграции, например BizTalk. Мы знаем, что эти интерфейсы тоже нужны, поэтому мы работаем над тем, чтобы предоставить их вам как можно быстрее. Хотя мы не можем озвучить точную дату доступности этих интерфейсов, помните, что эта задача является одним из наших основных приоритетов. А пока вы можете обращаться к своим [API-интерфейсам v1 и BizTalk из приложений логики](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Благодарим вас за понимание. Следите за новостями.
+## Соединители пакета интеграции Enterprise (EIP)
+Используйте соединители EIP, чтобы создавать приложения логики для реализации сценария B2B, который включает EAI и EDI.
+ 
+|Соединители EIP ||||
+|-----------|-----------|-----------|-----------|
+|[![Значок API][as2icon]<br/>**Кодирование или декодирование</br>AS2**][as2doc]|[![Значок API][x12icon]<br/>**Кодирование или декодирование</br>X12**][x12Doc]|[![Значок API][xmlvalidateicon]<br/>**Проверка <br/>XML-файла**][xmlvalidatedoc]|[![Значок API][xmltransformicon]<br/>**Преобразование <br/>XML-файла**][xmltransformdoc]|
+|[![Значок API][flatfileicon]<br/>**Кодирование</br>неструктурированного файла**][flatfiledoc]|[![Значок API][flatfiledecodeicon]<br/>**Декодирование</br>неструктурированного файла**][flatfiledecodedoc]|||
 
 
 ### Соединители могут быть триггерами.
@@ -54,10 +62,7 @@
 Соединители могут также использоваться как действия в приложениях. Действия удобно использовать для поиска данных, которые можно использовать при выполнении вашего приложения. Например, при обработке заказа может потребоваться найти в базе данных SQL дополнительные сведения о клиенте либо записать, обновить или удалить данные в таблице назначения. Это можно сделать с помощью действий, предоставляемых соединителями. Действия сопоставляются с операциями, определенными в метаданных Swagger.
 
 
-[Новая версия схемы 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md)
-[Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md) 
-[Что такое Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md) 
-[Перенос приложений логики в версию схемы 2015-08-01-preview](connectors-schema-migration.md)
+[Новая версия схемы 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md) [Что такое Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md) [Перенос приложений логики в версию схемы 2015-08-01-preview](connectors-schema-migration.md)
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Подключается к BLOB-объекту Azure для управления файлами в контейнере BLOB-объектов."
@@ -94,6 +99,12 @@
 [twitterdoc]: ./connectors-create-api-twitter.md "Подключается к Twitter для получения временных шкал, публикации твитов и выполнения других задач."
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "Синхронизация повседневной активности."
 [yammerdoc]: ./connectors-create-api-yammer.md "Подключается к Yammer для публикации и получения новых сообщений."
+[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Узнайте об AS2 в рамках корпоративной интеграции."
+[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Узнайте о соглашении X12 в рамках корпоративной интеграции."
+[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Узнайте о неструктурированном файле в рамках корпоративной интеграции."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Узнайте о неструктурированном файле в рамках корпоративной интеграции."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Узнайте о проверке XML в рамках корпоративной интеграции."
+[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Узнайте о преобразованиях в рамках корпоративной интеграции."
 
 <!--Icon references-->
 [blobicon]: ./media/apis-list/blobicon.png
@@ -127,5 +138,11 @@
 [twittericon]: ./media/apis-list/twittericon.png
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
+[as2icon]: ./media/apis-list/as2new.png
+[x12icon]: ./media/apis-list/x12new.png
+[flatfileicon]: ./media/apis-list/flatfileencoding.png
+[flatfiledecodeicon]: ./media/apis-list/flatfiledecoding.png
+[xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
+[xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->
