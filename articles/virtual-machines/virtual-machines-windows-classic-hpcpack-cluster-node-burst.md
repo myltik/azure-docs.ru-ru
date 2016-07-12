@@ -22,7 +22,7 @@ ms.service="virtual-machines-windows"
 
 В этой статье показано, как добавить «расширительные» узлы Azure (экземпляры рабочей роли, запущенные в облачной службе) по запросу в качестве вычислительных ресурсов в существующий головной узел пакета HPC в Azure. Это позволяет увеличить масштаб вычислительной мощности кластера HPC в Azure без обслуживания набора предварительно настроенных виртуальных машин вычислительных узлов.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ![Расширительные узлы][burst]
 
@@ -80,7 +80,7 @@ ms.service="virtual-machines-windows"
 
 После добавления и запуска узлов их можно использовать для выполнения заданий кластера.
 
-Если при развертывании узлов Azure возникли проблемы, см. статью [Устранение неполадок развертываний узлов Azure с помощью пакета Microsoft HPC](http://technet.microsoft.com/library/jj159097.aspx).
+Если при развертывании узлов Azure возникли проблемы, см. статью [Устранение неполадок развертываний узлов Azure с помощью пакета Microsoft HPC](http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
 
 ## Дальнейшие действия
 
@@ -89,4 +89,4 @@ ms.service="virtual-machines-windows"
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

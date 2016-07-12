@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="04/12/2016"
-	ms.author="sethm;nberdy"/>
+	ms.author="sethm"/>
 
 # Что такое концентраторы событий Azure?
 
@@ -45,4 +45,4 @@
 [учебника по концентраторам событий]: event-hubs-csharp-ephcs-getstarted.md
 [пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

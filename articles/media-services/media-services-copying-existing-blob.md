@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Копирование существующего BLOB-объекта в файл служб мультимедиа
@@ -31,15 +31,15 @@
 ##Предварительные требования
 
 - Две учетные записи служб мультимедиа в новой или существующей подписке Azure. Дополнительные сведения см. в разделе [Создание учетной записи служб мультимедиа](media-services-create-account.md).
-- Операционные системы: Windows 10, Windows 7, Windows 2008 R2 или Windows 8.
-- .NET Framework 4.5
+- Операционные системы: Windows 10, Windows 7, Windows 2008 R2 или Windows 8.
+- .NET Framework 4.5
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate или Express) или более поздняя версия.
 
 ##Настройка проекта
 
 В этом разделе вы создадите и настроите проект консольного приложения на C#.
 
-1. Чтобы создать новое решение, содержащее проект консольного приложения на C#, используйте Visual Studio. 
+1. Чтобы создать новое решение, содержащее проект консольного приложения на C#, используйте Visual Studio.
 2. В поле "Имя" введите CopyExistingBlobsIntoAsset и нажмите кнопку "ОК".
 1. С помощью Nuget добавьте ссылки на связанные библиотеки DLL служб мультимедиа. В главном меню Visual Studio последовательно выберите элементы ИНСТРУМЕНТЫ > Диспетчер пакетов библиотеки > Консоль диспетчера пакетов. В окне консоли введите Install-Package windowsazure.mediaservices и нажмите клавишу ВВОД.
 1. Добавьте другие ссылки, необходимые для этого проекта: System.Configuration.
@@ -76,7 +76,7 @@
 
 Пример кода ниже выполняет следующие задачи.
 
-1. Создает экземпляр CloudMediaContext. 
+1. Создает экземпляр CloudMediaContext.
 1. Создает экземпляры CloudStorageAccount: \_sourceStorageAccount и \_destinationStorageAccount.
 1. Передает файлы Smooth Streaming из локального каталога в контейнер больших двоичных объектов, который находится в \_sourceStorageAccount.
 1. Создает новый файл. Контейнер больших двоичных объектов, созданный для этого ресурс-контейнера, находится в \_destinationStorageAccount.
@@ -85,7 +85,7 @@
 	>[AZURE.NOTE]Если срок действия указателя истек, операция копирования не выдает исключение.
 
 1. Так как в данном примере копируются файлы Smooth Streaming, в нем показано, как задать ISM-файл в качестве основного файла. Например, если скопировать MP4-файл, то в качестве основного файла устанавливается MP4-файл.
-1. Создает URL-адрес Smooth Streaming для указателя OnDemandOrigin, связанного с файлом. 
+1. Создает URL-адрес Smooth Streaming для указателя OnDemandOrigin, связанного с файлом.
 			
 		class Program
 	        {
@@ -322,4 +322,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0629_2016-->

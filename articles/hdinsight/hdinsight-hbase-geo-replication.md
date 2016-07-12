@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="06/28/2016"
    ms.author="jgao"/>
 
 # Настройка георепликации HBase в HDInsight
@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Настройка подключения VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [Настройка DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Настройка репликации HBase](hdinsight-hbase-geo-replication.md) 
+- [Настройка репликации HBase](hdinsight-hbase-geo-replication.md)
  
 Узнайте, как настроить репликацию HBase между двумя центрами обработки данных. Некоторые варианты использования репликации кластера:
 
@@ -169,18 +169,18 @@
 
 **Настройка DNS-серверов пересылки**
  
-1.	Выполните вход RDP в **Contoso-DNS-EU**. 
+1.	Выполните вход RDP в **Contoso-DNS-EU**.
 2.	Нажмите клавишу Windows в левом нижнем углу.
 2.	Щелкните **Администрирование**.
 3.	Щелкните **DNS**.
 4.	В левой области разверните **DSN**, **Contoso-DNS-EU**.
-5.	Щелкните правой кнопкой мыши **Серверы условной пересылки** и выберите команду **Создать сервер условной пересылки**. 
+5.	Щелкните правой кнопкой мыши **Серверы условной пересылки** и выберите команду **Создать сервер условной пересылки**.
 5.	Введите следующие сведения:
 	- **DNS-домен**: введите DNS-суффикс Contoso-HBase-US. Например: Contoso-HBase-US.f5.internal.cloudapp.net.
 	- **IP-адреса главных серверов**: введите 10.2.0.4 (IP-адрес Contoso-DNS-US). Проверьте правильность IP-адреса. DNS-сервер может иметь другой IP-адрес.
 6.	Нажмите клавишу **ENTER**, а затем нажмите кнопку **ОК**. Теперь можно будет разрешить IP-адрес Contoso-DNS-US из Contoso-DNS-EU.
 7.	Повторите шаги, чтобы добавить DNS-сервер условной пересылки в службу DNS на виртуальной машине Contoso-DNS-US со следующими значениями:
-	- **DNS-домен**: введите DNS-суффикс Contoso-HBase-EU. 
+	- **DNS-домен**: введите DNS-суффикс Contoso-HBase-EU.
 	- **IP-адреса главных серверов**: введите 10.2.0.4 (IP-адрес Contoso-DNS-EU).
 
 **Проверка разрешения имени домена**
@@ -314,4 +314,4 @@
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

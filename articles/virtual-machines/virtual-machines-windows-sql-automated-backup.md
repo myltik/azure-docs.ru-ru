@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Автоматическая архивация SQL Server на виртуальных машинах (Resource Manager) | Microsoft Azure"
-	description="Описание функции автоматической архивации для SQL Server на виртуальных машинах Azure с использованием модели развертывания Resource Manager."
+	description="Описание функции автоматической архивации для SQL Server на виртуальных машинах Azure с использованием модели развертывания Resource Manager. "
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -24,12 +24,12 @@
 
 Служба автоматической архивации автоматически настраивает [управляемое резервное копирование на портал Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) для всех существующих и новых баз данных на виртуальной машине Azure c SQL Server 2014 Standard или Enterprise. Это позволяет настроить регулярную архивацию базы данных с использованием надежного хранилища больших двоичных объектов Azure. Автоматическая архивация зависит от [Расширения агента IaaS для SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]  
 Классическая модель развертывания. Версию этой статьи для классической модели развертывания см. в разделе [Автоматическая архивация SQL Server на виртуальных машинах Azure (классическая модель)](virtual-machines-windows-classic-sql-automated-backup.md).
 
 ## Предварительные требования
 
-Для использования автоматической архивации необходимо выполнить следующие предварительные требования:
+Для использования автоматической архивации необходимо выполнить следующие предварительные требования.
 
 **Операционная система**:
 
@@ -81,7 +81,7 @@
 
 ## Настройка с помощью PowerShell
 
-После подготовки виртуальной машины SQL используйте PowerShell для настройки автоматической установки исправлений.
+После подготовки виртуальной машины SQL используйте PowerShell для настройки автоматической архивации.
 
 В следующем примере с использованием PowerShell автоматическая архивация настраивается для существующей виртуальной машины SQL Server 2014. Команда **AzureRM.Compute\\New-AzureVMSqlServerAutoBackupConfig** настраивает параметры автоматической архивации для хранения архивов в учетной записи хранения Azure, связанной с виртуальной машиной. Эти резервные копии будут храниться в течение 10 дней. Команда **Set-AzureRmVMSqlServerExtension** обновляет указанную виртуальную машину Azure в соответствии с заданными параметрами.
 
@@ -117,4 +117,4 @@
 
 Подробные сведения о запуске SQL Server на виртуальных машинах Azure см. в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016--->

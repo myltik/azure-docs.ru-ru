@@ -22,8 +22,7 @@
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](application-gateway-create-probe-ps.md).
-
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](application-gateway-create-probe-ps.md).
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -72,7 +71,7 @@
 >[AZURE.NOTE]  Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать значения Small, Medium или Large.
 
 
- Параметры *VirtualIPs* и *DnsName* отображаются без значений, поскольку шлюз еще не запущен. Эти значения будут заданы, как только шлюз перейдет в рабочее состояние.
+ Параметры *VirtualIPs* и *DnsName* отображаются без значений, так как шлюз еще не запущен. Эти значения будут заданы, как только шлюз перейдет в рабочее состояние.
 
 ## Настройка шлюза приложений
 
@@ -163,7 +162,7 @@
 
 - **Name** — имя пользовательской проверки.
 - **Protocol** — используемый протокол (возможные значения: HTTP или HTTPS).
-- **Host** и **Path** — полный путь URL, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас веб-сайт http://contoso.com/, то пользовательскую проверку работоспособности для получения успешного ответа HTTP можно настроить как "http://contoso.com/path/custompath.htm".
+- **Host** и **Path** — полный путь URL, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас веб-сайт http://contoso.com/, пользовательскую проверку работоспособности для получения успешного ответа HTTP можно настроить в формате http://contoso.com/path/custompath.htm.
 - **Interval** — задает интервал проверки работоспособности в секундах.
 - **Timeout** — определяет время ожидания для проверки ответа HTTP.
 - **UnhealthyThreshold** — количество неудачных ответов HTTP, по достижении которого экземпляр внутреннего сервера считается *неработоспособным*.
@@ -223,4 +222,4 @@
 
 Указания по настройке шлюза приложений для использования с ILB см. в статье [Создание шлюза приложений с внутренним балансировщиком нагрузки (ILB)](application-gateway-ilb.md).
 
-<!----HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

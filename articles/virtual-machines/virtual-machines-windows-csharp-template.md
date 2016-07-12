@@ -14,28 +14,24 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="06/24/2016"
 	ms.author="davidmu"/>
 
 # Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager
 
 С помощью групп ресурсов и шаблонов вы можете управлять всеми ресурсами, которые поддерживают работу вашего приложения. В этой статье демонстрируется настройка проверки подлинности и хранилища с использованием Azure PowerShell, а также последующие сборка и развертывание шаблона при помощи C# для создания ресурсов Azure.
 
-Для работы с этим учебником необходимы указанные ниже компоненты.
+Сначала необходимо выполнить следующее.
 
-- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0.](http://www.microsoft.com/download/details.aspx?id=40855)
-- [Токен проверки подлинности](../resource-group-authenticate-service-principal.md)
+- Установите [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx).
+- Проверьте, установлен ли компонент [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+- Получите [маркер аутентификации](../resource-group-authenticate-service-principal.md).
 
 На выполнение этих действий требуется примерно 30 минут.
-
-## Шаг 1. Установка Azure PowerShell
-
-Сведения о том, как установить последнюю версию Azure PowerShell, выбрать нужную подписку и войти в учетную запись Azure, см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
     
-## Шаг 2. Создание группы ресурсов для хранения шаблона
+## Шаг 1. Создание группы ресурсов для хранения шаблона
 
-Все ресурсы должны развертываться в группе ресурсов. Дополнительные сведения см. в статье [Общие сведения об Azure Resource Manager](../resource-group-overview.md).
+Все ресурсы должны развертываться в группе ресурсов. Дополнительные сведения см. в [обзоре Azure Resource Manager](../resource-group-overview.md).
 
 1. Получите список доступных расположений, где можно создавать ресурсы.
 
@@ -58,7 +54,7 @@
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
     
-## Шаг 3. Создание учетной записи хранения и контейнера шаблонов
+## Шаг 2. Создание учетной записи хранения и контейнера шаблонов
 
 Учетная запись хранения необходима для хранения шаблона, который вы собираетесь создать и развернуть.
 
@@ -67,7 +63,7 @@
         $stName = "storage account name"
         Get-AzureRmStorageAccountNameAvailability $stName
 
-    Если команда возвращает значение **True**, предложенное имя является уникальным.
+    Если команда возвращает значение **True**, то предложенное имя является уникальным.
     
 2. Теперь выполните эту команду для создания учетной записи хранения.
     
@@ -83,7 +79,7 @@
 
 ### Создание файла шаблона
 
-С помощью шаблона диспетчера ресурсов Azure можно развертывать ресурсы Azure и управлять ими совокупно, используя описание ресурсов в формате JSON и связанные параметры развертывания. Шаблон, создаваемый в этом руководстве, похож на шаблон, который можно найти в коллекции шаблонов. Дополнительные сведения см. в статье [Deploy a simple Windows VM in West US](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/) (Развертывание простой виртуальной машины Windows в западной части США).
+С помощью шаблона диспетчера ресурсов Azure можно развертывать ресурсы Azure и управлять ими совокупно, используя описание ресурсов в формате JSON и связанные параметры развертывания.
 
 В Visual Studio выполните описанные ниже действия.
 
@@ -93,7 +89,7 @@
 
 3. В обозревателе решений щелкните правой кнопкой мыши проект, затем выберите **Добавить** > **Новый элемент**.
 
-4. Щелкните элемент "Сеть", выберите пункт "Файл JSON", введите имя *VirtualMachineTemplate.json* и нажмите кнопку **Добавить**.
+4. Щелкните "Интернет", выберите пункт "JSON-файл", введите имя *VirtualMachineTemplate.json* и нажмите кнопку **Добавить**.
 
 5. В скобках файла VirtualMachineTemplate.json добавьте обязательные элементы schema и contentVersion:
 
@@ -293,7 +289,7 @@
 
 1. В обозревателе решений щелкните правой кнопкой мыши проект, затем выберите **Добавить** > **Новый элемент**.
 
-2. Щелкните элемент "Сеть", выберите пункт "Файл JSON", введите имя *Parameters.json* и нажмите кнопку **Добавить**.
+2. Щелкните "Интернет", выберите пункт "JSON-файл", введите имя *Parameters.json* и нажмите кнопку **Добавить**.
 
 3. Откройте файл parameters.json и добавьте следующее содержимое JSON:
 
@@ -318,7 +314,7 @@
 
 1. Откройте обозреватель облака и перейдите в созданный ранее контейнер шаблонов в учетной записи хранения.
 
-2. В правом верхнем углу окна контейнера шаблона щелкните значок отправки большого двоичного объекта, перейдите к файлу VirtualMachineTemplate.json, который вы создали, и щелкните **Открыть**.
+2. В правом верхнем углу окна контейнера шаблонов щелкните значок отправки большого двоичного объекта, перейдите к файлу VirtualMachineTemplate.json, который вы создали, и щелкните **Открыть**.
 
 3. Снова щелкните значок отправки большого двоичного объекта, перейдите к файлу Parameters.json, который был создан, и щелкните **Открыть**.
 
@@ -330,7 +326,7 @@
 
 2. В поле поиска введите текст *Active Directory*, нажмите кнопку **Установить** для пакета библиотеки аутентификации Active Directory, а затем следуйте указаниям по установке пакета.
 
-4. В верхней части страницы выберите пункт **Включить предварительный выпуск**. В поле поиска введите *Microsoft.Azure.ResourceManager* и нажмите кнопку **Установить**, чтобы установить библиотеки управления ресурсами Microsoft Azure, а затем следуйте указаниям по установке пакета.
+4. В верхней части страницы выберите пункт **Включить предварительный выпуск**. В поле поиска введите *Microsoft.Azure.Management.ResourceManager* и нажмите кнопку **Установить**, чтобы установить библиотеки управления ресурсами Microsoft Azure, а затем следуйте указаниям по установке пакета.
 
 Теперь вы готовы использовать библиотеки для создания приложения.
 
@@ -342,48 +338,41 @@
 
         using Microsoft.Azure;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Azure.Management.Resources;
-        using Microsoft.Azure.Management.Resources.Models;
+        using Microsoft.Azure.Management.ResourceManager;
+        using Microsoft.Azure.Management.ResourceManager.Models;
         using Microsoft.Rest;
 
 2.	Добавьте в класс Program этот метод, чтобы получить токен, необходимый для создания учетных данных:
 
-        private static string GetAuthorizationHeader()
+        private static async Task<AuthenticationResult> GetAccessTokenAsync()
         {
-          ClientCredential cc = new ClientCredential("{application-id}", "{password}");
+          var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-          if (result == null)
+          var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
+          if (token == null)
           {
-            throw new InvalidOperationException("Failed to obtain the JWT token");
+            throw new InvalidOperationException("Could not get the token.");
           }
-
-          string token = result.Result.AccessToken;
-
           return token;
         }
 
-    Замените {application-id} записанным ранее идентификатором приложения, {password} — паролем, заданным вами для приложения AD, и {tenant-id} — идентификатором клиента для своей подписки. Чтобы узнать идентификатор клиента, выполните команду Get-AzureRmSubscription.
+    Замените {client-id} идентификатором приложения Azure Active Directory, {client-secret} — ключом доступа приложения AD, а {tenant-id} — кодом клиента своей подписки. Чтобы узнать идентификатор клиента, выполните команду Get-AzureRmSubscription. Ключ доступа можно узнать на портале Azure.
 
 3. Чтобы создать учетные данные, добавьте этот код в метод Main в файле Program.cs:
 
-        var token = GetAuthorizationHeader();
-        var credential = new TokenCredentials(token);
+        var token = GetAccessTokenAsync();
+        var credential = new TokenCredentials(token.Result.AccessToken);
 
 4. Сохраните файл Program.cs.
 
 ## Шаг 6. Добавление кода для развертывания шаблона
 
-На этом этапе, чтобы создать группу, в которую будут развернуты ресурсы, используйте классы [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) и [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx).
+На этом этапе, чтобы создать группу, в которой будут развернуты ресурсы, используйте классы [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) и [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx).
 
 1. Добавьте переменные в метод Main класса Program, чтобы указать имена, которые вы хотите использовать для ресурсов, расположение ресурсов (например, "Центральная часть США"), данные учетной записи администратора и идентификатор вашей подписки:
 
         var groupName = "resource group name";
         var storageName = "storage account name";
-        var vmName = "virtual machine name";  
-        var deploymentName = "deployment name";
-        var adminName = "administrator account name";
-        var adminPassword = "administrator account password";
         var location = "location name";
         var subscriptionId = "subsciption id";
 
@@ -391,34 +380,32 @@
     
 2. Чтобы создать группу ресурсов, добавьте этот метод в класс Program:
 
-        public static void CreateResourceGroup(
+        public static async Task<ResourceGroup> CreateResourceGroupAsync(
           TokenCredentials credential,
           string groupName,
           string subscriptionId,
           string location)
         {
           Console.WriteLine("Creating the resource group...");
-          var resourceManagementClient = new ResourceManagementClient(credential);
-          resourceManagementClient.SubscriptionId = subscriptionId;
-          var resourceGroup = new ResourceGroup {
-            Location = location
-          };
-          var rgResult = resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, resourceGroup);
-          Console.WriteLine(rgResult.Properties.ProvisioningState);
+          var resourceManagementClient = new ResourceManagementClient(credential) 
+            { SubscriptionId = subscriptionId };
+          var resourceGroup = new ResourceGroup { Location = location };
+          return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(groupName, resourceGroup);
         }
 
 2. Для вызова только что добавленного метода добавьте этот код в метод Main:
 
-        CreateResourceGroup(
+        var rgResult = CreateResourceGroupAsync(
           credential,
           groupName,
           subscriptionId,
           location);
+        Console.WriteLine(rgResult.Result.Properties.ProvisioningState);
         Console.ReadLine();
 
 3. Добавьте следующий метод в класс Program для развертывания ресурсов в группу с помощью шаблона, который вы определили:
 
-        public static void CreateTemplateDeployment(
+        public static async Task<DeploymentExtended> CreateTemplateDeploymentAsync(
           TokenCredentials credential,
           string groupName,
           string storageName,
@@ -439,23 +426,23 @@
               Uri = "https://" + storageName + ".blob.core.windows.net/templates/Parameters.json"
             }
           };
-          var resourceManagementClient = new ResourceManagementClient(credential);
-          resourceManagementClient.SubscriptionId = subscriptionId;
-          var dpResult = resourceManagementClient.Deployments.CreateOrUpdate(
+          var resourceManagementClient = new ResourceManagementClient(credential) 
+            { SubscriptionId = subscriptionId };
+          return await resourceManagementClient.Deployments.CreateOrUpdateAsync(
             groupName,
             deploymentName,
             deployment);
-          Console.WriteLine(dpResult.Properties.ProvisioningState);
         }
 
 4. Для вызова только что добавленного метода добавьте этот код в метод Main:
 
-        CreateTemplateDeployment(
+        var dpResult = CreateTemplateDeploymentAsync(
           credential,
           groupName",
           storageName,
           deploymentName,
           subscriptionId);
+        Console.WriteLine(dpResult.Result.Properties.ProvisioningState);
         Console.ReadLine();
 
 ##Шаг 7. Добавление кода для удаления ресурсов
@@ -464,27 +451,30 @@
 
 1.	Чтобы удалить группу ресурсов, добавьте этот метод в класс Program:
 
-        public static void DeleteResourceGroup(
+        public static async void DeleteResourceGroupAsync(
           TokenCredentials credential,
-          string groupName)
+          string groupName,
+          string subscriptionId)
         {
           Console.WriteLine("Deleting resource group...");
-          var resourceGroupClient = new ResourceManagementClient(credential);
-          resourceGroupClient.ResourceGroups.DeleteAsync(groupName);
+          var resourceManagementClient = new ResourceManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          return await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
         }
 
 2.	Для вызова только что добавленного метода добавьте этот код в метод Main:
 
-        DeleteResourceGroup(
+        DeleteResourceGroupAsync(
           credential,
-          groupName);
+          groupName,
+          subscriptionId);
         Console.ReadLine();
 
 ##Шаг 8. Запуск консольного приложения
 
-1.	Чтобы запустить консольное приложение, нажмите кнопку **Запустить** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
+1.	Чтобы запустить консольное приложение, нажмите кнопку **Запустить** в Visual Studio, а затем войдите в Azure AD с помощью учетных данных, которые вы используете для подписки.
 
-2.	После появления состояния "Принято" нажмите клавишу **Ввод**.
+2.	После появления состояния "Принято" нажмите клавишу **ВВОД**.
 
 	На полное выполнение этого консольного приложения потребуется примерно 5 минут. Прежде чем нажать клавишу "ВВОД" и начать удаление ресурсов, потратьте несколько минут и проверьте на портале Azure, созданы ли эти ресурсы.
 
@@ -494,7 +484,7 @@
 
 ## Дальнейшие действия
 
-- При возникновении проблем с развертыванием ознакомьтесь со статьей [Устранение неполадок развертываний групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами с помощью диспетчера ресурсов Azure и PowerShell](virtual-machines-windows-ps-manage.md).
+- При наличии проблем с развертыванием ознакомьтесь с [устранением неполадок развертывания групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C#](virtual-machines-windows-csharp-manage.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

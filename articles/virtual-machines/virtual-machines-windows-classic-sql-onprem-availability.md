@@ -31,7 +31,7 @@
 
 - Подключение между локальной сетью и виртуальной сетью Azure. Дополнительные сведения о создании этой виртуальной сети см. в статье [Создание виртуальной сети с VPN-подключением типа "сеть-сеть" с помощью классического портала Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Мастер добавления реплики Azure
 
@@ -103,4 +103,4 @@
 
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

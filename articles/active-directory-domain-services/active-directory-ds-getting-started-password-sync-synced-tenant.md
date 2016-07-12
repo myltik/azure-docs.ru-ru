@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Доменные службы Azure AD *(предварительная версия)* — включение синхронизации паролей в доменные служб Azure AD
@@ -40,7 +40,7 @@
 
 **[Скачать Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Рекомендуемая версия: **1.1.130.0** (опубликована 12 апреля 2016 г.).
+Рекомендуемая версия: **1.1.189.0** (опубликована 3 июня 2016 г.).
 
   > [AZURE.WARNING] Последняя рекомендуемая версия Azure AD Connect НЕОБХОДИМА для синхронизации устаревших учетных данных (требуются для проверки подлинности NTLM и Kerberos) с вашим клиентом Azure AD. В предыдущих выпусках Azure AD Connect и в устаревшей версии DirSync эта возможность недоступна.
 
@@ -80,4 +80,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 - [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md) (Присоединение виртуальной машины Red Hat Enterprise Linux к управляемому домену доменных служб Azure AD)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

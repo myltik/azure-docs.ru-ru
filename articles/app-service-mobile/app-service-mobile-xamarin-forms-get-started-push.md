@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Добавление push-уведомлений в приложение Xamarin.Forms с помощью службы приложений Azure"
-	description="Использование службы приложений Azure для отправки push-уведомлений в приложение Xamarin.Forms"
+	pageTitle="Добавление push-уведомлений в приложение Xamarin.Forms | Microsoft Azure"
+	description="Использование служб Azure для отправки кроссплатформенных push-уведомлений в приложения Xamarin.Forms."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="wesmc7777"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/20/2016"
 	ms.author="wesmc"/>
 
 # Добавление push-уведомлений в приложение Xamarin.Forms
@@ -22,30 +22,21 @@
 
 ##Обзор
 
-В этом руководстве используется материал [руководства по быстрому запуску Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md), с которым необходимо ознакомиться в первую очередь. Вы добавите поддержку push-уведомлений для каждого проекта, который должен поддерживаться в проекте быстрого запуска Xamarin.Forms. Push-уведомления будут отправляться каждый раз при вставке записи.
+В этом руководстве показано, как использовать службы Azure для отправки push-уведомлений в приложения Xamarin.Forms, которые выполняются на разных платформах (Android, iOS и Windows). Push-уведомления отправляются с сервера мобильных приложений Azure с использованием центров уведомлений Azure. При этом используется регистрация шаблонов, что позволяет отправлять одни и те же сообщения на устройства на всех платформах через разные службы push-уведомлений (PNS). Дополнительные сведения об отправке межплатформенных push-уведомлений см. в документации по [центрам уведомлений Azure](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
-Если вы не используете скачанный проект сервера быстрого запуска, в проект необходимо добавить пакет расширений для push-уведомлений. Дополнительную информацию о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
-
-[Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому необходимо использовать физическое устройство под управлением iOS. Вам также необходимо зарегистрироваться для [участия в программе разработки решений для Apple](https://developer.apple.com/programs/ios/).
+Push-уведомления добавляются во все проекты, которые поддерживает приложение Xamarin.Forms. Push-уведомления отправляются каждый раз, когда на сервере добавляется новая запись.
 
 ##Предварительные требования
 
-* Изучите учебник [Создание приложения Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md), в котором перечислены другие обязательные компоненты. В этой статье используется готовое приложение из него.
+Для продуктивной работы с этим руководством мы рекомендуем сначала изучить руководство [Создание приложения Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md). Завершив работу, вы получите проект Xamarin.Forms — кроссплатформенное приложение TodoList.
 
-* Физическое устройство iOS. Push-уведомления не поддерживаются в симуляторе iOS.
+Если вы не используете скачанный проект сервера быстрого запуска, в проект необходимо добавить пакет расширений для push-уведомлений. Дополнительную информацию о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##Создание концентратора уведомлений для мобильного приложения
+Для отправки push-уведомления на устройства iOS необходимо [участие в программе разработчиков Apple](https://developer.apple.com/programs/ios/). [Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому нужно использовать физическое устройство под управлением iOS.
 
-Чтобы настроить в приложении отправку уведомлений, создайте новый концентратор уведомлений и настройте его для работы со службами уведомлений платформы, которые будут использоваться.
+##<a name="create-hub"></a>Создание центра уведомлений
 
-Чтобы создать концентратор уведомлений, выполните приведенные ниже действия. Если концентратор уже создан, просто выберите его.
-
-1. Войдите на [портал Azure](https://portal.azure.com/). Последовательно щелкните **Просмотр** > **Мобильные приложения** > ваша серверная часть > **Параметры** > **Мобильные службы** > **Push-уведомления** > **Концентратор уведомлений** > **+ Концентратор уведомлений**, а затем укажите имя и пространство имен для нового концентратора уведомлений и нажмите кнопку **ОК**.
-
-	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
-
-2. В колонке «Создание концентратора уведомлений» нажмите кнопку **Создать**.
-
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
 ##Обновление серверного проекта для отправки push-уведомлений
 
@@ -54,31 +45,29 @@
 
 ##(Необязательно) Настройка и запуск проекта Android
 
-В этом разделе описано, как запустить проект Xamarin Android для устройств под управлением Android. Пропустите этот раздел, если вы не работаете с устройствами Android.
+Выполнив инструкции из этого раздела, вы добавите push-уведомления для проекта Xamarin.Forms Droid для платформы Android.
 
 
-####Включение Google Cloud Messaging (GCM)
-
+###Включение Google Cloud Messaging (GCM)
 
 [AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
+###Настройка серверной части мобильного приложения для отправки push-запросов с использованием GCM
 
-####Настройка концентратора уведомлений для GCM
+[AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
-1. Войдите на [портал Azure](https://portal.azure.com/). Щелкните **Обзор** > **Мобильные приложения** > ваше мобильное приложение > **Параметры** > **Push-уведомления** > **Google (GCM)**. Вставьте ранее созданный ключ API для сервера и нажмите кнопку **Сохранить**. Теперь ваша служба настроена для работы с push-уведомлениями в Android.
+###Добавление push-уведомлений в проект Android
 
-	![](./media/app-service-mobile-xamarin-forms-get-started-push/mobile-app-save-gcm-api-key.png)
+Теперь, когда сервер настроен для использования Google Cloud Messaging (GCM), мы можем добавить в клиент компоненты и код, которые позволят приложению регистрироваться в GCM, регистрироваться в узлах уведомлений Azure для получения push-уведомлений через сервер мобильного приложения, а также получать уведомления.
 
+1. Щелкните правой кнопкой мыши папку **Компоненты** в проекте **Droid**, выберите **Получить дополнительные компоненты...**, найдите компонент **Клиент Google Cloud Messaging** и добавьте его в проект. Этот компонент поддерживает push-уведомления для проекта Xamarin Android.
 
-####Добавление push-уведомлений в проект Android
-
-1. Щелкните правой кнопкой мыши папку "Компоненты", выберите "Получить дополнительные компоненты...", найдите компонент **Клиент Google Cloud Messaging** и добавьте его в проект. Этот компонент позволяет упростить работу с push-уведомлениями в проекте Xamarin Android.
 
 2. Откройте файл проекта MainActivity.cs и добавьте приведенную ниже инструкцию using в начало файла.
 
 		using Gcm.Client;
 
-3. Добавьте в метод `OnCreate` следующий код после вызова `LoadApplication`.
+3. Добавьте в метод **OnCreate** после строки вызова **LoadApplication** следующий код:
 
 	    try
 	    {
@@ -92,7 +81,7 @@
 	    }
 	    catch (Java.Net.MalformedURLException)
 	    {
-	        CreateAndShowDialog("There was an error creating the Mobile Service. Verify the URL", "Error");
+	        CreateAndShowDialog("There was an error creating the client. Verify the URL.", "Error");
 	    }
 	    catch (Exception e)
 	    {
@@ -100,7 +89,7 @@
 	    }
 
 
-4. Добавьте для вспомогательного метода `CreateAndShowDialog` следующий код.
+4. Добавьте новый вспомогательный метод **CreateAndShowDialog**, как показано ниже:
 
 		private void CreateAndShowDialog(String message, String title)
 		{
@@ -112,7 +101,7 @@
 		}
 
 
-5. В классе `MainActivity` добавьте следующий код, чтобы предоставить текущий класс `MainActivity` для выполнения того или иного пользовательского интерфейса в основном потоке, обрабатывающем события от пользовательского интерфейса:
+5. Добавьте следующий код в класс **MainActivity**:
 
 		// Create a new instance field for this activity.
 		static MainActivity instance = null;
@@ -126,41 +115,40 @@
 		    }
 		}
 
-6. Инициализируйте переменную `instance` в начале метода `MainActivity.OnCreate`.
+	Этот класс представляет текущий экземпляр **MainActivity** и позволяет выполнить действия в основном потоке пользовательского интерфейса.
+
+6. Инициализируйте переменную `instance` в начале метода **OnCreate**, как показано ниже.
 
 		// Set the current instance of MainActivity.
 		instance = this;
 
-7. Добавьте файл нового класса в проект **Droid**. Назовите файл нового класса **GcmService**.
+2. Добавьте в проект **Droid** новый файл класса с именем `GcmService.cs`. В начале файла этого класса обязательно должны присутствовать следующие операторы **using**:
 
-8. Обязательно добавьте в начало файла следующие операторы `using`.
-
-		using Gcm.Client;
-		using Microsoft.WindowsAzure.MobileServices;
 		using Android.App;
 		using Android.Content;
+		using Android.Media;
+		using Android.Support.V4.App;
+		using Android.Util;
+		using Gcm.Client;
+		using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json.Linq;
+		using System;
 		using System.Collections.Generic;
 		using System.Diagnostics;
-		using Android.Util;
-		using Newtonsoft.Json.Linq;
 		using System.Text;
-		using System.Linq;
-		using Android.Support.V4.App;
-		using Android.Media;
 
 
-9. Добавьте следующие запросы на разрешения в начало файла — после инструкций `using` и перед объявлением `namespace`.
+9. Добавьте в начало файла (после инструкций **using**, но до объявления **namespace**) следующие запросы на разрешение.
 
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-
-		//GET_ACCOUNTS is only needed for android versions 4.0.3 and below
-		[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
+		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")
 		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
 		[assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
+		//GET_ACCOUNTS is only needed for android versions 4.0.3 and below
+		[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
 
-10. Добавьте следующее определение класса в пространство имен. Замените **<PROJECT_NUMBER>** номером своего проекта, который вы записали ранее.
+10. Добавьте следующее определение класса в пространство имен.
 
 		[BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
 		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
@@ -171,7 +159,9 @@
 		    public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
 		}
 
-11. Обновите класс `GcmService`, чтобы использовать новый широковещательный приемник.
+	>[AZURE.NOTE]Замените **<PROJECT\_NUMBER>** номером своего проекта, который вы записали ранее.
+
+11. Замените пустой класс **GcmService** следующим кодом, который использует новый получатель широковещательных сообщений:
 
 		 [Service]
 		 public class GcmService : GcmServiceBase
@@ -183,9 +173,7 @@
 		 }
 
 
-12. Добавьте следующий код в класс GcmService, который переопределяет обработчик событий OnRegistered и реализует метод `Register`.
-
-	Этот код будет регистрировать текст шаблона для получения шаблонных уведомлений с помощью параметра `messageParam`. Шаблонные уведомления позволяют отправлять уведомления между разными платформами. Дополнительные сведения см. в статье [Шаблоны](https://msdn.microsoft.com/library/azure/dn530748.aspx).
+12. Добавьте в класс **GcmService** следующий код, который переопределяет обработчик событий **OnRegistered** и реализует метод **Register**.
 
 		protected override void OnRegistered(Context context, string registrationId)
 		{
@@ -219,7 +207,9 @@
             }
         }
 
-13. Для обработки входящих push-уведомлений необходимо реализовать обработчик событий `OnMessage`. В этом коде мы будем обрабатывать уведомления и отправлять их в диспетчер уведомлений.
+		Note that this code uses the `messageParam` parameter in the template registration. 
+
+13. Добавьте следующий код, который реализует метод **OnMessage**:
 
 		protected override void OnMessage(Context context, Intent intent)
 		{
@@ -286,7 +276,9 @@
             notificationManager.Notify(1, notification);
         }
 
-14. Необходимо также реализовать обработчики `OnUnRegistered` и `OnError` для приемника.
+	Он обрабатывает входящие уведомления и передает их для отображения в диспетчер уведомлений.
+
+14. Также для **GcmServiceBase** потребуется реализовать методы обработчика **OnUnRegistered** и **OnError**, например так:
 
 		protected override void OnUnRegistered(Context context, string registrationId)
 		{
@@ -298,27 +290,30 @@
 			Log.Error("PushHandlerBroadcastReceiver", "GCM Error: " + errorId);
 		}
 
+Теперь все готово, и вы можете проверить отправку push-уведомлений с помощью приложения, работающего на устройстве Android или в эмуляторе.
 
+###Тестирование push-уведомлений в приложении Android
 
-####Тестирование push-уведомлений в приложении Android
+Первые два шага нужны, только если тестирование выполняется в эмуляторе.
 
-1. В Visual Studio или Xamarin Studio щелкните правой кнопкой мыши проект **droid** и выберите пункт **Назначить запускаемым проектом**.
+1. Убедитесь, что для развертывания или отладки используется виртуальное устройство, на котором в качестве назначения заданы интерфейсы Google API, как показано ниже в диспетчере виртуальных устройств Android (AVD).
 
-2. Нажмите кнопку **запуска**, чтобы создать проект и запустить приложение на устройстве Android.
+2. Добавьте учетную запись Google на устройство Android, щелкнув **Приложения** > **Параметры** > **Добавить учетную запись**. Следуйте указаниям, чтобы использовать на устройстве существующую учетную запись Google или создать новую.
+
+1. В Visual Studio или Xamarin Studio щелкните правой кнопкой мыши проект **Droid** и выберите пункт **Назначить запускаемым проектом**.
+
+2. Нажмите кнопку **Запустить**, чтобы создать проект и запустить приложение на устройстве Android или в эмуляторе.
 
 3. В приложении введите задачу, а затем щелкните значок плюса (**+**).
 
 4. После добавления элемента должно отобразиться соответствующее уведомление.
 
 
-
-
-
 ##(Необязательно) Настройка и запуск проекта iOS
 
 В этом разделе описано, как запустить проект Xamarin iOS для устройств под управлением iOS. Пропустите этот раздел, если вы не работаете с устройствами iOS.
 
-[AZURE.INCLUDE [Включение push-уведомлений Apple через концентраторы уведомлений Xamarin](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [notification-hubs-xamarin-enable-apple-push-notifications](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
 
 
 ####Настройка концентратора уведомлений для APNs
@@ -410,7 +405,7 @@
 
 1. Щелкните проект iOS правой кнопкой мыши и выберите пункт **Назначить запускаемым проектом**.
 
-2. Нажмите кнопку **запуска** или клавишу **F5** в Visual Studio, чтобы выполнить сборку проекта и запустить приложение на устройстве iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
+2. Нажмите кнопку **Запустить** или клавишу **F5** в Visual Studio, чтобы выполнить сборку проекта и запустить приложение на устройстве iOS. Затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
 
 	> [AZURE.NOTE] Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
@@ -419,11 +414,9 @@
 4. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
 
 
+##(Необязательно) Настройка и запуск проектов для Windows
 
-
-##(Необязательно) Настройка и запуск проекта Windows
-
-В этом разделе описано, как запустить проект Xamarin WinApp для устройств под управлением Windows. Пропустите этот раздел, если вы не работаете с устройствами Windows.
+В этом разделе описано, как запускать проекты Xamarin.Forms WinApp и WinPhone81 на устройствах под управлением Windows. Эти действия применимы для любых проектов универсальной платформы Windows (UWP). Пропустите этот раздел, если вы не работаете с устройствами Windows.
 
 
 ####Регистрация приложения Windows для получения push-уведомлений с помощью WNS
@@ -438,26 +431,26 @@
 
 ####Добавление push-уведомлений в приложение Windows
 
-1. В Visual Studio откройте файл **App.xaml.cs** в проекте **WinApp**. Добавьте следующие инструкции `using`:
+1. В Visual Studio откройте файл проекта **App.xaml.cs** и добавьте следующие директивы **using**.
 
+		using Newtonsoft.Json.Linq;
+		using Microsoft.WindowsAzure.MobileServices;
 		using System.Threading.Tasks;
 		using Windows.Networking.PushNotifications;
-		using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json.Linq;
+		using <your_TodoItemManager_portable_class_namespace>;
 
-	Также добавьте оператор `using` для пространства имен в переносимом проекте, содержащем класс `TodoItemManager`.
-
-		using <Your namespace for the TodoItemManager class>;
+	Вместо `<your_TodoItemManager_portable_class_namespace>` укажите пространство имен вашего переносимого проекта, который содержит класс `TodoItemManager`.
  
 
-2. В файл App.xaml.cs добавьте приведенный ниже метод `InitNotificationsAsync`. Этот метод получает канал push-уведомлений и регистрирует шаблон для получения шаблонных уведомлений из концентратора уведомлений. Этому клиенту будет доставлено шаблонное уведомление, поддерживающее параметр `messageParam`.
+2. В файле App.xaml.cs добавьте следующий метод **InitNotificationsAsync**:
 
         private async Task InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            const string templateBodyWNS = "<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>";
+            const string templateBodyWNS = 
+				"<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>";
 
             JObject headers = new JObject();
             headers["X-WNS-Type"] = "wns/toast";
@@ -466,66 +459,49 @@
             templates["genericMessage"] = new JObject
 			{
 				{"body", templateBodyWNS},
-				{"headers", headers} // Only needed for WNS & MPNS
+				{"headers", headers} // Needed for WNS.
 			};
 
-            await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
+            await TodoItemManager.DefaultManager.CurrentClient.GetPush()
+				.RegisterAsync(channel.Uri, templates);
         }
 
-3. В файле App.xaml.cs обновите обработчик событий `OnLaunched` с помощью атрибута `async` и добавьте вызов `InitNotificationsAsync` в нижней части метода.
+	Этот метод получает канал push-уведомлений и регистрирует шаблон для получения шаблонных уведомлений от узла уведомлений. Клиенту будет доставлено шаблонное уведомление, поддерживающее параметр *messageParam*.
 
-        protected async override void OnLaunched(LaunchActivatedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
+3. В файле App.xaml.cs измените метод обработки события **OnLaunched**, добавив модификатор `async`, а затем добавьте в конец метода следующую строку кода:
 
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
-            if (rootFrame == null)
-            {
-                // Create a Frame to act as the navigation context and navigate to the first page
-                rootFrame = new Frame();
-                // Set the default language
-                rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
-                rootFrame.NavigationFailed += OnNavigationFailed;
-                Xamarin.Forms.Forms.Init(e);
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
-                {
-                    //TODO: Load state from previously suspended application
-                }
-                // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
-            }
+        await InitNotificationsAsync();
 
-            if (rootFrame.Content == null)
-            {
-                // When the navigation stack isn't restored navigate to the first page,
-                // configuring the new page by passing required information as a navigation
-                // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
-            }
-            // Ensure the current window is active
-            Window.Current.Activate();
-
-            await InitNotificationsAsync();
-        }
+	Теперь push-уведомления будут создаваться или обновляться при каждом запуске приложения. Это нужно, чтобы push-канал WNS всегда оставался активным.
 
 4. В обозревателе решений для Visual Studio откройте файл **Package.appxmanifest** и в разделе **Notifications** задайте для параметра **Toast Capable** значение **Yes**.
 
-5. Выполните сборку приложения и убедитесь в отсутствии ошибок. Теперь клиентское приложение должно зарегистрироваться для получения шаблонных уведомлений из серверной части мобильного приложения.
+5. Выполните сборку приложения и убедитесь в отсутствии ошибок. Теперь клиентское приложение должно зарегистрироваться для получения шаблонных уведомлений из серверной части мобильного приложения. Повторите действия из этого раздела для каждого проекта Windows, входящего в ваше решение.
 
 
 ####Тестирование push-уведомлений в приложении Windows
 
-1. В Visual Studio щелкните правой кнопкой мыши проект **WinApp** и выберите пункт **Назначить запускаемым проектом**.
-
+1. В Visual Studio щелкните правой кнопкой мыши проект Windows и выберите пункт **Назначить запускаемым проектом**.
 
 2. Нажмите кнопку **Запуск**, чтобы создать проект и запустить приложение.
 
-3. В приложении, введите имя нового объекта todoitem и нажмите значок "плюс" (**+**), чтобы добавить его.
+3. В приложении введите имя нового объекта todoitem и добавьте его, нажав значок плюса (**+**).
 
 4. После добавления элемента должно отобразиться соответствующее уведомление.
 
+##Дальнейшие действия
 
+Дополнительные сведения о push-уведомлениях:
+
+* [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags). Теги позволяют адресовать push-уведомления определенным сегментам клиентов. Узнайте, как указать теги для определенного устройства.
+
+* [Центры уведомлений Azure — рекомендации по диагностике](../notification-hubs/notification-hubs-push-notification-fixer.md). Существуют различные причины, по которым уведомления могут теряться или не доходить до устройств. В этой статье рассказывается, как проанализировать и определить основную причину сбоев для push-уведомлений.
+
+Мы также рекомендуем изучить одно из следующих руководств:
+
+* [Добавление проверки подлинности в приложение](app-service-mobile-xamarin-forms-get-started-users.md). Узнайте, как аутентифицировать пользователей приложения с помощью поставщика удостоверений.
+
+* [Включение автономной синхронизации для приложения](app-service-mobile-xamarin-forms-get-started-offline-data.md). Узнайте, как добавить поддержку автономной работы приложения с помощью серверной части мобильного приложения. Автономная синхронизация позволяет конечным пользователям взаимодействовать с мобильным приложением (просматривать, добавлять или изменять данные) даже при отсутствии подключения к сети.
 
 <!-- Images. -->
 
@@ -534,4 +510,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

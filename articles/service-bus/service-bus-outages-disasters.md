@@ -98,7 +98,7 @@
 Дополнительные сведения об аварийном восстановлении см. в следующих статьях:
 
 - [Обеспечение непрерывности работы базы данных SQL Azure][]
-- [Техническое руководство по непрерывности бизнес-процессов для Azure][]
+- [Техническое руководство по обеспечению устойчивости в Azure][]
 
   [Проверка подлинности служебной шины]: service-bus-authentication-and-authorization.md
   [Секционированные сущности обмена сообщениями]: service-bus-partitioning.md
@@ -109,6 +109,6 @@
   [Георепликация с сообщениями служебной шины, отправляемыми через посредника]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [Отправка сообщений с долгосрочной очередью]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Обеспечение непрерывности работы базы данных SQL Azure]: ../sql-database/sql-database-business-continuity.md
-  [Техническое руководство по непрерывности бизнес-процессов для Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
+  [Техническое руководство по обеспечению устойчивости в Azure]: ../resiliency/resiliency-technical-guidance.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

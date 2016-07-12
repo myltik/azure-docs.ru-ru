@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Веб-приложение Python на Django | Microsoft Azure"
+	pageTitle="Веб-приложение Python на Django | Microsoft Azure"
 	description="В этом учебнике изучается размещение веб-сайта, созданного на основе Django, в Azure с помощью виртуальной машины Windows Server 2012 R2 Datacenter и классической модели развертывания."
 	services="virtual-machines-windows"
 	documentationCenter="python"
@@ -27,7 +27,7 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
  
 
 В этом учебнике описывается, как разместить веб-сайт на основе Django в Microsoft Azure с помощью виртуальной машины Windows Server. В данном учебнике предполагается, что у вас нет опыта использования платформы Azure. По завершении работы с данным учебником у вас будет приложение на базе Django, выполняемое в облаке.
@@ -47,14 +47,14 @@
 
 ## Создание и настройка виртуальной машины Azure для размещения Django
 
-1. Чтобы создать виртуальную машину Azure с Windows Server 2012 R2 Datacenter, следуйте [этим](virtual-machines-windows-classic-tutorial.md) указаниям.
+1. Чтобы создать виртуальную машину Azure с Windows Server 2012 R2 Datacenter, следуйте [этим](virtual-machines-windows-classic-tutorial.md) указаниям.
 
 1. Дайте Azure команду для перенаправления трафика порта 80 из Интернета в порт 80 на виртуальной машине:
  - Перейдите к только что созданной виртуальной машине на классическом портале Azure и откройте вкладку **КОНЕЧНЫЕ ТОЧКИ**.
  - В нижней части страницы нажмите кнопку **ДОБАВИТЬ**. ![добавление конечной точки](./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-addendpoint.png)
 
  - Откройте **ОБЩИЙ ПОРТ 80** протокола **TCP** как **ЧАСТНЫЙ ПОРТ 80**. ![][port80]
-1. На вкладке **ПАНЕЛЬ МОНИТОРИНГА** щелкните **ПОДКЛЮЧИТЬ**, чтобы использовать **Удаленный рабочий стол** для удаленного входа в созданную виртуальную машину Azure.  
+1. На вкладке **ПАНЕЛЬ МОНИТОРИНГА** щелкните **ПОДКЛЮЧИТЬ**, чтобы использовать **Удаленный рабочий стол** для удаленного входа в созданную виртуальную машину Azure.
 
 **Важное примечание.** Во всех инструкциях ниже подразумевается, что вы правильно выполнили вход на виртуальную машину и выполняете команды на ней, а не на локальном компьютере.
 
@@ -62,10 +62,10 @@
 
 **Примечание.** Для скачивания с помощью Internet Explorer может потребоваться настроить параметры конфигурации усиленной безопасности Internet Explorer (выберите «Пуск > Администрирование > Диспетчер серверов > Локальный сервер», щелкните **Конфигурация усиленной безопасности Internet Explorer** и установите значение «Выкл.»).
 
-1. Установите последнюю версию Python 2.7 или 3.4 c сайта [python.org][].
+1. Установите последнюю версию Python 2.7 или 3.4 c сайта [python.org][].
 1. Установите пакеты wfastcgi и django с помощью pip.
 
-    Для Python 2.7 используйте указанную ниже команду.
+    Для Python 2.7 используйте указанную ниже команду.
 
         c:\python27\scripts\pip install wfastcgi
         c:\python27\scripts\pip install django
@@ -85,7 +85,7 @@
 
 1.  В папке *C:\\inetpub\\wwwroot* введите следующую команду для создания нового проекта Django:
 
-    Для Python 2.7 используйте указанную ниже команду.
+    Для Python 2.7 используйте указанную ниже команду.
 
 		C:\Python27\Scripts\django-admin.exe startproject helloworld
 
@@ -184,4 +184,4 @@
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

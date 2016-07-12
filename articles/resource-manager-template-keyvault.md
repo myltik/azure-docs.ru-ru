@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Схема шаблона хранилища ключей
@@ -60,49 +60,49 @@
 
 | Имя | Значение |
 | ---- | ---- | 
-| type | Enum<br />Required<br />**Microsoft.KeyVault/vaults**<br /><br />Тип создаваемого ресурса. |
-| версия\_API | Enum<br />Обязательно<br />**2015-06-01** или **2014-12-19-предварительная версия**<br /><br />Версия API, которая будет использована для создания ресурса. | 
-| name | String<br />Обязательно<br />Имя должно быть уникальным в Azure.<br /><br />Имя создаваемого хранилища ключей. Для создания уникального имени в рамках соглашения об именовании рекомендуется использовать функцию [uniqueString](resource-group-template-functions.md#uniquestring), как показано в примере ниже. |
-| location | String<br />Обязательно<br />Допустимый регион для хранилищ ключей. Сведения об определении допустимых регионов см. в разделе [Поддерживаемые регионы](resource-manager-supported-services.md#supported-regions).<br /><br />Регион для размещения хранилища ключей. |
-| properties | Object<br />Обязательно<br />[объект properties](#properties)<br /><br />Объект, который определяет тип создаваемого хранилища ключей. |
-| ресурсов | Array<br />Необязательно<br />Допустимые значения: [Ресурсы секрета хранилища ключей](resource-manager-template-keyvault-secret.md)<br /><br />Дочерние ресурсы для хранилища ключей. |
+| type | Перечисление.<br />Обязательное значение.<br />**Microsoft.KeyVault/vaults**<br /><br />Тип создаваемого ресурса. |
+| версия\_API | Перечисление.<br />Обязательное значение.<br />**2015-06-01** или **2014-12-19-preview**<br /><br />Версия API, которая будет использоваться для создания ресурса. | 
+| name | Строка.<br />Обязательное значение.<br />Имя должно быть уникальным в Azure.<br /><br />Имя создаваемого хранилища ключей. Для создания уникального имени в рамках соглашения об именовании рекомендуется использовать функцию [uniqueString](resource-group-template-functions.md#uniquestring), как показано в примере ниже. |
+| location | Строка.<br />Обязательное значение.<br />Допустимый регион для хранилищ ключей. Сведения об определении допустимых регионов см. в списке [поддерживаемых регионов](resource-manager-supported-services.md#supported-regions).<br /><br />Регион для размещения хранилища ключей. |
+| properties | Объект.<br />Обязательное значение.<br />[Объект properties](#properties)<br /><br />Объект, который определяет тип создаваемого хранилища ключей. |
+| ресурсов | Массив.<br />Необязательное значение.<br />Допустимые значения: [Ресурсы секретного кода хранилища ключей.](resource-manager-template-keyvault-secret.md)<br /><br />Дочерние ресурсы для хранилища ключей. |
 
 <a id="properties" />
 ### объект properties
 
 | Имя | Значение |
 | ---- | ---- | 
-| enabledForDeployment | Boolean<br />Необязательно<br />**true** или **false**<br /><br />Указывает, позволяет ли хранилище развертывать виртуальную машину или Service Fabric. |
-| enabledForTemplateDeployment | Boolean<br />Необязательно<br />**true** или **false**<br /><br />Указывает, доступно ли хранилище для использования в развертываниях шаблонов диспетчера ресурсов. Дополнительные сведения см. в статье [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md). |
-| enabledForVolumeEncryption | Boolean<br />Необязательно<br />**true** или **false**<br /><br />Указывает, позволяет ли хранилище шифровать тома. |
-| tenantId | String<br />Обязательно<br />**Глобальный уникальный идентификатор**<br /><br />Идентификатор клиента для подписки. Его можно извлечь с помощью командлета PowerShell [Get AzureRMSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) или команды Azure CLI **azure account show**. |
-| accessPolicies | Array<br />Обязательно<br />[объект accessPolicies](#accesspolicies)<br /><br />Массив, содержащий до 16 объектов и определяющий разрешения для пользователя или субъекта-службы. |
-| sku | Object<br />Обязательно<br />[объект sku](#sku)<br /><br />SKU для хранилища ключей. |
+| enabledForDeployment | Логическое значение.<br />Необязательное значение.<br />**true** или **false**<br /><br />Указывает, позволяет ли хранилище развертывать виртуальную машину или Service Fabric. |
+| enabledForTemplateDeployment | Логическое значение.<br />Необязательное значение.<br />**true** или **false**<br /><br />Указывает, доступно ли хранилище для использования в развертываниях шаблона Resource Manager. Дополнительные сведения см. в статье [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md). |
+| enabledForVolumeEncryption | Логическое значение.<br />Необязательное значение.<br />**true** или **false**<br /><br />Указывает, позволяет ли хранилище шифровать тома. |
+| tenantId | Строка.<br />Обязательное значение.<br />**Глобальный уникальный идентификатор.**<br /><br />Идентификатор клиента для подписки. Его можно извлечь с помощью командлета PowerShell [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) или команды Azure CLI **azure account show**. |
+| accessPolicies | Массив.<br />Обязательное значение.<br />[объект accessPolicies](#accesspolicies)<br /><br />Массив, содержащий до 16 объектов и определяющий разрешения для пользователя или субъекта-службы. |
+| sku | Объект.<br />Обязательное значение.<br />[Объект SKU](#sku)<br /><br />SKU для хранилища ключей. |
 
 <a id="accesspolicies" />
 ### Объект properties.accessPolicies
 
 | Имя | Значение |
 | ---- | ---- | 
-| tenantId | String<br />Обязательно<br />**Глобальный уникальный идентификатор**<br /><br />Идентификатор клиента Azure Active Directory, содержащего свойство **objectId** этой политики доступа. |
-| objectId | String<br />Обязательно<br />**Глобальный уникальный идентификатор **<br /><br />Идентификатор объекта пользователя Azure Active Directory или субъекта-службы, который будет иметь доступ в хранилище. Значение можно получить из командлетов PowerShell [Get-AzureRMADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) или [Get-AzureRMADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) либо команд Azure CLI **azure ad user** или **azure ad sp**. |
-| permissions | Object<br />Обязательно<br />[объект permissions](#permissions)<br /><br />Разрешения, предоставленные этому хранилищу в отношении объекта Active Directory. |
+| tenantId | Строка.<br />Обязательное значение.<br />**Глобальный уникальный идентификатор**<br /><br />Идентификатор клиента Azure Active Directory, который содержит свойство **objectId** в этой политике доступа. |
+| objectId | Строка.<br />Обязательное значение.<br />**Глобальный уникальный идентификатор**<br /><br />Идентификатор объекта пользователя Azure Active Directory или субъекта-службы, который будет иметь доступ в хранилище. Значение можно получить из командлетов PowerShell [Get-AzureRmADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) или [Get-AzureRmADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx), а также команд Azure CLI **azure ad user** или **azure ad sp**. |
+| permissions | Объект.<br />Обязательное значение.<br />[Объект permissions](#permissions)<br /><br />Разрешения, предоставленные этому хранилищу в отношении объекта Active Directory. |
 
 <a id="permissions" />
 ### Объект properties.accessPolicies.permissions
 
 | Имя | Значение |
 | ---- | ---- | 
-| ключи | Array<br />Обязательно<br />**all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />Разрешения, предоставленные ключам хранилища в отношении данного объекта Active Directory. Это значение необходимо указать как массив одного или нескольких допустимых значений. |
-| секретные коды | Array<br />Обязательно<br />**all**, **delete**, **get**, **list**, **set**<br /><br />Разрешения, предоставленные секретным кодам хранилища в отношении данного объекта Active Directory. Это значение необходимо указать как массив одного или нескольких допустимых значений. |
+| ключи | Массив.<br />Обязательное значение.<br />**all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />Разрешения, предоставленные ключам хранилища в отношении объекта Active Directory. Это значение необходимо указать как массив одного или нескольких допустимых значений. |
+| секретные коды | Массив.<br />Обязательное значение.<br />**all**, **delete**, **get**, **list**, **set**<br /><br />Разрешения, предоставленные секретным кодам хранилища в отношении объекта Active Directory. Это значение необходимо указать как массив одного или нескольких допустимых значений. |
 
 <a id="sku" />
 ### Объект properties.sku
 
 | Имя | Значение |
 | ---- | ---- | 
-| name | Enum<br />Обязательно<br />**standard** или **premium** <br /><br />Уровень обслуживания используемого хранилища ключей. Хранилище уровня Standard поддерживает секретные коды и ключи, защищенные с помощью ПО. Хранилище уровня Premium поддерживает ключи, защищенные аппаратным модулем безопасности. |
-| family | Enum<br />Обязательно<br />**A** <br /><br />Используемое семейство SKU. |
+| name | Перечисление.<br />Обязательное значение.<br />**standard** или **premium** <br /><br />Используемый уровень обслуживания хранилища ключей. Хранилище уровня Standard поддерживает секретные коды и ключи, защищенные с помощью ПО. Хранилище уровня Premium поддерживает ключи, защищенные аппаратным модулем безопасности. |
+| family | Перечисление.<br />Обязательное значение.<br />**A** <br /><br />Используемое семейство SKU. |
  
 	
 ## Примеры
@@ -122,13 +122,13 @@
             "tenantId": {
                 "type": "string",
                 "metadata": {
-                   "description": "Tenant Id for the subscription and use assigned access to the vault. Available from the Get-AzureRMSubscription PowerShell cmdlet"
+                   "description": "Tenant ID for the subscription and use assigned access to the vault. Available from the Get-AzureRmSubscription PowerShell cmdlet"
                 }
             },
             "objectId": {
                 "type": "string",
                 "metadata": {
-                    "description": "Object Id of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRMADUser or the Get-AzureRMADServicePrincipal cmdlets"
+                    "description": "Object ID of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRmADUser or the Get-AzureRmADServicePrincipal cmdlets"
                 }
             },
             "keysPermissions": {
@@ -245,4 +245,4 @@
 - Общие сведения о хранилищах ключей см. в разделе [Приступая к работе с хранилищем ключей Azure](./key-vault/key-vault-get-started.md).
 - Пример ссылки на секретный код хранилища ключей при развертывании шаблонов см. в статье [ Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

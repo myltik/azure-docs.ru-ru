@@ -5,7 +5,7 @@ Azure предлагает отличные облачные решения на
 
 **Но это уже устаревшие новости.** А вот *свежие* новости — Azure предоставляет еще больше удобств Docker:
 
-- [много](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md) [разных](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md) [способов](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md) [создания узлов Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) для контейнеров в соответствии с конкретной ситуацией;
+- [много](../articles/virtual-machines/virtual-machines-linux-docker-machine.md) [разных](../articles/virtual-machines/virtual-machines-linux-dockerextension.md) способов создания узлов Docker для контейнеров в соответствии с конкретной ситуацией;
 - [диспетчер ресурсов Azure](../articles/resource-group-overview.md) и [шаблоны групп ресурсов](../articles/resource-group-authoring-templates.md) упрощают развертывание и обновление сложных распределенных приложений;
 - интеграцию с большим массивом частных инструментов управления конфигурациями и инструментов управления конфигурациями с открытым исходным кодом.
 
@@ -116,7 +116,7 @@ Azure предлагает отличные облачные решения на
 
 У Docker есть собственный набор инструментов для создания виртуальной машины ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)) и инструмент управления кластерами контейнеров Docker с балансировкой нагрузки ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). Кроме того, расширение [Docker для виртуальных машин Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) по умолчанию поддерживает [`docker-compose`](https://docs.docker.com/compose/), который позволяет развертывать настроенные контейнеры приложений в нескольких контейнерах.
 
-Вы также можете попробовать ОС [Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/) от Mesosphere. DCOS основана на проекте с открытым исходным кодом [mesos](http://mesos.apache.org/) для ядра распределенных систем, который позволяет реализовать центр обработки данных как одну адресуемую службу. DCOS оснащена встроенными пакетами для нескольких важных систем, таких как [Spark](http://spark.apache.org/) и [Kafka](http://kafka.apache.org/) (и др.), а также встроенными службами, такими как [Marathon](https://mesosphere.github.io/marathon/) (система управления контейнерами) и [Chronos](https://mesosphere.github.io/chronos/) (распределенный планировщик). Mesos создан с учетом уроков, полученных при развитии Twitter, AirBnb и других веб-масштабируемых компаний.
+Вы также можете попробовать ОС [Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/) от Mesosphere. DCOS основана на проекте с открытым исходным кодом [mesos](http://mesos.apache.org/) для ядра распределенных систем, который позволяет реализовать центр обработки данных как одну адресуемую службу. DCOS оснащена встроенными пакетами для нескольких важных систем, таких как [Spark](http://spark.apache.org/) и [Kafka](http://kafka.apache.org/) (и др.), а также встроенными службами, такими как [Marathon](https://mesosphere.github.io/marathon/) (система управления контейнерами) и [Chronos](https://mesos.github.io/chronos/) (распределенный планировщик). Mesos создан с учетом уроков, полученных при развитии Twitter, AirBnb и других веб-масштабируемых компаний.
 
 Кроме того, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) — это система для управления группами виртуальных машин и контейнеров с открытым исходным кодом, созданная с учетом опыта Google. Вы даже можете использовать [kubernetes совместно с weave для обеспечения поддержки сети](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
@@ -164,7 +164,6 @@ Docker в Microsoft Azure:
 - [Руководство пользователя для Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md)
 - [Использование расширения виртуальных машин Docker на портале Azure](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md)
-- [Как быстро приступить к работе с Docker в Azure Marketplace](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md)
 - [Использование docker-machine в Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)
 - [Как использовать Docker со Swarm в Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)
 - [Начало работы с решениями Docker и Compose в Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
@@ -196,10 +195,6 @@ Docker в Microsoft Azure:
 	- [Сторонние решения. Подключаемый модуль ведомого режима Hudson для Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
 	- [Сторонние решения. Подключаемый модуль хранилища Hudson для Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
 
--	[Chef](https://docs.chef.io/index.html)
-	- [Chef и виртуальные машины](../articles/virtual-machines/virtual-machines-windows-install-chef-client.md)
-	- [Видео. Что такое Chef и как это работает?](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
-
 -	[Служба автоматизации Azure](https://azure.microsoft.com/services/automation/)
 	- [Видео. Использование службы автоматизации Azure для виртуальных машин Linux](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
 
@@ -216,4 +211,4 @@ Docker в Microsoft Azure:
 [микрослужбы]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

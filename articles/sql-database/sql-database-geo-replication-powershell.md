@@ -12,7 +12,7 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
+   ms.workload="sqldb-bcdr"
     ms.date="06/14/2016"
     ms.author="sstein"/>
 
@@ -26,7 +26,7 @@
 
 В этой статье показано, как настроить активную георепликацию для базы данных SQL Azure с помощью PowerShell.
 
-Чтобы инициировать отработку отказа, обратитесь к статье [Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью PowerShell](sql-database-geo-replication-failover-powershell.md).
+Чтобы инициировать отработку отказа с помощью PowerShell, ознакомьтесь с разделом [Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью PowerShell](sql-database-geo-replication-failover-powershell.md).
 
 >[AZURE.NOTE] Активная георепликация (с доступными для чтения базами данных-получателями) теперь доступна для всех баз данных и всех уровней обслуживания. В апреле 2017 г. недоступные для чтения базы данных-получатели будут удалены, и существующие недоступные для чтения базы данных-получатели будут автоматически преобразованы в доступные для чтения.
 
@@ -34,7 +34,7 @@
 
 Для настройки активной георепликации с помощью PowerShell необходимо следующее.
 
-- Подписка Azure. 
+- Подписка Azure.
 - База данных SQL Azure — база данных-источник, которую необходимо реплицировать.
 - Azure PowerShell, начиная с версии 1.0. Модули Azure PowerShell можно загрузить и установить, выполнив инструкции из раздела [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
@@ -143,24 +143,9 @@
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
 
-  
-
 ## Дальнейшие действия
 
-- [Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure](sql-database-geo-replication-failover-powershell.md)
-- [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
+- Чтобы больше узнать об активной георепликации, ознакомьтесь с разделом [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md).
+- Чтобы изучить сценарии проектирования и восстановления непрерывности бизнес-процессов, ознакомьтесь со [сценариями обеспечения непрерывности](sql-database-business-continuity-scenarios.md).
 
-
-
-
-## Дополнительные ресурсы
-
-- [Настройки безопасности для георепликации](sql-database-geo-replication-security-config.md)
-- [Новые возможности георепликации](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Часто задаваемые вопросы о непрерывности бизнес-процессов и аварийном восстановлении в базах данных SQL](sql-database-bcdr-faq.md)
-- [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [Активная георепликация](sql-database-geo-replication-overview.md)
-- [Проектирование приложений для аварийного восстановления в облаке](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Финализация восстановленной Базы данных SQL Azure](sql-database-recovered-finalize.md)
-
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -26,7 +26,7 @@
 
 В этой статье показано, как настроить прослушиватель для группы доступности AlwaysOn с помощью **внутренней подсистемы балансировки нагрузки**.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов. Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в модели Resource Manager описана в статье [Настройка внутреннего балансировщика нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в модели Resource Manager описана в статье [Настройка внутреннего балансировщика нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 
 В группе доступности могут быть реплики, доступные только локально или только в Azure. В гибридных конфигурациях возможны оба способа доступа одновременно. Реплики в Azure могут находиться в одном или нескольких регионах (при использовании нескольких виртуальных сетей). В приведенных ниже указаниях предполагается, что вы уже [настроили группу доступности](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md), но еще не настроили прослушиватель.
@@ -138,4 +138,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="04/13/2016"
+ ms.date="06/28/2016"
  ms.author="xpillons"/>
 
 # Выполнение заданий STAR-CCM+ в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC
@@ -286,7 +286,7 @@
     exit ${RTNSTS}
 ```
 
-В рамках теста мы использовали маркер лицензии увеличения мощности по требованию. Для переменной среды **$CDLMD\_LICENSE\_FILE** этого маркера необходимо задать значение **1999@flex.cd-adapco.com**. Кроме того, нужно задать ключ в параметре **-podkey** командной строки.
+В рамках теста мы использовали маркер лицензии увеличения мощности по требованию. Для этого маркера переменной среды **$CDLMD\_LICENSE\_FILE** необходимо присвоить значение **1999@flex.cd-adapco.com**. Кроме того, нужно задать ключ в параметре командной строки **-podkey**.
 
 После инициализации сценарий извлечет из переменных среды **$CCP\_NODES\_CORES**, заданных в пакете HPC, список узлов для создания файла узла, используемого средством запуска MPI. Этот файл узла будет содержать список имен вычислительных узлов, используемых для задания (по одному имени в строке).
 
@@ -308,7 +308,7 @@
 
 Для Intel MPI в среде Azure используются следующие параметры MPI:
 
-*   `-mpi intel`, чтобы указать Intel MPI;
+*   `-mpi intel` для указания Intel MPI;
 
 *   `-fabric UDAPL` для использования команд Azure InfiniBand;
 
@@ -345,4 +345,4 @@
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

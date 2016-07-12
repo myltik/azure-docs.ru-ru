@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -125,6 +125,7 @@
 
 ![Включение CDN для конечной точки потоковой передачи][streaming-endpoint-enable-cdn]
 
+>[AZURE.IMPORTANT] Интеграция служб мультимедиа Azure с Azure CDN реализуется на базе **Azure CDN от Verizon**. Если для служб мультимедиа Azure требуется использовать **Azure CDN от Akamai**, необходимо [настроить конечную точку вручную](../cdn/cdn-create-new-endpoint.md). Дополнительные сведения о компонентах Azure CDN см. в [обзоре CDN](../cdn/cdn-overview.md).
 
 ###Дополнительные замечания
 
@@ -150,4 +151,4 @@
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

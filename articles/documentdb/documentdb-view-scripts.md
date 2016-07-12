@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/28/2016"
 	ms.author="anhoh"/>
 
 # Создавайте и запускайте хранимые процедуры, триггеры и определяемые пользователем функции с помощью обозревателя скриптов DocumentDB
@@ -117,6 +117,6 @@
 
 Дополнительные сведения о программировании DocumentDB на стороне сервера см. в статье [Хранимые процедуры, триггеры баз данных и определяемые пользователем функции](documentdb-programming.md).
 
-[Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/) — еще один полезный ресурс, который поможет вам узнать больше о DocumentDB.
+[Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/) — еще один полезный ресурс, который поможет вам узнать больше о DocumentDB.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

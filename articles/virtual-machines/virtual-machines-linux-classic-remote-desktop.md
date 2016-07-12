@@ -20,7 +20,7 @@
 
 #Использование удаленного рабочего стола для подключения к виртуальной машине Microsoft Azure на базе Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ##Обзор
@@ -116,4 +116,4 @@ Xrdp представляет собой сервер RDP с открытым и
 ##Далее
 Дополнительные сведения об использовании xrdp см. [здесь](http://www.xrdp.org/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

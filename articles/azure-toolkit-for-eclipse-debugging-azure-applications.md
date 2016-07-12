@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="05/04/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
@@ -48,7 +48,7 @@
     1. Для параметра **Java project to debug** (Проект Java для отладки) выберите проект **MyHelloWorld**.
     1. Для параметра **Configure debugging for** (Настроить отладку для) выберите **Azure cloud (staging)** (Облако Azure, промежуточная среда).
     1. Убедитесь, что флажок **Azure compute emulator** (Эмулятор вычислений Azure) снят.
-    1. Для параметра **Узел** введите DNS-имя промежуточного развертывания, но без **http://** в начале. Например, (используйте свой идентификатор GUID вместо приведенного здесь): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**.
+    1. Для параметра **Узел** введите DNS-имя промежуточного развертывания, но без **http://** в начале. Например (используйте свой идентификатор GUID вместо приведенного здесь): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**.
 1. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Azure Debug Configuration** (Конфигурация отладки Azure).
 1. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Properties for WorkerRole1 Debugging** (Свойства для отладки WorkerRole1).
 1. Если вы еще не задали точку останова в index.jsp, задайте ее:
@@ -96,7 +96,7 @@
     1. В обозревателе проектов Eclipse разверните узел **MyHelloWorld**, разверните узел **WebContent** и дважды щелкните **index.jsp**.
     1. В пределах index.jsp щелкните правой кнопкой мыши синюю полосу слева от кода Java и выберите пункт **Toggle Breakpoints** (Переключить точки останова), как показано ниже: ![][ic551537]
 
-    Если вы видите значок точки останова в синей полосе слева от кода Java, точка остановка установлена.
+       Если вы видите значок точки останова в синей полосе слева от кода Java, точка остановка установлена.
 1. Запустите приложение в эмуляторе вычислений, нажав кнопку **Run in Azure Emulator** (Запуск в эмуляторе Azure) на панели инструментов Azure.
 1. В меню Eclipse выберите **Выполнить** и щелкните **Debug Configurations** (Конфигурации отладки).
 1. В диалоговом окне **Debug Configurations** (Конфигурации отладки) разверните узел **Remote Java Application** (Удаленное приложение Java) на левой панели, выберите **Azure Emulator (WorkerRole1)** (Эмулятор Azure [WorkerRole1]) и нажмите кнопку **Отладка**.
@@ -133,4 +133,4 @@
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

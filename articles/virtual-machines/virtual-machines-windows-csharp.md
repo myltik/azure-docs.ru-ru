@@ -14,26 +14,22 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="06/24/2016"
 	ms.author="davidmu"/>
 
 # Развертывание ресурсов Azure с помощью языка C# 
 
-В этой статье демонстрируется настройка проверки подлинности и хранилища с помощью Azure PowerShell и последующее создание ресурсов Azure с помощью C#.
+В этой статье показано, как создавать ресурсы Azure с помощью C#.
 
-Для работы с этим учебником необходимы указанные ниже компоненты.
+Сначала необходимо выполнить следующее.
 
-- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0.](http://www.microsoft.com/download/details.aspx?id=40855)
-- [Токен проверки подлинности](../resource-group-authenticate-service-principal.md)
+- Установите [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx).
+- Проверьте, установлен ли компонент [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+- Получите [маркер аутентификации](../resource-group-authenticate-service-principal.md).
 
 На выполнение этих действий требуется примерно 30 минут.
 
-## Шаг 1. Установка Azure PowerShell
-
-Сведения о том, как установить последнюю версию Azure PowerShell, выбрать нужную подписку и выполнить вход в учетную запись Azure, см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
-
-## Действие 2. Создание проекта Visual Studio и установка библиотек
+## Действие 1. Создание проекта Visual Studio и установка библиотек
 
 Самый простой способ установить библиотеки, необходимые для завершения работы с данным учебником, — это использовать пакеты NuGet. Вам потребуется установить библиотеку управления ресурсами Azure, библиотеку проверки подлинности Azure Active Directory и библиотеку поставщика ресурсов компьютера. Чтобы добавить эти библиотеки в Visual Studio, выполните следующие действия.
 
@@ -51,20 +47,20 @@
 
 7. В поле поиска введите *Microsoft.Azure.Management.Storage*, нажмите кнопку **Установить**, чтобы установить библиотеки Storage для .NET, а затем следуйте инструкциям по установке пакета.
 
-8. В поле поиска введите *Microsoft.Azure.ResourceManager* и нажмите кнопку **Установить**, чтобы установить библиотеки управления ресурсами.
+8. В поле поиска введите *Microsoft.Azure.Management.ResourceManager* и нажмите кнопку **Установить**, чтобы установить библиотеки управления ресурсами.
 
 Теперь вы готовы использовать библиотеки для создания приложения.
 
-## Действие 3. Создание учетных данных, используемых для проверки подлинности запросов
+## Шаг 2. Создание учетных данных, используемых для аутентификации запросов
 
-Теперь, когда создано приложение Azure Active Directory и установлена библиотека проверки подлинности, можно на основе сведений о приложении создать учетные данные, которые будут использоваться для проверки подлинности запросов к диспетчеру Azure Resource Manager. Процедура
+Теперь, когда создано приложение Azure Active Directory и установлена библиотека проверки подлинности, можно на основе сведений о приложении создать учетные данные, которые будут использоваться для проверки подлинности запросов к Azure Resource Manager. Процедура
 
 1. Откройте файл Program.cs для созданного вами проекта и добавьте в начало файла указанные ниже операторы using:
 
         using Microsoft.Azure;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Azure.Management.Resources;
-        using Microsoft.Azure.Management.Resources.Models;
+        using Microsoft.Azure.Management.ResourceManager;
+        using Microsoft.Azure.Management.ResourceManager.Models;
         using Microsoft.Azure.Management.Storage;
         using Microsoft.Azure.Management.Storage.Models;
         using Microsoft.Azure.Management.Network;
@@ -75,32 +71,28 @@
 
 2. Добавьте в класс Program этот метод, чтобы получить токен, необходимый для создания учетных данных:
 
-        private static string GetAuthorizationHeader()
+        private static async Task<AuthenticationResult> GetAccessTokenAsync()
         {
-          ClientCredential cc = new ClientCredential("{application-id}", "{password}");
+          var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
           var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-
           if (result == null)
           {
-            throw new InvalidOperationException("Failed to obtain the JWT token");
+            throw new InvalidOperationException("Could not get the token");
           }
-
-          string token = result.AccessToken;
-
           return token;
         }
 
-	Замените {application-id} записанным ранее идентификатором приложения, {password} — паролем, заданным вами для приложения AD, и {tenant-id} — идентификатором клиента для своей подписки. Чтобы узнать идентификатор клиента, выполните команду Get-AzureRmSubscription.
+	Замените {client-id} идентификатором приложения Azure Active Directory, {client-secret} — ключом доступа приложения AD, а {tenant-id} — кодом клиента своей подписки. Чтобы узнать идентификатор клиента, выполните команду Get-AzureRmSubscription. Ключ доступа можно узнать на портале Azure.
 
 3. Чтобы создать учетные данные, добавьте этот код в метод Main в файле Program.cs:
 
-        var token = GetAuthorizationHeader();
-        var credential = new TokenCredentials(token);
+        var token = GetAccessTokenAsync();
+        var credential = new TokenCredentials(token.Result.AccessToken);
 
 4. Сохраните файл Program.cs.
 
-## Действие 4. Добавление кода для регистрации поставщиков и создания ресурсов
+## Шаг 3. Добавление кода для регистрации поставщиков и создания ресурсов
 
 ### Регистрация поставщиков и создание группы ресурсов
 
@@ -109,90 +101,90 @@
 1. Добавьте переменные в метод Main класса Program, чтобы указать имена, которые вы хотите использовать для ресурсов, расположение ресурсов (например "Центральная часть США"), данные учетной записи администратора и идентификатор вашей подписки:
 
         var groupName = "resource group name";
-        var ipName = "public ip name";
-        var avSetName = "availability set name";
-        var nicName = "network interface name";
+        var subscriptionId = "subsciption id";
+        var location = "location name";
         var storageName = "storage account name";
-        var vmName = "virtual machine name";  
-        var vnetName = "virtual network name";
+        var ipName = "public ip name";
         var subnetName = "subnet name";
+        var vnetName = "virtual network name";
+        var nicName = "network interface name";
+        var avSetName = "availability set name";
+        var vmName = "virtual machine name";  
         var adminName = "administrator account name";
         var adminPassword = "administrator account password";
-        var location = "location name";
-        var subscriptionId = "subsciption id";
-
+        
     Замените все значения переменных именами и идентификаторами, которые вы хотите использовать. Чтобы узнать идентификатор подписки, выполните команду Get-AzureRmSubscription.
 
-2. Чтобы создать группу ресурсов, добавьте этот метод в класс Program:
+2. Чтобы создать группу ресурсов и зарегистрировать поставщики, добавьте приведенный ниже метод в класс Program.
 
-        public static void CreateResourceGroup(
+        public static async Task<ResourceGroup> CreateResourceGroupAsync(
           TokenCredentials credential,
           string groupName,
           string subscriptionId,
           string location)
         {
-          Console.WriteLine("Creating the resource group...");
-          var resourceManagementClient = new ResourceManagementClient(credential);
-          resourceManagementClient.SubscriptionId = subscriptionId;
-          var resourceGroup = new ResourceGroup {
-            Location = location
-          };
-          var rgResult = resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, resourceGroup);
-          Console.WriteLine(rgResult.Properties.ProvisioningState);
-
           var rpResult = resourceManagementClient.Providers.Register("Microsoft.Storage");
           Console.WriteLine(rpResult.RegistrationState);
           rpResult = resourceManagementClient.Providers.Register("Microsoft.Network");
           Console.WriteLine(rpResult.RegistrationState);
           rpResult = resourceManagementClient.Providers.Register("Microsoft.Compute");
           Console.WriteLine(rpResult.RegistrationState);
+          
+          Console.WriteLine("Creating the resource group...");
+          var resourceManagementClient = new ResourceManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          var resourceGroup = new ResourceGroup { Location = location };
+          return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(groupName, resourceGroup);
         }
 
 3. Для вызова только что добавленного метода добавьте этот код в метод Main:
 
-        CreateResourceGroup(
+        var rgResult = CreateResourceGroupAsync(
           credential,
           groupName,
           subscriptionId,
           location);
+        Console.WriteLine(rgResult.Result.Properties.ProvisioningState);
         Console.ReadLine();
 
 ### Создайте учетную запись хранения.
 
-Для сохранения файла виртуального жесткого диска, созданного для виртуальной машины, необходима учетная запись хранения.
+Для хранения файла виртуального жесткого диска, созданного для виртуальной машины, необходима [учетная запись хранения](../storage/storage-create-storage-account.md).
 
 1. Чтобы создать учетную запись хранения, добавьте этот метод в класс Program:
 
-        public static void CreateStorageAccount(
-          TokenCredentials credential,         
-          string storageName,
+        public static async Task<StorageAccount> CreateStorageAccountAsync(
+          TokenCredentials credential,       
           string groupName,
           string subscriptionId,
-          string location)
+          string location,
+          string storageName)
         {
           Console.WriteLine("Creating the storage account...");
           var storageManagementClient = new StorageManagementClient(credential);
-          storageManagementClient.SubscriptionId = subscriptionId;
-          var saResult = storageManagementClient.StorageAccounts.Create(
+            { SubscriptionId = subscriptionId };
+          return await storageManagementClient.StorageAccounts.CreateAsync(
             groupName,
             storageName,
             new StorageAccountCreateParameters()
             {
-              AccountType = AccountType.StandardLRS,
+              Sku = new Microsoft.Azure.Management.Storage.Models.Sku() 
+                { Name = SkuName.StandardLRS},
+              Kind = Kind.Storage,
               Location = location
             }
           );
-          Console.WriteLine(saResult.ProvisioningState);
         }
 
 2. Для вызова только что добавленного метода добавьте этот код в метод Main класса Program:
 
-        CreateStorageAccount(
+        var stResult = CreateStorageAccountAsync(
           credential,
-          storageName,
           groupName,
           subscriptionId,
-          location);
+          location,
+          storageName);
+        Console.WriteLine(stResult.Result.ProvisioningState);  
         Console.ReadLine();
 
 ### Создание общедоступного IP-адреса
@@ -201,17 +193,17 @@
 
 1. Чтобы создать общедоступный IP-адрес виртуальной машины, добавьте этот метод в класс Program:
 
-        public static void CreatePublicIPAddress(
-          TokenCredentials credential,
-          string ipName,  
+        public static async Task<PublicIPAddress> CreatePublicIPAddressAsync(
+          TokenCredentials credential,  
           string groupName,
           string subscriptionId,
-          string location)
+          string location,
+          string ipName)
         {
           Console.WriteLine("Creating the public ip...");
-          var networkManagementClient = new NetworkManagementClient(credential);
-          networkManagementClient.SubscriptionId = subscriptionId;
-          var ipResult = networkManagementClient.PublicIPAddresses.CreateOrUpdate(
+          var networkManagementClient = new NetworkManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          return await networkManagementClient.PublicIPAddresses.CreateOrUpdateAsync(
             groupName,
             ipName,
             new PublicIPAddress
@@ -220,17 +212,17 @@
               PublicIPAllocationMethod = "Dynamic"
             }
           );
-          Console.WriteLine(ipResult.ProvisioningState);
         }
 
 2. Для вызова только что добавленного метода добавьте этот код в метод Main класса Program:
 
-        CreatePublicIPAddress(
+        var ipResult = CreatePublicIPAddressAsync(
           credential,
-          ipName,
           groupName,
           subscriptionId,
-          location);
+          location,
+          ipName);
+        Console.WriteLine(ipResult.Result.ProvisioningState);  
         Console.ReadLine();
 
 ### Создание виртуальной сети
@@ -239,19 +231,17 @@
 
 1. Добавьте этот метод в класс Program, чтобы создать подсеть и виртуальную сеть:
 
-        public static void CreateNetwork(
+        public static async Task<VirtualNetwork> CreateVirtualNetworkAsync(
           TokenCredentials credential,
-          string vnetName,
-          string subnetName,
-          string nicName,
-          string ipName,
           string groupName,
           string subscriptionId,
-          string location)
+          string location,
+          string vnetName,
+          string subnetName)
         {
           Console.WriteLine("Creating the virtual network...");
-          var networkManagementClient = new NetworkManagementClient(credential);
-          networkManagementClient.SubscriptionId = subscriptionId;
+          var networkManagementClient = new NetworkManagementClient(credential)
+            { SubscriptionId = subscriptionId };
           
           var subnet = new Subnet
           {
@@ -263,7 +253,7 @@
             AddressPrefixes = new List<string> { "10.0.0.0/16" }
           };
           
-          var vnResult = networkManagementClient.VirtualNetworks.CreateOrUpdate(
+          return await networkManagementClient.VirtualNetworks.CreateOrUpdateAsync(
             groupName,
             vnetName,
             new VirtualNetwork
@@ -273,19 +263,47 @@
               Subnets = new List<Subnet> { subnet }
             }
           );
-          
-          Console.WriteLine(vnResult.ProvisioningState);
-          
-          var subnetResponse = networkManagementClient.Subnets.Get(
+        }
+        
+2. Для вызова только что добавленного метода добавьте этот код в метод Main класса Program:
+
+        var vnResult = CreateVirtualNetworkAsync(
+          credential,
+          groupName,
+          subscriptionId,
+          location,
+          vnetName,
+          subnetName);
+        Console.WriteLine(vnResult.Result.ProvisioningState);  
+        Console.ReadLine();
+        
+### Создание сетевого интерфейса
+
+Для обмена данными в виртуальной сетью, которую вы только что создали, виртуальной машине нужен сетевой интерфейс.
+
+1. Чтобы создать сетевой интерфейс, добавьте приведенный ниже метод в класс Program.
+
+        public static async Task<NetworkInterface> CreateNetworkInterfaceAsync(
+          TokenCredentials credential,
+          string groupName,
+          string subscriptionId,
+          string location,
+          string subnetName,
+          string vnetName,
+          string ipName,
+          string nicName)
+        {
+          Console.WriteLine("Creating the network interface...");
+          var networkManagementClient = new NetworkManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          var subnetResponse = await networkManagementClient.Subnets.GetAsync(
             groupName,
             vnetName,
             subnetName
           );
+          var pubipResponse = await networkManagementClient.PublicIPAddresses.GetAsync(groupName, ipName);
 
-          var pubipResponse = networkManagementClient.PublicIPAddresses.Get(groupName, ipName);
-
-          Console.WriteLine("Updating the network with the nic...");
-          var nicResult = networkManagementClient.NetworkInterfaces.CreateOrUpdate(
+          return await networkManagementClient.NetworkInterfaces.CreateOrUpdateAsync(
             groupName,
             nicName,
             new NetworkInterface
@@ -295,27 +313,27 @@
               {
                 new NetworkInterfaceIPConfiguration
                 {
-                  Name = "nicConfig1",
+                  Name = nicName,
                   PublicIPAddress = pubipResponse,
                   Subnet = subnetResponse
                 }
               }
             }
           );
-          Console.WriteLine(vnResult.ProvisioningState);
         }
 
 2. Для вызова только что добавленного метода добавьте этот код в метод Main класса Program:
 
-        CreateNetwork(
+        var ncResult = CreateNetworkInterfaceAsync(
           credential,
-          vnetName,
-          subnetName,
-          nicName,
-          ipName,
           groupName,
           subscriptionId,
-          location);
+          location,
+          subnetName,
+          vnetName,
+          ipName,
+          nicName);
+        Console.WriteLine(ncResult.Result.ProvisioningState);  
         Console.ReadLine();
 
 ### "Создать группу доступности"
@@ -324,17 +342,17 @@
 
 1. Чтобы создать группу доступности, добавьте этот метод в класс Program:
 
-        public static void CreateAvailabilitySet(
+        public static async Task<AvailabilitySet> CreateAvailabilitySetAsync(
           TokenCredentials credential,
-          string avsetName,
           string groupName,
           string subscriptionId,
-          string location)
+          string location,
+          string avsetName)
         {
           Console.WriteLine("Creating the availability set...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          var avResult = computeManagementClient.AvailabilitySets.CreateOrUpdate(
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          return await computeManagementClient.AvailabilitySets.CreateOrUpdateAsync(
             groupName,
             avsetName,
             new AvailabilitySet()
@@ -346,12 +364,12 @@
 
 2. Для вызова только что добавленного метода добавьте этот код в метод Main класса Program:
 
-        CreateAvailabilitySet(
-          credential,
-          avSetName,
+        var avResult = CreateAvailabilitySetAsync(
+          credential,  
           groupName,
           subscriptionId,
-          location);
+          location,
+          avSetName);
         Console.ReadLine();
 
 ### Создание виртуальной машины
@@ -360,20 +378,20 @@
 
 1. Чтобы создать виртуальную машину, добавьте этот метод в класс Program:
 
-        public static void CreateVirtualMachine(
-          TokenCredentials credential,
-          string vmName,
+        public static async Task<VirtualMachine> CreateVirtualMachineAsync(
+          TokenCredentials credential, 
           string groupName,
+          string subscriptionId,
+          string location,
           string nicName,
           string avsetName,
           string storageName,
           string adminName,
           string adminPassword,
-          string subscriptionId,
-          string location)
+          string vmName)
         {
           var networkManagementClient = new NetworkManagementClient(credential);
-          networkManagementClient.SubscriptionId = subscriptionId;
+            { SubscriptionId = subscriptionId };
           var nic = networkManagementClient.NetworkInterfaces.Get(groupName, nicName);
 
           var computeManagementClient = new ComputeManagementClient(credential);
@@ -381,7 +399,7 @@
           var avSet = computeManagementClient.AvailabilitySets.Get(groupName, avsetName);
 
           Console.WriteLine("Creating the virtual machine...");
-          var vm = computeManagementClient.VirtualMachines.CreateOrUpdate(
+          return await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(
             groupName,
             vmName,
             new VirtualMachine
@@ -440,42 +458,46 @@
 
 2. Для вызова только что добавленного метода добавьте этот код в метод Main:
 
-        CreateVirtualMachine(
+        var vmResult = CreateVirtualMachineAsync(
           credential,
-          vmName,
           groupName,
+          subscriptionId,
+          location,
           nicName,
-          avSetName,
+          avsetName,
           storageName,
           adminName,
           adminPassword,
-          subscriptionId,
-          location);
+          vmName);
+        Console.WriteLine(vmResult.Result.ProvisioningState);
         Console.ReadLine();
 
-##Действие 5. Добавление кода для удаления ресурсов
+##Шаг 4. Добавление кода для удаления ресурсов
 
 Так как за использование ресурсов Azure взимается плата, рекомендуется всегда удалять ресурсы, которые больше не нужны. Если вы хотите удалить виртуальные машины и все вспомогательные ресурсы, достаточно удалить группу ресурсов.
 
-1. Чтобы удалить группу ресурсов, добавьте этот метод в класс Program:
+1.	Чтобы удалить группу ресурсов, добавьте этот метод в класс Program:
 
-        public static void DeleteResourceGroup(
+        public static async void DeleteResourceGroupAsync(
           TokenCredentials credential,
-          string groupName)
+          string groupName,
+          string subscriptionId)
         {
-            Console.WriteLine("Deleting resource group...");
-            var resourceGroupClient = new ResourceManagementClient(credential);
-            resourceGroupClient.ResourceGroups.DeleteAsync(groupName);
+          Console.WriteLine("Deleting resource group...");
+          var resourceManagementClient = new ResourceManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          return await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
         }
 
-2. Для вызова только что добавленного метода добавьте этот код в метод Main:
+2.	Для вызова только что добавленного метода добавьте этот код в метод Main:
 
-        DeleteResourceGroup(
+        DeleteResourceGroupAsync(
           credential,
-          groupName);
+          groupName,
+          subscriptionId);
         Console.ReadLine();
 
-## Действие 6. Запуск консольного приложения
+## Шаг 5. Запуск консольного приложения
 
 1. Чтобы запустить консольное приложение, нажмите кнопку **Запустить** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
 
@@ -489,6 +511,7 @@
     
 ## Дальнейшие действия
 
-Используйте преимущества шаблонов для создания виртуальной машины, ориентируясь на сведения в статье [Deploy an Azure Virtual Machine using C# and a Resource Manager template](virtual-machines-windows-csharp-template.md) (Развертывание виртуальной машины с помощью языка C# и шаблона диспетчера ресурсов).
+- Используйте преимущества шаблонов для создания виртуальной машины, ориентируясь на сведения в статье [Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager](virtual-machines-windows-csharp-template.md).
+- Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C#](virtual-machines-windows-csharp-manage.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="06/28/2016"
    ms.author="jgao"/>
 
 # Настройка VPN-подключения между двумя виртуальными сетями Azure  
 
 > [AZURE.SELECTOR]
-- [Настройка подключения VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [Настройка подключения VPN](hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [Настройка DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Настройка репликации HBase](hdinsight-hbase-geo-replication.md) 
+- [Настройка репликации HBase](hdinsight-hbase-geo-replication.md)
 
 При подключении между сайтами в виртуальной сети Azure используется VPN-шлюз для предоставления защищенного туннеля с использованием IPsec/IKE. Подключаемые виртуальные сети могут иметь разные подписки в разных регионах. Можно даже комбинировать подключение виртуальных сетей с многосайтовыми конфигурациями. Существует несколько причин для подключения одной виртуальной сети к другой.
 
-- Межрегиональная географическая избыточность и географическое присутствие 
-- Региональные многоуровневые приложения с четкой границей изоляции 
+- Межрегиональная географическая избыточность и географическое присутствие
+- Региональные многоуровневые приложения с четкой границей изоляции
 - Обмен данными между подписками и организациями в Azure
 
 Дополнительные сведения см. в разделе [Настройка подключения между двумя виртуальными сетями](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
@@ -83,7 +83,7 @@
 		В этом учебнике используется ЦОД Северная Европа и Восток США. Вы можете выбрать собственные центры обработки данных.
 4.	Введите:
 
-	- **DNS-СЕРВЕР**: (оставьте пустым) 
+	- **DNS-СЕРВЕР**: (оставьте пустым)
 	
 		Вам потребуется DNS-сервер для разрешения имен в виртуальных сетях. Дополнительные сведения об использовании разрешения имен Azure и когда следует использовать собственный DNS-сервер смотрите в разделе [Разрешение имен (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Инструкции по настройке разрешений имен между виртуальными сетями вы можете найти в разделе [Настройка DNS между двумя виртуальными сетями Azure][hdinsight-hbase-dns].
   
@@ -260,16 +260,16 @@
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-portal]: https://portal.azure.com
 
-[powershell-install]: ../install-configure-powershell
+[powershell-install]: ../install-configure-powershell.md
 
 
 
-[hdinsight-hbase-replication]: ../hdinsight-hbase-geo-replication/
-[hdinsight-hbase-dns]: ../hdinsight-hbase-geo-replication-configure-DNS/
+[hdinsight-hbase-replication]: hdinsight-hbase-geo-replication.md
+[hdinsight-hbase-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
 
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

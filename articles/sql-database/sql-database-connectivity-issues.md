@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Устранение ошибок подключения SQL, временные ошибки | Microsoft Azure"
-	description="Узнайте, как устранять, диагностировать и предотвращать ошибки подключения SQL или временные ошибки в базе данных SQL Azure."
+	description="Узнайте, как устранять, диагностировать и предотвращать ошибки подключения SQL или временные ошибки в базе данных SQL Azure. "
 	keywords="подключение sql,строка подключения,проблемы с подключением, временная ошибка,ошибка подключения"
 	services="sql-database"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/27/2016"
 	ms.author="daleche"/>
 
 
@@ -353,8 +353,8 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 | Запрос у журнала | Описание |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | В представлении [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) приводится информация об отдельных событиях, в том числе о тех, которые могут привести к временным ошибкам или сбоям подключения.<br/><br/>В идеале вы можете сопоставить значения **start\_time** и **end\_time** с временем проявления ошибок в клиентской программе.<br/><br/>**Совет.** Для выполнения этого запроса необходимо подключиться к базе данных **master**. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | Представление [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) отображает суммарное количество событий каждого типа, что тоже бывает полезно при диагностике.<br/><br/>**Совет.** Для запуска нужно подключиться к базе данных **master**. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | В представлении [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) приводится информация об отдельных событиях, в том числе о тех, которые могут привести к временным ошибкам или сбоям подключения.<br/><br/>В идеале вы можете сопоставить значения **start\_time** и **end\_time** с временем возникновения ошибок в клиентской программе.<br/><br/>**Совет**. Для выполнения этого запроса необходимо подключиться к базе данных **master**. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | Представление [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) отображает суммарное количество событий каждого типа, что также бывает полезно при диагностике.<br/><br/>**Совет**. Для выполнения этого запроса необходимо подключиться к базе данных **master**. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -427,7 +427,7 @@ Enterprise Library 6 (EntLib60) — это платформа классов .
 
 Следующие классы EntLib60 особенно полезны для логики повторных ошибок. Все они входят в пространство имен **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** или во вложенные пространства.
 
-*В пространстве имен **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:*
+*В пространстве имен* *Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:*
 
 - класс **RetryPolicy**;
  - метод **ExecuteAction**;
@@ -553,11 +553,11 @@ public bool IsTransient(Exception ex)
 
 ## Дальнейшие действия
 
-- Сведения об устранении других распространенных неполадок, возникающих при подключении к базе данных SQL Azure, см. в разделе [Устранение распространенных неполадок подключения к базе данных SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
+- Сведения об устранении других распространенных неполадок, возникающих при подключении к базе данных SQL Azure, см. в разделе [Устранение неполадок подключения к базе данных SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
 
 - [Пул подключений SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
-- [*Retrying* — это лицензированная общая библиотека Apache 2.0 для повторных попыток, написанная на языке **Python**, которая позволяет легко добавить режим повтора куда угодно.](https://pypi.python.org/pypi/retrying)
+- [*Retrying* — это лицензированная общая библиотека Apache 2.0 для повторных попыток, написанная на языке **Python**, которая позволяет легко добавить режим повтора куда угодно.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

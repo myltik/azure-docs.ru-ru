@@ -20,7 +20,7 @@
 
 # Использование расширения виртуальных машин Docker на классическом портале Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 [Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных и вычислений при использовании общих ресурсов. Вы можете использовать расширение виртуальных машин Docker, управляемое [агентом Linux для Azure], чтобы создать виртуальную машину Docker, в которой будет размещено любое количество контейнеров с приложениями в Azure.
@@ -89,7 +89,7 @@
 
 
 ## Тестирование клиента Docker и узла Docker в Azure
-Нажмите и скопируйте имя домена виртуальной машины и в командной строке клиентского компьютера введите `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:2376 info` (замените *dockerextension* дочерним доменом виртуальной машины).
+Найдите и скопируйте имя домена виртуальной машины, затем в командной строке клиентского компьютера введите `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:2376 info` (замените *dockerextension* поддоменом виртуальной машины).
 
 Результат должен выглядеть следующим образом:
 
@@ -147,4 +147,4 @@ WARNING: No swap limit support
 [Работа Docker с https]: http://docs.docker.com/articles/https/
 [Руководству пользователя Docker]: https://docs.docker.com/userguide/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->
