@@ -30,4 +30,4 @@
 -  [Передайте образ виртуальной машины Windows в Azure](virtual-machines-windows-upload-image.md), чтобы использовать его при создании новой виртуальной машины.
 -  [Измените букву временного диска Windows](virtual-machines-windows-classic-change-drive-letter.md), чтобы приложение могло использовать диск D для данных.
 
-<!----HONumber=AcomDC_0622_2016-->
+<!-----HONumber=AcomDC_0622_2016-->
