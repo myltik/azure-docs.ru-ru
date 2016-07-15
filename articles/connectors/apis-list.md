@@ -31,12 +31,12 @@
 
 |Соединители||||
 |-----------|-----------|-----------|-----------|
-|[![Значок API][blobicon]<br/>**Большой<br/>двоичный<br/>объект Azure**][azureblobdoc]|[![Значок API][boxicon]<br/>**Box**][boxDoc]|[![Значок API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Значок API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
+|[![Значок API][blobicon]<br/>**Большой двоичный объект Azure**][azureblobdoc]|[![Значок API][boxicon]<br/>**Box**][boxDoc]|[![Значок API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Значок API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![Значок API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Значок API][ftpicon]<br/>**FTP**][ftpdoc]|[![Значок API][githubicon]<br/>**GitHub**][githubdoc]|[![Значок API][googledriveicon]<br/>**Диск Google**][googledrivedoc]|
 |[![Значок API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Значок API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Значок API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Значок API][office365icon]<br/>**Office 365**<br/>**Пользователи**][office365usersdoc]|
 |[![Значок API][office365icon]<br/>**Office 365**<br/>**Видео**][office365videodoc]|[![Значок API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Значок API][onedriveicon]<br/>**OneDrive<br/>для бизнеса**][onedriveforbusinessdoc]|[![Значок API][outlookicon]<br/>**Outlook**][outlookdoc]|
 |[![Значок API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Значок API][rssicon]<br/>**RSS**][rssdoc]|[![Значок API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Значок API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
-|[![Значок API][servicebusicon]<br/>**Служебная<br/>шина**][servicebusdoc]|[![Значок API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Значок API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Значок API][slackicon]<br/>**Slack**<br/>][slackdoc]|
+|[![Значок API][servicebusicon]<br/>**Служебная шина**][servicebusdoc]|[![Значок API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Значок API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Значок API][slackicon]<br/>**Slack**<br/>][slackdoc]|
 |[![Значок API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Значок API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Значок API][trelloicon]<br/>**Trello**][trellodoc]|[![Значок API][twilioicon]<br/>**Twilio**][twiliodoc]|
 |[![Значок API][twittericon]<br/>**Twitter**][twitterdoc]|[![Значок API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Значок API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
@@ -62,7 +62,10 @@
 Соединители могут также использоваться как действия в приложениях. Действия удобно использовать для поиска данных, которые можно использовать при выполнении вашего приложения. Например, при обработке заказа может потребоваться найти в базе данных SQL дополнительные сведения о клиенте либо записать, обновить или удалить данные в таблице назначения. Это можно сделать с помощью действий, предоставляемых соединителями. Действия сопоставляются с операциями, определенными в метаданных Swagger.
 
 
-[Новая версия схемы 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md) [Что такое Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md) [Перенос приложений логики в версию схемы 2015-08-01-preview](connectors-schema-migration.md)
+[Новая версия схемы 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
+[Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Что такое Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md)  
+[Перенос приложений логики в версию схемы 2015-08-01-preview](connectors-schema-migration.md)
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Подключается к BLOB-объекту Azure для управления файлами в контейнере BLOB-объектов."
@@ -145,4 +148,4 @@
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!----HONumber=AcomDC_0706_2016-->
