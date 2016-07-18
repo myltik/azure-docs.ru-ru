@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/07/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Установка набора средств Azure для IntelliJ
@@ -97,6 +97,7 @@
 - [Набор средств Azure для IntelliJ]
   - *Установка набора средств Azure для IntelliJ (в этой статье)*
   - [Создание веб-приложения Hello World для Azure в IntelliJ]
+  - [Новые возможности набора средств Azure для IntelliJ]
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
 
@@ -107,7 +108,9 @@
 [Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Установка набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [Новые возможности набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Новые возможности набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 
@@ -123,4 +126,4 @@
 [06]: ./media/azure-toolkit-for-intellij-installation/06-intellij-settings-dialog.png
 [07]: ./media/azure-toolkit-for-intellij-installation/07-restart-intellij.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

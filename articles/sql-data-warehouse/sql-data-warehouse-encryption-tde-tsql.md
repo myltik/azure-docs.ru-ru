@@ -17,9 +17,16 @@
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Начало работы с прозрачным шифрованием данных (TDE)
+
+
 > [AZURE.SELECTOR]
-- [Портал Azure](sql-data-warehouse-encryption-tde.md)
-- [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
+- [Обзор безопасности](sql-data-warehouse-overview-manage-security.md)
+- [Обнаружение угроз](sql-data-warehouse-security-threat-detection.md)
+- [Шифрование (портал)](sql-data-warehouse-encryption-tde.md)
+- [Шифрование (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Общие сведения об аудите](sql-data-warehouse-auditing-overview.md)
+- [Поддержка клиентов нижнего уровня](sql-data-warehouse-auditing-downlevel-clients.md)
+
 
 Прозрачное шифрование данных (TDE) хранилища данных SQL Azure помогает защититься от угрозы вредоносных атак за счет шифрования и расшифровки базы данных, связанных резервных копий и файлов журналов транзакций при хранении в реальном времени, не внося изменения в само приложение.
 
@@ -66,7 +73,7 @@ FROM
 
 ##Динамические административные представления шифрования  
 
-- [sys.databases][] 
+- [sys.databases][]
 - [sys.dm\_pdw\_nodes\_database\_encryption\_keys][]
 
 
@@ -79,4 +86,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

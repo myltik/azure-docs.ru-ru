@@ -4,7 +4,7 @@
 
     Появится колонка нового профиля сети CDN.
 
-    ![Новый профиль сети CDN](./media/cdn-create-profile/new-cdn-profile.png)
+    ![Новый профиль сети CDN](./media/cdn-create-profile/new-cdn-profile-include.png)
 
 2. Введите имя профиля сети CDN.
 
@@ -14,8 +14,10 @@
 
 5. Выберите **ценовую категорию**. Сравнение ценовых категорий см. в [обзоре CDN](cdn-overview.md#azure-cdn-features).
     
-    ![Выбор ценовой категории CDN](./media/cdn-create-profile/cdn-choose-sku.png)
+    ![Выбор ценовой категории CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
 6. Выберите **подписку** для этого профиля сети CDN.
 
 7. Нажмите кнопку **Создать**, чтобы создать новый профиль.
+
+<!---HONumber=AcomDC_0706_2016-->

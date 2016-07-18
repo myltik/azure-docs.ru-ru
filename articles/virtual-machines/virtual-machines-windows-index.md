@@ -77,7 +77,7 @@
 
 [Capture an image of an Azure Windows virtual machine created with the classic deployment model (Запись образа виртуальной машины Windows Azure, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-capture-image.md)
 
-[Create and upload a Windows Server VHD to Azure (Создание и передача виртуального жесткого диска Windows Server в Azure)](virtual-machines-windows-classic-createupload-vhd.md)
+[Создание и передача виртуального жесткого диска Windows Server в Azure](virtual-machines-windows-classic-createupload-vhd.md)
 
 [Автоматизация развертывания виртуальной машины Azure с помощью Chef](virtual-machines-windows-chef-automation.md)
 
@@ -192,4 +192,4 @@
 
 [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

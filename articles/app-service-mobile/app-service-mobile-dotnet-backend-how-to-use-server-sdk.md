@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/06/2016"
+	ms.date="06/28/2016"
 	ms.author="glenga"/>
 
 # Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure
@@ -49,7 +49,7 @@
 
 Чтобы создать проект мобильных приложений в Visual Studio, необходимо установить [пакет Azure SDK для .NET](https://azure.microsoft.com/downloads/) версии 2.8.1 или более поздней. После установки пакета SDK создайте новое приложение ASP.NET:
 
-1. Откройте диалоговое окно **Новый проект** (последовательно выберите *Файл* > **Создать** > **Проект**).
+1. Откройте диалоговое окно **Новый проект** (последовательно выберите *Файл* > **Создать** > **Проект**).
 
 2. Разверните раздел **Шаблоны** > **Visual C#** и выберите **Интернет**.
 
@@ -340,7 +340,7 @@ SID является производным от идентификатора п
     // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
-    
+
     // Only return data rows that belong to the current user.
     return Query().Where(t => t.UserId == sid);
 
@@ -479,4 +479,4 @@ SID является производным от идентификатора п
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -46,4 +46,4 @@ SQL Server Management Studio (SSMS) и SQL Server Data Tools (SSDT) в Visual St
 * Управление базами данных в модели с одним клиентом или мультитенантной модели с помощью [клиентской библиотеки эластичного масштабирования](sql-database-elastic-database-client-library.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

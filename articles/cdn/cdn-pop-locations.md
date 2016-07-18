@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/05/2016"
 	ms.author="casoper"/>
 
 
@@ -38,4 +38,7 @@
 | Африка | | **&#x2713;*** |
 | Австралия и Новая Зеландия | Мельбурн, Австралия<br />Сидней, Австралия | **&#x2713;*** |
 
-<!---HONumber=AcomDC_0629_2016-->
+## См. также
+* [Azure CDN from Verizon Edge Server IP Ranges](https://msdn.microsoft.com/library/mt757330.aspx) (Диапазоны IP-адресов пограничного сервера Azure CDN от Verizon)
+
+<!---HONumber=AcomDC_0706_2016-->

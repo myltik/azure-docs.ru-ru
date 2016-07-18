@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Заметки о выпуске SDK для рекламных кампаний в iOS для Azure Mobile Engagement"
+	pageTitle="Заметки о выпуске пакета SDK для платформы Azure Mobile Engagement (iOS) | Microsoft Azure"
 	description="Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="06/30/2016"
+	ms.author="piyushjo" />
 
-#Заметки о выпуске
+#Заметки о выпуске пакета SDK для платформы Azure Mobile Engagement (iOS)
+
+##3\.2.4 (06/30/2016)
+
+-   Исправлено агрегирование данных из технических и других журналов.
 
 ##3\.2.3 (07.06.2016)
 
@@ -67,4 +71,4 @@
 -   Улучшения безопасности.
 -   Удалено средство отслеживания SmartAd.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

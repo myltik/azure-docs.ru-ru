@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Доменные службы Azure AD *(предварительная версия)*: создание группы администраторов контроллера домена AAD
@@ -58,4 +58,4 @@
 ## Задача 2. Создание или выбор виртуальной сети Azure.
 Следующая задача конфигурации — [создать или выбрать виртуальную сеть Azure](active-directory-ds-getting-started-vnet.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

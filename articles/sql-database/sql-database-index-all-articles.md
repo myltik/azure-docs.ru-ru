@@ -351,7 +351,7 @@
 | 180 | [Ограничения ресурсов базы данных SQL Azure](sql-database-resource-limits.md) | На этой странице описываются некоторые общие ограничения ресурсов для Базы данных SQL Azure. |
 | 181 | [Отличия Transact-SQL базы данных SQL Azure](sql-database-transact-sql-information.md) | Инструкции Transact-SQL, которые не полностью поддерживаются в базе данных SQL Azure |
 | 182 | [Библиотеки подключений для Базы данных SQL и SQL Server](sql-database-libraries.md) | Приведен минимальный номер версии каждого драйвера, которым могут воспользоваться клиентские программы для подключения к базе данных SQL Azure или Microsoft SQL Server. Ссылка на сведения о версиях драйверов, выпущенных сообществом разработчиков, а не корпорацией Майкрософт. |
-| 183 | [Поиск с фильтрами](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Поиск с помощью фильтров в документации и статьях о базе данных SQL Azure. |
+| 183 | [Поиск с фильтрами](https://azure.microsoft.com/ru-RU/documentation/articles/?service=sql-database) | Поиск с помощью фильтров в документации и статьях о базе данных SQL Azure. |
 
 
 ## Разное
@@ -378,4 +378,4 @@
 
 - Схема обучения: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

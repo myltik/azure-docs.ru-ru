@@ -34,6 +34,10 @@
 
 В зависимости от того, начинаете вы разработку новых приложений или обновляете существующее приложение, вы создадите временные таблицы или измените существующие, добавляя в них временные атрибуты. В общем случае может потребоваться сделать и то, и другое. Выполните это с помощью [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS), [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) или любого другого инструмента для разработки Transact-SQL.
 
+
+> [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ###Создание новой таблицы
 
 Используйте пункт контекстного меню "New System-Versioned Table" (Новая таблица с системным управлением версиями) в обозревателе объектов SSMS, чтобы открыть редактор запросов с шаблоном сценария временной таблицы, а затем щелкните "Указать значения для параметров шаблона" (Ctrl+Shift+M) для заполнения шаблона.
@@ -195,4 +199,4 @@ ALTER TABLE dbo.WebsiteUserInfo
 
 Дополнительные сведения о временных таблицах см. в [документации MSDN](https://msdn.microsoft.com/library/dn935015.aspx). Посетите сайт Channel 9, чтобы услышать [историю успешного внедрения временных решений реальным клиентом](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) и посмотреть [наглядную демонстрацию временных решений](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

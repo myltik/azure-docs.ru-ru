@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="03/31/2016"
+   ms.date="07/01/2016"
    ms.author="kasing"/>
 
 # Управление виртуальными машинами с помощью Azure PowerShell
@@ -95,4 +95,4 @@
 - членство в существующем наборе балансировки нагрузки;
 - статический IP-адрес.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

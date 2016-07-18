@@ -36,7 +36,7 @@ Adventure Works Cycles хочет создать приложение интер
 	- интерфейсной сети для веб-серверов;
 	- внутренней подсети для серверов приложений, кластера MongoDB и контроллеров домена.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
+![Схема разных уровней для инфраструктуры приложений](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
 Защищенный входящий веб-трафик необходимо балансировать между веб-серверами, пока клиенты просматривают интернет-магазин. Трафик обработки заказов в виде HTTP-запросов от веб-серверов необходимо балансировать между серверами приложений. Кроме того, инфраструктура должна обеспечивать высокий уровень доступности.
 
@@ -115,7 +115,7 @@ Adventure Works Cycles хочет создать приложение интер
 
 Это конфигурация, которая получается в результате.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
+![Окончательная инфраструктура приложений, развернутая в Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
 
 Эта конфигурация включает:
 
@@ -132,4 +132,4 @@ Adventure Works Cycles хочет создать приложение интер
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

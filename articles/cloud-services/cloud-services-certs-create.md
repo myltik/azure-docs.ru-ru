@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/19/2016"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 # Общие сведения о сертификатах для облачных служб Azure
@@ -61,10 +61,16 @@
 
 ### PowerShell
 
-```
+```powershell
 $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
+
+Если вы хотите использовать этот [сертификат на портале управления](../azure-api-management-certs.md), экспортируйте его в **CER-файл**.
+
+```powershell
+Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
 ### Internet Information Services (IIS)
@@ -79,10 +85,10 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 
 ## Дальнейшие действия
 
-[Передайте сертификат вашей службы на классический портал Azure ](cloud-services-configure-ssl-certificate.md) (или [на портал Azure](cloud-services-configure-ssl-certificate-portal.md)).
+[Передайте сертификат вашей службы на классический портал Azure](cloud-services-configure-ssl-certificate.md) (или [на портал Azure](cloud-services-configure-ssl-certificate-portal.md)).
 
 Передайте на классический портал Azure [сертификат API управления](../azure-api-management-certs.md).
 
 >[AZURE.NOTE] Портал Azure не использует сертификаты управления для доступа к API, обращаясь вместо этого к учетным записям пользователей.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="06/29/2016"
 	ms.author="genli"/>
 
 # Переход на другое предложение Azure
@@ -26,7 +26,9 @@
 
 ## Как перейти на другое предложение
 
-1.	Войдите в систему в [Центре учетных записей Azure](https://account.windowsazure.com/Subscriptions).
+> [AZURE.VIDEO switch-to-a-different-azure-offer]
+
+1.	Войдите в [центр учетных записей Azure](https://account.windowsazure.com/Subscriptions).
 2.	Выберите подписку для передачи
 3.	Щелкните **Переключиться на другое предложение**.
 
@@ -68,9 +70,9 @@
 
 ## Предложения, на которые можно переключиться
 
-Ниже указаны варианты смены предложений, поддерживаемые [Центром учетных записей](https://account.windowsazure.com/Subscriptions) на данный момент. При добавлении новых вариантов статья будет обновляться. По вопросам других вариантов смены предложения [обращайтесь в службу поддержки](http://go.microsoft.com/fwlink/?LinkID=619338).
+Ниже указаны варианты смены предложений, поддерживаемые [центром учетных записей](https://account.windowsazure.com/Subscriptions) на данный момент. При добавлении новых вариантов статья будет обновляться. По вопросам других вариантов смены предложения [обращайтесь в службу поддержки](http://go.microsoft.com/fwlink/?LinkID=619338).
 
 -	Смена предложения с [оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/) на [предложение с предоплатой на 12 месяцев](https://azure.microsoft.com/offers/ms-azr-0026p/)
 -	Смена предложения с [оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/) на любой [ежемесячный кредит Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0706_2016-->

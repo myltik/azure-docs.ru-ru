@@ -52,7 +52,7 @@
 ### Облачные виртуальные сети
 Если локальным пользователям и компьютерам не требуется постоянное подключение к виртуальным машинам в виртуальной сети Azure, то структура вашей виртуальной сети будет довольно простой.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
+![Схема виртуальной сети только для облака](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
 
 Как правило, это практикуется при таких рабочих нагрузках, когда необходимо подключение к Интернету, например, в случае веб-серверов. Вы можете управлять этими виртуальными машинами с помощью подключений SSH или VPN типа "точка — сеть".
 
@@ -62,7 +62,7 @@
 ### Распределенные виртуальные сети
 Если локальным пользователям и компьютерам необходимо постоянное подключение к виртуальным машинам в виртуальной сети Azure, создайте распределенную виртуальную сеть и подключите ее к локальной сети с помощью подключения ExpressRoute или VPN типа "сеть — сеть".
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+![Схема распределенной виртуальной сети](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
 В этой конфигурации виртуальная сеть Azure по сути является облачным расширением локальной сети.
 
@@ -107,4 +107,4 @@
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

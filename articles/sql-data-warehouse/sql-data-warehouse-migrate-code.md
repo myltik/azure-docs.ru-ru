@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/03/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Перенос кода SQL в хранилище данных SQL
@@ -115,14 +115,14 @@ AND     request_id IN
 <!--Image references-->
 
 <!--Article references-->
-[соединение ANSI join при обновлении]: ./sql-data-warehouse-develop-ctas.md
-[соединение ANSI join при удалении]: ./sql-data-warehouse-develop-ctas.md
-[инструкция merge]: ./sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[соединение ANSI join при обновлении]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[соединение ANSI join при удалении]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[инструкция merge]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[INSERT..EXEC]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
 [разделах о Transact-SQL]: ./sql-data-warehouse-reference-tsql-statements.md
 
 [курсоры]: ./sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md#selectinto
 [Группировка по параметрам в хранилище данных SQL]: ./sql-data-warehouse-develop-group-by-options.md
 [предложение группирования group by с операторами rollup, cube или grouping]: ./sql-data-warehouse-develop-group-by-options.md
 [уровни вложения больше 8]: ./sql-data-warehouse-develop-transactions.md
@@ -134,4 +134,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

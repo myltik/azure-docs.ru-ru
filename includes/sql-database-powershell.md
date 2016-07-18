@@ -1,7 +1,7 @@
 
 ## Запуск сеанса PowerShell
 
-Сначала установите и запустите [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) версии 1.0 или выше. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../articles/powershell-install-configure.md).
+Сначала установите и запустите последнюю версию [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../articles/powershell-install-configure.md).
 
 
 >[AZURE.NOTE] Многие новые функции базы данных SQL поддерживаются только при использовании [модели развертывания с помощью Azure Resource Manager (ARM)](../articles/resource-group-overview.md), поэтому в примерах используются соответствующие [командлеты Azure PowerShell для базы данных SQL](https://msdn.microsoft.com/library/azure/mt574084.aspx). Существующие [классические командлеты для базы данных SQL Azure](https://msdn.microsoft.com/library/azure/dn546723.aspx) в классическом развертывании поддерживаются для обеспечения обратной совместимости. Мы рекомендуем использовать командлеты для Resource Manager.
@@ -15,3 +15,4 @@
 
 	Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
+<!---HONumber=AcomDC_0706_2016-->

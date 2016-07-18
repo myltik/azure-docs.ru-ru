@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="07/06/2016"
 	ms.author="genli"/>
 
 # Добавление или изменение ролей администратора Azure
@@ -39,16 +39,16 @@
 
 	![newselectsub](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
-3. В колонке подписки выберите **Параметры** > **Пользователи**.
+3. В колонке подписки выберите **Параметры** > **Пользователи**.
 
 	![newsettings](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. В колонке "Пользователи" выберите **Добавить** > **Выберите роль** > **Владелец**.
+4. В колонке "Пользователи" выберите **Добавить** > **Выберите роль** > **Владелец**.
 
 	![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
 
 	**Примечание.**
 	- Роль владельца имеет те же права доступа, что и соадминистратор. Она не имеет прав доступа к [центру учетных записей Azure](https://account.windowsazure.com/subscriptions).
-	- Владельцы, добавленные на [портал Azure](https://portal.azure.com), не могут управлять службами на [классическом портале Azure](https://manage.windowsazure.com).  
+	- Владельцы, добавленные на [портал Azure](https://portal.azure.com), не могут управлять службами на [классическом портале Azure](https://manage.windowsazure.com).
 
 5. Введите адрес электронной почты пользователя, которого следует добавить в качестве владельца, а затем щелкните **Выбрать**.
 
@@ -58,7 +58,7 @@
 
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com/).
 
-2. В области навигации выберите **Параметры** > **Администраторы** > **Добавить**. </br>
+2. В области навигации выберите **Параметры** > **Администраторы** > **Добавить**. </br>
 
 	![addcodmin](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)
 
@@ -69,7 +69,7 @@
 Следующий адрес электронной почты можно добавить в качестве соадминистратора.
 
 * **Учетная запись Майкрософт** (ранее Windows Live ID) </br> Вы можете использовать учетную запись Майкрософт для входа во все клиентские продукты Microsoft и облачные службы, включая Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone и Xbox LIVE.
-* **Учетная запись организации**</br> Учетная запись организации — это учетная запись, созданная в каталоге Azure Active Directory. Адрес учетной записи организации выглядит приблизительно так: user@&lt;your домен&gt;.onmicrosoft.com
+* **Учетная запись организации**</br> Учетная запись организации — это учетная запись, созданная в каталоге Azure Active Directory. Адрес учетной записи организации выглядит приблизительно так: пользователь@&lt;домен&gt;.onmicrosoft.com.
 
 ### Ограничения
 
@@ -108,10 +108,10 @@
 
 ## Дальнейшие действия
 
-* Чтобы подробнее узнать о том, как осуществляется доступ к ресурсам в Microsoft Azure, обратитесь к разделу [Основные сведения о доступе к ресурсам в Azure](./active-directory/active-directory-understanding-resource-access.md).
+* Дополнительные сведения о том, как осуществляется доступ к ресурсам в Microsoft Azure, см. в статье [Основные сведения о доступе к ресурсам в Azure](./active-directory/active-directory-understanding-resource-access.md).
 
-* Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в разделе [Как подписки Azure связаны с Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated directory.md)
+* Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в статье [Связь между подписками Azure и Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 * Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в разделе [Назначение ролей администратора в Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

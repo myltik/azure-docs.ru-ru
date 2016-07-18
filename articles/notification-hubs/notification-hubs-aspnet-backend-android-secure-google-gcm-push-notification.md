@@ -4,7 +4,7 @@
 	documentationCenter="android"
     keywords="push-уведомление, push-уведомления, push-сообщения, push-уведомления android"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/15/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 #Отправка безопасных push-уведомлений с помощью Центров уведомлений Azure
@@ -134,4 +134,4 @@
 
 4. В пользовательском интерфейсе приложения Android нажмите **Вход**. Затем нажмите **Отправить push-уведомление**.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

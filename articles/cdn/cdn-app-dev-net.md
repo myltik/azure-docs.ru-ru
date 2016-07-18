@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/01/2016"
 	ms.author="casoper"/>
 
-# Приступая к работе с библиотекой Azure CDN для .NET
+# Приступая к разработке для Azure CDN
+
+> [AZURE.SELECTOR]
+- [.NET](cdn-app-dev-net.md)
+- [Node.js](cdn-app-dev-node.md)
 
 С помощью [библиотеки Azure CDN для .NET](https://msdn.microsoft.com/library/mt657769.aspx) можно автоматизировать создание профилей и конечных точек CDN и управление ими. В этом учебнике описывается создание простого консольного приложения .NET, которое демонстрирует некоторые из доступных операций. Данный учебник не содержит подробных сведений о всех аспектах библиотеки Azure CDN для .NET.
 
 Для работы с этим учебником требуется Visual Studio 2015. Вы можете бесплатно скачать выпуск [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx).
 
-Полный пример этого учебника можно найти [здесь](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+> [AZURE.TIP] [Завершенный проект из этого учебника](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) доступен для скачивания на сайте MSDN.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -40,7 +44,7 @@
 
 	![Управление пакетами NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 
-2. В консоли диспетчера пакетов выполните приведенную ниже команду, чтобы установить **библиотеку проверки подлинности на основе Active Directory (ADAL)**.
+2. В консоли диспетчера пакетов выполните приведенную ниже команду, чтобы установить **библиотеку аутентификации Active Directory (ADAL)**.
 
 	`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 
@@ -52,7 +56,7 @@
 
 Давайте напишем базовую структуру нашей программы.
 
-1. На вкладке Program.cs замените расположенные вверху директивы `using` на следующие:
+1. На вкладке Program.cs замените расположенные вверху директивы `using` на следующие.
 
 	```
 	using System;
@@ -88,7 +92,7 @@
     static bool endpointAlreadyExists = false;
 	```
 
-4.  Замените метод `Main` следующим кодом:
+4.  Замените метод `Main` следующим кодом.
 
 	```
 	static void Main(string[] args)
@@ -142,7 +146,7 @@
 		}
 		else
 		{
-			// They're not pressing Y or N.  Let's ask them again.
+			// They pressed something other than Y or N.  Let's ask them again.
 			return PromptUser(Question);
 		}
 	}
@@ -283,7 +287,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 }
 ```
 
->[AZURE.NOTE] В приведенном выше примере строка `/*` означает, что мы хотим очистить все содержимое в корне конечной точки. Аналогичный результат даст установка флажка **Очистить все** в диалоговом окне "Очистить" на портале Azure. В методе `CreateCdnProfile` мы создали профиль **Azure CDN от Verizon** с помощью кода `Sku = new Sku(SkuName.StandardVerizon)`, поэтому операция будет выполнена успешно. Однако профили **Azure CDN от Akamai** не поддерживают функцию **Очистить все**. Если бы мы использовали в этом руководстве профиль Akamai, нам пришлось бы указать конкретные расположения, в которых нужно выполнить очистку.
+>[AZURE.NOTE] В приведенном выше примере строка `/*` означает, что я хочу очистить все содержимое в корне конечной точки. Аналогичный результат даст установка флажка **Очистить все** в диалоговом окне "Очистить" на портале Azure. В методе `CreateCdnProfile` я создал профиль **Azure CDN от Verizon** с помощью кода `Sku = new Sku(SkuName.StandardVerizon)`, поэтому операция будет выполнена успешно. Однако профили **Azure CDN от Akamai** не поддерживают функцию **Очистить все**. Если бы я использовал в этом руководстве профиль Akamai, мне пришлось бы указать конкретные расположения, в которых нужно выполнить очистку.
 
 ## Удаление профилей CDN и конечных точек
 
@@ -333,4 +337,4 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 Чтобы найти дополнительную документацию по библиотеке управления Azure CDN для .NET, воспользуйтесь [справкой на сайте MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

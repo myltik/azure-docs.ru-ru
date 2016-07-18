@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="07/06/2016"
 	ms.author="nitinme"/>
 
 
@@ -42,7 +42,7 @@
  
 * IntelliJ IDEA. В этой статье используется версия 15.0.1. Его можно установить [отсюда](https://www.jetbrains.com/idea/download/).
  
-* Подключаемый модуль средств HDInsight для IntelliJ IDEA. Инструкции по установке подключаемого модуля см. в разделе [Установка подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin.md#install-hdinsight-tools-plugin-for-intellij-idea).
+* Подключаемый модуль средств HDInsight для IntelliJ IDEA. Подключаемый модуль средств HDInsight для IntelliJ IDEA доступен в составе набора средств Azure для IntelliJ. Инструкции по установке набора средств Azure см. в разделе [Установка набора средств Azure для IntelliJ](../azure-toolkit-for-intellij-installation.md).
  
 * При запуске приложения Spark Scala для удаленной отладки на компьютере Windows может возникнуть исключение, описанное в [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) и связанное с отсутствием в Windows файла WinUtils.exe. Чтобы обойти эту ошибку, [скачайте этот исполняемый файл отсюда](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe), например, в папку **C:\\WinUtils\\bin**. После этого добавьте переменную среды **HADOOP\_HOME** и присвойте ей значение **C\\WinUtils**.
 
@@ -50,9 +50,9 @@
 
 Следуйте инструкциям по созданию виртуальной сети Azure по ссылкам ниже. Затем проверьте сетевое подключение между своим компьютером и виртуальной сетью Azure.
 
-* [Создание виртуальной сети с VPN-подключением типа "сеть — сеть" с помощью портала Azure](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [Создание виртуальной сети с VPN-подключением типа "сеть — сеть" с помощью PowerShell](..\vpn-gateway\vpn-gateway-create-site-to-site-rm-powershell.md)
-* [Настройка подключения к виртуальной сети типа "точка — сеть" с помощью PowerShell](..\vpn-gateway\vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Создание виртуальной сети с VPN-подключением типа "сеть — сеть" с помощью портала Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Создание виртуальной сети с VPN-подключением типа "сеть — сеть" с помощью PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Настройка подключения к виртуальной сети типа "точка — сеть" с помощью PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ## Шаг 2. Создание кластера HDInsight Spark
 
@@ -156,7 +156,7 @@
 
 6. Обновите `core-site.xml`, чтобы внести описанные ниже изменения.
 
-	1. Файл `core-site.xml` содержит зашифрованный ключ учетной записи хранения, связанной с кластером. В файле `core-site.xml`, добавленном в проект, замените зашифрованный ключ фактическим ключом к хранилищу данных, связанным с учетной записью хранения, используемой по умолчанию. Ознакомьтесь с разделом [Управление ключами доступа к хранилищу](..\storage\storage-create-storage-account.md#manage-your-storage-account).
+	1. Файл `core-site.xml` содержит зашифрованный ключ учетной записи хранения, связанной с кластером. В файле `core-site.xml`, добавленном в проект, замените зашифрованный ключ фактическим ключом к хранилищу данных, связанным с учетной записью хранения, используемой по умолчанию. Ознакомьтесь с разделом [Управление ключами доступа к хранилищу](../storage/storage-create-storage-account.md#manage-your-storage-account).
 
 			<property>
 	      		<name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>
@@ -252,7 +252,7 @@
 	При этом необходимо обратить внимание на несколько важных моментов.
 	
 	* Для `.set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")` убедитесь, что JAR-файл сборки Spark доступен в хранилище кластера по указанному пути.
-	* Для `setJars` укажите расположение, где будет создан JAR-файл артефакта. Обычно это `<Your IntelliJ project directory>\out<project name>_DefaultArtifact\default_artifact.jar`. 
+	* Для `setJars` укажите расположение, где будет создан JAR-файл артефакта. Обычно это `<Your IntelliJ project directory>\out<project name>_DefaultArtifact\default_artifact.jar`.
 
 
 11. В классе `RemoteClusterDebugging` щелкните правой кнопкой мыши ключевое слово `test` и выберите пункт **Create RemoteClusterDebugging Configuration** (Создать конфигурацию RemoteClusterDebugging).
@@ -330,6 +330,8 @@
 
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Использование подключаемого модуля средств HDInsight для Eclipse для создания приложений Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
@@ -344,4 +346,4 @@
 
 * [Track and debug jobs running on Apache Spark cluster in HDInsight Linux (Отслеживание и отладка заданий в кластере Apache Spark в Linux HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

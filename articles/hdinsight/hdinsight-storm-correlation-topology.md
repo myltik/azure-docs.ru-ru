@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/19/2016"
+ ms.date="07/05/2016"
  ms.author="larryfr"/>
 
 # Сопоставление событий в динамике по времени с помощью Storm и HBase в HDInsight
@@ -27,11 +27,11 @@
 
 ## Предварительные требования
 
--	Средства HDInsight для Visual Studio: сведения об установке см. в статье [Начало работы со средствами HDInsight для Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
+-	Visual Studio и средства HDInsight для Visual Studio: сведения об установке см. в статье [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
--	Кластер Apache Storm в HDInsight
+-	Apache Storm в кластере HDInsight (под управлением Windows). Он выполняет топологию Storm, которая обрабатывает входящие данные и сохраняет их в HBase.
 
--	Кластер Apache HBase в HDInsight
+-	Apache HBase в кластере HDInsight (под управлением Windows или Linux). Это хранилище данных для нашего примера.
 
 ## Архитектура
 
@@ -167,7 +167,7 @@
 
 	> [AZURE.NOTE] Если **представление топологии Storm** не открывается автоматически, выполните следующие действия:
 	>
-	> 1. В **обозревателе решений** разверните **Azure**, а затем — **HDInsight**.
+	> 1. В **обозревателе решений ** разверните **Azure**, а затем — **HDInsight**.
 	>
 	> 2. Щелкните правой кнопкой мыши кластер Storm, в котором запущена топология, а затем выберите **Просмотреть топологии Storm**.
 
@@ -204,4 +204,4 @@
 Другие примеры топологий для Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

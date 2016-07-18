@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Сопоставление хранилища в Azure Site Recovery для репликации виртуальных машин Hyper-V между локальными центрами данных | Microsoft Azure"
+	pageTitle="Сопоставление хранилища в Azure Site Recovery для репликации виртуальных машин Hyper-V между локальными центрами данных | Microsoft Azure"
 	description="Подготовка сопоставления хранилищ для репликации виртуальных машин Hyper-V между двумя центрами данных с помощью Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/22/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 
@@ -65,7 +65,9 @@
 
 ![Настройка сопоставления хранилищ](./media/site-recovery-storage-mapping/storage-mapping1.png)
 
-В этом примере показано следующее. Если виртуальная машина реплики создается для любой виртуальной машины в хранилище GOLD (SourceShare1), то такая реплика будет реплицироваться в хранилище GOLD\_TARGET (TargetShare1). Если виртуальная машина реплики создается для любой виртуальной машины в хранилище SILVER (SourceShare2), то такая реплика будет реплицироваться в хранилище SILVER\_TARGET (TargetShare2), и так далее.
+В этом примере:
+- Если виртуальная машина реплики создается для всех виртуальных машин в хранилище GOLD (SourceShare1), она будет реплицирована в хранилище GOLD\_TARGET (TargetShare1).
+- Если виртуальная машина реплики создается для всех виртуальных машин в хранилище SILVER (SourceShare2), она будет реплицирована в хранилище SILVER\_TARGET (TargetShare2) и т. д.
 
 Фактические общие папки и назначенные им в VMM классификации показаны на снимке экрана ниже.
 
@@ -98,4 +100,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | Недоступно | Без сопо
 
 Теперь, когда вы разобрались с сопоставлением хранилищ, изучите информацию о [развертывании службы Azure Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0706_2016-->

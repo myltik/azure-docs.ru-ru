@@ -14,22 +14,26 @@ ms.workload="big-data"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/18/2016"
+ms.date="06/29/2016"
 ms.author="larryfr"/>
 
-#Использование Maven для сборки приложений Java, которые используют HBase с HDInsight (Hadoop)
+#Использование Maven для выполнения сборки приложений Java, которые используют HBase с HDInsight (Hadoop) под управлением Windows
 
 Вы узнаете, как создать приложение [Apache HBase](http://hbase.apache.org/) на Java и выполнить его сборку с использованием Apache Maven. Затем вы будете использовать приложение с Azure HDInsight (Hadoop).
 
 [Maven](http://maven.apache.org/) — это инструмент для управления и повышения обозримости проектов программного обеспечения, позволяющее создавать ПО, документацию и отчеты для проектов Java. Из данной статьи вы узнаете, как использовать его для создания базового приложения Java, которое создает, формирует запросы и удаляет таблицу HBase в кластере Azure HDInsight.
 
+> [AZURE.NOTE] В этом документе предполагается, что вы используете кластер HDInsight под управлением Windows. Сведения об использовании кластера HDInsight под управлением Linux см. в разделе [Использование Maven для выполнения сборки приложений Java, которые используют HBase с HDInsight (Hadoop) под управлением Linux](hdinsight-hbase-build-java-maven-linux.md).
+
 ##Требования
 
 * [Пакет JDK для платформы Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) версии 7 или более поздней.
 
-* [Maven.](http://maven.apache.org/)
+* [Maven](http://maven.apache.org/)
 
-* [Кластер Azure HDInsight с HBase.](hdinsight-hbase-get-started.md#create-hbase-cluster)
+* [Кластер HDInsight под управлением Windows с HBase](hdinsight-hbase-get-started.md#create-hbase-cluster)
+
+    > [AZURE.NOTE] Действия, описанные в этом документе, были проверены для версий кластера HDInsight 3.2 и 3.3. Значения по умолчанию в примерах предназначены для кластера HDInsight 3.3.
 
 ##Создание проекта
 
@@ -54,10 +58,29 @@ ms.author="larryfr"/>
         <dependency>
           <groupId>org.apache.hbase</groupId>
           <artifactId>hbase-client</artifactId>
-          <version>0.98.4-hadoop2</version>
+          <version>1.1.2</version>
         </dependency>
 
-    Они указывают Maven, что для проекта требуется __hbase-client__ версии __0.98.4-hadoop2__. При компиляции он будет загружено из репозитория Maven по умолчанию. Можно воспользоваться [поиском в центральном репозитории Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar), чтобы получить дополнительную информацию об этой зависимости.
+    Они указывают Maven, что для проекта требуется __hbase-client__ версии __1.1.2__. При компиляции он будет загружено из репозитория Maven по умолчанию. Можно воспользоваться [поиском в центральном репозитории Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar), чтобы получить дополнительную информацию об этой зависимости.
+
+    > [AZURE.IMPORTANT] Номер версии должен соответствовать версии HBase, которая поставляется с кластером HDInsight. Воспользуйтесь следующей таблицей, чтобы найти правильный номер версии.
+
+    | Версия кластера HDInsight | Используемая версия HBase |
+    | ----- | ----- |
+    | 3\.2 | 0\.98.4-hadoop2 |
+    | 3\.3 | 1\.1.2 |
+
+    Дополнительные сведения о версиях и компонентах HDInsight см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md)
+
+2. При использовании кластера HDInsight 3.3 необходимо также добавить в раздел `<dependencies>` следующий код.
+
+        <dependency>
+            <groupId>org.apache.phoenix</groupId>
+            <artifactId>phoenix-core</artifactId>
+            <version>4.4.0-HBase-1.1</version>
+        </dependency>
+    
+    Он загрузит компоненты phoenix-core, которые используются версией Hbase 1.1.x.
 
 2. Добавьте в файл __pom.xml__ следующий код. Эти строки должны находиться в файле внутри тегов `<project>...</project>`; например, между тегами `</dependencies>` и `</project>`.
 
@@ -78,8 +101,8 @@ ms.author="larryfr"/>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
               </plugin>
             <plugin>
@@ -152,19 +175,11 @@ ms.author="larryfr"/>
             <name>hbase.zookeeper.property.clientPort</name>
             <value>2181</value>
           </property>
-          <!-- Uncomment the following if you are using
-               a Linux-based HDInsight cluster -->
-          <!--
-          <property>
-            <name>zookeeper.znode.parent</name>
-            <value>/hbase-unsecure</value>
-          </property>
-          -->
         </configuration>
 
     Этот файл будет использоваться для загрузки конфигурации HBase для кластера HDInsight.
 
-    > [AZURE.NOTE] Это минимально возможный файл hbase-site.xml, содержащий лишь самые минимальные настройки для кластера HDInsight. Для правильной настройки корневого Z-узла Zookeeper в кластерах под управлением Linux необходимо раскомментировать запись `zookeeper.znode.parent`.
+    > [AZURE.NOTE] Это минимально возможный файл hbase-site.xml, содержащий лишь самые минимальные настройки для кластера HDInsight.
 
 3. Сохраните файл __hbase-site.xml__.
 
@@ -446,9 +461,9 @@ ms.author="larryfr"/>
                     -Clustername $clusterName `
                     -JobId $job.JobId `
                     -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccountName `
+                    -DefaultStorageAccountName $storage.storageAccount `
                     -DefaultStorageAccountKey $storage.storageAccountKey `
-                    -HttpCredential $creds
+                    -HttpCredential $creds `
                     -DisplayOutputType StandardError
         }
         Write-Host "Display the standard output ..." -ForegroundColor Green
@@ -456,7 +471,7 @@ ms.author="larryfr"/>
                     -Clustername $clusterName `
                     -JobId $job.JobId `
                     -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccountName `
+                    -DefaultStorageAccountName $storage.storageAccount `
                     -DefaultStorageAccountKey $storage.storageAccountKey `
                     -HttpCredential $creds
         }
@@ -631,4 +646,4 @@ ms.author="larryfr"/>
 
 Используйте параметр `-showErr` для просмотра стандартной ошибки (STDERR), выдаваемой при выполнении задания.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

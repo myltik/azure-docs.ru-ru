@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/28/2016"
 	ms.author="krisragh"/>
 
 # Включение автономной синхронизации для мобильного приложения iOS
@@ -187,7 +187,7 @@
 
 3. Просмотрите содержимое удаленной таблицы TodoItem:
 
-    + Для серверной части Node.js перейдите на [портал Azure](https://portal.azure.com/), затем на странице серверной части своего мобильного приложения щелкните **Easy Tables** > **TodoItem**, чтобы просмотреть содержимое таблицы `TodoItem`.
+    + Для серверной части Node.js перейдите на [портал Azure](https://portal.azure.com/), затем на странице серверной части своего мобильного приложения щелкните **Easy Tables** > **TodoItem**, чтобы просмотреть содержимое таблицы `TodoItem`.
    	+ Для серверной части .NET просмотрите содержимое таблицы с помощью средства SQL, например SQL Server Management Studio, или с помощью клиента REST, например Fiddler или Postman.
 
     Убедитесь, что новые элементы *не* были синхронизированы с сервером.
@@ -241,4 +241,4 @@
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0706_2016-->

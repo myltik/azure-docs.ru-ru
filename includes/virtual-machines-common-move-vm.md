@@ -1,24 +1,26 @@
 
-This article walks you through how to move a VM between subscriptions. This can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
+В этой статье описано перемещение виртуальной машины между подписками. Эта информация может пригодиться, если вы создали виртуальную машину в личной подписке и вам нужно переместить ее в корпоративную подписку, чтобы продолжить работу.
 
-> [AZURE.NOTE] New resource IDs will be created as part of the move. Once the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
+> [AZURE.NOTE] Во время перемещения будут созданы новые идентификаторы ресурсов. После перемещения виртуальной машины вам нужно будет обновить средства и сценарии, чтобы использовать новые идентификаторы ресурсов.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. Click **Browse** > **Virtual machines** and select the VM you would like to move from the list.
+1. Откройте [портал Azure](https://portal.azure.com).
+2. Щелкните элементы **Обзор** > **Виртуальные машины** и выберите из списка виртуальную машину, которую нужно переместить.
 	
-	![Screenshot of the Essentials section where you click the pencil icon to open the Move resources blade.](./media/virtual-machines-common-move-vm/move-button.png)
+	![Снимок экрана раздела "Основные сведения", в котором нужно щелкнуть значок карандаша, чтобы открыть колонку "Перемещение ресурсов".](./media/virtual-machines-common-move-vm/move-button.png)
 	
-3. In the **Essentials** section, click on the **Change subscription** pencil icon next to the subscription name. The **Move resources** blade will open.
+3. В разделе **Основные сведения** щелкните значок карандаша **Изменение подписки** рядом с именем подписки. Откроется колонка **Перемещение ресурсов**.
 	
-	![Screenshot of the Move resources blade.](./media/virtual-machines-common-move-vm/move.png)
+	![Снимок экрана колонки "Перемещение ресурсов".](./media/virtual-machines-common-move-vm/move.png)
 	
-4. Select each of the resources to move. In most cases, you should move all of the listed optional resources.
-5. Select the **Subscription** where you want the VM to be moved.
-6. Select an existing **Resource group** or type a name to have a new resource group created.
-7. When you are done, select that you understand that new resource IDs will be created and those need to be used with the VM once it is moved, then click **OK**.
+4. Выберите все ресурсы для перемещения. В большинстве случаев следует перемещать все перечисленные дополнительные ресурсы.
+5. Выберите **подписку**, в которую вы хотите переместить виртуальную машину.
+6. Щелкните существующую **группу ресурсов** или введите имя, чтобы создать новую.
+7. Когда вы выберете или создадите группу ресурсов, подтвердите создание новых идентификаторов ресурсов и необходимость их использования после перемещения виртуальной машины. Затем нажмите кнопку **ОК**.
 
 
 
-## Next steps
+## Дальнейшие действия
 
-You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../articles/resource-group-move-resources.md).	
+Вы можете перемещать разные типы ресурсов между группами ресурсов и подписками. Дополнительные сведения см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](../articles/resource-group-move-resources.md).
+
+<!---HONumber=AcomDC_0706_2016-->

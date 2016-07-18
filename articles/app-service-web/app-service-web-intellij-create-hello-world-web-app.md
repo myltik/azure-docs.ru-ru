@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="06/24/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # Создание веб-приложения Hello World для Azure в IntelliJ
@@ -26,7 +26,7 @@
  
 ## Предварительные требования
 
-* Java Developer Kit (JDK), версия 1.7 или более поздняя.
+* Пакет SDK для Java (JDK) 1.8 или более поздней версии.
 * IntelliJ IDEA Ultimate Edition. Среду также можно загрузить с веб-страницы <https://www.jetbrains.com/idea/download/index.html>.
 * Дистрибутив веб-сервера или сервера приложений на основе Java, например Apache Tomcat или Jetty.
 * Подписка Azure, которую можно получить на веб-сайте <https://azure.microsoft.com/free/> или <http://azure.microsoft.com/pricing/purchase-options/>.
@@ -80,7 +80,7 @@
 
    ![][08]
 
-1. При открытии диалогового окна **Развертывание в контейнер веб-приложения Azure** в нем будут показаны все контейнеры веб-приложений, созданные ранее. Если вы не создали ни одного контейнера, список будет пустым.   
+1. При открытии диалогового окна **Развертывание в контейнер веб-приложения Azure** в нем будут показаны все контейнеры веб-приложений, созданные ранее. Если вы не создали ни одного контейнера, список будет пустым.
 
    ![][09]
 
@@ -98,15 +98,15 @@
 
   1. В раскрывающемся меню **Web Container** (Веб-контейнер) выберите соответствующее программное обеспечение для вашего приложения.
 
-        На данный момент можно выбрать Tomcat 8, Tomcat 7 или Jetty 9. Последний дистрибутив выбранного программного обеспечения, предоставленный Azure, будет запущен в последнем дистрибутиве JDK 8, созданном Oracle и предоставленном Azure.
+        Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
 
   1. В раскрывающемся меню **Subscription** (Подписка) выберите подписку, которую хотите использовать для этого развертывания.
 
   1. В раскрывающемся меню **Resource Group** (Группа ресурсов) выберите группу ресурсов, с которой хотите связать свое веб-приложение.
 
-        Примечание: группы ресурсов Azure позволяют сгруппировать связанные ресурсы, чтобы, например, удалить их одновременно.
+        Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
 
-        Можно выбрать существующую группу ресурсов (если она есть) и перейти к шагу g ниже, или создать новую, сделав следующее:
+        You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
       * Нажмите кнопку **New...** (Создать...).
 
@@ -122,9 +122,9 @@
 
   1. В раскрывающемся меню **App Service Plan** (План службы приложений) перечислены планы службы приложений, связанные с выбранной группой ресурсов.
 
-        Примечание. В плане службы приложений указываются такие сведения, как расположение веб-приложения, ценовая категория и размер вычислительной операции. Один план службы приложений можно использовать для нескольких веб-приложений, поэтому он поддерживается отдельно от развертывания конкретного веб-приложения.
+        Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
 
-        Можно выбрать существующий план службы приложений (если он есть) и перейти к шагу h ниже, или создать новый, сделав следующее:
+        You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
       * Нажмите кнопку **New...** (Создать...).
 
@@ -146,7 +146,7 @@
 
   1. Нажмите кнопку **ОК**, чтобы завершить создание нового контейнера веб-приложения.
 
-        Подождите несколько секунд. Когда список контейнеров веб-приложений обновится, созданный контейнер веб-приложения должен быть выбран в списке.
+        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
 
 1. Теперь все готово для начального развертывания веб-приложения в Azure. Нажмите кнопку **ОК**, чтобы развернуть приложение Java в выбранный контейнер веб-приложения.
 
@@ -224,6 +224,7 @@
 - [Набор средств Azure для IntelliJ]
   - [Установка набора средств Azure для IntelliJ]
   - *Создание веб-приложения Hello World для Azure в IntelliJ (в этой статье)*
+  - [Новые возможности набора средств Azure для IntelliJ]
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
 
@@ -237,9 +238,11 @@
 [Набор средств Azure для IntelliJ]: ../azure-toolkit-for-intellij.md
 [средств Azure для IntelliJ]: ../azure-toolkit-for-intellij.md
 [Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Установка набора средств Azure для Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Установка набора средств Azure для IntelliJ]: ../azure-toolkit-for-intellij-installation.md
 [Новые возможности набора средств Azure для Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
+[Новые возможности набора средств Azure для IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
 
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 [Обзор веб-приложений]: ./app-service-web-overview.md
@@ -266,4 +269,4 @@
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

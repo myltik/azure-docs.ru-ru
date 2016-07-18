@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/28/2016"
 	ms.author="mahender"/>
 
 # Добавление проверки подлинности в приложение Xamarin.Android
@@ -107,4 +107,4 @@
 <!-- URLs. -->
 [Создание приложения Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

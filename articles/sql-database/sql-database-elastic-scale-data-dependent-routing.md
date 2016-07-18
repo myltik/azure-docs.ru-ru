@@ -52,7 +52,7 @@
 	)
 
 
-* Параметр **key** используется как ключ поиска в карте сегментов для определения соответствующей базы данных для запроса. 
+* Параметр **key** используется как ключ поиска в карте сегментов для определения соответствующей базы данных для запроса.
 
 * Строка **connectionString** используется для передачи только учетных данных пользователя для необходимого подключения. Имя базы данных и имя сервера не включаются в эту строку *connectionString*, так как метод будет определять базу данных и сервер с помощью сопоставления **ShardMap**.
 
@@ -85,7 +85,7 @@
 
 Метод **OpenConnectionForKey** возвращает новое, уже открытое подключение к нужной базе данных. Подключения, используемые в этом случае, по-прежнему имеют все преимущества объединенных подключений ADO.Net. При условии, что запросы и транзакции, могут выполняться с одного сегмента одновременно, это должно быть единственным необходимым изменением в приложении, уже работающем с ADO.Net.
 
-Метод **[OpenConnectionForKeyAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** также доступен, если в приложении используется асинхронное программирование с помощью ADO.Net. Его поведение представляет собой маршрутизацию, зависящую от данных, которая эквивалентна методу ****[Connection.OpenAsync](https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)** в ADO.NET.
+Метод **[OpenConnectionForKeyAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** также доступен, если в приложении используется асинхронное программирование с помощью ADO.Net. Его поведение представляет собой маршрутизацию, зависящую от данных, которая эквивалентна методу **[Connection.OpenAsync](https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)** в ADO.NET.
 
 ## Интеграция с обработкой временных сбоев 
 
@@ -133,4 +133,4 @@ int newPersonId = 4321;
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

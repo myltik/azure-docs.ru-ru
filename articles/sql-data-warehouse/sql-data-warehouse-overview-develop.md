@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Проектные решения и методики программирования для хранилища данных SQL
@@ -27,8 +27,8 @@
 - [параллелизм;][]
 - [транзакции;][]
 - [пользовательские схемы;][]
-- [проектирование таблиц;][]
-- [ключи хэш-распределения;][]
+- [распределение таблиц;][]
+- [индексы таблицы;][]
 - [разделы таблицы;][]
 - [CTAS;][]
 - [статистика.][]
@@ -51,29 +51,28 @@
 <!--Image references-->
 
 <!--Article references-->
-[параллелизм;]: sql-data-warehouse-develop-concurrency.md
-[подключения;]: sql-data-warehouse-develop-connections.md
-[CTAS;]: sql-data-warehouse-develop-ctas.md
-[динамический SQL;]: sql-data-warehouse-develop-dynamic-sql.md
-[группировка по параметрам;]: sql-data-warehouse-develop-group-by-options.md
-[ключи хэш-распределения;]: sql-data-warehouse-develop-hash-distribution-key.md
-[метки;]: sql-data-warehouse-develop-label.md
-[циклы;]: sql-data-warehouse-develop-loops.md
-[статистика.]: sql-data-warehouse-develop-statistics.md
-[хранимые процедуры;]: sql-data-warehouse-develop-stored-procedures.md
-[проектирование таблиц;]: sql-data-warehouse-develop-table-design.md
-[разделы таблицы;]: sql-data-warehouse-develop-table-partitions.md
-[временные таблицы;]: sql-data-warehouse-develop-temporary-tables.md
-[транзакции;]: sql-data-warehouse-develop-transactions.md
-[пользовательские схемы;]: sql-data-warehouse-develop-user-defined-schemas.md
-[присваивание значения переменной.]: sql-data-warehouse-develop-variable-assignment.md
-[представления;]: sql-data-warehouse-develop-views.md
-
-[Справочник по Transact-SQL]: sql-data-warehouse-overview-reference.md
+[параллелизм;]: ./sql-data-warehouse-develop-concurrency.md
+[подключения;]: ./sql-data-warehouse-develop-connections.md
+[CTAS;]: ./sql-data-warehouse-develop-ctas.md
+[динамический SQL;]: ./sql-data-warehouse-develop-dynamic-sql.md
+[группировка по параметрам;]: ./sql-data-warehouse-develop-group-by-options.md
+[метки;]: ./sql-data-warehouse-develop-label.md
+[циклы;]: ./sql-data-warehouse-develop-loops.md
+[статистика.]: ./sql-data-warehouse-tables-statistics.md
+[хранимые процедуры;]: ./sql-data-warehouse-develop-stored-procedures.md
+[распределение таблиц;]: ./sql-data-warehouse-tables-distribute.md
+[индексы таблицы;]: ./sql-data-warehouse-tables-index.md
+[разделы таблицы;]: ./sql-data-warehouse-tables-partition.md
+[временные таблицы;]: ./sql-data-warehouse-tables-temporary.md
+[транзакции;]: ./sql-data-warehouse-develop-transactions.md
+[пользовательские схемы;]: ./sql-data-warehouse-develop-user-defined-schemas.md
+[присваивание значения переменной.]: ./sql-data-warehouse-develop-variable-assignment.md
+[представления;]: ./sql-data-warehouse-develop-views.md
+[Справочник по Transact-SQL]: ./sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

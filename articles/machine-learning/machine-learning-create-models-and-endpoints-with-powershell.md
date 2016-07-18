@@ -68,14 +68,14 @@ ms.author="garye;haining"/>
 	# Assume the default configuration file exists and is properly set to point to the valid Workspace.
 	$scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
 	$trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
-	
+
 Затем выполним следующую команду PowerShell:
 
 	# Create 10 endpoints on the scoring web service.
 	For ($i = 1; $i -le 10; $i++){
 	    $seq = $i.ToString().PadLeft(3, '0');
 	    $endpointName = 'rentalloc' + $seq;
-	    Write-Host ('adding endpoint ' + $endpontName + '...')
+	    Write-Host ('adding endpoint ' + $endpointName + '...')
 	    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
 	}
 
@@ -87,8 +87,10 @@ ms.author="garye;haining"/>
 
 Следующим шагом является обновление конечных точек с использованием моделей, обученных по отдельным данным каждого из клиентов. Но сначала необходимо создать эти модели из веб-службы **Bike Rental Training**. Вернемся к веб-службе **Bike Rental Training**. Необходимо вызвать ее конечную точку BES 10 раз с 10 разными наборами данных для обучения, чтобы создать 10 разных моделей. Для этого мы используем командлет **InovkeAmlWebServiceBESEndpoint** PowerShell.
 
+Также необходимо указать учетные данные для учетной записи хранения BLOB-объектов в `$configContent`, то есть в полях `AccountName`, `AccountKey` и `RelativeLocation`. В поле `AccountName` можно указать одно из имен учетной записи, как показано на **классическом портале управления Azure** (вкладка *Хранилище*). Выберите учетную запись хранения. Чтобы найти ее `AccountKey`, нажмите кнопку **Управление ключами доступа** и скопируйте *первичный ключ доступа*. `RelativeLocation` — это путь к хранилищу, в котором будет храниться новая модель. Например, путь `hai/retrain/bike_rental/` в сценарии ниже указывает на контейнер с именем `hai`, а `/retrain/bike_rental/` — это вложенные папки. Сейчас невозможно создать вложенные папки с помощью пользовательского интерфейса портала. Но это можно сделать с помощью [нескольких обозревателей службы хранилища Azure](../storage/storage-explorers.md). Рекомендуется создать новый контейнер в хранилище для хранения новых обученных моделей (файлы .ilearner) следующим образом. На странице хранилища нажмите кнопку **Добавить** внизу и назовите контейнер `retrain`. Таким образом, все необходимые изменения в сценарии ниже относятся к `AccountName`, `AccountKey` и `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+
 	# Invoke the retraining API 10 times
-	# This is the default (and the only) endpoint on the training web service 
+	# This is the default (and the only) endpoint on the training web service
 	$trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
 	$submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
 	$apiKey = $trainingSvcEp.PrimaryKey;
@@ -102,9 +104,9 @@ ms.author="garye;haining"/>
 
 >[AZURE.NOTE] Конечная точка BES является единственным поддерживаемым режимом для этой операции. RRS использовать для создания обученных моделей нельзя.
 
-Как можно заметить, вместо создания 10 разных JSON-файлов конфигурации заданий BES, мы динамически создали строку конфигурации и передали ее в параметр *jobConfigString* командлета **InvokeAmlWebServceBESEndpoint**, так как в данном случае нет необходимости сохранять копию на диске.
+Как можно заметить, вместо создания 10 разных JSON-файлов конфигурации заданий BES мы динамически создали строку конфигурации и передали ее в параметр *jobConfigString* командлета **InvokeAmlWebServceBESEndpoint**, так как в этом случае нет необходимости сохранять копию на диске.
 
-Если все пойдет хорошо, через некоторое время в вашей учетной записи хранения Azure появятся 10 ILEARNER-файлов — от *model001.ilearner* до *model010.ilearner*. Теперь все готово для того, чтобы обновить 10 конечных точек оценивающей веб-службы с помощью этих моделей, используя командлет **Patch-AmlWebServiceEndpoint** PowerShell. Не забывайте, что изменить можно только нестандартные конечные точки, созданные ранее программным образом.
+Если все работает правильно, через некоторое время в вашей учетной записи хранения Azure появятся 10 ILEARNER-файлов: от *model001.ilearner* до *model010.ilearner*. Теперь все готово для того, чтобы обновить 10 конечных точек оценивающей веб-службы с помощью этих моделей, используя командлет PowerShell **Patch-AmlWebServiceEndpoint**. Не забывайте, что изменить можно только нестандартные конечные точки, созданные ранее программным образом.
 
 	# Patch the 10 endpoints with respective .ilearner models
 	$baseLoc = 'http://bostonmtc.blob.core.windows.net/'
@@ -117,17 +119,17 @@ ms.author="garye;haining"/>
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-Процесс должен выполняться довольно быстро. По завершении выполнения создается 10 конечных точек прогнозной веб-службы, каждая из которых содержит уникальную модель, обученную по набору данных для конкретного пункта аренды, и все это — из одного обучающего эксперимента. Чтобы проверить это, попробуйте вызвать эти конечные точки с помощью командлета **InvokeAmlWebServiceRRSEndpoint**, предоставляя им те одинаковые входные данные. результаты прогноза должны различаться, так как модели обучались по разным наборам данных.
+Процесс должен выполняться довольно быстро. По завершении выполнения создается 10 конечных точек прогнозной веб-службы, каждая из которых содержит уникальную модель, обученную по набору данных для конкретного пункта аренды, и все это — из одного обучающего эксперимента. Чтобы проверить это, попробуйте вызвать эти конечные точки с помощью командлета **InvokeAmlWebServiceRRSEndpoint**, предоставляя им одинаковые входные данные. Результаты прогноза должны отличаться, так как модели обучались с использованием разных наборов данных.
 
 ## Полный сценарий PowerShell
 
 Ниже приведен полный исходный код.
-	
+
 	Import-Module .\AzureMLPS.dll
 	# Assume the default configuration file exists and properly set to point to the valid workspace.
 	$scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
 	$trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
-	
+
 	# Create 10 endpoints on the scoring web service
 	For ($i = 1; $i -le 10; $i++){
 	    $seq = $i.ToString().PadLeft(3, '0');
@@ -135,7 +137,7 @@ ms.author="garye;haining"/>
 	    Write-Host ('adding endpoint ' + $endpontName + '...')
 	    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
 	}
-	
+
 	# Invoke the retraining API 10 times to produce 10 regression models in .ilearner format
 	$trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
 	$submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
@@ -147,7 +149,7 @@ ms.author="garye;haining"/>
 	    Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
 	    Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
 	}
-	
+
 	# Patch the 10 endpoints with respective .ilearner models
 	$baseLoc = 'http://bostonmtc.blob.core.windows.net/'
 	$sasToken = '?test'
@@ -159,4 +161,4 @@ ms.author="garye;haining"/>
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

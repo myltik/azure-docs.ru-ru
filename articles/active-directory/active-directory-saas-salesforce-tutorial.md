@@ -84,11 +84,11 @@
 
 	![Выберите "Единый вход Azure AD".][7]
 
-	> [AZURE.NOTE] Для получения дополнительных сведений о вариантах единого входа [щелкните здесь](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Для получения дополнительных сведений о вариантах единого входа [щелкните здесь](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 4. На странице **Настройка параметров приложения** заполните поле **URL-адрес входа**, указав URL-адрес домена Salesforce в следующем формате.
  - Учетная запись предприятия: `https://<domain>.my.salesforce.com`
- - Учетная запись разработчика: `https://<domain>-dev-ed.my.salesforce.com` 
+ - Учетная запись разработчика: `https://<domain>-dev-ed.my.salesforce.com`
 
 	![Введите URL-адрес входа.][8]
 
@@ -216,7 +216,7 @@
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] При подготовке для среды **разработчиков** Salesforce количество доступных лицензий для каждого профиля будет крайне ограниченно. Следовательно, лучше подготовить пользователей для профиля **Chatter Free**, который имеет 4999 доступных лицензий.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Чтобы проверить параметры единого входа, откройте панель доступа по адресу [https://myapps.microsoft.com](https://myapps.microsoft.com/), выполните вход с тестовой учетной записью и щелкните **Salesforce**.
 
@@ -256,4 +256,4 @@
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

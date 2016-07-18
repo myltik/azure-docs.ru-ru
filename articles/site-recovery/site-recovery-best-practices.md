@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="03/29/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Подготовка к развертыванию Azure Site Recovery
@@ -139,4 +139,4 @@
 - [Репликация виртуальных машин Hyper-V на дополнительный сайт с помощью SAN](site-recovery-vmm-san.md)
 - [Репликация виртуальных машин Hyper-V с использованием одного сервера VMM](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

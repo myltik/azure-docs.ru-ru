@@ -25,6 +25,10 @@
 
 Приведенные ниже руководства описывают использование SQL Server Management Studio для администрирования Базы данных SQL Azure и выполнения запросов к ней.
 
+
+> [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 | Учебник | Описание |
 |---|---|---|
 | [Подключение к базе данных SQL Azure с использованием имени субъекта на уровне сервера](sql-database-get-started-security.md#connect-to-azure-sql-database-using-a-server-level-principal-login)| В этом руководстве вы можете узнать, как подключиться к базе данных SQL Azure с помощью имени субъекта на серверном уровне.|
@@ -180,4 +184,4 @@
 
 [Изучение кратких руководств по решениям базы данных SQL Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->
