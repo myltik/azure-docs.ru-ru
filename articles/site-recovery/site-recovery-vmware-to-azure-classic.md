@@ -304,10 +304,14 @@
 13.  Просмотрите информацию на странице **Сводка**.
 
 	![Сводка](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
->[AZURE.WARNING] Необходимо настроить прокси агента служб восстановления Microsoft Azure. После завершения установки запустите приложение с именем "Оболочка служб восстановления Microsoft Azure" из меню "Пуск" Windows. В открывшемся командном окне выполните следующий набор команд, чтобы настроить параметры прокси-сервера.
+>[AZURE.WARNING] Необходимо настроить прокси агента служб восстановления Microsoft Azure.
+>После завершения установки запустите приложение с именем "Оболочка служб восстановления Microsoft Azure" из меню "Пуск" Windows. В открывшемся командном окне выполните следующий набор команд, чтобы настроить параметры прокси-сервера.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine net start obengine
-
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
+	net stop obengine
+	net start obengine
+	 
 
 
 ### Запуск установки из командной строки

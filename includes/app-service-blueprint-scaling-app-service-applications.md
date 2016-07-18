@@ -1,7 +1,7 @@
 * [Масштабирование ценовой категории в службе приложений Azure](../articles/app-service-web/web-sites-scale.md)
 	* Основные сведения об избыточности и надежности
 	* Приложения со сведениями о состоянии и без них
-		* [Disabling ARR’s Instance Affinity in Windows Azure Web Sites](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) (Отключение сходства экземпляров, относящихся к маршрутизации запросов приложений, в веб-сайтах Windows Azure)
+		* [Disabling ARR’s Instance Affinity in Microsoft Azure Web Sites](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) (Отключение сходства экземпляров, относящихся к маршрутизации запросов приложений, в веб-сайтах Microsoft Azure)
 
 * Приложения службы приложений, предназначенные для нагрузочного тестирования
 

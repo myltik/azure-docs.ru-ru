@@ -24,7 +24,7 @@
 
 1. Начните с изучения [раздела "Из веб-браузера в веб-приложение" статьи "Сценарии аутентификации в Azure Active Directory"][AAD-Auth-Scenarios-Browser-To-WebApp].
 2. Затем ознакомьтесь с [краткими руководствами по началу работы с веб-приложениями][AAD-QuickStart-Web-Apps] для Azure AD, в которых показано, как реализовывать вход и включать сопутствующие примеры кода.
-3. Чтобы узнать, как реализовать мультитенантный вход с помощью Azure AD, см. статью [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern][AAD-Howto-Multitenant-Overview] (Как реализовать вход любого пользователя Azure Active Directory (AD) с помощью шаблона мультитенантного приложения).
+3. Чтобы узнать, как реализовать мультитенантный вход с помощью Azure AD, см. статью [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern][AAD-Howto-Multitenant-Overview] \(Как реализовать вход любого пользователя Azure Active Directory (AD) с помощью шаблона мультитенантного приложения).
 
 ## Связанная информация
 Для получения дополнительных сведений о создании приложений с поддержкой входа Azure AD или справочной информации и технической поддержки см. [Руководство разработчика по Azure Active Directory][AAD-Dev-Guide].

@@ -104,11 +104,11 @@
 Приведенные ниже статьи помогут вам разобраться с некоторыми дополнительными ключевыми понятиями, связанными с производительностью:
 
 - [Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL][]
-- [Overview of tables in SQL Data Warehouse][] (Общие сведения о таблицах в хранилище данных SQL)
-- [Distributing tables in SQL Data Warehouse][] (Распределение таблиц в хранилище данных SQL)
-- [Indexing tables in SQL Data Warehouse][] (Индексирование таблиц в хранилище данных SQL)
+- [Overview of tables in SQL Data Warehouse][] \(Общие сведения о таблицах в хранилище данных SQL)
+- [Distributing tables in SQL Data Warehouse][] \(Распределение таблиц в хранилище данных SQL)
+- [Indexing tables in SQL Data Warehouse][] \(Индексирование таблиц в хранилище данных SQL)
 - [Секционирование таблиц][]
-- [Managing statistics on tables in SQL Data Warehouse][] (Управление статистикой с помощью таблиц в хранилище данных SQL)
+- [Managing statistics on tables in SQL Data Warehouse][] \(Управление статистикой с помощью таблиц в хранилище данных SQL)
 - [Рекомендации][]
 
 <!--Image reference-->

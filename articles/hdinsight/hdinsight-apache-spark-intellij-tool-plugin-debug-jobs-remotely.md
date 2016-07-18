@@ -68,7 +68,7 @@
 
 	![Поиск IP-адреса головного узла](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
 
-3. Отобразится список головных узлов, рабочих узлов и узлов zookeeper. Головные узлы обозначены префиксом **hn***. Щелкните первый головной узел.
+3. Отобразится список головных узлов, рабочих узлов и узлов zookeeper. Головные узлы обозначены префиксом **hn**. Щелкните первый головной узел.
 
 	![Поиск IP-адреса головного узла](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
 

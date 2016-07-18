@@ -156,7 +156,7 @@
 
 	![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_004.png)
 
-	д. Скопируйте URL-адрес единого входа SAML из Azure AD в поле **SAML SSO Endpoint ** (Конечная точка единого входа SAML) в RightScale.
+	д. Скопируйте URL-адрес единого входа SAML из Azure AD в поле **SAML SSO Endpoint** (Конечная точка единого входа SAML) в RightScale.
 
 	![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_005.png)
 	

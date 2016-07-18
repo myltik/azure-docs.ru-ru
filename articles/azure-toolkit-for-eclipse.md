@@ -24,7 +24,7 @@
 
 * <https://github.com/microsoft/azure-tools-for-java>
 
-> [AZURE.NOTE] Также имеется набор средств Azure для интегрированной среды разработки IntelliJ. Дополнительные сведения см. в разделе [Azure Toolkit for IntelliJ] (Набор средств Azure для IntelliJ).
+> [AZURE.NOTE] Также имеется набор средств Azure для интегрированной среды разработки IntelliJ. Дополнительные сведения см. в разделе [Azure Toolkit for IntelliJ] \(Набор средств Azure для IntelliJ).
 
 ## Приступая к работе с набором средств Azure для Eclipse
 

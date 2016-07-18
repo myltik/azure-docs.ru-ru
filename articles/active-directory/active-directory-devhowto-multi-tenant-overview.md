@@ -148,8 +148,8 @@
 - [Объекты приложений и объекты участников-служб][AAD-App-SP-Objects]
 - [Интеграция приложений с Azure Active Directory][AAD-Integrating-Apps]
 - [Обзор платформы согласия][AAD-Consent-Overview]
-- [Microsoft Graph API Permission Scopes][MSFT-Graph-AAD] (Области действия разрешений API Microsoft Graph)
-- [Azure AD Graph API Permission Scopes][AAD-Graph-Perm-Scopes] (Области действия разрешений API Azure AD Graph)
+- [Microsoft Graph API Permission Scopes][MSFT-Graph-AAD] \(Области действия разрешений API Microsoft Graph)
+- [Azure AD Graph API Permission Scopes][AAD-Graph-Perm-Scopes] \(Области действия разрешений API Azure AD Graph)
 
 Оставляйте свои замечания и пожелания в разделе DISQUS ниже. Они помогают нам улучшать содержимое веб-сайта.
 
