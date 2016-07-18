@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Загрузка данных в хранилище данных Azure SQL
@@ -57,7 +57,7 @@
 ## Загрузка из SQL Server
 Для загрузки данных из SQL Server в хранилище данных SQL можно использовать службы интеграции, передавать неструктурированные файлы или отправлять диски в корпорацию Майкрософт. Далее в этой статье будут рассмотрены различные процессы загрузки и даны ссылки на соответствующие учебники.
 
-Планирование полной миграции данных из SQL Server в хранилище данных SQL см. в статье [Общие сведения о миграции][].
+Планирование полной миграции данных из SQL Server в хранилище данных SQL см. в статье [Перенос решения в хранилище данных SQL][].
 
 ### Использование служб интеграции (SSIS)
 Если вы уже используете пакеты служб интеграции (SSIS) для загрузки в SQL Server, эти пакеты можно обновить таким образом, чтобы SQL Server использовался как источник, а хранилище данных SQL — как конечный пункт. Это делается быстро и легко и подходит, если вы не пытаетесь перенести процесс загрузки для использования данных, которые уже находится в облаке. При этом загрузка осуществляется медленнее, чем при использовании PolyBase, поскольку SSIS не выполняет параллельную загрузку.
@@ -89,7 +89,7 @@
 1. Экспортируйте данные из SQL Server в неструктурированные файлы с помощью служебной программы командной строки bcp.
 2. Загрузите данные из неструктурированных файлов непосредственно в хранилище данных SQL с помощью bcp.
 
-Инструкции см. в статье [Загрузка данных из SQL Server в хранилище данных SQL Azure (bcp)][].
+Инструкции см. в статье [Загрузка данных из SQL Server в хранилище данных SQL Azure (неструктурированные файлы)][].
 
 
 ### Использование импорта и экспорта (рекомендуется при объеме данных меньше 10 ТБ)
@@ -105,7 +105,6 @@
 
 Многие из наших партнеров предлагают решения для загрузки. Дополнительные сведения см. в списке [партнеров по разработке решений][].
 
-
 Если данные поступают из нереляционного источника и их необходимо загрузить в хранилище данных SQL, перед загрузкой их нужно преобразовать в строки и столбцы. Преобразованные данные не обязательно должны храниться в базе данных, их можно хранить в текстовых файлах.
 
 Создание статистики для вновь загруженных данных Хранилище данных SQL Azure пока не поддерживает автоматическое создание или автоматическое обновление статистики. Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных. Дополнительные сведения см. в статье [Статистика][].
@@ -117,21 +116,21 @@
 <!--Image references-->
 
 <!--Article references-->
-[Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (PolyBase)]: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (фабрика данных Azure)]: sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
-[Загрузка данных из SQL Server в хранилище данных SQL Azure (SSIS)]: sql-data-warehouse-load-from-sql-server-with-integration-services.md
-[Загрузка данных из SQL Server в хранилище данных SQL Azure (bcp)]: sql-data-warehouse-load-from-sql-server-with-bcp.md
-[Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: sql-data-warehouse-load-from-sql-server-with-azcopy.md
+[Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (PolyBase)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (фабрика данных Azure)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
+[Загрузка данных из SQL Server в хранилище данных SQL Azure (SSIS)]: ./sql-data-warehouse-load-from-sql-server-with-integration-services.md
+[Загрузка данных из SQL Server в хранилище данных SQL Azure (неструктурированные файлы)]: ./sql-data-warehouse-load-from-sql-server-with-bcp.md
+[Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: ./sql-data-warehouse-load-from-sql-server-with-azcopy.md
 
-[загрузке примеров баз данных]: sql-data-warehouse-load-sample-databases.md
-[Общие сведения о миграции]: sql-data-warehouse-overview-migrate.md
-[партнеров по разработке решений]: sql-data-warehouse-integrate-solution-partners.md
-[Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
-[Статистика]: sql-data-warehouse-develop-statistics.md
+[загрузке примеров баз данных]: ./sql-data-warehouse-load-sample-databases.md
+[Перенос решения в хранилище данных SQL]: ./sql-data-warehouse-overview-migrate.md
+[партнеров по разработке решений]: ./sql-data-warehouse-integrate-solution-partners.md
+[Общие сведения о разработке]: ./sql-data-warehouse-overview-develop.md
+[Статистика]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [Импорт и экспорт]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

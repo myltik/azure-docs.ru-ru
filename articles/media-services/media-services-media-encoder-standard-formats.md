@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="06/29/2016"
 	ms.author="juliako;anilmur"/>
 
 #Форматы и кодеки стандартного кодировщика служб мультимедиа
@@ -37,7 +37,9 @@ MP4 (MP4, M4A, M4V) и ISMV (ISMA, ISMV)|Да
 Matroska/WebM (.mkv) |Да 
 WAVE/WAV (.wav) |Да 
 QuickTime (.mov) |Да
- 
+
+>[AZURE.NOTE] Выше приведен список чаще всего встречающихся файловых расширений. Стандартный кодировщик служб мультимедиа поддерживает многие другие стандарты (например, M2TS, MPEG2VIDEO, QT). Если, когда вы пробуете кодировать файл, появляется сообщение о том, что формат не поддерживается, отправьте отзыв [сюда](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+
 ###Форматы аудио во входных контейнерах 
 
 Стандарт Media Encoder поддерживает следующие форматы аудио во входных контейнерах:
@@ -121,4 +123,4 @@ MPEG2-TS |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC
 
 [Кодирование с помощью стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

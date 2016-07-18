@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Создание подразделения в управляемом домене доменных служб Azure AD
@@ -36,11 +36,11 @@
 
 	![Центр администрирования Active Directory](./media/active-directory-domain-services-admin-guide/adac-overview.png)
 
-3. Щелкните имя домена в левой области (например contoso100.com), чтобы просмотреть домен.
+3. Щелкните доменное имя в левой области (например, contoso100.com), чтобы просмотреть домен.
 
     ![Центр администрирования Active Directory — просмотр домена](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 
-4. В области **Задачи** с правой стороны нажмите кнопку **Создать** под узлом имени домена. В этом примере мы нажимаем кнопку **Создать** в узле contoso100(local) в правой области **Задачи**, как показано ниже.
+4. В области **Задачи** с правой стороны нажмите кнопку **Создать** под узлом доменного имени. В этом примере мы нажимаем кнопку **Создать** в узле contoso100(local) в правой области **Задачи**, как показано ниже.
 
     ![Центр администрирования Active Directory — новое подразделение](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 
@@ -75,4 +75,4 @@
 
 - [Пошаговое руководство по использованию учетных записей служб](https://technet.microsoft.com/library/dd548356.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

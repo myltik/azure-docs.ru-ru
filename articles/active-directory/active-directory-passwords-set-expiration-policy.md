@@ -32,7 +32,7 @@
 
 - [Задание срока действия пароля](#set-a-password-to-expire)
 
-- [Задание бессрочного пароля](#set-a-password-not-to-expire)
+- [Задание бессрочного пароля](#set-a-password-to-never-expire)
 
 ## Как проверить политику срока действия пароля
 
@@ -64,4 +64,4 @@
 
 	- Чтобы установить бессрочные пароли для всех пользователей в организации, выполните следующий командлет: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

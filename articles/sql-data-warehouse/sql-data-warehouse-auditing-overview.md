@@ -17,6 +17,16 @@
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Аудит в хранилище данных SQL Azure
+
+> [AZURE.SELECTOR]
+- [Обзор безопасности](sql-data-warehouse-overview-manage-security.md)
+- [Обнаружение угроз](sql-data-warehouse-security-threat-detection.md)
+- [Шифрование (портал)](sql-data-warehouse-encryption-tde.md)
+- [Шифрование (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Общие сведения об аудите](sql-data-warehouse-auditing-overview.md)
+- [Поддержка клиентов нижнего уровня](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
 Служба аудита хранилища данных SQL Azure отслеживает события базы данных и записывает их в журнал аудита, расположенный в учетной записи хранения Azure.
 
 Аудит может помочь вам соблюсти требования нормативов, проанализировать работу с базой данных и получить представление о расхождениях и аномалиях, которые могут указывать на бизнес-проблемы или предполагаемые нарушения безопасности.
@@ -141,4 +151,4 @@
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

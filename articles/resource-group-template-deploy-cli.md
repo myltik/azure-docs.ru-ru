@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2016"
+   ms.date="06/30/2016"
    ms.author="tomfitz"/>
 
 # Развертывание ресурсов с использованием шаблонов Resource Manager и Azure CLI
@@ -22,8 +22,11 @@
 - [PowerShell](resource-group-template-deploy.md)
 - [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
 - [Портал](resource-group-template-deploy-portal.md)
-- [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Узел](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 В этом разделе объясняется, как использовать Azure CLI и шаблоны Resource Manager для развертывания ресурсов в Azure.
 
@@ -31,6 +34,17 @@
 >
 > - [Просмотр операций развертывания с помощью интерфейса командной строки Azure](resource-manager-troubleshoot-deployments-cli.md) содержит информацию о том, как получить сведения, которые помогут устранить ошибку.
 > - [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью диспетчера ресурсов Azure](resource-manager-common-deployment-errors.md) содержит информацию о том, как устранять распространенные ошибки при развертывании.
+
+Шаблон может быть локальным файлом или внешним файл, доступным по универсальному коду ресурса (URI). Если шаблон находится в учетной записи хранения, то во время развертывания можно ограничить доступ к шаблону и предоставить маркер подписанного URL-адреса (SAS).
+
+## Быстрое развертывание
+
+В этой статье описываются все различные параметры, доступные при развертывании. Однако на практике вам чаще всего потребуются только две простые команды. Чтобы быстро приступить к выполнению развертывания, воспользуйтесь следующими командами:
+
+    azure group create -n ExampleResourceGroup -l "West US"
+    azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
+
+Дополнительные сведения о параметрах развертывания, которые могут быть более подходящими для вашего сценария, см. в последующих разделах этой статьи.
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
@@ -71,7 +85,7 @@
         data:
         info:    group create command OK
 
-5. Проверьте развернутую служб перед ее выполнением, выполнив команду **azure group template validate**. При тестировании развернутой службы укажите точно такие же параметры, как и при ее выполнении (как показано на следующем шаге).
+5. Проверьте развернутую службу перед ее выполнением, выполнив команду **azure group template validate**. При тестировании развернутой службы укажите точно такие же параметры, как и при ее выполнении (как показано на следующем шаге).
 
         azure group template validate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
 
@@ -130,7 +144,7 @@
         export AZURE_STORAGE_ACCOUNT=storagecontosotemplates
         export AZURE_STORAGE_ACCESS_KEY={storage_account_key}
 
-4. Создайте новый контейнер. Разрешение имеет значение **Off**, это означает, что контейнер доступен только владельцу.
+4. Создайте новый контейнер. Разрешение имеет значение **Off**; это означает, что контейнер доступен только владельцу.
 
         azure storage container create --container templates -p Off 
         
@@ -161,4 +175,4 @@
 - Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
 - Дополнительные сведения об использовании ссылки на KeyVault для передачи безопасных значений см. в разделе [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

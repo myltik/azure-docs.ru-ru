@@ -15,12 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/30/2016"
 	ms.author="genli"/>
 
 # Не удается выполнить вход для управления подпиской Azure
 
-> [AZURE.NOTE]Если в любой момент при изучении этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](https://azure.microsoft.com/support/forums/). Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт службы поддержки Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) и щелкните "Поддержка". Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](https://azure.microsoft.com/support/faq/).
+> [AZURE.NOTE] Если в любой момент при изучении этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](https://azure.microsoft.com/support/forums/). Кроме того, можно зарегистрировать обращение в службу поддержки на [сайте поддержки Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 Эта статья поможет вам устранить некоторые из распространенных причин, вызывающих проблемы со входом в систему.
 
@@ -54,4 +54,4 @@
 
 В Internet Explorer попробуйте удалить кэш и файлы cookie в режиме просмотра InPrivate или воспользоваться другим браузером.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

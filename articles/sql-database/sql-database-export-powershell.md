@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/06/2016"
+	ms.date="07/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -34,64 +34,44 @@
 - Максимальный размер BACPAC-файла архива в хранилище BLOB-объектов Azure составляет 200 ГБ. Для архивации BACPAC-файла большего размера в локальное хранилище используйте программу командной строки [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Эта служебная программа поставляется вместе с Visual Studio и SQL Server. Кроме того, вы можете [скачать](https://msdn.microsoft.com/library/mt204009.aspx) последнюю версию SQL Server Data Tools для получения этой служебной программы.
 - Архивация в хранилище Azure класса Premium с помощью BACPAC-файла не поддерживается.
 - Если операция экспорта длится более 20 часов, она может быть отменена. Для повышения производительности во время экспорта можно сделать следующее.
- - Временно повысить уровень служб. 
+ - Временно повысить уровень служб.
  - Прекратить все операции чтения и записи во время экспорта.
  - Использовать кластеризованный индекс для всех больших таблиц. Без кластеризованных индексов экспорт может завершиться ошибкой, если он длится больше 6–12 часов. Это обусловлено тем, что службам экспорта требуется выполнить проверку таблицы, чтобы экспортировать всю таблицу.
  
-> [AZURE.NOTE] BACPAC-файлы не предназначены для операций службы архивации и восстановления. База данных SQL Azure автоматически создает резервные копии для каждой пользовательской базы данных. Дополнительные сведения см. в статье [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md).
+> [AZURE.NOTE] BACPAC-файлы не предназначены для операций службы архивации и восстановления. База данных SQL Azure автоматически создает резервные копии для каждой пользовательской базы данных. Дополнительные сведения см. в статье [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL Azure](sql-database-automated-backups.md).
 
 Для работы с этой статьей необходимо следующее:
 
-- Подписка Azure. 
-- База данных Azure SQL. 
+- Подписка Azure.
+- База данных SQL Azure.
 - [Учетная запись хранения Azure уровня "Стандартный"](../storage/storage-create-storage-account.md) с контейнером больших двоичных объектов для хранения BACPAC-файла в хранилище уровня "Стандартный".
-- Azure PowerShell. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 
-## Настройка учетных данных и выбор подписки
-
-Для начала установите доступ к учетной записи Azure. Для этого запустите PowerShell и выполните указанный ниже командлет. На экране входа в систему укажите те же адрес электронной почты и пароль, которые используются для входа на портал Azure.
-
-	Add-AzureAccount
-
-После успешного входа на экране будут отображаться некоторые сведения, включая идентификатор, под которым вы вошли в систему, и подписки Azure, к которым у вас есть доступ.
-
-
-### Выбор подписки Azure
-
-Для выбора подписки вам понадобится идентификатор или имя подписки (**-SubscriptionName**). Идентификатор подписки можно скопировать из данных, которые были показаны на предыдущем этапе. Если у вас несколько подписок и вам нужны дополнительные данные, выполните командлет **Get-AzureSubscription** и скопируйте нужные данные из полученных результатов. Если у вас есть подписка, запустите следующий командлет:
-
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-После успешного выполнения командлета **Select-AzureSubscription** вы вернетесь в командную строку PowerShell. Если подписок несколько, выполните командлет **Get-AzureSubscription** и убедитесь в том, что в подписке, которую необходимо использовать, отображается **IsCurrent: True**.
+[AZURE.INCLUDE [Запуск сеанса PowerShell](../../includes/sql-database-powershell.md)]
 
 
 ## Настройка переменных для конкретной среды
 
 В некоторых переменных приведенные для примера значения необходимо заменить на значения, соответствующие вашей базе данных и учетной записи хранения.
 
-Замените имена сервера и базы данных на имена сервера и базы данных вашей учетной записи. В качестве имени большого двоичного объекта введите имя BACPAC-файла, который будет создан. Имя файла может быть любым, но необходимо указать расширение .bacpac.
+Замените своими значениями.
 
+    $ResourceGroupName = "resourceGroupName"
     $ServerName = "servername"
-    $DatabaseName = "nameofdatabasetoexport"
-    $BlobName = "filename.bacpac"
+    $DatabaseName = "databasename"
 
-Чтобы получить эти значения, перейдите к учетной записи хранения на [портале Azure](https://portal.azure.com). Чтобы найти первичный ключ доступа, последовательно выберите пункты **Все параметры** и **Ключи** в колонке учетной записи хранения.
+
+Чтобы получить эти значения, перейдите к учетной записи хранения на [портале Azure](https://portal.azure.com). Чтобы найти первичный ключ доступа, последовательно щелкните **Все параметры** и **Ключи** в колонке учетной записи хранения.
 
     $StorageName = "storageaccountname"
-    $ContainerName = "blobcontainername"
+    $StorageKeyType = "storageKeyType"
+    $StorageUri = "http://storageaccountname.blob.core.windows.net/containerName/filename.bacpac"
     $StorageKey = "primaryaccesskey"
 
-## Создание указателя на сервер и учетную запись хранения
 
 После выполнения командлета **Get-Credential** откроется окно с запросом имени пользователя и пароля. Введите имя пользователя и пароль администратора SQL Server (это не имя пользователя и пароль учетной записи Azure).
 
     $credential = Get-Credential
-    $SqlCtx = New-AzureSqlDatabaseServerContext -ServerName $ServerName -Credential $credential
-
-    $StorageCtx = New-AzureStorageContext -StorageAccountName $StorageName -StorageAccountKey $StorageKey
-    $Container = Get-AzureStorageContainer -Name $ContainerName -Context $StorageCtx
-
 
 ## Экспорт базы данных
 
@@ -100,45 +80,34 @@
 > [AZURE.IMPORTANT] Для получения транзакционно согласованного BACPAC-файла сначала [создайте копию базы данных](sql-database-copy-powershell.md), а затем экспортируйте эту копию.
 
 
-    $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
+    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName  $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorPassword $credential.Password
     
 
 ## Отслеживание хода выполнения операции экспорта
 
-Состояние запроса можно проверить, выполнив командлет **Start-AzureSqlDatabaseExport**. Обычно при проверке состояния сразу же после отправки запроса возвращается результат **Состояние: ожидание** или **Состояние: выполняется**, поэтому результат **Состояние: завершено** может появиться не с первого раза.
+Состояние запроса можно проверить, выполнив командлет **New-AzureRmSqlDatabaseExport**. Обычно при проверке состояния сразу же после отправки запроса возвращается результат **Состояние: ожидание** или **Состояние: выполняется**, поэтому результат **Состояние: завершено** может появиться не с первого раза.
 
 Для выполнения этой команды потребуется пароль. Введите имя пользователя и пароль администратора для сервера SQL.
 
 
-    Get-AzureSqlDatabaseImportExportStatus -RequestId $exportRequest.RequestGuid -ServerName $ServerName -Username $credential.UserName
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest .OperationStatusLink
     
 
 
 ## Экспорт базы данных SQL с помощью сценария PowerShell
 
 
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId "4cac86b0-1e56-bbbb-aaaa-000000000000"
-    
     $ServerName = "servername"
-    $DatabaseName = "databasename"
-    $BlobName = "bacpacfilename"
-    
     $StorageName = "storageaccountname"
-    $ContainerName = "blobcontainername"
+    $StorageKeyType = "storageKeyType"
+    $StorageUri = "http://storageaccountname.blob.core.windows.net/containerName/filename.bacpac"
     $StorageKey = "primaryaccesskey"
-    
-    $credential = Get-Credential
-    $SqlCtx = New-AzureSqlDatabaseServerContext -ServerName $ServerName -Credential $credential
-    
-    $StorageCtx = New-AzureStorageContext -StorageAccountName $StorageName -StorageAccountKey $StorageKey
-    $Container = Get-AzureStorageContainer -Name $ContainerName -Context $StorageCtx
-    
-    $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
-    
-    Get-AzureSqlDatabaseImportExportStatus -RequestId $exportRequest.RequestGuid -ServerName $ServerName -Username $credential.UserName
-    
 
+    $credential = Get-Credential
+
+    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName  $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey  StorageUri $StorageUri –AdministratorLogin $credential.UserName  –AdministratorPassword $credential.Password
+
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest .OperationStatusLink
 
 ## Дальнейшие действия
 
@@ -151,4 +120,4 @@
 - [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
 - [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

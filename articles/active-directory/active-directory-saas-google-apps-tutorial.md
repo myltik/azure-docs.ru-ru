@@ -88,7 +88,7 @@
 
 	![Выберите "Единый вход Azure AD".][7]
 
-	> [AZURE.NOTE] Для получения дополнительных сведений о вариантах единого входа [щелкните здесь](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Для получения дополнительных сведений о вариантах единого входа [щелкните здесь](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. На странице **Настройка параметров приложения** введите в поле **URL-адрес входа** URL-адрес клиента Google Apps в следующем формате: `https://mail.google.com/a/<yourdomain>`
 
@@ -124,7 +124,7 @@
 
 	![Выберите "Единый вход Azure AD".][7]
 
-	> [AZURE.NOTE] Для получения дополнительных сведений о вариантах единого входа [щелкните здесь](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Для получения дополнительных сведений о вариантах единого входа [щелкните здесь](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. На странице **Настройка параметров приложения** введите в поле **URL-адрес входа** URL-адрес клиента Google Apps в следующем формате: `https://mail.google.com/a/<yourdomain>`
 
@@ -194,7 +194,7 @@
 
 4. Если вы еще не добавили имя личного домена в Azure Active Directory, выполните следующие действия.
 
-	- На [классическом портале Azure](https://manage.windowsazure.com) в области навигации слева щелкните **Active Directory**. Выберите свой каталог в списке каталогов. 
+	- На [классическом портале Azure](https://manage.windowsazure.com) в области навигации слева щелкните **Active Directory**. Выберите свой каталог в списке каталогов.
 
 	- Щелкните **Домены** в меню верхнего уровня, а затем нажмите кнопку **Добавить пользовательский домен**.
 
@@ -313,4 +313,4 @@
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

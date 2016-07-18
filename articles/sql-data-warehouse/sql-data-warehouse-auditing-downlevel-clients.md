@@ -18,6 +18,14 @@
 
 # Хранилище данных SQL — поддержка клиентов прежних версий для аудита и динамического маскирования данных
 
+> [AZURE.SELECTOR]
+- [Обзор безопасности](sql-data-warehouse-overview-manage-security.md)
+- [Обнаружение угроз](sql-data-warehouse-security-threat-detection.md)
+- [Шифрование (портал)](sql-data-warehouse-encryption-tde.md)
+- [Шифрование (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Общие сведения об аудите](sql-data-warehouse-auditing-overview.md)
+- [Поддержка клиентов нижнего уровня](sql-data-warehouse-auditing-downlevel-clients.md)
+
 
 Функции [аудита](sql-data-warehouse-auditing-overview.md) работают в клиентах SQL, которые поддерживают перенаправление TDS.
 
@@ -38,4 +46,4 @@
 
 **Примечание.** Описанное выше изменение полного доменного имени сервера можно использовать также для применения политики аудита уровня SQL Server без необходимости настройки в каждой базе данных (временное устранение рисков).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

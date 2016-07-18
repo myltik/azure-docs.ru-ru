@@ -25,6 +25,10 @@
 
 Опытные пользователи могут устранить проблемы совместимости базы данных SQL Server с помощью SQL Server Management Studio перед миграцией в базу данных SQL Azure.
 
+
+> [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ## Использование среды SQL Server Management Studio
 
 Среда Management Studio позволяет устранять проблемы совместимости, используя команды Transact-SQL, например **ALTER DATABASE**. Этот метод в основном предназначен для опытных пользователей, которые уверенно используют Transact-SQL в действующей базе данных. В противном случае рекомендуется использовать SSDT.
@@ -40,7 +44,7 @@
 ## Дополнительные ресурсы
 
 - [База данных SQL версии 12.](sql-database-v12-whats-new.md)
-- [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
+- [Частично или полностью неподдерживаемые функции Transact-SQL.](sql-database-transact-sql-information.md)
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/27/2016"
+   ms.date="06/30/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Мониторинг рабочей нагрузки с помощью динамических административных представлений
@@ -31,7 +31,9 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ## Проверка выполнения запроса
 Для отслеживания выполнения запроса начните с представления [sys.dm\_pdw\_exec\_requests][]. Это представление содержит выполняющиеся запросы, а также журнал запросов, которые недавно были выполнены. Идентификатор request\_id уникально идентифицирует каждый запрос и является первичным ключом для этого представления. Этот идентификатор назначается последовательно для каждого нового запроса. При запросе конкретного session\_id из этой таблицы будут показаны все запросы для данного входа в систему.
 
-Ниже приведено несколько действий для анализа планов выполнения запросов и длительности конкретных запросов.
+>[AZURE.NOTE] Хранимые процедуры используют несколько идентификаторов request\_id. Эти идентификаторы назначаются в порядке очередности.
+
+Ниже приведено несколько действий для проверки планов выполнения запросов и длительности конкретных запросов.
 
 ### Шаг 1. Поиск запроса для анализа
 
@@ -93,9 +95,9 @@ ORDER BY step_index;
 - Перейдите к шагу 4a для **операций SQL**: OnOperation, RemoteOperation, ReturnOperation.
 - Перейдите к шагу 4b для **операций перемещения данных**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### Шаг 4а. Поиск сведений о ходе выполнения этапа SQL
+### Шаг 4а. Поиск сведений о ходе выполнения этапа SQL
 
-Используйте идентификатор запроса и индекс этапа для извлечения данных из представления [sys.dm\_pdw\_sql\_requests][], которое содержит сведения о выполнении запроса в распределенных экземплярах SQL Server. Запишите идентификатор распределения и SPID, если запрос все еще выполняется и вы хотите получить план из распределения SQL Server.
+Используйте идентификатор запроса и индекс этапа, чтобы извлечь данных из представления [sys.dm\_pdw\_sql\_requests][], которое содержит сведения о выполнении запроса в распределенных экземплярах SQL Server. Запишите идентификатор распределения и SPID, если запрос все еще выполняется и вы хотите получить план из распределения SQL Server.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -106,7 +108,7 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 ```
 
 
-Если запрос в данный момент выполняется, можно использовать [DBCC PDW\_SHOWEXECUTIONPLAN][], чтобы получить план выполнения SQL Server для текущего выполняемого шага SQL для определенного распределения.
+Если запрос сейчас выполняется, можно использовать [DBCC PDW\_SHOWEXECUTIONPLAN][], чтобы получить план выполнения SQL Server для выполняемого шага SQL для определенного распределения.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -116,7 +118,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
 ```
 
-### Шаг 4b. Поиск сведений о ходе выполнения этапа DMS
+### Шаг 4b. Поиск сведений о ходе выполнения этапа DMS
 
 Используйте идентификатор запроса и индекс этапа, чтобы получить сведения об этапе перемещения данных, выполняющемся при каждом распределении, из [sys.dm\_pdw\_dms\_workers][].
 
@@ -132,7 +134,7 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 - Перейдите к столбцу *total\_elapsed\_time*, чтобы просмотреть, имеется ли определенная операция распространения, выполнение которой занимает значительно больше времени, чем другие, для перемещения данных.
 - Обратитесь к столбцу *rows\_processed* для длительно выполняющейся операции распространения и проверьте, является ли количество перемещаемых этой операцией строк значительно большим по сравнению с другими. Если это так, то это может означать отклонение базовых данных.
 
-Если запрос в данный момент выполняется, можно использовать [DBCC PDW\_SHOWEXECUTIONPLAN][], чтобы получить план выполнения SQL Server текущего выполняемого шага DMS для определенного распределения.
+Если запрос сейчас выполняется, можно использовать [DBCC PDW\_SHOWEXECUTIONPLAN][], чтобы получить план выполнения SQL Server для выполняемого шага DMS для определенного распределения.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -148,10 +150,9 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 <!--Image references-->
 
 <!--Article references-->
-[manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
-[Общие сведения об управлении]: sql-data-warehouse-overview-manage.md
-[Рекомендации по использованию хранилища данных SQL]: sql-data-warehouse-best-practices.md
-[Системные представления]: sql-data-warehouse-reference-tsql-system-views.md
+[Общие сведения об управлении]: ./sql-data-warehouse-overview-manage.md
+[Рекомендации по использованию хранилища данных SQL]: ./sql-data-warehouse-best-practices.md
+[Системные представления]: ./sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -162,4 +163,4 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

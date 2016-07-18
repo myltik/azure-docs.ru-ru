@@ -1,5 +1,5 @@
 * [Географически распределенное масштабирование с использованием сред службы приложений](../articles/app-service-web/app-service-app-service-environment-geo-distributed-scale.md)
-* [Реализация многоуровневой архитектуры безопасности со средами службы приложений](../articles/app-service-web/app-service-app-service-environment-layered-security.md) 
+* [Реализация многоуровневой архитектуры безопасности со средами службы приложений](../articles/app-service-web/app-service-app-service-environment-layered-security.md)
 * [Настройка брандмауэра веб-приложения (WAF) для среды службы приложений](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
 
 
@@ -7,7 +7,7 @@
 * [Как управлять входящим трафиком в среде службы приложений](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
 * [Безопасное подключение к серверным ресурсам из среды службы приложений](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 * [Сведения о конфигурации сети для сред службы приложений с ExpressRoute](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
-* [Настраиваемые параметры конфигурации для сред службы приложений](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
+* [Настраиваемые параметры конфигурации для сред службы приложений, в том числе параметры соответствия требованиям PCI](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [Высокая плотность размещения в службе приложений Azure](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

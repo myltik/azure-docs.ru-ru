@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Подключение диска данных к виртуальной машине Windows на портале Azure
@@ -55,4 +55,4 @@
 
 Если вашему приложению нужно использовать диск D для хранения данных, вы можете [изменить букву временного диска Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

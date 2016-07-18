@@ -45,11 +45,7 @@
 | [Начало работы с фабрикой данных Azure с помощью Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) | В этом учебнике вы создадите образец конвейера фабрики данных Azure с помощью Azure PowerShell. |
 | [Tutorial: Build your first Azure data factory using Azure Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md) | Работая с этим руководством, вы создадите образец конвейера фабрики данных Azure с помощью шаблона диспетчера ресурсов Azure. |
 | [Начало работы с фабрикой данных Azure](data-factory-build-your-first-pipeline.md) | В этом учебнике показано, как создать фабрику данных с конвейером, преобразующим данные с помощью Azure HDInsight. |
-| [Учебник. Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL Azure](data-factory-get-started.md) | В этом учебнике показано, как использовать действие копирования в конвейере фабрики данных Azure для копирования данных из больших двоичных объектов Azure в базу данных SQL Azure. |
-| [Учебник. Создание конвейера с действием копирования с помощью Azure PowerShell](data-factory-monitor-manage-using-powershell.md) | В этом учебнике вы создадите конвейер фабрики данных Azure с действием копирования с помощью Azure PowerShell. |
 | [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) | С помощью этого учебника вы создадите конвейер фабрики данных Azure с действием копирования при помощи мастера копирования, поддерживаемого фабрикой данных. |
-| [Учебник. Создание конвейера с действием копирования с помощью редактора фабрики данных](data-factory-get-started-using-editor.md) | В этом учебнике вы создадите конвейер фабрики данных Azure с действием копирования при помощи редактора фабрики данных на портале Azure. |
-| [Учебник. Создание конвейера с действием копирования с помощью Visual Studio](data-factory-get-started-using-vs.md) | В этом учебнике вы создадите конвейер фабрики данных Azure с действием копирования с помощью Visual Studio. |
 
 ## Перемещение данных
 
@@ -157,4 +153,4 @@
 
 - Схема обучения: [фабрика данных](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

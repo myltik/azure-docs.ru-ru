@@ -99,6 +99,6 @@
 - [Общие рекомендации по повторным попыткам](../best-practices-retry-general.md).
 - [Библиотеки подключений для Базы данных SQL и SQL Server](sql-database-libraries.md)
 - [Схема обучения использованию базы данных SQL Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database).
-- [Схема обучения использованию функций и инструментов эластичной базы данных](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale). 
+- [Схема обучения использованию функций и инструментов эластичной базы данных](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

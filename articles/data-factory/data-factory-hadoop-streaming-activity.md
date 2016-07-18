@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Потоковая активность Hadoop
@@ -74,7 +74,7 @@
 2. Задайте в качестве типа действия значение **HDInsightStreaming**.
 3. Для свойства **mapper** укажите имя исполняемого файла mapper. В примере выше таким файлом является cat.exe.
 4. Для свойства **reducer** укажите имя исполняемого файла reducer. В примере выше таким файлом является wc.exe.
-5. Для свойства типа **input** укажите входной файл (включая местоположение) для свойства mapper. В примере "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt" adfsample — это контейнер больших двоичных объектов, example/data/Gutenberg — это папка, а davinci.txt — это большой двоичный объект.
+5. Для свойства типа **input** укажите входной файл (включая местоположение) для свойства mapper. В примере "wasb://adfsample@<учетная\_запись>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample — это контейнер больших двоичных объектов, example/data/Gutenberg — папка, а davinci.txt — большой двоичный объект.
 6. Для свойства типа **output** укажите выходной файл (включая местоположение) для reducer. Результат задания потоковой передачи Hadoop записывается в расположение, заданное для этого свойства.
 7. В разделе **filePaths** укажите пути для исполняемых файлов mapper и reducer. В примере adfsample/example/apps/wc.exe adfsample — это контейнер больших двоичных объектов, example/apps — это папка, а wc.exe — это исполняемый файл.
 8. Для свойства **fileLinkedService** укажите связанную службу хранилища Azure, которая представляет хранилище Azure, где хранятся указанные в разделе filePaths файлы.
@@ -199,4 +199,4 @@
 - [Вызов программ Spark](data-factory-spark.md)
 - [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

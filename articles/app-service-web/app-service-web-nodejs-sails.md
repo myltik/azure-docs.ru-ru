@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 # Развертывание веб-приложения Sails.js в службе приложений Azure
@@ -82,7 +82,7 @@
         loggingEnabled: true
         logDirectory: iisnode
 
-    Теперь ведение журнала для iisnode включено. Дополнительные сведения о том, как это работает, см. в разделе [Получение журналов stdout и stderr из iisnode](app-service-web-nodejs-sails.md#iisnodelog).
+    Теперь ведение журнала для iisnode включено. Дополнительные сведения о том, как это работает, см. в разделе [Получение журналов stdout и stderr из iisnode](app-service-web-nodejs-get-started.md#iisnodelog).
 
 2. Откройте файл config/env/production.js для настройки рабочей среды и установите `port` и `hookTimeout`:
 
@@ -238,4 +238,4 @@
 - [Приступая к работе с веб-приложениями Node.js в службе приложений Azure](app-service-web-nodejs-get-started.md)
 - [Использование модулей Node.js с приложениями Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

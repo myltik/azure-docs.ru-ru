@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
-   ms.author="iainfour;memccror"/>
+   ms.date="07/05/2016"
+   ms.author="memccror"/>
 
 # Пометка виртуальной машины Linux в Azure
 
@@ -25,7 +25,7 @@
 
 ## Отметка тегами с помощью интерфейса командной строки Azure
 
-Теги также поддерживаются для ресурсов, которые уже созданы с помощью интерфейса командной строки Azure. Для начала настройте [среду интерфейса командной строки Azure][]. Войдите в свою подписку с помощью интерфейса командной строки Azure и переключитесь в режим Resource Manager (`azure config mode arm`).
+Сначала [установите и настройте интерфейс командной строки Azure](../xplat-cli-azure-resource-manager.md). При этом обязательно включите режим Resource Manager (`azure config mode arm`).
 
 Вы можете просмотреть все свойства определенной виртуальной машины, включая теги, с помощью следующей команды:
 
@@ -53,10 +53,10 @@
 
 
 
-[среду интерфейса командной строки Azure]: ./xplat-cli-azure-resource-manager.md
+[Azure CLI environment]: ./xplat-cli-azure-resource-manager.md
 [Общие сведения об Azure Resource Manager]: ../resource-group-overview.md
 [Использование тегов для организации ресурсов в Azure]: ../resource-group-using-tags.md
 [Расшифровка счета за использование Microsoft Azure]: ../billing-understand-your-bill.md
 [Получение ценных сведений о потреблении ресурсов Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

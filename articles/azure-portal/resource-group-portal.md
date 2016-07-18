@@ -19,6 +19,15 @@
 
 # Управление ресурсами Azure через портал
 
+> [AZURE.SELECTOR]
+- [Портал](azure-portal/resource-group-portal.md)
+- [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Узел](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+
 В этой статье показано, как использовать [портал Azure](https://portal.azure.com) с [Azure Resource Manager](../resource-group-overview.md) для управления ресурсами Azure. Сведения о развертывании ресурсов через портал см. в разделе [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md).
 
 В настоящее время не все службы поддерживают текущую версию портала или диспетчер ресурсов. Для этих служб необходимо использовать [классический портал](https://manage.windowsazure.com). Состояние каждой службы можно просмотреть на [диаграмме доступности на портале Azure](https://azure.microsoft.com/features/azure-portal/availability/).
@@ -122,4 +131,4 @@
 - Сведения об устранении неполадок развертывания см. в статье [Устранение неполадок развертываний групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
 - Сведения о развертывании ресурсов через портал см. в разделе [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

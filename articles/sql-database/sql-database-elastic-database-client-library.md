@@ -31,13 +31,13 @@
 * [Запросы к нескольким сегментам](sql-database-elastic-scale-multishard-querying.md)
 * [Добавление сегмента с использованием средств эластичных баз данных](sql-database-elastic-scale-add-a-shard.md)
 * [Мультитенантные приложения со средствами эластичных баз данных и безопасностью на уровне строк](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-* [Обновление библиотеки клиентских приложений](sql-database-elastic-scale-upgrade-client-library.md) 
+* [Обновление библиотеки клиентских приложений](sql-database-elastic-scale-upgrade-client-library.md)
 * [Обзор эластичных запросов](sql-database-elastic-query-overview.md)
 * [Глоссарий по средствам работы с эластичными базами данных](sql-database-elastic-scale-glossary.md)
 * [Использование клиентской библиотеки эластичных баз данных с Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
 * [Использование клиентской библиотеки эластичной базы данных с Dapper](sql-database-elastic-scale-working-with-dapper.md)
 * [Средство разбиения и слияния](sql-database-elastic-scale-overview-split-and-merge.md)
-* [Счетчики производительности для диспетчера карты сегментов](sql-database-elastic-database-client-library.md) 
+* [Счетчики производительности для диспетчера карты сегментов](sql-database-elastic-database-client-library.md)
 * [Часто задаваемые вопросы об инструментах эластичных баз данных](sql-database-elastic-scale-faq.md)
 
 ## Возможности клиента
@@ -73,4 +73,4 @@
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

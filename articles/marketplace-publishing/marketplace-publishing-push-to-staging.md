@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="06/29/2016"
    ms.author="hascipio"/>
 
 # Завершение создания предложения с маркетинговыми материалами
@@ -175,10 +175,8 @@
 
 ## Дальнейшие действия
 Теперь после загрузки содержимого Marketplace перейдем к тестированию вашего предложения на промежуточном этапе. Тем не менее необходимо выбрать соответствующий тип предложения из приведенного ниже списка, так как действия зависят от типа предложения.
-
-||Образ виртуальной машины |Служба разработчика | Служба данных | Шаблон решения |
-|----|----|----|----|----|
-| **Шаг 3. Отправьте свое предложение на промежуточное развертывание** | [Протестируйте свое предложение виртуальной машины на этапе промежуточного развертывания](marketplace-publishing-vm-image-test-in-staging.md) | Закрытая предварительная версия | [Протестируйте свое предложение службы данных на этапе промежуточного развертывания](marketplace-publishing-data-service-test-in-staging.md) | [Протестируйте свой шаблон решения на этапе промежуточного развертывания](marketplace-publishing-solution-template-test-in-staging.md) |
+- [Протестируйте свое предложение виртуальной машины на этапе промежуточного развертывания](marketplace-publishing-vm-image-test-in-staging.md)
+- [Тестирование предложения шаблона решения на этапе промежуточного развертывания](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## См. также
 - [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -192,4 +190,4 @@
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

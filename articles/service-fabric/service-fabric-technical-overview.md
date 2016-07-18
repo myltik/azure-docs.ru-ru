@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/05/2016"
+   ms.date="07/01/2016"
    ms.author="ryanwi"/>
 
 # Общие сведения о терминологии Service Fabric
@@ -90,4 +90,4 @@ Service Fabric — это платформа распределенных си�
 - [Разработка приложений с использованием микрослужб](service-fabric-overview-microservices.md)
 - [Сценарии приложений](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->
