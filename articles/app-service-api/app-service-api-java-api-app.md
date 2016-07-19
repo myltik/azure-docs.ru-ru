@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="get-started-article"
 	ms.date="06/01/2016"
-	ms.author="bradygaster"/>
+	ms.author="rachelap"/>
 
 # Сборка и развертывание приложения API Java в службе приложений Azure
 
@@ -153,7 +153,7 @@
 
 В этом разделе вы замените серверную реализацию созданного с помощью Swagger кода на пользовательский код. Новый код вернет ArrayList сущностей Contact вызывающему клиенту.
 
-1. Откройте файл модели *Contact.java*, расположенный в папке *src/gen/java/io/swagger/model*, с помощью [Visual Studio Code] или текстового редактора на ваш выбор. 
+1. Откройте файл модели *Contact.java*, расположенный в папке *src/gen/java/io/swagger/model*, с помощью [Visual Studio Code] или текстового редактора на ваш выбор.
 
     ![Открыть файл модели контактов][open-contact-model-file]
 
@@ -338,4 +338,4 @@
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

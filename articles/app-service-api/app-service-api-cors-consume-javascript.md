@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="05/27/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Использование приложения API из JavaScript с помощью CORS
 
@@ -285,4 +285,4 @@ CORS для приложения API можно также настроить с
 
 В этой статье показано, как включить поддержку CORS в службе приложений, чтобы вызывать приложение API, выполняющееся в другом домене, с помощью клиентского кода JavaScript. Дополнительные сведения о приложениях API см. в руководствах по [введению в проверку подлинности службы приложений](../app-service/app-service-authentication-overview.md) и [проверке подлинности пользователя для приложений API](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

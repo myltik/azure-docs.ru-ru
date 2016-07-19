@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Microsoft Power BI Embedded (предварительная версия)— внедрение отчета Power BI с помощью IFrame"
-   description="Microsoft Power BI Embedded (предварительная версия) — базовый код для интеграции отчета в приложение, сведения о выполнении проверки подлинности с помощью маркера приложения Power BI Embedded, а также информация о получении отчетов"
+   pageTitle="Microsoft Power BI Embedded — внедрение отчета Power BI с помощью IFrame"
+   description="Microsoft Power BI Embedded — базовый код для интеграции отчета в приложение, сведения о выполнении проверки подлинности с помощью маркера приложения Power BI Embedded, а также информация о получении отчетов."
    services="power-bi-embedded"
    documentationCenter=""
    authors="minewiskan"
@@ -13,35 +13,33 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
 # Внедрение отчета Power BI с помощью IFrame
 В этой статье приведен базовый код для использования REST API **Power BI Embedded**, маркеры приложения, IFrame и код JavaScript, с помощью которых можно интегрировать или внедрить отчет в приложение.
 
-В статье [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md) содержатся сведения о том, как настроить **коллекцию рабочих областей** для хранения одной или нескольких **рабочих областей** для содержимого отчета. В статье [Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md) описывается процедура импорта отчета в **рабочую область**.
+В статье [Начало работы с Microsoft Power BI Embedded](power-bi-embedded-get-started.md) содержатся сведения о том, как настроить **коллекцию рабочих областей** для хранения одной или нескольких **рабочих областей** для содержимого отчета. В статье [Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md) описывается процедура импорта отчета в **рабочую область**.
 
-Здесь же представлены шаги для внедрения отчета в приложение. Для изучения этой статьи необходимо скачать пример [интеграции отчета с IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) на GitHub. В этом примере содержится простое веб-приложение ASP.NET, с помощью которого можно просмотреть базовый код C# и JavaScript, необходимый для интеграции отчета. Более сложный пример, в котором для интеграции отчета используется шаблон архитектуры Model-View-Controller (MVC), см. в [примере веб-приложения панели мониторинга](http://go.microsoft.com/fwlink/?LinkId=761493) на GitHub.
+Здесь же приводятся действия по внедрению отчета в приложение. Для изучения этой статьи необходимо скачать пример [интеграции отчета с IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) на GitHub. В этом примере содержится простое веб-приложение ASP.NET, с помощью которого можно просмотреть базовый код C# и JavaScript, необходимый для интеграции отчета. Более сложный пример, в котором для интеграции отчета используется шаблон архитектуры Model-View-Controller (MVC), см. в [примере веб-приложения панели мониторинга](http://go.microsoft.com/fwlink/?LinkId=761493) на GitHub.
 
-Приступим к описанию интеграции отчета **Power BI Embedded** в веб-приложение.
+Вот как можно интегрировать отчет.
 
-Ниже указаны действия для интеграции отчета.
-
-- Шаг 1. [Получение отчета в рабочей области](#GetReport). На этом этапе используется поток маркеров приложений, чтобы получить маркер доступа для вызова операции REST [Получить отчеты](https://msdn.microsoft.com/library/mt711510.aspx). Получив отчет из списка **Получение отчетов**, внедрите отчет в приложение с помощью элемента **IFrame**.
+- Шаг 1. [Получение отчета в рабочей области](#GetReport). На этом этапе вы используете поток маркеров приложений, чтобы получить маркер доступа для вызова операции REST [Получить отчеты](https://msdn.microsoft.com/library/mt711510.aspx). Получив отчет из списка **Получение отчетов**, внедрите отчет в приложение с помощью элемента **IFrame**.
 - Шаг 2. [Внедрение отчета в приложение](#EmbedReport). На этом шаге используется маркер для отчета, код JavaScript и IFrame, чтобы интегрировать или внедрить отчет в веб-приложение.
 
-Если нужно запустить пример, чтобы узнать, как интегрировать отчет, скачайте пример [интеграции отчета с помощью IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) на GitHub и настройте три параметра Web.Config:
+Если нужно запустить пример, чтобы узнать, как интегрировать отчет, скачайте пример [интеграции отчета с использованием IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) на GitHub и настройте три параметра Web.Config:
 
-- **AccessKey**. **AccessKey** используется для создания веб-маркера JSON (JWT), предназначенного для получения и внедрения отчетов. Чтобы узнать, как получить **AccessKey**, см. статью [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md).
-- **WorkspaceName**. Чтобы узнать, как получить **WorkspaceName**, см. статью [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md).
-- **WorkspaceId**. Чтобы узнать, как получить **WorkspaceId**, см. статью [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md).
+- **AccessKey**. **AccessKey** используется для создания веб-маркера JSON Web Token (JWT), предназначенного для получения и внедрения отчетов. Чтобы узнать, как получить **AccessKey**, см. статью [Начало работы с Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+- **WorkspaceName**. Чтобы узнать, как получить **WorkspaceName**, см. статью [Начало работы с Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+- **WorkspaceId**. Чтобы узнать, как получить **WorkspaceId**, см. статью [Начало работы с Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 
 В следующих разделах содержится код, необходимый для интеграции отчета.
 
 <a name="GetReport"/>
 ## Получение отчета в рабочей области
 
-Чтобы интегрировать отчет в приложение, понадобятся параметры отчета **ID** и **embedUrl**. Чтобы получить параметры отчета **ID** и **embedUrl**, вызовите операцию REST [Получить отчеты](https://msdn.microsoft.com/library/mt711510.aspx) и выберите отчет в списке JSON. В разделе [Внедрение отчета в приложение](#EmbedReport) используются параметры отчета **ID** и **embedUrl** для внедрения отчета в приложение.
+Чтобы интегрировать отчет в приложение, понадобятся такие параметры отчета, как **ID** и **embedUrl**. Чтобы получить параметры отчета **ID** и **embedUrl**, вызовите операцию REST [Получить отчеты](https://msdn.microsoft.com/library/mt711510.aspx) и выберите отчет в списке JSON. В разделе [Внедрение отчета в приложение](#EmbedReport) используются параметры отчета **ID** и **embedUrl** для внедрения отчета в приложение.
 
 ### Ответ JSON на операцию получения отчетов
 ```
@@ -135,7 +133,7 @@ protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 <a name="EmbedReportJS"/>
 ### Интеграция отчета в приложение
 
-Чтобы внедрить отчет **Power BI** в приложение, используйте IFrame и код JavaScript. Ниже приведен пример IFrame и код JavaScript для внедрения отчета. Все примеры кода для внедрения отчета см. в примере [интеграции отчета с помощью IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) на GitHub.
+Чтобы внедрить отчет **Power BI** в приложение, используйте IFrame и код JavaScript. Ниже приведен пример IFrame и код JavaScript для внедрения отчета. Все примеры кода по внедрению отчета см. в примере [интеграции отчета с помощью IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) на GitHub.
 
 ![IFrame](media\power-bi-embedded-integrate-report\Iframe.png)
 
@@ -189,7 +187,7 @@ function postActionLoadReport() {
 
 **Фильтрация по значению**
 
-Чтобы отфильтровать данные значению, используйте синтаксис запроса **$filter** с оператором **eq**.
+Чтобы отфильтровать данные по значению, используйте синтаксис запроса **$filter** с оператором **eq**.
 
 ```
 https://app.powerbi.com/reportEmbed
@@ -213,19 +211,16 @@ $filter=Store/Chain%20eq%20'Lindseys'
 &filterPaneEnabled=false
 ```
 
-## Заключение
+## Дополнительные ресурсы
 
-В этой статье мы рассмотрели код для интеграции отчета **Power BI** в приложение. Чтобы быстро приступить к интеграции отчета в приложение, скачайте следующие примеры на GitHub:
+В этой статье мы рассмотрели код для интеграции отчета **Power BI** в приложение. Обязательно ознакомьтесь со следующими дополнительными примерами на GitHub:
 
 - [пример интеграции отчета с помощью IFrame;](https://github.com/Azure-Samples/power-bi-embedded-iframe)
 - [Пример панели мониторинга веб-приложения](http://go.microsoft.com/fwlink/?LinkId=761493)
 
 ## См. также
-- [Приступая к работе с предварительной версией Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
-- [Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md)
 - [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [Get Reports (Получение отчета)](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

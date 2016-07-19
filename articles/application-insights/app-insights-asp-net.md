@@ -3,7 +3,7 @@
 	description="Настройка средств аналитики производительности, доступности и использования для веб-сайта ASP.NET, размещенного локально или в Azure." 
 	services="application-insights" 
     documentationCenter=".net"
-	authors="alancameronwills" 
+	authors="NumberByColors" 
 	manager="douge"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="06/21/2016" 
-	ms.author="awills"/>
+	ms.author="daviste"/>
 
 
 # Настройка Application Insights для ASP.NET
@@ -26,7 +26,7 @@
 Вам необходимы:
 
 * Visual Studio 2013 с обновлением 3 или более новая версия. Чем новее версия, тем лучше.
-* подписка на [Microsoft Azure](http://azure.com). Если у вашей группы или организации есть подписка Azure, владелец может добавить вас в нее с помощью вашей [учетной записи Майкрософт](http://live.com). 
+* подписка на [Microsoft Azure](http://azure.com). Если у вашей группы или организации есть подписка Azure, владелец может добавить вас в нее с помощью вашей [учетной записи Майкрософт](http://live.com).
 
 Существуют и другие статьи, к которым можно обратиться, если вас интересуют такие темы, как:
 
@@ -50,7 +50,7 @@
 
 ![Выберите пункт Add Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
-* Если же это проект ASP.NET Core, [выполните эти указания, чтобы исправить несколько строк кода](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs). 
+* Если же это проект ASP.NET Core, [выполните эти указания, чтобы исправить несколько строк кода](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs).
 
 
 
@@ -88,7 +88,7 @@
 
 На портале откроется представление данных телеметрии из приложения: ![](./media/app-insights-asp-net/66.png)
 
-* Отдельные события появляются в области **поиска** (1). Данные сначала отображаются здесь (и в [динамическом потоке метрик](app-insights-metrics-explorer.md#live-metrics-stream)). Выберите любое событие, чтобы просмотреть его свойства. 
+* Отдельные события появляются в области **поиска** (1). Данные сначала отображаются здесь (и в [динамическом потоке метрик](app-insights-metrics-explorer.md#live-metrics-stream)). Выберите любое событие, чтобы просмотреть его свойства.
 * Сводные показатели отображаются на диаграммах (2). Через пару минут данные появятся здесь. Щелкните любую диаграмму, чтобы открыть колонку с более подробной информацией.
 
 [Дополнительные сведения об использовании Application Insights на портале Azure](app-insights-dashboards.md).
@@ -123,4 +123,4 @@ Application Insights отправляет данные телеметрии из
 |**[Работа с порталом Application Insights](app-insights-dashboards.md)**<br/>Панели мониторинга, эффективные средства диагностики и анализа, оповещения, карта динамических зависимостей приложения, а также экспорт телеметрии. |![Visual Studio](./media/app-insights-asp-net/62.png)
 |**[Добавление дополнительных данных](app-insights-asp-net-more.md)**<br/>Мониторинг использования, доступности, зависимостей и исключений. Интеграция трассировок из платформ ведения журналов. Написание пользовательской телеметрии. | ![Visual Studio](./media/app-insights-asp-net/64.png)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->
