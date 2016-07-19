@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Список соединителей, управляемых корпорацией Майкрософт, для использования в приложениях логики Microsoft Azure | Служба приложений Microsoft Azure"
+	pageTitle="Список соединителей, управляемых корпорацией Майкрософт, для использования в приложениях логики Microsoft Azure | Служба приложений Microsoft Azure | Microsoft Azure"
 	description="Полный список соединителей, управляемых корпорацией Майкрософт, которые можно использовать для создания приложений логики в службе приложений Azure"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/31/2016"
+	ms.date="07/07/2016"
 	ms.author="deonhe"/>
 
 # Список соединителей
@@ -62,10 +62,7 @@
 Соединители могут также использоваться как действия в приложениях. Действия удобно использовать для поиска данных, которые можно использовать при выполнении вашего приложения. Например, при обработке заказа может потребоваться найти в базе данных SQL дополнительные сведения о клиенте либо записать, обновить или удалить данные в таблице назначения. Это можно сделать с помощью действий, предоставляемых соединителями. Действия сопоставляются с операциями, определенными в метаданных Swagger.
 
 
-[Новая версия схемы 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
-[Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Что такое Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md)  
-[Перенос приложений логики в версию схемы 2015-08-01-preview](connectors-schema-migration.md)
+[Новая версия схемы 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md) [Что такое Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md) [Перенос приложений логики в версию схемы 2015-08-01-preview](connectors-schema-migration.md)
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Подключается к BLOB-объекту Azure для управления файлами в контейнере BLOB-объектов."
@@ -105,7 +102,7 @@
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Узнайте об AS2 в рамках корпоративной интеграции."
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Узнайте о соглашении X12 в рамках корпоративной интеграции."
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Узнайте о неструктурированном файле в рамках корпоративной интеграции."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Узнайте о неструктурированном файле в рамках корпоративной интеграции."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md/#how-to-create-the-flat-file-decoding-connector "Узнайте о неструктурированном файле в рамках корпоративной интеграции."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Узнайте о проверке XML в рамках корпоративной интеграции."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Узнайте о преобразованиях в рамках корпоративной интеграции."
 
@@ -148,4 +145,4 @@
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

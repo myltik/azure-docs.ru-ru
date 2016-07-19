@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="05/03/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Обзор приложений API
 
@@ -57,10 +57,10 @@
 
 Чтобы приступить к работе с приложениями API, используя один пример кода, ознакомьтесь с руководством по необходимой платформе:
 
-* [ASP.NET](app-service-api-dotnet-get-started.md) 
-* [Node.js](app-service-api-nodejs-api-app.md) 
-* [Java](app-service-api-java-api-app.md) 
+* [ASP.NET](app-service-api-dotnet-get-started.md)
+* [Node.js](app-service-api-nodejs-api-app.md)
+* [Java](app-service-api-java-api-app.md)
 
 Чтобы задать вопросы о приложениях API, начните беседу на [форуме по приложениям API](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0511_2016---->
+<!---HONumber=AcomDC_0713_2016-->

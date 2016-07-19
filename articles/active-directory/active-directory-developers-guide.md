@@ -13,23 +13,23 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/23/2016"
+   ms.date="07/06/2016"
    ms.author="mbaldwin"/>
 
 
 # Руководство разработчика по Azure Active Directory
 
 ## Обзор
-Azure Active Directory является платформой для управления удостоверениями, которая доступна как служба (IDMaaS). Она позволяет разработчикам легко интегрировать в свои приложения функции управления удостоверениями. В следующих статьях содержатся основные сведения о реализации и основные функции платформы Azure Active Directory. Рекомендуется ознакомиться с ними по порядку или сразу перейти к [Приступая к работе](#getting-started), если требуется более подробное ознакомление.
+Azure Active Directory (AD) — это платформа для управления удостоверениями, которая доступна как служба (IDMaaS). Она позволяет разработчикам легко интегрировать в свои приложения функции управления удостоверениями. В следующих статьях содержатся основные сведения о реализации и основные функции платформы Azure AD. Рекомендуется ознакомиться с ними по порядку или сразу перейти к [Приступая к работе](#getting-started), если требуется более подробное ознакомление.
 
 
-1. [Преимущества интеграции с Azure Active Directory](active-directory-how-to-integrate.md): узнайте, почему интеграция с Azure Active Directory является лучшим решением для обеспечения безопасного входа и авторизации.
+1. [Преимущества интеграции с Azure Active Directory](active-directory-how-to-integrate.md) — узнайте, почему интеграция с Azure AD — это лучшее решение для безопасного входа и авторизации.
 
-1. [Сценарии проверки подлинности Active Directory](active-directory-authentication-scenarios.md): обеспечьте вход в приложение, используя упрощенную проверку подлинности в Azure Active Directory.
+1. [Сценарии проверки подлинности Active Directory](active-directory-authentication-scenarios.md). Обеспечьте вход в приложение, используя упрощенную проверку подлинности в Azure AD.
 
-1. [Интеграция приложений с Azure Active Directory](active-directory-integrating-applications.md): узнайте, как добавлять, обновлять и удалять приложения из Azure Active Directory, а также изучите рекомендации по добавлению фирменной символики в интегрированные приложения.
+1. [Интеграция приложений с Azure Active Directory](active-directory-integrating-applications.md) — узнайте, как добавлять, обновлять и удалять приложения из Azure AD, а также изучите рекомендации по добавлению фирменной символики в интегрированные приложения.
 
-1. [Azure Active Directory Graph API](active-directory-graph-api.md): используйте Azure Active Directory Graph API для программного доступа к Azure Active Directory через конечные точки REST API. Обратите внимание, что API Graph Azure AD также доступен через [Microsoft Graph](https://graph.microsoft.io/) — унифицированный API, обеспечивающий доступ к нескольким API облачной службы Майкрософт через одну конечную точку REST API и с использованием единого маркера доступа.
+1. [Azure Active Directory Graph API](active-directory-graph-api.md). Используйте API Graph Azure AD для программного доступа к Azure AD через конечные точки REST API. Обратите внимание, что API Graph Azure AD также доступен через [Microsoft Graph](https://graph.microsoft.io/) — унифицированный API, обеспечивающий доступ к нескольким API облачной службы Майкрософт через одну конечную точку REST API и с использованием единого маркера доступа.
 
 1. [Библиотеки проверки подлинности Azure Active Directory](active-directory-authentication-libraries.md). Выполняйте проверку подлинности пользователей, которым требуются маркеры доступа, с помощью библиотек проверки подлинности Azure AD для .NET, JavaScript, Objective-C, Android и т. д.
 
@@ -66,12 +66,13 @@ Azure Active Directory является платформой для управл
 
 В этих статьях описываются способы выполнения конкретных задач с использованием Azure Active Directory.
 
-- [Как получить клиент Azure Active Directory](active-directory-howto-tenant.md)
+- [Получение клиента Azure AD](active-directory-howto-tenant.md)
+- [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md) (Как реализовать вход любого пользователя Azure Active Directory (AD) с помощью шаблона мультитенантного приложения)
+- Включение единого входа для нескольких приложений с помощью ADAL на устройствах [Android](active-directory-sso-android.md) и [iOS](active-directory-sso-ios.md)
+- [How to get AppSource Certified for Azure Active Directory (AD)](active-directory-devhowto-appsource-certified.md) (Как сертифицировать AppSource для Azure Active Directory (AD))
 - [Добавление приложения в коллекцию приложений Azure Active Directory](active-directory-app-gallery-listing.md)
-- [Основные сведения о манифесте приложения Azure Active Directory](active-directory-application-manifest.md)
-- [Создание приложения с помощью API Office 365](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Отправка веб-приложений для Office 365 на панель мониторинга продавца](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-- Узнайте, как включить единый вход для нескольких приложений с помощью ADAL на устройствах [Android](active-directory-sso-android.md) и [iOS](active-directory-sso-ios.md)
+- [Основные сведения о манифесте приложения Azure Active Directory](active-directory-application-manifest.md)
 - [Изучите рекомендации по фирменной символике для кнопок входа и приобретения приложения в клиентском приложении](active-directory-branding-guidelines.md)
 - [Предварительная версия. Как создавать приложения для входа пользователей с личными, рабочими и учебными учетными записями](active-directory-appmodel-v2-overview.md)
 - [Предварительная версия. Как создавать приложения, которые выполняют регистрацию и вход пользователей](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -90,7 +91,7 @@ Azure Active Directory является платформой для управл
 
 - [Примеры кода Azure Active Directory ](https://github.com/azure-samples?query=active-directory). Самый простой способ навигации по списку примеров — это [индекс примеров кода](active-directory-code-samples.md).
 
-- [ADAL для .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): документация по библиотеке аутентификации .NET.
+- [ADAL для .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx). Документация по библиотеке проверки подлинности .NET.
 
 ### API Graph
 
@@ -100,9 +101,9 @@ Azure Active Directory является платформой для управл
 
 ### Протоколы аутентификации и авторизации
 
-- [Смена ключей подписывания Azure Active Directory](active-directory-signing-key-rollover.md): сведения о смене ключей подписывания в Azure AD и о том, как обновлять ключи для самых распространенных сценариев приложений.
+- [Смена ключей подписывания Azure Active Directory](active-directory-signing-key-rollover.md). Сведения о смене ключей подписывания в Azure AD и о том, как обновлять ключи для самых распространенных сценариев приложений.
 
-- [Протокол OAuth 2.0. Неявное предоставление авторизации](active-directory-dev-understanding-oauth2-implicit-grant.md): сведения о процессе неявного предоставления авторизации и его совместимости с приложением.
+- [Общие сведения о неявном потоке предоставления OAuth2 в Azure Active Directory (AD)](active-directory-dev-understanding-oauth2-implicit-grant.md): сведения о процессе неявного предоставления авторизации и его совместимости с приложением.
 
 - [Справочник по протоколу SAML 2.0](active-directory-saml-protocol-reference.md): протокол SAML 2.0 позволяет приложениям предоставлять пользователям единый вход.
 
@@ -138,4 +139,4 @@ Azure Active Directory является платформой для управл
 
 - [Azure Active Directory в Твиттере](https://twitter.com/azuread). Объявления Azure Active Directory длиной не более 140 знаков.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

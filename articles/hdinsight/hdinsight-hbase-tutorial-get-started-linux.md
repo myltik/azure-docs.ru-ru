@@ -43,7 +43,7 @@
 
 1. Щелкните следующие изображение, чтобы открыть шаблон ARM на портале Azure. Шаблон ARM расположен в общедоступном контейнере больших двоичных объектов.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. В колонке **Параметры** заполните следующие поля.
 
@@ -216,7 +216,7 @@ HBase включает несколько методов загрузки дан
 	Необходимо закодировать значения, указанные в параметре -d, используя кодировку base64. В примере:
 
 	- MTAwMA==: 1000;
-	- UGVyc29uYWw6TmFtZQ==: Peronsal:Name;
+	- UGVyc29uYWw6TmFtZQ==: Personal:Name
 	- Sm9obiBEb2xl: John Dole.
 
 	[false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) позволяет вставить несколько (пакетных) значений.
@@ -325,4 +325,4 @@ SSH может также использоваться для туннелиро
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

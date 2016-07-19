@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python"
 	ms.topic="get-started-article" 
-	ms.date="06/01/2016"
+	ms.date="07/07/2016"
 	ms.author="huvalo"/>
 
 # Использование Django и MySQL в Azure с помощью инструментов Python 2.2 для Visual Studio 
@@ -26,16 +26,16 @@
 > 
 > [PTVS 2.1: Django app with MySQL][video] (PTVS 2.1: приложение Django с использованием MySQL).
 
-В [центре разработчиков Python] доступны материалы по разработке веб-приложений службы приложений Azure с использованием PTVS, веб-платформ Bottle, Flask и Django, MongoDB, табличного хранилища Azure, а также служб базы данных SQL и MySQL. Хотя эта статья ориентирована в первую очередь на службу приложений, при разработке для [облачных служб Azure] используются аналогичные процедуры.
+В [центре разработчиков Python] доступны материалы по разработке веб-приложений службы приложений Azure с использованием PTVS, веб-платформ Bottle, Flask и Django, хранилища таблиц Azure, а также служб базы данных SQL и MySQL. Хотя эта статья ориентирована в первую очередь на службу приложений, при разработке для [облачных служб Azure] используются аналогичные процедуры.
 
 ## Предварительные требования
 
- - Visual Studio 2013 или 2015
- - [Python 2.7 (32-разрядная версия).]
+ - Visual Studio 2015
+ - [Python 2.7 (32-разрядный)] или [Python 3.4 (32-разрядный)]
  - [Инструменты Python 2.2 для Visual Studio]
  - [Образцы VSIX средств Python 2.2 для Visual Studio]
- - [Пакет инструментов SDK Azure для VS 2013] или [пакет инструментов SDK Azure для VS 2015]
- - Django 1.6 или более ранняя версия.
+ - [Инструменты пакета SDK для Azure для VS 2015]
+ - Django 1.9 или более поздней версии
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -47,9 +47,9 @@
 
 В этом разделе мы создадим проект Visual Studio с помощью шаблона. Мы создадим виртуальную среду и установим необходимые пакеты. Мы создадим также локальную базу данных с помощью sqlite. После этого мы запустим приложение локально.
 
-1. В Visual Studio выберите **Файл** > **Создать проект**.
+1. В Visual Studio выберите **Файл** > **Создать проект**.
 
-1. В шаблонах проекта PTVS Samples VSIX в секции **Python** выберите **Примеры**. Выберите **Веб-проект опросов Django** и нажмите кнопку «ОК», чтобы создать проект.
+1. Чтобы найти шаблоны проекта [Образцы VSIX средств Python 2.2 для Visual Studio], в разделе **Python** выберите **Примеры**. Выберите **Веб-проект опросов Django** и нажмите кнопку «ОК», чтобы создать проект.
 
     ![Диалоговое окно «Новый проект»](./media/web-sites-python-ptvs-django-mysql/PollsDjangoNewProject.png)
 
@@ -57,17 +57,13 @@
 
     ![Диалоговое окно «Внешние пакеты»](./media/web-sites-python-ptvs-django-mysql/PollsDjangoExternalPackages.png)
 
-1. Выберите **Python 2.7** в качестве базового интерпретатора.
+1. Выберите **Python 2.7** или **Python 3.4** в качестве базового интерпретатора.
 
     ![Диалоговое окно «Добавление виртуальной среды»](./media/web-sites-python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
 
-1. В **обозревателе решений** щелкните правой кнопкой мыши узел проекта, а затем выберите **Python** и **Django Sync DB**.
-
-    ![Команда базы данных синхронизации Django](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSyncDB.png)
+1. В **обозревателе решений** щелкните правой кнопкой мыши узел проекта, а затем выберите **Python** и **Django Migrate** (Миграция Django). Выберите **Django Create Superuser** (Создать суперпользователя Django).
 
 1. Откроется консоль управления Django, а в папке проекта будет создана база данных sqlite. Следуйте инструкциям на экране для создания пользователя.
-
-    ![Окно консоли управления Django](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
 1. Убедитесь, что приложение работает, нажав клавишу `F5`.
 
@@ -99,13 +95,7 @@
 
 1. В верхней части области навигации последовательно выберите пункты **Создать**, **Данные+хранилище**, **База данных MySQL**.
 
-1. Введите **mysql** в поле поиска, щелкните **База данных MySQL** и затем щелкните **Создать**.
-
-    <!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
-
 1. Настройте новую базу данных MySQL, создав новую группу ресурсов, и выберите соответствующее расположение для нее.
-
-    <!-- ![Personalize Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon2.png) -->
 
 1. После создания базы данных MySQL щелкните **Свойства** в колонке базы данных.
 
@@ -135,15 +125,13 @@
 
 1. В обозревателе решений в разделе **Среды Python** щелкните правой кнопкой мыши виртуальную среду и выберите **Установить пакет Python**.
 
-1. Установите пакет `mysql-python`, используя **easy\_install**.
+1. Установите пакет `mysqlclient`, используя **pip**.
 
     ![Диалоговое окно «Установка пакета»](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
-1. В **обозревателе решений** щелкните правой кнопкой мыши узел проекта, а затем выберите **Python** и **Django Sync DB**.
+1. В **обозревателе решений** щелкните правой кнопкой мыши узел проекта, а затем выберите **Python** и **Django Migrate** (Миграция Django). Выберите **Django Create Superuser** (Создать суперпользователя Django).
 
     Появятся таблицы для базы данных MySQL, созданной в предыдущем разделе. Следуя подсказкам, создайте пользователя, который будет отличаться от пользователя базы данных sqlite, которого мы создали в первом разделе.
-
-    ![Окно консоли управления Django](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
 1. Запустите приложение, нажав клавишу `F5`. Опросы, созданные с помощью команды **Создать примеры опросов** и отправленных данных голосования, будут сериализованы в базе данных MySQL.
 
@@ -155,7 +143,7 @@
 
     ![Диалоговое окно «Публикация веб-сайта»](./media/web-sites-python-ptvs-django-mysql/PollsCommonPublishWebSiteDialog.png)
 
-1. Щелкните **Веб-приложения Microsoft Azure**.
+1. Щелкните **Служба приложений Microsoft Azure**.
 
 1. Нажмите **Создать**, чтобы создать новое веб-приложение.
 
@@ -165,8 +153,6 @@
 	- **Группа ресурсов**
 	- **Регион**
 	- Для параметра **Сервер баз данных** оставьте значение **Без базы данных**
-
-    <!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-mysql/PollsCommonCreateWebSite.png) -->
 
 1. Примите значения по умолчанию и щелкните **Опубликовать**.
 
@@ -200,9 +186,9 @@
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Образцы VSIX средств Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Пакет инструментов SDK Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[пакет инструментов SDK Azure для VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 (32-разрядная версия).]: http://go.microsoft.com/fwlink/?LinkId=517190
+[Инструменты пакета SDK для Azure для VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Python 2.7 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517190
+[Python 3.4 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [Удаленная отладка в Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Веб-проекты]: http://go.microsoft.com/fwlink/?LinkId=624027
@@ -211,4 +197,4 @@
 [MySQL]: http://www.mysql.com/
 [video]: http://youtu.be/oKCApIrS0Lo
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

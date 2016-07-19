@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/11/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Создание базы данных хранилища данных SQL с помощью Transact-SQL (TSQL)
@@ -80,4 +80,4 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 [бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [кредитов Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

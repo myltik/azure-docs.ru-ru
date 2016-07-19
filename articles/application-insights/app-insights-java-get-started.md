@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Анализ веб-приложений Java с помощью Application Insights | Microsoft Azure"
-	description="Мониторинг производительности и использования веб-сайта Java с помощью Application Insights."
+	description="Мониторинг производительности и использования веб-сайта Java с помощью Application Insights. "
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -98,7 +98,7 @@
       // or applicationinsights-core for bare API
     }
 
-* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например* `version:'1.0.n'`. *Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например * `version:'1.0.n'`. *Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Обновление пакета SDK до новой версии*
  * Обновите зависимости проекта.
 
@@ -162,6 +162,19 @@
 * Ключ инструментирования пересылается вместе с каждым элементом телеметрии; служба Application Insights отобразит его в ресурсе.
 * Компонент HTTP-запросов является необязательным. Он автоматически передает на портал телеметрию о запросах и значения времени ответа.
 * Корреляционные данные для событий являются дополнением к компоненту HTTP-запросов. Это дополнение назначает идентификатор для каждого запроса, полученного сервером, и добавляет его в качестве свойства каждого элемента телеметрии в форме "Операция.ИД". Благодаря этому можно выделить данные телеметрии, связанные с каждым из запросов, путем установки фильтра [Поиск по журналу диагностики][diagnostic].
+
+### Другие способы задать ключ инструментирования
+
+Пакет SDK Application Insights ищет ключ в следующем порядке:
+
+1. Системное свойство: -DAPPLICATION\_INSIGHTS\_IKEY=your\_ikey
+2. Переменная среды: APPLICATION\_INSIGHTS\_IKEY
+3. Файл конфигурации: ApplicationInsights.xml
+
+Вы также можете [задать его в коде](app-insights-api-custom-events-metrics.md#ikey):
+
+    telemetryClient.InstrumentationKey = "...";
+
 
 ## 4\. Добавление фильтра HTTP
 
@@ -227,7 +240,7 @@
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Служба Application Insights предполагает, что HTTP-запросы для приложений MVC имеют следующий формат: `VERB controller/action` (КОМАНДА контроллер/действие). Например `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` и `GET Home/Product/sdf96vws` будут сгруппированы в `GET Home/Product`. Это позволяет осмысленно группировать запросы, получая, например, число запросов и среднее время выполнения запросов.
+> Служба Application Insights предполагает, что HTTP-запросы для приложений MVC имеют следующий формат: `VERB controller/action`. Например `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` и `GET Home/Product/sdf96vws` будут сгруппированы в `GET Home/Product`. Это позволяет осмысленно группировать запросы, получая, например, число запросов и среднее время выполнения запросов.
 
 
 ### Данные экземпляров 
@@ -248,16 +261,14 @@
 ![Пример аналитики](./media/app-insights-java-get-started/025.png)
 
 
-## 5\. Установка приложения на сервере
+## 7\. Установка приложения на сервере
 
 Теперь опубликуйте приложение на сервере, откройте доступ для пользователей и изучайте телеметрию на портале.
 
 * Убедитесь, что брандмауэр позволяет приложению отправлять телеметрию на следующие порты:
 
  * dc.services.visualstudio.com:443
- * dc.services.visualstudio.com:80
  * f5.services.visualstudio.com:443
- * f5.services.visualstudio.com:80
 
 
 * На серверах Windows необходимо установить следующее:
@@ -274,7 +285,7 @@
 
 Для сбора данных по другим исключениям доступны два варианта:
 
-* [вставить в код вызовы функции trackException()][apiexceptions]; 
+* [вставить в код вызовы функции trackException()][apiexceptions];
 * [установить на сервере агент для Java](app-insights-java-agent.md). Необходимо указать методы, которые требуется отслеживать.
 
 
@@ -401,4 +412,4 @@ Application Insights может тестировать ваш веб-сайт ч
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->
