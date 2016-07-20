@@ -61,7 +61,7 @@ volumes:
 **В ОС Windows**
 
 ```
-a
+docker run -it -v /c/Users/Public:/wormhole busybox
 / # ls
 ```
 
@@ -105,14 +105,14 @@ Documents        Libraries        Pictures         desktop.ini
 
 1. Выберите **Свойства браузера**.
     - В Windows 10 в поле "Выполнить" можно ввести `Internet Options`.
-    - В обозревателе Internet Explorer можно перейти в меню **Параметры** и выбрать пункт **Свойства браузера**. 
-1. Выберите появившийся пункт **Свойства браузера**. 
+    - В обозревателе Internet Explorer можно перейти в меню **Параметры** и выбрать пункт **Свойства браузера**.
+1. Выберите появившийся пункт **Свойства браузера**.
 1. Откройте вкладку **Безопасность**.
 1. Выберите зону **Местная интрасеть**.
-1. Выберите **Сайты**. 
-1. Добавьте IP-адрес виртуальной машины (в данном случае узел Docker) в список. 
-1. Обновите страницу в Edge — сайт заработает. 
-1. Дополнительные сведения об этой проблеме см. в записи [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Microsoft Edge не видит или не открывает локальные веб-сайты в VirtualBox) в блоге Скотта Хансельмана (Scott Hanselman). 
+1. Выберите **Сайты**.
+1. Добавьте IP-адрес виртуальной машины (в данном случае узел Docker) в список.
+1. Обновите страницу в Edge — сайт заработает.
+1. Дополнительные сведения об этой проблеме см. в записи [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Microsoft Edge не видит или не открывает локальные веб-сайты в VirtualBox) в блоге Скотта Хансельмана (Scott Hanselman).
 
 ##Устранение неполадок, версия 0.15 или более ранняя
 
@@ -135,4 +135,4 @@ Documents        Libraries        Pictures         desktop.ini
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
     ```
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

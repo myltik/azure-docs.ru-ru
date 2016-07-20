@@ -330,43 +330,14 @@ Push-уведомления добавляются во все проекты, �
 
 ####Добавление push-уведомлений в приложение iOS
 
-1. Добавьте следующий оператор `using` в верхнюю часть файла **AppDelegate.cs**.
+1. В проекте **iOS** откройте файл AppDelegate.cs и добавьте в его начало следующий оператор **using**.
 
-        using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json.Linq;
+        using Newtonsoft.Json.Linq;
 
+4. В класс **AppDelegate** добавьте переопределение для события **RegisteredForRemoteNotifications**, чтобы выполнить регистрацию для получения уведомлений.
 
-2. В проекте iOS откройте файл AppDelegate.cs и измените метод `FinishedLaunching`, чтобы добавить поддержку удаленных уведомлений, как показано ниже.
-
-		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
-		{
-			global::Xamarin.Forms.Forms.Init ();
-
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-
-            // IMPORTANT: uncomment this code to enable sync on Xamarin.iOS
-            // For more information, see: http://go.microsoft.com/fwlink/?LinkId=620342
-            //SQLitePCL.CurrentPlatform.Init();
-
-            // registers for push for iOS8
-            var settings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert
-                | UIUserNotificationType.Badge
-                | UIUserNotificationType.Sound,
-                new NSSet());
-
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
-            UIApplication.SharedApplication.RegisterForRemoteNotifications();
-
-			LoadApplication (new App ());
-
-			return base.FinishedLaunching (app, options);
-		}
-
-
-4. Кроме того, в файле AppDelegate.cs добавьте переопределение для события **RegisteredForRemoteNotifications**, чтобы выполнить регистрацию для получения уведомлений.
-
-        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        public override void RegisteredForRemoteNotifications(UIApplication application, 
+			NSData deviceToken)
         {
             const string templateBodyAPNS = "{"aps":{"alert":"$(messageParam)"}}";
 
@@ -381,9 +352,10 @@ Push-уведомления добавляются во все проекты, �
             push.RegisterAsync(deviceToken, templates);
         }
 
-5. Кроме того, в файле AppDelegate.cs добавьте переопределение для события **DidReceivedRemoteNotification**, чтобы входящие уведомления обрабатывались во время выполнения приложения.
+5. Добавьте также в класс **AppDelegate** следующее переопределение для обработчика событий **DidReceivedRemoteNotification**.
 
-        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+        public override void DidReceiveRemoteNotification(UIApplication application, 
+			NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
             NSDictionary aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
 
@@ -398,6 +370,22 @@ Push-уведомления добавляются во все проекты, �
                 avAlert.Show();
             }
         }
+
+	Этот метод обрабатывает входящие уведомления во время выполнения приложения.
+
+2. В классе **AppDelegate** добавьте следующий код в метод **FinishedLaunching**.
+
+        // Register for push notifications.
+        var settings = UIUserNotificationSettings.GetSettingsForTypes(
+            UIUserNotificationType.Alert
+            | UIUserNotificationType.Badge
+            | UIUserNotificationType.Sound,
+            new NSSet());
+
+        UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+        UIApplication.SharedApplication.RegisterForRemoteNotifications();
+
+	Он обеспечивает поддержку удаленных уведомлений и запрашивает регистрацию push-уведомлений.
 
 Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
@@ -431,7 +419,7 @@ Push-уведомления добавляются во все проекты, �
 
 ####Добавление push-уведомлений в приложение Windows
 
-1. В Visual Studio откройте файл проекта **App.xaml.cs** и добавьте следующие директивы **using**.
+1. В Visual Studio откройте файл проекта Windows **App.xaml.cs** и добавьте следующие операторы **using**.
 
 		using Newtonsoft.Json.Linq;
 		using Microsoft.WindowsAzure.MobileServices;
@@ -442,7 +430,7 @@ Push-уведомления добавляются во все проекты, �
 	Вместо `<your_TodoItemManager_portable_class_namespace>` укажите пространство имен вашего переносимого проекта, который содержит класс `TodoItemManager`.
  
 
-2. В файле App.xaml.cs добавьте следующий метод **InitNotificationsAsync**:
+2. В файле App.xaml.cs добавьте следующий метод **InitNotificationsAsync**.
 
         private async Task InitNotificationsAsync()
         {
@@ -468,7 +456,7 @@ Push-уведомления добавляются во все проекты, �
 
 	Этот метод получает канал push-уведомлений и регистрирует шаблон для получения шаблонных уведомлений от узла уведомлений. Клиенту будет доставлено шаблонное уведомление, поддерживающее параметр *messageParam*.
 
-3. В файле App.xaml.cs измените метод обработки события **OnLaunched**, добавив модификатор `async`, а затем добавьте в конец метода следующую строку кода:
+3. В файле App.xaml.cs измените метод обработки события **OnLaunched**, добавив модификатор `async`, а затем добавьте в конец метода следующую строку кода.
 
         await InitNotificationsAsync();
 
@@ -485,7 +473,7 @@ Push-уведомления добавляются во все проекты, �
 
 2. Нажмите кнопку **Запуск**, чтобы создать проект и запустить приложение.
 
-3. В приложении введите имя нового объекта todoitem и добавьте его, нажав значок плюса (**+**).
+3. В приложении введите имя нового объекта todoitem и добавьте его, щелкнув знак "плюс" (**+**).
 
 4. После добавления элемента должно отобразиться соответствующее уведомление.
 
@@ -499,7 +487,7 @@ Push-уведомления добавляются во все проекты, �
 
 Мы также рекомендуем изучить одно из следующих руководств:
 
-* [Добавление проверки подлинности в приложение](app-service-mobile-xamarin-forms-get-started-users.md). Узнайте, как аутентифицировать пользователей приложения с помощью поставщика удостоверений.
+* [Добавление проверки подлинности в приложение Windows](app-service-mobile-xamarin-forms-get-started-users.md). Узнайте, как аутентифицировать пользователей приложения с помощью поставщика удостоверений.
 
 * [Включение автономной синхронизации для приложения](app-service-mobile-xamarin-forms-get-started-offline-data.md). Узнайте, как добавить поддержку автономной работы приложения с помощью серверной части мобильного приложения. Автономная синхронизация позволяет конечным пользователям взаимодействовать с мобильным приложением (просматривать, добавлять или изменять данные) даже при отсутствии подключения к сети.
 
@@ -510,4 +498,4 @@ Push-уведомления добавляются во все проекты, �
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

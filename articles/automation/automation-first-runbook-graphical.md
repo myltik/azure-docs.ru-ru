@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/28/2016"
+    ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
 # Первый графический Runbook
@@ -211,4 +211,4 @@
 -	Сведения о том, как начать работу с модулями Runbook PowerShell, см. в статье [Мой первый модуль Runbook PowerShell](automation-first-runbook-textual-powershell.md).
 -	Сведения о том, как начать работу с модулями Runbook рабочих процессов PowerShell, см. в статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

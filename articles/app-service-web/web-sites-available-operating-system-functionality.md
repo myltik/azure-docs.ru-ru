@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="07/01/2016" 
 	ms.author="cephalin"/>
 
 # Функциональные возможности операционной системы для службы приложений Azure #
@@ -111,4 +111,4 @@
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0706_2016-->

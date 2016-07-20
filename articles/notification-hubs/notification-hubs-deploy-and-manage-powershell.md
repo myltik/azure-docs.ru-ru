@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" />
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Развертывание и управление центров уведомлений с помощью PowerShell
@@ -96,7 +96,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 В этой части сценария выполняется настройка четырех локальных переменных.
 
 1. `$Namespace`: присвойте имя пространства имен, в котором нужно создать центр уведомлений.
-2. `$Path`: присвойте путь к имени нового центра уведомлений. Например, MyHub.    
+2. `$Path`: присвойте путь к имени нового центра уведомлений. Например, MyHub.
 3. `$WnsPackageSid`: присвойте идентификатор безопасности пакета для своего приложения для Windows из [Центра разработки для Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 4. `$WnsSecretkey`: присвойте значение секретного ключа для своего приложения Windows из [Центра разработки для Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
@@ -172,4 +172,4 @@ else
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

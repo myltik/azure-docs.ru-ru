@@ -13,11 +13,11 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/28/2016"
+      ms.date="06/28/2016"
       ms.author="hascipio; avikova" />
 
 # Руководство по публикации службы данных для Azure Marketplace
-После выполнения шага 1, [Создание и регистрация учетной записи][link-acct-creation], мы рассказали об [Общих нетехнических требованиях](marketplace-publishing-pre-requisites.md) и [Технических требованиях](marketplace-publishing-data-service-creation-prerequisites.md) для службы данных в Azure Marketplace. Рассмотрим процедуру создания предложения службы данных на [портале публикации][link-pubportal] для Azure Marketplace.
+После выполнения шага 1, [Создание и регистрация учетной записи](marketplace-publishing-accounts-creation-registration.md), мы рассказали об [Общих нетехнических требованиях](marketplace-publishing-pre-requisites.md) и [Технических требованиях](marketplace-publishing-data-service-creation-prerequisites.md) для службы данных в Azure Marketplace. Рассмотрим процедуру создания предложения службы данных на [портале публикации][link-pubportal] для Azure Marketplace.
 
 ## 1\. Войдите на портал публикации.
 
@@ -143,7 +143,6 @@
 - Если вы хотите поработать с примерами, см. статью [Примеры сопоставления OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping-examples.md), где приводятся примеры кода вместе с объяснением синтаксиса и контекста.
 
 
-[link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0706_2016-->

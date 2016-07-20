@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/04/2016"
+   ms.date="07/01/2016"
    ms.author="jtuliani" />
 
 # Мониторинг и отработка отказов конечной точки диспетчера трафика
@@ -175,4 +175,4 @@
 
 Просмотрите сведения об [устранении неполадок с состоянием пониженной функциональности](traffic-manager-troubleshooting-degraded.md) конечной точки диспетчера трафика.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

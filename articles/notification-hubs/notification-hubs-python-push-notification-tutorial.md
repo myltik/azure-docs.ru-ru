@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Использование концентраторов уведомлений с Python
@@ -28,8 +28,8 @@
 В этом разделе описывается:
 
 * Построение клиента REST для функций концентраторов уведомлений на языке Python.
-* Отправка уведомлений с помощью интерфейса API REST концентратора уведомления Python. 
-* Получение дампа запросов и ответов HTTP REST для отладки и образовательных целей. 
+* Отправка уведомлений с помощью интерфейса API REST концентратора уведомления Python.
+* Получение дампа запросов и ответов HTTP REST для отладки и образовательных целей.
 
 Можно воспользоваться указаниями в разделе [Приступая к работе с центрами уведомлений](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) для выбранной мобильной платформы, которая реализует серверную часть на языке Python.
 
@@ -320,7 +320,7 @@
 
 Вы увидите подробный результат концентратора уведомлений, например сведения о том,
 
-- когда сообщение успешно отправлено в службу push-уведомлений. 
+- когда сообщение успешно отправлено в службу push-уведомлений.
 	
 		<Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
 
@@ -392,4 +392,4 @@
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

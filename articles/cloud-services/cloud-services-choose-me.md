@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="07/05/2016" 
 	ms.author="adegeo"/>
 
 # Стоит ли сделать выбор в пользу облачных служб или чего-то другого?
@@ -57,4 +57,4 @@
 ## Дальнейшие действия
 [Создание приложения облачной службы на .NET](cloud-services-dotnet-get-started.md) [Создание приложения облачной службы на Node.js](cloud-services-nodejs-develop-deploy-app.md) [Создание приложения облачной службы на PHP](../cloud-services-php-create-web-role.md) [Создание приложения облачной службы на Python](../cloud-services-python-ptvs.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

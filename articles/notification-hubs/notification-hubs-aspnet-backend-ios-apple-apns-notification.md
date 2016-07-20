@@ -3,7 +3,7 @@
 	description="Узнайте, как отправлять push-уведомления пользователям в Azure. Примеры кода написаны на Objective-C с использованием API .NET для серверной части."
 	documentationCenter="ios"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 #Уведомление пользователей iOS через центры уведомлений с помощью серверной части .NET
@@ -69,7 +69,7 @@
 
 		- (IBAction)LogInAction:(id)sender;
 
-4. В ViewController.h добавьте `#define` после операторов импорта. Замените заполнитель *<Enter Your Backend Endpoint>* URL-адресом назначения, который использовался для развертывания серверной части приложения в предыдущем разделе. Например, **http://you_backend.azurewebsites.net*.
+4. В ViewController.h добавьте `#define` после операторов импорта. Замените заполнитель *<Enter Your Backend Endpoint>* URL-адресом назначения, который использовался для развертывания серверной части приложения в предыдущем разделе. Например, *http://you_backend.azurewebsites.net*.
 
 		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
 
@@ -454,7 +454,7 @@
 
 	![][3]
 
-4. В текстовом поле **Тег имени получателя** введите тег имени получателя, используемый при регистрации с другого устройства.
+4. В текстовом поле *Тег имени получателя* введите тег имени получателя, используемый при регистрации с другого устройства.
 5. Введите сообщение уведомления и нажмите кнопку **Отправить уведомление**. Сообщения уведомления могут получать только устройства с зарегистрированным тегом имени получателя. Сообщения отправляются только таким пользователям.
 
 	![][4]
@@ -465,4 +465,4 @@
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -34,18 +34,18 @@
 
 ## Дальнейшие действия
 
-Дополнительные советы по управлению см. в статье [Management overview][] \(Обзор управления).
+Дополнительные советы по управлению см. в статье [Управление базами данных в хранилище данных SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Поиск долго выполняющихся запросов]: sql-data-warehouse-manage-find-long-running-queries.md
-[Управление параллелизмом и рабочей нагрузкой]: sql-data-warehouse-develop-concurrency.md
-[Management overview]: sql-data-warehouse-overview-manage.md
+[Поиск долго выполняющихся запросов]: ./sql-data-warehouse-manage-monitor.md
+[Управление параллелизмом и рабочей нагрузкой]: ./sql-data-warehouse-develop-concurrency.md
+[Управление базами данных в хранилище данных SQL Azure]: ./sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

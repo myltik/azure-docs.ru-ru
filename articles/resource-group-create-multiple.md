@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/13/2016"
+   ms.date="06/30/2016"
    ms.author="tomfitz"/>
 
 # Создание нескольких экземпляров ресурсов в диспетчере ресурсов Azure
@@ -80,7 +80,7 @@
 - examplecopy-2
 - examplecopy-3
 
-## Использование с массивом
+## Использование операции копирования с массивом
    
 Эта операция копирования особенно удобна при работе с массивами, поскольку можно выполнить итерацию по каждому элементу в массиве. Чтобы развернуть три веб-сайта:
 
@@ -210,282 +210,118 @@
         ...
     }]
 
-## Создание нескольких дисков данных для виртуальной машины
+## Создание нескольких экземпляров при невозможности выполнить копирование
 
-Создание нескольких дисков данных для виртуальной машины — часто встречающийся сценарий. Использовать **копирование** с дисками данных нельзя из-за того, что **dataDisks** — это свойство виртуальной машины, а не собственный тип ресурса. **Копирование** можно применять только к ресурсам. Вместо этого необходимо создать связанный шаблон, который определяет требуемое количество дисков данных и выводит массив с указанным количеством дисков данных. В шаблоне развертывания вы указываете этот связанный шаблон и передаете количество дисков данных для возврата. В шаблоне развертывания установите для свойства **dataDisks** значение в соответствии с выводом связанного шаблона.
+Операцию **копирования** можно применить только к типам ресурсов, а не к свойствам в типе ресурса. Это может быть проблемой, когда требуется создать несколько экземпляров того, что является частью ресурса. Создание нескольких дисков данных для виртуальной машины — часто встречающийся сценарий. Использовать **копирование** с дисками данных нельзя из-за того, что **dataDisks** — это свойство виртуальной машины, а не собственный тип ресурса. Вместо этого необходимо создать массив с требуемым количеством дисков данных и передать фактическое количество создаваемых дисков данных. В определении виртуальной машины используйте функцию **take** для получения количества только тех элементов, которые требуется получить из массива.
 
 Полный пример этой схемы показан в шаблоне [Создание виртуальной машины с динамическим выбором дисков данных](https://azure.microsoft.com/documentation/templates/201-vm-dynamic-data-disks-selection/).
 
-Соответствующие разделы шаблона развертывания показаны ниже. Значительная часть шаблона была удалена, чтобы выделить разделы, участвующие в динамическом создании нескольких дисков данных. Обратите внимание на параметр **numDataDisks**, в который можно передать количество создаваемых дисков. В разделе с ресурсами определяется связанный шаблон с именем **diskSelection**. Выходные данные для этого связанного шаблона назначаются свойству **dataDisks** виртуальной машины.
-
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        ...
-        "numDataDisks": {
-          "type": "string",
-          "allowedValues": [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "32"
-          ],
-          "metadata": {
-            "description": "This parameter allows the user to select the number of disks they want"
-          }
-        }
-      },
-      "variables": {
-        "artifactsLocation": "https://raw.githubusercontent.com/singhkay/azure-quickstart-templates/master/201-vm-dynamic-data-disks-selection/", 
-        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'dynamicdisk')]",
-        "sizeOfDataDisksInGB": 100,
-        "diskCaching": "ReadWrite",
-        ...
-      },
-      "resources": [
-        {
-          "apiVersion": "2015-01-01",
-          "name": "diskSelection",
-          "type": "Microsoft.Resources/deployments",
-          "properties": {
-            "mode": "Incremental",
-            "templateLink": {
-              "uri": "[concat(variables('artifactsLocation'), 'disksSelector', '.json')]",
-              "contentVersion": "1.0.0.0"
-            },
-            "parameters": {
-              "numDataDisks": {
-                "value": "[parameters('numDataDisks')]"
-              },
-              "diskStorageAccountName": {
-                "value": "[variables('storageAccountName')]"
-              },
-              "diskCaching": {
-                "value": "[variables('diskCaching')]"
-              },
-              "diskSizeGB": {
-                "value": "[variables('sizeOfDataDisksInGB')]"
-              }
-            }
-          }
-        },
-        ...
-        {
-          "type": "Microsoft.Compute/virtualMachines",
-          "properties": {
-            "storageProfile": {
-              ...
-              "dataDisks": "[reference('diskSelection').outputs.dataDiskArray.value]"
-            },
-            ...
-          }
-        }
-      ]
-    }
-
-Связанный шаблон определяет возвращаемый массив. В приведенном ниже шаблоне опущены повторяющиеся определения диска от 3 до 32, но в настоящем шаблоне потребовалось бы включить все эти определения. Если требуется более 32 дисков с данными, их можно определить далее по такой же схеме. Обратите внимание, что этот шаблон не разворачивает ресурсы. Вместо этого он просто возвращает массив с запрошенным числом объектов, которые определяют диски данных.
+Соответствующие разделы шаблона развертывания показаны ниже. Значительная часть шаблона была удалена, чтобы выделить разделы, участвующие в динамическом создании нескольких дисков данных. Обратите внимание на параметр **numDataDisks**, в который можно передать количество создаваемых дисков.
 
 ```
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    ...
     "numDataDisks": {
-      "type": "string",
-      "allowedValues": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "32"
-      ],
-      "metadata": {
-        "description": "This parameter allows the user to select the number of disks they want"
-      }
-    },
-    "diskStorageAccountName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the storage account where the data disks are stored"
-      }
-    },
-    "diskCaching": {
-      "type": "string",
-      "allowedValues": [
-        "None",
-        "ReadOnly",
-        "ReadWrite"
-      ],
-      "metadata": {
-        "description": "Caching type for the data disks"
-      }
-    },
-    "diskSizeGB": {
       "type": "int",
-      "minValue": 1,
-      "maxValue": 1023,
+      "maxValue": 64,
       "metadata": {
-        "description": "Size of the data disks"
+        "description": "This parameter allows you to select the number of disks you want"
       }
     }
   },
   "variables": {
-    "disksArray": {
-      "1": "[variables('dataDisks')['1']]",
-      "2": "[concat(variables('dataDisks')['1'], variables('dataDisks')['2'])]",
-      "3": "[concat(variables('dataDisks')['1'], variables('dataDisks')['2'], variables('dataDisks')['3'])]",
-      "4": "[variables('diskDeltas')['4delta']]",
-      "5": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'])]",
-      "6": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'], variables('dataDisks')['6'])]",
-      "7": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'], variables('dataDisks')['6'], variables('dataDisks')['7'])]",
-      "8": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'])]",
-      "9": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'])]",
-      "10": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'], variables('dataDisks')['10'])]",
-      "11": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'], variables('dataDisks')['10'], variables('dataDisks')['11'])]",
-      "12": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'])]",
-      "13": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'])]",
-      "14": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'], variables('dataDisks')['14'])]",
-      "15": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'], variables('dataDisks')['14'], variables('dataDisks')['15'])]",
-      "16": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['16delta'])]",
-      "32": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['16delta'], variables('diskDeltas')['32delta'])]"
-    },
-    "dataDisks": {
-      "1": [
-        {
-          "name": "datadisk1",
-          "lun": 0,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk1.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ],
-      "2": [
-        {
-          "name": "datadisk2",
-          "lun": 1,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk2.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ],
-      "3": [
-        {
-          "name": "datadisk3",
-          "lun": 2,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk3.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ],
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'dynamicdisk')]",
+    "sizeOfDataDisksInGB": 100,
+    "diskCaching": "ReadWrite",
+    "diskArray": [
+      {
+        "name": "datadisk1",
+        "lun": 0,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk1.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
+      {
+        "name": "datadisk2",
+        "lun": 1,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk2.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
+      {
+        "name": "datadisk3",
+        "lun": 2,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk3.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
+      {
+        "name": "datadisk4",
+        "lun": 3,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk4.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
       ...
-      "32": [
-        {
-          "name": "datadisk32",
-          "lun": 31,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk32.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ]
-    },
-    "_comment2": "The delta arrays below build the difference from 0 to 4, 4 to 8, 8 to 12 disks and so on",
-    "diskDeltas": {
-      "4delta": [
-        "[variables('dataDisks')['1'][0]]",
-        "[variables('dataDisks')['2'][0]]",
-        "[variables('dataDisks')['3'][0]]",
-        "[variables('dataDisks')['4'][0]]"
-      ],
-      "8delta": [
-        "[variables('dataDisks')['5'][0]]",
-        "[variables('dataDisks')['6'][0]]",
-        "[variables('dataDisks')['7'][0]]",
-        "[variables('dataDisks')['8'][0]]"
-      ],
-      "12delta": [
-        "[variables('dataDisks')['9'][0]]",
-        "[variables('dataDisks')['10'][0]]",
-        "[variables('dataDisks')['11'][0]]",
-        "[variables('dataDisks')['12'][0]]"
-      ],
-      "16delta": [
-        "[variables('dataDisks')['13'][0]]",
-        "[variables('dataDisks')['14'][0]]",
-        "[variables('dataDisks')['15'][0]]",
-        "[variables('dataDisks')['16'][0]]"
-      ],
-      "32delta": [
-        "[variables('dataDisks')['17'][0]]",
-        "[variables('dataDisks')['18'][0]]",
-        "[variables('dataDisks')['19'][0]]",
-        "[variables('dataDisks')['20'][0]]",
-        "[variables('dataDisks')['21'][0]]",
-        "[variables('dataDisks')['22'][0]]",
-        "[variables('dataDisks')['23'][0]]",
-        "[variables('dataDisks')['24'][0]]",
-        "[variables('dataDisks')['25'][0]]",
-        "[variables('dataDisks')['26'][0]]",
-        "[variables('dataDisks')['27'][0]]",
-        "[variables('dataDisks')['28'][0]]",
-        "[variables('dataDisks')['29'][0]]",
-        "[variables('dataDisks')['30'][0]]",
-        "[variables('dataDisks')['31'][0]]",
-        "[variables('dataDisks')['32'][0]]"
-      ]
-    }
+      {
+        "name": "datadisk63",
+        "lun": 62,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk63.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
+      {
+        "name": "datadisk64",
+        "lun": 63,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk64.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      }
+    ]
   },
-  "resources": [],
-  "outputs": {
-    "dataDiskArray": {
-      "type": "array",
-      "value": "[variables('disksArray')[parameters('numDataDisks')]]"
+  "resources": [
+    ...
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "properties": {
+        ...
+        "storageProfile": {
+          ...
+          "dataDisks": "[take(variables('diskArray'),parameters('numDataDisks'))]"
+        },
+        ...
+      }
+      ...
     }
-  }
+  ]
 }
-
 ```
+
 
 ## Дальнейшие действия
 - Сведения о разделах шаблона см. в статье [Создание шаблонов диспетчера ресурсов Azure](./resource-group-authoring-templates.md).
 - Список функций, которые можно использовать в шаблоне, см. в статье [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md).
 - Инструкции по развертыванию шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

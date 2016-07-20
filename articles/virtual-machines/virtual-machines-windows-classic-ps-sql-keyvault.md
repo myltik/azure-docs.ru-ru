@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/08/2016"
+	ms.date="07/05/2016"
 	ms.author="jroth"/>
 
 # Настройка интеграции хранилища ключей Azure для SQL Server на виртуальных машинах Azure (классическая модель)
@@ -70,4 +70,4 @@
 
 [AZURE.INCLUDE [Интеграция AKV: дальнейшие действия](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

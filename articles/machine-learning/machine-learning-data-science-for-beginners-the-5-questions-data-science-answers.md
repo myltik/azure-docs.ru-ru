@@ -140,14 +140,15 @@
 
 *Обработка и анализ данных для начинающих* — это краткое введение в обработку и анализ данных, состоящее из пяти коротких видео. Ознакомьтесь с другими 4 видео:
 
-  * Видео 2. [Готовы ли ваши данные к обработке и анализу?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) **Уже доступно.**
-  * Видео 3. [Задайте вопрос, на который можно ответить с помощью данных](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md). **Уже доступно.**
-  * Видео 4. [Прогнозирование ответа с помощью простой модели](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md). **Уже доступно.**
-  * Видео 5. [Копирование работы других пользователей для обработки и анализа данных](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Будет доступно 30 июня.
+  * Видео 1. 5 вопросов, на которые дают ответ обработка и анализ данных.
+  * Видео 2. [Готовы ли ваши данные к обработке и анализу?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
+  * Видео 3. [Задайте вопрос, на который можно ответить с помощью данных](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md).
+  * Видео 4. [Прогнозирование ответа с помощью простой модели](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md).
+  * Видео 5. [Копирование работы других пользователей для обработки и анализа данных](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md).
 
 ## Дальнейшие действия
 
-  * [Выполните свой первый эксперимент по обработке и анализу данных с использованием Машинного обучения Azure](machine-learning-create-experiment.md).
-  * [Ознакомьтесь с введением в машинное обучение в Microsoft Azure](machine-learning-what-is-machine-learning.md).
+  * [Выполните свой первый эксперимент по обработке и анализу данных с использованием Машинного обучения Azure.](machine-learning-create-experiment.md)
+  * [Ознакомьтесь с введением в машинное обучение в Microsoft Azure.](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

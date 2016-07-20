@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="07/01/2016" 
 	ms.author="cephalin"/>
 
 
@@ -24,7 +24,7 @@
 Интеграция веб-приложений с Azure CDN предоставляет следующие преимущества.
 
 - Интеграция развертывания содержимого (изображений, скриптов и таблиц стилей) в процесс [непрерывного развертывания](web-sites-publish-source-control.md) веб-приложения.
-- Облегчение обновления пакетов NuGet в веб-приложении службы приложений Azure, например версий jQuery или Bootstrap. 
+- Облегчение обновления пакетов NuGet в веб-приложении службы приложений Azure, например версий jQuery или Bootstrap.
 - Управление веб-приложениями и содержимым, обслуживаемым CDN, из одного интерфейса Visual Studio.
 - Интеграция объединения и минификации ASP.NET с Azure CDN.
 
@@ -107,7 +107,7 @@
 
 >[AZURE.NOTE] Хотя включение поддержки строки запроса в этом разделе учебника не обязательно, для удобства это можно сделать как можно раньше, так как распространение любого изменения во все узлы CDN занимает некоторое время, и нежелательно, чтобы содержание без включенных строк запроса засорял кэш CDN (обновление контента CDN будет рассматриваться позднее).
 
-2. Теперь перейдите по адресу конечной точки CDN. Если конечная точка готова, вы увидите свое веб-приложение. Если возникает ошибка **HTTP 404**, конечная точка CDN не готова. Вам нужно подождать около часа, чтобы конфигурация сети CDN распространилась на все пограничные узлы. 
+2. Теперь перейдите по адресу конечной точки CDN. Если конечная точка готова, вы увидите свое веб-приложение. Если возникает ошибка **HTTP 404**, конечная точка CDN не готова. Вам нужно подождать около часа, чтобы конфигурация сети CDN распространилась на все пограничные узлы.
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
@@ -119,7 +119,7 @@
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-	При переходе на адрес **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css** вам будет предложено скачать файл bootstrap.css, полученный из вашего веб-приложения в Azure.
+	При переходе по адресу **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css** будет предложено скачать файл bootstrap.css, полученный из вашего веб-приложения в Azure.
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
@@ -127,14 +127,14 @@
 
 -	к JS-файлу в пути /Script;
 -	к любому файлу контента в пути /Content;
--	к любому контроллеру или действию; 
+-	к любому контроллеру или действию;
 -	если в конечной точке CDN включена строка запроса, то к любому URL-адресу со строкой запроса.
 -	ко всему веб-приложению Azure, если все содержимое общедоступно.
 
 Обратите внимание, что не всегда рекомендуется (или вообще не рекомендуется) обслуживать все веб-приложение Azure через Azure CDN. Далее приводятся некоторые предупреждения.
 
 -	Для использования этого подхода весь сайт должен быть общедоступным, поскольку Azure CDN не может обслуживать конфиденциальный контент.
--	Если по какой-либо причине, будь то плановое обслуживание или ошибка пользователя, конечная точка CDN становится автономной, все веб-приложение становится автономным, если только нельзя перенаправить клиентов на исходный URL-адрес **http://*&lt;sitename>*.azurewebsites.net/**. 
+-	Если по какой-либо причине, будь то плановое обслуживание или ошибка пользователя, конечная точка CDN становится автономной, все веб-приложение становится автономным, если только нельзя перенаправить клиентов на исходный URL-адрес **http://*&lt;sitename>*.azurewebsites.net/**.
 -	Даже с настраиваемыми параметрами управления кэшем (см. раздел [Настройка параметров кэширования для статических файлов в веб-приложении](#configure-caching-options-for-static-files-in-your-azure-web-app)) конечная точка CDN не улучшает производительность высокодинамичного содержимого. При попытке загрузить домашнюю страницу из конечной точки CDN, как показано выше, обратите внимание, что первая загрузка домашней страницы по умолчанию займет по крайней мере 5 секунд, хотя это довольно простая страница. Представьте, как бы выглядело взаимодействие с клиентом, если бы эта страница содержала динамический контент, который должен обновляться каждую минуту. Обслуживание динамического контента из конечной точки CDN требует, чтобы срок годности кэша был коротким,что приводит к частой потере кэша в конечной точке CDN. Это вредит производительности веб-приложения Azure, и смысл CDN теряется.
 
 Альтернатива заключается в том, чтобы определить, какое содержимое должно обслуживаться из Azure CDN на индивидуальной основе в веб-приложении Azure. В отношении этого вы уже видели, как получать доступ к отдельным файлам контента из конечной точки CDN. Я покажу, как обслуживать определенное действие контроллера посредством конечной точки CDN, в разделе [Обслуживание контента из действий контроллера посредством Azure CDN](#serve-content-from-controller-actions-through-azure-cdn).
@@ -375,14 +375,14 @@
 
 Выполните приведенные ниже действия для интеграции объединения и минификации ASP.NET с конечной точкой CDN.
 
-1. Вернитесь в файл *App\_Start\\BundleConfig.cs* и измените методы `bundles.Add()`, чтобы использовать другой [конструктор Bundle](http://msdn.microsoft.com/library/jj646464.aspx), который задает адрес CDN. Для этого замените определение метода `RegisterBundles` следующим кодом:  
+1. Вернитесь в файл *App\_Start\\BundleConfig.cs* и измените методы `bundles.Add()`, чтобы использовать другой [конструктор Bundle](http://msdn.microsoft.com/library/jj646464.aspx), который задает адрес CDN. Для этого замените определение метода `RegisterBundles` следующим кодом:
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
           bundles.UseCdn = true;
           var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
             .GetName().Version.ToString();
-          var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
+          var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?" + version;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                 "~/Scripts/jquery-{version}.js"));
@@ -413,15 +413,16 @@
 
 	тот же самый:
 
-		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?<W.X.Y.Z>"))
 
 	Этот конструктор указывает, что при локальной отладке с помощью объединения и минификации ASP.NET должна выполняться обработка отдельных файлов скриптов, но с использованием указанного адреса CDN для доступа к соответствующему скрипту. Однако отметим две важных характеристики этого тщательно созданного URL-адреса CDN.
 	
-	- Источником этого URL-адреса CDN служит адрес `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, который фактически является виртуальным каталогом пакета скриптов в веб-приложении.
+	- Источником этого URL-адреса CDN служит адрес `http://<yourSiteName>.azurewebsites.net/bundles/jquery?<W.X.Y.Z>`, который фактически является виртуальным каталогом пакета скриптов в веб-приложении.
 	- Поскольку используется конструктор CDN, тег скрипта CDN для этого пакета больше не содержит автоматически созданную строку версии в обработанном URL-адресе. Необходимо вручную создавать уникальную строку версии каждый раз при изменении пакета скриптов, чтобы обеспечить промах кэша в Azure CDN. В то же время эта уникальная строка версии должна оставаться постоянной в течение всего срока существования развертывания для максимального увеличения попаданий в кэш в Azure CDN после развертывания пакета.
-	- Строка запроса v=<W.X.Y.Z> берется из файла *Properties\\AssemblyInfo.cs* в вашем проекте ASP.NET. Можно создать рабочий процесс развертывания, включающий увеличение версии сборки при каждой публикации в Azure. Можно также просто изменить файл *Properties\\AssemblyInfo.cs* в проекте, задав автоматическое увеличение строки версии при каждом построении с помощью подстановочного знака '*'. Например:
 
-			[assembly: AssemblyVersion("1.0.0.*")]
+3. Строка запроса `<W.X.Y.Z>` извлекается из файла *Properties\\AssemblyInfo.cs* в вашем проекте ASP.NET. Можно создать рабочий процесс развертывания, включающий увеличение версии сборки при каждой публикации в Azure. Можно также просто изменить файл *Properties\\AssemblyInfo.cs* в проекте, задав автоматическое увеличение строки версии при каждом построении с помощью подстановочного знака '*'. Например, измените `AssemblyVersion`, как показано ниже.
+	
+		[assembly: AssemblyVersion("1.0.0.*")]
 	
 	Здесь будет работать любая другая стратегия упрощения создания уникальной строки на срок существования развертывания.
 
@@ -430,11 +431,11 @@
 4. Просмотрите код HTML для этой страницы. При каждой публикации изменений веб-приложения Azure вы должны видеть обработанный URL-адрес CDN с уникальной строкой версии. Например:
 	
         ...
-        <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-        <script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
+        <link href="http://az673227.azureedge.net/Content/css?1.0.0.25449" rel="stylesheet"/>
+        <script src="http://az673227.azureedge.net/bundles/modernizer?1.0.0.25449"></script>
         ...
-        <script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
-        <script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/jquery?1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/bootstrap?1.0.0.25449"></script>
         ...
 
 5. Перейдите в режим отладки приложения ASP.NET в Visual Studio, нажав клавишу `F5`.
@@ -457,7 +458,7 @@
 
 Класс [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) содержит свойство с именем [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx), которое позволяет настраивать резервный механизм на случай сбоя CDN. Для использования этого свойства выполните приведенные ниже действия.
 
-1. В проекте ASP.NET откройте файл *App\_Start\\BundleConfig.cs*, где в каждом [конструкторе Bundle](http://msdn.microsoft.com/library/jj646464.aspx) вы добавили URL-адрес CDN, и добавьте код `CdnFallbackExpression` в четырех местах, чтобы добавить резервный механизм в пакеты по умолчанию.  
+1. В проекте ASP.NET откройте файл *App\_Start\\BundleConfig.cs*, где в каждом [конструкторе Bundle](http://msdn.microsoft.com/library/jj646464.aspx) вы добавили URL-адрес CDN, и добавьте код `CdnFallbackExpression` в четырех местах, чтобы добавить резервный механизм в пакеты по умолчанию.
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -517,17 +518,17 @@
 	Этот новый метод расширения использует ту же идею внедрения скрипта в HTML для поиска в модели DOM имени класса, имени правила и значения правила, соответствующих заданным в пакете CSS, и возвращения на исходный веб-сервер при отсутствии соответствия.
 
 4. Повторите публикацию в свое веб-приложение Azure и откройте домашнюю страницу.
-5. Просмотрите код HTML для этой страницы. Вы должны найти внедренные скрипты, аналогичные показанным ниже.    
+5. Просмотрите код HTML для этой страницы. Вы должны найти внедренные скрипты, аналогичные показанным ниже.
 	
 	```
 	...
-<link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+	<link href="http://az673227.azureedge.net/Content/css?1.0.0.25474" rel="stylesheet"/>
 <script>(function() {
                 var loadFallback,
                     len = document.styleSheets.length;
                 for (var i = 0; i < len; i++) {
                     var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) {
+                    if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?1.0.0.25474') !== -1) {
                         var meta = document.createElement('meta');
                         meta.className = 'sr-only';
                         document.head.appendChild(meta);
@@ -539,20 +540,20 @@
                     }
                 }
                 return true;
-            }())||document.write('<script src="/Content/css"><\\/script>');</script>
+            }())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/modernizer?1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 	... 
-	<script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/jquery?1.0.0.25474"></script>
 	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
- 	<script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
+ 	<script src="http://az673227.azureedge.net/bundles/bootstrap?1.0.0.25474"></script>
  	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
 	...
 	```
 
-	Обратите внимание, что внедренный сценарий для пакета CSS по-прежнему содержит ошибочный фрагмент из свойства `CdnFallbackExpression` в следующей строке:
+	Обратите внимание, что внедренный скрипт для пакета CSS по-прежнему содержит ошибочный фрагмент из свойства `CdnFallbackExpression` в следующей строке:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
@@ -570,8 +571,4 @@
 - [Интеграция облачной службы с Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
 - [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
-## Изменения
-* Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
- 
-
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2016" 
+	ms.date="06/30/2016" 
 	ms.author="tomfitz"/>
 
 # Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure
@@ -22,8 +22,11 @@
 - [PowerShell](resource-group-template-deploy.md)
 - [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
 - [Портал](resource-group-template-deploy-portal.md)
-- [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Узел](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 
 В этой статье показано, как использовать [портал Azure](https://portal.azure.com) с [Azure Resource Manager](resource-group-overview.md) для развертывания ресурсов Azure. Чтобы узнать об управлении ресурсами, ознакомьтесь с разделом [Развертывание ресурсов Azure и управление ими с помощью портала Azure](./azure-portal/resource-group-portal.md).
@@ -44,7 +47,7 @@
 
 Создав группу ресурсов, вы можете развернуть в ней ресурсы из Marketplace. Marketplace предоставляет предварительно определенные решения для распространенных сценариев использования.
 
-1. Чтобы начать развертывание, щелкните **Создать** и выберите тип ресурса, который вы хотите развернуть. Затем найдите определенную версию ресурса, которую требуется развернуть.
+1. Чтобы начать развертывание, щелкните **Создать** и выберите тип ресурса, который хотите развернуть. Затем найдите определенную версию ресурса, которую требуется развернуть.
 
     ![развертывание ресурсов](./media/resource-group-template-deploy-portal/deploy-resource.png)
 
@@ -64,7 +67,7 @@
 
     ![просмотр уведомления](./media/resource-group-template-deploy-portal/view-notification.png)
 
-5. После развертывания ресурсов можно добавлять ресурсы в группу ресурсов или удалять их из нее с помощью команды **Добавить** в колонке этой группы ресурсов.
+5. После развертывания ресурсов можно добавлять ресурсы в группу с помощью команды **Добавить** в колонке этой группы ресурсов.
 
     ![Добавить ресурсы](./media/resource-group-template-deploy-portal/add-resource.png)
 
@@ -76,7 +79,7 @@
 
     ![поиск развертывания шаблона](./media/resource-group-template-deploy-portal/search-template.png)
 
-2. Выберите из списка доступных ресурсов **Развертывание шаблона**.
+2. Из списка доступных ресурсов выберите **Развертывание шаблона**.
 
     ![выберите "развертывание шаблона"](./media/resource-group-template-deploy-portal/select-template.png)
 
@@ -84,7 +87,7 @@
 
     ![создание шаблона](./media/resource-group-template-deploy-portal/show-custom-template.png)
 
-    В редакторе добавьте данные в формате JSON, определяющие ресурсы, которые требуется развернуть. Выполнив это, щелкните **Сохранить**. Указания по созданию данных в формате JSON см. в [пошаговом руководстве по созданию шаблона Resource Manager](resource-manager-template-walkthrough.md).
+    В редакторе добавьте данные в формате JSON, определяющие ресурсы, которые требуется развернуть. Выполнив это, нажмите кнопку **Сохранить**. Указания по созданию данных в формате JSON см. в [пошаговом руководстве по созданию шаблона Resource Manager](resource-manager-template-walkthrough.md).
 
     ![изменение шаблона](./media/resource-group-template-deploy-portal/edit-template.png)
 
@@ -94,7 +97,7 @@
 
     Выбранный шаблон можно просмотреть в редакторе.
 
-5. Указав все остальные значения, щелкните **Создать**, чтобы развернуть шаблон.
+5. Указав все остальные значения, нажмите кнопку **Создать**, чтобы развернуть шаблон.
 
     ![развертывание шаблона](./media/resource-group-template-deploy-portal/create-custom-deploy.png)
 
@@ -110,7 +113,7 @@
 
     ![сохраненные шаблоны](./media/resource-group-template-deploy-portal/saved-templates.png)
 
-3. Щелкните **Развернуть**, чтобы повторно развернуть этот сохраненный шаблон.
+3. Нажмите кнопку **Развернуть**, чтобы повторно развернуть этот сохраненный шаблон.
 
     ![развертывание сохраненного шаблона](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
@@ -120,4 +123,4 @@
 - Сведения об устранении неполадок развертывания см. в статье [Устранение неполадок развертываний групп ресурсов с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Чтобы извлечь шаблон из развернутой службы или группы ресурсов, ознакомьтесь с разделом [Экспорт шаблона Azure Resource Manager из существующих ресурсов](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

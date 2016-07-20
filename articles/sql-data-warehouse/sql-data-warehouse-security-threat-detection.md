@@ -19,6 +19,16 @@
 
 # Приступая к работе с системой обнаружения угроз
 
+> [AZURE.SELECTOR]
+- [Обзор безопасности](sql-data-warehouse-overview-manage-security.md)
+- [Обнаружение угроз](sql-data-warehouse-security-threat-detection.md)
+- [Шифрование (портал)](sql-data-warehouse-encryption-tde.md)
+- [Шифрование (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Общие сведения об аудите](sql-data-warehouse-auditing-overview.md)
+- [Поддержка клиентов нижнего уровня](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
+
 ## Обзор
 
 Система обнаружения угроз обнаруживает подозрительную активность в базе данных, указывающую на наличие потенциальных угроз безопасности. Система обнаружения угроз доступна в режиме предварительной версии и поддерживается в хранилище данных SQL.
@@ -89,4 +99,4 @@
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

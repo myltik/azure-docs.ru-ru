@@ -42,6 +42,11 @@
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
+### Другие примеры
+
+Дополнительные примеры использования хранилища таблиц см. на странице [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Приступая к работе с хранилищем таблиц Azure в .NET). Вы можете скачать пример приложения и запустить его или просмотреть код на GitHub.
+
+
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -437,13 +442,14 @@
 
 Вы изучили основные сведения о табличном хранилище. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
+- Дополнительные примеры использования хранилища таблиц см. на странице [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Приступая к работе с хранилищем таблиц Azure в .NET)
 - Дополнительные сведения о доступных API-интерфейсах см. в справочной документации по службе таблиц:
     - [Справочник по клиентской библиотеке хранилища для .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Справочник по REST API](http://msdn.microsoft.com/library/azure/dd179355)
 - Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure, с помощью [пакета SDK для веб-заданий Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md).
 - Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
     - Хранение неструктурированных данных: [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md).
-    - Хранение реляционных данных: [Как использовать базу данных SQL Azure в приложениях .NET](sql-database-dotnet-how-to-use.md).
+    - Хранение реляционных данных: [Подключение к базе данных SQL с помощью .NET (C#)](sql-database-dotnet-how-to-use.md).
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
@@ -463,4 +469,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

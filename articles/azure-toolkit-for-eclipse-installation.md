@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/07/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
@@ -32,7 +32,7 @@
 
 1. Запустите Eclipse.
 
-1. В меню Eclipse выберите **Help** (Справка), а затем Install **New Software** (Установка нового программного обеспечения), как показано на следующей схеме.
+1. Когда откроется Eclipse, щелкните меню **Help** (Справка) и выберите пункт **Install New Software** (Установить новое программное обеспечение), как показано на следующем рисунке.
 
     ![Установка набора средств Azure для Eclipse][01]
 
@@ -83,6 +83,7 @@
 - [Набор средств Azure для IntelliJ]
   - [Установка набора средств Azure для IntelliJ]
   - [Создание веб-приложения Hello World для Azure в IntelliJ]
+  - [Новые возможности набора средств Azure для IntelliJ]
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
 
@@ -92,8 +93,10 @@
 [Набор средств Azure для IntelliJ]: ./azure-toolkit-for-intellij.md
 [Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Установка набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [Новые возможности набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Новые возможности набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 
@@ -106,4 +109,4 @@
 [05]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-05.png
 [06]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

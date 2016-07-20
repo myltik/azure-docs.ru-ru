@@ -19,7 +19,7 @@
 
 # Параметры конфигурации для автономного кластера Windows
 
-В этой статье описывается настройка автономного кластера Service Fabric с помощью файла _**ClusterConfig.JSON**_. Этот файл скачивается на ваш рабочий компьютер при [скачивании автономного пакета Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). Файл ClusterConfig.JSON позволяет указать для кластера Service Fabric такие сведения, как узлы Service Fabric и их IP-адреса, различные типы узлов кластера, настройки безопасности, а также топологию сети с точки зрения доменов сбоя и доменов обновления.
+В этой статье описывается настройка автономного кластера Service Fabric с помощью файла _**ClusterConfig.JSON**_. Этот файл скачивается на ваш рабочий компьютер при [скачивании автономного пакета Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). Файл ClusterConfig.JSON позволяет указать для кластера Service Fabric сведения об узлах Service Fabric и их IP-адресах, о различных типах узлов кластера, настройках безопасности, а также о топологии сети с точки зрения доменов сбоя и доменов обновления.
 
 Ниже мы рассмотрим различные разделы этого файла.
 
@@ -75,9 +75,9 @@
         "etlReadIntervalInMinutes": "5",
         "uploadIntervalInMinutes": "10",
         "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\\ProgramData\\SF\\FileshareETW",
-        "crashDumpConnectionString": "file:c:\\ProgramData\\SF\\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\\ProgramData\\SF\\FilesharePerfCtr"
+        "etwStoreConnectionString": "file:c:\ProgramData\SF\FileshareETW",
+        "crashDumpConnectionString": "file:c:\ProgramData\SF\FileshareCrashDump",
+        "perfCtrConnectionString": "file:c:\ProgramData\SF\FilesharePerfCtr"
     },
 
 Эти переменные помогают собирать журналы трассировки событий Windows, аварийные дампы и данные счетчиков производительности. Прочитайте статьи [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) и [Трассировка событий Windows](https://msdn.microsoft.com/library/ms751538.aspx), чтобы больше узнать о журналах трассировки событий Windows. [Аварийные дампы](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) как для узла, так и для кластера Service Fabric, можно перенаправить в папку **crashDumpConnectionString**. Данные [счетчиков производительности](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) для кластера можно перенаправить в папку **perfCtrConnectionString** на вашем компьютере.
@@ -137,10 +137,10 @@
         "name": "Setup",
         "parameters": [{
             "name": "FabricDataRoot",
-            "value": "C:\\ProgramData\\SF"
+            "value": "C:\ProgramData\SF"
         }, {
             "name": "FabricLogRoot",
-            "value": "C:\\ProgramData\\SF\\Log"
+            "value": "C:\ProgramData\SF\Log"
     }]
 
 Обратите внимание, что если настроить только корневой каталог данных, то корневой каталог файлов журнала будет помещен на один уровень ниже корневого каталога данных.
@@ -150,4 +150,4 @@
 
 Завершив настройку файла ClusterConfig.JSON в соответствии с конфигурацией автономного кластера, вы можете развернуть этот кластер, следуя указаниям в статье [Создание кластера Azure Service Fabric в локальной системе или облаке](service-fabric-cluster-creation-for-windows-server.md), а затем перейти к [визуализации кластера с помощью Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -120,7 +120,7 @@
 
 ## Защита данных
 
-Все данные хранилища данных SQL хранятся в локально избыточном хранилище Azure класса Premium. Несколько синхронных копий данных сохраняются в локальном центре обработки данных для обеспечения прозрачной защиты данных в случае локальных сбоев. Кроме того, хранилище данных SQL автоматически создает резервные копии активных (используемых) баз данных через регулярные промежутки времени, используя моментальные снимки службы хранилища Azure. Сведения о резервном копировании и восстановлении см. [здесь][].
+Все данные хранилища данных SQL хранятся в локально избыточном хранилище Azure класса Premium. Несколько синхронных копий данных сохраняются в локальном центре обработки данных для обеспечения прозрачной защиты данных в случае локальных сбоев. Кроме того, хранилище данных SQL автоматически создает резервные копии активных (используемых) баз данных через регулярные промежутки времени, используя моментальные снимки службы хранилища Azure. Сведения о резервном копировании и восстановлении см. в статье [Восстановление хранилища данных SQL Azure (обзор)][].
 
 ## Интеграция с помощью средств Майкрософт
 
@@ -130,7 +130,7 @@
 
 **Облачные инструменты**. Хранилище данных SQL можно использовать с рядом новых инструментов в Azure, включая фабрику данных, Stream Analytics, машинное обучение и Power BI. Полный список см. в [обзоре интегрированных средств][].
 
-**Сторонние инструменты**. Сертифицированную интеграцию с хранилищем данных SQL поддерживает большое количество сторонних инструментов. Полный список см. в статье [Партнерские решения для хранилища данных SQL][].
+**Сторонние инструменты**. Сертифицированную интеграцию с хранилищем данных SQL поддерживает большое количество сторонних инструментов. Полный список см. в статье [SQL Data Warehouse business intelligence partners][] (Партнеры по бизнес-аналитике хранилища данных SQL).
 
 ## Сценарии для гибридных источников данных
 
@@ -146,7 +146,7 @@
 
 ## Дальнейшие действия
 
-Теперь, когда вам уже известны некоторые сведения о хранилище данных SQL, узнайте о том, как [создать хранилище данных SQL][] и [загрузить демонстрационные данные][]. Или ознакомьтесь со следующими ресурсами, посвященными хранилищу данных SQL.
+Теперь, когда вам уже известны некоторые сведения о хранилище данных SQL, узнайте о том, как быстро [создать хранилище данных SQL][] и [загрузить демонстрационные данные][]. Или ознакомьтесь со следующими ресурсами, посвященными хранилищу данных SQL.
 
 - [Блоги]
 - [Запросы функций.]
@@ -162,13 +162,13 @@
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Создание запроса в службу поддержки]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[загрузить демонстрационные данные]: ./sql-data-warehouse-load-sample-databases.md
-[создать хранилище данных SQL]: ./sql-data-warehouse-get-started-provision.md
-[документации по миграции]: ./sql-data-warehouse-overview-migrate.md
-[Партнерские решения для хранилища данных SQL]: ./sql-data-warehouse-integrate-solution-partners.md
-[обзоре интегрированных средств]: ./sql-data-warehouse-overview-integrate.md
-[здесь]: ./sql-data-warehouse-restore-database-overview.md
+[Создание запроса в службу поддержки]: sql-data-warehouse-get-started-create-support-ticket.md
+[загрузить демонстрационные данные]: sql-data-warehouse-load-sample-databases.md
+[создать хранилище данных SQL]: sql-data-warehouse-get-started-provision.md
+[документации по миграции]: sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse business intelligence partners]: sql-data-warehouse-partner-business-intelligence.md
+[обзоре интегрированных средств]: sql-data-warehouse-overview-integrate.md
+[Восстановление хранилища данных SQL Azure (обзор)]: sql-data-warehouse-restore-database-overview.md
 
 <!--MSDN references-->
 
@@ -176,9 +176,9 @@
 [Блоги]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Блоги группы CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Запросы функций.]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Форум MSDN]: https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureSQLDataWarehouse
+[Форум MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Форум Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Видеоролики]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

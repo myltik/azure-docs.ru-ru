@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Перемещение данных из PostgreSQL с помощью фабрики данных Azure
@@ -42,7 +42,7 @@
 2.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	Входной [набор данных](data-factory-create-datasets.md) типа [RelationalTable](data-factory-onprem-postgresql-connector.md#postgresql-dataset-type-properties).
 4.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, которое использует [RelationalSource](data-factory-onprem-postgresql-connector.md#postgresql-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
+4.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, которое использует [RelationalSource](data-factory-onprem-postgresql-connector.md#postgresql-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 В примере данные из результата выполнения запроса к базе данных PostgreSQL каждый час копируются в BLOB-объект. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
@@ -319,4 +319,4 @@ text | | Строка
 ## Производительность и настройка  
 См. статью [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и разные способы оптимизации этого процесса.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Обзор пакета SDK для рекламных кампаний в iOS для Azure Mobile Engagement"
+	pageTitle="Обзор веб-пакета SDK для Azure Mobile Engagement | Microsoft Azure"
 	description="Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="06/30/2016"
+	ms.author="piyushjo" />
 
-#Пакет SDK для Azure Mobile Engagement \(iOS\)
+#Пакет SDK для Azure Mobile Engagement (iOS)
 
 Начните с этой статьи, чтобы получить подробную информацию об интеграции Azure Mobile Engagement в приложение iOS. Если вы хотите потренироваться, обязательно пройдите наш [15-минутный учебник](mobile-engagement-ios-get-started.md).
 
@@ -25,16 +25,16 @@
 ##Процедуры по интеграции
 1. Начните с этого раздела: [Как интегрировать Mobile Engagement в приложение iOS](mobile-engagement-ios-integrate-engagement.md)
 
-2. Сведения об уведомлениях: [Как интегрировать Reach \(Notifications\) в приложение iOS](mobile-engagement-ios-integrate-engagement-reach.md)
+2. Сведения об уведомлениях: [Как интегрировать Reach (Notifications) в приложение iOS](mobile-engagement-ios-integrate-engagement-reach.md)
 
 3. Реализация плана добавления тегов: [Как использовать API для расширенного добавления тегов Mobile Engagement в приложении iOS](mobile-engagement-ios-use-engagement-api.md)
 
 
 ##Заметки о выпуске
 
-###3\.2.2 \(07.04.2016\)
+###3\.2.4 (06/30/2016)
 
--   Исправлена ошибка при отмене HTTP-запроса, которая иногда приводила к сбою. 
+-   Исправлено агрегирование данных из технических и других журналов.
 
 Информацию о предыдущих версиях см. в [полных заметках о выпуске](mobile-engagement-ios-release-notes.md).
 
@@ -44,7 +44,7 @@
 
 Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить ряд процедур. См. полную версию статьи [Процедуры обновления](mobile-engagement-ios-upgrade-procedure.md).
 
-Для каждой новой версии пакета SDK необходимо сначала заменить \(удалить и повторно импортировать в проект Хcode\) папки EngagementSDK и EngagementReach.
+Для каждой новой версии пакета SDK необходимо сначала заменить (удалить и повторно импортировать в проект Хcode) папки EngagementSDK и EngagementReach.
 
 ###Из версии 2.0.0 в 3.0.0
 Прекращена поддержка iOS 4.X. Начиная с этой версии, целевое устройство для развертывания приложения должно быть с версией не ниже iOS 6.
@@ -59,4 +59,4 @@
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

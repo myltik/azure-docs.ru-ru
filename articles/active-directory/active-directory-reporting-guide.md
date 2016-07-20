@@ -27,7 +27,6 @@
  - [Обратное заполнение отчетов Azure Active Directory](active-directory-reporting-backfill.md)
  - [Задержки в отчетах Azure Active Directory](active-directory-reporting-latencies.md)
  - [Azure Active Directory сообщает о событии "Неизвестный субъект"](active-directory-reporting-unknown-actor.md)
- - [Отчет Azure Active Directory "Все действия пользователей при входе"](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0706_2016-->

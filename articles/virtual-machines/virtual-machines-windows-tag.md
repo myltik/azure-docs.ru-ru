@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
-   ms.author="iainfou;memccror"/>
+   ms.date="07/05/2016"
+   ms.author="memccror"/>
 
 # Пометка виртуальной машины Windows в Azure
 
@@ -103,4 +103,4 @@
 [Расшифровка счета за использование Microsoft Azure]: ../billing-understand-your-bill.md
 [Получение ценных сведений о потреблении ресурсов Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->
