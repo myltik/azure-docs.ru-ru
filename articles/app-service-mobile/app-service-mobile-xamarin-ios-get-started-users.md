@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/28/2016"
 	ms.author="mahender"/>
 
 # Добавление проверки подлинности в приложение Xamarin.iOS
@@ -109,4 +109,4 @@
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Создание приложения Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

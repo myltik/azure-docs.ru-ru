@@ -177,7 +177,9 @@
 
 ## Дальнейшие действия
 
-Чтобы продолжить изучение функций управления устройствами центра IoT Azure, см. сведения в руководстве [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] (Обзор управления устройствами в центре IoT Azure с помощью примера пользовательского интерфейса).
+Чтобы продолжить знакомство с центром IoT, см. статью [Пакет SDK для шлюза IoT (бета-версия): начало работы с Linux][lnk-gateway-SDK].
+
+Чтобы узнать больше о функциях управления устройствами центра IoT Azure, см. руководство [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-sample-ui].
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started/image1.png
@@ -193,5 +195,6 @@
 [Использование групп ресурсов для управления вашими ресурсами Azure]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

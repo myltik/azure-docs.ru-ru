@@ -39,7 +39,7 @@
 
  - резервное копирование и восстановление службы;
  - общие функции для всех субъектов, например автоматическое выключение;
- - вызовы удаленных взаимодействий для самой службы субъектов, а также для любого отдельного субъекта. 
+ - вызовы удаленных взаимодействий для самой службы субъектов, а также для любого отдельного субъекта.
 
 ### Работа со службой субъектов
 
@@ -251,7 +251,7 @@ ActorProxy.Create<IMyActor>(new ActorId(1234));
  - [Управление состоянием субъекта](service-fabric-reliable-actors-state-management.md)
  - [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md)
  - [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Пример кода](https://github.com/Azure/servicefabric-samples)
+ - [Пример кода](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
  
 <!--Image references-->
@@ -261,4 +261,4 @@ ActorProxy.Create<IMyActor>(new ActorId(1234));
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

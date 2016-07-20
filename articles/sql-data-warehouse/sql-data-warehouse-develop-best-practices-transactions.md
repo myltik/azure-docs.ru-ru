@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess"/>
 
 # Оптимизация транзакций для хранилища данных SQL
@@ -413,7 +413,7 @@ END
 
 <!--Article references-->
 [Транзакции в хранилище данных SQL]: ./sql-data-warehouse-develop-transactions.md
-[секции таблицы]: ./sql-data-warehouse-develop-table-partitions.md
+[секции таблицы]: ./sql-data-warehouse-tables-partition.md
 [параллелизме]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [Рекомендации по использованию хранилища данных SQL]: ./sql-data-warehouse-best-practices.md
@@ -424,4 +424,4 @@ END
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

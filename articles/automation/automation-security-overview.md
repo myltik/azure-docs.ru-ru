@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="07/06/2016"
    ms.author="magoedte" />
 
 # Обеспечение безопасности в службе автоматизации Azure
@@ -45,4 +45,4 @@
 Проверка подлинности Windows | Локальный центр обработки данных | [Гибридные компоненты Runbook Worker в службе автоматизации Azure](../automation/automation-hybrid-runbook-worker.md)
 Учетные данные AWS | Amazon Web Services | [Authenticate Runbooks with Amazon Web Services (AWS) (Проверка подлинности модулей Runbook с помощью Amazon Web Services)](../automation/automation-sec-configure-aws-account.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,74 +13,68 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="07/05/2016"
    ms.author="hascipio" />
 
-# Как опубликовать предложение в Microsoft Azure Marketplace
-Эта статья поможет разработчику создать и развернуть решение в Azure Marketplace, чтобы другие клиенты и партнеры Azure могли приобрести и использовать это решение.
+# Как опубликовать предложение и управлять им в Azure Marketplace
+Эта статья поможет разработчикам создать и развернуть решения, а также управлять ими в Azure Marketplace, чтобы их могли приобрести и использовать другие клиенты и партнеры Azure.
 
 Первое, что нужно сделать в качестве издателя, — определить тип решений, которые предлагает ваша компания. Azure Marketplace поддерживает несколько типов решений, и действия для публикации каждого из типов решений в Marketplace немного отличаются друг от друга.
 
-Типы решений:
-
-- Образ виртуальной машины
-- Служба разработчика
-- Служба данных
-- Шаблон решения
+## Типы предложений
+|Тип предложения| Определение |
+|---|---|
+|Образ виртуальной машины | Предварительно настроенный образ виртуальной машины (ВМ) с полностью установленной операционной системой и с одним или несколькими приложениями. Предложения образов виртуальных машин могут включать один или несколько образов ВМ, объединенных шаблоном решения. Образ виртуальной машины ("образ") предоставляет информацию, необходимую для создания и развертывания виртуальных машин в службе виртуальных машин Azure. Образ содержит виртуальный жесткий диск операционной системы и ноль или больше виртуальных жестких дисков данных. Клиенты могут развертывать любое число машин из одного образа.|
+|Служба разработчика| Полностью управляемые службы для информационных работников, бизнес-аналитиков, разработчиков и ИТ-профессионалов, которые используются при разработке приложений или управлении системами. Службы для разработчиков предоставляют функциональные возможности, которые позволяют быстро разрабатывать приложения в Azure в масштабе облака. Чтобы приобрести службы приложений, у клиента должна быть подписка Azure. Издатель отвечает за учет использования клиентами служб разработки и должен передавать эти сведения об использовании в Майкрософт, как описано в соглашении для издателя в Microsoft Azure Marketplace.|
+|Шаблон решения|Шаблон решения Azure Resource Manager (ARM) представляет собой структуру данных, в которой могут указываться одно или несколько разных предложений, включая предложения, опубликованные другими издателями, что позволяет клиентам Azure развертывать одно или несколько предложений единым скоординированным образом.|
 
 Некоторые действия являются общими для различных типов решений. В этой статье представлен короткий обзор шагов, которые необходимо выполнить для каждого типа решения.
 
+## 1\. Предварительные требования
+
 > [AZURE.NOTE] Перед началом работы в Azure Marketplace вы должны пройти предварительное утверждение. Не относится к издателям служб данных.
 
-||Образ виртуальной машины |Служба разработчика | Служба данных | Шаблон решения |
-|----|----|----|----|----|
-| **Получение предварительного утверждения** | [Сертифицировано Microsoft Azure][link-certification] | Закрытая предварительная версия | Недоступно | [Сертифицировано Microsoft Azure][link-certification] |
-| **Шаг 1. Регистрация учетной записи разработчика** | [Учетная запись разработчика Microsoft: создание и регистрация][link-accts] | Закрытая предварительная версия | [Учетная запись разработчика Microsoft: создание и регистрация][link-accts] | [Учетная запись разработчика Microsoft: создание и регистрация][link-accts] |
-|**Шаг 2. Создание предложения**| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)| Закрытая предварительная версия | [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)| [Общие нетехнические предварительные требования](marketplace-publishing-pre-requisites.md)|
-|| [Предварительные технические требования для виртуальной машины][link-single-vm-prereq] | Закрытая предварительная версия | [Предварительные технические требования для службы данных](marketplace-publishing-data-service-creation-prerequisites.md) | [Предварительные технические требования для шаблона решения](marketplace-publishing-solution-template-creation-prerequisites.md) |
-||[Руководство по публикации образа виртуальной машины][link-single-vm] | Закрытая предварительная версия | [Руководство по публикации службы данных](marketplace-publishing-data-service-creation.md) | [Руководство по публикации шаблона решения](marketplace-publishing-solution-template-creation.md) |
-|| [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] | Закрытая предварительная версия | [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] | [Руководство по предоставлению маркетинговых материалов Azure Marketplace][link-pushstaging] |
-| **Шаг 3. Отправка предложения на промежуточное развертывание** | [Протестируйте свое предложение виртуальной машины на этапе промежуточного развертывания](marketplace-publishing-vm-image-test-in-staging.md) | Закрытая предварительная версия | [Протестируйте свое предложение службы данных на этапе промежуточного развертывания](marketplace-publishing-data-service-test-in-staging.md) | [Протестируйте свой шаблон решения на этапе промежуточного развертывания](marketplace-publishing-solution-template-test-in-staging.md) |
-| **Шаг 4. Развертывание предложения в Azure Marketplace** | [Разверните свое предложение в Azure Marketplace][link-pushprod] | Закрытая предварительная версия | [Разверните свое предложение в Azure Marketplace][link-pushprod] | [Разверните свое предложение в Azure Marketplace][link-pushprod] |
+1. [Подача запроса на предварительное утверждение, сертифицированное Microsoft Azure](marketplace-publishing-azure-certification.md).
+2. [Создание и регистрация учетной записи разработчика Майкрософт](marketplace-publishing-accounts-creation-registration.md).
+3. [Выполнение нетехнических предварительных требований](marketplace-publishing-pre-requisites.md).
 
-## Поддержка
-- [Руководство по эксплуатации предложений виртуальных машин](marketplace-publishing-vm-image-post-publishing.md)
-- [Основные сведения об отчетах Seller Insights][suppt-rpt-insights]
-- [Основные сведения об отчетах о выплатах][suppt-rpt-payouts]
-- [Как изменить статус участия в программе поощрения поставщиков облачных решений](marketplace-publishing-csp-incentive.md)
-- [Решение распространенных проблем с публикацией в Marketplace][suppt-common]
-- [Поддержка издателей][suppt-general]
+## 2\. Публикация предложения
+### 2\.1. Выполнение технических требований к определенному предложению
+- [Предварительные технические требования для виртуальной машины](marketplace-publishing-vm-image-creation-prerequisites.md)
+- [Предварительные технические требования для шаблона решения](marketplace-publishing-solution-template-creation-prerequisites.md)
 
-## Дополнительные ресурсы
-- Дополнительные сведения об используемых порталах см. на странице [Порталы, которые вам потребуются](marketplace-publishing-portals.md)
+### 2\.2. Создание предложения
+1. Создайте предложение, следуя рекомендациям для определенного предложения.
+    - [Создание предложения виртуальной машины](marketplace-publishing-vm-image-creation.md)
+    - [Создание предложения шаблона решения](marketplace-publishing-solution-template-creation.md)
+2. [Создание предложения с маркетинговыми материалами](marketplace-publishing-push-to-staging.md)
 
-**Виртуальные машины**
+### 2\.3. Тестирование предложения на этапе промежуточного развертывания
+- [Протестируйте свое предложение виртуальной машины на этапе промежуточного развертывания](marketplace-publishing-vm-image-test-in-staging.md)
+- [Тестирование предложения шаблона решения на этапе промежуточного развертывания](marketplace-publishing-solution-template-test-in-staging.md)
 
-- [Настройка Azure PowerShell](marketplace-publishing-powershell-setup.md)
+### 2\.4. Развертывание предложения в Marketplace
+- [Развертывание предложения в Azure Marketplace](marketplace-publishing-push-to-production.md)
+
+### Рекомендации, касающиеся образа виртуальной машины ###
 - [Локальное создание образа виртуальной машины](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-**Службы данных**
 
-- [Сопоставление OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping.md)
-- [Узлы сопоставления OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
-- [Примеры сопоставления OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+- [Решение распространенных проблем с публикацией в Marketplace](marketplace-publishing-support-common-issues.md)
+- Дополнительные сведения об используемых порталах см. на странице [Порталы, которые вам потребуются](marketplace-publishing-portals.md)
 
-[suppt-general]: marketplace-publishing-get-publisher-support.md
-[suppt-rpt-insights]: marketplace-publishing-report-seller-insights.md
-[suppt-rpt-payouts]: marketplace-publishing-report-payout.md
-[suppt-common]: marketplace-publishing-support-common-issues.md
-[link-certification]: marketplace-publishing-azure-certification.md
-[link-accts]: marketplace-publishing-accounts-creation-registration.md
-[link-single-vm]: marketplace-publishing-vm-image-creation.md
-[link-single-vm-prereq]: marketplace-publishing-vm-image-creation-prerequisites.md
-[link-multi-vm]: marketplace-publishing-solution-template-creation.md
-[link-multi-vm-prereq]: marketplace-publishing-solution-template-creation-prerequisites.md
-[link-datasvc]: marketplace-publishing-data-service-creation.md
-[link-datasvc-prereq]: marketplace-publishing-data-service-creation-prerequisites.md
-[link-devsvc]: marketplace-publishing-dev-service-creation.md
-[link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
-[link-pushstaging]: marketplace-publishing-push-to-staging.md
-[link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0608_2016-->
+## 3\. Управление предложением после публикации
+- [Руководство по эксплуатации предложений виртуальных машин](marketplace-publishing-vm-image-post-publishing.md)
+- [Обновление нетехнических сведений о предложении или номере SKU](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
+- [Как удалить предложение или номер SKU из Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#4-how-to-delete-a-live-offer-or-sku-from-the-azure-marketplace)
+- [Как изменить статус участия в программе поощрения поставщиков облачных решений](marketplace-publishing-csp-incentive.md)
+- [Основные сведения об отчетах Seller Insights](marketplace-publishing-report-seller-insights.md)
+- [Основные сведения об отчетах о выплатах](marketplace-publishing-report-payout.md)
+- [Поддержка издателей](marketplace-publishing-get-publisher-support.md)
+
+## Дополнительные ресурсы
+- [Настройка Azure PowerShell](marketplace-publishing-powershell-setup.md)
+
+<!---HONumber=AcomDC_0706_2016-->

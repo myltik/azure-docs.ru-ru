@@ -38,7 +38,7 @@
 
 Ресурс Application Insights — это место, в котором выполняется отображение и анализ данных телеметрии.
 
-1.  На [портале Azure][portal] создайте новый ресурс Application Insights. Для параметра типа приложения выберите приложение ASP.NET. 
+1.  На [портале Azure][portal] создайте новый ресурс Application Insights. Для параметра типа приложения выберите приложение ASP.NET.
 
     ![Нажмите «Создать» и «Application Insights»](./media/app-insights-cloudservices/01-new.png)
 
@@ -59,7 +59,7 @@
     ![Щелкните проект правой кнопкой мыши и выберите пункт "Управление пакетами Nuget"](./media/app-insights-cloudservices/03-nuget.png)
 
 
-2. Для веб-ролей добавьте пакет NuGet [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Эта версия пакета SDK включает модули, которые добавляют контекст сервера, например информацию о роли. Для рабочих ролей используйте [Application Insights для служб Windows](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
+2. Для веб-ролей добавьте пакет NuGet [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Эта версия пакета SDK включает модули, которые добавляют контекст сервера, например информацию о роли. Для рабочих ролей используйте [Application Insights for Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Поиск Application Insights](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -87,9 +87,9 @@
  
  * [Веб-роль](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
  * [Рабочая роль](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
- * [При работе с веб-страницами](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
+ * [При работе с веб-страницами](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)
 
-4. Задайте для файла ApplicationInsights.config незамедлительное копирование в выходной каталог. 
+4. Задайте для файла ApplicationInsights.config незамедлительное копирование в выходной каталог.
 
     (в CONFIG-файле имеются сообщения, указывающие, куда именно поместить ключ инструментирования. Тем не менее для облачных приложений лучше задать его в CSCFG-файле. Это обеспечит правильную идентификацию роли на портале.)
 
@@ -145,7 +145,7 @@
 
 Где найти средства диагностики:
 
-* Счетчики производительности отображаются в виде настраиваемых метрик. 
+* Счетчики производительности отображаются в виде настраиваемых метрик.
 * Журналы событий Windows отображаются в виде трассировок и настраиваемых событий.
 * Журналы приложений, журналы ETW и все журналы инфраструктуры диагностики отображаются в виде трассировок.
 
@@ -286,4 +286,4 @@
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -84,11 +84,11 @@
 
 	![Выберите "Единый вход Azure AD".][7]
 
-	> [AZURE.NOTE] Для получения дополнительных сведений о вариантах единого входа [щелкните здесь](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Для получения дополнительных сведений о вариантах единого входа [щелкните здесь](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 4. На странице **Настройка параметров приложения** заполните поле **URL-адрес входа**, указав URL-адрес домена Salesforce в следующем формате.
  - Учетная запись предприятия: `https://<domain>.my.salesforce.com`
- - Учетная запись разработчика: `https://<domain>-dev-ed.my.salesforce.com` 
+ - Учетная запись разработчика: `https://<domain>-dev-ed.my.salesforce.com`
 
 	![Введите URL-адрес входа.][8]
 
@@ -256,4 +256,4 @@
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

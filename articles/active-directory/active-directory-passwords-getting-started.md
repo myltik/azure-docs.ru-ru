@@ -5,8 +5,8 @@
 	keywords="Управление паролями Active Directory, управление паролями, сброс пароля Azure AD"
 	documentationCenter=""
 	authors="asteen"
-	manager="kbrint"
-	editor="billmath"/>
+	manager="femila"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,10 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016" 
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Приступая к работе с компонентами управления паролями
+
+> [AZURE.IMPORTANT] **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
+
 Для того чтобы позволить пользователям управлять собственными паролями в облачной службе Azure Active Directory или локальной службе Active Directory, достаточно выполнить несколько простых шагов. После соблюдения нескольких простых предварительных требований необходимо будет, чтобы изменение и сброс паролей были включены для всей организации до того, как вы об этом узнаете. Эта статья позволит получить представление о следующих действиях:
 
 * [**Как разрешить пользователям сбрасывать пароли для облачной службы Azure Active Directory**](#enable-users-to-reset-their-azure-ad-passwords)
@@ -309,7 +312,7 @@
 ## Ссылки на документацию по сбросу паролей
 Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
-* [**Сброс собственного пароля**](active-directory-passwords-update-your-own-password.md) — узнайте, как сбросить или изменить свой пароль пользователя системы
+* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
 * [**Как работает служба**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
 * [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
 * [**Рекомендации**](active-directory-passwords-best-practices.md) — узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.
@@ -353,4 +356,4 @@
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->
