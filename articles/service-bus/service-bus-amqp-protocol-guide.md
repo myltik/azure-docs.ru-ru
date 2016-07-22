@@ -206,7 +206,11 @@ AMQP обеспечивает передачу сообщений через с�
 
 | Имя поля | Использование | Имя API |
 |----------------	|-------------------------------	|---------------	|
-| durable | — | — | | priority | — | — | | ttl | Срок действия сообщения | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) | | first-acquirer | — | — | | delivery-count | — | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
+| durable | — | — |
+| priority | — | — |
+| ttl | Срок действия сообщения | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) |
+| first-acquirer | — | — |
+| delivery-count | — | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
 
 #### properties
 
